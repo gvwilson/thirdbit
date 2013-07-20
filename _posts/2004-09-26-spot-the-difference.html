@@ -1,0 +1,125 @@
+---
+layout: post
+root: ../../..
+title: "Spot the Difference"
+date: 2004-09-26 18:58:54
+---
+<p>At 13:26 this afternoon, more than a day and a half after the
+deadline I set my students, I finally got the <a href="http://pyre.third-bit.com/neon/school/warmup.html">Tapestry/Hibernate
+warmup exercise</a> working to my satisfaction.  The final bug took
+several hours to track down; when I found out what it was, I almost
+decided to throw <a href="http://jakarta.apache.org/tapestry">Tapestry</a> away and use
+something a little more predictable.</p>
+
+<p>The problem turned out to be the difference between this:</p>
+
+<blockquote><pre>
+&lt;!-- Buggy version --&gt;
+&lt;tr&gt;
+  &lt;td colspan="2"&gt;
+    &lt;input type="submit" jwcid="@Submit"
+           listener="ognl:listeners.returnSubmitAction" value="Return"/&gt;
+  &lt;/td&gt;
+  &lt;td colspan="2"&gt;
+    &lt;input type="submit" jwcid="@Submit"
+           listener="ognl:listeners.borrowSubmitAction" value="Borrow"/&gt;
+  &lt;/td&gt;
+  &lt;td&gt;&lt;span jwcid="@TextField"  value="ognl:formBorrower"/&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;span jwcid="@TextField"  value="ognl:formEmail"/&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;span jwcid="@DatePicker" value="ognl:formBorrowDate"/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+</pre></blockquote>
+
+<p>and this:</p>
+
+<blockquote><pre>
+&lt;!-- Working version --&gt;
+&lt;tr&gt;
+  &lt;td colspan="2"&gt;
+    &lt;input type="submit" jwcid="@Submit"
+           listener="ognl:listeners.returnSubmitAction" value="Return"/&gt;
+  &lt;/td&gt;
+  &lt;td&gt;&lt;span jwcid="@TextField"  value="ognl:formBorrower"/&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;span jwcid="@TextField"  value="ognl:formEmail"/&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;span jwcid="@DatePicker" value="ognl:formBorrowDate"/&gt;&lt;/td&gt;
+  &lt;td colspan="2"&gt;
+    &lt;input type="submit" jwcid="@Submit"
+           listener="ognl:listeners.borrowSubmitAction" value="Borrow"/&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</pre></blockquote>
+
+<p>Can you spot the bug?  In the first version, the three text fields
+used to submit the borrower's name, email address, and borrow date
+come <em>after</em> the button that the user clicks to borrow books.
+In the working version, the text fields come <em>before</em> that button.
+That is the only difference---I made no changes to the application's
+<code>.page</code> and <code>.application</code> files, or to the Java
+class.</p>
+
+<p>After half an hour of Tapestry in Action and on
+Google, I still have no idea why the order matters.  If anyone knows
+why it does, I'd welcome an explanation...</p>
+
+<p>The real problem here, though, isn't this bug in <a href="http://jakarta.apache.org/tapestry">Tapestry</a> (and yes, it's
+a bug---even if there's some obscure engineers-rule "but we had to
+because..." explanation for it, it's a bug).  The real problem is the
+"spooky action at a distance" [<a href="#1">1</a>] nature of framework
+programming.  Everything that happens between me clicking the "submit"
+button on an HTML form, and the corresponding action method being
+invoked in my Java class, is, for all practical purposes, hidden from
+me.</p>
+
+<p>Oh, sure, I could run <a href="http://jakarta.apache.org/tomcat">Tomcat</a> (or <a href="http://jetty.mortbay.com/jetty/index.html">Jetty</a>, or some
+other container) under a debugger, and watch <a href="http://jakarta.apache.org/tapestry">Tapestry</a> snatch the form
+data from the HTTP stream, read my <code>.application</code> and
+<code>.page</code> files, load my class, subclass it on the fly to
+create implementations of my abstract methods, add some data members
+to store form values, and finally invoke the method I actually wrote,
+but saints and small mercies, how long would that take to set up?  Or
+to run?  And how much of it would I actually understand?</p>
+
+<p>On the other hand, how much of that do I want to write myself, over
+and over again?  The whole point of <a href="http://jakarta.apache.org/tapestry">Tapestry</a> is that it
+takes care of these routine tasks for me, so that I only have to worry
+about application-specific code.  I've written enough CGI scripts and
+naked servlets to recognize just how much grief a good framework can
+save.</p>
+
+<p>So, in the end, this turned out to be another example of what Joel
+Spolsky dubbed a <a href="http://www.joelonsoftware.com/articles/LeakyAbstractions.html">leaky
+abstraction</a>.  <a href="http://jakarta.apache.org/tapestry">Tapestry</a> really does
+try to present a high-level model for web programming, but every once
+in a while, you can still see what lies beneath.  As he said:</p>
+
+<blockquote>
+<p>Ten years ago, we might have imagined that new programming
+paradigms would have made programming easier by now.  Indeed, the
+abstractions we've created over the years do allow us to deal with new
+orders of complexity in software development that we didn't have to
+deal with ten or fifteen years ago, like GUI programming and network
+programming. And while these great tools, like modern OO forms-based
+languages, let us get a lot of work done incredibly quickly, suddenly
+one day we need to figure out a problem where the abstraction leaked,
+and it takes 2 weeks. And when you need to hire a programmer to do
+mostly VB programming, it's not good enough to hire a VB programmer,
+because they will get completely stuck in tar every time the VB
+abstraction leaks.</p>
+
+<p>The Law of Leaky Abstractions is dragging us down.</p>
+</blockquote>
+
+<p>[<a name="1">1</a>] In 1935, several years after quantum mechanics
+had been developed, Einstein, Podolsky, and Rosen showed that under
+certain circumstances quantum mechanics predicted a breakdown of
+locality. Specifically, they showed that if quantum mechanics was
+true, then someone could put a particle in a measuring device in one
+place and, simply by doing that, instantly influence another particle
+light years away.  Einstein called this "spooky action at a distance",
+and felt it was proof that quantum mechanics couldn't be the whole
+story.  Unfortunately for him, Bell's work in the 1960s, and
+experiments in the years that followed, proved that this actually does
+happen.  To quote another physicist (Haldane this time), "...the
+universe is not only queerer than we suppose, but queerer than we
+<em>can</em> suppose."  (Unfortunately, the same seems to be true of
+many software systems.)</p>

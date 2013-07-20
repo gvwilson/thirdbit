@@ -1,0 +1,21 @@
+---
+layout: post
+root: ../../..
+title: "Mac/Thunderbird Puzzlement"
+date: 2007-03-02 17:38:56
+---
+I spent some time this morning cleaning up and reorganizing my mail folders, which are stored on the Computer Science department's server.  I use Thunderbird as a client on both Windows and Mac, and the Windows machine in my office had no trouble at all figuring out the new arrangements.  When I got home, though, things went south.  I:
+<ol>
+	<li>Launched Thunderbird 1.5.0.10 (which I've been using ever since I got this new Mac a week ago without any trouble).</li>
+	<li>Watched for a couple of minutes as it added folders to its view of my CS lab account.</li>
+	<li>Realized that it had hung up (this was about 5 minutes in; it had picked up about half of the new folders, then stopped adding any more).</li>
+	<li>"Forced Quit" from the Apple menu.</li>
+	<li>Restarted Thunderbird, only to have it hang immediately---the frame of the application came up, but none of the menus would respond, and the cursor was stuck in multicolored pinwheel mode.</li>
+	<li>Restarted my machine, then restarted Thunderbird---same result.</li>
+	<li>ssh'd to the CS lab server to check that my mail folders were all still there (they were).</li>
+	<li>Delete Thunderbird.app from Applications, reopened the .dmg that I'd downloaded, dragged a fresh copy to Applications.</li>
+	<li>Started it up.  This time, Thunderbird showed me exactly the mixed view that it had frozen on ten minutes before, i.e., some of the new folders were there, and some of the old folders that I'd deleted were mixed in with them.  It was as if everything I'd done in those ten minutes hadn't happened.</li>
+	<li>Just as strange, all of the menu items were grayed out except 'About Thunderbird'.  Folders that contained real mail folders could be expanded and closed in the left-pane tree view (my ~/mail directory contains directories with names like '2006-sent' and 'drproject', which then contain mail folders holding the real messages), but I couldn't view the contents of the mail folders themselves.</li>
+	<li>Deleted Thunderbird.app and the .dmg file, downloaded a fresh copy, rebooted, reinstalled, and---yup, same bad behavior.</li>
+</ol>
+At this point I'm stuck.  All I can think of is that somewhere on my Mac, Thunderbird is storing a configuration or state file that I need to delete, but I'm damned if I can find it.  There's nothing obvious in my home directory---anyone have any pointers?

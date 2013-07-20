@@ -1,0 +1,49 @@
+---
+layout: post
+root: ../../..
+title: "Catching Up on My Reading"
+date: 2007-06-20 12:31:48
+---
+UPS has screwed up again (their success rate delivering stuff to me is roughly 50%, compared to 100% for FedEx and Canada Post), so I have a few minutes to summarize the <a href="http://pyre.third-bit.com/blog/archives/961.html">rest of</a> the <a href="http://web4.cs.ucl.ac.uk/icse07/">ICSE'07</a> papers I've been reading on the way to and from work this past week.
+
+Alameh, Zazworka, and Hollingsworth: "Performance Measurement of Novice HPC Programmers' Code".  Presents a small study of the performance mistakes that newcomers to high-performance computing (HPC) make.  I was surprised they didn't cite <a href="http://citeseer.ist.psu.edu/szafron94experimentally.html">Schaeffer and Szafron's study</a> from 1994.
+
+Baysal and Malton: "Correlating Social Interactions to Release History During Software Evolution".  Uses natural language processing (NLP) techniques to correlate the changes being made to software and the discussions around them, and concludes that some releases classified as minor should be called major.  Moderately interesting in its own right; what's really eye-catching is the number of researchers trying to apply Google-ish techniques to software engineering.  This is something I want to <a href="http://pyre.third-bit.com/blog/archives/332.html">explore</a> in my own research.
+
+Bird, Gourley, Devanbu, Swaminathan, and Hsu: "Open Borders? Immigration in Open Source Projects".  A statistical analysis of some of the factors that determine whether someone "joins" an open source project or not, using the Apache web server, PostgreSQL, and Python as exemplars.  I'm not sure I believe their model, but I have to confess that I didn't dig as deeply into it as I did into other papers.
+
+Delorey, Knutson, and Chun: "Do Programming Languages Affect Productivity?  A Case Study Using Data from Open Source Projects". Collected data from nearly 10,000 projects on <a href="http://www.sf.net">SourceForge</a> to compare lines of code vs. time for 10 popular programming languages, and concludes that yes, language choice <em>does</em> matter in some cases.
+
+Dong and Zhao: "Experiments on Design Pattern Discovery".  Presents several experiments with, well, recovering design patterns from existing code.  Interesting to see what they tried; equally interesting that there's nothing in the paper or cited in references showing that use of design patterns has any impact on productivity.
+
+Grisham, Hawthorne, and Perry: "Archtiecture and Design Intent: An Experience Report".  The authors ran a graduate course in which students used intent-based design approaches and notations to describe features of open source projetcs.  It was interesting (for me, anyway) to compare their experiment with <a href="http://pyre.third-bit.com/blog/archives/945.html">what I did in CSC407</a> last winter.
+
+Hindle, Godfrey, and Holt: "Release Pattern Discovery via Partitioning: Methodology and Case Study".  Reports early work on characterizing projects by looking at check-ins and other activities around major and minor releases.  Uses a <a href="http://en.wikipedia.org/wiki/Myers-Briggs_Type_Indicator">Meyer-Briggs</a> style notation called STBD (source, test, build, documentation) to summarize activities.  Again, most interesting to me because of the mining approach.
+
+Hudak, Ludban, Gadepally, and Krishnamurthy: "Developing a Computational Science IDE for HPC Systems".  Describes ParaM, a tool that supports parallel execution of MATLAB scripts.  In 1993, I predicted that MATLAB or Mathematica would be the dominant programming language in high-performance computing within a decade; looks like I was only off by thirty years ;-)
+
+Kim and Ernst: "Prioritizing Warning Categories by Analyzing Software History".  Starts from the observation that while automatic bug finding tools have come a long way in the past decade, they still throw up a lot of false positives, and tries to prioritize their warnings by analyzing recent and not-so-recent changes to the software.  I don't think this is ready for prime time yet, but it's a cool idea, and likely to bear fruit in future.
+
+Koru, Zhang, and Liu: "Modeling the Effect of Size on Defect Proneness for Open-Source Software".  A solid statistical look at correlations between the sizes of classes, and the odds of them containing faults, which takes into account the rolling nature of open source development.  Turns out there is one; interesting (to me) that one of the authors comes from a biostatistics department (i.e., works in a field where knowing your stats is a must).
+
+McCracken, Wolter, and Snavely: "Beyond Performance Tools: Measuring and Modeling Productivity in HPC".  Presents a (very) simple finite state machine-based analysis of how computational scientists work.  Nice that people are focusing on overall productivity, rather than peak hardware performance, but this is pretty lightweight stuff.
+
+Minto and Murphy: "Reocmmending Emergent Teams".  Gail Murphy's group at <a href="http://www.cs.ubc.ca">UBC</a> doesn't just produce useful, novel tools; they also do solid research to gauge their impact.  This one introduces an Emergent Expertise Locator that can suggest "experts" to developers working on specific projects.
+
+Mitchell, Sevitsky, Kumanan, and Schonberg: "Data Structure Health".  Lumps the memory used in data structures into various categories like primitive, header, and pointer, then uses those to gauge the "health" of instances and collections.  An interesting idea, and one that would play well in a senior undergrad course on performance.  I particularly liked the graphs comparing the healths of structures of different sizes in different applications.
+
+Mockus: "Large-scale Code Reuse in Open Source Software".  The author, who works at <a href="http://www.avaya.com">Avaya</a>, looked at the files used in a bunch of open source software projects, and found that more than half of them were used in more than one project. Furthermore, most of the files reused in this way were small.
+
+Panas, Quin, and Vuduc: "Tool Support for Inspecting the Code Quality of HPC Applications".  Presents a bunch of 2D and 3D tools for showing code structure as colored graphs, rectangles stacked on rectangles, etc.  Nothing I hadn't seen before; no empirical evidence that it makes a difference to users' productivity.
+
+Rigby and Hassan: "What Can OSS Mailing Lists Tell Us? A Preliminary Psychometric Text Analysis of the Apache Developer Mailing List".  No, it isn't post-modernism, or a practical joke intended to mock po-mo.  The authors applied a psychometric linguistic analysis tool called LIWC to the Apache mailing list in an attempt to classify the personalities of several developers using the <a href="http://en.wikipedia.org/wiki/Big_Five_personality_traits">"big five"</a> personality traits.  I don't know enough to evaluate their work, but it's yet more evidence that software engineering is taking the developer psychology seriously.
+
+Stroggylos and Spinellis: "Refactoring---Does It Improve Software Quality?"  Compared the quality (as measured by various metrics) of several open source projects before and after commits identified as refactorings.  The conclusion was "sometimes".
+
+Weiss, Premraj, Zmimermann, and Zeller: "How Long Will It Take to Fix This Bug?"  Applies data mining to past bug reports to find ones similar to a target, then estimates the effort the target will required based on the effort its predecessors needed.  They're up front about the fact that the effort recorded for old bugs is suspect, but the matching accuracy is interesting.
+
+Willenbring, Heroux, and Heaphy: "The Trilinos Software Lifecycle Model".  Trilinos is a very (very) large numerical application; unlike most of its siblings, though, it has been built by people who take classical process-heavy software engineering seriously.  This paper describes the rules of the road for its development.  I'd be very (very) interested in finding out how well reality obeys them.
+
+Xie, Taneja, Kale, and Marinov: "Towards a Framework for Differential Unit Testing of Object-Oriented Programs".  Testing the old and new versions side by side and pay close attention to the differences isn't a new idea; automatically generating test sets that target the differences is.
+
+Yu and Ramaswamy: "Mining CVS Repositories to Understand open-Source Project Developer Roles".  Uses clustering to group interactions between developers as a way to discover roles within projects.  I'm sceptical about the whole idea of <a href="http://msr.uwaterloo.ca/msr2007/index.html">mining software repositories</a>: when Keir Mierle used students' repositories in 2004 as a way to get replicated trials, he found very little that correlated with anything.

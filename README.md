@@ -1,4 +1,1 @@
-thirdbit
-========
-
-third-bit.com website
+This repository holds the source for the third-bit.com web site.

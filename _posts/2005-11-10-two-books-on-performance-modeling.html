@@ -1,0 +1,17 @@
+---
+layout: post
+root: ../../..
+title: "Two Books on Performance Modeling"
+date: 2005-11-10 14:16:09
+---
+We've all cursed slow software and unresponsive web sites, and most of us have probably built a few, but making them zippy is often as big a challenge as building them in the first place.  One reason is that modern computer systems are among the complex artifacts ever created; another is that their components often interact in counter-intuitive ways, so that optimizing a loop or adding another server can actually slow the whole system down.
+
+Gunther's Analyzing Computer System Performance with Perl::PDQ, and Menasc&eacute; et al's Performance by Design, both aim to introduce developers to the mathematics used to analyze and predict system performance.  Both start with the kinds of simple models used to figure out how many customers a grocery store checkout clerk can handle in an hour.  From there, they move on to more complex setups with preemptive interrupts or feedback loops.
+
+Both books compare theory's predictions with measurements of actual systems, and both are clearly written and well organized.  The big difference between them is their pace: Menasc&eacute; et al is a gentle stroll, while Gunther varies between a fast jog and a gallop. As a result, I often found myself flipping ahead in Menasc&eacute;, but flipping back to re-read something crucial in Gunther.  The extra effort Gunther requires is paid back by the Perl toolkit his book is built around, but on the other hand, I sometimes found myself tripping over minor layout problems, such as the word Perlfollowed immediately by another word without a break.
+
+Which book you read depends on how much calculus and probability you remember, and how complex the systems you're trying to tune are. If you're building something whose performance matters, though, you should definitely read one.  Otherwise, you may find that a week reconfiguring a server farm has saved you twenty minutes of thought.
+
+<hr />Neil J. Gunther: Analyzing Computer System Performance with Perl::PDQ.  Springer, 2005, 3540208658, 536 pages.
+
+Daniel A. Menasc&eacute;, Virgilio A.F. Almeida, and Lawrence W. Dowdy: Performance by Design.  Prentice Hall PTR, 2004, 0130906735, 462 pages.

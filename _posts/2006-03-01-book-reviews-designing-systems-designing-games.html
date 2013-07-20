@@ -1,0 +1,23 @@
+---
+layout: post
+root: ../../..
+title: "Book Reviews: Designing Systems, Designing Games"
+date: 2006-03-01 09:56:12
+---
+It's one of the oldest debates in computing: should we teach bottom-up, or top-down?  Should students start with bits and gates, then move on to assembler, C, and high-level languages, so that they understand what's going on inside the box?  Or should we put the power into their hands on day one, and then peel away the mystery a bit at a time to connect their interpreted, garbage-collected, concurrent, object-oriented language to the metal that makes it live?
+
+In practice, most schools---even the best ones---do neither.  Most students graduate today without a clear understanding of how the code they write actually works.  The reason is that modern architectures are much more complex than the ones my generation learned their trade on in the early 1980s.  Back then, there was a 16-bit processor, 64K of RAM, a keyboard, a screen, and a disk.  Today, the processor itself has more components than that, including multiple speculative pipelines and two levels of on-chip cache.  There are over a dozen distinct layers between the "x += 2;" in your Java code and the instructions that make it happen; it's no wonder students can't figure them all out in four years.
+
+Nisen and Shocken's new book, The Elements of Computing Systems, is a valiant attempt to return us to our roots.  Its subtitle is "Building a Modern Computer from First Principles", and that's exactly what it does.  The authors begin with Boolean logic; successive chapters cover logic gates, machine language, computer architecture, the design of a simple virtual machine and a high-level language to run on it, a bare-bones compiler, and finally a little operating system.  At each stage, the reader is shown how to build part of the next layer, then asked to build the rest.  Exercises are done using a set of simulators and visualization tools that come with the book (and which can be downloaded from the authors' web site).
+
+Does it work?  I don't know.  It certainly worked for who I am today, and I'd like to think my 19-year-old self would have been able to keep up, but I could be flattering myself.  It's a lot of ground to cover: the exercises are not small, and students would have to assimilate several Very Big Ideas in order to get through them.  I'd be interested in hearing from anyone who's used it, either as an instructor or as a student.
+
+Flynt and Salem's Software Engineering for Game Developers is superficially a very different book, but as Terry Pratchett once wrote, where people stand is less important than which way they face.  Gaming is one of the few sectors in which consumers demand the same level of quality from software that they do from hardware: with thousands of alternatives to choose from, they can and do treat programs that crash or lose data with the disdain they deserve.  As a result, quality standards are often more stringent than they are in the commercial arena.
+
+Between them, Flynt and Salem have spent more than 40 years building complex systems, and teaching others how to do so.  They are firm believers in Big Design Up Front (BDUF): the second chapter of their book covers requirements analysis, while the third introduces UML.  Later chapters discuss reuse, risk analysis, configuration management, testing, documentation, and all the other things that every successful project I've ever seen has relied on.
+
+But "discuss" is the wrong word: "prescribe" would be better.  This book is not a smorgasboard of compare and contrast---its authors clearly believe there's a right way to get things built, and that your choices as a developer are adoption or failure.  Practitioners of Extreme Programming and other forms of code-worship will disagree, as Flynt and Salem point out, you have to know what the game's going to contain well in advance of its release in order to do the artwork, music, and marketing.  "We'll make it up as we go along" simply isn't an option in gaming; with luck, and with books like this one, perhaps it will stop being common practice in the rest of the industry.
+
+<hr />John P. Flynt and Omar Salem: Software Engineering for Game Developers.  Thomson, 1592001556, 904 pages, $59.99.
+
+Noam Nisen and Shimon Shocken: The Elements of Computing Systems.  MIT Press, 2005, 026214087X, 368 pages, $50.00.

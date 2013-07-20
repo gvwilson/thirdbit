@@ -1,0 +1,19 @@
+---
+layout: post
+root: ../../..
+title: "Interviewing at Google"
+date: 2005-01-19 16:25:13
+---
+A web-friend of mine just interviewed for a tech lead position at <a href="http://www.google.com">Google</a>.  Here's a (slightly tidied up and anonymized) version of their experiences:
+
+Most of my work, at least at the start, should be in "production software"--googlese for the software that helps keep Google's amazingly huge distributed system running smoothly and seamlessly, and is mostly Python though with ample helpings of C++ here and there and a little bit of Java where integration is needed with some Java-centric application server (e.g.  to serve google-ads on sites using such servers).
+
+Plenty of "sideshows" doing such things as statistical analysis and data mining on the huge wealth of data Google collects, maybe giving [name deleted]'s team a hand in data-quality assurance, etc, etc. Plus, every Google techie is supposed to use 20% of his time working on his or her own pet projects which <em>might</em> become Google's Next Big Thing---that's how gmail was born.
+
+The selection process <em>is</em> grueling---multiple rounds of phone interviews where they ask you (depending on the fields of expertise you claim) everything from what's 2<sup>10</sup>, to how you would tweak bits in C to find out if a machine's stack grows up or down in memory, all the way to having you "program on the phone"... then all of a sudden they rush you to Silicon Valley and you get a long full day of nonstop interviewing.  I didn't quite ace mine because I hadn't thought of cramming on TCP/IP fundamentals, so I didn't remember which bits are on in the three packets of the handshake (it's <code>SYN</code>, <code>SYN+ACK</code>, <code>ACK</code>---I <em>could</em> have worked it out, but not jetlagged and after about 6 hours' interviews ;-).
+
+I made up for that when they had me program at the whiteboard a C++ implementation of unbounded precision multiplication; I did a test-driven implementation of the trivial routine with <code>std::vector&lt;digit&gt;</code> containers, then did some handwaving about the Karatsuba algorithm (far too hard to implement standing up at a whiteboard, of course ;-) and could sense I had struck lucky... The guy interviewing me at that time had never really done unbounded precision computation work (at least not implementation of high-quality libraries for it), so by just opening the door a crack to the huge and mathematics that underlies that field (in which I had the good fortune to dabble a bit -- a byproduct of my interests in combinatorial arithmetic) I had apparently exceeded expectations.
+
+Lots of back-of-envelope computation and the like, too.  A friend of mine thought he was doing well in his second Google phone interview when asked to sketch a way to compute bigram statistics for a corpus of a hundred million documents---he had started discussing <code>std::map&lt;std::string&gt;</code> and the like, and didn't get why the interviewer seemed distinctly unimpressed, until I pointed out even if documents are only a couple thousand words each, where are you going to STORE those two hundred billion words---in <em>memory</em>?! That's a job for an enterprise-scale database engine!
+
+So, at least as far as the interviewing process goes, it seems <em>designed</em> for people with a vast array of interests related to programming, computation, modeling, data processing, networking, and good problem-rough-sizing abilities---I guess Google routinely faces problems that may not be hugely complex <em>but</em> are made so by the sheer scale involved.  I can just hope the actual day-to-day work is as interesting, fascinating and challenging as the interviews were---but from all I hear, it probably is.  And they have bar-quality espresso machines in rest areas... ;-)

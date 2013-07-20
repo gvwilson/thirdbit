@@ -1,0 +1,13 @@
+---
+layout: post
+root: ../../..
+title: "Once More Unto the REST"
+date: 2009-02-01 18:26:39
+---
+Two of my consulting course students (Mohammad Jalali and Rory Tulk) are looking at (semi-)automatically building <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST API</a>s for web application frameworks like <a href="http://www.djangoproject.com/">Django</a>.  The idea is to complement the metadata used to persist objects to databases in <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">object-relational mapping</a> tools with metadata to allow URL-mapped over-the-web interaction.  One of their starting points is <a href="http://cherrypy.org/">CherryPy</a>'s "<a href="http://tools.cherrypy.org/wiki/ExposeAs">expose</a>" decorator, which binds objects to elements in a URL tree.  The students would like to be able to bind classes and constructors as well, so that (for example) <code>/myapp/api/person/GregWilson</code> gets data for the person whose ID is 'GregWilson'.
+
+But there are questions.  First, how do REST web services represent foreign key relationships (including many-to-many) in the data they return to the client?  Are dependent objects returned with the original request, or are references returned which must be fulfilled with future requests?  ORMs address this problem by embedding lazy fetch-on-demand references in objects, because additional database queries are (comparatively) fast, but HTTP requests are too slow for that to be a sensible approach.
+
+Second, can we uniquely identify object instances based on some identifier (REST URL maybe)?  If so, can we re-create the server-side object graph on the client to avoid replication of original server-side data?  (For example, if 'GregWilson' and 'AlanTuring' share an address, we don't want two copies of the Address object on the client, but just one with two references to it.)  Ignoring concurrency for the moment, can we utilize object identity to cache the shared objects on the client side, and only make HTTP requests when absolutely required?  If so, can we optimize data return via REST requests based on the clean/dirty state of objects in the client-side cache?
+
+And then there's the question of bulk operations.  If we want to get all of the tickets assigned to 'GregWilson', do we use one URL to identify the list of ticket IDs, and then fetch the bodies of the tickets one by one afterward (effectively abandoning atomicity)?  The more we look at these issues, the more it looks like what we're going to wind up with will really just be RPC under another name.  Advice and examples would be welcome.

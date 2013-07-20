@@ -1,0 +1,14 @@
+---
+layout: post
+root: ../../..
+title: "Testing Web Interfaces"
+date: 2005-01-10 13:42:28
+---
+In this morning's meeting, I told the <a href="http://pyre.third-bit.com/trac/hippo">Hippo</a> students that we're going to do analysis & estimation on four things, then (probably) only build three (maybe even two):
+<ol>
+	<li>refactor <a href="http://projects.edgewall.com/trac">Trac</a> to separate the model from the controller (right now, the database interaction code is stirred into the who-what-where-when logic);</li>
+	<li>add support for multiple projects (Victor Ng pointed out that this is a big task, as it involves major architectural work);</li>
+	<li>add some kind of group communication mechanism (probably mailing list or bulletin board---instructors don't like NNTP newsgroups much, and blogs aren't the right way to arrange for someone to bring <a href="http://www.timhortons.com/en/menu/menu_donuts.html">TimBits</a> to a meeting); and</li>
+	<li>build some infrastructure for testing Trac's web interface.</li>
+</ol>
+Two students (Sean Dawson and Kristin Kerr) worked on testing infrastructure for the Java version of Hippo last term, and their <a href="http://pyre.third-bit.com/2004-fall/hippo_testing.pdf">final report</a> includes a good summary of available tools.  By coincidence, Titus Brown's blog had <a href="http://www.advogato.org/person/titus/diary.html?start=18">an entry</a> today on "Testing Web Sites".  It pointed at the <a href="http://pbp.berlios.de/">Python Browser Poseur (PBP)</a> web site, and at <a href="http://mechanicalcat.net/tech/webunit/">webunit</a>, both of which I'm going to have students look at.  If any readers know of other Python-friendly tools for testing web sites, I'd be grateful for mail.

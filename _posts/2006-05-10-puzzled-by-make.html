@@ -1,0 +1,26 @@
+---
+layout: post
+root: ../../..
+title: "Puzzled by Make"
+date: 2006-05-10 15:44:04
+---
+<p>I know a fair bit about GNU Make, but this one has me stymied.  The Makefile that rebuilds the <a href="http://www.third-bit.com/swc">Software Carpentry</a> course notes contains the following definitions:</p>
+
+<blockquote><pre>
+GFX_SUFFIX := gif jpg png
+GFX_SRC := \
+    $(foreach fmt,$(GFX_SUFFIX),\
+      $(wildcard ./img/*.${fmt}) \
+      $(wildcard ./lec/img/*/*.${fmt}) \
+      $(foreach sitedir,${SITES}, \
+        $(wildcard ./sites/${sitedir}/img/*.${fmt}) \
+      ) \
+    )
+GFX_WEB := $(subst ./,./web/,${GFX_SRC})
+</pre></blockquote>
+
+<p>On all of the Linux and Windows (with Cygwin) machines I've used to date, this does the right thing: <code>GFX_SRC</code> is a list of all the image files in <code>./img</code> and <code>./lec/img/*</code>, and <code>GFX_WEB</code> has the same entries with <code>./web</code> prefixed to them.  (The <code>SITES</code> variable is empty, because I'm not building any site-specific content.)</p>
+
+<p>But on my new Windows laptop (again with Cygwin), something goes wrong: Make misses two of the files in the <code>lec/img/oop01</code> direcctory, and tries to copy one file from the <code>lec/img/oop02</code> directory twice: once under <code>lec/img/oop02</code>, and once (incorrectly) under <code>lec/img/oop01</code>.  Since this doesn't exist, Make reports an error and halts.</p>
+
+<p>I've checked versions, and all five machines are using GNU Make 3.80.  Is this a bug in Make?  In the way I'm defining my variables?  If so, why is it only triggered on the one box?</p>

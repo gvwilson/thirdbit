@@ -1,0 +1,13 @@
+---
+layout: post
+root: ../../..
+title: "PDF Generation Revisited"
+date: 2005-07-15 08:30:28
+---
+<p>I gather from some of the comments and email that my earlier post about batch generation of PDFs from web pages wasn't clear, so here's my second try.  The <a href="http://www.third-bit.com/swc">Software Carpentry</a> course that I'm writing for the <a href="http://www.python.org/psf">Python Software Foundation</a> has about 35 web pages.  I'd like to add something to my Makefile so that I can say <code>make pdf</code> and have each page turned into a PDF.  (Currently, I do this by hand about once a week; it ain't the ten minutes of tedium that bothers me, but what my students would think if they found out I'm doing a repetitive task by hand.)</p>
+
+<p>So, option #1 is an HTML to PDF converter.  There are several out there, but none of the open source ones I've been able to find will respect my stylesheets.  Yes, I could investigate XSL-FO, but (a) I have 185 other issues to deal with, and (b) I'm morally opposed to duplicating style information.</p>
+
+<p>Option #2: write a script to make Firefox do what I've been doing by hand, i.e., load, print, change printer to <a href="http://sector7g.wurzel6.de/pdfcreator/index_en.htm">PDFCreator</a>, "print", click "OK" for the document title, specify where to save it, "OK", repeat. A couple of people have said, "Oh, you can do that on Windows with the win32 module and COM," but haven't responded to my follow-up question, "Great---do you have some sample code I can tweak?"  (Also, my build currently runs on both Windows and Linux, and I'd like to keep it that way if I can...)</p>
+
+<p>Suggestions?</p>

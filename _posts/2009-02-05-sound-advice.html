@@ -1,0 +1,41 @@
+---
+layout: post
+root: ../../..
+title: "Sound Advice"
+date: 2009-02-05 22:07:57
+---
+<a href="https://cs.senecac.on.ca/~david.humphrey/">David Humphrey</a>, of Toronto's <a href="http://www.senecac.on.ca/">Seneca College</a>, has been doing groundbreaking work getting students involved in open source projects as part of their education.  I asked him if he had any advice for the rest of us, and here's what he said. (<em>Note: see also <a href="http://commonspace.wordpress.com/2009/02/05/dave-humphrey-interview/">this interview with David</a> posted by Mozilla's Mark Surman.)</em>
+
+<hr />My colleague, Chris Tyler, has written a <a href="http://chris.tylers.info/ols2008/opensource-seneca-ols2008.pdf">paper</a> outlining many of our methods for doing open source projects with undergrads.
+
+Open source, when done well, is done in community.  Pick the largest open source project you care about, and set up camp--sounds like Python is your thing, so maybe you've found it.  In my experience, you do better throwing all of your students into the same community/technology than you do with a few here, and a few there (I know Greg works differently, but I think you can only make a significant impact if you really focus on one thing).  I have done this for over 3 years with my students and Mozilla, and I have colleagues who are doing the same with Eclipse, Fedora, and OpenOffice.org.
+
+Only work on things the community cares about, or you won't get traction. Don't let your students come-up with projects (Mozilla jokes that every student, if given the chance, will build a bittorrent client).  Have your students work on real bugs (ideally they are in bugzilla or equivalent vs. doing something on their own that is not visible to the community).
+
+Instead of teaching technology/code/whatever, focus on process and skills necessary to work on large scale code.  When we teach students to work on Mozilla, none of them have ever dealt with code this large or complex.  I have to teach them a lot about tools to use, build systems, working cross-platform, new languages (or new ways of using languages they know), l10n concerns, etc.  I let them learn the tech on their own via their labs and project.
+
+Create an environment where collaboration is OK.  I have some things I do:
+<ul>
+	<li>Students are graded on their own project, but I also given 20% of their grade for contributions to other projects.  They *have* to help each other, or they can't get an A.  This might mean writing tests for someone else's code, testing a patch on another platform, setting up a server, etc.</li>
+	<li>Get each student doing a different project.  This has its challenges, since you have to find all these projects each term (not easy!), and it's hard to get things that are all "equal."  I've given up trying to insure that all students are doing exactly the same thing: some of my students now are working on deep C/C++, others are working on JS/Python web tools, etc. All of the projects are hard and valuable and Mozilla.</li>
+	<li>If you have people working in a common project/community, it is so much easier to get them to work together.  We use irc, since that is what Mozilla uses, and right now there are 55 people in our channel (I only have 18 students).  The rest are Mozilla people who are working with the students.</li>
+</ul>
+Working on real things will mean real headaches.  I can tell you as many horror stories as I can successes.  You have to be really flexible  because working on things that matter means your course schedule will eventually not line-up with release dates, review times, etc.  Open source communities are filled with jerks (and angels!), and you'll need to do a bunch of shepherding and buffering.
+
+Try to setup a parallel world for your students to get involved but not bring unwanted effects.  We have our own irc channel on Mozilla's irc server, and I don't encourage the students to go into the main developer channels for a few weeks.  We host our own wiki, but also get them using Mozilla's wikis when they are comfortable.  This lets them learn beside the fast lane, but not in it.
+
+Buffer your students from the community, and vice versa.  I've had to work both ways at different times (students being inappropriate, community members being jerks).  Having one foot in each world is key. In terms of your grant, you want to get time so you can live in both worlds.
+
+Use your community's tools and methods vs. your own educational tools. You have to make it easy for the community to work with you.  Students can and will learn to work in whatever way you mandate; the community won't learn something new, set up accounts in your system, etc.
+
+Make sure that you're doing work that pushes not only the students, but you too.  If you are teaching stuff you know, I would argue that you're not going to have a good outcome.  You need to be "first among peers" and not an authority in the class.  Show your students how to fail (see http://vocamus.net/dave/?p=299 and http://vocamus.net/dave/?p=311), how to get back up after failing, and most important, how to use the community to do your work.
+
+Be a contributor yourself, and teach as you go.  I work on Mozilla code all the time.  As a result, I'm knowledgeable to answer my students questions.  When I'm not, I know who to send them to, since I have worked hard to become part of the community.
+
+As quickly as possible, move your students away from being seen as "students working on X" to "contributors contributing to X."  This is a key distinction.  Some people ask me how I mark all this stuff.  The truth is that the community does a lot of it for me.  Here's an example: https://bugzilla.mozilla.org/show_bug.cgi?id=412770.  This student added the ability to monitor execution time for plugins in the browser, and expose that to the UI/extensions.  The quality of the code was maintained by the reviewer, in this case Robert O'Callahan (a core Mozilla contributor in New Zealand).  Robert never treated this student any different than he would another person working on a patch for a bug.  I therefore didn't need any permission to have him be a "mentor" or work with my student.  The community already knows how to do that and will do it for free if you set your students up the right way.
+
+Force your students to work in open source ways.  Open source developers write blogs (as you do) and use planets to aggregate them. We aggregate all our open source student blogs each term here: http://zenit.senecac.on.ca/~chris.tyler/planet/.  This makes it really easy for the communities where we work to follow what's happening.
+
+I'm working this year to try and setup a new approach to doing open source education.  I am working with profs and students at schools around the world to try and develop an approach where students wanting to work on Mozilla get connected to the right people/projects.  My vision is that if profs have students who want to work on Mozilla, they can come to me for help getting started/connected/mentored.  At the same time, if I had someone who needed the same in the Python world, maybe they could go to you, etc.  Ideally we build a loose network of open source expert/liaisons around the world, and a way for them to easily collaborate and work together.  I suspect that all of us are in a stronger position if we learn to pool our students across institutions and really start doing open source education as open source.
+
+P.S. I'm also looking for a prof somewhere with students who might be interested in working on Mozilla's JS implementation with them.  It seems to me that their work on SpiderMonkey, Nanojit, Garbage Collection, Static Analysis, and other things to make JS faster inside Mozilla would be a perfect way for some people to do research and teaching.  Rather than working on toys, people could work with this part of the Mozilla community (I know many of them personally, and they are really good mentors) and get to do things that end-up shipping to hundreds of millions of users worldwide.  It's real world production code, so it's not textbook pretty; but the fact that it's real should be another kind of draw.

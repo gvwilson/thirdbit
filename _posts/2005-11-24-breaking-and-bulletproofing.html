@@ -1,0 +1,17 @@
+---
+layout: post
+root: ../../..
+title: "Breaking and Bulletproofing"
+date: 2005-11-24 14:41:22
+---
+I don't know much about graphic design.  In fact, I know almost nothing, and what little I know is probably wrong.  I <em>do</em>, however, know about how to use modularity and abstraction to make software more robust and more maintainable.  This is why Cederholm's book, Bulletproof Web Design, appealed to me so directly. In it, Cederholm talks about how to implement web pages that will behave gracefully under pressure.  One of the simplest examples is that you shouldn't specify font sizes absolutely.  Instead, use CSS to specify the factors by which your titles are larger than your main text, so that if someone with a visual disability wants things enlarged, everything will enlarge by the same amount.
+
+Cederholm applies the same ideas to things like navigation tabs, flexible layouts that will survive browser resizing, and so on.  In each case, he explains what the wrong thing to do is, why it's wrong, and how to fix it.  The full-color illustrations clarify the examples and bring them to life, making this an easy read (even for a presentationally-challenged geek like me).
+
+Whittaker and Thompson's How to Break Software Security is equally good, though its subject matter is very different.  Like Whittaker's earlier How to Break Software, it catalogs some of the nasty things that QA can do to programs to see if they're ready to inflict on an unsuspecting world.  This book, however, concentrates on security attacks, such as overflowing input buffers, trying counterintuitive paths through the workflow to see if any settings are inadvertenly left enabled, and using system monitoring tools to watch libraries load (so that you can try to replace them with your own).
+
+The best part of this book for me was the first case study, which applied each attack to Windows Media Player.  The other case studies weren't as deep or as satisfying, but that's a minor quibble: this book is full of useful ideas that most of us will be able to apply right away.
+
+<hr />Dan Cederholm: Bulletproof Web Design.  New Riders, 2005, 0321346939, 280 pages.
+
+James A. Whittaker and Herbert H. Thompson: How to Break Software Security.  Addison Wesley, 2004, 0321194330, 208 pages.

@@ -1,0 +1,21 @@
+---
+layout: post
+root: ../../..
+title: "Reviews: Refactoring Databases and Information Dashboard Design"
+date: 2006-06-21 08:42:24
+---
+Most modern desktop and web applications are based on a three-part design pattern called Model-View-Controller, or MVC.  As their names suggest, the two books reviewed here tackle the first and second parts of this paradigm, leaving the third---the business logic---to others.
+
+Ambler and Sadalage's <em>Refactoring Databases</em> delivers exactly what you'd expect: a catalog of things you can do to clean up the organization of a database.  The first five chapters focus on the "how", and cover such things as regression testing, bundling refactorings together to minimize the impact on running systems, and how to negotiate with other parts of the development team.  Some of the points the authors make, such as "keep everything under version control", are fairly general, but others, such as "prefer triggers over views or batch synchronization", are clearly the fruit of bitter experience.
+
+Chapters 6-11 then present dozens of refactorings grouped under the headings "Structural", "Data Quality", "Referential Integrity", "Architectural", "Method", and "Transformations".  The format is similar to that used in other books on patterns and refactorings: after a discussion of motivation and tradeoffs, each section analyzes the mechanics of both both schema update and data migration.  There are lots of code samples and diagrams, and plenty of cross-references.
+
+<em>Refactoring Databases</em> is cleanly written and well indexed.  My only complaints are very minor: I would have liked to have seen more discussion of how to cleanse data before starting to refactor (although I'll admit that probably deserves a book on its own), and---well, does any book <em>really</em> need four forewords? Those are very small nits, though; I think the book is very useful, and I'm grateful to Pramod and Scott for writing it.
+
+I'm also grateful to Stephen Few for <em>Information Dashboard Design. </em> If you've been following the <a href="http://www.third-bit.com/drproject">DrProject</a> <a href="http://pyre.third-bit.com/blog/archives/428.html">saga</a>, we added a progress dashboard last summer, only to take it out when it came time to deploy.  The major reason was the difficulties we were having getting libraries installed on the university's servers, but we were also unsatisfied with the kind and volume of information being displayed.
+
+Judging from Few's book, a lot of other people are unsatisfied with their at-a-glance information displays too.  In this understated yet effective book, he presents guidelines for creating "eloquence through simplicity".  Some of the principles apply to any kind of GUI; others are specific to the problem of drawing people's attention to things that <em>need</em> attention.  Like his designs, Few's writing is unadorned, but not plain---if he was a furniture maker, each chapter would be a Shaker chair or side table.  When the time comes to put the dashboard back in <a href="http://www.third-bit.com/drproject">DrProject</a>, this book will be our starting point.
+
+Now, if only I could persuade the authors to pool their talents, and write a book about refactoring GUIs...
+
+<hr />Scott W. Ambler and Pramod J. Sadalage: <em><a href="http://www.amazon.com/gp/product/0321293533">Refactoring Databases: Evolutionary Database Design</a></em>.  Addison-Wesley, 2006, 384 pages, 0321293533.Stephen Few: <em><a href="http://www.amazon.com/gp/product/0596100167">Information Dashboard Design</a></em>.  O'Reilly, 2006, 223 pages, 0596100167.

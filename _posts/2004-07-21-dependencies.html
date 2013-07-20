@@ -1,0 +1,13 @@
+---
+layout: post
+root: ../../..
+title: "Dependencies"
+date: 2004-07-21 14:23:45
+---
+<p>The list of <a href="http://pyre.third-bit.com/helium/dependencies.html">Helium dependencies</a> is growing longer by the day.  What I've found interesting, however, has been our decisions about when we're going to incorporate an external package into Helium and when we're going to build our own.  It's a delicate balance.</p>
+
+<p>Right now, Helium is using <a href="http://java.sun.com/products/javamail/">JavaMail</a> for when Java needs to parse mail headers, and <a href="http://www.baus.net/archives/000069.html">ViewCVS</a> to browse the SVN repository from the web.  However Jason Montojo wrote us our own set of Java SVN bindings, and we're using our own mailing list manager rather than something already available, like Mailman.</p>
+
+<p>The more dependencies Helium has, the harder it's going to be to setup and maintain.  (What happens when a huge exploit is discovered in ViewCVS and Helium has to update its ViewCVS version, but so much has been changed that they're no longer easily compatible?)  And yet by using someone else's code, we save on time and are able to use the lessons others have learned, rather than starting from scratch on everything.</p>
+
+<p>It will be interesting to see which of our decisions were the right ones and how much it will affect Helium in the end.</p>

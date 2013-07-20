@@ -1,0 +1,12 @@
+---
+layout: post
+root: ../../..
+title: "Two Thumbs Up, One Thumb Down"
+date: 2010-01-11 14:10:30
+---
+Three recent papers:
+<ol>
+	<li>Sahoo, Criswell, and Adve: "Towards Automated Bug Diagnosis: An Empirical Study of Reported Software Bugs in Server Applications".  Looked at bugs reported in six large web server apps, and discovered that most could be reproduced deterministically by replaying just a few recent inputs (in most cases, just one). Over 60% of bugs resulted in silent data corruption, which means that adding more internal consistency checks and assertions would help weed them out; only a handful were non-deterministic or timing based. Upshot is, keeping a log of the last few requests and saving that when a bug crops up has a good chance of helping developers localize the bug quickly. Excellent piece of empirical research.</li>
+	<li>Gutiart, Torres, and Ayguad&eacute;: "A survey on performance management for internet applications". Summarizes published results on request scheduling, admission control, dynamic resource management, service degradation, and other approaches, both empirical and theoretical. A good map of the terrain.</li>
+	<li>Demsky and Lam: "Views: Object-Inspired Concurrency Control". The idea is that developers define one or more views that describe which method(s) of a class can safely be run concurrently with which others; a clique-finding algorithm then automatically generates the locks and locking calls required to ensure safety. Nice idea, but as with so many papers in programming languages, there's no empirical validation: do real programmers find this comprehensible? Does it make coding easier than [name of alternative goes here]? Does it lower error rates? Etc. Most papers on tools and methods at <a href="http://www.icse-conferences.org/">ICSE</a> now include some kind of empirical study, even in their early stages; here's hoping the practice spreads to programming language design.</li>
+</ol>

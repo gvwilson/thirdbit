@@ -1,0 +1,32 @@
+---
+layout: page
+---
+<p>
+  Welcome to Greg Wilson's personal blog.
+  You may also enjoy
+  <a href="http://software-carpentry.org">Software Carpentry</a>,
+  <a href="http://neverworkintheory.org">It Will Never Work In Theory</a>,
+  <a href="http://aosabook.org">The Architecture of Open Source Applications</a>,
+  or <a href="http://sensibleadventures.com">Sensible Adventures</a>.
+</p>
+<p><strong>Recent Blog Posts</strong></p>
+<table class="table table-striped">
+  {% for post in site.posts limit:20 %}
+    <tr>
+      <td><span>{{post.date|date: '%b %e'|replace: ' ', '&nbsp;'}}</span></td>
+      <td><span>{{post.date|date: '%Y'}}</span></td>
+      <td><a href=".{{post.url}}">{{post.title}}</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td colspan="3">
+	{{post.content|strip_html|truncatewords: 100}}
+      </td>
+    </tr>
+  {% endfor %}
+    <tr>
+      <td colspan="2"><a href="blog.html">...more</a></td>
+      <td></td>
+    </tr>
+</table>

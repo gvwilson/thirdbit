@@ -1,0 +1,15 @@
+---
+layout: post
+root: ../../..
+title: "Knowing What You Know"
+date: 2004-09-16 13:30:49
+---
+<p>With time, and a little luck, almost anyone can do something once.  The only way to know whether you actually understand how to do it, though, is to see whether it takes you less time to do it a second time.</p>
+
+<p>For example, as of 10:30 this morning, I finally have some <a href="http://www.junit.org">JUnit</a> unit tests of Hibernate running inside <a href="http://www.eclipse.org">Eclipse</a> on my Windows laptop.  There are still a few loose ends---I haven't figured out how to add "." to the classpath for <a href="http://www.eclipse.org">Eclipse</a>'s built-in <a href="http://www.junit.org">JUnit</a> runner, for example, so I'm using a launch configuration instead, which means that I don't get a green bar to show me when everything's working---but I can create and populate a database, fetch and update rows, and so on.</p>
+
+<p>Problem is, I still can't make it work on the <a href="http://www.cdf.utoronto.ca">CDF</a> Linux machines.  I know what the problem is---again, getting "." on the classpath---but the magic spell that works for me on Windows has no effect on Linux.  I therefore don't believe that I really understand yet how all the pieces fit together.</p>
+
+<p>My only consolation is that a lot of other bright people (my co-instructor, the students) are having just as much grief.  The fundamental problem is that what I have to specify things that I of as single pieces of information several times in order to make <a href="http://www.eclipse.org">Eclipse</a> happy.  For example, I have to add "." to my classpath once to compile, again for each of my run configurations, and once again for <a href="http://ant.apache.org">Ant</a>.  This is probably a consequence of <a href="http://www.eclipse.org">Eclipse</a>'s modular architecture, but I don't care---it's still bad.</p>
+
+<p>So, while I feel I'm making progress, I won't really know until the next time I toss <a href="http://www.eclipse.org">Eclipse</a> onto the table in front of a dozen students.  That will be when I find out how much I've actually learned.</p>

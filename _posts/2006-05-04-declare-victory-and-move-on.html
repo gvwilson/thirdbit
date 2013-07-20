@@ -1,0 +1,9 @@
+---
+layout: post
+root: ../../..
+title: "Declare Victory and Move On"
+date: 2006-05-04 08:44:17
+---
+<p>Thanks to <a href="http://www.dgp.toronto.edu/~lockwood/">Noah Lockwood</a>, I have a workaround for the PNG printing problem in the <a href="http://www.third-bit.com/swc2">Software Carpentry</a> notes: get rid of the transparency, and use a colored background instead.  If it's light enough, it'll print as white from both IE and Firefox (on Windows, at least --- haven't tried Linux or Mac).  Noah tells me that printing transparent PNGs has been a known problem with Firefox for at least two years, and that the only fix for IE 6 involves Javascript.  Me, I'm happy to close this ticket off and move on...</p>
+
+<p>...except for the places where the source images were actually white, rather than transparent.  The way we colorized the backgrounds was to create a new beige layer, and slide it to the bottom of the image; those arrowheads and boxes that are solidly colored, instead of transparent, now look a little odd on the web, though they print cleanly.  Flood-filling or replacing all 0xFFFFFF pixels with 0xFFFFD2 won't solve the problem: the images are anti-aliased, so a straight replace-pixel-by-color leaves white jaggies.  Converting to GIF has the same effect, for the same reason.  But it's close enough for now: I'm going to tackle the regexp markers next, and then try rewriting the second development lecture.</p>

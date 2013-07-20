@@ -1,0 +1,13 @@
+---
+layout: post
+root: ../../..
+title: "Thank Goodness for Sticky Rice"
+date: 2007-06-06 11:29:30
+---
+(Posted on behalf of Martin Williams, a solar car enthusiast who is working on <a href="http://www.drproject.org/olm">OLM</a> this summer.)
+
+I was having a problem running nosetests with the code coverage option enabled---in the coverage report, one of the source files reported <code>exceptions.SyntaxError: invalid syntax (line 1)</code> where it should have detailed which lines had not been executed in that file during the test run.  Line 1 in the file read <code>import turbogears</code>, which is perfectly valid Python.
+
+After a bit of searching I found a few pages referencing this error, but nothing in relation to nose or code coverage, and nothing that suggested a fix for it that made sense.  Then I stumbled across <a href="http://lowlife.jp/yasusii/weblog/2005/01/02.html">this post</a>.  Fortunately my Japanese was good enough to read it.  The author had a similar problem with Twisted, and after thinking about it for a bit, and eating some <a href="http://en.wikipedia.org/wiki/Mochi_(food)">mochi</a>, he figured it out---the line endings in the file were CRLF, rather than just LF, and the parser didn't like that.
+
+Switching the line endings back to Unix style fixed the problem, so now I can see that only 39% of the file is covered.  So, let's hear it for sticky rice cake...
