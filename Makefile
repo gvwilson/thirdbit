@@ -19,6 +19,12 @@ install :
 	mkdir -p $(INSTALL_DIR)
 	make OUT=$(INSTALL_DIR) build
 
+## serve      : serve locally (builds files)
+serve :
+	jekyll serve
+
+#-------------------------------------------------------------------------------
+
 # build : compile site into $(OUT).
 build : $(OUT)/feed.xml
 
