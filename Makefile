@@ -1,4 +1,4 @@
-INSTALL_DIR=$(HOME)/dev.third-bit.com
+INSTALL_DIR=$(HOME)/sites/third-bit.com
 PAGES=index.html about.html blog.html cv.html
 POSTS=$(wildcard _posts/*.html)
 LAYOUTS=$(wildcard _layouts/*.html)
