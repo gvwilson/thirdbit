@@ -1,5 +1,5 @@
 INSTALL_DIR=$(HOME)/sites/third-bit.com
-PAGES=index.html about.html blog.html cv.html
+PAGES=index.html about.html blog.html greg-wilson.html sadie-lewis.html
 POSTS=$(wildcard _posts/*.html)
 LAYOUTS=$(wildcard _layouts/*.html)
 INCLUDES=$(wildcard _includes/*.html)
