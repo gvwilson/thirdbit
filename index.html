@@ -2,27 +2,34 @@
 layout: page
 root: .
 ---
-<p>
-  Welcome to Greg Wilson's personal blog.
-</p>
-<p><strong>Recent Blog Posts</strong></p>
 <table class="table table-striped">
+  <tr>
+    <td valign="top">
+      <img src="{{page.root}}/img/wilson-toque.jpg" alt="Greg Wilson" />
+    </td>
+    <td valign="top">
+      Welcome to Greg Wilson's personal blog.
+      <br/>
+      The opinions expressed here are my own,
+      and do not necessarily represent those of my employer.
+    </td>
+  </tr>
   {% for post in site.posts limit:20 %}
     <tr>
-      <td><span>{{post.date|date: '%b %e'|replace: ' ', '&nbsp;'}}</span></td>
-      <td><span>{{post.date|date: '%Y'}}</span></td>
+      <td>
+	{{post.date|date: '%b %e'|replace: ' ', '&nbsp;'}}, {{post.date|date: '%Y'}}
+      </td>
       <td><a href=".{{post.url}}">{{post.title}}</a></td>
     </tr>
     <tr>
       <td></td>
-      <td></td>
-      <td colspan="3">
+      <td>
 	{{post.content|strip_html|truncatewords: 100}}
       </td>
     </tr>
   {% endfor %}
     <tr>
-      <td colspan="2"><a href="blog.html">...more</a></td>
+      <td><a href="blog.html">...more</a></td>
       <td></td>
     </tr>
 </table>
