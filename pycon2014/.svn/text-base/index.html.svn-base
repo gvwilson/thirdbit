@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Software Carpentry: Lessons Learned</title>
+    <meta name="description" content="What I have learned from and about teaching">
+    <meta name="author" content="Greg Wilson">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/theme/swc.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <header style="position: absolute; top: 50px; left: 100px; z-index: 500"></header>
+      <div class="slides">
+
+        <section>
+          <h2>Software Carpentry:</h2>
+	  <h2>Lessons Learned</h2>
+	  <br/>
+          <h3>Greg Wilson</h3>
+          <h3>gvwilson@software-carpentry.org</h3>
+          <h3>@gvwilson - @swcarpentry</h3>
+        </section>
+
+        <section>
+	  <h2>https://etherpad.mozilla.org/<br/>swc-pycon2014</h2>
+        </section>
+
+	<section data-state="header1997">
+	  <style>.header1997 header:after { content: "1997"; }</style>
+	  <div class="row-fluid">
+	    <div class="span4" align="left"><p>Programmer:</p></div>
+	    <div class="span8" align="left">
+	      <p>Hi! I'm starting a web company. What do you do?</p>
+	    </div>
+	  </div>
+	  <div class="row-fluid">
+	    <div class="span4" align="left"><p><em>Designer:</em></p></div>
+	    <div class="span8" align="left">
+	      <p><em>I know how to select and arrange text and images in ways that are appealing, informative, and usable.</em></p>
+	    </div>
+	  </div>
+	  <div class="row-fluid">
+	    <div class="span4" align="left"><p>Programmer:</p></div>
+	    <div class="span8" align="left">
+	      <p>Huh.  That seems pretty simple to me.  I don't think I need to hire you.</p>
+	    </div>
+	  </div>
+	</section>
+
+	<section data-state="header2003">
+	  <style>.header2003 header:after { content: "2003"; }</style>
+	  <div class="row-fluid">
+	    <div class="span4" align="left"><p><em>Designer:</em></p></div>
+	    <div class="span8" align="left">
+	      <p><em>So how did your startup do?</em></p>
+	    </div>
+	  </div>
+	  <div class="row-fluid">
+	    <div class="span4" align="left"><p>Programmer:</p></div>
+	    <div class="span8" align="left">
+	      <p>It tanked.  People said the site was ugly and confusing.  Guess I learned my lesson...</p>
+	    </div>
+	  </div>
+	</section>
+
+	<section data-state="header2014">
+	  <style>.header2014 header:after { content: "2014"; }</style>
+	  <div class="row-fluid">
+	    <div class="span4" align="left"><p>Programmer:</p></div>
+	    <div class="span8" align="left">
+	      <p>Hi! I'm starting an online education company.  What do you do?</p>
+	    </div>
+	  </div>
+	  <div class="row-fluid">
+	    <div class="span4" align="left"><p><em>Teacher:</em></p></div>
+	    <div class="span8" align="left">
+	      <p><em>I know how to select and arrange learning materials in ways that are appealing, informative, and effective.</em></p>
+	    </div>
+	  </div>
+	  <div class="row-fluid">
+	    <div class="span4" align="left"><p>Programmer:</p></div>
+	    <div class="span8" align="left">
+	      <p>Huh.  That seems pretty simple to me...</p>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <img src="img/software-carpentry.png" />
+	  <div class="fragment">
+	    <h3>Lab skills for scientific computing</h3>
+	  </div>
+	  <div class="fragment">
+	    <h3>We save people a day a week</h3>
+	    <h3>for the rest of their careers.</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="row-fluid">
+	    <div class="span5" align="left">
+	      <h3>Unix shell</h3>
+	      <h3>Git / GitHub</h3>
+	      <h3>Python (or R)</h3>
+	      <h3>SQL</h3>
+	    </div>
+	    <div class="span1" align="center">
+	      <h3>=&gt;</h3>
+	      <h3>=&gt;</h3>
+	      <h3>=&gt;</h3>
+	      <h3>=&gt;</h3>
+	    </div>
+	    <div class="span6" align="left">
+	      <h3>task automation</h3>
+	      <h3>tracking and sharing</h3>
+	      <h3>modularization</h3>
+	      <h3>structured data</h3>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="row-fluid">
+	    <div class="span3" align="left">
+	      <h3>In 2013:</h3>
+	    </div>
+	    <div class="span3" align="right">
+	      <h3>103</h3>
+	      <h3>97</h3>
+	      <h3>~3500</h3>
+	    </div>
+	    <div class="span6" align="left">
+	      <h3>instructors</h3>
+	      <h3>two-day events</h3>
+	      <h3>learners</h3>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <img src="img/previous-bootcamps.png" />
+	</section>
+
+	<section>
+	  <img src="img/instructors.png" />
+	  <p align="right">...and many more</p>
+	</section>
+
+	<section data-state="header1">
+	  <style>.header1 header:after { content: "Lesson #1"; }</style>
+	  <h3>Most scientists think of programming</h3>
+	  <h3>as a tax they have to pay</h3>
+	  <h3>in order to do science.</h3>
+	</section>
+
+	<section data-state="header2">
+	  <style>.header2 header:after { content: "Lesson #2"; }</style>
+	  <h3>The curriculum is full.</h3>
+	</section>
+
+	<section>
+	  <h3>But all that's in the paper:</h3>
+	  <br/>
+	  <h4>http://f1000research.com/articles/3-62/v1</h4>
+	  <div class="fragment">
+	    <br/>
+	    <h3>So let me tell you something useful...</h3>
+	  </div>
+	</section>
+
+	<section data-state="header3">
+	  <style>.header3 header:after { content: "Lesson #3"; }</style>
+	  <h3>Victory comes from</h3>
+	  <h3>the accumulation of small advantages.</h3>
+	</section>
+
+	<section data-state="header3">
+	  <h3>live coding</h3>
+	  <h3 class="fragment">Etherpad</h3>
+	  <h3 class="fragment">sticky notes</h3>
+	  <h3 class="fragment">minute cards</h3>
+	  <h3 class="fragment">sign up with friends</h3>
+	  <h3 class="fragment">editors are hard</h3>
+	  <h4 class="fragment">and make sure the washrooms are unlocked...</h4>
+	</section>
+
+	<section data-state="header4">
+	  <style>.header4 header:after { content: "Lesson #4"; }</style>
+	  <h3>We know a lot about</h3>
+	  <h3>how people learn</h3>
+	  <h3>and how to teach them.</h3>
+	</section>
+
+	<section data-state="header4">
+	  <img src="img/how-learning-works.png" />
+	</section>
+
+	<section data-state="header41">
+	  <style>.header41 header:after { content: "Lesson #4.1"; }</style>
+	  <h3>Most programmers</h3>
+	  <h3>(even ones excited about teaching)</h3>
+	  <h3>don't know this knowledge exists</h3>
+	</section>
+
+	<section data-state="header41">
+	  <h3>&ldquo;A week of hard work</h3>
+	  <h3>can sometimes save you</h3>
+	  <h3>an hour of thought.&rdquo;</h3>
+	</section>
+
+	<section data-state="header41">
+	  <h3><a href="http://www.slideshare.net/richardcookau/john-hattie-effect-sizes-on-achievement">http://www.slideshare.net/richardcookau/john-hattie-effect-sizes-on-achievement</a></h3>
+	  <div align="center" class="fragment">
+	    <table width="80%">
+	      <tr>
+		<td>Shifting schools:</td>
+		<td>-</td>
+		<td>0.34</td>
+	      </tr>
+	      <tr>
+		<td>Web-based learning:</td>
+		<td></td>
+		<td>0.09</td>
+	      </tr>
+	      <tr>
+		<td>Teacher subject matter knowledge:</td>
+		<td></td>
+		<td>0.12</td>
+	      </tr>
+	      <tr>
+		<td>Class size:</td>
+		<td></td>
+		<td>0.21</td>
+	      </tr>
+	      <tr>
+		<td>Motivation:</td>
+		<td></td>
+		<td>0.48</td>
+	      </tr>
+	      <tr>
+		<td>Concept mapping:</td>
+		<td></td>
+		<td>0.52</td>
+	      </tr>
+	      <tr>
+		<td>Peer tutoring:</td>
+		<td></td>
+		<td>0.55</td>
+	      </tr>
+	      <tr>
+		<td>Formative evaluation for teachers:</td>
+		<td></td>
+		<td>0.70</td>
+	      </tr>
+	      <tr>
+		<td>Absence of disruptive students:</td>
+		<td></td>
+		<td>0.86</td>
+	      </tr>
+	    </table>
+	  </div>
+	</section>
+
+	<section data-state="header41">
+	  <h3>novice vs. competent vs. expert</h3>
+	  <h3 class="fragment">peer instruction</h3>
+	  <h3 class="fragment">multimedia channel conflict</h3>
+	  <h3 class="fragment">media-first instruction</h3>
+	  <h3 class="fragment">stereotype threat</h3>
+	  <h3 class="fragment">7&plusmn;2</h3>
+	</section>
+
+	<section data-state="header5">
+	  <style>.header5 header:after { content: "Lesson #5"; }</style>
+	  <h2>Train your trainers</h2>
+	  <br/>
+	  <h3>&nbsp;</h3>
+	  <br/>
+	  <h3>&nbsp;</h3>
+	</section>
+
+	<section data-state="header5">
+	  <h2><strong><em>Train your trainers</em></strong></h2>
+	  <div class="fragment">
+	    <br/>
+	    <h3>http://teaching.software-carpentry.org</h3>
+	  </div>
+	  <div class="fragment">
+	    <br/>
+	    <h3>http://tinyurl.com/pycon2014-teaching</h3>
+	  </div>
+	</section>
+
+	<section data-state="header6">
+	  <style>.header6 header:after { content: "Lesson #6"; }</style>
+	  <h3>Python 3 made no difference.</h3>
+	  <h3 class="fragment">We should have fixed the standard library...</h3>
+	  <h3 class="fragment">...and we should do usability testing.</h3>
+	</section>
+
+	<section data-state="header6">
+	  <div align="left">
+	    <h3>Stefik et al: &ldquo;An Empirical Comparison of<br/>the Accuracy Rates of Novices using<br/>the Quorum, Perl, and Randomo<br/>Programming Languages.&rdquo;</h3>
+	    <h3>in <em>Proc. PLATEAU 2011</em></h3>
+	  </div>
+	  <h3><a href="http://tinyurl.com/nwit-randomo">http://tinyurl.com/nwit-randomo</a></h3>
+	  <h3 class="fragment">Read the comments...</h3>
+	</section>
+
+	<section data-state="header6">
+	  <div align="left">
+	    <h3>Stefik and Siebert: &ldquo;An Empirical Investigation into Programming Language Syntax.&rdquo;</h3>
+	    <h3>in <em>ACM Trans. Computing Education</em></h3>
+	    <h3>Nov. 2013.</h3>
+	  </div>
+	</section>
+
+	<section data-state="header6">
+	  <div align="left">
+	    We first present two surveys conducted with students on the intuitiveness of syntax,
+	    which we used to garner formative clues on what words and symbols might be easy for novices to understand.
+	    We followed up with two studies on the accuracy rates of novices using a total of six programming languages:
+	    Ruby, Java, Perl, Python, Randomo, and Quorum.
+	    To our surprise,
+	    we found that languages using a more traditional C-style syntax (both Perl and Java)
+	    did not afford accuracy rates significantly higher than a language with randomly generated keywords,
+	    but that languages which deviate (Quorum, Python, and Ruby) did.
+	  </div>
+	</section>
+
+	<section data-state="header6">
+	  <div align="left">
+	    We first present two surveys conducted with students on the intuitiveness of syntax,
+	    which we used to garner formative clues on
+	    <span style="background-color: yellow">what words and symbols might be easy for novices to understand</span>.
+	    We followed up with two studies on the accuracy rates of novices using a total of six programming languages:
+	    Ruby, Java, Perl, Python, Randomo, and Quorum.
+	    To our surprise,
+	    we found that languages using a more traditional C-style syntax (both Perl and Java)
+	    did not afford accuracy rates significantly higher than a language with randomly generated keywords,
+	    but that languages which deviate (Quorum, Python, and Ruby) did.
+	  </div>
+	</section>
+
+	<section data-state="header6">
+	  <div align="left">
+	    We first present two surveys conducted with students on the intuitiveness of syntax,
+	    which we used to garner formative clues on
+	    what words and symbols might be easy for novices to understand.
+	    We followed up with two studies on
+	    <span style="background-color: yellow">the accuracy rates of novices using</span>
+	    a total of six programming languages:
+	    <span style="background-color: yellow">Ruby, Java, Perl, Python, Randomo, and Quorum</span>.
+	    To our surprise,
+	    we found that languages using a more traditional C-style syntax (both Perl and Java)
+	    did not afford accuracy rates significantly higher than a language with randomly generated keywords,
+	    but that languages which deviate (Quorum, Python, and Ruby) did.
+	  </div>
+	</section>
+
+	<section data-state="header6">
+	  <div align="left">
+	    We first present two surveys conducted with students on the intuitiveness of syntax,
+	    which we used to garner formative clues on
+	    what words and symbols might be easy for novices to understand.
+	    We followed up with two studies on
+	    the accuracy rates of novices using
+	    a total of six programming languages:
+	    Ruby, Java, Perl, Python, Randomo, and Quorum.
+	    To our surprise,
+	    we found that languages using a more traditional C-style syntax
+	    (both <span style="background-color: yellow">Perl and Java</span>)
+	    <span style="background-color: yellow">did not afford accuracy rates significantly higher than a language with randomly generated keywords</span>,
+	    <span style="background-color: yellow">but</span> that languages which deviate
+	    (<span style="background-color: yellow">Quorum, Python, and Ruby</span>)<span style="background-color: yellow"> did</span>.
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Want me to buy you dinner?</h3>
+	</section>
+
+	<section>
+	  <h3>Explain why don't we write lessons</h3>
+	  <h3>like we write software and encyclopedias.</h3>
+	</section>
+
+	<section>
+	  <div class="row-fluid">
+	    <div class="span4" align="left">
+	      <img src="img/greg-after.png" />
+	    </div>
+	    <div class="span8" align="right">
+	      <p>http://software-carpentry.org</p>
+	      <p>http://github.com/swcarpentry/bc</p>
+	      <br/>
+	      <p>http://aosabook.org</p>
+	      <p>https://github.com/aosabook/500lines</p>
+	    </div>
+	  </div>
+	  <div class="fragment">
+	    <h3>Please ask me about the scraping sprint ...</h3>
+	    <br/>
+	    <h3>&nbsp;</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="row-fluid">
+	    <div class="span4" align="left">
+	      <img src="img/greg-after.png" />
+	    </div>
+	    <div class="span8" align="right">
+	      <p>http://software-carpentry.org</p>
+	      <p>http://github.com/swcarpentry/bc</p>
+	      <br/>
+	      <p>http://aosabook.org</p>
+	      <p>https://github.com/aosabook/500lines</p>
+	    </div>
+	  </div>
+	  <div>
+	    <h3>... the turtle sprint ...</h3>
+	    <br/>
+	    <h3>&nbsp;</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="row-fluid">
+	    <div class="span4" align="left">
+	      <img src="img/greg-after.png" />
+	    </div>
+	    <div class="span8" align="right">
+	      <p>http://software-carpentry.org</p>
+	      <p>http://github.com/swcarpentry/bc</p>
+	      <br/>
+	      <p>http://aosabook.org</p>
+	      <p>https://github.com/aosabook/500lines</p>
+	    </div>
+	  </div>
+	  <div>
+	    <h3>... nbdiff ...</h3>
+	    <br/>
+	    <h3>&nbsp;</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="row-fluid">
+	    <div class="span4" align="left">
+	      <img src="img/greg-after.png" />
+	    </div>
+	    <div class="span8" align="right">
+	      <p>http://software-carpentry.org</p>
+	      <p>http://github.com/swcarpentry/bc</p>
+	      <br/>
+	      <p>http://aosabook.org</p>
+	      <p>https://github.com/aosabook/500lines</p>
+	    </div>
+	  </div>
+	  <div>
+	    <h3>... and &ldquo;500 Lines&rdquo;</h3>
+	    <br/>
+	    <h3>&nbsp;</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="row-fluid">
+	    <div class="span4" align="left">
+	      <img src="img/greg-after.png" />
+	    </div>
+	    <div class="span8" align="right">
+	      <p>http://software-carpentry.org</p>
+	      <p>http://github.com/swcarpentry/bc</p>
+	      <br/>
+	      <p>http://aosabook.org</p>
+	      <p>https://github.com/aosabook/500lines</p>
+	    </div>
+	  </div>
+	  <h3>gvwilson@software-carpentry.org</h3>
+	  <br/>
+	  <h3>Thank You</h3>
+	</section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
