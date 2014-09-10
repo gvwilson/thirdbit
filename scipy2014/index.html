@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Software Carpentry: Lessons Learned</title>
+    <meta name="description" content="What I have learned in the last 16 years">
+    <meta name="author" content="Greg Wilson">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/theme/swc.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <header style="position: absolute; top: 50px; left: 100px; z-index: 500"></header>
+      <div class="slides">
+
+        <section>
+          <h2>Software Carpentry:</h2>
+	  <h2>Lessons Learned</h2>
+	  <br/>
+          <h2><a href="mailto:gvwilson@software-carpentry.org">Greg Wilson</a></h2>
+	  <img src="img/mozilla-science-lab.png" alt="Mozilla Science Lab" />
+        </section>
+
+	<section>
+	  <img src="img/software-carpentry.png" />
+	  <div class="fragment">
+	    <h3>Lab skills for scientific computing</h3>
+	  </div>
+	  <div class="fragment">
+	    <h3>We save researchers a day a week</h3>
+	    <h3>for the rest of their careers.</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <div class="row-fluid">
+	    <div class="span5" align="left">
+	      <h3>Unix shell</h3>
+	      <h3>Git / GitHub</h3>
+	      <h3>Python (or R)</h3>
+	      <h3>SQL</h3>
+	    </div>
+	    <div class="fragment">
+	      <div class="span1" align="center">
+		<h3>=&gt;</h3>
+		<h3>=&gt;</h3>
+		<h3>=&gt;</h3>
+		<h3>=&gt;</h3>
+	      </div>
+	      <div class="span6" align="left">
+		<h3>task automation</h3>
+		<h3>tracking and sharing</h3>
+		<h3>modularization</h3>
+		<h3>structured data</h3>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <img src="img/terry-pratchett.png" alt="Terry Pratchett" />
+	  <p>
+	    If you build a man a fire,
+	    you'll keep him warm for a night.
+	    If you set a man on fire,
+	    you'll keep him warm for the rest of his life.
+	  </p>
+	  <p align="right">
+	    &mdash; Terry Pratchett
+	  </p>
+	</section>
+
+	<section>
+	  <h3>Since January 2012:</h3>
+	  <h3>220 two-day workshops</h3>
+	  <h3>234 instructors</h3>
+	  <h3>6800 learners</h3>
+	</section>
+
+	<section>
+	  <img src="img/previous-bootcamps.png" />
+	</section>
+
+	<section>
+	  <img src="img/instructors.png" />
+	  <p align="right">...and many more</p>
+	</section>
+
+	<section>
+	  <h3>Lesson #1:</h3>
+	  <h3>Most scientists think of programming</h3>
+	  <h3>as a tax they have to pay</h3>
+	  <h3>in order to do science.</h3>
+	</section>
+
+	<section>
+	  <h3>Lesson #2:</h3>
+	  <h3>The curriculum is full.</h3>
+	</section>
+
+	<section>
+	  <h3>But all that's in the paper:</h3>
+	  <br/>
+	  <h3><a href="http://f1000research.com/articles/3-62/v1">f1000research.com/articles/3-62/v1</a></h3>
+	  <div class="fragment">
+	    <br/>
+	    <h3>So let's talk about what else I've learned</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Lesson #3:</h3>
+	  <h3>We know a lot about how people learn</h3>
+	  <h3>and how to teach them.</h3>
+	</section>
+
+	<section>
+	  <a href="http://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/"><img src="img/how-learning-works.png" /></a>
+	</section>
+
+	<section>
+	  <h3><a href="http://www.slideshare.net/richardcookau/john-hattie-effect-sizes-on-achievement">http://tinyurl.com/hattie-effect-sizes</a></h3>
+	  <div align="center" class="fragment">
+	    <table width="80%">
+	      <tr>
+		<td>Shifting schools:</td>
+		<td>-</td>
+		<td>0.34</td>
+	      </tr>
+	      <tr>
+		<td>Web-based learning:</td>
+		<td></td>
+		<td>0.09</td>
+	      </tr>
+	      <tr>
+		<td>Teacher subject matter knowledge:</td>
+		<td></td>
+		<td>0.12</td>
+	      </tr>
+	      <tr>
+		<td>Class size:</td>
+		<td></td>
+		<td>0.21</td>
+	      </tr>
+	      <tr>
+		<td>Motivation:</td>
+		<td></td>
+		<td>0.48</td>
+	      </tr>
+	      <tr>
+		<td>Concept mapping:</td>
+		<td></td>
+		<td>0.52</td>
+	      </tr>
+	      <tr>
+		<td>Peer tutoring:</td>
+		<td></td>
+		<td>0.55</td>
+	      </tr>
+	      <tr>
+		<td>Formative evaluation for teachers:</td>
+		<td></td>
+		<td>0.70</td>
+	      </tr>
+	      <tr>
+		<td>Absence of disruptive students:</td>
+		<td></td>
+		<td>0.86</td>
+	      </tr>
+	    </table>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Lesson #4:</h3>
+	  <h3>Most people would rather fail than change.</h3>
+	  <div class="fragment">
+	    <h3>I.e., they'd rather ignore what we know</h3>
+	    <h3>than change their working practices</h3>
+	    <h3>or business plan.</h3>
+	    <div class="fragment">
+	      <h3>&nbsp;</h3>
+	      <h3>Sound familiar?</h3>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3><a href="http://computinged.wordpress.com/">Examples</a>:</h3>
+	  <h3 class="fragment"><a href="http://tinyurl.com/guzdial-subgoals">Subgoals improve performance</a></h3>
+	  <h3 class="fragment"><a href="http://tinyurl.com/guzdial-facts-skills">Practice works best for facts,<br/>worked examples for skills</a></h3>
+	  <h3 class="fragment"><a href="http://tinyurl.com/guzdial-peer-instruction">Peer instruction beats lecture</a></h3>
+	  <h3 class="fragment"><a href="http://dl.acm.org/authorize.cfm?key=6833065">Media-first increases retention</a></h3>
+	</section>
+
+	<section>
+	  <a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321"><img src="img/making-software.jpg" alt="Making Software" /></a>
+	</section>
+
+	<section>
+	  <div align="left">
+	    <h3>Stefik &amp; Siebert:</h3>
+	    <h3>&ldquo;An Empirical Investigation into</h3>
+	    <h3> Programming Language Syntax.&rdquo;</h3>
+	    <h3><em>ACM Trans. Computing Education</em>,</h3>
+	    <h3>2013(11). <a href="http://tinyurl.com/nwit-syntax">http://tinyurl.com/nwit-syntax</a></h3>
+	  </div>
+	</section>
+
+	<section>
+	  <div align="left">
+	    We first present two surveys conducted with students on the intuitiveness of syntax,
+	    which we used to garner formative clues on what words and symbols might be easy for novices to understand.
+	    We followed up with two studies on the accuracy rates of novices using a total of six programming languages:
+	    Ruby, Java, Perl, Python, Randomo, and Quorum.
+	    To our surprise,
+	    we found that languages using a more traditional C-style syntax (both Perl and Java)
+	    did not afford accuracy rates significantly higher than a language with randomly generated keywords,
+	    but that languages which deviate (Quorum, Python, and Ruby) did.
+	  </div>
+	</section>
+
+	<section>
+	  <div align="left">
+	    We first present <span style="background-color: yellow">two surveys</span>
+	    conducted with students on the intuitiveness of syntax,
+	    which we used to garner formative clues on
+	    <span style="background-color: yellow">what words and symbols might be easy for novices to understand</span>.
+	    We followed up with two studies on the accuracy rates of novices using a total of six programming languages:
+	    Ruby, Java, Perl, Python, Randomo, and Quorum.
+	    To our surprise,
+	    we found that languages using a more traditional C-style syntax (both Perl and Java)
+	    did not afford accuracy rates significantly higher than a language with randomly generated keywords,
+	    but that languages which deviate (Quorum, Python, and Ruby) did.
+	  </div>
+	</section>
+
+	<section>
+	  <div align="left">
+	    We first present two surveys conducted with students on the intuitiveness of syntax,
+	    which we used to garner formative clues on
+	    what words and symbols might be easy for novices to understand.
+	    We followed up with <span style="background-color: yellow">two studies on
+	    the accuracy rates of novices using</span>
+	    a total of six programming languages:
+	    <span style="background-color: yellow">Ruby, Java, Perl, Python, Randomo, and Quorum</span>.
+	    To our surprise,
+	    we found that languages using a more traditional C-style syntax (both Perl and Java)
+	    did not afford accuracy rates significantly higher than a language with randomly generated keywords,
+	    but that languages which deviate (Quorum, Python, and Ruby) did.
+	  </div>
+	</section>
+
+	<section>
+	  <div align="left">
+	    We first present two surveys conducted with students on the intuitiveness of syntax,
+	    which we used to garner formative clues on
+	    what words and symbols might be easy for novices to understand.
+	    We followed up with two studies on
+	    the accuracy rates of novices using
+	    a total of six programming languages:
+	    Ruby, Java, Perl, Python, Randomo, and Quorum.
+	    To our surprise,
+	    we found that languages using a more traditional C-style syntax
+	    (both <span style="background-color: yellow">Perl and Java</span>)
+	    <span style="background-color: yellow">did not afford accuracy rates significantly higher than a language with randomly generated keywords</span>,
+	    but that languages which deviate
+	    (Quorum, Python, and Ruby) did.
+	  </div>
+	</section>
+
+	<section>
+	  <div align="left">
+	    We first present two surveys conducted with students on the intuitiveness of syntax,
+	    which we used to garner formative clues on
+	    what words and symbols might be easy for novices to understand.
+	    We followed up with two studies on
+	    the accuracy rates of novices using
+	    a total of six programming languages:
+	    Ruby, Java, Perl, Python, Randomo, and Quorum.
+	    To our surprise,
+	    we found that languages using a more traditional C-style syntax
+	    (both Perl and Java)
+	    did not afford accuracy rates significantly higher than a language with randomly generated keywords,
+	    but that languages which deviate
+	    (<span style="background-color: yellow">Quorum, Python, and Ruby</span>)<span style="background-color: yellow"> did</span>.
+	  </div>
+	</section>
+
+	<section>
+	  <h3>So how are <em>we</em> doing?</h3>
+	</section>
+
+	<section>
+	  <div>
+	    <h3>"We save researchers a day a week</h3>
+	    <h3>for the rest of their careers."</h3>
+	  </div>
+	  <h3 class="fragment">Anecdotal</h3>
+	  <h3 class="fragment">Subject to sampling bias</h3>
+	  <h3 class="fragment">And possibly meaningless</h3>
+	</section>
+
+	<section>
+	  <h3>Programmers' productivity</h3>
+	  <div class="fragment">
+	    <h3>+</h3>
+	    <h3>Scientists' productivity</h3>
+	  </div>
+	  <h3 class="fragment">= ??</h3>
+	</section>
+
+	<section>
+	  <h3>We're doing surveys and interviews</h3>
+	  <div class="fragment">
+	    <h3>But we change <em>what people do</em>,</h3>
+	    <h3>which makes simple metrics meaningless</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Need answers for funders</h3>
+	  <h3 class="fragment">But more importantly to tune our teaching</h3>
+	  <div class="fragment"> <!-- John Wanamaker -->
+	    <h3>"Half of what we teach is useless:</h3>
+	    <h3>we just don't know which half."</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Speaking of changing what people do...</h3>
+	</section>
+
+	<section>
+	  <h3>Cloud computing isn't the revolution</h3>
+	  <h3 class="fragment">Neither is open access</h3>
+	  <h3 class="fragment">The real change is <em>massive collaboration</em></h3>
+	</section>
+
+	<section>
+	  <h3>Massive collaboration requires</h3>
+	  <h3>incremental review</h3>
+	  <h3 class="fragment">which depends on diff and merge</h3>
+	  <h3 class="fragment">and <em>a culture of patching</em></h3>
+	</section>
+
+	<section>
+	  <h3>Have you ever:</h3>
+	  <div align="left">
+	    <h3 class="fragment">&bull; edited a Wikipedia page?</h3>
+	    <h3 class="fragment">&bull; sent a patch to an open source project?</h3>
+	    <h3 class="fragment">&bull; patched someone else's lessons?</h3>
+	  </div>
+	  <h3 class="fragment"><em>Why isn't this normal??</em></h3>
+	</section>
+
+	<section>
+	  <h3>If the reasons I've thought of are true,</h3>
+	  <h3>Wikipedia, open source, and textbooks</h3>
+	  <h3>shouldn't exist</h3>
+	</section>
+
+	<section>
+	  <h3>We're making some progress on this</h3>
+	  <h3>(see <a href="https://github.com/swcarpentry/bc/">https://github.com/swcarpentry/bc/</a>)</h3>
+	  <div class="fragment" align="left">
+	    <p>
+	      "The most frustrating things for me are
+	      1) people are more willing to submit new material (that we don't have the time to teach in two days)
+	      than to improve existing material or review another person's PR and
+	      2) instructors teaching bootcamps using other lesson material.
+	      This experiment in collaborative lesson development is doomed to fail if
+	      1) people don't make iterative changes to lesson material and
+	      2) the end product isn't used in live bootcamps."
+	    </p>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>But...</h3>
+	  <div align="left">
+	    <h3 class="fragment">1. "You shouldn't use Word because it doesn't play well with version control."</h3>
+	    <h3 class="fragment">2. "This is the IPython Notebook - isn't it great?"</h3>
+	    <h3 class="fragment">3. "Yeah, about those diffs..."</h3>
+	  </div>
+	</section>
+
+	<section>
+	  <img src="img/nbdiff-screenshot.png" alt="NBDiff" />
+	  <h3><a href="http://nbdiff.org/">http://nbdiff.org/</a></h3>
+	</section>
+
+	<section>
+	  <p>
+	    I can't install one library,
+	    and the advice I get is to rebuild my entire dev env three contradictory ways.
+	    <br/>
+	    Python is the new Linux.
+	  </p>
+	  <p align="right">
+	    &mdash; <a href="https://twitter.com/mhoye/status/481423592476119040">Mike Hoye</a><span class="fragment"><br/>Firefox Engineering Community Manager</span>
+	  </p>
+	</section>
+
+	<section>
+	  <h3>It's like we got a wonderful future at Ikea,</h3>
+	  <h3>but can't assemble it.</h3>
+	</section>
+
+	<section>
+	  <h3>What you can do:</h3>
+	  <div align="left">
+	    <h3 class="fragment">&bull; Make things work with version control.</h3>
+	    <h3 class="fragment">&bull; Patch our lessons (or anyone else's).</h3>
+	    <h3 class="fragment">&bull; Become <a href="http://teaching.software-carpentry.org">an instructor</a></h3>
+	    <h3 class="fragment">&nbsp; and help us change the world.</h3>
+	</section>
+
+	<section>
+	  <img src="img/madeleine.png" alt="Madeleine" />
+	  &nbsp;&nbsp;
+	  <img src="img/world.jpg" alt="The World" class="fragment"/>
+	</section>
+
+        <section>
+          <h2>Thank You</h2>
+	  <br/>
+          <h2><a href="mailto:gvwilson@software-carpentry.org">Greg Wilson</a></h2>
+	  <img src="img/mozilla-science-lab.png" alt="Mozilla Science Lab" />
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+
+
+<!--
+	<section>
+	  <img src="img/anatole-france.png" alt="Anatole France" />
+	  <p>
+	    "The law, in its majestic equality, forbids the rich and poor alike
+	    to sleep under bridges, to beg in the streets, and to steal bread."
+	  </p>
+	</section>
+
+	<section>
+	  <img src="img/greg-wilson.png" alt="Greg Wilson" />
+	  <p>
+	    "Today's software tools let <em>every</em> scientist
+	    <br/>
+	    spend her entire life shaving yaks."
+	  </p>
+	</section>
+
+	<section>
+	  <h3><a href="http://jonudell.net/GroupwareReport.html">Internet Groupware<br/>for Scientific Collaboration</a></h3>
+	  <p>
+	    The Web was invented so that scientists could use computer
+	    networks to collaborate&mdash;that is,
+	    exchange documents, discuss them, coordinate work, create and publish collective knowledge.
+	    It was, in other words, supposed to be a groupware application.
+	    Despite [its] popularity&mdash;or,
+	    perhaps, because of [it]&mdash;it has yet to fulfill that original mission.
+	    Today's Web is more like a shotgun marriage of electronic publishing and broadcast television
+	    than it is like an engineered solution for group collaboration.
+	  </p>
+	  <p align="right">
+	    &mdash; Jon Udell<span class="fragment">, June 2000</span>
+	  </p>
+	</section>
+-->
+
+</html>
