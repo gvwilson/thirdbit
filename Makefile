@@ -10,8 +10,8 @@ all : commands
 commands :
 	@grep -E '^##' Makefile | sed -e 's/## //g'
 
-## check      : build locally into _site directory for checking
-check :
+## site       : build locally into _site directory for checking
+site :
 	make OUT=$(PWD)/_site build
 
 ## install    : build into installation directory for sharing
