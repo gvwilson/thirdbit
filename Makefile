@@ -10,26 +10,23 @@ all : commands
 commands :
 	@grep -E '^##' Makefile | sed -e 's/## //g'
 
-## site       : build locally into _site directory for checking
+## site       : build locally into _site directory for checking.
 site :
-	make OUT=$(PWD)/_site build
+	jekyll build
 
-## install    : build into installation directory for sharing
+## drafts     : build locally into _site directory for checking with drafts.
+drafts :
+	jekyll build --drafts
+
+## install    : build into installation directory for sharing.
 install :
-	mkdir -p $(INSTALL_DIR)
-	make OUT=$(INSTALL_DIR) build
+	rm -rf $(INSTALL_DIR)
+	cp -r _site $(INSTALL_DIR)
 
-## serve      : serve locally (builds files)
+## serve      : serve locally (builds files).
 serve :
 	jekyll serve
 
-#-------------------------------------------------------------------------------
-
-# build : compile site into $(OUT).
-build : $(OUT)/feed.xml
-
-$(OUT)/feed.xml : _config.yml feed.xml $(PAGES) $(LAYOUTS) $(INCLUDES) $(POSTS)
-	jekyll build -d $(OUT)
-
+## clean      : clean up.
 clean :
 	rm -rf _site $$(find . -name '*~' -print)
