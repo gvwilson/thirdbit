@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            
+        <title>deck.clone.js test/demo</title>
+            
+        <meta name="description" content="deck.*.js">
+        <meta name="author" content="Rémi Emonet">
+        <!--meta name="viewport" content="width=1024, user-scalable=no"/-->
+            
+        <style type="text/css">
+            .deck-container>section.slide {padding:0;} /* as samples were originally designed with neon padding */
+            body.has-clones .deck-container {background: #111;}
+            .deck-container>.slide {border: 1px dashed #333;} /* for the demo */
+            .slide h1 {font-size: 3em;}
+            .slide h1 b {color: #0F0;}
+            .slide h1 em, .slide .smallcomment {color: #445; text-shadow: none; font-size: .3em;}
+            .slide .smallcomment {font-size: .6em;}
+        </style>
+
+	<script src="../extensions/includedeck/load.js"></script>
+        <script>
+            includedeck("profile-3 theme:neon", {
+               PREFIX: "../", // deck.js is in the parent folder for this presentation
+               AFTERINIT: function() {
+                  $(function() {
+                     $('.firefox-message').hide();
+                     $('.firefox-message').click(function(){
+                        $('.firefox-message').hide(300);
+                     });
+                     $('.show-firefox-message').click(function(){
+                        $('.firefox-message').fadeIn(500);
+                     });
+                  });
+               }
+            })
+        </script>
+
+    </head>
+
+<body>
+
+<div class="deck-container">
+
+<!-- Begin slides -->
+<section class="slide" id="title-slide">
+	<h1 title="use arrow keys to navigate">Getting started with deck.js:<br/><b>clone</b> extension
+            <br/><em>use right arrow to move on</em>
+        </h1>
+</section>
+
+<section class="slide">
+    <h2>“clone”: What?</h2>
+    <ul>
+        <li>Duplicates your window</li>
+        <li>Forwards events to all clones</li>
+        <li>Replicates the mouse pointer</li>
+        <li>What for?
+            <ul>
+                <li>put a second view on a second screen</li>
+                <li>see the current and the next slide</li>
+                <li>monitor time (timekeeper extension)</li>
+                <li>view notes (ext)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>“clone”: let's get cloned</h2>
+    <div class="firefox-message" style="position: absolute; border: 2px solid red; background: #181818; padding: 1em; margin: 1em; font-size: .8em; margin-top: 0;">
+        With firefox and "file://..." URLs (local files), the popup might be blocked, refusing to be shown.
+        To fix that:
+        <ul>
+            <li>on the bar that pops up, click on Preferences&gt;Edit Pop-Up Blocker Preferences…</li>
+            <li>type “&lt;file&gt;” (without the quotes, with the brackets)</li>
+            <li>click allow</li>
+            <li>click close</li>
+            <li>close the poped-up bar and hit 'c' again</li>
+        </ul>
+    </div>
+    <ul>
+        <li>Clone your view!
+            <ul>
+                <li>NB: the browser will probably open a new tab</li>
+                <li>clone your view by typing 'c'
+                    <br/><span class="smallcomment">(in local, show how to <a class="show-firefox-message">tell firefox to not block the popup</a>)</span>
+                </li>
+                <li>detach your tab (drag it out of the browser)</li>
+                <li>go to the main view and hit the right arrow</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>“clone”: Propagation</h2>
+    <ul>
+        <li class="slide">Slide events are propagated to clone(s)
+            <ul>
+                <li class="slide">from master to clone(s), and vice versa</li>
+                <li class="slide">try left/right arrows</li>
+                <li class="slide">try up arrow (with the “<a href="deck-step.html">step</a>” extension)</li>
+            </ul>
+        </li>
+        <li class="slide">Mouse pointer is replicated
+            <ul>
+                <li class="slide">try to move your mouse (on the master)</li>
+                <li class="slide">try also to click</li>
+                <li class="slide">default pointer: red circles</li>
+                <li class="slide">possible custom style using HTML+CSS</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>“clone”: Styling</h2>
+    <ul>
+        <li class="slide">Presenter view styling
+            <ul>
+                <li>adds the “has-clones” class when cloned</li>
+                <li>by default: shows the presenter view</li>
+                <li>in this deck: gray background</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>“timekeeper”: features</h2>
+    <ul>
+        <li><b>timekeeper</b>: enriches the presenter view
+            <ul>
+                <li>current time</li>
+                <li>presentation timer</li>
+                <li>time elapsed since last bang!</li>
+                <li>logs of events (click the timer)</li>
+            </ul>
+        </li>
+        <li>Reseting timers
+            <ul>
+                <li>Mark an instant, Bang!: ESCAPE</li>
+                <li>Reset main timer: SHIFT+ESCAPE</li>
+                <li>NB: presentations from a “site” share the timer</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Browser support</h2>
+    <ul>
+        <li>Clone: should be ok</li>
+        <li>Timekeeper
+            <ul>
+                <li>Uses <a href="http://caniuse.com/#search=localStorage">localStorage</a></li>
+                <li>Might have “security” restrictions with local files (<a href="http://stackoverflow.com/a/2705057/2297277">solution</a>, see the comments too)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<!-- DEMO: clone -->
+
+<!-- deck.navigation snippet -->
+<!--a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a-->
+
+<!-- deck.status snippet -->
+<p class="deck-status deck-progress-10"> <span class="deck-status-current"></span> / <span class="deck-status-total"></span> </p>
+
+<!-- cloned pointer will be added automatically by the clone extension, use {snippets: { clone:false }} to not do it (and maybe add your custom one
+<div class="clonepointer" style="width:20px; height:20px; background-color:red;"></div>
+<div class="clonepointer scale-on-click"><div style="margin: -13px 0 0 -13px; width:18px; height:18px; border:4px solid green;"></div></div>
+-->
+
+</div>
+</body>
+</html>

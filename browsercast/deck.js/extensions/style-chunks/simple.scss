@@ -1,0 +1,64 @@
+
+.deck-container {
+
+    @mixin background-size($mode) {
+        -webkit-background-size: $mode;
+        -moz-background-size: $mode;
+        -o-background-size: $mode;
+        background-size: $mode;
+    }
+
+    .slide.image-full, .slide.image-fit {
+        >.attribution-wrap, >img, >div.img {
+            z-index: -1;
+        }
+        >img, >div.img {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            left: 0; top: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+        div.img {
+            width: 100%; height: 100%;
+            outline: 2px solid red;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        &.image-full div.img {
+            @include background-size(cover);
+        }
+        &.image-fit div.img {
+            @include background-size(contain);
+        }
+    }
+
+    @mixin h2-pos($t, $l) {
+        .slide.#{$t}-#{$l} h2 {
+            position: absolute;
+            border: 0px;
+            #{$t}: 50px;
+            #{$l}: 50px;
+        }
+    }
+
+    @include h2-pos(top, left);
+    @include h2-pos(top, right);
+    @include h2-pos(bottom, left);
+    @include h2-pos(bottom, right);
+
+    .slide.no-title {
+        h1, h2 { display: none; }
+    }
+    
+    .slide.darkened h2 {
+        background: rgba(0,0,0, 0.75);
+        padding: 15px;
+        margin: -15px;
+    }
+
+    .in3d-table {
+        transform: scale(.7)perspective(600px)rotateX(40deg)rotateZ(-15deg)translate(-30px,-120px);
+    }
+}
