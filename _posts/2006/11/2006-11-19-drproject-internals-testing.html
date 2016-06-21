@@ -1,6 +1,5 @@
 ---
 layout: post
-root: ../../..
 title: "DrProject Internals: Testing"
 date: 2006-11-19 10:32:53
 ---
@@ -10,7 +9,7 @@ Trac was one of those.  Its developers had written some unit tests, but they onl
 
 But testing web applications is harder than testing classical command-line applications because web apps consist of several collaborating processes: a browser, a web server, the CGI program (or servlet container and servlets), the database server, and filesystem-dependent components like Subversion (Figure 1).
 
-<img id="image726" alt="Figure 3" src="{{page.root}}/img/2006/11/test041.png" />
+<img id="image726" alt="Figure 3" src="{{site.github.url}}/img/2006/11/test041.png" />
 
 This causes three problems; in increasing order, they are:
 <ol>
@@ -20,7 +19,7 @@ This causes three problems; in increasing order, they are:
 </ol>
 The first step in fixing this is to get rid of the browser and web server.  One way to do this (shown in Figure 2) is to replace the browser with a Python script that generates HTTP requests as multi-line strings and passes them to a "fake CGI" library via a normal method call.  After invoking our actual program, the fake CGI library passes the text of an HTTP response back to our script, which then checks that the right values are present (about which more in a moment).  The "fake CGI" library's job is to emulate the environment the web app under test would see if it was being invoked as a CGI by Apache: environment variables are set, standard input and output are replaced by string I/O objects, and so on, so that the web app has no (easy) way of knowing that it's being invoked via function call, rather than being forked.
 
-<img id="image725" alt="Figure 2" src="{{page.root}}/img/2006/11/test03.png" />
+<img id="image725" alt="Figure 2" src="{{site.github.url}}/img/2006/11/test03.png" />
 
 Why go through this rigmarole?  Why not just have a top-level function in the web app that takes a URL, a dictionary full of header keys and values, and a string containing the POST data, and check the HTML page it generates?  The answer is that structuring our tests in this way allows us to run them both in this test harness, and against a real system.  By replacing the fake CGI adapter with code that sends the HTTP request through a socket connected to an actual web server, and reads that server's response, we can check that our application still does what it's supposed to when it's actually deployed.  The tests will run much more slowly, but that's OK: if we've done our job properly, we'll have caught most of the problems in our faked environment, where debugging is much easier to do.
 
@@ -36,7 +35,7 @@ We can find that pretty easily with an <a href="http://en.wikipedia.org/wiki/XPa
 
 We've still only addressed half of our overall problem, though: our web application is still talking to a database, and to Subversion, and reinitializing those each time we run a text is still sloooooooow.  We solve this by moving the database into memory, and replacing Subversion with a mock object (Figure 3).
 
-<img id="image724" alt="Figure 4" src="{{page.root}}/img/2006/11/test04.png" />
+<img id="image724" alt="Figure 4" src="{{site.github.url}}/img/2006/11/test04.png" />
 
 Let's start with the database.  Most applications rely on an external database server, which is just a long-lived process that manages data on disk.  An increasingly-popular alternative is the <em>embedded</em> database, in which the database manipulation code runs inside the user's application as a normal library.  <a href="http://www.oracle.com/database/berkeley-db/index.html">Berkeley DB</a> (now owned by <a href="http://www.oracle.com">Oracle</a>) and <a href="http://www.sqlite.org">SQLite</a> (still open source) are probably the best known of these; their advocates claim they are simpler to build and faster to run, although there are lots of advantages to the server model as well.
 

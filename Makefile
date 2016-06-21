@@ -1,8 +1,5 @@
-INSTALL_DIR=$(HOME)/sites/third-bit.com
-PAGES=$(wildcard *.html) $(wildcard pages/*.html)
-POSTS=$(wildcard _posts/*.html)
-LAYOUTS=$(wildcard _layouts/*.html)
-INCLUDES=$(wildcard _includes/*.html)
+# Settings
+JEKYLL=jekyll
 
 all : commands
 
@@ -10,22 +7,13 @@ all : commands
 commands :
 	@grep -E '^##' Makefile | sed -e 's/## //g'
 
-## site       : build locally into _site directory for checking.
-site :
-	jekyll build
-
-## drafts     : build locally into _site directory for checking with drafts.
-drafts :
-	jekyll build --drafts
-
-## install    : build into installation directory for sharing.
-install :
-	rm -rf $(INSTALL_DIR)
-	cp -r _site $(INSTALL_DIR)
-
-## serve      : serve locally (builds files).
+## serve          : run a local server.
 serve :
-	jekyll serve
+	${JEKYLL} serve --config _config.yml,_config_dev.yml
+
+## site           : build files but do not run a server.
+site :
+	${JEKYLL} build --config _config.yml,_config_dev.yml
 
 ## clean      : clean up.
 clean :
