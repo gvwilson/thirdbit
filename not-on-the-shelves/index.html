@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Not on the Shelves</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="custom.css">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<!-- ----------------------------------------- -->
+
+	<!-- @ title page -->
+        <section>
+	  <h2>Not on the Shelves</h2>
+	  <h3><a href="http://third-bit.com">Greg Wilson</a></h3>
+	  <h3><a href="http://software-carpentry.org">Software Carpentry Foundation</a></h3>
+	  <div>
+	    <div class="left">
+	      <h4>September 2016</h4>
+	    </div>
+	    <div class="right">
+	      <img src="img/cc-by.svg" alt="CC-BY" />
+	    </div>
+	  </div>
+	</section>
+
+	<!-- @ overview -->
+        <section>
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <p>
+	    What doesn't exist can tell us a lot about what does.
+	  </p>
+	  <div class="fragment">
+	    <p>&nbsp;</p>
+	    <p>&nbsp;</p>
+	    <p>
+	      Also, I suck at graphical design.
+	    </p>
+	  </div>
+	</section>
+
+	<!-- @ how Software Carpentry came to be -->
+        <section>
+	  <p class="title">
+	    Once Upon a Time…
+	  </p>
+	  <ul>
+	    <li>Support programmer in university computing center</li>
+	    <li>Saw <span class="oops">smart people stumble for lack of basic skills</span></li>
+	    <li>Complained (a lot)</li>
+	    <li>Eventually told "put up or shut up"</li>
+	    <li>First Software Carpentry class ran at LANL in 1998</li>
+	  </ul>
+	  <img src="img/lanl-1998-07.jpg" alt="LANL Software Carpentry, July 1998" />
+	</section>
+
+	<!-- @ how Beautiful Code and AOSA came to be -->
+        <section>
+	  <p class="title">
+	    Time Passes…
+	  </p>
+	  <ul>
+	    <li>Book review editor for <em><a href="http://ddj.com">Doctor Dobb's Journal</a></em></li>
+	    <li>Most rehashed the same handful of topics</li>
+	    <li>Almost <span class="oops">nothing on the implementation of tools</span></li>
+	    <li>Tried some sympathetic magic</li>
+	    <li>Didn't lead to many books…</li>
+	    <li>…at least, not right away</li>
+	  </ul>
+	  <img src="img/ddj.png" alt="Dr Dobb's Journal" />
+	</section>
+
+        <section>
+	  <p class="title">
+	    More Time Passes…
+	  </p>
+	  <ul>
+	    <li>Asked to teach a course on software architecture</li>
+	    <li>Looked at a couple of dozen books…</li>
+	    <li><span class="oops">…none of which described actual architectures</span></li>
+	    <li>So I asked people to describe the most beautiful piece of code they'd ever seen</li>
+	  </ul>
+	  <img src="img/beautiful-code.png" alt="Beautiful Code" />
+	  <img src="img/aosa1.png" alt="AOSA Vol 1" />
+	  <img src="img/aosa2.png" alt="AOSA Vol 2" />
+	  <img src="img/posa.png" alt="POSA" />
+	  <img src="img/500-lines.png" alt="500 Lines" />
+	</section>
+
+	<!-- @ missing tools for scientists -->
+	<section>
+	  <p class="title">
+	    Rebooted Software Carpentry in 2010
+	  </p>
+	  <ul>
+	    <li>Me: "Don't use Word to write your papers."</li>
+	    <li>Them: "Why not?  It's a lot simpler than LaTeX."</li>
+	    <li>Me: "Because <span class="oops">version control can't handle it</span>."</li>
+	    <li>Them: "Why not?  It's just zipped XML."</li>
+	    <li>Me: …</li>
+	    <li>Them: "Also, what's up with Excel??"</li>
+	  </ul>
+	  <img src="img/fluttershy-embarrassed.jpg" alt="Embarrassed Fluttershy" />
+	</section>
+
+	<!-- @ missing tools for educators -->
+	<section>
+	  <p class="title">
+	    How Learning Works
+	  </p>
+	  <ul>
+	    <li>Started reading the education literature in 2011</li>
+	    <li>We know a <em>lot</em> about how people learn and how best to teach them</li>
+	    <li>But <span class="oops">most faculty don't even know this knowledge exists</span></li>
+	  </ul>
+	  <img src="img/fluttershy-surprised.png" alt="Surprised Fluttershy" />
+	</section>
+
+	<section>
+	  <p class="title">
+	    For Example
+	  </p>
+	  <ul>
+	    <li>We have known for 20 years that peer instruction outperforms classic lecturing</li>
+	    <li>But <span class="oops">no major MOOC platform supports peer instruction</span></li>
+	    <li>Absence isn't technical: a GSoC student built a proof of concept in 12 weeks in 2014</li>
+	  </ul>
+	  <img src="img/fluttershy-confused.jpg" alt="Confused Fluttershy" />
+	</section>
+
+	<!-- @ missing empirical evidence -->
+	<section>
+	  <p class="title">
+	    Computer <strike>Science</strike> Strong Opinion
+	  </p>
+	  <ul>
+	    <li>Helped edit similar collection in 2010 on empirical studies in software engineering</li>
+	    <li>We know a <em>lot</em> about software and how it's built</li>
+	    <li>But <span class="oops">almost none of this is in the undergraduate curriculum</span></li>
+	    <li>And <span class="oops">students aren't even shown the methods</span></li>
+	  </ul>
+	  <img src="img/making-software.jpg" alt="Making Software" />
+	</section>
+
+	<section>
+	  <p class="title">
+	    For Example
+	  </p>
+	  <ul>
+	    <li>C-style languages are as hard to learn as ones with random syntax</li>
+	    <li>Python and Ruby are significantly easier…</li>
+	    <li>…and A/B-tested languages are even easier</li>
+	    <li>But <span class="oops">no major language tests new features on users before deploying them</span></li>
+	  </ul>
+	  <img src="img/mad-scientist.png" alt="Mad Scientist" />
+	</section>
+
+	<!-- ----------------------------------------- -->
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // More info on configuration at https://github.com/hakimel/reveal.js#configuration
+      // More info on dependencies at https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        history: true,
+        center: false,
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
