@@ -15,6 +15,9 @@
       link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
+    <style type="text/css">
+      section { text-align: left; }
+    </style>
   </head>
   <body>
     <div class="reveal">
@@ -22,7 +25,7 @@
 	<!-- ----------------------------------------- -->
 
 	<!-- @ title page -->
-        <section>
+        <section style="text-align: center;">
 	  <h2>Not on the Shelves</h2>
 	  <p>&nbsp;</p>
 	  <h3><a href="http://third-bit.com">Greg Wilson</a></h3>
@@ -40,7 +43,7 @@
 	</section>
 
 	<!-- @ overview -->
-        <section>
+        <section style="text-align: center;">
 	  <p>&nbsp;</p>
 	  <p>&nbsp;</p>
 	  <p>
@@ -67,7 +70,9 @@
 	    <li>Eventually told "put up or shut up"</li>
 	    <li>First Software Carpentry class ran at LANL in 1998</li>
 	  </ul>
-	  <img src="img/lanl-1998-07.jpg" alt="LANL Software Carpentry, July 1998" />
+	  <div style="text-align: center;">
+	    <img src="img/lanl-1998-07.jpg" alt="LANL Software Carpentry, July 1998" />
+	  </div>
 	</section>
 
 	<!-- @ how Beautiful Code and AOSA came to be -->
@@ -83,7 +88,9 @@
 	    <li>Didn't lead to many books…</li>
 	    <li>…at least, not right away</li>
 	  </ul>
-	  <img src="img/ddj.png" alt="Dr Dobb's Journal" />
+	  <div style="text-align: center;">
+	    <img src="img/ddj.png" alt="Dr Dobb's Journal" />
+	  </div>
 	</section>
 
         <section>
@@ -96,11 +103,13 @@
 	    <li><span class="oops">…none of which described actual architectures</span></li>
 	    <li>So I asked people to describe the most beautiful piece of code they'd ever seen</li>
 	  </ul>
-	  <img src="img/beautiful-code.png" alt="Beautiful Code" />
-	  <img src="img/aosa1.png" alt="AOSA Vol 1" />
-	  <img src="img/aosa2.png" alt="AOSA Vol 2" />
-	  <img src="img/posa.png" alt="POSA" />
-	  <img src="img/500-lines.png" alt="500 Lines" />
+	  <div style="text-align: center;">
+	    <img src="img/beautiful-code.png" alt="Beautiful Code" />
+	    <img src="img/aosa1.png" alt="AOSA Vol 1" />
+	    <img src="img/aosa2.png" alt="AOSA Vol 2" />
+	    <img src="img/posa.png" alt="POSA" />
+	    <img src="img/500-lines.png" alt="500 Lines" />
+	  </div>
 	</section>
 
 	<!-- @ missing tools for scientists -->
@@ -116,7 +125,9 @@
 	    <li>Me: …</li>
 	    <li>Them: "Also, what's up with Excel??"</li>
 	  </ul>
-	  <img src="img/fluttershy-embarrassed.jpg" alt="Embarrassed Fluttershy" />
+	  <div style="text-align: center;">
+	    <img src="img/fluttershy-embarrassed.jpg" alt="Embarrassed Fluttershy" />
+	  </div>
 	</section>
 
 	<!-- @ missing tools for educators -->
@@ -129,7 +140,9 @@
 	    <li>We know a <em>lot</em> about how people learn and how best to teach them</li>
 	    <li>But <span class="oops">most faculty don't know this knowledge exists</span></li>
 	  </ul>
-	  <img src="img/fluttershy-surprised.png" alt="Surprised Fluttershy" />
+	  <div style="text-align: center;">
+	    <img src="img/fluttershy-surprised.png" alt="Surprised Fluttershy" />
+	  </div>
 	</section>
 
 	<section>
@@ -141,7 +154,9 @@
 	    <li>But <span class="oops">no major MOOC platform supports peer instruction</span></li>
 	    <li>Absence isn't technical</li>
 	  </ul>
-	  <img src="img/fluttershy-confused.jpg" alt="Confused Fluttershy" />
+	  <div style="text-align: center;">
+	    <img src="img/fluttershy-confused.jpg" alt="Confused Fluttershy" />
+	  </div>
 	</section>
 
 	<!-- @ missing empirical evidence -->
@@ -154,7 +169,9 @@
 	    <li>We know a <em>lot</em> about software and how it's built</li>
 	    <li>But <span class="oops">students aren't ever shown empirical methods</span></li>
 	  </ul>
-	  <img src="img/making-software.jpg" alt="Making Software" />
+	  <div style="text-align: center;">
+	    <img src="img/making-software.jpg" alt="Making Software" />
+	  </div>
 	</section>
 
 	<section>
@@ -167,7 +184,12 @@
 	    <li>…and A/B-tested languages are even easier</li>
 	    <li>But <span class="oops">no major language user-tests new features</span></li>
 	  </ul>
-	  <img src="img/mad-scientist.png" alt="Mad Scientist" />
+	  <div style="text-align: center;">
+	    <p>&nbsp;</p>
+	    <p>&nbsp;</p>
+	    <p>&nbsp;</p>
+	    [I couldn't find a picture of Fluttershy as a mad scientist]
+	  </div>
 	</section>
 
 	<!-- @ harassment -->
@@ -180,7 +202,9 @@
 	    <li>…unless you're the Olympics or the police</li>
 	    <li>Meanwhile, <span class="oops">no legal obligation to audit algorithms for racial or gender bias</span></li>
 	  </ul>
-	  <img src="img/fluttershy-angry.jpg" alt="Angry Fluttershy" />
+	  <div style="text-align: center;">
+	    <img src="img/fluttershy-angry.jpg" alt="Angry Fluttershy" />
+	  </div>
 	</section>
 
 	<!-- @ one-way communication -->
@@ -194,7 +218,9 @@
 	    <li>No recognition that <span class="oops">knowledge should flow both ways</span></li>
 	    <li>Community organization, non-profit management, how to run a meeting…</li>
 	  </ul>
-	  <img src="img/t3.png" alt="Teaching Tech Together banner" />
+	  <div style="text-align: center;">
+	    <img src="img/t3.png" alt="Teaching Tech Together banner" />
+	  </div>
 	</section>
 
 	<!-- @ summary -->
@@ -224,7 +250,7 @@
 	    <li>"Knowing how" is valued less than "knowing that"</li>
 	    <li>No recognition that <em>we</em> can learn a lot from <em>them</em></li>
 	  </ol>
-	  <div class="fragment">
+	  <div class="fragment" style="text-align: center;">
 	    <img src="img/two-solitudes.png" alt="Two Solitudes" />
 	    <p>Two Solitudes</p>
 	  </div>
@@ -239,7 +265,7 @@
 	    <li><span class="fragment">some</span> smart young people get CS degrees</li>
 	    <li><span class="fragment">most</span> never pay attention to CS again</li>
 	  </ol>
-	  <div class="fragment">
+	  <div class="fragment" style="text-align: center;">
 	    <img src="img/couch.png" alt="Ignoring Each Other on the Couch" />
 	    <p>
 	      And yes, it's worse in computing than other professions
@@ -267,10 +293,14 @@
 	  <ul>
 	    <li>1747: James Lind does the first controlled medical experiment in history</li>
 	    <li>1950: Hill &amp; Doll's study of smokers and non-smokers</li>
+	  </ul>
+	  <div style="text-align: center;">
+	    <img src="img/lungs.png" alt="Lungs" />
+	  </div>
+	  <ul>
 	    <li class="fragment">Finding #1: smoking causes cancer</li>
 	    <li class="fragment">Finding #2: most people would rather fail than change</li>
 	  </ul>
-	  <img src="img/lungs.png" alt="Lungs" />
 	</section>
 
 	<section>
@@ -282,7 +312,9 @@
 	    <li class="fragment">So they know what it has to do with them</li>
 	    <li class="fragment">So they teach it to the next generation</li>
 	  </ul>
-	  <img src="img/lungs.png" alt="Lungs" />
+	  <div style="text-align: center;">
+	    <img src="img/lungs.png" alt="Lungs" />
+	  </div>
 	</section>
 
 	<section>
@@ -290,21 +322,25 @@
 	    Like Water on Stone
 	  </p>
 	  <ul>
-	    <li>Stop asking CS undergrads to pretend they're doing a project</li>
+	    <li>Stop asking CS students to pretend to do a project</li>
 	    <li class="fragment">Have them do science instead</li>
 	  </ul>
-	  <img src="img/lightbulb.jpg" alt="Lightbulb" />
+	  <div style="text-align: center;">
+	    <img src="img/lightbulb.jpg" alt="Lightbulb" />
+	  </div>
 	</section>
 
 	<section>
 	  <p class="title">
 	    Like Water on Stone
 	  </p>
-	  <p align="left">
-	    You have been given 80K lines of C and a static analysis
-	    tool that can identify lines containing buffer overruns
-	    and memory leaks. Determine if complex functions are
-	    more likely to contain errors than simple ones.
+	  <p>
+	    <em>
+	      You have been given 80K lines of C and a static analysis
+	      tool that can identify lines containing buffer overruns
+	      and memory leaks. Determine if complex functions are
+	      more likely to contain errors than simple ones.
+	    </em>
 	  </p>
 	  <div class="fragment">
 	    <p>Requires:</p>
@@ -313,8 +349,8 @@
 	      <li>Model building</li>
 	      <li>Statistics</li>
 	    </ul>
-	    <p>And <em>it's intellectually respectable</em></p>
 	  </div>
+	  <p class="fragment">And <strong>it's intellectually respectable</strong></p>
 	</section>
 
 	<!-- ----------------------------------------- -->
