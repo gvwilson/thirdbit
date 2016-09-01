@@ -29,8 +29,8 @@
 	  <h2>Not on the Shelves</h2>
 	  <p>&nbsp;</p>
 	  <h3><a href="http://third-bit.com">Greg Wilson</a></h3>
-	  <h3><a href="http://software-carpentry.org">Software Carpentry Foundation</a></h3>
-	  <p>&nbsp;</p>
+	  <h4><a href="http://software-carpentry.org">Software Carpentry Foundation</a></h4>
+	  <p><a href="mailto:gvwilson@software-carpentry.org">gvwilson@software-carpentry.org</a></p>
 	  <p>&nbsp;</p>
 	  <div>
 	    <div class="left">
@@ -49,13 +49,6 @@
 	  <p>
 	    What doesn't exist can tell us a lot about what does.
 	  </p>
-	  <div class="fragment">
-	    <p>&nbsp;</p>
-	    <p>&nbsp;</p>
-	    <p>
-	      Warning: I suck at graphical design.
-	    </p>
-	  </div>
 	</section>
 
 	<!-- @ how Software Carpentry came to be -->
@@ -80,15 +73,21 @@
 	  <p class="title">
 	    Time Passes…
 	  </p>
-	  <ul>
-	    <li>Book review editor for <em><a href="http://ddj.com">Doctor Dobb's Journal</a></em></li>
-	    <li>Most rehashed the same handful of topics</li>
-	    <li>Almost <span class="oops">nothing on the implementation of tools</span></li>
-	    <li>Tried some sympathetic magic</li>
-	  </ul>
 	  <div style="text-align: center;">
 	    <img src="img/ddj.png" alt="Dr Dobb's Journal" />
 	  </div>
+	  <ul>
+	    <li>Book review editor for <em><a href="http://ddj.com">Doctor Dobb's Journal</a></em></li>
+	    <li>Most rehashed the same handful of topics</li>
+	    <li>Almost <span class="oops">nothing on the implementation of tools</span>
+	      <ul>
+		<li>Hundreds of books on compilers</li>
+		<li>Only three on debuggers</li>
+		<li>None of them good</li>
+	      </ul>
+	    </li>
+	    <li>Tried some sympathetic magic</li>
+	  </ul>
 	</section>
 
         <section>
@@ -101,7 +100,7 @@
 	    <li><span class="oops">…none of which described actual architectures</span></li>
 	    <li>So I asked people to describe the most beautiful code they'd ever seen</li>
 	  </ul>
-	  <div style="text-align: center;">
+	  <div style="text-align: center;" class="fragment">
 	    <img src="img/beautiful-code.png" alt="Beautiful Code" />
 	    <img src="img/aosa1.png" alt="AOSA Vol 1" />
 	    <img src="img/aosa2.png" alt="AOSA Vol 2" />
@@ -116,12 +115,12 @@
 	    Rebooted Software Carpentry in 2010
 	  </p>
 	  <ul>
-	    <li>Me: "Don't use Word to write your papers."</li>
-	    <li>Them: "Why not?  It's a lot simpler than LaTeX."</li>
-	    <li>Me: "Because <span class="oops">version control can't handle it</span>."</li>
-	    <li>Them: "Why not?  It's just zipped XML."</li>
+	    <li>Me: "Don't use Word or Excel."</li>
+	    <li>Them: "Why not?"</li>
+	    <li>Me: "Because <span class="oops">version control can't handle them</span>."</li>
+	    <li>Them: "Why not?"</li>
 	    <li>Me: …</li>
-	    <li>Them: "Also, what's up with Excel??"</li>
+	    <li>Them: "Also, what's up with the Jupyter Notebook??"</li>
 	  </ul>
 	  <div style="text-align: center;">
 	    <img src="img/fluttershy-embarrassed.jpg" alt="Embarrassed Fluttershy" />
@@ -160,15 +159,23 @@
 	<!-- @ missing empirical evidence -->
 	<section>
 	  <p class="title">
+	    Computer Science
+	  </p>
+	</section>
+
+	<section>
+	  <p class="title">
 	    Computer <strike>Science</strike> Strong Opinion
 	  </p>
-	  <ul>
-	    <li>Helped edit "greatest hits" collection on empirical studies in software engineering</li>
-	    <li>We know a lot about software and how it's built</li>
-	    <li>But <span class="oops">students aren't ever shown empirical methods</span></li>
-	  </ul>
-	  <div style="text-align: center;">
-	    <img src="img/making-software.jpg" alt="Making Software" />
+	  <div class="fragment">
+	    <ul>
+	      <li>Helped edit "greatest hits" collection on empirical studies in software engineering</li>
+	      <li>We know a lot about software and how it's built</li>
+	      <li>But <span class="oops">students aren't ever shown empirical methods</span></li>
+	    </ul>
+	    <div style="text-align: center;">
+	      <img src="img/making-software.jpg" alt="Making Software" />
+	    </div>
 	  </div>
 	</section>
 
@@ -192,11 +199,11 @@
 	<!-- @ harassment -->
 	<section>
 	  <p class="title">
-	    The Garbage Fire That Is "Twitter"
+	    The Garbage Fire Known As "Twitter"
 	  </p>
 	  <ul>
 	    <li>Harassment is unstoppable…</li>
-	    <li>…unless you're the Olympics or the police</li>
+	    <li>…unless you're the Olympics</li>
 	    <li>Meanwhile, <span class="oops">no legal obligation to audit algorithms for racial or gender bias</span></li>
 	  </ul>
 	  <div style="text-align: center;">
@@ -241,19 +248,36 @@
 
 	<section>
 	  <p class="title">
-	    There Is
+	    Themes
 	  </p>
-	  <p>&nbsp;</p>
-	  <div align="center">
-	    <p>"Knowing how" is valued less than "knowing that"</p>
-	    <img src="img/two-solitudes.png" alt="Two Solitudes" />
+	  <ol>
+	    <li>"Gentlemen don't get their hands dirty."</li>
+	    <li>"They should be grateful."</li>
+	  </ol>
+	  <div class="fragment">
+	    <p class="title">
+	      Solutions
+	    </p>
+	    <ol>
+	      <li>Have students get their hands dirty.</li>
+	      <li>Make Empathy 101 a required course.</li>
+	    </ol>
+	  </div>
+	  <div class="fragment">
+	    <p class="title">
+	      But:
+	    </p>
+	    <ol>
+	      <li>"They already do a lot of programming!"</li>
+	      <li>"That's <em>hard</em>."</li>
+	    </ol>
 	  </div>
 	</section>
 
 	<!-- @ fixing CS -->
 	<section>
 	  <p class="title">
-	    An Uncomfortable Truth
+	    Some Uncomfortable Truths
 	  </p>
 	  <ol>
 	    <li><span class="fragment">some</span> smart young people get CS degrees</li>
@@ -279,7 +303,7 @@
 	  </ul>
 	</section>
 
-	<!-- @ how to fix it -->
+	<!-- @ how medicine became a science -->
 	<section>
 	  <p class="title">
 	    The Youngest Science
@@ -315,27 +339,101 @@
 	  </ul>
 	</section>
 
+	<!-- @ proposal -->
 	<section>
 	  <p class="title">
 	    Proposal #1
 	  </p>
 	  <p>
 	    <em>
-	      You have been given 80K lines of C and a static analysis
-	      tool that can identify lines containing buffer overruns
-	      and memory leaks. Determine if complex functions are
-	      more likely to contain errors than simple ones.
+	      Given version control repositories for six software
+	      projects, determine whether long functions and methods
+	      are more likely to be buggy than short ones.
 	    </em>
 	  </p>
+	  <ul>
+	    <li class="fragment">Requires tool use, model building, and statistics</li>
+	    <li class="fragment">Encourages students to <em>do</em>, so they <em>understand and value</em>, so they <em>engage</em></li>
+	    <li class="fragment">Fits into existing curriculum</li>
+	    <li class="fragment">And it's <em>culturally defensible</em></li>
+	  </ul>
+	</section>
+
+	<!-- @ empathy -->
+	<section>
+	  <p class="title">
+	    What About Empathy?
+	  </p>
+	  <ul>
+	    <li>I no longer believe that we <strike>can</strike> will fix this</li>
+	  </ul>
+	  <div style="text-align: center;">
+	    <img src="img/women-in-cs.jpg" alt="Women in CS" />
+	  </div>
+	  <ul>
+	    <li class="fragment">So we should raise up a generation that can and will</li>
+	  </ul>
+	</section>
+
+	<!-- @ proposal -->
+	<section>
+	  <p class="title">
+	    Proposal #2
+	  </p>
+	  <ul>
+	    <li>Create programs in CS education
+	      <ul>
+		<li>Modelled on those in math and physics education</li>
+	      </ul>
+	    </li>
+	    <li class="fragment">Start with a single course
+	      <ul>
+		<li class="fragment">Guzdial: <em>Learner-Centered Design of Computing Education</em></li>
+		<li class="fragment">Lang: <em>Small Teaching</em></li>
+		<li class="fragment">Ambrose et al: <em>How Learning Works</em></li>
+		<li class="fragment">Green: <em>Building a Better Teacher</em></li>
+		<li class="fragment">Spalding: <em>How to Teach Adults</em></li>
+		<li class="fragment">Brown: <em>Building Powerful Community Organizations</em></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <p class="title">
+	    Proposal #2 (enlarged)
+	  </p>
+	  <ul>
+	    <li>Create an organization like Software Carpentry</li>
+	    <li class="fragment">Teach grassroots coding groups about teaching and technology</li>
+	    <li class="fragment">Teach programmers how to teach (because they don't know either)…</li>
+	    <li class="fragment">…how to organize a community…</li>
+	    <li class="fragment">…what real disruption looks like</li>
+	  </ul>
 	  <div class="fragment">
-	    <p>Requires:</p>
+	    <p>&nbsp;</p>
 	    <ul>
-	      <li>Tool use</li>
-	      <li>Model building</li>
-	      <li>Statistics</li>
+	      <li>And then wait ten years</li>
 	    </ul>
 	  </div>
-	  <p class="fragment">And <strong>it's intellectually respectable</strong></p>
+	</section>
+
+	<!-- @ wrapping up -->
+	<section>
+	  <div style="text-align: center;">
+	    <img src="img/pratchett.png" alt="Terry Pratchett" />
+	    <p align="left">
+	      If you build someone a fire,
+	      you'll keep them warm for a night.
+	      If you set someone on fire,
+	      you'll keep them warm for the rest of their life.
+	    </p>
+	    <p align="right">
+	      <em>— Terry Pratchett</em>
+	    </p>
+	    <p>&nbsp;</p>
+	    <p class="fragment">Thank you</p>
+	  </div>
 	</section>
 
 	<!-- ----------------------------------------- -->
