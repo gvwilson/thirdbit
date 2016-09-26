@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Not on the Shelves</title>
+    <title>Not in the Calendar</title>
     <link rel="stylesheet" href="../reveal/css/reveal.css">
     <link rel="stylesheet" href="../reveal/css/theme/sky.css">
     <link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
@@ -23,7 +23,7 @@
 
 	<!-- @ title page -->
         <section style="text-align: center;">
-	  <h2>Not on the Shelves</h2>
+	  <h2>Not in the Calendar</h2>
 	  <p>&nbsp;</p>
 	  <h3><a href="http://third-bit.com">Greg Wilson</a></h3>
 	  <h4><a href="http://software-carpentry.org">Software Carpentry Foundation</a></h4>
@@ -55,9 +55,8 @@
 	  </p>
 	  <ul>
 	    <li>Support programmer in university computing center</li>
-	    <li>Saw <span class="oops">smart people stumble for lack of basic skills</span></li>
-	    <li>Complained (a lot)</li>
-	    <li>Eventually told "put up or shut up"</li>
+	    <li>Saw <span class="oops">smart people stumble because they hadn't been taught basic skills</span></li>
+	    <li>Complained until told "put up or shut up"</li>
 	    <li>First <a href="http://software-carpentry.org">Software Carpentry</a> class ran at LANL in 1998</li>
 	  </ul>
 	  <div style="text-align: center;">
@@ -75,11 +74,9 @@
 	  </div>
 	  <ul>
 	    <li>Book review editor for <em><a href="http://ddj.com">Doctor Dobb's Journal</a></em></li>
-	    <li>Most rehashed the same handful of topics</li>
-	    <li>Almost <span class="oops">nothing on the implementation of tools</span>
+	    <li>Hundreds of textbooks on compilers, but <span class="oops">no textbooks on debuggers or debugging</span>
 	      <ul>
-		<li>Hundreds of books on compilers</li>
-		<li>Only three on debuggers (none good)</li>
+		<li>Or build tools, or package managers, or…</li>
 	      </ul>
 	    </li>
 	    <li>Tried some sympathetic magic</li>
@@ -92,9 +89,8 @@
 	  </p>
 	  <ul>
 	    <li>Asked to teach a course on software architecture</li>
-	    <li>Looked at a couple of dozen books…</li>
-	    <li><span class="oops">…none of which described actual architectures</span></li>
-	    <li>So we did this</li>
+	    <li>Looked at two dozen books and other people's courses…</li>
+	    <li>…but <span class="oops">none described actual architectures</span></li>
 	  </ul>
 	  <div style="text-align: center;" class="fragment">
 	    <a href="https://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><img src="img/beautiful-code.png" alt="Beautiful Code" /></a>
@@ -105,24 +101,6 @@
 	  </div>
 	</section>
 
-	<!-- @ missing tools for scientists -->
-	<section>
-	  <p class="title">
-	    Rebooted Software Carpentry in 2010
-	  </p>
-	  <ul>
-	    <li>Me: "Don't use Word or Excel."</li>
-	    <li>Them: "Why not?"</li>
-	    <li>Me: "Because <span class="oops">version control can't handle them</span>."</li>
-	    <li>Them: "Why not?"</li>
-	    <li>Me: …</li>
-	    <li>Them: "Also, what's up with the Jupyter Notebook??"</li>
-	  </ul>
-	  <div style="text-align: center;">
-	    <img src="img/fluttershy-embarrassed.jpg" alt="Embarrassed Fluttershy" />
-	  </div>
-	</section>
-
 	<!-- @ missing tools for educators -->
 	<section>
 	  <p class="title">
@@ -130,29 +108,26 @@
 	  </p>
 	  <ul>
 	    <li>Started reading the education literature in 2011</li>
-	    <li>We know a lot about how people learn and how best to teach them</li>
-	    <li>But <span class="oops">most faculty don't know this knowledge exists</span></li>
+	    <li>We know a lot about learning and teaching</li>
+	    <li>But <span class="oops">most faculty have never been taught how to teach</span></li>
 	  </ul>
 	  <div style="text-align: center;">
 	    <img src="img/fluttershy-surprised.png" alt="Surprised Fluttershy" />
 	  </div>
 	</section>
 
+	<!-- @ one-way communication -->
 	<section>
 	  <p class="title">
-	    For Example
+	    We Can't Get There From Here
 	  </p>
 	  <ul>
-	    <li>We have known for 20 years that peer instruction outperforms classic lecturing</li>
-	    <li>But <span class="oops">no major MOOC platform supports peer instruction</span>
-	      <ul>
-		<li><a href="http://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/exercises_tools/peer_instruction_tool.html#ubc-peer-instruction">What EdX does</a> isn't really PI</li>
-	      </ul>
-	    </li>
-	    <li>No technical reason for the absence</li>
+	    <li>"Computer Science for All" is a great rallying cry…</li>
+	    <li>…but meaningless because <span class="oops">most programmers have never been taught how to teach</span> (either)</li>
+	    <li class="fragment">We certainly don't teach them that they should listen as well as talk</li>
 	  </ul>
 	  <div style="text-align: center;">
-	    <img src="img/fluttershy-confused.jpg" alt="Confused Fluttershy" />
+	    <img src="img/learning.png" alt="Learning goes both ways" />
 	  </div>
 	</section>
 
@@ -167,12 +142,18 @@
 	  <p class="title">
 	    Computer <strike>Science</strike> Strong Opinion
 	  </p>
-	  <div class="fragment">
+	  <div>
 	    <ul>
-	      <li>We know a lot about software and how it's built</li>
-	      <li>But <span class="oops">students aren't ever shown empirical methods</span></li>
+	      <li class="fragment">We know a lot about software and how it's built</li>
+	      <li class="fragment">But <span class="oops">students aren't taught empirical methods</span>
+		<ul>
+		  <li class="fragment">Biologists have to spend 6 hours/week in the lab</li>
+		  <li class="fragment">CS students do one experiment in four years</li>
+		</ul>
+	      </li>
+	      <li class="fragment">There's no shortage of material…</li>
 	    </ul>
-	    <div style="text-align: center;">
+	    <div style="text-align: center;" class="fragment">
 	      <a href="https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><img src="img/making-software.jpg" alt="Making Software" /></a>
 	    </div>
 	  </div>
@@ -186,71 +167,47 @@
 	    <li><a href="http://neverworkintheory.org/2014/01/29/stefik-siebert-syntax.html">C-style syntax is as hard to learn as random syntax</a></li>
 	    <li>Python and Ruby are significantly easier…</li>
 	    <li>…and A/B-tested languages are even easier</li>
-	    <li>But <span class="oops">no major language user-tests new features</span></li>
+	    <li>But no major language user-tests new features</li>
 	  </ul>
-	  <div style="text-align: center;">
+	  <div align="center" class="fragment">
 	    <p>&nbsp;</p>
-	    <p>&nbsp;</p>
-	    [I couldn't find a picture of Fluttershy as a mad scientist]
+	    <p style="font-size:80%;">
+	      <a href="https://www.functionalgeekery.com/episode-55-andreas-stefik/">https://www.functionalgeekery.com/episode-55-andreas-stefik/</a>
+	    </p>
+	    <p>
+	      [I couldn't find a picture of Fluttershy as a mad scientist]
+	    </p>
 	  </div>
 	</section>
 
 	<!-- @ harassment -->
 	<section>
 	  <p class="title">
-	    The Garbage Fire Known As "Twitter"
+	    Machines Learn What We Teach Them
 	  </p>
 	  <ul>
-	    <li>Harassment is unstoppable…</li>
-	    <li class="fragment">…unless you're the Olympics</span></li>
-	    <li class="fragment"><span class="oops">No legal obligation to audit algorithms for bias</span></li>
+	    <li>"Machine learning is money laundering for bias"</li>
+	    <li class="fragment">Because <span class="oops">bias isn't part of the discussion of algorithms</span></li>
+	    <li class="fragment">Just as <span class="oops">harassment isn't part of the discussion of distributed systems</span>
+	      <ul class="fragment">
+		<li>Impossible to solve…unless you're the Olympics.</li>
+	      </ul>
+	    </li>
 	  </ul>
 	  <div style="text-align: center;">
 	    <img src="img/fluttershy-angry.jpg" alt="Angry Fluttershy" />
 	  </div>
 	</section>
 
-	<!-- @ one-way communication -->
 	<section>
 	  <p class="title">
-	    The Irony of Simplex Communication
-	  </p>
-	  <ul>
-	    <li>Hundreds of free-range "learn to code" groups</li>
-	    <li>"<em>We</em> will teach <em>them</em> Javascript and CSS"</li>
-	    <li>No recognition that <span class="oops">"they" have a lot to teach "us"</span></li>
-	  </ul>
-	  <div style="text-align: center;">
-	    <img src="img/learning.png" alt="Learning goes both ways" />
-	  </div>
-	</section>
-
-	<!-- @ summary -->
-	<section>
-	  <p class="title">
-	    Is There a Pattern?
-	  </p>
-	  <ul>
-	    <li>Smart people stumble for lack of basic skills</li>
-	    <li>Nothing on the implementation of tools</li>
-	    <li>No description of actual architectures</li>
-	    <li>Version control can't handle commonly-used files</li>
-	    <li>Most faculty have never met evidence-based pedagogy</li>
-	    <li>No major MOOC platform supports peer instruction</li>
-	    <li>Students aren't ever shown empirical methods</li>
-	    <li>No major language user-tests new features</li>
-	    <li>No legal obligation to audit algorithms for bias</li>
-	    <li>No recognition that <em>we</em> can learn a lot from <em>them</em></li>
-	  </ul>
-	</section>
-
-	<section>
-	  <p class="title">
-	    Themes
+	    What's the Pattern?
 	  </p>
 	  <ol>
 	    <li>Gentlemen don't get their hands dirty.</li>
-	    <li>"They" should be grateful.</li>
+	    <li>Science is something we do for other people.</li>
+	    <li>"Knowing X" = "knowing how to teach X".</li>
+	    <li>The world is basically OK the way it is.</li>
 	  </ol>
 	  <div class="fragment">
 	    <p class="title">
@@ -258,51 +215,11 @@
 	    </p>
 	    <ol>
 	      <li>Have students get their hands dirty.</li>
+	      <li>Have Computer Science students do science.</li>
+	      <li>Teach Computer Science students how to teach.</li>
 	      <li>Make Empathy 101 a required course.</li>
 	    </ol>
 	  </div>
-	  <div class="fragment">
-	    <p class="title">
-	      But:
-	    </p>
-	    <ol>
-	      <li>"They already do a lot of programming!"</li>
-	      <li>"That's <em>hard</em>."</li>
-	    </ol>
-	  </div>
-	</section>
-
-	<!-- @ fixing CS -->
-	<section>
-	  <p class="title">
-	    Some Uncomfortable Truths
-	  </p>
-	  <ol>
-	    <li><span class="fragment">Some</span> smart young people get CS degrees</li>
-	    <li><span class="fragment">Most</span> never pay attention to CS again</li>
-	  </ol>
-	  <div class="fragment" style="text-align: center;">
-	    <img src="img/two-people-ignoring-each-other.jpg" alt="Two People Ignoring Each Other" />
-	    <p>
-	      And yes, it's not just a problem in computing
-	    </p>
-	  </div>
-	</section>
-
-	<section>
-	  <p class="title">
-	    Some Uncomfortable Truths
-	  </p>
-	  <ul>
-	    <li>Academics don't respect practitioners' timescales</li>
-	    <li class="fragment">And don't seem to care if practitioners read their work</li>
-	    <li class="fragment">Practitioners don't understand that <em>research isn't about writing software</em></li>
-	    <li class="fragment">Computer scientists are penalized for writing good code
-	      <ul>
-		<li class="fragment">Just like "real" scientists</li>
-	      </ul>
-	    </li>
-	  </ul>
 	</section>
 
 	<!-- @ how medicine became a science -->
@@ -325,7 +242,7 @@
 
 	<section>
 	  <p class="title">
-	    Like Water on Stone
+	    The Youngest Science
 	  </p>
 	  <ul>
 	    <li>Doctors do science</li>
