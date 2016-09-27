@@ -38,4 +38,5 @@ What *will* do that is organizing.
 Instead of tenure for a few,
 I want unions and professional associations with real bargaining power,
 for everyone,
-because I believe we're stronger and smarter when the playing field is truly level.
+because I believe that the more we have in common,
+the stronger we are.
