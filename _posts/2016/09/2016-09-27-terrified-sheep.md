@@ -28,3 +28,14 @@ and [Lynn Conway](https://en.wikipedia.org/wiki/Lynn_Conway)
 all had tenure,
 because gosh,
 where would we be if they hadn't felt it was safe to upset someone without it?"
+
+To be clear,
+I'm frightened and disgusted by the corporatization of higher education
+and the erosion of free speech.
+But granting jobs for life (sort of) to a privileged minority isn't going to stop that,
+or foster ties between academics and others who care about truth, culture, and education.
+What *will* do that is organizing.
+Instead of tenure for a few,
+I want unions and professional associations with real bargaining power,
+for everyone,
+because I believe we're stronger and smarter together.
