@@ -27,7 +27,7 @@ and [Frank Kameny](https://en.wikipedia.org/wiki/Frank_Kameny)
 and [Lynn Conway](https://en.wikipedia.org/wiki/Lynn_Conway)
 all had tenure,
 because gosh,
-where would we be if they hadn't felt it was safe to upset someone without it?"
+where would we be if they hadn't felt it was safe to upset someone?"
 
 To be clear,
 I'm frightened and disgusted by the corporatization of higher education
