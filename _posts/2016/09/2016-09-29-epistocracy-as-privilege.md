@@ -20,3 +20,12 @@ and paraphrase [Anatole France](http://www.quotationspage.com/quote/805.html):
 the law, in its infinite impartiality, will allow the rich as well as
 the poor to fail exams because they're exhausted from working three
 jobs to make ends meet.
+
+And even if you don't care about social justice,
+examinations necessarily and intrinsically select for people who can think like the examiners,
+so giving people extra votes if they pass an exam pretty much guarantees more homogeneous thinking.
+Study after study is showing that the more diverse an organization's leaders are,
+the better the decisions they make.
+Epistocracy might work&mdash;might&mdash;in an unchanging world,
+but I'm pretty sure it would be a recipe for unfairness, civil strife, and eventual disaster
+in the world we actually have.
