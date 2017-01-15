@@ -1,19 +1,16 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <ul class="nav">
-      <li>{% if page.previous.url %}<a href="{{page.previous.url | absolute_url}}">&laquo;</a>{% endif %}</li>
-      <li><a href="{{'/index.html' | absolute_url}}">Home</a></li>
-      <li><a href="{{'/about.html' | absolute_url}}">About</a></li>
-      <li><a href="{{'/blog.html' | absolute_url}}">Blog</a></li>
-      <li><a href="{{'/ideas.html' | absolute_url}}">Ideas</a></li>
-      <li>{% if page.next.url %}<a href="{{page.next.url | absolute_url}}">&raquo;</a>{% endif %}</li>
-      <li class="divider-vertical"></li>
-      <li><a href="http://software-carpentry.org">Software Carpentry&#9727;</a></li>
-      <li><a href="http://aosabook.org">AOSA&#9727;</a></li>
-      <li><a href="http://neverworkintheory.org">NWIT&#9727;</a></li>
-      <li><a href="http://sensibleadventures.com">Sensible Adventures&#9727;</a></li>
-      <li class="divider-vertical"></li>
-      <li><a href={{"/feed.xml" | absolute_url}}><img src={{"/img/feed-icon.svg" | absolute_url}} alt="RSS feed icon" class="rss-icon" /></a></li>
-    </ul>
-  </div>
-</div>
+<nav class="navbar navbar-default">
+  <ul class="nav navbar-nav">
+    <li>{% if page.previous.url %}<a href="{{page.previous.url | absolute_url}}">&laquo;</a>{% endif %}</li>
+    <li><a href="{{'/index.html' | absolute_url}}">Home</a></li>
+    <li><a href="{{'/about.html' | absolute_url}}">About</a></li>
+    <li><a href="{{'/blog.html' | absolute_url}}">Blog</a></li>
+    <li><a href="{{'/ideas.html' | absolute_url}}">Ideas</a></li>
+    <li>{% if page.next.url %}<a href="{{page.next.url | absolute_url}}">&raquo;</a>{% endif %}</li>
+    <li><a href="http://software-carpentry.org">Software Carpentry&#9727;</a></li>
+    <li><a href="http://aosabook.org">AOSA&#9727;</a></li>
+    <li><a href="http://neverworkintheory.org">NWIT&#9727;</a></li>
+    <li><a href="http://sensibleadventures.com">Sensible Adventures&#9727;</a></li>
+    <li class="divider-vertical"></li>
+    <li><a href="{{'/feed.xml' | absolute_url}}"><img src="{{'/img/feed-icon.svg'| absolute_url}}" alt="RSS feed icon" class="rss-icon" /></a></li>
+  </ul>
+</nav>
