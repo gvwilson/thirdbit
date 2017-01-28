@@ -14,7 +14,7 @@ get rid of them,
 so that the debate becomes your word against theirs---but
 the long-term damage to both science and the country is immense.
 
-Yesterday,
+Earlier this week,
 the Trump Administration started its own war on science
 by banning staff at the Enviromental Protection Agency,
 the Department of Agriculture,
@@ -32,6 +32,6 @@ We don't yet know who they are,
 or what reprisals will be taken,
 but I stand with them,
 and with every other scientist who may now be at risk
-simply for doing their job.
+simply for trying to tell the truth.
 
 ![Badlands NPS Tweets]({{site.github.url}}/img/2017/01/badlands-tweets.jpg)
