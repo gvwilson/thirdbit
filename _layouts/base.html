@@ -11,7 +11,11 @@
           {% include navbar.html %}
           {{content}}
           {% include footer.html %}
+          {% if page.nocomments %}
+          <p><em>Comments have been disabled for this page.</em></p>
+          {% else %}
           {% include disqus.html %}
+          {% endif %}
         </div>
       </div>
     </div>
