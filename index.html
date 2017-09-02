@@ -1,36 +1,32 @@
 ---
-layout: page
+layout: default
 permalink: /
 ---
-<table class="table table-striped">
-  <tr>
-    <td valign="top">
-      <a href="{{site.github.url}}/img/gvwilson-tpl-large.jpg"><img src="{{site.github.url}}/img/gvwilson-tpl-small.jpg" alt="Greg Wilson" /></a>
-    </td>
-    <td valign="top">
-      <h4><em>The Third Bit</em></h4>
-      <p>Please see the <a href="{{site.github.url}}/about/">About page</a> for more about me.</p>
-      <br/>
-      <p><em>If you cannot be brave - and it is often hard to be brave - be kind.</em></p>
-      <p><em>&mdash; Sarah Kendzior</em></p>
-    </td>
-  </tr>
-  {% for post in site.posts limit:20 %}
-    <tr>
-      <td>
-	{{post.date|date: '%b&nbsp;%e,&nbsp;%Y'}}
-      </td>
-      <td><a href=".{{post.url}}">{{post.title}}</a></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>
-	{{post.content|strip_html|truncatewords: 100}}
-      </td>
-    </tr>
-  {% endfor %}
-    <tr>
-      <td><a href="{{site.github.url}}/blog/">...more</a></td>
-      <td></td>
-    </tr>
-</table>
+
+<div class="well">
+  <h1>Greg Wilson</h1>
+  <div class="media">
+      <img class="media-object pull-left" src="{{site.github.url}}/img/gvwilson-tpl-2017-small.jpg" alt="Greg Wilson" />
+    <div>
+      <p>Head of Instructor Training at <a href="http://datacamp.com">DataCamp</a></p>
+      <p>Co-founder of <a href="http://software-carpentry.org">Software Carpentry</a></p>
+      <p>Editor of <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><em>Beautiful Code</em></a>,
+        <a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><em>Making Software</em></a>,
+        and <a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a><p>
+      <p>Ph.D. in Computer Science (University of Edinburgh, 1993)</p>
+      <p>Father, spouse, and proud Canadian</p>
+    </div>
+  </div>
+  <br/>
+</div>
+
+{% for post in site.posts limit:5 %}
+<div class="article">
+  <div class="well">
+    <h1><a href="{{ site.github.url }}{{ post.url }}">{{ post.date | date: "%b %-d, %Y" }} - {{ post.title }}</a></h1>
+    <div class="content">
+      {{ post.content }}
+    </div>
+  </div>
+</div>
+{% endfor %}

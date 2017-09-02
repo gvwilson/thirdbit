@@ -1,21 +1,45 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="last-modified" content="{{site.time}}" />
-<meta name="search-domain" content="http://third-bit.com" />
-<link href="{{'/assets/css/bootstrap.css' | absolute_url}}" rel="stylesheet" />
-<link href="{{'/assets/css/bootstrap-theme.css' | absolute_url}}" rel="stylesheet" />
-<link href="{{'/assets/site.css' | absolute_url}}" rel="stylesheet" />
-<link rel="alternate" type="application/rss+xml" title="The Third Bit Blog" href="{{'/feed.xml' | absolute_url}}"/>
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="author" content="{{site.author}}" />
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-1301159-1', 'auto');
-  ga('send', 'pageview');
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ site.name }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ site.github.url }}/js/jquery.min.js"></script>
+    <script src="{{ site.github.url }}/js/bootstrap.min.js"></script>
+    <link href="{{ site.github.url }}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ site.github.url }}/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="{{ site.github.url }}/css/syntax.css" rel="stylesheet" type="text/css">
+    {% include isso-comments.html %}
+  </head>
+  
+  <body>
+    
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ site.github.url }}/">{{ site.name }}</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active visible-xs-block"><a href="{{ site.github.url }}/links/">Links</a></li>
+              <li class="active"><a href="{{ site.github.url }}/about/">About</a></li>
+              <li class="active"><a href="{{ site.github.url }}/ideas/">Ideas</a></li>
+              <li class="active"><a href="{{ site.github.url }}/archive/">Archive</a></li>
+              <li class="active"><a href="{{ site.github.url }}/teaching/"><em>How to Teach</em></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="http://twitter.com/gvwilson"><img src="{{ site.github.url }}/img/twitter.svg" class="navbar-icon" /></a></li>
+              <li class="active"><a href="{{ site.github.url }}/feed.xml"><img src="{{ site.github.url }}/img/rss.svg" class="navbar-icon" /></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

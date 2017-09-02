@@ -1,2 +1,17 @@
-<script src="{{'/assets/jquery-1.9.1.min.js' | absolute_url}}"></script>
-<script src="{{'/assets/js/bootstrap.min.js' | absolute_url}}"></script>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; {{ site.time | date: '%Y' }} {{ site.author }}.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% include disqus-counts.html %}
+{% include analytics.html %}
+
+</body>
+</html>

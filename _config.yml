@@ -1,14 +1,35 @@
-# Site title
-title: "The Third Bit"
+# Jekyll configuration
+
+name: "Third Bit"
+description: "Greg Wilson online"
 author: "Greg Wilson"
-email: "gvwilson@third-bit.com"
-permalink: /:year/:month/:day/:title.html
-url: http://third-bit.com
+
+# url is currently only used only for the RSS feed in feed.xml
+url: "https://gvwilson.github.io/squibble"
 
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
 repository: <USERNAME>/<PROJECT>
 
-# Files and directories that are not to be copied.
-exclude:
-  - Makefile
+# Set this to your UA-# value, or "" to disable the block completely
+gaaccount: ""
+
+# The 'comments' setting enables comments. You'll need to select either
+# disqus or isso below to choose a comment system. Individual posts can
+# override 'comments' to disable on a post-by-post basis.
+comments: true
+
+# Set this to your public isso URL to enable comments via isso. Set to "" to disable isso.
+isso: ""
+
+# Set this to your disqus shortname to enable comments via disqus. Set to "" to disable disqus.
+disqus: ""
+
+permalink: /:year/:month/:day/:title.html
+paginate: 10
+
+highlighter: rouge
+markdown: kramdown
+plugins: ["jekyll-paginate"]
+
+exclude: ["README.md", "LICENSE"]
