@@ -24,7 +24,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="lang-small-teaching">[Lang2016]</a> James M. Lang: _[Small Teaching: Everyday Lessons from the Science of Learning](https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496/)_ Jossey-Bass, 2016, 978-1118944493. _Presents a selection of accessible evidence-based practices that teachers can adopt when they little time and few resources._
 
-*   <a id="lemov-champion">[Lemon2014]</a> Doug Lemov: _[Teach Like a Champion 2.0: 62 Techniques that Put Students on the Path to College](https://www.amazon.com/Teach-Like-Champion-2-0-Techniques/dp/1118901851/)_ (2nd edition). Jossey-Bass, 2014, 978-1118901854. _Presents 62 classroom techniques drawn from intensive study of thousands of hours of video of good teachers in action._
+*   <a id="lemov-champion">[Lemov2014]</a> Doug Lemov: _[Teach Like a Champion 2.0: 62 Techniques that Put Students on the Path to College](https://www.amazon.com/Teach-Like-Champion-2-0-Techniques/dp/1118901851/)_ (2nd edition). Jossey-Bass, 2014, 978-1118901854. _Presents 62 classroom techniques drawn from intensive study of thousands of hours of video of good teachers in action._
 
 *   <a id="margolis-fisher-clubhouse">[Margolis2003]</a> J. Margolis and A. Fisher: _[Unlocking the Clubhouse: Women in Computing](https://www.amazon.com/Unlocking-Clubhouse-Women-Computing-Press/dp/0262632691/)_ MIT Press, 2003, 978-0262632690. _A groundbreaking report on the gender imbalance in computing, and the steps Carnegie-Mellon took to address the problem._
 

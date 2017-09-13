@@ -402,7 +402,7 @@ some stats in R, forked a repo) and explain how you would use it (or a
 simplified version of it) as an exercise or example in class.
 
 Pair up with your neighbor and decide where this exercise fits on a
-2x2 grid of "short/longtime to master" and "low/high usefulness"?  In
+2x2 grid of "short/long time to master" and "low/high usefulness"?  In
 the shared notes, write the task and where it fits on the grid. As a
 group, discuss how these relate back to the "teach most immediately
 useful first" approach.
@@ -417,7 +417,7 @@ future to self-check whether you have done something about it.
 ### Brainstorming Motivational Strategies (20 minutes)
 
 1.  Think back to a programming course (or any other) that you took in
-    the past, and identify one thing the instructor did that motivated
+    the past, and identify one thing the instructor did that demotivated
     you, and describe what could have been done afterward to correct
     the situation.
 
