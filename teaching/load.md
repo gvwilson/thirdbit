@@ -14,8 +14,8 @@ title: "How to Teach Programming (and Other Things): Cognitive Load"
   examples for use in programming workshops.**
 * **Learners can explain what Parsons Problems are and construct
   Parsons Problems for use in programming workshops.**
-* **Learners can describe ways in which they differ from their own
-  learners and what effect those differences have on instruction.**
+* **Learners can describe ways they differ from their own students and
+  what effect those differences have on instruction.**
 
 In 2006, Kirschner, Sweller, and Clark published a paper titled "Why
 Minimal Guidance During Instruction Does Not Work: An Analysis of the
