@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: teaching
 permalink: /teaching/memory.html
 title: "How to Teach Programming (and Other Things): Expertise and Memory"
 ---

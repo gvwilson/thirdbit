@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: teaching
 permalink: /teaching/performance.html
 title: "How to Teach Programming (and Other Things): Teaching as a Performance Art"
 ---

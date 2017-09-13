@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: teaching
 permalink: /teaching/motivation.html
 title: "How to Teach Programming (and Other Things): Motivation and Demotivation"
 ---
