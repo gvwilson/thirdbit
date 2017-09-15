@@ -57,8 +57,8 @@ design](gloss.html#reverse-instructional-design)_ or _[understanding by
 design](gloss.html#understanding-by-design)_ after a book by that name
 [[Wiggins2005](biblio.html#wiggins-mctighe)]; a similar method is
 described in [[Fink2013](biblio.html#fink-significant)] (a summary of
-which is freely available online [[Fink2003](fink-short)].)  In brief,
-lessons should be designed as follows:
+which is freely available online [[Fink2003](biblio.html#fink-short)].)
+In brief, lessons should be designed as follows:
 
 1.  Create learner profiles (discussed in the next section) to figure
     out who you are trying to teach and what will appeal to them.

@@ -266,7 +266,7 @@ gene" where none exists.  As the paper's abstract says:
 
 It's easy to use language that suggests that some people are natural
 programmers and others aren't, but Mark Guzdial has called this belief
-[the biggest myth about teaching computer science](guzdial-myth).
+[the biggest myth about teaching computer science][guzdial-myth].
 
 ## Mindset
 
