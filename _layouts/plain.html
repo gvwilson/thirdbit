@@ -1,5 +1,14 @@
-{% include header.html %}
-<div class="well">
-  {{ content }}
-</div>
-{% include footer.html %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include header.html %}
+    <title>{{ site.name }}{% if page.title %}: {{ page.title }}{% endif %}</title>
+  </head>
+  <body>
+    {% include navbar.html %}
+    <div class="well">
+      {{ content }}
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

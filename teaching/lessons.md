@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: teaching
 permalink: /teaching/lessons.html
 title: "How to Teach Programming (and Other Things): Designing Lessons"
 ---

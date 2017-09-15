@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: teaching
 permalink: /teaching/conduct.html
 title: "How to Teach Programming (and Other Things): Code of Conduct"
 ---

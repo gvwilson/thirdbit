@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: teaching
 permalink: /teaching/novice.html
 title: "How to Teach Programming (and Other Things): Helping Novices Build Mental Models"
 ---

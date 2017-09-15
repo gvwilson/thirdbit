@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: teaching
 permalink: /teaching/load.html
 title: "How to Teach Programming (and Other Things): Cognitive Load"
 ---

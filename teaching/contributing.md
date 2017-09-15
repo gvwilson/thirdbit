@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: teaching
 permalink: /teaching/contributing.html
 title: "How to Teach Programming (and Other Things): How to Contribute"
 ---
