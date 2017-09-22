@@ -7,36 +7,34 @@ title: "How to Teach Programming (and Other Things): Building Community"
 # Building Community
 
 1.  **Do the reading.**
-    People have been writing about their experiences with grassroots organizations for two centuries.
-    Resources we have found particularly useful include *[Building Powerful Community Organizations][bpco]*
-    and *[Producing Open Source Software][poss]*.
+    People have been writing about their experiences with grassroots organizing for decades.
+    Two resources that are particularly useful are
+    *[Building Powerful Community Organizations](biblio.html#brown-bpco)*
+    and *[Producing Open Source Software](biblio.html#fogel-poss)*.
 
 1.  **Join, don't start.**
-    Many community organizations dedicated to open science already exist,
-    including [Hacker Within][hw], [ESIP][esip], [rOpenSci][ropensci],
-    the projects sheltered by [NumFOCUS][numfocus],
-    and various professional societies.
+    Hundreds of organizations devoted to teaching already exist,
+    from professional associations to community groups focusing on local needs.
     Before creating a new one,
     see if there's one you could join:
     this will give you a head start
     and a chance to learn more about how to run things.
 
 1.  **Make it a democracy.**
-    Sooner or later (usually sooner),
+    Sooner or later,
     every appointed board turns into a mutual agreement society.
     Giving the community power is messy,
-    but is the only way invented so far to ensure that
+    but is the only way to ensure that
     an organization continues to meet the actual needs of the people it's supposed to be helping.
 
 1.  **Make it rewarding.**
-    The community organizer [Saul Alinksy][alinsky] said,
+    The community organizer [Saul Alinksy](biblio.html#alinsky-rules) said,
     "If your people aren't having a ball doing it, there is something very wrong."
-    Community members shouldn't expect to enjoy every moment of their work with your organization,
+    Community members won't enjoy every moment of their work,
     but if they don't enjoy any of it,
     they won't stay.
-    One way to do this is to thank people:
-    everyone likes to be appreciated,
-    and communities should acknowledge their members' contributions both publicly and privately.
+    One way to reward them is to thank them:
+    people will often do more for a simple "thank you" than they will do for a hundred dollars.
 
 1.  **Provide training.**
     Organizations require committees, meetings, budgets, grant proposals, and dispute resolution.
@@ -47,7 +45,7 @@ title: "How to Teach Programming (and Other Things): Building Community"
     If you aren't large enough to provide training,
     join an organization that is and take some of theirs.
     As with Rule 2,
-    it's always best to learn on someone else's dime.
+    it's always best to learn on someone else's project before starting your own.
 
 1.  **Communicate.**
     Nobody's going to come to a meeting unless they know about it,
@@ -55,7 +53,8 @@ title: "How to Teach Programming (and Other Things): Building Community"
     Mailing lists, blogs, and Twitter all give you ways to stay in touch.
     Use them sparingly so that your audience isn't overwhelmed,
     but use them.
-    *[Marketing for Scientists][kuchner]* is a good place to start for guidance.
+    If you're unsure what to say,
+    *[Marketing for Scientists](biblio.html#kuchner-marketing)* is a good place to start for guidance.
 
 1.  **Write down the rules.**
     As Jo Freeman described in "[The Tyranny of Structurelessness][structurelessness]",
@@ -64,19 +63,16 @@ title: "How to Teach Programming (and Other Things): Building Community"
     or informal and unaccountable.
     Make yours one of the first kind:
     write and publish the rules governing everything from
-    who gets to decide when software is ready to release
+    who gets to decide when the next workshop is going to be held
     and who's allowed to use the name and logo
-    to how complaints of inappropriate conduct are handled
-    and what actually constitutes inappropriate conduct.
+    to what constitutes inappropriate conduct and how complaints about it will be handled.
     (This [model anti-harassment policy][coc] is a good start.)
     
 1.  **Enforce those rules.**
-    Communities need to have some moderating force.
-    If you see someone that is not acting in line with your code of conduct or values,
-    privately say something or tell a leader of the community and ask them to privately say something.
-    Bullies that persist in communities have a toxic effect and should not be allowed to linger.  
+    Many communities have fallen apart because they were unable or unwilling to enforce their own rules.
+    Remember: a community's actual culture is defined by what the people in charge will allow.
 
-1.  **Make space for everyone.**
+1.  **Make space.**
     If you're too engaged or too quick on the reply button,
     people have less opportunity to grow as members
     and to create horizontal collaborations.
@@ -96,17 +92,24 @@ title: "How to Teach Programming (and Other Things): Building Community"
 
 1.  **Don't be afraid to pay some people.**
     Volunteers can do a lot,
-    but tasks like system administration and accounting need full-time paid staff.
+    but eventually tasks like accounting and event coordination need paid staff
+    to ensure quality and continuity.
+    Many grassroots groups stumble when they first have to decide who will be paid and who won't;
+    one way to avoid trouble is to make a plan well in advance that makes it clear that some people are *going* to be paid,
+    so that when they are,
+    it won't come as a surprise.
     
 1.  **Trust people.**
-    Micromanaging or trying to control everything centrally means people won't feel they have the autonomy to act,
-    which will probably cause them to drift away.
+    Micromanaging makes people feel that they aren't trusted,
+    which in turn makes them less motivated.
+    Responsibility and power should always go hand-in-hand.
 
 1.  **Look after yourself.**
-    As *[The Idealist's Survival Kit][pigni]* discusses,
-    burnout is a chronic risk in any community activity.
+    Burnout is a chronic risk in any community activity.
     If you don't take care of yourself,
     you won't be able to take care of your community.
+    *[The Idealist's Survival Kit](biblio.html#pigni-idealists)* has a lot of advice,
+    the most useful of which is just to talk to people.
 
 1.  **Move on.**
     Every organization eventually needs fresh ideas and fresh leadership.
@@ -119,19 +122,5 @@ title: "How to Teach Programming (and Other Things): Building Community"
     Celebrate that---you won't have any trouble finding
     something else to keep you busy.
 
-[alinsky]: https://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/
-[bpco]: https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/
 [coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
-[dc]: http://datacarpentry.org
-[esip]: http://www.esipfed.org/
-[hw]: http://thehackerwithin.org
-[kuchner]: https://www.amazon.com/Marketing-Scientists-Shine-Tough-Times/dp/1597269948/
-[numfocus]: http://numfocus.org
-[pigni]: https://www.amazon.com/Idealists-Survival-Kit-Prevent-Burnout/dp/1941529348/
-[poss]: http://producingoss.com/
-[ropensci]: http://ropensci.org
-[swc]: http://software-carpentry.org
 [structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
-[turk]: https://ischool.illinois.edu/people/faculty/mjturk
-[wilson]: http://third-bit.com
-[weaver]: http://software-carpentry.org 

@@ -36,6 +36,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="aiken-note-taking">[Aiken1975]</a> Edwin G. Aiken, Gary S. Thomas, and William A. Shennum: "Memory for a Lecture: Effects of Notes, Lecture Rate, and Informational Density." _Journal of Educational Psychology_, 67(3), June 1975, 10.1037/h0076613. _A landmark study showing that taking notes improves retention when learning._
 
+*   <a id="alinsky-rules">[Alinsky1989]: Saul Alinsky: _[Rules for Radicals](https://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/)_. Vintage, 1989, 978-0679721130. _The classic guide to grassroots community organizing written by the person who invented many of the techniques we use today._
+
 *   <a id="video-peer-instruction">[Avanti2013]</a>: Avanti Learning Centre: "ConcepTests at Avanti's Learning Centre in Kanpur." <https://www.youtube.com/watch?v=2LbuoxAy56o>, viewed April 2017.
 
 *   <a id="aveling-checklists">[Aveling2013]</a> Emma-Louise Aveling, Peter McCulloch, and Mary Dixon-Woods: "A Qualitative Study Comparing Experiences of the Surgical Safety Checklist in Hospitals in High-Income and Low-Income Countries." _BMJ Open_, 3(8), 2013, 10.1136/bmjopen-2013-003039. _Reports on surgical checklist implementations and effects in the UK and Africa._
@@ -68,6 +70,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="fink-significant">[Fink2013]</a> L. Dee Fink: _[Creating Significant Learning Experiences: An Integrated Approach to Designing College Courses](https://www.amazon.com/Creating-Significant-Learning-Experiences-Integrated/dp/1118124251/)_ (2nd edition). Jossey-Bass, 2013, 978-1118124253. _A step-by-step guide to a systematic lesson design process._
 
+*   <a id="fogel-poss">[Fogel2017]</a> Karl Fogel: _[Producing Open Source Software](http://producingoss.com/)_, viewed September 2017. _The second edition of the definitive description of how to set up and run an open software development project._
+
 *   <a id="gawande-personal-best">[Gawande2011]</a> Atul Gawande: "Personal Best." _The New Yorker_, October 3, 2011. _Describes how having a coach can improve practice in a wide variety of fields._
 
 *   <a id="gelman-stats">[Gelman2002]</a> Andrew Gelman and Deborah Nolan: _[Teaching Statistics: A Bag of Tricks](https://www.amazon.com/Teaching-Statistics-Tricks-Andrew-Gelman/dp/0198572247/)_ Oxford University Press, 2002, 978-0198572244. _A collection of useful motivating examples for teaching statistics._
@@ -97,6 +101,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 *   <a id="kirschner-minimal">[Kirschner2006]</a> Paul Kirschner, John Sweller, and Richard Clark: "Why Minimal Guidance During Instruction Does Not Work: An Analysis of the Failure of Constructivist, Discovery, Problem-Based, Experiential, and Inquiry-Based Teaching." _Educational Psychologist_, 41(2), 2006. _Argues that inquiry-based learning is less effective for novices than guided instruction._
 
 *   <a id="koedinger-doing-watching">[Koedinger2015]</a> Kenneth R. Koedinger, Jihee Kim, Julianna Zhuxin Jia, Elizabeth A. McLaughlin, and Norman L. Bier: "Learning is Not a Spectator Sport: Doing is Better Than Watching for Learning from a MOOC" _Proc. Second ACM Conference on Learning @ Scale_, 2015, 10.1145/2724660.2724681. _Measures the benefits of doing rather than watching._
+
+*  <a id="kuchner-marketing">[Kuchner2011]</a> Marc Kuchner: _[Marketing for Scientists: How to Shine in Tough Times](https://www.amazon.com/Marketing-Scientists-Shine-Tough-Times/dp/1597269948/)_.  Island Press, 2011, 978-1597269940. _A short, readable guide to making people aware of, and care about, your work._
 
 *   <a id="kuittinen-patterns">[Kuittinen2004]</a> Marja Kuittinen and Jorma Sajaniemi: "Teaching Roles of Variables in Elementary Programming Courses" _Proc. 9th Annual SIGCSE Conference on Innovation and Technology in Computer Science Education_, 2004, 10.1145/1007996.1008014. _Presents a few patterns used in novice programming and looks at the pedagogical value of teaching them._
 
@@ -129,6 +135,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 *   <a id="patitsas-cs-grades">[Patitsas2016]</a> Elizabeth Patitsas, Jesse Berlin, Michelle Craig, and Steve Easterbrook: "Evidence That Computer Science Grades Are Not Bimodal." _Proc. 2016 ACM Conference on International Computing Education Research_, 2016, 10.1145/2960310.2960312. _Presents a statistical analysis and an experiment which jointly show that grades in computing classes are not bimodal–i.e., there is no geek gene._
 
 *   <a id="petre-expertise">[Petre2016]</a> Marian Petre, André van der Hoek, and Yen Quach: _[Software Design Decoded: 66 Ways Experts Think](https://www.amazon.com/Software-Design-Decoded-Experts-Think/dp/0262035189/)_ MIT Press, 2016, 978-0262035187. _A short illustrated overview of how expert software developers think._
+
+*   <a id="pigni-idealists">[Pigni2016]</a> Alessandra Pigni: _[The Idealist's Survival Kit: 75 Simple Ways to Avoid Burnout](https://www.amazon.com/Idealists-Survival-Kit-Prevent-Burnout/dp/1941529348/)_. Parallax Press, 2016, 978-1941529348. _A guide to staying sane and healthy while doing good._
 
 *   <a id="porter-what-works">[Porter2013]</a> Leo Porter, Mark Guzdial, Charlie McDowell, and Beth Simon: "Success in Introductory Programming: What Works?" _Communications of the ACM_, 56(8), August 2013, 10.1145/2492007.2492020. _Summarizes the evidence that peer instruction, media computation, and pair programming can significantly improve outcomes in introductory programming courses._
 
