@@ -6,6 +6,9 @@ title: "How to Teach Programming (and Other Things): Building Community"
 
 # Building Community
 
+*This section is currently under development:
+[feedback](mailto:gvwilson@third-bit.com?feedback%20on%20Building%20Community) would be appreciated.*
+
 1.  **Do the reading.**
     People have been writing about their experiences with grassroots organizations for two centuries.
     Resources we have found particularly useful include *[Building Powerful Community Organizations][bpco]*
