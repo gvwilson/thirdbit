@@ -1,0 +1,42 @@
+digraph G {
+node [shape = rectangle]
+"Data Modeling" -> "Data Transform" [label="turns one into another",dir="both"];
+"Data Modeling" -> "Missing Data" [label="must account for"];
+"Data Modeling" -> "Versioning" [label="change over time"];
+"Data Modeling" -> "Data Structures" [label="implemented by"];
+"Data Modeling" -> "Approximate Numbers" [dir="both"];
+"Data Modeling" -> "Program Design" [label="necessary for"];
+"Data Modeling" -> "Abstraction" [];
+"Data Representation" -> "Data Transform" [];
+"Data Representation" -> "Data Modeling" [];
+"Data Structures" -> "Computational Complexity" [label="choice of DS influences"];
+"Versioning" -> "Refactoring" [label="adjust code to reflect"];
+"Abstraction" -> "Programs as Data" [label="interpretation"];
+"Program Design" -> "Abstraction" [label="key to"];
+"Modularization" -> "Program Design" [label="necessary for"];
+"Modularization" -> "Refactoring" [label="undisturbed by"];
+"Modularization" -> "Usability" [label="improves comprehensibility"];
+"Verification & Validation" -> "Modularization" [label="done against interface"];
+"Exceptional Cases" -> "Program Design" [label="part of"];
+"Exceptional Cases" -> "Debugging" [];
+"Exceptional Cases" -> "Verification & Validation" [];
+"Exceptional Cases" -> "Missing Data" [];
+"Divide & Conquer" -> "Modularization" [label="when applied to program"];
+"Divide & Conquer" -> "Recursion" [label="when applied to data"];
+"Indirection & Aliasing" -> "Data Structures" [label="occurs in"];
+"Indirection & Aliasing" -> "Data Modeling" [label="must be accounted for"];
+"Caching" -> "Concurrency" [];
+"Caching" -> "Program Design" [];
+"Debugging" -> "Verification & Validation" [label="done in response to"];
+"Automation" -> "Verification & Validation" [label="facilitates"];
+"Automation" -> "Human Performance" [label="facilitates"];
+"Automation" -> "Data Representation" [];
+"Machine Performance" -> "Human Performance" [label="not equal to",dir="both"];
+"Machine Performance" -> "Caching" [label="improved by"];
+"Machine Performance" -> "Imperative" [];
+"Machine Performance" -> "Computational Complexity" [label="related but not identical"];
+"Data Flow" -> "Imperative" [label="alternative",dir="both"];
+"Concurrency" -> "Data Flow" [label="facilitated by"];
+"Development Process" -> "Human Performance" [label="improves"];
+"Human Performance" -> "Usability" [label="improved by"];
+}
