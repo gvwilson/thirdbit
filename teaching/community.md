@@ -15,17 +15,25 @@ Just as we learn best together,
 we teach best when we are teaching with other people,
 and the best way to achieve that is to build a community.
 
-A framework in which to think about community building is
+A framework in which to think about how to do this is
 _[situated learning](gloss.html#situated-learning)_,
 which focuses on how _[legitimate peripheral participation](gloss.html#legitimate-peripheral-participation)_
 leads to people becoming members of a _[community of practice](gloss.html#community-of-practice)_.
 Unpacking those terms,
-situated learning focuses on the transition from being a newcomer to being accepted as a peer
-by those who already do the activity in question.
+a community of practice is a group of people bound together by interest in some activity,
+such as knitting or particle physics.
+Legitimate peripheral participation means doing simple, low-risk tasks
+that community nevertheless recognizes as valid contributions:
+making your first scarf,
+stuffing envelopes during an election campaign,
+or proof-reading documentation for open source software.
+
+Situated learning focuses on
+the transition from being a newcomer to being accepted as a peer
+by those who are already community members.
 This typically means starting with simplified tasks and tools,
 then doing similar tasks with more complex tools,
 and finally tackling the challenges of advanced practitioners.
-
 For example,
 children learning music may start by playing nursery rhymes on a recorder or ukulele,
 then play other simple songs on a trumpet or saxophone in a band,
@@ -34,18 +42,25 @@ Similarly,
 someone learning programming might start by drawing simple geometric shapes with [Scratch][scratch]),
 then draw more complex animations with JavaScript,
 and finally move on to creating entire websites.
-Healthy communities understand and support these kinds of progressions,
-and recognize that each step is meant to draw people 
+Healthy communities understand and support these progressions,
+and recognize that each step is meant to give people a ramp rather than a cliff.
 
-Situated learning is equally relevant to teachers
-who are mastering evidence-based teaching practices through a similar progression.
 Whatever the domain,
 situated learning recognizes that teaching and learning are rooted in community.
+Neighborhood communities grow organically through people bumping into each other,
+but communities of practice take more work.
 
-1.  **Do the reading.**
-    People have been writing about their experiences with grassroots organizations for two centuries.
-    Resources we have found particularly useful include *[Building Powerful Community Organizations][bpco]*
-    and *[Producing Open Source Software][poss]*.
+The first step is to **do the reading**.
+People have been writing about grassroots organizing for decades;
+[[Alinsky1989](biblio.html#alinsky-rules)] is probably the best-known work on the subject,
+while [[Brown2007](biblio.html#brown-bpco)]
+and [[Midwest2010](biblio.html#midwest-organizing)]
+are practical manuals rooted in decades of practice.
+(If you want to read more deeply,
+[[Adams1975](biblio.html#adams-seeds)] is a history of the Highlander Folk School,
+whose approach has been emulated by many successful groups,
+while [[Spalding2014](biblio.html#spalding-adults)] is a guide to teaching adults
+written by someone with deep personal roots in organizing.)
 
 1.  **Join, don't start.**
     Many community organizations dedicated to open science already exist,
