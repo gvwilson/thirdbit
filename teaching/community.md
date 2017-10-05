@@ -15,7 +15,7 @@ Just as we learn best together,
 we teach best when we are teaching with other people,
 and the best way to achieve that is to build a community.
 
-A framework in which to think about how to do this is
+A framework in which to think about doing this is
 _[situated learning](gloss.html#situated-learning)_,
 which focuses on how _[legitimate peripheral participation](gloss.html#legitimate-peripheral-participation)_
 leads to people becoming members of a _[community of practice](gloss.html#community-of-practice)_.
@@ -38,19 +38,17 @@ For example,
 children learning music may start by playing nursery rhymes on a recorder or ukulele,
 then play other simple songs on a trumpet or saxophone in a band,
 and finally start exploring their own musical tastes.
-Similarly,
-someone learning programming might start by drawing simple geometric shapes with [Scratch][scratch]),
-then draw more complex animations with JavaScript,
-and finally move on to creating entire websites.
 Healthy communities understand and support these progressions,
 and recognize that each step is meant to give people a ramp rather than a cliff.
 
 Whatever the domain,
-situated learning recognizes that teaching and learning are rooted in community.
-Neighborhood communities grow organically through people bumping into each other,
-but communities of practice take more work.
+situated learning emphasizes that learning is a social activity.
+In order to be effective and sustainable,
+teaching therefore needs to be rooted in a community;
+if one doesn't exist,
+you need to build one.
 
-The first step is to **do the reading**.
+The first step is to o the reading.
 People have been writing about grassroots organizing for decades;
 [[Alinsky1989](biblio.html#alinsky-rules)] is probably the best-known work on the subject,
 while [[Brown2007](biblio.html#brown-bpco)]
@@ -62,15 +60,16 @@ whose approach has been emulated by many successful groups,
 while [[Spalding2014](biblio.html#spalding-adults)] is a guide to teaching adults
 written by someone with deep personal roots in organizing.)
 
-1.  **Join, don't start.**
-    Many community organizations dedicated to open science already exist,
-    including [Hacker Within][hw], [ESIP][esip], [rOpenSci][ropensci],
-    the projects sheltered by [NumFOCUS][numfocus],
-    and various professional societies.
-    Before creating a new one,
-    see if there's one you could join:
-    this will give you a head start
-    and a chance to learn more about how to run things.
+The second step is to decide if you really need to create something new,
+or whether you would be more effective joining an existing community.
+There are thousands of such organizations,
+from the [4-H Club][4h] and [literacy programs][frontier-college]
+to technically-oriented groups like [Black Girls Code][bgc].
+Joining an existing group will give you a head start on teaching,
+an immediate set of colleagues,
+and a chance to learn more about how to run things.
+The only thing it *won't* give you is the ego gratification and control
+that comes from being a founder...
 
 1.  **Make it a democracy.**
     Sooner or later (usually sooner),
@@ -170,20 +169,12 @@ written by someone with deep personal roots in organizing.)
     Celebrate that---you won't have any trouble finding
     something else to keep you busy.
 
+[4h]: http://www.4-h-canada.ca/
 [alinsky]: https://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/
+[bgc]: http://www.blackgirlscode.com/
 [bpco]: https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/
 [coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
-[dc]: http://datacarpentry.org
-[esip]: http://www.esipfed.org/
-[hw]: http://thehackerwithin.org
+[frontier-college]: https://www.frontiercollege.ca/
 [kuchner]: https://www.amazon.com/Marketing-Scientists-Shine-Tough-Times/dp/1597269948/
-[numfocus]: http://numfocus.org
 [pigni]: https://www.amazon.com/Idealists-Survival-Kit-Prevent-Burnout/dp/1941529348/
-[poss]: http://producingoss.com/
-[ropensci]: http://ropensci.org
-[scratch]: https://scratch.mit.edu/
-[swc]: http://software-carpentry.org
 [structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
-[turk]: https://ischool.illinois.edu/people/faculty/mjturk
-[wilson]: http://third-bit.com
-[weaver]: http://software-carpentry.org 

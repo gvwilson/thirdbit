@@ -111,31 +111,18 @@ but generally ignores larger issues like, "What do we mean by
 'learning'?" and, "Who gets to decide?"
 
 The second perspective is _[situated
-learning](gloss.html#situated-learning)_, which focuses on how
-_[legitimate peripheral
-participation](gloss.html#legitimate-peripheral-participation)_ leads
-to people becoming members of a _[community of
-practice](gloss.html#community-of-practice)_.  Unpacking those terms,
-the situated learning perspective focuses on the transition from being
-a newcomer to being accepted as a peer by those who already do the
-activity in question. Situated learning is directly relevant to our
-learners, many of whom ease into scientific computing by doing small
-tasks that experienced practitioners would regard as straightforward,
-but who learn how to take on bigger and more novel challenges both
-from what they do and from the feedback (and welcome) it elicits. It
-is equally relevant to our instructors (i.e., you), who are
-approaching evidence-based teaching in the same way.
-
-For example, Software Carpentry aims to serve researchers who are
-exploring data management and programming on their own (legitimate
-peripheral practice) and make them aware of other people doing that
-work (simply by attending the workshop) and the best practices and
-ideas of that community of practice, thereby giving them a way to
-become members of that community. Situated learning thus describes why
-we teach, and recognizes that teaching and learning is necessarily
-rooted in a social context. We then depend on the cognitivist
-perspective to drive *how* we teach the specific content associated
-with the community of practice.
+learning](gloss.html#situated-learning)_, which we discussed in
+[Building Community](community.html).  For example, Software Carpentry
+aims to serve researchers who are exploring data management and
+programming on their own (legitimate peripheral practice) and make
+them aware of other people doing that work (simply by attending the
+workshop) and the best practices and ideas of that community of
+practice, thereby giving them a way to become members of that
+community. Situated learning thus describes why we teach, and
+recognizes that teaching and learning are always rooted in a social
+context. We then depend on the cognitivist perspective to drive *how*
+we teach the specific content associated with the community of
+practice.
 
 > **Other Perspectives**
 >
