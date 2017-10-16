@@ -225,6 +225,18 @@ the graph that a program produces ("match each of these pieces of code
 with the part of the graph it generated"), the code itself ("match each
 term to an example of that program element"), or many other things.
 
+> Example: label the following diagram to show which structures the
+> variables `x`, `y`, and `z` refer to after these three lines of code
+> are executed.
+>
+> ```
+> x = 3
+> y = [x, x]
+> z = [x, y]
+> ```
+>
+> ![Labelling a Diagram]({{site.github.url}}/img/2017/10/label-diagram.png)
+
 ***Drawing diagrams*** of things like data structures is also
 straightforward to do on paper but very difficult to grade
 automatically. One way to make solutions gradable may be to constrain
