@@ -20,17 +20,39 @@ kinds of assessment, but I was surprised by how many remain.
 Let's start with the two types of exercise [DataCamp][datacamp] users
 will be most familiar with. The first is a ***multiple choice
 question*** that presents a question and asks the student to pick the
-correct answer from a list. As a previous post discussed,
-multiple-choice questions are most effective when their wrong answers
-probe for specific misconceptions on the student's part.
+correct answer from a list.  Doing this might (in fact, should)
+require them to do more than just read and remember, and as a previous
+post discussed, multiple-choice questions are most effective when
+their wrong answers probe for specific misconceptions on the student's
+part.
 
-The second type of exercise is ***write and run***, in which the student
+> Example: You are in `/home/repl`.  Use `ls` with an appropriate
+> argument to get a listing of the files in the directory
+> `/home/repl/seasonal`.  Which of the following files is *not* in
+> that directory?
+>
+> - `autumn.csv`
+> - `fall.csv`
+> - `spring.csv`
+> - `winter.csv`
+
+The second type of exercise is **write and run**, in which the student
 has to write code that produces a specified output. When the code is
-submitted, we check its structure and/or output and give feedback. These
-exercises help students practice the skills they most want to learn, but
-writing good checks can be complicated: students can find very creative
-ways to get the right answer, and it's demoralizing to give them a false
-negative.
+submitted, we check its structure and/or output and give
+feedback. Write and run exercises can be as simple or as complex as
+the instructor wants. For example, it’s often enough with novices to
+simply ask them to call a function or method: experienced instructors
+often forget how hard it can be to figure out which parameters go
+where.
+
+> Example: the matrix M contains data read from a file. Using one
+> function or method call, create a matrix Z that has the same shape
+> as M but contains only zeroes.
+
+**Write and run** exercises help students practice the skills they
+most want to learn, but writing good automated checks is hard:
+students can find very creative ways to get the right answer, and it's
+demoralizing to give them a false negative.
 
 ***Fill in the blanks*** is a refinement of ***write and run*** in which
 the student is given some starter code and asked to complete it. (In
@@ -40,6 +62,14 @@ students of what steps they should take.) Novices often find **fill in
 the blanks** less intimidating than writing all the code from scratch,
 and since the instructor has provided most of the answer’s structure,
 submissions are much easier to check.
+
+> Example: fill in the blanks so that the code below prints the string ‘hat’.
+>
+> ```
+> text = 'all that it is'
+> slice = text[____:____]
+> print(slice)
+> ```
 
 A ***Parsons Problem*** is another kind of exercise that avoids the
 “blank screen of terror” problem: the student is given the lines of code
@@ -80,13 +110,13 @@ a list of line labels.
 > executed?
 >
 > ```
-> A) vals = [-1, 0, 1]
-> B) inverse_sum = 0
->    try:
->        for v in vals:
-> C)         inverse_sum += 1/v
->    except:
-> D)     pass
+> A)     vals = [-1, 0, 1]
+> B)     inverse_sum = 0
+>        try:
+>            for v in vals:
+> C)             inverse_sum += 1/v
+>        except:
+> D)         pass
 > ```
 
 ***Tracing values*** is similar to **tracing execution**, but instead of
@@ -223,26 +253,54 @@ execution forward and backward to figure out where things first went
 wrong.
 
 Our platform doesn't directly support all of these kinds of exercises
-yet, and there are others that we struggle to implement at all:
+yet, and there are others that are hard for any online platform to
+provide.  ***Refactoring exercises*** are the complement of **theme
+and variation** exercises: given a working piece of code, the student
+has to modify it in some way *without* changing its output. For
+example, the student could be asked to replace loops with vectorized
+expressions, to simplify the condition in a while loop, etc. The
+challenge here is that there are often so many ways to refactor a
+piece of code that grading requires human intervention.
 
-- ***Refactoring exercises*** are the complement of **theme and
-  variation** exercises: given a working piece of code, the student
-  has to modify it in some way *without* changing its output. For
-  example, the student could be asked to replace loops with
-  vectorized expressions, to simplify the condition in a while loop,
-  etc. The challenge here is that there are often so many ways to
-  refactor a piece of code that grading requires human intervention.
+> Example: write a single list comprehension that has the same effect
+> as this loop.
+>
+> ```
+> result = []
+> for v in values:
+>     if len(v) > threshold:
+>         result.append(v)
+> ```
 
-- ***Code review*** is hard to grade automatically in the general
-  case, but can be tackled if the student is given a rubric (i.e., a
-  list of faults to look for) and asked to match particular comments
-  against particular lines of code. For example, the student can be
-  told that there are two indentation errors and one bad variable
-  name, and asked to point them out; if she is more advanced, she
-  could be given half a dozen kinds of remarks she could make about
-  the code without guidance as to how many of each she should find.
-  As with **tracing values**, this is easiest for students to do
-  when presented as a table, which we currently don't support.
+***Code review*** is hard to grade automatically in the general case,
+but can be tackled if the student is given a rubric (i.e., a list of
+faults to look for) and asked to match particular comments against
+particular lines of code. For example, the student can be told that
+there are two indentation errors and one bad variable name, and asked
+to point them out; if she is more advanced, she uld be given half a
+dozen kinds of remarks she could make about the code without guidance
+as to how many of each she should find.  As with **tracing values**,
+this is easiest for students to do when presented as a table, which we
+currently don't support.
+
+> Example: using the rubric provided, mark each line of the code below.
+>
+> ```
+> 01)  def addem(f):
+> 02)      x1 = open(f).readlines()
+> 03)      x2 = [x for x in x1 if x.strip()]
+> 04)      changes = 0
+> 05)      for v in x2:
+> 06)          print('total', total)
+> 07)          tot = tot + int(v)
+> 08)      print('total')
+> ```
+>
+> 1. poor variable name
+> 2. unused variable
+> 3. use of undefined variable
+> 4. missing values
+> 5. fossil code
 
 There are undoubtedly many other kinds of exercises out there that are
 also fast to do and automatically gradable, but which we haven’t heard
@@ -250,8 +308,8 @@ of. If you know of any, we’d enjoy hearing about them.
 
 *Thanks to everyone who contributed ideas to this post, including
 Francis Castro, Katie Cunningham, Brian Dillingham, Mark Guzdial, Toby
-Hodges, Jeramia Ory, Alex Pounds, Danielle Quinn, Ariel Rokem, Pat
-Schloss, Malvika Sharan, Richard Tomsett, Stéfan van der Walt, Hadley
-Wickham, and Andromeda Yelton.*
+Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle Quinn, Ariel
+Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett, Stéfan van der
+Walt, Hadley Wickham, and Andromeda Yelton.*
 
 [datacamp]: http://datacamp.com
