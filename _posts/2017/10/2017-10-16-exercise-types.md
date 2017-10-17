@@ -289,7 +289,7 @@ but can be tackled if the student is given a rubric (i.e., a list of
 faults to look for) and asked to match particular comments against
 particular lines of code. For example, the student can be told that
 there are two indentation errors and one bad variable name, and asked
-to point them out; if she is more advanced, she uld be given half a
+to point them out; if she is more advanced, she could be given half a
 dozen kinds of remarks she could make about the code without guidance
 as to how many of each she should find.  As with **tracing values**,
 this is easiest for students to do when presented as a table, which we
