@@ -324,4 +324,10 @@ Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle Quinn, Ariel
 Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett, Stéfan van der
 Walt, Hadley Wickham, and Andromeda Yelton.*
 
+----------------------------------------
+
+- Ian Hawke: have students write tests ("write and run") to find bugs in a black-box function.
+
+- Stéfan van der Walt: give students half a dozen tests, they write the function, then the function has to pass a larger test suite.
+
 [datacamp]: http://datacamp.com
