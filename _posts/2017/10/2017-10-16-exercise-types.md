@@ -38,9 +38,9 @@ part.
 
 The second type of exercise is **write and run**, in which the student
 has to write code that produces a specified output. When the code is
-submitted, we check its structure and/or output and give
-feedback. Write and run exercises can be as simple or as complex as
-the instructor wants. For example, it’s often enough with novices to
+submitted, we check its structure and/or output and give feedback.
+Write and run exercises can be as simple or as complex as the
+instructor wants. For example, it's often enough with novices to
 simply ask them to call a function or method: experienced instructors
 often forget how hard it can be to figure out which parameters go
 where.
@@ -52,7 +52,31 @@ where.
 **Write and run** exercises help students practice the skills they
 most want to learn, but writing good automated checks is hard:
 students can find very creative ways to get the right answer, and it's
-demoralizing to give them a false negative.
+demoralizing to give them a false negative.  One way to reduce how
+often this occurs is to give them a small test suite they can run
+their code against before they submit it (at which point it is run
+against a more comprehensive set of tests).  Doing this helps to catch
+cases in which students have completely misunderstood the written spec
+of the exercise.
+
+To help students realize just how hard it is to write good tests
+instructors can get them to do it themselves.  Instead of writing code
+that satisfies some specification, they can be asked to write tests to
+determine whether a piece of code conforms to a spec.
+
+> Example: the function `monotonic_sum` calculates the sum of each
+> section of a list of numbers in which the values are monotonically
+> increasing. For example, given the input `[1, 3, 3, 4, 5, 1]`, the
+> output should be `[4, 3, 9, 1]`. Write and run unit tests to
+> determine which of the following bugs the function contains:
+>
+> - Considers every negative number the start of a new sub-sequence.
+> - Does not include the first value of each sub-sequence in the
+>   sub-sum.
+> - Does not include the last value of each sub-sequence in the
+>   sub-sum.
+> - Only re-starts the sum when values decrease rather than fail
+>   to increase.
 
 ***Fill in the blanks*** is a refinement of ***write and run*** in which
 the student is given some starter code and asked to complete it. (In
@@ -60,10 +84,11 @@ practice, many **write and run** exercises are actually **fill in the
 blanks** because the instructor will provide comments to remind the
 students of what steps they should take.) Novices often find **fill in
 the blanks** less intimidating than writing all the code from scratch,
-and since the instructor has provided most of the answer’s structure,
+and since the instructor has provided most of the answer's structure,
 submissions are much easier to check.
 
-> Example: fill in the blanks so that the code below prints the string ‘hat’.
+> Example: fill in the blanks so that the code below prints the string
+> 'hat'.
 >
 > ```
 > text = 'all that it is'
@@ -72,12 +97,12 @@ submissions are much easier to check.
 > ```
 
 A ***Parsons Problem*** is another kind of exercise that avoids the
-“blank screen of terror” problem: the student is given the lines of code
+"blank screen of terror" problem: the student is given the lines of code
 needed to solve a problem, but has to put them in the right order.
 Research over the past few years has shown that **Parsons Problems** are
 effective because they allow students to concentrate on control flow
-(“what order do I do things?”) separately from vocabulary (“what do I
-need to do?”). The same research shows that giving the student more
+("what order do I do things?") separately from vocabulary ("what do I
+need to do?"). The same research shows that giving the student more
 lines than she needs, or asking her to rearrange some lines and add a
 few more, makes this kind of problem significantly harder. Our mobile
 platform has direct support for **Parsons Problems**, and they can be
@@ -170,7 +195,7 @@ that changes the output in some specific way. These alterations can
 include:
 
 -   replacing one function call with another
--   changing one variable’s initial value
+-   changing one variable's initial value
 -   swapping an inner and outer loop
 -   changing the order of tests in a chain of conditionals
 -   changing the nesting of function calls or the order in which methods
@@ -192,10 +217,10 @@ one that already does something useful.
 
 Matching problems are another entire family of exercises. A
 ***one-to-one matching problem*** gives the student two lists of equal
-length and asks her to pair corresponding items, e.g., “match each piece
-of code with the output it produces”.
+length and asks her to pair corresponding items, e.g., "match each piece
+of code with the output it produces".
 
-> Example: match each function’s name with the operation it implements.
+> Example: match each function's name with the operation it implements.
 >
 > <table class="table table-striped">
 > <tr><td>SGEMV</td><td>triangular banded matrix-vector multiply</td></tr>
@@ -264,15 +289,15 @@ error message, but in more subtle cases, the student will have to trace
 execution forward and backward to figure out where things first went
 wrong.
 
-Our platform doesn't directly support all of these kinds of exercises
-yet, and there are others that are hard for any online platform to
-provide.  ***Refactoring exercises*** are the complement of **theme
-and variation** exercises: given a working piece of code, the student
-has to modify it in some way *without* changing its output. For
-example, the student could be asked to replace loops with vectorized
-expressions, to simplify the condition in a while loop, etc. The
-challenge here is that there are often so many ways to refactor a
-piece of code that grading requires human intervention.
+[DataCamp][datacamp]'s platform doesn't directly support all of these
+kinds of exercises yet, and there are others that are hard for any
+online platform to provide.  ***Refactoring exercises*** are the
+complement of **theme and variation** exercises: given a working piece
+of code, the student has to modify it in some way *without* changing
+its output. For example, the student could be asked to replace loops
+with vectorized expressions, to simplify the condition in a while
+loop, etc. The challenge here is that there are often so many ways to
+refactor a piece of code that grading requires human intervention.
 
 > Example: write a single list comprehension that has the same effect
 > as this loop.
@@ -315,19 +340,13 @@ currently don't support.
 > 5. fossil code
 
 There are undoubtedly many other kinds of exercises out there that are
-also fast to do and automatically gradable, but which we haven’t heard
-of. If you know of any, we’d enjoy hearing about them.
+also fast to do and automatically gradable, but which we haven't heard
+of. If you know of any, we'd enjoy hearing about them.
 
 *Thanks to everyone who contributed ideas to this post, including
-Francis Castro, Katie Cunningham, Brian Dillingham, Mark Guzdial, Toby
-Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle Quinn, Ariel
-Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett, Stéfan van der
-Walt, Hadley Wickham, and Andromeda Yelton.*
-
-----------------------------------------
-
-- Ian Hawke: have students write tests ("write and run") to find bugs in a black-box function.
-
-- Stéfan van der Walt: give students half a dozen tests, they write the function, then the function has to pass a larger test suite.
+Francis Castro, Katie Cunningham, Brian Dillingham, Mark Guzdial, Ian
+Hawke, Toby Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle
+Quinn, Ariel Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett,
+Stéfan van der Walt, Hadley Wickham, and Andromeda Yelton.*
 
 [datacamp]: http://datacamp.com
