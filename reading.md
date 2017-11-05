@@ -5,7 +5,7 @@ title: "Reading List"
 ---
 <div class="well" markdown="1">
 
-# Ideas
+# Recommended Reading
 
 Over the last decade,
 I have belatedly realized that programmers can't understand what they ought to build
