@@ -46,6 +46,10 @@ I'd appreciate suggestions for additions.
    Explores the early days of the anarchist movement,
    and in doing so shows how governments create the villains they need.
 
+1. Tressie McMillan Cottom: *[Lower Ed][lower-ed]*.
+   Its subtitle is "the troubling rise of for-profit colleges in the new economy",
+   and there's a lot in here that people pushing online education should think about.
+
 1. Matthew Crawford: *[Shop Class as Soulcraft][shop-class]*.
    There are truths about ourselves we can only learn
    by interacting with things that cannot be swayed or bargained with.
@@ -147,6 +151,7 @@ I'd be grateful for:
 [imposters]: https://bigmachine.io/products/the-imposters-handbook
 [last-utopia]: https://www.amazon.com/Last-Utopia-Human-Rights-History/dp/0674048725/
 [life-code]: https://www.amazon.com/Life-Code-Personal-History-Technology/dp/0374534519/
+[lower-ed]: https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/
 [not-on-the-shelves]: {{site.github.url}}/not-on-the-shelves/
 [orwell]: https://www.amazon.com/Essays-Everymans-Library-Contemporary-Classics/dp/0375415033/
 [owning-land]: https://www.amazon.com/Owning-Earth-Transforming-History-Ownership/dp/1620402890/
