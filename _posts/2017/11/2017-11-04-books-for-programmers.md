@@ -14,6 +14,12 @@ just how intellectually impoverished Silicon Valley's worldview is;
 if you find them useful,
 I'd appreciate suggestions for additions.
 
+1. Karen Armstrong: *[The Great Transformation][great-transformation]*.
+   Chronicles the critical centuries in which Confucianism and Daoism arose in China,
+   Hinduism and Buddhism in India,
+   monotheism in the Middle East,
+   and rationalism in Greece.
+
 1. Jean Baker: *[Sisters: The Lives of America's Suffragists][sisters]*.
    Explains history through biography,
    and does well at both.
@@ -38,6 +44,10 @@ I'd appreciate suggestions for additions.
    A sceptical (but not hostile) look at alternative medicine
    that is incidentally a great primer on standards of evidence
    and how to interpret scientific findings.
+
+1. Peter Frase: *[Four Futures][four-futures]*.
+   Explores four scenarios in which our reactions to increasing automation and worsening climate change
+   play out.
 
 1. Elizabeth Green: *[Building a Better Teacher][babt]*.
    Shows that educational reforms over the last fifty years have failed
@@ -86,6 +96,9 @@ I'd appreciate suggestions for additions.
    A great description of how science is actually done,
    and of what it's like to have a life in science.
 
+1. Susan Whitfield: *[Life Along the Silk Road][silk-road]*.
+   A history of Central Asia told in twelve biographies.
+
 1. Richard Wilkinson and Kate Pickett: *[The Spirit Level][spirit-level]*.
    An evidence-based exploration of how and why greater equality is better for everyone.
 
@@ -116,7 +129,9 @@ I'd be grateful for:
 [doubt]: https://www.amazon.com/Doubt-Doubters-Innovation-Jefferson-Dickinson/dp/0060097957/
 [economics-everyone]: https://www.amazon.com/Economics-Everyone-Second-Short-Capitalism/dp/0745335780/
 [empire]: https://www.amazon.com/Ruins-Empire-Intellectuals-Remade-Asia/dp/0374249598/
+[four-futures]: https://www.amazon.com/Four-Futures-After-Capitalism-Jacobin/dp/1781688133/
 [governing-commons]: https://www.amazon.com/Governing-Commons-Evolution-Institutions-Collective/dp/1107569788/
+[great-transformation]: https://www.amazon.com/Four-Futures-After-Capitalism-Jacobin/dp/1781688133/
 [hbl]: https://www.amazon.com/How-Buildings-Learn-Happens-Theyre/dp/0140139966/
 [last-utopia]: https://www.amazon.com/Last-Utopia-Human-Rights-History/dp/0674048725/
 [life-code]: https://www.amazon.com/Life-Code-Personal-History-Technology/dp/0374534519/
@@ -125,6 +140,7 @@ I'd be grateful for:
 [owning-land]: https://www.amazon.com/Owning-Earth-Transforming-History-Ownership/dp/1620402890/
 [seeing-like-state]: https://www.amazon.com/Seeing-Like-State-Condition-Institution/dp/0300070160/
 [shop-class]: https://www.amazon.com/Shop-Class-Soulcraft-Inquiry-Value/dp/0143117467/
+[silk-road]: https://www.amazon.com/Life-along-Silk-Road-Second/dp/0520280598/
 [sisters]: https://www.amazon.com/Sisters-Americas-Suffragists-Jean-Baker/dp/0809087030/
 [soul-machine]: http://www.amazon.com/Soul-New-Machine-Tracy-Kidder/dp/0316491977
 [spirit-level]: https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608190366/
