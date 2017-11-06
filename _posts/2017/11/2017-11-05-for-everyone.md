@@ -33,7 +33,7 @@ broken down by institution type:
 I'm sure I've mis-ascribed some workshops, but the result is clear: 
 a workshop is five times more likely to happen at an R1 than at an R2,
 and forty times more likely than at an R3,
-despite the fact that the majority of graduate students in the US
+despite the fact that the majority of students in the US
 are at R2 and R3 institutions.
 I don't have numbers for other countries,
 but I'd be amazed if the breakdown was significantly different.
