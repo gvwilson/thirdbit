@@ -134,10 +134,10 @@ I'd be grateful for:
   but isn't quite what I'm after).
 
 [anarchists]: https://www.amazon.com/World-That-Never-Was-Anarchists/dp/037542511X/
-[annotated-turing]: http://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055
+[annotated-turing]: https://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055
 [babt]: https://www.amazon.com/Building-Better-Teacher-Teaching-Everyone/dp/0393351084/
 [chains]: https://www.amazon.com/Bury-Chains-Prophets-Rebels-Empires/dp/0618619070/
-[clubhouse]: https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608190366/
+[clubhouse]: https://www.amazon.com/Unlocking-Clubhouse-Women-Computing-Press/dp/0262632691/
 [datacamp]: http://datacamp.com
 [discussion]: https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/
 [doubt]: https://www.amazon.com/Doubt-Doubters-Innovation-Jefferson-Dickinson/dp/0060097957/
@@ -160,7 +160,7 @@ I'd be grateful for:
 [shop-class]: https://www.amazon.com/Shop-Class-Soulcraft-Inquiry-Value/dp/0143117467/
 [silk-road]: https://www.amazon.com/Life-along-Silk-Road-Second/dp/0520280598/
 [sisters]: https://www.amazon.com/Sisters-Americas-Suffragists-Jean-Baker/dp/0809087030/
-[soul-machine]: http://www.amazon.com/Soul-New-Machine-Tracy-Kidder/dp/0316491977
+[soul-machine]: https://www.amazon.com/Soul-New-Machine-Tracy-Kidder/dp/0316491977
 [spirit-level]: https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608190366/
 [stam]: {{site.github.url}}/2016/11/13/stuff-that-actually-matters.html
 [think-like-commoner]: https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/
