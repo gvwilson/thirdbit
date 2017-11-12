@@ -258,4 +258,21 @@ think that analysis of actual usage patterns could lay the
 foundation for [the design of a better version control
 system]({{site.github.url}}/2017/09/30/git-graphs-and-engineering.html).
 
+**Numerical JavaScript**
+
+Ten years from now,
+I believe that JavaScript (or a derivative like TypeScript)
+will have supplanted Python and R
+as the language of choice for people doing leading-edge open scientific computing,
+because no matter what else programmers use,
+they eventually have to learn JavaScript.
+More specifically,
+I expect that the 5-15% of scientists who are early adopters of new technology
+will bypass single-purpose languages like Julia
+in favor of the one they already have to master
+to create websites and use things like [D3](https://d3js.org/).
+And with major players like Microsoft, Google, and Facebook all working hard
+to make general-purpose JavaScript faster,
+it will be harder and harder for niche players to keep up.
+
 </div>
