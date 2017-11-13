@@ -104,6 +104,9 @@ the fact that it ain't gonna happen is just one more sign of how desperately we 
 1. Jim Stanford: *[Economics for Everyone][economics-everyone]*.
    A useful antidote to the abstract, unquestioning way that neoliberal economics is usually presented.
 
+1. Zeynep Tufekci: *[Twitter and Tear Gas][twitter-tear-gas]*.
+   A nuanced look at how social media is and isn't changing politics and protest.
+
 1. Ellen Ullman: *[Life in Code][life-code]*.
    The second volume in the author's personal history of computing's Bronze Age.
 
@@ -170,3 +173,4 @@ I'd be grateful for pointers.
 [think-like-commoner]: https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/
 [tlm]: https://www.amazon.com/Time-Love-Memory-Biologist-Behavior/dp/0679763902/
 [trick-treatment]: https://www.amazon.com/Trick-Treatment-Undeniable-Alternative-Medicine/dp/0393337782/
+[twitter-tear-gas]: https://www.amazon.com/Twitter-Tear-Gas-Fragility-Networked/dp/0300215126/
