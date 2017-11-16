@@ -34,9 +34,11 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="ada-imposter">[Ada2017]</a> Ada Initiative: "Imposter Syndrome training".  <https://adainitiative.org/continue-our-work/impostor-syndrome-training/>, viewed May 2017.
 
+*   <a id="adams-seeds">[Adams1975]</a> Frank Adams: _[Unearthing Seeds of Fire: The Idea of Highlander](https://www.amazon.com/Unearthing-Seeds-Fire-Idea-Highlander/dp/0895870193/)_. John F. Blair, 1975, 978-0895870193. _A history of the Highlander Folk School and its founder, Myles Horton, who inspired many other social change organizations._
+
 *   <a id="aiken-note-taking">[Aiken1975]</a> Edwin G. Aiken, Gary S. Thomas, and William A. Shennum: "Memory for a Lecture: Effects of Notes, Lecture Rate, and Informational Density." _Journal of Educational Psychology_, 67(3), June 1975, 10.1037/h0076613. _A landmark study showing that taking notes improves retention when learning._
 
-*   <a id="alinsky-rules">[Alinsky1989]: Saul Alinsky: _[Rules for Radicals](https://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/)_. Vintage, 1989, 978-0679721130. _The classic guide to grassroots community organizing written by the person who invented many of the techniques we use today._
+*   <a id="alinsky-rules">[Alinsky1989]</a> Saul Alinsky: _[Rules for Radicals: A Practical Primer for Realistic Radicals](https://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/)_ Vintage, 1989, 978-0679721130. _A widely-read guide to community organization written by one of the 20th Century's great organizers._
 
 *   <a id="video-peer-instruction">[Avanti2013]</a>: Avanti Learning Centre: "ConcepTests at Avanti's Learning Centre in Kanpur." <https://www.youtube.com/watch?v=2LbuoxAy56o>, viewed April 2017.
 
@@ -120,6 +122,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="mayer-nine-ways">[Mayer2003]</a> Richard E. Mayer and Roxana Moreno: "Nine Ways to Reduce Cognitive Load in Multimedia Learning." _Educational Psychologist_, 38, 2003. _Shows how research into how we absorb and process information can be applied to the design of instructional materials._
 
+*   <a id="midwest-organizing">[Midwest2010]</a>: Midwest Academy: _[Organizing for Social Change](https://www.amazon.com/Organizing-Social-Change-Bobo-Kendall/dp/0984275215/)_ (4th edition). Forum Press, 2010, 978-0984275212. _A practical step-by-step handbook for those who want to build effective social change organizations._
+
 *   <a id="miller-predictions">[Miller2013]</a> Kelly Miller, Nathaniel Lasry, Kelvin Chu, and Eric Mazur: "Role of Physics Lecture Demonstrations in Conceptual Learning." _Physical Review Physics Education Research_, 9(2), 2013, 10.1103/PhysRevSTPER.9.020113. _Reports a detailed study of what students learn during demonstrations and why._
 
 *   <a id="mueller-note-taking">[Mueller2014]</a> Pam A. Mueller and Daniel M. Oppenheimer: "The Pen Is Mightier Than the Keyboard." _Psychological Science_, 25(6), 2014, 10.1177/0956797614524581. _Presents evidence that taking notes by hand is more effective than taking notes on a laptop._
@@ -145,6 +149,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 *   <a id="schon-practitioner">[Schon1984]</a> Donald A. Schön: _[The Reflective Practitioner: How Professionals Think In Action](https://www.amazon.com/Reflective-Practitioner-Professionals-Think-Action/dp/0465068782/)_ Basic Books, 1984, 978-0465068784. _A groundbreaking look at how professionals in different fields actually solve problems._
 
 *   <a id="scott-state">[Scott1999]</a> J. C. Scott: _[Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed](https://www.amazon.com/Seeing-like-State-Certain-Condition/dp/0300078153/)_ Yale University Press, 1999, 978-0300128789. _Argues that large organizations consistently prefer uniformity over productivity._
+
+*   <a id="spalding-adults">[Spalding2014]</a> Dan Spalding: _[How to Teach Adults](https://www.amazon.com/How-Teach-Adults-Jossey-Bass-Education/dp/1118841360/)_ Jossey-Bass, 2014, 978-1118841365. _A short guide to teaching adult free-range learners informed by the author's social activism._
 
 *   <a id="steele-vivaldi">[Steele2011]</a> C. M. Steele: _[Whistling Vivaldi: And Other Clues to How Stereotypes Affect Us](https://www.amazon.com/Whistling-Vivaldi-Stereotypes-Affect-Issues/dp/0393339726/)_ W. W. Norton, 2011, 978-0393341485. _Explains and explores stereotype threat and strategies for addressing it._
 

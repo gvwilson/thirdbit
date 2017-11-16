@@ -6,19 +6,70 @@ title: "How to Teach Programming (and Other Things): Building Community"
 
 # Building Community
 
-1.  **Do the reading.**
-    People have been writing about their experiences with grassroots organizing for decades.
-    Two resources that are particularly useful are
-    *[Building Powerful Community Organizations](biblio.html#brown-bpco)*
-    and *[Producing Open Source Software](biblio.html#fogel-poss)*.
+*This section is currently under development:
+[feedback](mailto:gvwilson@third-bit.com?feedback%20on%20Building%20Community) would be appreciated.*
 
-1.  **Join, don't start.**
-    Hundreds of organizations devoted to teaching already exist,
-    from professional associations to community groups focusing on local needs.
-    Before creating a new one,
-    see if there's one you could join:
-    this will give you a head start
-    and a chance to learn more about how to run things.
+Building and teaching lessons is start,
+but one person can only do so much of either.
+Just as we learn best together,
+we teach best when we are teaching with other people,
+and the best way to achieve that is to build a community.
+
+A framework in which to think about doing this is
+_[situated learning](gloss.html#situated-learning)_,
+which focuses on how _[legitimate peripheral participation](gloss.html#legitimate-peripheral-participation)_
+leads to people becoming members of a _[community of practice](gloss.html#community-of-practice)_.
+Unpacking those terms,
+a community of practice is a group of people bound together by interest in some activity,
+such as knitting or particle physics.
+Legitimate peripheral participation means doing simple, low-risk tasks
+that community nevertheless recognizes as valid contributions:
+making your first scarf,
+stuffing envelopes during an election campaign,
+or proof-reading documentation for open source software.
+
+Situated learning focuses on
+the transition from being a newcomer to being accepted as a peer
+by those who are already community members.
+This typically means starting with simplified tasks and tools,
+then doing similar tasks with more complex tools,
+and finally tackling the challenges of advanced practitioners.
+For example,
+children learning music may start by playing nursery rhymes on a recorder or ukulele,
+then play other simple songs on a trumpet or saxophone in a band,
+and finally start exploring their own musical tastes.
+Healthy communities understand and support these progressions,
+and recognize that each step is meant to give people a ramp rather than a cliff.
+
+Whatever the domain,
+situated learning emphasizes that learning is a social activity.
+In order to be effective and sustainable,
+teaching therefore needs to be rooted in a community;
+if one doesn't exist,
+you need to build one.
+
+The first step is to o the reading.
+People have been writing about grassroots organizing for decades;
+[[Alinsky1989](biblio.html#alinsky-rules)] is probably the best-known work on the subject,
+while [[Brown2007](biblio.html#brown-bpco)]
+and [[Midwest2010](biblio.html#midwest-organizing)]
+are practical manuals rooted in decades of practice.
+(If you want to read more deeply,
+[[Adams1975](biblio.html#adams-seeds)] is a history of the Highlander Folk School,
+whose approach has been emulated by many successful groups,
+while [[Spalding2014](biblio.html#spalding-adults)] is a guide to teaching adults
+written by someone with deep personal roots in organizing.)
+
+The second step is to decide if you really need to create something new,
+or whether you would be more effective joining an existing community.
+There are thousands of such organizations,
+from the [4-H Club][4h] and [literacy programs][frontier-college]
+to technically-oriented groups like [Black Girls Code][bgc].
+Joining an existing group will give you a head start on teaching,
+an immediate set of colleagues,
+and a chance to learn more about how to run things.
+The only thing it *won't* give you is the ego gratification and control
+that comes from being a founder.
 
 1.  **Make it a democracy.**
     Sooner or later,
@@ -122,5 +173,8 @@ title: "How to Teach Programming (and Other Things): Building Community"
     Celebrate that---you won't have any trouble finding
     something else to keep you busy.
 
+[4h]: http://www.4-h-canada.ca/
+[bgc]: http://www.blackgirlscode.com/
 [coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
+[frontier-college]: https://www.frontiercollege.ca/
 [structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
