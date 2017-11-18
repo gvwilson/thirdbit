@@ -169,6 +169,9 @@ that comes from being a founder...
     Celebrate that---you won't have any trouble finding
     something else to keep you busy.
 
+*Thanks to everyone who contributed ideas to this list, including Erin Robinson,
+Matt Turk, and Belinda Weaver.*
+
 [4h]: http://www.4-h-canada.ca/
 [alinsky]: https://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/
 [bgc]: http://www.blackgirlscode.com/
