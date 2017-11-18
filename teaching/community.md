@@ -117,14 +117,12 @@ is a powerful reason for people to get and stay involved.
 
 FIXME: borrow training, don't do it yourself.
 
-## Don't Be Afraid to Pay Some People
-
 One important special case of making things rewarding is to pay people.
 Volunteers can do a lot,
 but tasks like system administration and accounting need full-time paid staff.
 FIXME: difficult transition.
 
-## Make It a Democracy (Eventually)
+## Governance
 
 Every organization has a power structure:
 the only question is whether it's formal and accountable,
@@ -150,8 +148,6 @@ but is the only way invented so far to ensure that
 an organization continues to meet people's actual needs.
 
 FIXME: borrow a constitution.
-
-FIXME: enforce those rules.
 
 ## Make Space For Everyone
 
