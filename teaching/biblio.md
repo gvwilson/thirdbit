@@ -102,6 +102,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="koedinger-doing-watching">[Koedinger2015]</a> Kenneth R. Koedinger, Jihee Kim, Julianna Zhuxin Jia, Elizabeth A. McLaughlin, and Norman L. Bier: "Learning is Not a Spectator Sport: Doing is Better Than Watching for Learning from a MOOC" _Proc. Second ACM Conference on Learning @ Scale_, 2015, 10.1145/2724660.2724681. _Measures the benefits of doing rather than watching._
 
+*   <a id="kuchner-marketing">[KuchnerFIXME]</a> FIXME.
+
 *   <a id="kuittinen-patterns">[Kuittinen2004]</a> Marja Kuittinen and Jorma Sajaniemi: "Teaching Roles of Variables in Elementary Programming Courses" _Proc. 9th Annual SIGCSE Conference on Innovation and Technology in Computer Science Education_, 2004, 10.1145/1007996.1008014. _Presents a few patterns used in novice programming and looks at the pedagogical value of teaching them._
 
 *   <a id="learning-theories">[Learning2017]</a> "Learning Theories" website. <http://www.learning-theories.com/>, viewed April 2017.
