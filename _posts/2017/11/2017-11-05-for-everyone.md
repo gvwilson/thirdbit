@@ -2,6 +2,7 @@
 layout: post
 title: "For Everyone"
 date: 2017-11-05 03:00:00
+favorite: true
 ---
 
 When Brent Gorda and I started Software Carpentry back in 1998,

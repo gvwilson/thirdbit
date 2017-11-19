@@ -2,6 +2,7 @@
 layout: post
 title: "Numerical JavaScript"
 date: 2017-05-22 05:00:00
+favorite: true
 ---
 
 I have a terrible record when it comes to making predictions,
