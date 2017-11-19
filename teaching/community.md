@@ -74,7 +74,7 @@ whose approach has been emulated by many successful groups,
 while [[Spalding2014](biblio.html#spalding-adults)] is a guide to teaching adults
 written by someone with deep personal roots in organizing.
 
-## Communicate
+## Marketing
 
 Nobody's going to come to a meeting unless they know about it,
 and nobody's going to help you raise money if they don't know how you're going to spend it.
@@ -85,7 +85,7 @@ but use them:
 
 FIXME: findability.
 
-## Make Participation Rewarding
+## Engagement
 
 The community organizer Saul Alinksy said,
 "If your people aren't having a ball doing it, there is something very wrong."
@@ -122,6 +122,20 @@ Volunteers can do a lot,
 but tasks like system administration and accounting need full-time paid staff.
 FIXME: difficult transition.
 
+Micromanaging or trying to control everything centrally
+means people won't feel they have the autonomy to act,
+which will probably cause them to drift away.
+In particular,
+if you're too engaged or too quick on the reply button,
+people have less opportunity to grow as members
+and to create horizontal collaborations.
+The community can continue to be "hub and spoke",
+focused around one or two individuals,
+rather than a highly-connected network
+in which others feel comfortable participating.
+
+FIXME: pathways to contribution (examples).
+
 ## Governance
 
 Every organization has a power structure:
@@ -149,22 +163,6 @@ an organization continues to meet people's actual needs.
 
 FIXME: borrow a constitution.
 
-## Make Space For Everyone
-
-Micromanaging or trying to control everything centrally
-means people won't feel they have the autonomy to act,
-which will probably cause them to drift away.
-In particular,
-if you're too engaged or too quick on the reply button,
-people have less opportunity to grow as members
-and to create horizontal collaborations.
-The community can continue to be "hub and spoke",
-focused around one or two individuals,
-rather than a highly-connected network
-in which others feel comfortable participating.
-
-FIXME: pathways to contribution (examples).
-
 ## Look After Yourself
 
 As [[PigniFIXME][FIXME]] discusses,
@@ -182,8 +180,14 @@ watching something you helped build take on a life of its own.
 Celebrate that–you won't have any trouble finding
 something else to keep you busy.
 
-*Thanks to everyone who contributed ideas to this list, including Erin Robinson,
-Matt Turk, and Belinda Weaver.*
+## Challenges
+
+FIXME
+
+## Acknowledgments
+
+Thanks to everyone who contributed ideas to this list, including Erin Robinson,
+Matt Turk, and Belinda Weaver.
 
 [4h]: http://www.4-h-canada.ca/
 [bgc]: http://www.blackgirlscode.com/
