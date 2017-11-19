@@ -314,12 +314,35 @@ in which others feel comfortable participating.
 
 FIXME: pathways to contribution (examples).
 
+Plan for a cycle:
+- Recruitment.
+- Retention.
+- Retirement (from your organization at least).
+
+Recruitment:
+- Share stories that exemplify the kind of actions you want.
+- Have newcomers take part in group activities before solo activities.
+- Give newcomers a mentor.
+  - Give the mentors some training.
+  - Make sure the mentors mentor.
+  - Most important activity is to fill in the unwritten rules.
+
+Retention:
+- Provide many ways to contribute (so that as people's lives change, they can still take part).
+- Make sure that authority and responsibility go hand-in-hand.
+- Recognize contributions.
+
+Retirement:
+- Make sure knowledge is passed on.
+- Make sure final thoughts on changes are listened to (even if they're not acted on).
+
 ## Governance
 
-Every organization has a power structure:
+As Jo Freeman pointed out in her influential essay
+"[The Tyranny of Structurelessness][freeman]",
+every organization has a power structure:
 the only question is whether it's formal and accountable,
-or informal and unaccountable
-[[Freeman][FIXME]].
+or informal and unaccountable.
 Make yours one of the first kind:
 write and publish the rules governing everything from
 who's allowed to use the name and logo
@@ -341,9 +364,25 @@ an organization continues to meet people's actual needs.
 
 FIXME: borrow a constitution.
 
-## Look After Yourself
+FIXME: distinguish service board from governance board.
 
-As [[PigniFIXME][FIXME]] discusses,
+FIXME: measurement
+- Don't fetishize quantification.
+- Define goals in a way that will allow an unbiased outsider to tell
+  if they've been met or not.
+- First-time goal is often "measure X".
+  - Otherwise, you're pulling a target out of thin air.
+- If you don't make your goal, do a retrospective to ask what to do differently next time:
+  - Unrealistic goal?
+  - Resources not allocated properly?
+
+When choosing a board:
+- Prioritize competence over passion (the latter is for the rank and file).
+- Recruit to fill gaps (accounting, marketing, evaluation, etc.).
+
+## Final Thoughts
+
+As [[Pigni2016](biblio.html#pigni-idealists)] discusses,
 burnout is a chronic risk in any community activity.
 If you don't take care of yourself,
 you won't be able to take care of your community.
@@ -370,4 +409,5 @@ Matt Turk, and Belinda Weaver.
 [4h]: http://www.4-h-canada.ca/
 [bgc]: http://www.blackgirlscode.com/
 [franklin-effect]: https://en.wikipedia.org/wiki/Ben_Franklin_effect
+[freeman]: http://www.jofreeman.com/joreen/tyranny.htm
 [frontier-college]: https://www.frontiercollege.ca/
