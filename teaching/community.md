@@ -336,6 +336,74 @@ Retirement:
 - Make sure knowledge is passed on.
 - Make sure final thoughts on changes are listened to (even if they're not acted on).
 
+### People You Don't Want On Your Team
+
+*Anna* knows more about every subject than everyone else on the team
+put together–at least, she thinks she does. No matter what you say,
+she'll correct you; no matter what you know, she knows better. Annas
+are pretty easy to spot: if you keep track in team meetings of how
+often people interrupt one another, her score is usually higher than
+everyone else's put together.
+
+*Bao* is a contrarian: no matter what anyone says, he'll take the
+opposite side. This is healthy in small doses, but when Bao does it,
+there's always another objection lurking behind the first half dozen.
+
+*Catherine* has so little confidence in her own ability (despite her
+good grades) that she won't make any decision, no matter how small,
+until she has checked with someone else. Everything has to be spelled
+out in detail for her so that there's no possibility of her getting
+anything wrong.
+
+*Frank* believes that knowledge is power. He enjoys knowing things
+that other people don't–or to be more accurate, he enjoys it when
+people know he knows things they don't. Frank can actually make things
+work, but when asked how he did it, he'll grin and say, "Oh, I'm sure
+you can figure it out."
+
+*Hediyeh* is quiet. Very quiet. She never speaks up in meetings, even
+when she knows that what other people are saying is wrong. She might
+contribute to the mailing list, but she's very sensitive to criticism,
+and will always back down rather than defending her point of
+view. Hediyeh isn't a troublemaker, but rather a lost opportunity.
+
+*Kenny* is a hitchhiker. He has discovered that most people would
+rather shoulder some extra work than snitch, and he takes advantage of
+it at every turn. The frustrating thing is that he's so damn
+*plausible* when someone finally does confront him. "There have been
+mistakes on all sides," he says, or, "Well, I think you're
+nit-picking." The only way to deal with Kenny is to stand up to him:
+remember, if he's not doing his share, *he's the bad guy*, not you.
+
+*Melissa* would easily have made the varsity procrastination team if
+she'd bothered to show up to tryouts. She means well–she really does
+feel bad about letting people down–but somehow something always comes
+up, and her tasks are never finished until the last possible
+moment. Of course, that means that everyone who is depending on her
+can't do their work until *after* the last possible moment...
+
+*Petra*'s favorite phrase is "why don't we". Why don't we write a GUI
+to help people edit the program's configuration files? Hey, why don't
+we invent our own little language for designing GUIs? Her energy and
+enthusiasm are hard to argue with, but argue you must. Otherwise, for
+every step you move forward, the project's goalposts will recede by
+two. This is called feature creep, and has ruined many projects that
+might otherwise have delivered something small, but useful.
+
+*Raj* is rude. "It's just the way I talk," he says, "If you can't hack
+it, maybe you should find another team." His favorite phrase is,
+"That's stupid," and he uses obscenity as casually as minor characters
+in Tarantino films. His only redeeming grace is that he can't
+dissemble in front of the instructor as well as Kenny, so he's easier
+to get rid of.
+
+*Sergei* is simply incompetent. He doesn't understand the problem, he
+hasn't bothered to master the tools and libraries he's supposed to be
+using, the code he checks in doesn't compile, and his thirty-second
+bug fixes introduce more problems than they solve. If he means well,
+try to re-partition the work so that he'll do less damage. If he
+doesn't, he should be treated like any other hitchhiker.
+
 ## Governance
 
 As Jo Freeman pointed out in her influential essay
@@ -379,6 +447,23 @@ FIXME: measurement
 When choosing a board:
 - Prioritize competence over passion (the latter is for the rank and file).
 - Recruit to fill gaps (accounting, marketing, evaluation, etc.).
+
+Countries and corporations are only two of many governance models.
+- The commons is often a better model for teaching organizations.
+- "Something managed jointly by a community according to rules they themselves have evolved and adopted."
+- As [[Bollier2014](biblio.html#bollier-commoner)] repeatedly emphasizes,
+  all three parts of that equation are essential:
+  a commons isn't just a thing,
+  like a shared pasture,
+  but is necessarily also comprised of a community who share it and the rules they use to do so.
+- Most resources, throughout most of human history, have been commons:
+  it is only in the last few hundred years that impersonal markets have pushed them to the margins.
+  In order to do so,
+  free-market advocates have had to convince us we're something we're not
+  (dispassionate calculators of individual advantage)
+  and erase or devalue local knowledge and custom.
+  Both have had tragic consequences for us individually and communally,
+  and now for our whole planet.
 
 ## Final Thoughts
 

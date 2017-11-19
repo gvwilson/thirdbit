@@ -52,6 +52,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="bohay-note-taking">[Bohay2011]</a> Mark Bohay, Daniel P. Blakely, Andrea K. Tamplin, and Gabriel A. Radvansky: "Note Taking, Review, Memory, and Comprehension." _American Journal of Psychology_, 124(1), 2011, 10.5406/amerjpsyc.124.1.0063. _Presents a study showing that note-taking improves retention most at deeper levels of understanding._
 
+*   <a id="bollier-commoner">[Bollier2014]</a> David Bollier: _[Think Like a Commoner: A Short Introduction to the Life of the Commons](https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/)_ New Society Publishers, 2014, 978-0865717688. _A short introduction to one of the most widely used kinds of governance in human societies throughout history._
+
 *   <a id="brown-empirical">[Brown2014]</a> Neil C. C. Brown and Amjad Altadmri: "Investigating Novice Programming Mistakes: Educator Beliefs vs. Student Data." _Proc Tenth Annual Conference on International Computing Education Research_, 2014, 10.1145/2632320.2632343. _Uses data from over 100,000 students to show that educators know less than they think about what mistakes novice programmers actually make._
 
 *   <a id="cottrill-gifted">[Cottrill2016]</a> Cameron Cottrill: "Why Talented Black and Hispanic Students Can Go Undiscovered." <https://mobile.nytimes.com/2016/04/10/upshot/why-talented-black-and-hispanic-students-can-go-undiscovered.html>, viewed April 2017.
