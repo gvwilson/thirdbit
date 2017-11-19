@@ -83,11 +83,6 @@ Use them sparingly so that your audience isn't overwhelmed,
 but use them:
 [[KuchnerFIXME](biblio.html#kuchner-marketing)] is a good place to start for guidance.
 
-FIXME: findability.
-
-Fundamental theorem: everything you get from other people comes
-because you met their needs or desires.
-
 *Marketing* is the craft of seeing things from other people's
 perspective, understanding their wants and needs, and finding ways to
 meet them.
@@ -98,6 +93,19 @@ A *brand* is someone's first reaction to a mention of a product.
   you can be first in.
 - Not as cynical as it sounds: if someone else is already doing
   what you're doing better than you, find something else to do.
+- *Get a logo*.
+
+What are you offering to whom?
+- Cite Kuchner: scientists think their product is papers, but they're wrong.
+  - Their product is their grant proposals: that's what gets funded.
+  - Their papers are their advertising.
+- Use weekend coding workshops as an example:
+  - Learners pay: the product is the workshop, but what are you selling to instructors?
+  - Sponsors pay: the workshops are ads, and the product is the grant proposal.
+  - What are you selling to volunteer instructors?
+    - Personal branding.
+    - Good feelings.
+    - Recruitment opportunity.
 
 Compare concerns:
 - Theater owner: do we have enough popcorn, are our ads up to date, who's working tonight?
@@ -115,12 +123,40 @@ Props make a story real.
 - Show people a game or a website that your students made.
 - Give them something quirky from the 3D printer.
 
+Free samples are compelling.
+- Lessons online.
+- Videos of actual workshops.
+- Lunchtime sessions, but only where practical and effective.
+
 Positioning is what sets your offering apart from others.
 - Include the standard elevator pitch here as an exercise.
 - When pitching, adapt the "what's in it for me?" part to the person you're speaking to.
   - Because we're all tired of generic emails.
 - Good way to do this is to use personas, but for other stakeholders.
   - Exercise
+
+Bad responses to "So tell me about your classes?"
+- "We teach programming." (stop)
+  - Like learners, community will never be more excited than you are.
+- "The students really don't seem interested, and we're really struggling to get software installed."
+  - Make people feel sorry for you *after* they already care about you.
+
+Findability.
+- What do people find when they search online for what you offer?
+- Just as important: how will they find you if they *aren't* online?
+  - Because a lot of people you might want to help aren't.
+  - And the ubiquity of online has devalued it.
+
+Find allies.
+- Have you ever spoken to someone from your college or school board PR office, or yo city councilor's office?
+- Start building that relationship early by asking for help.
+  - How do they think you ought to raise awareness of what you're doing?
+  - They'll have useful advice, be flattered to be asked, and will know who you are when you have something to say.
+
+The bigger picture.
+- Combine marketing what you do in particular with marketing the subject as a whole.
+- There's room enough for everyone, so join forces with other groups.
+  - Referrals.
 
 Marketing blends into engagement (next section).
 - Instead of engaging teachers, you're engaging students and backers.
@@ -219,6 +255,8 @@ calls is outstanding.
 > Dr. Greg Wilson 
 > gvwilson@software-carpentry.org 
 > http://software-carpentry.org
+
+Writing proposals is out of scope of this book.
 
 ## Engagement
 
