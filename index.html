@@ -23,10 +23,10 @@ permalink: /
   </div>
 </div>
 
-{% for post in site.posts limit:5 %}
+{% for post in site.posts limit:10 %}
 <div class="article">
   <div class="well">
-    <h1><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h1>
+    <h3><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h3>
     <p><em>{{ post.date | date: "%b %-d, %Y" }}</em></p>
     <div class="content">
       {{ post.excerpt }}
