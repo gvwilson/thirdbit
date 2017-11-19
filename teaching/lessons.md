@@ -13,7 +13,7 @@ title: "How to Teach Programming (and Other Things): Designing Lessons"
   usual "forward" lesson development process.**
 * **Learners can define "teaching to the test" and explain why
   reverse instructional design is *not* the same thing.**
-* **Learners can construct and critique five-part learner profiles.**
+* **Learners can construct and critique five-part learner personas.**
 * **Learners can construct good learning objectives and critique
   learning objectives with reference to Bloom's Taxonomy.**
 
@@ -60,7 +60,7 @@ described in [[Fink2013](biblio.html#fink-significant)] (a summary of
 which is freely available online [[Fink2003](biblio.html#fink-short)].)
 In brief, lessons should be designed as follows:
 
-1.  Create learner profiles (discussed in the next section) to figure
+1.  Create learner personas (discussed in the next section) to figure
     out who you are trying to teach and what will appeal to them.
 
 1.  Draw concept maps to describe the mental model you want them to
@@ -132,19 +132,19 @@ course hasn't prepared them for.
 > [[Scott1999](biblio.html#scott-state)], large organizations usually
 > value uniformity over productivity.
 
-## Learner Profiles
+## Learner Personas
 
 The first piece of the process above is figuring out who your audience
 is.  One way to do this is to write two or three _[learner
-profiles](gloss.html#learner-profile)_. This technique is borrowed
+personas](gloss.html#learner-persona)_. This technique is borrowed
 from user interface design, where short profiles of typical users are
 created to help designers think about their audience's needs, and to
 give them a shorthand for talking about specific cases.
 
-Learner profiles have five parts: the person's general background,
+Learner personas have five parts: the person's general background,
 what they already know, what *they* think they want to do, how
 the course will help them, and any special needs they might have. A
-learner profile for a weekend workshop aimed at new college students
+learner persona for a weekend workshop aimed at new college students
 might be:
 
 1.  Jorge has just moved from Costa Rica to Canada to study agricultural
@@ -169,7 +169,7 @@ might be:
     to keep up with spoken conversation (especially if it involves a lot
     of new jargon).
 
-A single learner profile is sometimes enough, but two or three that
+A single learner persona is sometimes enough, but two or three that
 cover the whole range of potential learners is better.  One of the
 ways they help is by serving as a shorthand for design issues: when
 speaking with each other, lesson authors can say, "Would Jorge
@@ -178,7 +178,7 @@ would Jorge face?"
 
 > **Our Learners Revisited**
 >
-> The profiles of Samira and Moshe in the [introduction](index.html)
+> The personas of Samira and Moshe in the [introduction](index.html)
 > have the five points listed above, rearranged to flow more readably.
 
 ## Learning Objectives
@@ -276,9 +276,9 @@ these issues.
 
 ## Challenges
 
-### Learner Profiles (30 minutes)
+### Learner Personas (30 minutes)
 
-Working in pairs or small groups, create a five-point profile that
+Working in pairs or small groups, create a five-point persona that
 describes one of your typical learners.
 
 ### Write Learning Objectives (20 minutes)

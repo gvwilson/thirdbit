@@ -189,8 +189,8 @@ title: "How to Teach Programming (and Other Things): Glossary"
     negative feedback that they have no way to escape learn not to
     even try to escape when they could.
 
-*   **Learner Profile**:
-    <a name="learner-profile"></a>
+*   **Learner Persona**:
+    <a name="learner-persona"></a>
     A brief description of a typical target learner for a lesson that
     includes their general background, what they already know, what they
     want to do, how the lesson will help them, and any special needs they

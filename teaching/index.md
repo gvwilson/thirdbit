@@ -83,8 +83,8 @@ the basis of this book.
 
 ## Who You Are
 
-[Learner Profiles](lessons.html#learner-profiles) will explain how to
-define who a class is for.  Here, we present profiles of two typical
+[Learner Personas](lessons.html#learner-personas) will explain how to
+define who a class is for.  Here, we present personas of two typical
 participants in a workshop based on this book.
 
 **Samira** is an undergraduate student in mechanical engineering who
