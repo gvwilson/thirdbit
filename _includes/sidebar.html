@@ -3,7 +3,7 @@
 </div>
 
 <div class="sidebar well">
-  <h1>Favorites</h1>
+  <h2>Favorites</h2>
   {% assign favorites = site.posts | where:"favorite",true %}
   {% for post in favorites %}
   <p><a href="{{ site.github.url}}{{ post.url }}">{{ post.title }}</a></p>
