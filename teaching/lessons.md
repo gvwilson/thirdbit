@@ -274,6 +274,228 @@ Baume's guide to writing and using good learning outcomes
 [[Baume2009](biblio.html#baume-outcomes)] is a good longer discussion of
 these issues.
 
+## Maintainability
+
+Good courses take a lot of effort to build, but building them is only
+the first challenge.  Once they have been written, someone needs to
+maintain them, and doing that is a lot easier if the lessons have been
+built in a maintainable way.
+
+But what exactly does "maintainable" mean?  The short answer is that a
+course is maintainable if it's cheaper to update it than to replace
+it. This equation depends on many factors, only some of which are
+under our control:
+
+1. *How well documented the course's design is.* If the person doing
+   maintenance doesn't know (or doesn't remember) what the course is
+   supposed to accomplish or why topics are introduced in a particular
+   order, it will take her more time to update it.  One of the reasons
+   to use the template described earlier is to capture decisions about
+   why each course is the way it is.
+
+2. *How the course's content is structured.* Version control is the
+   secret sauce that allows software development to scale, but today's
+   version control systems (still) can't handle widely-used file
+   formats like Word and PowerPoint.  Lessons should therefore either
+   be written in plain-text formats like HTML, Markdown, or LaTeX, or
+   stored online in systems like Google Docs that allow many people to
+   edit the same files.  (The next section discusses this in more
+   detail.)
+
+3. *How people are using the course.* FIXME: feedback from instructors
+   and students alike.
+
+4. *How much the subject matter has changed.* FIXME
+
+5. *How much we know about how to teach.* People have been teaching as
+   long as there have been people, but new discoveries and new
+   technologies constantly change what's possible.  Each time
+   instructors deliver a course, we learn more about how the next
+   course should be created. FIXME
+
+## How to Share
+
+FIXME: rewrite in terms of lessons.
+
+Keeping track of what you and your collaborators have done is a
+critical part of any data analysis project. Being able to go back to a
+specific version of your software or data helps people review your
+work, helps you respond to their comments, and reassures readers that
+your results are trustworthy.
+
+The most powerful tools for tracking changes are the version control
+systems used in software development, such as Git, Mercurial, and
+Subversion. They record what was changed in a file, when, and by whom,
+and synchronize changes between computers so that multiple
+contributors can safely manage the same set of files.
+
+While version control tools make tracking changes easier, they can
+have a steep learning curve. For novices, and for smaller proejcts, a
+systematic manual approach is sometimes good enough.  Whichever
+approach you pick, a handful of best practices will make your life
+easier:
+
+1. **Back up (almost) everything created by a human being as soon as
+   it is created.** This includes scripts and programs of all kinds,
+   software packages that your project depends on, and
+   documentation. A few exceptions to this rule are discussed below.
+
+2. **Keep changes small.** For example, a single change that changes
+   several hundred lines in an analysis script is probably too large
+   to test or review, as it will not allow changes to different
+   components of the analysis to be understood separately. As a rule
+   of thumb, a good size for a single change is a group of edits that
+   you could imagine wanting to undo in one step at some point in the
+   future.
+
+3. **Share changes frequently.** Everyone working on the project
+   should share and incorporate changes from others on a regular
+   basis. Do not allow individual investigator's versions of the
+   project repository to drift apart, as the effort required to merge
+   differences goes up faster than the size of the difference. This is
+   particularly important for the manual versioning procedure describe
+   below, which does not provide any assistance for merging
+   simultaneous, possibly conflicting, changes.
+
+4. **Create, maintain, and use a checklist for saving and sharing
+   changes to the project.** The list should include writing log
+   messages that clearly explain any changes, style guidelines for
+   code, updating to-do lists, and bans on committing half-done work
+   or broken code.
+
+5. **Store each project in a folder that is mirrored off anyone's
+   personal machine** using one of the tools discussed below, and
+   **synchronize that folder at least daily**. It may take a few
+   minutes, but that time is repaid the moment a laptop is stolen or
+   its hard drive fails.
+
+You really should use a version control system, but if you choose to
+manage your files manually, you should still follow three simple
+rules.  First, make sure that your files are *not* stored on a single
+computer (which can be stolen, lost, or accidentally wiped). Instead,
+use a cloud-based service such as Dropbox so that changes are recorded
+somewhere less vulnerable.
+
+Second, add a file called `CHANGELOG.txt` to the project, and keep
+dated notes about changes in this file in reverse chronological order
+(that is, most recent first). This file is the equivalent of a lab
+notebook, and should contain entries like these:
+
+```
+## 2016-04-08
+
+* Switched to cubic interpolation as default.
+* Moved question about family's TB history to end of questionnaire.
+
+## 2016-04-06
+
+* Added option for cubic interpolation.
+* Removed question about staph exposure (can be inferred from blood test results).
+```
+
+Third, copy the entire project whenever a significant change has been
+made (that is, one that materially affects the results), and store
+that copy in a sub-folder whose name is the date it was created. This
+approach results in projects being organized as shown below:
+
+```
+.
+|-- project_name
+|   -- current
+|       -- ...project content as described earlier...
+|   -- 2016-03-01
+|       -- ...content of 'current' on Mar 1, 2016
+|   -- 2016-02-19
+|       -- ...content of 'current' on Feb 19, 2016
+```
+
+Here, the `project_name` folder is mapped to external storage (e.g.,
+Dropbox), `current` is where new work is being done, and other folders
+within `project_name` are old versions.
+
+Data scientists often say that "data is cheap, but time is expensive".
+Copying everything like the above approach suggests may seem wasteful,
+since many files won't have changed, but consider: a terabyte hard
+drive costs about $50, which means that 50 GByte costs less than
+$5. Provided very large data files are kept out of the backed-up area,
+this approach costs less than the time it would take to select files
+by hand for copying.
+
+This manual procedure is good enough for small projects with a small
+number of collaborators. If many people are working on the same
+project, though, or as the project grows larger, colleagues will need
+to coordinate so that only a single person is working on specific
+files at any time. In particular, they may wish to create one
+changelog file per contributor, and to merge those files whenever a
+backup copy is made.
+
+The version control tools that underpin our second approach don't just
+accelerate the manual process described above: they automate some
+steps while enforcing others, and thereby require less self-discipline
+for more reliable results.
+
+It's hard to know what version control tool is most widely used in
+research today, but the one that's most talked about is undoubtedly
+Git. This is largely because of GitHub, a popular hosting site that
+combines the technical infrastructure for collaboration via Git with a
+modern web interface. GitHub is free for public and open source
+projects and for users in academia and nonprofits.  GitLab is a
+well-regarded alternative that many people now prefer because the
+platform itself is free and open source. Bitbucket provides free
+hosting for both Git and Mercurial repositories, but does not have
+nearly as many scientific users.
+
+The core of any version control workflow is an update-work-commit
+cycle:
+
+-   **Update** your working copy to bring in changes other people have
+    made.
+-   Do whatever **work** you were planning to.
+-   **Commit** your work to the shared repository, merging any conflicts
+    between what you've done and what others have done.
+
+Modern version control systems like Git and Mercurial encourage people
+to make each change in a **branch**, which is a temporary parallel
+copy of the entire project.  Using branches allows people to work on
+several things at once without tripping over themselves, which in turn
+makes it easier to explore new ideas without risk.
+
+The benefits of version control systems don't apply equally to all
+file types.  First, file comparison in version control systems is
+optimized for plain text files, such as source code. The ability to
+see so-called "diffs" is one of the great joys of version
+control. Unfortunately, while Microsoft Office files (like the `.docx`
+files used by Word) or other formats like PDF can be stored in version
+control, it is not possible to pinpoint specific changes from one
+version to the next.  Tabular data, such as CSV files, can be put in
+version control as well, but changing the order of the rows or columns
+will create a big change for the version control system, even if the
+data itself has not changed.
+
+Second, raw data should not change, and therefore should not require
+version tracking.  Keeping intermediate data files and other results
+under version control is also not necessary if you can regenerate them
+from raw data and software. However, if data and results are small,
+it's recommended to version them for ease of access.
+
+Third, today's version control systems were not designed to handle
+very large files, so large data or results files should not be
+included.  (As a benchmark for "large", the limit for an individual
+file on GitHub is 100MB.)  Some emerging hybrid systems such as Git
+LFS put textual notes under version control, while storing the large
+data itself in a remote server, but these are not yet mature enough
+for us to recommend.
+
+Regardless of what system you use, it's important to be wary of
+inadvertent sharing.  Researchers dealing with data subject to legal
+restrictions that prohibit sharing (such as medical data) should be
+careful not to put data into cloud storage or public version control
+systems. Some institutions may provide access to private version
+control systems, so it is worth checking with your IT department.
+Additionally, be sure not to unintentionally place security
+credentials, such as passwords and private keys, in a version control
+system where it may be accessed by others.
+
 ## Challenges
 
 ### Learner Personas (30 minutes)
