@@ -74,7 +74,7 @@ whose approach has been emulated by many successful groups,
 while [[Spalding2014](biblio.html#spalding-adults)] is a guide to teaching adults
 written by someone with deep personal roots in organizing.
 
-## Communicate
+## Marketing
 
 Nobody's going to come to a meeting unless they know about it,
 and nobody's going to help you raise money if they don't know how you're going to spend it.
@@ -83,9 +83,182 @@ Use them sparingly so that your audience isn't overwhelmed,
 but use them:
 [[KuchnerFIXME](biblio.html#kuchner-marketing)] is a good place to start for guidance.
 
-FIXME: findability.
+*Marketing* is the craft of seeing things from other people's
+perspective, understanding their wants and needs, and finding ways to
+meet them.
 
-## Make Participation Rewarding
+A *brand* is someone's first reaction to a mention of a product.
+- If their reaction is "what's that?", you don't have a brand yet.
+- If you can't be first in a category, create a new category that
+  you can be first in.
+- Not as cynical as it sounds: if someone else is already doing
+  what you're doing better than you, find something else to do.
+- *Get a logo*.
+
+What are you offering to whom?
+- Cite Kuchner: scientists think their product is papers, but they're wrong.
+  - Their product is their grant proposals: that's what gets funded.
+  - Their papers are their advertising.
+- Use weekend coding workshops as an example:
+  - Learners pay: the product is the workshop, but what are you selling to instructors?
+  - Sponsors pay: the workshops are ads, and the product is the grant proposal.
+  - What are you selling to volunteer instructors?
+    - Personal branding.
+    - Good feelings.
+    - Recruitment opportunity.
+
+Compare concerns:
+- Theater owner: do we have enough popcorn, are our ads up to date, who's working tonight?
+- Movie goer: what's playing when and where, how much will it cost, is it accessible?
+
+Make a list of reasons that people will come to your classes, and *check them*.
+- People buy healthy food because it's healthy,
+  but also because of the story they tell themselves about themselves,
+  and because it's what their friends are buying.
+- I wear a t-shirt with a tech logo and a pair of jeans when I'm teaching programmers,
+  but business casual when I'm teaching recent immigrants,
+  because I want to fit into their story.
+
+Props make a story real.
+- Show people a game or a website that your students made.
+- Give them something quirky from the 3D printer.
+
+Free samples are compelling.
+- Lessons online.
+- Videos of actual workshops.
+- Lunchtime sessions, but only where practical and effective.
+
+Positioning is what sets your offering apart from others.
+- Include the standard elevator pitch here as an exercise.
+- When pitching, adapt the "what's in it for me?" part to the person you're speaking to.
+  - Because we're all tired of generic emails.
+- Good way to do this is to use personas, but for other stakeholders.
+  - Exercise
+
+Bad responses to "So tell me about your classes?"
+- "We teach programming." (stop)
+  - Like learners, community will never be more excited than you are.
+- "The students really don't seem interested, and we're really struggling to get software installed."
+  - Make people feel sorry for you *after* they already care about you.
+
+Findability.
+- What do people find when they search online for what you offer?
+- Just as important: how will they find you if they *aren't* online?
+  - Because a lot of people you might want to help aren't.
+  - And the ubiquity of online has devalued it.
+
+Find allies.
+- Have you ever spoken to someone from your college or school board PR office, or yo city councilor's office?
+- Start building that relationship early by asking for help.
+  - How do they think you ought to raise awareness of what you're doing?
+  - They'll have useful advice, be flattered to be asked, and will know who you are when you have something to say.
+
+The bigger picture.
+- Combine marketing what you do in particular with marketing the subject as a whole.
+- There's room enough for everyone, so join forces with other groups.
+  - Referrals.
+
+Marketing blends into engagement (next section).
+- Instead of engaging teachers, you're engaging students and backers.
+- Learners want what you teach.
+  - Refer back to motivation section: what do your learners want, and how do you know?
+- Backers want a variety of things.
+  - Other people's success in general (enlightened self-interest).
+  - Their community's success.
+  - Productive employees or grad students.
+  - Their own success (your success makes them look good).
+
+Be comfortable with rejection.
+- 2-3% is considered good in most sales organizations.
+- And don't think rejection is final: add a note to your calendar to try
+  again in six months, and only give up if you get a second "no".
+
+### The Art of the Cold Call
+
+1. I always open by apologizing for adding to their inbox. (It's a
+   Canadian thing...)
+
+1. Always establish a point of connection: "I was speaking to X" or
+   "You attended bootcamp Y". This must be specific: spammers and
+   headhunters have trained us all to ignore anything that starts,
+   "I recently read a paper of yours".
+
+1. Explain how we're going to help make their lives better (e.g.,
+   "Your graduate students will be able to push your project XYZ ahead
+   much faster if you let us help them").
+
+1. Be specific (e.g., "Our usual two-day curriculum includes...") so
+   that they can figure out right away whether this is worth pursuing.
+
+1. Cite our backers, our size, or our instructors to make us more
+   credible.
+
+1. Create a slight sense of urgency ("we're booking workshops right
+   now").
+
+1. Tell them that we're a volunteer organization, so that all they'll
+   have to pay for is instructors' travel and accommodation, along
+   with a contribution toward central costs (currently around $1500
+   per bootcamp).
+
+1. Above all, keep it short. The message below takes 30 seconds or
+   less to scan; add another few seconds for them to check the Cc:
+   list (where possible, approach people in groups), and either
+   they're hooked enough to hit 'reply' or they're not.
+
+It's worked pretty well: about half of emails are answered, about half
+of those answers are, "Sure, let's talk more," and about half of those
+discussions lead to workshops, which means that 10-15% of targeted
+emails turn into workshops. This is a lot more impressive than it
+might sound—most people in sales figure that 2-3% conversion on cold
+calls is outstanding.
+
+> Hi,
+>
+> I hope you don't mind mail out of the blue, but I saw your recent
+> paper computational materials, and was wondering if you'd be
+> interested having us run a Software Carpentry workshop for your
+> intended users. We're scheduling workshops for the coming year right
+> now, and it might be a way to help your community get more out of
+> what you're doing.
+>
+> Software Carpentry's aim is to teach researchers (usually graduate
+> students) basic computing concepts and skills so that they can get
+> more done in less time and with less pain. Our usual two-day
+> curriculum includes:
+>
+> - the Unix shell (but we're really teaching them how to automate
+>   repetitive tasks);
+>
+> - Git and GitHub (but we're really teaching them how to use version
+>   control to track and share their work);
+>
+> - Python or R (but we're really teaching them how to grow a program
+>   in a structured, modular, testable, reusable way); and
+>
+> - databases (but we're really teaching them the difference between
+>   structured and unstructured data).
+>
+> Our instructors are volunteers, so the only cost to host sites is
+> their travel and accommodation plus a $1500 contribution toward
+> central costs like instructor training and curriculum development. We
+> aim for 40 people per workshop, and look for 2-3 local helpers to
+> assist during practicals; we can handle registration through
+> EventBrite, or leave it in hosts' hands.
+>
+> We've run hundreds of workshops like this in 34 countries since 2010,
+> and two independent assessments have confirmed that what we're doing
+> actually helps.  If this sounds interesting, we'd welcome a chance to
+> chat at greater length.
+>
+> Thanks for your time,
+> Dr. Greg Wilson 
+> gvwilson@software-carpentry.org 
+> http://software-carpentry.org
+
+Writing proposals is out of scope of this book.
+
+## Engagement
 
 The community organizer Saul Alinksy said,
 "If your people aren't having a ball doing it, there is something very wrong."
@@ -95,6 +268,11 @@ they won't stay.
 One way to do this is to thank people:
 everyone likes to be appreciated,
 and communities should acknowledge their members' contributions both publicly and privately.
+
+The [Ben Franklin Effect][franklin-effect]: a person who has performed
+a favor for someone is more likely to do another favor for that person
+than they would be if they had received a favor from that person.
+- Works equally well for good or evil.
 
 FIXME: ask people what they want rather than guessing.
 
@@ -122,12 +300,117 @@ Volunteers can do a lot,
 but tasks like system administration and accounting need full-time paid staff.
 FIXME: difficult transition.
 
+Micromanaging or trying to control everything centrally
+means people won't feel they have the autonomy to act,
+which will probably cause them to drift away.
+In particular,
+if you're too engaged or too quick on the reply button,
+people have less opportunity to grow as members
+and to create horizontal collaborations.
+The community can continue to be "hub and spoke",
+focused around one or two individuals,
+rather than a highly-connected network
+in which others feel comfortable participating.
+
+FIXME: pathways to contribution (examples).
+
+Plan for a cycle:
+- Recruitment.
+- Retention.
+- Retirement (from your organization at least).
+
+Recruitment:
+- Share stories that exemplify the kind of actions you want.
+- Have newcomers take part in group activities before solo activities.
+- Give newcomers a mentor.
+  - Give the mentors some training.
+  - Make sure the mentors mentor.
+  - Most important activity is to fill in the unwritten rules.
+
+Retention:
+- Provide many ways to contribute (so that as people's lives change, they can still take part).
+- Make sure that authority and responsibility go hand-in-hand.
+- Recognize contributions.
+
+Retirement:
+- Make sure knowledge is passed on.
+- Make sure final thoughts on changes are listened to (even if they're not acted on).
+
+### People You Don't Want On Your Team
+
+*Anna* knows more about every subject than everyone else on the team
+put together–at least, she thinks she does. No matter what you say,
+she'll correct you; no matter what you know, she knows better. Annas
+are pretty easy to spot: if you keep track in team meetings of how
+often people interrupt one another, her score is usually higher than
+everyone else's put together.
+
+*Bao* is a contrarian: no matter what anyone says, he'll take the
+opposite side. This is healthy in small doses, but when Bao does it,
+there's always another objection lurking behind the first half dozen.
+
+*Catherine* has so little confidence in her own ability (despite her
+good grades) that she won't make any decision, no matter how small,
+until she has checked with someone else. Everything has to be spelled
+out in detail for her so that there's no possibility of her getting
+anything wrong.
+
+*Frank* believes that knowledge is power. He enjoys knowing things
+that other people don't–or to be more accurate, he enjoys it when
+people know he knows things they don't. Frank can actually make things
+work, but when asked how he did it, he'll grin and say, "Oh, I'm sure
+you can figure it out."
+
+*Hediyeh* is quiet. Very quiet. She never speaks up in meetings, even
+when she knows that what other people are saying is wrong. She might
+contribute to the mailing list, but she's very sensitive to criticism,
+and will always back down rather than defending her point of
+view. Hediyeh isn't a troublemaker, but rather a lost opportunity.
+
+*Kenny* is a hitchhiker. He has discovered that most people would
+rather shoulder some extra work than snitch, and he takes advantage of
+it at every turn. The frustrating thing is that he's so damn
+*plausible* when someone finally does confront him. "There have been
+mistakes on all sides," he says, or, "Well, I think you're
+nit-picking." The only way to deal with Kenny is to stand up to him:
+remember, if he's not doing his share, *he's the bad guy*, not you.
+
+*Melissa* would easily have made the varsity procrastination team if
+she'd bothered to show up to tryouts. She means well–she really does
+feel bad about letting people down–but somehow something always comes
+up, and her tasks are never finished until the last possible
+moment. Of course, that means that everyone who is depending on her
+can't do their work until *after* the last possible moment...
+
+*Petra*'s favorite phrase is "why don't we". Why don't we write a GUI
+to help people edit the program's configuration files? Hey, why don't
+we invent our own little language for designing GUIs? Her energy and
+enthusiasm are hard to argue with, but argue you must. Otherwise, for
+every step you move forward, the project's goalposts will recede by
+two. This is called feature creep, and has ruined many projects that
+might otherwise have delivered something small, but useful.
+
+*Raj* is rude. "It's just the way I talk," he says, "If you can't hack
+it, maybe you should find another team." His favorite phrase is,
+"That's stupid," and he uses obscenity as casually as minor characters
+in Tarantino films. His only redeeming grace is that he can't
+dissemble in front of the instructor as well as Kenny, so he's easier
+to get rid of.
+
+*Sergei* is simply incompetent. He doesn't understand the problem, he
+hasn't bothered to master the tools and libraries he's supposed to be
+using, the code he checks in doesn't compile, and his thirty-second
+bug fixes introduce more problems than they solve. If he means well,
+try to re-partition the work so that he'll do less damage. If he
+doesn't, he should be treated like any other hitchhiker.
+
 ## Governance
 
-Every organization has a power structure:
+As Jo Freeman pointed out in her influential essay
+"[The Tyranny of Structurelessness][freeman]",
+every organization has a power structure:
 the only question is whether it's formal and accountable,
-or informal and unaccountable
-[[Freeman][FIXME]].
+or informal and unaccountable.
 Make yours one of the first kind:
 write and publish the rules governing everything from
 who's allowed to use the name and logo
@@ -149,25 +432,42 @@ an organization continues to meet people's actual needs.
 
 FIXME: borrow a constitution.
 
-## Make Space For Everyone
+FIXME: distinguish service board from governance board.
 
-Micromanaging or trying to control everything centrally
-means people won't feel they have the autonomy to act,
-which will probably cause them to drift away.
-In particular,
-if you're too engaged or too quick on the reply button,
-people have less opportunity to grow as members
-and to create horizontal collaborations.
-The community can continue to be "hub and spoke",
-focused around one or two individuals,
-rather than a highly-connected network
-in which others feel comfortable participating.
+FIXME: measurement
+- Don't fetishize quantification.
+- Define goals in a way that will allow an unbiased outsider to tell
+  if they've been met or not.
+- First-time goal is often "measure X".
+  - Otherwise, you're pulling a target out of thin air.
+- If you don't make your goal, do a retrospective to ask what to do differently next time:
+  - Unrealistic goal?
+  - Resources not allocated properly?
 
-FIXME: pathways to contribution (examples).
+When choosing a board:
+- Prioritize competence over passion (the latter is for the rank and file).
+- Recruit to fill gaps (accounting, marketing, evaluation, etc.).
 
-## Look After Yourself
+Countries and corporations are only two of many governance models.
+- The commons is often a better model for teaching organizations.
+- "Something managed jointly by a community according to rules they themselves have evolved and adopted."
+- As [[Bollier2014](biblio.html#bollier-commoner)] repeatedly emphasizes,
+  all three parts of that equation are essential:
+  a commons isn't just a thing,
+  like a shared pasture,
+  but is necessarily also comprised of a community who share it and the rules they use to do so.
+- Most resources, throughout most of human history, have been commons:
+  it is only in the last few hundred years that impersonal markets have pushed them to the margins.
+  In order to do so,
+  free-market advocates have had to convince us we're something we're not
+  (dispassionate calculators of individual advantage)
+  and erase or devalue local knowledge and custom.
+  Both have had tragic consequences for us individually and communally,
+  and now for our whole planet.
 
-As [[PigniFIXME][FIXME]] discusses,
+## Final Thoughts
+
+As [[Pigni2016](biblio.html#pigni-idealists)] discusses,
 burnout is a chronic risk in any community activity.
 If you don't take care of yourself,
 you won't be able to take care of your community.
@@ -182,9 +482,17 @@ watching something you helped build take on a life of its own.
 Celebrate that–you won't have any trouble finding
 something else to keep you busy.
 
-*Thanks to everyone who contributed ideas to this list, including Erin Robinson,
-Matt Turk, and Belinda Weaver.*
+## Challenges
+
+FIXME
+
+## Acknowledgments
+
+Thanks to everyone who contributed ideas to this list, including Erin Robinson,
+Matt Turk, and Belinda Weaver.
 
 [4h]: http://www.4-h-canada.ca/
 [bgc]: http://www.blackgirlscode.com/
+[franklin-effect]: https://en.wikipedia.org/wiki/Ben_Franklin_effect
+[freeman]: http://www.jofreeman.com/joreen/tyranny.htm
 [frontier-college]: https://www.frontiercollege.ca/

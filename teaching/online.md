@@ -356,8 +356,14 @@ There are undoubtedly many other kinds of exercises out there that are
 also fast to do and automatically gradable, but which we haven't heard
 of. If you know of any, we'd enjoy hearing about them.
 
-*Thanks to everyone who contributed ideas to this list, including
+## Challenges
+
+FIXME
+
+## Acknowledgments
+
+Thanks to everyone who contributed ideas to this list, including
 Francis Castro, Katie Cunningham, Brian Dillingham, Mark Guzdial, Ian
 Hawke, Toby Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle
 Quinn, Ariel Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett,
-Stéfan van der Walt, Hadley Wickham, and Andromeda Yelton.*
+Stéfan van der Walt, Hadley Wickham, and Andromeda Yelton.
