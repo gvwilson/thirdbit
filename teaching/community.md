@@ -258,6 +258,8 @@ calls is outstanding.
 
 Writing proposals is out of scope of this book.
 
+http://blog.mrmeyer.com/2016/why-secondary-teachers-dont-want-a-github-for-lesson-plans/
+
 ## Engagement
 
 The community organizer Saul Alinksy said,
