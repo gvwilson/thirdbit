@@ -6,33 +6,35 @@ title: "How to Teach Programming (and Other Things): Marketing"
 
 # Marketing
 
-Marketing is often the hardest thing for people with technical backgrounds to do,
+It's hard to get people with technical backgrounds to think about marketing,
 not least because it's perceived as being about spin and misdirection.
 In reality,
 _[marketing](gloss.html#marketing)_ is the craft of seeing things from other people's perspective,
 understanding their wants and needs,
 and finding ways to meet them.
 This should sound familiar:
-many of the techniques we've introduced in this
+many of the techniques introduced earlier in this book
 are intended to do exactly for lessons.
+This chapter will look at how to apply similar ideas to the larger problem
+of getting people to support the work you're trying to do.
 
 ## What Are You Offering to Whom?
 
-The first step in marketing is to figure out what your actual product is,
+The first step is to figure out what you are offering to whom,
 i.e.,
-what brings in the funding and other support you need to keep operating.
-The answer is often counter-intuitive.
+what actually brings in the funding and other support you need to keep operating.
+As [[Kuchner2011](biblio.html#kuchner-marketing)] points out,
+the answer is often counter-intuitive.
 For example,
-[[Kuchner2011](biblio.html#kuchner-marketing)] points out that
-most scientists think their product is papers, but they're wrong.
-Their product is their grant proposals,
+most scientists think their product is papers,
+but their actual product is their grant proposals,
 because those are what brings in money.
-Their papers are the advertising that persuades people to fund those proposals,
-in the same way that albums are now the advertising
+Their papers are the advertising that persuades people to buy (fund) those proposals,
+just as albums are now the advertising
 that persuades people to buy musicians' concert tickets and t-shirts.
 
-For example,
-suppose that your group is offering weekend programming workshops
+You may or may not be a scientist,
+so suppose instead that your group is offering weekend programming workshops
 to people who are re-entering the workforce after taking several years out to look after young children.
 If your learners are paying enough for your workshops to cover your costs,
 then the learners are your customers
@@ -43,20 +45,16 @@ the workshops are free,
 or the learners are only paying a token amount (to cut the no-show rate),
 then your actual product may be some mix of:
 
-- the grant proposals you're writing,
-- the potential new hires for companies that are giving you staff time,
-- the photo opportunity and half page in the annual report
-  that the city councilor who arranged for space will use
-  to show that she's supporting tech in her city,
+- your grant proposals,
+- the alumni of your workshops that the companies sponsoring you would like to hire,
+- the half page summary of your work in the mayor's annual report to city council
+  that shows how she's supporting the local tech sector,
   or
-- the [sense of community](community.html) and professional development
-  that teaching gives your volunteer instructors.
+- the personal satisfaction that teaching gives your volunteer instructors.
 
-Thinking this through is once again similar to lesson design:
-the [second step in our recommended process](design.html#step-2-who-is-this-course-for)
-is to identify specific people who might be interested in what you're doing
+As with our [recommended lesson design process](design.html),
+you should try to identify specific people who might be interested in what you're doing
 and figure out which of *their* needs *your* program will meet.
-
 [Personas](lessons.html#learner-personas) are one way to do this.
 Another is to write a set of _[elevator pitches](gloss.html#elevator-pitch)_,
 each aimed at a different stakeholder.
@@ -71,7 +69,8 @@ A widely-used template for these pitches looks like this:
 <tr><td>our program</td><td><em>key distinguishing feature</em></td></tr>
 </table>
 
-Using this template for learners produces:
+Continuing with our weekend workshop example,
+we might use this for potential attendees:
 
 > For *people re-entering the workforce after taking time out to raise children*
 > who *still have regular childcare responsibilities*,
@@ -80,9 +79,8 @@ Using this template for learners produces:
 > Unlike *online classes*,
 > our program *gives participants a chance to learn beside people at the same stage of life*.
 
-Using it for a company being asked to underwrite the cost of running these workshops,
-on the other hand,
-produces:
+but use this to characterize the companies
+that we would like to donate staff time for teaching:
 
 > For *a company that wants to recruit entry-level software developers*
 > that *is struggling to find mature, diverse candidates*
@@ -91,50 +89,47 @@ produces:
 > Unlike *college recruiting fairs*,
 > our program *connects companies directly with a diverse audience*.
 
-Writing brief pitches like this
-(which should, by the way, go on your organization's web site)
-helps you identify each stakeholder's concerns.
-The potential student wants to know that they'll learn enough about programming to get an entry-level job
-without sacrificing their personal life;
-the company wants to know that they'll have people to recruit that they otherwise wouldn't have met.
+If you don't know why different potential stakeholders might be interested in what you're doing,
+ask them.
+If you do know,
+ask them anyway:
+answers can change over time,
+and it's a good way to discover things that you might have missed.
+Once you have written these pitches,
+you should put them on your organization's web site
+to help people figure out as quickly as possible
+whether you and they have something to talk about.
 
 As you are writing these pitches,
-remember that a sense of accomplishment,
+remember that people are not just economic animals.
+A sense of accomplishment,
 control over their own lives,
-and being part of a community motivate people just as much as money.
-People buy healthy food because it's healthy,
-but also because healthy eating is part of story they tell themselves about themselves,
-and because it's what their friends are buying.
-Similarly,
+and being part of a community motivates them just as much as money.
+People may volunteer to teach with you because it's what their friends are doing;
+similarly,
 a company may say that they're sponsoring classes for economically disadvantaged high school students
 because they want a larger pool of potential employees further down the road,
 but in reality,
-they may be doing it because it's the right thing to do.
-The best way to find out why people are taking part in what your organization does is to ask them,
-so do that frequently
-and incorporate what you hear into your thinking.
+the CEO might actually be doing it simply because it's the right thing to do.
 
 ## Branding and Positioning
 
-A _[brand](gloss.html#brand)_ is someone's first reaction to a mention of a product:
+A _[brand](gloss.html#brand)_ is someone's first reaction to a mention of a product;
 if their reaction is "what's that?", you don't have a brand yet.
 Branding is important because people aren't going to help with something they don't know about
-or don't care about;
-to be blunt,
-nobody's going to come to a meeting unless they know about it,
-and nobody's going to help you raise money if they don't know how you're going to spend it.
+or don't care about.
 
 Most discussion of branding today focuses on ways to build awareness online.
 Mailing lists, blogs, and Twitter all give you ways to reach people,
 but as the volume of (mis)information steadily increases,
-many people have become so overwhelmed that they've stopped paying attention to any of it.
+the attention paid to any particular interruption decreases.
 As this happens,
 _[positioning](gloss.html#positioning)_ becomes more important.
-Positioning is what sets your offering apart from others–it's
-the "unlike" section of your elevator pitches.
-When you are reaching out to people,
-emphasize this:
-it's the part that will catch their attention.
+Positioning is what sets your offering apart from others:
+it's the "unlike" section of your elevator pitches.
+When you are reaching out to people who are already generally familiar with your field,
+this is what you should emphasize,
+since it's what will catch their attention.
 
 There are other things you can do to help build your brand as well.
 One is to use props:
@@ -144,8 +139,20 @@ or anything else that makes what you're doing seem real.
 Props tell a story,
 and while people always ask for data,
 they *believe* stories.
+
+> **Foundational Myths**
+>
+> One of the most compelling stories a person or organization can tell
+> is about why and how they got started.
+> Are you teaching what you wish someone had taught you but didn't?
+> Was there one particular person you wanted to help,
+> and that opened the floodgates?
+> Are you picking up where someone else left off,
+> and if so,
+> why?
+
 Free samples are also compelling.
-Put some lessons online;
+Put some lesson materials online so that people can see what you teach;
 post a few (short) videos from actual workshops,
 or go to where your hoped-for learners or sponsors are
 and run a lunchtime drop-in session.
@@ -153,11 +160,11 @@ and run a lunchtime drop-in session.
 Whatever else you do,
 make your organization findable
 by doing what you can to make you and your organization rank highly in Google searches.
-There's an enormous literature on this under the label "SEO"
+There's a lot of folklore about how to do this under the label "SEO"
 (for "search engine optimization");
 given Google's near-monopoly powers and lack of transparency,
-it mostly boils down to trying to stay one step ahead of algorithms
-designed to prevent people from gaming their search process.
+most of it boils down to trying to stay one step ahead of algorithms
+designed to prevent people from gaming rankings.
 Search for yourself and for your organization on a regular basis and see what comes up,
 then read [these guidelines from Moz][moz] and do what you can to improve your site.
 
@@ -166,6 +173,19 @@ Many of the people you hope to reach might not be online,
 or might not be online as often as you;
 notice boards in schools, local libraries, drop-in centers, and grocery stores
 are still an effective way to reach them.
+
+> **Build Alliances**
+>
+> As discussed in the [previous chapter](community.html),
+> building alliances with other groups that are doing things related to what you're doing
+> pays off in many ways.
+> One of those is referrals:
+> if someone approaches you for help,
+> but would be better served by some other organization,
+> take a moment to make an introduction.
+> If you've done this several times,
+> add something to your website to help the next person find what they need.
+> The organizations you are helping will soon start to help you in return.
 
 ## The Art of the Cold Call
 
