@@ -4,6 +4,8 @@ permalink: /teaching/design.html
 title: "How to Teach Programming (and Other Things): Course Design"
 ---
 
+# Course Design
+
 Designing a good course is as hard as designing good software.
 To help you,
 this document describes a process based on evidence-based teaching practices:
