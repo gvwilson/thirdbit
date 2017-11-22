@@ -1,0 +1,278 @@
+---
+layout: teaching
+permalink: /teaching/community.html
+title: "How to Teach Programming (and Other Things): Marketing"
+---
+
+# Marketing
+
+Marketing is often the hardest thing for people with technical backgrounds to do,
+not least because it's perceived as being about spin and misdirection.
+In reality,
+_[marketing](gloss.html#marketing)_ is the craft of seeing things from other people's perspective,
+understanding their wants and needs,
+and finding ways to meet them.
+This should sound familiar:
+many of the techniques we've introduced in this
+are intended to do exactly for lessons.
+
+## What Are You Offering to Whom?
+
+The first step in marketing is to figure out what your actual product is,
+i.e.,
+what brings in the funding and other support you need to keep operating.
+The answer is often counter-intuitive.
+For example,
+[[Kuchner2011](biblio.html#kuchner-marketing)] points out that
+most scientists think their product is papers, but they're wrong.
+Their product is their grant proposals,
+because those are what brings in money.
+Their papers are the advertising that persuades people to fund those proposals,
+in the same way that albums are now the advertising
+that persuades people to buy musicians' concert tickets and t-shirts.
+
+For example,
+suppose that your group is offering weekend programming workshops
+to people who are re-entering the workforce after taking several years out to look after young children.
+If your learners are paying enough for your workshops to cover your costs,
+then the learners are your customers
+and the workshops are the product.
+If,
+on the other hand,
+the workshops are free,
+or the learners are only paying a token amount (to cut the no-show rate),
+then your actual product may be some mix of:
+
+- the grant proposals you're writing,
+- the potential new hires for companies that are giving you staff time,
+- the photo opportunity and half page in the annual report
+  that the city councilor who arranged for space will use
+  to show that she's supporting tech in her city,
+  or
+- the [sense of community](community.html) and professional development
+  that teaching gives your volunteer instructors.
+
+Thinking this through is once again similar to lesson design:
+the [second step in our recommended process](design.html#step-2-who-is-this-course-for)
+is to identify specific people who might be interested in what you're doing
+and figure out which of *their* needs *your* program will meet.
+
+[Personas](lessons.html#learner-personas) are one way to do this.
+Another is to write a set of _[elevator pitches](gloss.html#elevator-pitch)_,
+each aimed at a different stakeholder.
+A widely-used template for these pitches looks like this:
+
+<table class="table table-striped">
+<tr><td>For</td><td><em>target audience</em></td></tr>
+<tr><td>who</td><td><em>dissatisfaction with what's currently available</em></td></tr>
+<tr><td>our</td><td><em>category</em></td></tr>
+<tr><td>provide</td><td><em>key benefit</em>.</td></tr>
+<tr><td>Unlike</td><td><em>alternatives</em></td></tr>
+<tr><td>our program</td><td><em>key distinguishing feature</em></td></tr>
+</table>
+
+Using this template for learners produces:
+
+> For *people re-entering the workforce after taking time out to raise children*
+> who *still have regular childcare responsibilities*,
+> our *introductory programming workshops*
+> provide *weekend classes with on-site childcare*.
+> Unlike *online classes*,
+> our program *gives participants a chance to learn beside people at the same stage of life*.
+
+Using it for a company being asked to underwrite the cost of running these workshops,
+on the other hand,
+produces:
+
+> For *a company that wants to recruit entry-level software developers*
+> that *is struggling to find mature, diverse candidates*
+> our *introductory programming workshops*
+> provide *a pool of potential recruits in their thirties that includes large numbers of women and underrepresented minorities*.
+> Unlike *college recruiting fairs*,
+> our program *connects companies directly with a diverse audience*.
+
+Writing brief pitches like this
+(which should, by the way, go on your organization's web site)
+helps you identify each stakeholder's concerns.
+The potential student wants to know that they'll learn enough about programming to get an entry-level job
+without sacrificing their personal life;
+the company wants to know that they'll have people to recruit that they otherwise wouldn't have met.
+
+As you are writing these pitches,
+remember that a sense of accomplishment,
+control over their own lives,
+and being part of a community motivate people just as much as money.
+People buy healthy food because it's healthy,
+but also because healthy eating is part of story they tell themselves about themselves,
+and because it's what their friends are buying.
+Similarly,
+a company may say that they're sponsoring classes for economically disadvantaged high school students
+because they want a larger pool of potential employees further down the road,
+but in reality,
+they may be doing it because it's the right thing to do.
+The best way to find out why people are taking part in what your organization does is to ask them,
+so do that frequently
+and incorporate what you hear into your thinking.
+
+## Branding and Positioning
+
+A _[brand](gloss.html#brand)_ is someone's first reaction to a mention of a product:
+if their reaction is "what's that?", you don't have a brand yet.
+Branding is important because people aren't going to help with something they don't know about
+or don't care about;
+to be blunt,
+nobody's going to come to a meeting unless they know about it,
+and nobody's going to help you raise money if they don't know how you're going to spend it.
+
+Most discussion of branding today focuses on ways to build awareness online.
+Mailing lists, blogs, and Twitter all give you ways to reach people,
+but as the volume of (mis)information steadily increases,
+many people have become so overwhelmed that they've stopped paying attention to any of it.
+As this happens,
+_[positioning](gloss.html#positioning)_ becomes more important.
+Positioning is what sets your offering apart from others–it's
+the "unlike" section of your elevator pitches.
+When you are reaching out to people,
+emphasize this:
+it's the part that will catch their attention.
+
+There are other things you can do to help build your brand as well.
+One is to use props:
+a robot car that one of your students made from scraps she found around the house,
+the website another student made for his parents' retirement home,
+or anything else that makes what you're doing seem real.
+Props tell a story,
+and while people always ask for data,
+they *believe* stories.
+Free samples are also compelling.
+Put some lessons online;
+post a few (short) videos from actual workshops,
+or go to where your hoped-for learners or sponsors are
+and run a lunchtime drop-in session.
+
+Whatever else you do,
+make your organization findable
+by doing what you can to make you and your organization rank highly in Google searches.
+There's an enormous literature on this under the label "SEO"
+(for "search engine optimization");
+given Google's near-monopoly powers and lack of transparency,
+it mostly boils down to trying to stay one step ahead of algorithms
+designed to prevent people from gaming their search process.
+Search for yourself and for your organization on a regular basis and see what comes up,
+then read [these guidelines from Moz][moz] and do what you can to improve your site.
+
+Offline findability is equally important for new organizations.
+Many of the people you hope to reach might not be online,
+or might not be online as often as you;
+notice boards in schools, local libraries, drop-in centers, and grocery stores
+are still an effective way to reach them.
+
+## The Art of the Cold Call
+
+Building a web site and hoping that people find it is one thing;
+calling people up or knocking on their door
+without any sort of prior introduction is another.
+As with standing up and teaching,
+though,
+it's a craft that can be learned like any other,
+and there are a few simple rules you can follow:
+
+1. Start by establishing a point of connection: "I was speaking to X"
+   or "You attended bootcamp Y". This must be specific: spammers and
+   headhunters have trained us all to ignore anything that starts, "I
+   recently read your website".
+
+2. Explain how you are going to help make their lives better (e.g.,
+   "Your students will be able to do their math homework much faster
+   if you let us help them").
+
+3. Be specific about what you are offering (e.g., "Our usual two-day
+   curriculum includes...") so that they can figure out right away
+   whether this is worth pursuing, but keep it to one or two
+   sentences.
+
+4. Mention your backers, your size, how long you've been around, or
+   your instructors's backgrounds to make yourself credible.
+
+5. Create a slight sense of urgency ("we're booking workshops right
+   now").
+
+6. Tell them what your terms are: do you charge money, do they need to
+   cover instructors' travel costs, can they reserve seats for their
+   own staff, etc.
+
+7. Above all, *keep it short*. The message below takes 30 seconds or
+   less to scan; by the end, either they're interested enough to reply
+   or they're not.
+
+This template works pretty well, but "pretty well" is relative.  Most
+organizations expect a 2-3% response rate to cold calls; for Software
+Carpentry, we found that about half of emails were answered, about
+half of those answers were, "Sure, let's talk more," and about half of
+those led to workshops, which means that 10-15% of targeted emails to
+people we had some sort of connection with turned into workshops.
+
+> **Mail Out of the Blue**
+>
+> Hi [name],
+>
+> I hope you don't mind mail out of the blue, but I wanted to follow
+> up on our conversation at the tech showcase last week to see if you
+> would be interested having us run a Software Carpentry workshop for
+> your graduate students. We're scheduling workshops for the coming
+> year right now, and it might be a way to help them accelerate their
+> research.
+>
+> Software Carpentry's aim is to teach graduate students and other
+> researchers the basic computing skills they need to get more done in
+> less time and with less pain. Our usual two-day curriculum includes:
+>
+> - the Unix shell (but we're really teaching them how to automate
+>   repetitive tasks);
+>
+> - Git and GitHub (but we're really teaching them how to use version
+>   control to track and share their work);
+>
+> - Python or R (but we're really teaching them how to grow a program
+>   in a structured, modular, testable, reusable way); and
+>
+> - databases (but we're really teaching them the difference between
+>   structured and unstructured data).
+>
+> Our instructors are volunteers, so the only cost to host sites is
+> their travel and accommodation plus a $1500 contribution toward
+> central costs like instructor training and curriculum development.
+> We aim for 40 people per workshop, and look for 2-3 local helpers to
+> assist during practicals.
+>
+> We've run hundreds of workshops like this in 34 countries since
+> 2010, and several assessments have confirmed that what we're doing
+> actually helps.  If this sounds interesting, please give me a shout.
+>
+> Thanks for your time,
+> Dr. Greg Wilson 
+
+## A Final Thought
+
+As [[Kuchner2011](biblio.html#kuchner-marketing)] says,
+if you can't be first in a category,
+create a new category that you can be first in;
+if you can't do that,
+think about doing something else entirely.
+This isn't as defeatist as it sounds:
+if someone else is already doing what you're doing better than you,
+there are probably lots of other equally useful things you could be doing instead.
+
+## Challenges
+
+### Write an Elevator Pitch for a City Councilor
+
+FIXME: elevator pitch for the weekend workshops aimed at city councilor.
+
+### Write Elevator Pitches For Your Organization
+
+FIXME
+
+http://blog.mrmeyer.com/2016/why-secondary-teachers-dont-want-a-github-for-lesson-plans/
+
+[moz]: https://moz.com/learn/seo/on-page-factors
