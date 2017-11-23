@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>How to Design an Effective Learning Experience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../reveal/css/reveal.css">
+  <link rel="stylesheet" href="../reveal/css/theme/sky.css">
+  <link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+  <link rel="stylesheet" href="./custom.css">
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+	<div align="center">
+	  <h2>How to Design an Effective Learning Experience</h2>
+	  <p><em>far too many slides in far too little time</em></p>
+	  <p><a href="http://third-bit.com">Greg Wilson</a></p>
+	  <p><a href="http://third-bit.com/greatest-hits/">http://third-bit.com/learning-experience/</a></p>
+	  <p>November 2017</p>
+	  <img src="img/cc-by-license.png" alt="CC-BY"/>
+	</div>
+      </section>
+
+      <section>
+	<p class="title">
+	  The Road So Far
+	</p>
+	<div style="text-align: center;">
+	  <img src="img/ddj.png" alt="Dr Dobb's Journal" />
+	</div>
+	<ul>
+	  <li>Book review editor for <em><a href="http://ddj.com">Doctor Dobb's Journal</a></em></li>
+	  <li>Hundreds of textbooks on compilers, but no textbooks on debuggers or debugging</li>
+	  <li class="fragment">Or build tools, or package managers, or…</li>
+	</ul>
+      </section>
+
+      <section>
+	<p class="title">
+	  The Road So Far
+	</p>
+	<ul>
+	  <li>Asked to teach a course on software architecture</li>
+	  <li>Looked at two dozen books and other people's courses…</li>
+	  <li>…but no textbooks describe actual architectures</li>
+	</ul>
+	<div style="text-align: center;" class="fragment">
+	  <a href="https://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><img src="img/beautiful-code.png" alt="Beautiful Code" /></a>
+	  <a href="http://aosabook.org/en/buy.html#vol1"><img src="img/aosa1.png" alt="AOSA Vol 1" /></a>
+	  <a href="http://aosabook.org/en/buy.html#vol2"><img src="img/aosa2.png" alt="AOSA Vol 2" /></a>
+	  <a href="http://aosabook.org/en/buy.html#posa"><img src="img/posa.png" alt="POSA" /></a>
+	  <a href="http://aosabook.org/en/buy.html#fh"><img src="img/500-lines.png" alt="500 Lines" /></a>
+	  <p>
+	    <a href="http://aosabook.org">http://aosabook.org</a>
+	  </p>
+	</div>
+      </section>
+
+      <section>
+	<div align="center">
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <p>And that got me wondering…</p>
+	</div>
+      </section>
+
+      <!-- @ missing empirical evidence -->
+      <section>
+	<p class="title">
+	  Is Software Engineering?
+	</p>
+	<div align="center" class="fragment">
+          <p>
+	    <img src="img/preacher.jpg" alt="Street Preacher" />
+          </p>
+	  <p>
+	    No.
+	  </p>
+	</div>
+      </section>
+
+      <section data-transition="none">
+	<p class="title">
+	  Chickens and Eggs
+	</p>
+	<div>
+	  <ul>
+	    <li class="fragment">We know a lot about software and how it's built</li>
+	    <li class="fragment">But <span class="oops">students aren't taught empirical methods</span>
+	  </ul>
+	  <p></p>
+	  <ul class="fragment">
+	    <li>Biologists spend 6 hours/week in the lab</li>
+	    <li>CS students do one experiment in four years</li>
+	    <li>So it's not surprising they (we) don't understand or value the scientific method</li>
+	  </ul>
+	</div>
+      </section>
+
+      <!-- @ history -->
+      <section>
+	<p class="title">The Seven Years War</p>
+	<div>
+	  <div class="left">
+	    <img src="img/sea-battle.jpg" alt="Sea Battle" width="400px" />
+	  </div>
+	  <div class="right">
+	    <ul>
+	      <li>The British lost 1512 sailors to enemy action...</li>
+	      <li>...and 100,000 to scurvy</li>
+	    </ul>
+	  </div>
+	</div>
+      </section>
+
+      <section>
+	<p class="title">It Didn't Have to Happen</p>
+	<div>
+	  <div class="left">
+	    <img src="img/james-lind.jpg" alt="James Lind" width="400px" />
+	  </div>
+	  <div class="right">
+	    <ul>
+	      <li>James Lind (1716-94)</li>
+	      <li>1747: the first controlled experiment in medical history</li>
+	    </ul>
+	    <table>
+	      <tr><td>sea water</td><td>cider</td></tr>
+	      <tr><td>sulfuric acid</td><td>vinegar</td></tr>
+	      <tr><td>barley water</td><td><em><b>oranges</b></em></td></tr>
+	    </table>
+	  </div>
+	</div>
+      </section>
+
+      <section>
+	<p class="title">It Took a While</p>
+	<div>
+	  <div class="left">
+	    <img src="img/cigarettes.png" alt="Cigarettes" width="200px" />
+	    <br/>
+	    <img src="img/lungs.jpg" alt="Lungs" width="200px" />
+	  </div>
+	  <div class="right">
+	    <ul>
+	      <li>1950: Hill &amp; Doll publish a case-control study comparing smokers with non-smokers</li>
+	      <li>Smoking causes lung cancer</li>
+	      <li>Most people would rather fail than change</li>
+	    </ul>
+	  </div>
+	</div>
+      </section>
+
+      <section>
+	<p class="title">We Can Do Better</p>
+        <ul>
+          <li>Steady growth over 20 years of empirical studies</li>
+          <li>Fueled by availability of data</li>
+          <li>And by realization that practitioners find most "classical" software engineering research irrelevant</li>
+          <li>Many studies are small, and not all are well done, but the trend is clear</li>
+        </ul>
+        <div align="center">
+          <img src="img/icse.png" alt="ICSE 2017" />
+        </div>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">Are Some Languages Better Than Others?</p>
+	  <p>Stefik et al 2013: <a href="http://dl.acm.org/citation.cfm?id=2534973">An Empirical Investigation into Programming Language Syntax</a></p>
+	  <ul>
+	    <li>First studied compared learnability of
+	      <ul>
+		<li>Perl</li>
+		<li>Quorum (the language their team is building)</li>
+		<li>Randomo (a placebo whose syntax was "designed" by rolling D&amp;D dice)</li>
+	      </ul>
+	    </li>
+	    <li>Conclusion: Perl is as hard for novices to learn as a language with a randomly-designed syntax</li>
+	  </ul>
+	</section>
+	<section>	  
+	  <p>
+	    We first present two surveys conducted with students on
+	    the intuitiveness of syntax, which we used to garner
+	    formative clues on what words and symbols might be easy
+	    for novices to understand. We followed up with two studies
+	    on the accuracy rates of novices using a total of six
+	    programming languages: Ruby, Java, Perl, Python, Randomo,
+	    and Quorum. To our surprise, we found that languages using
+	    a more traditional C-style syntax (both Perl and Java) did
+	    not afford accuracy rates significantly higher than a
+	    language with randomly generated keywords, but that
+	    languages which deviate (Quorum, Python, and Ruby) did.
+	  </p>
+	</section>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">Are Some Languages Better Than Others?</p>
+	  <ul>
+	    <li>Second study
+	      <ul>
+		<li>More subjects and multiple assessment strategies</li>
+		<li>Languages in the C family are as hard to learn as a randomly-designed language</li>
+		<li>Ruby and Python are significantly easier</li>
+		<li>Quorum is easier still</li>
+	      </ul>
+	    </li>
+	    <li>Reaction has shown just how little most developers know or care about the scientific method</li>
+	    <li>Discussed in <a href="https://www.functionalgeekery.com/episode-55-andreas-stefik/">this podcast</a></li>
+	  </ul>
+	</section>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">You Can't Ask Them</p>
+	  <p>Altadmri &amp; Brown 2016: <a href="https://kar.kent.ac.uk/46742/1/fp1187-altadmri.pdf">37 Million Compilations: Investigating Novice Programming Mistakes in Large-Scale Student Data</a></p>
+	  <ul>
+	    <li>Ask educators for learners' most common mistakes</li>
+	    <li>Compare their answers to data from the BlueJ Blackbox project</li>
+	    <li>Weak consensus among educators</li>
+	    <li>Weak correlation with observations</li>
+	    <li>Educator experience had only weak effect on results</li>
+	  </ul>
+	</section>
+	<section>
+	  <p>
+	    We used the Blackbox data set to check whether the
+	    educators' opinions matched data from over 100,000
+	    students and checked whether this agreement was mediated
+	    by educators' experience. We found that educators formed
+	    only a weak consensus about which mistakes are most
+	    frequent, that their rankings bore only a moderate
+	    correspondence to the students' data.
+	  </p>
+	</section>
+      </section>
+
+      <section>
+	  <p class="title">You Can't Ask Them</p>
+	<ul>
+	  <li>Most common actual errors are:
+	    <ul>
+	      <li>Mis-matched parentheses (<em>not</em> confusing <code>=</code> with <code>==</code>)</li>
+	      <li>Invoking methods with the wrong arguments is #2</li>
+	      <li>Control flow reaching end of non-<code>void</code> method without <code>return</code> is #3</li>
+	    </ul>
+	  </li>
+	  <li>The three that take the most time to fix are:
+	    <ol>
+	      <li>Confusing  short-circuit logical operators bitwise equivalents</li>
+	      <li>Using <code>==</code> instead of <code>.equals</code> to compare strings</li>
+	      <li>Ignoring the return value from a non-void method</li>
+	    </ol>
+	  </li>
+	</ul>
+      </section>
+
+      <section>
+	<p class="title">Let's Talk About Test-Driven Development...</p>
+	<p>Erdogmus et al: "How Effective is Test-Driven Development?" (in <a href="https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><em>Making Software</em></a>, 2010)</p>
+	<blockquote>
+	  [e]vidence from controlled experiments suggests an
+	  improvement in productivity when TDD is used.
+	  However...pilot studies provide mixed evidence, some in
+	  favor of and others against TDD. In the industrial
+	  studies...evidence suggests that TDD yields worse
+	  productivity. Even when considering only the more rigorous
+	  studies...the evidence is equally split for and against a
+	  positive effect.
+	</blockquote>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">Let's Talk About Test-Driven Development...</p>
+	  <p>Fucci et al 2016: <a href="http://people.brunel.ac.uk/~csstmms/FucciEtAl_ESEM2016.pdf">An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach</a></p>
+	  <ul>
+	    <li>39 professionals working on real projects</li>
+	    <li>Replication of study done by other researchers</li>
+	    <li>No significant difference between test-first and test-last development</li>
+	  </ul>
+	</section>
+	<section>
+	  <p>
+	    Method: We analyzed 82 data points collected from 39
+	    professionals, each capturing the process used while
+	    performing a specific development task. We built
+	    regression models to assess the impact of process
+	    characteristics on quality and productivity. Quality was
+	    measured by functional correctness. Result: Quality and
+	    productivity improvements were primarily positively
+	    associated with the granularity and uniformity.
+	    Sequencing, the order in which test and production code
+	    are written, had no important influence. Refactoring
+	    effort was negatively associated with both outcomes. We
+	    explain the unexpected negative correlation with quality
+	    by possible prevalence of mixed refactoring. Conclusion:
+	    The claimed benefits of TDD may not be due to its
+	    distinctive test-first dynamic, but rather due to the fact
+	    that TDD-like processes encourage fine-grained, steady
+	    steps that improve focus and flow.
+	  </p>
+	</section>
+      </section>
+
+      <section>
+	<p class="title">Let's Talk About Test-Driven Development...</p>
+	<ul>
+	  <li>"The claimed benefits of TDD may not be due to its test-drive dynamic, but rather due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."</li>
+	  <li><a href="http://neverworkintheory.org/2016/10/05/test-driven-development.html">Discussion has been heated</a>
+	  <li>
+	    "I practice TDD...and it works great. We don't need to prove that it works anymore...
+	    [T]here are some great stories on [my] site."
+	  </li>
+	</ul>
+      </section>
+
+<!--
+      <section>
+	<p class="title">What Else Can't We Measure?</p>
+	<ul>
+	  <li>Lots of code metrics have been proposed
+	    <ul>
+	      <li>Lines of code</li>
+	      <li>Cyclometric complexity</li>
+	      <li>A metric ton of object-oriented measures</li>
+	    </ul>
+	  </li>
+	  <li>But are they any use?
+	    <ul>
+	      <li>El Emam et al 2001: <a href="http://ieeexplore.ieee.org/document/935855/?arnumber=935855">Confounding Effects of Class Size on the Validity of Object-Oriented Metrics</a></li>
+	      <li>Herraiz &amp; Hassan 2010: <a href="http://shop.oreilly.com/product/9780596808303.do">Beyond Lines of Code: Do We Need More Complexity Metrics?</a></li>
+	    </ul>
+	  </li>
+	  <li><em>Nothing works better than counting lines of code</em></li>
+	</ul>
+      </section>
+-->
+
+      <section>
+	<p class="title">Code Review</p>
+	<img src="img/code-review-1.png" width="700px" />
+      </section>
+
+      <section>
+	<p class="title">Code Review</p>
+	<img src="img/code-review-2.png" width="700px" />
+      </section>
+
+      <section>
+	<p class="title">Code Review</p>
+	<img src="img/code-review-3.png" width="600px" />
+      </section>
+
+      <section>
+	<p class="title">A Surprising Result</p>
+	<p>Bird et al 2009: <a href="http://macbeth.cs.ucdavis.edu/distributed.pdf">Does Distributed Development Affect Software Quality? An Empirical Case Study of Windows Vista</a></p>
+	<div>
+	  <div class="left">
+	    <img src="img/globe.png" width="150px" />
+	    <br/>
+	    <img src="img/org-chart.jpg" width="150px" />
+	  </div>
+	  <div class="right">
+	    <p>Geographic distribution has little effect on bug rates</p>
+	    <br/>
+      	    <p>Distribution of team members in the org chart is a much better predictor</p>
+	  </div>
+	</div>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">Why Don't People Use UML?</p>
+	  <p>Petre 2014: <a href="http://oro.open.ac.uk/35805/">UML in Practice</a></p>
+	  <ul>
+	    <li>Interviewed 50 experienced developers about why they do or don't use UML:
+	      <ul>
+		<li>Lack of context: UML deals with architecture, rather than with the whole system</li>
+		<li>The overheads of understanding the notation</li>
+		<li>Synchronization and consistency</li>
+	      </ul>
+	    </li>
+	    <li>Shows how rigorous qualitative studies can give insights quantitative studies cannot</li>
+	  </ul>
+	</section>
+	<section>
+	  <p>
+	    Responses concerning UML use tend to be polarized, between
+	    design use and implementation use... Despite the notional
+	    accommodation of the whole process, informants tend to use
+	    UML either in early design, or in implementation, rarely
+	    both (even when informants' roles include the whole
+	    process).
+	  </p>
+	</section>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">More About Diagrams</p>
+	  <p>Cherubini &amp; Venolia 2007: <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/p557-cherubini.pdf">Let's Go to the Whiteboard</a></p>
+	  <ul>
+	    <li>Look at what developers draw when they're talking to teach other...</li>
+	    <li>...and how well they can understand their own drawings hours or days later</li>
+	    <li>Diagrams are a cache for short-term memory, <em>not</em> archival...</li>
+	    <li>...which may explain why UML hasn't caught on</li>
+	  </ul>
+	</section>
+	<section>
+	  <p>
+	    Most of the diagrams had a transient nature because of the
+	    high cost of changing whiteboard sketches to electronic
+	    renderings. Diagrams that documented design decisions were
+	    often externalized in these temporary drawings and then
+	    subsequently lost.  Current visualization tools and the
+	    software development practices that we observed do not
+	    solve these issues,
+	  </p>
+	</section>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">What Happens When Teams Go Agile?</p>
+	  <p>Khomh et al 2012: <a href="http://swat.polymtl.ca/~foutsekh/docs/Khomh-MSR-2012.pdf">Do Faster Releases Improve Software Quality?</a></p>
+	  <ul>
+	    <li>Looked at Firefox before and after the transition to rapid release and found:
+	      <ol>
+		<li>Users do <em>not</em> experience more post-release bugs</li>
+		<li>Bugs are fixed faster</li>
+		<li>When crashes do happen, they happen sooner after startup</li>
+	      </ol>
+	    </li>
+	    <li>Still don't have an explanation for that last one...
+              <ul>
+                <li>...which is how science progresses</li>
+              </ul>
+            </li>
+	  </ul>
+	</section>
+	<section>
+	  <p>
+	    We found that (1) with shorter release cycles, users do
+	    not experience significantly more post-release bugs and
+	    (2) bugs are fixed faster, yet (3) users experience these
+	    bugs earlier during software execution (the program
+	    crashes earlier).
+	  </p>
+	</section>
+      </section>
+
+<!--
+      <section>
+        <img src="img/pratchett-science.jpg" alt="Terry Pratchett on Science" />
+      </section>
+-->
+
+      <section>
+	<p class="title">Actionable Findings</p>
+	<p>Yuan et al 2014: <a href="https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-yuan.pdf">Simple Testing Can Prevent Most Critical Failures: An Analysis of Production Failures in Distributed Data-Intensive Systems</a></p>
+	<ul>
+	  <li>198 randomly selected, user-reported failures on Cassandra, Hadoop MapReduce, etc.</li>
+	  <li>Almost all failures require &lt;=3 nodes to reproduce</li>
+	  <li>Error logs typically contain sufficient data to reproduce</li>
+	  <li><em>Majority of catastrophic failures could easily have been prevented by performing simple testing on error handling code</em></li>
+	</ul>
+      </section>
+
+      <section>
+	<p class="title">Actionable Findings</p>
+	<p>Nakshatri et al 2016: <a href="https://dl.acm.org/citation.cfm?id=2903499">Analysis of Exception Handling Patterns in Java Projects: An Empirical Study</a></p>
+	<ul>
+	  <li>Most common catch block logs the error rather than trying to recover from it</li>
+	  <li>Next most common do nothing (20% of cases) or convert the checked exception into an unchecked exception so that it can be ignored.</li>
+	  <li>Most programmers ignore the exception hierarchy and simply catch Exception (78%) or Throwable (84%)</li>
+	</ul>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">Paradise Unplugged</p>
+	  <p>Ford et al 2016: <a href="https://blog.denaeford.me/2016/07/20/paradise-unplugged-barriers-to-stack-overflow-use/">Paradise Unplugged: Identifying Barriers for Female Participation on Stack Overflow</a></p>
+	  <ul>
+	    <li>Only 5-6% of Stack Overflow contributors are women</li>
+	    <li>What do they find significantly <em>more</em> problematic than men?
+	      <ol>
+		<li>Lack of awareness of site features</li>
+		<li>Feeling unqualified to answer questions</li>
+		<li>Intimidating community size</li>
+		<li>Discomfort interacting with or relying on strangers</li>
+		<li>Perception that they shouldn't be "slacking"</li>
+	      </ol>
+	    </li>
+	  </ul>
+	</section>
+	<section>
+	  <p>
+	    ...in online communities, such as Stack Overflow...only
+	    5.8% of contributors are female.... Through 22
+	    semi-structured interviews with a spectrum of female users
+	    ranging from non-contributors to a top 100 ranked user of
+	    all time, we identified 14 barriers preventing them from
+	    contributing to Stack Overflow. We then conducted a survey
+	    with 1470 female and male developers to confirm which
+	    barriers are gender related or general problems for
+	    everyone.
+	  </p>
+	</section>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">Open Source in General</p>
+	  <p>Steinmacher et al: <a href="http://dl.acm.org/citation.cfm?id=2675215">Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects</a></p>
+	  <ul>
+	    <li>Identify 58 potential barriers (including 13 social barriers)</li>
+	    <li>What matters most?
+	      <ol>
+		<li>How easy is it to get set up to make a contribution?</li>
+		<li>How easy is it to find a task to start with?</li>
+	      </ol>
+	    </li>
+	    <li>Other work has also identified "how warmly was my first contribution received?"</li>
+	    <li class="fragment">How do your code and community measure up?</li>
+	  </ul>
+	</section>
+	<section>
+	  <p>
+	    ...our study qualitatively analyzed social barriers that
+	    hindered newcomers' first contributions. We defined a
+	    conceptual model composed of 58 barriers including 13
+	    social barriers. The barriers were identified from a
+	    qualitative data analysis considering different sources: a
+	    systematic literature review; open question responses
+	    gathered from OSS projects' contributors; students
+	    contributing to OSS projects; and semi-structured
+	    interviews with 36 developers from 14 different projects.
+	  </p>
+	</section>
+      </section>
+
+      <section>
+	<section>
+	  <p class="title">There Is No "Geek Gene"</p>
+	  <p>Patitsas et al 2016: <a href="http://www.cs.toronto.edu/~sme/papers/2016/icer_2016_bimodal.pdf">Computer Science Grades Are Not Bimodal</a></p>
+	  <ul>
+	    <li>The "geek gene" is computing's <a href="https://cacm.acm.org/blogs/blog-cacm/189498-top-10-myths-about-teaching-computer-science/fulltext">most enduring and damaging myth</a></li>
+	    <li>But only 5.8% of course grade distributions at a large university were actually multi-modal</li>
+	    <li>And CS faculty are more likely to see distributions as bimodal if they think they're from a CS class
+	      <ul>
+		<li>Even <em>more</em> likely if they believe some students are innately predisposed to do well in CS</li>
+	      </ul>
+	    </li>
+	    <li>Beliefs shape actions whose results reinforce beliefs</li>
+	  </ul>
+	</section>
+	<section>
+	  <p>
+	    We statistically analyzed 778 distributions of final
+	    course grades from a large... university, and found only
+	    5.8%...passed tests of multimodality. We then... showed 53
+	    CS professors a series of histograms displaying ambiguous
+	    distributions and asked them to categorize the
+	    distributions. A random half of participants were primed
+	    to think about the fact that CS grades are commonly
+	    thought to be bimodal; these participants were more likely
+	    to label ambiguous distributions as "bimodal".
+	    Participants were also more likely to label distributions
+	    as bimodal if they believed that some students are
+	    innately predisposed to do better at CS.
+	  </p>
+	</section>
+      </section>
+
+      <section>
+	<p class="title">When I Rule the World</p>
+	<ul>
+	  <li>Software engineering courses will include assignments like this:
+	    <blockquote>
+	      Given version control repositories for six software
+	      projects, determine whether long functions and methods are
+	      more likely to be buggy than short ones.
+	    </blockquote>
+	  </li>
+	</ul>
+	<ul class="fragment">
+	  <li>Requires tool use, model building, and statistics</li>
+	  <li>Encourages students to <em>do</em> science, so they <em>understand</em> it, so they <em>value</em> it</li>
+	  <li>Fits into existing curriculum</li>
+	  <li>Culturally defensible</li>
+	</ul>
+      </section>
+
+      <section>
+	<p class="title">When I Rule the World</p>
+	<p>And this:</p>
+	<blockquote>
+	  People of East Asian or South Asian ancestry make up 8% of
+	  the general population, but 50-60% of undergraduates in
+	  Computer Science at major universities.  Write two 1000-word
+	  position papers to argue pro and con the proposition that
+	  this proves people of European ancestry are less capable
+	  of logical thinking than people of Asian ancestry.
+	</blockquote>
+	<p class="fragment">
+	  We may not be able to teach empathy,
+	  but we <em>can</em> teach skepticism.
+	</p>
+      </section>
+
+      <section>
+	<p class="title">
+	  And Teach Teaching
+	</p>
+	<ul>
+	  <li>Create programs in CS education modelled on those in math and physics education</li>
+	  <li class="fragment">Create the teachers our schools need…</li>
+	  <li class="fragment">…and the students we wish we had</li>
+	</ul>
+	<div align="center" class="fragment">
+	  <img src="img/blind-leading-blind.png" alt="The Blind Leading the Blind" />
+	</div>
+      </section>
+
+      <section>
+	<p class="title">
+	  Start Small
+	</p>
+	<div align="center">
+	  <a href="https://www.amazon.com/Teaching-What-You-Dont-Know/dp/0674035801/"><img src="img/huston.jpg" width="200px" /></a>
+	  &nbsp;
+	  <a href="https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496/"><img src="img/lang.jpg" width="200px" /></a>
+	  &nbsp;
+	  <a href="https://www.amazon.com/Building-Better-Teacher-Teaching-Everyone/dp/0393351084/"><img src="img/babt.jpg" width="200px" /></a>
+	  &nbsp;
+	  <a href="https://www.amazon.com/Urban-Myths-about-Learning-Education/dp/0128015373/"><img src="img/myths.jpg" width="200px" /></a>
+	</div>
+	<div class="fragment" align="center">
+	  <p>
+	    Why yes, they will be doing science in this course too.
+	  </p>
+	  <p class="fragment">
+	    <a href="http://third-bit.com/teaching/">http://third-bit.com/teaching/</a>
+	  </p>
+	</div>
+      </section>
+
+      <section>
+	<p class="title">
+	  A Few Myths That Need Clearing Out
+	</p>
+	<ul>
+	  <li>People have different styles of learning</li>
+	  <li>We learn 70% informally, 20% socially, 10% formally</li>
+	  <li>Problem-based education is effective</li>
+	  <li>We only use 10% of our brains</li>
+	  <li>The left brain is analytical, the right brain creative</li>
+	  <li>Brain games work</li>
+	  <li>Larger schools are better than small ones</li>
+	  <li>Separate education for boys and girls is more effective</li>
+	</ul>
+      </section>
+
+      <section>
+	<p class="title">Ask and Offer</p>
+	<div align="center" class="fragment">
+	  <p><img src="img/bridgeschool.svg" height="300px" /></p>
+	  <p><a href="http://bridgeschool.io">http://bridgeschool.io</a></p>
+	</div>
+      </section>
+
+      <section>
+	<p class="title">Ask and Offer</p>
+	<div align="center">
+	  <p><img src="img/t3toronto.jpg" alt="Teaching Tech Together" /></p>
+	  <p><em><a href="https://www.eventbrite.com/e/teaching-tech-together-tickets-39226514561">Teaching Tech Together (Toronto)</a></em></p>
+	  <p>Next meetup: November 14</p>
+      </section>
+
+      <section>
+	<p class="title">Ask and Offer</p>
+	<div align="center">
+	  <p><a href="https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/"><img src="img/discussion-book.jpg" alt="The Discussion Book" /></a></p>
+      </section>
+
+      <section>
+	<p class="title">Conclusions</p>
+	<div>
+	  <div class="left">
+	    <img src="img/wikipedian_protester.png" />
+	  </div>
+	  <div class="right">
+	    <p>This is the world we need<br/>right now</p>
+	    <div class="fragment">
+	      <p>So let's get started</p>
+	    </div>
+	  </div>
+	</div>
+	<div class="fragment" style="clear: both;" align="center">
+	  <br/>
+	  <p>Thank you.</p>
+	  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+	  <p><a href="http://third-bit.com/greatest-hits/">http://third-bit.com/greatest-hits/</a></p>
+	</div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../reveal/lib/js/head.min.js"></script>
+  <script src="../reveal/js/reveal.js"></script>
+  <script>
+    // More info on configuration at https://github.com/hakimel/reveal.js#configuration
+    // More info on dependencies at https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+    history: true,
+    center: false,
+    slideNumber: true,
+    dependencies: [
+    { src: '../reveal/plugin/markdown/marked.js' },
+    { src: '../reveal/plugin/markdown/markdown.js' },
+    { src: '../reveal/plugin/notes/notes.js', async: true },
+    { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ]
+    });
+  </script>
+</body>
+</html>
