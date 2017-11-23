@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>How to Design an Effective Lesson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../reveal/css/reveal.css">
+  <link rel="stylesheet" href="../reveal/css/theme/sky.css">
+  <link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+  <link rel="stylesheet" href="./custom.css">
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <div align="center">
+          <h2>How to Design<br/>an Effective Lesson</h2>
+          <p><em>far too many slides in far too little time</em></p>
+          <p><a href="http://third-bit.com">Greg Wilson</a></p>
+          <p><a href="http://third-bit.com/lesson-design/">http://third-bit.com/lesson-design/</a></p>
+          <p>November 2017</p>
+          <img src="img/cc-by-license.png" alt="CC-BY" width="200"/>
+        </div>
+      </section>
+
+      <section>
+        <h3>What's About to Happen</h3>
+        <ul>
+	  <li class="fragment">We know as much about learning as we do about public health</li>
+	  <li class="fragment">Most people in higher education have never met any of it</li>
+	  <li class="fragment">A few key ideas can make lessons significantly more effective</li>
+	  <li class="fragment">
+	    Having crammed a dozen books into a two-day course,
+	    we will now try to cram that course into one hour
+	  </li>
+        </ul>
+      </section>
+
+      <section>
+        <p class="title">Conclusions</p>
+	<div align="center">
+          <p>Thank you</p>
+          <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+          <p><a href="http://third-bit.com/lesson-design/">http://third-bit.com/lesson-design/</a></p>
+	</div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../reveal/lib/js/head.min.js"></script>
+  <script src="../reveal/js/reveal.js"></script>
+  <script>
+    // More info on configuration at https://github.com/hakimel/reveal.js#configuration
+    // More info on dependencies at https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+    history: true,
+    center: false,
+    slideNumber: true,
+    dependencies: [
+    { src: '../reveal/plugin/markdown/marked.js' },
+    { src: '../reveal/plugin/markdown/markdown.js' },
+    { src: '../reveal/plugin/notes/notes.js', async: true },
+    { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ]
+    });
+  </script>
+</body>
+</html>
+
+<!--
+
+From Novice to Competent
+- People go through a more-or-less predictable set of transitions from novice to competent practitioner to expert.
+  - A novice does not yet have a usable mental model of the problem domain.
+  - A competent practitioner has such a model.
+  - Address experts later.
+- The goal when teaching a novice is not to give her information,
+  but to help her construct a mental model so that she has somewhere to put information.
+- The key to doing this is to clear up misconceptions.
+  - Use formative assessments with diagnostic power to identify and correct misconceptions while learning is taking place (every 5-10 minutes).
+  - Which means quality of instruction depends on quality of correction (feedback in SCTs) as much as quality of explanation.
+  - Formative assessment also allows learners to practice skills and gauge progress.
+
+From Competent to Expert
+- Knowledge isn't stored as a graph, but it's a useful metaphor.
+- Expert's graph isn't just larger: it's also much more densely connected.
+  - Where a competent practitioner has to search, an expert can "see" the solution in a single step.
+- Expertise only emerges through *reflective practice*
+  - Most people drive for 10,000 hours without becoming expert drivers…
+- Sometimes use *concept maps* to represent and communicate understanding.
+
+Cognitive Load
+- Human memory consists of long-term memory (permanent storage) and short-term memory (working set).
+  - Instruction loads new information into short-term memory; reinforcement keeps it there long enough for it to be transferred to long-term memory.
+  - Short-term memory is very small (7±2 items), so lots of small exercises are more effective for novices than a small number of large exercises.
+  - Larger exercises are more effective for more advanced learners because they are trying to master high-level skills.
+- Good teaching loads (but doesn't overload) the learner's short-term memory, then reinforces long enough for knowledge to *transfer* to long-term memory.
+- Effective lessons focus on one aspect of a problem at a time to reduce cognitive load.
+  - Making choice of strategy, subgoals, and connections between concepts explicit helps us gauge cognitive load.
+
+Lesson Design
+1. Brainstorming
+   - FIXME: Fink
+   - You may not need to answer every question for every course,
+     and you will often have questions or issues we haven't suggested,
+     but couple of hours of thinking at this stage can save days of rework later on.
+   - Checkin: a rough scope for the course that you have agreed with your CL.
+2. Who is this course for?
+   - "Beginner" and "expert" mean different things to different people,
+     and many factors besides pre-existing knowledge influence who a course is suitable for.
+   - Learner personas
+   - Decide who you're helping and
+     what *they* think they'll get out of it (i.e., what they'd Google for)
+   - Make notes about specific prerequisite skills or knowledge you expect students to have
+   - Checkin: brief summaries of who your course will help and how.
+3. What will learners do along the way?
+   - Define content by formative and summative assessments
+   - Doing this also helps uncover technical requirements
+     that might otherwise not be found until uncomfortably late in the lesson development process.
+   - Point-form explanation of exercise with full solution
+   - Serve as another good reality check
+   - Uncovers a lot of "oh, and also..."
+   - 1-2 fully explained exercises plus half a dozen point-form exercise outlines
+   - Checkin: exercises.
+4. How are concepts connected?
+   - Put exercises in logical order
+   - Derive point-form course outline for the entire course from them
+   - Checkin: a course outline and tool/dataset summary at the chapter/lesson level.
+   - Note: common to change assessments in this stage so that they can build on each other,
+     and to discover things you forgot to list earlier.
+5. What will learners' first encounter with the course be?
+   - Summarize everything you have created:
+     - A one-paragraph description (i.e., a sales pitch to students)
+     - Half a dozen learning objectives
+     - A summary of prerequisites
+   - Checkin: course description, learning objectives, and prerequisites.
+
+- Huston: *[Teaching What You Don't Know][huston-teaching]*
+- Lang: *[Small Teaching][lang-teaching]*
+- Wilson: *[How to Teach Programming (and Other Things)][wilson-teaching]*
+
+-->
