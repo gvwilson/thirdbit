@@ -29,10 +29,8 @@ using the template laid out in Part 3 of that lecture.*
    - That legitimate peripheral participation is the best way to welcome people into a community of practice.
    - How to use reverse instructional design to create a course that meets learners' needs.
 3. What technologies, packages, or functions will students use?
-   - [Deans for Impact][deans] 10-page summary
-     (archived [here](readings/science-of-learning-2016.pdf)).
-   - [Learning Scientists][learning-scientists] single-page summaries of effective practices
-     (archived [here](readings/learning-scientists-2017.pdf))
+   - [Deans for Impact][deans] 10-page summary.
+   - [Learning Scientists][learning-scientists] single-page summaries of effective practices.
 4. What terms or jargon will you define?
    - Formative assessment.
    - Summative assessment.
