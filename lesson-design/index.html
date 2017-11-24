@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>How to Design an Effective Lesson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="../reveal/css/reveal.css">
+  <link rel="stylesheet" href="../reveal/css/theme/sky.css">
+  <link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+  <link rel="stylesheet" href="./custom.css">
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <div align="center">
+          <h2>How to Design<br/>an Effective Lesson</h2>
+          <p><em>far too many slides in far too little time</em></p>
+          <p><a href="http://third-bit.com">Greg Wilson</a></p>
+          <p><a href="http://third-bit.com/lesson-design/">http://third-bit.com/lesson-design/</a></p>
+          <p>November 2017</p>
+          <img src="img/cc-by-license.png" alt="CC-BY" width="200"/>
+        </div>
+      </section>
+
+      <section>
+        <h3>What's About to Happen</h3>
+        <ul>
+	  <li class="fragment">
+	    We know as much about
+	    <a href="https://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/">how learning works</a>
+	    as we do about public health
+	  </li>
+	  <li class="fragment">Most people in higher education don't even know this knowledge exists</li>
+	  <li class="fragment">A few key ideas can make lessons significantly more effective</li>
+	</ul>
+	<p></p>
+	<div align="center" class="fragment">
+	  Having crammed a dozen books into <a href="http://third-bit.com/teaching/">a two-day course</a>,
+	  we will now try to cram that course into one hour
+        </div>
+      </section>
+
+      <section>
+        <h2 align="center">
+	  Part 1:
+	  <br/>
+	  From Novice
+	  <br/>
+	  to Competent
+	</h2>
+      </section>
+
+      <section>
+	<h3>Transitions</h3>
+	<ul>
+	  <li class="fragment">
+	    <a href="https://www.amazon.com/Novice-Expert-Excellence-Clinical-Commemorative/dp/0130325228/">Benner</a>
+	    and others studied how nurses become more proficient
+	  </li>
+	  <li class="fragment">Work replicated in many other domains</li>
+	  <li class="fragment">(Fairly) predictable series of cognitive transitions
+	    <ul>
+	      <li class="fragment">Don't just know more</li>
+	      <li class="fragment">Think <em>differently</em></li>
+	    </ul>
+	  </li>
+	  <li class="fragment">We will simplify to three stages:
+	    <ul>
+	      <li class="fragment">Novice</li>
+	      <li class="fragment">Competent</li>
+	      <li class="fragment">Expert</li>
+	    </ul>
+	  </li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Characteristics of Novices</h3>
+	<ul>
+	  <li class="fragment">Ask questions that don't make sense</li>
+	  <li class="fragment">Do things by rote
+	    <ul>
+	      <li class="fragment">No understanding cause and effect</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Rely on analogies with other domains
+	    <ul>
+	      <li class="fragment">Often unconsciously</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Use incorrect language or use language incorrectly</li>
+	  <li class="fragment">Often over-confident
+	    <ul>
+	      <li class="fragment">Don't know what or how much they don't know</li>
+	      <li class="fragment">The <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect">Dunning-Kruger Effect</a></li>
+	    </ul>
+	  </li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Root Cause</h3>
+	<ul>
+	  <li class="fragment">Novices don't yet have a usable <em>mental model</em> of the domain</li>
+	  <li class="fragment">Models don't have to be complete or accurate to be useful
+	    <ul>
+	      <li class="fragment">Atoms are colored balls connected by springs</li>
+	      <li class="fragment">Atoms are little solar systems with electrons orbiting a nucleus.</li>
+	      <li class="fragment">A computer has a CPU, memory, and a hard drive.</li>
+	    </ul>
+	  </li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>What Novices Need</h3>
+	<ul>
+	  <li class="fragment">Your goal when teaching novices is <em>not</em> to give them lots of information
+	    <ul>
+	      <li class="fragment">Because they don't yet have somewhere to put it</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Your goal is to help them build a usable mental model
+	    <ul>
+	      <li class="fragment"><em>Never hesitate to sacrifice truth for clarity.</em></li>
+	    </ul>
+	  </li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Example</h3>
+	<ul>
+	  <li class="fragment">DataCamp's introduction to Unix only teaches 15 commands in 3 hours</li>
+	  <li class="fragment">But it also teaches:
+	    <ul>
+	      <li class="fragment">Paths</li>
+	      <li class="fragment">Redirection</li>
+	      <li class="fragment">Command-line arguments</li>
+	      <li class="fragment">History</li>
+	      <li class="fragment">Pipes</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Without that mental model, the manual doesn't make sense</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>How to Help Novices</h3>
+	<ul>
+	  <li class="fragment">The key to helping novices build mental models is to <em>diagnose misconceptions</em></li>
+	</ul>
+	<table class="fragment">
+	  <tr>
+	    <td colspan="3">What is 37 + 15?</td>
+	  </tr>
+	  <tr>
+	    <td>a)</td>
+	    <td align="right">52</td>
+	    <td class="fragment">Correct</td>
+	  </tr>
+	  <tr>
+	    <td>b)</td>
+	    <td align="right">42</td>
+	    <td class="fragment">Threw away the '1'</td>
+	  </tr>
+	  <tr>
+	    <td>c)</td>
+	    <td align="right">512</td>
+	    <td class="fragment">Treated each sub-problem independently</td>
+	  </tr>
+	  <tr>
+	    <td>d)</td>
+	    <td align="right">53</td>
+	    <td class="fragment">Carried the '1' back into the same column</td>
+	  </tr>
+	</table>
+	<ul>
+	  <li class="fragment">Each misunderstanding needs a different corrective explanation</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>You Need a Model of Their Model</h3>
+	<ul>
+	  <li class="fragment">
+	    You can only create effective diagnostic exercises
+	    if you understand your learners' mental models and misconceptions
+	  </li>
+	  <li class="fragment">
+	    Once you do,
+	    you will automatically create lessons that forestall and correct misconceptions
+	  </li>
+	  <li class="fragment">
+	    You should be able to explain what misconception each of your expected wrong answers is checking for
+	  </li>
+	</ul>
+      </section>
+
+      <section data-background-color="#e0f0e0">
+	<h3>Interlude: What We Don't Have (Yet)</h3>
+	<ul>
+	  <li class="fragment">All teaching involves:
+	    <ol>
+	      <li class="fragment">Domain knowledge</li>
+	      <li class="fragment">General teaching knowledge</li>
+	      <li class="fragment">
+		Pedagogical content knowledge (PCK):
+		how best to teach <em>this</em> topic to <em>this</em> audience
+	      </li>
+	    </ol>
+	  </li>
+	</ul>
+	<div class="fragment" align="center">
+	  <a href="https://www.amazon.com/Teaching-Statistics-Tricks-Andrew-Gelman/dp/0198785704/"><img src="img/statistics.jpg" width="150px" /></a>
+	  <a href="https://www.amazon.com/Common-Misconceptions-Mathematics-Strategies-Correct/dp/0761858857/"><img src="img/ojose.jpg" width="150px" /></a>
+	</div>
+	<ul>
+	  <li class="fragment">We don't yet have catalogs of PCK for programming</li>
+	</ul>
+      </section>
+
+      <section data-background-color="#e0f0e0">
+	<h3>Meta: What We Just Did</h3>
+	<ol>
+	  <li class="fragment">Started building your mental model of learning</li>
+	  <li class="fragment">Motivated you by using an <em>authentic task</em> as an example</li>
+	  <li class="fragment">Gave you a short break so you can clear your head for the next section</li>
+	</ol>
+      </section>
+
+      <section>
+        <h2 align="center">
+	  Part 2:
+	  <br/>
+	  Seven
+	  <div class="fragment">
+	    Plus or Minus Two
+	  </div>
+	</h2>
+      </section>
+
+      <section>
+	<h3>Characteristics of Experts</h3>
+	<ul>
+	  <li class="fragment">Solve common problems "instantly"</li>
+	  <li class="fragment">Able to solve unusual problems as well</li>
+	  <li class="fragment">Able to reason backward from effect to cause (diagnosis)</li>
+	  <li class="fragment">Sometimes unable to explain their reasoning</li>
+	  <li class="fragment">Often mis-use words like "simple" or "obvious"</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>A Useful Lie</h3>
+	<ul>
+	  <li class="fragment">Knowledge isn't stored as a graph, but it's a useful metaphor</li>
+	  <li class="fragment">Expert's graph isn't just larger: it's also much more densely connected</li>
+	</ul>
+	<div align="center">
+	  <img class="fragment" src="img/search.svg" alt="Competent vs. Expert Search" />
+	</div>
+	<ul>
+	  <li class="fragment">Experts take one step where the "merely competent" have to search</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Concept Maps</h3>
+	<ul>
+	  <li class="fragment">A picture of someone's mental model</li>
+	</ul>
+	<p></p>
+	<div align="center" class="fragment">
+	  <img src="img/concept.svg" alt="Concept Map" width="100%" />
+	</div>
+	<ul>
+	  <li class="fragment">Important to emphasize the connections just as much as the concepts</li>
+	  <li class="fragment">Knowledge that cannot be retrieved cannot be used</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>How Memory Works</h3>
+	<ul>
+	  <li class="fragment">Sensory memory: 1-2 seconds</li>
+	  <li class="fragment">Short-term memory: 7±2 items for 10-15 seconds</li>
+	  <li class="fragment">Long-term memory: permanent storage
+	    <ul>
+	      <li class="fragment">But frequently rewritten</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">New information goes into short-term memory</li>
+	  <li class="fragment">Learning only takes place if it's transferred to long-term memory</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>How Big Should a Lesson Be?</h3>
+	<ul>
+	  <li class="fragment">
+	    If we give learners too much too fast,
+	    it spills out of short-term memory and nothing is remembered
+	  </li>
+	  <li class="fragment">
+	    So count the nodes and edges in the concept map
+	    <ul>
+	      <li class="fragment">Or the facts and connections in your point-form notes</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Each learning episode should be half a dozen items</li>
+	  <li class="fragment">
+	    Immediately reinforced to keep them in short-term memory long enough to be transferred
+	    <ul>
+	      <li class="fragment">Examples</li>
+	      <li class="fragment">Questions</li>
+	      <li class="fragment">Exercises</li>
+	    </ul>
+	  </li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Cognitive Load</h3>
+	<ul>
+	  <li class="fragment">
+	    Different parts of problem solving compete for processing time
+	    <ul>
+	      <li class="fragment">Recall</li>
+	      <li class="fragment">Planning</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Good lessons let learners concentrate on one aspect of a problem at a time</li>
+	  <li class="fragment">Example: Parsons Problems
+	    <ul>
+	      <li class="fragment">Rearrange jumbled lines of code to solve a problem</li>
+	      <li class="fragment">Allows learner to concentrate on data flow</li>
+	    </ul>
+	  </li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Faded Examples</h3>
+	<ul>
+	  <li class="fragment">A succession of closely-related problems</li>
+	  <li class="fragment">Each gives the learner less scaffolding
+	    <ul>
+	      <li class="fragment">Parts that are removed are closely related</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Learners can focus on one aspect of the problem at a time</li>
+	  <li class="fragment">And learn the underlying pattern by example</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Fully Worked Example</h3>
+<pre class="sample">
+# ["red", "green", "blue"] => 12
+def total_length(words):
+    total = 0
+    for word in words:
+        total += len(word)
+    return total
+</pre>
+	<ul>
+	  <li>Go through this line by line</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>First Exercise</h3>
+<pre class="sample">
+# ["red", "green", "blue"] => [3, 5, 4]
+def all_lengths(words):
+    lengths = ____
+    for word in words:
+        lengths ____
+    return lengths
+</pre>
+	<ul>
+	  <li>Directs attention to initialization and update</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Second Exercise</h3>
+<pre class="sample">
+# ["red", "green", "blue"] => "redgreenblue"
+def join(words):
+    result = ____
+    for ____ in ____:
+        ____
+    return result
+</pre>
+	<ul>
+	  <li>Directs attention to control flow</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Final Exercise</h3>
+<pre class="sample">
+# ["red", "green", "blue"] => "RGB"
+def acronym(words):
+    ____
+    ____
+        ____
+    ____
+</pre>
+	<ul>
+	  <li>By now the pattern has been internalized</li>
+	  <li class="fragment">And learners have done <em>more</em> work in <em>less</em> time</li>
+	</ul>
+      </section>
+
+      <section data-background-color="#e0f0e0">
+	<h3>Interlude: Chunking</h3>
+	<ul>
+	  <li class="fragment">
+	    Items that frequently occur together are stored in chunks
+	    that only take up one slot in short-term memory
+	    <ul>
+	      <li class="fragment">The digits in frequently-used phone numbers</li>
+	      <li class="fragment">Common chord progressions</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Chunking lets us work with larger information sets
+	    <ul>
+	      <li class="fragment">At the risk of mis-categorizing items</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Good lessons give chunks names
+	    <ul>
+	      <li class="fragment">"Flag"</li>
+	      <li class="fragment">"Best value seen so far"</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Good libraries turn chunks into components</li>
+	</ul>
+      </section>
+
+      <section>
+        <h2 align="center">
+	  Part 3:
+	  <br/>
+	  Systematic Lesson Design
+	</h2>
+      </section>
+
+      <section>
+	<h3>1) Brainstorming</h3>
+	<ol>
+	  <li>What problems will learners solve?</li>
+	  <li>What concepts and techniques will they learn?</li>
+	  <li>What tools or data sets will they use?</li>
+	  <li>What terms or jargon will you define?</li>
+	  <li>What analogies or heuristics will you use?</li>
+	  <li>What mistakes or misconceptions do you expect?</li>
+	</ol>
+	<p></p>
+	<ul>
+	  <li class="fragment">Don't need to answer every question</li>
+	  <li class="fragment">May pose and answer others</li>
+	  <li class="fragment"><em>Deliver: rough scope for the course</em></li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>2) Who is this course for?</h3>
+	<ul>
+	  <li class="fragment">"Beginner" and "expert" mean different things to different people</li>
+	  <li class="fragment">Many factors besides pre-existing knowledge influence who a course is suitable for</li>
+	  <li class="fragment">
+	    Use our <em>learner personas</em> to define who you are helping
+	    and what <em>they</em> think they will get out of the course
+	  </li>
+	  <li class="fragment">Make notes about prerequisites learners need to have</li>
+	</ul>
+	<p></p>
+	<ul>
+	  <li class="fragment"><em>Deliver: brief summaries of who your course will help and how</em></li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>Example Persona: Starting Sindhu</h3>
+	<ul>
+	  <li class="fragment">28, lives in Bangalore</li>
+	  <li class="fragment">Likes things she can do on her commute</li>
+	  <li class="fragment">BSc in Biochemistry, MSc in Pharmacy</li>
+	  <li class="fragment">Vaccine researcher at a pharmaceutical company</li>
+	  <li class="fragment">Did two courses in statistics and experimental design
+	    <ul>
+	      <li class="fragment">Used Excel and SPSS</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">Wants better data science skills to help her advance in her current career</li>
+	  <li class="fragment">Not sure which languages or skills to start with</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>3) What will learners do?</h3>
+	<ul>
+	  <li class="fragment">Specify content by drafting exercises
+	    <ul>
+	      <li class="fragment">Much more concrete than "explain how to calculate residuals"</li>
+	      <li class="fragment">Helps uncover hidden technical requirements</li>
+	    </ul>
+	  </li>
+	  <li class="fragment">
+	    Each exercise should be:
+	    <ul>
+	      <li class="fragment">One or two bullet points to explain its purpose</li>
+	      <li class="fragment">Fully worked out code</li>
+	    </ul>
+	  </li>
+	</ul>
+	<p></p>
+	<ul>
+	  <li class="fragment"><em>Deliver: 1-2 exercises per chapter</em></li>
+	</ul>
+	<p></p>
+	<ul>
+	  <li class="fragment">
+	    The teaching equivalent of
+	    <a href="https://en.wikipedia.org/wiki/Test-driven_development">test-driven development</a>
+	  </li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>4) How are concepts connected?</h3>
+	<ul>
+	  <li class="fragment">Put exercises in logical order</li>
+	  <li class="fragment">Derive course outline from them</li>
+	</ul>
+	<p></p>
+	<ul>
+	  <li class="fragment"><em>Deliver: course outline at the chapter/lesson level</em></li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>5) How is the course described?</h3>
+	<ul>
+	  <li class="fragment">Summarize everything you have created</li>
+	</ul>
+	<ol>
+	  <li class="fragment">A one-paragraph description</li>
+	  <li class="fragment">Half a dozen learning objectives</li>
+	  <li class="fragment">A summary of prerequisites</li>
+	</ol>
+	<p></p>
+	<ul>
+	  <li class="fragment"><em>Deliver: all of the above</em></li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>In Real Life</h3>
+	<ul>
+	  <li class="fragment">Process is described sequentially</li>
+	  <li class="fragment">In practice, it is always iterative</li>
+	  <li class="fragment">
+	    <a href="https://en.wikipedia.org/wiki/Politics_and_the_English_Language">Orwell's Sixth Rule</a>:
+	    "Break any of these rules sooner than say anything outright barbarous."
+	  </li>
+	</ul>
+	<p></p>
+	<ul>
+	  <li class="fragment">
+	    <em>Note: This lecture is part of a course <a href="./design.html">designed using this process</a>.</em>
+	  </li>
+	</ul>
+      </section>
+
+      <section>
+        <h3>Beginnings</h3>
+	<div align="center">
+	  <a href="https://www.amazon.com/Teaching-What-You-Dont-Know/dp/0674035801/"><img src="img/huston.jpg" width="15%" /></a>
+	  &nbsp;
+	  <a href="https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496/"><img src="img/lang.jpg" width="15%" /></a>
+	  &nbsp;
+	  <a href="https://www.amazon.com/Building-Better-Teacher-Teaching-Everyone/dp/0393351084/"><img src="img/babt.jpg" width="15%" /></a>
+	  &nbsp;
+	  <a href="https://www.amazon.com/Urban-Myths-about-Learning-Education/dp/0128015373/"><img src="img/myths.jpg" width="15%" /></a>
+	  &nbsp;
+	  <a href="https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/"><img src="img/discussion-book.jpg" width="15%" /></a>
+	  <p><a href="http://third-bit.com/teaching/">http://third-bit.com/teaching/</a></p>
+	  <p>
+	    <a href="http://www.learningscientists.org/downloadable-materials/">http://www.learningscientists.org/</a>
+	    <br/>
+	    (downloadable materials)
+	  </p>
+	</div>
+      </section>
+
+      <section>
+        <h3>Thank You</h3>
+	<div align="center">
+	  <p><img src="img/dad.jpg" alt="Dad" width="250px" /></p>
+          <p><a href="http://third-bit.com/lesson-design/">http://third-bit.com/lesson-design/</a></p>
+          <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+	</div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../reveal/lib/js/head.min.js"></script>
+  <script src="../reveal/js/reveal.js"></script>
+  <script>
+    // More info on configuration at https://github.com/hakimel/reveal.js#configuration
+    // More info on dependencies at https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+    history: true,
+    center: false,
+    slideNumber: true,
+    dependencies: [
+    { src: '../reveal/plugin/markdown/marked.js' },
+    { src: '../reveal/plugin/markdown/markdown.js' },
+    { src: '../reveal/plugin/notes/notes.js', async: true },
+    { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ]
+    });
+  </script>
+</body>
+</html>
