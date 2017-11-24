@@ -56,6 +56,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="brown-empirical">[Brown2014]</a> Neil C. C. Brown and Amjad Altadmri: "Investigating Novice Programming Mistakes: Educator Beliefs vs. Student Data." _Proc Tenth Annual Conference on International Computing Education Research_, 2014, 10.1145/2632320.2632343. _Uses data from over 100,000 students to show that educators know less than they think about what mistakes novice programmers actually make._
 
+*   <a id="cottom-lower-ed">[Cottom]</a> Tressie McMillan Cottom: *_[Lower Ed: The Troubling Rise of For-Profit Colleges in the New Economy](https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/)_*  The New Press, 2017, 978-1620970607. _Lays bare the dynamics of this growing "educational" industry to show how it leads to greater inequality rather than less._
+
 *   <a id="cottrill-gifted">[Cottrill2016]</a> Cameron Cottrill: "Why Talented Black and Hispanic Students Can Go Undiscovered." <https://mobile.nytimes.com/2016/04/10/upshot/why-talented-black-and-hispanic-students-can-go-undiscovered.html>, viewed April 2017.
 
 *   <a id="deathbulge-feedback-feeling">[Deathbulge Feedback Feelings]</a> Deathbulge: "Feedback Feelings".  <http://www.deathbulge.com/comics/155>, viewed May 2017.  _How many of us react to feedback._
@@ -109,6 +111,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 *  <a id="kuchner-marketing">[Kuchner2011]</a> Marc Kuchner: _[Marketing for Scientists: How to Shine in Tough Times](https://www.amazon.com/Marketing-Scientists-Shine-Tough-Times/dp/1597269948/)_.  Island Press, 2011, 978-1597269940. _A short, readable guide to making people aware of, and care about, your work._
 
 *   <a id="kuittinen-patterns">[Kuittinen2004]</a> Marja Kuittinen and Jorma Sajaniemi: "Teaching Roles of Variables in Elementary Programming Courses" _Proc. 9th Annual SIGCSE Conference on Innovation and Technology in Computer Science Education_, 2004, 10.1145/1007996.1008014. _Presents a few patterns used in novice programming and looks at the pedagogical value of teaching them._
+
+*   <a id="lang-cheating">[Lang2013]</a> James M. Lang: _[Cheating Lessons: Learning From Academic Dishonesty](https://www.amazon.com/Cheating-Lessons-Learning-Academic-Dishonesty/dp/0674724631/)_ Harvard University Press, 2013, 978-0674724631. _Explores why students cheat, and how courses often give them incentives to do so._
 
 *   <a id="learning-theories">[Learning2017]</a> "Learning Theories" website. <http://www.learning-theories.com/>, viewed April 2017.
 
@@ -168,10 +172,14 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="w3c-accessibility">[W3C2017]</a> W3C Web Accessibility Initiative: "How to Make Presentations Accessible to All."  <https://www.w3.org/WAI/training/accessible>, accessed May 2017.
 
+*   <a id="watters-monsters">[Watters2014]</a> Audrey Watters: _[The Monsters of Education Technology](https://www.amazon.com/Monsters-Education-Technology-Audrey-Watters/dp/1505225051/)_ CreateSpace, 2014, 978-1505225051. _A collection of essays about the history of educational technology and the exaggerated claims repeatedly made for it. There's more criticism than prescription, but the former is well-informed and sharp-edged._
+
 *   <a id="wiggins-mctighe">[Wiggins2005]</a> G.P. Wiggins and J. McTighe: _[Understanding by Design](https://www.amazon.com/Understanding-Design-Grant-Wiggins/dp/1416600353/)_ Association for Supervision and Curriculum Development, 2005, 978-1416600350. _A lengthy presentation of reverse instructional design._
 
 *   <a id="wilkinson-pickett-spirit-level">[Wilkinson2011]</a> Richard Wilkinson and Kate Pickett: _[The Spirit Level: Why Greater Equality Makes Societies Stronger](https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608193411/)_ Bloomsbury Press, 2011, 978-1608193417. _Presents evidence that inequality harms everyone, both economically and otherwise._
 
 *   <a id="willingham-dont-like-school">[Willingham2010]</a> Daniel T. Willingham: _[Why Don't Students Like School?](https://www.amazon.com/Why-Dont-Students-Like-School/dp/047059196X/)_ Jossey-Bass, 2010, 978-0470591963. _A cognitive scientist looks at how the mind works and what it means in the classroom._
 
-*   <a id="wilson-bad-teaching">[Wilson2016]</a> Greg Wilson: "How to Teach Badly".  <https://www.youtube.com/watch?v=-ApVt04rB4U>, viewed May 2017.
+*   <a id="wilson-bad-teaching-live">[Wilson2016]</a> Greg Wilson: "How to Teach Badly".  <https://www.youtube.com/watch?v=-ApVt04rB4U>, viewed May 2017.
+
+*   <a id="wilson-bad-teaching-recorded">[Wilson2017]</a> Greg Wilson: "How to Teach Badly (Part 2)".  <https://youtu.be/xcnoHaxXvdQ>, viewed November 2017.

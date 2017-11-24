@@ -247,6 +247,81 @@ subjects, but have convinced themselves that they just don't have what
 it takes to be programmers. If all we do is dispel that belief, we
 will have done them a service.
 
+## Feedback on Bad Teaching Demo Videos
+
+The two lists below summarize key feedback on the videos of
+[bad live teaching](biblio.html#wilson-bad-teaching-live) and
+[bad recorded teaching](biblio.html#wilson-bad-teaching-recorded)
+used in the chapters on [performance](performance.html) and
+[online teaching](online.html).
+
+### Part 1: Bad Teaching in Person
+
+FIXME
+
+### Part 2: Bad Teaching in Recorded Video
+
+- Clipped at the start:
+  normally start talking about a second in to give people a chance to collect themselves.
+- Flubbed the first sentence:
+  don't do a hundred takes, but don't just do one either.
+- Screen is very cluttered: several irrelevant background windows open.
+- Terminal is very cluttered: what does all that text have to do with the lesson?
+- Font is much too small.
+- Flipped between windows at 00:15 for no apparent reason.
+- Speaking far too quickly.
+- Starts by talking about some other platform that isn't on the screen, rather than what is.
+- Don't draw attention at 00:30 to the Python version unless it's important.
+- Background noise at 00:40.
+- Explanation of what functions are seems to trying to motivate the lesson, but:
+  - uses jargon like "parameterize",
+  - nothing is happening on the screen while the presenter is talking, and
+  - reference to previous courses the learner might have done are obviously improvised.
+- Audio is garbed starting at 01:16.
+- Closing the background windows at 1:33 just draws attention to them at this point.
+- Typing in code starting at 01:52 introduces a lot of background noise (keyboard clicking).
+- "And it takes some sort of parameter" introduces important jargon (parameter),
+  but then the presenter talks about the colon instead.
+- Presenter goes from "body" to "scoping" starting at 2:07 without any clear explanation.
+  - Then dives down a rabbit hole briefly discussing scoping rules:
+    this will be unintelligible to anyone new to functions.
+- 02:28 "to get back to a top-level prompt" - what's a "top-level prompt"?
+- At least the presenter is using a meaningful name for the function...
+- 02:43 "this is all pretty simple stuff" - no!  It's only simple once you know it.
+- 02:50 "even if all you know is something like R":
+  don't denigrate people's existing knowledge, or other communities.
+- Pasting in a block of code around 03:05
+  - The code isn't explained...
+  - ...and nobody is going to be able to keep up with the speed.
+- 03:11 more background noise
+- 03:12 Since there is a built-in function called 'sum',
+  use some other name for the example function to avoid confusion.
+- 03:18 "Because we've got to write something":
+  the audience will never care more about the material than the presenter,
+  and it's pretty clear at this point that the presenter doesn't care a lot.
+- 03:22 "Let me just rewrite this because we haven't introduced variable arguments."
+  - What bug is the presenter fixing?
+  - What are "variable arguments"? (Remember, this is the viewer's first introduction to functions.)
+  - The replacement code is identical to the original code except for one '*' character:
+    beginners aren't going to notice that or know why it's important.
+- 03:34 more keyboard clicking.
+- 03:40 background voices.
+- 03:53 "This is so simple, even Excel users could follow along." Again, never be derogatory in a lesson.
+- 04:02 "This is actually polymorphic on types." Presenter clearly has no audience level in mind.
+  - Anyone who is new to functions isn't going to understand what "polymorphic on types" means.
+- 04:09 Summing 'a', 'b', and 'c' fails.
+  - Don't include failing examples in videos unless the failure is purposeful.
+  - If a failure is included, explain what the fault was and how it was fixed
+    (more than "I can't initialize..." and then self-interruption).
+- 04:18 Abandoning example and going back to 'double' is going to confuse viewers.
+- 04:40 Explanation of why doubling 'x' produces 'xx' is garbled and has nothing to do with functions.
+- 04:48 "As you'd probably expect, you can nest the function calls":
+  there are many things that are more important to explain before nested function calls.
+- 04:58 "Yeah, I guess that's right." Does not inspire confidence in the presenter.
+- 05:13 Audio is garbled again.
+- 05:34 List comprehensions are another distraction.
+- Last few seconds should have been edited out.
+
 ## Feedback on Live Coding Demo Videos
 
 The two lists below summarize key feedback on the two videos used

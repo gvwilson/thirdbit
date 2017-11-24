@@ -11,14 +11,85 @@ that they're using some combination of recorded video and automated
 grading of exercises–in short, that they're teaching *asynchronously*.
 This is much harder to do well than teaching live.
 
+FIXME: blended is better, but we'll concentrate here on the pure
+recorded version.
+
 *This section is currently under development:
 [feedback](mailto:gvwilson@third-bit.com?feedback%20on%20Teaching%20Online) would be appreciated.*
 
-## Preparing Lessons
+## The World We're Creating
 
-FIXME: to be written.
+FIXME: rewrite this section.
 
-## Exercises
+It's usual to warn readers about the risks of a new technology after
+explaining it to them, but the risks associated with online education
+are great enough that I'd like to put the warnings up front.
+
+What pushed it into first place was what <em>wasn't</em> being talked about.
+None of the presentations included the word "privacy" in their title;
+speaker after speaker talked about what <em>we</em> can find out about <em>them</em>
+by mining their data,
+but whether we should,
+and whether people should know who's watching them and how closely,
+was only touched on occasionally and briefly.
+
+One of the reasons,
+I think,
+is that most of the speakers were technologists.
+The educators I talked to were more concerned about privacy (and pedagogy),
+but several told me one-to-one that they felt sidelined
+by their lack of technical knowledge.
+As a result,
+most decisions on the ground (or on the web)
+were being made by people who cared more about the data they might get
+than about the risks they might create
+or the rights they might erode.
+
+The educational value of MOOCs is debatable.
+The fact that they are bringing ubiquitous surveillance into the classroom is not.
+I'm sure we'll learn things by watching over every student's shoulder
+every minute of every hour
+(though as <a href="http://computinged.wordpress.com/2014/01/31/big-data-vs-old-psychology-work-harder-vs-work-smarter/">Mark Guzdial keeps reminding us</a>,
+a lot of the things we'll learn are only new to people
+who haven't bothered to do a literature search).
+I'm equally sure that if we continue down the road I saw laid out at this conference,
+we'll be training children to believe that being watched and recorded every moment of the day is normal.
+That's not a future I want.
+
+FIXME: read [[Watters2014](biblio.html#watters-monsters)].
+
+FIXME: [[Cottom2017](biblio.html#cottom-lower-ed)].
+
+## General Guidance
+
+Gains
+- Easier to integrate extended resources (link to other things on the web).
+- More opportunity for continuous assessment.
+- More convenient for learners (at least, those with connectivity).
+
+Losses
+- Impersonal (which encourages uncivil behavior).
+- Less opportunity for individualized intervention (despite claims about AI).
+- More burden on learners to stay focused.
+
+People can read (and search) faster than you can talk,
+so use video to engage rather than instruct,
+and to show verbs rather than nouns.
+Remember that video is expensive to create and even more expensive to maintain.
+
+Use your learners' tools:
+if they prefer Slack to bulletin boards, use Slack.
+- broadcast (sharing content with learners)
+  - podcasts are often more popular than video and much cheaper to produce
+- discussion (bulletin boards/mailing lists vs. chat)
+- collaboration (Google Docs, wikis, version control)
+  - students editing course material
+- archive everything
+
+[[Lang2013](biblio.html#lang-cheating)] explores why and how students cheat,
+and how courses often give them incentives to do so.
+
+## Different Types of Exercises
 
 Every mechanic has her favorite screwdrivers, and every good teacher
 has different kinds of exercises to check that her students are
@@ -356,9 +427,26 @@ There are undoubtedly many other kinds of exercises out there that are
 also fast to do and automatically gradable, but which we haven't heard
 of. If you know of any, we'd enjoy hearing about them.
 
+> **Verbs**
+>
+> FIXME: having students *submit* video lets us examine their verbs.
+
 ## Challenges
 
-FIXME: challenges for online teaching
+### Give Feedback (20 minutes)
+
+1.  Watch [[Wilson2017](biblio.html#wilson-bad-teaching-recorded)] as
+    a group and give feedback on it. Organize feedback along two axes:
+    positive vs. negative and content vs. presentation.
+
+2.  Have each person in the class add one point to a 2x2 grid on a
+    whiteboard (or in the shared notes) without duplicating any points
+    that are already up there.
+
+What did other people see that you missed?  What did they think that
+you strongly agree or disagree with?
+
+FIXME: more challenges for online teaching
 
 ## Acknowledgments
 
