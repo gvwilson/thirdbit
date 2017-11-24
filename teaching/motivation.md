@@ -456,6 +456,26 @@ indicators of success?" Read
 example from your own experience of "objective" assessments that
 reinforced the status quo.
 
+### Credibility
+
+[[Fink2013](biblio.html#fink-significant)] describes three things
+that make teachers credible in their learners' eyes:
+
+*   **Competence**, or knowledge of the subject, as shown by the ability
+    to explain complex ideas or reference the work of others.
+
+*   **Trustworthiness**, or having the student's best interests in mind.
+    This can be shown by giving individualized feedback, offering a
+    rational explanation for grading decisions, and treating all students
+    the same.
+
+*   **Dynamism**, or excitement about the subject.  This was discussed
+    in detail in the chapter on [teaching as a performance art](performance.html).
+
+Describe one thing you do when teaching that fits into each category,
+and then describe one thing you *don't* do but should for each
+category as well
+
 [ada-resources]: http://adainitiative.org/continue-our-work/impostor-syndrome-training/
 [growth-mindset-concerns]: http://www.learningspy.co.uk/psychology/growth-mindset-bollocks/
 [guzdial-myth]: http://cacm.acm.org/blogs/blog-cacm/189498-top-10-myths-about-teaching-computer-science/fulltext
