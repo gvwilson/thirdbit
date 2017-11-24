@@ -112,7 +112,26 @@ Checkin: brief summaries of who your course will help and how.
 
 ### Running Example
 
-FIXME: fill in.
+This is one of the profiles provided:
+
+> Sindhu is 28 and lives in Bangalore.  She has a BSc in Biochemistry
+> and an MSc in Pharmacy, and is now a vaccine researcher at a
+> pharmaceutical company.  Sindhu did two courses in statistics and
+> experimental design while at university using Excel and SPSS, and
+> now wants better data science skills to help her advance in her
+> current career.  She isn't sure which languages or skills to start
+> with, but knows that she's going to need to use her company's
+> compute cluster, and has been told that it runs Unix.  Sindhu
+> commutes an hour each way every day by bus, and likes things she can
+> do during that time.
+
+And this is the description of how this course will help:
+
+> This course will introduce Sindhu to basic shell commands, to the
+> pipe and filter model she can use to combine those commands, and
+> show her how to capture her workflows in simple shell scripts.  It
+> will *not* show her how to connect to remote machines using SSH, but
+> is a prerequisite for the course that does.
 
 ## Step 3: What will learners do along the way?
 

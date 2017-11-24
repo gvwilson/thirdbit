@@ -358,7 +358,7 @@ of. If you know of any, we'd enjoy hearing about them.
 
 ## Challenges
 
-FIXME
+FIXME: challenges for online teaching
 
 ## Acknowledgments
 
