@@ -280,13 +280,18 @@ Another way to think about learning objectives comes from
 terms of the change it is intended to produce in the learner.
 [Fink's Taxonomy](gloss.html#finks-taxonomy) has six categories:
 
-*   Foundational Knowledge: understanding and remembering information
-    and ideas.
-*   Application: skills, critical thinking, managing projects.
-*   Integration: connecting ideas, learning experiences, and real life.
-*   Human Dimension: learning about oneself and others.
-*   Caring: developing new feelings, interests, and values.
-*   Learning How to Learn: becoming a better student.
+*   Foundational Knowledge: understanding and remembering information and ideas
+    (remember, understand, identify).
+*   Application: skills, critical thinking, managing projects
+    (use, solve, calculate, create).
+*   Integration: connecting ideas, learning experiences, and real life
+    (connect, relate, compare).
+*   Human Dimension: learning about oneself and others
+    (come to see themselves as, understand others in terms of, decide to become).
+*   Caring: developing new feelings, interests, and values
+    (get excited about, be ready to, value).
+*   Learning How to Learn: becoming a better student
+    (identify source of information for, frame useful questions about).
 
 A set of learning objectives based on this taxonomy for an
 introductory course on HTML and CSS might be:
