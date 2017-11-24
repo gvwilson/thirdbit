@@ -375,4 +375,34 @@ out early on how you're going to know whether you're teaching the
 right things the right way, and how you're going to convince potential
 backers that you're doing so.
 
+## Three Kinds of Thinking
+
+[[Fink2013](biblio.html#fink-significant)] suggests designing
+exercises to prompt three kinds of thinking, and provides these
+examples (among others):
+
+<table class="table table-striped">
+  <tr>
+    <th>Field</th>
+    <th>Critical Thinking</th>
+    <th>Creative Thinking</th>
+    <th>Practical Thinking</th>
+  </tr>
+  <tr>
+    <td>Biology</td>
+    <td>Evaluate the validity of the bacterial theory of ulcers.</td>
+    <td>Design a experient to test the bacterial theory of ulcers.</td>
+    <td>How would the bacterial theory of ulcers change conventional treatment regimes?</td>
+  </tr>
+  <tr>
+    <td>Art</td>
+    <td>Compare and contrast how Rembrandt and Van Gogh used light in these two paintings.</td>
+    <td>Draw a beam of light.</td>
+    <td>How could we reproduce the lighting in this painting in an actual room?</td>
+  </tr>
+</table>
+
+To ensure that key concepts are truly understood,
+instructors should give learners exercises of all three types for each concept.
+
 [wikipedia-learning-modalities]: https://en.wikipedia.org/wiki/Learning_styles#Learning_modalities
