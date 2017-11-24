@@ -308,63 +308,74 @@ something else to keep you busy.
 
 ## Challenges
 
-FIXME
+These exercises are taken from [[Brown2007](biblio.html#brown-bpco)],
+which is an exceptionally useful book on building community organizations.
 
-## Acknowledgments
+## Values (45 minutes)
 
-Thanks to everyone who contributed ideas to this list, including Erin Robinson,
-Matt Turk, and Belinda Weaver.
+Answer the following questions on your own,
+and then compare your answers to those given by other members of your group.
 
-----------------------------------------
+1.  What are the values your organization expresses?
+2.  Are these the values you want the organization to express?
+3.  If not, what values would you like it to express?
+4.  What are the specific behaviors that demonstrate those values?
+5.  What are some key behaviors that would demonstrate the values you would like for your group?
+6.  What are the behaviors that would demonstrate the opposite of those values?
+7.  What are some key behaviors that would demonstrate the opposite of the values you want to have?
 
-# Mission, Goals, and Objectives
+### Meeting Procedures (30 minutes)
 
-1.  What is your mission statement?
-2.  Is this what you want your mission statement to be?
-3.  If you don't have a mission statement,
-    what steps can you take to secure the group's commitment to a plan for getting one written?
-4.  What are your goals and objectives?
-5.  Do they match what you want your goals and objectives to be?
-6.  If you don't have written goals and objectives,
-    what steps can you take to secure the group's commitment to a plan for getting them written?
+Answer the following questions on your own,
+and then compare your answers to those given by other members of your group.
 
-### Size
+1.  How are your meetings run?
+2.  Is this how you want your meetings to be run?
+3.  Are the rules for running meetings explicit or just assumed?
+4.  Are these the rules you want?
+5.  Who is eligible to vote/make decisions?
+6.  Is this who you want to be vested with decision-making authority?
+5.  Do you use majority rule, make decisions by consensus, or use some other method?
+8.  Is this the way you want to make decisions?
+9.  How do people in a meeting know when a decision has been made?
+10. How do people who weren't at a meeting know what decisions were made?
+11. Is this working for your group?
+
+### Size (20 minutes)
+
+Answer the following questions on your own,
+and then compare your answers to those given by other members of your group.
 
 1.  How big is your group?
 2.  Is this the size you want for your organization?
 3.  If not, what size would you like it to be?
-    What is your numeric goal?
 4.  Do you have any limits on the size of membership?
 5.  Would you benefit from setting such a limit?
-6.  Thoughts or comments about that?
 
-### Staffing
+### Staffing (30 minutes)
+
+Answer the following questions on your own,
+and then compare your answers to those given by other members of your group.
 
 1.  Do you have paid staff in your organization?
 2.  Or is it all-volunteer?
 3.  Should you have paid staff?
-4.  Do you want/need more staff?
-5.  Or less staff?
-6.  What title do you call the staff?
-    (E.g., organizer, director, coordinator, etc.)
-7.  Does this fit your organization?
-8.  What do the staff members do?
-9.  Are these the primary roles and functions that you want the staff to be filling?
-10. Who supervises your staff?
-11. Is this the supervision process and responsibility chain that you want for your group?
-12. What is your staff paid?
-13. Is this the right salary to get the needed work done
-    and to fit within your resource constraints?
-14. What are the benefits that your group provides to its staff?
-    (Health, dental, pension, short and long-term disability, vacation, comp time, etc.)
-15. Are these the benefits that you want to give?
+4.  Do you want/need more or less staff?
+5.  What do you call the staff (e.g., organizer, director, coordinator, etc.)?
+6.  What do the staff members do?
+7.  Are these the primary roles and functions that you want the staff to be filling?
+8.  Who supervises your staff?
+9.  Is this the supervision process and responsibility chain that you want for your group?
+10. What is your staff paid?
+11. Is this the right salary to get the needed work done and to fit within your resource constraints?
+12. What benefits does your group provide to its staff
+    (health, dental, pension, short and long-term disability, vacation, comp time, etc.)?
+13. Are these the benefits that you want to give?
 
-### Time Frame
+### Collaborations (30 minutes)
 
-1.  How long do you assume the organization will be in existence?
-2.  How long do you want it to be in existence?
-
-### Collaborations
+Answer the following questions on your own,
+and then compare your answers to those given by other members of your group.
 
 1.  Do you have any agreements or relationships with other groups?
 2.  Do you want to have relationships with any other groups?
@@ -373,241 +384,40 @@ Matt Turk, and Belinda Weaver.
 5.  Are these the right collaborators for achieving your goals?
 6.  With what groups or entities would you like your organization to have agreements or relationships?
 
-# Leadership
+## Money (30 minutes)
 
-1.  Who calls the meetings?
-2.  Is this how you want your meetings to be called?
-3.  Who is the chair?
-4.  Is this the person who you want to chair the meetings?
-5.  Do you have any committees?
-6.  If so, what are they?
-7.  Are these the committees you want?
-8.  What committees would you add?
-9.  What committees would you remove?
-10. Do you have officers or other specified leaders?
-11. If so, what are the leadership position titles?
-12. Are these the leadership positions you want?
-13. How do you choose officers or board members?
-14. Is this how you want to choose officers or board members?
-15. What are the lengths of service of your officers and leaders?
-16. Are there term or time limits for leadership?
-17. If so, what are the term limits?
-18. If you don't have term limits, do you want them?
-19. If you have term limits on leadership, are these the terms you want?
-20. Who decides things around here?
-    Who makes proposals?
-    Who follows up?
-21. Is this who you would like to have making the decisions?
-
-# Meetings: Turf and Time
-
-1.  When does your group meet?
-2.  Do you want it to meet at that time?
-3.  If not, when would you like the group to meet?
-4.  Does the group meet at a time that is convenient for members?
-5.  For some members, but not for others?
-6.  Is this what you want?
-7.  Where does the group meet?
-8.  Is this where you want the group to meet?
-9.  Would alternate locations make meetings more accessible for some members?
-10. If so, where?
-11. How long are the meetings?
-12. Is this the right length?
-13. Do you meetings start on time?
-14. If not, how late or early do they start?
-15. Do you want meetings to start on time?
-16. What strategies can you use to achieve this?
-17. Do they end on time?
-18. If not, how late or early?
-19. Is this what you want?
-
-### Meeting Procedures
-
-1.  How are your meetings run?
-2.  Is this how you want your meetings to be run?
-3.  Do you have ground rules for meetings?
-4.  If yes, are they explicit or just assumed?
-5.  What are the key ground rules (if any)?
-6.  Are these the ground rules you want?
-
-### Decision-making at Meetings
-
-1.  Who is eligible to vote/make decisions?
-2.  Is this in writing?
-3.  Is this who you want to be vested with decision-making authority?
-4.  If this is not in writing,
-    how can you secure the group's commitment to put it in writing?
-5.  Do you vote and use majority rule?
-6.  Or do you make decisions by consensus?
-7.  Or do you use some other method?  If so, what is it?
-8.  Is this the way you want to make decisions?
-9.  Do you have bylaws?
-10. If not, do you want them?
-11. What is considered a quorum for your group?
-12. Can members vote by proxy?
-13. Is this working for your group?
-    Is this the way you want it to be?
-
-## Legal Status
-
-1.  Do you have your own non-profit status which allows the organization to accept tax-deductible contributions?
-    *   Yes
-    *   No
-    *   Pending
-2.  Do you have a fiscal agent?
-    *   Yes
-    *   No
-3.  Who is it? [____________________]
-4.  None of the above?
-    *   Yes
-    *   No
-5.  Is this the legal status you want?
-    *   Yes
-    *   No
-6.  If you have a fiscal agent, does this agent influence your organization's activities?
-    *   Yes
-    *   No
-7.  If so, how?
-    [____________________]
-8.  Are you satisfied with the nature of that influence?
-    *   Yes
-    *   No
-9.  Do you want this entity to be influencing your decisions?
-    *   Yes
-    *   No
-
-## Money
+Answer the following questions on your own,
+and then compare your answers to those given by other members of your group.
 
 1.  Who pays for what?
-    [____________________]
 2.  Is this who you want to be paying?
-    *   Yes
-    *   No
 3.  Where do you get your money?
-    [____________________]
 4.  Is this how you want to get your money?
-    *   Yes
-    *   No
 5.  If not, do you have any plans to get it another way?
-    *   Yes
-    *   No
-6.  If so, what are those plans?
-    [____________________]
+6.  If so, what are they?
 7.  Who is following up to make sure that happens?
-    [____________________]
 8.  How much money do you have?
-    [____________________]
-9.  Is this the amount you need?
-    *   Yes
-    *   No
-10. How much do you need?
-    [____________________]
-11. What do you spend most of your money on?
-    [____________________]
-12. Is this how you want to spend your money?
-    *   Yes
-    *   No
+9.  How much do you need?
+10. What do you spend most of your money on?
+11. Is this how you want to spend your money?
 
-## Becoming a Member
+## Becoming a Member (45 minutes)
+
+Answer the following questions on your own,
+and then compare your answers to those given by other members of your group.
 
 1.  How does someone join?
-    [____________________]
 2.  Does this process work for your organization?
-    *   Yes
-    *   No
 3.  What are the membership criteria?
-    [____________________]
 4.  Are these the membership criteria you want?
-    *   Yes
-    *   No
-5.  Can anyone join?
-    *   Yes
-    *   No
-6.  Is this what you want?
-    *   Yes
-    *   No
-7.  Are people required to agree to any rules of behavior upon joining?
-    *   Yes
-    *   No
-8.  Are these the rules for behavior you want?
-    *   Yes
-    *   No
-9.  If not, how could you institute new ones?
-    [____________________]
-10. Are there membership dues?
-    *   Yes
-    *   No
-11. If so, how much are they?
-    [____________________]
-12. Are these the dues you want?
-    *   Yes
-    *   No
-13. How do you think the presence of dues or the dues level affects the organization and its work?
-    [____________________]
-14. Is this the result you want?
-    *   Yes
-    *   No
+5.  Are people required to agree to any rules of behavior upon joining?
+6.  Are these the rules for behavior you want?
+7.  Are there membership dues?
 
-## Values
+## Acknowledgments
 
-1.  What are the values your organization expresses?
-    [____________________]
-2.  Are these the values you want the organization to express?
-    *   Yes
-    *   No
-3.  If not, what values would you like it to express?
-    [____________________]
-4.  What are the specific behaviors that demonstrate those values?
-    [____________________]
-5.  What are some key behaviors that would demonstrate the values you would like for your group?
-    [____________________]
-6.  What are the behaviors that would demonstrate the opposite of those values?
-    [____________________]
-7.  What are some key behaviors that would demonstrate the opposite of the values you want to have?
-    [____________________]
-
-## Group Norms
-
-1.  What group norms do you want for your group?
-    [____________________]
-2.  Are they written down anywhere?
-    *   Yes
-    *   No
-3.  Do members of your group agree with them?
-    *   Yes
-    *   No
-
-## What Are Your Talents?
-
-1.  I am good at [____________________].
-2.  My default mode of operation is [____________________].
-3.  Are you detail-oriented?
-4.  Do you tend to see the big picture and miss the details?
-5.  Are you good at planning?
-6.  Do you tend to act first and plan later?
-7.  When I volunteer, I like to [____________________].
-
-## What Else Do You Need?
-
-1.  Knowing your personality, what other kinds of personalities would be most useful in the core group?
-2.  What special knowledge do you have?
-3.  What special knowledge or skills do you lack that the core group needs?
-4.  Who has this knowledge or these skills?
-5.  What other skills or areas of knowledge are needed in the core group?
-6.  Who has these?
-
-## What Does the Organization Need?
-
-1.  What are the organization's essential principles?
-    (What are the deal-breaker agreements you require for any member of the core group?)
-2.  What skills does the organization need?
-3.  What groups or communities do you eventually want in your organization?
-4.  Who is representative of these groups?
-5.  Do you have someone from all of these core groups in your organization?
-6.  Who are they?
-7.  Who is missing?
-8.  Who might represent these missing groups?
-9.  If you don't know, how can you find someone who might?
+Thanks to everyone who contributed ideas to this list, including Erin Robinson,
+Matt Turk, and Belinda Weaver.
 
 [4h]: http://www.4-h-canada.ca/
 [bgc]: http://www.blackgirlscode.com/
