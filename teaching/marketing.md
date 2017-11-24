@@ -293,6 +293,4 @@ FIXME: elevator pitch for the weekend workshops aimed at city councilor.
 
 FIXME
 
-http://blog.mrmeyer.com/2016/why-secondary-teachers-dont-want-a-github-for-lesson-plans/
-
 [moz]: https://moz.com/learn/seo/on-page-factors
