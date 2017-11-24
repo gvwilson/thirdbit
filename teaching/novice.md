@@ -359,6 +359,23 @@ Describe another kind of formative assessment you have seen or used and
 explain how it helps both the instructor and the learner figure out
 where they are and what they need to do next.
 
+### A Different Progression (15 minutes)
+
+Another progression often used to describe the path from novice to expert is
+the [four stages of competence][four-competence]:
+
+* Unconscious incompetence: the person doesn't know what they don't know.
+* Conscious incompetence: the person realizes that they don't know something.
+* Conscious competence: the person has learned how to do something, but can
+  only do it while concentrating, and may still need to break things down into
+  steps.
+* Unconscious competence: the skill has become second nature, and the person
+  can do it reflexively.
+
+Describe one or more subjects related to programming for which you are
+at each of these levels.
+
+[four-competence]: https://en.wikipedia.org/wiki/Four_stages_of_competence
 [swc-unix]: http://swcarpentry.github.io/shell-novice/
 [wikipedia-dreyfus]: https://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition
 [wikipedia-fci]: https://en.wikipedia.org/wiki/Force_Concept_Inventory
