@@ -46,8 +46,6 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="barker-practice-adoption">[Barker2015]</a> Lecia Barker, Christopher Lynnly Hovey, and Jane Gruning: "What Influences CS Faculty to Adopt Teaching Practices?", _Proc. 46th ACM Technical Symposium on Computer Science Education_, 2015, 10.1145/2676723.2677282. _Describes findings from a two-part study of how computer science educators adopt new teaching practices._
 
-*   <a id="baume-outcomes">[Baume2009]</a> D. Baume: "Writing and Using Good Learning Outcomes", Leeds Metropolitan University Press, 2009, 978-0-9560099-5-1. _A useful detailed guide to constructing useful learning outcomes._
-
 *   <a id="benner-expertise">[Benner2000]</a> Patricia Benner: _[From Novice to Expert: Excellence and Power in Clinical Nursing Practice](https://www.amazon.com/Novice-Expert-Excellence-Clinical-Commemorative/dp/0130325228/)_ Pearson, 2000, 978-0130325228. _A classic study of clinical judgment and how expertise develops._
 
 *   <a id="bohay-note-taking">[Bohay2011]</a> Mark Bohay, Daniel P. Blakely, Andrea K. Tamplin, and Gabriel A. Radvansky: "Note Taking, Review, Memory, and Comprehension." _American Journal of Psychology_, 124(1), 2011, 10.5406/amerjpsyc.124.1.0063. _Presents a study showing that note-taking improves retention most at deeper levels of understanding._

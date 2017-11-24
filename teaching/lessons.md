@@ -15,7 +15,8 @@ title: "How to Teach Programming (and Other Things): Designing Lessons"
   reverse instructional design is *not* the same thing.**
 * **Learners can construct and critique five-part learner personas.**
 * **Learners can construct good learning objectives and critique
-  learning objectives with reference to Bloom's Taxonomy.**
+  learning objectives with reference to Bloom's Taxonomy and/or
+  Fink's Taxonomy.**
 
 Most people design lessons as follows:
 
@@ -225,12 +226,33 @@ in the long run. You will end up with clear guidelines for both your
 teaching and assessment, and your learners will appreciate the clear
 expectations.
 
-One tool that can help when writing learning objectives is [Bloom's
-taxonomy][wikipedia-bloom], which was first published in 1956.  It
-attempts to define levels of understanding in a way that is
-hierarchical, measurable, stable, and cross-cultural.  The list below
-defines the levels in Bloom's Taxonomy and shows some of the verbs
-typically used in learning objectives written for each level.
+One way to understand what makes for a good learning objective is to
+see how a poor one can be improved:
+
+*   "Learner will be given opportunities to learn good programming practices."
+    *Describes the lesson's content, not the attributes of successful
+    students.*
+
+*   "Learner will have a better appreciation for good programming practices."
+    *Doesn't start with an active verb or define the level of learning,
+    and the subject of learning has no context and is not specific.*
+
+*   "Learner will understand how to program in R."
+    *Starts with an active verb, but doesn't define the level of
+    learning, and the subject of learning is still too vague for
+    assessment.*
+
+*   "Learner will write one-page read-filter-summarize-print data
+    analysis scripts for tabular data using R and R Studio."
+    *Starts with an active verb, defines the level of learning,
+    and provides context to ensure that outcomes can be assessed.*
+
+[Bloom's taxonomy](gloss.html#blooms-taxonomy) can be used to organize
+learning objectives.  First published in 1956, it attempts to define
+levels of understanding in a way that is hierarchical, measurable,
+stable, and cross-cultural.  The list below defines its levels and
+shows some of the verbs typically used in learning objectives written
+for each level.
 
 *   Knowledge: recalling learned information
     (name, define, recall).
@@ -251,30 +273,47 @@ typically used in learning objectives written for each level.
 *   Evaluation: using evidence to make judgments about
     the relative merits of ideas and materials (choose, rate, select).
 
-Another way to understand what makes for a good learning objective
-is to see how a poor one can be improved:
+FIXME: Anderson and Krathwohl update.
 
-*   "Learner will be given opportunities to learn good programming practices."
-    *Describes the lesson's content, not the attributes of successful
-    students.*
+Another way to think about learning objectives comes from
+[[Fink2013](biblio.html#fink-significant)], which defines learning in
+terms of the change it is intended to produce in the learner.
+[Fink's Taxonomy](gloss.html#finks-taxonomy) has six categories:
 
-*   "Learner will have a better appreciation for good programming practices."
-    *Doesn't start with an active verb or define the level of learning,
-    and the subject of learning has no context and is not specific.*
+*   Foundational Knowledge: understanding and remembering information
+    and ideas.
+*   Application: skills, critical thinking, managing projects.
+*   Integration: connecting ideas, learning experiences, and real life.
+*   Human Dimension: learning about oneself and others.
+*   Caring: developing new feelings, interests, and values.
+*   Learning How to Learn: becoming a better student.
 
-*   "Learner will understand how to program in R."
-    *Starts with an active verb, but doesn't define the level of
-    learning, and the subject of learning is still too vague for
-    assessment.*
+A set of learning objectives based on this taxonomy for an
+introductory course on HTML and CSS might be:
 
-*   "Learner will write one-page read-filter-summarize-print data
-    analysis scripts for tabular data using R and R Studio."
-    *Starts with an active verb, defines the level of learning,
-    and provides context to ensure that outcomes can be assessed.*
-
-Baume's guide to writing and using good learning outcomes
-[[Baume2009](biblio.html#baume-outcomes)] is a good longer discussion of
-these issues.
+> By the end of this course, students will:
+>
+> * Understand the difference between markup and presentation,
+>   the nested nature of HTML,
+>   what CSS properties are,
+>   and how CSS selectors work.
+>
+> * Know how to write and style a web page using common tags
+>   and CSS properties.
+>
+> * Be able to compare and contrast authoring with HTML and CSS
+>   to authoring with desktop publishing tools.
+>
+> * Understand how the visually impaired interact
+>   and people in low-bandwidth environments interact with web pages
+>   and take their needs into account when designing new pages.
+>
+> * Understand the role that JavaScript plays in styling web pages
+>   and want to learn more about how to use it.
+>
+> * Be familiar with [W3Schools][w3schools] and other free tutorials
+>   for HTML and CSS, and know what search terms to use to find answers
+>   on [Stack Overflow][stack-overflow].
 
 ## Maintainability
 
@@ -508,7 +547,14 @@ describes one of your typical learners.
 ### Write Learning Objectives (20 minutes)
 
 Write one more learning objectives for something you currently teach
-or plan to teach.  Working with a partner, critique and improve the
-objectives.
+or plan to teach using Bloom's Taxonomy.  Working with a partner,
+critique and improve the objectives.
 
-[wikipedia-bloom]: https://en.wikipedia.org/wiki/Bloom's_taxonomy
+### Write More Learning Objectives (20 minutes)
+
+Write one more learning objectives for something you currently teach
+or plan to teach using Fink's Taxonomy.  Working with a partner,
+critique and improve the objectives.
+
+[stack-overflow]: https://stackoverflow.com/
+[w3schools]: https://www.w3schools.com/
