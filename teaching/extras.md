@@ -257,7 +257,7 @@ used in the chapters on [performance](performance.html) and
 
 ### Part 1: Bad Teaching in Person
 
-FIXME
+FIXME: feedback on bad teaching video
 
 ### Part 2: Bad Teaching in Recorded Video
 

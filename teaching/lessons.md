@@ -137,8 +137,8 @@ course hasn't prepared them for.
 
 ## Learner Personas
 
-The first piece of the process above is figuring out who your audience
-is.  One way to do this is to write two or three _[learner
+A key step in the process above is figuring out who your audience is.
+One way to do this is to write two or three _[learner
 personas](gloss.html#learner-persona)_. This technique is borrowed
 from user interface design, where short profiles of typical users are
 created to help designers think about their audience's needs, and to
@@ -150,27 +150,27 @@ the course will help them, and any special needs they might have. A
 learner persona for a weekend workshop aimed at new college students
 might be:
 
-1.  Jorge has just moved from Costa Rica to Canada to study agricultural
-    engineering.  He has joined the college soccer team, and is looking
-    forward to learning how to play ice hockey.
+1.  Jorge has just moved from Costa Rica to Canada to study
+    agricultural engineering.  He has joined the college soccer team,
+    and is looking forward to learning how to play ice hockey.
 
 1.  Other than using Excel, Word, and the Internet, Jorge's most
-    significant previous experience with computers is helping his sister
-    build a WordPress site for the family business back home in Costa
-    Rica.
+    significant previous experience with computers is helping his
+    sister build a WordPress site for the family business back home in
+    Costa Rica.
 
-1.  Jorge needs to measure properties of soil from nearby farms using a
-    handheld device that sends logs in a text format to his computer.
-    Right now, Jorge has to open each file in Excel, crop the first and
-    last points, and calculate an average.
+1.  Jorge needs to measure properties of soil from nearby farms using
+    a handheld device that sends logs in a text format to his
+    computer.  Right now, Jorge has to open each file in Excel, crop
+    the first and last points, and calculate an average.
 
 1.  This workshop will show Jorge how to write a little Python program
     to read the data, select the right values from each file, and
     calculate the required statistics.
 
 1.  Jorge can read English proficiently, but still struggles sometimes
-    to keep up with spoken conversation (especially if it involves a lot
-    of new jargon).
+    to keep up with spoken conversation (especially if it involves a
+    lot of new jargon).
 
 A single learner persona is sometimes enough, but two or three that
 cover the whole range of potential learners is better.  One of the
@@ -189,24 +189,24 @@ would Jorge face?"
 Summative and formative assessments help instructors figure out what
 they're going to teach, but in order to communicate that to learners
 and other instructors, a course description should also have
-_[learning objectives](gloss.html#learning-objective)_ (sometimes
-also called a *learning goal*). A learning objective is a single
-sentence describing what a learner will be able to do once they have
-sat through the lesson in order to demonstrate what they have learned.
+_[learning objectives](gloss.html#learning-objective)_ (sometimes also
+called a *learning goal*). A learning objective is a single sentence
+describing what a learner will be able to do once they have sat
+through the lesson in order to demonstrate what they have learned.
 
 Learning objectives are meant to ensure that everyone has the same
 understanding of what a lesson is supposed to accomplish. For example,
 a statement like "understand Git" could mean any of the following,
 each of this would be backed by a very different lesson:
 
-*   Learners can describe three scenarios in which version control
+* Learners can describe three scenarios in which version control
     systems like Git are better than file-sharing tools like Dropbox,
     and two in which they are worse.
 
-*   Learners can commit a changed file to a Git repository using a
+* Learners can commit a changed file to a Git repository using a
     desktop GUI tool.
 
-*   Learners can explain what a detached HEAD is and recover from it
+* Learners can explain what a detached HEAD is and recover from it
     using command-line operations.
 
 > **Objectives vs. Outcomes**
@@ -229,23 +229,23 @@ expectations.
 One way to understand what makes for a good learning objective is to
 see how a poor one can be improved:
 
-*   "Learner will be given opportunities to learn good programming practices."
-    *Describes the lesson's content, not the attributes of successful
-    students.*
+*   "Learner will be given opportunities to learn good programming
+    *practices."  Describes the lesson's content, not the attributes
+    *of successful students.*
 
-*   "Learner will have a better appreciation for good programming practices."
-    *Doesn't start with an active verb or define the level of learning,
-    and the subject of learning has no context and is not specific.*
+*   "Learner will have a better appreciation for good programming
+    *practices."  Doesn't start with an active verb or define the
+    *level of learning, and the subject of learning has no context and
+    *is not specific.*
 
-*   "Learner will understand how to program in R."
-    *Starts with an active verb, but doesn't define the level of
-    learning, and the subject of learning is still too vague for
-    assessment.*
+*   "Learner will understand how to program in R."  Starts with an
+    *active verb, but doesn't define the level of learning, and the
+    *subject of learning is still too vague for assessment.*
 
 *   "Learner will write one-page read-filter-summarize-print data
-    analysis scripts for tabular data using R and R Studio."
-    *Starts with an active verb, defines the level of learning,
-    and provides context to ensure that outcomes can be assessed.*
+    analysis scripts for tabular data using R and R Studio."  *Starts
+    with an active verb, defines the level of learning, and provides
+    context to ensure that outcomes can be assessed.*
 
 [Bloom's taxonomy](gloss.html#blooms-taxonomy) can be used to organize
 learning objectives.  First published in 1956, it attempts to define
@@ -272,8 +272,6 @@ for each level.
 
 *   Evaluation: using evidence to make judgments about
     the relative merits of ideas and materials (choose, rate, select).
-
-FIXME: Anderson and Krathwohl update.
 
 Another way to think about learning objectives comes from
 [[Fink2013](biblio.html#fink-significant)], which defines learning in
@@ -363,6 +361,17 @@ under our control:
    technologies constantly change what's possible.  Each time
    instructors deliver a course, we learn more about how the next
    course should be created. FIXME
+
+## A Reminder
+
+When designing a lesson, you must always remember that *you are not
+your learners*.  You may be older (or younger, if you're teaching
+seniors) or wealthier (and therefore able to afford to download videos
+without foregoing a meal to pay for the bandwidth), but you are almost
+certainly more knowledgeable about technology.  Don't assume that you
+know what they need or will understand: ask them, and actually pay
+attention to their answer.  After all, it's only fair that learning
+should go both ways.
 
 ## Challenges
 

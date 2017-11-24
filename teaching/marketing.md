@@ -1,6 +1,6 @@
 ---
 layout: teaching
-permalink: /teaching/community.html
+permalink: /teaching/marketing.html
 title: "How to Teach Programming (and Other Things): Marketing"
 ---
 
