@@ -1,8 +1,5 @@
 <div class="sidebar well">
-{% include links-list.html %}
-</div>
-
-<div class="sidebar well">
+  {% include links-list.html %}
   <h2>Favorites</h2>
   {% assign favorites = site.posts | where:"favorite",true %}
   {% for post in favorites %}
