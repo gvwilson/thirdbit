@@ -285,12 +285,16 @@ there are probably lots of other equally useful things you could be doing instea
 
 ## Challenges
 
-### Write an Elevator Pitch for a City Councilor
+### Write an Elevator Pitch for a City Councilor (15 minutes)
 
-FIXME: elevator pitch for the weekend workshops aimed at city councilor.
+This chapter described an organization that offers weekend programming workshops
+for people re-entering the workforce after taking a break to raise children.
+Write an elevator pitch for that organization aimed at a city councilor
+whose support the organization needs.
 
-### Write Elevator Pitches For Your Organization
+### Write Elevator Pitches for Your Organization (30 minutes)
 
-FIXME
+Identify two groups of people your organization needs support from,
+and write an elevator pitch aimed at each one.
 
 [moz]: https://moz.com/learn/seo/on-page-factors
