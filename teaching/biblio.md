@@ -48,6 +48,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="benner-expertise">[Benner2000]</a> Patricia Benner: _[From Novice to Expert: Excellence and Power in Clinical Nursing Practice](https://www.amazon.com/Novice-Expert-Excellence-Clinical-Commemorative/dp/0130325228/)_ Pearson, 2000, 978-0130325228. _A classic study of clinical judgment and how expertise develops._
 
+*   <a id="biggs-tang-quality">[Biggs2011]</a> John Biggs and Catherine Tang: _[Teaching for Quality Learning at University](https://www.amazon.com/Teaching-Learning-University-Research-Education/dp/0335242758/)_ Open University Press, 2011, 978-0335242757. _A step-by-step guide to lesson development, delivery, and evaluation for people working in higher education._
+
 *   <a id="bohay-note-taking">[Bohay2011]</a> Mark Bohay, Daniel P. Blakely, Andrea K. Tamplin, and Gabriel A. Radvansky: "Note Taking, Review, Memory, and Comprehension." _American Journal of Psychology_, 124(1), 2011, 10.5406/amerjpsyc.124.1.0063. _Presents a study showing that note-taking improves retention most at deeper levels of understanding._
 
 *   <a id="bollier-commoner">[Bollier2014]</a> David Bollier: _[Think Like a Commoner: A Short Introduction to the Life of the Commons](https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/)_ New Society Publishers, 2014, 978-0865717688. _A short introduction to one of the most widely used kinds of governance in human societies throughout history._

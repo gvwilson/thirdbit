@@ -54,10 +54,10 @@ work and really, really wants to be done.
 
 A similar "backward" method works very well for lesson design.  This
 method is something called _[reverse instructional
-design](gloss.html#reverse-instructional-design)_ or _[understanding by
-design](gloss.html#understanding-by-design)_ after a book by that name
-[[Wiggins2005](biblio.html#wiggins-mctighe)]; a similar method is
-described in [[Fink2013](biblio.html#fink-significant)] (a summary of
+design](gloss.html#reverse-instructional-design)_ and was developed
+independent in [[Wiggins2005](biblio.html#wiggins-mctighe)],
+[[Biggs2011](biblio.html#biggs-tang-quality)],
+and [[Fink2013](biblio.html#fink-significant)] (a summary of
 which is freely available online [[Fink2003](biblio.html#fink-short)].)
 In brief, lessons should be designed as follows:
 
