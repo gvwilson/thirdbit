@@ -367,80 +367,81 @@ for almost twenty years, but neither model has caught on.  When asked
 why not, teachers raise [many objects][objections], none of which
 hold up to close inspection:
 
-The most important thing about a lesson isn't having it, but *writing*
-it, because that gives you a chance to figure out what you think about
-the topic.
-:   This objection rhymes with my personal experience, but the same is
+*   *The most important thing about a lesson isn't having it, but *writing*
+    it, because that gives you a chance to figure out what you think about
+    the topic.*
+    This objection rhymes with my personal experience, but the same is
     true of software, and somehow we get up-and-coming programmers to
     use and improve libraries rather than building their own stuff
     from scratch.
 
-It's just more trouble than it's worth, because it's always easier in
-the short term to write something from scratch than to learn your way
-around someone else's material.
-:   And yet most teachers use textbooks, and most actors perform other
+*   *It's just more trouble than it's worth, because it's always easier in
+    the short term to write something from scratch than to learn your way
+    around someone else's material.*
+    And yet most teachers use textbooks, and most actors perform other
     people's plays, and...
 
-It doesn't pay off for most teachers because they only teach any
-particular lesson once a year (or once a quarter).
-:   Infrequent teaching ought to push people *toward* re-use, not away
+*   *It doesn't pay off for most teachers because they only teach any
+    particular lesson once a year (or once a quarter).*
+    Infrequent teaching ought to push people *toward* re-use, not away
     from it.
 
-Working at scale results in a more neutral point of view (the average
-of the contributors' personal views), but in many fields, lessons are
-valuable precisely because they're one person's opinion.
-:   This is true for literature, but for basic algebra?  And if the
+*   *Working at scale results in a more neutral point of view (the average
+    of the contributors' personal views), but in many fields, lessons are
+    valuable precisely because they're one person's opinion.*
+    This is true for literature, but for basic algebra?  And if the
     difference is one of teaching method rather than content, then
     yeah, there should be half a dozen different shared lessons on
     polynomials, each approaching the topic in a different way.
 
-There's no onboarding process to teach people the mechanics of
-distributed ad hoc large-scale collaboration.
-:   This is undoubtedly a contributing factor, but (a) teachers get more
+*   *There's no onboarding process to teach people the mechanics of
+    distributed ad hoc large-scale collaboration.*
+    This is undoubtedly a contributing factor, but (a) teachers get more
     training in how to develop lessons than most programmers get in
     how to take part in an open source project and (b) lack of a
     formal onboarding process hasn't slowed down Wikipedia.
 
-Collaboration on lesson development gets squeezed out by more
-important things (where "important" means "to the principal or
-chair").
-:   Again, this should push people *toward* collaboration (possibly
+*   *Collaboration on lesson development gets squeezed out by more
+    important things (where "important" means "to the principal or
+    chair").*
+    Again, this should push people *toward* collaboration (possibly
     under official radar), since every minute they don't spend writing
     a lesson is a minute they can use to satisfy the principal or
     chair.
 
-The Firewall of Doom at many schools prevents people from working on
-shared materials.
-:   Probably true for some people, but this is not true for all and most
+*   *The Firewall of Doom at many schools prevents people from working on
+    shared materials.*
+    Probably true for some people, but this is not true for all and most
     teachers in industrialized countries have access to a computer at
     home these days.
 
-The stakes are too high for teachers who are going to be evaluated on
-their teaching.
-:   This may be true for some teachers, but isn't a universal.
+*   *The stakes are too high for teachers who are going to be evaluated on
+    their teaching.*
+    This may be true for some teachers, but isn't a universal.
 
-No measurable outcome will show improvement, so there's no incentive
-to do it.
-:   The same is true of open source software, but while only a small
+*   *No measurable outcome will show improvement, so there's no incentive
+    to do it.*
+    The same is true of open source software, but while only a small
     minority of programmers contribute, that's still enough people for
     it to thrive.
 
-It's a generational thing: as digital natives, tomorrow's teachers
-will just naturally do it.
-:   This kind of "not yet" argument is as unfalsifiable as the claims by
+*   *It's a generational thing: as digital natives, tomorrow's teachers
+    will just naturally do it.*
+    Millenials don't actually act that differently from their elders,
+    and "not yet" arguments are as unfalsifiable as the claims by
     members of millenarian movements that the apocalypse is definitely
     coming–yup, any day now.
 
-You can't run regression tests on a lesson, so there's no easy way to
-tell if my changes have broken something that you wrote.
-:   But Wikipedia…
+*   *You can't run regression tests on a lesson, so there's no easy way to
+    *tell if my changes have broken something that you wrote.*
+    But Wikipedia…
 
-The most interesting observation was that while teachers might not
-collaborate, they *do* remix by finding other people's materials
-online or in textbooks and reworking them.  That suggests that the
-root problem may be a flawed analogy: rather than lesson development
-being like writing Wikipedia articles or open source software, perhaps
-it's more like postmodern music.
+One interesting observation is that while teachers don't collaborate
+at scale, they *do* remix by finding other people's materials online
+or in textbooks and reworking them.  That suggests that the root
+problem may be a flawed analogy: rather than lesson development being
+like writing Wikipedia articles or open source software, perhaps it's
+more like postmodern music.
 
 If this is true, then lessons may be the wrong granularity for
 sharing, and collaboration might be more likely to take hold if the
