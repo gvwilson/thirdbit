@@ -318,11 +318,6 @@ introductory course on HTML and CSS might be:
 >   for HTML and CSS, and know what search terms to use to find answers
 >   on [Stack Overflow][stack-overflow].
 
-## Collaboration
-
-FIXME: brief mention of Google Docs, Wikipedia, and version control.
-http://blog.mrmeyer.com/2016/why-secondary-teachers-dont-want-a-github-for-lesson-plans/
-
 ## Maintainability
 
 Good courses take a lot of effort to build, but building them is only
@@ -335,32 +330,128 @@ course is maintainable if it's cheaper to update it than to replace
 it. This equation depends on many factors, only some of which are
 under our control:
 
-1. *How well documented the course's design is.* If the person doing
-   maintenance doesn't know (or doesn't remember) what the course is
-   supposed to accomplish or why topics are introduced in a particular
-   order, it will take her more time to update it.  One of the reasons
-   to use the template described earlier is to capture decisions about
-   why each course is the way it is.
+1.  *How well documented the course's design is.* If the person doing
+    maintenance doesn't know (or doesn't remember) what the course is
+    supposed to accomplish or why topics are introduced in a
+    particular order, it will take her more time to update it.  One of
+    the reasons to use the template described earlier is to capture
+    decisions about why each course is the way it is.
 
-2. *How the course's content is structured.* Version control is the
-   secret sauce that allows software development to scale, but today's
-   version control systems (still) can't handle widely-used file
-   formats like Word and PowerPoint.  Lessons should therefore either
-   be written in plain-text formats like HTML, Markdown, or LaTeX, or
-   stored online in systems like Google Docs that allow many people to
-   edit the same files.  (The next section discusses this in more
-   detail.)
+2.  *How the course's content is structured.* Version control is the
+    secret sauce that allows software development to scale, but
+    today's version control systems (still) can't handle widely-used
+    file formats like Word and PowerPoint.  Lessons should therefore
+    either be written in plain-text formats like HTML, Markdown, or
+    LaTeX, or stored online in systems like Google Docs that allow
+    many people to edit the same files.  (The next section discusses
+    this in more detail.)
 
-3. *How people are using the course.* FIXME: feedback from instructors
-   and students alike.
+3.  *How easy it is for collaborators to collaborate technically.*
+    Lesson authors usually share material by passing it from hand to
+    hand (or equivalently, by emailing files to each other or putting
+    them in a shared drive.  Collaborative writing tools like [Google
+    Docs][gdocs] and wikis are a big improvement, as they allow many
+    people to update the same document and comment on other people's
+    updates.  The version control systems used by programmers, such as
+    [GitHub][github], are another big advance, since they let any
+    number of people work independently and then merge their changes
+    back together in a controlled, reviewable way.  Unfortunately,
+    version control systems have a long, steep learning curve, which
+    makes shared online authoring systems like [Google Docs][gdocs]
+    and wikis the best technical choice for most groups.
 
-4. *How much the subject matter has changed.* FIXME
+The fourth factor, and the most important one in practice, is *how
+willing people are to collaborate*.  The tools needed to build a
+"Wikipedia for lessons" or a "GitHub for lessons" have been around
+for almost twenty years, but neither model has caught on.  When asked
+why not, teachers raise [many objects][objections], none of which
+hold up to close inspection:
 
-5. *How much we know about how to teach.* People have been teaching as
-   long as there have been people, but new discoveries and new
-   technologies constantly change what's possible.  Each time
-   instructors deliver a course, we learn more about how the next
-   course should be created. FIXME
+The most important thing about a lesson isn't having it, but *writing*
+it, because that gives you a chance to figure out what you think about
+the topic.
+:   This objection rhymes with my personal experience, but the same is
+    true of software, and somehow we get up-and-coming programmers to
+    use and improve libraries rather than building their own stuff
+    from scratch.
+
+It's just more trouble than it's worth, because it's always easier in
+the short term to write something from scratch than to learn your way
+around someone else's material.
+:   And yet most teachers use textbooks, and most actors perform other
+    people's plays, and...
+
+It doesn't pay off for most teachers because they only teach any
+particular lesson once a year (or once a quarter).
+:   Infrequent teaching ought to push people *toward* re-use, not away
+    from it.
+
+Working at scale results in a more neutral point of view (the average
+of the contributors' personal views), but in many fields, lessons are
+valuable precisely because they're one person's opinion.
+:   This is true for literature, but for basic algebra?  And if the
+    difference is one of teaching method rather than content, then
+    yeah, there should be half a dozen different shared lessons on
+    polynomials, each approaching the topic in a different way.
+
+There's no onboarding process to teach people the mechanics of
+distributed ad hoc large-scale collaboration.
+:   This is undoubtedly a contributing factor, but (a) teachers get more
+    training in how to develop lessons than most programmers get in
+    how to take part in an open source project and (b) lack of a
+    formal onboarding process hasn't slowed down Wikipedia.
+
+Collaboration on lesson development gets squeezed out by more
+important things (where "important" means "to the principal or
+chair").
+:   Again, this should push people *toward* collaboration (possibly
+    under official radar), since every minute they don't spend writing
+    a lesson is a minute they can use to satisfy the principal or
+    chair.
+
+The Firewall of Doom at many schools prevents people from working on
+shared materials.
+:   Probably true for some people, but this is not true for all and most
+    teachers in industrialized countries have access to a computer at
+    home these days.
+
+The stakes are too high for teachers who are going to be evaluated on
+their teaching.
+:   This may be true for some teachers, but isn't a universal.
+
+No measurable outcome will show improvement, so there's no incentive
+to do it.
+:   The same is true of open source software, but while only a small
+    minority of programmers contribute, that's still enough people for
+    it to thrive.
+
+It's a generational thing: as digital natives, tomorrow's teachers
+will just naturally do it.
+:   This kind of "not yet" argument is as unfalsifiable as the claims by
+    members of millenarian movements that the apocalypse is definitely
+    coming–yup, any day now.
+
+You can't run regression tests on a lesson, so there's no easy way to
+tell if my changes have broken something that you wrote.
+:   But Wikipedia…
+
+The most interesting observation was that while teachers might not
+collaborate, they *do* remix by finding other people's materials
+online or in textbooks and reworking them.  That suggests that the
+root problem may be a flawed analogy: rather than lesson development
+being like writing Wikipedia articles or open source software, perhaps
+it's more like postmodern music.
+
+If this is true, then lessons may be the wrong granularity for
+sharing, and collaboration might be more likely to take hold if the
+thing being collaborated on was smaller.  This fits well with
+Caulfield's theory of [choral explanations][choral].  He argues that
+sites like [Stack Overflow][stack-overflow] succeed because they
+provide a chorus of answers for every question, each of which is most
+suitable for a slightly different questioner.  If Caulfield is right,
+the future of learning–particularly online learning–may lie in guided
+tours of community-curated Q&A repositories rather than in things we
+would recognize as "lessons" today.
 
 ## A Reminder
 
@@ -392,5 +483,9 @@ Write one more learning objectives for something you currently teach
 or plan to teach using Fink's Taxonomy.  Working with a partner,
 critique and improve the objectives.
 
+[choral]: https://hapgood.us/2016/05/13/choral-explanations/
+[gdocs]: http://docs.google.com
+[github]: http://github.com
+[objections]: http://blog.mrmeyer.com/2016/why-secondary-teachers-dont-want-a-github-for-lesson-plans/
 [stack-overflow]: https://stackoverflow.com/
 [w3schools]: https://www.w3schools.com/
