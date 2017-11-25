@@ -257,7 +257,33 @@ used in the chapters on [performance](performance.html) and
 
 ### Part 1: Bad Teaching in Person
 
-FIXME: feedback on bad teaching video
+- Starts by being rude to audience ("Could you sit down? Yeah, now please.")
+- Text on the screen is far too small.
+- Speaker frequently interrupts himself.
+- Uses nonsensical names like "foo" instead of authentic tasks.
+- First example returns the type of its argument: again, not a common task.
+- "This is really simple stuff - even Excel users can understand it."
+  Don't denigrate people's existing knowledge.
+- "This is instantiating a new function object."
+  Too much unnecessary jargon.
+  - "Yes, and it's lexical binding."
+  - "Which of course is polymorphic."
+  - "And as you'd expect from something which is doing lazy binding on types."
+- "It works like you'd expect."
+  No it doesn't–it took some of the brightest minds of the 20th Century
+  several decades to come up with our current model of computing.
+  To suggest otherwise is to imply that people who don't already understand it are stupid.
+- "Trust me." Never a good thing to hear a teacher say...
+- 01:29 check phone.
+  The audience will never care more about the material than the presenter,
+  and it's pretty clear at this point that the presenter doesn't care a lot.
+- 01:40 defining higher-level functions.
+  - Any audience that needed basic function definition explained won't be ready for this.
+  - Any audience that's ready for this didn't need basic functions defined.
+  - Conclusion: the presenter has no idea who his audience actually is.
+- 02:01 Corrected the mistake without explaining it.
+  - Failed to turn the mistake into a teachable moment.
+  - Will leave audience confused: what was wrong and why?
 
 ### Part 2: Bad Teaching in Recorded Video
 
