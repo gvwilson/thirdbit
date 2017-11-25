@@ -581,10 +581,6 @@ any gaps or contradictions *before* exposing their ideas to a larger
 group.  We used think-pair-share in several of the challenges in
 [our discussion of motivation](motivation.html#challenges).
 
-## Putting Students Into Groups
-
-FIXME: http://www.teachhub.com/30-ways-arrange-students-group-work
-
 ## Humor
 
 Humor should be used sparingly when teaching: most jokes are less
