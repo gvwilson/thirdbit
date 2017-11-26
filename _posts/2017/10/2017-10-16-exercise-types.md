@@ -276,7 +276,7 @@ gives them a chance to practice a skill that is very useful when
 *reporting* bugs rather than fixing them. For example, students can be
 asked, "Which sentence best describes how the output of f changes as x
 varies from 0 to 10?" and then given several options as a **multiple
-choice question**. Similarly, **r*anking problems*** present the student
+choice question**. Similarly, ***ranking problems*** present the student
 with several choices and ask them to order them from fastest to slowest,
 most robust to most brittle, and so on. (**Ranking** is more manageable
 when implemented with drag and drop than as a **multiple choice
