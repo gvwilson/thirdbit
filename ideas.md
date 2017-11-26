@@ -31,7 +31,8 @@ Rather than science or programming,
 it introduces ideas and methods that are commonplace in the social sciences,
 and illustrates that "the way things are" is neither inevitable nor accidental.
 From the reasons racial discrimination persists despite its illogical economic inefficiency
-to the ways in which "flat" organizations actually operate,
+to the ways in which "flat" organizations actually operate
+and how [cognitive biases affect us all](http://mentalfloss.com/article/68705/20-cognitive-biases-affect-your-decisions),
 it gives readers [a toolbox for thinking about society]({{site.github.url}}/reading/):
 the society that tech is reshaping for both better and worse.
 
