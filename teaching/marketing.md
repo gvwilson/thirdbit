@@ -14,7 +14,7 @@ understanding their wants and needs,
 and finding ways to meet them.
 This should sound familiar:
 many of the techniques introduced earlier in this book
-are intended to do exactly for lessons.
+are intended to do exactly this for lessons.
 This chapter will look at how to apply similar ideas to the larger problem
 of getting people to support the work you're trying to do.
 
@@ -77,7 +77,7 @@ we might use this for potential attendees:
 > our *introductory programming workshops*
 > provide *weekend classes with on-site childcare*.
 > Unlike *online classes*,
-> our program *gives participants a chance to learn beside people at the same stage of life*.
+> our program *gives participants a chance to meet people who are at the same stage of life*.
 
 but use this to characterize the companies
 that we would like to donate staff time for teaching:
@@ -85,7 +85,7 @@ that we would like to donate staff time for teaching:
 > For *a company that wants to recruit entry-level software developers*
 > that *is struggling to find mature, diverse candidates*
 > our *introductory programming workshops*
-> provide *a pool of potential recruits in their thirties that includes large numbers of women and underrepresented minorities*.
+> provide *a pool of potential recruits in their thirties that includes large numbers of people from underrepresented groups*.
 > Unlike *college recruiting fairs*,
 > our program *connects companies directly with a diverse audience*.
 
@@ -96,9 +96,14 @@ ask them anyway:
 answers can change over time,
 and it's a good way to discover things that you might have missed.
 Once you have written these pitches,
-you should put them on your organization's web site
-to help people figure out as quickly as possible
+you should use them to drive what you put on your organization's web site
+and in other publicity material,
+since it will help people figure out as quickly as possible
 whether you and they have something to talk about.
+However,
+you probably *shouldn't* copy them verbatim,
+since many people in tech have seen this template so often
+that their eyes will glaze over if they encounter it again.
 
 As you are writing these pitches,
 remember that people are not just economic animals.
@@ -125,7 +130,8 @@ but as the volume of (mis)information steadily increases,
 the attention paid to any particular interruption decreases.
 As this happens,
 _[positioning](gloss.html#positioning)_ becomes more important.
-Positioning is what sets your offering apart from others:
+Positioning (sometimes also called "differentiation")
+is what sets your offering apart from others:
 it's the "unlike" section of your elevator pitches.
 When you are reaching out to people who are already generally familiar with your field,
 this is what you should emphasize,
@@ -136,9 +142,11 @@ One is to use props:
 a robot car that one of your students made from scraps she found around the house,
 the website another student made for his parents' retirement home,
 or anything else that makes what you're doing seem real.
-Props tell a story,
-and while people always ask for data,
-they *believe* stories.
+Another is to make a short video–no more than a few minutes long–showcasing
+the backgrounds and accomplishments of your students.
+The aim of both is to tell a story:
+while people always ask for data,
+stories are what they believe.
 
 > **Foundational Myths**
 >
@@ -167,6 +175,16 @@ most of it boils down to trying to stay one step ahead of algorithms
 designed to prevent people from gaming rankings.
 Search for yourself and for your organization on a regular basis and see what comes up,
 then read [these guidelines from Moz][moz] and do what you can to improve your site.
+Keep [this cartoon][xkcd-website] in mind:
+people don't (initially) want to know about your org chart
+or get a virtual tour of your site;
+they want your address,
+parking information,
+and above all,
+some idea of what you teach,
+when you teach it,
+how to get in touch,
+and how it's going to change their life.
 
 Offline findability is equally important for new organizations.
 Many of the people you hope to reach might not be online,
@@ -283,6 +301,10 @@ This isn't as defeatist as it sounds:
 if someone else is already doing what you're doing better than you,
 there are probably lots of other equally useful things you could be doing instead.
 
+## Acknowledgments
+
+Thanks to Emily Porta for her feedback.
+
 ## Challenges
 
 ### Write an Elevator Pitch for a City Councilor (15 minutes)
@@ -298,3 +320,4 @@ Identify two groups of people your organization needs support from,
 and write an elevator pitch aimed at each one.
 
 [moz]: https://moz.com/learn/seo/on-page-factors
+[xkcd-website]: https://xkcd.com/773/
