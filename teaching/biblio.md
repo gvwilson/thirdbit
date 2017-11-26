@@ -108,6 +108,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="koedinger-doing-watching">[Koedinger2015]</a> Kenneth R. Koedinger, Jihee Kim, Julianna Zhuxin Jia, Elizabeth A. McLaughlin, and Norman L. Bier: "Learning is Not a Spectator Sport: Doing is Better Than Watching for Learning from a MOOC" _Proc. Second ACM Conference on Learning @ Scale_, 2015, 10.1145/2724660.2724681. _Measures the benefits of doing rather than watching._
 
+*  <a id="kraut-resnick-online">[Kraut2012]</a> Robert E. Kraut and Paul Resnick: _[Building Successful Online Communities: Evidence-Based Social Design](https://www.amazon.com/Building-Successful-Online-Communities-Evidence-Based/dp/0262016575/)_ MIT Press, 2012, 978-0262016575. _Sums up what we actually know about making thriving online communities and why we believe it's true._
+
 *  <a id="kuchner-marketing">[Kuchner2011]</a> Marc Kuchner: _[Marketing for Scientists: How to Shine in Tough Times](https://www.amazon.com/Marketing-Scientists-Shine-Tough-Times/dp/1597269948/)_.  Island Press, 2011, 978-1597269940. _A short, readable guide to making people aware of, and care about, your work._
 
 *   <a id="kuittinen-patterns">[Kuittinen2004]</a> Marja Kuittinen and Jorma Sajaniemi: "Teaching Roles of Variables in Elementary Programming Courses" _Proc. 9th Annual SIGCSE Conference on Innovation and Technology in Computer Science Education_, 2004, 10.1145/1007996.1008014. _Presents a few patterns used in novice programming and looks at the pedagogical value of teaching them._
@@ -142,6 +144,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="orndorff-note-taking">[Orndorff2015]</a> Harold N. Orndorff III: "Collaborative Note-Taking: The Impact of Cloud Computing on Classroom Performance." _International Journal of Teaching and Learning in Higher Education_, 27(3), 2015. _Presents a study showing that collaborative note-taking improves grades and learning outcomes._
 
+*   <a id="pare-joordens-peer">[Paré2008]</a> D.E. Paré and S. Joordens: "Peering Into Large Lectures: Examining Peer and Expert Mark Agreement Using peerScholar, an Online Peer Assessment Tool."  *Journal of Computer Assisted Learning*, August 2008, 10.1111/j.1365-2729.2008.00290.x. _Shows that peer grading by small groups can be as effective as expert grading once accountability features are introduced._
+
 *   <a id="patitsas-cs-grades">[Patitsas2016]</a> Elizabeth Patitsas, Jesse Berlin, Michelle Craig, and Steve Easterbrook: "Evidence That Computer Science Grades Are Not Bimodal." _Proc. 2016 ACM Conference on International Computing Education Research_, 2016, 10.1145/2960310.2960312. _Presents a statistical analysis and an experiment which jointly show that grades in computing classes are not bimodal–i.e., there is no geek gene._
 
 *   <a id="petre-expertise">[Petre2016]</a> Marian Petre, André van der Hoek, and Yen Quach: _[Software Design Decoded: 66 Ways Experts Think](https://www.amazon.com/Software-Design-Decoded-Experts-Think/dp/0262035189/)_ MIT Press, 2016, 978-0262035187. _A short illustrated overview of how expert software developers think._
@@ -157,6 +161,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 *   <a id="scott-state">[Scott1999]</a> J. C. Scott: _[Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed](https://www.amazon.com/Seeing-like-State-Certain-Condition/dp/0300078153/)_ Yale University Press, 1999, 978-0300128789. _Argues that large organizations consistently prefer uniformity over productivity._
 
 *   <a id="spalding-adults">[Spalding2014]</a> Dan Spalding: _[How to Teach Adults](https://www.amazon.com/How-Teach-Adults-Jossey-Bass-Education/dp/1118841360/)_ Jossey-Bass, 2014, 978-1118841365. _A short guide to teaching adult free-range learners informed by the author's social activism._
+
+*   <a id="spannaus-video">[Spannaus2012]</a> Tim Spannaus: _[Creating Video for Teachers and Trainers: Producing Professional Video with Amateur Equipment](https://www.amazon.com/Creating-Video-Teachers-Trainers-Professional/dp/1118088093/)_ Pfeiffer, 2012, 978-1118088098. _A short, practical guide to doing exactly what the title says._
 
 *   <a id="steele-vivaldi">[Steele2011]</a> C. M. Steele: _[Whistling Vivaldi: And Other Clues to How Stereotypes Affect Us](https://www.amazon.com/Whistling-Vivaldi-Stereotypes-Affect-Issues/dp/0393339726/)_ W. W. Norton, 2011, 978-0393341485. _Explains and explores stereotype threat and strategies for addressing it._
 

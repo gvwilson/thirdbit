@@ -69,40 +69,144 @@ are being made.
 
 ## General Guidance
 
-When people say they're teaching online, they usually mean they're
-using some combination of recorded video presentations, automated
-exercise grading, and web-based discussion, which can either be
-synchronous using chat tools or asynchronous using bulletin boards.
+Most of today's online classes use some mix of recorded video
+presentations, automated exercise submission and grading, and
+web-based discussion, which can either be synchronous using chat tools
+and video calls or asynchronous using mailing lists and bulletin
+boards.  (This is actually only a small subset of what could be done:
+[[Brookfield2016](biblio.html#brookfield-discussion)] describes many
+other ways groups can discuss things, only a handful of which have
+ever been implemented online.)  The two greatest strengths of this
+model are that learners can work when it's convenient for them, and
+that they have access to a wider range of courses, both because the
+Internet brings them all next door and because online courses
+typically have lower direct and indirect costs than in-person courses.
+The disadvantages are that they have to shoulder much more of the
+burden of staying focused, and that the impersonality of working
+online can demotivate people and encourage uncivil behavior.
 
-choral explanations: lots of small pieces at different levels and for
-different needs that can be remixed *with guidance*.
+As an instructor teaching online, you should take advantages of the
+pros and do what you can to minimize or avoid the cons:
 
-Gains
-- Easier to integrate extended resources (link to other things on the web).
-- More opportunity for continuous assessment.
-- More convenient for learners (at least, those with connectivity).
+1.  Deadlines should be frequent, well-publicized, and enforced,
+    so that learners will get into a work rhythm.
 
-Losses
-- Impersonal (which encourages uncivil behavior).
-- Less opportunity for individualized intervention (despite claims about AI).
-- More burden on learners to stay focused.
+2.  Keep other all-class synchronous activities like live lectures to
+    a minimum so that people don't miss things because of scheduling
+    conflicts.
 
-People can read (and search) faster than you can talk,
-so use video to engage rather than instruct,
-and to show verbs rather than nouns.
-Remember that video is expensive to create and even more expensive to maintain.
+3.  Encourage or require students to do some of their work in small
+    groups (2-6 people) that *do* have synchronous activities such as
+    a weekly online discussion.  This will help students stay engaged
+    and motivated without creating too many scheduling headaches.
 
-Use your learners' tools:
-if they prefer Slack to bulletin boards, use Slack.
-- broadcast (sharing content with learners)
-  - podcasts are often more popular than video and much cheaper to produce
-- discussion (bulletin boards/mailing lists vs. chat)
-- collaboration (Google Docs, wikis, version control)
-  - students editing course material
-- archive everything
+4.  Create, publicize, and enforce a
+    [code of conduct](practices.html#have-a-code-of-conduct)
+    so that everyone can actually (as opposed to theoretically) take
+    part in online discussions.
 
-[[Lang2013](biblio.html#lang-cheating)] explores why and how students cheat,
-and how courses often give them incentives to do so.
+5.  Remember that people learn best in [small chunks](memory.html), so
+    use lots of small lesson episodes rather than a handful of
+    lecture-length chunks.  Also remember that, disabilities aside,
+    they can read faster than you can talk, so use video to engage
+    rather than instruct.  The one exception to this is that video is
+    actually the best way to teach people verbs (actions), so use
+    short screencasts to show people how to use an editor, step
+    through code in a debugger, and so on.
+
+6.  Remember that [the goal when teaching novices](novice.html) is
+    to identify and clear up misconceptions.  If early data shows
+    that learners are struggling with some parts of a lesson, create
+    extra alternative explanations of those points and extra exercises
+    for them to practice on.
+
+7.  Remember that you are not the first person to record educational
+    videos: everything from [short guides][adelaide-video] to [entire
+    books](biblio.html#spannaus-video) are there to help you.
+
+> **Two-Way Video**
+>
+> Just as video lets an instructor show learners how she's doing
+> things (rather than just what she has done), learners can use it to
+> show instructors how they are working.  If you are teaching
+> programming using desktop or laptop computers, have your learners
+> record a 5-minute screencast to show how they solved a problem.  You
+> can then watch that video at 4X or faster to see how proficient they
+> are with the tools they're supposed to be using.
+
+> **Freedom To and Freedom From**
+>
+> Isaiah Berlin's 1958 essay "[Two Concepts of Liberty][berlin]" made
+> a distinction between positive liberty, which is the ability to
+> actually do something, and negative liberty, which is the absence of
+> rules saying that you can't do it.  Unchecked, online discussions
+> usually offer negative liberty (nobody's stopping you from saying
+> what you think) but not positive liberty (many people can't actually
+> be heard).  One way to address this is to introduce some kind of
+> *throttling*, such as a rule that says each learner is only allowed
+> to contribute one message per discussion thread per day.  Doing this
+> allows those who have something to say to say it, while clearing
+> space for others to say things as well.
+
+When it comes to teaching platforms, you can either use an all-in-one
+learning management system (LMS) such as [Moodle](http://moodle.org)
+or assemble something ad hoc: [Slack](http://slack.com) or
+[Zulip](https://zulipchat.com/) for chat, [Google
+Hangouts](http://hangouts.google.com) for video conversations, and
+[WordPress](https://wordpress.org/), [Google
+Docs](http://docs.google.com), or any number of wikis for
+collaborative authoring.  If you are just starting out, then use
+whatever requires the least installation and administration on your
+side, and the least extra learning effort on your learners' side.  (I
+once taught a half-day class using group text messages because that
+was the only tool everyone was already familiar with.)
+
+The most important thing when choosing technology is to *ask your
+learners what they are already using*.  Most people don't use
+[IRC](https://en.wikipedia.org/wiki/Internet_Relay_Chat), and find its
+arcane conventions and interface offputting.  Similarly, while this
+book lives in a [GitHub](http://github.com) repository, requiring
+non-experts to submit exercises as pull requests proved to be an
+unmitigated disaster, even with its supposedly easy-to-use web editing
+tools.  As an instructor, you're asking people to learn a lot; the
+least you can do in return is learn how to use their preferred tools.
+
+> **Points for Improvement**
+>
+> One way to demonstrate to learners that they are learning *with*
+> you, not just *from* you, is to allow them to edit your course
+> notes.  In live courses, we recommend that you enable them to do
+> this [as you lecture](practices.html#take-notes-together); in
+> online courses, you can put your nodes into a wiki, a
+> [GitHub](http://github.com) repository, or anything else so long as
+> it allows you to review and comment on their proposed changes, and
+> the learner to make revisions based on your feedback, before those
+> changes go live.  Giving credit (or at least thanks) to people for
+> fixing mistakes, clarifying explanations, adding new examples, and
+> writing new exercises does increase the short-term load on the
+> instructor, but reduces the lesson's
+> [long-term maintenance costs](lessons.html#maintainability).
+
+A major concern with any online community, learning or otherwise, is
+how to actually make it a community.  Hundreds of books and
+presentations discuss this, but almost all are based on their authors'
+personal experiences.  [[Kraut2012](biblio.html#kraut-resnick-online)]
+is a welcome exception: while it predates the accelerating decline of
+Twitter and Facebook into weaponized abuse and misinformation, most of
+what was true then is true now.  [[Fogel2017](biblio.html#fogel-poss)]
+is also full of useful tips for the community of practice that
+students may hope to join.
+
+One other concern people often have about teaching online is cheating.
+Day-to-day dishonesty is no more common in online classes than in
+face-to-face settings, but the temptation to have someone else write
+the final exam, and the difficulty of checking whether this happened,
+is one of the reasons educational institutions have been reluctant to
+offer credit for pure online classes.  Remote exam proctoring is
+possible, usually by watching the student take the exam using a
+webcam.  Before investing in this, read
+[[Lang2013](biblio.html#lang-cheating)], which explores why and how
+students cheat, and how courses often give them incentives to do so.
 
 ## Different Types of Exercises
 
@@ -437,15 +541,20 @@ currently don't support.
 > 4. missing values
 > 5. fossil code
 
-There are undoubtedly many other kinds of exercises out there that are
-also fast to do and automatically gradable, but which we haven't heard
-of. If you know of any, we'd enjoy hearing about them.
-
-> **Verbs**
->
-> FIXME: having students *submit* video lets us examine their verbs.
-
-FIXME: Joordens
+All of this discussion has assumed that grading must be fully
+automatic in order to scale to large classes, but that is not
+necessarily true.  [[Paré2008](biblio.html#pare-joordens-peer)]
+conducted an experiment in which each undergraduate student's short
+essay was graded by a graduate-level teaching assistant, and also by a
+small number of their peers.  They found that combining the grades
+given by peers produced scores that agreed with the TAs as often and
+as well as the TAs agreed with each other, provided a few simple steps
+were taken to filter out junk responses (e.g., peers who gave
+everything 5 out of 10 without even glancing at it).  Much more
+research needs to be done, but given that critical reading is an
+effective way to learn, this result may point to a future in which
+learners use technology to make judgments, rather than being judged by
+technology.
 
 ## Challenges
 
@@ -462,7 +571,18 @@ FIXME: Joordens
 What did other people see that you missed?  What did they think that
 you strongly agree or disagree with?
 
-FIXME: more challenges for online teaching
+### Adapting Multiple Choices Questions (30 minutes)
+
+Pick one of the examples given in this chapter of using multiple
+choice questions to implement some other kind of online programming
+exercise, create an example, and swap with one of your fellow
+learners.
+
+### Adapting Write and Run Exercises (30 minutes)
+
+Pick one of the examples given in this chapter of using write and runs
+exericses to implement some other kind of online programming exercise,
+create an example, and swap with one of your fellow learners.
 
 ## Acknowledgments
 
@@ -472,10 +592,5 @@ Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle Quinn, Ariel
 Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett, Stéfan van der
 Walt, Hadley Wickham, and Andromeda Yelton.
 
-FIXME: https://www.slideshare.net/gsiemens/designing-and-running-a-mooc
-
-FIXME: https://www.adelaide.edu.au/learning/teaching/communities-of-practice/elearning/Guide_to_Creating_Educational_Videos.pdf
-
-FIXME: https://www.utsc.utoronto.ca/~psya01/peerScholar/peerScholar%20paper%20-%20Pare%20and%20Joordens%20%282008%29.pdf
-
-FIXME: https://courses.edx.org/c4x/edX/edX101/asset/edX_MOOC_Development_Checklist-a11y.pdf
+[adelaide-video]: https://www.adelaide.edu.au/learning/teaching/communities-of-practice/elearning/Guide_to_Creating_Educational_Videos.pdf
+[berlin]: https://en.wikipedia.org/wiki/Two_Concepts_of_Liberty
