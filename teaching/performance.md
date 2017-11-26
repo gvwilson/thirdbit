@@ -327,9 +327,9 @@ rubric to follow.
 
 ### Give Feedback (20 minutes)
 
-1.  Watch [[Wilson2016](biblio.html#wilson-bad-teaching)] as a group and
-    give feedback on it. Organize feedback along two axes: positive
-    vs.  negative and content vs. presentation.
+1.  Watch [[Wilson2016](biblio.html#wilson-bad-teaching-live)] as a
+    group and give feedback on it. Organize feedback along two axes:
+    positive vs. negative and content vs. presentation.
 
 2.  Have each person in the class add one point to a 2x2 grid on a
     whiteboard (or in the shared notes) without duplicating any points

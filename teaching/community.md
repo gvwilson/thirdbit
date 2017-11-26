@@ -6,485 +6,480 @@ title: "How to Teach Programming (and Other Things): Building Community"
 
 # Building Community
 
-*This section is currently under development:
-[feedback](mailto:gvwilson@third-bit.com?feedback%20on%20Building%20Community) would be appreciated.*
+One person can only do so much.  Just as we learn best together, we
+teach best when we are teaching with other people, and the best way to
+achieve that is to build a community.
 
-One person can only do so much.
-Just as we learn best together,
-we teach best when we are teaching with other people,
-and the best way to achieve that is to build a community.
-
-A framework in which to think about doing this is
-_[situated learning](gloss.html#situated-learning)_,
-which focuses on how _[legitimate peripheral participation](gloss.html#legitimate-peripheral-participation)_
+A framework in which to think about doing this is _[situated
+learning](gloss.html#situated-learning)_, which focuses on how
+_[legitimate peripheral participation](gloss.html#legitimate-peripheral-participation)_
 leads to people becoming members of a _[community of practice](gloss.html#community-of-practice)_.
-Unpacking those terms,
-a community of practice is a group of people bound together by interest in some activity,
-such as knitting or particle physics.
-Legitimate peripheral participation means doing simple, low-risk tasks
-that community nevertheless recognizes as valid contributions:
-making your first scarf,
-stuffing envelopes during an election campaign,
-or proof-reading documentation for open source software.
+Unpacking those terms, a community of practice is a group of people
+bound together by interest in some activity, such as knitting or
+particle physics.  Legitimate peripheral participation means doing
+simple, low-risk tasks that community nevertheless recognizes as valid
+contributions: making your first scarf, stuffing envelopes during an
+election campaign, or proof-reading documentation for open source
+software.
 
-Situated learning focuses on
-the transition from being a newcomer to being accepted as a peer
-by those who are already community members.
-This typically means starting with simplified tasks and tools,
-then doing similar tasks with more complex tools,
-and finally tackling the challenges of advanced practitioners.
-For example,
-children learning music may start by playing nursery rhymes on a recorder or ukulele,
-then play other simple songs on a trumpet or saxophone in a band,
-and finally start exploring their own musical tastes.
-Healthy communities understand and support these progressions,
-and recognize that each step is meant to give people a ramp rather than a cliff.
+Situated learning focuses on the transition from being a newcomer to
+being accepted as a peer by those who are already community members.
+This typically means starting with simplified tasks and tools, then
+doing similar tasks with more complex tools, and finally tackling the
+challenges of advanced practitioners.  For example, children learning
+music may start by playing nursery rhymes on a recorder or ukulele,
+then play other simple songs on a trumpet or saxophone in a band, and
+finally start exploring their own musical tastes.  Healthy communities
+understand and support these progressions, and recognize that each
+step is meant to give people a ramp rather than a cliff.
 
-Whatever the domain,
-situated learning emphasizes that learning is a social activity.
-In order to be effective and sustainable,
-teaching therefore needs to be rooted in a community;
-if one doesn't exist,
-you need to build one.
+Whatever the domain, situated learning emphasizes that learning is a
+social activity.  In order to be effective and sustainable, teaching
+therefore needs to be rooted in a community; if one doesn't exist, you
+need to build one.
 
 ## Learn, Then Do
 
-The first step in building a community is to decide if you really need to,
-or whether you would be more effective joining an existing organization.
-Thousands of groups are already teaching people tech skills,
-from the [4-H Club][4h] and [literacy programs][frontier-college]
-to get-into-coding non-profits like [Black Girls Code][bgc].
-Joining an existing group will give you a head start on teaching,
-an immediate set of colleagues,
-and a chance to learn more about how to run things.
-The only thing it *won't* give you is the ego gratification and control
-that comes from being a founder.
+The first step in building a community is to decide if you really need
+to, or whether you would be more effective joining an existing
+organization.  Thousands of groups are already teaching people tech
+skills, from the [4-H Club][4h] and [literacy programs][frontier-college]
+to get-into-coding non-profits like [Black Girls Code][bgc].  Joining
+an existing group will give you a head start on teaching, an immediate
+set of colleagues, and a chance to learn more about how to run things.
+The only thing it *won't* give you is the ego gratification and
+control that comes from being a founder.
 
-Whether you join an existing group or set up one of your own,
-you owe it to yourself and everyone who's going to work with you
-to find out what's been done before.
-People have been writing about grassroots organizing for decades;
-[[Alinsky1989](biblio.html#alinsky-rules)] is probably the best-known work on the subject,
-while [[Brown2007](biblio.html#brown-bpco)]
-and [[Midwest2010](biblio.html#midwest-organizing)]
-are practical manuals rooted in decades of practice.
-If you want to read more deeply,
-[[Adams1975](biblio.html#adams-seeds)] is a history of the Highlander Folk School,
-whose approach has been emulated by many successful groups,
-while [[Spalding2014](biblio.html#spalding-adults)] is a guide to teaching adults
-written by someone with deep personal roots in organizing.
+Whether you join an existing group or set up one of your own, you owe
+it to yourself and everyone who's going to work with you to find out
+what's been done before.  People have been writing about grassroots
+organizing for decades; [[Alinsky1989](biblio.html#alinsky-rules)] is
+probably the best-known work on the subject, while
+[[Brown2007](biblio.html#brown-bpco)] and
+[[Midwest2010](biblio.html#midwest-organizing)] are practical manuals
+rooted in decades of practice.  If you want to read more deeply,
+[[Adams1975](biblio.html#adams-seeds)] is a history of the Highlander
+Folk School, whose approach has been emulated by many successful
+groups, while [[Spalding2014](biblio.html#spalding-adults)] is a guide
+to teaching adults written by someone with deep personal roots in
+organizing.
 
-## Marketing
+## Three Steps
 
-Nobody's going to come to a meeting unless they know about it,
-and nobody's going to help you raise money if they don't know how you're going to spend it.
-Mailing lists, blogs, and Twitter all give you ways to stay in touch.
-Use them sparingly so that your audience isn't overwhelmed,
-but use them:
-[[KuchnerFIXME](biblio.html#kuchner-marketing)] is a good place to start for guidance.
+> *  Me in 2012: I'm not going to worry about retaining volunteers
+>    until I have a few.
+> *  My Dad: If you don't think about how you're going to keep
+>    them, you probably won't get any.
 
-*Marketing* is the craft of seeing things from other people's
-perspective, understanding their wants and needs, and finding ways to
-meet them.
+Everyone who gets involved with your organization, including you, goes
+through three phases: recruitment, retention, and retirement (from the
+organization).  You don't need to worry about this cycle when you're
+just getting started, but it *is* worth thinking about as soon as you
+have more than a couple of non-founders involved.
 
-A *brand* is someone's first reaction to a mention of a product.
-- If their reaction is "what's that?", you don't have a brand yet.
-- If you can't be first in a category, create a new category that
-  you can be first in.
-- Not as cynical as it sounds: if someone else is already doing
-  what you're doing better than you, find something else to do.
-- *Get a logo*.
+The first step is recruiting volunteers.  Your [marketing](marketing.html)
+should help you with this by making your organization findable, and by
+making its mission and its value to volunteers clear to people who
+might want to get involved.  Share stories that exemplify the kind of
+help you want as well as stories about the people you're helping, and
+make it clear that there are many ways to get involved.  (We discuss
+this in more detail in the next section.)
 
-What are you offering to whom?
-- Cite Kuchner: scientists think their product is papers, but they're wrong.
-  - Their product is their grant proposals: that's what gets funded.
-  - Their papers are their advertising.
-- Use weekend coding workshops as an example:
-  - Learners pay: the product is the workshop, but what are you selling to instructors?
-  - Sponsors pay: the workshops are ads, and the product is the grant proposal.
-  - What are you selling to volunteer instructors?
-    - Personal branding.
-    - Good feelings.
-    - Recruitment opportunity.
+Recruiting doesn't end when someone first shows up: if you don't
+follow through, people will come out once or twice, then decide that
+what you're doing isn't for them and disappear.  Two things you can
+do to get newcomers over this initial hump are:
 
-Compare concerns:
-- Theater owner: do we have enough popcorn, are our ads up to date, who's working tonight?
-- Movie goer: what's playing when and where, how much will it cost, is it accessible?
+1.  Have them take part in group activities before they do anything on
+    their own, both so that they get a sense of how your organization
+    does things, and so that they build social ties that will keep
+    them involved.
 
-Make a list of reasons that people will come to your classes, and *check them*.
-- People buy healthy food because it's healthy,
-  but also because of the story they tell themselves about themselves,
-  and because it's what their friends are buying.
-- I wear a t-shirt with a tech logo and a pair of jeans when I'm teaching programmers,
-  but business casual when I'm teaching recent immigrants,
-  because I want to fit into their story.
+2.  Give newcomers a mentor, and make sure the mentors actually do
+    some proactive mentoring.  The most important things a mentor can
+    do are make introductions and explain the unwritten rules ("Oh,
+    Giselle always takes care of that…"), so make it clear to mentors
+    that these are their primary responsibilities, and they are to
+    report back to you every few weeks to tell you what they've done.
 
-Props make a story real.
-- Show people a game or a website that your students made.
-- Give them something quirky from the 3D printer.
+The second part of the volunteer lifecycle is retention, which is a
+large enough topic to deserve its own section.  The third and final
+part is retirement.  Sooner or later, everyone moves on (including
+you).  When this happens:
 
-Free samples are compelling.
-- Lessons online.
-- Videos of actual workshops.
-- Lunchtime sessions, but only where practical and effective.
+1.  Ask people to be explicit about their departure.
 
-Positioning is what sets your offering apart from others.
-- Include the standard elevator pitch here as an exercise.
-- When pitching, adapt the "what's in it for me?" part to the person you're speaking to.
-  - Because we're all tired of generic emails.
-- Good way to do this is to use personas, but for other stakeholders.
-  - Exercise
+2.  Make sure they don't feel embarrassed or ashamed about leaving.
 
-Bad responses to "So tell me about your classes?"
-- "We teach programming." (stop)
-  - Like learners, community will never be more excited than you are.
-- "The students really don't seem interested, and we're really struggling to get software installed."
-  - Make people feel sorry for you *after* they already care about you.
+3.  Give them an opportunity to pass on their knowledge.  For example,
+    you can ask them to mentor someone for a few weeks as their last
+    contribution, or to be interviewed by someone who's staying with
+    the organization to collect any stories that are worth re-telling.
 
-Findability.
-- What do people find when they search online for what you offer?
-- Just as important: how will they find you if they *aren't* online?
-  - Because a lot of people you might want to help aren't.
-  - And the ubiquity of online has devalued it.
+4.  Make sure they hand over the keys.  It's awkward to discover six
+    months after someone has left that they're the only person who
+    knows how to book a playing field for the annual softball game.
 
-Find allies.
-- Have you ever spoken to someone from your college or school board PR office, or yo city councilor's office?
-- Start building that relationship early by asking for help.
-  - How do they think you ought to raise awareness of what you're doing?
-  - They'll have useful advice, be flattered to be asked, and will know who you are when you have something to say.
+5.  Follow up 2-3 months after they leave to see if they have any
+    further thoughts about what worked and what didn't while they were
+    with you, or any advice to offer that they either didn't think to
+    give or were uncomfortable giving on their way out the door.
 
-The bigger picture.
-- Combine marketing what you do in particular with marketing the subject as a whole.
-- There's room enough for everyone, so join forces with other groups.
-  - Referrals.
+6.  Thank them, both when they leave and the next time your group
+    gets together.
 
-Marketing blends into engagement (next section).
-- Instead of engaging teachers, you're engaging students and backers.
-- Learners want what you teach.
-  - Refer back to motivation section: what do your learners want, and how do you know?
-- Backers want a variety of things.
-  - Other people's success in general (enlightened self-interest).
-  - Their community's success.
-  - Productive employees or grad students.
-  - Their own success (your success makes them look good).
+## Retention
 
-Be comfortable with rejection.
-- 2-3% is considered good in most sales organizations.
-- And don't think rejection is final: add a note to your calendar to try
-  again in six months, and only give up if you get a second "no".
+The community organizer Saul Alinksy said, "If your people aren't
+having a ball doing it, there is something very wrong."  Community
+members shouldn't expect to enjoy every moment of their work with your
+organization, but if they don't enjoy any of it, they won't stay.
 
-### The Art of the Cold Call
+Enjoyment doesn't necessarily mean having an annual party: people may
+enjoy cooking, coaching, or just working quietly beside others.  There
+are several things every organization should do to ensure that people
+are getting something they value out of their work:
 
-1. I always open by apologizing for adding to their inbox. (It's a
-   Canadian thing...)
+1.  *Ask people what they want rather than guessing.*  Just as [you are
+    not your learners](lesson.html#a-reminder), you are probably
+    different from other members of your organization.  Ask people
+    what they want to do, what they're comfortable doing (which may
+    not be the same thing), what constraints there are on their time,
+    and so on.
 
-1. Always establish a point of connection: "I was speaking to X" or
-   "You attended bootcamp Y". This must be specific: spammers and
-   headhunters have trained us all to ignore anything that starts,
-   "I recently read a paper of yours".
+1.  *Provide many ways to contribute.* The more ways there are for
+    people to help, the more people will be able to help.  Someone who
+    doesn't like standing in front of an audience may be able to
+    maintain your organization's website or handle its accounts;
+    someone who doesn't know how to do anything else may be able to
+    proof-read lessons, and so on.  The more kinds of tasks you do
+    yourself, the fewer opportunities there are for others to get
+    involved.
 
-1. Explain how we're going to help make their lives better (e.g.,
-   "Your graduate students will be able to push your project XYZ ahead
-   much faster if you let us help them").
+1.  *Recognize contributions.* Everyone likes to be appreciated, so
+    communities should acknowledge their members' contributions both
+    publicly and privately.
 
-1. Be specific (e.g., "Our usual two-day curriculum includes...") so
-   that they can figure out right away whether this is worth pursuing.
+1.  *Make space.* Micromanaging or trying to control everything
+    centrally means people won't feel they have the autonomy to act,
+    which will probably cause them to drift away.  In particular, if
+    you're too engaged or too quick on the reply button, people have
+    less opportunity to grow as members and to create horizontal
+    collaborations.  The community can continue to be "hub and spoke",
+    focused around one or two individuals, rather than a
+    highly-connected network in which others feel comfortable
+    participating.
 
-1. Cite our backers, our size, or our instructors to make us more
-   credible.
-
-1. Create a slight sense of urgency ("we're booking workshops right
-   now").
-
-1. Tell them that we're a volunteer organization, so that all they'll
-   have to pay for is instructors' travel and accommodation, along
-   with a contribution toward central costs (currently around $1500
-   per bootcamp).
-
-1. Above all, keep it short. The message below takes 30 seconds or
-   less to scan; add another few seconds for them to check the Cc:
-   list (where possible, approach people in groups), and either
-   they're hooked enough to hit 'reply' or they're not.
-
-It's worked pretty well: about half of emails are answered, about half
-of those answers are, "Sure, let's talk more," and about half of those
-discussions lead to workshops, which means that 10-15% of targeted
-emails turn into workshops. This is a lot more impressive than it
-might sound—most people in sales figure that 2-3% conversion on cold
-calls is outstanding.
-
-> Hi,
+> **Start Small**
 >
-> I hope you don't mind mail out of the blue, but I saw your recent
-> paper computational materials, and was wondering if you'd be
-> interested having us run a Software Carpentry workshop for your
-> intended users. We're scheduling workshops for the coming year right
-> now, and it might be a way to help your community get more out of
-> what you're doing.
+> As [Ben Franklin][franklin-effect] observed, a person who has
+> performed a favor for someone is more likely to do another favor for
+> that person than they would be if they had received a favor from
+> that person.  Asking people to do something small for you is
+> therefore a good step toward getting them to do something larger.
+
+Another way to make participation rewarding is to provide training.
+Organizations require committees, meetings, budgets, grant proposals,
+and dispute resolution; most people are never taught how to do any of
+this, any more than they are taught how to teach, but training people
+to do these things helps your organization run more smoothly, and the
+opportunity to gain transferable skills is a powerful reason for
+people to get and stay involved.  If you are going to do this, don't
+try to provide the training yourself (unless it's what you specialize
+in).  Many civic and community groups have programs of this kind, and
+you can probably make a deal with one of them.
+
+Other groups may be useful in other ways as well, and you may be
+useful to them–if not immediately, then tomorrow or next year.  You
+should therefore set aside an hour or two every month to find allies
+and maintain your relationships with them.  One way to do this is to
+ask them for advice: how do they think you ought to raise awareness of
+what you're doing? Where have they found space to run classes?  What
+needs to they think aren't being met, and would you be able to meet
+them (either on your own, or in partnership with them)?  Any group
+that has been around for a few years will have useful advice; they
+will also be flattered to be asked, and will know who you are the next
+time you call.
+
+> **Government Matters**
 >
-> Software Carpentry's aim is to teach researchers (usually graduate
-> students) basic computing concepts and skills so that they can get
-> more done in less time and with less pain. Our usual two-day
-> curriculum includes:
+> Have you ever spoken to someone from the public relations office
+> at your local college or school board, or in your city councilor's
+> office?  If not, what are you waiting for?
+
+> **Soup, Then Hymns**
 >
-> - the Unix shell (but we're really teaching them how to automate
->   repetitive tasks);
->
-> - Git and GitHub (but we're really teaching them how to use version
->   control to track and share their work);
->
-> - Python or R (but we're really teaching them how to grow a program
->   in a structured, modular, testable, reusable way); and
->
-> - databases (but we're really teaching them the difference between
->   structured and unstructured data).
->
-> Our instructors are volunteers, so the only cost to host sites is
-> their travel and accommodation plus a $1500 contribution toward
-> central costs like instructor training and curriculum development. We
-> aim for 40 people per workshop, and look for 2-3 local helpers to
-> assist during practicals; we can handle registration through
-> EventBrite, or leave it in hosts' hands.
->
-> We've run hundreds of workshops like this in 34 countries since 2010,
-> and two independent assessments have confirmed that what we're doing
-> actually helps.  If this sounds interesting, we'd welcome a chance to
-> chat at greater length.
->
-> Thanks for your time,
-> Dr. Greg Wilson 
-> gvwilson@software-carpentry.org 
-> http://software-carpentry.org
+> Manifestos are fun to write, but most people join a volunteer
+> community to help and be helped rather than to argue over the
+> wording of a grand vision statement.  (Most people who prefer the
+> latter are *only* interested in arguing…) To be effective you should
+> therefore focus on things that are immediately useful, e.g., on what
+> can people create that will be used by other community members write
+> away.  Once your organization shows that it can actually achieve
+> things–even small things–people will be more confident that it's
+> worth thinking about bigger issues.
 
-Writing proposals is out of scope of this book.
-
-## Engagement
-
-The community organizer Saul Alinksy said,
-"If your people aren't having a ball doing it, there is something very wrong."
-Community members shouldn't expect to enjoy every moment of their work with your organization,
-but if they don't enjoy any of it,
-they won't stay.
-One way to do this is to thank people:
-everyone likes to be appreciated,
-and communities should acknowledge their members' contributions both publicly and privately.
-
-The [Ben Franklin Effect][franklin-effect]: a person who has performed
-a favor for someone is more likely to do another favor for that person
-than they would be if they had received a favor from that person.
-- Works equally well for good or evil.
-
-FIXME: ask people what they want rather than guessing.
-
-FIXME: soup, then hymns.
-Manifestos are great,
-but most people join a volunteer community to help and be helped.
-Focus on things that are immediately useful,
-e.g.,
-on what can people create that will be used by other community members write away.
-Once your organization shows that it can actually achieve things–even small things–people
-will be more confident that it's worth thinking about bigger issues.
-
-One way to make participation rewarding is to provide training.
-Organizations require committees, meetings, budgets, grant proposals, and dispute resolution;
-most people are never taught how to do any of this,
-any more than they are taught how to teach,
-but training people to do these things helps your organization run more smoothly,
-and the opportunity to gain transferable skills
-is a powerful reason for people to get and stay involved.
-
-FIXME: borrow training, don't do it yourself.
-
-One important special case of making things rewarding is to pay people.
-Volunteers can do a lot,
-but tasks like system administration and accounting need full-time paid staff.
-FIXME: difficult transition.
-
-Micromanaging or trying to control everything centrally
-means people won't feel they have the autonomy to act,
-which will probably cause them to drift away.
-In particular,
-if you're too engaged or too quick on the reply button,
-people have less opportunity to grow as members
-and to create horizontal collaborations.
-The community can continue to be "hub and spoke",
-focused around one or two individuals,
-rather than a highly-connected network
-in which others feel comfortable participating.
-
-FIXME: pathways to contribution (examples).
-
-Plan for a cycle:
-- Recruitment.
-- Retention.
-- Retirement (from your organization at least).
-
-Recruitment:
-- Share stories that exemplify the kind of actions you want.
-- Have newcomers take part in group activities before solo activities.
-- Give newcomers a mentor.
-  - Give the mentors some training.
-  - Make sure the mentors mentor.
-  - Most important activity is to fill in the unwritten rules.
-
-Retention:
-- Provide many ways to contribute (so that as people's lives change, they can still take part).
-- Make sure that authority and responsibility go hand-in-hand.
-- Recognize contributions.
-
-Retirement:
-- Make sure knowledge is passed on.
-- Make sure final thoughts on changes are listened to (even if they're not acted on).
+One important special case of making things rewarding is to pay
+people.  Volunteers can do a lot, but eventually tasks like system
+administration and accounting need full-time paid staff.  This is
+often a difficult transition for grassroots organizations, but is
+outside the scope of this book.
 
 ### People You Don't Want On Your Team
 
-*Anna* knows more about every subject than everyone else on the team
-put together–at least, she thinks she does. No matter what you say,
-she'll correct you; no matter what you know, she knows better. Annas
-are pretty easy to spot: if you keep track in team meetings of how
-often people interrupt one another, her score is usually higher than
-everyone else's put together.
+One way to think about the community you want is to think about the
+people you *don't* want in it.
 
-*Bao* is a contrarian: no matter what anyone says, he'll take the
-opposite side. This is healthy in small doses, but when Bao does it,
-there's always another objection lurking behind the first half dozen.
+*   *Anna* knows more about every subject than everyone else put
+    together–at least, she thinks she does. No matter what you say,
+    she'll correct you; no matter what you know, she knows
+    better. Annas are pretty easy to spot: if you keep track in team
+    meetings of how often people interrupt one another, her score is
+    usually higher than everyone else's put together.
 
-*Catherine* has so little confidence in her own ability (despite her
-good grades) that she won't make any decision, no matter how small,
-until she has checked with someone else. Everything has to be spelled
-out in detail for her so that there's no possibility of her getting
-anything wrong.
+*   *Bao* is a contrarian: no matter what anyone says, he'll take the
+    opposite side. This is healthy in small doses, but when Bao does
+    it, there's always another objection lurking behind the first half
+    dozen.
 
-*Frank* believes that knowledge is power. He enjoys knowing things
-that other people don't–or to be more accurate, he enjoys it when
-people know he knows things they don't. Frank can actually make things
-work, but when asked how he did it, he'll grin and say, "Oh, I'm sure
-you can figure it out."
+*   *Catherine* has so little confidence in her own ability that she
+    won't make any decision, no matter how small, until she has
+    checked with someone else. Everything has to be spelled out in
+    detail for her so that there's no possibility of her getting
+    anything wrong.
 
-*Hediyeh* is quiet. Very quiet. She never speaks up in meetings, even
-when she knows that what other people are saying is wrong. She might
-contribute to the mailing list, but she's very sensitive to criticism,
-and will always back down rather than defending her point of
-view. Hediyeh isn't a troublemaker, but rather a lost opportunity.
+*   *Frank* believes that knowledge is power. He enjoys knowing things
+    that other people don't–or to be more accurate, he enjoys it when
+    people know he knows things they don't. Frank can actually make
+    things work, but when asked how he did it, he'll grin and say,
+    "Oh, I'm sure you can figure it out."
 
-*Kenny* is a hitchhiker. He has discovered that most people would
-rather shoulder some extra work than snitch, and he takes advantage of
-it at every turn. The frustrating thing is that he's so damn
-*plausible* when someone finally does confront him. "There have been
-mistakes on all sides," he says, or, "Well, I think you're
-nit-picking." The only way to deal with Kenny is to stand up to him:
-remember, if he's not doing his share, *he's the bad guy*, not you.
+*   *Hediyeh* is quiet. Very quiet. She never speaks up in meetings,
+    even when she knows that what other people are saying is
+    wrong. She might contribute to the mailing list, but she's very
+    sensitive to criticism, and will always back down rather than
+    defending her point of view. Hediyeh isn't a troublemaker, but
+    rather a lost opportunity.
 
-*Melissa* would easily have made the varsity procrastination team if
-she'd bothered to show up to tryouts. She means well–she really does
-feel bad about letting people down–but somehow something always comes
-up, and her tasks are never finished until the last possible
-moment. Of course, that means that everyone who is depending on her
-can't do their work until *after* the last possible moment...
+*   *Kenny* is a hitchhiker. He has discovered that most people would
+    rather shoulder some extra work than snitch, and he takes
+    advantage of it at every turn. The frustrating thing is that he's
+    so damn *plausible* when someone finally does confront him. "There
+    have been mistakes on all sides," he says, or, "Well, I think
+    you're nit-picking." The only way to deal with Kenny is to stand
+    up to him: remember, if he's not doing his share, *he's the bad
+    guy*, not you.
 
-*Petra*'s favorite phrase is "why don't we". Why don't we write a GUI
-to help people edit the program's configuration files? Hey, why don't
-we invent our own little language for designing GUIs? Her energy and
-enthusiasm are hard to argue with, but argue you must. Otherwise, for
-every step you move forward, the project's goalposts will recede by
-two. This is called feature creep, and has ruined many projects that
-might otherwise have delivered something small, but useful.
+*   *Melissa* would easily have made the varsity procrastination team if
+    she'd bothered to show up to tryouts. She means well–she really
+    does feel bad about letting people down–but somehow something
+    always comes up, and her tasks are never finished until the last
+    possible moment. Of course, that means that everyone who is
+    depending on her can't do their work until *after* the last
+    possible moment...
 
-*Raj* is rude. "It's just the way I talk," he says, "If you can't hack
-it, maybe you should find another team." His favorite phrase is,
-"That's stupid," and he uses obscenity as casually as minor characters
-in Tarantino films. His only redeeming grace is that he can't
-dissemble in front of the instructor as well as Kenny, so he's easier
-to get rid of.
+*   *Petra*'s favorite phrase is "why don't we". Why don't we rewrite
+    all of our courses? Hey, why don't we invent our own language for
+    teaching?  Her energy and enthusiasm are hard to argue with, but
+    argue you must. Otherwise, for every step you move forward, the
+    project's goalposts will recede by two.
 
-*Sergei* is simply incompetent. He doesn't understand the problem, he
-hasn't bothered to master the tools and libraries he's supposed to be
-using, the code he checks in doesn't compile, and his thirty-second
-bug fixes introduce more problems than they solve. If he means well,
-try to re-partition the work so that he'll do less damage. If he
-doesn't, he should be treated like any other hitchhiker.
+*   *Raj* is rude. "It's just the way I talk," he says, "If you can't
+    hack it, maybe you should find another team." His favorite phrase
+    is, "That's stupid," and he uses obscenity as casually as minor
+    characters in Tarantino films. His only redeeming grace is that he
+    can't dissemble in front of the instructor as well as Kenny, so
+    he's easier to get rid of.
+
+*   *Sergei* is simply incompetent. He doesn't understand the problem,
+    he hasn't bothered to master the tools and libraries he's supposed
+    to be using, the code he checks in doesn't compile, and his
+    thirty-second bug fixes introduce more problems than they
+    solve. If he means well, try to re-partition the work so that
+    he'll do less damage. If he doesn't, he should be treated like any
+    other hitchhiker.
 
 ## Governance
 
-As Jo Freeman pointed out in her influential essay
-"[The Tyranny of Structurelessness][freeman]",
-every organization has a power structure:
-the only question is whether it's formal and accountable,
-or informal and unaccountable.
-Make yours one of the first kind:
-write and publish the rules governing everything from
-who's allowed to use the name and logo
-to who gets to decide whether people are allowed to charge money to teach
-with whatever materials your group has worked up.
+As Jo Freeman pointed out in her influential essay "[The Tyranny of
+Structurelessness][freeman]", every organization has a power
+structure: the only question is whether it's formal and accountable,
+or informal and unaccountable.  Make yours one of the first kind:
+write and publish the rules governing everything from who's allowed to
+use the name and logo to who gets to decide whether people are allowed
+to charge money to teach with whatever materials your group has worked
+up.
 
-FIXME: don't do this too soon,
-since it results in endless wrangling about what we're going to do
-rather than formalization of what we're already doing.
+Organizations can govern themselves in many different ways, and a full
+discussion of the options is outside the scope of this book.  The most
+important thing to keep in mind is that countries and corporations are
+only two of many governance models, and that a commons is often a
+better model for volunteer teaching organizations.  A commons is
+something managed jointly by a community according to rules they
+themselves have evolved and adopted; as
+[[Bollier2014](biblio.html#bollier-commoner)] repeatedly emphasizes,
+all three parts of that equation are essential: a commons isn't just a
+thing, like a shared pasture, but is necessarily also comprised of a
+community who share it and the rules they use to do so.
 
-When the time comes to formalize your rules,
-make your organization a democracy:
-sooner or later (usually sooner),
-every appointed board turns into a mutual agreement society
-and loses sight of what the community it's meant to serve actually needs.
-Giving the community power is messy,
-but is the only way invented so far to ensure that
-an organization continues to meet people's actual needs.
+Most resources, throughout most of human history, have been commons:
+it is only in the last few hundred years that impersonal markets have
+pushed them to the margins.  In order to do so, free-market advocates
+have had to convince us we're something we're not (dispassionate
+calculators of individual advantage) and erase or devalue local
+knowledge and custom.  Both have had tragic consequences for us
+individually and communally, and now for our whole planet.
 
-FIXME: borrow a constitution.
+Since society has difficulty recognizing commons organizations, and
+since most of the people you will want to recruit don't have
+experience with them, you will probably wind up having some sort of
+board, a director, and other staff.  Broadly speaking, your
+organization can can either a *service board*, whose members also take
+on other roles in the organization, or a *governance board* whose
+primary responsibility is to hire, monitor, and if need be fire the
+director.  Board members can be elected by the community or appointed;
+in either case, it's important to prioritize competence over passion
+(the latter being more important for the rank and file), and to try to
+recruit for particular skills such as accounting, marketing, and so
+on.
 
-FIXME: distinguish service board from governance board.
-
-FIXME: measurement
-- Don't fetishize quantification.
-- Define goals in a way that will allow an unbiased outsider to tell
-  if they've been met or not.
-- First-time goal is often "measure X".
-  - Otherwise, you're pulling a target out of thin air.
-- If you don't make your goal, do a retrospective to ask what to do differently next time:
-  - Unrealistic goal?
-  - Resources not allocated properly?
-
-When choosing a board:
-- Prioritize competence over passion (the latter is for the rank and file).
-- Recruit to fill gaps (accounting, marketing, evaluation, etc.).
-
-Countries and corporations are only two of many governance models.
-- The commons is often a better model for teaching organizations.
-- "Something managed jointly by a community according to rules they themselves have evolved and adopted."
-- As [[Bollier2014](biblio.html#bollier-commoner)] repeatedly emphasizes,
-  all three parts of that equation are essential:
-  a commons isn't just a thing,
-  like a shared pasture,
-  but is necessarily also comprised of a community who share it and the rules they use to do so.
-- Most resources, throughout most of human history, have been commons:
-  it is only in the last few hundred years that impersonal markets have pushed them to the margins.
-  In order to do so,
-  free-market advocates have had to convince us we're something we're not
-  (dispassionate calculators of individual advantage)
-  and erase or devalue local knowledge and custom.
-  Both have had tragic consequences for us individually and communally,
-  and now for our whole planet.
+Don't worry about drafting a constitution when you first get started:
+it will only result in endless wrangling about what we're going to do
+rather than formalization of what you're already doing.  When the time
+does come to formalize your rules, though, make your organization a
+democracy: sooner or later (usually sooner), every appointed board
+turns into a mutual agreement society and loses sight of what the
+community it's meant to serve actually needs.  Giving the community
+power is messy, but is the only way invented so far to ensure that an
+organization continues to meet people's actual needs.
 
 ## Final Thoughts
 
-As [[Pigni2016](biblio.html#pigni-idealists)] discusses,
-burnout is a chronic risk in any community activity.
-If you don't take care of yourself,
-you won't be able to take care of your community.
+As [[Pigni2016](biblio.html#pigni-idealists)] discusses, burnout is a
+chronic risk in any community activity.  If you don't take care of
+yourself, you won't be able to take care of your community.
 
 Every organization eventually needs fresh ideas and fresh leadership.
-When that time comes,
-train your successors and then move on.
-They will undoubtedly do things you wouldn't have,
-but the same is true of every generation.
-Few things in life are as satisfying as
-watching something you helped build take on a life of its own.
-Celebrate that–you won't have any trouble finding
-something else to keep you busy.
+When that time comes, train your successors and then move on.  They
+will undoubtedly do things you wouldn't have, but the same is true of
+every generation.  Few things in life are as satisfying as watching
+something you helped build take on a life of its own.  Celebrate
+that–you won't have any trouble finding something else to keep you
+busy.
 
 ## Challenges
 
-FIXME
+Several of these exercises are taken from
+[[Brown2007](biblio.html#brown-bpco)], which is an exceptionally
+useful book on building community organizations.
+
+### Who Are You? (15 minutes)
+
+Which of the descriptions of people you don't want on your team do you
+fit?  What can you do about it?
+
+### Values (45 minutes)
+
+Answer the following questions on your own, and then compare your
+answers to those given by other members of your group.
+
+1.  What are the values your organization expresses?
+2.  Are these the values you want the organization to express?
+3.  If not, what values would you like it to express?
+4.  What are the specific behaviors that demonstrate those values?
+5.  What are some key behaviors that would demonstrate the values you would like for your group?
+6.  What are the behaviors that would demonstrate the opposite of those values?
+7.  What are some key behaviors that would demonstrate the opposite of the values you want to have?
+
+### Meeting Procedures (30 minutes)
+
+Answer the following questions on your own, and then compare your
+answers to those given by other members of your group.
+
+1.  How are your meetings run?
+2.  Is this how you want your meetings to be run?
+3.  Are the rules for running meetings explicit or just assumed?
+4.  Are these the rules you want?
+5.  Who is eligible to vote/make decisions?
+6.  Is this who you want to be vested with decision-making authority?
+5.  Do you use majority rule, make decisions by consensus, or use some other method?
+8.  Is this the way you want to make decisions?
+9.  How do people in a meeting know when a decision has been made?
+10. How do people who weren't at a meeting know what decisions were made?
+11. Is this working for your group?
+
+### Size (20 minutes)
+
+Answer the following questions on your own, and then compare your
+answers to those given by other members of your group.
+
+1.  How big is your group?
+2.  Is this the size you want for your organization?
+3.  If not, what size would you like it to be?
+4.  Do you have any limits on the size of membership?
+5.  Would you benefit from setting such a limit?
+
+### Staffing (30 minutes)
+
+Answer the following questions on your own, and then compare your
+answers to those given by other members of your group.
+
+1.  Do you have paid staff in your organization?
+2.  Or is it all-volunteer?
+3.  Should you have paid staff?
+4.  Do you want/need more or less staff?
+5.  What do you call the staff (e.g., organizer, director, coordinator, etc.)?
+6.  What do the staff members do?
+7.  Are these the primary roles and functions that you want the staff to be filling?
+8.  Who supervises your staff?
+9.  Is this the supervision process and responsibility chain that you want for your group?
+10. What is your staff paid?
+11. Is this the right salary to get the needed work done and to fit within your resource constraints?
+12. What benefits does your group provide to its staff
+    (health, dental, pension, short and long-term disability, vacation, comp time, etc.)?
+13. Are these the benefits that you want to give?
+
+### Collaborations (30 minutes)
+
+Answer the following questions on your own, and then compare your
+answers to those given by other members of your group.
+
+1.  Do you have any agreements or relationships with other groups?
+2.  Do you want to have relationships with any other groups?
+3.  How would having (or not having) collaborations help you to achieve your goals?
+4.  What are your key collaborative relationships?
+5.  Are these the right collaborators for achieving your goals?
+6.  With what groups or entities would you like your organization to have agreements or relationships?
+
+### Money (30 minutes)
+
+Answer the following questions on your own, and then compare your
+answers to those given by other members of your group.
+
+1.  Who pays for what?
+2.  Is this who you want to be paying?
+3.  Where do you get your money?
+4.  Is this how you want to get your money?
+5.  If not, do you have any plans to get it another way?
+6.  If so, what are they?
+7.  Who is following up to make sure that happens?
+8.  How much money do you have?
+9.  How much do you need?
+10. What do you spend most of your money on?
+11. Is this how you want to spend your money?
+
+### Becoming a Member (45 minutes)
+
+Answer the following questions on your own, and then compare your
+answers to those given by other members of your group.
+
+1.  How does someone join?
+2.  Does this process work for your organization?
+3.  What are the membership criteria?
+4.  Are these the membership criteria you want?
+5.  Are people required to agree to any rules of behavior upon joining?
+6.  Are these the rules for behavior you want?
+7.  Are there membership dues?
 
 ## Acknowledgments
 

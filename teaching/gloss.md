@@ -22,6 +22,15 @@ title: "How to Teach Programming (and Other Things): Glossary"
     <br>
     See also [cognitivism](gloss.html#cognitivism).
 
+*   **Bloom's Taxonomy**:
+    <a name="blooms-taxonomy"></a>
+    A six-part hierarchical classification of understand
+    whose levels are *knowledge*, *comprehension*, *application*,
+    *analysis*, *synthesis*, and *evaluation*
+    that has [been widely adopted][wikipedia-bloom].
+    <br>
+    See also [Fink's Taxonomy](gloss.html#finks-taxonomy).
+
 *   **Chunking**:
     <a name="chunking"></a>
     The act of grouping related concepts together so that they can be
@@ -119,6 +128,15 @@ title: "How to Teach Programming (and Other Things): Glossary"
     steps are blanked out.
     <br>
     See also [scaffolding](gloss.html#scaffolding).
+
+*   **Fink's Taxonomy**:
+    <a name="finks-taxonomy"></a>
+    A six-part non-hierarhical classification of understanding
+    first proposed in [[Fink2013](biblio.html#fink-significant)]
+    whose categories are *foundational knowledge*, *application*,
+    *integration*, *human dimension*, *caring*, and *learning how to learn*.
+    <br>
+    See also: [Bloom's Taxonomy](gloss.html#blooms-taxonomy).
 
 *   **Fixed Mindset**:
     <a name="fixed-mindset"></a>
@@ -327,4 +345,5 @@ title: "How to Teach Programming (and Other Things): Glossary"
     <a name="working-memory"></a>
     see [short-term memory](gloss.html#short-term-memory).
 
+[wikipedia-bloom]: https://en.wikipedia.org/wiki/Bloom's_taxonomy
 [wikipedia-cognitive-load]: https://en.wikipedia.org/wiki/Cognitive_load

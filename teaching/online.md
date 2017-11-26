@@ -6,19 +6,209 @@ title: "How to Teach Programming (and Other Things): Teaching Online"
 
 # Teaching Online
 
-When people say they're teaching online, what they usually mean is
-that they're using some combination of recorded video and automated
-grading of exercises–in short, that they're teaching *asynchronously*.
-This is much harder to do well than teaching live.
+Five years ago, you couldn't cross the street on a major university
+campus without hearing some talking about how teaching online was
+going to revolutionize education–or destroy it, or possibly both.
+What most of those evangelists and doomsayers didn't realize was that
+MOOCs and other forms of online education were just the latest in a
+long series of proposals to use machines to teach.  As
+[[Watters2014](biblio.html#watters-monsters)] has chronicled, every
+innovation in communications from the printing press through radio and
+television to desktop computers and now mobile devices, has spawned a
+wave of aggressive optimists who believe that education is broken
+(without actually knowing much about education) and that the latest
+technology is the solution (without knowing much about what's been
+tried before, why it failed, or what success would actually look
+like).
 
-*This section is currently under development:
-[feedback](mailto:gvwilson@third-bit.com?feedback%20on%20Teaching%20Online) would be appreciated.*
+That said, technology *has* changed teaching and learning.  Before
+blackboards were introduced into schools in the early 1800s, there was
+no way for a teacher to share an improvised example, diagram, or
+exercise with an entire class at once.  Combining low cost, low
+maintenance, reliability, ease of use, and flexibility, blackboards
+enabled teachers to do things quickly and at scale that they had only
+been able to do slowly and piecemeal before.  Similarly, the hand-held
+video camera revolutionized athletics training, just as the tape
+recorder revolutionized music instruction a decade earlier.
 
-## Preparing Lessons
+Today's revolutionary technology is the Internet, whose key
+characteristics are:
 
-FIXME: to be written.
+1.  Students can access far more information, far more quickly, than
+    ever before: provided, of course, that a search engine considers
+    it worth indexing, that their internet service provider and
+    government don't block it, and that the truth isn't drowned in a
+    sea of attention-sapping disinformation.
 
-## Exercises
+2.  Students can access far more people than ever before as well:
+    provided, of course, that they aren't driven offline by harassment
+    or marginalized because they don't conform to the social norms of
+    whichever group is talking loudest.
+
+3.  Courses can reach far more people than before: provided, of
+    course, that those students actually have access to the required
+    technology, can afford to use it, and aren't being used as a way
+    to redistribute wealth from the have-nots to the haves
+    [[Cottom2017](biblio.html#cottom-lower-ed)].
+
+4.  Teachers can get far more detailed insight into how students work:
+    provided, of course, that students are doing things that are
+    amenable to large-scale automated analysis and aren't in a
+    position to object to the use of surveillance into the classroom.
+
+The caveats in this list are a big part of why this book exists.
+Right now, most of the discussion about using technology in teaching
+is shaped by what tech can do rather than what students need, and by
+Silicon Valley's craving for quick profits rather than by society's
+need for competent, well-informed citizens.  If people in tech know
+more about teaching, they'll know more about what they should build to
+teach more effectively.  And if they do that, they'll be able to reach
+more people from more diverse backgrounds, so that there will be more
+voices in the room when key decisions about the future of education
+are being made.
+
+## General Guidance
+
+Most of today's online classes use some mix of recorded video
+presentations, automated exercise submission and grading, and
+web-based discussion, which can either be synchronous using chat tools
+and video calls or asynchronous using mailing lists and bulletin
+boards.  (This is actually only a small subset of what could be done:
+[[Brookfield2016](biblio.html#brookfield-discussion)] describes many
+other ways groups can discuss things, only a handful of which have
+ever been implemented online.)  The two greatest strengths of this
+model are that learners can work when it's convenient for them, and
+that they have access to a wider range of courses, both because the
+Internet brings them all next door and because online courses
+typically have lower direct and indirect costs than in-person courses.
+The disadvantages are that they have to shoulder much more of the
+burden of staying focused, and that the impersonality of working
+online can demotivate people and encourage uncivil behavior.
+
+As an instructor teaching online, you should take advantages of the
+pros and do what you can to minimize or avoid the cons:
+
+1.  Deadlines should be frequent, well-publicized, and enforced,
+    so that learners will get into a work rhythm.
+
+2.  Keep other all-class synchronous activities like live lectures to
+    a minimum so that people don't miss things because of scheduling
+    conflicts.
+
+3.  Encourage or require students to do some of their work in small
+    groups (2-6 people) that *do* have synchronous activities such as
+    a weekly online discussion.  This will help students stay engaged
+    and motivated without creating too many scheduling headaches.
+
+4.  Create, publicize, and enforce a
+    [code of conduct](practices.html#have-a-code-of-conduct)
+    so that everyone can actually (as opposed to theoretically) take
+    part in online discussions.
+
+5.  Remember that people learn best in [small chunks](memory.html), so
+    use lots of small lesson episodes rather than a handful of
+    lecture-length chunks.  Also remember that, disabilities aside,
+    they can read faster than you can talk, so use video to engage
+    rather than instruct.  The one exception to this is that video is
+    actually the best way to teach people verbs (actions), so use
+    short screencasts to show people how to use an editor, step
+    through code in a debugger, and so on.
+
+6.  Remember that [the goal when teaching novices](novice.html) is
+    to identify and clear up misconceptions.  If early data shows
+    that learners are struggling with some parts of a lesson, create
+    extra alternative explanations of those points and extra exercises
+    for them to practice on.
+
+7.  Remember that you are not the first person to record educational
+    videos: everything from [short guides][adelaide-video] to [entire
+    books](biblio.html#spannaus-video) are there to help you.
+
+> **Two-Way Video**
+>
+> Just as video lets an instructor show learners how she's doing
+> things (rather than just what she has done), learners can use it to
+> show instructors how they are working.  If you are teaching
+> programming using desktop or laptop computers, have your learners
+> record a 5-minute screencast to show how they solved a problem.  You
+> can then watch that video at 4X or faster to see how proficient they
+> are with the tools they're supposed to be using.
+
+> **Freedom To and Freedom From**
+>
+> Isaiah Berlin's 1958 essay "[Two Concepts of Liberty][berlin]" made
+> a distinction between positive liberty, which is the ability to
+> actually do something, and negative liberty, which is the absence of
+> rules saying that you can't do it.  Unchecked, online discussions
+> usually offer negative liberty (nobody's stopping you from saying
+> what you think) but not positive liberty (many people can't actually
+> be heard).  One way to address this is to introduce some kind of
+> *throttling*, such as a rule that says each learner is only allowed
+> to contribute one message per discussion thread per day.  Doing this
+> allows those who have something to say to say it, while clearing
+> space for others to say things as well.
+
+When it comes to teaching platforms, you can either use an all-in-one
+learning management system (LMS) such as [Moodle](http://moodle.org)
+or assemble something ad hoc: [Slack](http://slack.com) or
+[Zulip](https://zulipchat.com/) for chat, [Google
+Hangouts](http://hangouts.google.com) for video conversations, and
+[WordPress](https://wordpress.org/), [Google
+Docs](http://docs.google.com), or any number of wikis for
+collaborative authoring.  If you are just starting out, then use
+whatever requires the least installation and administration on your
+side, and the least extra learning effort on your learners' side.  (I
+once taught a half-day class using group text messages because that
+was the only tool everyone was already familiar with.)
+
+The most important thing when choosing technology is to *ask your
+learners what they are already using*.  Most people don't use
+[IRC](https://en.wikipedia.org/wiki/Internet_Relay_Chat), and find its
+arcane conventions and interface offputting.  Similarly, while this
+book lives in a [GitHub](http://github.com) repository, requiring
+non-experts to submit exercises as pull requests proved to be an
+unmitigated disaster, even with its supposedly easy-to-use web editing
+tools.  As an instructor, you're asking people to learn a lot; the
+least you can do in return is learn how to use their preferred tools.
+
+> **Points for Improvement**
+>
+> One way to demonstrate to learners that they are learning *with*
+> you, not just *from* you, is to allow them to edit your course
+> notes.  In live courses, we recommend that you enable them to do
+> this [as you lecture](practices.html#take-notes-together); in
+> online courses, you can put your nodes into a wiki, a
+> [GitHub](http://github.com) repository, or anything else so long as
+> it allows you to review and comment on their proposed changes, and
+> the learner to make revisions based on your feedback, before those
+> changes go live.  Giving credit (or at least thanks) to people for
+> fixing mistakes, clarifying explanations, adding new examples, and
+> writing new exercises does increase the short-term load on the
+> instructor, but reduces the lesson's
+> [long-term maintenance costs](lessons.html#maintainability).
+
+A major concern with any online community, learning or otherwise, is
+how to actually make it a community.  Hundreds of books and
+presentations discuss this, but almost all are based on their authors'
+personal experiences.  [[Kraut2012](biblio.html#kraut-resnick-online)]
+is a welcome exception: while it predates the accelerating decline of
+Twitter and Facebook into weaponized abuse and misinformation, most of
+what was true then is true now.  [[Fogel2017](biblio.html#fogel-poss)]
+is also full of useful tips for the community of practice that
+students may hope to join.
+
+One other concern people often have about teaching online is cheating.
+Day-to-day dishonesty is no more common in online classes than in
+face-to-face settings, but the temptation to have someone else write
+the final exam, and the difficulty of checking whether this happened,
+is one of the reasons educational institutions have been reluctant to
+offer credit for pure online classes.  Remote exam proctoring is
+possible, usually by watching the student take the exam using a
+webcam.  Before investing in this, read
+[[Lang2013](biblio.html#lang-cheating)], which explores why and how
+students cheat, and how courses often give them incentives to do so.
+
+## Different Types of Exercises
 
 Every mechanic has her favorite screwdrivers, and every good teacher
 has different kinds of exercises to check that her students are
@@ -31,13 +221,13 @@ learners to do, and it has to be possible to check the answer
 automatically. These requirements rule out some useful kinds of
 assessment, but many remain.
 
-The first type of exercise that works well online is a ***multiple
-choice question*** that presents a question and asks the student to
-pick the correct answer from a list.  Doing this might (in fact,
-should) require them to do more than just read and remember, and as a
-previous post discussed, multiple-choice questions are most effective
-when their wrong answers probe for specific misconceptions on the
-student's part.
+The first type of exercise that works well online is a *multiple
+choice question* that presents a question and asks the student to pick
+the correct answer from a list.  Doing this might (in fact, should)
+require them to do more than just read and remember, and as a previous
+post discussed, multiple-choice questions are most effective when
+their wrong answers probe for specific misconceptions on the student's
+part.
 
 > Example: You are in `/home/marg`.  Use `ls` with an appropriate
 > argument to get a listing of the files in the directory
@@ -49,7 +239,7 @@ student's part.
 > - `spring.csv`
 > - `winter.csv`
 
-The second type of exercise is **write and run**, in which the student
+The second type of exercise is *write and run*, in which the student
 has to write code that produces a specified output. When the code is
 submitted, we check its structure and/or output and give feedback.
 Write and run exercises can be as simple or as complex as the
@@ -62,15 +252,15 @@ where.
 > function or method call, create a matrix Z that has the same shape
 > as M but contains only zeroes.
 
-**Write and run** exercises help students practice the skills they
-most want to learn, but writing good automated checks is hard:
-students can find very creative ways to get the right answer, and it's
-demoralizing to give them a false negative.  One way to reduce how
-often this occurs is to give them a small test suite they can run
-their code against before they submit it (at which point it is run
-against a more comprehensive set of tests).  Doing this helps to catch
-cases in which students have completely misunderstood the written spec
-of the exercise.
+Write and run exercises help students practice the skills they most
+want to learn, but writing good automated checks is hard: students can
+find very creative ways to get the right answer, and it's demoralizing
+to give them a false negative.  One way to reduce how often this
+occurs is to give them a small test suite they can run their code
+against before they submit it (at which point it is run against a more
+comprehensive set of tests).  Doing this helps to catch cases in which
+students have completely misunderstood the written spec of the
+exercise.
 
 To help students realize just how hard it is to write good tests
 instructors can get them to do it themselves.  Instead of writing code
@@ -91,14 +281,14 @@ determine whether a piece of code conforms to a spec.
 > - Only re-starts the sum when values decrease rather than fail
 >   to increase.
 
-***Fill in the blanks*** is a refinement of ***write and run*** in
-which the student is given some starter code and asked to complete
-it. (In practice, many **write and run** exercises are actually **fill
-in the blanks** because the instructor will provide comments to remind
-the students of what steps they should take.) Novices often find
-**fill in the blanks** less intimidating than writing all the code
-from scratch, and since the instructor has provided most of the
-answer's structure, submissions are much easier to check.
+*Fill in the blanks* is a refinement of write and run in which the
+student is given some starter code and asked to complete it. (In
+practice, many write and run exercises are actually fill in the blanks
+because the instructor will provide comments to remind the students of
+what steps they should take.) Novices often find fill in the blanks
+less intimidating than writing all the code from scratch, and since
+the instructor has provided most of the answer's structure,
+submissions are much easier to check.
 
 > Example: fill in the blanks so that the code below prints the string
 > 'hat'.
@@ -109,17 +299,18 @@ answer's structure, submissions are much easier to check.
 > print(slice)
 > ```
 
-A ***Parsons Problem*** is another kind of exercise that avoids the
-"blank screen of terror" problem: the student is given the lines of
-code needed to solve a problem, but has to put them in the right
-order.  Research over the past few years has shown that **Parsons
-Problems** are effective because they allow students to concentrate on
-control flow ("what order do I do things?") separately from vocabulary
-("what do I need to do?"). The same research shows that giving the
-student more lines than she needs, or asking her to rearrange some
-lines and add a few more, makes this kind of problem significantly
-harder. **Parsons Problems** can be emulated (albeit somewhat
-clumsily) by asking students to rearrange code in an editor.
+As described [earlier](load.html), a *Parsons Problem* is another kind
+of exercise that avoids the "blank screen of terror" problem: the
+student is given the lines of code needed to solve a problem, but has
+to put them in the right order.  Research over the past few years has
+shown that Parsons Problems are effective because they allow students
+to concentrate on control flow ("what order do I do things?")
+separately from vocabulary ("what do I need to do?"). The same
+research shows that giving the student more lines than she needs, or
+asking her to rearrange some lines and add a few more, makes this kind
+of problem significantly harder. Parsons Problems can be emulated
+(albeit somewhat clumsily) by asking students to rearrange code in an
+editor.
 
 > Example: rearrange and indent these lines to calculate the sums of the
 > positive and negative values in a list.
@@ -135,13 +326,13 @@ clumsily) by asking students to rearrange code in an editor.
 > negative += v
 > ```
 
-***Tracing execution*** is the inverse of a Parsons Problem: given a
-few lines of code, the student has to trace the order in which those
-lines are executed. This is an essential debugging skill, and is a
-good way to solidify students' understanding of loops, conditionals,
-and the evaluation order of function and method calls. Again, we don't
-yet support this directly, but it can be emulated by having students
-type in a list of line labels.
+*Tracing execution* is the inverse of a Parsons Problem: given a few
+lines of code, the student has to trace the order in which those lines
+are executed. This is an essential debugging skill, and is a good way
+to solidify students' understanding of loops, conditionals, and the
+evaluation order of function and method calls. Again, we don't yet
+support this directly, but it can be emulated by having students type
+in a list of line labels.
 
 > Example: in what order are the labelled lines in this block of code
 > executed?
@@ -156,14 +347,13 @@ type in a list of line labels.
 > D)         pass
 > ```
 
-***Tracing values*** is similar to **tracing execution**, but instead
-of spelling out the order in which code is executed, the student is
-asked to list the values that one or more variables take on as the
-program runs. Again, it can be implemented by having students type in
-their answers, but this quickly becomes impractical. In practice, the
-best approach is to give the student a table whose columns are
-labelled with variable names and whose rows are labelled with line
-numbers.
+*Tracing values* is similar to tracing execution, but instead of
+spelling out the order in which code is executed, the student is asked
+to list the values that one or more variables take on as the program
+runs. Again, it can be implemented by having students type in their
+answers, but this quickly becomes impractical. In practice, the best
+approach is to give the student a table whose columns are labelled
+with variable names and whose rows are labelled with line numbers.
 
 > Example: what lines of text pass through the pipes and the final
 > redirect when this file:
@@ -183,11 +373,11 @@ numbers.
 > ```
 
 Returning to debugging skills, another exercise that helps student
-develop them is ***minimal fixes***. Given a few lines of code that
+develop them is *minimal fixes*. Given a few lines of code that
 contain a bug, the student must either make or identify the smallest
 change that will produce the correct output. Making the change can be
-done as using **write and run**, while identifying it can be done as a
-**multiple choice question**.
+done as using write and run, while identifying it can be done as a
+multiple choice question.
 
 > Example: this function is supposed to test whether a point `(x, y)` lies
 > strictly within a rectangle defined by `(x_min, y_min, x_max, y_max)`.
@@ -202,7 +392,7 @@ done as using **write and run**, while identifying it can be done as a
 >     return true
 > ```
 
-**Theme and variation** exercises are similar, but instead of making a
+*Theme and variation* exercises are similar, but instead of making a
 change to fix a bug, the student is asked to make a small alteration
 that changes the output in some specific way. These alterations can
 include:
@@ -228,10 +418,10 @@ one that already does something useful.
 >             matrix[r, c] = 0
 > ```
 
-Matching problems are another entire family of exercises.
-***One-to-one matching*** gives the student two lists of equal length
-and asks her to pair corresponding items, e.g., "match each piece of
-code with the output it produces".
+Matching problems are another entire family of exercises.  *One-to-one
+matching* gives the student two lists of equal length and asks her to
+pair corresponding items, e.g., "match each piece of code with the
+output it produces".
 
 > Example: match each function's name with the operation it implements.
 >
@@ -241,28 +431,27 @@ code with the output it produces".
 > <tr><td>STRSM</td><td>matrix-vector multiply</td></tr>
 > </table>
 
-**Many-to-many matching** is similar, but the lists aren't the same
+*Many-to-many matching* is similar, but the lists aren't the same
 length, so some items may be matched to several others. Both kinds
 require students to use higher-order thinking skills, but many-to-many
 are more difficult because students can't do easy matches first to
-reduce their search space.
+reduce their search space.  (In technical terms, there is a higher
+[cognitive load](load.html).)
 
 Matching problems can be emulated by having students submit lists of
 pairs as text (such as "A3, B1, C2"), but that's clumsy and
-error-prone. If available, the machinery built for **Parsons
-Problems** can be used let students drag and drop blocks of text to
-form matches.
+error-prone. If available, the machinery built for Parsons Problems
+can be used let students drag and drop blocks of text to form matches.
 
-Drag-and-drop would open many other doors: for example, **tracing
-execution** is easy to implement this way. So is ***labelling
-diagrams***: rather than students typing in the labels, it is faster
-and more reliable for them to drag labels around to attach to the
-correct elements. The picture can be a complex data structure ("after
-this code is executed, which variables point to which parts of this
-structure?"), the graph that a program produces ("match each of these
-pieces of code with the part of the graph it generated"), the code
-itself ("match each term to an example of that program element"), or
-many other things.
+Drag-and-drop opens many other doors: for example, tracing execution
+is easy to implement this way. So is *labelling diagrams*: rather than
+students typing in the labels, it is faster and more reliable for them
+to drag labels around to attach to the correct elements. The picture
+can be a complex data structure ("after this code is executed, which
+variables point to which parts of this structure?"), the graph that a
+program produces ("match each of these pieces of code with the part of
+the graph it generated"), the code itself ("match each term to an
+example of that program element"), or many other things.
 
 > Example: label the following diagram to show which structures the
 > variables `x`, `y`, and `z` refer to after these three lines of code
@@ -276,41 +465,41 @@ many other things.
 >
 > ![Labelling](fig/label.svg)
 
-***Drawing diagrams*** of things like data structures is also
+*Drawing diagrams* of things like data structures is also
 straightforward to do on paper but very difficult to grade
 automatically. One way to make solutions gradable may be to constrain
-the drawing in the same way that **Parsons Problems** constrain code
+the drawing in the same way that Parsons Problems constrain code
 construction, i.e., give students the pieces of the diagram and ask
 them to arrange them correctly, but this is a long way off.
 
 We mentioned earlier that matching problems require students to use
-higher-order thinking skills. ***Summarization*** also does this, and
+higher-order thinking skills. *Summarization* also does this, and
 gives them a chance to practice a skill that is very useful when
 *reporting* bugs rather than fixing them. For example, students can be
 asked, "Which sentence best describes how the output of f changes as x
-varies from 0 to 10?" and then given several options as a **multiple
-choice question**. Similarly, **r*anking problems*** present the
-student with several choices and ask them to order them from fastest
-to slowest, most robust to most brittle, and so on. (**Ranking** is
-more manageable when implemented with drag and drop than as a
-**multiple choice question**.)
+varies from 0 to 10?" and then given several options as a multiple
+choice question. Similarly, ranking problems present the student with
+several choices and ask them to order them from fastest to slowest,
+most robust to most brittle, and so on. (Ranking is more manageable
+when implemented with drag and drop than as a multiple choice
+question.)
 
-One other kind of exercise that can be implemented as a **multiple
-choice question** is ***fault mapping***: given a piece of buggy code
-and an error message, the student has to identify the line on which
-the error occurred. In simple cases this will be the line mentioned in
-the error message, but in more subtle cases, the student will have to
-trace execution forward and backward to figure out where things first
-went wrong.
+One other kind of exercise that can be implemented as a multiple
+choice question is *fault mapping*: given a piece of buggy code and an
+error message, the student has to identify the line on which the error
+occurred. In simple cases this will be the line mentioned in the error
+message, but in more subtle cases, the student will have to trace
+execution forward and backward to figure out where things first went
+wrong.
 
 Other kinds of exercises are hard for any automated platform to
-provide.  ***Refactoring exercises*** are the complement of **theme
-and variation** exercises: given a working piece of code, the student
-has to modify it in some way *without* changing its output. For
-example, the student could be asked to replace loops with vectorized
-expressions, to simplify the condition in a while loop, etc. The
-challenge here is that there are often so many ways to refactor a
-piece of code that grading requires human intervention.
+provide.  *Refactoring exercises* are the complement of theme and
+variation exercises: given a working piece of code, the student has to
+modify it in some way *without* changing its output. For example, the
+student could be asked to replace loops with vectorized expressions,
+to simplify the condition in a while loop, etc. The challenge here is
+that there are often so many ways to refactor a piece of code that
+grading requires human intervention.
 
 > Example: write a single list comprehension that has the same effect
 > as this loop.
@@ -322,15 +511,15 @@ piece of code that grading requires human intervention.
 >         result.append(v)
 > ```
 
-***Code review*** is hard to grade automatically in the general case,
-but can be tackled if the student is given a rubric (i.e., a list of
+*Code review* is hard to grade automatically in the general case, but
+can be tackled if the student is given a rubric (i.e., a list of
 faults to look for) and asked to match particular comments against
 particular lines of code. For example, the student can be told that
 there are two indentation errors and one bad variable name, and asked
 to point them out; if she is more advanced, she could be given half a
 dozen kinds of remarks she could make about the code without guidance
-as to how many of each she should find.  As with **tracing values**,
-this is easiest for students to do when presented as a table, which we
+as to how many of each she should find.  As with tracing values, this
+is easiest for students to do when presented as a table, which we
 currently don't support.
 
 > Example: using the rubric provided, mark each line of the code below.
@@ -352,18 +541,56 @@ currently don't support.
 > 4. missing values
 > 5. fossil code
 
-There are undoubtedly many other kinds of exercises out there that are
-also fast to do and automatically gradable, but which we haven't heard
-of. If you know of any, we'd enjoy hearing about them.
+All of this discussion has assumed that grading must be fully
+automatic in order to scale to large classes, but that is not
+necessarily true.  [[Paré2008](biblio.html#pare-joordens-peer)]
+conducted an experiment in which each undergraduate student's short
+essay was graded by a graduate-level teaching assistant, and also by a
+small number of their peers.  They found that combining the grades
+given by peers produced scores that agreed with the TAs as often and
+as well as the TAs agreed with each other, provided a few simple steps
+were taken to filter out junk responses (e.g., peers who gave
+everything 5 out of 10 without even glancing at it).  Much more
+research needs to be done, but given that critical reading is an
+effective way to learn, this result may point to a future in which
+learners use technology to make judgments, rather than being judged by
+technology.
 
 ## Challenges
 
-FIXME
+### Give Feedback (20 minutes)
+
+1.  Watch [[Wilson2017](biblio.html#wilson-bad-teaching-recorded)] as
+    a group and give feedback on it. Organize feedback along two axes:
+    positive vs. negative and content vs. presentation.
+
+2.  Have each person in the class add one point to a 2x2 grid on a
+    whiteboard (or in the shared notes) without duplicating any points
+    that are already up there.
+
+What did other people see that you missed?  What did they think that
+you strongly agree or disagree with?
+
+### Adapting Multiple Choices Questions (30 minutes)
+
+Pick one of the examples given in this chapter of using multiple
+choice questions to implement some other kind of online programming
+exercise, create an example, and swap with one of your fellow
+learners.
+
+### Adapting Write and Run Exercises (30 minutes)
+
+Pick one of the examples given in this chapter of using write and runs
+exericses to implement some other kind of online programming exercise,
+create an example, and swap with one of your fellow learners.
 
 ## Acknowledgments
 
-Thanks to everyone who contributed ideas to this list, including
-Francis Castro, Katie Cunningham, Brian Dillingham, Mark Guzdial, Ian
-Hawke, Toby Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle
-Quinn, Ariel Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett,
-Stéfan van der Walt, Hadley Wickham, and Andromeda Yelton.
+Thanks to everyone who contributed ideas, including Francis Castro,
+Katie Cunningham, Brian Dillingham, Mark Guzdial, Ian Hawke, Toby
+Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle Quinn, Ariel
+Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett, Stéfan van der
+Walt, Hadley Wickham, and Andromeda Yelton.
+
+[adelaide-video]: https://www.adelaide.edu.au/learning/teaching/communities-of-practice/elearning/Guide_to_Creating_Educational_Videos.pdf
+[berlin]: https://en.wikipedia.org/wiki/Two_Concepts_of_Liberty

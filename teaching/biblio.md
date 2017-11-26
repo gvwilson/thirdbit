@@ -46,15 +46,17 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="barker-practice-adoption">[Barker2015]</a> Lecia Barker, Christopher Lynnly Hovey, and Jane Gruning: "What Influences CS Faculty to Adopt Teaching Practices?", _Proc. 46th ACM Technical Symposium on Computer Science Education_, 2015, 10.1145/2676723.2677282. _Describes findings from a two-part study of how computer science educators adopt new teaching practices._
 
-*   <a id="baume-outcomes">[Baume2009]</a> D. Baume: "Writing and Using Good Learning Outcomes", Leeds Metropolitan University Press, 2009, 978-0-9560099-5-1. _A useful detailed guide to constructing useful learning outcomes._
-
 *   <a id="benner-expertise">[Benner2000]</a> Patricia Benner: _[From Novice to Expert: Excellence and Power in Clinical Nursing Practice](https://www.amazon.com/Novice-Expert-Excellence-Clinical-Commemorative/dp/0130325228/)_ Pearson, 2000, 978-0130325228. _A classic study of clinical judgment and how expertise develops._
+
+*   <a id="biggs-tang-quality">[Biggs2011]</a> John Biggs and Catherine Tang: _[Teaching for Quality Learning at University](https://www.amazon.com/Teaching-Learning-University-Research-Education/dp/0335242758/)_ Open University Press, 2011, 978-0335242757. _A step-by-step guide to lesson development, delivery, and evaluation for people working in higher education._
 
 *   <a id="bohay-note-taking">[Bohay2011]</a> Mark Bohay, Daniel P. Blakely, Andrea K. Tamplin, and Gabriel A. Radvansky: "Note Taking, Review, Memory, and Comprehension." _American Journal of Psychology_, 124(1), 2011, 10.5406/amerjpsyc.124.1.0063. _Presents a study showing that note-taking improves retention most at deeper levels of understanding._
 
 *   <a id="bollier-commoner">[Bollier2014]</a> David Bollier: _[Think Like a Commoner: A Short Introduction to the Life of the Commons](https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/)_ New Society Publishers, 2014, 978-0865717688. _A short introduction to one of the most widely used kinds of governance in human societies throughout history._
 
 *   <a id="brown-empirical">[Brown2014]</a> Neil C. C. Brown and Amjad Altadmri: "Investigating Novice Programming Mistakes: Educator Beliefs vs. Student Data." _Proc Tenth Annual Conference on International Computing Education Research_, 2014, 10.1145/2632320.2632343. _Uses data from over 100,000 students to show that educators know less than they think about what mistakes novice programmers actually make._
+
+*   <a id="cottom-lower-ed">[Cottom]</a> Tressie McMillan Cottom: *_[Lower Ed: The Troubling Rise of For-Profit Colleges in the New Economy](https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/)_*  The New Press, 2017, 978-1620970607. _Lays bare the dynamics of this growing "educational" industry to show how it leads to greater inequality rather than less._
 
 *   <a id="cottrill-gifted">[Cottrill2016]</a> Cameron Cottrill: "Why Talented Black and Hispanic Students Can Go Undiscovered." <https://mobile.nytimes.com/2016/04/10/upshot/why-talented-black-and-hispanic-students-can-go-undiscovered.html>, viewed April 2017.
 
@@ -106,9 +108,13 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="koedinger-doing-watching">[Koedinger2015]</a> Kenneth R. Koedinger, Jihee Kim, Julianna Zhuxin Jia, Elizabeth A. McLaughlin, and Norman L. Bier: "Learning is Not a Spectator Sport: Doing is Better Than Watching for Learning from a MOOC" _Proc. Second ACM Conference on Learning @ Scale_, 2015, 10.1145/2724660.2724681. _Measures the benefits of doing rather than watching._
 
+*  <a id="kraut-resnick-online">[Kraut2012]</a> Robert E. Kraut and Paul Resnick: _[Building Successful Online Communities: Evidence-Based Social Design](https://www.amazon.com/Building-Successful-Online-Communities-Evidence-Based/dp/0262016575/)_ MIT Press, 2012, 978-0262016575. _Sums up what we actually know about making thriving online communities and why we believe it's true._
+
 *  <a id="kuchner-marketing">[Kuchner2011]</a> Marc Kuchner: _[Marketing for Scientists: How to Shine in Tough Times](https://www.amazon.com/Marketing-Scientists-Shine-Tough-Times/dp/1597269948/)_.  Island Press, 2011, 978-1597269940. _A short, readable guide to making people aware of, and care about, your work._
 
 *   <a id="kuittinen-patterns">[Kuittinen2004]</a> Marja Kuittinen and Jorma Sajaniemi: "Teaching Roles of Variables in Elementary Programming Courses" _Proc. 9th Annual SIGCSE Conference on Innovation and Technology in Computer Science Education_, 2004, 10.1145/1007996.1008014. _Presents a few patterns used in novice programming and looks at the pedagogical value of teaching them._
+
+*   <a id="lang-cheating">[Lang2013]</a> James M. Lang: _[Cheating Lessons: Learning From Academic Dishonesty](https://www.amazon.com/Cheating-Lessons-Learning-Academic-Dishonesty/dp/0674724631/)_ Harvard University Press, 2013, 978-0674724631. _Explores why students cheat, and how courses often give them incentives to do so._
 
 *   <a id="learning-theories">[Learning2017]</a> "Learning Theories" website. <http://www.learning-theories.com/>, viewed April 2017.
 
@@ -138,6 +144,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="orndorff-note-taking">[Orndorff2015]</a> Harold N. Orndorff III: "Collaborative Note-Taking: The Impact of Cloud Computing on Classroom Performance." _International Journal of Teaching and Learning in Higher Education_, 27(3), 2015. _Presents a study showing that collaborative note-taking improves grades and learning outcomes._
 
+*   <a id="pare-joordens-peer">[Paré2008]</a> D.E. Paré and S. Joordens: "Peering Into Large Lectures: Examining Peer and Expert Mark Agreement Using peerScholar, an Online Peer Assessment Tool."  *Journal of Computer Assisted Learning*, August 2008, 10.1111/j.1365-2729.2008.00290.x. _Shows that peer grading by small groups can be as effective as expert grading once accountability features are introduced._
+
 *   <a id="patitsas-cs-grades">[Patitsas2016]</a> Elizabeth Patitsas, Jesse Berlin, Michelle Craig, and Steve Easterbrook: "Evidence That Computer Science Grades Are Not Bimodal." _Proc. 2016 ACM Conference on International Computing Education Research_, 2016, 10.1145/2960310.2960312. _Presents a statistical analysis and an experiment which jointly show that grades in computing classes are not bimodal–i.e., there is no geek gene._
 
 *   <a id="petre-expertise">[Petre2016]</a> Marian Petre, André van der Hoek, and Yen Quach: _[Software Design Decoded: 66 Ways Experts Think](https://www.amazon.com/Software-Design-Decoded-Experts-Think/dp/0262035189/)_ MIT Press, 2016, 978-0262035187. _A short illustrated overview of how expert software developers think._
@@ -154,6 +162,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="spalding-adults">[Spalding2014]</a> Dan Spalding: _[How to Teach Adults](https://www.amazon.com/How-Teach-Adults-Jossey-Bass-Education/dp/1118841360/)_ Jossey-Bass, 2014, 978-1118841365. _A short guide to teaching adult free-range learners informed by the author's social activism._
 
+*   <a id="spannaus-video">[Spannaus2012]</a> Tim Spannaus: _[Creating Video for Teachers and Trainers: Producing Professional Video with Amateur Equipment](https://www.amazon.com/Creating-Video-Teachers-Trainers-Professional/dp/1118088093/)_ Pfeiffer, 2012, 978-1118088098. _A short, practical guide to doing exactly what the title says._
+
 *   <a id="steele-vivaldi">[Steele2011]</a> C. M. Steele: _[Whistling Vivaldi: And Other Clues to How Stereotypes Affect Us](https://www.amazon.com/Whistling-Vivaldi-Stereotypes-Affect-Issues/dp/0393339726/)_ W. W. Norton, 2011, 978-0393341485. _Explains and explores stereotype threat and strategies for addressing it._
 
 *   <a id="cs-teaching-tips">[Tips2017]</a> CS Teaching Tips website, <http://csteachingtips.org/>, viewed April 2017.
@@ -168,10 +178,14 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="w3c-accessibility">[W3C2017]</a> W3C Web Accessibility Initiative: "How to Make Presentations Accessible to All."  <https://www.w3.org/WAI/training/accessible>, accessed May 2017.
 
+*   <a id="watters-monsters">[Watters2014]</a> Audrey Watters: _[The Monsters of Education Technology](https://www.amazon.com/Monsters-Education-Technology-Audrey-Watters/dp/1505225051/)_ CreateSpace, 2014, 978-1505225051. _A collection of essays about the history of educational technology and the exaggerated claims repeatedly made for it. There's more criticism than prescription, but the former is well-informed and sharp-edged._
+
 *   <a id="wiggins-mctighe">[Wiggins2005]</a> G.P. Wiggins and J. McTighe: _[Understanding by Design](https://www.amazon.com/Understanding-Design-Grant-Wiggins/dp/1416600353/)_ Association for Supervision and Curriculum Development, 2005, 978-1416600350. _A lengthy presentation of reverse instructional design._
 
 *   <a id="wilkinson-pickett-spirit-level">[Wilkinson2011]</a> Richard Wilkinson and Kate Pickett: _[The Spirit Level: Why Greater Equality Makes Societies Stronger](https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608193411/)_ Bloomsbury Press, 2011, 978-1608193417. _Presents evidence that inequality harms everyone, both economically and otherwise._
 
 *   <a id="willingham-dont-like-school">[Willingham2010]</a> Daniel T. Willingham: _[Why Don't Students Like School?](https://www.amazon.com/Why-Dont-Students-Like-School/dp/047059196X/)_ Jossey-Bass, 2010, 978-0470591963. _A cognitive scientist looks at how the mind works and what it means in the classroom._
 
-*   <a id="wilson-bad-teaching">[Wilson2016]</a> Greg Wilson: "How to Teach Badly".  <https://www.youtube.com/watch?v=-ApVt04rB4U>, viewed May 2017.
+*   <a id="wilson-bad-teaching-live">[Wilson2016]</a> Greg Wilson: "How to Teach Badly".  <https://www.youtube.com/watch?v=-ApVt04rB4U>, viewed May 2017.
+
+*   <a id="wilson-bad-teaching-recorded">[Wilson2017]</a> Greg Wilson: "How to Teach Badly (Part 2)".  <https://youtu.be/xcnoHaxXvdQ>, viewed November 2017.
