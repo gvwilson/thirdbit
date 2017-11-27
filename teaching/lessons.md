@@ -61,6 +61,8 @@ and [[Fink2013](biblio.html#fink-significant)] (a summary of
 which is freely available online [[Fink2003](biblio.html#fink-short)].)
 In brief, lessons should be designed as follows:
 
+<div class="changed" markdown="1">
+
 1.  Brainstorm to get a rough idea of what you want to cover, how
     you're going to do it, what problems or misconceptions you expect
     to encounter, what's *not* going to be included, and so on.
@@ -84,6 +86,8 @@ In brief, lessons should be designed as follows:
     the next.  An actual classroom lesson will typically then consist of
     three or four such episodes, each building toward a short check that
     learners are keeping up.
+
+</div>
 
 This method helps to keep teaching focused on its objectives. It also
 ensures that learners don't face anything on the final exam that the
@@ -273,6 +277,8 @@ for each level.
 *   Evaluation: using evidence to make judgments about
     the relative merits of ideas and materials (choose, rate, select).
 
+<div class="changed" markdown="1">
+
 Another way to think about learning objectives comes from
 [[Fink2013](biblio.html#fink-significant)], which defines learning in
 terms of the change it is intended to produce in the learner.
@@ -317,6 +323,10 @@ introductory course on HTML and CSS might be:
 > * Be familiar with [W3Schools][w3schools] and other free tutorials
 >   for HTML and CSS, and know what search terms to use to find answers
 >   on [Stack Overflow][stack-overflow].
+
+</div>
+
+<div class="changed" markdown="1">
 
 ## Maintainability
 
@@ -454,6 +464,10 @@ the future of learning–particularly online learning–may lie in guided
 tours of community-curated Q&A repositories rather than in things we
 would recognize as "lessons" today.
 
+</div>
+
+<div class="changed" markdown="1">
+
 ## A Reminder
 
 When designing a lesson, you must always remember that *you are not
@@ -464,6 +478,8 @@ certainly more knowledgeable about technology.  Don't assume that you
 know what they need or will understand: ask them, and actually pay
 attention to their answer.  After all, it's only fair that learning
 should go both ways.
+
+</div>
 
 ## Challenges
 
@@ -480,9 +496,11 @@ critique and improve the objectives.
 
 ### Write More Learning Objectives (20 minutes)
 
+<div class="changed" markdown="1">
 Write one more learning objectives for something you currently teach
 or plan to teach using Fink's Taxonomy.  Working with a partner,
 critique and improve the objectives.
+</div>
 
 [choral]: https://hapgood.us/2016/05/13/choral-explanations/
 [gdocs]: http://docs.google.com

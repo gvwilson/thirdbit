@@ -6,6 +6,8 @@ title: "How to Teach Programming (and Other Things): Marketing"
 
 # Marketing
 
+<div class="changed" markdown="1">
+
 It's hard to get people with technical backgrounds to think about marketing,
 not least because it's perceived as being about spin and misdirection.
 In reality,
@@ -318,6 +320,8 @@ whose support the organization needs.
 
 Identify two groups of people your organization needs support from,
 and write an elevator pitch aimed at each one.
+
+</div>
 
 [moz]: https://moz.com/learn/seo/on-page-factors
 [xkcd-website]: https://xkcd.com/773/

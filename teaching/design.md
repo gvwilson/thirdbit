@@ -1,10 +1,12 @@
 ---
 layout: teaching
 permalink: /teaching/design.html
-title: "How to Teach Programming (and Other Things): Course Design"
+title: "How to Teach Programming (and Other Things): Lesson Design Template"
 ---
 
-# Course Design
+# Lesson Design Template
+
+<div class="changed" markdown="1">
 
 Designing a good course is as hard as designing good software.  To
 help you, this appendix describes a process based on evidence-based
@@ -398,5 +400,7 @@ None.
 As noted at the start, this process is described as a sequence, but in
 practice you will loop back repeatedly as each stage informs you of
 something you overlooked.
+
+</div>
 
 [tdd]: https://en.wikipedia.org/wiki/Test-driven_development

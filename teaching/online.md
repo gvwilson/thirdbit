@@ -6,6 +6,8 @@ title: "How to Teach Programming (and Other Things): Teaching Online"
 
 # Teaching Online
 
+<div class="changed" markdown="1">
+
 Five years ago, you couldn't cross the street on a major university
 campus without hearing some talking about how teaching online was
 going to revolutionize education–or destroy it, or possibly both.
@@ -591,6 +593,8 @@ Katie Cunningham, Brian Dillingham, Mark Guzdial, Ian Hawke, Toby
 Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle Quinn, Ariel
 Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett, Stéfan van der
 Walt, Hadley Wickham, and Andromeda Yelton.
+
+</div>
 
 [adelaide-video]: https://www.adelaide.edu.au/learning/teaching/communities-of-practice/elearning/Guide_to_Creating_Educational_Videos.pdf
 [berlin]: https://en.wikipedia.org/wiki/Two_Concepts_of_Liberty

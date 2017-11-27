@@ -34,11 +34,11 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="ada-imposter">[Ada2017]</a> Ada Initiative: "Imposter Syndrome training".  <https://adainitiative.org/continue-our-work/impostor-syndrome-training/>, viewed May 2017.
 
-*   <a id="adams-seeds">[Adams1975]</a> Frank Adams: _[Unearthing Seeds of Fire: The Idea of Highlander](https://www.amazon.com/Unearthing-Seeds-Fire-Idea-Highlander/dp/0895870193/)_. John F. Blair, 1975, 978-0895870193. _A history of the Highlander Folk School and its founder, Myles Horton, who inspired many other social change organizations._
+*   <span class="changed" markdown="1"><a id="adams-seeds">[Adams1975]</a> Frank Adams: _[Unearthing Seeds of Fire: The Idea of Highlander](https://www.amazon.com/Unearthing-Seeds-Fire-Idea-Highlander/dp/0895870193/)_. John F. Blair, 1975, 978-0895870193. _A history of the Highlander Folk School and its founder, Myles Horton, who inspired many other social change organizations._</span>
 
 *   <a id="aiken-note-taking">[Aiken1975]</a> Edwin G. Aiken, Gary S. Thomas, and William A. Shennum: "Memory for a Lecture: Effects of Notes, Lecture Rate, and Informational Density." _Journal of Educational Psychology_, 67(3), June 1975, 10.1037/h0076613. _A landmark study showing that taking notes improves retention when learning._
 
-*   <a id="alinsky-rules">[Alinsky1989]</a> Saul Alinsky: _[Rules for Radicals: A Practical Primer for Realistic Radicals](https://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/)_ Vintage, 1989, 978-0679721130. _A widely-read guide to community organization written by one of the 20th Century's great organizers._
+*   <span class="changed" markdown="1"><a id="alinsky-rules">[Alinsky1989]</a> Saul Alinsky: _[Rules for Radicals: A Practical Primer for Realistic Radicals](https://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/)_ Vintage, 1989, 978-0679721130. _A widely-read guide to community organization written by one of the 20th Century's great organizers._</span>
 
 *   <a id="video-peer-instruction">[Avanti2013]</a>: Avanti Learning Centre: "ConcepTests at Avanti's Learning Centre in Kanpur." <https://www.youtube.com/watch?v=2LbuoxAy56o>, viewed April 2017.
 
@@ -48,15 +48,15 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="benner-expertise">[Benner2000]</a> Patricia Benner: _[From Novice to Expert: Excellence and Power in Clinical Nursing Practice](https://www.amazon.com/Novice-Expert-Excellence-Clinical-Commemorative/dp/0130325228/)_ Pearson, 2000, 978-0130325228. _A classic study of clinical judgment and how expertise develops._
 
-*   <a id="biggs-tang-quality">[Biggs2011]</a> John Biggs and Catherine Tang: _[Teaching for Quality Learning at University](https://www.amazon.com/Teaching-Learning-University-Research-Education/dp/0335242758/)_ Open University Press, 2011, 978-0335242757. _A step-by-step guide to lesson development, delivery, and evaluation for people working in higher education._
+*   <span class="changed" markdown="1"><a id="biggs-tang-quality">[Biggs2011]</a> John Biggs and Catherine Tang: _[Teaching for Quality Learning at University](https://www.amazon.com/Teaching-Learning-University-Research-Education/dp/0335242758/)_ Open University Press, 2011, 978-0335242757. _A step-by-step guide to lesson development, delivery, and evaluation for people working in higher education._</span>
 
 *   <a id="bohay-note-taking">[Bohay2011]</a> Mark Bohay, Daniel P. Blakely, Andrea K. Tamplin, and Gabriel A. Radvansky: "Note Taking, Review, Memory, and Comprehension." _American Journal of Psychology_, 124(1), 2011, 10.5406/amerjpsyc.124.1.0063. _Presents a study showing that note-taking improves retention most at deeper levels of understanding._
 
-*   <a id="bollier-commoner">[Bollier2014]</a> David Bollier: _[Think Like a Commoner: A Short Introduction to the Life of the Commons](https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/)_ New Society Publishers, 2014, 978-0865717688. _A short introduction to one of the most widely used kinds of governance in human societies throughout history._
+*   <span class="changed" markdown="1"><a id="bollier-commoner">[Bollier2014]</a> David Bollier: _[Think Like a Commoner: A Short Introduction to the Life of the Commons](https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/)_ New Society Publishers, 2014, 978-0865717688. _A short introduction to one of the most widely used kinds of governance in human societies throughout history._</span>
 
 *   <a id="brown-empirical">[Brown2014]</a> Neil C. C. Brown and Amjad Altadmri: "Investigating Novice Programming Mistakes: Educator Beliefs vs. Student Data." _Proc Tenth Annual Conference on International Computing Education Research_, 2014, 10.1145/2632320.2632343. _Uses data from over 100,000 students to show that educators know less than they think about what mistakes novice programmers actually make._
 
-*   <a id="cottom-lower-ed">[Cottom]</a> Tressie McMillan Cottom: *_[Lower Ed: The Troubling Rise of For-Profit Colleges in the New Economy](https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/)_*  The New Press, 2017, 978-1620970607. _Lays bare the dynamics of this growing "educational" industry to show how it leads to greater inequality rather than less._
+*   <span class="changed" markdown="1"><a id="cottom-lower-ed">[Cottom]</a> Tressie McMillan Cottom: *_[Lower Ed: The Troubling Rise of For-Profit Colleges in the New Economy](https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/)_*  The New Press, 2017, 978-1620970607. _Lays bare the dynamics of this growing "educational" industry to show how it leads to greater inequality rather than less._</span>
 
 *   <a id="cottrill-gifted">[Cottrill2016]</a> Cameron Cottrill: "Why Talented Black and Hispanic Students Can Go Undiscovered." <https://mobile.nytimes.com/2016/04/10/upshot/why-talented-black-and-hispanic-students-can-go-undiscovered.html>, viewed April 2017.
 
@@ -66,7 +66,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="epstein-thinking-physics">[Epstein2002]</a> L.C. Epstein: _[Thinking Physics is Gedanken Physics](https://www.amazon.com/Thinking-Physics-Understandable-Practical-Reality/dp/0935218084/)_ Insight Press, 2002: 978-0935218084. _An entertaining problem-based introduction to thinking like a physicist._
 
-*   <a id="ericson-parsons">[Ericson2017]</a> Barbara J. Ericson, Lauren E. Margulieux, and Jochen Rick: "Solving Parsons Problems Versus Fixing and Writing Code."  <em>Proc. Koli Calling 2017</em>, November 2017, 10.1145/3141880.3141895.  _Another in a series of studies showing that Parsons Problems are an effective way to teach programming._
+*   <span class="changed" markdown="1"><a id="ericson-parsons">[Ericson2017]</a> Barbara J. Ericson, Lauren E. Margulieux, and Jochen Rick: "Solving Parsons Problems Versus Fixing and Writing Code."  <em>Proc. Koli Calling 2017</em>, November 2017, 10.1145/3141880.3141895.  _Another in a series of studies showing that Parsons Problems are an effective way to teach programming._</span>
 
 *   <a id="fehily-sql">[Fehily2008]</a> Chris Fehily: _[SQL: Visual QuickStart Guide](https://www.amazon.com/SQL-Visual-QuickStart-Guide-3rd/dp/0321553578/)_ (3rd edition). Peachpit Press, 2008 978-0321553577. _An introduction to SQL that is both a good tutorial and a good reference guide._
 
@@ -78,7 +78,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="fink-significant">[Fink2013]</a> L. Dee Fink: _[Creating Significant Learning Experiences: An Integrated Approach to Designing College Courses](https://www.amazon.com/Creating-Significant-Learning-Experiences-Integrated/dp/1118124251/)_ (2nd edition). Jossey-Bass, 2013, 978-1118124253. _A step-by-step guide to a systematic lesson design process._
 
-*   <a id="fogel-poss">[Fogel2017]</a> Karl Fogel: _[Producing Open Source Software](http://producingoss.com/)_, viewed September 2017. _The second edition of the definitive description of how to set up and run an open software development project._
+*   <span class="changed" markdown="1"><a id="fogel-poss">[Fogel2017]</a> Karl Fogel: _[Producing Open Source Software](http://producingoss.com/)_, viewed September 2017. _The second edition of the definitive description of how to set up and run an open software development project._</span>
 
 *   <a id="gawande-personal-best">[Gawande2011]</a> Atul Gawande: "Personal Best." _The New Yorker_, October 3, 2011. _Describes how having a coach can improve practice in a wide variety of fields._
 
@@ -94,7 +94,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="hannay-pairing">[Hannay2009]</a> Jo E. Hannay, Tore Dybå, Erik Arisholm, and Dag I.K. Sjøberg: "The Effectiveness of Pair Programming: A Meta-Analysis." _Information and Software Technology_, 51(7), 2009, 10.1016/j.infsof.2009.02.001. _A summary of research on the effectiveness of pair programming._
 
-*   <a id="harms-parsons">[Harms2016]</a> Kyle James Harms, Jason Chen, and Caitlin L. Kelleher: "Distractors in Parsons Problems Decrease Learning Efficiency for Young Novice Programmers." _Proc. ICER 2016_, September 2016, 10.1145/2960310.2960314.  _Shows that adding distractors to Parsons Problems does not improve learning while increasing the time spent solving them._
+*   <span class="changed" markdown="1"><a id="harms-parsons">[Harms2016]</a> Kyle James Harms, Jason Chen, and Caitlin L. Kelleher: "Distractors in Parsons Problems Decrease Learning Efficiency for Young Novice Programmers." _Proc. ICER 2016_, September 2016, 10.1145/2960310.2960314.  _Shows that adding distractors to Parsons Problems does not improve learning while increasing the time spent solving them._</span>
 
 *   <a id="henderson-facilitating">[Henderson2011]</a> Charles Henderson, Andrea Beach, and Noah Finkelstein: "Facilitating Change in Undergraduate STEM Instructional Practices: An Analytic Review of the Literature." _Journal of Research in Science Teaching_, 48(8), 2011, 10.1002/tea.20439. _Describes eight approaches to effecting change in STEM education that form a useful framework for thinking about how free-range workshops can go mainstream._
 
@@ -112,13 +112,13 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="koedinger-doing-watching">[Koedinger2015]</a> Kenneth R. Koedinger, Jihee Kim, Julianna Zhuxin Jia, Elizabeth A. McLaughlin, and Norman L. Bier: "Learning is Not a Spectator Sport: Doing is Better Than Watching for Learning from a MOOC" _Proc. Second ACM Conference on Learning @ Scale_, 2015, 10.1145/2724660.2724681. _Measures the benefits of doing rather than watching._
 
-*  <a id="kraut-resnick-online">[Kraut2012]</a> Robert E. Kraut and Paul Resnick: _[Building Successful Online Communities: Evidence-Based Social Design](https://www.amazon.com/Building-Successful-Online-Communities-Evidence-Based/dp/0262016575/)_ MIT Press, 2012, 978-0262016575. _Sums up what we actually know about making thriving online communities and why we believe it's true._
+*  <<span class="changed" markdown="1">a id="kraut-resnick-online">[Kraut2012]</a> Robert E. Kraut and Paul Resnick: _[Building Successful Online Communities: Evidence-Based Social Design](https://www.amazon.com/Building-Successful-Online-Communities-Evidence-Based/dp/0262016575/)_ MIT Press, 2012, 978-0262016575. _Sums up what we actually know about making thriving online communities and why we believe it's true._</span>
 
-*  <a id="kuchner-marketing">[Kuchner2011]</a> Marc Kuchner: _[Marketing for Scientists: How to Shine in Tough Times](https://www.amazon.com/Marketing-Scientists-Shine-Tough-Times/dp/1597269948/)_.  Island Press, 2011, 978-1597269940. _A short, readable guide to making people aware of, and care about, your work._
+*  <<span class="changed" markdown="1">a id="kuchner-marketing">[Kuchner2011]</a> Marc Kuchner: _[Marketing for Scientists: How to Shine in Tough Times](https://www.amazon.com/Marketing-Scientists-Shine-Tough-Times/dp/1597269948/)_.  Island Press, 2011, 978-1597269940. _A short, readable guide to making people aware of, and care about, your work._</span>
 
 *   <a id="kuittinen-patterns">[Kuittinen2004]</a> Marja Kuittinen and Jorma Sajaniemi: "Teaching Roles of Variables in Elementary Programming Courses" _Proc. 9th Annual SIGCSE Conference on Innovation and Technology in Computer Science Education_, 2004, 10.1145/1007996.1008014. _Presents a few patterns used in novice programming and looks at the pedagogical value of teaching them._
 
-*   <a id="lang-cheating">[Lang2013]</a> James M. Lang: _[Cheating Lessons: Learning From Academic Dishonesty](https://www.amazon.com/Cheating-Lessons-Learning-Academic-Dishonesty/dp/0674724631/)_ Harvard University Press, 2013, 978-0674724631. _Explores why students cheat, and how courses often give them incentives to do so._
+*   <span class="changed" markdown="1"><a id="lang-cheating">[Lang2013]</a> James M. Lang: _[Cheating Lessons: Learning From Academic Dishonesty](https://www.amazon.com/Cheating-Lessons-Learning-Academic-Dishonesty/dp/0674724631/)_ Harvard University Press, 2013, 978-0674724631. _Explores why students cheat, and how courses often give them incentives to do so._</span>
 
 *   <a id="learning-theories">[Learning2017]</a> "Learning Theories" website. <http://www.learning-theories.com/>, viewed April 2017.
 
@@ -134,7 +134,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="mayer-nine-ways">[Mayer2003]</a> Richard E. Mayer and Roxana Moreno: "Nine Ways to Reduce Cognitive Load in Multimedia Learning." _Educational Psychologist_, 38, 2003. _Shows how research into how we absorb and process information can be applied to the design of instructional materials._
 
-*   <a id="midwest-organizing">[Midwest2010]</a>: Midwest Academy: _[Organizing for Social Change](https://www.amazon.com/Organizing-Social-Change-Bobo-Kendall/dp/0984275215/)_ (4th edition). Forum Press, 2010, 978-0984275212. _A practical step-by-step handbook for those who want to build effective social change organizations._
+*   <span class="changed" markdown="1"><a id="midwest-organizing">[Midwest2010]</a>: Midwest Academy: _[Organizing for Social Change](https://www.amazon.com/Organizing-Social-Change-Bobo-Kendall/dp/0984275215/)_ (4th edition). Forum Press, 2010, 978-0984275212. _A practical step-by-step handbook for those who want to build effective social change organizations._</span>
 
 *   <a id="miller-predictions">[Miller2013]</a> Kelly Miller, Nathaniel Lasry, Kelvin Chu, and Eric Mazur: "Role of Physics Lecture Demonstrations in Conceptual Learning." _Physical Review Physics Education Research_, 9(2), 2013, 10.1103/PhysRevSTPER.9.020113. _Reports a detailed study of what students learn during demonstrations and why._
 
@@ -148,13 +148,13 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="orndorff-note-taking">[Orndorff2015]</a> Harold N. Orndorff III: "Collaborative Note-Taking: The Impact of Cloud Computing on Classroom Performance." _International Journal of Teaching and Learning in Higher Education_, 27(3), 2015. _Presents a study showing that collaborative note-taking improves grades and learning outcomes._
 
-*   <a id="pare-joordens-peer">[Paré2008]</a> D.E. Paré and S. Joordens: "Peering Into Large Lectures: Examining Peer and Expert Mark Agreement Using peerScholar, an Online Peer Assessment Tool."  *Journal of Computer Assisted Learning*, August 2008, 10.1111/j.1365-2729.2008.00290.x. _Shows that peer grading by small groups can be as effective as expert grading once accountability features are introduced._
+*   <span class="changed" markdown="1"><a id="pare-joordens-peer">[Paré2008]</a> D.E. Paré and S. Joordens: "Peering Into Large Lectures: Examining Peer and Expert Mark Agreement Using peerScholar, an Online Peer Assessment Tool."  *Journal of Computer Assisted Learning*, August 2008, 10.1111/j.1365-2729.2008.00290.x. _Shows that peer grading by small groups can be as effective as expert grading once accountability features are introduced._</span>
 
 *   <a id="patitsas-cs-grades">[Patitsas2016]</a> Elizabeth Patitsas, Jesse Berlin, Michelle Craig, and Steve Easterbrook: "Evidence That Computer Science Grades Are Not Bimodal." _Proc. 2016 ACM Conference on International Computing Education Research_, 2016, 10.1145/2960310.2960312. _Presents a statistical analysis and an experiment which jointly show that grades in computing classes are not bimodal–i.e., there is no geek gene._
 
 *   <a id="petre-expertise">[Petre2016]</a> Marian Petre, André van der Hoek, and Yen Quach: _[Software Design Decoded: 66 Ways Experts Think](https://www.amazon.com/Software-Design-Decoded-Experts-Think/dp/0262035189/)_ MIT Press, 2016, 978-0262035187. _A short illustrated overview of how expert software developers think._
 
-*   <a id="pigni-idealists">[Pigni2016]</a> Alessandra Pigni: _[The Idealist's Survival Kit: 75 Simple Ways to Avoid Burnout](https://www.amazon.com/Idealists-Survival-Kit-Prevent-Burnout/dp/1941529348/)_. Parallax Press, 2016, 978-1941529348. _A guide to staying sane and healthy while doing good._
+*   <span class="changed" markdown="1"><a id="pigni-idealists">[Pigni2016]</a> Alessandra Pigni: _[The Idealist's Survival Kit: 75 Simple Ways to Avoid Burnout](https://www.amazon.com/Idealists-Survival-Kit-Prevent-Burnout/dp/1941529348/)_. Parallax Press, 2016, 978-1941529348. _A guide to staying sane and healthy while doing good._</span>
 
 *   <a id="porter-what-works">[Porter2013]</a> Leo Porter, Mark Guzdial, Charlie McDowell, and Beth Simon: "Success in Introductory Programming: What Works?" _Communications of the ACM_, 56(8), August 2013, 10.1145/2492007.2492020. _Summarizes the evidence that peer instruction, media computation, and pair programming can significantly improve outcomes in introductory programming courses._
 
@@ -164,9 +164,9 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="scott-state">[Scott1999]</a> J. C. Scott: _[Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed](https://www.amazon.com/Seeing-like-State-Certain-Condition/dp/0300078153/)_ Yale University Press, 1999, 978-0300128789. _Argues that large organizations consistently prefer uniformity over productivity._
 
-*   <a id="spalding-adults">[Spalding2014]</a> Dan Spalding: _[How to Teach Adults](https://www.amazon.com/How-Teach-Adults-Jossey-Bass-Education/dp/1118841360/)_ Jossey-Bass, 2014, 978-1118841365. _A short guide to teaching adult free-range learners informed by the author's social activism._
+*   <span class="changed" markdown="1"><a id="spalding-adults">[Spalding2014]</a> Dan Spalding: _[How to Teach Adults](https://www.amazon.com/How-Teach-Adults-Jossey-Bass-Education/dp/1118841360/)_ Jossey-Bass, 2014, 978-1118841365. _A short guide to teaching adult free-range learners informed by the author's social activism._</span>
 
-*   <a id="spannaus-video">[Spannaus2012]</a> Tim Spannaus: _[Creating Video for Teachers and Trainers: Producing Professional Video with Amateur Equipment](https://www.amazon.com/Creating-Video-Teachers-Trainers-Professional/dp/1118088093/)_ Pfeiffer, 2012, 978-1118088098. _A short, practical guide to doing exactly what the title says._
+*   <span class="changed" markdown="1"><a id="spannaus-video">[Spannaus2012]</a> Tim Spannaus: _[Creating Video for Teachers and Trainers: Producing Professional Video with Amateur Equipment](https://www.amazon.com/Creating-Video-Teachers-Trainers-Professional/dp/1118088093/)_ Pfeiffer, 2012, 978-1118088098. _A short, practical guide to doing exactly what the title says._</span>
 
 *   <a id="steele-vivaldi">[Steele2011]</a> C. M. Steele: _[Whistling Vivaldi: And Other Clues to How Stereotypes Affect Us](https://www.amazon.com/Whistling-Vivaldi-Stereotypes-Affect-Issues/dp/0393339726/)_ W. W. Norton, 2011, 978-0393341485. _Explains and explores stereotype threat and strategies for addressing it._
 
@@ -182,7 +182,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="w3c-accessibility">[W3C2017]</a> W3C Web Accessibility Initiative: "How to Make Presentations Accessible to All."  <https://www.w3.org/WAI/training/accessible>, accessed May 2017.
 
-*   <a id="watters-monsters">[Watters2014]</a> Audrey Watters: _[The Monsters of Education Technology](https://www.amazon.com/Monsters-Education-Technology-Audrey-Watters/dp/1505225051/)_ CreateSpace, 2014, 978-1505225051. _A collection of essays about the history of educational technology and the exaggerated claims repeatedly made for it. There's more criticism than prescription, but the former is well-informed and sharp-edged._
+*   <span class="changed" markdown="1"><a id="watters-monsters">[Watters2014]</a> Audrey Watters: _[The Monsters of Education Technology](https://www.amazon.com/Monsters-Education-Technology-Audrey-Watters/dp/1505225051/)_ CreateSpace, 2014, 978-1505225051. _A collection of essays about the history of educational technology and the exaggerated claims repeatedly made for it. There's more criticism than prescription, but the former is well-informed and sharp-edged._</span>
 
 *   <a id="wiggins-mctighe">[Wiggins2005]</a> G.P. Wiggins and J. McTighe: _[Understanding by Design](https://www.amazon.com/Understanding-Design-Grant-Wiggins/dp/1416600353/)_ Association for Supervision and Curriculum Development, 2005, 978-1416600350. _A lengthy presentation of reverse instructional design._
 
@@ -192,4 +192,4 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="wilson-bad-teaching-live">[Wilson2016]</a> Greg Wilson: "How to Teach Badly".  <https://www.youtube.com/watch?v=-ApVt04rB4U>, viewed May 2017.
 
-*   <a id="wilson-bad-teaching-recorded">[Wilson2017]</a> Greg Wilson: "How to Teach Badly (Part 2)".  <https://youtu.be/xcnoHaxXvdQ>, viewed November 2017.
+*   <span class="changed" markdown="1"><a id="wilson-bad-teaching-recorded">[Wilson2017]</a> Greg Wilson: "How to Teach Badly (Part 2)".  <https://youtu.be/xcnoHaxXvdQ>, viewed November 2017.</span>

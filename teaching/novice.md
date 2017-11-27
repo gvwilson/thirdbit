@@ -359,6 +359,8 @@ Describe another kind of formative assessment you have seen or used and
 explain how it helps both the instructor and the learner figure out
 where they are and what they need to do next.
 
+<div class="changed" markdown="1">
+
 ### A Different Progression (15 minutes)
 
 Another progression often used to describe the path from novice to expert is
@@ -374,6 +376,8 @@ the [four stages of competence][four-competence]:
 
 Describe one or more subjects related to programming for which you are
 at each of these levels.
+
+</div>
 
 [four-competence]: https://en.wikipedia.org/wiki/Four_stages_of_competence
 [swc-unix]: http://swcarpentry.github.io/shell-novice/

@@ -456,6 +456,8 @@ indicators of success?" Read
 example from your own experience of "objective" assessments that
 reinforced the status quo.
 
+<div class="changed" markdown="1">
+
 ### Credibility
 
 [[Fink2013](biblio.html#fink-significant)] describes three things
@@ -475,6 +477,8 @@ that make teachers credible in their learners' eyes:
 Describe one thing you do when teaching that fits into each category,
 and then describe one thing you *don't* do but should for each
 category as well
+
+</div>
 
 [ada-resources]: http://adainitiative.org/continue-our-work/impostor-syndrome-training/
 [growth-mindset-concerns]: http://www.learningspy.co.uk/psychology/growth-mindset-bollocks/

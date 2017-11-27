@@ -24,12 +24,14 @@ title: "How to Teach Programming (and Other Things): Glossary"
 
 *   **Bloom's Taxonomy**:
     <a name="blooms-taxonomy"></a>
+    <span class="changed" markdown="1">
     A six-part hierarchical classification of understand
     whose levels are *knowledge*, *comprehension*, *application*,
     *analysis*, *synthesis*, and *evaluation*
     that has [been widely adopted][wikipedia-bloom].
     <br>
     See also [Fink's Taxonomy](gloss.html#finks-taxonomy).
+    </span>
 
 *   **Chunking**:
     <a name="chunking"></a>
@@ -131,12 +133,14 @@ title: "How to Teach Programming (and Other Things): Glossary"
 
 *   **Fink's Taxonomy**:
     <a name="finks-taxonomy"></a>
+    <span class="changed" markdown="1">
     A six-part non-hierarhical classification of understanding
     first proposed in [[Fink2013](biblio.html#fink-significant)]
     whose categories are *foundational knowledge*, *application*,
     *integration*, *human dimension*, *caring*, and *learning how to learn*.
     <br>
     See also: [Bloom's Taxonomy](gloss.html#blooms-taxonomy).
+    </span>
 
 *   **Fixed Mindset**:
     <a name="fixed-mindset"></a>

@@ -6,6 +6,8 @@ title: "How to Teach Programming (and Other Things): Building Community"
 
 # Building Community
 
+<div class="changed" markdown="1">
+
 One person can only do so much.  Just as we learn best together, we
 teach best when we are teaching with other people, and the best way to
 achieve that is to build a community.
@@ -485,6 +487,8 @@ answers to those given by other members of your group.
 
 Thanks to everyone who contributed ideas to this list, including Erin Robinson,
 Matt Turk, and Belinda Weaver.
+
+</div>
 
 [4h]: http://www.4-h-canada.ca/
 [bgc]: http://www.blackgirlscode.com/
