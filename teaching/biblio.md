@@ -66,6 +66,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="epstein-thinking-physics">[Epstein2002]</a> L.C. Epstein: _[Thinking Physics is Gedanken Physics](https://www.amazon.com/Thinking-Physics-Understandable-Practical-Reality/dp/0935218084/)_ Insight Press, 2002: 978-0935218084. _An entertaining problem-based introduction to thinking like a physicist._
 
+*   <a id="ericson-parsons">[Ericson2017]</a> Barbara J. Ericson, Lauren E. Margulieux, and Jochen Rick: "Solving Parsons Problems Versus Fixing and Writing Code."  <em>Proc. Koli Calling 2017</em>, November 2017, 10.1145/3141880.3141895.  _Another in a series of studies showing that Parsons Problems are an effective way to teach programming._
+
 *   <a id="fehily-sql">[Fehily2008]</a> Chris Fehily: _[SQL: Visual QuickStart Guide](https://www.amazon.com/SQL-Visual-QuickStart-Guide-3rd/dp/0321553578/)_ (3rd edition). Peachpit Press, 2008 978-0321553577. _An introduction to SQL that is both a good tutorial and a good reference guide._
 
 *   <a id="fincher-stories-change">[Fincher2012]</a> Sally Fincher, Brad Richards, Janet Finlay, Helen Sharp, and Isobel Falconer: "Stories of Change: How Educators Change Their Practice." _Proc. Frontiers in Education Conference_, 2012, 10.1109/FIE.2012.6462317. _A detailed look at how educators actually adopt new teaching practices._
@@ -91,6 +93,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 *   <a id="guzdial-top10">[Guzdial2015a]</a> Mark Guzdial: "Top 10 Myths About Teaching Computer Science". _Communications of the ACM_, 2015, <https://cacm.acm.org/blogs/blog-cacm/189498-top-10-myths-about-teaching-computer-science/fulltext>. _Ten things many people believe that aren't true._
 
 *   <a id="hannay-pairing">[Hannay2009]</a> Jo E. Hannay, Tore Dybå, Erik Arisholm, and Dag I.K. Sjøberg: "The Effectiveness of Pair Programming: A Meta-Analysis." _Information and Software Technology_, 51(7), 2009, 10.1016/j.infsof.2009.02.001. _A summary of research on the effectiveness of pair programming._
+
+*   <a id="harms-parsons">[Harms2016]</a> Kyle James Harms, Jason Chen, and Caitlin L. Kelleher: "Distractors in Parsons Problems Decrease Learning Efficiency for Young Novice Programmers." _Proc. ICER 2016_, September 2016, 10.1145/2960310.2960314.  _Shows that adding distractors to Parsons Problems does not improve learning while increasing the time spent solving them._
 
 *   <a id="henderson-facilitating">[Henderson2011]</a> Charles Henderson, Andrea Beach, and Noah Finkelstein: "Facilitating Change in Undergraduate STEM Instructional Practices: An Analytic Review of the Literature." _Journal of Research in Science Teaching_, 48(8), 2011, 10.1002/tea.20439. _Describes eight approaches to effecting change in STEM education that form a useful framework for thinking about how free-range workshops can go mainstream._
 

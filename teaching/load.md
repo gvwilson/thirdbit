@@ -184,7 +184,9 @@ lines of code they need to solve a problem, and ask them to put them
 in the right order.  This allows them to concentrate on control flow
 and data dependencies, i.e., on what has to happen before what,
 without being distracted by variable naming or trying to remember what
-functions to call.
+functions to call.  Multiple studies have shown that Parsons Problems
+take less time for learners to do, but produce equivalent educational
+outcomes [[Ericons2017](biblio.html#ericson-parsons)].
 
 ## Pattern Recognition
 

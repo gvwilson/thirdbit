@@ -304,13 +304,13 @@ of exercise that avoids the "blank screen of terror" problem: the
 student is given the lines of code needed to solve a problem, but has
 to put them in the right order.  Research over the past few years has
 shown that Parsons Problems are effective because they allow students
-to concentrate on control flow ("what order do I do things?")
-separately from vocabulary ("what do I need to do?"). The same
-research shows that giving the student more lines than she needs, or
-asking her to rearrange some lines and add a few more, makes this kind
-of problem significantly harder. Parsons Problems can be emulated
-(albeit somewhat clumsily) by asking students to rearrange code in an
-editor.
+to concentrate on control flow separately from vocabulary
+[[Ericons2017](biblio.html#ericson-parsons)]. The same research shows
+that giving the student more lines than she needs, or asking her to
+rearrange some lines and add a few more, makes this kind of problem
+significantly harder [[Harms2017](biblio.html#harms-parsons)].
+Parsons Problems can be emulated (albeit somewhat clumsily) by asking
+students to rearrange code in an editor.
 
 > Example: rearrange and indent these lines to calculate the sums of the
 > positive and negative values in a list.
