@@ -545,18 +545,18 @@ currently don't support.
 
 All of this discussion has assumed that grading must be fully
 automatic in order to scale to large classes, but that is not
-necessarily true.  [[Paré2008](biblio.html#pare-joordens-peer)]
-conducted an experiment in which each undergraduate student's short
-essay was graded by a graduate-level teaching assistant, and also by a
-small number of their peers.  They found that combining the grades
-given by peers produced scores that agreed with the TAs as often and
-as well as the TAs agreed with each other, provided a few simple steps
-were taken to filter out junk responses (e.g., peers who gave
-everything 5 out of 10 without even glancing at it).  Much more
-research needs to be done, but given that critical reading is an
-effective way to learn, this result may point to a future in which
-learners use technology to make judgments, rather than being judged by
-technology.
+necessarily true.  [[Paré2008](biblio.html#pare-joordens-peer)] and
+[[Kulkarni2013](biblio.html#kulkarni-peer-grading)] report experiments
+in which learners grade each other's work, and the grades they assign
+are then compared with grades given by graduate-level teaching
+assistants or other experts.  Both found that student-assigned grades
+agreed with expert-assigned grades as often as the experts' grades
+agreed with each other, and that a few simple steps (such as filtering
+out obviously unconsidered responses or structuring rubrics) decreased
+disagreement even further.  Much more research needs to be done, but
+given that critical reading is an effective way to learn, this result
+may point to a future in which learners use technology to make
+judgments, rather than being judged by technology.
 
 ## Challenges
 

@@ -118,6 +118,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="kuittinen-patterns">[Kuittinen2004]</a> Marja Kuittinen and Jorma Sajaniemi: "Teaching Roles of Variables in Elementary Programming Courses" _Proc. 9th Annual SIGCSE Conference on Innovation and Technology in Computer Science Education_, 2004, 10.1145/1007996.1008014. _Presents a few patterns used in novice programming and looks at the pedagogical value of teaching them._
 
+*   <a id="kulkarni-peer-grading">[Kulkarni2013]</a> Chinmay Kulkarni, Koh Pang Wei, Huy Le, Daniel Chia, Kathryn Papadopoulos, Justin Cheng, Daphne Koller, and Scott R. Klemmer: "Peer and Self Assessment in Massive Online Classes". _ACM Transactions on Computer-Human Interaction_, 20(6), 2013, 10.1145/2505057. _Replicates the finding of [[Paré2008](biblio.html#pare-joordens-peer)] that peer grading can be as effective at scale as expert grading._
+
 *   <span class="changed" markdown="1"><a id="lang-cheating">[Lang2013]</a> James M. Lang: _[Cheating Lessons: Learning From Academic Dishonesty](https://www.amazon.com/Cheating-Lessons-Learning-Academic-Dishonesty/dp/0674724631/)_ Harvard University Press, 2013, 978-0674724631. _Explores why students cheat, and how courses often give them incentives to do so._</span>
 
 *   <a id="learning-theories">[Learning2017]</a> "Learning Theories" website. <http://www.learning-theories.com/>, viewed April 2017.
