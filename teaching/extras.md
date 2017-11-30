@@ -190,6 +190,37 @@ which is full of PCK for teaching introductory statistics.  The CS
 Teaching Tips site [[Tips2017](biblio.html#cs-teaching-tips)] is
 gathering similar ideas for computing.
 
+## Situated Learning
+
+A framework in which to think about grassroots education is
+_[situated learning](gloss.html#situated-learning)_, which focuses on
+how _[legitimate peripheral participation](gloss.html#legitimate-peripheral-participation)_
+leads to people becoming members of a
+_[community of practice](gloss.html#community-of-practice)_.
+Unpacking those terms, a community of practice is a group of people
+bound together by interest in some activity, such as knitting or
+particle physics.  Legitimate peripheral participation means doing
+simple, low-risk tasks that community nevertheless recognizes as valid
+contributions: making your first scarf, stuffing envelopes during an
+election campaign, or proof-reading documentation for open source
+software.
+
+Situated learning focuses on the transition from being a newcomer to
+being accepted as a peer by those who are already community members.
+This typically means starting with simplified tasks and tools, then
+doing similar tasks with more complex tools, and finally tackling the
+challenges of advanced practitioners.  For example, children learning
+music may start by playing nursery rhymes on a recorder or ukulele,
+then play other simple songs on a trumpet or saxophone in a band, and
+finally start exploring their own musical tastes.  Healthy communities
+understand and support these progressions, and recognize that each
+step is meant to give people a ramp rather than a cliff.
+
+Whatever the domain, situated learning emphasizes that learning is a
+social activity.  In order to be effective and sustainable, teaching
+therefore needs to be rooted in a community; if one doesn't exist, you
+need to build one.
+
 ## Myths
 
 One [well-known scheme][wikipedia-learning-modalities] characterizes

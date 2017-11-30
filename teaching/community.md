@@ -12,34 +12,6 @@ One person can only do so much.  Just as we learn best together, we
 teach best when we are teaching with other people, and the best way to
 achieve that is to build a community.
 
-A framework in which to think about doing this is _[situated
-learning](gloss.html#situated-learning)_, which focuses on how
-_[legitimate peripheral participation](gloss.html#legitimate-peripheral-participation)_
-leads to people becoming members of a _[community of practice](gloss.html#community-of-practice)_.
-Unpacking those terms, a community of practice is a group of people
-bound together by interest in some activity, such as knitting or
-particle physics.  Legitimate peripheral participation means doing
-simple, low-risk tasks that community nevertheless recognizes as valid
-contributions: making your first scarf, stuffing envelopes during an
-election campaign, or proof-reading documentation for open source
-software.
-
-Situated learning focuses on the transition from being a newcomer to
-being accepted as a peer by those who are already community members.
-This typically means starting with simplified tasks and tools, then
-doing similar tasks with more complex tools, and finally tackling the
-challenges of advanced practitioners.  For example, children learning
-music may start by playing nursery rhymes on a recorder or ukulele,
-then play other simple songs on a trumpet or saxophone in a band, and
-finally start exploring their own musical tastes.  Healthy communities
-understand and support these progressions, and recognize that each
-step is meant to give people a ramp rather than a cliff.
-
-Whatever the domain, situated learning emphasizes that learning is a
-social activity.  In order to be effective and sustainable, teaching
-therefore needs to be rooted in a community; if one doesn't exist, you
-need to build one.
-
 ## Learn, Then Do
 
 The first step in building a community is to decide if you really need
@@ -196,10 +168,10 @@ do to get newcomers over this initial hump are:
 
 2.  Give newcomers a mentor, and make sure the mentors actually do
     some proactive mentoring.  The most important things a mentor can
-    do are make introductions and explain the unwritten rules ("Oh,
-    Giselle always takes care of that…"), so make it clear to mentors
-    that these are their primary responsibilities, and they are to
-    report back to you every few weeks to tell you what they've done.
+    do are make introductions and explain the unwritten rules, so make
+    it clear to mentors that these are their primary responsibilities,
+    and they are to report back to you every few weeks to tell you
+    what they've done.
 
 The second part of the volunteer lifecycle is retention, which is a
 large enough topic to deserve its own section.  The third and final
@@ -332,12 +304,12 @@ discussion of the options is outside the scope of this book.  The most
 important thing to keep in mind is that countries and corporations are
 only two of many governance models, and that a commons is often a
 better model for volunteer teaching organizations.  A commons is
-something managed jointly by a community according to rules they
-themselves have evolved and adopted; as
-[[Bollier2014](biblio.html#bollier-commoner)] repeatedly emphasizes,
-all three parts of that equation are essential: a commons isn't just a
-thing, like a shared pasture, but is necessarily also comprised of a
-community who share it and the rules they use to do so.
+"something managed jointly by a community according to rules they
+themselves have evolved and adopted"; as
+[[Bollier2014](biblio.html#bollier-commoner)] emphasizes, all three
+parts of that definition are essential: a commons isn't just a shared
+pasture, but also includes the community that shares it and the rules
+they use to do so.
 
 Most resources, throughout most of human history, have been commons:
 it is only in the last few hundred years that impersonal markets have
