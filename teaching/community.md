@@ -159,6 +159,31 @@ help you want as well as stories about the people you're helping, and
 make it clear that there are many ways to get involved.  (We discuss
 this in more detail in the next section.)
 
+Your best source of new recruits is your own classes: "see one, do
+one, teach one" has worked well for volunteer organizations for as
+long as there have *been* volunteer organizations.  Make sure that
+every class or other encounter ends with two sentences explaining how
+people can help, and that help is welcome.  People who come to you
+this way will know what you do, and will have recent experience of
+being on the receiving end of what you offer that they can draw on,
+which helps your organization avoid collective
+[expert blind spot](gloss.html#expert-blind-spot).
+
+> **Start Small**
+>
+> As [Ben Franklin][franklin-effect] observed, a person who has
+> performed a favor for someone is more likely to do another favor for
+> that person than they would be if they had received a favor from
+> that person.  Asking people to do something small for you is
+> therefore a good step toward getting them to do something larger.
+> One natural way to do this when teaching is to ask people to submit
+> fixes for your lesson materials for typos or unclear wording, or to
+> suggest new exercises or examples.  If your materials are written in
+> a [maintainable way](lessons.html#maintainability), this gives them
+> a chance to practice some useful skills, and gives you an
+> opportunity to start a conversation that might lead to a new
+> recruit.
+
 Recruiting doesn't end when someone first shows up: if you don't
 follow through, people will come out once or twice, then decide that
 what you're doing isn't for them and disappear.  Two things you can
@@ -244,14 +269,6 @@ are getting something they value out of their work:
     highly-connected network in which others feel comfortable
     participating.
 
-> **Start Small**
->
-> As [Ben Franklin][franklin-effect] observed, a person who has
-> performed a favor for someone is more likely to do another favor for
-> that person than they would be if they had received a favor from
-> that person.  Asking people to do something small for you is
-> therefore a good step toward getting them to do something larger.
-
 Another way to make participation rewarding is to provide training.
 Organizations require committees, meetings, budgets, grant proposals,
 and dispute resolution; most people are never taught how to do any of
@@ -269,7 +286,7 @@ should therefore set aside an hour or two every month to find allies
 and maintain your relationships with them.  One way to do this is to
 ask them for advice: how do they think you ought to raise awareness of
 what you're doing? Where have they found space to run classes?  What
-needs to they think aren't being met, and would you be able to meet
+needs do they think aren't being met, and would you be able to meet
 them (either on your own, or in partnership with them)?  Any group
 that has been around for a few years will have useful advice; they
 will also be flattered to be asked, and will know who you are the next
@@ -288,7 +305,7 @@ time you call.
 > wording of a grand vision statement.  (Most people who prefer the
 > latter are *only* interested in arguing…) To be effective you should
 > therefore focus on things that are immediately useful, e.g., on what
-> can people create that will be used by other community members write
+> people can create that will be used by other community members right
 > away.  Once your organization shows that it can actually achieve
 > things–even small things–people will be more confident that it's
 > worth thinking about bigger issues.
@@ -334,8 +351,8 @@ Since society has difficulty recognizing commons organizations, and
 since most of the people you will want to recruit don't have
 experience with them, you will probably wind up having some sort of
 board, a director, and other staff.  Broadly speaking, your
-organization can can either a *service board*, whose members also take
-on other roles in the organization, or a *governance board* whose
+organization can have either a *service board*, whose members also
+take on other roles in the organization, or a *governance board* whose
 primary responsibility is to hire, monitor, and if need be fire the
 director.  Board members can be elected by the community or appointed;
 in either case, it's important to prioritize competence over passion
