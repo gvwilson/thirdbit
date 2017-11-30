@@ -66,6 +66,78 @@ groups, while [[Spalding2014](biblio.html#spalding-adults)] is a guide
 to teaching adults written by someone with deep personal roots in
 organizing.
 
+### Meetings, Meetings, Meetings
+
+Knowing how to run a meeting efficiently is *the* core skills of
+community organizers; knowing how to take part in someone else's
+meeting is just as important, but gets far less attention.  (As a
+colleague once said, everyone offers leadership training, nobody
+offers followership training.)  The most important rules for making
+meetings efficient are:
+
+1.  *Decide if there actually needs to be a meeting.* If the only
+    purpose is to share information, have everyone send a brief email
+    instead.
+
+2.  *Choose a chair.* A meeting without a chair is going to work just
+    about as well as an orchestra without a conductor.
+
+3.  *Write down the agenda, with timings.*  List the items that are
+    to be discussed and estimate the time allowed for each.  Your
+    first estimates with any new group will be wildly optimistic,
+    so revise them upward for subsequent meetings.
+
+4.  *No technology.* Insist that everyone put their phones, tablets,
+    and laptops into politeness mode (i.e., closes them).
+
+5.  *Record minutes.*  Someone other than the chair should take
+    point-form notes about the most important pieces of information
+    that were shared, and about every decision that was made or every
+    task that was assigned to someone.
+
+6.  *Make sure the chair doesn't speak more than anyone else.*  The
+    chair is there to make sure that the meeting keeps moving, *not*
+    to do most of the talking.
+
+7.  *Require politeness.* No one gets to interrupt anyone, no one gets
+    to ramble, and if someone goes off topic, it's the chair's job to
+    say, "Let's discuss that elsewhere."
+
+8.  *End on early.* If your meeting is scheduled for 10:00-11:00, you
+    should aim to end at 10:55 to give people time to get where they
+    need to go next.
+
+[[Brown2007](biblio.html#brown-bpco)] and
+[[Brookfield2016](biblio.html#brookfield-discussion)] have lots of
+good advice on running meetings, and if you want to "learn, then do",
+an hour of training on chairing meetings is the most effective place
+to start.
+
+> **Sticky Notes and Interruption Bingo**
+>
+> Some people are so used to the sound of their own voice that they
+> will insist on talking half the time no matter how many other people
+> are in the room. One way to combat this is to give everyone three
+> sticky notes at the start of the meeting.  Every time they speak,
+> they have to take down one sticky note.  When they're out of notes,
+> they aren't allowed to speak until everyone has used at least one,
+> at which point everyone gets all of their sticky notes back.  This
+> ensures that nobody talks more than three times as often as the
+> quietest person in the meeting, and completely changes the dynamics
+> of most groups: people who have given up trying to be heard because
+> they always get trampled suddenly have space to contribute, and
+> the overly-frequent speakers quickly realize just how unfair they
+> have been.
+>
+> Another useful technique is called interruption bingo.  Draw a grid,
+> and label the rows and columns with the participants' names.  Each
+> time someone interrupts someone else, add a tally mark to the
+> appropriate cell.  Halfway through the meeting, take a moment to
+> look at the results.  In most cases, you will see that one or two
+> people are doing all of the interrupting, often without being aware
+> of it.  After that, saying, "All right, I'm adding another tally to
+> the bingo card," is often enough to get them to throttle back.
+
 ## Three Steps
 
 > *  Me in 2012: I'm not going to worry about retaining volunteers
