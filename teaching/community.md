@@ -227,80 +227,6 @@ administration and accounting need full-time paid staff.  This is
 often a difficult transition for grassroots organizations, but is
 outside the scope of this book.
 
-### People You Don't Want On Your Team
-
-One way to think about the community you want is to think about the
-people you *don't* want in it.
-
-*   *Anna* knows more about every subject than everyone else put
-    together–at least, she thinks she does. No matter what you say,
-    she'll correct you; no matter what you know, she knows
-    better. Annas are pretty easy to spot: if you keep track in team
-    meetings of how often people interrupt one another, her score is
-    usually higher than everyone else's put together.
-
-*   *Bao* is a contrarian: no matter what anyone says, he'll take the
-    opposite side. This is healthy in small doses, but when Bao does
-    it, there's always another objection lurking behind the first half
-    dozen.
-
-*   *Catherine* has so little confidence in her own ability that she
-    won't make any decision, no matter how small, until she has
-    checked with someone else. Everything has to be spelled out in
-    detail for her so that there's no possibility of her getting
-    anything wrong.
-
-*   *Frank* believes that knowledge is power. He enjoys knowing things
-    that other people don't–or to be more accurate, he enjoys it when
-    people know he knows things they don't. Frank can actually make
-    things work, but when asked how he did it, he'll grin and say,
-    "Oh, I'm sure you can figure it out."
-
-*   *Hediyeh* is quiet. Very quiet. She never speaks up in meetings,
-    even when she knows that what other people are saying is
-    wrong. She might contribute to the mailing list, but she's very
-    sensitive to criticism, and will always back down rather than
-    defending her point of view. Hediyeh isn't a troublemaker, but
-    rather a lost opportunity.
-
-*   *Kenny* is a hitchhiker. He has discovered that most people would
-    rather shoulder some extra work than snitch, and he takes
-    advantage of it at every turn. The frustrating thing is that he's
-    so damn *plausible* when someone finally does confront him. "There
-    have been mistakes on all sides," he says, or, "Well, I think
-    you're nit-picking." The only way to deal with Kenny is to stand
-    up to him: remember, if he's not doing his share, *he's the bad
-    guy*, not you.
-
-*   *Melissa* would easily have made the varsity procrastination team if
-    she'd bothered to show up to tryouts. She means well–she really
-    does feel bad about letting people down–but somehow something
-    always comes up, and her tasks are never finished until the last
-    possible moment. Of course, that means that everyone who is
-    depending on her can't do their work until *after* the last
-    possible moment...
-
-*   *Petra*'s favorite phrase is "why don't we". Why don't we rewrite
-    all of our courses? Hey, why don't we invent our own language for
-    teaching?  Her energy and enthusiasm are hard to argue with, but
-    argue you must. Otherwise, for every step you move forward, the
-    project's goalposts will recede by two.
-
-*   *Raj* is rude. "It's just the way I talk," he says, "If you can't
-    hack it, maybe you should find another team." His favorite phrase
-    is, "That's stupid," and he uses obscenity as casually as minor
-    characters in Tarantino films. His only redeeming grace is that he
-    can't dissemble in front of the instructor as well as Kenny, so
-    he's easier to get rid of.
-
-*   *Sergei* is simply incompetent. He doesn't understand the problem,
-    he hasn't bothered to master the tools and libraries he's supposed
-    to be using, the code he checks in doesn't compile, and his
-    thirty-second bug fixes introduce more problems than they
-    solve. If he means well, try to re-partition the work so that
-    he'll do less damage. If he doesn't, he should be treated like any
-    other hitchhiker.
-
 ## Governance
 
 As Jo Freeman pointed out in her influential essay "[The Tyranny of
@@ -379,6 +305,51 @@ useful book on building community organizations.
 
 Which of the descriptions of people you don't want on your team do you
 fit?  What can you do about it?
+
+### People You May Meet (30 minutes)
+
+As an organizer, part of your job is sometimes to help people find a
+way to contribute despite themselves.  In small groups, pick three of
+the people below and discuss how you would help them become a better
+contributor to your organization.
+
+*   *Anna* knows more about every subject than everyone else put
+    together–at least, she thinks she does. No matter what you say,
+    she'll correct you; no matter what you know, she knows
+    better.
+
+*   *Catherine* has so little confidence in her own ability that she
+    won't make any decision, no matter how small, until she has
+    checked with someone else.
+
+*   *Frank* believes that knowledge is power, and enjoys knowing things
+    that other people don't.  He can make things work, but when asked
+    how he did it, he'll grin and say, "Oh, I'm sure you can figure it
+    out."
+
+*   *Hediyeh* is quiet. She never speaks up in meetings, even when she
+    knows that what other people are saying is wrong. She might
+    contribute to the mailing list, but she's very sensitive to
+    criticism, and will always back down rather than defending her
+    point of view. Hediyeh isn't a troublemaker, but rather a lost
+    opportunity.
+
+*   *Kenny* has discovered that most people would rather shoulder his
+    share of the work than complain about him, and he takes advantage
+    of it at every turn. The frustrating thing is that he's so damn
+    *plausible* when someone finally does confront him. "There have
+    been mistakes on all sides," he says, or, "Well, I think you're
+    nit-picking."
+
+*   *Melissa* means well, but somehow something always comes up, and her
+    tasks are never finished until the last possible moment. Of
+    course, that means that everyone who is depending on her can't do
+    their work until *after* the last possible moment...
+
+*   *Raj* is rude. "It's just the way I talk," he says, "If you can't
+    hack it, maybe you should find another team." His favorite phrase
+    is, "That's stupid," and he uses obscenity as casually as minor
+    characters in Tarantino films.
 
 ### Values (45 minutes)
 
