@@ -517,8 +517,9 @@ answers to those given by other members of your group.
 
 ## Acknowledgments
 
-Thanks to everyone who contributed ideas to this list, including Kate
-Hertweck, Toby Hodges, Erin Robinson, Matt Turk, and Belinda Weaver.
+Thanks to everyone who contributed ideas to this section, including
+Ian Hawke, Kate Hertweck, Toby Hodges, Erin Robinson, Matt Turk, and
+Belinda Weaver.
 
 </div>
 
