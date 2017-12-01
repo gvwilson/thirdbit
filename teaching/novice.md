@@ -183,24 +183,24 @@ tell whether someone knows something or not. For example, suppose we
 are teaching children multi-digit addition. A well-designed MCQ would
 be:
 
-> Q: what is 27 + 15 ?
+> Q: what is 37 + 15 ?
 >
+> 1.  52
 > 1.  42
-> 1.  32
-> 1.  312
-> 1.  33
+> 1.  412
+> 1.  43
 
-The correct answer is 42, but each of the other answers provides
+The correct answer is 52, but each of the other answers provides
 valuable insight:
 
-*   If the child answers 32, she is throwing away the carry completely.
+*   If the child answers 42, she is throwing away the carry completely.
 
-*   If she answers 312, she knows that she can't just discard the
+*   If she answers 412, she knows that she can't just discard the
     carried 1, but doesn't understand that it's actually a ten and needs
     to be added into the next column. In other words, she is treating
     each column of numbers as unconnected to its neighbors.
 
-*   If she answers 33 then she knows she has to carry the 1, but is
+*   If she answers 43 then she knows she has to carry the 1, but is
     carrying it back into the same column it came from.
 
 Each of these incorrect answers is a _[plausible
@@ -279,26 +279,6 @@ never used in class because it forces the instructor to think about
 the learners' mental models and how they might be broken–in short,
 to put themselves into the learners' heads and see the topic from
 their point of view.
-
-> **Why Not MOOCs**
->
-> Massive open online courses (MOOCs) in which students watch videos
-> instead of attending lectures, and then do assignments that are
-> (usually) robo-graded, were a hot topic a few years ago.  Now that
-> the hype has worn off, though, it's clear that they aren't as
-> effective as their more enthusiastic proponents claimed they would
-> be [[Ubell2017](biblio.html#ubell-moocs)].
->
-> Recorded content is ineffective for most novices learners because it
-> cannot intervene to clear up specific learners' misconceptions. Some
-> people happen to already have the right conceptual categories for a
-> subject, or happen to form them correctly early on; these are the
-> ones who stick with most massive online courses, but many
-> discussions of the effectiveness of such courses ignore this
-> survivor bias.
->
-> *If you use robots to teach, you teach people to be robots.*  
-> – variously attributed
 
 ## Teaching Practices
 

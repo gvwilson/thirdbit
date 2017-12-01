@@ -8,12 +8,28 @@ title: "How to Teach Programming (and Other Things): Teaching Online"
 
 <div class="changed" markdown="1">
 
+> *If you use robots to teach, you teach people to be robots.*  
+> – variously attributed
+
 Five years ago, you couldn't cross the street on a major university
 campus without hearing some talking about how teaching online was
-going to revolutionize education–or destroy it, or possibly both.
-What most of those evangelists and doomsayers didn't realize was that
-MOOCs and other forms of online education were just the latest in a
-long series of proposals to use machines to teach.  As
+going to revolutionize education–or destroy it, or possibly both.  Now
+that the hype has worn off, it's clear that while almost all learning
+now has an online component, MOOCs (massive open online courses)
+aren't as effective as their more enthusiastic proponents claimed they
+would be [[Ubell2017](biblio.html#ubell-moocs)].
+
+One reason is that recorded content is ineffective for most novices
+learners because it cannot intervene to clear up specific learners'
+misconceptions. Some people happen to already have the right
+conceptual categories for a subject, or happen to form them correctly
+early on; these are the ones who stick with most massive online
+courses, but many discussions of the effectiveness of such courses
+ignore this survivor bias.
+
+What most enthusiasts also didn't realize was that MOOCs and other
+forms of online education were just the latest in a long series of
+proposals to use machines to teach.  As
 [[Watters2014](biblio.html#watters-monsters)] has chronicled, every
 innovation in communications from the printing press through radio and
 television to desktop computers and now mobile devices, has spawned a
