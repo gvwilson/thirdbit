@@ -86,7 +86,7 @@ meetings efficient are:
     to ramble, and if someone goes off topic, it's the chair's job to
     say, "Let's discuss that elsewhere."
 
-8.  *End on early.* If your meeting is scheduled for 10:00-11:00, you
+8.  *End early.* If your meeting is scheduled for 10:00-11:00, you
     should aim to end at 10:55 to give people time to get where they
     need to go next.
 
