@@ -190,6 +190,8 @@ would Jorge face?"
 
 <!-- comment needed to separate blockquotes -->
 
+<div class="changed" markdown="1">
+
 > **Deciding What to Teach**
 >
 > There are two ways to decide what to teach: pick material and then
@@ -203,6 +205,8 @@ would Jorge face?"
 > 3. Be honest (i.e., use authentic tasks).
 > 4. Be generative and productive.
 > 5. Test your ideas rather than trusting your instincts.
+
+</div>
 
 ## Learning Objectives
 
