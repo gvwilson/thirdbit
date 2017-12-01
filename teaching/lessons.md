@@ -6,17 +6,17 @@ title: "How to Teach Programming (and Other Things): Designing Lessons"
 
 # Designing Lessons
 
-**Objectives**
-
-* **Learners can describe the steps in reverse instructional design
-  and explain why it generally produces better lessons than the
-  usual "forward" lesson development process.**
-* **Learners can define "teaching to the test" and explain why
-  reverse instructional design is *not* the same thing.**
-* **Learners can construct and critique five-part learner personas.**
-* **Learners can construct good learning objectives and critique
-  learning objectives with reference to Bloom's Taxonomy and/or
-  Fink's Taxonomy.**
+> **Objectives**
+>
+> * Learners can describe the steps in reverse instructional design
+>   and explain why it generally produces better lessons than the
+>   usual "forward" lesson development process.
+> * Learners can define "teaching to the test" and explain why
+>   reverse instructional design is *not* the same thing.
+> * Learners can construct and critique five-part learner personas.
+> * Learners can construct good learning objectives and critique
+>   learning objectives with reference to Bloom's Taxonomy and/or
+>   Fink's Taxonomy.
 
 Most people design lessons as follows:
 

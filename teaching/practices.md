@@ -6,13 +6,13 @@ title: "How to Teach Programming (and Other Things): Teaching Practices"
 
 # Teaching Practices
 
-**Objectives**
-
-* **Learners can name, describe, and enact four teaching practices that
-  are appropriate to use in programming workshops for adults, and
-  give a pedagogical justification for each.**
-* **Learners can explain why instructors should *not* introduce new
-  pedagogical practices in a short workshop.**
+> **Objectives**
+>
+> * Learners can name, describe, and enact four teaching practices that
+>   are appropriate to use in programming workshops for adults, and
+>   give a pedagogical justification for each.
+> * Learners can explain why instructors should *not* introduce new
+>   pedagogical practices in a short workshop.
 
 Just as domain expertise is often a matter of [pattern
 recognition](load.html#pattern-recognition), teaching expertise often

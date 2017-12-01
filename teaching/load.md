@@ -6,16 +6,16 @@ title: "How to Teach Programming (and Other Things): Cognitive Load"
 
 # Cognitive Load
 
-**Objectives**
-
-* **Learners can define cognitive load and explain how consideration
-  of it can be used to shape instruction.**
-* **Learners can explain what faded examples are and construct faded
-  examples for use in programming workshops.**
-* **Learners can explain what Parsons Problems are and construct
-  Parsons Problems for use in programming workshops.**
-* **Learners can describe ways they differ from their own students and
-  what effect those differences have on instruction.**
+> **Objectives**
+>
+> * Learners can define cognitive load and explain how consideration
+>   of it can be used to shape instruction.
+> * Learners can explain what faded examples are and construct faded
+>   examples for use in programming workshops.
+> * Learners can explain what Parsons Problems are and construct
+>   Parsons Problems for use in programming workshops.
+> * Learners can describe ways they differ from their own students and
+>   what effect those differences have on instruction.
 
 In 2006, Kirschner, Sweller, and Clark published a paper titled "Why
 Minimal Guidance During Instruction Does Not Work: An Analysis of the

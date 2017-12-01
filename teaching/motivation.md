@@ -6,18 +6,18 @@ title: "How to Teach Programming (and Other Things): Motivation and Demotivation
 
 # Motivation and Demotivation
 
-**Objectives**
-
-* **Learners can name and describe the three principal ways in which
-  they can demotivate their own learners.**
-* **Learners can define impostor syndrome and stereotype threat, and
-  describe ways in which to combat each.**
-* **Learners can describe the difference between fixed and growth
-  mindset and explain the importance of encouraging the latter.**
-* **Learners can describe and enact at least three things they can
-  do to make their programming workshops more accessible.**
-* **Learners can describe and enact at least three things they can
-  do to make their programming workshops more inclusive.**
+> **Objectives**
+>
+> * Learners can name and describe the three principal ways in which
+>   they can demotivate their own learners.
+> * Learners can define impostor syndrome and stereotype threat, and
+>   describe ways in which to combat each.
+> * Learners can describe the difference between fixed and growth
+>   mindset and explain the importance of encouraging the latter.
+> * Learners can describe and enact at least three things they can
+>   do to make their programming workshops more accessible.
+> * Learners can describe and enact at least three things they can
+>   do to make their programming workshops more inclusive.
 
 Learners need encouragement to step out into unfamiliar terrain, so
 this chapter discusses ways instructors can motivate them.  More

@@ -6,15 +6,15 @@ title: "How to Teach Programming (and Other Things): Helping Novices Build Menta
 
 # Helping Novices Build Mental Models
 
-**Objectives**
-
-* **Learners can explain the cognitive differences between novices
-  and competent practitioners in terms of mental models, and
-  explain the implications of these differences for teaching.**
-* **Learners can define and differentiate formative and summative
-  assessment.**
-* **Learners can construct multiple-choice questions with
-  plausible distractors that have diagnostic power.**
+> **Objectives**
+>
+> * Learners can explain the cognitive differences between novices
+>   and competent practitioners in terms of mental models, and
+>   explain the implications of these differences for teaching.
+> * Learners can define and differentiate formative and summative
+>   assessment.
+> * Learners can construct multiple-choice questions with
+>   plausible distractors that have diagnostic power.
 
 The first task in teaching is to figure out who your learners are and
 how best to help them.  Our approach is based on the [Dreyfus model of

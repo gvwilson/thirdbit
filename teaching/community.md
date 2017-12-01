@@ -8,6 +8,17 @@ title: "How to Teach Programming (and Other Things): Building Community"
 
 <div class="changed" markdown="1">
 
+> **Objectives**
+>
+> * Learners can make an informed decision about whether to create
+>   something new, or join an existing effort.
+> * Learners can judge whether a meeting is well organized and well
+>   run or not.
+> * Learners can outline a three-step plan for recruiting, retaining,
+>   and retiring volunteers and other organization participants.
+> * Learners can explain the difference between a service board and
+>   a governance board, and judge which kind an organization has.
+
 One person can only do so much.  Just as we learn best together, we
 teach best when we are teaching with other people, and the best way to
 achieve that is to build a community.

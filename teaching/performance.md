@@ -6,14 +6,14 @@ title: "How to Teach Programming (and Other Things): Teaching as a Performance A
 
 # Teaching as a Performance Art
 
-**Objectives**
-
-* **Learners can define *jugyokenkyu* and lateral knowledge transfer
-  and explain their relationship to each other.**
-* **Learners can describe and enact at least three techniques for
-  giving and receiving feedback on teaching performance.**
-* **Learners can explain at least two ways in which using a rubric
-  makes feedback more effective.**
+> **Objectives**
+>
+> * Learners can define *jugyokenkyu* and lateral knowledge transfer
+>   and explain their relationship to each other.
+> * Learners can describe and enact at least three techniques for
+>   giving and receiving feedback on teaching performance.
+> * Learners can explain at least two ways in which using a rubric
+>   makes feedback more effective.
 
 Many people assume that teachers are born, not made. From politicians
 to researchers and teachers themselves, reformers have designed

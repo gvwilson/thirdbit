@@ -6,11 +6,11 @@ title: "How to Teach Programming (and Other Things): Live Coding"
 
 # Live Coding
 
-**Objectives**
-
-* **Learners can describe live coding and explain its advantages as a
-  teaching practice for programming workshops.**
-* **Learners can enact and critique live coding.**
+> **Objectives**
+>
+> * Learners can describe live coding and explain its advantages as a
+>   teaching practice for programming workshops.
+> * Learners can enact and critique live coding.
 
 > *Teaching is theater not cinema.*  
 > – Neal Davis

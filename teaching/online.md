@@ -8,6 +8,19 @@ title: "How to Teach Programming (and Other Things): Teaching Online"
 
 <div class="changed" markdown="1">
 
+> **Objectives**
+>
+
+> * Learner can explain why expectations for massive online courses
+>   were unrealistic, and ways in which ad hoc use online learning
+>   is changing education.
+> * Learners can explain several key features of successful online
+>   courses, and judge whether a particular course meets those
+>   criteria.
+> * Learners can implement several logically different kinds of
+>   exercises using multiple-choice questions and/or write-and-run
+>   coding.
+
 > *If you use robots to teach, you teach people to be robots.*  
 > – variously attributed
 

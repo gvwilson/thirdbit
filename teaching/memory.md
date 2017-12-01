@@ -6,17 +6,17 @@ title: "How to Teach Programming (and Other Things): Expertise and Memory"
 
 # Expertise and Memory
 
-**Objectives**
-
-* **Learners can define expertise and explain its operation using
-  a graph metaphor for cognition.**
-* **Learners can explain the difference between repetition and
-  deliberate practice.**
-* **Learners can define and construct concept maps, and explain
-  the benefits of externalizing cognition.**
-* **Learners can differentiate long-term and short-term  memory,
-  describe the capacity limits of the latter, and explain the
-  the impact of these limits on teaching.**
+> **Objectives**
+>
+> * Learners can define expertise and explain its operation using
+>   a graph metaphor for cognition.
+> * Learners can explain the difference between repetition and
+>   deliberate practice.
+> * Learners can define and construct concept maps, and explain
+>   the benefits of externalizing cognition.
+> * Learners can differentiate long-term and short-term  memory,
+>   describe the capacity limits of the latter, and explain the
+>   the impact of these limits on teaching.
 
 The previous chapter looked at what distinguishes novices from
 competent practitioners.  Here, we will look at expertise: what it is,
