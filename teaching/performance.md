@@ -218,7 +218,7 @@ work on.
 > instructor critiques both the designs and the peer critiques, so
 > that participants are learning not only how to make buildings, but
 > how to give and get feedback
-> [[Schon1984](biblio.html#schon-practitioner)].  Master classes in music
+> [[Schön1984](biblio.html#schon-practitioner)].  Master classes in music
 > serve a similar purpose, and a few people have experimented with
 > using live coding at conferences or online in similar ways.
 

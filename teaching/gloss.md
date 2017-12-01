@@ -134,7 +134,7 @@ title: "How to Teach Programming (and Other Things): Glossary"
 *   **Fink's Taxonomy**:
     <a name="finks-taxonomy"></a>
     <span class="changed" markdown="1">
-    A six-part non-hierarhical classification of understanding
+    A six-part non-hierarchical classification of understanding
     first proposed in [[Fink2013](biblio.html#fink-significant)]
     whose categories are *foundational knowledge*, *application*,
     *integration*, *human dimension*, *caring*, and *learning how to learn*.

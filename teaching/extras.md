@@ -529,7 +529,7 @@ examples (among others):
   <tr>
     <td>Biology</td>
     <td>Evaluate the validity of the bacterial theory of ulcers.</td>
-    <td>Design a experient to test the bacterial theory of ulcers.</td>
+    <td>Design a experiment to test the bacterial theory of ulcers.</td>
     <td>How would the bacterial theory of ulcers change conventional treatment regimes?</td>
   </tr>
   <tr>

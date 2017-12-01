@@ -162,7 +162,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="ray-ray-unix">[Ray2014]</a> Eric J. Ray and Deborah S. Ray: _[Unix and Linux: Visual QuickStart Guide](https://www.amazon.com/Unix-Linux-Visual-QuickStart-Guide/dp/0321997549/)_ (5th edition). Peachpit Press, 2014, 978-0321997548. _An introduction to Unix that is both a good tutorial and a good reference guide._
 
-*   <a id="schon-practitioner">[Schon1984]</a> Donald A. Schön: _[The Reflective Practitioner: How Professionals Think In Action](https://www.amazon.com/Reflective-Practitioner-Professionals-Think-Action/dp/0465068782/)_ Basic Books, 1984, 978-0465068784. _A groundbreaking look at how professionals in different fields actually solve problems._
+*   <a id="schon-practitioner">[Schön1984]</a> Donald A. Schön: _[The Reflective Practitioner: How Professionals Think In Action](https://www.amazon.com/Reflective-Practitioner-Professionals-Think-Action/dp/0465068782/)_ Basic Books, 1984, 978-0465068784. _A groundbreaking look at how professionals in different fields actually solve problems._
 
 *   <a id="scott-state">[Scott1999]</a> J. C. Scott: _[Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed](https://www.amazon.com/Seeing-like-State-Certain-Condition/dp/0300078153/)_ Yale University Press, 1999, 978-0300128789. _Argues that large organizations consistently prefer uniformity over productivity._
 
