@@ -90,6 +90,8 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <a id="guzdial-mediacomp-retrospective">[Guzdial2013]</a> Mark Guzdial: "Exploring Hypotheses About Media Computation." _Proc. Ninth Annual International ACM Conference on International Computing Education Research_, 2013, 10.1145/2493394.2493397. _A look back on 10 years of media computation research._
 
+*   <a id="guzdial-principles">[Guzdial2016]</a>: "Five Principles for Programming Languages for Learners".  _Communications of the ACM_, 2016, <https://cacm.acm.org/blogs/blog-cacm/203554-five-principles-for-programming-languages-for-learners/fulltext>. _Five rules for choosing a programming environment for novices._
+
 *   <a id="guzdial-top10">[Guzdial2015a]</a> Mark Guzdial: "Top 10 Myths About Teaching Computer Science". _Communications of the ACM_, 2015, <https://cacm.acm.org/blogs/blog-cacm/189498-top-10-myths-about-teaching-computer-science/fulltext>. _Ten things many people believe that aren't true._
 
 *   <a id="hannay-pairing">[Hannay2009]</a> Jo E. Hannay, Tore Dybå, Erik Arisholm, and Dag I.K. Sjøberg: "The Effectiveness of Pair Programming: A Meta-Analysis." _Information and Software Technology_, 51(7), 2009, 10.1016/j.infsof.2009.02.001. _A summary of research on the effectiveness of pair programming._

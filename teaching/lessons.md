@@ -188,6 +188,22 @@ would Jorge face?"
 > The personas of Samira and Moshe in the [introduction](index.html)
 > have the five points listed above, rearranged to flow more readably.
 
+<!-- comment needed to separate blockquotes -->
+
+> **Deciding What to Teach**
+>
+> There are two ways to decide what to teach: pick material and then
+> find an audience, or decide on an audience and then figure out what
+> they want to learn.  Either way, Guzdial's "[Five Principles for
+> Programming Languages for Learners](biblio.html#guzdial-principles)"
+> offers essential guidance:
+>
+> 1. Connect to what learners know.
+> 2. Keep [cognitive load](load.html) low.
+> 3. Be honest (i.e., use authentic tasks).
+> 4. Be generative and productive.
+> 5. Test your ideas rather than trusting your instincts.
+
 ## Learning Objectives
 
 Summative and formative assessments help instructors figure out what
