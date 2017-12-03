@@ -94,7 +94,7 @@ The questions and answers for the Unix shell course are:
 8. *What datasets will you use?*
    dental records.
 
-## Step 2: Who is this course for?
+## Step 2: Who Is This Course For?
 
 "Beginner" and "expert" mean different things to different people, and
 many factors besides pre-existing knowledge influence who a course is
@@ -137,7 +137,7 @@ And this is the description of how this course will help:
 > will *not* show her how to connect to remote machines using SSH, but
 > is a prerequisite for the course that does.
 
-## Step 3: What will learners do along the way?
+## Step 3: What Will Learners Do Along the Way?
 
 The best way to make the goals in Step 1 firmer is to write full
 descriptions of a couple of exercises that students will be able to do
@@ -286,7 +286,7 @@ Uses:
 - `cut`, `sort`, `uniq`
 - `#!`
 
-## Step 4: How are concepts connected?
+## Step 4: How Are Concepts Connected?
 
 In this stage, you put the exercises in a logical order then derive a
 point-form course outline for the entire course from them.  This is
@@ -334,7 +334,7 @@ The chapter and lesson outline for the Unix shell course is:
    4. Shell variables.
    5. Loops.
 
-## Step 5: Course overview
+## Step 5: Course Overview
 
 You can now summarize everything you have created by writing a
 high-level course overview that consists of:

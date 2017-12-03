@@ -30,7 +30,13 @@ going to revolutionize education–or destroy it, or possibly both.  Now
 that the hype has worn off, it's clear that while almost all learning
 now has an online component, MOOCs (massive open online courses)
 aren't as effective as their more enthusiastic proponents claimed they
-would be [[Ubell2017](biblio.html#ubell-moocs)].
+would be [[Ubell2017](biblio.html#ubell-moocs)].  As one specific
+example, [[Koedinger2015](biblio.html#koedinger-doing-watching)]
+estimated "…the learning benefit from extra doing (1 SD increase) to
+be more than six times that of extra watching or reading." "Doing", in
+this case, refers to completing an interactive task with feedback,
+while "benefit" refers to both completion rates and overall
+performance.
 
 One reason is that recorded content is ineffective for most novices
 learners because it cannot intervene to clear up specific learners'
@@ -100,21 +106,31 @@ are being made.
 
 ## General Guidance
 
-Most of today's online classes use some mix of recorded video
-presentations, automated exercise submission and grading, and
+MOOCs *are* useful for people who already a mental model and wish to
+remind themselves of things they already know or fill in gaps in their
+knowledge.  Most of today's online classes use some mix of recorded
+video presentations, automated exercise submission and grading, and
 web-based discussion, which can either be synchronous using chat tools
 and video calls or asynchronous using mailing lists and bulletin
-boards.  (This is actually only a small subset of what could be done:
-[[Brookfield2016](biblio.html#brookfield-discussion)] describes many
-other ways groups can discuss things, only a handful of which have
-ever been implemented online.)  The two greatest strengths of this
-model are that learners can work when it's convenient for them, and
-that they have access to a wider range of courses, both because the
-Internet brings them all next door and because online courses
-typically have lower direct and indirect costs than in-person courses.
-The disadvantages are that they have to shoulder much more of the
-burden of staying focused, and that the impersonality of working
-online can demotivate people and encourage uncivil behavior.
+boards.  The two greatest strengths of this model are that learners
+can work when it's convenient for them, and that they have access to a
+wider range of courses, both because the Internet brings them all next
+door and because online courses typically have lower direct and
+indirect costs than in-person courses.  The disadvantages are that
+they have to shoulder much more of the burden of staying focused, and
+that the impersonality of working online can demotivate people and
+encourage uncivil behavior.
+
+> **Hybrid Vigor**
+>
+> The "pure MOOC" model described above is actually only a small
+> subset of what could be done:
+> [[Brookfield2016](biblio.html#brookfield-discussion)] describes many
+> other ways groups can discuss things, only a handful of which have
+> ever been implemented online.)  A hybrid approach that has proven
+> quite successful is real-time remote instruction, in which the
+> learners are co-located at one (or a few) sites, with helpers
+> present, while the instructor(s) teaching via online video.
 
 As an instructor teaching online, you should take advantages of the
 pros and do what you can to minimize or avoid the cons:
@@ -614,14 +630,6 @@ learners.
 Pick one of the examples given in this chapter of using write and runs
 exericses to implement some other kind of online programming exercise,
 create an example, and swap with one of your fellow learners.
-
-## Acknowledgments
-
-Thanks to everyone who contributed ideas, including Francis Castro,
-Katie Cunningham, Brian Dillingham, Mark Guzdial, Ian Hawke, Toby
-Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle Quinn, Ariel
-Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett, Stéfan van der
-Walt, Hadley Wickham, and Andromeda Yelton.
 
 </div>
 

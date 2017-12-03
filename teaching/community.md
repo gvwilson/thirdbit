@@ -537,12 +537,6 @@ answers to those given by other members of your group.
 6.  Are these the rules for behavior you want?
 7.  Are there membership dues?
 
-## Acknowledgments
-
-Thanks to everyone who contributed ideas to this section, including
-Ian Hawke, Kate Hertweck, Toby Hodges, Erin Robinson, Matt Turk, and
-Belinda Weaver.
-
 </div>
 
 [4h]: http://www.4-h-canada.ca/

@@ -379,10 +379,6 @@ This isn't as defeatist as it sounds: if someone else is already doing
 what you're doing better than you, there are probably lots of other
 equally useful things you could be doing instead.
 
-## Acknowledgments
-
-Thanks to Emily Porta for her feedback.
-
 ## Challenges
 
 ### Write an Elevator Pitch for a City Councilor (15 minutes)

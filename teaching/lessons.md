@@ -390,6 +390,13 @@ under our control:
     makes shared online authoring systems like [Google Docs][gdocs]
     and wikis the best technical choice for most groups.
 
+> **The True Cost of Video**
+>
+> Making a small change to this webpage only takes a few minutes, but
+> in our experience, making any kind of change to a video takes an
+> hour or more. In addition, most people are much less comfortable
+> recording themselves than contributing written material.
+
 The fourth factor, and the most important one in practice, is *how
 willing people are to collaborate*.  The tools needed to build a
 "Wikipedia for lessons" or a "GitHub for lessons" have been around

@@ -132,14 +132,17 @@ practices right from the start:
 ## Acknowledgments
 
 This book is the product of many contributors, including Erin Becker,
-Karen Cranston, Neal Davis, Rayna Harris, Kate Hertweck, Christina
-Koch, Sue McClatchy, Lex Nederbragt, Elizabeth Patitsas, Aleksandra
-Pawlik, Ariel Rokem, Tracy Teal, Fiona Tweedie, Allegra Via, Anelda
-van der Walt, Belinda Weaver, and Jason Williams.  I am grateful to
-them, and to everyone who has gone through Software Carpentry
-instructor training over the years.  I am also grateful to Neil Brown,
-Warren Code, Mark Degani, and Bob Freeman for their feedback on this
-version.
+Neil Brown, Francis Castro, Warren Code, Karen Cranston, Katie
+Cunningham, Neal Davis, Mark Degani, Brian Dillingham, Bob Freeman,
+Mark Guzdial, Rayna Harris, Ian Hawke, Kate Hertweck, Toby Hodges,
+Christina Koch, Colleen Lewis, Sue McClatchy, Lex Nederbragt, Jeramia
+Ory, Elizabeth Patitsas, Aleksandra Pawlik, Emily Porta, Alex Pounds,
+Danielle Quinn, Erin Robinson, Ariel Rokem, Pat Schloss, Malvika
+Sharan, Tracy Teal, Richard Tomsett, Matt Turk, Fiona Tweedie, Allegra
+Via, Anelda van der Walt, Stéfan van der Walt, Belinda Weaver, Hadley
+Wickham, Jason Williams, and Andromeda Yelton.  I am grateful to them,
+and to everyone who has gone through classes based on this material
+over the years.
 
 This book is dedicated to my mother, Doris Wilson, who taught hundreds
 of children to read and to believe in themselves.

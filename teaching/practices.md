@@ -534,36 +534,6 @@ lined, and the best way to do that is to use cough drops early and
 often.  The right ones will also help delay the onset of coffee
 breath, for which your learners will probably be grateful.
 
-## Teaching Online
-
-Many learners find it difficult to get to a workshop, either because
-there isn't one locally or because it's difficult to schedule time
-around other commitments, so it is tempting to record lessons and post
-them online.  However, as discussed
-[earlier](novice.html#formative-assessment), recorded content isn't
-particularly helpful for most novices, since a single explanation
-repeated over and over usually won't clear up their misconceptions.
-In addition, a recent paper
-[[Koedinger2015](biblio.html#koedinger-doing-watching)] estimated "…the
-learning benefit from extra doing (1 SD increase) to be more than six
-times that of extra watching or reading." "Doing", in this case,
-refers to completing an interactive or mimetic task with feedback,
-while "benefit" refers to both "completion rates" and "overall
-performance".
-
-Another consideration is maintenance.  Making a small change to this
-webpage only takes a few minutes, but in our experience, making any
-kind of change to a video takes an hour or more. In addition, most
-people are much less comfortable recording themselves than
-contributing written material.
-
-That said, MOOCs *are* useful for people who already a mental model
-and wish to remind themselves of things they already know or fill in
-gaps in their knowledge.  A hybrid approach that has proven quite
-successful is real-time remote instruction, in which the learners are
-co-located at one (or a few) sites, with helpers present, while the
-instructor(s) teaching via online video.
-
 ## Think-Pair-Share
 
 Think-pair-share is a lightweight technique that helps refine their
