@@ -19,9 +19,20 @@ title: "How to Teach Programming (and Other Things): Building Community"
 > * Learners can explain the difference between a service board and
 >   a governance board, and judge which kind an organization has.
 
-One person can only do so much.  Just as we learn best together, we
-teach best when we are teaching with other people, and the best way to
-achieve that is to build a community.
+Many well-intentioned people want the world to be a better place, but
+don't actually want anything important to change.  A lot of grassroots
+efforts to teach programming fall into this category: they want to
+teach children and adults how to program so that they can get good
+jobs, rather than empower them to change the system that has shut them
+(and people like them) out of those jobs in the past.
+
+If you are going to build a community, the first and most important
+thing you have to decide is what *you* want: to help people succeed in
+the world we have, or to give them a way to make a better one.  If you
+choose the latter, you have to accept that one person can only do so
+much.  Just as we learn best together, we teach best when we are
+teaching with other people, and the best way to achieve that is to
+build a community.
 
 ## Learn, Then Do
 
@@ -52,11 +63,11 @@ organizing.
 ### Meetings, Meetings, Meetings
 
 Knowing how to run a meeting efficiently is *the* core skills of
-community organizers; knowing how to take part in someone else's
-meeting is just as important, but gets far less attention.  (As a
+community organizers. (Knowing how to take part in someone else's
+meeting is just as important, but gets far less attention–as a
 colleague once said, everyone offers leadership training, nobody
 offers followership training.)  The most important rules for making
-meetings efficient are:
+meetings efficient are not secret, but are rarely followed:
 
 1.  *Decide if there actually needs to be a meeting.* If the only
     purpose is to share information, have everyone send a brief email

@@ -270,16 +270,114 @@ people we had some sort of connection with turned into workshops.
 > Thanks for your time,
 > Dr. Greg Wilson 
 
+## Go Over, Go Through, Go Around, or Change Direction
+
+Everyone is afraid of the unknown and of embarrassing themselves.  As
+a result, most people would rather fail than change.  Marketing is
+therefore not just about communicating clearly: it is also about
+figuring out why people are resisting your offer of help and then
+finding a way past that resistance.
+
+For example, Lauren Herckis looked at [why university faculty don't
+adopt better teaching methods][herckis].  She found that the main
+reason is a fear of looking stupid in front of their students, and
+that secondary reasons were concern that the inevitable bumps in
+switching how they taught would affect course evaluations, and a
+desire to continue emulating the lecturers who had inspired them.
+It's pointless to argue about whether these issues are "real" in some
+objective sense: faculty believe they are, so any marketing aimed at
+faculty needs to address them.
+
+Medical researchers realized several decades ago that there's no point
+coming up with a better way to do things if practitioners won't adopt
+it.  The growing field of _[implementation
+science](gloss.html#implementation-science)_ explores evidence-based
+ways to improve transference, and
+[[Borrego2014](biblio.html#borrego-henderson-change)] categories some
+related ideas for effecting change in higher education.  The bulk of
+that paper expands upon this table (which unfortunately doesn't render
+as well in HTML as it does on paper, because rotating text in a simple
+cross-browser fashion is apparently still beyond present-day
+technology):
+
+<table cellspacing="5" class="table">
+  <tr>
+    <th rowspan="4" style="vertical-align:middle">Aspect of System<br/>to be Changed</th>
+    <th style="vertical-align:middle">Individuals</th>
+    <td>
+      <strong>I. Disseminating: Curriculum &amp; Pedagogy</strong>
+      <br/>
+      Change Agent Role:
+      Tell/teach individuals about new teaching conceptions and/or practices
+      and encourage their use.
+      <br/>
+      <em>- Diffusion</em>
+      <br/>
+      <em>- Implementation</em>
+    </td>
+    <td>
+      <strong>II. Developing: Reflective Teachers</strong>
+      <br/>
+      Change Agent Role:
+      Encourage/support individuals to develop new teaching conceptions and/or practices.
+      <br/>
+      <em>- Scholarly Teaching</em>
+      <br/>
+      <em>- Faculty Learning Communities</em>
+    </td>
+  </tr>
+  <tr>
+    <!-- row 1 -->
+    <th style="vertical-align:middle">Environments<br/>and<br/>Structures</th>
+    <td>
+      <strong>III. Enacting: Policy</strong>
+      <br/>
+      Change Agent Role:
+      Enact new environment features that require/encourage new teaching conceptions and/or practices.
+      <br/>
+      <em>- Quality Assurance</em>
+      <br/>
+      <em>- Organizational Development</em>
+    </td>
+    <td>
+      <strong>IV. Developing: Shared Vision</strong>
+      <br/>
+      Change Agent Role:
+      Empower/support stakeholders to collectively develop new environmental features
+      that encourage new teaching conceptions and/or practices.
+      <br/>
+      <em>- Learning Organizations</em>
+      <br/>
+      <em>- Complexity Leadership</em>
+    </td>
+  </tr>
+  <tr>
+    <!-- row 1 -->
+    <td><!-- row titles --></td>
+    <th style="text-align: center">Prescribed</th>
+    <th style="text-align: center">Emergent</th>
+  </tr>
+  <tr>
+    <!-- row 1 -->
+    <th><!-- row titles --></th>
+    <th colspan="2" style="text-align: center">Intended Outcomes</th>
+  </tr>
+</table>
+
+Each of the major categories is defined by whether the change is
+individual or to the system as a whole, and whether it is prescribed
+(top-down) or emergent (bottom-up).  The person trying to make the
+changes–and make them stick–has a different role in each situation,
+and should pursue different strategies accordingly.
+
 ## A Final Thought
 
-As [[Kuchner2011](biblio.html#kuchner-marketing)] says,
-if you can't be first in a category,
-create a new category that you can be first in;
-if you can't do that,
-think about doing something else entirely.
-This isn't as defeatist as it sounds:
-if someone else is already doing what you're doing better than you,
-there are probably lots of other equally useful things you could be doing instead.
+As [[Kuchner2011](biblio.html#kuchner-marketing)] says, if you can't
+be first in a category, create a new category that you can be first
+in; if you can't do that, think about doing something else entirely.
+This isn't as defeatist as it sounds: if someone else is already doing
+what you're doing better than you, there are probably lots of other
+equally useful things you could be doing instead.
 
 ## Acknowledgments
 
@@ -289,17 +387,30 @@ Thanks to Emily Porta for her feedback.
 
 ### Write an Elevator Pitch for a City Councilor (15 minutes)
 
-This chapter described an organization that offers weekend programming workshops
-for people re-entering the workforce after taking a break to raise children.
-Write an elevator pitch for that organization aimed at a city councilor
-whose support the organization needs.
+This chapter described an organization that offers weekend programming
+workshops for people re-entering the workforce after taking a break to
+raise children.  Write an elevator pitch for that organization aimed
+at a city councilor whose support the organization needs.
 
 ### Write Elevator Pitches for Your Organization (30 minutes)
 
 Identify two groups of people your organization needs support from,
 and write an elevator pitch aimed at each one.
 
+### Identify Causes of Passive Resistance (30 minutes)
+
+People who don't want change will sometimes say so out loud, but will
+also often use various forms of passive resistance, such as just not
+getting around to it over and over again, or raising one possible
+problem after another to make the change seem riskier and more
+expensive than it's actually likely to be.  Working in small groups,
+list three or four reasons why people might not want your teaching
+initiative to go ahead, and explain what you can do with the time and
+resources you have to counteract each.
+
 </div>
 
+[herckis]: https://www.insidehighered.com/news/2017/07/06/anthropologist-studies-why-professors-dont-adopt-innovative-teaching-methods
+[impl-sci]: https://implementationscience.biomedcentral.com/
 [moz]: https://moz.com/learn/seo/on-page-factors
 [xkcd-website]: https://xkcd.com/773/

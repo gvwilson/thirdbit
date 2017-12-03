@@ -14,21 +14,23 @@ remembering.
 
 2.  <span class="changed" markdown="1">You are not your learners.</span>
 
-3.  Never teach alone.
+3. <span class="changed" markdown="1">Most people would rather fail than change.</span>
 
-4.  No lesson survives first contact with learners.
+4.  Never teach alone.
 
-5.  Nobody will be more excited about the lesson than you are.
+5.  No lesson survives first contact with learners.
 
-6.  Every lesson is too short from the teacher's point of view
+6.  Nobody will be more excited about the lesson than you are.
+
+7.  Every lesson is too short from the teacher's point of view
     and too long from the learner's.
 
-7.  Never hesitate to sacrifice truth for clarity.
+8.  Never hesitate to sacrifice truth for clarity.
 
-8.  Every mistake is a lesson.
+9.  Every mistake is a lesson.
 
-9.  "I learned this a long time ago" is not the same as "this is easy".
+10. "I learned this a long time ago" is not the same as "this is easy".
 
-10. Ninety percent of magic consists of knowing one extra thing.
+11. Ninety percent of magic consists of knowing one extra thing.
 
-11. You can't help everyone, but you can always help someone.
+12. You can't help everyone, but you can always help someone.
