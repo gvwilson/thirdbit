@@ -295,74 +295,11 @@ science](gloss.html#implementation-science)_ explores evidence-based
 ways to improve transference, and
 [[Borrego2014](biblio.html#borrego-henderson-change)] categories some
 related ideas for effecting change in higher education.  The bulk of
-that paper expands upon this table (which unfortunately doesn't render
-as well in HTML as it does on paper, because rotating text in a simple
-cross-browser fashion is apparently still beyond present-day
-technology):
+that paper expands upon this table (which is included as an image
+because rotating text in a simple cross-browser fashion is apparently
+still beyond present-day technology):
 
-<table cellspacing="5" class="table">
-  <tr>
-    <th rowspan="4" style="vertical-align:middle">Aspect of System<br/>to be Changed</th>
-    <th style="vertical-align:middle">Individuals</th>
-    <td>
-      <strong>I. Disseminating: Curriculum &amp; Pedagogy</strong>
-      <br/>
-      Change Agent Role:
-      Tell/teach individuals about new teaching conceptions and/or practices
-      and encourage their use.
-      <br/>
-      <em>- Diffusion</em>
-      <br/>
-      <em>- Implementation</em>
-    </td>
-    <td>
-      <strong>II. Developing: Reflective Teachers</strong>
-      <br/>
-      Change Agent Role:
-      Encourage/support individuals to develop new teaching conceptions and/or practices.
-      <br/>
-      <em>- Scholarly Teaching</em>
-      <br/>
-      <em>- Faculty Learning Communities</em>
-    </td>
-  </tr>
-  <tr>
-    <!-- row 1 -->
-    <th style="vertical-align:middle">Environments<br/>and<br/>Structures</th>
-    <td>
-      <strong>III. Enacting: Policy</strong>
-      <br/>
-      Change Agent Role:
-      Enact new environment features that require/encourage new teaching conceptions and/or practices.
-      <br/>
-      <em>- Quality Assurance</em>
-      <br/>
-      <em>- Organizational Development</em>
-    </td>
-    <td>
-      <strong>IV. Developing: Shared Vision</strong>
-      <br/>
-      Change Agent Role:
-      Empower/support stakeholders to collectively develop new environmental features
-      that encourage new teaching conceptions and/or practices.
-      <br/>
-      <em>- Learning Organizations</em>
-      <br/>
-      <em>- Complexity Leadership</em>
-    </td>
-  </tr>
-  <tr>
-    <!-- row 1 -->
-    <td><!-- row titles --></td>
-    <th style="text-align: center">Prescribed</th>
-    <th style="text-align: center">Emergent</th>
-  </tr>
-  <tr>
-    <!-- row 1 -->
-    <th><!-- row titles --></th>
-    <th colspan="2" style="text-align: center">Intended Outcomes</th>
-  </tr>
-</table>
+![Change in Higher Education](fig/borrega-henderson-table.png)
 
 Each of the major categories is defined by whether the change is
 individual or to the system as a whole, and whether it is prescribed

@@ -510,7 +510,7 @@ example of that program element"), or many other things.
 > z = [x, y]
 > ```
 >
-> ![Labelling](fig/label.svg)
+> ![Labelling](fig/label.png)
 
 *Drawing diagrams* of things like data structures is also
 straightforward to do on paper but very difficult to grade
