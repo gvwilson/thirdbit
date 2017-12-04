@@ -7,7 +7,7 @@ title: "How to Teach Programming (and Other Things): The Rules"
 # The Rules
 
 It's impossible to put everything that matters about teaching and
-learning on a single page, but these ten points are always worth
+learning on a single page, but these points are always worth
 remembering.
 
 1.  Be kind: all else is details.
