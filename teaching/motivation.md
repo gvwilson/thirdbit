@@ -25,12 +25,13 @@ importantly, it discusses ways that we can accidentally *demotivate*
 them, and how we can avoid doing that.
 
 People learn best when they care about the topic and believe they can
-master it. This presents us with a problem because most people don't
-actually want to program: they want to make music or compare changes
-to zoning laws with family incomes, and rightly regard programming as
-a tax they have to pay in order to do so. In addition, their early
-experiences with programming are often demoralizing, and believing
-that something will be hard to learn is a self-fulfilling prophecy.
+master it [[Wlodkowski2017](biblio.html#wlodkowski-motivation)]. This
+presents us with a problem because most people don't actually want to
+program: they want to make music or compare changes to zoning laws
+with family incomes, and rightly regard programming as a tax they have
+to pay in order to do so. In addition, their early experiences with
+programming are often demoralizing, and believing that something will
+be hard to learn is a self-fulfilling prophecy.
 
 Imagine a grid whose axes are labelled "mean time to master" and
 "usefulness once mastered". Everything that's quick to master, and

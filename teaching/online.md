@@ -46,9 +46,9 @@ early on; these are the ones who stick with most massive online
 courses, but many discussions of the effectiveness of such courses
 ignore this survivor bias.
 
-What most enthusiasts also didn't realize was that MOOCs and other
-forms of online education were just the latest in a long series of
-proposals to use machines to teach.  As
+Many enthusiasts also didn't realize that MOOCs and other forms of
+online education were just the latest in a long series of proposals to
+use machines to teach.  As
 [[Watters2014](biblio.html#watters-monsters)] has chronicled, every
 innovation in communications from the printing press through radio and
 television to desktop computers and now mobile devices, has spawned a
@@ -72,26 +72,26 @@ Today's revolutionary technology is the Internet, whose key
 characteristics are:
 
 1.  Students can access far more information, far more quickly, than
-    ever before: provided, of course, that a search engine considers
+    ever before–provided, of course, that a search engine considers
     it worth indexing, that their internet service provider and
     government don't block it, and that the truth isn't drowned in a
     sea of attention-sapping disinformation.
 
-2.  Students can access far more people than ever before as well:
-    provided, of course, that they aren't driven offline by harassment
+2.  Students can access far more people than ever before as
+    well–again, provided that they aren't driven offline by harassment
     or marginalized because they don't conform to the social norms of
     whichever group is talking loudest.
 
-3.  Courses can reach far more people than before: provided, of
-    course, that those students actually have access to the required
-    technology, can afford to use it, and aren't being used as a way
-    to redistribute wealth from the have-nots to the haves
+3.  Courses can reach far more people than before–but only if those
+    students actually have access to the required technology, can
+    afford to use it, and aren't being used as a way to redistribute
+    wealth from the have-nots to the haves
     [[Cottom2017](biblio.html#cottom-lower-ed)].
 
-4.  Teachers can get far more detailed insight into how students work:
-    provided, of course, that students are doing things that are
-    amenable to large-scale automated analysis and aren't in a
-    position to object to the use of surveillance into the classroom.
+4.  Teachers can get far more detailed insight into how students
+    work–so long as students are doing things that are amenable to
+    large-scale automated analysis and aren't in a position to object
+    to the use of surveillance into the classroom.
 
 The caveats in this list are a big part of why this book exists.
 Right now, most of the discussion about using technology in teaching
@@ -112,14 +112,16 @@ knowledge.  Most of today's online classes use some mix of recorded
 video presentations, automated exercise submission and grading, and
 web-based discussion, which can either be synchronous using chat tools
 and video calls or asynchronous using mailing lists and bulletin
-boards.  The two greatest strengths of this model are that learners
-can work when it's convenient for them, and that they have access to a
-wider range of courses, both because the Internet brings them all next
-door and because online courses typically have lower direct and
-indirect costs than in-person courses.  The disadvantages are that
-they have to shoulder much more of the burden of staying focused, and
-that the impersonality of working online can demotivate people and
-encourage uncivil behavior.
+boards.
+
+The two greatest strengths of this model are that learners can work
+when it's convenient for them, and that they have access to a wider
+range of courses, both because the Internet brings them all next door
+and because online courses typically have lower direct and indirect
+costs than in-person courses.  The disadvantages are that they have to
+shoulder much more of the burden of staying focused, and that the
+impersonality of working online can demotivate people and encourage
+uncivil behavior.
 
 > **Hybrid Vigor**
 >
@@ -133,7 +135,8 @@ encourage uncivil behavior.
 > present, while the instructor(s) teaching via online video.
 
 As an instructor teaching online, you should take advantages of the
-pros and do what you can to minimize or avoid the cons:
+pros and do what you can to minimize or avoid the cons
+[[Nilson2017](biblio.html#nilson-goodson-online),[Miller2016](biblio.html#miller-online)]:
 
 1.  Deadlines should be frequent, well-publicized, and enforced,
     so that learners will get into a work rhythm.
