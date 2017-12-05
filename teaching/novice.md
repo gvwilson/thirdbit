@@ -165,17 +165,6 @@ allowed on the road.
 > when the guests taste the soup, that’s summative.  
 > - Michael Scriven, as quoted by Debra Dirksen.
 
-<!-- comment needed to separate blockquotes -->
-
-> **Connecting Formative and Summative Assessment**
-> 
-> One rule to use when designing lessons is that formative assessments
-> should prepare people for summative assessments: no one should ever
-> encounter a question on an exam for which the teaching did not
-> prepare them.  This doesn't mean that novel problems should not
-> appear, but that if they do, learners should have had practice with
-> and feedback on tackling novel problems beforehand.
-
 In order to be useful during teaching, a formative assessment has to
 be quick to administer and give an unambiguous result. The most widely
 used kind of formative assessment is probably the multiple choice
@@ -217,19 +206,21 @@ diagnostic distractors, then either you need to think more about your
 learners' mental models, or your question simply isn't a good starting
 point for an MCQ.
 
+> **Connecting Formative and Summative Assessment**
+> 
+> One rule to use when designing lessons is that formative assessments
+> should prepare people for summative assessments: no one should ever
+> encounter a question on an exam for which the teaching did not
+> prepare them.  This doesn't mean that novel problems should not
+> appear, but that if they do, learners should have had practice with
+> and feedback on tackling novel problems beforehand.
+
 When you are trying to come up with distractors, think about questions
 that learners asked or problems they had the last time you taught this
 subject. If you haven't taught it before, think about your own
 misconceptions or ask colleagues about their experiences.  You can
 also ask open-ended questions in one class to collect misconceptions
 about material to be covered in a later class.
-
-> **Humor**
->
-> Instructors will often put supposedly-silly answers like "a fish!"
-> on MCQs, particularly ones intended for younger learners.  However,
-> they don't provide any insight into learners' misconceptions, and
-> most learners don't actually find them funny.
 
 Instructors should use MCQs or some other kind of formative assessment
 every 10-15 minutes in order to make sure that the class is actually
@@ -280,6 +271,13 @@ never used in class because it forces the instructor to think about
 the learners' mental models and how they might be broken–in short,
 to put themselves into the learners' heads and see the topic from
 their point of view.
+
+> **Humor**
+>
+> Instructors will often put supposedly-silly answers like "a fish!"
+> on MCQs, particularly ones intended for younger learners.  However,
+> they don't provide any insight into learners' misconceptions, and
+> most learners don't actually find them funny.
 
 ## Teaching Practices
 
