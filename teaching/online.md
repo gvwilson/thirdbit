@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Teaching Online"
 ---
 
 # Teaching Online
+<!--: \label{online} :-->
 
 > **Objectives**
 >
@@ -180,6 +181,8 @@ pros and do what you can to minimize or avoid the cons
 > record a 5-minute screencast to show how they solved a problem.  You
 > can then watch that video at 4X or faster to see how proficient they
 > are with the tools they're supposed to be using.
+
+<!--: \newpage :-->
 
 > **Freedom To and Freedom From**
 >

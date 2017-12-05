@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Helping Novices Build Menta
 ---
 
 # Helping Novices Build Mental Models
+<!--: \label{novice} :-->
 
 > **Objectives**
 >
@@ -175,10 +176,7 @@ be:
 
 > Q: what is 37 + 15 ?
 >
-> 1.  52
-> 1.  42
-> 1.  412
-> 1.  43
+> (a) 52 (b) 42 (c) 412 (d) 43
 
 The correct answer is 52, but each of the other answers provides
 valuable insight:
@@ -271,6 +269,8 @@ never used in class because it forces the instructor to think about
 the learners' mental models and how they might be broken–in short,
 to put themselves into the learners' heads and see the topic from
 their point of view.
+
+<!--: \newpage :-->
 
 > **Humor**
 >

@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Checklists"
 ---
 
 # Checklists
+<!--: \label{checklists} :-->
 
 Atul Gawande's 2007 article "[The Checklist][gawande-checklist]"
 popularized the idea that using checklists can save lives (and make

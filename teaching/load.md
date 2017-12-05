@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Cognitive Load"
 ---
 
 # Cognitive Load
+<!--: \label{load} :-->
 
 > **Objectives**
 >
@@ -88,7 +89,7 @@ def total_length(words):
       return total
 ~~~
 
-<!--| \noindent |-->
+<!--: \noindent :-->
 then ask learners to fill in the blanks in:
 
 ~~~
@@ -100,7 +101,7 @@ def word_lengths(words):
       return lengths
 ~~~
 
-<!--| \noindent |-->
+<!--: \noindent :-->
 The next problem might be:
 
 ~~~
@@ -112,7 +113,7 @@ def join_all(words):
       return result
 ~~~
 
-<!--| \noindent |-->
+<!--: \noindent :-->
 and learners would finally be asked to tackle:
 
 ~~~

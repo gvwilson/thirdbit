@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Building Community"
 ---
 
 # Building Community
+<!--: \label{community} :-->
 
 > **Objectives**
 >
@@ -298,7 +299,7 @@ time you call.
 > at your local college or school board, or in your city councilor's
 > office?  If not, what are you waiting for?
 
-<!--| \newpage |-->
+<!-- comment needed to separate blockquotes -->
 
 > **Soup, Then Hymns**
 >
@@ -449,8 +450,6 @@ contributor to your organization.
 
 Answer the following questions on your own, and then compare your
 answers to those given by other members of your group.
-
-<!--| \newpage |-->
 
 1.  What are the values your organization expresses?
 2.  Are these the values you want the organization to express?

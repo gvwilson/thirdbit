@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Live Coding"
 ---
 
 # Live Coding
+<!--: \label{live} :-->
 
 > **Objectives**
 >

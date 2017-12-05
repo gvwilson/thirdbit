@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Introduction"
 ---
 
 # Introduction
+<!--: \label{index} :-->
 
 > **In Brief**
 >
@@ -13,7 +14,7 @@ title: "How to Teach Programming (and Other Things): Introduction"
 > other things as well).  It is based on [Software
 > Carpentry][swc-site]'s [instructor training course][swc-training],
 > and all material can be freely distributed and re-used under the
-> [Creative Commons - Attribution][license] license.  Please see
+> Creative Commons - Attribution license.  Please see
 > <http://github.com/gvwilson/teaching/> for the source,
 > <http://third-bit.com/teaching/> for the online version, and
 > <http://third-bit.com/teaching.epub> and
@@ -122,7 +123,7 @@ disabilities as well.
 We suggest that instructor training workshops use these three teaching
 practices right from the start:
 
-*   Have a [code of conduct](practices.html#code-of-conduct).
+*   Have a [code of conduct](practices.html#have-a-code-of-conduct).
 
 *   [Take notes together](practices.html#take-notes-together).
 

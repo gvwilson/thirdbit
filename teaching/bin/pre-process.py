@@ -3,12 +3,12 @@
 import sys
 import re
 
-DIRECTIVES = r'<!--\|\s+([^-]+)\s+\|-->'
+dir_pat = re.compile(r'<!--:\s+([^:]+)\s+:-->')
 
-def directives(match):
-    latex = match.group(1)
-    return latex
+def dir_func(m):
+    text = m.group(1)
+    return text
 
 data = sys.stdin.read()
-data = re.sub(DIRECTIVES, directives, data, re.DOTALL)
+data = dir_pat.sub(dir_func, data)
 sys.stdout.write(data)

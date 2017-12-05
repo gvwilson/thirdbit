@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Expertise and Memory"
 ---
 
 # Expertise and Memory
+<!--: \label{memory} :-->
 
 > **Objectives**
 >
@@ -152,19 +153,9 @@ showing why the Earth has seasons.
 
 <!-- http://cmap.ihmc.us/docs/images/Theory/Fig5CmapSeasons-large.png -->
 
-> **Externalizing Cognition**
-> 
-> Concept maps are just one way to represent our understanding of a
-> subject.  For example, Andrew Abela's decision tree
-> [[Abela2009](biblio.html#abela-chart)] presents a mental model of how
-> to choose the right kind of chart for different kinds of questions
-> and data.  Maps, flowcharts, and blueprints can also be useful in
-> some contexts.  What each does is _[externalize
-> cognition](gloss.html#externalized-cognition)_, i.e., make thought
-> processes and mental models visible so that they can be compared,
-> contrasted, and combined.
+<!--: \newpage :-->
 
-To show what concept maps look like, consider this simple `for
+To show what concept maps look like, consider this simple `for`
 loop in Python:
 
 ~~~
@@ -172,8 +163,7 @@ for letter in "abc":
       print('*' + letter)
 ~~~
 
-<!--| \newpage |-->
-<!--| \noindent |-->
+<!--: \noindent :-->
 whose output is:
 
 ~~~
@@ -182,22 +172,17 @@ whose output is:
 *c
 ~~~
 
-The three key "things" in this loop are shown in this concept map:
+<!--: \noindent :-->
+The three key "things" in this loop are shown in the first part
+of this concept map:
 
-![Initial Concept Map](fig/for-loop-concepts-1.png)
+![Concept Map](fig/for-loop-concepts.png)
 
-<!--| \noindent |-->
 This is only half the story, though, and arguably the less important
 half.  An expanded concept map shows the *relationships* between those
-things:
+things, which are as important as the concepts themselves.
 
-![Expanded Concept Map](fig/for-loop-concepts-2.png)
-
-<!--| \noindent |-->
-We can go further and add two more relationships that are usually (but
-not always) true as shown here:
-
-![Finished Concept Map](fig/for-loop-concepts-3.png)
+<!--: \newpage :-->
 
 Concept maps can be used in many ways:
 
@@ -232,6 +217,20 @@ Concept maps can be used in many ways:
     whether novices can effectively map their understanding, since
     introspection and explanation of understanding are generally more
     advanced skills than understanding itself.
+
+> **Externalizing Cognition**
+> 
+> Concept maps are just one way to represent our understanding of a
+> subject.  For example, Andrew Abela's decision tree
+> [[Abela2009](biblio.html#abela-chart)] presents a mental model of how
+> to choose the right kind of chart for different kinds of questions
+> and data.  Maps, flowcharts, and blueprints can also be useful in
+> some contexts.  What each does is _[externalize
+> cognition](gloss.html#externalized-cognition)_, i.e., make thought
+> processes and mental models visible so that they can be compared,
+> contrasted, and combined.
+
+<!-- comment needed to separate blockquotes -->
 
 > **Meetings, Meetings, Meetings**
 > 

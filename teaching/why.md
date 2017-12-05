@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Why I Teach"
 ---
 
 # Why I Teach
+<!--: \label{why} :-->
 
 When I first started volunteering at the University of Toronto,
 students sometimes asked me why I did it. This was my answer:

@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Motivation and Demotivation
 ---
 
 # Motivation and Demotivation
+<!--: \label{motivation} :-->
 
 > **Objectives**
 >
@@ -43,7 +44,7 @@ taught first; things in the opposite corner that are hard to learn and
 have little near-term application should be dropped, and topics along
 the diagonal should be weighed against each other.
 
-<!--| \newpage |-->
+<!--: \newpage :-->
 
 > **Actual Time**
 > 
@@ -54,8 +55,8 @@ the diagonal should be weighed against each other.
 > to the user's desktop or home directory; if people need to run shell
 > commands on the files they've edited, a substantial fraction won't
 > be able to navigate to the right directory without help. If this
-> seems like a small problem to you, please revisit the discussion of
-> expert blind spot in [Memory](memory.html).
+> seems like a small problem to you, please revisit [the discussion of
+> expert blind spot](memory.html).
 
 Many of the foundational concepts of computer science, such as
 computability, inhabit the "useful but hard to learn" corner of the
@@ -146,7 +147,7 @@ Here are some quick ways to demotivate your learners:
     more if you are frank about the limitations of your knowledge, and
     will be more likely to ask questions and seek help.
 
-*   Use the J word ("just"). As discussed in [Memory](memory.html), this
+*   Use the J word ("just"). As discussed [earlier](memory.html), this
     signals to the learner that the instructor thinks their problem is
     trivial and by extension that they therefore must be stupid for not
     being able to figure it out.

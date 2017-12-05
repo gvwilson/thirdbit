@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Designing Lessons"
 ---
 
 # Designing Lessons
+<!--: \label{lessons} :-->
 
 > **Objectives**
 >
@@ -63,24 +64,22 @@ In brief, lessons should be designed as follows:
 
 1.  Brainstorm to get a rough idea of what you want to cover, how
     you're going to do it, what problems or misconceptions you expect
-    to encounter, what's *not* going to be included, and so on.
+    to encounter, what's *not* going to be included, and so on.  You
+    may also want to draw some concept maps at this stage.
 
 2.  Create or recycle learner personas (discussed in the next section)
     to figure out who you are trying to teach and what will appeal to
     them.
 
-3.  Draw concept maps to describe the mental model you want learners
-    to construct.
-
-4.  Create assessments that will give the learners a chance to
+3.  Create assessments that will give the learners a chance to
     practice the things they're trying to learn and tell you and them
     whether they're making progress and where they need to focus their
     work.
 
-5.  Put the assessments in order based on their complexity and
+4.  Put the assessments in order based on their complexity and
     dependencies to construct a course outline.
 
-6.  Write just enough to get learners from one formative assessment to
+5.  Write just enough to get learners from one formative assessment to
     the next.  An actual classroom lesson will typically then consist of
     three or four such episodes, each building toward a short check that
     learners are keeping up.
@@ -309,8 +308,6 @@ terms of the change it is intended to produce in the learner.
 
 A set of learning objectives based on this taxonomy for an
 introductory course on HTML and CSS might be:
-
-<!--| \newpage |-->
 
 > By the end of this course, students will:
 >

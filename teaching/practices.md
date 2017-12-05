@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Teaching Practices"
 ---
 
 # Teaching Practices
+<!--: \label{practices} :-->
 
 > **Objectives**
 >
@@ -451,6 +452,8 @@ in a scalable way. Despite this, we usually do not use it in either
 programming workshops or instructor training workshops because it
 takes people time to adapt to a new way of learning–time that we
 typically don't have in our compressed two-day format.
+
+<!--: \newpage :-->
 
 > **Taking a Stand**
 >

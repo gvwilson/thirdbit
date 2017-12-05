@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Code of Conduct"
 ---
 
 # Code of Conduct
+<!--: \label{conduct} :-->
 
 > To ensure a welcoming environment for all, we require everyone
 > participating in our classes to conform to the Code of Conduct given

@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): The Rules"
 ---
 
 # The Rules
+<!--: \label{rules} :-->
 
 It's impossible to put everything that matters about teaching and
 learning on a single page, but these points are always worth

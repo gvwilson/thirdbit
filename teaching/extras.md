@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Extra Material"
 ---
 
 # Extra Material
+<!--: \label{extras} :-->
 
 This section includes material that doesn't naturally fit anywhere else.
 

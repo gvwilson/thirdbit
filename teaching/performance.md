@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Teaching as a Performance A
 ---
 
 # Teaching as a Performance Art
+<!--: \label{performance} :-->
 
 > **Objectives**
 >
@@ -113,7 +114,7 @@ abstract of the latter paper sums up their findings:
 > outside sources, or involved only personal interaction with other
 > educators.
 
-<!--| \noindent |-->
+<!--: \noindent :-->
 Barker et al found something similar
 [[Barker2015](biblio.html#barker-practice-adoption)]:
 
@@ -181,8 +182,6 @@ techniques like these:
     adjust their assessment of themselves the next time they feel that
     way.
 
-<!--| \newpage |-->
-
 You can give feedback to others more effectively as well:
 
 1.  *Balance positive and negative feedback.* One method is a
@@ -209,6 +208,8 @@ Whatever methods are used, the most important thing to remember is
 feedback on teaching is meant to be formative: its goal is to help
 people figure out what they are doing well and what they still need to
 work on.
+
+<!--: \newpage :-->
 
 > **Studio Classes**
 > 

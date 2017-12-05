@@ -5,6 +5,7 @@ title: "How to Teach Programming (and Other Things): Marketing"
 ---
 
 # Marketing
+<!--: \label{marketing} :-->
 
 > **Objectives**
 >
@@ -80,7 +81,7 @@ we might use this for potential attendees:
 > Unlike *online classes*,
 > our program *gives participants a chance to meet people who are at the same stage of life*.
 
-<!--| \noindent |-->
+<!--: \noindent :-->
 but use this to characterize the companies that we would like to
 donate staff time for teaching:
 
@@ -138,8 +139,6 @@ you're doing seem real.  Another is to make a short video–no more than
 a few minutes long–showcasing the backgrounds and accomplishments of
 your students.  The aim of both is to tell a story: while people
 always ask for data, stories are what they believe.
-
-<!--| \newpage |-->
 
 > **Foundational Myths**
 >
@@ -235,39 +234,27 @@ people we had some sort of connection with turned into workshops.
 >
 > I hope you don't mind mail out of the blue, but I wanted to follow
 > up on our conversation at the tech showcase last week to see if you
-> would be interested having us run a Software Carpentry workshop for
-> your graduate students. We're scheduling workshops for the coming
-> year right now, and it might be a way to help them accelerate their
-> research.
+> would be interested having us run an instructor training workshop -
+> we're scheduling the next batch over the next couple of weeks.
 >
-> Software Carpentry's aim is to teach graduate students and other
-> researchers the basic computing skills they need to get more done in
-> less time and with less pain. Our usual two-day curriculum includes:
+> As background, hundreds of grassroots groups are now teaching people
+> how to code, but ironically, most of their founders are teaching
+> themselves how to teach.  Just as a few lessons about variables,
+> loops, and functions can save people hours of frustration, a few
+> lessons about formative assessment, live coding, and other practices
+> can help busy volunteers do more good in less time and with less
+> pain.
 >
-> - the Unix shell (but we're really teaching them how to automate
->   repetitive tasks);
+> This one-day class will introduce participants to a handful of key
+> ideas that have a firm foundation in education research and proven
+> useful in practice.  The class is based on the Software Carpentry
+> instructor training course, which has been delivered dozens of times
+> on four continents.  Instructions will be hands-on: short lessons
+> will alternate with individual and group practical exercises,
+> including practice teaching sessions.
 >
-> - Git and GitHub (but we're really teaching them how to use version
->   control to track and share their work);
->
-> - Python or R (but we're really teaching them how to grow a program
->   in a structured, modular, testable, reusable way); and
->
-> - databases (but we're really teaching them the difference between
->   structured and unstructured data).
->
-> Our instructors are volunteers, so the only cost to host sites is
-> their travel and accommodation plus a $1500 contribution toward
-> central costs like instructor training and curriculum development.
-> We aim for 40 people per workshop, and look for 2-3 local helpers to
-> assist during practicals.
->
-> We've run hundreds of workshops like this in 34 countries since
-> 2010, and several assessments have confirmed that what we're doing
-> actually helps.  If this sounds interesting, please give me a shout.
->
-> Thanks for your time,
-> Dr. Greg Wilson 
+> We've run dozens of workshops like this since 2010, and if it sounds
+> interesting, please give me a shout.
 
 ## Making Change
 
