@@ -132,6 +132,14 @@ to start.
 > of it.  After that, saying, "All right, I'm adding another tally to
 > the bingo card," is often enough to get them to throttle back.
 
+> **Dealing With Disruptors**
+>
+> The National Oceanic and Atmospheric Administraiton (NOAA) has
+> published a short, amusing, and above all useful guide to [dealing
+> with disruptive behaviors][noaa-disruptive].  It categorizes those
+> behaviors under labels like "talkative", "indecisive", and "shy",
+> and outlines strategies for handling each.
+
 ## Three Steps
 
 > *  Me in 2012: I'm not going to worry about retaining volunteers
@@ -384,10 +392,14 @@ Several of these exercises are taken from
 [[Brown2007](biblio.html#brown-bpco)], which is an exceptionally
 useful book on building community organizations.
 
-### Who Are You? (15 minutes)
+### Who Are You? (20 minutes)
 
-Which of the descriptions of people you don't want on your team do you
-fit?  What can you do about it?
+Read NOAA's descriptions of [disruptive behaviors][noaa-disruptive].
+
+1.  Which of them best describes you?
+2.  Do you think the strategies described for handling people like
+    you are effective?
+3.  Are other strategies equally or more effective?
 
 ### People You May Meet (30 minutes)
 
@@ -544,3 +556,4 @@ answers to those given by other members of your group.
 [franklin-effect]: https://en.wikipedia.org/wiki/Ben_Franklin_effect
 [freeman]: http://www.jofreeman.com/joreen/tyranny.htm
 [frontier-college]: https://www.frontiercollege.ca/
+[noaa-disruptive]: https://coast.noaa.gov/ddb/story_html5.html
