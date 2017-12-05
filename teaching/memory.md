@@ -182,11 +182,20 @@ whose output is:
 *c
 ~~~
 
-The three key "things" in this loop are shown in the first part of the
-figure below, but they are only half the story–and arguably, the less
-important half.  The second part shows the *relationships* between
-those things.  We can go further and add two more relationships that
-are usually (but not always) true as shown in the third part.
+The three key "things" in this loop are shown in this concept map:
+
+<img src="fig/for-loop-concepts-1.png" alt="Concept Map" width="80%" />
+
+This is only half the story, though, and arguably the less important
+half.  An expanded concept map shows the *relationships* between those
+things:
+
+<img src="fig/for-loop-concepts-2.png" alt="Concept Map" width="80%" />
+
+We can go further and add two more relationships that are usually (but
+not always) true as shown here:
+
+<img src="fig/for-loop-concepts-3.png" alt="Concept Map" width="80%" />
 
 Concept maps can be used in many ways:
 
@@ -221,8 +230,6 @@ Concept maps can be used in many ways:
     whether novices can effectively map their understanding, since
     introspection and explanation of understanding are generally more
     advanced skills than understanding itself.
-
-<img src="fig/for-loop-concepts.png" alt="Concept Map" width="80%" />
 
 > **Meetings, Meetings, Meetings**
 > 
