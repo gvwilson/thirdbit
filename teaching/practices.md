@@ -407,8 +407,8 @@ this:
 
 1.  Give a brief introduction to the topic.
 
-1.  Give students an MCQ that probes for misconceptions (rather than
-    simple factual knowledge).
+1.  Give students a multiple choice question (MCQ) that probes for
+    misconceptions (rather than simple factual knowledge).
 
 1.  Have all the students vote on their answers to the MCQ.
     *   If the students all have the right answer, move on.
