@@ -270,9 +270,9 @@ paragraph of text.
     level it is intended for.  Once they have filled in the blanks, ask
     them what level they think it is for.
 
-If there are people among the trainees who don't program at all, make
-sure that they are in separate groups and ask to the groups to work
-with that person as a learner to help identify different loads.
+(If there are people among the trainees who don't program at all, try
+to place them in different groups, and have them play the part of
+learners for those groups.)
 
 ### Create a Parsons Problem (20 minutes)
 
