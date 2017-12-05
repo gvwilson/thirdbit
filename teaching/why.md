@@ -67,5 +67,5 @@ I do. The world doesn't get better on its own. It gets better because
 people make it better: penny by penny, vote by vote, and one lesson at
 a time.
 
-[famous5]: http://www.canuck.com/famous5/html/history.html
+[famous5]: https://en.wikipedia.org/wiki/The_Famous_Five_(Canada)
 [orwell-why-i-write]: http://www.resort.com/~prime8/Orwell/whywrite.html
