@@ -49,11 +49,12 @@ For our purposes, we simplify the five stages to three:
     problems, and so on. We will discuss expertise in more detail in
     [Memory](memory.html).
 
-One sign that someone is a novice is that the things they say aren't
-even wrong, e.g., they think there's a difference between programs
-they type in character by character and identical ones that they have
-copied and pasted.  As we will discuss [later](motivation.html), it is
-very important not to shame novices for this.
+One sign that someone is a novice is that the things they say are
+[not even wrong][not-even-wrong], e.g., they think there's a
+difference between programs they type in character by character and
+identical ones that they have copied and pasted.  As we will discuss
+[later](motivation.html), it is very important not to shame novices
+for this.
 
 One example of a mental model is the ball-and-spring model of
 molecules that most of us encountered in high school chemistry. Atoms
@@ -360,6 +361,7 @@ at each of these levels.
 </div>
 
 [four-competence]: https://en.wikipedia.org/wiki/Four_stages_of_competence
+[not-even-wrong]: https://en.wikipedia.org/wiki/Not_even_wrong
 [swc-unix]: http://swcarpentry.github.io/shell-novice/
 [wikipedia-dreyfus]: https://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition
 [wikipedia-fci]: https://en.wikipedia.org/wiki/Force_Concept_Inventory
