@@ -48,15 +48,14 @@ ignore this survivor bias.
 
 Many enthusiasts also didn't realize that MOOCs and other forms of
 online education were just the latest in a long series of proposals to
-use machines to teach.  As
-[[Watters2014](biblio.html#watters-monsters)] has chronicled, every
-innovation in communications from the printing press through radio and
-television to desktop computers and now mobile devices, has spawned a
-wave of aggressive optimists who believe that education is broken
-(without actually knowing much about education) and that the latest
-technology is the solution (without knowing much about what's been
-tried before, why it failed, or what success would actually look
-like).
+use machines to teach.  As [Audrey Watters has chronicled][timeline],
+every innovation in communications–from the printing press through
+radio and television to desktop computers and now mobile devices–has
+spawned a wave of aggressive optimists who believe that education is
+broken (without actually knowing much about education) and that the
+latest technology is the solution (without knowing much about what's
+been tried before, why it failed, or what success would actually look
+like) [[Watters2014](biblio.html#watters-monsters)].
 
 That said, technology *has* changed teaching and learning.  Before
 blackboards were introduced into schools in the early 1800s, there was
@@ -638,3 +637,4 @@ create an example, and swap with one of your fellow learners.
 
 [adelaide-video]: https://www.adelaide.edu.au/learning/teaching/communities-of-practice/elearning/Guide_to_Creating_Educational_Videos.pdf
 [berlin]: https://en.wikipedia.org/wiki/Two_Concepts_of_Liberty
+[timeline]: http://teachingmachin.es/timeline.html
