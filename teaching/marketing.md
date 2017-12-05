@@ -341,8 +341,35 @@ list three or four reasons why people might not want your teaching
 initiative to go ahead, and explain what you can do with the time and
 resources you have to counteract each.
 
+### Why Teach Programming? (20 minutes)
+
+As [Mark Guzdial has pointed out][guzdial-transfer], just learning
+to program doesn't automatically improve people's general
+problem-solving skills (i.e., there is no evidence for transference).
+However, there are lots of other reasons to learn to program:
+
+1.  To understand our world.
+2.  To study and understand processes.
+3.  To be able to ask questions about the influences on their lives.
+4.  To use an important new form of literacy.
+5.  To have a new way to learn science and mathematics.
+6.  As a job skill.
+7.  To use computers better.
+8.  As a medium in which to learn problem-solving.
+
+Read [the full explanations of these points][guzdial-transfer], then
+draw a 3x3 grid whose X and Y axes are labelled "low", "medium", and
+"high" and place each point in one sector according to how important
+it is to you (the X axis) and to your learners (the Y axis).
+
+1.  Which points are closely aligned in importance (i.e., on the
+    diagonal in your grid)?
+2.  Which points are mis-aligned (i.e., in the off-diagonal corners)?
+3.  How does this affect your marketing strategy?
+
 </div>
 
+[guzdial-transfer]: https://computinged.wordpress.com/2017/10/18/why-should-we-teach-programming-hint-its-not-to-learn-problem-solving/
 [herckis]: https://www.insidehighered.com/news/2017/07/06/anthropologist-studies-why-professors-dont-adopt-innovative-teaching-methods
 [impl-sci]: https://implementationscience.biomedcentral.com/
 [moz]: https://moz.com/learn/seo/on-page-factors
