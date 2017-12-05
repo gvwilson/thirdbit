@@ -33,11 +33,15 @@ to pay in order to do so. In addition, their early experiences with
 programming are often demoralizing, and believing that something will
 be hard to learn is a self-fulfilling prophecy.
 
-Imagine a grid whose axes are labelled "mean time to master" and
-"usefulness once mastered". Everything that's quick to master, and
-immediately useful should be taught first; things in the opposite corner
-that are hard to learn and have little near-term application don't
-belong in this course.
+Imagine a grid whose axes are "mean time to master" and "usefulness
+once mastered":
+
+<img src="fig/what-to-teach.png" alt="What to Teach" width="50%" />
+
+Everything that's quick to master and immediately useful should be
+taught first; things in the opposite corner that are hard to learn and
+have little near-term application should be dropped, and topics along
+the diagonal should be weighed against each other.
 
 > **Actual Time**
 > 
