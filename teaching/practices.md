@@ -510,8 +510,6 @@ You may not have any control over the layout of the desks or tables in
 the room in which your programming workshop takes place, but if you
 do, we find it's best to have:
 
-<!--| \newpage |-->
-
 *   all tables on the same level (rather than banked seating),
 
 *   four people per table (so that each table can have two pairs if

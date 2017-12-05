@@ -63,14 +63,12 @@ pitches](gloss.html#elevator-pitch)_, each aimed at a different
 stakeholder.  A widely-used template for these pitches looks like
 this:
 
-<table class="table table-striped">
-<tr><td>For</td><td><em>target audience</em></td></tr>
-<tr><td>who</td><td><em>dissatisfaction with what's currently available</em></td></tr>
-<tr><td>our</td><td><em>category</em></td></tr>
-<tr><td>provide</td><td><em>key benefit</em>.</td></tr>
-<tr><td>Unlike</td><td><em>alternatives</em></td></tr>
-<tr><td>our program</td><td><em>key distinguishing feature</em></td></tr>
-</table>
+1.  For *target audience*
+2.  who *dissatisfaction with what's currently available*
+3.  our *category*
+4.  provide *key benefit*.
+5.  Unlike *alternatives*
+6.  our program *key distinguishing feature.*
 
 Continuing with our weekend workshop example,
 we might use this for potential attendees:
@@ -82,6 +80,7 @@ we might use this for potential attendees:
 > Unlike *online classes*,
 > our program *gives participants a chance to meet people who are at the same stage of life*.
 
+<!--| \noindent |-->
 but use this to characterize the companies that we would like to
 donate staff time for teaching:
 
@@ -139,6 +138,8 @@ you're doing seem real.  Another is to make a short video–no more than
 a few minutes long–showcasing the backgrounds and accomplishments of
 your students.  The aim of both is to tell a story: while people
 always ask for data, stories are what they believe.
+
+<!--| \newpage |-->
 
 > **Foundational Myths**
 >
@@ -268,7 +269,7 @@ people we had some sort of connection with turned into workshops.
 > Thanks for your time,
 > Dr. Greg Wilson 
 
-## Go Over, Go Through, Go Around, or Change Direction
+## Making Change
 
 Everyone is afraid of the unknown and of embarrassing themselves.  As
 a result, most people would rather fail than change.  Marketing is
@@ -303,7 +304,24 @@ Each of the major categories is defined by whether the change is
 individual or to the system as a whole, and whether it is prescribed
 (top-down) or emergent (bottom-up).  The person trying to make the
 changes–and make them stick–has a different role in each situation,
-and should pursue different strategies accordingly.
+and should pursue different strategies accordingly.  In our
+experience, the most important things are:
+
+1.  *Ask, don't tell.*  Teachers know their students and their
+    needs much better than you do, so start by asking what they
+    think the most pressing needs are.
+
+2.  *Find allies.* Many colleges and universities have teaching and
+    learning centers whose staff are keen to improve teaching
+    practices, and who also know how to navigate the local
+    bureaucracy.  Similarly, there are often tech meetup groups or
+    other local organizations whose members are likely helpers.
+
+3.  *Start small.* [[Lang2016](biblio.html#lang-small-teaching)]
+    describes evidence-based teaching practices that can be put in
+    place with minimal effort and at low cost.  These may not have the
+    most impact, but scoring a few early wins helps build support for
+    larger and riskier efforts.
 
 ## A Final Thought
 

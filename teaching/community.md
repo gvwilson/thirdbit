@@ -298,6 +298,8 @@ time you call.
 > at your local college or school board, or in your city councilor's
 > office?  If not, what are you waiting for?
 
+<!--| \newpage |-->
+
 > **Soup, Then Hymns**
 >
 > Manifestos are fun to write, but most people join a volunteer
@@ -424,8 +426,7 @@ contributor to your organization.
     knows that what other people are saying is wrong. She might
     contribute to the mailing list, but she's very sensitive to
     criticism, and will always back down rather than defending her
-    point of view. Hediyeh isn't a troublemaker, but rather a lost
-    opportunity.
+    point of view.
 
 *   *Kenny* has discovered that most people would rather shoulder his
     share of the work than complain about him, and he takes advantage
@@ -448,6 +449,8 @@ contributor to your organization.
 
 Answer the following questions on your own, and then compare your
 answers to those given by other members of your group.
+
+<!--| \newpage |-->
 
 1.  What are the values your organization expresses?
 2.  Are these the values you want the organization to express?

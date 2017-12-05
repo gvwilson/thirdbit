@@ -472,11 +472,11 @@ output it produces".
 
 > Example: match each function's name with the operation it implements.
 >
-> <table class="table table-striped">
-> <tr><td>SGEMV</td><td>triangular banded matrix-vector multiply</td></tr>
-> <tr><td>STBMV</td><td>solve triangular matrix with multiple right-hand sides</td></tr>
-> <tr><td>STRSM</td><td>matrix-vector multiply</td></tr>
-> </table>
+> | Function | Operation |
+> | -------- | --------- |
+> | SGEMV    | triangular banded matrix-vector multiply |
+> | STBMV    | solve triangular matrix with multiple right-hand sides |
+> | STRSM    | matrix-vector multiply |
 
 *Many-to-many matching* is similar, but the lists aren't the same
 length, so some items may be matched to several others. Both kinds

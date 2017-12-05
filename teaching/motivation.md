@@ -36,12 +36,14 @@ be hard to learn is a self-fulfilling prophecy.
 Imagine a grid whose axes are "mean time to master" and "usefulness
 once mastered":
 
-<img src="fig/what-to-teach.png" alt="What to Teach" width="50%" />
+![What to Teach](fig/what-to-teach.png)
 
 Everything that's quick to master and immediately useful should be
 taught first; things in the opposite corner that are hard to learn and
 have little near-term application should be dropped, and topics along
 the diagonal should be weighed against each other.
+
+<!--| \newpage |-->
 
 > **Actual Time**
 > 

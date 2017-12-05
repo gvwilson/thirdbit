@@ -41,7 +41,6 @@ between experts and people who are "merely competent" is that experts
 have many more connections, i.e., their mental models are much more
 densely connected.
 
-<!--| \newpage |-->
 This metaphor helps explain many observed aspects of expert behavior:
 
 *   Experts can jump directly from a problem to its solution because
@@ -149,9 +148,9 @@ mapping is that it makes those differences explicit.)  The figure
 below reproduces a concept map taken from the [IHMC CMap site][ihmc-cmap]
 showing why the Earth has seasons.
 
-<img src="fig/seasons.png" alt="Concept Map for Seasons" width="80%" source="http://cmap.ihmc.us/docs/images/Theory/Fig5CmapSeasons-large.png" />
+![Concept Map for Seasons](fig/seasons.png)
 
-<!--| \newpage |-->
+<!-- http://cmap.ihmc.us/docs/images/Theory/Fig5CmapSeasons-large.png -->
 
 > **Externalizing Cognition**
 > 
@@ -173,7 +172,8 @@ for letter in "abc":
       print('*' + letter)
 ~~~
 
-<!--| \noindent -->
+<!--| \newpage |-->
+<!--| \noindent |-->
 whose output is:
 
 ~~~
@@ -184,18 +184,20 @@ whose output is:
 
 The three key "things" in this loop are shown in this concept map:
 
-<img src="fig/for-loop-concepts-1.png" alt="Concept Map" width="80%" />
+![Initial Concept Map](fig/for-loop-concepts-1.png)
 
+<!--| \noindent |-->
 This is only half the story, though, and arguably the less important
 half.  An expanded concept map shows the *relationships* between those
 things:
 
-<img src="fig/for-loop-concepts-2.png" alt="Concept Map" width="80%" />
+![Expanded Concept Map](fig/for-loop-concepts-2.png)
 
+<!--| \noindent |-->
 We can go further and add two more relationships that are usually (but
 not always) true as shown here:
 
-<img src="fig/for-loop-concepts-3.png" alt="Concept Map" width="80%" />
+![Finished Concept Map](fig/for-loop-concepts-3.png)
 
 Concept maps can be used in many ways:
 
@@ -265,8 +267,6 @@ accurately for as long as it took the dial to go around and
 around. It's also why sports teams tend to have about half a dozen
 members, or be broken down into smaller groups (such as the forwards
 and backs in rugby).
-
-<!--| \newpage |-->
 
 > **Chunking**
 > 

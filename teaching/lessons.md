@@ -131,9 +131,9 @@ course hasn't prepared them for.
 > measurement is appealing to those with the power to set the tests,
 > but is unlikely to improve outcomes unless it is coupled with
 > support for teachers to make improvements based on test outcomes.
-> This is often missing, because as Scott pointed out in
-> [[Scott1999](biblio.html#scott-state)], large organizations usually
-> value uniformity over productivity.
+> This is often missing, because as
+> [[Scott1999](biblio.html#scott-state)] pointed out, large
+> organizations usually value uniformity over productivity.
 
 ## Learner Personas
 
@@ -309,6 +309,8 @@ terms of the change it is intended to produce in the learner.
 
 A set of learning objectives based on this taxonomy for an
 introductory course on HTML and CSS might be:
+
+<!--| \newpage |-->
 
 > By the end of this course, students will:
 >

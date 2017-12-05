@@ -8,7 +8,7 @@ title: "How to Teach Programming (and Other Things): How to Contribute"
 
 We welcome contributions of all kinds, from errata to suggestions for
 improvements to new material.  The source for this book is stored in a
-GitHub repository at <http://github.com/gvwilson/thirdbit.git>, so if you
+GitHub repository at <http://github.com/gvwilson/thirdbit>, so if you
 know how to use Git, and would like to add or fix something, please
 send us a pull request.
 

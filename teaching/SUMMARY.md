@@ -88,7 +88,7 @@
   * [What Are You Offering to Whom?](marketing.md#what-are-you-offering-to-whom)
   * [Branding and Positioning](marketing.md#branding-and-positioning)
   * [The Art of the Cold Call](marketing.md#the-art-of-the-cold-call)
-  * [Go Over, Go Through, Go Around, or Change Direction](marketing.md#go-over-go-through-go-around-or-change-direction)
+  * [Making Change](marketing.md#making-change)
   * [A Final Thought](marketing.md#a-final-thought)
 
 **Appendices**

@@ -100,7 +100,6 @@ def word_lengths(words):
       return lengths
 ~~~
 
-<!--| \newpage |-->
 <!--| \noindent |-->
 The next problem might be:
 

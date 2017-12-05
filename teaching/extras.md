@@ -431,41 +431,12 @@ in the discussion of [live coding](live.html).
 *   Instructor makes mistake (a typo) and uses the occasion to
     illustrate how to interpret error-messages.
 
-## Effecting Change
-
-This guide is aimed primarily at people working in grassroots
-organizations, but in order to reach and help as many people as
-possible, we must find ways to work with the schools we
-have. [[Henderson2011](biblio.html#henderson-facilitating)] discusses
-ways to get educational institutions to change what and how they
-teach; in our experience, the most important things are:
-
-1.  *Ask, don't tell.*  Teachers know their students and their
-    needs much better than you do, so start by asking what they
-    think the most pressing needs are.
-
-2.  *Find allies.* Many colleges and universities have teaching and
-    learning centers whose staff are keen to improve teaching
-    practices, and who also know how to navigate the local
-    bureaucracy.  Similarly, there are often tech meetup groups or
-    other local organizations whose members are likely helpers.
-
-3.  *Start small.* [[Lang2016](biblio.html#lang-small-teaching)]
-    describes evidence-based teaching practices that can be put in
-    place with minimal effort and at low cost.  These may not have the
-    most impact, but scoring a few early wins helps build support for
-    larger and riskier efforts.
-
-[[Brown2007](biblio.html#brown-bpco)] is an excellent guide to building
-organizations in and for communities.  You may not need to answer all
-of the questions it asks right away, but they are all worth thinking
-about.
-
 ## Evaluating Impact
 
-A key part of effecting change is to convince people that what you're
-doing is having a positive impact.  That turns out to be surprisingly
-hard for free-range programming workshops:
+A key part of [effecting change](marketing.html#making-change) is to
+convince people that what you're doing is having a positive impact.
+That turns out to be surprisingly hard for free-range programming
+workshops:
 
 1.  *Ask learners if the workshop was useful.* Study after study has
     shown that there is no correlation between how highly learners
@@ -513,26 +484,10 @@ backers that you're doing so.
 exercises to prompt three kinds of thinking, and provides these
 examples (among others):
 
-<table class="table table-striped">
-  <tr>
-    <th>Field</th>
-    <th>Critical Thinking</th>
-    <th>Creative Thinking</th>
-    <th>Practical Thinking</th>
-  </tr>
-  <tr>
-    <td>Biology</td>
-    <td>Evaluate the validity of the bacterial theory of ulcers.</td>
-    <td>Design a experiment to test the bacterial theory of ulcers.</td>
-    <td>How would the bacterial theory of ulcers change conventional treatment regimes?</td>
-  </tr>
-  <tr>
-    <td>Art</td>
-    <td>Compare and contrast how Rembrandt and Van Gogh used light in these two paintings.</td>
-    <td>Draw a beam of light.</td>
-    <td>How could we reproduce the lighting in this painting in an actual room?</td>
-  </tr>
-</table>
+| Field | Critical Thinking | Creative Thinking | Practical Thinking |
+| ----- | ----------------- | ----------------- | ------------------ |
+| Biology | Evaluate the validity of the bacterial theory of ulcers. | Design a experiment to test the bacterial theory of ulcers. | How would the bacterial theory of ulcers change conventional treatment regimes? |
+| Art | Compare and contrast how Rembrandt and Van Gogh used light in these two paintings. | Draw a beam of light. | How could we reproduce the lighting in this painting in an actual room? |
 
 To ensure that key concepts are truly understood,
 instructors should give learners exercises of all three types for each concept.
