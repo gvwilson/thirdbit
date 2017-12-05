@@ -6,8 +6,6 @@ title: "How to Teach Programming (and Other Things): Teaching Online"
 
 # Teaching Online
 
-<div class="changed" markdown="1">
-
 > **Objectives**
 >
 
@@ -633,8 +631,6 @@ learners.
 Pick one of the examples given in this chapter of using write and runs
 exericses to implement some other kind of online programming exercise,
 create an example, and swap with one of your fellow learners.
-
-</div>
 
 [adelaide-video]: https://www.adelaide.edu.au/learning/teaching/communities-of-practice/elearning/Guide_to_Creating_Educational_Videos.pdf
 [berlin]: https://en.wikipedia.org/wiki/Two_Concepts_of_Liberty

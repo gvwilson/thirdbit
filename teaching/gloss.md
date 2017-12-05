@@ -21,14 +21,12 @@ title: "How to Teach Programming (and Other Things): Glossary"
     See also [cognitivism](gloss.html#cognitivism).
 
 *   <span id="blooms-taxonomy">Bloom's Taxonomy</span>:
-    <span class="changed" markdown="1">
     A six-part hierarchical classification of understand
     whose levels are *knowledge*, *comprehension*, *application*,
     *analysis*, *synthesis*, and *evaluation*
     that has [been widely adopted][wikipedia-bloom].
     <br>
     See also [Fink's Taxonomy](gloss.html#finks-taxonomy).
-    </span>
 
 *   <span id="chunking">Chunking</span>:
     The act of grouping related concepts together so that they can be
@@ -113,14 +111,12 @@ title: "How to Teach Programming (and Other Things): Glossary"
     See also [scaffolding](gloss.html#scaffolding).
 
 *   <span id="finks-taxonomy">Fink's Taxonomy</span>:
-    <span class="changed" markdown="1">
     A six-part non-hierarchical classification of understanding
     first proposed in [[Fink2013](biblio.html#fink-significant)]
     whose categories are *foundational knowledge*, *application*,
     *integration*, *human dimension*, *caring*, and *learning how to learn*.
     <br>
     See also: [Bloom's Taxonomy](gloss.html#blooms-taxonomy).
-    </span>
 
 *   <span id="fixed-mindset">Fixed Mindset</span>:
     The belief that an ability is innate, and that failure is due to a
@@ -149,9 +145,7 @@ title: "How to Teach Programming (and Other Things): Glossary"
     See also [fixed mindset](gloss.html#fixed-mindset).
 
 *   <span id="implementation-science">Implementation Science</span>:
-    <span class="changed" markdown="1">
     the study of how to translate research findings to everyday clinical practice.
-    </span>
 
 *   <span id="impostor-syndrome">Impostor Syndrome</span>:
     A feeling of insecurity about one's accomplishments that manifests as

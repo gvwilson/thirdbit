@@ -12,9 +12,9 @@ remembering.
 
 1.  Be kind: all else is details.
 
-2.  <span class="changed" markdown="1">You are not your learners.</span>
+2.  You are not your learners.
 
-3. <span class="changed" markdown="1">Most people would rather fail than change.</span>
+3.  Most people would rather fail than change.
 
 4.  Never teach alone.
 

@@ -6,8 +6,6 @@ title: "How to Teach Programming (and Other Things): Marketing"
 
 # Marketing
 
-<div class="changed" markdown="1">
-
 > **Objectives**
 >
 > * Learners can explain what marketing actually is.
@@ -366,8 +364,6 @@ it is to you (the X axis) and to your learners (the Y axis).
     diagonal in your grid)?
 2.  Which points are mis-aligned (i.e., in the off-diagonal corners)?
 3.  How does this affect your marketing strategy?
-
-</div>
 
 [guzdial-transfer]: https://computinged.wordpress.com/2017/10/18/why-should-we-teach-programming-hint-its-not-to-learn-problem-solving/
 [herckis]: https://www.insidehighered.com/news/2017/07/06/anthropologist-studies-why-professors-dont-adopt-innovative-teaching-methods

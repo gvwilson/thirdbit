@@ -338,8 +338,6 @@ Describe another kind of formative assessment you have seen or used and
 explain how it helps both the instructor and the learner figure out
 where they are and what they need to do next.
 
-<div class="changed" markdown="1">
-
 ### A Different Progression (15 minutes)
 
 Another progression often used to describe the path from novice to expert is
@@ -361,8 +359,6 @@ at each of these levels.
 Identify one field in which you are a novice (but hoping to improve),
 one in which you feel you are competent, and one where you feel you
 are an expert, and share with the rest of the group.
-
-</div>
 
 [four-competence]: https://en.wikipedia.org/wiki/Four_stages_of_competence
 [not-even-wrong]: https://en.wikipedia.org/wiki/Not_even_wrong

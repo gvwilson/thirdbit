@@ -278,8 +278,6 @@ subjects, but have convinced themselves that they just don't have what
 it takes to be programmers. If all we do is dispel that belief, we
 will have done them a service.
 
-<div class="changed" markdown="1">
-
 ## Feedback on Bad Teaching Demo Videos
 
 The two lists below summarize key feedback on the videos of
@@ -380,8 +378,6 @@ used in the chapters on [performance](performance.html) and
 - 05:13 Audio is garbled again.
 - 05:34 List comprehensions are another distraction.
 - Last few seconds should have been edited out.
-
-</div>
 
 ## Feedback on Live Coding Demo Videos
 
@@ -511,8 +507,6 @@ out early on how you're going to know whether you're teaching the
 right things the right way, and how you're going to convince potential
 backers that you're doing so.
 
-<div class="changed" markdown="1">
-
 ## Three Kinds of Thinking
 
 [[Fink2013](biblio.html#fink-significant)] suggests designing
@@ -542,7 +536,5 @@ examples (among others):
 
 To ensure that key concepts are truly understood,
 instructors should give learners exercises of all three types for each concept.
-
-</div>
 
 [wikipedia-learning-modalities]: https://en.wikipedia.org/wiki/Learning_styles#Learning_modalities

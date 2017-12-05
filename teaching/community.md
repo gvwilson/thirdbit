@@ -6,8 +6,6 @@ title: "How to Teach Programming (and Other Things): Building Community"
 
 # Building Community
 
-<div class="changed" markdown="1">
-
 > **Objectives**
 >
 > * Learners can make an informed decision about whether to create
@@ -548,8 +546,6 @@ answers to those given by other members of your group.
 5.  Are people required to agree to any rules of behavior upon joining?
 6.  Are these the rules for behavior you want?
 7.  Are there membership dues?
-
-</div>
 
 [4h]: http://www.4-h-canada.ca/
 [bgc]: http://www.blackgirlscode.com/

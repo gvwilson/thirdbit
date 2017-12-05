@@ -460,8 +460,6 @@ indicators of success?" Read
 example from your own experience of "objective" assessments that
 reinforced the status quo.
 
-<div class="changed" markdown="1">
-
 ### Credibility (15 minutes)
 
 [[Fink2013](biblio.html#fink-significant)] describes three things
@@ -487,8 +485,6 @@ category as well.
 You will (still) sometimes hear people say, "It's so simple that even
 your grandmother could use it."  In pairs, list two or three other
 phrases that reinforce stereotypes about computing.
-
-</div>
 
 [ada-resources]: http://adainitiative.org/continue-our-work/impostor-syndrome-training/
 [growth-mindset-concerns]: http://www.learningspy.co.uk/psychology/growth-mindset-bollocks/
