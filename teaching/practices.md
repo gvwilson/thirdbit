@@ -165,6 +165,13 @@ to keep an eye on.  We believe the positives outweigh the negatives,
 but think that some careful controlled studies would tell us whether
 we're right, and how to use it better.
 
+If you are going to have a group take notes together, make a list of
+everyone's name and paste it into the document each time you want
+every person to respond individually (e.g., to answer a question or
+contribute an exercise solution).  This prevents the situation in
+which everyone is trying to edit the same couple of lines at the same
+time.
+
 ## Assess Motivation and Prior Knowledge
 
 Most formal educational systems train people to treat all assessment
