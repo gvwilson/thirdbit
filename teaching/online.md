@@ -618,7 +618,8 @@ judgments, rather than being judged by technology.
     that are already up there.
 
 What did other people see that you missed?  What did they think that
-you strongly agree or disagree with?
+you strongly agree or disagree with?  (You can compare your answers
+with [these lists](extras.html#feedback-on-bad-teaching-demo-videos).)
 
 ### Adapting Multiple Choices Questions (30 minutes)
 

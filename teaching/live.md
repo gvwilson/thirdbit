@@ -271,11 +271,13 @@ effect your behavior has on the workshop.
 
 Watch the video of live coding done poorly
 [[Nederbragt2016a](biblio.html#live-coding-bad)] and then the video of
-live coding done well [[Nederbragt2016b](biblio.html#live-coding-good)]
-as a group and then summarize your feedback on both using the usual
-2×2 grid.  These videos assume learners know what a shell variable is,
-know how to use the `head` command, and are familiar with the contents
-of the data files being filtered.
+live coding done well
+[[Nederbragt2016b](biblio.html#live-coding-good)], summarize your
+feedback on both using the usual 2×2 grid, and then compare it with
+[this list](extras.html#feedback-on-live-coding-demo-videos).  These
+videos assume learners know what a shell variable is, know how to use
+the `head` command, and are familiar with the contents of the data
+files being filtered.
 
 ### See Then Do (30 minutes)
 
