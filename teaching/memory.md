@@ -307,6 +307,52 @@ teachable episodes.
 > them with labelled arcs, and adding any other concepts they think they
 > need.
 
+## Six Strategies
+
+The [Learning Scientists][learning-scientists] have catalogued six
+strategies for effective learning, which are summarized in [these
+downloadable posters][six-strategies]:
+
+1.  *Spaced practice*: creating a study schedule that spreads study
+    activities over time.
+    <br/>
+    Block off 30 minutes to study each day rather than trying to cram
+    everything in the night before an exam.
+
+2.  *Retrieval practice*: bringing learned information to mind
+    from long-term  memory.
+    <br/>
+    Take practice tests, or practice summarizing the details of a
+    topic from memory.
+
+3.  *Interleaving*: creating a study schedule that mixes different
+    kinds of problems, or different content subjects within one study
+    session.
+    <br/>
+    Solve practice problems A-B-C-A-B-C-A-B-C rather than
+    A-A-A-B-B-B-C-C-C.
+
+4.  *Elaboration*: asking and explaining why things work.
+    <br/>
+    Follow up each practice answer with an explanation of why that
+    answer is correct.
+
+5.  *Concrete examples*: illustrating abstract concepts with specific
+    real-life examples.
+    <br/>
+    Follow each statement of a general principle with one or more
+    examples, or each particular problem with a statement of the
+    general principles it embodies.
+
+6.  *Dual coding*: combining words with visuals.
+    <br/>
+    Draw or label diagrams while explaining things or working through
+    problems.
+
+Teaching these strategies to students, and mentioning them by name
+when you use them in class, can help them learn how to learn faster
+and better.
+
 ## Challenges
 
 ### Concept Mapping (30 minutes)
@@ -317,3 +363,17 @@ multiple choice question for earlier.) Trade with a partner, and
 critique each other's maps. Do they present concepts or surface
 detail? Which of the relationships in your partner's map do you
 consider concepts and vice versa?
+
+### Learning Strategies (20 minutes)
+
+1.  Which of the [learning strategies](#six-strategies) discussed
+    above do you regularly use?  Which ones do you not?
+2.  Write down three general concepts that you want your learners to
+    master, and then give two specific examples of each.  (This uses
+    practice #5).
+3.  For each of those concepts, work backward from one of your
+    examples to explain how the concept explains it.  (This uses
+    practice #4).
+
+[learning-scientists]: http://www.learningscientists.org/
+[six-strategies]: http://www.learningscientists.org/downloadable-materials
