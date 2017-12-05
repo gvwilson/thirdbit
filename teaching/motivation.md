@@ -209,15 +209,15 @@ typos let the class see you're not superhuman.)
 
 You can also emphasize that you want questions: you are not succeeding
 as a teacher if no one can follow your class, so you're asking
-students for their help to help you learn and improve. Remember, it's
-much more important to *be* smart than to *look* smart.
-
-The Ada Initiative has some excellent resources for teaching about and
-dealing with imposter syndrome [[Ada2017](biblio.html#ada-imposter)].
+students for their help to help you learn and improve. (Remember, it's
+much more important to *be* smart than to *look* smart.)  If you would
+like to learn more, the Ada Initiative has some excellent resources
+for teaching about and dealing with imposter syndrome
+[[Ada2017](biblio.html#ada-imposter)].
 
 ## Stereotype Threat
 
-Reminding people of negative stereotypes, even in subtle ways, makes
+Reminding people of negative stereotypes, even in subtle ways, can make
 them anxious about the risk of confirming those stereotypes, which in
 turn reduces their performance. This is called _[stereotype
 threat](gloss.html#stereotype-threat)_, and the clearest examples in
@@ -233,20 +233,19 @@ mitigating it in the classroom.
 However, while there's lots of evidence that unwelcoming climates
 demotivate members of under-represented groups, it's not clear that
 stereotype threat is the underlying mechanism. Part of the problem is
-that [the term has been used in many
-ways][stereotype-threat-ambiguity]; another is [questions about the
-replicability of key studies][stereotype-threat-replicability]. What
-*is* clear is that we need to avoid thinking in terms of a deficit
-model (i.e., we need to change the members of under-represented groups
-because they have some deficit, such as lack of prior experience) and
-instead use a systems approach (i.e., we need to change the system
-because it produces these disparities).
+that [the term has been used in many ways][stereotype-threat-ambiguity];
+another is [questions][stereotype-threat-replicability] about the
+replicability of key studies. What *is* clear is that we need to avoid
+thinking in terms of a deficit model (i.e., we need to change the
+members of under-represented groups because they have some deficit,
+such as lack of prior experience) and instead use a systems approach
+(i.e., we need to change the system because it produces these
+disparities).
 
-A great example of how stereotypes work in general was presented in
-Patitsas et al's "Evidence That Computer Science Grades Are Not
-Bimodal" [[Patitsas2016](biblio.html#patitsas-cs-grades)].  This
+A great example of how stereotypes work was presented in
+[[Patitsas2016](biblio.html#patitsas-cs-grades)].  This
 thought-provoking paper showed that people see evidence for a "geek
-gene" where none exists.  As the paper's abstract says:
+gene" where none exists:
 
 > Although it has never been rigorously demonstrated, there is a
 > common belief that CS grades are bimodal. We statistically analyzed
@@ -291,9 +290,9 @@ have also shown that the simple action of telling learners about the
 different mindsets before a course can improve learning outcomes for
 the whole group.
 
-As with stereotype threat, [there are
-concerns][growth-mindset-concerns] that research on grown mindset has
-been oversold, or will be much more difficult to put into practice
+As with stereotype threat, there are
+[concerns][growth-mindset-concerns] that growth mindset has been
+oversold, or that research is much more difficult to put into practice
 than its more enthusiastic advocates have implied.  While some people
 interpret this back and forth of claim and counter-claim as evidence
 than education research isn't reliable, what it really shows is that
@@ -459,7 +458,7 @@ reinforced the status quo.
 
 <div class="changed" markdown="1">
 
-### Credibility
+### Credibility (15 minutes)
 
 [[Fink2013](biblio.html#fink-significant)] describes three things
 that make teachers credible in their learners' eyes:
@@ -477,7 +476,13 @@ that make teachers credible in their learners' eyes:
 
 Describe one thing you do when teaching that fits into each category,
 and then describe one thing you *don't* do but should for each
-category as well
+category as well.
+
+### Common Stereotypes (10 minutes)
+
+You will (still) sometimes hear people say, "It's so simple that even
+your grandmother could use it."  In pairs, list two or three other
+phrases that reinforce stereotypes about computing.
 
 </div>
 
