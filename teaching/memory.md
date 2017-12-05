@@ -251,12 +251,13 @@ _[short-term](gloss.html#short-term-memory)_ or _[working
 memory](gloss.html#working-memory)_. It is much faster, but also much
 smaller: in 1956, Miller estimated that the average adult's working
 memory could hold 7±2 items for a few seconds before things started to
-drop out.  This is why phone numbers are typically 7 or 8 digits long:
-back when phones had dials instead of keypads, that was the longest
-string of numbers most adults could remember accurately for as long as
-it took the dial to go around and around. It's also why sports teams
-tend to have about half a dozen members, or be broken down into
-smaller groups (such as the forwards and backs in rugby).
+drop out.  This is [why phone numbers are typically 7 or 8 digits
+long][bell-phone]: back when phones had dials instead of keypads, that
+was the longest string of numbers most adults could remember
+accurately for as long as it took the dial to go around and
+around. It's also why sports teams tend to have about half a dozen
+members, or be broken down into smaller groups (such as the forwards
+and backs in rugby).
 
 <!--| \newpage |-->
 
@@ -386,6 +387,7 @@ experiment you can do without preparation or equipment (other than a
 timer) to demonstrate the mental cost of multi-tasking.  Try the
 activity in pairs, and then report your results to the group.
 
+[bell-phone]: https://www.quora.com/Why-did-Bell-Labs-create-phone-numbers-of-7-digits-10-digits-Is-there-a-reason-that-dashes-and-brackets-are-used
 [ihmc-cmap]: https://cmap.ihmc.us/
 [learning-scientists]: http://www.learningscientists.org/
 [six-strategies]: http://www.learningscientists.org/downloadable-materials

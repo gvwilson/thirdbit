@@ -242,7 +242,7 @@ are several things every organization should do to ensure that people
 are getting something they value out of their work:
 
 1.  *Ask people what they want rather than guessing.*  Just as [you are
-    not your learners](lesson.html#a-reminder), you are probably
+    not your learners](lessons.html#a-reminder), you are probably
     different from other members of your organization.  Ask people
     what they want to do, what they're comfortable doing (which may
     not be the same thing), what constraints there are on their time,
