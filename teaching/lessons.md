@@ -527,11 +527,26 @@ critique and improve the objectives.
 Write one more learning objectives for something you currently teach
 or plan to teach using Fink's Taxonomy.  Working with a partner,
 critique and improve the objectives.
+
+### Inessential Weirdness (15 minutes)
+
+Betsy Leondar-Wright coined the phrase [inessential
+weirdness][inessential-weirdness] to describe things groups do that
+aren't really necessary, but which alienate people who aren't already
+members of that group.  Sumana HariHareswara later used this notion as
+the basis for a talk on [inessential weirdnesses in open source
+software][sumana].  Take a few minutes to read both articles, and then
+make a list of inessential weirdnesses you think your learners might
+encounter when you first teach them.  How many of these can you avoid
+with a little effort?
+
 </div>
 
 [choral]: https://hapgood.us/2016/05/13/choral-explanations/
 [gdocs]: http://docs.google.com
 [github]: http://github.com
+[inessential-weirdness]: http://www.classmatters.org/2006_07/its-not-them.php
 [objections]: http://blog.mrmeyer.com/2016/why-secondary-teachers-dont-want-a-github-for-lesson-plans/
 [stack-overflow]: https://stackoverflow.com/
+[sumana]: https://www.harihareswara.net/sumana/2016/05/21/0
 [w3schools]: https://www.w3schools.com/
