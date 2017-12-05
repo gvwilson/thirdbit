@@ -358,6 +358,12 @@ the [four stages of competence][four-competence]:
 Describe one or more subjects related to programming for which you are
 at each of these levels.
 
+### Where You Are (5 minutes)
+
+Identify one field in which you are a novice (but hoping to improve),
+one in which you feel you are competent, and one where you feel you
+are an expert, and share with the rest of the group.
+
 </div>
 
 [four-competence]: https://en.wikipedia.org/wiki/Four_stages_of_competence
