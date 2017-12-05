@@ -313,6 +313,17 @@ can easily seem like magic (even if you narrate every step).  Instead,
 talk your learners through whatever they need to do.  It will take
 longer, but it's more likely to stick.
 
+## Repeat the Question
+
+Whenever someone asks a question in class, repeat it back to them
+before answering it to check that you've understood it, and to give
+people who might not have heard it a chance to do so.  This is
+particularly important when presentations are being recorded or
+broadcast, since your microphone will usually not pick up what other
+people are saying.  Repeating questions back also gives you a chance
+to redirect the question to something you're more comfortable
+answering if need be…
+
 ## Minute Cards
 
 We frequently use sticky notes as _[minute
