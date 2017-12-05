@@ -379,6 +379,14 @@ consider concepts and vice versa?
     examples to explain how the concept explains it.  (This uses
     practice #4).
 
+### The Cost of Multi-Tasking (10 minutes)
+
+[This post][switching] from the Learning Scientists describes a simple
+experiment you can do without preparation or equipment (other than a
+timer) to demonstrate the mental cost of multi-tasking.  Try the
+activity in pairs, and then report your results to the group.
+
 [ihmc-cmap]: https://cmap.ihmc.us/
 [learning-scientists]: http://www.learningscientists.org/
 [six-strategies]: http://www.learningscientists.org/downloadable-materials
+[switching]: http://www.learningscientists.org/blog/2017/7/28-1
