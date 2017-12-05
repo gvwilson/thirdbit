@@ -47,13 +47,13 @@ the diagonal should be weighed against each other.
 > 
 > Any useful estimate of how long something takes to master must take
 > into account how frequent failures are and how much time is lost to
-> them. For example, editing a text file seems like a simple task, but
-> most graphical editors save things to the user's desktop or home
-> directory.  If people need to run shell commands on the files they've
-> edited, a substantial fraction won't be able to navigate to the right
-> directory without help. If this seems like a small problem to you,
-> please revisit the discussion of expert blind spot in
-> [Memory](memory.html).
+> them. For example, editing text files seems like a simple task, but
+> what about finding those files?  Most graphical editors save things
+> to the user's desktop or home directory; if people need to run shell
+> commands on the files they've edited, a substantial fraction won't
+> be able to navigate to the right directory without help. If this
+> seems like a small problem to you, please revisit the discussion of
+> expert blind spot in [Memory](memory.html).
 
 Many of the foundational concepts of computer science, such as
 computability, inhabit the "useful but hard to learn" corner of the
