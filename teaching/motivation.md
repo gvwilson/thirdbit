@@ -402,11 +402,11 @@ skills you teach, (e.g., wrote a function, bulk downloaded data, did
 some stats in R, forked a repo) and explain how you would use it (or a
 simplified version of it) as an exercise or example in class.
 
-Pair up with your neighbor and decide where this exercise fits on a
-2x2 grid of "short/long time to master" and "low/high usefulness"?  In
-the shared notes, write the task and where it fits on the grid. As a
-group, discuss how these relate back to the "teach most immediately
-useful first" approach.
+1.  Pair up with your neighbor and decide where this exercise fits on a
+    2x2 grid of "short/long time to master" and "low/high usefulness".
+2.  Write the task and where it fits on the grid.
+3.  As a group, discuss how these relate back to the "teach most
+    immediately useful first" approach.
 
 ### Implement One Strategy for Inclusivity (5 minutes)
 
