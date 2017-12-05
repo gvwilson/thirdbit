@@ -143,9 +143,13 @@ otherwise) is a _[concept map](gloss.html#concept-map)_.  A concept map
 is simply a picture of someone's mental model of a domain: facts are
 bubbles, and connections are labelled arcs. It is important that they
 are labelled: saying "X and Y are related" is only helpful if we
-explain what the relationship *is*. And yes, one person's fact may be
+explain what the relationship *is*. (And yes, one person's fact may be
 another person's connection, but one of the benefits of concept
-mapping is that it makes those differences explicit.
+mapping is that it makes those differences explicit.)  The figure
+below reproduces a concept map taken from the [IHMC CMap site][ihmc-cmap]
+showing why the Earth has seasons.
+
+<img src="fig/seasons.png" alt="Concept Map for Seasons" width="80%" source="http://cmap.ihmc.us/docs/images/Theory/Fig5CmapSeasons-large.png" />
 
 <!--| \newpage |-->
 
@@ -218,7 +222,7 @@ Concept maps can be used in many ways:
     introspection and explanation of understanding are generally more
     advanced skills than understanding itself.
 
-![Concept Maps](fig/for-loop-concepts.png)
+<img src="fig/for-loop-concepts.png" alt="Concept Map" width="80%" />
 
 > **Meetings, Meetings, Meetings**
 > 
@@ -375,5 +379,6 @@ consider concepts and vice versa?
     examples to explain how the concept explains it.  (This uses
     practice #4).
 
+[ihmc-cmap]: https://cmap.ihmc.us/
 [learning-scientists]: http://www.learningscientists.org/
 [six-strategies]: http://www.learningscientists.org/downloadable-materials
