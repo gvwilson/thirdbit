@@ -217,7 +217,7 @@ modification.
 ## Embrace Mistakes
 
 No matter how well prepared you are, you will be making
-mistakes. Typo's are hard to avoid, you may overlook something from
+mistakes. Typos are hard to avoid, you may overlook something from
 the lesson instructions, etc. This is OK! It allows learners to see
 instructors' mistakes and how to diagnose and correct them. Some
 mistakes are actually an opportunity to point something out, or
