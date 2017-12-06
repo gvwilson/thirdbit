@@ -16,11 +16,10 @@ title: "How to Teach Programming (and Other Things): Introduction"
 > and all material can be freely distributed and re-used under the
 > Creative Commons - Attribution license.  Please see
 > <http://github.com/gvwilson/thirdbit/> for the source,
-> <http://third-bit.com/teaching/> for the online version,
-> <http://third-bit.com/teaching/teaching.pdf>,
-> <http://third-bit.com/teaching.epub>, and
-> <http://third-bit.com/teaching.mobi> for digital versions,
-> or <a href="{{site.teaching_lulu_url}}">buy the book</a> at cost.
+> <http://third-bit.com/teaching/> for the online version, or [buy a
+> printed copy]({{site.teaching_lulu_url}}).  [PDF](./teaching.pdf),
+> [EPUB](./teaching.epub), and [MOBI](./teaching.mobi) versions are
+> also available.
 
 Thousands of grassroots "learn to code" groups have sprung up in the
 past few years.  They exist so that people don't have to figure out
