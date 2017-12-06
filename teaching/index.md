@@ -15,10 +15,11 @@ title: "How to Teach Programming (and Other Things): Introduction"
 > Carpentry][swc-site]'s [instructor training course][swc-training],
 > and all material can be freely distributed and re-used under the
 > Creative Commons - Attribution license.  Please see
-> <http://github.com/gvwilson/teaching/> for the source,
+> <http://github.com/gvwilson/thirdbit/> for the source,
 > <http://third-bit.com/teaching/> for the online version, and
 > <http://third-bit.com/teaching.epub> and
-> <http://third-bit.com/teaching.mobi> for e-book versions.
+> <http://third-bit.com/teaching.mobi> for e-book versions,
+> or <a href="{{site.teaching_lulu_url}}">buy the book</a> at cost.
 
 Thousands of grassroots "learn to code" groups have sprung up in the
 past few years.  They exist so that people don't have to figure out
