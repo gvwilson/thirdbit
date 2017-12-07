@@ -9,7 +9,6 @@ title: "How to Teach Programming (and Other Things): Teaching Online"
 
 > **Objectives**
 >
-
 > * Learner can explain why expectations for massive online courses
 >   were unrealistic, and ways in which ad hoc use online learning
 >   is changing education.
