@@ -5,6 +5,11 @@ date: 2017-11-05 03:00:00
 favorite: true
 ---
 
+*Update: [this post from Terry McGlynn][mcglynn]
+says a lot of important things about the relationship between high-status and low-status universities,
+the mistaken perceptions people at the former often have about the latter,
+and the negative effects of those misperceptions.*
+
 When Brent Gorda and I started Software Carpentry back in 1998,
 we weren't trying to change the world:
 we just wanted to pay our bills.
@@ -49,3 +54,4 @@ continue to do that.
 
 [board]: https://software-carpentry.org/blog/2017/10/call-new-joint-board.html
 [carnegie]: https://en.wikipedia.org/wiki/Carnegie_Classification_of_Institutions_of_Higher_Education
+[mcglynn]: https://smallpondscience.com/2017/12/11/sending-campus-exchanges-the-other-way/
