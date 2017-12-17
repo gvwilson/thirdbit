@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Exercise Types Extended"
+title: "Invitation: Exercise Types Extended"
 date: 2017-12-17 03:45:00
 ---
 A couple of months ago,
