@@ -42,6 +42,7 @@ the fact that it ain't gonna happen is just one more sign of how desperately we 
 1. Stephen Brookfield and Stephen Preskill: *[The Discussion Book][discussion]*.
    Describes fifty different ways that groups can discuss things and reach decisions,
    most of which I had never seen before.
+   This book is a great complement to *Teaching for Learning*.
 
 1. Alex Butterworth: *[The World That Never Was][anarchists]*.
    Explores the early days of the anarchist movement,
@@ -68,6 +69,10 @@ the fact that it ain't gonna happen is just one more sign of how desperately we 
    Shows that educational reforms over the last fifty years have failed
    because they've been tackling the wrong problems.
 
+1. David George Haskell: *[The Forest Unseen][forest-unseen]*.
+   A peaceful, inspiring meditation on one square meter of old growth forest
+   through the course of a year.
+
 1. Adam Hochschild: *[Bury the Chains][chains]*.
    "Slavery was to the nineteenth century what oil is today:
    morally repugnant but economically indispensible."
@@ -76,12 +81,19 @@ the fact that it ain't gonna happen is just one more sign of how desperately we 
    Traces the evolution of one of the great traditions in Western thought
    (one which even today makes many people uncomfortable).
 
+1. Hope Jahren: *[Lab Girl][lab-girl]*.
+   An unflinching and beautifully-written account of a life in science. 
+
 1. Tracy Kidder: *[The Soul of a New Machine][soul-machine]*.
    The best book ever written about computing's Silver Age.
 
 1. Andro Linklater: *[Owning the Land][owning-land]*.
    The idea that individuals can own land is a lot younger than most people realize,
    and its emergence holds a lot of lessons for today's debates over intellectual property.
+
+1. Claire Howell Major, Michael S. Harris, and Todd Zakrajsek: *[Teaching for Learning][teaching-for-learning]*.
+   A catalog of 101 evidence-based teaching practices, thematically organized,
+   this book is a great complement to *The Discussion Book*.
 
 1. Jane Margolis and Allan Fisher: *[Unlocking the Clubhouse][clubhouse]*.
    A slim, essential, evidence-based look at why the gender imbalance in computing is so skewed
@@ -90,6 +102,10 @@ the fact that it ain't gonna happen is just one more sign of how desperately we 
 1. Samuel Moyn: *[The Last Utopia][last-utopia]*.
    Argues that human rights became the defining issue for post-war progressives
    only because others failed.
+
+1. Siddhartha Mukherjee: *[The Emperor of All Maladies][emperor-maladies]*.
+   A history of cancer and its (mis)treatment,
+   and of the people it has touched.
 
 1. George Orwell: *[Essays][orwell]*.
    The best writing from the best political writer (in English) of the 20th Century.
@@ -149,13 +165,16 @@ I'd be grateful for pointers.
 [discussion]: https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/
 [doubt]: https://www.amazon.com/Doubt-Doubters-Innovation-Jefferson-Dickinson/dp/0060097957/
 [economics-everyone]: https://www.amazon.com/Economics-Everyone-Second-Short-Capitalism/dp/0745335780/
+[emperor-maladies]: https://www.amazon.com/Emperor-All-Maladies-Biography-Cancer/dp/1439170916/
 [empire]: https://www.amazon.com/Ruins-Empire-Intellectuals-Remade-Asia/dp/0374249598/
 [everything]: https://www.amazon.com/Short-History-Nearly-Everything/dp/0767908171/
+[forest-unseen]: https://www.amazon.com/Forest-Unseen-Years-Watch-Nature/dp/0143122940/
 [four-futures]: https://www.amazon.com/Four-Futures-After-Capitalism-Jacobin/dp/1781688133/
 [governing-commons]: https://www.amazon.com/Governing-Commons-Evolution-Institutions-Collective/dp/1107569788/
 [great-transformation]: https://www.amazon.com/Four-Futures-After-Capitalism-Jacobin/dp/1781688133/
 [hbl]: https://www.amazon.com/How-Buildings-Learn-Happens-Theyre/dp/0140139966/
 [imposters]: https://bigmachine.io/products/the-imposters-handbook
+[lab-girl]: https://www.amazon.com/Lab-Girl-Hope-Jahren/dp/1101873728/
 [last-utopia]: https://www.amazon.com/Last-Utopia-Human-Rights-History/dp/0674048725/
 [life-code]: https://www.amazon.com/Life-Code-Personal-History-Technology/dp/0374534519/
 [lower-ed]: https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/
@@ -170,6 +189,7 @@ I'd be grateful for pointers.
 [soul-machine]: https://www.amazon.com/Soul-New-Machine-Tracy-Kidder/dp/0316491977
 [spirit-level]: https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608190366/
 [stam]: {{site.github.url}}/2016/11/13/stuff-that-actually-matters.html
+[teaching-for-learning]: https://www.amazon.com/Teaching-Learning-Intentionally-Educational-Activities/dp/0415699363/
 [think-like-commoner]: https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/
 [tlm]: https://www.amazon.com/Time-Love-Memory-Biologist-Behavior/dp/0679763902/
 [trick-treatment]: https://www.amazon.com/Trick-Treatment-Undeniable-Alternative-Medicine/dp/0393337782/
