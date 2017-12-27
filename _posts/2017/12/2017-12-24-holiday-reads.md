@@ -43,3 +43,15 @@ date: 2017-12-23 03:30:00
   goes under "scary and subversively funny".
 - Scott Hawkins' *[The Library at Mount Char](https://www.amazon.com/Library-at-Mount-Char/dp/0553418629/)*
   isn't an easy read, but it's a good one.
+- Robert Jackson Bennett's *[City of Stairs](https://www.amazon.com/Stairs-Divine-Cities-Jackson-Bennett/dp/080413717X/)*
+  and its two sequels are exciting and satisfying in equal measure.
+- Seth Dickinson's *[The Traitor Baru Cormorant](https://www.amazon.com/Traitor-Baru-Cormorant-Masquerade/dp/0765380730/)*
+  makes *The Count of Monte Cristo* look like a whiny child.
+- *[The Mechanical](https://www.amazon.com/Mechanical-Alchemy-Wars-Ian-Tregillis/dp/0316248002/)* starts one of
+  Ian Tregillis's enjoyable trilogies,
+  and *[Bitter Seeds](https://www.amazon.com/Bitter-Seeds-Ian-Tregillis/dp/0765321505/)* another.
+- No trilogies for Daniel Abraham: *[The Dragon's Path](https://www.amazon.com/Dragons-Path-Dagger-Coin/dp/0316080683/)*
+  is the first of a perfectly executed five-book series.
+- And if we're talking about "perfectly executed",
+  Lois McMaster Bujold's *[The Curse of Chalion](https://www.amazon.com/Curse-Chalion-Lois-McMaster-Bujold/dp/0061134244/)*
+  has to be front and center.
