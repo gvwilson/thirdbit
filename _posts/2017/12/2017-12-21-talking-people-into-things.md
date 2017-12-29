@@ -2,6 +2,7 @@
 layout: post
 title: "Ten Simple Rules for Talking People Into Things"
 date: 2017-12-21 13:00
+favorite: true
 ---
 
 I don't always exhibit good judgment,
