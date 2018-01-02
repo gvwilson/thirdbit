@@ -9,13 +9,11 @@ redirect_from: "/not-on-the-shelves/2017.html"
 
 # Ideas
 
-These ideas are ranked roughly from those on which progress has been
-made to those that are still pipe dreams. Many are presented as
-[descriptions of books that don't yet
-exist]({{site.github.url}}/not-on-the-shelves/); it may be
-old-fashioned, but I still believe that a good book can change the
-world.  If you'd like to help with any of them, or take one on
-yourself, please let me know.
+These ideas are things I might have done if I hadn't done [Software Carpentry](http://software-carpentry.org).
+Many are presented as [descriptions of books that don't yet
+exist]({{site.github.url}}/not-on-the-shelves/) becauase I still
+believe that a good book can change the world.  If you'd like to help
+with any of them, or take one on yourself, please let me know.
 
 ## Books
 
@@ -47,16 +45,6 @@ but most of the time,
 they are expected to rediscover or reinvent methods themselves.
 This textbook for a one-semester course puts solutions in one place,
 and by doing so teaches a lot about physiology, psychology, and organizational behavior.
-
-_**How to Teach Programming (and Other Things)**_
-
-Thousands of grassroots get-into-coding groups have sprung up over the past decade.
-Ironically,
-while they exist so that people don't have to teach themselves how to code,
-their founders are almost all teaching themselves how to teach.
-This book ([currently under development]({{site.github.url}}/teaching/))
-introduces a few key ideas from learning research
-and shows how to apply them in the classroom with free-range learners.
 
 _**Software Tools in JavaScript**_
 
@@ -236,10 +224,9 @@ Today's MOOC platforms use the Internet like television. What would
 they look like if they directly supported some of the techniques
 described in [this useful
 book](https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/)?
-Similarly, just as MOOCs are mistakenly treating the Internet like
-television, Caulfield's notion of [choral
-explanations](https://hapgood.us/2016/05/13/choral-explanations/)
-has me thinking that I've been mistaken in trying to treat lesson
+Similarly, Caulfield's notion of [choral
+explanations](https://hapgood.us/2016/05/13/choral-explanations/) has
+me thinking that I've been mistaken in trying to treat lesson
 construction as software development. A "lesson" platform that uses
 Stack Overflow as its model rather than GitHub or Wikipedia would be
 fascinating to explore, as would [collaborative choral software
