@@ -80,7 +80,7 @@ workshop, continually demonstrate that you are interested in student
 progress and that you are enthusiastic about the topics.
 
 Students should also introduce themselves (preferably verbally). At the
-very least, everyone should add their name to the Etherpad, but its also
+very least, everyone should add their name to the Etherpad, but it's also
 good for everyone at a given site to know who all is in the group. Note:
 this can be done while setting up before the start of the class.
 
@@ -274,7 +274,7 @@ Give each learner two sticky notes of different colours, e.g., red and
 green. These can be held up for voting, but their real use is as
 status flags. If someone has completed an exercise and wants it
 checked, they put the green sticky note on their laptop; if they run
-into a problem and need help, the put up the red one. This is better
+into a problem and need help, they put up the red one. This is better
 than having people raise their hands because:
 
 *   it's more discreet (which means they're more likely to actually do
