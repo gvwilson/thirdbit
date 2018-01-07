@@ -39,18 +39,9 @@ the fact that it ain't gonna happen is just one more sign of how desperately we 
    One of the most practical thinkers of the 20th Century draws on his experience as an architect
    to explain how many other things in our society come to be as they are.
 
-1. Stephen Brookfield and Stephen Preskill: *[The Discussion Book][discussion]*.
-   Describes fifty different ways that groups can discuss things and reach decisions,
-   most of which I had never seen before.
-   This book is a great complement to *Teaching for Learning*.
-
 1. Alex Butterworth: *[The World That Never Was][anarchists]*.
    Explores the early days of the anarchist movement,
    and in doing so shows how governments create the villains they need.
-
-1. Tressie McMillan Cottom: *[Lower Ed][lower-ed]*.
-   Its subtitle is "the troubling rise of for-profit colleges in the new economy",
-   and there's a lot in here that people pushing online education should think about.
 
 1. Matthew Crawford: *[Shop Class as Soulcraft][shop-class]*.
    There are truths about ourselves we can only learn
@@ -64,10 +55,6 @@ the fact that it ain't gonna happen is just one more sign of how desperately we 
 1. Peter Frase: *[Four Futures][four-futures]*.
    Explores four scenarios in which our reactions to increasing automation and worsening climate change
    play out.
-
-1. Elizabeth Green: *[Building a Better Teacher][babt]*.
-   Shows that educational reforms over the last fifty years have failed
-   because they've been tackling the wrong problems.
 
 1. David George Haskell: *[The Forest Unseen][forest-unseen]*.
    A peaceful, inspiring meditation on one square meter of old growth forest
@@ -90,14 +77,6 @@ the fact that it ain't gonna happen is just one more sign of how desperately we 
 1. Andro Linklater: *[Owning the Land][owning-land]*.
    The idea that individuals can own land is a lot younger than most people realize,
    and its emergence holds a lot of lessons for today's debates over intellectual property.
-
-1. Claire Howell Major, Michael S. Harris, and Todd Zakrajsek: *[Teaching for Learning][teaching-for-learning]*.
-   A catalog of 101 evidence-based teaching practices, thematically organized,
-   this book is a great complement to *The Discussion Book*.
-
-1. Jane Margolis and Allan Fisher: *[Unlocking the Clubhouse][clubhouse]*.
-   A slim, essential, evidence-based look at why the gender imbalance in computing is so skewed
-   and what can be done about it.
 
 1. Samuel Moyn: *[The Last Utopia][last-utopia]*.
    Argues that human rights became the defining issue for post-war progressives
@@ -141,6 +120,9 @@ I've written several wishlists of [technical books that don't exist][not-on-the-
 My "wanna haves" for this page are:
 
 - A history of the idea of intellectual property similar to *[Owning the Land][owning-land]*.
+  Johns' *[Piracy](https://www.amazon.com/Piracy-Intellectual-Property-Gutenberg-Gates/dp/0226401197/)*
+  covers the right subjects,
+  but in more detail than most readers will want.
 
 - Another book of this kind on the history of privacy.
 
@@ -151,46 +133,154 @@ My "wanna haves" for this page are:
   (David Bollier's *[Think Like a Commoner][think-like-commoner]* is good,
   but isn't quite what I'm after).
 
-If you know of anything,
-I'd be grateful for pointers.
+## Education Books
+
+I started as a programmer,
+but somehow became a teacher.
+If I wanted to make that transition today,
+I would read the books listed below in the order they're listed;
+if I ever turn *[How to Teaching Programming (and Other Things)]({{site.github.url}}/teaching/)*
+into a proper textbook,
+most of it will essentially summarize these readings.
+
+1.  Either Lang's *[Small Teaching][small-teaching]*
+    or Huston's *[Teaching What You Don't Know][teaching-what-you-dont-know]*.
+    These are both short, approachable, and connect things you can do right now back to the research that backs them.
+
+2.  Both Major et al's *[Teaching for Learning][teaching-for-learning]*
+    and Brookfield and Preskill's *[The Discussion Book][discussion-book]*.
+    The first catalogs a hundred different kinds of exercises you can do with students;
+    the second describes fifty different ways that groups can discuss things productively.
+    (These books can be used on their own,
+    but I think they'll make more sense once Huston or Lang have given you a framework for understanding them.)
+
+3.  Both De Bruyckere et al's *[Urban Myths About Learning and Education][urban-myths]*,
+    which conveys a lot of what *is* true about its subjects by telling us what *isn't*,
+    and Didau's *[What Every Teacher Needs to Know About Psychology][teacher-psychology]*,
+    which grounds learning theory in cognitive psychology.
+
+4.  Both Green's *[Building a Better Teacher][babt]*
+    and McMillan Cottom's *[Lower Ed][lower-ed]*.
+    Learning never happens in a vacuum;
+    as a start on understanding the broader context,
+    these two short books explain why so many attempts at educational reform have failed over the past forty years
+    and how for-profit colleges are exploiting and exacerbating the growing inequality in our society.
+
+5.  Possibly Guzdial's *[Learner-Centered Design of Computing Education][guzdial-lcd]*
+    or Hazzan et al's *[Guide to Teaching Computer Science][cs-teaching-guide]*.
+    These are the most useful academic books I've found about teaching computing;
+    your mileage may vary.
+
+6.  Both Papert's *[Mindstorms][mindstorms]*
+    and Watters' *[The Monsters of Education Technology][monsters-ed-tech]*.
+    The first presents an inspiring vision of how computers could change education;
+    the second is a collection of talks describing and critiquing what we've done instead.
+
+7.  Brown's *[Building Powerful Community Organizations][bpco]*,
+    because you'll eventually realize that you can't teach computing without changing the system,
+    and you can't change the system without mobilizing people.
+
+While working through these, I would also subscribe to:
+
+*   [Mark Guzdial's blog][guzdial-blog],
+    which is the single most useful source of information about computing education I've ever found.
+
+*   [The Learning Scientists][learning-scientists],
+    which is just as useful,
+    and covers evidence-based teaching in general.
+
+If you're working in a formal classroom seting,
+I would also take an occasional look at [SIGCSE][sigcse], [ITiCSE][iticse], and [ICER][icer],
+which are three academic conferences about computing education.
+(Unfortunately,
+many of their papers are behind paywalls
+that make them inaccessible to the general public,
+and I don't know of equivalent gatherings for people working in free-range settings like coding bootcamps or weekend coding clubs.)
+
+Other suggestions:
+
+*   Ambrose et al's *[How Learning Works][hlw]*
+    is a comprehensive survey of learning research from 2010.
+*   Lang's *[Cheating Lessons][lang-cheating]*
+    treats cheating the way a growing number of progressives treat drugs–as a health issue rather than a moral failing–and
+    explores how better teaching methods can reduce its frequency.
+*   Margolis and Fisher's *[Unlocking the Clubhouse][clubhouse]*
+    is still the best introduction to the gender imbalance in STEM I know.
+*   Margolis et al's *[Stuck in the Shallow End][shallow-end]*
+    is an equally good (and equally damning) look at computing's racial inequities.
+*   Miller's *[Minds Online][minds-online]*
+    is about how general learning theory applies to online teaching
+    rather than about online teaching per se,
+    but is an enjoyable and informative read.
+*   Sahlberg's *[Finnish Lessons][finnish-lessons]*
+    explains why Finland's educational system produces outstanding results
+    and why most other countries won't be able to copy it
+    unless they're first willing to tackle systemic inequality.
+*   Willingham's *[Why Don't Students Like School?][dont-like-school]*
+    approaches the problem from the perspective of cognitive psychology;
+    the answers aren't all directly actionable,
+    but the insights are intriguing.
+*   Wlodkowski and Ginsberg's *[Enhancing Adult Motivation to Learn][adult-motivation]*
+    covers one important topic in detail.
 
 </div>
 
+[adult-motivation]: https://www.amazon.com/Enhancing-Adult-Motivation-Learn-Comprehensive/dp/1119077990/
 [anarchists]: https://www.amazon.com/World-That-Never-Was-Anarchists/dp/037542511X/
 [annotated-turing]: https://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055
 [babt]: https://www.amazon.com/Building-Better-Teacher-Teaching-Everyone/dp/0393351084/
+[bpco]: https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/
 [chains]: https://www.amazon.com/Bury-Chains-Prophets-Rebels-Empires/dp/0618619070/
 [clubhouse]: https://www.amazon.com/Unlocking-Clubhouse-Women-Computing-Press/dp/0262632691/
+[cs-teaching-guide]: https://www.amazon.com/Guide-Teaching-Computer-Science-Activity-Based/dp/1447166299/
 [datacamp]: http://datacamp.com
-[discussion]: https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/
+[discussion-book]: https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/
+[dont-like-school]: https://www.amazon.com/Why-Dont-Students-Like-School/dp/047059196X/
 [doubt]: https://www.amazon.com/Doubt-Doubters-Innovation-Jefferson-Dickinson/dp/0060097957/
 [economics-everyone]: https://www.amazon.com/Economics-Everyone-Second-Short-Capitalism/dp/0745335780/
 [emperor-maladies]: https://www.amazon.com/Emperor-All-Maladies-Biography-Cancer/dp/1439170916/
 [empire]: https://www.amazon.com/Ruins-Empire-Intellectuals-Remade-Asia/dp/0374249598/
 [everything]: https://www.amazon.com/Short-History-Nearly-Everything/dp/0767908171/
+[finnish-lessons]: https://www.amazon.com/Finnish-Lessons-2-0-Educational-Finland/dp/0807755850/
 [forest-unseen]: https://www.amazon.com/Forest-Unseen-Years-Watch-Nature/dp/0143122940/
 [four-futures]: https://www.amazon.com/Four-Futures-After-Capitalism-Jacobin/dp/1781688133/
 [governing-commons]: https://www.amazon.com/Governing-Commons-Evolution-Institutions-Collective/dp/1107569788/
 [great-transformation]: https://www.amazon.com/Four-Futures-After-Capitalism-Jacobin/dp/1781688133/
+[guzdial-blog]: https://computinged.wordpress.com/
+[guzdial-lcd]: https://www.amazon.com/Learner-Centered-Design-Computing-Education-Human-centered/dp/1627053514/
 [hbl]: https://www.amazon.com/How-Buildings-Learn-Happens-Theyre/dp/0140139966/
+[hlw]: https://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/
+[icer]: https://sigcse.org/sigcse/events/icer
 [imposters]: https://bigmachine.io/products/the-imposters-handbook
+[iticse]: https://sigcse.org/sigcse/events/iticse
 [lab-girl]: https://www.amazon.com/Lab-Girl-Hope-Jahren/dp/1101873728/
+[lang-cheating]: https://www.amazon.com/Cheating-Lessons-Learning-Academic-Dishonesty/dp/0674724631/
 [last-utopia]: https://www.amazon.com/Last-Utopia-Human-Rights-History/dp/0674048725/
+[learning-scientists]: http://www.learningscientists.org/
 [life-code]: https://www.amazon.com/Life-Code-Personal-History-Technology/dp/0374534519/
 [lower-ed]: https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/
+[minds-online]: https://www.amazon.com/Minds-Online-Teaching-Effectively-Technology/dp/0674660021/
+[mindstorm]: https://www.amazon.com/Mindstorms-Children-Computers-Powerful-Ideas/dp/0465046746/
+[monsters-ed-tech]: http://monsters.hackeducation.com/
 [not-on-the-shelves]: {{site.github.url}}/not-on-the-shelves/
 [orwell]: https://www.amazon.com/Essays-Everymans-Library-Contemporary-Classics/dp/0375415033/
 [owning-land]: https://www.amazon.com/Owning-Earth-Transforming-History-Ownership/dp/1620402890/
 [physics]: https://www.amazon.com/Physics-Future-Presidents-Science-Headlines/dp/0393337111/
 [seeing-like-state]: https://www.amazon.com/Seeing-Like-State-Condition-Institution/dp/0300070160/
+[shallow-end]: https://www.amazon.com/Stuck-Shallow-End-Education-Computing/dp/0262514044/
 [shop-class]: https://www.amazon.com/Shop-Class-Soulcraft-Inquiry-Value/dp/0143117467/
+[sigcse]: https://sigcse.org/sigcse/events/symposia
 [silk-road]: https://www.amazon.com/Life-along-Silk-Road-Second/dp/0520280598/
 [sisters]: https://www.amazon.com/Sisters-Americas-Suffragists-Jean-Baker/dp/0809087030/
+[small-teaching]: https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496/
 [soul-machine]: https://www.amazon.com/Soul-New-Machine-Tracy-Kidder/dp/0316491977
 [spirit-level]: https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608190366/
 [stam]: {{site.github.url}}/2016/11/13/stuff-that-actually-matters.html
+[teacher-psychology]: https://www.amazon.com/Every-Teacher-Needs-About-Psychology/dp/1909717851/
 [teaching-for-learning]: https://www.amazon.com/Teaching-Learning-Intentionally-Educational-Activities/dp/0415699363/
+[teaching-what-you-dont-know]: https://www.amazon.com/Teaching-What-You-Dont-Know/dp/0674035801/
 [think-like-commoner]: https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/
 [tlm]: https://www.amazon.com/Time-Love-Memory-Biologist-Behavior/dp/0679763902/
 [trick-treatment]: https://www.amazon.com/Trick-Treatment-Undeniable-Alternative-Medicine/dp/0393337782/
 [twitter-tear-gas]: https://www.amazon.com/Twitter-Tear-Gas-Fragility-Networked/dp/0300215126/
+[urban-myths]: https://www.amazon.com/Urban-Myths-about-Learning-Education/dp/0128015373/
