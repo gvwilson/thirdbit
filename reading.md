@@ -19,8 +19,7 @@ Note: this list is a partial, incomplete, and inadequate replacement for
 what I hoped the "[Stuff That Actually Matters][stam]" project would produce.
 What I *really* want–and what I think tech desperately needs–is
 an approachable one-volume distillation of all this
-along the lines of Bryson's *[A Short History of Nearly Everything][everything]*,
-Muller's *[Physics for Future Presidents][physics]*,
+along the lines of Bryson's *[A Short History of Nearly Everything][everything]*
 or Conery's *[Imposter's Handbook][imposters]*.
 Producing it would cost less than the launch party for a new brand of phone;
 the fact that it ain't gonna happen is just one more sign of how desperately we need it.
