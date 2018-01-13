@@ -110,7 +110,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <span id="kernighan-pike-upe">[Kernighan1984]</span> Brian W. Kernighan and Rob Pike: _[The UNIX Programming Environment](https://www.amazon.com/Unix-Programming-Environment-Prentice-Hall-Software/dp/013937681X/)_. Prentice Hall, 1984, 978-0139376818. _An influential early description of Unix._
 
-*   <span id="kernighan-ritchie-c">[Kernighan1988]</span> Brian W. Kernighan and Dennis M. Ritchie: _[The C Programming Language](https://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628/)_ (2nd edition). Prentice Hall, 1988, 978-0131103709. _The book that made C a popular programming language._
+*   <span id="kernighan-ritchie-c">[Kernighan1988]</span> Brian W. Kernighan and Dennis M. Ritchie: _[The C Programming Language](https://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628/)_ (2nd edition). Prentice Hall, 1988, 978-0131103627. _The book that made C a popular programming language._
 
 *   <span id="kirschner-minimal">[Kirschner2006]</span> Paul Kirschner, John Sweller, and Richard Clark: "Why Minimal Guidance During Instruction Does Not Work: An Analysis of the Failure of Constructivist, Discovery, Problem-Based, Experiential, and Inquiry-Based Teaching." _Educational Psychologist_, 41(2), 2006. _Argues that inquiry-based learning is less effective for novices than guided instruction._
 
