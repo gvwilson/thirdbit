@@ -9,7 +9,7 @@ recently launched two courses that I created:
 
 | [Introduction to Shell for Data Science][shell-url] | [Introduction to Git for Data Science][git-url] |
 | :-------------------------------------------------: | :---------------------------------------------: |
-| <img src="{{site.github.url}}/img/2017/12/shell.png" width="50%" /> | <img src="{{site.github.url}}/img/2017/12/git.png" width="50%" /> |
+| <img src="{{site.github.url}}/files/2017/12/shell.png" width="50%" /> | <img src="{{site.github.url}}/files/2017/12/git.png" width="50%" /> |
 
 Both draw on my experiences with [Software Carpentry](http://software-carpentry.org),
 and I hope you find them useful.

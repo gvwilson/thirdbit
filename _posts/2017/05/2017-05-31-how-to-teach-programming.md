@@ -19,7 +19,7 @@ If you find it useful,
 please give me a shout:
 I'd welcome a chance to compare notes.
 
-<img src="{{site.github.url}}/img/2017/05/how-to-teach-programming.jpg" alt="How to Teach Programmming (cover)" />
+<img src="{{site.github.url}}/files/2017/05/how-to-teach-programming.jpg" alt="How to Teach Programmming (cover)" />
 
 Note that this version is also [available on this site]({{site.github.url}}/teaching/),
 along with [EPUB](http://third-bit.com/teaching.epub) and [MOBI](http://third-bit.com/teaching.mobi) versions.

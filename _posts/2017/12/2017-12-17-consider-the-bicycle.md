@@ -7,7 +7,7 @@ date: 2017-12-17 03:30:00
 Consider the bicycle–more specifically,
 the De Rosa SK Pininfarina:
 
-![De Rosa]({{site.github.url}}/img/2017/12/derosa.jpg)
+![De Rosa]({{site.github.url}}/files/2017/12/derosa.jpg)
 
 I think it's beautiful,
 but I wouldn't call it art,

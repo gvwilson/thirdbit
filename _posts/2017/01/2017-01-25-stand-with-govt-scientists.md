@@ -34,4 +34,4 @@ but I stand with them,
 and with every other scientist who may now be at risk
 simply for trying to tell the truth.
 
-![Badlands NPS Tweets]({{site.github.url}}/img/2017/01/badlands-tweets.jpg)
+![Badlands NPS Tweets]({{site.github.url}}/files/2017/01/badlands-tweets.jpg)

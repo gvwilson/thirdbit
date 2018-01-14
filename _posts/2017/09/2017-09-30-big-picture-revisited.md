@@ -13,16 +13,16 @@ please let me nkow.
 
 ## Version 1 (Summer 2010)
 
-<a href="{{site.github.url}}/img/2017/09/concept-2010-a.svg"><img src="{{site.github.url}}/img/2017/09/concept-2010-a.svg" alt="Concept Map Version 1" width="80%" /></a>
+<a href="{{site.github.url}}/files/2017/09/concept-2010-a.svg"><img src="{{site.github.url}}/files/2017/09/concept-2010-a.svg" alt="Concept Map Version 1" width="80%" /></a>
 
 ## Version 2 (Summer 2010)
 
-<a href="{{site.github.url}}/img/2017/09/concept-2010-b.svg"><img src="{{site.github.url}}/img/2017/09/concept-2010-b.svg" alt="Concept Map Version 2" width="80%" /></a>
+<a href="{{site.github.url}}/files/2017/09/concept-2010-b.svg"><img src="{{site.github.url}}/files/2017/09/concept-2010-b.svg" alt="Concept Map Version 2" width="80%" /></a>
 
 ## Version 3 (Spring 2016)
 
-<a href="{{site.github.url}}/img/2017/09/concept-2016-a.svg"><img src="{{site.github.url}}/img/2017/09/concept-2016-a.svg" alt="Concept Map Version 3" width="80%" /></a>
+<a href="{{site.github.url}}/files/2017/09/concept-2016-a.svg"><img src="{{site.github.url}}/files/2017/09/concept-2016-a.svg" alt="Concept Map Version 3" width="80%" /></a>
 
 ## Version 4 (Spring 2016)
 
-<a href="{{site.github.url}}/img/2017/09/concept-2016-b.svg"><img src="{{site.github.url}}/img/2017/09/concept-2016-b.svg" alt="Concept Map Version 4" width="80%" /></a>
+<a href="{{site.github.url}}/files/2017/09/concept-2016-b.svg"><img src="{{site.github.url}}/files/2017/09/concept-2016-b.svg" alt="Concept Map Version 4" width="80%" /></a>

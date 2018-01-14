@@ -15,6 +15,6 @@ it is not for the sake of convincing those who do not know it,
 but for the sake of defending those that do.
 </blockquote>
 
-<img src="{{site.github.url}}/img/2017/09/dad-birdhouses-2003.jpg" alt="Dad with his birdhouses" width="80%" />
+<img src="{{site.github.url}}/files/2017/09/dad-birdhouses-2003.jpg" alt="Dad with his birdhouses" width="80%" />
 
 I miss you, Dad.

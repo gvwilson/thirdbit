@@ -261,7 +261,7 @@ term to an example of that program element"), or many other things.
 > z = [x, y]
 > ```
 >
-> <img src="{{site.github.url}}/img/2017/10/label.svg" />
+> <img src="{{site.github.url}}/files/2017/10/label.svg" />
 
 ***Drawing diagrams*** of things like data structures is also
 straightforward to do on paper but very difficult to grade
