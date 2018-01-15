@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Procedural versus Declarative"
-date: 2018-01-11 04:20
+date: 2018-01-15 04:20
 ---
 
 The distinction between declarative memory and procedural memory
@@ -65,5 +65,5 @@ the people who become masters are the ones who learned to enjoy practicing.
 Every great musician finds something rewarding in playing scales;
 if they didn't, they wouldn't ever become a great musician.
 Similarly,
-every great athlete takes some kind of pleasure in training drills,
-and everyone who's going to be a good writer finds a way to enjoy writing articles like this one.
+everyone who wants to write finds a way to enjoy writing articles like this one,
+which is why this is my 3,652<sup>nd</sup> blog post.
