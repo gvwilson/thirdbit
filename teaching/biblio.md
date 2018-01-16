@@ -18,7 +18,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <span id="green-babt">[Green2014]</span> E. Green: _[Building a Better Teacher: How Teaching Works (and How to Teach It to Everyone)](https://www.amazon.com/Building-Better-Teacher-Teaching-Everyone/dp/0393351084/)_. W. W. Norton, 2014, 978-0393244151. _A well-written look at why educational reforms in the past 50 years have mostly missed the mark, and what we should be doing instead._
 
-*   <span id="guzdial-lcd">[Guzdial2015b]</span> Mark Guzdial: _[Learner-Centered Design of Computing Education: Research on Computing for Everyone](https://www.amazon.com/Learner-Centered-Design-Computing-Education-Human-Centered/dp/1627053514/) Morgan & Claypool, 2015, 978-1627053518. _An evidence-based argument that we must design computing education for everyone, not just people who think they are going to become professional programmers._
+*   <span id="guzdial-lcd">[Guzdial2015b]</span> Mark Guzdial: _[Learner-Centered Design of Computing Education: Research on Computing for Everyone](https://www.amazon.com/Learner-Centered-Design-Computing-Education-Human-Centered/dp/1627053514/)_ Morgan & Claypool, 2015, 978-1627053518. _An evidence-based argument that we must design computing education for everyone, not just people who think they are going to become professional programmers._
 
 *   <span id="huston-dont-know">[Huston2009]</span> Therese Huston: _[Teaching What You Don't Know](https://www.amazon.com/Teaching-What-You-Dont-Know/dp/0674035801/)_. Harvard University Press, 2009, 978-0674035805. _A pointed, funny, and very useful book that explores exactly what the title suggests._
 
@@ -54,7 +54,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <span id="bollier-commoner">[Bollier2014]</span> David Bollier: _[Think Like a Commoner: A Short Introduction to the Life of the Commons](https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/)_. New Society Publishers, 2014, 978-0865717688. _A short introduction to one of the most widely used kinds of governance in human societies throughout history._
 
-*   <span id="borrego-henderson-change">[Borrego2014]</span> Maura Borrego and Charles Henderson: "Increasing the Use of Evidence-Based Teaching in STEM Higher Education: A Comparison of Eight Change Strategies." _Journal of Engineering Education_, 103(2), April 2014, 10.1002/jee.20040. _Categories different approaches to effecting change in higher education._
+*   <span id="borrego-henderson-change">[Borrego2014]</span> Maura Borrego and Charles Henderson: "Increasing the Use of Evidence-Based Teaching in STEM Higher Education: A Comparison of Eight Change Strategies." _Journal of Engineering Education_, 103(2), April 2014, 10.1002/jee.20040. _Categorizes different approaches to effecting change in higher education._
 
 *   <span id="brown-empirical">[Brown2014]</span> Neil C. C. Brown and Amjad Altadmri: "Investigating Novice Programming Mistakes: Educator Beliefs vs. Student Data." _Proc Tenth Annual Conference on International Computing Education Research_, 2014, 10.1145/2632320.2632343. _Uses data from over 100,000 students to show that educators know less than they think about what mistakes novice programmers actually make._
 
@@ -158,7 +158,7 @@ title: "How to Teach Programming (and Other Things): Bibliography"
 
 *   <span id="orndorff-note-taking">[Orndorff2015]</span> Harold N. Orndorff III: "Collaborative Note-Taking: The Impact of Cloud Computing on Classroom Performance." _International Journal of Teaching and Learning in Higher Education_, 27(3), 2015. _Presents a study showing that collaborative note-taking improves grades and learning outcomes._
 
-*   <span id="pare-joordens-peer">[Paré2008]</span> D.E. Paré and S. Joordens: "Peering Into Large Lectures: Examining Peer and Expert Mark Agreement Using peerScholar, an Online Peer Assessment Tool."  *Journal of Computer Assisted Learning*, August 2008, 10.1111/j.1365-2729.2008.00290.x. _Shows that peer grading by small groups can be as effective as expert grading once accountability features are introduced._
+*   <span id="pare-joordens-peer">[Paré2008]</span> D.E. Paré and S. Joordens: "Peering Into Large Lectures: Examining Peer and Expert Mark Agreement Using peerScholar, an Online Peer Assessment Tool."  _Journal of Computer Assisted Learning_, August 2008, 10.1111/j.1365-2729.2008.00290.x. _Shows that peer grading by small groups can be as effective as expert grading once accountability features are introduced._
 
 *   <span id="patitsas-cs-grades">[Patitsas2016]</span> Elizabeth Patitsas, Jesse Berlin, Michelle Craig, and Steve Easterbrook: "Evidence That Computer Science Grades Are Not Bimodal." _Proc. 2016 ACM Conference on International Computing Education Research_, 2016, 10.1145/2960310.2960312. _Presents a statistical analysis and an experiment which jointly show that grades in computing classes are not bimodal–i.e., there is no geek gene._
 
