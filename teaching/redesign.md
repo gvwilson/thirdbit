@@ -12,21 +12,22 @@ title: "How to Teach Programming (and Other Things): Design Notes for Version 3"
 *These questions and answers provide a rough scope for the material.*
 
 1.  What problems will learners learn how to solve?
-    1.  How to design a workshop or course for adults.
-    1.  How to create formative assessments in such a workshop or course.
-    1.  How to deliver hands-on in-person instruction in computational skills to adults.
-    1.  How to design a short course in computational skills for computer-mediated delivery.
-    1.  How to build a community of practice around development and delivery of shared instructional materials.
-    1.  How to communicate the value of their training to specific audiences.
+    1.  How to design a short course for adults.
+    1.  How to deliver hands-on in-person instruction in computing skills.
+    1.  What kinds of content belong in such a course.
+    1.  How to deliver such a course in an automated way.
+    1.  How to build a teaching community.
 1.  What problems will learners *not* learn how to solve (i.e., what is out of scope)?
-    1.  How to teach children or people with special learning needs.
-    1.  How to assess the impact of training of this kind.
-    1.  How to design and deliver courses for human-mediated over-the-web delivery.
+    1.  How to teach children or people with special learning needs (though many of the ideas that are taught will transfer).
+    1.  How to rigorously assess the impact of training of this kind (though informal self-assessment will be included).
     1.  How to design and deliver entire degree programs and other extended curriculum.
 1.  What concepts and techniques will learners encounter?
     1.  Bloom's Taxonomy.
+    1.  Branding.
     1.  Cognitive load.
-    1.  Concept map.
+    1.  Collaborative lesson development.
+    1.  Commons.
+    1.  Concept mapping.
     1.  Dunning-Kruger effect.
     1.  Expert blind spot.
     1.  Fixed vs. growth mindset.
@@ -36,21 +37,21 @@ title: "How to Teach Programming (and Other Things): Design Notes for Version 3"
     1.  Learner personas.
     1.  Legitimate peripheral participation in a community of practice.
     1.  Live coding (teaching as a performance art).
-    1.  Pedagogical content knowledge.
+    1.  Pedagogical content knowledge (PCK).
     1.  Peer instruction.
-    1.  Pull request model for collaborative lesson development.
     1.  Reflective (deliberate) practice.
     1.  Reverse instructional design (understanding by design).
-    1.  Short-term vs. long-term  memory.
+    1.  Working vs. persistent memory (7±2).
 1.  What mistakes or misconceptions will they have?
+    1.  Children and adults learn the same way.
+    1.  Computing education should be for and about computer science.
     1.  Programming skill is innate.
-    1.  Teaching ability is innate.
-    1.  Women just don't like programming or are innately less suited to it.
     1.  Student evaluations of courses are indicative of learning outcomes.
-    1.  VAK learning styles are real.
+    1.  Teaching ability is innate.
     1.  The best way to teach is to throw people in at the deep end.
     1.  The best way to teach is to use "real" tools right from the start.
-    1.  Computing education should be for and about computer science.
+    1.  VAK learning styles are real.
+    1.  Women just don't like programming or innately have less aptitude.
 1.  In what contexts will this material be used?
     1.  A one-semester undergraduate course for computer science majors interested in education.
     1.  Self-study or guided study for people in tech who want to volunteer with grassroots get-into-coding initiatives.
@@ -91,23 +92,23 @@ title: "How to Teach Programming (and Other Things): Design Notes for Version 3"
 *These profiles clarify what readers are interested in and what can be assumed about their prior knowledge.*
 
 -   Samira
-    -   Undergraduate student in computer science
-    -   Interested in becoming a high school teacher
-    -   Wants to learn more about education in general in order to decide if it's for her
-    -   Particularly interested in how to deliver lessons (has little public speaking experience)
+    -   Undergraduate student in computer science.
+    -   Interested in becoming a high school teacher.
+    -   Wants to learn more about education in general in order to decide if it's for her.
+    -   Particularly interested in how to deliver lessons (has little public speaking experience).
 -   Moshe
-    -   Professional programmer with two teenage children whose school doesn't offering programming classes
-    -   Has volunteered to run an after-school program
-    -   20+ years using Visual Basic and C#
-    -   Frequently gives presentations to colleagues
-    -   No experience teaching teenagers
-    -   Wants to learn how to build effective lessons in collaboration with others
+    -   Professional programmer with two teenage children whose school doesn't offering programming classes.
+    -   Has volunteered to run an after-school program.
+    -   20+ years using Visual Basic and C#.
+    -   Frequently gives presentations to colleagues.
+    -   No experience teaching teenagers.
+    -   Wants to learn how to build effective lessons in collaboration with others.
 -   Emma
-    -   Trained as a librarian
-    -   Now works as a project manager in a small software company
-    -   Helps run web design classes for women entering tech as a second career
-    -   Is now recruiting colleagues to run more classes in her area
-    -   Wants to know how to grow a volunteer teaching organization
+    -   Trained as a librarian.
+    -   Now works as a project manager in a small software company.
+    -   Helps run web design classes for women entering tech as a second career.
+    -   Is now recruiting colleagues to run more classes in her area.
+    -   Wants to know how to grow a volunteer teaching organization.
 
 ## 3. Exercises
 
@@ -115,4 +116,29 @@ FIXME
 
 ## 4. Outline
 
-FIXME
+*Each major section will take about two weeks to cover in a classroom setting.
+In a semester-length course, this will leave two weeks for participants to work on a final project.*
+
+1.  Design
+    1.  Helping Novices Build Mental Models
+    1.  Expertise and Memory
+    1.  Cognitive Load
+    1.  Reverse Instructional Design
+2.  Delivery
+    1.  Teaching as a Performance Art
+    1.  Live Coding
+    1.  Motivation and Demotivation
+    1.  FIXME
+3.  Content
+    1.  Key Findings from CS Education Research
+    1.  Inclusivity
+    1.  FIXME
+4.  Automation
+    1.  What's Different About Teaching Online
+    1.  Exercise Types
+    1.  FIXME
+5.  Community
+    1.  Teaching Together
+    1.  Building Community
+    1.  Marketing
+    1.  FIXME
