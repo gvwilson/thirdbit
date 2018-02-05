@@ -12,3 +12,5 @@ Coincidentally,
 for [CarpentryCon 2018](http://www.carpentrycon.org/);
 it'll be much easier to get to than McMurdo Sound,
 so I hope to see you there.
+
+<img src="{{site.github.url}}/files/2018/02/antarctica.jpg" alt="Antarctica" />
