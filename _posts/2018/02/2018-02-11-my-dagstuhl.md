@@ -14,7 +14,7 @@ if you aren't in the right school at the right moment in your career,
 you don't get invited,
 which in turn means you won't be part of conversations
 that can increase your chances of winding up at one of those "right" schools a few years down the road.
-It's a situation that women and minorities in science are all too familiar with:
+It's a situation that women and other under-represented groups in science are all too familiar with:
 lack of access engenders lack of opportunity,
 which in turn leads to existing inequalities perpetuating themselves.
 
