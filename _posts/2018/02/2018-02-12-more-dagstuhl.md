@@ -24,7 +24,7 @@ The good news is,
 people outside computer science have spent their lives studying that problem,
 so we don't have to start from scratch.
 If I could get everyone who was at that recent Dagstuhl meeting to read one thing,
-it would be Michael Jacoby Brown's *[Building Powerful Community Organizations](https://www.amazon.com/Building-Better-Teacher-Teaching-Everyone/dp/0393351084/)*:
+it would be Michael Jacoby Brown's *[Building Powerful Community Organizations](https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808)*:
 we learned a ton going through the book in an online reading group last winter,
 and I think that programming language designers would get more out of it
 than they would out of a year's worth of navel-gazing on [Lambda the Ultimate](http://lambda-the-ultimate.org/).
