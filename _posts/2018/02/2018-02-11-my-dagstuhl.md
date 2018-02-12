@@ -33,5 +33,5 @@ give event sponsors insight into the issues that academia's "other 90%" face.
 my first suggestion would be for organizers to identify institutions,
 and then have those institutions propose people.
 Alternatively,
-each person from a high-profile who was invited could be required to find a buddy of their own,
+each person from a high-profile institution who was invited could be required to find a buddy of their own,
 which would encourage them to do some outreach.*
