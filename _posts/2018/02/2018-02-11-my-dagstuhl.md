@@ -28,3 +28,10 @@ Doing this will help level the playing field,
 spread knowledge and good practices to more places,
 and perhaps most importantly,
 give event sponsors insight into the issues that academia's "other 90%" face.
+
+*Later: in response to [a question about how organizers can identify buddies](https://twitter.com/rg9119/status/962726905492529152),
+my first suggestion would be for organizers to identify institutions,
+and then have those institutions propose people.
+Alternatively,
+each person from a high-profile who was invited could be required to find a buddy of their own,
+which would encourage them to do some outreach.*
