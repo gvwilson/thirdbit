@@ -14,5 +14,5 @@ but the overwhelming majority of studies focus on formal educational settings.
 A lot of [end-user developers](https://en.wikipedia.org/wiki/End-user_development)
 pick up their skills on their own, in weekend workshops, or in bootcamps,
 not in institutional classrooms;
-it would be nice for those of us who teach that way to see ourselves in the reesrach literature,
+it would be nice for those of us who teach that way to see ourselves in the research literature,
 and to be able to learn more about what we're doing when we read it.
