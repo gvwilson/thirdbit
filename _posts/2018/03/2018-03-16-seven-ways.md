@@ -176,7 +176,7 @@ plumber knows pipes or a musician knows scales.
 Our last big idea is something that artisans have known for thousands
 of years: **the tool shapes the hand**.  Building software changes how
 you use software; making computers do new things changes your
-understanding of what computers can do.  That's why this course asks
-you to create new tools as well as use pre-existing ones: however
+understanding of what computers can do.  That's why any course about
+computational thinking should ask you to write software: however
 frustrating it may sometimes be, it's the only way to teach you what
-some people call *computational thinking*.
+software can do.
