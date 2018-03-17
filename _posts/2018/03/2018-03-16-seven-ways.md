@@ -9,27 +9,39 @@ Jon Udell's essay "[Seven Ways to Think Like the Web](http://blog.jonudell.net/2
 completely changed the way I think about what the Internet is for and how we ought to use it.
 I tried to sum up the big ideas of an earlier incarnation of [Software Carpentry](http://software-carpentry.org) in response;
 revisiting that list six years later,
-I think it's held up pretty well:
+I <strike>think it has</strike> thought it had held up pretty well:
 
 1. It's all just data.
-1. Data doesn't mean anything on its own—it has to be interpreted.
-1. Programming is about creating and composing abstractions.
-1. Models are for computers, and views are for people.
-1. Paranoia makes us productive.
-1. Better algorithms are better than better hardware.
-1. The tool shapes the hand.
+2. Data doesn't mean anything on its own—it has to be interpreted.
+3. Programming is about creating and composing abstractions.
+4. Models are for computers, and views are for people.
+5. Paranoia makes us productive.
+6. Better algorithms are better than better hardware.
+7. The tool shapes the hand.
 
-Let's take them in order.  First, and most importantly, **it's all
-just data**.  Shopping lists, email, pictures of far-off galaxies:
-inside the computer, they're all just ones and zeroes.  Even programs
-are just data: in fact, this is the key insight that all of modern
-computing is built on.  The source code for a program is just a bunch
-of text files, no different from a thesis.  Once that text is compiled
-or loaded into memory, it's just bytes too, and pushing those bytes
-around is no different from correcting a typo in an address list or
-changing the color of a pixel in an image file.  If you understand
-this—if you understand that programs are just another kind of
-data—then every bit of programming you do will be easier.
+However, a couple of people have pointed out that this list is, for
+want of a better word, innocent: it says nothing about how data and
+algorithms can be mis-used.  I'm embarrassed that I didn't spot this
+myself, because if the last few years have taught us anything, it's
+that there's no such thing as a "purely technical" decision.  Every
+decision about what data to collect, who to share it with, how to
+analyze it, and how to use the results of those analyses necessarily
+and unavoidably furthers someone's interests.  I therefore think that
+I need to insert another principle between numbers 2 and 3: "No
+interpretation or use is neutral."
+
+Until I do that, let's take these in order.  First, and most
+importantly, **it's all just data**.  Shopping lists, email, pictures
+of far-off galaxies: inside the computer, they're all just ones and
+zeroes.  Even programs are just data: in fact, this is the key insight
+that all of modern computing is built on.  The source code for a
+program is just a bunch of text files, no different from a thesis.
+Once that text is compiled or loaded into memory, it's just bytes too,
+and pushing those bytes around is no different from correcting a typo
+in an address list or changing the color of a pixel in an image file.
+If you understand this—if you understand that programs are just
+another kind of data—then every bit of programming you do will be
+easier.
 
 The second idea is a complement to the first.  **Data doesn't mean
 anything on its own—it has to be interpreted**.  The thirty-two bits
