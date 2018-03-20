@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: DrProject Internals: Setting the Stage</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2006/10/23/drproject-internals-setting-the-stage.html">Oct 23, 2006 - DrProject Internals: Setting the Stage</a></h1>
+              <div class="post-content">
+                Over the past 18 months, students here at the <a href="http://www.cs.toronto.edu">University of Toronto</a> have modified and enhanced an open source system called <a href="http://trac.edgewall.com">Trac</a> to create <a href="http://www.drproject.org">DrProject</a>, a classroom-friendly software project management portal that addresses the unique needs of undergraduate programming teams.  With Version 1.2 of <a href="http://www.drproject.org">DrProject</a> just a few days away, I thought it would be a good time to describe its current architecture, and how it got to be the way it is.
+
+Let's start with a simple wiki that consists of nothing more than a bunch of pages that can be edited over the web.  Each page is stored as a file on disk, and is written using a simplified syntax in which (for example) <code>''this''</code> becomes an emphasized  <em>this</em> and <code>``that``</code> becomes a code-style <code>that</code> (Figure 1).  When the user wants to view a page, the web server runs a CGI program that translates the simplified wiki markup into HTML; when the user wants to edit a page, the CGI program puts the file's contents into an editable text box, writing it back to the file when the user presses the submit button.
+
+<img id="image685" alt="Figure 1" src="/files/2006/10/fig0101.png" />
+
+Now suppose we want to keep track of who edited each page, when, and why---in short, we want to keep some <em>meta-data</em> about each page.  One option would be to store a header in each file of the form:
+<blockquote>
+<pre>Author: Grace Hopper
+Timestamp: 2014-07-03 15:43:06
+Comment: Updated boot page for IDIAC to describe new quantum array.
+
+= The IDIAC 900 = The IDIAC 900 uses a 1.4 petabit quantum array for...</pre>
+</blockquote>
+This would be easy to implement: we just teach our CGI program to insert the header when the page is edited, and strip it off before formatting the page for output, and we're done.
+
+But what if we also want to record old versions of pages, so that users can undo changes, or view a page's history?  We could put everything in one file, and separate successive versions with some kind of textual marker, but then we'd have to worry about users putting that marker in their pages.  For example, if the separator was a line of 70 dashes, the CGI would think that any page containing such a line was actually two separate pages.  Another option would be to name successive files <code>PageName.1</code>, <code>PageName.2</code>, and so on, and keep a link called <code>PageName</code> pointing at the most recent version.
+
+Most wikis don't actually do this, though.  Instead, they store pages in a database instead (Figure 2).  At its simplest, the database contains one table with five columns: the page's name, a version number, a timestamp, the author's name, and the text of the page.  When the user asks for a page, the CGI program finds the record with the page's name and the maximum (integer) version number.  To create a new version of a page, it simply adds a new record with the appropriate information.
+
+<img id="image686" alt="Figure 2" src="/files/2006/10/fig0102.png" />
+
+Storing pages in a database turns out to be simpler and faster than storing them as files.  If you want to find all the pages authored by Grace Hopper, for example, a database can do it with a single query; if your pages are stored as files, your CGI program will have to open them one by one to read their headers.  Similarly, if you want to get the names of all the pages the wiki currently contains, so that you can tell which CamelCaseWords to format as links, the database can give them to you in one operation; if you use the filesystem, you'll have to open the directory, read its contents, throw away everything that contains a version number, and so on.
+
+What kind of database should the wiki use?  Our choices are a database that is managed by its own long-lived server, or an <em>embedded</em> database, which is really just a library of functions that manipulate a chunk of disk reserved to store data (Figure 3).  <a href="http://www.mysql.org">MySQL</a>  and <a href="http://www.postgresql.org">PostgreSQL</a> are well-known examples of the former; <a href="http://www.sqlite.org">SQLite</a> is perhaps the most widely instance of the latter.
+
+<img id="image687" alt="Figure 3" src="/files/2006/10/fig0103.png" />
+
+The right answer is not to choose.  Instead, we should design our CGI program so that it can use either, since the best solution for a particular deployment will depend on a lot of other factors, and may in fact change over time.  Luckily, every modern language comes with tools that help insulate programs from the idiosyncracies of different databases.  If we use Java's JDBC, for example, the only bits of our code that are specific to a particular database are the bits that load that database's <em>driver</em>, and establish a connection to the database.  Everything after that is written in abstract terms: fetch this value, create that record, and so on.
+
+Life's not actually that simple, though.  SQL is supposed to be a standard, but every relational database implements the standard differently.  SQL commands that work with one database won't work with another, or will behave differently.  Industrial-strength systems therefore have to create (or use) another layer of insulation on top of that provided by SQL and their database connection libraries. These tools are called <em>object-relational mappers</em>, or ORMs, and we'll look at them a few posts from now.  Before then, though, we need to think about how we're going to make our system secure: that will be the topic of the next article in this series.
+
+<hr />Alan Grosskurth and others have asked, "Why not use a version control repository as a backing store instead of a database?"  It's a good question, and I wondered about this issue myself when I first looked into how wikis are implemented.  Good version control systems, like <a href="http://subversion.tigris.org">Subversion</a> and <a href="http://www.perforce.com">Perforce</a>, can keep track of meta-data, as well as files' histories.  Why not keep each page in a repository?  It would certainly help solve the problem of several people trying to update a page at once.
+
+I think there are two reasons why most wikis haven't gone that route.  The first is performance: in order to format a wiki page, the CGI needs to know the names of every other page in the system (so that it can tell which CamelCaseWords to turn into links, and which to mark as "not yet written").  If you've already established a connection to a database, <code>SELECT PageName FROM Wiki</code> is probably cheaper than calling <code>opendir</code>, reading a list of directory contents, and filtering out things that aren't pages.  I don't actually have any data on this, though; if anyone has pointers to any, please let me know.
+
+The second, and more important, reason that most wikis use a database is inertia.  The four horsemen of the web applicationalypse are browser, server, CGI, and database.  If you're used to building e-commerce and social networking sites in <a href="http://www.php.net">PHP</a>, <a href="http://asp.net">ASP.NET</a>, or <a href="http://www.rubyonrails.org">RubyOnRails</a>, storing text in a database comes naturally; using a version control system feels like adding complexity.  Of course, as soon as you decide you need to reconcile conflicts between concurrent edits, the cost of re-implementing what version control does best quickly outweighs anything you saved by not integrating SVN or P4 into your system...
+
+                
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2006/10/24/democamp-10-congratulations.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2006/10/22/and-i-thought-i-worried-a-lot.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2006-10-23-drproject-internals-setting-the-stage-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2006-10-23-drproject-internals-setting-the-stage-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

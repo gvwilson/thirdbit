@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: Building Filters</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2008/02/15/building-filters.html">Feb 15, 2008 - Building Filters</a></h1>
+              <div class="post-content">
+                I decided earlier this week that the time had come to convert the <a href="http://swc.scipy.org">Software Carpentry</a>
+notes to a wiki to make it easier for other people to contribute.  My decision was motivated partly by thinking about converting <a href="http://www.drproject.org">DrProject</a> to use <a href="http://daringfireball.net/projects/markdown/">Markdown</a> syntax for its wiki, and partly by the realization that I'm not going to have time in the next ten months to fix all the typos people keep pointing out, add new content, bring the examples up to date with <a href="http://www.python.org/dev/peps/pep-3000/">Python 3000</a>, and so on.
+
+The first step was to pick a wiki syntax.  That was easy: there are Markdown processors for Perl, PHP, and Python, several wikis support them, and my hands are going to be learning those typing rules anyway.  The second step was to convert the existing notes, which are marked up in a homegrown XML format.  This seemed like a good candidate for a classic Unix read-process-print-repeat filter, and sure enough, a few hours later, I have something working.  I took notes as I did it; I'm posting them here as a record of how a moderately experienced developer tackles a routine problem.
+<ol>
+	<li>Copy fifteen lines of code from one of the filters I use to turn the .swc XML files into HTML; this gives me something that parses XML to create an <a href="http://docs.python.org/lib/module-xml.dom.minidom.html">xml.dom.minidom</a> tree in Python.</li>
+	<li>Write a recursive function that takes an output stream and a DOM node as inputs, and writes a representation of the latter to the former.  If the node is a TEXT node, print its content to the stream; if it's an ELEMENT, switch on the tag, then recurse on its children.  If it's anything else, print a warning to standard error and halt.</li>
+	<li>Fill in that switch (which in Python is a chain of if/elif/elif/... statements).  Initially, each branch's body is just 'pass'; the 'else' clause prints the tag's name with stars around it.  After running the 34 .swc files through this a couple of times, I have branches to fill in for all the tags I'm using.  (No, there isn't an up-to-date DTD...)</li>
+	<li>After typing the shell commands to loop over all the .swc files a couple of times, I double back and put them into a Makefile.  I use a pattern rule to say that %.txt depends on ../lec/%.swc; I'm not embarrassed about hard-coding paths, because this tool is only going to be used in this context.  I also define a 'clean' target that gets rid of all the generated .txt files and other shrapnel.</li>
+	<li>Start filling in the branches.  Some are easy: the '&lt;t&gt;' (text) tag has no analog in Markdown, while '&lt;b1&gt;', '&lt;b2&gt;', and '&lt;b3&gt;' (bullets at different levels) are just appropriate levels of indentation plus a star. Then I hit '&lt;em&gt;' (emphasis), which requires a closing tag <em>after</em> the children. No problem: I define a list variable called 'stack', append the text of the closing tag(s), then print those items in reversed order after iterating over the children.</li>
+	<li>Next is cross-references.  The .swc file has '&lt;scref id="intro"/&gt;', which in HTML is converted to '&lt;a href="intro.html"&gt;Introduction&lt;/a&gt;': the word "Introduction" is taken from a lookup table that's built by a preprocessor that scans all of the .swc files and archives things like page titles, bibliography citations, glossary terms, and so on. I could either modify my existing script to read <em>all</em> the .swc files at once, extract this information, then process them, or write a separate preprocessor.  Since I already have a preprocessor that does 200% of what I need (i.e., everything I'll need for this conversion, plus more), I copy that and chop out the bits that I don't need. Note that I don't have to think about the format for this extra information: the preprocessor builds it as a dictionary of dictionaries, then prints that object to a file.  The SWC-to-DOM program then uses 'eval' to load that data (which is a legal Python expression).</li>
+	<li>OK, now I have cross-references, glossary items, and bibliography citations;that just leaves inclusions. The .swc files use '&lt;inc path="..."&gt;' to include code fragments, and '&lt;tbl path="..."&gt;' to include tables.  (I chose to do the former so that all my code examples would still be runnable from the command line; I can't remember why I chose to do the latter, but it was overkill.)   Code files are just lines of text; that easy.  Table files are marked up with '&lt;tbl&gt;', '&lt;row&gt;', '&lt;col&gt;', and so on; after putting the XML reading code into a function (which I should have done off the bat), and adding a few more branches to the big switch statement, they're taken care of too.</li>
+	<li>I'm now generating text files that look fine to me.  What will Markdown think of them?  I add five lines to my Makefile to convert .txt files to .html using markdown.py, and... Oh.  OK, the whitespace in the .txt files I'm generating is confusing Markdown.  And my code fragments need to be indented. And I'd forgotten that Markdown doesn't directly support tables (they're an add-on).  Mutter mutter fix fix fix... There.  Half a dozen fixes to the SWC-to-Markdown script, and a little postprocessing to strip off extraneous newlines (it turns out to be easier to do this at the end than to keep track during translation of whether it needs to be done), and voila: the HTML is almost right.  The few places where it isn't are things I'll take care of by hand, like double escaping of accented characters in people's names.</li>
+</ol>
+So what are the takeaways?
+<ol>
+	<li>Real programming involves a lot of opportunistic <a href="http://en.wikipedia.org/wiki/Bricolage">bricolage</a> (a fancy way of saying "re-using bits and pieces that are lying around, or can be torn out of wherever they are and re-purposed"). You can only do this effectively if you keep track of what you have, know your way around the standard libraries, and so on, but hey, if 15-year-old DJs can keep thousands of tracks at their fingertips for sampling, you ought to be able to as well.</li>
+	<li>I have no idea whether a read-process-print-repeat filter was the "best" way to solve this problem or not, and I don't care. I could immediately see how to fit my problem into that model, and I have enough practice writing such filters that I was confident I'd be able to deal with anything unexpected that came up.  I could have done some up-front design, realized that I was going to have to deal with cross-references, and put together the tool that parses all of the files to extract link endpoints before doing anything else, but in this case, doing things in the "wrong" order probably didn't cost me any time. The more experienced you are, the more often you can work this way; remember, though, that experience comes from making mistakes...</li>
+	<li>My tool only solves the first 99% of the SWC-to-Markdown conversion problem. If I was going to release it to the world, I'd do the last 1%, and the X% after that (docs, an Egg for distribution, a page at the <a href="http://pypi.python.org/pypi">Cheese Shop</a>, etc.). However, the Software Carpentry notes are the only .swc files in the world, so this is definitely the point of diminishing returns; the little bits that are left will be easy enough to fix up by hand.</li>
+</ol>
+
+                
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2008/02/17/graduate-directions.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2008/02/15/rationalizing-the-admin-interface.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2008-02-15-building-filters-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2008-02-15-building-filters-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

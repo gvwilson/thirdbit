@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: The Big Picture</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2012/01/25/the-big-picture-2.html">Jan 25, 2012 - The Big Picture</a></h1>
+              <div class="post-content">
+                <p>I'm trying to be systematic about re-designing the <a href="/blog/2012/01/revising-the-curriculum.html">core curriculum</a> of Software Carpentry. So far, I've identified 11 common questions:</p>
+<table>
+<tbody>
+<tr>
+<td id="Q01">Q01:</td>
+<td>How can I write a simple program?</td>
+</tr>
+<tr>
+<td id="Q02">Q02:</td>
+<td>How can I make the program I've written easier to reuse?</td>
+</tr>
+<tr>
+<td id="Q03">Q03:</td>
+<td>How can I reuse code that other people have written?</td>
+</tr>
+<tr>
+<td id="Q04">Q04:</td>
+<td>How can I share my work with other people?</td>
+</tr>
+<tr>
+<td id="Q05">Q05:</td>
+<td>How can I keep track of what I've done?</td>
+</tr>
+<tr>
+<td id="Q06">Q06:</td>
+<td>How can I tell if my program is working correctly?</td>
+</tr>
+<tr>
+<td id="Q07">Q07:</td>
+<td>How can I find and fix bugs when it isn't?</td>
+</tr>
+<tr>
+<td id="Q08">Q08:</td>
+<td>How can I get data into my program?</td>
+</tr>
+<tr>
+<td id="Q09">Q09:</td>
+<td>How can I manage my data?</td>
+</tr>
+<tr>
+<td id="Q10">Q10:</td>
+<td>How can I automate this task?</td>
+</tr>
+<tr>
+<td id="Q11">Q11:</td>
+<td>How can I make my program faster?</td>
+</tr>
+</tbody>
+</table>
+<p>whose answers depend on three fundamental principles:</p>
+<table>
+<tbody>
+<tr>
+<td id="F01">F01:</td>
+<td>It's all just data.</td>
+</tr>
+<tr>
+<td id="F02">F02:</td>
+<td>Programming is a human activity.</td>
+</tr>
+<tr>
+<td id="F03">F03:</td>
+<td>Better algorithms are better than better hardware.</td>
+</tr>
+</tbody>
+</table>
+<p>These break down into 11 more specific principles:</p>
+<table>
+<tbody>
+<tr>
+<td id="P01">P01:</td>
+<td>Code is just a kind of data.</td>
+</tr>
+<tr>
+<td id="P02">P02:</td>
+<td>Metadata makes data easier to work with.</td>
+</tr>
+<tr>
+<td id="P03">P03:</td>
+<td>Separate models and views.</td>
+</tr>
+<tr>
+<td id="P04">P04:</td>
+<td>Trade human time for machine time and vice versa.</td>
+</tr>
+<tr>
+<td id="P05">P05:</td>
+<td>Anything that's repeated will eventually be wrong somewhere.</td>
+</tr>
+<tr>
+<td id="P06">P06:</td>
+<td>Programming is about creating and composing abstractions.</td>
+</tr>
+<tr>
+<td id="P07">P07:</td>
+<td>Programming is about feedback loops at different timescales.</td>
+</tr>
+<tr>
+<td id="P08">P08:</td>
+<td>Good programs are the result of making good techniques a habit.</td>
+</tr>
+<tr>
+<td id="P09">P09:</td>
+<td>Let the computer decide what to do and when.</td>
+</tr>
+<tr>
+<td id="P10">P10:</td>
+<td>Sometimes you copy, sometimes you share.</td>
+</tr>
+<tr>
+<td id="P11">P11:</td>
+<td>Paranoia makes us productive.</td>
+</tr>
+</tbody>
+</table>
+<p>which in turn translate into 11 recommendations:</p>
+<table>
+<tbody>
+<tr>
+<td id="R01">R01:</td>
+<td>Use the right algorithms and data structures.</td>
+</tr>
+<tr>
+<td id="R02">R02:</td>
+<td>Use a version control system.</td>
+</tr>
+<tr>
+<td id="R03">R03:</td>
+<td>Automate repetitive tasks.</td>
+</tr>
+<tr>
+<td id="R04">R04:</td>
+<td>Use a command shell.</td>
+</tr>
+<tr>
+<td id="R05">R05:</td>
+<td>Use tests to define correctness.</td>
+</tr>
+<tr>
+<td id="R06">R06:</td>
+<td>Reuse existing code.</td>
+</tr>
+<tr>
+<td id="R07">R07:</td>
+<td>Design code to be testable.</td>
+</tr>
+<tr>
+<td id="R08">R08:</td>
+<td>Use structured data and machine-readable metadata.</td>
+</tr>
+<tr>
+<td id="R09">R09:</td>
+<td>Separate interfaces from implementations.</td>
+</tr>
+<tr>
+<td id="R10">R10:</td>
+<td>Use a debugger.</td>
+</tr>
+<tr>
+<td id="R11">R11:</td>
+<td>Design code for people to read.</td>
+</tr>
+</tbody>
+</table>
+<p>Here's how I see all this mapping onto the curriculum (assuming we replace agile development with number crunching):</p>
+<ul>
+<li>The Shell: files and directories; creating things; pipes and filters; permissions; shell scripts; finding things; variables; loops
+<ul>
+<li><a href="#Q03">Q03</a>: How can I reuse code that other people have written?</li>
+<li><a href="#Q10">Q10</a>: How can I automate this task?</li>
+<li><a href="#P04">P04</a>: We can trade human time for machine time and vice versa.</li>
+<li><a href="#P06">P06</a>: Programming is about creating and composing abstractions.</li>
+<li><a href="#R03">R03</a>: Automate repetitive tasks.</li>
+<li><a href="#R04">R04</a>: Use a command shell.</li>
+<li><a href="#R06">R06</a>: Reuse existing code.</li>
+</ul>
+</li>
+<li>Version control: update, edit, commit, and history; merging conflicts; recovering old versions; setting up a repository
+<ul>
+<li><a href="#Q04">Q04</a>: How can I share my work with other people?</li>
+<li><a href="#Q05">Q05</a>: How can I keep track of what I've done?</li>
+<li><a href="#Q09">Q09</a>: How can I manage my data?</li>
+<li><a href="#F01">F01</a>: It's all just data.</li>
+<li><a href="#F02">F02</a>: Programming is a human activity.</li>
+<li><a href="#P01">P01</a>: Code is just a kind of data.</li>
+<li><a href="#P02">P02</a>: Metadata makes data easier to work with.</li>
+<li><a href="#P05">P05</a>: Anything that's repeated will eventually be wrong somewhere.</li>
+<li><a href="#P07">P07</a>: Programming is about feedback loops at different timescales.</li>
+<li><a href="#P11">P11</a>: Paranoia makes us productive.</li>
+<li><a href="#R02">R02</a>: Use a version control system.</li>
+<li><a href="#R03">R03</a>: Automate repetitive tasks.</li>
+<li><a href="#R08">R08</a>: Use structured data and machine-readable metadata.</li>
+</ul>
+</li>
+<li>Basic Programming in Python: variables and assignment; repeating things; lists; reading and writing; conditionals; nesting control structures; design patterns
+<ul>
+<li><a href="#Q01">Q01</a>: How can I write a simple program?</li>
+<li><a href="#Q02">Q02</a>: How can I tell if my program is designed well?</li>
+<li><a href="#Q08">Q08</a>: How can I get data into my program?</li>
+<li><a href="#P04">P04</a>: We can trade human time for machine time and vice versa.</li>
+<li><a href="#P05">P05</a>: Anything that's repeated will eventually be wrong somewhere.</li>
+<li><a href="#P06">P06</a>: Programming is about creating and composing abstractions.</li>
+<li><a href="#R01">R01</a>: Use the right algorithms and data structures.</li>
+<li><a href="#R11">R11</a>: Design code for people to read.</li>
+</ul>
+</li>
+<li>Interlude: aliasing
+<ul>
+<li><a href="#P10">P10</a>: Sometimes you copy, sometimes you share.</li>
+</ul>
+</li>
+<li>Interlude: text
+<ul>
+<li><a href="#F01">F01</a>: It's all just data.</li>
+</ul>
+</li>
+<li>Interlude: Booleans and while loops
+<ul>
+<li><a href="#R11">R11</a>: Design code for people to read.</li>
+</ul>
+</li>
+<li>Interlude: Using a debugger
+<ul>
+<li><a href="#Q01">Q01</a>: How can I write a simple program?</li>
+<li><a href="#Q07">Q07</a>: How can I find and fix bugs when it isn't?</li>
+<li><a href="#F01">F01</a>: It's all just data.</li>
+<li><a href="#R10">R10</a>: Use a debugger.</li>
+</ul>
+</li>
+<li>Functions and Libraries in Python: how functions work; aliasing (again); multiple arguments; returning values; libraries; standard libraries; functions as objects
+<ul>
+<li><a href="#Q01">Q01</a>: How can I write a simple program?</li>
+<li><a href="#Q02">Q02</a>: How can I tell if my program is designed well?</li>
+<li><a href="#Q02">Q02</a>: How can I make the program I've written easier to reuse?</li>
+<li><a href="#F01">F01</a>: It's all just data.</li>
+<li><a href="#P05">P05</a>: Anything that's repeated will eventually be wrong somewhere.</li>
+<li><a href="#P06">P06</a>: Programming is about creating and composing abstractions.</li>
+<li><a href="#P10">P10</a>: Sometimes you copy, sometimes you share.</li>
+<li><a href="#R06">R06</a>: Reuse existing code.</li>
+<li><a href="#R09">R09</a>: Separate interfaces from implementations.</li>
+<li><a href="#R11">R11</a>: Design code for people to read.</li>
+</ul>
+</li>
+<li>Interlude: provenance
+<ul>
+<li><a href="#Q05">Q05</a>: How can I keep track of what I've done?</li>
+<li><a href="#Q09">Q09</a>: How can I manage my data?</li>
+<li><a href="#Q10">Q10</a>: How can I automate this task?</li>
+<li><a href="#F01">F01</a>: It's all just data.</li>
+<li><a href="#P09">P09</a>: Let the computer decide what to do and when.</li>
+<li><a href="#R03">R03</a>: Automate repetitive tasks.</li>
+<li><a href="#R08">R08</a>: Use structured data and machine-readable metadata.</li>
+</ul>
+</li>
+<li>Program Development: creating a grid; randomness; neighbors; handling ties; putting it all together; fixing bugs; refactoring
+<ul>
+<li><a href="#Q01">Q01</a>: How can I write a simple program?</li>
+<li><a href="#Q02">Q02</a>: How can I tell if my program is designed well?</li>
+<li><a href="#Q11">Q11</a>: How can I make my program faster?</li>
+<li><a href="#F02">F02</a>: Programming is a human activity.</li>
+<li><a href="#P06">P06</a>: Programming is about creating and composing abstractions.</li>
+<li><a href="#P07">P07</a>: Programming is about feedback loops at different timescales.</li>
+<li><a href="#P08">P08</a>: Good programs are the result of making good techniques a habit.</li>
+<li><a href="#R01">R01</a>: Use the right algorithms and data structures.</li>
+<li><a href="#R06">R06</a>: Reuse existing code.</li>
+<li><a href="#R07">R07</a>: Design code to be testable.</li>
+<li><a href="#R09">R09</a>: Separate interfaces from implementations.</li>
+<li><a href="#R11">R11</a>: Design code for people to read.</li>
+</ul>
+</li>
+<li>Interlude: configuring programs
+<ul>
+<li><a href="#F01">F01</a>: It's all just data.</li>
+</ul>
+</li>
+<li>Interlude: assertions; exceptions
+<ul>
+<li><a href="#P11">P11</a>: Paranoia makes us productive.</li>
+</ul>
+</li>
+<li>Testing: goals; tests as specifications; structuring unit tests; using a unit testing framework; design for test
+<ul>
+<li><a href="#Q02">Q02</a>: How can I tell if my program is designed well?</li>
+<li><a href="#Q06">Q06</a>: How can I tell if my program is working correctly?</li>
+<li><a href="#Q07">Q07</a>: How can I find and fix bugs when it isn't?</li>
+<li><a href="#Q10">Q10</a>: How can I automate this task?</li>
+<li><a href="#F02">F02</a>: Programming is a human activity.</li>
+<li><a href="#P01">P01</a>: Code is just a kind of data.</li>
+<li><a href="#P07">P07</a>: Programming is about feedback loops at different timescales.</li>
+<li><a href="#P08">P08</a>: Good programs are the result of making good techniques a habit.</li>
+<li><a href="#P09">P09</a>: Let the computer decide what to do and when.</li>
+<li><a href="#P11">P11</a>: Paranoia makes us productive.</li>
+<li><a href="#R03">R03</a>: Automate repetitive tasks.</li>
+<li><a href="#R05">R05</a>: Use tests to define correctness.</li>
+<li><a href="#R07">R07</a>: Design code to be testable.</li>
+</ul>
+</li>
+<li>Sets and Dictionaries: sets; storage; dictionaries; simple examples; longer examples
+<ul>
+<li><a href="#F03">F03</a>: Better algorithms are better than better hardware.</li>
+<li><a href="#Q11">Q11</a>: How can I make my program faster?</li>
+<li><a href="#R01">R01</a>: Use the right algorithms and data structures.</li>
+</ul>
+</li>
+<li>Interlude: numbers
+<ul>
+<li><a href="#F01">F01</a>: It's all just data.</li>
+</ul>
+</li>
+<li>Number Crunching; basics; indexing; linear algebra; making recommendations; statistics
+<ul>
+<li><a href="#Q03">Q03</a>: How can I reuse code that other people have written?</li>
+<li><a href="#Q11">Q11</a>: How can I make my program faster?</li>
+<li><a href="#F03">F03</a>: Better algorithms are better than better hardware.</li>
+<li><a href="#P04">P04</a>: We can trade human time for machine time and vice versa.</li>
+<li><a href="#P09">P09</a>: Let the computer decide what to do and when.</li>
+<li><a href="#R01">R01</a>: Use the right algorithms and data structures.</li>
+<li><a href="#R06">R06</a>: Reuse existing code.</li>
+</ul>
+</li>
+<li>Databases: selecting; removing duplicates; calculating new values; filtering; sorting; aggregation; joins; missing data; nested queries; transactions; programing with databases
+<ul>
+<li><a href="#Q08">Q08</a>: How can I get data into my program?</li>
+<li><a href="#Q09">Q09</a>: How can I manage my data?</li>
+<li><a href="#F01">F01</a>: It's all just data.</li>
+<li><a href="#P02">P02</a>: Metadata makes data easier to work with.</li>
+<li><a href="#P03">P03</a>: Separate models and views.</li>
+<li><a href="#P05">P05</a>: Anything that's repeated will eventually be wrong somewhere.</li>
+<li><a href="#P09">P09</a>: Let the computer decide what to do and when.</li>
+<li><a href="#R08">R08</a>: Use structured data and machine-readable metadata.</li>
+</ul>
+</li>
+</ul>
+<p>Comments and suggestions would be very welcome.</p>
+
+                <p align="center"><em>This post originally appeared in the <a href="http://software-carpentry.org">Software Carpentry</a> blog.</em></p>
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2012/01/26/never-mind-the-content-what-about-the-format.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2012/01/24/21st-century-textbooks.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2012-01-25-the-big-picture-2-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2012-01-25-the-big-picture-2-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

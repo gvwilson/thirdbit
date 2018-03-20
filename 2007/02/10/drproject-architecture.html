@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: DrProject Architecture</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2007/02/10/drproject-architecture.html">Feb 10, 2007 - DrProject Architecture</a></h1>
+              <div class="post-content">
+                I posted a picture of <a href="http://www.drproject.org">DrProject</a>'s <a href="http://pyre.third-bit.com/blog/archives/741.html">database schema</a> a while ago.  Last week, I found myself drawing its architecture on the blackboard in class, so I figured I should post that too.  (It would have been up two hours ago, but my Mac died again...)
+
+<img alt="architecture1.png" id="image833" src="/files/2007/02/architecture1.png" />
+Here are the key elements:
+<ul>
+	<li>Apache forwards HTTP requests for DrProject pages to SCGI; it also handles traffic from other Subversion clients (such as the command line or Eclipse).</li>
+	<li><a href="http://www.mems-exchange.org/software/scgi/">SCGI</a> runs the Python that makes up DrProject.  This is a long-running process, so that we don't pay the cost of repeated forking and loading.</li>
+	<li>A command-line tool called drproject-admin uses the same Python code; administrators can use it in shell scripts, or in other Python programs, to do batch operations (like setting up one project for each pair of students in a course).</li>
+	<li>(Almost) everything that isn't in a Subversion repository is stored in a PostgreSQL database.</li>
+	<li>When mail intended for a DrProject project lands on the machine, Postfix drops it in a spool directory.  Whenever DrProject runs, it pulls messages out of that directory, archives them in the database, indexes them, and forwards them to project members.</li>
+	<li>The "mail strobe" was written because DrProject <em>only</em> forwards mail when it runs. This means that if no-one visits the site for three days, mail will just pile up in the spool directory.  The strobe is just a cron job that pokes the server every minute or so.  DrProject 2.0 will pull mail handling out of the CGI, and have it run every time mail is delivered (or alternatively, have Postfix poke SCGI --- we haven't decided yet).</li>
+	<li>The "service check" is another small program that polls all of the DrProject installations on a machine every few minutes to make sure they're still up, and sends the admins email if they're not.  We've always had occasional lockups, but they've been growing more common as load on the server increases; the folks at <a href="http://www.engcorp.com">Engenuity</a> are looking into this right now.</li>
+	<li>A program called validate, which checks user IDs and passwords against a password file.  We took user management out of the PostreSQL database so that we could piggyback on top of the departmental lab's user provisioning system; since we don't want a process running as www-data (the dummy user set up for Apache) to have access to password information, we use an external program that runs under setuid.</li>
+	<li>The password file that validate checks, which is stitched together periodically from (a) the server's own password file, (b) a subset of the user information from the departmental lab's password file, and (c) a mock password file for external users who don't have shell accounts, but who need access to projects.</li>
+	<li>DrProject's own configuration files.  I say "files" because each installation of DrProject has its own configuration (although they all share code).  Again, we'll fix this by the time 2.0 comes out...</li>
+</ul>
+(I left out the Apache and Postfix configuration files, both of which have to be edited as well as part of an installation.)
+
+I have two observations about this diagram:
+<ol>
+	<li>DrProject is actually a fairly simple system compared to many in widespread use today.  An equivalent diagram for <a href="http://www.sf.net">SourceForge</a> would probably have three times as many boxes on it; Indigo's order tracking system wouldn't fit onto your screen (I don't care how big your screen is, it wouldn't fit).  While we're making progress on debugging programs (even multithreaded ones --- see <a href="http://www.third-bit.com/reading.html#zeller-why-programs-fail">Zeller's book</a>), I haven't seen any substantive work on debugging configurations: if you don't get it write, all you can do is tweak and pray.  Anyone who wants to be rich, famous, and popular should consider tackling this problem.</li>
+	<li>This diagram combines several of <a href="http://www.win.tue.nl/~mchaudro/sa2004/Kruchten4+1.pdf">Kruchten's 4+1 views</a> into one: it shows a logical view of the system's components, a process-level view of the system's concurrency, and a development view of which code relies on which. It equally shows elements from all the major divisions in <a href="http://www.softwarepractice.org/">John Reekie's</a> system (which I've been using in class, and have been finding very useful).  I see this whenever I try to explain any system's architecture to anyone: I always want to mix entities of different types in my pictures, because every sensible narrative about the system incorporates them all.</li>
+</ol>
+I'd be interested in seeing pictures of other applications' architectures if anyone has pointers --- I rather suspect that everyone else is making up notations on the fly to fit their needs as well.
+
+                
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2007/02/10/how-you-can-tell-youve-gone-too-far.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2007/02/10/random-links.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2007-02-10-drproject-architecture-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2007-02-10-drproject-architecture-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

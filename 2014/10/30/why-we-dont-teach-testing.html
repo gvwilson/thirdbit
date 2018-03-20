@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: Why We Don't Teach Testing (Even Though We'd Like To)</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2014/10/30/why-we-dont-teach-testing.html">Oct 30, 2014 - Why We Don't Teach Testing (Even Though We'd Like To)</a></h1>
+              <div class="post-content">
+                <p>
+  If you haven't been following
+  <a href="https://github.com/numerical-mooc/numerical-mooc/wiki">Lorena Barba's course on numerical methods in Python</a>,
+  you should.
+  It's a great example of how to use emerging tools to teach more effectively,
+  and if we ever run Software Carpentry online again,
+  we'll do it her way.
+  Yesterday,
+  though,
+  when she posted <a href="http://nbviewer.ipython.org/github/numerical-mooc/numerical-mooc/blob/master/lessons/03_wave/03_03_aBetterModel.ipynb">this notebook</a>,
+  I tweeted,
+  "Beautiful... but where are the unit tests?"
+  In the wake of
+  <a href="https://twitter.com/lorenaabarba/status/527149484942585856">the discussion that followed</a>,
+  I'd like to explain why we no longer require people to teach testing as part of the Software Carpentry core,
+  and then ask you all a favor.
+</p>
+<p>
+  To begin with,
+  though,
+  I should make three things clear.
+  First,
+  I believe very strongly that testing is a key software development practice&mdash;so much so that
+  I'm very reluctant to use any library that doesn't come with a suite of tests.
+  Second,
+  I believe that scientific software is just as testable as any other kind of software,
+  and that a lot of scientists test their software well.
+  Third,
+  I think it's great that several of our instructors do still teach testing,
+  and I'd like to see it back in the core some day.
+</p>
+<p>
+  So why was testing taken off the list of topics that must be taught
+  in order for a workshop to be called "Software Carpentry"?
+  The answer is that our lessons weren't effective:
+  while most learners adopted shell scripting,
+  started writing functions,
+  and put their work under version control after a workshop,
+  very few started writing unit tests.
+</p>
+<p>
+  The problem isn't the concept of unit testing:
+  we can explain that to novices in just a couple of minutes.
+  The problem isn't a lack of accessible unit testing frameworks, either:
+  we can teach people <a href="https://github.com/nose-devs/nose">Nose</a>
+  just as soon as they've learned functions.
+  The problem is what comes next.
+  What specific tests do we actually teach them to write?
+  Every answer we have
+  (a) depends on social conventions that don't yet exist, and
+  (b) isn't broadly appealing.
+</p>
+<p>
+  For example,
+  suppose we wanted to test the
+  <a href="http://benchmarksgame.alioth.debian.org/u32/program.php?test=nbody&lang=python3&id=1">the Python 3 entry</a>
+  in <a href="http://benchmarksgame.alioth.debian.org/u32/performance.php?test=nbody">the n-body benchmark game</a>.
+  The key function,
+  <code>advance</code>,
+  moves the system forward by a single time step.
+  It would be pretty easy to construct a two-body system
+  with a unit mass at the origin
+  and another mass one AU away,
+  figure out how far each should move in a single day,
+  and check that the function got the right answer,
+  but anything more complicated than that runs into numerical precision issues.
+  At some point,
+  we have to decide whether the actual answer
+  is close enough to the expected answer
+  to count as a pass.
+  The question learners ask (quite reasonably) is,
+  "How close is close enough?"
+</p>
+<p>
+  My answer was,
+  "I don't know&mdash;you're the scientist."
+  Their response was,
+  "Well, I don't know either&mdash;you're the computer scientist."
+  Books
+  <a href="http://www.amazon.com/Writing-Scientific-Software-Guide-Style/dp/0521675952/">like</a>
+  <a href="http://www.amazon.com/Accuracy-Reliability-Scientific-Computing-Environments/dp/0898715849/">these</a>
+  aren't much help.
+  Their advice boils down to,
+  "Think carefully about your numerical methods,"
+  but that's like telling a graphic designer to think carefully about the user:
+  a fair response is, "Thanks&mdash;now can you please tell me <em>what</em> to think?"
+</p>
+<p>
+  What I've realized from talking with people
+  like <a href="http://www.rmc.ca/aca/mcs-mi/per/kelly-d-eng.php">Diane Kelly</a>
+  and <a href="http://mcs.open.ac.uk/mp8/">Marian Petre</a>
+  is that scientific computing doesn't (yet) have the cultural norms for error bars
+  that experimental sciences have.
+  When I rolled balls down an inclined plane
+  to measure the strength of the earth's gravity back in high school,
+  my teacher thought I did (suspiciously) well to have a plus or minus of only 10%.
+  A few years later,
+  using more sophisticated gear and methods in a university engineering class,
+  I wasn't done until my answers were within 1% of each other.
+  The difference between the two was purely a matter of social expectations,
+  and that's true across all science.
+  (As the joke goes,
+  particle physicists worry about significant digits in the mantissa,
+  while astronomers worry about significant digits in the exponent,
+  and economists are happy if they can get the sign right...)
+</p>
+<p>
+  The second problem is the breathtaking diversity of scientific code.
+  Scientific research is highly specialized,
+  which means that the tests scientists write are much less transferable or reusable
+  than those found in banking, web development, and the like.
+  The kinds of tests we would write for a clustering algorithm
+  will be very different from those we'd write for a fluid dynamics simulation,
+  which would in turn be different from those we would write for
+  a program that flagged cancerous cells in microscope images
+  or one that cleaned up economic data from the 1950s.
+</p>
+<p>
+  For example,
+  Lorena Barba commented on an earlier version of this post by saying:
+</p>
+<blockquote>
+  <p>
+    You reference in your post our lesson on
+    <a href="http://nbviewer.ipython.org/github/numerical-mooc/numerical-mooc/blob/master/lessons/01_phugoid/01_03_PhugoidFullModel.ipynb">the full (nonlinear) phugoid model</a>...
+  </p>
+  <p>
+    If you notice there,
+    and also in the earlier lesson on the simpler linear model,
+    we introduce grid-convergence analysis&mdash;a
+    methodical way of executing code verification in numerical computing.
+    This is not common:
+    hardly any beginner course in numerical methods will cover observed order of convergence in this way.
+    I believe this is the right approach:
+    we are emphasizing a technique that should be used in practice to show evidence that
+    the code is computing a numerical solution that converges as expected with grid refinement. 
+  </p>
+</blockquote>
+<p>
+  That's another example of what makes Lorena's course great,
+  but (a) the testing method isn't something that a microbiologist or economist would ever use,
+  and (b) that notebook also includes this:
+</p>
+<blockquote>
+  <pre>The order of convergence is p = 1.014</pre>
+  <p>
+    See how the observed order of convergence is close to 1?
+    This means that the rate at which the grid differences decrease match the mesh-refinement ratio.
+    We say that Euler's method is of first order,
+    and this result is a consequence of that.
+  </p>
+</blockquote>
+<p>
+  How far away from 1.0 would the order of convergence have to be
+  in order for someone to suspect a bug in the code?
+  1.1? 1.5? 2.0?
+  Or should 1.014 itself be regarded with suspicion?
+  Any test, automated or otherwise,
+  must answer that question,
+  but those answers are going to vary from domain to domain as well.
+</p>
+<p>
+  In theory,
+  we can solve this by writing different lessons for different communities.
+  In practice,
+  that requires more resources than we have,
+  and we'd still have to decide what to do
+  in a room containing economists, microbiologists, and cosmologists.
+</p>
+<p>
+  I believe we <em>can</em> teach software testing to scientists,
+  but I also believe that we have some work to do
+  before we can do it effectively enough for most of our learners
+  to put it back in Software Carpentry's core.
+  What we can do to bring that day closer is
+  start amassing examples of tests from different domains
+  that include explanations of <em>why</em>:
+  why these tests,
+  and why these tolerances?
+  You can see my attempt at something like this
+  <a href="/lessons/previous/#invperc">here</a>,
+  but that example deliberately doesn't use floating point
+  so that the question of error bars didn't arise.
+</p>
+<p>
+  So here's my challenge.
+  I'd like you to write some unit tests for the <code>advance</code> function
+  in <a href="http://benchmarksgame.alioth.debian.org/u32/performance.php?test=nbody">the n-body benchmark game</a>
+  and then share those tests with us.
+  I don't care what language you use (source is available in several),
+  or which unit testing framework you pick.
+  What I want to know is:
+</p>
+<ol>
+  <li>
+    Why did you choose the tests you chose,
+    i.e.,
+    what kinds of errors are those tests probing for?
+  </li>
+  <li>
+    How did you pick your margin of error?
+  </li>
+</ol>
+<p>
+  You can send us your tests any way you want,
+  and I will happily send Software Carpentry t-shirts
+  to the first half-dozen people to do so.
+</p>
+<p>
+  <em>
+    My thanks to Lorena Barba, Matt Davis, Justin Kitzes, Ariel Rokem, Fernando P&eacute;rez
+    for feedback on an earlier draft of this post.
+  </em>
+</p>
+
+                <p align="center"><em>This post originally appeared in the <a href="http://software-carpentry.org">Software Carpentry</a> blog.</em></p>
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2014/11/03/scf-creation-faq.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2014/10/29/pandoc-and-gh-pages.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2014-10-30-why-we-dont-teach-testing-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2014-10-30-why-we-dont-teach-testing-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

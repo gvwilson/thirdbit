@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: Programs as Experimental Apparatus</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2012/03/05/programs-as-experimental-apparatus.html">Mar 5, 2012 - Programs as Experimental Apparatus</a></h1>
+              <div class="post-content">
+                <p>Suppose you have two photographs of a patch of the night sky:</p>
+<p><img src="/files/2014/03/ngc1333-noao.jpg" /></p>
+<p>and you want to know how different they are. The simplest way would be to see if any of the pixels' values differ, but that's pretty much guaranteed to return a "yes". A better measure is to see how many pixels differ by more than some threshold, but that raises two questions:</p>
+<ol>
+<li>how to measure the differences between pixels, and</li>
+<li>what threshold to use.</li>
+</ol>
+<p>To answer the first question, most images encode the red, green, and blue values of pixels separately, so we can add up the absolute values of the differences between those color values:</p>
+<p><em>d<sub>1</sub> = abs(R &mdash; r) + abs(G &mdash; g) + abs(B &mdash; b)</em></p>
+<p>We could equally well add the color values for each pixel to get a total, then look at the differences between those:</p>
+<p><em>d<sub>2</sub> = abs((R + G + B) &mdash; (r + g + b))</em></p>
+<p>Does it matter which we choose? And either way, how big a difference should count as different? Since we're scientists, we can answer these questions experimentally. Here's a Python program that reads in an image, scales it down to half its original size, scales it back up, then calculates both difference measures. Its output is a histogram of how many pixels differ by how much according to the two measures, and how different the measures are from each other:</p>
+<pre>import sys
+from PIL import Image
+
+# Load the original image.
+original = Image.open(sys.argv[1])
+width, height = original.size
+original_data = original.load()
+
+# Create a duplicate by enlarging then shrinking the original.
+duplicate = original.resize((width/2, height/2)).resize((width, height))
+duplicate_data = duplicate.load()
+
+# Count how many pixels differ by how much using two measures:
+# | (R+G+B) - (r+g+b) |
+# | R-r | + | G-g | + | B-b |
+overall = [0] * (3 * 255 + 1)
+individual = [0] * (3 * 255 + 1)
+for x in xrange(width):
+    for y in xrange(height):
+        o_r, o_g, o_b = original_data[x, y]
+        d_r, d_g, d_b = duplicate_data[x, y]
+        diff_o = abs((o_r + o_g + o_b) - (d_r + d_g + d_b))
+        overall[diff_o] += 1
+        diff_i = abs(o_r - d_r) + abs(o_g - d_g) + abs(o_b - d_b)
+        individual[diff_i] += 1
+
+# Display histogram.
+num = width * height
+print '%10s %10s %10s %10s %10s %10s' % \
+      ('diff', 'overall', '%age', 'individual', '%age', 'difference')
+for i in range(len(overall)):
+    pct_o = 100.0 * float(overall[i]) / num
+    pct_i = 100.0 * float(individual[i]) / num
+    diff = abs(overall[i] - individual[i])
+    pct_d = 100.0 * float(diff) / num
+    print '%10d %10d %10.1f %10d %10.1f %10.1f' % \
+          (i, overall[i], pct_o, individual[i], pct_i, pct_d)</pre>
+<p>Its output looks like this:</p>
+<table>
+<tbody>
+<tr>
+<td>diff</td>
+<td align="right">overall</td>
+<td align="right">    (%)</td>
+<td align="right">individual</td>
+<td align="right">    (%)</td>
+<td align="right">difference</td>
+</tr>
+<tr>
+<td align="right">0</td>
+<td align="right">130716</td>
+<td align="right">42.6</td>
+<td align="right">128472</td>
+<td align="right">41.8</td>
+<td align="right">0.7</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">6574</td>
+<td align="right">2.1</td>
+<td align="right">1746</td>
+<td align="right">0.6</td>
+<td align="right">1.6</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">9432</td>
+<td align="right">3.1</td>
+<td align="right">8430</td>
+<td align="right">2.7</td>
+<td align="right">0.3</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">63792</td>
+<td align="right">20.8</td>
+<td align="right">66992</td>
+<td align="right">21.8</td>
+<td align="right">1.0</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">4887</td>
+<td align="right">1.6</td>
+<td align="right">7037</td>
+<td align="right">2.3</td>
+<td align="right">0.7</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">4880</td>
+<td align="right">1.6</td>
+<td align="right">5692</td>
+<td align="right">1.9</td>
+<td align="right">0.3</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">29115</td>
+<td align="right">9.5</td>
+<td align="right">29622</td>
+<td align="right">9.6</td>
+<td align="right">0.2</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td align="right">3131</td>
+<td align="right">1.0</td>
+<td align="right">3485</td>
+<td align="right">1.1</td>
+<td align="right">0.1</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="right">2888</td>
+<td align="right">0.9</td>
+<td align="right">3175</td>
+<td align="right">1.0</td>
+<td align="right">0.1</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td align="right">13714</td>
+<td align="right">4.5</td>
+<td align="right">13907</td>
+<td align="right">4.5</td>
+<td align="right">0.1</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td align="right">1981</td>
+<td align="right">0.6</td>
+<td align="right">2097</td>
+<td align="right">0.7</td>
+<td align="right">0.0</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td align="right">1849</td>
+<td align="right">0.6</td>
+<td align="right">1955</td>
+<td align="right">0.6</td>
+<td align="right">0.0</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td align="right">7597</td>
+<td align="right">2.5</td>
+<td align="right">7665</td>
+<td align="right">2.5</td>
+<td align="right">0.0</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td align="right">1432</td>
+<td align="right">0.5</td>
+<td align="right">1467</td>
+<td align="right">0.5</td>
+<td align="right">0.0</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td align="right">1311</td>
+<td align="right">0.4</td>
+<td align="right">1341</td>
+<td align="right">0.4</td>
+<td align="right">0.0</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td align="right">4608</td>
+<td align="right">1.5</td>
+<td align="right">4641</td>
+<td align="right">1.5</td>
+<td align="right">0.0</td>
+</tr>
+</tbody>
+</table>
+<p>The good news is that there isn't much difference between the counts for the two measures. However, it's hard to get a sense of what else is in this data. Time to visualize&mdash;let's plot the percentage of pixels that difference according to <em>d<sub>1</sub></em>:</p>
+<p><img src="/files/2014/03/unified.png" /></p>
+<p>The result isn't surprising: if our upsize-downsize algorithm didn't lose any information, we'd expect no differences at all. Since rescaling is lossy, though, we see that a lot of pixels differ by small values, and only a few by large values.</p>
+<p>But there's something else in our data that could easily be missed. Look at the first dozen entries in the table above; do you see a pattern? Let's plot the scores for multiples of three separately from the scores for differences that aren't even multiples of three:</p>
+<p><img src="/files/2014/03/focus.png" /></p>
+<p>If we do the same thing for the whole data set, we get:</p>
+<p><img src="/files/2014/03/hilo.png" /></p>
+<p>A moment's thought produces a hypothesis: since we have three color channels (red, green, and blue), it's possible that the rescaling algorithm is introducing a systematic bias by perturbing each channel by one as it sizes up or down. Looking at the curves for differences up to 15, that bias seems to be responsible for most of the overall difference. If we really want to measure the differences between images, we're going to have to find a way to eliminate this.</p>
+<p>I'm not going to go into how we might do that now. What I want to point out is that <em>this is not a new problem</em>. Think about the telescope that took the picture we started with. Glass lenses are subject to <a href="http://en.wikipedia.org/wiki/Chromatic_aberration">chromatic aberration</a>; telescope designers must either reshape lenses to minimize it, combine layers of different kinds of glass to correct for it, or tell the astronomer to compensate mathematically somehow. Equally, we can implement a different resizing algorithm to remove this systematic bias, or correct for it. The important thing is to think of a program as a piece of experimental apparatus, and treat it accordingly. <em>That</em> is part of what we want to teach in this course.</p>
+
+                <p align="center"><em>This post originally appeared in the <a href="http://software-carpentry.org">Software Carpentry</a> blog.</em></p>
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2012/03/07/i-resemble-that-remark.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2012/03/05/help-us-write-assessment-questions.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2012-03-05-programs-as-experimental-apparatus-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2012-03-05-programs-as-experimental-apparatus-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

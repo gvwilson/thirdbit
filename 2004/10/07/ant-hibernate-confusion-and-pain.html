@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: Ant + Hibernate = Confusion and Pain</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2004/10/07/ant-hibernate-confusion-and-pain.html">Oct 7, 2004 - Ant + Hibernate = Confusion and Pain</a></h1>
+              <div class="post-content">
+                <p>Once again, an attempt to get two stable, mature, well-documented open source Java tools to talk to each other has resulted in several hours of frustration, as well as all the bad karma associated with using Those Words (as my Grade 3 teacher called them) out loud.  I finally figured out how to avoid the problem, but I still don't understand why it happens in the first place.  If any Ant and/or Hibernate gurus would care to enlighten me, I would be grateful.</p>
+
+<p>Here's what happened:</p>
+
+<dl>
+
+<dt>Background</dt>
+<dd><p>I wanted to create a near-trivial example application to introduce future generations of students to Hibernate (an object/relational mapping framework for Java).  Hibernate gives developers two options: write a JavaBean class, then write a mapping file to describe how that class's members map to database tables, or write the mapping file, and then have Hibernate generate the JavaBean class.  Half of this fall's students did it one way, half did it the other; based on their experiences, I decided to go the code generation route.</p></dd>
+
+<dt>Setup</dt>
+<dd><p>I created four files:
+    <ul>
+        <li><code>hibernate.cfg.xml</code>: the Hibernate configuration file.</li>
+        <li><code>build.xml</code>: the Ant build file.  (If you haven't seen Ant, it's a pure-Java replacement for Make, which has become the standard build tool for Java programming).</li>
+        <li><code>src/User.hbm.xml</code>: the Hibernate mapping file for my <code>User</code> class.</li>
+        <li><code>src/Test.java</code>: a simple test program.  I initially used JUnit, but when things started to go pear-shaped [<a href="#1">1</a>], I yanked it out in an attempt to isolate the problem.</li>
+    </ul>
+    Note that my source files are in a <code>src</code> directory.  <code>build.xml</code> creates two output directories at the start of the build process: one called <code>gen</code>, for generated code, and another called <code>class</code>, for compiled <code>.class</code> files.</li>
+
+<li><code>build.xml</code> has four targets:
+    <ol>
+        <li><code>clean</code>: deletes the <code>gen</code> and <code>class</code> directories, and also the <code>data</code> directory (described below).</li>
+        <li><code>codegen</code>: invokes Hibernate's <code>Hbm2JavaTask</code> to generate <code>gen/User.java</code> from <code>src/User.hbm.xml</code>.</li>
+        <li><code>compile</code>: compiles <code>gen/User.java</code> and <code>src/Test.java</code> to create <code>class/User.class</code> and <code>class/Test.class</code>.</li>
+        <li><code>schema</code>: creates a <code>data</code> directory, and invokes Hibernate's <code>SchemaExportTask</code> to generate database schema files in that directory.  <code>SchemaExportTask</code> reads <code>src/User.hbm.xml</code>, checks that it's consistent with <code>class/User.class</code>  (compile-time checking---excellent), and creates <code>data/hippo.log</code> and <code>data/hippo.properties</code>, which between them tell HSQLDB (the database I'm using) what table(s) to create, and how.</li>
+    </ol>
+</p></dd>
+
+<dt>The first hour and a half</dt>
+<dd><p>The examples in Hibernate in Action (the book I'm using) show several examples of <code>hibernate.properties</code> files, which use the older Java properties file syntax, but when it comes to XML configuration files, the book says, "Go see your install documentation."  I didn't find that documentation helpful; in particular, it wasn't clear when the XML configuration file's properties had to have the same names as were used in the plain text configuration file, and when they had to be different.  Hibernate's error messages didn't help at all: all I could do to debug was make more-or-less random changes to the configuration file, and see what effect they had.</p></dd>
+
+<dt>The next hour and a half</dt>
+<dd><p>I finally annealed [<a href="#2">2</a>] my configuration file into a working state.  A fresh cup of tea, and I was ready to start making some progress---except now Ant was unhappy.  The four targets in <code>build.xml</code> are linearly dependent: <code>schema</code> depends on <code>compile</code>, while <code>compile</code> depends on <code>codegen</code>.  <code>ant schema</code> should therefore erase the working directories, generate <code>gen/User.java</code>, compile it and <code>src/Test.java</code>, and generate a database schema.</p>
+<p>When I tried it, the first three steps worked perfectly, but schema generation failed with an error message saying, "Unable to read User.class".  My first thought was that this was yet another classpath problem, but then I discovered that if I ran <code>ant schema</code> again, <em>without</em> running <code>ant clean</code> in between, Ant and Hibernate would generate my schema for me.</p>
+<p>After ninety minutes and a lot of bad language, I convinced myself that this was some sort of timing problem.  If I ran <code>ant compile</code>, then ran the schema-generation target on its own, everything worked.  If I left the dependency between the <code>schema</code> and <code>compile</code> targets in <code>build.xml</code>, and tried to do everything in a single Ant run, it failed.  I went so far as to revive a little Python inventory tool I wrote a while back, which walked through the directory tree, recording timestamps, file sizes, and MD5 checksums.  As far as I could tell, there was no difference in the files generated by running Ant in two steps, versus running it in one.</p>
+<p>And no, it isn't Windows-specific: I get exactly the same behavior on Debian Linux...</p>
+</dd>
+
+</dl>
+
+<p>At this point, I know how to work around the problem (run Ant twice), and could go back to working on my Hibernate example.  But how am I going to explain this to students?  "Hi, everyone, this term we're going to be using Ant.  It's a replacement for Make, and sometimes, well, sometimes you just have to run it a couple of times to get it to work."  I don't think it's acceptable for software to act like a spoiled six-year-old ("I won't! I won't! I won't I won't I won't and you can't make me!"); I certainly don't feel comfortable telling my students that when it does, they should just put up with it.</p>
+
+<p>If you know something about Ant and Hibernate, and would like to figure out what's going on, I've put the project's four files <a href="http://pyre.third-bit.com/hb1/index.html">on the web</a>, and I'm <a href="mailto:gvwilson@cs.utoronto.ca">easy to reach</a>.  I look forward to hearing from you.</p>
+
+<p>[<a name="1">1</a>] "Pear-shaped" is a British expression meaning "gone bad".  No idea how it originated; if anyone knows, I'd like to hear.</p>
+
+<p>[<a name="2">2</a>] "Annealing" is the process of banging on metal to get the kinks out.  "Simulated annealing" is an optimization technique in which you make random changes to your proposed solution, keeping those that make things better, and throwing aways those that don't.  Simulated annealing is a lousy way to debug programs.</p>
+
+                
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2004/10/08/ant-eclipse-more-pain.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2004/10/06/ten-big-ones.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2004-10-07-ant-hibernate-confusion-and-pain-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2004-10-07-ant-hibernate-confusion-and-pain-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

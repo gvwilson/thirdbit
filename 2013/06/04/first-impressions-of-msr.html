@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: First Impressions of MSR</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2013/06/04/first-impressions-of-msr.html">Jun 4, 2013 - First Impressions of MSR</a></h1>
+              <div class="post-content">
+                <p><em><a href="http://exple.tive.org/blarg/">Mike Hoye</a>, Mozilla's Engineering Community Manager, attended the <a href="http://2013.msrconf.org/">Mining Software Repositories</a> conference for the first time this year. Here are his impressions. </em></p>
+<p>The MSR program is at <a href="http://2013.msrconf.org/">http://2013.msrconf.org/</a> along with links, where possible, to the papers being discussed. Sadly, the IEEE is not in the information-sharing business, but many of the papers can be found linked from <a href="http://2013.msrconf.org/program.php">here</a>. Prof. Gail Murphy opened the talk with a pretty straightforward question: what is developer productivity? Her slides are <a href="https://speakerdeck.com/murphygc/software-development-productivity">here</a>, but they don't really convey how good a talk it was.</p>
+<p>The one thing that we as an industry were repeatedly asked for, and this came up a lot&mdash;perhaps unsurprisingly, given that this is a group of people whose job is mining software repositories&mdash;was this:</p>
+<blockquote><em>You should have instrumentation and logging around your processes.</em></blockquote>
+<p>This isn't pure altruism on their part, of course, but it's not pure self-interest either. Over and over again, the papers being presented drove home the points that there are a surprising number of tool-assisted efficiencies hidden in your software's history, provided that history is around to be analyzed in the first place. Instrumentation grows up to become automation informed by logs that turn into history, and good tooling around a project's history can play an active role in building its future.</p>
+<p>Dr. Murphy's talk got a lot more specific and a lot heavier, than that&mdash;read the slides, at the very least. But one point that I thought she went through a too fast was: what if it was simple? What if it was easy to drill into comprehensive lifecycle data, see trends, and reflect on my own place and role in those trends? I've got some theories about that, but I'll get back to them shortly.</p>
+<p>So, right from the opening, there were results being presented that jumped out at me as being relevant to our work at Mozilla, particularly given our very much inbox-driven development and communication approach. For example, the <a href="http://dl.acm.org/citation.cfm?id=2487090">paper by Mukherjee and Garg</a> about triaging email notifications proposes:</p>
+<blockquote><em>&hellip;a machine learning based approach to predict whether a notification will prompt any action from its recipient. Such a prediction can help to suitably mark up notifications and to decide whether a notification needs to be sent out immediately or be bundled in a message digest.</em></blockquote>
+<p>This certainly seems like something we could use, as do the other two papers in that timeslot, describing different approaches to automatically triaging bugs. Later on in the day it was shown that the #1 factor affecting how long it takes a bug to be fixed is fast, accurate triage, so a tool-guided bug triage process seems like a pretty big win, particularly one that learns over the long term.</p>
+<p>Over the course of the day, as we moved into the MSR-Mobile and Mining Challenge parts of the conference, even things that weren't directly on-point for Mozilla were still pretty compelling. Textual analysis of Stack Overflow and other help sites that highlights pain points for our community across our products and services is a great idea. Automated approaches to figuring out which parts of an API are brittle or hard to use, which parts of our documentation need help, what new features people are asking for&hellip;are we doing that? Not in depth, I don't think, and not to drive decision-making. The Mozilla Developer Network (MDN) is making some moves in that direction, but I think there's some opportunities there we're not taking advantage of.</p>
+<p>Another thing that came to light during the Stack Overflow data analysis talks was that the activity from people who are awarded "marathon" badges&mdash;500 edits, 500 comments, that sort of thing&mdash;drops way off after they've received the badge. I'd like to dig into that a bit more, to try and understand the causal relationship there: is it that people just get the achievement and then stop, is it that people suddenly realize how much time they've spent on Stack Overflow and decide to maybe go outside instead? Still, that discovery should inform some of our badging efforts as we start to ramp up the OpenBadges efforts on Mozillians.</p>
+<p>The Analysis Of Bug Reports section of the talk&hellip;just read the whole thing. I'd be doing it a disservice to summarize, but certainly in light of the well-documented problems porting defect-prediction methods across software projects (a noble endeavor with a <a href="http://thomas-zimmermann.com/publications/files/zimmermann-esecfse-2009.pdf">96% failure rate</a>, if you needed a windmill to tilt at this week) it was pretty great that so many of the papers presented here were built on Mozilla's historical data. Go team! (Incidentally, this is the part of the day that "accurate triage is the most important thing" comes from, courtesy of Mani et al.)</p>
+<p>There's a lot more to say about this, but shortly after this the content of the talks went a little bit past my pay grade. I spent more than a few of them feeling like that <a href="http://www.youtube.com/watch?v=Ccoj5lhLmSQ">one guy in GoodBurger</a>: "Hmm, yeah&hellip; I know some of these words".</p>
+<p>What I want to talk about most is building out tools with an eye towards future machine learning and tool-driven analysis. I've been a sysadmin by trade for a long time, and one of the most important things I've learned there is that if you're in a complex environment with a lot of moving parts, you absolutely must have comprehensive, centralized logging. It's at the core of virtually everything you need to accomplish, whether it's today's sev-1 incident response or next year's capacity planning, and without it you're flying deaf and blind. But if you've got it, you've got notifications, advance warnings, statistical analysis, fault prediction&mdash;dozens and maybe hundreds of options and opportunities open up on timescales from preemptive to strategic.</p>
+<p>I think we should try to apply the same approach to development tools and developer machines. Disk space isn't super-expensive&mdash;not free, I know, but I'm talking about text here&mdash;so here's my one-point plan: if you're building a tool that reports back to stdout/stderr, whatever it is, build in an option to send that information (or a structured version of it) to syslog at the same time. If you're part of a team using those tools, centralize those logs. It seems like an odd thing to do&mdash;certainly I don't know of anyone else doing that&mdash;but while I don't know for sure, I'm willing to bet after a while, the information we'll be able to learn from those logs will surprise us. And even if we don't know what to do with it, the people at MSR who are keen to collaborate with us will.</p>
+
+                
+<p align="center"><em>This post originally appeared at <a href="http://neverworkintheory.org/">It Will Never Work in Theory</a>.</em></p>
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2013/06/07/running-bootcamps.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2013/05/30/the-great-licenceathon.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2013-06-04-first-impressions-of-msr-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2013-06-04-first-impressions-of-msr-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

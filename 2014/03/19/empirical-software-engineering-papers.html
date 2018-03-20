@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: Empirical Software Engineering Papers</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2014/03/19/empirical-software-engineering-papers.html">Mar 19, 2014 - Empirical Software Engineering Papers</a></h1>
+              <div class="post-content">
+                <p>
+  When I teach scientists programming,
+  I frequently cite empirical studies in software engineering
+  to back up my claims about various tools and practices making people more productive.
+  No good, short survey of those papers exists&mdash;writing one
+  has been on my to-do list for several years&mdash;but
+  I hope the pointers below will be a useful substitute.
+</p>
+<p>
+  The best short introduction to empirical software engineering is
+  Robert Glass's book <a href="http://www.amazon.com/Facts-Fallacies-Software-Engineering-Robert/dp/0321117425/"><em>Facts and Fallacies of Software Engineering</em></a>,
+  but it's twelve years old now,
+  and the field has exploded since it was published.
+  Steve McConnell's <a href="http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/"><em>Code Complete: A Practical Handbook of Software Construction</em></a>
+  is slightly more up to date,
+  and the anthology <a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><em>Making Software: What Really Works, and Why We Believe It</em></a>
+  is more recent still,
+  but they are both too long and too dense for most people.
+</p>
+<p>
+  If all you want is a sense of what's out there,
+  <a href="http://neverworkintheory.org/">It Will Never Work in Theory</a>
+  is an infrequently-updated blog of interesting new results.
+  Some of my favorite entries are:
+</p>
+<ul>
+  <li>
+    <a href="http://neverworkintheory.org/2011/06/30/lets-go-to-the-whiteboard.html">Let's Go to the Whiteboard</a>:
+    what programmers actually draw when they talk about programs,
+    and why.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2011/07/18/understanding-broadcast-based-peer-review-on-open-source-projects.html">Understanding Broadcast Based Peer Review on Open Source Projects</a>:
+    explores the "toss it out there and hope someone catches it" model of code review
+    used in many open source projects.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2011/07/26/usability-implications-of-requiring-parameters-in-objects-constructors.html">Usability Implications of Requiring Parameters in Objects' Constructors</a>:
+    a good introduction to the kinds of things that careful qualitative analysis can tell us
+    about the usability of programming languages and their features.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2011/08/24/is-transactional-programming-actually-easier.html">Is Transactional Programming Actually Easier?</a>:
+    uses a quantitative approach to tackle the same kinds of usability questions.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2012/10/25/an-experiment-about-static-and-dynamic-type-systems.html">An Experiment About Static and Dynamic Type Systems</a>:
+    another example of what careful, controlled experimentation can reveal about a language.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2011/11/08/a-field-study-of-api-learning-obstacles.html">A Field Study of API Learning Obstacles</a>:
+    full of rich insights and practical implications relevant for anyone trying to improve the developer documentation of their products.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2011/08/30/what-makes-a-good-bug-report.html">What Makes a Good Bug Report?</a>:
+    looks at what the bug reporter can and should do to get a faster and more useful response.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2011/09/06/does-adding-manpower-also-affect-quality.html">Does Adding Manpower Also Affect Quality?</a>:
+    its two main conclusions are that
+    increased team size and linear growth are correlated with later periods of better product quality,
+    but periods of accelerated team expansion are correlated with later periods of reduced software quality.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2013/07/07/how-and-why-process-metrics-are-better.html">How, and Why, Process Metrics Are Better</a>:
+    found that if you want to predict how many bugs there are in a piece of code,
+    you're better off looking at how the code was produced than at the code itself.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2011/10/24/an-empirical-comparison-of-the-accuracy-rates-of-novices-using-the-quorum-perl-and-randomo-programming-languages.html">An Empirical Comparison of the Accuracy Rates of Novices using the Quorum, Perl, and Randomo Programming Languages</a>:
+    found that Perl is as hard to learn as a language with a randomly-designed syntax.
+    Many of the comments on the blog and by email to the paper's authors were hostile;
+    the lead author <a href="http://neverworkintheory.org/2011/10/27/author-response-quorum-vs-perl-vs-randomo-novice-accuracy-rates.html">responded</a>,
+    and <a href="http://neverworkintheory.org/2014/01/29/stefik-siebert-syntax.html">recently published</a>
+    a larger study using three different investigative techniques
+    that bears out the results of the original paper.
+    (I'm hoping to get them to repeat their study for Python, Perl, R, and MATLAB some time this year...)
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2011/12/02/the-fcs1-a-language-independent-assessment-of-cs1-knowledge.html">The FCS1: A Language Independent Assessment of CS1 Knowledge</a>:
+    describes a <a href="http://en.wikipedia.org/wiki/Concept_inventory">concept inventory</a>
+    for basic programming concepts.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2013/03/08/halving-fail-rates-using-peer-instruction.html">Halving Fail Rates using Peer Instruction</a>:
+    another landmark paper in CS education,
+    this one showing that <a href="http://mazur.harvard.edu/research/detailspage.php?rowid=8">peer instruction</a>
+    improves retention in introductory programming classes.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2011/12/10/a-decade-of-research-and-development-on-program-animation-the-jeliot-experience.html">A Decade of Research and Development on Program Animation: The Jeliot Experience</a>:
+    recapitulates a long-running computing education research project,
+    and shows how both the authors' ideas and the field as a whole have evolved over the years.
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2012/05/17/do-faster-releases-improve-software-quality.html">Do Faster Releases Improve Software Quality?</a>:
+    explores what happened when Firefox shifted from occasional large releases
+    to frequent small ones.
+    Long story short,
+    with shorter release cycles, users do not experience significantly more post-release bugs,
+    and bugs are fixed faster,
+    but users experience these bugs earlier during software execution (i.e., the program crashes earlier).
+  </li>
+  <li>
+    <a href="http://neverworkintheory.org/2013/06/13/uml-in-practice-2.html">UML in Practice</a>:
+    an award-winning paper that explores why most programmers in industry <em>don't</em> use
+    one of academics' favorite creations.
+  </li>
+  <li>
+    Reviews of <a href="http://neverworkintheory.org/2012/05/03/a-review-of-code-simplicity.html"><em>Code Simplicity</em></a>
+    and <a href="http://neverworkintheory.org/2013/08/12/review-essence-of-software-engineering.html"><em>The Essence of Software Engineering</em></a>,
+    two disappointing books that prove that many software engineering researchers still don't see what evidence has to do with anything.
+  </li>
+</ul>
+<p>
+  I'd welcome pointers to other openly-access papers
+  reporting empirical studies that are relevant to what we teach.
+  (Unfortunately,
+  and ironically,
+  the ACM and IEEE are among the most backward of professional societies
+  when it comes to open access publishing.
+  As a result,
+  a lot of really interesting work in this field
+  currently languishes in unfindable obscurity behind their paywalls.)
+</p>
+
+                <p align="center"><em>This post originally appeared in the <a href="http://software-carpentry.org">Software Carpentry</a> blog.</em></p>
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2014/03/23/not-on-the-shelves.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2014/03/18/original-logo.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2014-03-19-empirical-software-engineering-papers-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2014-03-19-empirical-software-engineering-papers-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

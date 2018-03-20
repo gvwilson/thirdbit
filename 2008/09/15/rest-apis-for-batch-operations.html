@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: REST APIs for Batch Operations</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2008/09/15/rest-apis-for-batch-operations.html">Sep 15, 2008 - REST APIs for Batch Operations</a></h1>
+              <div class="post-content">
+                I have a question about the "right" way to design a REST API, and am hoping someone out there on the Interweb will point me in the right direction.  The short version of the question is, "How should batch operations be structured?"  The long version goes something like this:
+
+Suppose your web application has to keep track of fruit flies.  Each fruit fly has a unique (system-assigned) integer ID, a name (hey, even flies can be cuddly), and a genome (represented as a string of characters).  If you only had to work with one fly at a time, the API might look something like this (with the data values formatted as XML, JSON, or what have you):
+<table padding="3" border="1">
+<tr>
+<td><strong>Operation</strong></td>
+<td><strong>URL</strong></td>
+<td><strong>HTTP Verb</strong></td>
+<td><strong>Request Data</strong></td>
+<td><strong>Response Code(s)</strong></td>
+<td><strong>Response Data</strong></td>
+</tr>
+<tr>
+<td>Find out what flies exist</td>
+<td>/api/fly</td>
+<td>GET</td>
+<td>---</td>
+<td>200</td>
+<td>{id, id, ...}</td>
+</tr>
+<tr>
+<td>Get a fly's record</td>
+<td>/api/fly/id</td>
+<td>GET</td>
+<td>---</td>
+<td>200</td>
+<td>{id, name, genome}</td>
+</tr>
+<tr>
+<td>Create a fly in the database</td>
+<td>/api/fly</td>
+<td>POST</td>
+<td>{name, genome}</td>
+<td>200</td>
+<td>{id}</td>
+</tr>
+<tr>
+<td>Update a fly's record</td>
+<td>/api/fly/id</td>
+<td>PUT</td>
+<td>{new name and/or genome}</td>
+<td>200</td>
+<td>{id}</td>
+</tr>
+<tr>
+<td>Delete a fly's record</td>
+<td>/api/fly/id</td>
+<td>DELETE</td>
+<td>---</td>
+<td>200</td>
+<td>{id}</td>
+</tr>
+</table>
+I've left out error cases because they aren't relevant to my question---at least, I don't think they are.
+
+But now suppose that you want to do batch operations, i.e., that you want to create, read, update, or delete hundreds or thousands of flies at once.  Your client (which may be a desktop application or something else that isn't a browser) can POST data for lots of flies at once, but you do <em>not</em> want to handle the set of values like this:
+<pre>
+result = OK
+
+for chunk_of_data in HTTP_Request:
+
+    start_database_transaction
+
+    result = result and process(chunk_of_data)
+
+    end_database_transaction
+
+return result</pre>
+The first reason you don't want to do this is that it's not atomic: if anything goes wrong partway through, you could have five hundred flies updated, and five hundred not.  The second reason is that the <code>process</code> function is actually very slow: if you call it five hundred times, there's a real risk of taking so long that the web server will time out the request.  (Note: in reality, a lot more is going on inside <code>process</code> than just a few SQL queries---files are being opened, parsed, and closed, log entries are being created, etc., so "get a faster web server" is <em>not</em> a valid solution.)
+
+The solution I've come up with is to make batch operations fundamental to the REST API, and to define the single-fly operations in terms of them.  This leads to API entries like this:
+<table padding="3" border="1">
+<tr>
+<td><strong>Operation</strong></td>
+<td><strong>URL</strong></td>
+<td><strong>HTTP Verb</strong></td>
+<td><strong>Request Data</strong></td>
+<td><strong>Response Code(s)</strong></td>
+<td><strong>Response Data</strong></td>
+</tr>
+<tr>
+<td>Update flies' records</td>
+<td>/api/fly</td>
+<td>PUT</td>
+<td>{ {id_0, name_0, genome_0}, {id_1, name_1, genome_1}, ...}</td>
+<td>200</td>
+<td>number_of_updates</td>
+</tr>
+</table>
+with the obvious definition of a PUT to <code>/api/fly/<em>id</em></code> as a multi-fly PUT with only one fly.
+
+This doesn't feel right, but I'm not sure where I've gone wrong.  My performance constraints (i.e., the need to support batch operations) isn't going to go away, but the whole point of REST seems to be a fundamental one-to-one mapping between URLs and entities, which the batch API seems to violate.  So, how do other people (or APIs) do this?  And why?
+
+                
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2008/09/16/life-dont-talk-to-me-about-life.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2008/09/15/ieee-top-10.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2008-09-15-rest-apis-for-batch-operations-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2008-09-15-rest-apis-for-batch-operations-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

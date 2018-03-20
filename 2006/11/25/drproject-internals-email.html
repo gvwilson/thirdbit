@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: DrProject Internals: Email</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2006/11/25/drproject-internals-email.html">Nov 25, 2006 - DrProject Internals: Email</a></h1>
+              <div class="post-content">
+                And now, <a href="http://www.drproject.org">DrProject</a>'s email. This was the first completely new subsystem we added after we forked; running <a href="http://www.gnu.org/software/mailman/index.html">Mailman</a> in parallel with <a href="http://trac.edgewall.org">Trac</a> worked well enough while we were bootstrapping, but the fact that neither system knew about the other made both a pain to use.  We couldn't, for example, run a single search query that would hit both a project's wiki <em>and</em> its mailing list archive; we also had to do a little dance to keep project and mailing list memberships in sync, and we never even tried to modify Mailman so that wiki-syntax shortcuts to tickets and pages in mail messages would be turned into links automatically.
+
+The broad outline of our design was straightforward:
+<ol>
+	<li>We didn't want to compete with people's existing mail clients, so <a href="http://www.drproject.org">DrProject</a> would provide relay and archiving only---there'd be no way to compose or receive messages from within <a href="http://www.drproject.org">DrProject</a>, and no way to send mail to individual (just projects).  That simplified things at least as much as only supporting reads simplified the <a href="http://pyre.third-bit.com/blog/archives/720.html">Subversion repository viewer</a>.</li>
+	<li>We could safely assume that the Linux host running <a href="http://www.drproject.org">DrProject</a> had a mail transfer agent (MTA) such as <a href="http://www.sendmail.org/">sendmail</a>. We could further <em>require</em> that whoever installed <a href="http://www.drproject.org">DrProject</a> be able to modify the MTA's configuration to route messages for particular addresses to a program we provided.  In particular, we could tell the MTA to store all messages for <code>A+B@host.name</code> in a directory called <code>/drproject/A/B</code>.  In this scheme, <code>A</code> identifies a particular instance of <a href="http://www.drproject.org">DrProject</a> on the host, while <code>B</code> identifies the project within that instance.  For us, <code>A</code> would be a course ID, like <code>csc408</code>, and <code>B</code> would identify the student team.</li>
+	<li>Every time the <a href="http://www.drproject.org">DrProject</a> CGI ran, it could check the spool directories for new messages.  If it found any, it could copy them into the database, index them for searching, and forward them to the members of the project the message was for.</li>
+	<li>The wiki parser could be modified to recognize <code>@123@</code> as a shortcut to message #123.  We decided to use an '@' before and after to avoid worrying about the possible ambiguity in <code>abc@123.yourhost.com</code>.</li>
+</ol>
+Simple enough---but as always, there were a lot of sharp-toothed details lurking in the underbrush.  First (and simplest), the program invoked by the MTA to copy messages into the spooling directory, and the <a href="http://www.drproject.org">DrProject</a> CGI, had to lock files at the proper times, so that <a href="http://www.drproject.org">DrProject</a> wouldn't try to read a message while the handler invoked by the MTA was still writing it.
+
+Second, we needed a way to prevent the project lists from being spammed.  After some discussion, we decided to use a <a href="http://en.wikipedia.org/wiki/Whitelist">whitelisting</a>: every user would have to tell <a href="http://www.drproject.org">DrProject</a> the addresses from which she wanted to be able to send mail, and select one of those for <a href="http://www.drproject.org">DrProject</a> to forward mail to.  The procedure we're currently using is far from original:
+<ol>
+	<li>After logging in, the user goes to the preferences page and enters the email address she wants to register.</li>
+	<li><a href="http://www.drproject.org">DrProject</a> stores that address in an <code>UnconfirmedEmail</code> table, then sends a message to that address requesting validation.</li>
+	<li>Once the user gets the message and validates the address, it is added to the set associated with her account.  One of those must always be marked for forwarding: all mail sent to projects of which she is a member will be forwarded to that address.  She can turn forwarding on or off on a per-project basis, but we didn't see any reason to allow mail to different projects to be forwarded to different addresses.</li>
+</ol>
+There's still a bit of room for abuse here: if I told <a href="http://www.drproject.org">DrProject</a> that <code>yourname@yourhost.com</code> was <em>my</em> address, but never reply to the validation request, you wouldn't be able to claim it.  We figured that was a pretty minor issue, and that it could be resolved by divine (i.e., administrative) intervention, so we didn't worry about it.
+
+What we <em>did</em> have to worry about was exactly what constituted "membership" in a project for the purpose of message forwarding.  Our <a href="http://pyre.third-bit.com/blog/archives/696.html">authorization</a> scheme doesn't actually include a notion of "membership"; instead, every user has a role (possibly a default role) with respect to each project, and each role is a collection of capabilities.  Should roles have a <code>MEMBERSHIP</code> attribute?  Or should we infer "membership-for-the-purpose-of-mail-forwarding" from something else?
+
+We went with the latter: if your role with respect to a project gives you <code>MAIL_POST</code> privileges, then messages to the project list are forwarded to you.  <code>MAIL_VIEW</code> isn't enough, since we may want to give anonymous users the ability to read the archives of "public" projects, but don't want a special-case rule saying, "Forward to anyone with this capability unless they're <code>anonymous</code> or <code>nobody</code>."
+
+It all worked well under test, but failed when we first deployed it last fall.  The problem turned out to be some missing quotes in a shell script---the commands all worked when run directly from an interactive shell prompt, but failed when the script was invoked. Once that was fixed, we began noticing that messages would sometimes be delayed for hours---even days---before being delivered.
+
+That one turned out to be a simple oversight.  <a href="http://www.drproject.org">DrProject</a> is a long-lived CGI (we actually use <a href="http://www.mems-exchange.org/software/scgi/">SCGI</a>); when it's not actually processing an HTTP request, it just sits and waits. That means that it only looks for new mail messages when someone interacts with it over the web (e.g., files a ticket or views a wiki page).  Messages sent to project lists were therefore piling up until someone went to check on them, at which point they were all forwarded.
+
+The solution we're now using is a cron job that sends a dummy HTTP request to <a href="http://www.drproject.org">DrProject</a> every two minutes or so.  It was a simple thing to write, but we're still unhappy with it, since it's difficult for developers to test, and is yet another scraplet that administrators have to remember to deploy and restart.  I'd like to fold the cron job into the SCGI process some day, but it's well down my wish list.
+
+<hr /><em>Later: how could I have forgotten the address rewriting problem?  We're currently hosting course-related instances of <a href="http://www.drproject.org">DrProject</a> on <a href="https://stanley.cs.toronto.edu">Stanley</a>, a medium-hefty server donated by the kind folks at the <a href="http://www.jonahgroup.com">Jonah Group</a>.  For the first few weeks of term, mail forwarded by <a href="http://www.drproject.org">DrProject</a> had <code>instance+project@stanley.cs.toronto.edu</code> as a return address.  The problem was, the CS department's mailer was rewriting this as <code>instance+project@cs.toronto.edu</code>.  That makes perfect sense for mail from real people (you probably don't care that the machine I compose my messages on is <code>jalkelainen.cs.toronto.edu</code>), but since the department's mail server didn't know about <a href="http://www.drproject.org">DrProject</a>'s project-related addressing, anyone who just hit "reply" to a forwarded message got a bounce-back.  The "solution" (and yes, I think the quotes are justified) is to take advantage of the fact that <code>drproject.org</code> is hosted at <code>stanley.cs.toronto.edu</code>, and use <code>instance+project@drproject.org</code> as the return address.  It's these kinds of integration issues that make real software hard...</em>
+
+                
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2006/11/26/npr-industriosphere.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2006/11/21/democamp-11.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2006-11-25-drproject-internals-email-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2006-11-25-drproject-internals-email-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>

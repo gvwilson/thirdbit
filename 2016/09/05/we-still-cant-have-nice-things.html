@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<link href="/css/syntax.css" rel="stylesheet" type="text/css">
+
+
+
+    <title>Third Bit: We Still Can't Have Nice Things Together</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Third Bit</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active visible-xs-block"><a href="/links/">Links</a></li>
+          <li class="active"><a href="/about/">About</a></li>
+          <li class="active"><a href="/talks/">Talks</a></li>
+          <li class="active"><a href="/ideas/">Ideas</a></li>
+          <li class="active"><a href="/reading/">Reading</a></li>
+          <li class="active"><a href="/archive/">Archive</a></li>
+          <li class="active"><a href="/teaching/"><em>How to Teach</em></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="http://appear.in/gvwilson"><img src="/files/appear.in.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="https://github.com/gvwilson"><img src="/files/github.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="http://twitter.com/gvwilson"><img src="/files/twitter.svg" class="navbar-icon" /></a></li>
+          <li class="active"><a href="/feed.xml"><img src="/files/rss.svg" class="navbar-icon" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container container-left">
+      <div class="row">
+        <div class="col-md-3 hidden-xs">
+          <div class="sidebar well">
+  <h2>Links</h2>
+<p><em><a href="http://software-carpentry.org">Software Carpentry</a></em></p>
+<p><em><a href="http://aosabook.org">Architecture of Open Source Applications</a></em></p>
+<p><em><a href="http://neverworkintheory.org">Never Work in Theory</a></em></p>
+<p><em><a href="http://sensibleadventures.com">Sensible Adventures</a></em></p>
+<p><a href="/cv/">CV</a></p>
+<p><a href="/bib/">Bibliography</a></p>
+
+  <h2>Favorites</h2>
+  
+  
+  <p><a href="/2018/03/20/goodbye-jeff.html">Goodbye, Jeff</a></p>
+  
+  <p><a href="/2018/03/16/seven-ways.html">Seven Ways to Think Like a Programmer</a></p>
+  
+  <p><a href="/2018/03/13/base-case-for-empirical-software-engineering.html">A Base Case for Empirical Software Engineering Research</a></p>
+  
+  <p><a href="/2018/01/07/book-club.html">Book Club</a></p>
+  
+  <p><a href="/2017/12/21/talking-people-into-things.html">Ten Simple Rules for Talking People Into Things</a></p>
+  
+  <p><a href="/2017/11/05/for-everyone.html">Carpentry For Everyone</a></p>
+  
+  <p><a href="/2017/10/16/exercise-types.html">What Kinds of Exercises Do You Use to Teach Programming?</a></p>
+  
+  <p><a href="/2017/09/30/git-graphs-and-engineering.html">Git, Graphs, and Software Engineering</a></p>
+  
+  <p><a href="/2017/06/19/ten-rules-research-partner.html">Ten Simple Rules for Being a Good Research Partner</a></p>
+  
+  <p><a href="/2017/05/22/numerical-javascript.html">Numerical JavaScript</a></p>
+  
+  <p><a href="/2017/01/06/them-thats-got.html">Them That's Got</a></p>
+  
+  <p><a href="/2016/10/30/rules-for-teaching.html">Rules for Teaching</a></p>
+  
+  <p><a href="/2016/04/29/why-teachers-dont-collaborate.html">Why Teachers Don't Collaborate on Lesson Development</a></p>
+  
+  <p><a href="/2016/04/01/zen-and-the-art-of-assignment-operators.html">Zen and the Art of Assignment Operators</a></p>
+  
+  <p><a href="/2016/03/13/in-my-better-world.html">In My Better World</a></p>
+  
+  <p><a href="/2015/12/19/why-i-teach.html">Why I Teach (Revisited)</a></p>
+  
+  <p><a href="/2015/12/06/just-keep-swimming.html">Just Keep Swimming</a></p>
+  
+  <p><a href="/2015/11/29/exaptation.html">Exaptation and the Future of Software Engineering</a></p>
+  
+  <p><a href="/2015/11/09/daddy-why-dont-you-ever-laugh.html">Daddy, Why Don't You Ever Laugh?</a></p>
+  
+  <p><a href="/2015/09/22/dad.html">Goodbye, Dad</a></p>
+  
+  <p><a href="/2014/10/08/announcing-the-creation-of-the-software-carpentry-foundational.html">Announcing the Creation of the Software Carpentry Foundation</a></p>
+  
+  <p><a href="/2014/03/14/learning-at-scale.html">Is Learning at Scale Just Another Name for Ubiquitous Surveillance in the Classroom?</a></p>
+  
+  <p><a href="/2013/10/17/you-keep-using-that-word.html">You Keep Using That Word</a></p>
+  
+  <p><a href="/2013/02/11/correctness-isnt-compelling.html">Correctness Isn't Compelling</a></p>
+  
+  <p><a href="/2012/10/23/twenty-percent.html">Twenty Percent</a></p>
+  
+  <p><a href="/2012/06/29/those-who-ignore-history.html">That Seems Simple to Me</a></p>
+  
+  <p><a href="/2012/01/21/the-life-i-did-live-the-breath-i-breathed.html">We Have Nothing To Give Them</a></p>
+  
+</div>
+
+        </div>
+        <div class="col-md-9">
+          <div class="article">
+            <div class="well">
+              <h1><a href="/2016/09/05/we-still-cant-have-nice-things.html">Sep 5, 2016 - We Still Can't Have Nice Things Together</a></h1>
+              <div class="post-content">
+                <p>Last year I used YAML and Norway to explain why <a href="http://third-bit.com/feed.xml/blog/2015/06/why-we-cant-have-nice-things.html">why we can’t have nice things</a>.
+We’ve just stumbled over a problem that has forced us to re-do some of the work we did
+to publish our lessons a couple of months ago,
+and which illustrates how openness can still be frustrating to actually do.
+Are you sitting comfortably?
+Then let’s begin.</p>
+
+<h2 id="github-can-publish-repositories-as-website">GitHub can publish repositories as website.</h2>
+
+<p>If the user’s ID is <code class="highlighter-rouge">gloom</code>, and the project’s name is <code class="highlighter-rouge">despair</code>,
+then the GitHub repository’s URL is <code class="highlighter-rouge">http://github.com/gloom/despair</code>.
+If that repository has a branch called <code class="highlighter-rouge">gh-pages</code>,
+GitHub automatically creates a website at <code class="highlighter-rouge">http://gloom.github.io/despair</code>.</p>
+
+<h2 id="you-will-never-find-a-more-wretched-hive-of-scum-and-villainy-than-the-web">You will never find a more wretched hive of scum and villainy than the web.</h2>
+
+<p>As a result,
+sites and browsers need to take precautions,
+some of which affect us.</p>
+
+<ol>
+  <li>
+    <p>Many sites (including GitHub) encourage people to use HTTPS (which is secure)
+rather than HTTP (which is not).
+In particular,
+newly-created repositories on GitHub will <em>only</em> serve GitHub Pages websites over HTTPS,
+and older sites are being pushed to switch over as well.
+This is often done using <em>redirection</em>:
+if you go to http://whatever (insecure HTTP),
+the website automatically redirects you to https://whatever (secure HTTPS).</p>
+  </li>
+  <li>
+    <p>If a browser loads a page using HTTPS (secure),
+and that page then tries to load CSS stylesheets or Javascript files using plain old HTTP (insecure),
+the browser won’t do it.</p>
+  </li>
+</ol>
+
+<h2 id="github-uses-jekyll-to-convert-markdown-and-html-to-published-pages">GitHub uses Jekyll to convert Markdown and HTML to published pages.</h2>
+
+<p>If Markdown or HTML files in the <code class="highlighter-rouge">gh-pages</code> branch have the right kind of header,
+GitHub doesn’t publish them as-is.
+Instead,
+it uses a tool called Jekyll to translate them.</p>
+
+<p>Jekyll reads variables from a file in the project’s root directory called <code class="highlighter-rouge">_config.yml</code>
+and makes it available to pages as they’re being translated.
+For example,
+if the configuration file defines a variable called <code class="highlighter-rouge">title</code>,
+pages can refer to <code class="highlighter-rouge">site.title</code>.
+This lets people avoid repeatedly repeating information repeatedly.</p>
+
+<h2 id="our-web-pages-need-to-know-where-to-find-their-css-and-javascript">Our web pages need to know where to find their CSS and Javascript.</h2>
+
+<p>Our lesson pages and workshop website pages have to refer to the CSS and Javascript we use to style them.
+The simplest way to do this is to use <em>absolute references from the root</em> like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link rel="stylesheet" type="text/css" href="/css/pretty.css" /&gt;
+</code></pre>
+</div>
+
+<p>The only part of this that matters for present purposes is the <code class="highlighter-rouge">href</code> URL.
+It looks like an absolute path (i.e., it starts with a slash),
+so web browsers will automatically put the name of the website’s domain in front of it.
+For example,
+if the website is <code class="highlighter-rouge">http://woe.com</code>,
+and the page is <code class="highlighter-rouge">http://woe.com/misery.html</code>,
+then the browser will convert <code class="highlighter-rouge">/css/pretty.css</code>
+to <code class="highlighter-rouge">http://woe.com/css/pretty.css</code>.</p>
+
+<p>But wait:
+if the GitHub repository’s URL is <code class="highlighter-rouge">http://github.com/gloom/despair</code>.
+its website is published at <code class="highlighter-rouge">http://gloom.github.io/despair</code>.
+The last part of that URL — <code class="highlighter-rouge">despair</code> — <em>isn’t</em> part of the domain name,
+so the browser cuts it out when following absolute references.</p>
+
+<p>For example,
+imagine that the GitHub Pages website contains a page called <code class="highlighter-rouge">index.html</code>,
+and that page has the CSS link above to <code class="highlighter-rouge">pretty.css</code>.
+The browser will convert the URL to <code class="highlighter-rouge">http://gloom.github.io/css/pretty.css</code>,
+<em>which is wrong</em>,
+because the <code class="highlighter-rouge">despair</code> part of the path has been chopped out.</p>
+
+<p>Oops.</p>
+
+<h2 id="ok-lets-just-add-the-domain-name">OK, let’s just add the domain name.</h2>
+
+<p>One way to solve this is to use full URLs for resources instead of absolute paths.
+For example,
+instead of loading <code class="highlighter-rouge">/css/pretty.css</code>,
+our web page could explicitly refer to <code class="highlighter-rouge">http://gloom.github.io/despair/css/pretty.css</code>.
+That’s easy…</p>
+
+<p>…except we want to share page templates between many different websites,
+each of which has a different base URL.
+More specifically,
+we want to have a single HTML file (let’s call it <code class="highlighter-rouge">_layouts/page.html</code>)
+that specifies our pages’ fonts and color scheme,
+places the logo in the right place,
+and so on.
+We don’t want to have to edit that page for each website,
+because then we’d have to re-do all our edits each time we wanted to make a style change
+that affected all our sites.</p>
+
+<h2 id="variables-to-the-rescue">Variables to the rescue.</h2>
+
+<p>We’re not the first people to run into this problem,
+so GitHub provides some help.
+When GitHub runs Jekyll to convert our pages,
+it gives Jekyll all the variables we define in our repository’s <code class="highlighter-rouge">_config.yml</code> file,
+<em>and</em> another bunch of variables that GitHub automatically defines for us.
+One of these is called <code class="highlighter-rouge">site.github.url</code>,
+and its value is exactly the URL we want:
+the sub-domain <em>with</em> the base URL of our website.</p>
+
+<p>In our running example,
+the value of <code class="highlighter-rouge">site.github.url</code> is <code class="highlighter-rouge">http://gloom.github.io/despair</code>.
+Our layout can then use:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link rel="stylesheet" type="text/css" href="{{site.github.url}}/css/pretty.css" /&gt;
+</code></pre>
+</div>
+
+<p>to refer to things.
+The double curly braces tell Jekyll to insert the variable’s value,
+so the link here becomes what we want.</p>
+
+<h2 id="or-not">Or not.</h2>
+
+<p>Unfortunately,
+GitHub always sets <code class="highlighter-rouge">site.github.url</code> to be the HTTP version of the site’s URL,
+rather than the HTTPS version.
+Boom:
+if the page is loaded via HTTPS (secure),
+the URL for the CSS is just HTTP (insecure),
+so the browser refuses to load it,
+and the page appears without any styling.</p>
+
+<h2 id="it-gets-worse">It gets worse.</h2>
+
+<p>There’s another problem here.
+We don’t want our pages to have URLs that start with <code class="highlighter-rouge">gloom.github.io</code> —
+we want them to start with <code class="highlighter-rouge">optimism.org</code>,
+because that’s the name of <em>our</em> website.
+GitHub lets us do this using something called a CNAME.
+In brief,
+we can tell GitHub that we want <code class="highlighter-rouge">gloom.github.io</code> to pretend to be <code class="highlighter-rouge">optimism.org</code>,
+so that:</p>
+
+<ol>
+  <li>
+    <p>If someone goes to <code class="highlighter-rouge">http://gloom.github.io</code>,
+they are automatically redirected to <code class="highlighter-rouge">http://optimism.org</code>.</p>
+  </li>
+  <li>
+    <p>If someone goes to <code class="highlighter-rouge">http://optimism.org</code>,
+the pages are served from <code class="highlighter-rouge">http://gloom.github.io</code>,
+but the URL still appears to be <code class="highlighter-rouge">http://optimism.org</code>.</p>
+  </li>
+</ol>
+
+<p>Oops:
+if Jekyll used the variable <code class="highlighter-rouge">site.github.url</code> when creating the web pages,
+all the URLs for CSS and Javascript in those pages
+will have <code class="highlighter-rouge">http://gloom.github.io/despair</code> as their URL.
+If the browser thinks it’s going to <code class="highlighter-rouge">https://optimism.org</code> (with secure HTTPS),
+then it has <em>two</em> reasons to refuse to load the CSS:
+those files are coming from insecure URLs (HTTP instead of HTTPS),
+and they’re coming from a completely different domain.</p>
+
+<h2 id="lets-load-the-styles-from-a-fixed-domain">Let’s load the styles from a fixed domain.</h2>
+
+<p>But hang on:
+there’s nothing wrong per se with loading files from another domain.
+Why don’t we do something like this for our CSS:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link rel="stylesheet" type="text/css" href="https://content.org/css/pretty.css" /&gt;
+</code></pre>
+</div>
+
+<p>The difference here is that the URL always refers to a <em>fixed site</em>
+(in this case, <code class="highlighter-rouge">content.org</code>)
+and <em>always uses HTTPS</em>.
+As long as that site has a valid certificate for HTTPS,
+the browser will quite happily load this file.
+And since the URL is independent of which website is hosting the page,
+the configuration file can define a variable like <code class="highlighter-rouge">site.content_url</code> to be a fixed value,
+and everything can refer to that
+and it will all just work and we can go home.</p>
+
+<p>But suppose we want to do some more work on the subway ride home.
+We make a change to a page,
+run Jekyll to convert the page to HTML,
+open it in the browser—and the CSS doesn’t load,
+because <em>we’re offline</em>.</p>
+
+<p>This isn’t a big problem for people who are creating workshop websites
+(which is by far the most common use of our templates).
+It <em>is</em> a problem for people who want to contribute to lessons, though,
+since they will often want to preview their changes locally,
+and may well be doing that work on a plane or while otherwise disconnected.</p>
+
+<h2 id="lets-define-our-own-variable">Let’s define our own variable.</h2>
+
+<p>All right,
+let’s try another approach.
+Suppose each of our websites defines a variable called <code class="highlighter-rouge">site.baseurl</code> in its configuration file
+to be the name of the project with a leading <code class="highlighter-rouge">/</code>.
+All of our web pages can then refer to things using:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/pretty.css" /&gt;
+</code></pre>
+</div>
+
+<p>which Jekyll expands to something like:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link rel="stylesheet" type="text/css" href="/despair/css/pretty.css" /&gt;
+</code></pre>
+</div>
+
+<p>If we access the page using HTTPS (secure),
+everything is fine,
+because this now looks like an absolute path below the name of the domain.
+If we access the page using HTTP (insecure) and are redirected to HTTPS,
+this is still fine (same reasons).
+And if we are using a CNAME,
+and have mapped <code class="highlighter-rouge">http://gloom.github.io</code> to <code class="highlighter-rouge">http://optimism.org</code>,
+then:</p>
+
+<ol>
+  <li>
+    <p><code class="highlighter-rouge">http://optimism.org/despair/index.html</code> is mapped to <code class="highlighter-rouge">http://gloom.github.io/despair/index.html</code>.</p>
+  </li>
+  <li>
+    <p>The browser translates the reference inside that page from <code class="highlighter-rouge">/despair/css/pretty.css</code>
+to <code class="highlighter-rouge">http://optimism.org/despair/css/pretty.css</code>.</p>
+  </li>
+  <li>
+    <p>The web then finds that file at <code class="highlighter-rouge">https://gloom.github.io/despair/css/pretty.css</code>,
+which is exactly what we want.</p>
+  </li>
+</ol>
+
+<p>Yay!
+We’re done!
+We can—</p>
+
+<p>Wait.
+What about offline work?
+When we run Jekyll locally to preview pages,
+it starts up a little web server at <code class="highlighter-rouge">http://localhost:4000</code>,
+and tells you “please go to this URL to preview your pages”.
+That URL is <em>wrong</em> if we are using this <code class="highlighter-rouge">site.baseurl</code> trick:
+we actually need to go to <code class="highlighter-rouge">http://localhost:4000/despair</code> to get everything.</p>
+
+<h2 id="interlude-whats-standard-may-not-be-right-for-everyone">Interlude: What’s standard may not be right for everyone.</h2>
+
+<p>Defining <code class="highlighter-rouge">site.baseurl</code> is <a href="https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/">the standard workaround</a> for the problem we’re trying to solve,
+but it’s not a good solution for us.
+First,
+many of our users are newcomers to HTML templating,
+web servers,
+and pretty much everything else we’ve been discussing.
+If we rely on <code class="highlighter-rouge">site.baseurl</code>,
+people will (quite reasonably) follow Jekyll’s instructions to go to <code class="highlighter-rouge">http://localhost:4000</code>,
+get a “page not found” error,
+and wonder what they’ve done wrong.
+(This is not speculation.)</p>
+
+<p>Second,
+if we rely on <code class="highlighter-rouge">site.baseurl</code>,
+then everyone who creates a new workshop website
+will have to edit that site’s <code class="highlighter-rouge">_config.yml</code> file
+as well as its <code class="highlighter-rouge">index.html</code> file.
+Given what we’ve seen in instructor training workshops,
+that will significantly increase people’s frustration quotient.</p>
+
+<h2 id="overriding-variables">Overriding variables.</h2>
+
+<p>Here’s another approach.
+When Jekyll runs on GitHub,
+it reads its configuration from <code class="highlighter-rouge">_config.yml</code>,
+and <em>only</em> from <code class="highlighter-rouge">_config.yml</code>.
+When we run it on our desktops,
+though,
+we can tell Jekyll to read several configuration files,
+each of which can re-set variables set in previous files.
+We can therefore create a second configuration file called <code class="highlighter-rouge">_config_local.yml</code> (or any other name we choose)
+and have it define <code class="highlighter-rouge">site.baseurl</code> to be the empty string.
+When we want to preview locally,
+we pass Jekyll extra parameters to tell it to read this configuration file,
+and all the URLs are then correct for a local build.</p>
+
+<p>This works —
+until someone just runs <code class="highlighter-rouge">jekyll serve</code> on the command line
+as they would normally do
+(and as all the online documentation tells them to).
+Boom:
+the CSS isn’t loaded.
+Again,
+this isn’t speculation
+(though it probably affects fewer people).</p>
+
+<h2 id="lets-use-relative-urls">Let’s use relative URLs.</h2>
+
+<p>What if we don’t use absolute URLs at all?
+What if we use <em>relative URLs</em> everywhere?
+If a page is in the root directory of our website,
+it can refer to the CSS files using:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link rel="stylesheet" type="text/css" href="./css/pretty.css" /&gt;
+</code></pre>
+</div>
+
+<p>If a page is in a sub-directory,
+it can use:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link rel="stylesheet" type="text/css" href="../css/pretty.css" /&gt;
+</code></pre>
+</div>
+
+<p>i.e., use <code class="highlighter-rouge">..</code> instead of <code class="highlighter-rouge">.</code> as the first part of the path to the CSS file.
+That will always work;
+the trick is to get the path to the root directory of the website into each page.</p>
+
+<p>A sensible system would automatically give us a variable
+with the path to the project’s root directory.
+Jekyll doesn’t,
+but we can define a variable for ourselves in each page’s header.
+If the page is in the root directory, <code class="highlighter-rouge">page.root</code> is <code class="highlighter-rouge">.</code>;
+if it’s a level down, <code class="highlighter-rouge">page.root</code> is <code class="highlighter-rouge">..</code>,
+and so on.
+The layout pages can then link to the CSS using:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link rel="stylesheet" type="text/css" href="{{page.root}}/css/pretty.css" /&gt;
+</code></pre>
+</div>
+
+<p>Requiring every single page to define a particular variable
+when almost all of those pages will give it the same value
+feels like sloppy programming practice.
+Luckily for us,
+Jekyll provides a way to set a default.
+If we add this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>defaults:
+  - values:
+      root: ..
+</code></pre>
+</div>
+
+<p>to <code class="highlighter-rouge">_config.yml</code>,
+then every page gets a variable called <code class="highlighter-rouge">root</code> with the value <code class="highlighter-rouge">..</code>.
+This <em>almost</em> does what we want:
+when we compile the Markdown file <code class="highlighter-rouge">melancholy.md</code>,
+we are creating a page <code class="highlighter-rouge">melancholy/index.html</code> in the output directory,
+so that its URL is <code class="highlighter-rouge">http://gloom.github.io/despair/melancholy/</code>.
+(By convention,
+a URL that ends with a slash <code class="highlighter-rouge">/</code> is assumed to refer to a directory,
+and the file we actually want is the <code class="highlighter-rouge">index.html</code> file in that directory.)
+Thus,
+all of our pages are one level below the root directory in the output directory,
+so they all want <code class="highlighter-rouge">page.root</code> to be <code class="highlighter-rouge">..</code></p>
+
+<p>But there’s one exception:
+the home page of the lesson itself.
+This page is <code class="highlighter-rouge">./index.html</code>,
+i.e.,
+it’s the <code class="highlighter-rouge">index.html</code> file in the root directory of the whole lesson,
+so its <code class="highlighter-rouge">page.root</code> needs to be <code class="highlighter-rouge">.</code> rather than <code class="highlighter-rouge">..</code>
+We can handle that by explicitly defining <code class="highlighter-rouge">page.root</code> in <code class="highlighter-rouge">index.md</code>,
+which overrides the default set in <code class="highlighter-rouge">_config.yml</code>.
+Once we’ve done that,
+our pages, layouts, and included HTML fragments can all use <code class="highlighter-rouge"><span class="p">{</span><span class="err">{page.root</span><span class="p">}</span><span class="err">}/this/that</span></code>
+to refer to whatever they want.
+It’s not ideal — we’ll have to explain it to people who’ve used Jekyll before,
+and if we ever create deeper directory hierarchies,
+it will quickly become as complicated as the alternatives we’ve discarded —
+but it’s good enough for now.</p>
+
+<h2 id="how-this-got-into-production">How this got into production.</h2>
+
+<p>The new template that we deployed in June 2016 uses <code class="highlighter-rouge">site.github.url</code>.
+We recognized the problem with HTTP vs. HTTPS early on,
+so the standard layouts shared by all the lessons do this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link rel="stylesheet" type="text/css" href="{{ site.github.url | replace_first: 'http:', 'https:' }}/css/pretty.css" /&gt;
+</code></pre>
+</div>
+
+<p>i.e., they convert the <code class="highlighter-rouge">http</code> prefix given in <code class="highlighter-rouge">site.github.url</code> into <code class="highlighter-rouge">https</code>.
+That solved the problem for pages served from <code class="highlighter-rouge">github.io</code> domains,
+but not for domains using CNAME:
+GitHub even says that <a href="github-cname">they don’t support HTTPS and CNAME domains</a> (paragraph 3).
+I didn’t spot this because I didn’t think to test pages on CNAME’d domains:
+once it worked for HTTPS on GitHub,
+I assumed it would work everywhere.</p>
+
+<p>I should have known better.
+Hacks like turning <code class="highlighter-rouge">http</code> into <code class="highlighter-rouge">https</code> <em>always</em> break,
+and if one of my GSoC students had tried to put something like this into production,
+I would have told them to think again.</p>
+
+<p>The real lesson from this episode is that we still can’t have nice things —
+or rather,
+we can’t have them all at once.
+GitHub Pages are a great way for people to build simple little web sites.
+Templating tools like Jekyll are great too,
+and HTTPS is essential,
+but when you try to combine them,
+you wind up with <a href="http://imgur.com/pkg1qIE?r">this</a>.
+If we really want people to do open research,
+we have to make openness a lot less frustrating.</p>
+
+
+                <p align="center"><em>This post originally appeared in the <a href="http://software-carpentry.org">Software Carpentry</a> blog.</em></p>
+
+
+              </div>
+            </div>
+            <div class="pagination">
+              
+              <a class="btn btn-default" href="/2016/09/05/small-teaching.html" class="next">Newer</a>
+              
+              
+              <a class="btn btn-default" href="/2016/08/26/what-i-didnt-learn.html" class="previous">Older</a>
+              
+            </div>
+            
+            
+            <div class="well">
+              
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2016-09-05-we-still-cant-have-nice-things-html';
+    };
+
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 footer navbar-inverse navbar-fixed-bottom">
+      <br/>
+      <p class="copyright">
+        &copy; 2018 Greg Wilson.
+        All content made available under the <a href="/license/">Creative Commons - Attribution License</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <script type="text/javascript">
+    var disqus_shortname = 'thirdbit';
+
+    var disqus_config = function () {
+        this.page.identifier = '2016-09-05-we-still-cant-have-nice-things-html';
+    };
+
+   (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+   }());
+ </script>
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1301159-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
+
+  </body>
+</html>
