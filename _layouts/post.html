@@ -28,6 +28,7 @@
               <a class="btn btn-default" href="{{ site.github.url }}{{ page.previous.url }}" class="previous">Older</a>
               {% endif %}
             </div>
+            {% unless page.nocomments %}
             {% if site.comments %}
             <div class="well">
               {% if site.disqus != '' %}
@@ -40,6 +41,7 @@
               {% endif %}
             </div>
             {% endif %}
+            {% endunless %}
           </div>
         </div>
       </div>
