@@ -23,7 +23,7 @@ and all the times he and his family made me feel welcome when I had nowhere else
 I remember him making the woman I married feel like family,
 how he paid his debts even when he was facing ruin,
 and how he never stopped trying to create something amazing.
-I remember the look on his face when he told me he had cancer again,
+I remember the look on his face last November when he told me he had cancer again,
 and that the last thing he said to me was,
 "Remember, you still have a lot of good times in front of you."
 
