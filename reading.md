@@ -259,7 +259,7 @@ Other suggestions:
 [life-code]: https://www.amazon.com/Life-Code-Personal-History-Technology/dp/0374534519/
 [lower-ed]: https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/
 [minds-online]: https://www.amazon.com/Minds-Online-Teaching-Effectively-Technology/dp/0674660021/
-[mindstorm]: https://www.amazon.com/Mindstorms-Children-Computers-Powerful-Ideas/dp/0465046746/
+[mindstorms]: https://www.amazon.com/Mindstorms-Children-Computers-Powerful-Ideas/dp/0465046746/
 [monsters-ed-tech]: http://monsters.hackeducation.com/
 [not-on-the-shelves]: {{site.github.url}}/not-on-the-shelves/
 [orwell]: https://www.amazon.com/Essays-Everymans-Library-Contemporary-Classics/dp/0375415033/
