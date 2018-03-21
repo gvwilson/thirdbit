@@ -3,15 +3,14 @@ layout: default
 permalink: /archive/
 title: "Archive"
 ---
-
 <div class="well">
 <h1>{{page.year}} Archive</h1>
 <table class="table table-striped">
-  {% for post in site.posts %}
-  {% assign year = post.date | date: "%Y" %}
-  {% if year == page.year %}
+  {%- for post in site.posts -%}
+  {%- assign year = post.date | date: "%Y" -%}
+  {%- if year == page.year -%}
   <tr><td width="8em"><a href="{{site.github.url}}{{post.url}}">{{ post.date | date: "%b %-d" | replace: " ", "&nbsp;"}}</td><td>{{ post.title }}</a></td></tr>
-  {% endif %}
-  {% endfor %}
+  {%- endif -%}
+  {%- endfor -%}
 </table>
 </div>
