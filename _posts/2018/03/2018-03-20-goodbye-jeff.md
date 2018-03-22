@@ -31,7 +31,8 @@ Goodbye, Jeff.
 I promised you I wouldn't regret anything,
 but I'm going to miss you so much.
 
-<img src="{{site.github.url}}/files/2018/03/jeff.png" alt="Jeff Wilson" />
+<img src="{{site.github.url}}/files/2018/03/jeff.png" alt="Jeff Wilson" height="380" />
+<img src="{{site.github.url}}/files/2018/03/jeff-obituary.jpg" alt="Jeff Wilson" height="380" />
 
 Jeff Wilson<br/>
 November 18, 1965 - March 20, 2018
