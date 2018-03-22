@@ -11,7 +11,7 @@ We weren't close as children,
 but he moved to Ottawa to start university the same year I went there for my first job,
 and meeting each other again as adults,
 we discovered that we liked each other.
-I remember arguing about the meaning of art,
+I remember arguing about the nature of beauty,
 and going to see *Stop Making Sense* half a dozen times,
 and crashing on his couch in later years whenever I came back to Canada.
 I remember meeting the woman he married for the first time,
