@@ -20,19 +20,18 @@ with any of them, or take one on yourself, please let me know.
 _**Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, and Power**_
 
 Inspired by books like
-*[Physics for Future Presidents](https://www.amazon.com/Physics-Future-Presidents-Science-Headlines/dp/0393066274/)*
+*[Economics for Everyone][https://www.amazon.com/Economics-Everyone-Second-Short-Capitalism/dp/0745335780/]*
 and
 *[The Imposter's Handbook](https://bigmachine.io/products/the-imposters-handbook)*,
-this book is aimed at people who need to understand the big picture,
+this book is aimed at people in tech who want to understand how the world works,
 but have limited time in which to do it.
 Rather than science or programming,
 it introduces ideas and methods that are commonplace in the social sciences,
-and illustrates that "the way things are" is neither inevitable nor accidental.
+and shows that "the way things are" is neither inevitable nor accidental.
 From the reasons racial discrimination persists despite its illogical economic inefficiency
-to the ways in which "flat" organizations actually operate
-and how [cognitive biases affect us all](http://mentalfloss.com/article/68705/20-cognitive-biases-affect-your-decisions),
-it gives readers [a toolbox for thinking about society]({{site.github.url}}/reading/):
-the society that tech is reshaping for both better and worse.
+to the ways in which "flat" organizations actually operate and how cognitive biases affect us all,
+it gives readers [a toolbox for thinking about society]({{site.github.url}}/reading/)
+and how tech is reshaping it for both better and worse.
 
 _**The Undergraduate Operator's Manual**_
 
@@ -169,7 +168,7 @@ _**300 Lines of Science**_
 Can you write a climate simulator in less than 500 lines of Python?
 What about constructing phylogenetic trees in less than 500 lines of R?
 This collection would show readers how science is turned into code across a broad range of disciplines.
-Each entry is less than 300 lines of code in the style of *[500 Lines or Less](http://aosabook.org/en/index.html#500lines)
+Each entry is less than 300 lines of code in the style of *[500 Lines or Less](http://aosabook.org/en/index.html#500lines)*
 supplemented by an equal-sized chunk showing how to test what has been written.
 
 _**Performance Tuning**_
