@@ -136,10 +136,10 @@ Most programmers spend a large part of their time debugging,
 but most books only show working code,
 and never discuss how to prevent, diagnose, and fix errors.
 [Most](http://www.amazon.com/Debugging-Indispensable-Software-Hardware-Problems/dp/0814474578/)
-[books](http://www.amazon.com/Debugging-Thinking-Multidisciplinary-Approach-Technologies/dp/1555583075/)</a>
-[ostensibly](http://www.amazon.com/Debug-It-Prevent-Pragmatic-Programmers/dp/193435628X/)</a>
-[about](http://www.amazon.com/The-Developers-Guide-Debugging-Edition/dp/1470185520/)</a>
-[debugging](http://www.amazon.com/The-Art-Debugging-GDB-Eclipse/dp/1593271743/)</a>
+[books](http://www.amazon.com/Debugging-Thinking-Multidisciplinary-Approach-Technologies/dp/1555583075/)
+[ostensibly](http://www.amazon.com/Debug-It-Prevent-Pragmatic-Programmers/dp/193435628X/)
+[about](http://www.amazon.com/The-Developers-Guide-Debugging-Edition/dp/1470185520/)
+[debugging](http://www.amazon.com/The-Art-Debugging-GDB-Eclipse/dp/1593271743/)
 are either high-level handwaving ("Make sure you're solving the right problem")
 user's guides for particular debugging tools,
 or [out of date](http://www.amazon.com/Find-Bug-Book-Incorrect-Programs/dp/0321223918/).
