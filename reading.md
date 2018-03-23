@@ -226,7 +226,7 @@ Other suggestions:
 
 [adult-motivation]: https://www.amazon.com/Enhancing-Adult-Motivation-Learn-Comprehensive/dp/1119077990/
 [anarchists]: https://www.amazon.com/World-That-Never-Was-Anarchists/dp/037542511X/
-[annotated-turing]: https://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055
+[annotated-turing]: https://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055/
 [babt]: https://www.amazon.com/Building-Better-Teacher-Teaching-Everyone/dp/0393351084/
 [bpco]: https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/
 [chains]: https://www.amazon.com/Bury-Chains-Prophets-Rebels-Empires/dp/0618619070/
