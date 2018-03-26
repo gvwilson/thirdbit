@@ -104,6 +104,9 @@ the fact that it ain't gonna happen is just one more sign of how desperately we 
 1. Ellen Ullman: *[Life in Code][life-code]*.
    The second volume in the author's personal history of computing's Bronze Age.
 
+1. James Ward: *[Adventures in Stationery][stationery]*.
+   A wonderful quirky book about everyday things–probably the most British entry in this list.
+
 1. Jonathan Weiner: *[Time, Love, Memory][tlm]*.
    A great description of how science is actually done,
    and of what it's like to have a life in science.
@@ -275,6 +278,7 @@ Other suggestions:
 [soul-machine]: https://www.amazon.com/Soul-New-Machine-Tracy-Kidder/dp/0316491977
 [spirit-level]: https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608190366/
 [stam]: {{site.github.url}}/2016/11/13/stuff-that-actually-matters.html
+[stationery]: https://www.amazon.com/Adventures-Stationery-Journey-Through-Pencil/dp/1846686164/
 [teacher-psychology]: https://www.amazon.com/Every-Teacher-Needs-About-Psychology/dp/1909717851/
 [teaching-for-learning]: https://www.amazon.com/Teaching-Learning-Intentionally-Educational-Activities/dp/0415699363/
 [teaching-what-you-dont-know]: https://www.amazon.com/Teaching-What-You-Dont-Know/dp/0674035801/
