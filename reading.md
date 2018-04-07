@@ -178,7 +178,8 @@ most of it will essentially summarize these readings.
     The first presents an inspiring vision of how computers could change education;
     the second is a collection of talks describing and critiquing what we've done instead.
 
-7.  Brown's *[Building Powerful Community Organizations][bpco]*,
+7.  Brown's *[Building Powerful Community Organizations][bpco]*
+    and Manns and Rising's *[Fearless Change][fearless]*,
     because you'll eventually realize that you can't teach computing without changing the system,
     and you can't change the system without mobilizing people.
 
@@ -243,6 +244,7 @@ Other suggestions:
 [emperor-maladies]: https://www.amazon.com/Emperor-All-Maladies-Biography-Cancer/dp/1439170916/
 [empire]: https://www.amazon.com/Ruins-Empire-Intellectuals-Remade-Asia/dp/0374249598/
 [everything]: https://www.amazon.com/Short-History-Nearly-Everything/dp/0767908171/
+[fearless]: https://www.amazon.com/Fearless-Change-Patterns-Introducing-Ideas/dp/0201741571/
 [finnish-lessons]: https://www.amazon.com/Finnish-Lessons-2-0-Educational-Finland/dp/0807755850/
 [forest-unseen]: https://www.amazon.com/Forest-Unseen-Years-Watch-Nature/dp/0143122940/
 [four-futures]: https://www.amazon.com/Four-Futures-After-Capitalism-Jacobin/dp/1781688133/
