@@ -12,9 +12,14 @@ If I understand correctly,
 it's a competent practitioner's mental representation
 of how programs in a particular language are executed,
 which sounds like a mental model–except Mark tells me it's not.
-Semantics aside,
-I thought that writing down my notional machine for Python might help clarify discussion.
-(I'm leaving out modules and objects until I know if I'm on the right track.)
+That leaves me wondering if the term is like "computational thinking",
+i.e.,
+everyone agrees it's important but no-one agrees what it means.
+
+I thought that writing down my notional machine for Python might help clarify discussion
+(or at least my thinking).
+I'm leaving out modules and objects until I know if I'm on the right track;
+I'd be grateful for feedback.
 
 1. A running program has a call stack and a heap.
 1. Memory for data is always allocated from the heap.
