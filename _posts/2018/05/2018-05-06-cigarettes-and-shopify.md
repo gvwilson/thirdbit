@@ -57,15 +57,12 @@ It turns out that it's a lot easier to retweet one of Sarah Kendzior's biting at
 than it is to ask people close to home to make hard choices,
 but I don't think I get to do the former if I'm not willing to do the latter.
 
-I've also discovered that calling people out close to home gives me hope
+I've also discovered that trying to hold people accountable close to home gives me hope
 in a way that righteous rage against distant monsters does not.
-Just like no single cigarette will give someone cancer,
+Just as no single cigarette will give someone cancer,
 no single hard question will make them decide to live up to their principles,
-but I believe that each one might improve the odds,
-and that belief is important right now.
-
-It wasn't actually cancer that killed my dad in the end:
-it was the aftershock of the surgery to take the tumor out of his chest.
-I don't know how to work that into this analogy.
-All I know is that I'd rather make people feel uncomfortable
-than lose another argument with him.
+but each one might improve the odds,
+and believing that is important right now.
+I know some people find my stridency awkward,
+but I'd rather make them uncomfortable
+than lose another argument with my dad.
