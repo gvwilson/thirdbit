@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% include header.html %}
-    <title>{{ site.name }}{% if page.title %}: {{ page.title }}{% endif %}</title>
-  </head>
-  <body>
-    {% include navbar.html %}
-    <div class="well">
-      {{ content }}
-    </div>
-    {% include footer.html %}
-  </body>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  {% include head.html %}
+<title>{{ site.name }}{% if page.title %}: {{ page.title }}{% endif %}</title>
+</head>
+<body>
+  <div class="container container-left">
+{{content}}
+  </div>
+  {% include foot.html %}
+</body>
 </html>

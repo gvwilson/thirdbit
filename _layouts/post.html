@@ -1,52 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% include header.html %}
-    <title>{{ site.name }}{% if page.title %}: {{ page.title }}{% endif %}</title>
-  </head>
-  <body>
-    {% include navbar.html %}
-    <div class="container container-left">
-      <div class="row">
-        <div class="col-md-3 hidden-xs">
-          {% include sidebar.html %}
-        </div>
-        <div class="col-md-9">
-          <div class="article">
-            <div class="well">
-              <h1><a href="{{ site.github.url }}{{ page.url }}">{{ page.date | date: "%b %-d, %Y" }} - {{ page.title }}</a></h1>
-              <div class="post-content">
-                {{ content }}
-                {% include original.html %}
-              </div>
-            </div>
-            <div class="pagination">
-              {% if page.next %}
-              <a class="btn btn-default" href="{{ site.github.url }}{{ page.next.url }}" class="next">Newer</a>
-              {% endif %}
-              {% if page.previous %}
-              <a class="btn btn-default" href="{{ site.github.url }}{{ page.previous.url }}" class="previous">Older</a>
-              {% endif %}
-            </div>
-            {% unless page.nocomments %}
-            {% if site.comments %}
-            <div class="well">
-              {% if site.disqus != '' %}
-              <div id="disqus_thread">
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-              </div>
-              {% elsif site.isso != '' %}
-              <section id="isso-thread"></section>
-              {% endif %}
-            </div>
-            {% endif %}
-            {% endunless %}
-          </div>
-        </div>
-      </div>
-    </div>
-    {% include disqus-comments.html %}
-    {% include footer.html %}
-  </body>
-</html>
+---
+layout: default
+---
+<h1><a href="{{ site.github.url }}{{ page.url }}">{{ page.date | date: "%b %-d, %Y" }} - {{ page.title }}</a></h1>
+<div class="post-content">
+  {{ content }}
+  {% if page.original == 'swc' %}
+  <p align="center"><em>This post originally appeared in the <a href="http://software-carpentry.org">Software Carpentry</a> blog.</em></p>
+  {% endif %}
+  {% if page.original == 'nwit' %}
+  <p align="center"><em>This post originally appeared at <a href="http://neverworkintheory.org/">It Will Never Work in Theory</a>.</em></p>
+  {% endif %}
+</div>
+<div class="pagination">
+  {% if page.next %}
+  <a class="btn btn-default" href="{{ site.github.url }}{{ page.next.url }}" class="next">Newer</a>
+  {% endif %}
+  {% if page.previous %}
+  <a class="btn btn-default" href="{{ site.github.url }}{{ page.previous.url }}" class="previous">Older</a>
+  {% endif %}
+</div>
+{% unless page.nocomments %}{% include disqus-comments.html %}{% endunless %}

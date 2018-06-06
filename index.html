@@ -4,36 +4,42 @@ permalink: /
 ---
 <div class="well">
   <h1>Greg Wilson</h1>
-  <div class="media">
-      <img class="media-object pull-left" src="{{site.github.url}}/files/gvwilson-tpl-2017-small.jpg" alt="Greg Wilson" />
-    <div>
-      <p>Head of Instructor Training at <a href="http://datacamp.com">DataCamp</a></p>
-      <p>Co-founder of <a href="http://software-carpentry.org">Software Carpentry</a></p>
-      <p>
-	Editor of
-	<a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><em>Beautiful Code</em></a>,
-        <a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><em>Making Software</em></a>,
-        and<br/><a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a>
-      </p>
-      <p>Occasional <a href="http://sensibleadventures.com">children's author</a></p>
-      <p>Ph.D. in Computer Science</p>
-      <p>Parent, spouse, and proud Canadian</p>
-      <br/>
+  <div class="container container-left">
+    <div class="row">
+      <div class="col-md-5">
+        <img class="media-object pull-left" src="{{site.github.url}}/files/gvwilson-tpl-2017-small.jpg" alt="Greg Wilson" />
+      </div>
+      <div class="col-md-7">
+        <p>
+          Head of Instructor Training at <a href="http://datacamp.com">DataCamp</a>
+          <br/>
+          Co-founder of <a href="http://software-carpentry.org">Software Carpentry</a>
+          <br/>
+	  Editor of
+	  <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><em>Beautiful Code</em></a>,
+          <a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><em>Making Software</em></a>,
+          and<br/><a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a>
+          <br/>
+          Occasional <a href="http://sensibleadventures.com">children's author</a>
+          <br/>
+          Ph.D. in Computer Science
+          <br/>
+          Parent, spouse, and proud Canadian
+        </p>
+      </div>
     </div>
   </div>
 </div>
 
 {% for post in site.posts limit:10 %}
 <div class="article">
-  <div class="well">
-    <h3><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h3>
-    <p><em>{{ post.date | date: "%b %-d, %Y" }}</em></p>
-    <div class="content">
-      {{ post.excerpt }}
-      <div align="right"><a href="{{ site.github.url }}{{ post.url }}"><em>…more</em></a></div>
-    </div>
+  <br/>
+  <hr/>
+  <h3><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h3>
+  <p><em>{{ post.date | date: "%b %-d, %Y" }}</em></p>
+  <div class="content">
+    {{ post.excerpt }}
+    <div align="right"><a href="{{ site.github.url }}{{ post.url }}"><em>…more</em></a></div>
   </div>
 </div>
 {% endfor %}
-
-<p align="right"><em>…<a href="{{site.github.url}}/archive/">Archives</a></em></p>
