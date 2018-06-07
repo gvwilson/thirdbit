@@ -5,19 +5,14 @@ title: "Ideas"
 redirect_from: "/not-on-the-shelves/2017.html"
 ---
 
-<div class="well" markdown="1">
-
 # Ideas
 
-These ideas are things I might have done if I hadn't done [Software Carpentry](http://software-carpentry.org).
-Many are presented as [descriptions of books that don't yet
-exist]({{site.github.url}}/not-on-the-shelves/) becauase I still
-believe that a good book can change the world.  If you'd like to help
-with any of them, or take one on yourself, please let me know.
+These ideas are things I might have done if I hadn't done [Software Carpentry](http://carpentries.org).
+Many are presented as [descriptions of books that don't yet exist]({{site.github.url}}/not-on-the-shelves/)
+because I still believe that a good book can change the world.
+If you'd like to help with any of them or take one on yourself, please let me know.
 
-## Books
-
-### Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, and Power
+## Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, and Power
 
 Inspired by books like
 *[Economics for Everyone](https://www.amazon.com/Economics-Everyone-Second-Short-Capitalism/dp/0745335780/)*
@@ -33,7 +28,7 @@ to the ways in which "flat" organizations actually operate and how cognitive bia
 it gives readers [a toolbox for thinking about society]({{site.github.url}}/reading/)
 and how tech is reshaping it for both better and worse.
 
-### The Undergraduate Operator's Manual
+## The Undergraduate Operator's Manual
 
 What effect does pulling an all-nighter have on the quality of your work?
 How do people absorb and retain knowledge?
@@ -45,7 +40,7 @@ they are expected to rediscover or reinvent methods themselves.
 This textbook for a one-semester course puts solutions in one place,
 and by doing so teaches a lot about physiology, psychology, and organizational behavior.
 
-### Software Tools in JavaScript
+## Software Tools in JavaScript
 
 *[Software Tools](http://www.amazon.com/Software-Tools-Brian-W-Kernighan/dp/020103669X/)*
 and its sequel *[Software Tools in Pascal](http://www.amazon.com/Software-Tools-Pascal-Brian-Kernighan/dp/0201103427/)*
@@ -59,7 +54,7 @@ it presents a "new standard model" based on syndication of distributed streams o
 and shows readers how the tools they use are built,
 and how to build tools of their own.
 
-### Research Computing from A to B
+## Research Computing from A to B
 
 Based on the workshops run by [Software Carpentry](http://software-carpentry.org) and [Data Carpentry](http://datacarpentry.org),
 this book is a hands-on introduction to practical computing skills
@@ -73,7 +68,7 @@ and testing software when the right answer isn't actually known.
 While it necessarily glosses over many fine points,
 it gives readers a useful toolkit and a sense of where to go next.
 
-### Managing Research Software Projects
+## Managing Research Software Projects
 
 Your graduate degree is in ecology,
 but now you're running a three-person team responsible for building and maintaining a hundred thousand lines of code?
@@ -86,7 +81,7 @@ and [basic finance](http://ecampus.oregonstate.edu/soc/ecatalog/downloadsyllabus
 We've [made a start](https://swcarpentry.github.io/managing-research-software-projects/),
 but there's a lot still to be done.
 
-### Software Engineering: An Evidence-Based Approach
+## Software Engineering: An Evidence-Based Approach
 
 Unlike their counterparts in physics, psychology, and engineering,
 most students in computer science don't do experiments.
@@ -103,7 +98,7 @@ rather than hearsay and strong opinions.
 (Derek Jones' *[Empirical Software Engineering Using R](http://www.knosof.co.uk/ESEUR/)*
 is headed in this direction.)
 
-### Computing and the Law: A Guide for the Perplexed
+## Computing and the Law: A Guide for the Perplexed
 
 The legal aspects of software have always been complicated;
 the web has done nothing to make them simpler.
@@ -114,7 +109,7 @@ from the Industrial Revolution to the present day.
 Aimed squarely at people with no prior exposure to legal terminology,
 it explains concepts clearly and provides examples for each.
 
-### Software Architecture by Example
+## Software Architecture by Example
 
 Architects study hundreds of buildings during their training;
 writers read hundreds of novels,
@@ -130,7 +125,7 @@ and how tradeoffs are made.
 The book draws material from *[The Architecture of Open Source Applications](http://aosabook.org)*,
 but is a tutorial rather than a survey.
 
-### A Practical Introduction to Debugging
+## A Practical Introduction to Debugging
 
 Most programmers spend a large part of their time debugging,
 but most books only show working code,
@@ -152,7 +147,7 @@ with dozens of case studies showing how to apply them to real-world problems.
 And while the author only occasionally makes this explicit,
 the book also shows how to write programs that are easier to fix.
 
-### Now What? A Practitioner's Guide to Error Handling
+## Now What? A Practitioner's Guide to Error Handling
 
 Programs can fail in a hundred different ways,
 but most programmers either ignore the possibility of failure
@@ -163,7 +158,7 @@ Along the way,
 it catalogs the kinds of errors that programmers may encounter
 and shows how they can be prevented as well as managed.
 
-### 300 Lines of Science
+## 300 Lines of Science
 
 Can you write a climate simulator in less than 500 lines of Python?
 What about constructing phylogenetic trees in less than 500 lines of R?
@@ -171,16 +166,16 @@ This collection would show readers how science is turned into code across a broa
 Each entry is less than 300 lines of code in the style of *[500 Lines or Less](http://aosabook.org/en/index.html#500lines)*
 supplemented by an equal-sized chunk showing how to test what has been written.
 
-### Performance Tuning
+## Performance Tuning
 
 In the spirit of Jon Louis Bentley's *[Writing Efficient Programs](https://www.amazon.com/Writing-Efficient-Programs-Prentice-Hall-Software/dp/013970244X/)*,
 this textbook shows readers how to model, analyze, and improve the performance of their programs.
 Written for undergraduates who already have a basic understanding of computer architecture, compilers, operating systems, and networks,
 it can be used in a capstone course that unifies ideas from these subjects.
 
-## Projects
+<hr/>
 
-### Teach programmers how to run grassroots get-into-coding groups
+## Teach programmers how to run grassroots get-into-coding groups
 
 Programmers create get-into-coding groups so that people won't have to
 teach themselves how to write Javascript, then reinvent wheels when it
@@ -190,14 +185,14 @@ experience of [Software Carpentry](http://software-carpentry.org) and
 books like *[Building Powerful Community Organizations](https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/)*
 to fill that gap.
 
-### Browsercast
+## Browsercast
 
 Allow people to create synchronized voiceovers for HTML slideshows.
 I've had several summer students take a run at this; the hard part
 is the authoring tool to add time marks, but as the demo linked in
 the title shows, the idea itself works.
 
-### Diff and merge for common document formats
+## Diff and merge for common document formats
 
 Version control is a powerful idea,
 but it depends on people being able to work independently,
@@ -209,7 +204,7 @@ Word, Excel, and PowerPoint.
 A tool (or suite of tools) that could do this
 would give millions of people an on-ramp instead of a cliff.
 
-### An empirical comparison of the syntax of Python, R, MATLAB, and Julia
+## An empirical comparison of the syntax of Python, R, MATLAB, and Julia
 
 We tried to repeat [Stefik et al's study of programming language
 syntax](http://neverworkintheory.org/2014/01/29/stefik-siebert-syntax.html)
@@ -217,7 +212,7 @@ for languages commonly used in science, but weren't able to get
 enough subjects. I think it's worth trying again, both for its own
 sake and to show that this kind of work can and should be done.
 
-### _[The Discussion Book](https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/)_ online
+## _[The Discussion Book](https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/)_ online
 
 Today's MOOC platforms use the Internet like television. What would
 they look like if they directly supported some of the techniques
@@ -231,7 +226,7 @@ Stack Overflow as its model rather than GitHub or Wikipedia would be
 fascinating to explore, as would [collaborative choral software
 exegesis]({{site.github.url}}/09/12/collaborative-choral-software-exegesis.html).
 
-### Using machine learning to find actual design patterns
+## Using machine learning to find actual design patterns
 
 I often use Sajaniemi et al's [roles of
 variables](http://www.cs.joensuu.fi/~saja/var_roles/stud_vers/stud_Python3_eng.html)
@@ -245,7 +240,7 @@ think that analysis of actual usage patterns could lay the
 foundation for [the design of a better version control
 system]({{site.github.url}}/2017/09/30/git-graphs-and-engineering.html).
 
-### Numerical JavaScript
+## Numerical JavaScript
 
 Ten years from now,
 I believe that JavaScript (or a derivative like TypeScript)
@@ -261,5 +256,3 @@ to create websites and use things like [D3](https://d3js.org/).
 And with major players like Microsoft, Google, and Facebook all working hard
 to make general-purpose JavaScript faster,
 it will be harder and harder for niche players to keep up.
-
-</div>

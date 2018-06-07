@@ -3,8 +3,6 @@ layout: default
 permalink: /reading/
 title: "Reading List"
 ---
-<div class="well" markdown="1">
-
 # Recommended Reading
 
 Over the last decade,
@@ -225,8 +223,6 @@ Other suggestions:
     but the insights are intriguing.
 *   Wlodkowski and Ginsberg's *[Enhancing Adult Motivation to Learn][adult-motivation]*
     covers one important topic in detail.
-
-</div>
 
 [adult-motivation]: https://www.amazon.com/Enhancing-Adult-Motivation-Learn-Comprehensive/dp/1119077990/
 [anarchists]: https://www.amazon.com/World-That-Never-Was-Anarchists/dp/037542511X/
