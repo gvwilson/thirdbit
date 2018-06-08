@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-<head>
-  {% include head.html %}
-<title>{{ site.name }}{% if page.title %}: {{ page.title }}{% endif %}</title>
-</head>
-<body>
-  <div class="container container-left">
-    <div class="row">
-      <div class="col-md-3 toc">
-        {% include sidebar.html %}
-      </div>
-      <div class="col-md-9 main">
-{{content}}
-      </div>
-    </div>
+---
+layout: plain
+---
+<div class="row">
+  <div class="col-md-3 toc">
+    {% include sidebar.html %}
   </div>
-  {% include foot.html %}
-</body>
-</html>
+  <div class="col-md-9 main">
+{{content}}
+  </div>
+</div>

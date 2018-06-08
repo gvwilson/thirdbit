@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-<h1><a href="{{ site.github.url }}{{ page.url }}">{{ page.date | date: "%b %-d, %Y" }} - {{ page.title }}</a></h1>
+<h3><a href="{{ site.github.url }}{{ page.url }}">{{ page.title }}</a></h3>
+<p><em>{{ page.date | date: "%b %-d, %Y" }}</em></p>
 <div class="post-content">
   {{ content }}
   {% if page.original == 'swc' %}
@@ -12,11 +13,14 @@ layout: default
   {% endif %}
 </div>
 <div class="pagination">
-  {% if page.next %}
-  <a class="btn btn-default" href="{{ site.github.url }}{{ page.next.url }}" class="next">Newer</a>
-  {% endif %}
   {% if page.previous %}
-  <a class="btn btn-default" href="{{ site.github.url }}{{ page.previous.url }}" class="previous">Older</a>
+  <a href="{{ site.github.url }}{{ page.previous.url }}">&lt;&nbsp;Older</a>
+  {% endif %}
+  {% if page.previous and page.next %}
+  &mdash;
+  {% endif %}
+  {% if page.next %}
+  <a href="{{ site.github.url }}{{ page.next.url }}">Newer&nbsp;&gt;</a>
   {% endif %}
 </div>
 {% unless page.nocomments %}{% include disqus-comments.html %}{% endunless %}
