@@ -2,7 +2,6 @@
 layout: post
 title: "A Base Case for Empirical Software Engineering Research"
 date: 2018-03-13 01:00
-favorite: true
 redirect_from:
   - /2015/03/30/base-case-for-empirical-software-engineering.html
 ---
