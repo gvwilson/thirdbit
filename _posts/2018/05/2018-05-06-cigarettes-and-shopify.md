@@ -31,8 +31,8 @@ or plow through pedestrians on a sidewalk in Toronto.
 That's why I resigned from Shopify last year after working there for only a week.
 Donald Trump had just been inaugurated,
 and company after company was pulling its ads from Breitbart News,
-the alt-right "news" site that Steve Bannon used to inflame the white hate that helped propel Trump into the White House.
-Shopify, though, had decided to keep hosting Breitbart's online store.
+the alt-right "news" site Steve Bannon used to inflame the white hate that helped propel Trump into the White House.
+Shopify, though, decided to keep hosting Breitbart's online store.
 Management said it was about supporting free speech:
 after all,
 *they* weren't going to be the ones selling brain cigarettes to kids.
@@ -55,15 +55,15 @@ that Shopify is still helping merchants of hate stay in business,
 and asking well-intentioned groups who take money from Shopify
 how they square that with their ideals.
 It turns out that it's a lot easier to retweet one of Sarah Kendzior's biting attacks on the current president
-than it is to ask people close to home to make hard choices,
+than it is to ask specific people to make hard choices,
 but I don't think I get to do the former if I'm not willing to do the latter.
 
-I've also discovered that trying to hold people accountable close to home gives me hope
+Trying to hold people accountable close to home gives me hope
 in a way that righteous rage against distant monsters does not.
 Just as no single cigarette will give someone cancer,
 no single hard question will make them decide to live up to their principles,
 but each one might improve the odds,
 and believing that is important right now.
-I know some people find my stridency awkward,
-but I'd rather make them uncomfortable
+Some people find my stridency awkward,
+but I'd rather lose a friend who isn't willing to take a stand
 than lose another argument with my dad.
