@@ -12,7 +12,7 @@ Many are presented as [descriptions of books that don't yet exist]({{site.github
 because I still believe that a good book can change the world.
 If you'd like to help with any of them or take one on yourself, please let me know.
 
-## Software Tools in JavaScript
+### Software Tools in JavaScript
 
 *[Software Tools](http://www.amazon.com/Software-Tools-Brian-W-Kernighan/dp/020103669X/)*
 and its sequel *[Software Tools in Pascal](http://www.amazon.com/Software-Tools-Pascal-Brian-Kernighan/dp/0201103427/)*
@@ -22,7 +22,7 @@ It presents a "new standard model" based on syndication of distributed streams o
 and shows readers how the tools they use are built,
 and how to build tools of their own.
 
-## Merely Useful: An Introduction to Research Computing
+### Merely Useful: An Introduction to Research Computing
 
 Based on the workshops run by [Software Carpentry](http://software-carpentry.org) and [Data Carpentry](http://datacarpentry.org),
 this book is a hands-on introduction to practical computing skills
@@ -36,7 +36,7 @@ and testing software when the right answer isn't actually known.
 While it necessarily glosses over many fine points,
 it gives readers a useful toolkit and a sense of where to go next.
 
-## Software Engineering: An Evidence-Based Approach
+### Software Engineering: An Evidence-Based Approach
 
 Unlike their counterparts in physics, psychology, and engineering,
 most students in computer science don't do experiments.
@@ -68,7 +68,7 @@ to the ways in which "flat" organizations actually operate and how cognitive bia
 it gives readers [a toolbox for thinking about society]({{site.github.url}}/reading/)
 and how tech is reshaping it for both better and worse.
 
-## Software Architecture by Example
+### Software Architecture by Example
 
 Architects study hundreds of buildings during their training;
 writers read hundreds of novels,
@@ -84,7 +84,7 @@ and how tradeoffs are made.
 The book draws material from *[The Architecture of Open Source Applications](http://aosabook.org)*,
 but is a tutorial rather than a survey.
 
-## A Catalog of Errors
+### A Catalog of Errors
 
 Most programmers spend a large part of their time debugging,
 but most books only show working code,
@@ -106,7 +106,7 @@ Along the way,
 it presents examples of what programmers can do to handle errors gracefully,
 from data structure repair to automatically restarting servers.
 
-## The Undergraduate Operator's Manual
+### The Undergraduate Operator's Manual
 
 What effect does pulling an all-nighter have on the quality of your work?
 How do people absorb and retain knowledge?
@@ -118,7 +118,7 @@ they are expected to rediscover or reinvent methods themselves.
 This textbook for a one-semester course puts solutions in one place,
 and by doing so teaches a lot about physiology, psychology, and organizational behavior.
 
-## Computing and the Law: A Guide for the Perplexed
+### Computing and the Law: A Guide for the Perplexed
 
 The legal aspects of software have always been complicated;
 the web has done nothing to make them simpler.
@@ -129,7 +129,7 @@ from the Industrial Revolution to the present day.
 Aimed squarely at people with no prior exposure to legal terminology,
 it explains concepts clearly and provides examples for each.
 
-## Numerical JavaScript
+### Numerical JavaScript
 
 Ten years from now,
 I believe that JavaScript (or a derivative like TypeScript)
