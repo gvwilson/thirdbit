@@ -2,13 +2,14 @@
 layout: post
 date: 2018-07-16 01:00:00
 title: Teaching Tech Together
+favorite: true
 purchase: "http://www.lulu.com/commerce/index.php?fBuyContent=23123539"
 website: http://teachtogether.tech/
 license: https://creativecommons.org/licenses/by/4.0/
 github: https://github.com/gvwilson/teachtogether.tech
 ---
 
-I am very pleased to announce the publication of *[Teaching Tech
+I am pleased to announce the publication of *[Teaching Tech
 Together]({{page.website}})*, a much-expanded successor to *How to
 Teach Programming (and Other Things)*.  As the book's blurb says:
 
@@ -26,26 +27,31 @@ Teach Programming (and Other Things)*.  As the book's blurb says:
 > believe they are true, and points you at other resources that will
 > help you go further.
 
-Parts of the book were originally created for Software Carpentry's
+Parts of the book were originally written for Software Carpentry's
 [instructor training
 program](http://carpentries.github.io/instructor-training/), which has
-been run over a hundred times during the past six years.  You can
-share and remix all of the book's material under the
-[Creative Commons - Attribution 4.0 (CC-BY) license]({{page.license}});
-digital versions can be downloaded for free from <{{page.website}}>,
-and printed versions are [available at cost]({{page.purchase}}).
+been run over a hundred times in the past six years.  You can share
+and remix all of the book's material under the [Creative Commons -
+Attribution 4.0 (CC-BY) license]({{page.license}}); digital versions
+can be [downloaded for free]({{page.website}}), and printed versions
+can be [purchased at cost]({{page.purchase}}).
 
-![Teaching Tech Together]({{site.github.url}}/files/2018/07/t3-cover.png)
+<div align="center">
+  <a title="Teaching Tech Together" href="{{page.website}}">
+    <img src="{{site.github.url}}/files/2018/07/t3-cover.png" alt="Teaching Tech Together" />
+  </a>
+</div>
 
 *[Teaching Tech Together]({{page.website}})* is a community resource,
 just like [the Carpentries' lessons](https://carpentries.org/),
 Wikipedia, and open source software.  Contributions of all kinds are
-welcome, from errata to entirely new content; if your material is
-incorporated, we will add you to the acknowledgments unless you
-request otherwise.  Please see [this
-page]({{page.website}}/joining.html) for guidance.
+welcome from everyone, from errata to entirely new content; if your
+material is incorporated, we will add you to the acknowledgments
+unless you request otherwise.  Please see [this
+page]({{page.website}}/joining.html) for guidance on how to take part,
+and for our contributors' code of conduct.
 
-*This book would not exist without the hard work and feedback of Erin
+This book would not exist without the hard work and feedback of Erin
 Becker, Azalee Bostroem, Hugo Bowne-Anderson, Neil Brown, Gerard
 Capes, Francis Castro, Warren Code, Ben Cotton, Richie Cotton, Karen
 Cranston, Katie Cunningham, Natasha Danas, Matt Davis, Neal Davis,
@@ -63,4 +69,16 @@ Matt Turk, Fiona Tweedie, Allegra Via, Anelda van der Walt, Stéfan van
 der Walt, Belinda Weaver, Hadley Wickham, Jason Williams, John Wrenn,
 and Andromeda Yelton. I am grateful to them, to Lukas Blakk for the
 cover image, and to everyone who has used this material over the
-years; any mistakes that remain are mine.*
+years; any mistakes that remain are mine.
+
+<div align="center">
+  <p>
+    This book is dedicated to my mother, Doris Wilson,
+    <br/>
+    who taught hundreds of children to read and to believe in themselves,
+    <br/>
+    and to my brother Jeff, who did not live to see it finished.
+    <br/>
+    "Remember, you still have a lot of good times in front of you."
+  </p>
+</div>
