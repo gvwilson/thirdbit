@@ -11,8 +11,10 @@ training: http://carpentries.github.io/instructor-training/
 ---
 
 I am pleased to announce the publication of *[Teaching Tech
-Together]({{page.website}})*, a much-expanded successor to *How to
-Teach Programming (and Other Things)*.  As the book's blurb says:
+Together]({{page.website}})*, a guide to building and delivering
+lessons that work, and creating a teaching community around them.
+This book is a much-expanded successor to *How to Teach Programming
+(and Other Things)*; as its blurb says:
 
 > Hundreds of grassroots groups have sprung up around the world to
 > teach programming, web design, robotics, and other skills outside
@@ -29,13 +31,12 @@ Teach Programming (and Other Things)*.  As the book's blurb says:
 > help you go further.
 
 Parts of the book were originally written for Software Carpentry's
-[instructor training
-program]({{page.training}}), which has
-been run over a hundred times in the past six years.  You can share
-and remix all of the book's material under the [Creative Commons -
-Attribution 4.0 (CC-BY) license]({{page.license}}); digital versions
-can be [downloaded for free]({{page.website}}), and printed versions
-can be [purchased at cost]({{page.purchase}}).
+[instructor training program]({{page.training}}), which has been run
+over a hundred times in the past six years.  You can share and remix
+all of the book's material under the [Creative Commons - Attribution
+4.0 (CC-BY) license]({{page.license}}); digital versions can be
+[downloaded for free]({{page.website}}), and printed versions can be
+[purchased at cost]({{page.purchase}}).
 
 <div align="center">
   <a title="Teaching Tech Together" href="{{page.website}}">
@@ -43,14 +44,12 @@ can be [purchased at cost]({{page.purchase}}).
   </a>
 </div>
 
-*[Teaching Tech Together]({{page.website}})* is a community resource,
-just like [the Carpentries' lessons](https://carpentries.org/),
-Wikipedia, and open source software.  Contributions of all kinds are
-welcome from everyone, from errata to entirely new content; if your
-material is incorporated, we will add you to the acknowledgments
-unless you request otherwise.  Please see [this
-page]({{page.website}}/joining.html) for guidance on how to take part,
-and for our contributors' code of conduct.
+*[Teaching Tech Together]({{page.website}})* is a community resource
+like [the Carpentries' lessons](https://carpentries.org/), Wikipedia,
+and open source software.  Fixes and additions are welcome from
+everyone; please see [this page]({{page.website}}/joining.html) for
+guidance on how to contribute, and for our contributors' code of
+conduct.
 
 This book would not exist without the hard work and feedback of Erin
 Becker, Azalee Bostroem, Hugo Bowne-Anderson, Neil Brown, Gerard
