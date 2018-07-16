@@ -1,12 +1,13 @@
 ---
 layout: post
-date: 2018-07-16 01:00:00
+date: 2018-07-15 13:00:00
 title: Teaching Tech Together
 favorite: true
 purchase: "http://www.lulu.com/commerce/index.php?fBuyContent=23123539"
 website: http://teachtogether.tech/
 license: https://creativecommons.org/licenses/by/4.0/
 github: https://github.com/gvwilson/teachtogether.tech
+training: http://carpentries.github.io/instructor-training/
 ---
 
 I am pleased to announce the publication of *[Teaching Tech
@@ -29,7 +30,7 @@ Teach Programming (and Other Things)*.  As the book's blurb says:
 
 Parts of the book were originally written for Software Carpentry's
 [instructor training
-program](http://carpentries.github.io/instructor-training/), which has
+program]({{page.training}}), which has
 been run over a hundred times in the past six years.  You can share
 and remix all of the book's material under the [Creative Commons -
 Attribution 4.0 (CC-BY) license]({{page.license}}); digital versions
