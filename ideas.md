@@ -8,7 +8,7 @@ redirect_from: "/not-on-the-shelves/2017.html"
 # Ideas
 
 These ideas are things I might have done if I hadn't done [Software Carpentry](http://carpentries.org).
-Many are presented as [descriptions of books that don't yet exist]({{site.github.url}}/not-on-the-shelves/)
+Many are presented as [descriptions of books that don't yet exist]({{site.github.url}}/talks/not-on-the-shelves/)
 because I still believe that a good book can change the world.
 If you'd like to help with any of them or take one on yourself, please let me know.
 

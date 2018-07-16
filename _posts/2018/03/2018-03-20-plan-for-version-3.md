@@ -5,7 +5,7 @@ date: 2018-03-20 02:30
 ---
 
 I am planning a major revision of
-*[How to Teach Programming (and Other Things)](http://third-bit.com/teaching/)*,
+*How to Teach Programming (and Other Things)*,
 and would be very grateful for feedback on its design:
 please [mail me](mailto:gvwilson@third-bit.com?subject=How%20to%20Teach%20Programming)
 your thoughts and suggestions.

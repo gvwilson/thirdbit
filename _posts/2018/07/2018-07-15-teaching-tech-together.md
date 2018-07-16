@@ -84,3 +84,14 @@ conduct.
     "Remember, you still have a lot of good times in front of you."
   </p>
 </div>
+
+<div align="center">
+<p>
+  <img src="{{site.github.url}}/files/2018/07/t3-sales.svg" width="80%" alt="First Day Sales (map from https://simplemaps.com/resources/svg-world)" />
+</p>
+<p>
+  Paperback Sales to Date.
+  <br/>
+  (If you bought a copy and your country isn't marked, please let me know.)
+</p>
+</div>

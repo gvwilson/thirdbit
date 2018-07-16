@@ -171,7 +171,7 @@ My "wanna haves" for this page are:
 [minds-online]: https://www.amazon.com/Minds-Online-Teaching-Effectively-Technology/dp/0674660021/
 [mindstorms]: https://www.amazon.com/Mindstorms-Children-Computers-Powerful-Ideas/dp/0465046746/
 [monsters-ed-tech]: http://monsters.hackeducation.com/
-[not-on-the-shelves]: {{site.github.url}}/not-on-the-shelves/
+[not-on-the-shelves]: {{site.github.url}}/talks/not-on-the-shelves/
 [orwell]: https://www.amazon.com/Essays-Everymans-Library-Contemporary-Classics/dp/0375415033/
 [owning-land]: https://www.amazon.com/Owning-Earth-Transforming-History-Ownership/dp/1620402890/
 [physics]: https://www.amazon.com/Physics-Future-Presidents-Science-Headlines/dp/0393337111/
