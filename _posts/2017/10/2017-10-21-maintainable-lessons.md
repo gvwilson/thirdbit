@@ -73,5 +73,5 @@ to learn from; if you know of others, please point us at them.
 [datacamp]: http://datacamp.com
 [exercise-types]: http://third-bit.com/2017/10/16/exercise-types.html
 [jupyter]: https://jupyter.org/
-[swc]: http://software-carpentry.org
+[swc]: https://software-carpentry.org
 [teaching-machine]: http://teachingmachin.es/timeline.html

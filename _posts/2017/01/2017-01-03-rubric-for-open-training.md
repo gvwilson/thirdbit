@@ -18,7 +18,7 @@ Note that as a condition of being trained,
 people must:
 
 1.  Abide by our code of conduct, which can be found
-    at <http://software-carpentry.org/conduct/> and
+    at <https://software-carpentry.org/conduct/> and
     <http://datacarpentry.org/code-of-conduct/>.
 2.  Complete three short tasks after the course in order to
     complete certification. The tasks are described at

@@ -35,5 +35,5 @@ on getting institutions to change STEM teaching practices.
 I have Figure 1 of
 "[Facilitating change in undergraduate STEM instructional practices: An analytic review of the literature](http://onlinelibrary.wiley.com/doi/10.1002/tea.20439/abstract)"
 up on my wall,
-and if I had thought this strategically in 2010 when I re-started [Software Carpentry](http://software-carpentry.org),
+and if I had thought this strategically in 2010 when I re-started [Software Carpentry](https://software-carpentry.org),
 we would have had a lot more impact.

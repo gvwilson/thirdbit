@@ -23,7 +23,7 @@ Viable new genes do occasionally emerge,
 but adaptation is usually a matter of remixing what's already there.
 
 The same is true of ideas and organizations.
-Nothing in [Software Carpentry](http://software-carpentry.org) was genuinely novel;
+Nothing in [Software Carpentry](https://software-carpentry.org) was genuinely novel;
 what *was* new was the particular combination of
 some widely-used [software](https://www.amazon.com/Software-Tools-Pascal-Brian-Kernighan/dp/0201103427/)
 [tools](https://www.amazon.com/Practical-Computing-Biologists-Steven-Haddock/dp/0878933913/),

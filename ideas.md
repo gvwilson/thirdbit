@@ -24,7 +24,7 @@ and how to build tools of their own.
 
 ### Merely Useful: An Introduction to Research Computing
 
-Based on the workshops run by [Software Carpentry](http://software-carpentry.org) and [Data Carpentry](http://datacarpentry.org),
+Based on the workshops run by [Software Carpentry](https://software-carpentry.org) and [Data Carpentry](http://datacarpentry.org),
 this book is a hands-on introduction to practical computing skills
 aimed at graduate students and professionals in research-intensive disciplines.
 The core topics–data management, structured programming, task automation, and version control–are introduced

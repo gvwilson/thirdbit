@@ -82,5 +82,5 @@ inevitable.
 [original-tweet]: https://twitter.com/gvwilson/status/925714333392289793
 [react]: https://reactjs.org/
 [stefik]: http://neverworkintheory.org/2014/01/29/stefik-siebert-syntax.html
-[swc]: http://software-carpentry.org
+[swc]: https://software-carpentry.org
 [typescript]: https://www.typescriptlang.org/

@@ -7,7 +7,7 @@ favorite: true
 
 Jon Udell's essay "[Seven Ways to Think Like the Web](http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/)"
 completely changed the way I think about what the Internet is for and how we ought to use it.
-I tried to sum up the big ideas of an earlier incarnation of [Software Carpentry](http://software-carpentry.org) in response;
+I tried to sum up the big ideas of an earlier incarnation of [Software Carpentry](https://software-carpentry.org) in response;
 revisiting that list six years later,
 I <strike>think it has</strike> thought it had held up pretty well:
 

@@ -46,7 +46,7 @@ we'd be happy to help.
 Please note that as a condition of taking this training, you must:
 
 *   abide by our code of conduct, which can be found at
-    <http://software-carpentry.org/conduct/> and
+    <https://software-carpentry.org/conduct/> and
     <http://datacarpentry.org/code-of-conduct/>,
 
 *   agree to teach at a Software Carpentry or Data Carpentry workshop
