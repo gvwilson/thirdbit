@@ -39,9 +39,11 @@ all of the book's material under the [Creative Commons - Attribution
 [purchased at cost]({{page.purchase}}).
 
 <div align="center">
+<p>
   <a title="Teaching Tech Together" href="{{page.website}}">
     <img src="{{site.github.url}}/files/2018/07/t3-cover.png" alt="Teaching Tech Together" />
   </a>
+</p>
 </div>
 
 *[Teaching Tech Together]({{page.website}})* is a community resource
@@ -51,25 +53,25 @@ everyone; please see [this page]({{page.website}}/joining.html) for
 guidance on how to contribute, and for our contributors' code of
 conduct.
 
-This book would not exist without the hard work and feedback of Erin
-Becker, Azalee Bostroem, Hugo Bowne-Anderson, Neil Brown, Gerard
-Capes, Francis Castro, Warren Code, Ben Cotton, Richie Cotton, Karen
-Cranston, Katie Cunningham, Natasha Danas, Matt Davis, Neal Davis,
-Mark Degani, Michael Deutsch, Brian Dillingham, Kathi Fisler, Auriel
-Fournier, Bob Freeman, Nathan Garrett, Mark Guzdial, Rayna Harris,
-Ahmed Hasan, Ian Hawke, Felienne Hermans, Kate Hertweck, Toby Hodges,
-Dan Katz, Christina Koch, Shriram Krishnamurthi, Colleen Lewis, Lenny
-Markus, Sue McClatchy, Ian Milligan, Lex Nederbragt, Aleksandra
-Nenadic, Jeramia Ory, Joel Ostblom, Elizabeth Patitsas, Aleksandra
-Pawlik, Sorawee Porncharoenwase, Emily Porta, Alex Pounds, Thomas
-Price, Danielle Quinn, Ian Ragsdale, Erin Robinson, Rosario Robinson,
-Ariel Rokem, Pat Schloss, Malvika Sharan, Florian Shkurti, Juha Sorva,
-Tracy Teal, Tiffany Timbers, Richard Tomsett, Preston Tunnell Wilson,
-Matt Turk, Fiona Tweedie, Allegra Via, Anelda van der Walt, Stéfan van
-der Walt, Belinda Weaver, Hadley Wickham, Jason Williams, John Wrenn,
-and Andromeda Yelton. I am grateful to them, to Lukas Blakk for the
-cover image, and to everyone who has used this material over the
-years; any mistakes that remain are mine.
+> This book would not exist without the hard work and feedback of Erin
+> Becker, Azalee Bostroem, Hugo Bowne-Anderson, Neil Brown, Gerard
+> Capes, Francis Castro, Warren Code, Ben Cotton, Richie Cotton, Karen
+> Cranston, Katie Cunningham, Natasha Danas, Matt Davis, Neal Davis,
+> Mark Degani, Michael Deutsch, Brian Dillingham, Kathi Fisler, Auriel
+> Fournier, Bob Freeman, Nathan Garrett, Mark Guzdial, Rayna Harris,
+> Ahmed Hasan, Ian Hawke, Felienne Hermans, Kate Hertweck, Toby Hodges,
+> Dan Katz, Christina Koch, Shriram Krishnamurthi, Colleen Lewis, Lenny
+> Markus, Sue McClatchy, Ian Milligan, Lex Nederbragt, Aleksandra
+> Nenadic, Jeramia Ory, Joel Ostblom, Elizabeth Patitsas, Aleksandra
+> Pawlik, Sorawee Porncharoenwase, Emily Porta, Alex Pounds, Thomas
+> Price, Danielle Quinn, Ian Ragsdale, Erin Robinson, Rosario Robinson,
+> Ariel Rokem, Pat Schloss, Malvika Sharan, Florian Shkurti, Juha Sorva,
+> Tracy Teal, Tiffany Timbers, Richard Tomsett, Preston Tunnell Wilson,
+> Matt Turk, Fiona Tweedie, Allegra Via, Anelda van der Walt, Stéfan van
+> der Walt, Belinda Weaver, Hadley Wickham, Jason Williams, John Wrenn,
+> and Andromeda Yelton. I am grateful to them, to Lukas Blakk for the
+> cover image, and to everyone who has used this material over the
+> years; any mistakes that remain are mine.
 
 <div align="center">
   <p>
