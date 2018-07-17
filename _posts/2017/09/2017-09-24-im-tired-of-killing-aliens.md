@@ -4,8 +4,8 @@ title: "I'm Tired of Killing Aliens"
 date: 2017-09-24 05:00:00
 ---
 
-I've been waiting over a year for <em><a href="https://www.ironhidegames.com/Games/iron-marines">Iron Marines</a></em> to come out.
-My whole family loved Ironhide Games' <em><a href="https://www.ironhidegames.com/Games/kingdom-rush">Kingom Rush</a></em> trilogy,
+I've been waiting over a year for <em>Iron Marines</em> to come out.
+My whole family loved Ironhide Games' <em>Kingom Rush</em> trilogy,
 and I hoped that a cartoon RTS would combine the challenge of <em>Homeworld</em>
 with the quick fun of <a href="{{site.github.url}}/2009/10/17/lunchbox-games.html">the Microgames I played as a teenager</a>.
 
