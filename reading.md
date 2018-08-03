@@ -43,6 +43,10 @@ the fact that it hasn't happened is just one more sign of how desperately we nee
    Explores the early days of the anarchist movement,
    and in doing so shows how governments create the villains they need.
 
+1. James C. Scott: *[Seeing Like a State][seeing-like-state]*.
+   Explains why large organizations always prefer uniformity over productivity,
+   and the price people pay for this.
+
 1. Matthew Crawford: *[Shop Class as Soulcraft][shop-class]*.
    There are truths about ourselves we can only learn
    by interacting with things that cannot be swayed or bargained with.
@@ -72,7 +76,7 @@ the fact that it hasn't happened is just one more sign of how desperately we nee
 1. Sarah Kendzior: *[The View From Flyover Country][flyover]*.
    Essential reading about the rise of authoritarian kleptocracy in the United States.
 
-1. Andro Linklater: *[Owning the Land][owning-land]*.
+1. Andro Linklater: *[Owning the Earth][owning-earth]*.
    The idea that individuals can own land is a lot younger than most people realize,
    and its emergence holds a lot of lessons for today's debates over intellectual property.
 
@@ -83,7 +87,7 @@ the fact that it hasn't happened is just one more sign of how desperately we nee
 1. George Orwell: *[Essays][orwell]*.
    The best writing from the best political writer (in English) of the 20th Century.
 
-1. Pankaj Mishra: *[From the Ruins of Empire][empire]*.
+1. Pankaj Mishra: *[From the Ruins of Empire][ruins-of-empire]*.
    Three intellectual biographies showing how the peoples of Asia have responded to the West.
 
 1. Jim Stanford: *[Economics for Everyone][economics-everyone]*.
@@ -110,9 +114,6 @@ but don't have any overt politic overtones.
    A peaceful, inspiring meditation on one square meter of old growth forest
    through the course of a year.
 
-1. Tracy Kidder: *[The Soul of a New Machine][soul-machine]*.
-   The best book ever written about computing's Silver Age.
-
 1. Siddhartha Mukherjee: *[The Emperor of All Maladies][emperor-maladies]*.
    A history of cancer and its (mis)treatment,
    and of the people it has touched.
@@ -131,46 +132,35 @@ but don't have any overt politic overtones.
    A great description of how science is actually done,
    and of what it's like to have a life in science.
 
-[adult-motivation]: https://www.amazon.com/Enhancing-Adult-Motivation-Learn-Comprehensive/dp/1119077990/
-[anarchists]: https://www.amazon.com/World-That-Never-Was-Anarchists/dp/037542511X/
-[annotated-turing]: https://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055/
-[babt]: https://www.amazon.com/Building-Better-Teacher-Teaching-Everyone/dp/0393351084/
-[bpco]: https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/
-[chains]: https://www.amazon.com/Bury-Chains-Prophets-Rebels-Empires/dp/0618619070/
-[doubt]: https://www.amazon.com/Doubt-Doubters-Innovation-Jefferson-Dickinson/dp/0060097957/
-[economics-everyone]: https://www.amazon.com/Economics-Everyone-Second-Short-Capitalism/dp/0745335780/
-[emperor-maladies]: https://www.amazon.com/Emperor-All-Maladies-Biography-Cancer/dp/1439170916/
-[empire]: https://www.amazon.com/Ruins-Empire-Intellectuals-Remade-Asia/dp/0374249598/
-[everything]: https://www.amazon.com/Short-History-Nearly-Everything/dp/0767908171/
-[fearless]: https://www.amazon.com/Fearless-Change-Patterns-Introducing-Ideas/dp/0201741571/
-[finnish-lessons]: https://www.amazon.com/Finnish-Lessons-2-0-Educational-Finland/dp/0807755850/
-[flyover]: https://www.amazon.com/View-Flyover-Country-Dispatches-Forgotten/dp/1250189993/
-[forest-unseen]: https://www.amazon.com/Forest-Unseen-Years-Watch-Nature/dp/0143122940/
-[four-futures]: https://www.amazon.com/Four-Futures-After-Capitalism-Jacobin/dp/1781688133/
-[governing-commons]: https://www.amazon.com/Governing-Commons-Evolution-Institutions-Collective/dp/1107569788/
-[great-transformation]: https://www.amazon.com/Four-Futures-After-Capitalism-Jacobin/dp/1781688133/
-[hbl]: https://www.amazon.com/How-Buildings-Learn-Happens-Theyre/dp/0140139966/
+[anarchists]: https://isbndb.com/book/9780375425110
+[annotated-turing]: https://isbndb.com/book/0470229055
+[babt]: https://isbndb.com/book/9780393351088
+[bpco]: https://isbndb.com/book/0977151808
+[chains]: https://isbndb.com/book/9781447211365
+[doubt]: https://isbndb.com/book/0060097957
+[economics-everyone]: https://isbndb.com/book/9780745335773
+[emperor-maladies]: https://isbndb.com/book/9781439170915
+[everything]: https://isbndb.com/book/9780767908184
+[flyover]: https://isbndb.com/book/9781250189998
+[forest-unseen]: https://isbndb.com/book/9780143122944
+[four-futures]: https://isbndb.com/book/9781781688137
+[great-transformation]: https://isbndb.com/book/9780385721240
+[hbl]: https://isbndb.com/book/9780140139969
 [imposters]: https://bigmachine.io/products/the-imposters-handbook
-[lab-girl]: https://www.amazon.com/Lab-Girl-Hope-Jahren/dp/1101873728/
-[last-utopia]: https://www.amazon.com/Last-Utopia-Human-Rights-History/dp/0674048725/
-[life-code]: https://www.amazon.com/Life-Code-Personal-History-Technology/dp/0374534519/
-[lower-ed]: https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/
-[minds-online]: https://www.amazon.com/Minds-Online-Teaching-Effectively-Technology/dp/0674660021/
-[mindstorms]: https://www.amazon.com/Mindstorms-Children-Computers-Powerful-Ideas/dp/0465046746/
-[monsters-ed-tech]: http://monsters.hackeducation.com/
-[not-on-the-shelves]: {{site.github.url}}/talks/not-on-the-shelves/
-[orwell]: https://www.amazon.com/Essays-Everymans-Library-Contemporary-Classics/dp/0375415033/
-[owning-land]: https://www.amazon.com/Owning-Earth-Transforming-History-Ownership/dp/1620402890/
-[seeing-like-state]: https://www.amazon.com/Seeing-Like-State-Condition-Institution/dp/0300070160/
-[shallow-end]: https://www.amazon.com/Stuck-Shallow-End-Education-Computing/dp/0262514044/
-[shop-class]: https://www.amazon.com/Shop-Class-Soulcraft-Inquiry-Value/dp/0143117467/
-[silk-road]: https://www.amazon.com/Life-along-Silk-Road-Second/dp/0520280598/
-[sisters]: https://www.amazon.com/Sisters-Americas-Suffragists-Jean-Baker/dp/0809087030/
-[small-teaching]: https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496/
-[spirit-level]: https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608190366/
+[lab-girl]: https://isbndb.com/book/9781101873724
+[last-utopia]: https://isbndb.com/book/9780674064348
+[life-code]: https://isbndb.com/book/9781250181695
+[orwell]: https://isbndb.com/book/9780375415036
+[owning-earth]: https://isbndb.com/book/9781620402917
+[ruins-of-empire]: https://isbndb.com/book/9781250037718
+[seeing-like-state]: https://isbndb.com/book/9780300078152
+[shop-class]: https://isbndb.com/book/9780143117469
+[silk-road]: https://isbndb.com/book/9780520232143
+[sisters]: https://isbndb.com/book/9780809087037
+[spirit-level]: https://isbndb.com/book/9781608193417
 [stam]: {{site.github.url}}/2016/11/13/stuff-that-actually-matters.html
-[stationery]: https://www.amazon.com/Adventures-Stationery-Journey-Through-Pencil/dp/1846686164/
-[think-like-commoner]: https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/
-[tlm]: https://www.amazon.com/Time-Love-Memory-Biologist-Behavior/dp/0679763902/
-[trick-treatment]: https://www.amazon.com/Trick-Treatment-Undeniable-Alternative-Medicine/dp/0393337782/
-[twitter-tear-gas]: https://www.amazon.com/Twitter-Tear-Gas-Fragility-Networked/dp/0300215126/
+[stationery]: https://isbndb.com/book/9781846686160
+[think-like-commoner]: https://isbndb.com/book/9780865717688
+[tlm]: https://isbndb.com/book/9780679763901
+[trick-treatment]: https://isbndb.com/book/9780393337785
+[twitter-tear-gas]: https://isbndb.com/book/9780300234176
