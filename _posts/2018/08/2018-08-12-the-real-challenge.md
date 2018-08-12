@@ -31,5 +31,6 @@ but by the 1950s they had won the argument.
 So I wonder:
 if we want openness to succeed for everyone,
 maybe we need to do the same.
-Maybe teaching people how to use tools well and giving them credit for what they build isn't enough;
-maybe we need to find a way to celebrate our own imperfect art.
+Maybe teaching people how to use tools well and giving them credit for what they build isn't enough.
+Maybe we want it to be about technology because that way we just have to change our software, not ourselves.
+Maybe what we really need to do is find a way to celebrate our own imperfect art.
