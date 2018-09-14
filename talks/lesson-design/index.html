@@ -28,7 +28,7 @@
           <p><em>far too many slides in far too little time</em></p>
           <p><a href="http://third-bit.com">Greg Wilson</a></p>
           <p><a href="http://third-bit.com/talks/lesson-design/">http://third-bit.com/talks/lesson-design/</a></p>
-          <p>November 2017</p>
+          <p>September 2018</p>
           <img src="img/cc-by-license.png" alt="CC-BY" width="200"/>
         </div>
       </section>
@@ -131,7 +131,7 @@
       <section>
 	<h3>Example</h3>
 	<ul>
-	  <li class="fragment">DataCamp's introduction to Unix only teaches 15 commands in 3 hours</li>
+	  <li class="fragment"><a href="https://carpentries.org/">Software Carpentry</a>'s introduction to Unix only teaches 15 commands in 3 hours</li>
 	  <li class="fragment">But it also teaches:
 	    <ul>
 	      <li class="fragment">Paths</li>
@@ -216,7 +216,7 @@
 	  <a href="https://www.amazon.com/Common-Misconceptions-Mathematics-Strategies-Correct/dp/0761858857/"><img src="img/ojose.jpg" width="150px" /></a>
 	</div>
 	<ul>
-	  <li class="fragment">We don't yet have catalogs of PCK for programming</li>
+	  <li class="fragment">We're just starting to catalog PCK for programming</li>
 	</ul>
       </section>
 
@@ -356,30 +356,30 @@ def total_length(words):
       <section>
 	<h3>First Exercise</h3>
 <pre class="sample">
-# ["red", "green", "blue"] => [3, 5, 4]
-def all_lengths(words):
-    lengths = ____
-    for word in words:
-        lengths ____
-    return lengths
+    # word_lengths(["red", "green", "blue"]) => [3, 5, 4]
+    define word_lengths(list_of_words):
+        list_of_lengths = []
+        for each ____ in ____:
+            list_of_lengths.append(____)
+        return list_of_lengths
 </pre>
 	<ul>
-	  <li>Directs attention to initialization and update</li>
+	  <li>Directs attention to control flow</li>
 	</ul>
       </section>
 
       <section>
 	<h3>Second Exercise</h3>
 <pre class="sample">
-# ["red", "green", "blue"] => "redgreenblue"
-def join(words):
-    result = ____
-    for ____ in ____:
-        ____
-    return result
+    # join_all(["red", "green", "blue"]) => "redgreenblue"
+    define join_all(list_of_words):
+        joined_words = ____
+        for each ____ in ____:
+            ____
+        return joined_words
 </pre>
 	<ul>
-	  <li>Directs attention to control flow</li>
+	  <li>Directs attention to initialization and update</li>
 	</ul>
       </section>
 
@@ -388,9 +388,6 @@ def join(words):
 <pre class="sample">
 # ["red", "green", "blue"] => "RGB"
 def acronym(words):
-    ____
-    ____
-        ____
     ____
 </pre>
 	<ul>
@@ -418,7 +415,7 @@ def acronym(words):
 	  <li class="fragment">Good lessons give chunks names
 	    <ul>
 	      <li class="fragment">"Flag"</li>
-	      <li class="fragment">"Best value seen so far"</li>
+	      <li class="fragment">"Accumulator"</li>
 	    </ul>
 	  </li>
 	  <li class="fragment">Good libraries turn chunks into components</li>
@@ -432,34 +429,16 @@ def acronym(words):
 	    Use the ideas we have seen so far as the basis for a repeatable lesson design process
 	  </li>
 	  <li class="fragment">
-	    Described as a sequence, but always iterative in practice
+	    Sequential description is easiest for the next person to understand
 	  </li>
 	  <li class="fragment">
-	    Sequence description is also easiest for the next person to understand
+	    Always iterative in practice
 	  </li>
 	</ul>
       </section>
 
       <section>
-	<h3>1) Brainstorming</h3>
-	<ol>
-	  <li>What problems will learners solve?</li>
-	  <li>What concepts and techniques will they learn?</li>
-	  <li>What tools or data sets will they use?</li>
-	  <li>What terms or jargon will you define?</li>
-	  <li>What analogies or heuristics will you use?</li>
-	  <li>What mistakes or misconceptions do you expect?</li>
-	</ol>
-	<p></p>
-	<ul>
-	  <li class="fragment">Don't need to answer every question</li>
-	  <li class="fragment">May pose and answer others</li>
-	  <li class="fragment"><em>Deliver: rough scope for the course</em></li>
-	</ul>
-      </section>
-
-      <section>
-	<h3>2) Who is this course for?</h3>
+	<h3>1) Who is this course for?</h3>
 	<ul>
 	  <li class="fragment">"Beginner" and "expert" mean different things to different people</li>
 	  <li class="fragment">
@@ -474,19 +453,31 @@ def acronym(words):
       </section>
 
       <section>
-	<h3>Example Persona</h3>
+	<h3>Example Persona: Jorge</h3>
 	<ul>
-	  <li class="fragment">Sindhu, 28, lives in Bangalore</li>
-	  <li class="fragment">BSc in Biochemistry, MSc in Pharmacy</li>
-	  <li class="fragment">Vaccine researcher at a pharmaceutical company</li>
-	  <li class="fragment">Did two courses in statistics and experimental design
-	    <ul>
-	      <li class="fragment">Used Excel and SPSS</li>
-	    </ul>
-	  </li>
-	  <li class="fragment">Wants better data science skills to help her advance in her current career</li>
-	  <li class="fragment">Not sure which languages or skills to start with</li>
-	  <li class="fragment">Likes things she can do on her commute</li>
+	  <li>Just moved to Canada from Costa Rica to study agriculture.</li>
+	  <li>Can read English well, but still struggles sometimes to keep up with spoken conversation.</li>
+	  <li>Has used Excel and Word, and done a little editing on a WordPress site.</li>
+	  <li>Is measuring soil properties a nearby farms with a handheld device that dumps CSV files to his computer.</li>
+	  <li>Currently processes each file in Excel by hand, would like to automate the steps.</li>
+	</ul>
+      </section>
+
+      <section>
+	<h3>2) Brainstorming</h3>
+	<ol>
+	  <li>What problems will learners solve?</li>
+	  <li>What concepts and techniques will they learn?</li>
+	  <li>What tools and/or data will they use?</li>
+	  <li>What terms or jargon will you define?</li>
+	  <li>What analogies or heuristics will you use?</li>
+	  <li>What mistakes or misconceptions do you expect?</li>
+	</ol>
+	<p></p>
+	<ul>
+	  <li class="fragment">Don't need to answer every question</li>
+	  <li class="fragment">May pose and answer others</li>
+	  <li class="fragment"><em>Deliver: rough scope for the course</em></li>
 	</ul>
       </section>
 
@@ -504,6 +495,7 @@ def acronym(words):
 	    <ul>
 	      <li class="fragment">One or two bullet points to explain its purpose</li>
 	      <li class="fragment">Fully worked out code or solution</li>
+	      <li class="fragment">An estimate of how long it will take to introduce, do, and review</li>
 	    </ul>
 	  </li>
 	  <li class="fragment">
@@ -518,25 +510,28 @@ def acronym(words):
       </section>
 
       <section>
-	<h3>What Exercises to Include in the Design</h3>
-	<ul>
-	  <li class="fragment">How will learners first encounter each key concept?</li>
-	  <li class="fragment">What is the hardest thing learners will do?</li>
-	  <li class="fragment">Is every key technical requirement exercised?</li>
-	  <li class="fragment">Remember, this stage is design, not implementation</li>
-	</ul>
-      </section>
-
-      <section>
 	<h3>4) How are concepts connected?</h3>
 	<ul>
 	  <li class="fragment">Put exercises in logical order</li>
 	  <li class="fragment">Derive course outline from them</li>
-	  <li class="fragment">And make notes about the gaps you've just noticed…</li>
+	  <li class="fragment">Make notes about the gaps you've just noticed…</li>
+	  <li class="fragment">…and add exercises for those gaps…</li>
+	  <li class="fragment">…and start cutting content</li>
 	</ul>
 	<p></p>
 	<ul>
 	  <li class="fragment"><em>Deliver: course outline (10-12 bullet points per hour)</em></li>
+	</ul>
+      </section>
+
+      <section data-background-color="#e0f0e0">
+	<h3>Interlude: PETE</h3>
+	<p class="fragment">Problem, Explanation, Theory, Example</p>
+	<ul>
+	  <li class="fragment">Describe the problem the lesson will solve</li>
+	  <li class="fragment">Work through a solution to that problem</li>
+	  <li class="fragment">Explain the general theory that underpins that solution</li>
+	  <li class="fragment">Work through a second example so that learners will understand which parts generalize</li>
 	</ul>
       </section>
 
@@ -557,18 +552,13 @@ def acronym(words):
       </section>
 
       <section>
-	<h3>6) Break the Rules</h3>
-	<p class="fragment">
-	  <em>Break any of these rules sooner than say anything outright barbarous.</em>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p align="center">
+	  <em>Break any of these rules sooner than say<br/>anything outright barbarous.</em>
 	  <br/>
 	  – <a href="https://en.wikipedia.org/wiki/Politics_and_the_English_Language">George Orwell</a>
 	</p>
-	<ul>
-	  <li class="fragment">Remember, in practice this process is always iterative</li>
-	  <li class="fragment">
-	    <em>Note: This lecture is part of a course designed this way</em>
-	  </li>
-	</ul>
       </section>
 
       <section>
@@ -594,13 +584,9 @@ def acronym(words):
       </section>
 
       <section>
-        <h3>Thank You</h3>
+        <h3 align="center">Thank You</h3>
 	<div align="center">
-	  <img src="img/dad.jpg" width="200px" />
-	  &nbsp;&nbsp;&nbsp;&nbsp;
-	  <img src="img/maddie.jpg" width="200px" />
-	</div>
-	<div align="center">
+	  <p><a href="https://www.amazon.com/gp/product/0988113708"><img src="img/t3.png" width="25%"/></a></p>
           <p><a href="http://third-bit.com/talks/lesson-design/">http://third-bit.com/lesson-design/</a></p>
           <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
 	</div>
