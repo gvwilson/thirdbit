@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>A Hard-Boiled Egg: Data Science, Software Engineering, and a Plausible Path to a Slightly Better Future</title>
+    <link rel="stylesheet" href="../reveal/css/reveal.css">
+    <link rel="stylesheet" href="../reveal/css/theme/third.css">
+    <link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+    <link rel="stylesheet" href="./custom.css">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <header style="position: absolute; top: 50px; left: 100px; z-index: 500"></header>
+      <div class="slides">
+
+        <section style="text-align: center;">
+	  <h2>A Hard-Boiled Egg</h2>
+	  <h3>Data Science, Software Engineering, and a Plausible Path to a Slightly Better Future</h3>
+	  <p>&nbsp;</p>
+	  <h3><a href="http://third-bit.com">Greg Wilson</a></h3>
+	  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+	  <div>
+	    <div class="left">
+	      <h4>October 2018</h4>
+	    </div>
+	    <div class="right">
+	      <img src="img/cc-by.svg" alt="CC-BY logo" />
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <p class="title">What I'm Building On</p>
+	  <p><img src="img/cheplygina.jpg" width="20%" /><br/><a href="https://veronikach.com/">Veronika Cheplygina</a></p>
+	  <p class="fragment"><em>Weak failure</em>: I did a lot of work and nothing came of it</p>
+	  <p class="fragment"><em>Strong failure</em>: I did a lot of work and actually did harm</p>
+	  <p class="fragment">This talk is built on several weak failures</p>
+	</section>
+
+        <section>
+	  <p class="title">Back in the Twentieth Century</p>
+	  <div style="text-align: center;">
+	    <img src="img/ddj.png" alt="Dr Dobb's Journal" />
+	  </div>
+	  <p>Book review editor for <em><a href="http://drdobbs.com">Doctor Dobb's Journal</a></em></p>
+	  <p class="fragment">Hundreds of textbooks on compilers, but none on debuggers or debugging</p>
+	  <p class="fragment">Or build tools, or package managers, or…</p>
+	</section>
+
+        <section>
+	  <p class="title">Early 2000s</p>
+	  <p>Asked to teach a course on software architecture</p>
+	  <p class="fragment">Looked at two dozen books and other people's courses…</p>
+	  <p class="fragment">…but none described actual architectures</p>
+	  <p class="fragment">This, we can fix</p>
+	  <div style="text-align: center;" class="fragment">
+	    <a href="https://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><img src="img/beautiful-code.png" alt="Beautiful Code" /></a>
+	    <a href="http://aosabook.org/en/buy.html#vol1"><img src="img/aosa1.png" alt="AOSA Vol 1" /></a>
+	    <a href="http://aosabook.org/en/buy.html#vol2"><img src="img/aosa2.png" alt="AOSA Vol 2" /></a>
+	    <a href="http://aosabook.org/en/buy.html#posa"><img src="img/posa.png" alt="POSA" /></a>
+	    <a href="http://aosabook.org/en/buy.html#fh"><img src="img/500-lines.png" alt="500 Lines" /></a>
+	  </div>
+	</section>
+
+	<section>
+	  <p class="title">Countervailing Currents</p>
+	  <p>Learning should always flow in both directions</p>
+	  <p>What do software engineering researchers <em>actually</em> know that practitioners might care about?</p>
+	  <p align="center"><a href="https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><img src="img/making-software.jpg" alt="Making Software" /></a></p>
+	</section>
+
+	<section>
+	  <p class="title">Some Beautiful Truths</p>
+	  <p class="fragment"><a href="http://dl.acm.org/citation.cfm?id=2534973">Languages in the C family are as hard to learn as a randomly-designed language</a></p>
+	  <p class="fragment"><a href="https://kar.kent.ac.uk/46742/1/fp1187-altadmri.pdf">Students don't make the mistakes instructors think they make</a></p>
+	  <p class="fragment"><a href="http://people.brunel.ac.uk/~csstmms/FucciEtAl_ESEM2016.pdf">No significant difference between test-driven and test-after development</a></p>
+	  <p class="fragment indent">But there <em>is</em> a difference between coarse-grained and fine-grained coding</p>
+	</section>
+
+	<section>
+	  <p class="title">Some Beautiful Truths</p>
+	  <p class="fragment"><a href="https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-yuan.pdf">Most catastrophic failures in distributed data-intensive systems could be prevented by performing simple testing on error handling code</a></p>
+	  <p class="fragment"><a href="https://dl.acm.org/citation.cfm?id=2984018">Git is awful because of the mis-match between users' mental models and its actual operation</a></p>
+	  <p class="fragment indent">Giving it a human-friendly face is ineffective</p>
+	  <p class="fragment"><a href="http://www.cs.toronto.edu/~sme/papers/2016/icer_2016_bimodal.pdf">Computer science grades are not bimodal</a></p>
+	  <p class="fragment indent">I.e., there is no geek gene</p>
+	</section>
+
+	<section>
+	  <p class="title">Weak Failures</p>
+	  <p class="fragment">To first order, these books have had no impact</p>
+	  <p class="fragment">We still don't teach science to CS students</p>
+	  <div class="fragment">
+	    <p class="indent">Biologists spend 6 hours/week in the lab</p>
+	    <p class="indent">CS students do one experiment in four years</p>
+	    <p align="center"><img src="img/mad-scientist.png" style="width: 8em"/></p>
+	  </div>
+	</section>
+
+	<section>
+	  <p><img src="img/carpentries-logo.svg" width="80%" /></p>
+	  <p>After teaching programming to scientists for 20 years, I've come to believe that science is a good thing</p>
+	  <p class="fragment">And that statistics is going to be the math that puts the "engineering" in "software engineering"</p>
+	  <p class="fragment">But <em>the curriculum is full</em></p>
+	  <p class="fragment">And <em>we ought to help everyone, not just CS majors</em></p>
+	</section>
+
+	<section>
+	  <p class="title">Measuring Things with Body Parts</p>
+	  <div class="left">
+	    <p align="center"><img src="img/yard.gif"/></p>
+	  </div>
+	  <div class="right">
+	    <p>Thumbs, feet, and arms</p>
+	    <p align="center">==</p>
+	    <p>inches, feet, and yards</p>
+	  </div>
+	  <div style="clear: both">
+	  <p class="fragment">
+	    Measure this way in the US because everyone else does
+	  </p>
+	  <p class="fragment">
+	    So what tools can we reasonably expect most potential learners to already know?
+	  </p>
+	  <p class="fragment">
+	    Or to pick up in one bladder of hands-on instruction
+	  </p>
+	  </div>
+	</section>
+
+	<section>
+	  <p class="title">Today's Choices</p>
+	  <div class="left">
+	    <p><img src="img/spreadsheet.png" /></p>
+	    <p>A functional reactive language<br/>with an intuitive interface</p>
+	  </div>
+	  <div class="fragment right">
+	    <p>
+<pre>
+
+read_csv('infant-hiv.csv') %>%
+  pmap_lgl(function(...) {
+    x <- list(...)
+    all(is.na(x) | (x == ""))
+  }) %>%
+  tibble(empty = .) %>%
+  mutate(id = row_number()) %>%
+  filter(empty) %>%
+  pull(id)
+
+
+
+</pre>
+	    </p>
+	    <p>
+	      A beautiful view<br/>but a very steep hill
+	    </p>
+	  </div>
+	</section>
+
+	<section>
+	  <p class="title">A Tool That Just Works</p>
+	  <p align="center"><img src="img/scratch-screenshot.jpg"/></p>
+	</section>
+
+	<section>
+	  <p class="title">A Tool That Just Works</p>
+	  <p>Multiple studies have found that people learn programming and computational thinking faster using blocks than using text</p>
+	  <div>
+	    <div class="left"><p><img src="img/scratch-cat.png"/></p></div>
+	    <div class="right">
+	      <p class="fragment">Eliminates pointless syntax mistakes</p>
+	      <p class="fragment">Obvious affordances suggest possibilities</p>
+	      <p class="fragment">Plays well on touch-screen devices</p>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <p class="title">A Tool That Just Works …For Some Tasks</p>
+	  <p>
+	    <span class="fragment">Manipulating data is clumsy</span>
+	    <span class="fragment">but doesn't have to be</span>
+	  </p>
+	  <p class="fragment" align="center"><img src="img/yahoo-pipes.jpg"/></p>
+	</section>
+
+	<section>
+	  <p class="title">You Can See Where This Is Going…</p>
+	  <p align="center"><em>Build Scratch blocks for manipulating tabular data</em></p>
+	  <p>&nbsp;</p>
+	  <p class="fragment"><a href="https://developers.google.com/blockly/">Blockly</a> provides the framework</p>
+	  <p class="fragment">The <a href="https://www.tidyverse.org/">tidyverse</a> defines the requirements</p>
+	  <p class="fragment">Millions of people will know how to use it</p>
+	  <p class="fragment">And deployment is a solved problem</p>
+	</section>
+
+	<section>
+	  <p class="title">But Wait, I Have Data</p>
+	  <p>&nbsp;</p>
+	  <table>
+	    <caption><strong>AP Student Numbers 2017</strong></caption>
+	    <tr><td>Calculus</td><td align="right">316,000</td></tr>
+	    <tr><td>Statistics</td><td align="right">215,000</td></tr>
+	    <tr><td>Computer Science</td><td align="right">44,000</td></tr>
+	  </table>
+	  <p>&nbsp;</p>
+	  <p class="fragment">Statistics is an authentic task</p>
+	  <p class="fragment"><em>For teachers as well as for students</em></p>
+	</section>
+
+	<section>
+	  <p class="title">And Then We Can Teach Engineering</p>
+	  <p>"The use of the scientific method to analyze and design structures, devices, and systems."</p>
+	  <p class="fragment">Require statistics rather than calculus for entry into CS</p>
+	  <p class="fragment">Have students analyze software engineering data starting in their first year</p>
+	</section>
+
+	<section>
+	  <p class="title">For Example</p>
+	  <p>
+	    <em>
+	      "Given source code for six software projects, determine whether long functions
+	      have more bugs than short ones."
+	    </em>
+	  </p>
+	  <p class="fragment">Requires tool use, model building, and statistical analysis</p>
+	  <p class="fragment">Students <em>do</em> science, so they <em>understand and value</em> it, so they <em>engage</em> with it later</p>
+	  <p class="fragment">Fits into existing curriculum (implements IFirstYearMath)</p>
+	  <p class="fragment">And is <em>culturally defensible</em></p>
+	</section>
+
+	<section>
+	  <p class="title">Then We Can Teach What <em>Really</em> Matters</p>
+	  <div align="center">
+	    <p>I no longer believe my generation will fix this</p>
+	    <p><img src="img/women-in-cs.jpg" alt="Women in CS" /></p>
+	    <p class="fragment">So we need to raise up a generation that will</p>
+	  </div>
+	</section>
+
+	<section>
+	  <p class="title">This Is Also Software Engineering</p>
+	  <p>
+	    <em>
+	      People of East Asian or South Asian ancestry make up 8% of the
+	      Canadian population, but 60-75% of undergraduates in Computer
+	      Science at major universities.  Write two one-page papers to argue
+	      pro and con that this proves people of European descent are
+	      naturally less capable of abstract reasoning than their Asian
+	      counterparts.
+	    </em>
+	  </p>
+	  <p class="fragment">
+	    And then compare and contrast your arguments with those made about
+	    female under-representation in computing.
+	  </p>
+	</section>
+
+	<section>
+	  <div style="font-size: 85%">
+	  <p>"You'd like Freedom, Truth, and Justice, wouldn't you, Comrade Sergeant?" said Reg encouragingly.</p>
+	  <p>"I'd like a hard-boiled egg," said Vimes, shaking the match out.</p>
+	  <p>There was some nervous laughter, but Reg looked offended. "In the circumstances, Sergeant, I think we should set our sights a little higher—"</p>
+	  <p>"Well, yes, we could," said Vimes. "But…well, Reg, tomorrow the sun will come up again, and I'm pretty sure that whatever happens we won't have found Freedom, and there won't be a whole lot of Justice, and I'm damn sure we won't have found Truth. But it's just possible that I might get a hard-boiled egg."</p>
+	  <p align="right">— Sir Terry Pratchett, <em>Night Watch</em></p>
+	  </div>
+	</section>
+
+	<section>
+	  <div align="center">
+	    <img src="img/dad.jpg" />
+	    &nbsp;&nbsp;&nbsp;&nbsp;
+	    <img src="img/maddie.jpg" />
+	  </div>
+	  <div style="clear: both;" align="center">
+	    <p align="center">Thank you</p>
+	    <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+	  </div>
+	</section>
+
+      </div>
+    </div>
+    <script src="../reveal/lib/js/head.min.js"></script>
+    <script src="../reveal/js/reveal.js"></script>
+    <script>
+      // More info on configuration at https://github.com/hakimel/reveal.js#configuration
+      // More info on dependencies at https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        history: true,
+        center: false,
+        slideNumber: true,
+        dependencies: [
+          { src: '../reveal/plugin/markdown/marked.js' },
+          { src: '../reveal/plugin/markdown/markdown.js' },
+          { src: '../reveal/plugin/notes/notes.js', async: true },
+          { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
