@@ -5,12 +5,11 @@ date: 2017-10-16 05:00:00
 favorite: true
 ---
 
-Every mechanic has her favorite screwdrivers, and every good teacher
-has different kinds of exercises to check that her students are
-actually learning, let them practice their new skills, and keep them
-engaged.  Some types of exercise are well known, but others aren't as
-widely used as they should be. [DataCamp][datacamp] (my current
-employer) supports some of each type, and I'm keen to find both new
+Every mechanic has her favorite screwdrivers, and every good teacher has
+different kinds of exercises to check that her students are actually learning,
+let them practice their new skills, and keep them engaged.  Some types of
+exercise are well known, but others aren't as widely used as they should be.
+Most online coding platforms only support a few, and I'm keen to find both new
 things to try, and new ways to use what we already have.
 
 In order to be considered for inclusion in this article, an exercise
@@ -18,14 +17,12 @@ has to be quick for learners to do, and it has to be possible to check
 the answer automatically. These requirements rule out some useful
 kinds of assessment, but I was surprised by how many remain.
 
-Let's start with the two types of exercise [DataCamp][datacamp] users
-will be most familiar with. The first is a ***multiple choice
-question*** that presents a question and asks the student to pick the
-correct answer from a list.  Doing this might (in fact, should)
-require them to do more than just read and remember, and as a previous
-post discussed, multiple-choice questions are most effective when
-their wrong answers probe for specific misconceptions on the student's
-part.
+Let's start with the two types of exercise people will be most familiar
+with. The first is a ***multiple choice question*** that presents a question and
+asks the student to pick the correct answer from a list.  Doing this might (in
+fact, should) require them to do more than just read and remember, and as a
+previous post discussed, multiple-choice questions are most effective when their
+wrong answers probe for specific misconceptions on the student's part.
 
 > Example: You are in `/home/repl`.  Use `ls` with an appropriate
 > argument to get a listing of the files in the directory
@@ -290,15 +287,14 @@ error message, but in more subtle cases, the student will have to trace
 execution forward and backward to figure out where things first went
 wrong.
 
-[DataCamp][datacamp]'s platform doesn't directly support all of these
-kinds of exercises yet, and there are others that are hard for any
-online platform to provide.  ***Refactoring exercises*** are the
-complement of **theme and variation** exercises: given a working piece
-of code, the student has to modify it in some way *without* changing
-its output. For example, the student could be asked to replace loops
-with vectorized expressions, to simplify the condition in a while
-loop, etc. The challenge here is that there are often so many ways to
-refactor a piece of code that grading requires human intervention.
+Most platforms don't directly support all of these kinds of exercises yet, and
+there are others that are hard for any online platform to provide.
+***Refactoring exercises*** are the complement of **theme and variation**
+exercises: given a working piece of code, the student has to modify it in some
+way *without* changing its output. For example, the student could be asked to
+replace loops with vectorized expressions, to simplify the condition in a while
+loop, etc. The challenge here is that there are often so many ways to refactor a
+piece of code that grading requires human intervention.
 
 > Example: write a single list comprehension that has the same effect
 > as this loop.
@@ -349,5 +345,3 @@ Francis Castro, Katie Cunningham, Brian Dillingham, Mark Guzdial, Ian
 Hawke, Toby Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle
 Quinn, Ariel Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett,
 Stéfan van der Walt, Hadley Wickham, and Andromeda Yelton.*
-
-[datacamp]: http://datacamp.com
