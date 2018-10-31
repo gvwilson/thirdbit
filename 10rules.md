@@ -12,6 +12,16 @@ title: "Ten Simple Rules"
 -   [...Talking People Into Things](#talking-people-into-things)
 -   [...Handing Over and Moving On](#handing-over-and-moving-on)
 
+See also:
+
+-   [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+-   [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+-   [Ten Simple Rules for Making Research Software More Robust](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412)
+-   [Ten Simple Rules for Collaborative Lesson Development](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005963)
+-   [Ten Quick Tips for Teaching Programming](https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1006023)
+
+---
+
 ## ...Teaching
 
 See *[Teaching Tech Together][t3]* for a much longer discussion.
