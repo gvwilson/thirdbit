@@ -57,7 +57,7 @@ our tools would automatically re-represent programs at different levels,
 so that with a click of a button we could view our code as either:
 
 ```
-hosts = links.map(a => a.href.split(':')[1].split('/')[0]).unique()
+hosts <- links.map(a => a.href.split(':')[1].split('/')[0]).unique()
 ```
 
 or:
