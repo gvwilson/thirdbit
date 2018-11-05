@@ -63,13 +63,13 @@ hosts <- links.map(a => a.href.split(':')[1].split('/')[0]).unique()
 or:
 
 ```
-hosts = []
-for (a in links) {
+hosts <- []
+for (each a in links) do
   temp <- attr(a, 'href').split(':')[1].split('/')[0]
-  if (not (temp in hosts)) {
+  if (not (temp in hosts)) do
     hosts.append(temp)
-  }
-}
+  end
+end
 ```
 
 just as we could change the colors used for syntax highlighting
@@ -83,3 +83,5 @@ I'm as likely to get a pony for Christmas as I am to see that in my lifetime,
 so for now I'll focus on ways to clearly identify who lessons are for
 and to make sure that we're teaching everyone at their most comfortable level of abstraction
 rather than our own.
+
+**Later:** see also [the next post in this series]({{site.github.url}}/2018/11/05/abstraction-comprehension.html).
