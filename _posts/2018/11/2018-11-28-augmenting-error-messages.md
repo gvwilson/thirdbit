@@ -4,7 +4,7 @@ date: 2018-11-28 02:45
 title: "Augmenting Error Messages"
 ---
 
-*Posted on behalf of a colleague---if you're a Python programmer, and would like to help make using the language easier, they'd appreciate hearing from you.*
+*Posted on behalf of a colleague: if you're a Python programmer, and would like to help make using the language easier, they'd appreciate hearing from you.  You can contact them by email, or sign up at <https://tinyurl.com/better-python-errors>.*
 
 We're a team of researchers from the University of Adelaide in Australia, and
 we're trying to make the lives of Python developers easier by producing better
