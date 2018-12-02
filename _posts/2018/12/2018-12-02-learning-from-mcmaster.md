@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2018-12-02 01:57
-title: "Reverse Instructional Design"
+title: "Learning from McMaster"
 ---
 
 The medical program at McMaster University is one of the best in Canada.
