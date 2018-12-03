@@ -38,7 +38,23 @@ A few things that came out of it:
     put on your own mask first,
     then help the person beside you.)
 
+6.  Don't measure success solely based on the performace of auto-didacts:
+    your module might save them some time,
+    but they'll learn with or without you.
+    Instead,
+    measure performance by looking at general classroom adoption.
+
+7.  Don't rely solely (or even primarily) on analytics to figure out what's going on or how well you're doing,
+    because one of the biggest causes of lack of success is misunderstanding how teachers use material (or don't).
+    Unfortunately, "open" often means "no support", which in turn means that the only insight creators get is from a distance.
+    In practice,
+    the best information comes from talking with teachers and listening carefully to what's going on.
+    Often they won't have correctly diagnosed the problem,
+    but they know there *is* a problem,
+    or they are confused about something,
+    or missing something to make the thing work.
+
 I've got a lot to think about.
 In particular,
 "Stack Overflow for teachers" doesn't seem to have been tried yet at scale,
-and once again I'm back to Caulfield's [choral explanations](https://hapgood.us/2016/05/13/choral-explanations/).
+and once again I'm back to [choral explanations](https://hapgood.us/2016/05/13/choral-explanations/).
