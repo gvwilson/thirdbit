@@ -26,6 +26,18 @@ A few things that came out of it:
     3.  The mediocre middle.
     4.  Reducing barriers such as licensing that inhibit remixing (which is not the same as unmodified re-use).
 
+5.  The best way to help at-risk students and create more diversity in professions that lack it
+    is not to create more self-study materials,
+    because that's subject to the [Matthew Effect](https://en.wikipedia.org/wiki/Matthew_effect)
+    (the rich get richer and the poor get poorer).
+    Instead,
+    the best way to help people is to support teachers who are already helping those groups.
+    (Quoting [Mike Caulfield](https://hapgood.us/2018/12/02/empower-teachers-first/),
+    it's like the advice they give you on planes:
+    in event of sudden decompression,
+    put on your own mask first,
+    then help the person beside you.)
+
 I've got a lot to think about.
 In particular,
 "Stack Overflow for teachers" doesn't seem to have been tried yet at scale,
