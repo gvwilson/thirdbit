@@ -105,6 +105,11 @@ paragraph immediately below the H1-level title").  As Carl said, parsing this
 will be more complicated than parsing YAML, but on the other hand, I think
 people might actually write this.
 
+> Another late-breaking change is the introduction of a `sources` field,
+> which lists the lesson or lessons that this lesson is (partially) derived from.
+> These entries are supposed to be links to those other lessons' `lesson.md` files;
+> if the source lesson doesn't have one, it should go under `reading` instead.
+
 Note that this still doesn't describe pre-requisite knowledge: in my experience,
 authors' lists are always incomplete, and I believe it will be more accurate to
 scrape the content for use of terms defined in selected glossaries (and in other
@@ -131,6 +136,7 @@ registered lessons).  And yes, it's still too long: what can we cut?
 1.  `glossary`: list of defined terms (preferably linking to external definitions rather than defining here) [list of text].
 1.  `requirements`: list of tools/packages required [text].
 1.  `instructions`: point-form list of instructions for learners [list of text].
+1.  `sources`: other lessons that this lesson draws on [list of links to other `lesson.md` files].
 1.  `reading`: other things to read [list of text].
 
 ```
@@ -197,4 +203,13 @@ more attention.
 - "Download and unzip lesson."
 - "install.packages('frequentist_heresy')"
 - "Open exercise.Rmd."
+```
+
+## Sources
+
+- http://euphoric.edu/katherines-awesome-stats-lesson/lesson.md
+
+## Reading
+
+- [Normality tests](https://en.wikipedia.org/wiki/Normality_test): Wikipedia article
 ```
