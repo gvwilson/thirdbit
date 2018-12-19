@@ -340,6 +340,8 @@ An example of a `lesson.md` file is shown below.
 ```
 # Tests of Univariate Normality
 
+## Overview
+
 Describes and compares three ways to test if univariate data is normally distributed.
 
 - author: "Walter Bishop"
@@ -377,7 +379,7 @@ Describes and compares three ways to test if univariate data is normally distrib
 
 - "68_95_997_rule"
 - "shapiro_wilk_test"
-- "ecf_test"[6][7]
+- "ecf_test"
 
 ## Requirements
 
