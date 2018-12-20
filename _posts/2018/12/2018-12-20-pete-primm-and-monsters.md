@@ -13,7 +13,7 @@ and would like your help.
 A lesson structure isn't an activity or a presentation mode;
 rather,
 it's a sequence of those akin to the chord changes in a song.
-Here are three examples:
+Here are <strike>three</strike> four examples:
 
 - [PRIMM](http://blogs.kcl.ac.uk/cser/2017/09/01/primm-a-structured-approach-to-teaching-programming/)
   stands for "Predict, Run, Investigate, Modify, Make".
@@ -30,6 +30,15 @@ Here are three examples:
   gives the general theory or concept underlying the solution,
   then presents a second example so that learners can see what's intrinsic (i.e., what generalizes)
   and what's accidental.
+
+- [ADEPT](https://betterexplained.com/articles/adept-method/) is
+  "Analogy, Diagram, Example, Plain English, Technical definition".
+  In other words,
+  tell learners what it's like,
+  use [dual coding](http://www.learningscientists.org/dual-coding) to reinforce the message,
+  provide a concrete instance (preferably drawn from authentic experience),
+  go through it in everyday language,
+  and only then hit them with definitions and abstractions.
 
 - C&R stands for "Challenge and Response".
   The instructor presents a simple problem that has a simple solution,
