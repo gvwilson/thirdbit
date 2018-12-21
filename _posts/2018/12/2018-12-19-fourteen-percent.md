@@ -4,12 +4,12 @@ date: 2018-12-19 02:00
 title: "Fourteen Percent and a Change of Direction"
 ---
 
-*Following on from [previous]({{site.github.url}}/2018/12/12/twelve-percent.html)
-[posts]({{site.github.url}}/2018/12/17/thirteen-percent.html)
-about sharing lessons
-(which were actually more about discoverability),
-this post is yet another re-think,
-and is based in part on a conversation with [François Michonneau](https://francoismichonneau.net/).*
+> Following on from [previous]({{site.github.url}}/2018/12/12/twelve-percent.html)
+> [posts]({{site.github.url}}/2018/12/17/thirteen-percent.html)
+> about sharing lessons
+> (which were actually more about discoverability),
+> this post is yet another re-think,
+> and is based in part on a conversation with [François Michonneau](https://francoismichonneau.net/).
 
 1.  It's pretty clear at this point that
     most people aren't going to teach someone else's lesson exactly as written,

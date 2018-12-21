@@ -4,6 +4,9 @@ date: 2018-12-12 02:00
 title: "Twelve Percent of a Plan"
 ---
 
+> Please see [this post]({{site.github.url}}/2018/12/17/thirteen-percent.html)
+> and [this one]({{site.github.url}}/2018/12/19/fourteen-percent.html) for follow-on thoughts.
+
 I've spent much of the last eight years teaching people
 [how to develop lessons collaboratively](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005963)
 and [wondering why they don't do it more often]({{site.github.url}}/2016/04/29/why-teachers-dont-collaborate.html).
@@ -304,6 +307,8 @@ The fields in `lesson.md` are:
 1. url: definitive URL for the directory containing the lesson as a whole (not this file) [text].
 1. date: date of last modification [datetime as text].
 1. license: name of license [text].
+   I really hope we don't need to allow for multiple licenses (one for prose, the other for code)
+   since [research shows that people find multiple licenses confusing](https://link.springer.com/epdf/10.1007/s10664-018-9614-9).
 1. copyright: name of copyright holder [text].
 1. glossary: URL of glossary in which terms are defined [text].
 1. package: URL of zip file containing starting materials for exercise(s) [text].
@@ -405,20 +410,27 @@ this lesson will show up under two question headings and three glossary definiti
    the lessons indexed by our site show up near the top of her search,
    just as Stack Overflow answers show up near the top of a search for a technical question.
 2. She comes to our site and does a targeted search for her question or keywords.
-3. She subscribes to a question or keyword and Feedly tells her when something new appears or something relevant is updated.
+3. She subscribes to a question or keyword
+   and [Feedly](http://feedly.com) or some other feed reader
+   tells her when something new appears or something relevant is updated.
 
 ### How does an author register a lesson?
 
 1. They create a directory on their website with a meaningful name that includes a `lesson.md` file
    and possibly a zip file containing starter materials (if the lesson's exercises need any).
 2. They sign into their account on our site and register the URL of the lesson directory.
-3. Our site validates their lesson and does some fuzzy matching to suggest rewording of questions or keywords
-   to match questions already registered.
+3. Our site validates their lesson.
 
 As noted above,
 we *don't* allow people to register lessons that they don't control,
 i.e.,
 they have to be able to add `lesson.md` to the lesson's website in order for us to accept the registration.
+
+Critically,
+our site does some fuzzy matching to suggest rewording of questions or keywords
+to match ones in lessons that are already registered.
+The term "[folksonomy](https://en.wikipedia.org/wiki/Folksonomy)" seems to have lost its luster,
+but encouraging convergence on a shared vocabulary seems crucial to making all of this work.
 
 ### How does an author update a lesson?
 
@@ -446,6 +458,8 @@ Note that we archive past `lesson.md` files, but not the actual lesson content.
    and intuitive comparisons are likely to be hindered by most authors' and instructors' lack of training in pedagogy.
    We could therefore wind up making the same mistake as
    [relying on student evaluations of courses](https://www.sciencedirect.com/science/article/pii/S0191491X16300323).
+   We could try to weight votes by reputation or the like,
+   but that feels like something we could worry about later.
 1. There is nothing in the `lesson.md` file that describes the intended audience for the lesson
    (e.g., how sophisticated they are).
    I'm a big fan of learner personas,
@@ -464,14 +478,14 @@ Note that we archive past `lesson.md` files, but not the actual lesson content.
 1. Should the license key be a link to a license rather than an acronym?
 1. The "Requirements" field in `lesson.md` is designed to specify packages and tools
    but not things like "access to a yottabyte of temporary storage".
+1. We'll need to provide "export to XYZ" to make incorporation into various LMSes easy.
 1. Is it too geeky to suggest adding a `<link type="application/lesson+yaml".../>` header to lessons' home pages?
-   Yes?
-   OK.
+   It is? OK.
 
 ## Next Steps
 
 I'm grateful to Mike Caulfield, Alyson Indrunas, David Wiley Udell, Bracken Mosbacker,
-Mine Çetinkaya-Rundel, Garrett Grolemund, Alison Hill, and Jon Udell for their comments,
+Mine Çetinkaya-Rundel, Garrett Grolemund, Alison Hill, Jon Udell, and Neal Davis for their comments,
 and to Peter Quill for show us all that
 [you only need twelve percent of a plan](https://www.youtube.com/watch?v=XC8qrH3Zwog)
 to save the world.
