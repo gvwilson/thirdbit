@@ -58,6 +58,10 @@ produced [this book](https://www.amazon.com/-/dp/1479171824),
 but work seems to have stopped several years ago,
 and many of its patterns are at the level of course design
 rather than lesson design.
+[This page](http://www.ld-grid.org/resources/representations-and-languages/design-patterns/patterncollections)
+on the Learning Design Grid site has links to other pattern sites,
+but again,
+work seems to have ground to a halt.
 I'm sure there's got to be more out there,
 and I'd be very grateful for pointers---please
 [email me](mailto:gvwilson@third-bit.com) if you have any.
