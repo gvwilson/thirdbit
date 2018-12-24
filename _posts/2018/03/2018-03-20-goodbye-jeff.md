@@ -14,7 +14,7 @@ we discovered that we liked each other.
 I remember arguing about the nature of beauty,
 and going to see *Stop Making Sense* half a dozen times,
 and crashing on his couch in later years whenever I came back to Canada.
-I remember meeting the woman he married for the first time,
+I remember the first time I met the wonderful woman he married,
 and holding his newborn sons,
 and endless games of chess.
 I remember him coming down to Boston to spend a few days with me
