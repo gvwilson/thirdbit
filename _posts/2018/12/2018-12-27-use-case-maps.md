@@ -63,3 +63,5 @@ There are a ton of GUI tools around for creating executable dataflow diagrams,
 but mapping them to databases, services, and users
 (who are a crucial to how every real data analysis unfolds)
 would be pretty cool.
+
+(Diagrams are taken from slides that John Reekie kindly sent me back in 2007.)
