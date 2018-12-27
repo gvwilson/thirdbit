@@ -1,0 +1,21 @@
+---
+layout: plain
+permalink: /twitter/
+title: "Twitter"
+nocomments: true
+accounts:
+- ["sadieannel", "k8hert", "neilccbrown", "judell"]
+- ["thecarpentries", "ctitusbrown", "guzdial", "gdnlongread"]
+---
+
+{% for group in page.accounts %}
+<div class="row">
+  {% for acct in group %}
+  <div class="col-md-3">
+    <a class="twitter-timeline" data-width="220" tweet-limit="5" href="https://twitter.com/{{acct}}?ref_src=twsrc%5Etfw">{{acct}}</a>
+  </div>
+  {% endfor %}
+</div>
+{% unless forloop.last %}<p><hr/></p>{% endunless %}
+{% endfor %}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
