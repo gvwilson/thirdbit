@@ -13,7 +13,7 @@ and would like your help.
 A lesson structure isn't an activity or a presentation mode;
 rather,
 it's a sequence of those akin to the chord changes in a song.
-Here are <strike>three</strike> four examples:
+Here are <strike>three</strike> <strike>four</strike> five examples:
 
 - [PRIMM](http://blogs.kcl.ac.uk/cser/2017/09/01/primm-a-structured-approach-to-teaching-programming/)
   stands for "Predict, Run, Investigate, Modify, Make".
@@ -47,6 +47,14 @@ Here are <strike>three</strike> four examples:
   One of its shortcomings is then singled out and solved and so on.
   (This is how most contributors to *[AOSA](http://aosabook.org)* described software architecture:
   through historical recapitulation of breakdown and remediation.)
+
+- Concrete-Representational-Abstract (CRA) is primary used with younger learners.
+  The concrete stage involves physically manipulating objects to solve a problem
+  (e.g., piling blocks to do addition).
+  In the representational stage,
+  images are used to represent those objects,
+  and in the final abstract stage,
+  the learner uses numbers or symbols.
 
 A lesson structure feels like a design pattern,
 but when I search for "design patterns for lessons",
