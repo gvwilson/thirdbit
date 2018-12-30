@@ -45,7 +45,8 @@ who encouraged universities to offer distance education courses in the 1890s.
 
 I'm grateful to Mike Caulfield,
 Alyson Indrunas,
-David Wiley Udell,
+David Wiley,
+Jon Udell,
 Bracken Mosbacker,
 Mine Çetinkaya-Rundel,
 Garrett Grolemund,
