@@ -276,6 +276,9 @@ Notes:
     (rather than terms defined in the glossary itself)
     and tools mentioned in the learner setup instructions in the zip file
     to compile a list of prerequisite knowledge.
+-   The original proposal had a Feedback section
+    that authors could use to explain where and how they wanted feedback.
+    This proposal assumes [hypothes.is][hypothesis] everywhere.
 
 An example of a `lesson.md` file is shown below;
 
@@ -470,6 +473,7 @@ Note that we archive past `lesson.md` files, but not the actual lesson content.
 [harper-william]: https://en.wikipedia.org/wiki/William_Rainey_Harper
 [hidden-lives]: https://www.amazon.com/Hidden-Lives-Learners-Graham-Nuthall/dp/1877398241/
 [huston-book]: https://www.amazon.com/Teaching-What-You-Dont-Know/dp/0674066170/
+[hypothesis]: https://web.hypothes.is/
 [lessons-learned]: https://f1000research.com/articles/3-62/v2
 [mailto]: mailto:gvwilson@third-bit.com
 [oer-landmines]: {{site.github.url}}/2018/12/02/oer-landmines.html
