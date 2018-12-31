@@ -4,15 +4,23 @@ permalink: /twitter/
 title: "Twitter"
 nocomments: true
 accounts:
-- ["sadieannel", "k8hert", "neilccbrown", "judell"]
-- ["thecarpentries", "ctitusbrown", "guzdial", "gdnlongread"]
-- ["sarahmei", "irvingreid", "sarahkendzior"]
+- ["gvwilson", "sadieannel", "neilccbrown", "judell"]
+- ["k8hert", "thecarpentries", "ctitusbrown", "guzdial"]
+- ["sarahmei", "irvingreid", "sarahkendzior", "gdnlongread"]
 ---
 
+<p>
+  {% for group in page.accounts %}
+  {% for acct in group %}
+  <a href="#{{acct}}">{{acct}}</a>
+  {% endfor %}
+  {% endfor %}
+</p>
+<hr/>
 {% for group in page.accounts %}
 <div class="row">
   {% for acct in group %}
-  <div class="col-md-3">
+  <div class="col-md-3" id="{{acct}}">
     <a class="twitter-timeline" data-width="220" tweet-limit="5" href="https://twitter.com/{{acct}}?ref_src=twsrc%5Etfw">{{acct}}</a>
   </div>
   {% endfor %}
