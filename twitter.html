@@ -8,16 +8,17 @@ accounts:
 - ["k8hert", "thecarpentries", "ctitusbrown", "guzdial"]
 - ["sarahmei", "irvingreid", "sarahkendzior", "gdnlongread"]
 ---
-
+<nav class="navbar navbar-dark bg-dark fixed-top">
 <p>
   {% for group in page.accounts %}
   {% for acct in group %}
   <a href="#{{acct}}">{{acct}}</a>
   {% endfor %}
-  {% unless forloop.last %} | {% endunless %}
+  {% unless forloop.last %} :: {% endunless %}
   {% endfor %}
 </p>
-<hr/>
+</nav>
+<main role="main">
 {% for group in page.accounts %}
 <div class="row">
   {% for acct in group %}
@@ -28,4 +29,5 @@ accounts:
 </div>
 {% unless forloop.last %}<p><hr/></p>{% endunless %}
 {% endfor %}
+</main>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
