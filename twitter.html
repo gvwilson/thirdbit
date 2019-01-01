@@ -8,24 +8,26 @@ accounts:
 - ["k8hert", "thecarpentries", "ctitusbrown", "guzdial"]
 - ["sarahmei", "irvingreid", "sarahkendzior", "gdnlongread"]
 ---
-
+<nav class="navbar navbar-dark bg-dark fixed-top">
 <p>
   {% for group in page.accounts %}
   {% for acct in group %}
   <a href="#{{acct}}">{{acct}}</a>
   {% endfor %}
-  {% unless forloop.last %} | {% endunless %}
+  {% unless forloop.last %} :: {% endunless %}
   {% endfor %}
 </p>
-<hr/>
+</nav>
+<main role="main">
 {% for group in page.accounts %}
 <div class="row">
   {% for acct in group %}
   <div class="col-md-3" id="{{acct}}">
-    <a class="twitter-timeline" data-width="220" tweet-limit="5" href="https://twitter.com/{{acct}}?ref_src=twsrc%5Etfw">{{acct}}</a>
+    <a class="twitter-timeline" data-width="220" data-tweet-limit="5" href="https://twitter.com/{{acct}}?ref_src=twsrc%5Etfw">{{acct}}</a>
   </div>
   {% endfor %}
 </div>
 {% unless forloop.last %}<p><hr/></p>{% endunless %}
 {% endfor %}
+</main>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
