@@ -43,16 +43,19 @@ who encouraged universities to offer distance education courses in the 1890s.
 
 ### Acknowledgments {#s:acknowledgments}
 
-I'm grateful to Mike Caulfield,
-Alyson Indrunas,
-David Wiley,
-Bracken Mosbacker,
+I'm grateful to
+Mike Caulfield,
 Mine Çetinkaya-Rundel,
+Neal Davis,
 Garrett Grolemund,
 Alison Hill,
+Alyson Indrunas,
+Bracken Mosbacker,
+Nick Radcliffe,
+Alasdair Smith,
 Jon Udell,
-Neal Davis,
-and Nick Radcliffe for their comments,
+and David Wiley
+for comments,
 and to Peter Quill for show us that
 [you only need twelve percent of a plan][guardians-video] to save the galaxy.
 Everything that's still naive, confused, or just plain wrong is my responsibility;
@@ -219,12 +222,15 @@ Our delivery mechanisms for getting lessons to learners are:
 
 ### Lesson Registration
 
-Authors create one extra text file called `lesson.md` and put it in the lesson's root directory.
-(This is inspired by the `feed.xml` and `feed.rss` files used for blogging.)
-This file is formatted as Markdown rather than YAML, JSON, or anything else
+Authors create one extra text file called `harper.md` and put it in the lesson's root directory.
+`harper.md` is formatted as Markdown rather than YAML, JSON, or anything else
 because Markdown is the simplest set of rules for non-programmers to understand.
+This single-file convention is inspired by the `feed.xml` and `feed.rss` files used for blogging,
+and by the `README.md` and `LICENSE.md` files now commonly used in software projects;
+we use the name `harper.md` because Alasdair Smith pointed out that
+some systems use `lesson.md` for the actual content of the lesson.
 
-`lesson.md` contains the following information, in the specified order.
+`harper.md` contains the following information, in the specified order.
 (We use 'an H2 "XYZ"' to mean 'a level-2 heading with the text "XYZ"'.)
 
 1.  title: short title of lesson (level-1 heading).
@@ -253,7 +259,7 @@ because Markdown is the simplest set of rules for non-programmers to understand.
 Notes:
 
 -   The original proposal required a URL for the glossary and a point-form list of keys into that glossary
-    rather than embedding the glossary directly in `lesson.md`.
+    rather than embedding the glossary directly in `harper.md`.
     The idea was that this would encourage people to refer to shared glossaries,
     which would in turn encourage them to use a shared vocabulary for lessons.
     Feedback indicated that this was too complicated;
@@ -280,7 +286,7 @@ Notes:
     that authors could use to explain where and how they wanted feedback.
     This proposal assumes [hypothes.is][hypothesis] everywhere.
 
-An example of a `lesson.md` file is shown below;
+An example of a `harper.md` file is shown below;
 
 ```
 # Tests of Univariate Normality
@@ -336,7 +342,7 @@ needs more attention.
 We support collaboration with a voting mechanism like [Stack Overflow][stack]'s,
 but with subject headings drawn from lessons:
 
-1.  An author registers a lesson by providing the URL to its `lesson.md` file,
+1.  An author registers a lesson by providing the URL to its `harper.md` file,
     just as someone can register a blog by providing a URL to an aggregator.
 
 2.  The site extracts the motivating questions and defined terms from the Markdown
@@ -356,7 +362,7 @@ but with subject headings drawn from lessons:
     after providing a URL for a lesson,
     the author is walked through a very simple online form that asks for the information that goes in the lesson's Markdown file.
     We save that information and give it back to them to download and add to the lesson.
-    We still require that the `lesson.md` file be in the lesson's root directory to complete registration
+    We still require that the `harper.md` file be in the lesson's root directory to complete registration
     as a check on authenticity:
     allowing person X to describe a lesson created by person Y opens up too many opportunities for abuse.
 
@@ -387,15 +393,15 @@ but with subject headings drawn from lessons:
 
 ### How does an author register a lesson?
 
-1. They create a directory on their website with a meaningful name that includes a `lesson.md` file
+1. They create a directory on their website with a meaningful name that includes a `harper.md` file
    and possibly a zip file containing starter materials (if the lesson's exercises need any).
 2. They sign into their account on our site and register the URL of the lesson directory.
-3. Our site validates their `lesson.md` file.
+3. Our site validates their `harper.md` file.
 
 As noted above,
 we *don't* allow people to register lessons that they don't control,
 i.e.,
-they have to be able to add `lesson.md` to the lesson's website in order for us to accept the registration.
+they have to be able to add `harper.md` to the lesson's website in order for us to accept the registration.
 
 Critically,
 our site does some fuzzy matching to suggest rewording of learning objectives or glossary terms
@@ -436,7 +442,7 @@ we provide a "please register this" workflow:
     go to "My Lessons",
     and push the "update" button next to the lesson in question.
 
-Note that we archive past `lesson.md` files, but not the actual lesson content.
+Note that we archive past `harper.md` files, but not the actual lesson content.
 (We are not a repository, we're an index.)
 
 ### How does a learner do a lesson?
@@ -450,17 +456,17 @@ Note that we archive past `lesson.md` files, but not the actual lesson content.
 
 ## Questions and Comments {#s:questions}
 
-1.  There is nothing in the `lesson.md` file that describes the intended audience for the lesson
+1.  There is nothing in the `harper.md` file that describes the intended audience for the lesson
     (e.g., how sophisticated they are).
     I'm a big fan of learner personas,
     and I think it's reasonable to ask people to write a couple of paragraphs to explain who the lesson is for,
     but the "Context" section should give us enough to start.
-2.  There is nothing in `lesson.md` to connect the lesson to curriculum guidelines.
+2.  There is nothing in `harper.md` to connect the lesson to curriculum guidelines.
     While we can debate their relevance,
     linking to them would help instructors find relevant lessons
     and possibly help get buy-in from professional bodies.
 3.  Should the license key be a link to a license rather than an acronym?
-4.  The "Requirements" field in `lesson.md` is designed to specify packages and tools
+4.  The "Requirements" field in `harper.md` is designed to specify packages and tools
     but not things like "access to a yottabyte of temporary storage".
 5.  We'll need to provide "export to XYZ" to make incorporation into various LMSes easy.
 
