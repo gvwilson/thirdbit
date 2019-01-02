@@ -6,10 +6,10 @@ title: "Harper: Lesson Discovery and Aggregation"
 
 # Harper: Lesson Discovery and Aggregation
 
--   [Our View of the World](#s:worldview)
--   [Our Proposal](#s:proposal)
--   [Our Community](#s:community)
+-   [Proposal](#s:proposal)
+-   [Community](#s:community)
 -   [Usage](#s:usage)
+-   [Forces](#s:forces)
 -   [Questions](#s:questions)
 
 Harper's goal is better learning outcomes with less effort.
@@ -52,6 +52,7 @@ Alison Hill,
 Alyson Indrunas,
 Bracken Mosbacker,
 Nick Radcliffe,
+Raniere Silva,
 Alasdair Smith,
 Jon Udell,
 and David Wiley
@@ -62,7 +63,265 @@ Everything that's still naive, confused, or just plain wrong is my responsibilit
 I'd be very grateful for feedback [by email][mailto]
 or as comments on this page.
 
-## Our View of the World {#s:worldview}
+## Proposal {#s:proposal}
+
+*We have moved the proposal itself to the top of this file
+because we <strike>believe</strike> hope that's what people will be most interested in.
+See the section [Forces](#s:forces) for a discussion of motivating factors.*
+
+### Lesson Registration
+
+Authors create one extra text file called `harper.md` and put it in the lesson's root directory.
+`harper.md` is formatted as Markdown rather than YAML, JSON, or anything else
+because Markdown is the simplest set of rules for non-programmers to understand.
+This single-file convention is inspired by the `feed.xml` and `feed.rss` files used for blogging,
+and by the `README.md` and `LICENSE.md` files now commonly used in software projects;
+we use the name `harper.md` because Alasdair Smith pointed out that
+some systems use `lesson.md` for the actual content of the lesson.
+
+`harper.md` contains the following information, in the specified order.
+(We use 'an H2 "XYZ"' to mean 'a level-2 heading with the text "XYZ"'.)
+
+1.  title: short title of lesson (level-1 heading).
+1.  abstract: an untitled single-paragraph summary (untitled paragraph immediately below `title`) followed by:
+    1.  url: location of lesson.
+    1.  author: author's name or comma-separated list of authors' names.
+    1.  contact: contact email address.
+    1.  date: date of last modification (ISO format please).
+    1.  license: name of license.
+    1.  copyright: name of copyright holder.
+    1.  package: URL of zip file containing starting materials for exercise(s).
+    1.  doi: the lesson's DOI (optional).
+    1.  language: the human language of the lesson (not the programming language).
+1.  context: an H2 "Context" with the background or context for the lesson.
+1.  requirements: an H2 "Requirements" followed by point-form list of required tools and packages.
+    The "requirements" implicitly specify things like "what language does this use?"
+    We don't ask for this explicitly because that question may not be relevant
+    (e.g., for a question about ethics of data sharing)
+    and because a single answer might be wrong
+    (e.g., for a lesson that uses the Unix shell, Python, and SQLite).
+1.  timeframe: an H2 "Timeframe" followed by a point-form list of
+    how long it takes to deliver or do the lesson.
+1.  objectives: an H2 "Objectives" followed by point-form list of learning objectives (see below).
+1.  glossary: an H2 "Glossary" followed by point-form list of terms and definitions (see below).
+1.  keypoints: an H2 "Key Points" followed by point-form list suitable for inclusion in a cheatsheet.
+1.  sources: an H2 "Sources" followed by a point-form list of links (see below).
+
+Notes:
+
+-   The original proposal required a URL for the glossary and a point-form list of keys into that glossary
+    rather than embedding the glossary directly in `harper.md`.
+    The idea was that this would encourage people to refer to shared glossaries,
+    which would in turn encourage them to use a shared vocabulary for lessons.
+    Feedback indicated that this was too complicated;
+    instead,
+    we will look at the glossary entries of registered lessons and try to consolidate them automatically.
+
+-   Materials that learners need to do a lesson are distributed as a zip file
+    that unpacks to create a single directory named something like `stat454-exercise03`.
+    As noted earlier,
+    this isn't as straightforward as many technically sophisticated people believe,
+    but it's the simplest thing we can rely on
+    that will handle pretty much anything we want to provision.
+
+-   The original proposal required the setup instructions for learners in the lesson description.
+    Since learners need these instructions,
+    and we can extract them from the zip file,
+    that redundancy has been removed.
+
+-   There is no explicit "background knowledge",
+    since these are almost always under-estimates of what's actually required.
+    Instead,
+    we will extract words used in glossary definitions
+    (rather than terms defined in the glossary itself)
+    and tools mentioned in the learner setup instructions in the zip file
+    to compile a list of prerequisite knowledge.
+
+-   The original proposal had a Feedback section
+    that authors could use to explain where and how they wanted feedback.
+    This proposal assumes [hypothes.is][hypothesis] everywhere.
+
+-   We encourage people to include links to other Harper files in "Sources"
+    so that we can trace lessons' ancestry more easily.
+    We encourage them even more strongly to use the archived permanent link on the Harper site
+    rather than linking directly to the `harper.md` file on the author's site,
+    since that will probably be longer-lived.
+
+An example of a `harper.md` file is shown below;
+
+```
+# Tests of Univariate Normality
+
+Describes and compares three ways to test if univariate data is normally distributed.
+
+-   url: http://stats.fringe.tv/stats454/normality.html
+-   author: Walter Bishop
+-   contact: w.bishop@fringe.tv
+-   date: 2018-12-05
+-   license: CC-BY-NC-ND
+-   copyright: Kelvin Genetics, Inc.
+-   package: http://stats.fringe.tv/stats454/normality/stats454-normality.zip
+-   language: English
+
+## Context
+
+This material was originally developed as part of a sequence on data integrity
+for seniors and graduate students in statistics, then modified for delivery in
+conference workshops.  The univariate material feels pretty solid at this point;
+the multivariate material has only been used a couple of times, and probably
+needs more attention.
+
+## Requirements
+
+-   R (>= 3.5)
+
+## Timeframe
+
+-   Three lectures hours plus three hours of homework.
+-   A half-day hands-on workshop doing one exercise per section.
+
+## Objectives
+
+-   Describe the 68-95-99.7 rule and explain why it works and when it fails.
+-   Describe and apply the Shapiro-Wilk test for normality of univariate data.
+-   Describe and apply the ECF test for normality of multivariate data.
+
+## Glossary
+
+-   68/95/997 Rule: ...definition...
+-   Shapiro-Wilk test: ...definition...
+-   ECF test: ...definition...
+
+## Keypoints
+
+-   68% of data should lie within one SD of the mean, 95% within two, and 99.7% within three.
+-   Use shapiro.test(data) to check normality of univariate data.
+-   The StableEstim package implements the ECF test for multivariate data.
+
+## Sources
+
+-   [Original lesson](http://euphoric-state.edu/stats/~bishop/stats-notes.html)
+-   [Properties of the normal distribution](http://harper.org/r/stats-normal-172ztq/)
+```
+
+## Community {#s:community}
+
+We support collaboration with a voting mechanism like [Stack Overflow][stack]'s,
+but with subject headings drawn from lessons:
+
+1.  An author registers a lesson by providing the URL to its `harper.md` file,
+    just as someone can register a blog by providing a URL to an aggregator.
+
+2.  The site extracts the motivating questions and defined terms from the Markdown
+    and displays the lesson under each of those headings (like a possible answer to a question on Stack Overflow).
+    Indexing by question helps novices find things;
+    indexing by key terms is probably more useful to competent practitioners who already know what they're looking for.
+
+3.  When someone views the page for a question or term,
+    they can provide comments on the lessons that appear there and upvote or downvote them.
+    This means that a single lesson could appear as the top "answer" to one question and the third "answer" to another.
+
+4.  Each lesson has its own RSS feed,
+    so authors and instructors can subscribe to notifications about things they're interested in.
+    (We can add this for questions and terms as well, so that if a new lesson appears, interested parties can be notified.)
+
+5.  We will also provide an interactive upload mode:
+    after providing a URL for a lesson,
+    the author is walked through a very simple online form that asks for the information that goes in the lesson's Markdown file.
+    We save that information and give it back to them to download and add to the lesson.
+    We still require that the `harper.md` file be in the lesson's root directory to complete registration
+    as a check on authenticity:
+    allowing person X to describe a lesson created by person Y opens up too many opportunities for abuse.
+
+5.  When someone registers a new lesson or an update to an existing one,
+    the site walks them through a very short workflow to get excerpts from their lessons onto our site.
+    We do this for the same reason that blog aggregators display short excerpts from blog posts:
+    so that people can tell in advance whether those posts might be worth reading.
+    1.  For each of the learning objectives they have listed,
+        a pop-up opens that displays their lesson's site.
+    2.  The author navigates in this pop-up to the part of their lesson
+        that is most closely connected to that learning objective,
+        highlights a short excerpt of the lesson,
+        and clicks "OK".
+    3.  That excerpt is then displayed on our site under their lesson's heading for that objective.
+
+## Usage {#s:usage}
+
+### How does an instructor find a lesson?
+
+1. She does a DuckDuckGo search for the word "lesson" and the keywords or questions she's interested in.
+   If we've done our job right,
+   the lessons indexed by our site show up near the top of her search,
+   just as Stack Overflow answers show up near the top of a search for a technical question.
+2. She comes to our site and does a targeted search for her question or keywords.
+3. She subscribes to a question or keyword
+   and [Feedly][feedly] or some other feed reader
+   tells her when something new appears or something relevant is updated.
+
+### How does an author register a lesson?
+
+1. They create a directory on their website with a meaningful name that includes a `harper.md` file
+   and possibly a zip file containing starter materials (if the lesson's exercises need any).
+2. They sign into their account on our site and register the URL of the lesson directory.
+3. Our site validates their `harper.md` file.
+
+As noted above,
+we *don't* allow people to register lessons that they don't control,
+i.e.,
+they have to be able to add `harper.md` to the lesson's website in order for us to accept the registration.
+
+Critically,
+our site does some fuzzy matching to suggest rewording of learning objectives or glossary terms
+to match ones in lessons that are already registered.
+The term "[folksonomy][folksonomy]" seems to have lost its luster,
+but encouraging convergence on a shared vocabulary seems crucial to making all of this work.
+
+### How does someone ask for a lesson?
+
+Rather than waiting for people to register their own lessons,
+we provide a "please register this" workflow:
+
+1.  Jeanne stumbles across a lesson or exercise she finds interesting.
+
+2.  She clicks the [bookmarklet][bookmarklet]
+    in her browser to check if there's a record of it.
+
+3.  If there is, she's given the option of viewing metadata and reviews.
+
+4.  If there isn't, but someone before her has expressed an interest, we add
+    one to the "wanna have" count in our database.
+
+5.  If there isn't any record in our database, we scrape the site to get
+    contact info for the lesson's author, Vlad.  We then send Vlad a single
+    message saying, "Hey, someone's interested in your lesson."
+
+6.  Vlad will probably ignore the message, but if he responds by creating
+    a record for his lesson, we stash that so that future inquiries will
+    resolve, and notify Jeanne that the record is now available.  This
+    workflow serves the triple purpose of attracting more authors, not
+    spamming them, and ensuring that the record for a lesson comes from
+    someone identified in the lesson's content (i.e., probably not a
+    disgruntled former student).
+
+### How does an author update a lesson?
+
+1.  They sign into their account,
+    go to "My Lessons",
+    and push the "update" button next to the lesson in question.
+
+Note that we archive past `harper.md` files, but not the actual lesson content.
+(We are not a repository, we're an index.)
+
+### How does a learner do a lesson?
+
+1.  The instructor gives him the link to the lesson on our site.
+    He clicks the "Download" button on the lesson's page to get a zip file.
+2.  Alternatively, the instructor gives him a link directly to the zip file on the author's site.
+3.  Finally, the overworked and underpaid graduate student who is TA'ing the course
+    could unpack the zip file in a cloud instance
+    and send instructions to learners telling them how to get their own copy of that project to run.
+
+## Forces {#s:forces}
 
 ### Roles
 
@@ -217,242 +476,6 @@ Our delivery mechanisms for getting lessons to learners are:
     for materials that are to be uploaded to a Learning Management System (LMS) like Moodle or Sakai,
     but assumes that learners will then interact with those materials through the LMS
     rather than (for example) using an IDE on their desktop.
-
-## Our Proposal {#s:proposal}
-
-### Lesson Registration
-
-Authors create one extra text file called `harper.md` and put it in the lesson's root directory.
-`harper.md` is formatted as Markdown rather than YAML, JSON, or anything else
-because Markdown is the simplest set of rules for non-programmers to understand.
-This single-file convention is inspired by the `feed.xml` and `feed.rss` files used for blogging,
-and by the `README.md` and `LICENSE.md` files now commonly used in software projects;
-we use the name `harper.md` because Alasdair Smith pointed out that
-some systems use `lesson.md` for the actual content of the lesson.
-
-`harper.md` contains the following information, in the specified order.
-(We use 'an H2 "XYZ"' to mean 'a level-2 heading with the text "XYZ"'.)
-
-1.  title: short title of lesson (level-1 heading).
-1.  abstract: an untitled single-paragraph summary (untitled paragraph immediately below `title`) followed by:
-    1.  url: location of lesson.
-    1.  author: author's name or comma-separated list of authors' names.
-    1.  contact: contact email address.
-    1.  date: date of last modification (ISO format please).
-    1.  license: name of license.
-    1.  copyright: name of copyright holder.
-    1.  package: URL of zip file containing starting materials for exercise(s).
-    1.  doi: the lesson's DOI (optional).
-1.  context: an H2 "Context" with the background or context for the lesson.
-1.  requirements: an H2 "Requirements" followed by point-form list of required tools and packages.
-    The "requirements" implicitly specify things like "what language does this use?"
-    We don't ask for this explicitly because that question may not be relevant
-    (e.g., for a question about ethics of data sharing)
-    and because a single answer might be wrong
-    (e.g., for a lesson that uses the Unix shell, Python, and SQLite).
-1.  timeframe: an H2 "Timeframe" followed by a point-form list of
-    how long it takes to deliver or do the lesson.
-1.  objectives: an H2 "Objectives" followed by point-form list of learning objectives (see below).
-1.  glossary: an H2 "Glossary" followed by point-form list of terms and definitions (see below).
-1.  keypoints: an H2 "Key Points" followed by point-form list suitable for inclusion in a cheatsheet.
-
-Notes:
-
--   The original proposal required a URL for the glossary and a point-form list of keys into that glossary
-    rather than embedding the glossary directly in `harper.md`.
-    The idea was that this would encourage people to refer to shared glossaries,
-    which would in turn encourage them to use a shared vocabulary for lessons.
-    Feedback indicated that this was too complicated;
-    instead,
-    we will look at the glossary entries of registered lessons and try to consolidate them automatically.
--   Materials that learners need to do a lesson are distributed as a zip file
-    that unpacks to create a single directory named something like `stat454-exercise03`.
-    As noted earlier,
-    this isn't as straightforward as many technically sophisticated people believe,
-    but it's the simplest thing we can rely on
-    that will handle pretty much anything we want to provision.
--   The original proposal required the setup instructions for learners in the lesson description.
-    Since learners need these instructions,
-    and we can extract them from the zip file,
-    that redundancy has been removed.
--   There is no explicit "background knowledge",
-    since these are almost always under-estimates of what's actually required.
-    Instead,
-    we will extract words used in glossary definitions
-    (rather than terms defined in the glossary itself)
-    and tools mentioned in the learner setup instructions in the zip file
-    to compile a list of prerequisite knowledge.
--   The original proposal had a Feedback section
-    that authors could use to explain where and how they wanted feedback.
-    This proposal assumes [hypothes.is][hypothesis] everywhere.
-
-An example of a `harper.md` file is shown below;
-
-```
-# Tests of Univariate Normality
-
-Describes and compares three ways to test if univariate data is normally distributed.
-
--   url: http://stats.fringe.tv/stats454/normality.html
--   author: Walter Bishop
--   contact: w.bishop@fringe.tv
--   date: 2018-12-05
--   license: CC-BY-NC-ND
--   copyright: Kelvin Genetics, Inc.
--   package: http://stats.fringe.tv/stats454/normality/stats454-normality.zip
-
-## Context
-
-This material was originally developed as part of a sequence on data integrity
-for seniors and graduate students in statistics, then modified for delivery in
-conference workshops.  The univariate material feels pretty solid at this point;
-the multivariate material has only been used a couple of times, and probably
-needs more attention.
-
-## Requirements
-
--   R (>= 3.5)
-
-## Timeframe
-
--   Three lectures hours plus three hours of homework.
--   A half-day hands-on workshop doing one exercise per section.
-
-## Objectives
-
--   Describe the 68-95-99.7 rule and explain why it works and when it fails.
--   Describe and apply the Shapiro-Wilk test for normality of univariate data.
--   Describe and apply the ECF test for normality of multivariate data.
-
-## Glossary
-
--   68/95/997 Rule: ...definition...
--   Shapiro-Wilk test: ...definition...
--   ECF test: ...definition...
-
-## Keypoints
-
--   68% of data should lie within one SD of the mean, 95% within two, and 99.7% within three.
--   Use shapiro.test(data) to check normality of univariate data.
--   The StableEstim package implements the ECF test for multivariate data.
-```
-
-## Our Community {#s:community}
-
-We support collaboration with a voting mechanism like [Stack Overflow][stack]'s,
-but with subject headings drawn from lessons:
-
-1.  An author registers a lesson by providing the URL to its `harper.md` file,
-    just as someone can register a blog by providing a URL to an aggregator.
-
-2.  The site extracts the motivating questions and defined terms from the Markdown
-    and displays the lesson under each of those headings (like a possible answer to a question on Stack Overflow).
-    Indexing by question helps novices find things;
-    indexing by key terms is probably more useful to competent practitioners who already know what they're looking for.
-
-3.  When someone views the page for a question or term,
-    they can provide comments on the lessons that appear there and upvote or downvote them.
-    This means that a single lesson could appear as the top "answer" to one question and the third "answer" to another.
-
-4.  Each lesson has its own RSS feed,
-    so authors and instructors can subscribe to notifications about things they're interested in.
-    (We can add this for questions and terms as well, so that if a new lesson appears, interested parties can be notified.)
-
-5.  We will also provide an interactive upload mode:
-    after providing a URL for a lesson,
-    the author is walked through a very simple online form that asks for the information that goes in the lesson's Markdown file.
-    We save that information and give it back to them to download and add to the lesson.
-    We still require that the `harper.md` file be in the lesson's root directory to complete registration
-    as a check on authenticity:
-    allowing person X to describe a lesson created by person Y opens up too many opportunities for abuse.
-
-5.  When someone registers a new lesson or an update to an existing one,
-    the site walks them through a very short workflow to get excerpts from their lessons onto our site.
-    We do this for the same reason that blog aggregators display short excerpts from blog posts:
-    so that people can tell in advance whether those posts might be worth reading.
-    1.  For each of the learning objectives they have listed,
-        a pop-up opens that displays their lesson's site.
-    2.  The author navigates in this pop-up to the part of their lesson
-        that is most closely connected to that learning objective,
-        highlights a short excerpt of the lesson,
-        and clicks "OK".
-    3.  That excerpt is then displayed on our site under their lesson's heading for that objective.
-
-## Usage {#s:usage}
-
-### How does an instructor find a lesson?
-
-1. She does a DuckDuckGo search for the word "lesson" and the keywords or questions she's interested in.
-   If we've done our job right,
-   the lessons indexed by our site show up near the top of her search,
-   just as Stack Overflow answers show up near the top of a search for a technical question.
-2. She comes to our site and does a targeted search for her question or keywords.
-3. She subscribes to a question or keyword
-   and [Feedly][feedly] or some other feed reader
-   tells her when something new appears or something relevant is updated.
-
-### How does an author register a lesson?
-
-1. They create a directory on their website with a meaningful name that includes a `harper.md` file
-   and possibly a zip file containing starter materials (if the lesson's exercises need any).
-2. They sign into their account on our site and register the URL of the lesson directory.
-3. Our site validates their `harper.md` file.
-
-As noted above,
-we *don't* allow people to register lessons that they don't control,
-i.e.,
-they have to be able to add `harper.md` to the lesson's website in order for us to accept the registration.
-
-Critically,
-our site does some fuzzy matching to suggest rewording of learning objectives or glossary terms
-to match ones in lessons that are already registered.
-The term "[folksonomy][folksonomy]" seems to have lost its luster,
-but encouraging convergence on a shared vocabulary seems crucial to making all of this work.
-
-### How does someone ask for a lesson?
-
-Rather than waiting for people to register their own lessons,
-we provide a "please register this" workflow:
-
-1.  Jeanne stumbles across a lesson or exercise she finds interesting.
-
-2.  She clicks the [bookmarklet][bookmarklet]
-    in her browser to check if there's a record of it.
-
-3.  If there is, she's given the option of viewing metadata and reviews.
-
-4.  If there isn't, but someone before her has expressed an interest, we add
-    one to the "wanna have" count in our database.
-
-5.  If there isn't any record in our database, we scrape the site to get
-    contact info for the lesson's author, Vlad.  We then send Vlad a single
-    message saying, "Hey, someone's interested in your lesson."
-
-6.  Vlad will probably ignore the message, but if he responds by creating
-    a record for his lesson, we stash that so that future inquiries will
-    resolve, and notify Jeanne that the record is now available.  This
-    workflow serves the triple purpose of attracting more authors, not
-    spamming them, and ensuring that the record for a lesson comes from
-    someone identified in the lesson's content (i.e., probably not a
-    disgruntled former student).
-
-### How does an author update a lesson?
-
-1.  They sign into their account,
-    go to "My Lessons",
-    and push the "update" button next to the lesson in question.
-
-Note that we archive past `harper.md` files, but not the actual lesson content.
-(We are not a repository, we're an index.)
-
-### How does a learner do a lesson?
-
-1.  The instructor gives him the link to the lesson on our site.
-    He clicks the "Download" button on the lesson's page to get a zip file.
-2.  Alternatively, the instructor gives him a link directly to the zip file on the author's site.
-3.  Finally, the overworked and underpaid graduate student who is TA'ing the course
-    could unpack the zip file in a cloud instance
-    and send instructions to learners telling them how to get their own copy of that project to run.
 
 ## Questions and Comments {#s:questions}
 
