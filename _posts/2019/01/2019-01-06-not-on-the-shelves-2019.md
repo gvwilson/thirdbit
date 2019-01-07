@@ -9,7 +9,7 @@ I made progress on two book projects last year:
 and *[JavaScript versus Data Science](https://software-tools-in-javascript.github.io/js-vs-ds/)*
 should be out some time in February.
 That means it's time to update my list of
-[books that don't yet exist]({{site.github.url}}/talks/not-on-the-shelves/),n
+[books that don't yet exist]({{site.github.url}}/talks/not-on-the-shelves/),
 which I have found helps me figure out
 what gaps exist in the literature that I could usefully fill.
 
