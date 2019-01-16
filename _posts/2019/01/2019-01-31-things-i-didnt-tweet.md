@@ -13,11 +13,10 @@ title: "Things I Didn't Tweet"
 -   You can stop paying attention to anyone who gives Steve Bannon or Jordan Peterson the time of day
     and not miss anything that matters.
 
--   Also anyone who thinks we can revolutionize education with blockchain.
+-   Also anyone who thinks we can revolutionize education with blockchain,
+    because unfortunately <{{site.github.url}}/2012/06/29/those-who-ignore-history.html> never gets old.
 
 -   LaaaaaaTeeeeeeXxxxxx...
-
--   Faaaaaactoooorrrssss...
 
 -   I could really use a guide to pronouncing various accented characters in various languages.
 
@@ -29,6 +28,8 @@ title: "Things I Didn't Tweet"
 <p><a href={{site.github.url}}/files/2019/01/acm-rss.png"><img src="{{site.github.url}}/files/2019/01/acm-rss.png" width="300" alt="The ACM's version of 'open' and 'welcoming'"></a></p>
 
 -   I almost reactivated my Twitter account to +1 [this tweet by Dave Beazley](https://twitter.com/dabeaz/status/1081268555721699329).
+
+-   Faaaaaactoooorrrssss...
 
 -   Please stop saying, "We need to fix X" unless you are actively working on it, because if you're not, your "we need to" is just a "[someone ought to]({{site.github.url}}/2011/05/28/you-doesnt-exist.html)".
 
