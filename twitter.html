@@ -10,14 +10,14 @@ accounts:
 - ["gvwilson", "sadieannel", "irvingreid", "katyhuff"]
 ---
 <nav class="navbar navbar-dark bg-dark fixed-top">
-<p>
+<p><small>
   {% for group in page.accounts %}
   {% for acct in group %}
   <a href="#{{acct}}">{{acct}}</a>
   {% endfor %}
   {% unless forloop.last %} :: {% endunless %}
   {% endfor %}
-</p>
+</small></p>
 </nav>
 <main role="main">
 {% for group in page.accounts %}
