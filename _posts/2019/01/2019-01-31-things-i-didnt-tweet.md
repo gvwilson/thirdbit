@@ -22,10 +22,10 @@ title: "Things I Didn't Tweet"
 
 -   `git push origin hamster` over and over again...
 
--   You can't subscribe to the RSS feed telling you what new papers have been published
-    in *ACM Transactions on Computing Education* unless you create an account and log in.
+-   You can't subscribe to the *ACM Transactions on Computing Education* RSS feed that tells you
+    what new papers have been published unless you create an account and log in.
 
-<p><a href={{site.github.url}}/files/2019/01/acm-rss.png"><img src="{{site.github.url}}/files/2019/01/acm-rss.png" width="300" alt="The ACM's version of 'open' and 'welcoming'"></a></p>
+<p><a href="{{site.github.url}}/files/2019/01/acm-rss.png"><img src="{{site.github.url}}/files/2019/01/acm-rss.png" width="80%" alt="The ACM's version of 'open' and 'welcoming'"></a></p>
 
 -   I almost reactivated my Twitter account to +1 [this tweet by Dave Beazley](https://twitter.com/dabeaz/status/1081268555721699329).
 
@@ -42,3 +42,7 @@ title: "Things I Didn't Tweet"
 -   I sometimes choose names for files and directories so that when I do `ls`, the names in each column will be the same length.  Then I add one thing and have to go through and rename everything after it in the alphabet to make stuff line up properly again.
 
 -   I am starting to sag in places where I didn't even used to have saggable bits.
+
+-   Coincidence? Perhaps...
+
+<p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
