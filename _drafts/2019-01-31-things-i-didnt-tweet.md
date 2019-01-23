@@ -46,3 +46,5 @@ title: "Things I Didn't Tweet"
 -   Coincidence? Perhaps...
 
 <p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
+
+-   Shopify is still helping Breitbart, Rebel Media, and other populist rage sites stay in business.  I wonder if the people who work there are proud of [what they've helped those sites achieve](https://www.cbc.ca/news/world/us-supreme-court-transgender-military-ban-1.4987798).
