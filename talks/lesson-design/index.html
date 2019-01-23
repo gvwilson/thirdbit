@@ -28,7 +28,7 @@
           <p><em>far too many slides in far too little time</em></p>
           <p><a href="http://third-bit.com">Greg Wilson</a></p>
           <p><a href="http://third-bit.com/talks/lesson-design/">http://third-bit.com/talks/lesson-design/</a></p>
-          <p>September 2018</p>
+          <p>January 2019</p>
           <img src="img/cc-by-license.png" alt="CC-BY" width="200"/>
         </div>
       </section>
@@ -356,12 +356,12 @@ def total_length(words):
       <section>
 	<h3>First Exercise</h3>
 <pre class="sample">
-    # word_lengths(["red", "green", "blue"]) => [3, 5, 4]
-    define word_lengths(list_of_words):
-        list_of_lengths = []
-        for each ____ in ____:
-            list_of_lengths.append(____)
-        return list_of_lengths
+# word_lengths(["red", "green", "blue"]) => [3, 5, 4]
+define word_lengths(list_of_words):
+    list_of_lengths = []
+    for each ____ in ____:
+        list_of_lengths.append(____)
+    return list_of_lengths
 </pre>
 	<ul>
 	  <li>Directs attention to control flow</li>
@@ -371,12 +371,12 @@ def total_length(words):
       <section>
 	<h3>Second Exercise</h3>
 <pre class="sample">
-    # join_all(["red", "green", "blue"]) => "redgreenblue"
-    define join_all(list_of_words):
-        joined_words = ____
-        for each ____ in ____:
-            ____
-        return joined_words
+# join_all(["red", "green", "blue"]) => "redgreenblue"
+define join_all(list_of_words):
+    joined_words = ____
+    for each ____ in ____:
+        ____
+    return joined_words
 </pre>
 	<ul>
 	  <li>Directs attention to initialization and update</li>
@@ -412,13 +412,13 @@ def acronym(words):
 	      <li class="fragment">At the risk of mis-categorizing items</li>
 	    </ul>
 	  </li>
+	  <li class="fragment">Good libraries turn chunks into components</li>
 	  <li class="fragment">Good lessons give chunks names
 	    <ul>
-	      <li class="fragment">"Flag"</li>
-	      <li class="fragment">"Accumulator"</li>
+	      <li class="fragment">"filter"</li>
+	      <li class="fragment">"group by"</li>
 	    </ul>
 	  </li>
-	  <li class="fragment">Good libraries turn chunks into components</li>
 	</ul>
       </section>
 
@@ -438,17 +438,17 @@ def acronym(words):
       </section>
 
       <section>
-	<h3>1) Who is this course for?</h3>
+	<h3>1) Who is this lesson for?</h3>
 	<ul>
 	  <li class="fragment">"Beginner" and "expert" mean different things to different people</li>
 	  <li class="fragment">
 	    Use <em>learner personas</em> to define who you are helping
-	    and what <em>they</em> think they will get out of the course
+	    and what <em>they</em> think they will get out of the lesson
 	  </li>
 	</ul>
 	<p></p>
 	<ul>
-	  <li class="fragment"><em>Deliver: brief summaries of who your course will help and how</em></li>
+	  <li class="fragment"><em>Deliver: brief summaries of who your lesson will help and how</em></li>
 	</ul>
       </section>
 
@@ -477,7 +477,7 @@ def acronym(words):
 	<ul>
 	  <li class="fragment">Don't need to answer every question</li>
 	  <li class="fragment">May pose and answer others</li>
-	  <li class="fragment"><em>Deliver: rough scope for the course</em></li>
+	  <li class="fragment"><em>Deliver: rough scope for the lesson</em></li>
 	</ul>
       </section>
 
@@ -513,14 +513,14 @@ def acronym(words):
 	<h3>4) How are concepts connected?</h3>
 	<ul>
 	  <li class="fragment">Put exercises in logical order</li>
-	  <li class="fragment">Derive course outline from them</li>
+	  <li class="fragment">Derive lesson outline from them</li>
 	  <li class="fragment">Make notes about the gaps you've just noticed…</li>
 	  <li class="fragment">…and add exercises for those gaps…</li>
 	  <li class="fragment">…and start cutting content</li>
 	</ul>
 	<p></p>
 	<ul>
-	  <li class="fragment"><em>Deliver: course outline (10-12 bullet points per hour)</em></li>
+	  <li class="fragment"><em>Deliver: lesson outline (10-12 bullet points per hour)</em></li>
 	</ul>
       </section>
 
@@ -535,8 +535,19 @@ def acronym(words):
 	</ul>
       </section>
 
+      <section data-background-color="#e0f0e0">
+	<h3>Interlude: And Others</h3>
+	<ul>
+	  <li class="fragment">PRIMM: Predict, Run, Investigate, Modify, Make</li>
+	  <li class="fragment">ADEPT: Analogy, Diagram, Example, Plain English, Technical definition</li>
+	  <li class="fragment">CRA: Concrete - Representational - Abstract</li>
+	  <li class="fragment">Challenge &amp; Response</li>
+	</ul>
+        <p class="fragment">The twelve-bar blues of teaching</p>
+      </section>
+
       <section>
-	<h3>5) How is the course described?</h3>
+	<h3>5) How is the lesson described?</h3>
 	<ul>
 	  <li class="fragment">Summarize everything you have created <em>from the learner's point of view</em></li>
 	</ul>
@@ -575,21 +586,23 @@ def acronym(words):
 	  <a href="https://www.amazon.com/Urban-Myths-about-Learning-Education/dp/0128015373/"><img src="img/myths.jpg" width="12%" /></a>
 	  &nbsp;
 	  <a href="https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/"><img src="img/discussion-book.jpg" width="12%" /></a>
-	  <p>
-	    <a href="http://www.learningscientists.org/downloadable-materials/">http://www.learningscientists.org/</a>
-	    <br/>
-	    <a href="http://computinged.wordpress.com">http://computinged.wordpress.com</a>
-	  </p>
 	</div>
+        <div align="center" class="fragment">
+	  <p><a href="https://www.amazon.com/gp/product/0988113708"><img src="img/t3.png" width="12%"/></a></p>
+          <p><a href="http://teachtogether.tech">http://teachtogether.tech</a></p>
+        </div>
       </section>
 
       <section>
-        <h3 align="center">Thank You</h3>
-	<div align="center">
-	  <p><a href="https://www.amazon.com/gp/product/0988113708"><img src="img/t3.png" width="25%"/></a></p>
-          <p><a href="http://third-bit.com/talks/lesson-design/">http://third-bit.com/lesson-design/</a></p>
-          <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-	</div>
+        <div align="center">
+          <h3 align="center">Thank You</h3>
+          <p>
+            <img src="img/maddie.jpg">
+          </p>
+          <p>
+            <a href="mailto:greg.wilson@rstudio.com">greg.wilson@rstudio.com</a>
+          </p>
+        </div>
       </section>
 
     </div>
