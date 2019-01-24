@@ -47,6 +47,6 @@ title: "Things I Didn't Tweet"
 
 <p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
 
--   Shopify is still helping Breitbart, Rebel Media, and other populist rage sites stay in business.  I wonder if the people who work there are proud of [what they've helped those sites achieve](https://www.cbc.ca/news/world/us-supreme-court-transgender-military-ban-1.4987798).
+-   Reminder: Shopify is still helping Breitbart, Rebel Media, and other populist rage sites stay in business.  Are the people who work there proud of [what they've helped those sites achieve](https://www.cbc.ca/news/world/us-supreme-court-transgender-military-ban-1.4987798)?  Do they think about [the lives they've helped destroy](https://www.theguardian.com/technology/2019/jan/23/conspiracy-theories-internet-survivors-truth)?  Or do they just not think about it?
 
 -   "Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it's not like this compulsive need to be liked, like my need to be praised." - Michael Scott
