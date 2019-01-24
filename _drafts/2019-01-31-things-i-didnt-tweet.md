@@ -4,6 +4,14 @@ date: 2019-01-31 23:59
 title: "Things I Didn't Tweet"
 ---
 
+-   [Not on the Shelves (2019 Edition)]({{site.github.url}}/2019/01/06/not-on-the-shelves-2019.html)
+
+-   [Leadership Training for Open Science]({{site.github.url}}/2019/01/10/leadership-training-for-open-science..html)
+
+-   [The Principle of Least Precision]({{site.github.url}}/2019/01/24/principle-of-least-precision.html)
+
+-   "Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it's not like this compulsive need to be liked, like my need to be praised." - Michael Scott
+
 -   "I did then what I knew how to do. Now that I know better, I do better." - Maya Angelou
 
 -   Fascism (n.): treating people the way Apple treats your music collection.
@@ -48,5 +56,3 @@ title: "Things I Didn't Tweet"
 <p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
 
 -   Reminder: Shopify is still helping Breitbart, Rebel Media, and other populist rage sites stay in business.  Are the people who work there proud of [what they've helped those sites achieve](https://www.cbc.ca/news/world/us-supreme-court-transgender-military-ban-1.4987798)?  Do they think about [the lives they've helped destroy](https://www.theguardian.com/technology/2019/jan/23/conspiracy-theories-internet-survivors-truth)?  Or do they just not think about it?
-
--   "Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it's not like this compulsive need to be liked, like my need to be praised." - Michael Scott
