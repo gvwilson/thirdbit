@@ -12,8 +12,6 @@ title: "Things I Didn't Tweet"
 
 -   "Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it's not like this compulsive need to be liked, like my need to be praised." - Michael Scott
 
--   "I did then what I knew how to do. Now that I know better, I do better." - Maya Angelou
-
 -   Fascism (n.): treating people the way Apple treats your music collection.
 
 -   CS1 is not the whole of computing education.
@@ -51,8 +49,12 @@ title: "Things I Didn't Tweet"
 
 -   I am starting to sag in places where I didn't even used to have saggable bits.
 
--   Coincidence? Perhaps...
+-   Coincidence? Perhaps:
 
 <p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
 
--   Reminder: Shopify is still helping Breitbart, Rebel Media, and other populist rage sites stay in business.  Are the people who work there proud of [what they've helped those sites achieve](https://www.cbc.ca/news/world/us-supreme-court-transgender-military-ban-1.4987798)?  Do they think about [the lives they've helped destroy](https://www.theguardian.com/technology/2019/jan/23/conspiracy-theories-internet-survivors-truth)?  Or do they just not think about it?
+-   Reminder: Shopify is still helping Breitbart, Rebel Media, and other populist rage sites stay in business.  Are the people who work there proud of [what they've helped those sites achieve](https://www.cbc.ca/news/world/us-supreme-court-transgender-military-ban-1.4987798)?  Do they think about [the harm they've done](https://www.theguardian.com/technology/2019/jan/23/conspiracy-theories-internet-survivors-truth)?  I suspect not, and that thought continues to weary me.
+
+-   Get you something in your life that makes you feel [like Cassandra Wilson sounds](https://www.youtube.com/watch?v=PB1HK-rlVig).
+
+-   "I did then what I knew how to do. Now that I know better, I do better." - Maya Angelou
