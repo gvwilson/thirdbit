@@ -12,7 +12,7 @@ but I think they're all worth looking at if you're writing about code.
 
 -   *[Software Tools in Pascal](https://www.amazon.com/Software-Tools-Pascal-Brian-Kernighan/dp/0201103427/)*
     by Kernighan and Plauger
-    and *[The C Programming Language](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628/)
+    and *[The C Programming Language](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628/)*
     by Kernighan and Ritchie
     get everything right:
     the prose is so clear it's almost transparent,
@@ -85,9 +85,7 @@ but there are the ones that I think have had the most influence on *how* I write
 
 What struck me as I compiled this list is that the authors on it are all white and male.
 I don't know how that has affected my writing style,
-but with each passing year I have become more embarrassed by how much I resemble
-a linguist formulating universal rules of grammar based solely on his knowledge of Latin and English.
-The books I have enjoyed most in the past few years,
+but the books I have enjoyed most in the past few years,
 like Jemisin's *[Broken Earth](https://www.amazon.com/Broken-Earth-Trilogy-Season-Obelisk/dp/031652719X/)* trilogy
 or Jahren's *[Lab Girl](https://www.amazon.com/Lab-Girl-Hope-Jahren/dp/1101873728/)*,
 have made me wonder how many more exemplars of great writing we might have in computing
