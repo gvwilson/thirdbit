@@ -10,6 +10,8 @@ title: "Things I Didn't Tweet"
 
 -   [The Principle of Least Precision]({{site.github.url}}/2019/01/24/principle-of-least-precision.html)
 
+-   [The Elements of Programming Writing Style]({{site.github.url}}/2019/01/26/the-element-of-programming-writing-style.html)
+
 -   "Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it's not like this compulsive need to be liked, like my need to be praised." - Michael Scott
 
 -   Fascism (n.): treating people the way Apple treats your music collection.
@@ -24,12 +26,13 @@ title: "Things I Didn't Tweet"
 
 -   LaaaaaaTeeeeeeXxxxxx...
 
--   I could really use a guide to pronouncing various accented characters in various languages.
+-   I could really use a guide to pronouncing accented characters in various languages.
 
 -   `git push origin hamster` over and over again...
 
--   You can't subscribe to the *ACM Transactions on Computing Education* RSS feed that tells you
-    what new papers have been published unless you create an account and log in.
+-   The ACM's version of "open" and "welcoming" is,
+    you can't subscribe to the RSS feed for new articles in *ACM Transactions on Computing Education*
+    unless you create an account and log in:
 
 <p><a href="{{site.github.url}}/files/2019/01/acm-rss.png"><img src="{{site.github.url}}/files/2019/01/acm-rss.png" width="80%" alt="The ACM's version of 'open' and 'welcoming'"></a></p>
 
@@ -37,23 +40,29 @@ title: "Things I Didn't Tweet"
 
 -   Faaaaaactoooorrrssss...
 
--   Please stop saying, "We need to fix X" unless you are actively working on it, because if you're not, your "we need to" is just a "[someone ought to]({{site.github.url}}/2011/05/28/you-doesnt-exist.html)".
-
 -   It has been 0 days since our last kitchen incident.
 
--   I still can't listen to Tracy Chapman's "Fast Car" without feeling like I want to cry.  Or Cat Stevens' "Father and Son".
+-   Shopify is still helping Breitbart, Rebel Media, and other populist rage sites stay in business.
+    Do the people who work there ever let themselves feel even a smidgen of guilt about
+    [the ban on transgender people serving in the US military](https://www.cbc.ca/news/world/us-supreme-court-transgender-military-ban-1.4987798)?
+    Or the harm they've enabled those sites do
+    [to victims of mass shootings](https://www.theguardian.com/technology/2019/jan/23/conspiracy-theories-internet-survivors-truth)?
+    I suspect not, and that thought continues to weary me.
+
+-   I still can't listen to Tracy Chapman's "Fast Car" without wanting to cry.
+
+-   And don't even talk to me about Cat Stevens' "Father and Son".
 
 -   I am old enough to be concerned about the lyrics in the music my daughter listens to.
 
--   I sometimes choose names for files and directories so that when I do `ls`, the names in each column will be the same length.  Then I add one thing and have to go through and rename everything after it in the alphabet to make stuff line up properly again.
+-   I sometimes choose names for files and directories so that when I do `ls`, the names in each column will be the same length.
+    Then I add one thing and have to go through and rename everything after it in the alphabet to make stuff line up properly again.
 
 -   I am starting to sag in places where I didn't even used to have saggable bits.
 
 -   Coincidence? Perhaps:
 
 <p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
-
--   Reminder: Shopify is still helping Breitbart, Rebel Media, and other populist rage sites stay in business.  Are the people who work there proud of [what they've helped those sites achieve](https://www.cbc.ca/news/world/us-supreme-court-transgender-military-ban-1.4987798)?  Do they think about [the harm they've done](https://www.theguardian.com/technology/2019/jan/23/conspiracy-theories-internet-survivors-truth)?  I suspect not, and that thought continues to weary me.
 
 -   Get you something in your life that makes you feel [like Cassandra Wilson sounds](https://www.youtube.com/watch?v=PB1HK-rlVig).
 
