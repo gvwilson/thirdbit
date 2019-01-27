@@ -2,7 +2,6 @@
 layout: post
 title: "What Kinds of Exercises Do You Use to Teach Programming?"
 date: 2017-10-16 05:00:00
-favorite: true
 ---
 
 Every mechanic has her favorite screwdrivers, and every good teacher has
