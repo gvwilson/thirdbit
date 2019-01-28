@@ -40,6 +40,10 @@ but I think they're all worth looking at if you're writing about code.
     dialog in Microsoft Word, for example---and then describes how it could be improved.
     This is much more effective than any direct exposition of high-level rules like "make use of negative space",
     since it allows the reader to build and test a mental model grounded in specifics.
+    (In my experience, expounding on general rules is usually ineffective,
+    since the reader must already more-or-less understand the subject in order to understand the rules.
+    One of the few exceptions I've encountered is
+    Bentley's *[Writing Efficient Programs](https://www.amazon.com/Efficient-Programs-Prentice-Hall-Software-1982-05-23/dp/B01N1WX781/)*.)
 
 -   Kerievsky's *[Refactoring to Patterns](https://www.amazon.com/Refactoring-Patterns-Joshua-Kerievsky/dp/0321213351/)*
     is explicit where *GUI Bloopers* is implicit.
