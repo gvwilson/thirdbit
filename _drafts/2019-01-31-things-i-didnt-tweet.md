@@ -64,6 +64,8 @@ title: "Things I Didn't Tweet"
 
 <p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
 
--   Get you something in your life that makes you feel [like Cassandra Wilson sounds](https://www.youtube.com/watch?v=PB1HK-rlVig).
+-   Grief and depression are very different things.
+
+-   Try to find something in your life that makes you feel [like Cassandra Wilson sounds](https://www.youtube.com/watch?v=PB1HK-rlVig).
 
 -   "I did then what I knew how to do. Now that I know better, I do better." - Maya Angelou
