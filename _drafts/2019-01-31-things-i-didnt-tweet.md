@@ -42,12 +42,13 @@ title: "Things I Didn't Tweet"
 
 -   It has been 0 days since our last kitchen incident.
 
--   Shopify is still helping Breitbart, Rebel Media, and other populist rage sites stay in business.
-    Do the people who work there ever let themselves feel even a smidgen of guilt about
-    [the ban on transgender people serving in the US military](https://www.cbc.ca/news/world/us-supreme-court-transgender-military-ban-1.4987798)?
-    Or the harm they've enabled those sites do
-    [to victims of mass shootings](https://www.theguardian.com/technology/2019/jan/23/conspiracy-theories-internet-survivors-truth)?
-    I suspect not, and that thought continues to weary me.
+-   Shopify is still helping Breitbart, Rebel Media, and other white nationalist rage sites stay in business.
+    [Johnathan Nightingale](https://twitter.com/johnath/status/1090043751291109378) asks
+    why people who would rather we didn't keep drawing attention to that
+    aren't also leaning on Shopify.
+    I wonder sometimes if the people who work there ever let themselves feel guilty about
+    [the harm they're helping those sites do](https://www.theguardian.com/technology/2019/jan/23/conspiracy-theories-internet-survivors-truth).
+    I suspect not, and that thought wearies me.
 
 -   I still can't listen to Tracy Chapman's "Fast Car" without wanting to cry.
 
