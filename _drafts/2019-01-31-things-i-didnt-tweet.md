@@ -14,6 +14,8 @@ title: "Things I Didn't Tweet"
 
 -   [The Elements of Programming Writing Style]({{site.github.url}}/2019/01/26/the-element-of-programming-writing-style.html)
 
+-   [Why I Teach (Revisited)]({{site.github.url}}/2019/01/30/why-i-teach.html)
+
 -   "I don’t mind people DM'ng to ask why I'm mean to Shopify, why I want the great people who work there to leave.
     Fair game to lean on opinions that feel uncomfortable.
     But if you don't spend equal time leaning on Shopify to stop helping Nazis make money, well, that's interesting."
