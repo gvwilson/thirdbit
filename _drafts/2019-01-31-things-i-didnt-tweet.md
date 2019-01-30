@@ -63,4 +63,6 @@ title: "Things I Didn't Tweet"
 
 -   Try to find something in your life that makes you feel [like Cassandra Wilson sounds](https://www.youtube.com/watch?v=PB1HK-rlVig).
 
+-   You can in fact auto-complete your way through a *Dungeons & Dragons* adventure, if by "through" you mean "get your character into terminal trouble."
+
 -   "Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it's not like this compulsive need to be liked, like my need to be praised." - Michael Scott
