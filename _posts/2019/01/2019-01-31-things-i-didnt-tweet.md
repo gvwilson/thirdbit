@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2019-01-31 23:59
-title: "Things I Didn't Tweet"
+date: 2019-01-31 03:59
+title: "Things I Didn't Tweet This Month"
 ---
 
 -   "I did then what I knew how to do. Now that I know better, I do better." - Maya Angelou
@@ -19,7 +19,7 @@ title: "Things I Didn't Tweet"
 -   "I don’t mind people DM'ng to ask why I'm mean to Shopify, why I want the great people who work there to leave.
     Fair game to lean on opinions that feel uncomfortable.
     But if you don't spend equal time leaning on Shopify to stop helping Nazis make money, well, that's interesting."
-    - [Johnathan Nightingale](https://twitter.com/johnath/status/1090043751291109378)
+    -- [Johnathan Nightingale](https://twitter.com/johnath/status/1090043751291109378)
 
 -   Fascism (n.): treating people the way Apple treats your music collection.
 
@@ -27,7 +27,7 @@ title: "Things I Didn't Tweet"
 
 -   We are not going to revolutionize education with blockchain.
     This shouldn't need to be said,
-    but unfortunately <{{site.github.url}}/2012/06/29/those-who-ignore-history.html> never gets old.
+    but unfortunately [this post]({{site.github.url}}/2012/06/29/those-who-ignore-history.html) never gets old.
 
 -   LaaaaaaTeeeeeeXxxxxx...
 
@@ -35,7 +35,7 @@ title: "Things I Didn't Tweet"
 
 -   `git push origin hamster` over and over again...
 
--   The ACM's version of "open" is to make the the last fifty years of SIGCSE proceedings freely available---for one month.
+-   The ACM is making the last fifty years of SIGCSE proceedings freely available---for one month.
 
 -   I almost reactivated my Twitter account to +1 [this tweet by Dave Beazley](https://twitter.com/dabeaz/status/1081268555721699329).
 
@@ -43,26 +43,24 @@ title: "Things I Didn't Tweet"
 
 -   It has been 0 days since our last kitchen incident.
 
--   Weird and uncomfortable to see DataCamp [still using my name](https://twitter.com/DataCamp/status/1083800829172371457)
-    to advertise a course seven months after firing me.
+-   It's weird and uncomfortable to see DataCamp
+    [using my name to advertise a course](https://twitter.com/DataCamp/status/1083800829172371457)
+    seven months after firing me.
 
 -   I still can't listen to Tracy Chapman's "Fast Car" without wanting to cry.
-
--   And don't even talk to me about Cat Stevens' "Father and Son".
+    And don't even talk to me about Cat Stevens' "Father and Son".
 
 -   I sometimes choose names for files and directories so that when I do `ls`, the names in each column will be the same length.
     Then I add one thing and have to go through and rename everything after it in the alphabet to make stuff line up properly again.
 
 -   I am starting to sag in places where I didn't even used to have saggable bits.
 
--   Coincidence? Perhaps:
-
-<p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
-
 -   Grief and sadness are very different things.
 
 -   Try to find something in your life that makes you feel [like Cassandra Wilson sounds](https://www.youtube.com/watch?v=PB1HK-rlVig).
 
--   You can in fact auto-complete your way through a *Dungeons & Dragons* adventure, if by "through" you mean "get your character into terminal trouble."
-
 -   "Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it's not like this compulsive need to be liked, like my need to be praised." - Michael Scott
+
+-   Coincidence? Perhaps:
+
+<p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
