@@ -8,8 +8,8 @@ A few months ago,
 I had the misfortune to take part in an awful one-day workshop
 based on an equally awful book called *Radical Candor*.
 For those lucky enough not to have had to wade through its relentless name-dropping,
-it is an inflated blog post telling readers that
-the secret to success is to be honest but respectful.
+it is a blog post padded to book length
+telling readers that the secret to success is to be honest but respectful.
 I think the younger generation in Silicon Valley started recommending it to each other
 because it satisfied their need to talk about something other than sexual harassment,
 racial discrimination, and pay inequity---in other words,
@@ -19,12 +19,20 @@ or undermine the system that they hope will make them rich.
 What crystallized my dislike was the way the workshop's trainer danced around
 when asked if [James Damore's infamous memo](https://medium.com/@yonatanzunger/so-about-this-googlers-manifesto-1e3773ed1788)
 counted as "radical candor".
-It was definitely candid,
-but since "yes" would clearly have been an awkward response,
-the trainer simply avoided giving a direct answer.
+Damore's memo passed all of the tests the trainer had just outlined,
+but since it would have been awkward to say "yes",
+the trainer talked for a couple of minutes without actually addressing the question.
+A little while later,
+one of the women in the workshop pointed out that "say what you think"
+is a much riskier strategy for her than it is for a middle-aged straight white guy.
+In response,
+one of the men said,
+"Do you think the book is sexist?"
+When she said yes,
+he said,
+"But it can't be---the author is a woman."
 
-That dance got me thinking about all the other things the tech industry doesn't like to talk about.
-What ties them together, I think, is a deep-seated fear of change:
+What ties this all together, I think, is a deep-seated fear of change:
 not the superficial kind,
 like virtual reality or speech recognition,
 but meaningful changes in who we are, how we work, and the kind of society we construct.

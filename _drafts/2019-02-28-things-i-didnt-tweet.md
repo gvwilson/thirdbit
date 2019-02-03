@@ -9,3 +9,6 @@ title: "Things I Didn't Tweet This Month"
 
 -   Saying, "If you need to comment your code, you should write clearer code,"
     is like saying, "If you need to use English in your proof, you should write clearer formulas."
+
+-   I would really, really like a breakdown of the proportion of authors of various genders
+    who have done books with various tech publishers.
