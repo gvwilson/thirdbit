@@ -2,6 +2,7 @@
 layout: post
 date: 2018-11-24 02:00
 title: "Afraid of Change"
+favorite: true
 ---
 
 A few months ago,
@@ -31,6 +32,8 @@ one of the men said,
 When she said yes,
 he said,
 "But it can't be---the author is a woman."
+
+<p><img src="{{site.github.url}}/files/2018/11/radical-candor.png" alt="Radical Candor" /></p>
 
 What ties this all together, I think, is a deep-seated fear of change:
 not the superficial kind,
