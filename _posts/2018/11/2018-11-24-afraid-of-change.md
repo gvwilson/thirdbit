@@ -11,7 +11,7 @@ based on an equally awful book called *Radical Candor*.
 For those lucky enough not to have had to wade through its relentless name-dropping,
 it is a blog post padded to book length
 telling readers that the secret to success is to be honest but respectful.
-I think the younger generation in Silicon Valley started recommending it to each other
+I think thought leaders in Silicon Valley started recommending it to each other
 because it satisfied their need to talk about something other than sexual harassment,
 racial discrimination, and pay inequity---in other words,
 their need to talk about things that sound important but won't make them uncomfortable
@@ -28,9 +28,9 @@ one of the women in the workshop pointed out that "say what you think"
 is a much riskier strategy for her than it is for a middle-aged straight white guy.
 In response,
 one of the men said,
-"Do you think the book is sexist?"
+"Are you saying the book is sexist?"
 When she said yes,
-he said,
+he replied,
 "But it can't be---the author is a woman."
 
 <p><img src="{{site.github.url}}/files/2018/11/radical-candor.png" alt="Radical Candor" /></p>
