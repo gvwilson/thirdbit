@@ -14,8 +14,7 @@ title: "Things I Didn't Tweet This Month"
 -   Saying, "If you need to comment your code, you should write clearer code,"
     is like saying, "If you need to use English in your proof, you should write clearer formulas."
 
--   I would really, really like a breakdown of the proportion of authors of various genders
-    who have done books with various tech publishers.
+-   I would really like stats on authors' genders for various tech publishers.
 
 -   "I have a love in me the likes of which you can scarcely imagine and rage the likes of which you would not believe.
     If I cannot satisfy the one, I will indulge the other." -- Mary Shelley, *Frankenstein*
@@ -29,3 +28,7 @@ title: "Things I Didn't Tweet This Month"
     -- Stephen Jay Gould
 
 -   [This tweet](https://twitter.com/juliansimioni/status/1086289665194217472) pretty much sums it up.
+
+-   I'm no good at writing villains.
+
+-   [Rebel Against the Kings of Babylon](https://www.youtube.com/watch?v=2ge7j5wyVvo)
