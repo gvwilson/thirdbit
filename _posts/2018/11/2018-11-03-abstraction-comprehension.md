@@ -84,4 +84,4 @@ so for now I'll focus on ways to clearly identify who lessons are for
 and to make sure that we're teaching everyone at their most comfortable level of abstraction
 rather than our own.
 
-**Later:** see also [the next post in this series]({{site.github.url}}/2018/11/05/abstraction-comprehension.html).
+**Later:** see also [the next post in this series]({{site.github.url}}/2018/11/05/abstraction-comprehension-continued.html).

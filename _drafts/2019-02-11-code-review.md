@@ -21,14 +21,15 @@ and usually focuses on the statistics rather than the code.
 
 In order to put together a tutorial on code review for aspiring data scientists,
 I would be grateful for pointers to publicly-available examples of short programs in R or Python---say,
-20 to 100 lines of code---that include the kinds of redundancies, clumsy workarounds, and outright mistakes that novices frequently make.
+20 to 100 lines of code---that include the kinds of redundancies, workarounds, blind alleys, and outright mistakes that novices frequently make.
 RMarkdown files, Jupyter notebooks, or plain old scripts are all very welcome,
 and if you can share any feedback you have already received,
 that would be wonderful too.
 
-I realize it's uncomfortable to invite the whole world to watch you stumble,
-but I think that a dozen examples with some accompanying explanation
-will do a lot more to help novices figure out what they should look for and what they should say about it
+I think a dozen examples of realistic code review will do more to help novices figure out what to look for and what to say about it
 than all the general principles in the world.
+I realize it's uncomfortable to invite the whole world to watch you stumble,
+even anonymously,
+so everyone's identity will be kept confidential.
 If you're able to help,
 please [get in touch](mailto:gvwilson@third-bit.com).
