@@ -32,3 +32,7 @@ title: "Things I Didn't Tweet This Month"
 -   I'm no good at writing villains.
 
 -   [Rebel Against the Kings of Babylon](https://www.youtube.com/watch?v=2ge7j5wyVvo)
+
+-   I really enjoyed Weinstein et al's *[Understanding How We Learn](http://www.learningscientists.org/book)*;
+    I hope that one day we'll know enough about the psychology of programming
+    that someone will be able to write *Understanding How We Code*.
