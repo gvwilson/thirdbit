@@ -36,3 +36,5 @@ title: "Things I Didn't Tweet This Month"
 -   I really enjoyed Weinstein et al's *[Understanding How We Learn](http://www.learningscientists.org/book)*;
     I hope that one day we'll know enough about the psychology of programming
     that someone will be able to write *Understanding How We Code*.
+
+-   I almost re-enabled my Twitter account so that I could re-tweet [this](https://twitter.com/SlacktivistFred/status/1096165930365796357).
