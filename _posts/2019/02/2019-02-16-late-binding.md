@@ -44,3 +44,4 @@ exactly what's going to happen in what order,
 because that order is implied by control structure rather than written out explicitly.
 Maybe I prefer static code over dynamic code because the former is easier for the next person to understand,
 and I'm always coding with the next person in mind.
+Maybe I like dynamic teaching because I still think of it as a solo activity.
