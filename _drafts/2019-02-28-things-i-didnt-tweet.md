@@ -8,6 +8,13 @@ title: "Things I Didn't Tweet This Month"
 
 -   [Libraries Tell It Like It Is]({{site.github.url}}/2019/02/05/libraries-tell-it-like-it-is.html)
 
+-   [Late Binding]({{site.github.url}}/2019/02/16/late-binding.html)
+
+-   We're not going to get "Computing Education for Everyone" unless we get "Education for Everyone",
+    so if you're working on the first but not also working on the second,
+    you're going to fail.
+    (See also [this essay](https://www.washingtonpost.com/blogs/answer-sheet/post/what-the-us-cant-learn-from-finland-about-ed-reform/2012/04/16/gIQAGIvVMT_blog.html) from Pasi Sahlberg explaining why the US can't replicate the successes of Finland's educational system.)
+
 -   Of the 53 names on the list of instructors and helpers for upcoming Carpentry workshops on February 1,
     I knew 8.
 
