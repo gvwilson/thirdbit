@@ -14,18 +14,27 @@ title: "Things I Didn't Tweet This Month"
     any sufficiently complicated text formatting system contains an ad-hoc, informally-specified, bug-ridden
     implementation of half of LaTeX.
 
+-   I can't stop wondering what phones and tablets and laptops would look like
+    if Ikea had swooped in and scooped up Nokia
+    and was now in the electronics business.
+    They have the design skills, the supply chains, the distribution, and the marketing,
+    and personally,
+    I'd be very happy to buy a phone with a polished pine case.
+
 -   [Open source and its commercial users summarized in one short video.](https://www.youtube.com/watch?v=SqQgDwA0BNU)
 
 -   I really enjoyed *[Understanding How We Learn](http://www.learningscientists.org/book)*;
     I hope that one day we'll know enough about the psychology of programming
     that someone will be able to write *Understanding How We Code*.
 
--   We're not going to get "CS for All" unless we get a straight-up decent education for all,
-    so there's no point working on the first if you're not also working toward the second.
-    (See also [this essay](https://www.washingtonpost.com/blogs/answer-sheet/post/what-the-us-cant-learn-from-finland-about-ed-reform/2012/04/16/gIQAGIvVMT_blog.html) from Pasi Sahlberg explaining why the US can't replicate the successes of Finland's educational system.)
+-   We're not going to get "CS for All" unless we get a decent education for all,
+    so if you really want the first,
+    you have to work on the second as well.
+    (See also [Pasi Sahlberg's essay](https://www.washingtonpost.com/blogs/answer-sheet/post/what-the-us-cant-learn-from-finland-about-ed-reform/2012/04/16/gIQAGIvVMT_blog.html)
+    explaining why the US can't replicate the successes of Finland's educational system.)
 
--   Of the 53 names on the list of instructors and helpers for upcoming Carpentry workshops on February 1,
-    I knew 8.
+-   Of the 53 names on the February 1 list of instructors and helpers for upcoming Carpentry workshops,
+    I only knew 8.
 
 -   Saying, "If you need to comment your code, you should write clearer code,"
     is like saying, "If you need to use English in your proof, you should write clearer formulas."
