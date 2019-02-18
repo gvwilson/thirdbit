@@ -14,6 +14,8 @@ title: "Things I Didn't Tweet This Month"
     any sufficiently complicated text formatting system contains an ad-hoc, informally-specified, bug-ridden
     implementation of half of LaTeX.
 
+-   [Open source and its commercial users summarized in one short video.](https://www.youtube.com/watch?v=SqQgDwA0BNU)
+
 -   I really enjoyed *[Understanding How We Learn](http://www.learningscientists.org/book)*;
     I hope that one day we'll know enough about the psychology of programming
     that someone will be able to write *Understanding How We Code*.
