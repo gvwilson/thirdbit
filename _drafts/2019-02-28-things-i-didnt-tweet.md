@@ -59,3 +59,10 @@ title: "Things I Didn't Tweet This Month"
 -   [Rebel Against the Kings of Babylon](https://www.youtube.com/watch?v=2ge7j5wyVvo)
 
 -   I almost re-enabled my Twitter account so that I could re-tweet [this](https://twitter.com/SlacktivistFred/status/1096165930365796357).
+
+-   Nobody's design doc ever includes "complexity" as a goal,
+    so including "simplicity" in a list seems kind of superfluous to me.
+    Ditto "seamless";
+    nobody ever says, "Oh, we offer seamful integration---very seamful."
+
+-   The truth points to itself.
