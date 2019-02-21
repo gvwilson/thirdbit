@@ -66,3 +66,7 @@ title: "Things I Didn't Tweet This Month"
     nobody ever says, "Oh, we offer seamful integration---very seamful."
 
 -   The truth points to itself.
+
+-   You can run JavaScript code using Node from inside RMarkdown documents by using a `{node}` language specifier.
+    If I had known this six months ago,
+    I would have used it for [*JavaScript versus Data Science*](https://software-tools-in-javascript.github.io/js-vs-ds/).
