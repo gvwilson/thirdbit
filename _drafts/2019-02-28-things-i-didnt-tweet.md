@@ -74,3 +74,13 @@ title: "Things I Didn't Tweet This Month"
 -   [Libraries are cool](https://twitter.com/lindsiecanton/status/1098043838621499392).
 
 -   Some day there's going to be an even grittier reboot of *Battlestar Galactica*.
+
+-   I met a guy a couple of years ago who had "Stay Hungry" tattooed on his arm,
+    and it's bothered me ever since.
+    The United States is the richest country in human history,
+    but more than 15 million of its children are malnourished,
+    and I think it's something to be ashamed of,
+    not something to cling to as proof of sincerity and dedication.
+    If you're going to get a tattoo,
+    I think "End Hunger" is a better motto,
+    because *that's* worth fighting for.
