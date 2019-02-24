@@ -70,3 +70,7 @@ title: "Things I Didn't Tweet This Month"
 -   You can run JavaScript code using Node from inside RMarkdown documents by using a `{node}` language specifier.
     If I had known this six months ago,
     I would have used it for [*JavaScript versus Data Science*](https://software-tools-in-javascript.github.io/js-vs-ds/).
+
+-   [Libraries are cool](https://twitter.com/lindsiecanton/status/1098043838621499392).
+
+-   Some day there's going to be an even grittier reboot of *Battlestar Galactica*.
