@@ -10,6 +10,12 @@ title: "Things I Didn't Tweet This Month"
 
 -   [Late Binding]({{site.github.url}}/2019/02/16/late-binding.html)
 
+-   [Is Code-Along Formative Assessment?](http://third-bit.com/2019/02/20/code-along-as-formative-assessment.html)
+
+-   [Making It Work in Practice](http://third-bit.com/2019/02/25/making-it-work-in-practice.html)
+
+-   Launched [instructor training at RStudio](https://blog.rstudio.com/2019/02/28/rstudio-instructor-training/)
+
 -   [Greenspun's Eleventh Rule](https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule):
     any sufficiently complicated text formatting system contains an ad-hoc, informally-specified, bug-ridden
     implementation of half of LaTeX.
@@ -27,9 +33,9 @@ title: "Things I Didn't Tweet This Month"
     I hope that one day we'll know enough about the psychology of programming
     that someone will be able to write *Understanding How We Code*.
 
--   We're not going to get "CS for All" unless we get a decent education for all,
-    so if you really want the first,
-    you have to work on the second as well.
+-   We're not going to get "CS for All" unless we get a decent education for all;
+    since I want the first,
+    I'm [working on the second](https://www.torontopubliclibrary.ca/detail.jsp?Entt=RDMEVT375728&R=EVT375728).
     (See also [Pasi Sahlberg's essay](https://www.washingtonpost.com/blogs/answer-sheet/post/what-the-us-cant-learn-from-finland-about-ed-reform/2012/04/16/gIQAGIvVMT_blog.html)
     explaining why the US can't replicate the successes of Finland's educational system.)
 
@@ -37,9 +43,9 @@ title: "Things I Didn't Tweet This Month"
     I only knew 8.
 
 -   Saying, "If you need to comment your code, you should write clearer code,"
-    is like saying, "If you need to use English in your proof, you should write clearer formulas."
+    is like saying, "If you need to use words in your proof, you should write clearer formulas."
 
--   I would really like stats from various tech publishers on the proportion of their authors of various genders.
+-   I would really like tech book publishers to release stats on the proportion of male and female authors they've published.
 
 -   "I have a love in me the likes of which you can scarcely imagine and rage the likes of which you would not believe.
     If I cannot satisfy the one, I will indulge the other." -- Mary Shelley, *Frankenstein*
@@ -65,7 +71,7 @@ title: "Things I Didn't Tweet This Month"
     Ditto "seamless";
     nobody ever says, "Oh, we offer seamful integration---very seamful."
 
--   The truth points to itself.
+-   The truth (still) points to itself.
 
 -   You can run JavaScript code using Node from inside RMarkdown documents by using a `{node}` language specifier.
     If I had known this six months ago,
@@ -78,8 +84,8 @@ title: "Things I Didn't Tweet This Month"
 -   I met a guy a couple of years ago who had "Stay Hungry" tattooed on his arm,
     and it's bothered me ever since.
     The United States is the richest country in human history,
-    but more than 15 million of its children are malnourished,
-    and I think it's something to be ashamed of,
+    but more than 15 million of its children are malnourished.
+    I think it's something to be ashamed of,
     not something to cling to as proof of sincerity and dedication.
     If you're going to get a tattoo,
     I think "End Hunger" is a better motto,
