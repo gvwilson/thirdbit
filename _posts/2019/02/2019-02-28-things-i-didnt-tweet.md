@@ -81,6 +81,8 @@ title: "Things I Didn't Tweet This Month"
 
 -   Some day there's going to be an even grittier reboot of *Battlestar Galactica*.
 
+-   [Classic](https://www.youtube.com/watch?v=ppVpdsClN80).
+
 -   I met a guy a couple of years ago who had "Stay Hungry" tattooed on his arm,
     and it's bothered me ever since.
     The United States is the richest country in human history,
