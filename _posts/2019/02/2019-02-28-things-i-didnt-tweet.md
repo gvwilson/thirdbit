@@ -45,6 +45,10 @@ title: "Things I Didn't Tweet This Month"
 -   Saying, "If you need to comment your code, you should write clearer code,"
     is like saying, "If you need to use words in your proof, you should write clearer formulas."
 
+-   [These women](https://www.cbc.ca/news/canada/rahaf-mohammed-network-young-women-1.5035839)
+    are braver than I've ever had to be,
+    and I am ashamed that my country is still happy to do business with their oppressors.
+
 -   I would really like tech book publishers to release stats on the proportion of male and female authors they've published.
 
 -   "I have a love in me the likes of which you can scarcely imagine and rage the likes of which you would not believe.
@@ -66,16 +70,9 @@ title: "Things I Didn't Tweet This Month"
 
 -   I almost re-enabled my Twitter account so that I could re-tweet [this](https://twitter.com/SlacktivistFred/status/1096165930365796357).
 
--   Nobody's design doc ever includes "complexity" as a goal,
-    so including "simplicity" in a list seems kind of superfluous to me.
-    Ditto "seamless";
-    nobody ever says, "Oh, we offer seamful integration---very seamful."
-
 -   The truth (still) points to itself.
 
 -   You can run JavaScript code using Node from inside RMarkdown documents by using a `{node}` language specifier.
-    If I had known this six months ago,
-    I would have used it for [*JavaScript versus Data Science*](https://software-tools-in-javascript.github.io/js-vs-ds/).
 
 -   [Libraries are cool](https://twitter.com/lindsiecanton/status/1098043838621499392).
 
