@@ -89,3 +89,6 @@ title: "Things I Didn't Tweet This Month"
     If you're going to get a tattoo,
     I think "End Hunger" is a better motto,
     because *that's* worth fighting for.
+
+-   "You have the kind of terror you get when you drop your computer and you think it's broken forever."
+    (My daughter describing the appearance of a tentacled monster while DM'ing her first game of *Dungeons & Dragons*.)
