@@ -21,4 +21,6 @@ but that's not programming-specific.
 If anyone knows of research on what learners can do
 to improve their programming skills more quickly and more reliably,
 or better yet to programming-specific summaries of such research,
-I'd be grateful for pointers.
+I'd be grateful for pointers:
+you can leave comments on this post
+or [reach me by email](mailto:gvwilson@third-bit.com).
