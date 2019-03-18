@@ -18,3 +18,5 @@ title: "What I Didn't Tweet in March"
     [Philby, Burgess, and Maclean](https://en.wikipedia.org/wiki/Cambridge_Five);
     the big difference will be that this lot betrayed their country out of greed,
     not out of conviction.
+
+-   [The greatest trick the devil ever pulled was convincing so many people that he needs an advocate.](https://twitter.com/Shakestweetz/status/1107740466123079681)
