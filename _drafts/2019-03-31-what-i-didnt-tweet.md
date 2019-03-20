@@ -20,3 +20,5 @@ title: "What I Didn't Tweet in March"
     not out of conviction.
 
 -   [The greatest trick the devil ever pulled was convincing so many people that he needs an advocate.](https://twitter.com/Shakestweetz/status/1107740466123079681)
+
+-   Half of the children in my daughter's grade 6 class believe that vaccines cause autism.
