@@ -22,3 +22,6 @@ title: "What I Didn't Tweet in March"
 -   [The greatest trick the devil ever pulled was convincing so many people that he needs an advocate.](https://twitter.com/Shakestweetz/status/1107740466123079681)
 
 -   Half of the children in my daughter's grade 6 class believe that vaccines cause autism.
+
+-   Again: if your solution to problem X is "more funding" and you don't have a plan for getting more funding,
+    you're not solving the problem, you're just flapping your gums.
