@@ -26,5 +26,5 @@ title: "What I Didn't Tweet in March"
 -   Again: if your solution to problem X is "more funding" and you don't have a plan for getting more funding,
     you're not solving the problem, you're just flapping your gums.
 
--   I asked Packt if they publish material that is Creative Commons licensed.
-    They didn't seem to understand the question.
+-   I asked Packt if they are willing to publish material that is Creative Commons licensed.
+    They refused to answer the question until I'd signed up with them.
