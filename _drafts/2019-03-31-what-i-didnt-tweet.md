@@ -23,8 +23,16 @@ title: "What I Didn't Tweet in March"
 
 -   Half of the children in my daughter's grade 6 class believe that vaccines cause autism.
 
+-   *Fringe* was a better show than we deserved.
+
 -   Again: if your solution to problem X is "more funding" and you don't have a plan for getting more funding,
     you're not solving the problem, you're just flapping your gums.
 
 -   I asked Packt if they are willing to publish material that is Creative Commons licensed.
     They refused to answer the question until I'd signed up with them.
+
+-   *[1912](https://www.amazon.com/1912-Roosevelt-Debs-Election-Changed/dp/0743273559/)* taught me a lot I didn't know,
+    and seems pretty relevant today.
+    Also, anyone who really believed in a free market would have broken up Amazon under anti-monopoly laws long ago.
+
+-   "Dude, I kind of want to camp out until the anvils start falling" is not an unusual statement in our house.

@@ -2,7 +2,6 @@
 layout: post
 date: 2018-07-15 13:00:00
 title: Teaching Tech Together
-favorite: true
 purchase: "http://www.lulu.com/commerce/index.php?fBuyContent=23123539"
 website: http://teachtogether.tech/
 license: https://creativecommons.org/licenses/by/4.0/
