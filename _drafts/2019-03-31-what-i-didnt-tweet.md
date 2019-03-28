@@ -14,6 +14,9 @@ title: "What I Didn't Tweet in March"
     requiring candidates to scrub all unpaid internships from their CVs
     when applying for jobs.)
 
+-   I really want someone to make earbuds that clip onto the arms of my glasses
+    so I don't have to jam them in my ears to keep them in place.
+
 -   At this point I think we all know that Trump/Kushner/et al are going to be America's
     [Philby, Burgess, and Maclean](https://en.wikipedia.org/wiki/Cambridge_Five);
     the big difference will be that this lot betrayed their country out of greed,
@@ -21,7 +24,7 @@ title: "What I Didn't Tweet in March"
 
 -   [The greatest trick the devil ever pulled was convincing so many people that he needs an advocate.](https://twitter.com/Shakestweetz/status/1107740466123079681)
 
--   Half of the children in my daughter's grade 6 class believe that vaccines cause autism.
+-   Half of the children in my daughter's grade 6 class believe that vaccines cause autism :-(
 
 -   *Fringe* was a better show than we deserved.
 
@@ -36,3 +39,5 @@ title: "What I Didn't Tweet in March"
     Also, anyone who really believed in a free market would have broken up Amazon under anti-monopoly laws long ago.
 
 -   "Dude, I kind of want to camp out until the anvils start falling" is not an unusual statement in our house.
+
+-   Our prime minister may be a crook, but [I'm still proud to be Canadian](https://www.cbc.ca/news/canada/montreal/family-asylum-snowden-canada-1.5070571).
