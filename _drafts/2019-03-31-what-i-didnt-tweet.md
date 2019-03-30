@@ -57,3 +57,5 @@ title: "What I Didn't Tweet in March"
 -   Just registered for [ICSE 2019](https://2019.icse-conferences.org/).
     Form asked me to pick 2--3 areas of interest out of 15.
     "Education" wasn't one of the options.
+
+-   Honestly, I think I'm more of a [cautionary tale](https://twitter.com/sail_lab/status/1111662823090868224).
