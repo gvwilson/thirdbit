@@ -30,14 +30,18 @@ title: "What I Didn't Tweet in March"
     so I don't have to jam them in my ears to keep them in place.
 
 -   Half of the children in my daughter's grade 6 class believe that vaccines cause autism :-(
+    I wish I could make a Venn diagram about it as biting as
+    [this one from Dr. Jennifer Gunter](https://twitter.com/DrJenGunter/status/1112019556787118080).
 
 -   *Fringe* was a better show than we deserved.
 
 -   Again: if your solution to problem X is "more funding" and you don't have a plan for getting more funding,
     you're not solving the problem, you're just flapping your gums.
 
--   I asked Packt if they would publish material that is Creative Commons licensed.
-    They refused to answer the question until I'd signed up with them.
+-   I would really like it if every publisher had a clear statement on its website
+    saying whether or not they're willing to publish material under a Creative Commons license.
+    (I asked Manning, and the person I spoke to apparently thought that meant they'd have to give the material away for free.
+    I asked Packt, and they refused to answer the question unless I signed up with them first.)
 
 -   [What Happened to the *Star Wars* That I Used to Know?](https://www.youtube.com/watch?v=qJlbPXZEpRE)
 
