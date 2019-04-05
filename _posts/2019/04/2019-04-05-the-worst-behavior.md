@@ -4,6 +4,10 @@ date: 2019-04-05 01:44
 title: "The Worst Behavior"
 ---
 
+> two years after the incident and DataCamp is here to collect their reward for doing the absolute bare minimum.
+>
+> --- [Jesse Mostipak](https://twitter.com/kierisi/status/1113924744158568451)
+
 Yesterday,
 DataCamp belatedly [acknowledged](https://www.datacamp.com/community/blog/note-to-our-community)
 an incident of sexual assault that took place at the company in 2017.
