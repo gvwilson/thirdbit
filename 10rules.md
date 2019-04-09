@@ -387,7 +387,7 @@ sense and is worth doing.
 ## ...Handing Over and Moving On
 
 This advice is for founders who are handing on their projects;
-see [my CarpentryCon 2018 talk]({{site.github.url}}/talks/late-night/) for more detail.
+see [my CarpentryCon 2018 talk](https://www.youtube.com/watch?v=7xR50ty5DZ0) for more detail.
 
 **1. Be sure you mean it.**
 
