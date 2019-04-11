@@ -91,8 +91,21 @@ and which other kinds are useful across multiple stages:
     since it explains what and why,
     but most people don't think of reports that way.
 
+The dashed arrows returning to unconscious incompetence are there to show that when something changes or a new feature comes out,
+everyone is initially thrown back to the first stage: they don't even know what they don't know.
+The jargon term for them is *false beginner*:
+someone who would score as poorly as a true beginner on a knowledge test,
+but would progress much (much) more rapidly because of their prior exposure.
+If we want to make this diagram more accurate,
+we should have an overview arrow linking directly from unconscious incompetence to conscious competence
+because people who have been using a product proficiently for several years
+can often skip the tutorial stage
+and jump straight to competent use once they've been told something exists and where to find the manual pages for it.
+
 This list doesn't encompass everything,
-but I think most of what's not here can fit into it or be explained in terms of it:
+but I think most of what's not here can fit into it or be explained in terms of it.
+The key is to distinguish content from presentation,
+i.e., what's being delivered from how it's being delivered:
 
 -   A *workshop* is a way to deliver a tutorial;
     a *book* is another,
@@ -100,7 +113,8 @@ but I think most of what's not here can fit into it or be explained in terms of 
 -   A *cheatsheet* is a one-page reference guide that opens with an introduction and includes a bit of cookbook material as well.
 -   An *explanation* can be either a tutorial that isn't accompanied by any exercises
     ("here's how callbacks work in JavaScript")
-    or an introspective essay ("here's the thinking that led me to decide to use callbacks for this part of the program").
+    or an introspective essay
+    ("here's what led me to decide to use callbacks for this part of the program").
     Explanations are often presented as blog posts or conference talks.
 -   Similarly, a *knuth*
     (more often called a "computational notebook" or "literate program",
