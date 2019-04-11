@@ -73,6 +73,13 @@ and which other kinds are useful across multiple stages:
     and a lot of people learn from them,
     but only once they know enough to ask a meaningful question and recognize a useful answer.
 
+7.  Finally, a *report* is something that presents and justifies a specific conclusion,
+    such as, "Teenage vaping is up 22% which is going to impact healthcare costs starting in 2025,"
+    or, "Project Spartnubble is going to deliver three months late because reasons."
+    A report is a kind of lesson,
+    since it explains what and why,
+    but most people don't think of reports that way.
+
 This list doesn't encompass everything,
 but I think most of what's not here can fit into it or be explained in terms of it:
 
@@ -85,13 +92,18 @@ but I think most of what's not here can fit into it or be explained in terms of 
 -   An *explanation* can be either a tutorial that isn't accompanied by any exercises
     ("here's how callbacks work in JavaScript")
     or an introspective essay ("here's the thought process that led me to decide to use callbacks for this part of the program").
+-   Similarly, a *knuth*
+    (more often called a "computational notebook" or "literate program",
+    but "knuth" is pithier and gives credit where credit is due)
+    can be a tutorial or a report,
+    again depending on whether its primary purpose is to convey general content or a specific conclusion.
 
 This model makes more sense to us than others we have seen;
 we'd be grateful for your feedback on whether it makes sense to you,
 and on what we've missed or misunderstood.
 
 *Note:
-we pulled a bit of a fast one in point #3 above when we equated "unconscious competence" with "expertise".
+we pulled a bit of a fast one in point #3 above when we equated unconscious competence with expertise.
 It's possible to have the former without having the latter:
 for example,
 if you've driven a particular route every day for years,
