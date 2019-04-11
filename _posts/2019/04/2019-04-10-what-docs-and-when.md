@@ -25,19 +25,24 @@ and which other kinds are useful across multiple stages:
 
 <img src="{{site.github.url}}/files/2019/04/materials.svg" width="80%" alt="Documentation model" />
 
-1.  An *introduction* is a general overview that makes people aware something exists.
-    We'd like to find a better term for this,
-    but introductions are often delivered as webinars,
+1.  An *orientation* is a general overview that makes people aware something exists.
+    Orientations are often delivered as webinars,
     as the first lecture of a larger workshop or course,
-    or as elevator pitches and other marketing material.
+    or as elevator pitches and other marketing material;
+    concept maps and other visual aids are particularly useful.
 
 2.  A *tutorial* is a planned lesson that helps people build a mental model of a domain
     and acquire a few basic skills so that they can start to tackle problems of interest.
 
-3.  Practice with feedback is dashed because it isn't a category of documentation---it's
-    what people need to become experts
-    (i.e., to get from conscious competence to unconscious competence).
-    This is where instructors stop teaching fixed rules to be applied in predictable situations
+3.  A *worked example* is the sort of thing you would find in a support knowledge base
+    or a book of plans for garden sheds.
+    It shows learners something close enough to what they're actually working on
+    for them to figure out what's generic, what's specific, and where to make substitutions.
+    Worked examples can be developed and explained in tutorials (lesson first, example as support)
+    or can be first-class citizens with more comments and documentation than usual (example first, explanation as support).
+
+4.  The transition from competent to expert (i.e., from conscious competence to unconscious competence)
+    is where instructors stop teaching fixed rules to be applied in predictable situations
     and start saying,
     "It depends..." and where individualized critique of students' work takes over from grading against a rubric.
     A lot of material at this level takes the form of introspective *essays*,
@@ -46,6 +51,12 @@ and which other kinds are useful across multiple stages:
     in which the author implicitly says,
     "Any rules I write down will be banal, so here's how the world looks through my eyes,"
     and relies on the learner to generalize.
+    This is also where people use case studies;
+    as with tutorials and worked examples,
+    the difference is of degree rather than kind.
+    (An essay is primarily about viewpoint, with cases as support,
+    where a case study is mostly about the particular instance
+    with the author's viewpoint as the added value.)
     <br/>
     We don't have nearly enough examples of this in computing,
     though Stroustrup's *[Design and Evolution of C++](https://www.amazon.com/Design-Evolution-C-Bjarne-Stroustrup/dp/0201543303/)*,
@@ -56,10 +67,10 @@ and which other kinds are useful across multiple stages:
     that's the gap *[Beautiful Code](https://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/)*
     and *[The Architecture of Open Source Applications](http://aosabook.org)* were trying to fill.
 
-4.  *Reference* material only starts being useful once you have a mental model of some kind,
+5.  *Reference* material only starts being useful once you have a mental model of some kind,
     but keeps being useful [no matter how far you progress](https://xkcd.com/1168/).
 
-5.  *Cookbooks* are helpful even before you know what you're trying to do,
+6.  *Cookbooks* are helpful even before you know what you're trying to do,
     but stop being needed as you move from conscious competence to expertise:
     by that stage,
     you will have internalized the procedures and most of the steps,
@@ -67,13 +78,13 @@ and which other kinds are useful across multiple stages:
     *Checklists*, on the other hand,
     continue to be [useful even for experts](https://www.newyorker.com/magazine/2007/12/10/the-checklist).
 
-6.  As [Peggy Storey](http://margaretstorey.com/) and others have pointed out,
+7.  As [Peggy Storey](http://margaretstorey.com/) and others have pointed out,
     *Q&A* sites like [Stack Overflow](https://stackoverflow.com/) are the biggest advance in how we program in the last 20 years.
     A lot of companies and projects run their own discussion forums (like [RStudio Community](https://community.rstudio.com/))
     and a lot of people learn from them,
     but only once they know enough to ask a meaningful question and recognize a useful answer.
 
-7.  Finally, a *report* is something that presents and justifies a specific conclusion,
+8.  Finally, a *report* is something that presents and justifies a specific conclusion,
     such as, "Teenage vaping is up 22% which is going to impact healthcare costs starting in 2025,"
     or, "Project Spartnubble is going to deliver three months late because reasons."
     A report is a kind of lesson,
@@ -87,11 +98,10 @@ but I think most of what's not here can fit into it or be explained in terms of 
     a *book* is another,
     and a *discussion* is a third.
 -   A *cheatsheet* is a one-page reference guide that opens with an introduction and includes a bit of cookbook material as well.
--   *Worked examples* are tutorials or case studies,
-    depending on the level of detail and analysis.
 -   An *explanation* can be either a tutorial that isn't accompanied by any exercises
     ("here's how callbacks work in JavaScript")
-    or an introspective essay ("here's the thought process that led me to decide to use callbacks for this part of the program").
+    or an introspective essay ("here's the thinking that led me to decide to use callbacks for this part of the program").
+    Explanations are often presented as blog posts or conference talks.
 -   Similarly, a *knuth*
     (more often called a "computational notebook" or "literate program",
     but "knuth" is pithier and gives credit where credit is due)
@@ -103,7 +113,7 @@ we'd be grateful for your feedback on whether it makes sense to you,
 and on what we've missed or misunderstood.
 
 *Note:
-we pulled a bit of a fast one in point #3 above when we equated unconscious competence with expertise.
+we pulled a bit of a fast one in point #4 above when we equated unconscious competence with expertise.
 It's possible to have the former without having the latter:
 for example,
 if you've driven a particular route every day for years,
