@@ -23,7 +23,7 @@ I think it's also defined by the worst behavior by the leaders that the rank and
 DataCamp's statement only appeared after considerable pressure from the community,
 and its half-heartedness and deflection just make me sad.
 
-*Full disclosure: DataCamp fired me in June 2018 for "poor performance".*
+*Full disclosure: DataCamp fired me in June 2018 for poor performance.*
 
 **Update:** shortly after I posted this,
 Kara Woo came forward and stated that [she was the target of this assault](https://twitter.com/kara_woo/status/1114229065509003264);
