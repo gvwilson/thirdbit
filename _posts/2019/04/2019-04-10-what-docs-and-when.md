@@ -30,6 +30,7 @@ and which other kinds are useful across multiple stages:
     as the first lecture of a larger workshop or course,
     or as elevator pitches and other marketing material;
     concept maps and other visual aids are particularly useful.
+    Orientation might also take the form of *release notes* for *false beginners* (discussed below).
 
 2.  A *tutorial* is a planned lesson that helps people build a mental model of a domain
     and acquire a few basic skills so that they can start to tackle problems of interest.
@@ -78,13 +79,16 @@ and which other kinds are useful across multiple stages:
     *Checklists*, on the other hand,
     continue to be [useful even for experts](https://www.newyorker.com/magazine/2007/12/10/the-checklist).
 
-7.  As [Peggy Storey](http://margaretstorey.com/) and others have pointed out,
+7.  A *translation* is a special kind of cookbook:
+    it shows a reader who knows how to do something with tool X how to do it with tool Y.
+
+8.  As [Peggy Storey](http://margaretstorey.com/) and others have pointed out,
     *Q&A* sites like [Stack Overflow](https://stackoverflow.com/) are the biggest advance in how we program in the last 20 years.
     A lot of companies and projects run their own discussion forums (like [RStudio Community](https://community.rstudio.com/))
     and a lot of people learn from them,
     but only once they know enough to ask a meaningful question and recognize a useful answer.
 
-8.  Finally, a *report* is something that presents and justifies a specific conclusion,
+9.  Finally, a *report* is something that presents and justifies a specific conclusion,
     such as, "Teenage vaping is up 22% which is going to impact healthcare costs starting in 2025,"
     or, "Project Spartnubble is going to deliver three months late because reasons."
     A report is a kind of lesson,
@@ -110,7 +114,9 @@ i.e., what's being delivered from how it's being delivered:
 -   A *workshop* is a way to deliver a tutorial;
     a *book* is another,
     and a *discussion* is a third.
--   A *cheatsheet* is a one-page reference guide that opens with an introduction and includes a bit of cookbook material as well.
+-   A *cheatsheet* is a one-page reference guide that opens with an introduction
+    and includes a bit of cookbook material as well---it's mostly a reminder of things the reader has probably already seen
+    with a few other useful bits thrown in.
 -   An *explanation* can be either a tutorial that isn't accompanied by any exercises
     ("here's how callbacks work in JavaScript")
     or an introspective essay
