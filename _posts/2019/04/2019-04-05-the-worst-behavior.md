@@ -31,3 +31,8 @@ see [this thread](https://twitter.com/ledell/status/1114238844503609344) and oth
 I am very grateful for Kara's strength and courage;
 at the time of writing,
 the person who assaulted her is still a senior executive at DataCamp.
+
+**Update:** Noam Ross then discovered that DataCamp
+[deliberately tried to bury their acknowledgment of the incident](https://twitter.com/noamross/status/1116709899159916544)
+(see [https://rud.is/b/2019/04/12/a-note-to-our-community-on-how-to-hide-your-content-from-search-engines/](this post)
+for more on the details).
