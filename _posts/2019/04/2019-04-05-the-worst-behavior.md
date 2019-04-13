@@ -34,5 +34,5 @@ the person who assaulted her is still a senior executive at DataCamp.
 
 **Update:** Noam Ross then discovered that DataCamp
 [deliberately tried to bury their acknowledgment of the incident](https://twitter.com/noamross/status/1116709899159916544)
-(see [https://rud.is/b/2019/04/12/a-note-to-our-community-on-how-to-hide-your-content-from-search-engines/](this post)
+(see [this post](https://rud.is/b/2019/04/12/a-note-to-our-community-on-how-to-hide-your-content-from-search-engines/)
 for more on the details).
