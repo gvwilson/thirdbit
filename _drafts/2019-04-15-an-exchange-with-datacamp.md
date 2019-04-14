@@ -7,7 +7,7 @@ title: "An Exchange with DataCamp"
 I haven't spoken publicly about my experience with DataCamp
 out of respect for Kara Woo's privacy.
 Now that she has so bravely [come forward](https://twitter.com/kara_woo/status/1114229065509003264),
-I feel the community should know that after I was fired in June 2017,
+I feel the community should know that after I was fired in June 2018,
 DataCamp offered me the equivalent of a month's pay
 if I would sign a separation agreement that included a non-disparagement clause.
 In the exchange of email that followed I asked for:
