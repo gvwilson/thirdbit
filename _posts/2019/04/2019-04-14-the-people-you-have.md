@@ -60,7 +60,9 @@ But the thing I want second is to create [a commons](http://www.thinklikeacommon
 or [a co-operative](https://www.newsociety.com/Books/H/Humanizing-the-Economy)
 by erasing the distinction between teachers and learners.
 I don't just want a platform for teaching data science;
-I want one that creates participants in the way that public education creates citizens.
+I want one that teaches participation in the way that
+the public education system my parents devoted their lives to
+taught people how to be citizens.
 
 Stack Overflow is proof by example that people will create
 a "[chorus of explanations](https://hapgood.us/2016/05/13/choral-explanations/)" if given the means to do so,
