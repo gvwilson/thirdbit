@@ -70,3 +70,9 @@ If we teach people [a little bit about teaching](http://teachtogether.tech/)
 and [a little bit about how to organize](https://www.ipgbook.com/building-powerful-community-organizations-products-9780977151806.php),
 I believe we can create a republic of learning:
 a place where imperfect people with too little time and too few resources to do the job right can nevertheless do it well.
+
+> I organized an online study group two years ago to work through
+> Brown's *[Building Powerful Community Organizations](https://www.ipgbook.com/building-powerful-community-organizations-products-9780977151806.php)*,
+> which is the most practical guide I know to grassroots organization.
+> If you would like to take part in another such group this summer,
+> please [let me know](mailto:gvwilson@third-bit.com).
