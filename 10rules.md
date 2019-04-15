@@ -379,7 +379,7 @@ prudence.
 **10. Take a hint.**
 
 If the first person you ask for help says "no", ask someone else.  If the fifth
-or the tenth person says "no", as yourself if what you're trying to do makes
+or the tenth person says "no", ask yourself if what you're trying to do makes
 sense and is worth doing.
 
 ---
