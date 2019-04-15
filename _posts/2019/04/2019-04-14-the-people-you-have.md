@@ -32,7 +32,7 @@ in the stream that followed said:
 
 With respect,
 anything that requires that isn't going to work.
-Teaching is always been a day late and a dollar short:
+Teaching is always a day late and a dollar short:
 it's the largest part of what universities do,
 but most faculty aren't taught how to teach and aren't given the resources to teach well,
 and while many companies pay lip service to "lifetime learning",
