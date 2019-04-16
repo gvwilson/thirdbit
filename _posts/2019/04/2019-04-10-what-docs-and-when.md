@@ -4,6 +4,8 @@ date: 2019-04-10 06:13
 title: "What Docs and When"
 ---
 
+**Note: this post has been superseded by [a more recent one]({{site.github.url}}/2019/04/16/what-docs-when.html).**
+
 [This blog post from Divio](https://www.divio.com/blog/documentation/)
 divides documentation into tutorials, how-to guides, explanations, and reference works.
 After discussing it with some of my colleagues,
