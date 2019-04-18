@@ -38,6 +38,7 @@ so I declined the agreement and ended the exchange there.
 *Please also see [this post](https://dhavide.github.io/a-note-to-our-commuity-on-building-trust.html)
 by my friend and colleague Dhavide Aruliah,
 who was fired the same day as me,
-and [this tweet](https://twitter.com/noamross/status/1116709899159916544)
+[this tweet](https://twitter.com/noamross/status/1116709899159916544)
 [and post](https://rud.is/b/2019/04/12/a-note-to-our-community-on-how-to-hide-your-content-from-search-engines/)
-for more on DataCamp's attempt to bury their belated acknowledgment of the assault.*
+for more on DataCamp's attempt to bury their belated acknowledgment of the assault,
+and [my post from ten days ago]({{site.github.url}}/2019/04/05/the-worst-behavior.html).*
