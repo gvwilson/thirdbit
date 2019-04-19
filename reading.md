@@ -2,6 +2,7 @@
 layout: default
 permalink: /reading/
 title: "Reading List"
+nocomments: true
 ---
 # Recommended Reading
 
