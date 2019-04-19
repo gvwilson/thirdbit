@@ -38,4 +38,4 @@ and that the journey is a lot smoother than people might think.
 
 Disclaimer: Toby Hodges and I recently released
 *[JavaScript versus Data Science](https://software-tools-in-javascript.github.io/js-vs-ds/)*,
-the more advanced bits of which overlap with some of the earlier material in this book..
+the more advanced bits of which overlap with some of the earlier material in this book.
