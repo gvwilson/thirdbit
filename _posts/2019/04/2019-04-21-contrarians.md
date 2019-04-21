@@ -34,7 +34,7 @@ or be able to explain to everyone precisely how naive they are.
 If you're surrounded by racists,
 you need to be the one who knows that race is a socially-constructed concept with no scientific foundation
 and how [standardized tests are slanted to produce the results that the powerful are comfortable with][testing].
-If you're in a crowd of progressives,
+If you're in a room full of progressives,
 though,
 your need for attention compels you to be the one saying, "Well, actually..."
 and then (regretfully---always regretfully) explaining that yes,
@@ -43,10 +43,10 @@ but...
 You're the mirror image of Hoffer's [true believer][true-believer]:
 instead of needing a cause to believe in,
 you need something to *disbelieve*,
-because otherwise you're just one of the crowd.
+because otherwise you're just one of the herd.
 
 I'm starting to see this in some discussions of #MeToo and accountability and inclusivity in tech.
-I don't know if most people actually *believe* we're doing badly,
+I don't know if most people really *believe* we're doing badly,
 but the majority now *say* that we are,
 which means that the only way some smarter-thans can assuage their insecurity
 is to say, "Well, actually..."
