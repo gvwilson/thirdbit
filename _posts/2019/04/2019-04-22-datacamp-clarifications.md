@@ -31,5 +31,5 @@ But whether or not DataCamp was justified in firing me doesn't matter.
 What matters is the assault on Kara Woo and DataCamp's misbehavior since,
 and I hope this clarification will help the community stay focused on that.
 
-*See also Dhavide Aruliah summary of how DataCamp mistreated him
+*See also Dhavide Aruliah's summary of how DataCamp mistreated him
 in [this blog post](https://dhavide.github.io/a-note-to-our-commuity-on-building-trust.html).*
