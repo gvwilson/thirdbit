@@ -7,7 +7,7 @@ title: "Ten Simple Rules"
 # Ten Simple Rules for...
 
 -   [...Teaching](#teaching)
--   [...Building Open Science Community Organizations](#building-open-science-community-organizations)
+-   [...Building Community Organizations](#building-community-organizations)
 -   [...Being a Good Research Partner](#being-a-good-research-partner)
 -   [...Talking People Into Things](#talking-people-into-things)
 -   [...Handing Over and Moving On](#handing-over-and-moving-on)
@@ -19,6 +19,8 @@ See also:
 -   [Ten Simple Rules for Making Research Software More Robust](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412)
 -   [Ten Simple Rules for Collaborative Lesson Development](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005963)
 -   [Ten Quick Tips for Teaching Programming](https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1006023)
+-   [Ten Quick Tips for Creating an Effective Lesson](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006915)
+-   [Ten Simple Rules for Helping Newcomers Become Contributors to Open Source Projects](https://github.com/gvwilson/10-newcomers) (in development)
 
 ---
 
@@ -41,7 +43,7 @@ See *[Teaching Tech Together][t3]* for a much longer discussion.
 
 ---
 
-## ...Building Open Science Community Organizations
+## ...Building Community Organizations
 
 With contributions from Katy Huff, Erin Robinson, Matt Turk, and Belinda Weaver.
 
