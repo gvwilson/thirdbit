@@ -26,7 +26,7 @@ We can't get decent pay and job security for teaching assistants on our own.
 We have to work together to get more funding for education,
 to make training in modern educational practices mandatory for all faculty,
 and to fend off those who think that universities should be run like Walmart or Amazon.
-We have to organize and campaign because we can't achieve any of this unless we do,
+We have to organize and campaign because we can't achieve big things working alone,
 and because relying on altruism, heroism, and stealth will eventually exhaust us.
 
 As a software engineer, I believe in the power of automating repetitive tasks.
