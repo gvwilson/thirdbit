@@ -33,7 +33,7 @@ so here are ten others that I hope will help people in the moment as they delive
     It also helps your learners connect what you're explaining with specific parts of your code,
     and allows you to make small changes or conduct small experiments in response to their questions.
     Finally,
-    live coding allows your learners to see how your tool of choice.
+    live coding allows your learners to see how you actually use your tool of choice.
 
 4.  **Make mistakes and work through them.**
     Professional developers spend 25-60% of their time debugging;
