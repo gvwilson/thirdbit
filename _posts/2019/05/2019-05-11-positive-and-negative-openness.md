@@ -45,9 +45,14 @@ Boiling it all down to a tweet:
 > If you say, "It's just a programming language" then a language is all you'll ever have.
 > If you want users then you need a community.
 
-Further reading:
+Inspirations:
 
 -   Isaiah Berlin: [Two Concepts of Liberty](https://web.archive.org/web/20180131015207/http://faculty.www.umb.edu/steven.levine/courses/Fall%202015/What%20is%20Freedom%20Writings/Berlin.pdf)
 -   David Bollier: *[Think Like a Commoner](https://www.newsociety.com/Books/T/Think-Like-a-Commoner)*
 -   John Restakis: *[Humanizing the Economy](https://www.newsociety.com/Books/H/Humanizing-the-Economy)*
 -   Steve Klabnik: [What comes after "open source"](https://words.steveklabnik.com/what-comes-after-open-source)
+-   Anu Partanen: [What Americans Keep Ignoring About Finland's School Success](https://www.theatlantic.com/national/archive/2011/12/what-americans-keep-ignoring-about-finlands-school-success/250564/)
+
+Note: I recognize the irony (or hypocrisy) of praising inclusivity
+and then citing authors who are 80% male and 100% white.
+I'm reading as fast as I can...
