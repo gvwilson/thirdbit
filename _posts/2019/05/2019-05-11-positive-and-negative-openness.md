@@ -43,7 +43,7 @@ and society in general.
 Boiling it all down to a tweet:
 
 > If you say, "It's just a programming language" then a language is all you'll ever have.
-> If you want users then you need a community.
+> If you want users, and really want to help them, then you need a community.
 
 Inspirations:
 
