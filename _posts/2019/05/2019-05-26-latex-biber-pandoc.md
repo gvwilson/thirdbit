@@ -65,4 +65,9 @@ $ pandoc -s --css=assets/bootstrap.css --css=assets/book.css --toc --toc-depth=2
 ```
 
 where `template.html` is a copy of Pandoc's default HTML template lightly tweaked to use Bootstrap CSS.
-What do I change to get the appearance that I want?
+I would like the resulting HTML to use the BibTeX citation key in both the body and the bibliography.
+(I would also like citations to hyperlink to the bibliography entry,
+and bibliography entries to include the note field, but one step at a time...)
+What is the magic I'm looking for?
+
+Note: source available in <https://github.com/gvwilson/teachtogether.tech/>
