@@ -61,6 +61,26 @@ I believe this approach is pedagogically defensible:
 
 ## An Example
 
+Several good libraries for validating data pipelines in R already exist,
+including [assertr](https://cran.r-project.org/web/packages/assertr/index.html),
+[checkr](https://cran.r-project.org/web/packages/checkr/index.html),
+and [validate](https://cran.r-project.org/web/packages/validate/index.html).
+What we're missing are:
+
+1.  Lessons to teach budding data scientists what tests they should actually write.
+    I strongly suspect that these will have to be (sub)domain-specific;
+    as the joke goes,
+    physicists worry about decimal places,
+    astronomers worry about exponents,
+    and economists are happy if they get the sign right.
+2.  Hooks to help people recycle their tests in production.
+    One-off scripts have a nasty habit of finding their way into pipelines;
+    [Taschuk's Rules](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412)
+    tell people how to prepare for that,
+    but libraries with hooks so that data engineers can turn them on and off
+    and control where their output goes
+    *without* editing the source can help a lot.
+
 So what might this look like in practice?
 Imagine we have this simple dplyr pipeline
 to find the mean age of people who aren't "alpha":
@@ -81,31 +101,32 @@ data %>%
   summarize(midpoint = mean(age))
 ```
 
-Now imagine a trio of functions `nickr_row`, `nickr_col`, and `nickr_group`
-that check conditions on rows, columns, and groups without modifying the data:
+Now imagine a trio of functions `grumble_row`, `grumble_col`, and `grumble_group`
+that check conditions on rows, columns, and groups without modifying the data.
+The data scientist delivers this:
 
 ```
-MAX_AGE <- 120
-IN.PRODUCTION <- FALSE # Would come from a configuration file in a data product.
+config <- list(MAX_AGE = 120, IN_PRODUCTION = FALSE, LOGGER = warning)
 
 data %>%
 
-  nickr_col(age >= 18) %>%
-  nickr_col(age <= MAX_AGE, active = !IN.PRODUCTION) %>%
+  grumble_col(age >= 18) %>%
+  grumble_col(age <= config$MAX_AGE, active = !config$IN_PRODUCTION) %>%
 
   filter(person_id != "alpha") %>%
 
-  nickr_row(is.na(age), logger = warning) %>%
+  grumble_row(is.na(age), logger = config$LOGGER) %>%
 
   group_by(person_id) %>%
 
-  nickr_group(n() == 2, msg = "Expected two records per person.") %>%
+  grumble_group(n() == 2, msg = "Expected two records per person.") %>%
 
   summarize(midpoint = mean(age))
 ```
 
-I wouldn't expect people to add all (or any) of these checks before running this pipeline,
-but I hope we can teach them to add at least a few as they go along.
+The data engineer pulls those configuration settings out into a YAML file,
+then changes `IN_PRODUCTION` to `TRUE`
+and replaces `warning` with a function from `futile.logger` or a similar package.
 Here's the fully-annotated version to explain the purposes of the checks
 and the extra parameters that these functions understand:
 
@@ -114,25 +135,25 @@ data %>%
 
   # Always check that age is greater than or equal to 18.
   # (Would raise error in this example because of record 100.)
-  nickr_col(age >= 18) %>%
+  grumble_col(age >= 18) %>%
 
   # Only check that age lies below maximum when not in production.
   # (Would not raise an error in this example because 'active' would be FALSE.)
-  nickr_col(age <= MAX_AGE, active = !IN.PRODUCTION) %>%
+  grumble_col(age <= config$MAX_AGE, active = !config$IN_PRODUCTION) %>%
 
   # Real calculation.
   filter(person_id != "alpha") %>%
 
   # Generate a warning if there are any surviving NAs in age.
   # (Would generate a warning in this example because of record 400.)
-  nickr_row(is.na(age), logger = warning) %>%
+  grumble_row(is.na(age), logger = config$LOGGER) %>%
 
   # Real calculation.
   group_by(person_id) %>%
 
   # Check that there are exactly two records for each person.
   # (Would raise an error in this example because there is only one record for "beta".)
-  nickr_group(n() == 2, msg = "Expected two records per person.") %>%
+  grumble_group(n() == 2, msg = "Expected two records per person.") %>%
 
   # Real calculation.
   summarize(midpoint = mean(age))
