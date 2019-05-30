@@ -12,7 +12,7 @@ but this fly-by has confirmed several things for me:
 1.  I did the right thing leaving academia---I don't have the patience or diligence
     to be a good researcher.
 
-2.  A lot of software engineering research has the same effect on programmers
+2.  Most software engineering research has the same effect on programmers
     that astronomy has on stars.
     Some of this is because most of the problems that most working programmers face
     are hard for researchers to tackle,
@@ -94,7 +94,7 @@ I would want students to be able to answer questions like these:
         (Begel and Zimmermann found that
         [developers believe there's a high risk they would be](https://www.microsoft.com/en-us/research/publication/analyze-this-145-questions-for-data-scientists-in-software-engineering/).
 
-But I want to prepare students to go further---much further.
+But I want to prepare students to go further.
 Peggy Storey's outstanding keynote at ICSE this morning described
 three schools of thought in software engineering research:
 
