@@ -93,13 +93,42 @@ I would want students to be able to answer questions like these:
     -   How will answers to this question be mis-used?
         (Begel and Zimmermann found that
         [developers believe there's a high risk they would be](https://www.microsoft.com/en-us/research/publication/analyze-this-145-questions-for-data-scientists-in-software-engineering/).
--   How do we analyze qualitative data like interviews and case studies systematically?
-    -   We can learn a lot from closely observing a handful of subjects
-        or closely reading a handful of transcripts,
-        and knowing how to do that is just as important as knowing how to do a linear regression.
 
+But I want to prepare students to go further---much further.
+Peggy Storey's outstanding keynote at ICSE this morning described
+three schools of thought in software engineering research:
+
+1.  Formal sciences (philosophical and mathematical foundations)
+    use the scientific method,
+    focus on evidence-based reality,
+    and value the quantitative over the qualitative.
+2.  Explanatory sciences (descriptive and predictive theories)
+    acknowledge that reality is subjective and experiential,
+    expect biases and make them explicit,
+    focus on theory generation,
+    and value the qualitative over the quantitative.
+3.  Design sciences (exemplified by medical treatments and engineering solutions)
+    are collaborative and change-oriented,
+    and use a mix of methods.
+    They are shaped by researchers' political and social lenses;
+    to paraphrase Marx,
+    their goal isn't to understand the world, but to change it.
+
+The course I've outlined above is firmly in category #1,
+but a lot of the work I value most (like [Marian Petre](http://mcs.open.ac.uk/mp8/)'s)
+falls into the second category,
+and I'm personally in the third.
+I don't know if it's possible to give equal weight to all three in a single course;
+I suspect that if we try to do so,
+the kind of people who regarded Software Carpentry as "merely useful"
+will think that we are watering down the course.
+
+It's worth trying, though.
 Putting this course together would be a big project,
 but no bigger than creating a practical introduction to statistics for psychologists or economists.
-I think it would be fun,
-and I strongly suspect that people who'd gone through this as undergrads
-would pay more attention to software engineering research after they graduated.
+It would be fun,
+and if anyone needs a little self-interest to spur them on,
+I strongly suspect that people who'd gone through this as undergrads
+would pay more attention to software engineering research
+and be more willing to collaborate with software engineering researchers
+once they were in industry.
