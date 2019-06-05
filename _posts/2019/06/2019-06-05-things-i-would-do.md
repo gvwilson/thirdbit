@@ -67,3 +67,18 @@ Do novices learn data science faster or better using blocks or text?
     and the blocks would implement the operations in the tidyverse.
     (One of my summer interns is building a tool so that we can study this.
     If you're a JavaScript programmer and you want to help, please get in touch.)
+
+How much software would pass a Moses Test?
+:   Robert Moses reshaped New York City and surrounding areas;
+    among other things,
+    he deliberately made the bridges over roads leading to public beaches too low for buses
+    so that poor people would have a hard time getting there.
+    In his dishonor,
+    I would like to institute a Moses Test:
+    take a real social network or software application,
+    and another that has deliberately been designed to be unfair or exclusionary in some way,
+    and put them in front of a randomly selected software engineer.
+    If they can't tell which is which,
+    the real system fails the test.
+    This would allow us to gauge how fair systems are without having to define fairness,
+    in the same way that the Turing Test does for intelligence.
