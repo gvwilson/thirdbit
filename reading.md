@@ -14,15 +14,6 @@ just how intellectually impoverished Silicon Valley's worldview is;
 if you find them useful,
 I'd appreciate suggestions for additions.
 
-This list is a partial, incomplete, and inadequate replacement for
-what I hoped the "[Stuff That Actually Matters][stam]" project would produce.
-What I *really* want---and what I think tech desperately needs---is
-an approachable one-volume distillation of all this
-along the lines of Bryson's *[A Short History of Nearly Everything][everything]*
-or Conery's *[Imposter's Handbook][imposters]*.
-Producing it would cost less than the launch party for a new brand of phone;
-the fact that it hasn't happened is just one more sign of how desperately we need it.
-
 1. Karen Armstrong: *[The Great Transformation][great-transformation]*.
    Chronicles the critical centuries in which Confucianism and Daoism arose in China,
    Hinduism and Buddhism in India,
@@ -40,13 +31,16 @@ the fact that it hasn't happened is just one more sign of how desperately we nee
    One of the most practical thinkers of the 20th Century draws on his experience as an architect
    to explain how many other things in our society come to be as they are.
 
+1. Michael Jacoby Brown: *[Building Powerful Community Organizations][bpco]*.
+   The best practical guide I know to creating and sustaining grassroots groups with a purpose.
+
 1. Alex Butterworth: *[The World That Never Was][anarchists]*.
    Explores the early days of the anarchist movement,
    and in doing so shows how governments create the villains they need.
 
-1. James C. Scott: *[Seeing Like a State][seeing-like-state]*.
-   Explains why large organizations always prefer uniformity over productivity,
-   and the price people pay for this.
+1. Tressie McMillan Cottom: *[Lower Ed][lower-ed]: The Troubling Rise of For-Profit Colleges in the New Economy*.
+   Describes how a large part of the educational sector in the US exists
+   to translate government grants into personal debt for the poor and private profit for the rich.
 
 1. Matthew Crawford: *[Shop Class as Soulcraft][shop-class]*.
    There are truths about ourselves we can only learn
@@ -65,14 +59,14 @@ the fact that it hasn't happened is just one more sign of how desperately we nee
    Why educational reforms in the United States and elsewhere have foundered,
    and what other countries have done instead that's worked.
 
+1. Jennifer Hecht: *[Doubt: A History][doubt]*.
+   Traces the evolution of one of the great traditions in Western thought
+   (one which even today makes many people uncomfortable).
+
 1. Adam Hochschild: *[Bury the Chains][chains]*.
    "Slavery was to the nineteenth century what oil is today:
    morally repugnant but economically indispensible."
    And the fight against it was one of the first great triumphs of democratic activism.
-
-1. Jennifer Hecht: *[Doubt: A History][doubt]*.
-   Traces the evolution of one of the great traditions in Western thought
-   (one which even today makes many people uncomfortable).
 
 1. Sarah Kendzior: *[The View From Flyover Country][flyover]*.
    Essential reading about the rise of authoritarian kleptocracy in the United States.
@@ -81,6 +75,9 @@ the fact that it hasn't happened is just one more sign of how desperately we nee
    The idea that individuals can own land is a lot younger than most people realize,
    and its emergence holds a lot of lessons for today's debates over intellectual property.
 
+1. Pankaj Mishra: *[From the Ruins of Empire][ruins-of-empire]*.
+   Three intellectual biographies showing how the peoples of Asia have responded to the West.
+
 1. Samuel Moyn: *[The Last Utopia][last-utopia]*.
    Argues that human rights became the defining issue for post-war progressives
    only because others failed.
@@ -88,8 +85,18 @@ the fact that it hasn't happened is just one more sign of how desperately we nee
 1. George Orwell: *[Essays][orwell]*.
    The best writing from the best political writer (in English) of the 20th Century.
 
-1. Pankaj Mishra: *[From the Ruins of Empire][ruins-of-empire]*.
-   Three intellectual biographies showing how the peoples of Asia have responded to the West.
+1. Leigh Phillips and Michal Rozworski: *[The People's Republic of Walmart][peoples-walmart]*.
+   Most of the world's economic activity occurs within large companies like Walmart and Amazon.
+   They all use central planning:
+   why doesn't the economy as a whole,
+   and can we make the efficiencies of planning democratically accountable?
+
+1. John Restakis: *[Humanizing the Economy][humanizing-economy]*.
+   A history of the co-operative movement and a blueprint for its future.
+
+1. James C. Scott: *[Seeing Like a State][seeing-like-state]*.
+   Explains why large organizations always prefer uniformity over productivity,
+   and the price people pay for this.
 
 1. Jim Stanford: *[Economics for Everyone][economics-everyone]*.
    A useful antidote to the abstract, unquestioning way that neoliberal economics is usually presented.
@@ -105,8 +112,7 @@ the fact that it hasn't happened is just one more sign of how desperately we nee
 
 ## A Few Others
 
-These are wonderful books,
-but don't have any overt politic overtones.
+Not everything has to be serious...
 
 1. Hope Jahren: *[Lab Girl][lab-girl]*.
    An unflinching and beautifully-written account of a life in science. 
@@ -147,19 +153,21 @@ but don't have any overt politic overtones.
 [four-futures]: https://isbndb.com/book/9781781688137
 [great-transformation]: https://isbndb.com/book/9780385721240
 [hbl]: https://isbndb.com/book/9780140139969
+[humanizing-economy]: https://www.newsociety.com/Books/H/Humanizing-the-Economy
 [imposters]: https://bigmachine.io/products/the-imposters-handbook
 [lab-girl]: https://isbndb.com/book/9781101873724
 [last-utopia]: https://isbndb.com/book/9780674064348
 [life-code]: https://isbndb.com/book/9781250181695
+[lower-ed]: https://isbndb.com/book/9781620974384
 [orwell]: https://isbndb.com/book/9780375415036
 [owning-earth]: https://isbndb.com/book/9781620402917
+[peoples-walmart]: https://www.versobooks.com/books/2822-the-people-s-republic-of-walmart
 [ruins-of-empire]: https://isbndb.com/book/9781250037718
 [seeing-like-state]: https://isbndb.com/book/9780300078152
 [shop-class]: https://isbndb.com/book/9780143117469
 [silk-road]: https://isbndb.com/book/9780520232143
 [sisters]: https://isbndb.com/book/9780809087037
 [spirit-level]: https://isbndb.com/book/9781608193417
-[stam]: {{site.github.url}}/2016/11/13/stuff-that-actually-matters.html
 [stationery]: https://isbndb.com/book/9781846686160
 [think-like-commoner]: https://isbndb.com/book/9780865717688
 [tlm]: https://isbndb.com/book/9780679763901
