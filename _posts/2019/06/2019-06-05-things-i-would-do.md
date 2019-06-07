@@ -2,6 +2,7 @@
 layout: post
 date: 2019-06-05 02:27
 title: "Things I Would Do (If I Still Did Research)"
+favorite: true
 ---
 
 I never had the patience or diligence to be a good researcher,

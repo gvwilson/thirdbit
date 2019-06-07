@@ -2,6 +2,7 @@
 layout: post
 date: 2019-06-06 02:27
 title: "What I Would Write (If I Was Smarter Than I Am)"
+favorite: true
 ---
 
 Yesterday I wrote about
