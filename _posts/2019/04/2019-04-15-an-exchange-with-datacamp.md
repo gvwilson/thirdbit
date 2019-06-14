@@ -2,6 +2,7 @@
 layout: post
 date: 2019-04-15 02:30
 title: "An Exchange with DataCamp"
+favorite: true
 ---
 
 I haven't spoken publicly about my experience with DataCamp
