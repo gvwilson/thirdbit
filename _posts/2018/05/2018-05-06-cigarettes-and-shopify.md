@@ -67,3 +67,8 @@ and believing that is important right now.
 Some people find my stridency awkward,
 but I'd rather lose a friend who isn't willing to take a stand
 than lose another argument with my dad.
+
+> Man I can't honestly tell if it's just transference because I don't know what to do with my anger and pain about it,
+> but it sure does fucking suck that every alt-right influence the Christchurch shooter cites makes money via Shopify.
+>
+> -- [Johnathan Nightingale](https://twitter.com/johnath/status/1106562124787126275), March 15, 2019
