@@ -181,9 +181,7 @@ trigger recall of the other.
 Taking notes forces students to organize and reflect on information as
 it's coming in, which in turn increases the likelihood that you will
 transfer it to long-term memory. Many studies have shown that
-note-taking improves retention [<a href="#Aike1975">Aike1975</a>; <a href="#Boha2011">Boha2011</a>], and more recent
-results indicate that taking notes using pen and paper is more effective
-than using a tablet or computer [<a href="#Muel2014">Muel2014</a>].
+note-taking improves retention [<a href="#Aike1975">Aike1975</a>; <a href="#Boha2011">Boha2011</a>].
 
 Fifty years ago, when being able to accurately record information or the
 minutes of a meeting was considered an essential white-collar skill, it
@@ -297,8 +295,6 @@ grateful tomorrow that you wore comfortable shoes today.
 [<a id="Maye2009">Maye2009</a>] Mayer RE. *Multimedia Learning*. 2nd ed. Cambridge University Press; 2009.
 
 [<a id="McDo2006">McDo2006</a>] McDowell C, Werner L, Bullock HE, Fernald J. "Pair Programming Improves Student Retention, Confidence, and Program Quality." *Communications of the ACM*. 2006; 49(8):90--95. doi:10.1145/1145287.1145293.
-
-[<a id="Muel2014">Muel2014</a>] Mueller PA, Oppenheimer DM. "The Pen is Mightier than the Keyboard." *Psychological Science*. 2014; 25(6):1159--1168. doi:10.1177/0956797614524581.
 
 [<a id="Port2016">Port2016</a>] Porter L, Bouvier D, Cutts Q, Grissom S, Lee CB, McCartney R, et~al. "A Multi-Institutional Study of Peer Instruction in Introductory Computing." *2016 Technical Symposium on Computer Science Education (SIGCSE'16)*. Association for Computing Machinery (ACM);  2016.
 
