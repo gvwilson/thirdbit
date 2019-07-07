@@ -11,11 +11,8 @@ title: "A Veteran of a Thousand Language Wars"
 There's been some more discussion on the interwebs about base R versus tidyverse.
 As someone once had strong beliefs about Fortran 90 versus FORTRAN 77
 (and yes, I did capitalize them that way thirty-odd years ago),
-I'd like to to offer this:
-I will engage with you when,
-and only when,
-you tell me what empirical study could be done
-whose results would convince you that you're wrong.
+I'd like to ask you to tell me
+what empirical study could be done that would convince you that you're wrong.
 Do you think that people who've never programmed before
 can reach a certain level of statistical proficiency more quickly with the tidyverse than with base R?
 Great:
@@ -28,7 +25,7 @@ non-Tidyverse CRAN packages,
 and academics who submit non-Tidyverse data science research papers and grant proposals,"
 tell me what data you would accept as refutation.
 We know how to study bias in hiring practices and journal reviews;
-which of those many approaches would be powerful enough to convince you that bias *doesn't* exist in this case?
+what *p* value would convince you that bias *doesn't* exist in this case<sup><a href="#p-value">1</a></sup>?
 
 I'm not asking anyone to actually run these studies before having an opinion
 (but watch this space—I hope to be able to share some news soon).
@@ -37,3 +34,5 @@ because if they're not,
 we're arguing about faith,
 not science,
 and I think that's a pretty poor example for those of us with "scientist" in their job titles to set.
+
+<a id="p-value">[1]</a> Which will no doubt trigger endless arguments about *p* values...
