@@ -9,10 +9,11 @@ title: "A Veteran of a Thousand Language Wars"
 > — Blue Oyster Cult
 
 There's been some more discussion on the interwebs about base R versus tidyverse.
-As someone once had strong beliefs about Fortran 90 versus FORTRAN 77
+As someone who once had strong beliefs about Fortran 90 versus FORTRAN 77
 (and yes, I did capitalize them that way thirty-odd years ago),
 I'd like to ask you to tell me
-what empirical study could be done that would convince you that you're wrong.
+what empirical study could be done that would convince you that you're wrong
+about whatever belief you hold.
 Do you think that people who've never programmed before
 can reach a certain level of statistical proficiency more quickly with the tidyverse than with base R?
 Great:
