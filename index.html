@@ -3,22 +3,16 @@ layout: default
 permalink: /
 ---
 <h1>Greg Wilson</h1>
-<div class="container container-left">
-  <div class="row">
-    <div class="col-md-5">
-      <img class="media-object pull-left" src="{{site.github.url}}/files/gvwilson-tpl-2017-small.jpg" alt="Greg Wilson" size="80%" />
-    </div>
-    <div class="col-md-7" style="font-size: 90%">
-      <p>
-	Years ago, I lost my temper while arguing with my brother, and said,
-	"Jeff, I could teach you everything I know and you'd still be an idiot."
-	Please keep that in mind as you read this site.
-      </p>
-      <hr/>
+<table class="layout">
+  <tr>
+    <td width="40%">
+      <img src="{{site.github.url}}/files/gvwilson-tpl-2017-small.jpg" alt="Greg Wilson" width="100%" />
+    </td>
+    <td width="60%">
       <p>
         Co-founder of <a href="https://software-carpentry.org">Software Carpentry</a>
         <br/>
-        Editor and author of books on <a href="http://aosabook.org">computing</a>
+        Author of books on <a href="http://aosabook.org">computing</a>
         and <a href="http://teachtogether.tech">teaching</a>
         <br/>
         (and <a href="http://sensibleadventures.com">for children</a>)
@@ -27,15 +21,25 @@ permalink: /
         <br/>
         Parent, spouse, and proud Canadian
       </p>
-    </div>
-  </div>
-</div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" width="100%">
+      <p>
+        <em>
+          Years ago, I lost my temper while arguing with my brother, and said,
+          "Jeff, I could teach you everything I know and you'd still be an idiot."
+          Please keep that in mind as you read this site.
+        </em>
+      </p>
+    </td>
+  </tr>
+</table>
 
 {% for post in site.posts limit:10 %}
 <div class="article">
   <hr/>
-  <h4><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h4>
-  <p><em>{{ post.date | date: "%b %-d, %Y" }}</em></p>
+  <h3>{{ post.date | date: "%B %d, %Y" }}: <a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h3>
   <div class="content">
     {{ post.excerpt }}
   </div>

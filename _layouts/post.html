@@ -1,25 +1,37 @@
 ---
 layout: default
 ---
-<h3><a href="{{ site.github.url }}{{ page.url }}">{{ page.title }}</a></h3>
-<p><em>{{ page.date | date: "%b %-d, %Y" }}</em></p>
-<div class="post-content">
-  {{ content }}
+<h3>{{ page.date | date: "%B %d, %Y" }}: <a href="{{ site.github.url }}{{ page.url }}">{{ page.title }}</a></h3>
+
+{{ content }}
+
+<div align="center">
+  {% if page.previous or page.next %}
+  <p>
+    {% if page.previous %}
+      <a href="{{ site.github.url }}{{ page.previous.url }}">&lt;&nbsp;Older</a>
+    {% endif %}
+    {% if page.previous and page.next %}
+      &mdash;
+    {% endif %}
+    {% if page.next %}
+      <a href="{{ site.github.url }}{{ page.next.url }}">Newer&nbsp;&gt;</a>
+    {% endif %}
+  </p>
+  {% endif %}
+
   {% if page.original == 'swc' %}
-  <p align="center"><em>This post originally appeared in the <a href="https://software-carpentry.org">Software Carpentry</a> blog.</em></p>
+  <p align="center">
+    <em>
+      This post originally appeared in the <a href="https://software-carpentry.org">Software Carpentry</a> blog.
+    </em>
+  </p>
   {% endif %}
   {% if page.original == 'nwit' %}
-  <p align="center"><em>This post originally appeared at <a href="http://neverworkintheory.org/">It Will Never Work in Theory</a>.</em></p>
-  {% endif %}
-</div>
-<div class="pagination">
-  {% if page.previous %}
-  <a href="{{ site.github.url }}{{ page.previous.url }}">&lt;&nbsp;Older</a>
-  {% endif %}
-  {% if page.previous and page.next %}
-  &mdash;
-  {% endif %}
-  {% if page.next %}
-  <a href="{{ site.github.url }}{{ page.next.url }}">Newer&nbsp;&gt;</a>
+  <p align="center">
+    <em>
+      This post originally appeared at <a href="http://neverworkintheory.org/">It Will Never Work in Theory</a>.
+    </em>
+  </p>
   {% endif %}
 </div>

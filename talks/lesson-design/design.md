@@ -1,5 +1,5 @@
 ---
-layout: plain
+layout: default
 permalink: /lesson-design/design.html
 title: "The Design of Lesson Design"
 ---
