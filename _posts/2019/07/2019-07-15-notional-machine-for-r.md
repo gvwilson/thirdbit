@@ -30,15 +30,14 @@ the tidyverse in R
 1. A program stores data in vectors,
    each of which contains zero or more values of the same type.
 
-1. A scalar like `3.14` or `"hello"` is just a vector of length 1.
-
 1. Vectors may contain the special values `NA` (for missing data)
    and `NaN` (for illegal numbers, like the result of dividing by zero).
 
 1. Basic operations like addition work on corresponding elements of vectors.
-   If one vector is shorter than another,
-   the values in the shorter one are repeated as needed
-   (which is why scalar-vector operations work).
+
+1. A scalar like `3.14` or `"hello"` is just a vector of length 1.
+   Its value is repeated as necessary when it's combined with a longer vector
+   (which is why `1 + X` works).
 
 1. Vectors are usually not used on their own.
    Instead, they are combined into tables,
