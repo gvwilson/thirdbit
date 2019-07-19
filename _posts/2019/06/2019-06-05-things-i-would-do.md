@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2019-06-05 02:27
-title: "Things I Would Do (If I Still Did Research)"
+title: "Things I Would Do If I Still Did Research"
 favorite: true
 ---
 

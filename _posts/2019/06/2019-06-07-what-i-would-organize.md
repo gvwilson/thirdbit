@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2019-06-07 01:55
-title: "What I Would Organize (If I Still Organized Things)"
+title: "What I Would Organize If I Still Organized Things"
 redirect_from: "/2019/03/15/leadership-training-for-open-science.html"
 favorite: true
 ---

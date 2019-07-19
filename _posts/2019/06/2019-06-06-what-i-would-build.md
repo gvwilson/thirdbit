@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2019-06-06 16:27
-title: "What I Would Build (If I Still Wrote Software)"
+title: "What I Would Build If I Still Wrote Software"
 favorite: true
 ---
 

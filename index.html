@@ -3,45 +3,9 @@ layout: default
 permalink: /
 ---
 <h1>Greg Wilson</h1>
-<table class="layout">
-  <tr>
-    <td width="40%">
-      <img src="{{site.github.url}}/files/gvwilson-tpl-2017-small.jpg" alt="Greg Wilson" width="100%" />
-    </td>
-    <td width="60%">
-      <p>
-        Co-founder of <a href="https://software-carpentry.org">Software Carpentry</a>
-        <br/>
-        Author of books on <a href="http://aosabook.org">computing</a>
-        and <a href="http://teachtogether.tech">teaching</a>
-        <br/>
-        (and <a href="http://sensibleadventures.com">for children</a>)
-        <br/>
-        Ph.D. in Computer Science
-        <br/>
-        Parent, spouse, and proud Canadian
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" width="100%">
-      <p>
-        <em>
-          Years ago, I lost my temper while arguing with my brother, and said,
-          "Jeff, I could teach you everything I know and you'd still be an idiot."
-          Please keep that in mind as you read this site.
-        </em>
-      </p>
-    </td>
-  </tr>
-</table>
-
+{% include intro.html %}
 {% for post in site.posts limit:10 %}
-<div class="article">
-  <hr/>
-  <h3>{{ post.date | date: "%B %d, %Y" }}: <a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h3>
-  <div class="content">
-    {{ post.excerpt }}
-  </div>
-</div>
+<hr/>
+<h3>{{ post.date | date: "%B %d, %Y" }}: <a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h3>
+{{ post.excerpt }}
 {% endfor %}

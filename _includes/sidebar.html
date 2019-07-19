@@ -16,10 +16,9 @@
 
 <hr/>
 
-<p><strong><a href="{{ site.github.url }}/">Here</a></strong></p>
+<p><strong><a href="{{ site.github.url }}/">Home</a></strong></p>
 <ul>
   <li><a href="{{ site.github.url }}/about/">About</a></li>
-  <li><a href="{{ site.github.url }}/teaching/">Teaching</a></li>
   <li><a href="{{ site.github.url }}/talks/">Talks</a></li>
   <li><a href="{{ site.github.url }}/10rules/">Ten Simple Rules</a></li>
   <li><a href="{{ site.github.url }}/reading/">Reading</a></li>
@@ -47,10 +46,10 @@
 <ul>
   {% assign favorites = site.posts | where:"favorite",true %}
   {% for post in favorites %}
-  <li><a href="{{ site.github.url}}{{ post.url }}">{{ post.title }}</a></li>
+  <li><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
 <p align="center">
-  <a href="{{site.github.url}}/license/" title="All content CC-BY"><img src="{{ site.github.url }}/assets/cc-by.svg" width="25%" /></a>
+  <a href="{{ site.github.url }}/license/" title="All content CC-BY"><img src="{{ site.github.url }}/assets/cc-by.svg" width="40%" /></a>
 </p>

@@ -1,28 +1,32 @@
 /* Overall */
 
 body {
-    padding: 0.5em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 68em;
     line-height: 120%;
 }
 
 div.body {
-    display: table;
+    display: flex;
+    padding: 0.5em;
 }
 
-/* Navigation sidebar */
-
 div.sidebar {
-    display: table-cell;
-    float: left;
     width: 25%;
-    height: 100%;
     font-size: 90%;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    background-color: #f8f8f8;
+    background-color: #f0f0f0;
 }
+
+div.main {
+    flex: 1;
+    padding-left: 0.5em;
+    width: 70%;
+    height: 100%;
+}
+
+/* Navigation sidebar */
 
 div.sidebar ul {
     padding-left: 1em;
@@ -33,22 +37,12 @@ div.sidebar p+ul {
     margin-top: -10px;
 }
 
-/* Main content */
-
-div.main {
-    display: table-cell;
-    float: right;
-    width: 70%;
-    height: 100%;
-}
-
 /* Footer */
 
 footer {
     width: 100%;
     text-align: center;
     clear: both;
-    font-size: 90%;
 }
 
 img.footer {
@@ -77,7 +71,7 @@ hr {
 }
 
 blockquote {
-    background-color: #f8f8f8;
+    background-color: #f0f0f0;
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 1em;
@@ -128,15 +122,25 @@ dt {
 
 /* Tables */
 
+table {
+    border-collapse: collapse;
+}
+
 th {
-  text-align: left;
-  vertical-align: top;
+    text-align: left;
+    vertical-align: top;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
 }
 
 td {
-  vertical-align: top;
-  padding-right: 1em;
-  padding-bottom: 0.5em;
+    vertical-align: top;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
 }
 
 tr:nth-child(odd) {

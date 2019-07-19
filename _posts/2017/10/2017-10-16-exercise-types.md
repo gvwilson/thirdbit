@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What Kinds of Exercises Do You Use to Teach Programming?"
+title: "Exercises for Teaching Programming"
 date: 2017-10-16 05:00:00
 favorite: true
 ---

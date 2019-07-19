@@ -7,18 +7,19 @@ title: "Archive"
 {% capture target %}{{site.time|date: '%Y'}}{% endcapture %}
 <table>
   <tr>
-    <th width="10%">Year</th>
-    <th width="10%" align="right">Number</th>
+    <th>Year</th>
+    <th align="right">Number</th>
   </tr>
-  </tr>
-  <tr><td><a href="{{site.github.url}}/archive/{{target}}.html">{{target}}</a></td><td align="right">
+  <tr>
+    <td><a href="{{site.github.url}}/archive/{{target}}.html">{{target}}</a></td><td align="right">
     {% assign count = 0 %}
     {% for post in site.posts %}
     {% capture year %}{{post.date|date: '%Y'}}{% endcapture %}
     {% if year == target %}{% assign count = count | plus: 1 %}{% endif %}
     {% endfor %}
     {{count}}
-  </td></tr>
+    </td>
+  </tr>
   <tr><td><a href="{{site.github.url}}/archive/2018.html">2018</a></td><td align="right">102</td></tr>
   <tr><td><a href="{{site.github.url}}/archive/2017.html">2017</a></td><td align="right">65</td></tr>
   <tr><td><a href="{{site.github.url}}/archive/2016.html">2016</a></td><td align="right">131</td></tr>
