@@ -4,15 +4,10 @@ permalink: /10rules/
 title: "Ten Simple Rules"
 ---
 
-# Ten Simple Rules for...
+# Ten Simple Rules
 
--   [...Teaching](#teaching)
--   [...Building Community Organizations](#building-community-organizations)
--   [...Being a Good Research Partner](#being-a-good-research-partner)
--   [...Talking People Into Things](#talking-people-into-things)
--   [...Handing Over and Moving On](#handing-over-and-moving-on)
-
-See also:
+I've collaborated on a handful of papers that give practical tips on building research software and teaching others how to do it,
+all of which are available online:
 
 -   [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
 -   [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
@@ -20,7 +15,15 @@ See also:
 -   [Ten Simple Rules for Collaborative Lesson Development](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005963)
 -   [Ten Quick Tips for Teaching Programming](https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1006023)
 -   [Ten Quick Tips for Creating an Effective Lesson](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006915)
+-   [Ten Quick Tips for Delivering Programming Lessons](https://github.com/gvwilson/10-deliver/) (in development)
 -   [Ten Simple Rules for Helping Newcomers Become Contributors to Open Source Projects](https://github.com/gvwilson/10-newcomers) (in development)
+
+I also have some shorter sets of guidelines for:
+
+-   [...Teaching](#teaching)
+-   [...Being a Good Research Partner](#being-a-good-research-partner)
+-   [...Talking People Into Things](#talking-people-into-things)
+-   [...Handing Over and Moving On](#handing-over-and-moving-on)
 
 ---
 
@@ -40,135 +43,6 @@ See *[Teaching Tech Together][t3]* for a much longer discussion.
 1.  ...and that nobody will be more excited about the lesson than you are.
 
 [t3]: http://teachtogether.tech
-
----
-
-## ...Building Community Organizations
-
-With contributions from Katy Huff, Erin Robinson, Matt Turk, and Belinda Weaver.
-
-**1. Do the reading.**
-
-People have been writing about their experiences with grassroots organizations for two centuries.
-Resources we have found particularly useful include *[Building Powerful Community Organizations][bpco]*
-and *[Producing Open Source Software][poss]*.
-
-**2. Join, don't start.**
-
-Many community organizations dedicated to open science already exist,
-including [Hacker Within][hw], [ESIP][esip], [rOpenSci][ropensci],
-the projects sheltered by [NumFOCUS][numfocus],
-and various professional societies.
-Before creating a new one,
-see if there's one you could join:
-this will give you a head start
-and a chance to learn more about how to run things.
-
-**3. Make it a democracy.**
-
-Sooner or later (usually sooner),
-every appointed board turns into a mutual agreement society.
-Giving the community power is messy,
-but is the only way invented so far to ensure that
-an organization continues to meet the actual needs of the people it's supposed to be helping.
-
-**4. Make it rewarding.**
-
-The community organizer [Saul Alinksy][alinsky] said,
-"If your people aren't having a ball doing it, there is something very wrong."
-Community members shouldn't expect to enjoy every moment of their work with your organization,
-but if they don't enjoy any of it,
-they won't stay.
-Thank them.
-Everyone likes to be appreciated and communities need to have ways
-to publicly and privately acknowledge the contributions of their members. 
-
-One of the best ways to reward people,
-particularly for doing administrative and infrastructure work,
-is to pay them.
-Volunteer organizations are often hesitant to start doing this,
-but provided the decision making is transparent,
-but most members will accept that George Orwell was right:
-the trick is to do good *and* get paid,
-because you can't work full-time forever without some sort of income.
-
-**5. Provide training.**
-
-Organizations require committees, meetings, budgets, grant proposals, and dispute resolution.
-Most researchers are never taught how to do any of this,
-despite the fact that universities depend on them too.
-Training people to do these things helps your organization run more smoothly,
-and gives participants a powerful reason to get and stay involved.
-If you aren't large enough to provide training,
-join an organization that is and take some of theirs.
-As with Rule 2,
-it's always best to learn on someone else's dime.
-
-**6. Communicate.**
-
-Nobody's going to come to a meeting unless they know about it,
-and nobody's going to help you raise money if they don't know how you're going to spend it.
-Mailing lists, blogs, and Twitter all give you ways to stay in touch.
-Use them sparingly so that your audience isn't overwhelmed,
-but use them.
-*[Marketing for Scientists][kuchner]* is a good place to start for guidance.
-
-**7. Write down the rules.**
-
-As Jo Freeman described in "[The Tyranny of Structurelessness][structurelessness]",
-every organization has a power structure:
-the only question is whether it's formal and accountable,
-or informal and unaccountable.
-Make yours one of the first kind:
-write and publish the rules governing everything from
-who gets to decide when software is ready to release
-and who's allowed to use the name and logo
-to how complaints of inappropriate conduct are handled
-and what actually constitutes inappropriate conduct.
-(This [model anti-harassment policy][coc] is a good start.)
-
-**8. Enforce them.**
-
-Everyone deserves respect.
-Communities need to have some moderating force.
-If you see someone that is not acting in line with your code of conduct or values,
-privately say something or tell a leader of the community and ask them to privately say something.
-Bullies that persist in communities have a toxic effect and should not be allowed to linger.  
-
-**9. Make space for everyone.**
-
-If you're too engaged or too quick on the reply button,
-people have less opportunity to grow as members
-and to create horizontal collaborations.
-The community can continue to be "hub and spoke",
-focused around one or two individuals,
-rather than a highly-connected network
-in which others feel comfortable participating.
-"One message per person per thread per day" is a good rule,
-as is using the [three-sticky trick](http://teachtogether.tech/en/meetings/) in meetings.
-
-**10. Soup, then hymns.**
-
-Manifestos are great,
-but most people join a volunteer community to help and be helped.
-Focus on things that are immediately useful,
-e.g.,
-on what can people create that will be used by other community members write away.
-Once your organization shows that it can actually achieve things---even small things---people
-will be more confident that it's worth thinking about bigger issues.
-
-[alinsky]: https://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/
-[bpco]: https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/
-[coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
-[dc]: http://datacarpentry.org
-[esip]: http://www.esipfed.org/
-[hw]: http://thehackerwithin.org
-[kuchner]: https://www.amazon.com/Marketing-Scientists-Shine-Tough-Times/dp/1597269948/
-[numfocus]: http://numfocus.org
-[poss]: http://producingoss.com/
-[ropensci]: http://ropensci.org
-[swc]: http://software-carpentry.org
-[structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
 
 ---
 
