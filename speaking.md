@@ -11,6 +11,30 @@ I now require hosts to agree to a few things in advance.
 
 *This rider is derived from the one written by [Tatiana Mac][tatiana].*
 
+## Inclusivity
+
+### No Support for Hate
+
+- I will not work with,
+  or attend events sponsored by,
+  any company that has been cited as an inspiration by a mass killer,
+  or any company that provides hosting or other services for such companies.
+  (You would think this would be an easy bar to get over, but..)
+- You don't include speakers who publicly advocate racism, misogyny, or homophobia.
+  (Again, you'd think this would be a given...)
+
+### Strictly-enforced Code of Conduct
+
+- Your CoC must explicitly explain what abuse is with clear examples.
+- You must have clearly defined methods for dealing with conflicts when they arise
+  and trained staff to to handle complaints,
+  because CoCs are only as good as their enforcement.
+
+### Representation
+
+- No tracks or panels that are all straight white/Asian males.
+- You don't *only* invite marginalized people to speak about their experiences of marginalization.
+
 ## Content
 
 ### Intellectual Property
@@ -58,18 +82,11 @@ I now require hosts to agree to a few things in advance.
   I do not support celebrity speakers getting paid more.
 - I may choose to waive my free for not-for-profit/community events where tickets are free or very low priced.
 
-### Ticket to full conference
+### Ticket to full event
 
-- As [Tatiana says][tatiana], you'd think thiis was a given, but...
+- As [Tatiana says][tatiana], you wouldn't think it would be necessary to spell this out...
 
 ## Logistics
-
-### Strictly-enforced Code of Conduct
-
-- Your CoC must explicitly explain what abuse is with clear examples.
-- You must have clearly defined methods for dealing with conflicts when they arise
-  and trained staff to to handle complaints,
-  because CoCs are only as good as their enforcement.
 
 ### Physically accessibility
 
@@ -79,13 +96,6 @@ I now require hosts to agree to a few things in advance.
   and social event venues
   (where "accessible" means "complies with [2010 ADA Standards for Accessible Design][ada] or national equivalent").
 - Live captioning (which helps everyone, not just people who are hard of hearing).
-
-### Inclusivity
-
-- No tracks or panels that are all straight white/Asian males.
-- You don't *only* invite marginalized people to speak about their experiences of marginalization.
-- You don't invite people who publicly advocate racist, misogynist, or homophobic causes.
-  (Again, you'd think this was a given, but...)
 
 ### Safety and security
 
