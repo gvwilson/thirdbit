@@ -22,37 +22,6 @@ It presents a "new standard model" based on syndication of distributed streams o
 and shows readers how the tools they use are built,
 and how to build tools of their own.
 
-### Merely Useful: An Introduction to Research Computing
-
-Based on the workshops run by [Software Carpentry](https://software-carpentry.org) and [Data Carpentry](http://datacarpentry.org),
-this book is a hands-on introduction to practical computing skills
-aimed at graduate students and professionals in research-intensive disciplines.
-The core topics–data management, structured programming, task automation, and version control–are introduced
-through a series of short tutorials,
-then elaborated with further lessons on using the web to share data,
-creating reproducible workflows,
-cleaning data,
-and testing software when the right answer isn't actually known.
-While it necessarily glosses over many fine points,
-it gives readers a useful toolkit and a sense of where to go next.
-
-### Software Engineering: An Evidence-Based Approach
-
-Unlike their counterparts in physics, psychology, and engineering,
-most students in computer science don't do experiments.
-As a result,
-they graduate not knowing how to get data,
-clean it up,
-model it,
-and draw conclusions from it.
-This innovative textbook corrects that:
-it tackles simple real-world problems using basic statistical methods
-and data harvested from actual software projects.
-Its larger message is that opinions about software should be based on evidence
-rather than hearsay and strong opinions.
-(Derek Jones' *[Empirical Software Engineering Using R](http://www.knosof.co.uk/ESEUR/)*
-is headed in this direction.)
-
 ### Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, and Power
 
 Inspired by
@@ -128,20 +97,3 @@ by tracing the historical development of patents, copyrights, privacy, and profe
 from the Industrial Revolution to the present day.
 Aimed squarely at people with no prior exposure to legal terminology,
 it explains concepts clearly and provides examples for each.
-
-### Numerical JavaScript
-
-Ten years from now,
-I believe that JavaScript (or a derivative like TypeScript)
-will have supplanted Python and R
-as the language of choice for people doing leading-edge open scientific computing,
-because no matter what else programmers use,
-they eventually have to learn JavaScript.
-More specifically,
-I expect that the 5-15% of scientists who are early adopters of new technology
-will bypass single-purpose languages like Julia
-in favor of the one they already have to master
-to create websites and use things like [D3](https://d3js.org/).
-And with major players like Microsoft, Google, and Facebook all working hard
-to make general-purpose JavaScript faster,
-it will be harder and harder for niche players to keep up.
