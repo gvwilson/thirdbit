@@ -66,3 +66,28 @@ but the answer in R is G-F because of [lazy evaluation](https://gvwilson.github.
 If you have short questions that you use to probe or classify people's mental models of program execution,
 I'd enjoy hearing about them:
 please [give me a shout](mailto:gvwilson@third-bit.com).
+
+---
+
+Tavish Armstrong sent this:
+
+When a function A is defined,
+and the result of a call to a function B is assigned to one of A's parameters as its default value,
+many people expect B to be called each time A is called
+rather than just once ag definition time:
+
+```
+def f(start=datetime.datetime.now()):
+  print(start)
+
+f() # prints 2019-09-05 15:47:20.976051
+f() # also prints 2019-09-05 15:47:20.976051
+f() # and again...
+```
+
+Possible causes are:
+
+1.  Nested function definitions like `f(g())` *do* call the inner function each time they're run.
+2.  Many people (including some quite experienced programmers)
+    don't think of function definition as a thing programs do
+    that is qualitatively the same as adding numbers.
