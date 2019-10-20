@@ -1,17 +1,26 @@
 ---
 layout: default
-permalink: /archive/
-title: "Archive"
 ---
-<h3>{{page.year}} Archive</h3>
-<table>
-  {%- for post in site.posts -%}
-  {%- assign year = post.date | date: "%Y" -%}
-  {%- if year == page.year -%}
-  <tr>
-    <td width="8em">{{ post.date | date: "%b %-d" | replace: " ", "&nbsp;"}}</td>
-    <td><a href="{{site.github.url}}{{post.url}}">{{ post.title }}</a></td>
-  </tr>
-  {%- endif -%}
-  {%- endfor -%}
-</table>
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <div class="archive">
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+      <h1 id="page-title" class="page__title">{{ page.title }}</h1>
+    {% endunless %}
+    {{ content }}
+  </div>
+</div>

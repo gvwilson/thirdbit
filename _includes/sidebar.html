@@ -1,57 +1,24 @@
-<p>
-  <a href="{{ site.github.url }}/" title="Home"><img src="{{ site.github.url }}/assets/codebender-logo.svg" width="10%" /></a>
-  &nbsp;
-  <a href="mailto:gvwilson@third-bit.com" title="Email me"><img src="{{ site.github.url }}/assets/email.svg" width="10%" /></a>
-  &nbsp;
-  <a href="http://twitter.com/gvwilson" title="Follow me on Twitter"><img src="{{ site.github.url }}/assets/twitter.svg" width="10%" /></a>
-  &nbsp;
-  <a href="{{ site.github.url }}/feed.xml" title="Subscribe to my blog"><img src="{{ site.github.url }}/assets/rss.svg" width="10%" /></a>
-  &nbsp;
-  <a href="https://whereby.com/gvwilson" title="Talk to me online"><img src="{{ site.github.url }}/assets/whereby.svg" width="10%" /></a>
-  &nbsp;
-  <a href="https://github.com/gvwilson" title="See my work on GitHub"><img src="{{ site.github.url }}/assets/github.svg" width="10%" /></a>
-</p>
-
-<hr/>
-
-<p><strong><a href="{{ site.github.url }}/">Home</a></strong></p>
-<ul>
-  <li><a href="{{ site.github.url }}/about/">About Me</a></li>
-  <li><a href="{{ site.github.url }}/ideas/">My To-Don't List</a></li>
-  <li><a href="{{ site.github.url }}/talks/">Talks</a></li>
-  <li><a href="{{ site.github.url }}/speaking/">Speaking</a></li>
-  <li><a href="{{ site.github.url }}/10rules/">Ten Simple Rules</a></li>
-  <li><a href="{{ site.github.url }}/reading/">Reading List</a></li>
-  <li><a href="{{ site.github.url }}/archive/">Archive</a></li>
-  <li><a href="{{ site.github.url }}/cv/">CV</a></li>
-  <li><a href="{{ site.github.url }}/bib/">Bibliography</a></li>
-</ul>
-
-<hr/>
-
-<p><strong>Elsewhere</strong></p>
-<ul>
-  <li><a href="http://teachtogether.tech">Teaching Tech Together</a></li>
-  <li><a href="https://software-tools-in-javascript.github.io/js4ds/">JavaScript for Data Science</a></li>
-  <li><a href="https://gvwilson.github.io/tidynomicon/">R for Python Programmers</a></li>
-  <li><a href="http://tidyblocks.tech">TidyBlocks</a></li>
-  <li><a href="http://ds4se.tech">Data Science for Software Engineers</a></li>
-  <li><a href="http://carpentries.org">The Carpentries</a></li>
-  <li><a href="http://sensibleadventures.com">Sensible Adventures</a></li>
-  <li><a href="http://aosabook.org">Architecture of Open Source Applications</a></li>
-  <li><a href="http://neverworkintheory.org/">It Will Never Work in Theory</a></li>
-</ul>
-
-<hr/>
-
-<p><strong>Favorites</strong></p>
-<ul>
-  {% assign favorites = site.posts | where:"favorite",true %}
-  {% for post in favorites %}
-  <li><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
-
-<p align="center">
-  <a href="{{ site.github.url }}/license/" title="All content CC-BY"><img src="{{ site.github.url }}/assets/cc-by.svg" width="40%" /></a>
-</p>
+{% if page.author_profile or layout.author_profile or page.sidebar %}
+  <div class="sidebar sticky">
+  {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
+  {% if page.sidebar %}
+    {% for s in page.sidebar %}
+      {% if s.image %}
+        <img src=
+        {% if s.image contains "://" %}
+          "{{ s.image }}"
+        {% else %}
+          "{{ s.image | relative_url }}"
+        {% endif %}
+        alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
+      {% endif %}
+      {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
+      {% if s.text %}{{ s.text | markdownify }}{% endif %}
+      {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
+    {% endfor %}
+    {% if page.sidebar.nav %}
+      {% include nav_list nav=page.sidebar.nav %}
+    {% endif %}
+  {% endif %}
+  </div>
+{% endif %}
