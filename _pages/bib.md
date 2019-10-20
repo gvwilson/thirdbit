@@ -4,368 +4,244 @@ title: "Bibliography"
 layout: single
 ---
 
-[As BibTeX]({{site.github.url}}/cv/gvwilson.bib)
+Daniel A. Almeida, Gail C. Murphy, Greg Wilson, and Mike Hoye. Do
+software developers understand open source licenses? In *Proceedings of
+the 25th International Conference on Program Comprehension*, pages
+1--11. IEEE Press, 2017.
 
-::: {#ref-b:almeida-licenses-2017}
-Almeida, Daniel A., Gail C. Murphy, Greg Wilson, and Mike Hoye. 2017.
-"Do Software Developers Understand Open Source Licenses?" In
-*Proceedings of the 25th International Conference on Program
-Comprehension*, 1--11. IEEE Press.
-doi:[10.1109/ICPC.2017.7](https://doi.org/10.1109/ICPC.2017.7).
-:::
+Gene Amdur, Andrew Flint, Irving Reid, and Greg Wilson. SelectAccess:
+Extensible network access control. *Doctor Dobb's Journal*, Spring 2002.
 
-::: {#ref-b:amdur-selectaccess-2002}
-Amdur, Gene, Andrew Flint, Irving Reid, and Greg Wilson. 2002.
-"SelectAccess: Extensible Network Access Control." *Doctor Dobb's
-Journal*, Spring.
-:::
-
-::: {#ref-b:aranda-requirements-2007}
-Aranda, Jorge, Steve Easterbrook, and Greg Wilson. 2007. "Requirements
-in the Wild: How Small Companies Do It." In *15th IEEE International
+Jorge Aranda, Steve Easterbrook, and Greg Wilson. Requirements in the
+wild: How small companies do it. In *15th IEEE International
 Requirements Engineering Conference (RE 2007)*. Institute of Electrical
-& Electronics Engineers (IEEE).
-doi:[10.1109/re.2007.54](https://doi.org/10.1109/re.2007.54).
-:::
+& Electronics Engineers (IEEE), October 2007.
 
-::: {#ref-b:arjomandi-smart-messages-1996}
-Arjomandi, Eshrat, William G. O'Farrell, and Gregory V. Wilson. 1996.
-"Smart Messages: An Object-Oriented Communication Mechanism for Parallel
-Systems." *Computing Systems* 9 (4): 313--29.
-:::
+Eshrat Arjomandi, William G. O'Farrell, and Gregory V. Wilson. Smart
+messages: An object-oriented communication mechanism for parallel
+systems. *Computing Systems*, 9(4):313--329, 1996.
 
-::: {#ref-b:beckham-big-iron-2000}
-Beckman, Pete, and Greg Wilson. 2000. "Open Source Meets Big Iron."
-*Doctor Dobb's Journal*, June.
-:::
+Pete Beckman and Greg Wilson. Open source meets big iron. *Doctor Dobb's
+Journal*, June 2000.
 
-::: {#ref-b:blischak-git-2016}
-Blischak, John D., Emily R. Davenport, and Greg Wilson. 2016. "A Quick
-Introduction to Version Control with Git and GitHub." Edited by Francis
-Ouellette. *PLOS Computational Biology* 12 (1). Public Library of
-Science (PLoS): e1004668.
-doi:[10.1371/journal.pcbi.1004668](https://doi.org/10.1371/journal.pcbi.1004668).
-:::
+John D. Blischak, Emily R. Davenport, and Greg Wilson. A quick
+introduction to version control with git and GitHub. *PLOS Computational
+Biology*, 12(1):e1004668, January 2016.
 
-::: {#ref-b:brown-aosa1-2011}
-Brown, Amy, and Greg Wilson, eds. 2011. *The Architecture of Open Source
-Applications: Elegance, Evolution, and a Few Fearless Hacks*. Lulu.
-:::
+Amy Brown and Greg Wilson, editors. *The Architecture of Open Source
+Applications: Elegance, Evolution, and a Few Fearless Hacks*. Lulu,
+2011.
 
-::: {#ref-b:brown-aosa2-2012}
----------, eds. 2012. *The Architecture of Open Source Applications:
-Structure, Scale, and a Few More Fearless Hacks*. Lulu.
-:::
+Amy Brown and Greg Wilson, editors. *The Architecture of Open Source
+Applications: Structure, Scale, and a Few More Fearless Hacks*. Lulu,
+2012.
 
-::: {#ref-b:brown-teaching-tips-2018}
-Brown, Neil C.C., and Greg Wilson. 2018. "Ten Quick Tips for Teaching
-Programming." *PLOS Computational Biology* 14 (4). PLoS.
-doi:[10.1371/journal.pcbi.1006023](https://doi.org/10.1371/journal.pcbi.1006023).
-:::
+Neil C.C. Brown and Greg Wilson. Ten quick tips for teaching
+programming. *PLOS Computational Biology*, 14(4), April 2018.
 
-::: {#ref-b:cabot-teams-2009}
-Cabot, Jordi, and Greg Wilson. 2009. "Tools for Teams: A Survey of
-Web-Based Software Project Portals." *Doctor Dobb's Journal*, October.
-:::
+Jordi Cabot and Greg Wilson. Tools for teams: A survey of web-based
+software project portals. *Doctor Dobb's Journal*, October 2009.
 
-::: {#ref-b:campbell-practical-2009}
-Campbell, Jennifer, Paul Gries, Jason Montojo, and Greg Wilson. 2009.
-*Practical Programming*. Pragmatic Bookshelf.
-:::
+Jennifer Campbell, Paul Gries, Jason Montojo, and Greg Wilson.
+*Practical Programming*. Pragmatic Bookshelf, 2009.
 
-::: {#ref-b:clarke-tiny-1991}
-Clarke, Lyndon, and Greg Wilson. 1991. "Tiny: An Efficient Routing
-Harness for the Inmos Transputer." *Concurrency: Practice & Experience*
-3 (3). Wiley-Blackwell: 221--45.
-doi:[10.1002/cpe.4330030307](https://doi.org/10.1002/cpe.4330030307).
-:::
+Lyndon Clarke and Greg Wilson. Tiny: An efficient routing harness for
+the inmos transputer. *Concurrency: Practice & Experience*,
+3(3):221--245, June 1991.
 
-::: {#ref-b:devenyi-collab-lesson-2018}
-Devenyi, Gabriel A., Rémi Emonet, Rayna M. Harris, Kate L. Hertweck,
-Damien Irving, Ian Milligan, and Greg Wilson. 2018. "Ten Simple Rules
-for Collaborative Lesson Development." *PLOS Computational Biology* 14
-(3). PLoS.
-doi:[10.1371/journal.pcbi.1005963](https://doi.org/10.1371/journal.pcbi.1005963).
-:::
+Mauricio de Simone and Greg Wilson. The active expressions library.
+*Doctor Dobb's Journal*, August 1998.
 
-::: {#ref-b:vandergroot-tuple-spaces-1997}
-Goot, Roel van der, Jonathan Schaeffer, and Gregory V. Wilson. 1997.
-"Safer Tuple Spaces." In *Second International Conference on
-Coordination Languages and Models (Coordination 1997)*, 1282:289--301.
-Lecture Notes in Computer Science. Springer.
-:::
+Gabriel A. Devenyi, Rémi Emonet, Rayna M. Harris, Kate L. Hertweck,
+Damien Irving, Ian Milligan, and Greg Wilson. Ten simple rules for
+collaborative lesson development. *PLOS Computational Biology*, 14(3),
+March 2018.
 
-::: {#ref-b:gorda-auctions-1997}
-Gorda, Brent, and Greg Wilson. 1997. "Building and Running Online
-Auctions." *Doctor Dobb's Journal*, October.
-:::
+Brent Gorda and Greg Wilson. Building and running online auctions.
+*Doctor Dobb's Journal*, October 1997.
 
-::: {#ref-b:gries-memview-2005}
-Gries, Paul, Volodymyr Mnih, Jonathan Taylor, Greg Wilson, and Lee
-Zamparo. 2005. "Memview: A Pedagogically-Motivated Visual Debugger." In
-*Proc. ASEE/IEEE Frontiers in Education 2005*.
-:::
+Paul Gries, Volodymyr Mnih, Jonathan Taylor, Greg Wilson, and Lee
+Zamparo. Memview: A pedagogically-motivated visual debugger. In
+*Proc. ASEE/IEEE Frontiers in Education 2005*, 2005.
 
-::: {#ref-b:hannay-survey-2009}
-Hannay, Jo Erskine, Carolyn MacLeod, Janice Singer, Hans Petter
-Langtangen, Dietmar Pfahl, and Greg Wilson. 2009. "How Do Scientists
-Develop and Use Scientific Software?" In *2009 ICSE Workshop on Software
+Jo Erskine Hannay, Carolyn MacLeod, Janice Singer, Hans Petter
+Langtangen, Dietmar Pfahl, and Greg Wilson. How do scientists develop
+and use scientific software? In *2009 ICSE Workshop on Software
 Engineering for Computational Science and Engineering*. Institute of
-Electrical & Electronics Engineers (IEEE).
-doi:[10.1109/secse.2009.5069155](https://doi.org/10.1109/secse.2009.5069155).
-:::
+Electrical & Electronics Engineers (IEEE), May 2009.
 
-::: {#ref-b:hyde-parallel-education-1995}
-Hyde, Daniel C., David Kotz, Gordon Makinson, Panagiotis Takis Metaxas,
-Christopher H. Nevison, Nan C. Schaller, and Gregory V. Wilson. 1995.
-"Different Approaches to Parallel Computing Education." In *Proc. 9th
-International Parallel Processing Symposium*. IEEE Computer Society.
-:::
+Maya Gans, Toby Hodges, and Greg Wilson. *JavaScript versus Data
+Science*. Lulu, 2019.
 
-::: {#ref-b:levesque-cold-shoulder-2004}
-Levesque, Michelle, and Greg Wilson. 2004. "Open Source, Cold Shoulder."
-*Software Development*, November.
-:::
+Daniel C. Hyde, David Kotz, Gordon Makinson, Panagiotis Takis Metaxas,
+Christopher H. Nevison, Nan C. Schaller, and Gregory V. Wilson.
+Different approaches to parallel computing education. In *Proc. 9th
+International Parallel Processing Symposium*. IEEE Computer Society,
+1995.
 
-::: {#ref-b:lung-replication-2008}
-Lung, Jonathan, Jorge Aranda, Steve M. Easterbrook, and Gregory V.
-Wilson. 2008. "On the Difficulty of Replicating Human Subjects Studies
-in Software Engineering." In *Proc. 30th International Conference on
-Software Engineering (ICSE 2008)*, 191--200. Association for Computing
-Machinery (ACM).
-:::
+Michelle Levesque and Greg Wilson. Open source, cold shoulder. *Software
+Development*, November 2004.
 
-::: {#ref-b:matthews-metoffice-2008}
-Matthews, David, Greg Wilson, and Steve Easterbrook. 2008.
-"Configuration Management for Large-Scale Scientific Computing at the UK
-Met Office." *Computing in Science and Engineering* 10 (6). Institute of
-Electrical & Electronics Engineers (IEEE): 56--64.
-doi:[10.1109/mcse.2008.144](https://doi.org/10.1109/mcse.2008.144).
-:::
+Jonathan Lung, Jorge Aranda, Steve M. Easterbrook, and Gregory V.
+Wilson. On the difficulty of replicating human subjects studies in
+software engineering. In *Proc. 30th International Conference on
+Software Engineering (ICSE 2008)*, pages 191--200. Association for
+Computing Machinery (ACM), 2008.
 
-::: {#ref-b:mierle-student-cvs-2005}
-Mierle, Keir, Kevin Laven, Sam Roweis, and Greg Wilson. 2005. "Mining
-Student CVS Repositories for Performance Indicators." *SIGSOFT Software
-Engineering Notes* 30 (4). Association for Computing Machinery (ACM): 1.
-doi:[10.1145/1082983.1083150](https://doi.org/10.1145/1082983.1083150).
-:::
+David Matthews, Greg Wilson, and Steve Easterbrook. Configuration
+management for large-scale scientific computing at the UK met office.
+*Computing in Science and Engineering*, 10(6):56--64, November 2008.
 
-::: {#ref-b:oram-beautiful-code-2007}
-Oram, Andy, and Greg Wilson, eds. 2007. *Beautiful Code: Leading
-Programmers Explain How They Think*. O'Reilly.
-:::
+Keir Mierle, Kevin Laven, Sam Roweis, and Greg Wilson. Mining student
+CVS repositories for performance indicators. *SIGSOFT Software
+Engineering Notes*, 30(4):1, July 2005.
 
-::: {#ref-b:oram-making-software-2010}
----------, eds. 2010. *Making Software: What Really Works, and Why We
-Believe It*. O'Reilly.
-:::
+Andy Oram and Greg Wilson, editors. *Beautiful Code: Leading Programmers
+Explain How They Think*. O'Reilly, 2007.
 
-::: {#ref-b:petre-code-review-2014}
-Petre, Marian, and Greg Wilson. 2014. "Code Review for and by
-Scientists." In *Proc. Second Workshop on Sustainable Software for
-Science: Practice and Experience*.
-doi:[arXiv:1407.5648](https://doi.org/arXiv:1407.5648).
-:::
+Andy Oram and Greg Wilson, editors. *Making Software: What Really Works,
+and Why We Believe It*. O'Reilly, 2010.
 
-::: {#ref-b:reid-cvs-2005}
-Reid, Karen L., and Gregory V. Wilson. 2005. "Learning by Doing:
-Introducing Version Control as a Way to Manage Student Assignments." In
-*Proc. 36th Sigcse Technical Symposium on Computer Science Education*,
-272--76. Association for Computing Machinery (ACM).
-:::
+Marian Petre and Greg Wilson. Code review for and by scientists. In
+*Proc. Second Workshop on Sustainable Software for Science: Practice and
+Experience*, 2014.
 
-::: {#ref-b:reid-drproject-2007}
----------. 2007. "DrProject: A Software Project Management Portal to
-Meet Educational Needs." In *Proc. 38th Sigcse Technical Symposium on
-Computer Science Education*, 317--21. Association for Computing
-Machinery (ACM).
-:::
+Karen L. Reid and Gregory V. Wilson. Learning by doing: introducing
+version control as a way to manage student assignments. In *Proc. 36th
+SIGCSE Technical Symposium on Computer Science Education*, pages
+272--276. Association for Computing Machinery (ACM), 2005.
 
-::: {#ref-b:schossau-sustainable-2014}
-Schossau, Jory, and Greg Wilson. 2014. "Which Sustainable Software
-Practices Do Scientists Find Most Useful?" In *Proc. Second Workshop on
-Sustainable Software for Science: Practice and Experience*.
-doi:[arXiv:1407.6220](https://doi.org/arXiv:1407.6220).
-:::
+Karen L. Reid and Gregory V. Wilson. DrProject: a software project
+management portal to meet educational needs. In *Proc. 38th SIGCSE
+Technical Symposium on Computer Science Education*, pages 317--321.
+Association for Computing Machinery (ACM), 2007.
 
-::: {#ref-b:desimone-active-expressions-1998}
-Simone, Mauricio de, and Greg Wilson. 1998. "The Active Expressions
-Library." *Doctor Dobb's Journal*, August.
-:::
+Jory Schossau and Greg Wilson. Which sustainable software practices do
+scientists find most useful? In *Proc. Second Workshop on Sustainable
+Software for Science: Practice and Experience*, 2014.
 
-::: {#ref-b:stroulia-ucosp-2011}
-Stroulia, Eleni, Ken Bauer, Michelle Craig, Karen Reid, and Greg Wilson.
-2011. "Teaching Distributed Software Engineering with UCOSP: The
-Undergraduate Capstone Open-Source Project." In *Workshop on
-Collaborative Teaching of Globally Distributed Software Development,
-Co-Located with ICSE 2011*.
-:::
+Dan Sholler, Igor Steinmacher, Denae Ford, Mara Averick, Mike Hoye, and
+Greg Wilson. Ten simple rules for helping newcomers become contributors
+to open projects. *PLOS Computational Biology*, 15(9):e1007296, 9 2019.
 
-::: {#ref-b:taschuk-robust-2017}
-Taschuk, Morgan, and Greg Wilson. 2017. "Ten Simple Rules for Making
-Research Software More Robust." *PLOS Computational Biology* 13 (4).
-Public Library of Science.
-doi:[10.1371/journal.pcbi.1005412](https://doi.org/10.1371/journal.pcbi.1005412).
-:::
+Eleni Stroulia, Ken Bauer, Michelle Craig, Karen Reid, and Greg Wilson.
+Teaching distributed software engineering with UCOSP: The undergraduate
+capstone open-source project. In *Workshop on Collaborative Teaching of
+Globally Distributed Software Development, co-located with ICSE 2011*,
+2011.
 
-::: {#ref-b:teal-data-carpentry-2015}
-Teal, Tracy K., Karen A. Cranston, Hilmar Lapp, Ethan White, Greg
-Wilson, Karthik Ram, and Aleksandra Pawlik. 2015. "Data Carpentry:
-Workshops to Increase Data Literacy for Researchers." *International
-Journal of Digital Curation* 10 (1). Edinburgh University Library.
-doi:[10.2218/ijdc.v10i1.351](https://doi.org/10.2218/ijdc.v10i1.351).
-:::
+Morgan Taschuk and Greg Wilson. Ten simple rules for making research
+software more robust. *PLOS Computational Biology*, 13(4), April 2017.
 
-::: {#ref-b:trew-past-present-parallel-1991}
-Trew, Arthur, and Greg Wilson, eds. 1991. *Past, Present, Parallel*.
-Springer.
-doi:[10.1007/978-1-4471-1842-8](https://doi.org/10.1007/978-1-4471-1842-8).
-:::
+Tracy K. Teal, Karen A. Cranston, Hilmar Lapp, Ethan White, Greg Wilson,
+Karthik Ram, and Aleksandra Pawlik. Data carpentry: Workshops to
+increase data literacy for researchers. *International Journal of
+Digital Curation*, 10(1), February 2015.
 
-::: {#ref-b:webb-matlab-scripting-1999}
-Webb, Peter, and Greg Wilson. 1999. "MATLAB as a Scripting Language."
-*Doctor Dobb's Journal*, January.
-:::
+Arthur Trew and Greg Wilson, editors. *Past, Present, Parallel*.
+Springer, 1991.
 
-::: {#ref-b:wilson-three-sensible-adventures-1999}
-Wilson, Greg. 1999a. *Three Sensible Adventures*. Annick Press.
-:::
+Roel van der Goot, Jonathan Schaeffer, and Gregory V. Wilson. Safer
+tuple spaces. In *Second International Conference on Coordination
+Languages and Models (COORDINATION 1997)*, volume 1282 of *Lecture Notes
+in Computer Science*, pages 289--301. Springer, 1997.
 
-::: {#ref-b:wilson-open-source-bad-example-1999}
----------. 1999b. "Is the Open Source Community Setting a Bad Example?"
-*IEEE Software* 16 (1).
-:::
+Peter Webb and Greg Wilson. MATLAB as a scripting language. *Doctor
+Dobb's Journal*, January 1999.
 
-::: {#ref-b:wilson-xml-programming-2003}
----------. 2003. "XML-Based Programming Systems." *Doctor Dobb's
-Journal*, March.
-:::
+Greg Wilson. How do scientists really use computers? *American
+Scientist*, 97(5):360, September/October 2009.
 
-::: {#ref-b:wilson-data-crunching-2005}
----------. 2005a. *Data Crunching: Solve Everyday Problems Using Java,
-Python, and More*. Pragmatic Bookshelf.
-:::
+Greg Wilson, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt
+Davis, Richard T. Guy, Steven H. D. Haddock, Kathryn D. Huff, Ian M.
+Mitchell, Mark D. Plumbley, Ben Waugh, Ethan P. White, and Paul Wilson.
+Best practices for scientific computing. *PLoS Biology*, 12(1), January
+2014.
 
-::: {#ref-b:wilson-nature-2005}
----------. 2005b. "Open Source Offers Solutions for Science Software
-Education." *Nature* 436 (July): 600.
-:::
+Greg Wilson. *Bottle of Light*. Scholastic, 2008.
 
-::: {#ref-b:wilson-bottleneck-2006}
----------. 2006. "Where's the Real Bottleneck in Scientific Computing?"
-*American Scientist*, January/February.
-:::
+Greg Wilson. Where's the real bottleneck in scientific computing?
+*American Scientist*, January/February 2006.
 
-::: {#ref-b:wilson-whimper-2007}
----------. 2007a. "...But with a Whimper." *On Spec* 19 (3).
-:::
+Greg Wilson. Controlled Release. *On Spec*, 19(4), Winter 2007.
 
-::: {#ref-b:wilson-controlled-release-2007}
----------. 2007b. "Controlled Release." *On Spec* 19 (4).
-:::
+Greg Wilson. Ten quick tips for creating an effective lesson. *PLOS
+Computational Biology*, 15(4):e1006915, 4 2019.
 
-::: {#ref-b:wilson-bottle-light-2008}
----------. 2008a. *Bottle of Light*. Scholastic.
-:::
+Greg Wilson, Christine Alvarado, Jennifer Campbell, Rubin Landau, and
+Robert Sedgewick. CS-1 for scientists. *SIGCSE Bulletin*, 40(1):36,
+February 2008.
 
-::: {#ref-b:wilson-learn-history-2008}
----------. 2008b. "Those Who Will Not Learn from History...." *Computing
-in Science and Engineering* 10 (3). Institute of Electrical &
-Electronics Engineers (IEEE): 5--6.
-doi:[10.1109/mcse.2008.86](https://doi.org/10.1109/mcse.2008.86).
-:::
+Greg Wilson. *Data Crunching: Solve Everyday Problems Using Java,
+Python, and More*. Pragmatic Bookshelf, 2005.
 
-::: {#ref-b:wilson-shelves-2009}
----------. 2009a. "Not on the Shelves." *IEEE Softw.* 26 (3). Institute
-of Electrical & Electronics Engineers (IEEE): 8--9.
-doi:[10.1109/ms.2009.75](https://doi.org/10.1109/ms.2009.75).
-:::
+Gregory V. Wilson, Jonathan Schaeffer, and Duane Szafron. Enterprise in
+context: Assessing the usability of parallel programming environments.
+In *Proc. 1993 Conference of the Centre for Advanced Studies on
+Collaborative Research*, pages 999--1010. IBM, 1993.
 
-::: {#ref-b:wilson-amsci-2009}
----------. 2009b. "How Do Scientists Really Use Computers?" *American
-Scientist* 97 (5). Sigma Xi: 360.
-doi:[10.1511/2009.80.360](https://doi.org/10.1511/2009.80.360).
-:::
+Gregory V. Wilson. Extensible programming for the 21st century. *ACM
+Queue*, 2(9):48--57, 2004.
 
-::: {#ref-b:wilson-still-2010}
----------. 2010. "Still." *On Spec* 22 (2).
-:::
+Greg Wilson, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex
+Nederbragt, and Tracy K. Teal. Good enough practices in scientific
+computing. *PLoS Computational Biology*, 13(6):1--20, 06 2017.
 
-::: {#ref-b:wilson-swc-lessons-2016}
----------. 2016. "Software Carpentry: Lessons Learned." *F1000Research*,
-January. F1000 Research, Ltd.
-doi:[10.12688/f1000research.3-62.v2](https://doi.org/10.12688/f1000research.3-62.v2).
-:::
+Gregory Vance Wilson. High-performance computing considered harmful. In
+*22nd Annual International Symposium on High Performance Computing
+Systems and Applications (HPCS 2008)*, 2008.
 
-::: {#ref-b:wilson-cs1-scientists-2008}
-Wilson, Greg, Christine Alvarado, Jennifer Campbell, Rubin Landau, and
-Robert Sedgewick. 2008. "CS-1 for Scientists." *SIGCSE Bulletin* 40 (1).
-Association for Computing Machinery (ACM): 36.
-doi:[10.1145/1352322.1352151](https://doi.org/10.1145/1352322.1352151).
-:::
+Greg Wilson. Those who will not learn from history.... *Computing in
+Science and Engineering*, 10(3):5--6, May 2008.
 
-::: {#ref-b:wilson-best-practices-2014}
-Wilson, Greg, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt
-Davis, Richard T. Guy, Steven H. D. Haddock, et al. 2014. "Best
-Practices for Scientific Computing." *PLoS Biology* 12 (1). PLoS.
-doi:[10.1371/journal.pbio.1001745](https://doi.org/10.1371/journal.pbio.1001745).
-:::
+Greg Wilson. Open source offers solutions for science software
+education. *Nature*, 436:600, July 2005.
 
-::: {#ref-b:wilson-opportunistic-combining-1992}
-Wilson, Gregory V. 1992. "Using Opportunistic Combining Networks to
-Reduce Contention in Multicomputers." In *Proc. Parallel Architectures
-and Languages Europe (PARLE 1992)*, 605:651--66. Lecture Notes in
-Computer Science. Springer.
-:::
+Greg Wilson. Is the open source community setting a bad example? *IEEE
+Software*, 16(1), January 1999.
 
-::: {#ref-b:wilson-practical-parallel-programming-1995}
----------. 1995. *Practical Parallel Programming*. MIT Press.
-:::
+Gregory V. Wilson. Using opportunistic combining networks to reduce
+contention in multicomputers. In *Proc. Parallel Architectures and
+Languages Europe (PARLE 1992)*, volume 605 of *Lecture Notes in Computer
+Science*, pages 651--666. Springer, 1992.
 
-::: {#ref-b:wilson-teach-1996}
----------. 1996. "What Should Computer Scientists Teach to Physical
-Scientists and Engineers?" *IEEE Computational Science and Engineering*,
-Summer and Fall.
-:::
+Gregory V. Wilson and Paul Lu, editors. *Parallel Programming Using
+C++*. MIT Press, 1996.
 
-::: {#ref-b:wilson-performance-1999}
----------. 1999c. "High-Performance Programming for Computational
-Scientists." In *Proc. of High Performance Computing Systems and
-Applications 1999*.
-:::
+Gregory V. Wilson. High-performance programming for computational
+scientists. In *Proc. of High Performance Computing Systems and
+Applications 1999*, 1999.
 
-::: {#ref-b:wilson-extensible-2004}
----------. 2004. "Extensible Programming for the 21st Century." *ACM
-Queue* 2 (9). Association for Computing Machinery (ACM): 48--57.
-:::
+Gregory V. Wilson. *Practical Parallel Programming*. MIT Press, 1995.
 
-::: {#ref-b:wilson-parallel-cplusplus-1996}
-Wilson, Gregory V., and Paul Lu, eds. 1996. *Parallel Programming Using
-C++*. MIT Press.
-:::
+Greg Wilson. Not on the shelves. *IEEE Softw.*, 26(3):8--9, May 2009.
 
-::: {#ref-b:wilson-twelve-ways-1994}
-Wilson, Gregory V., Brent Gorda, and Paul Lu. 1994. "Twelve Ways to Make
-Sure Your Parallel Programming System Doesn't Make Others Look Bad."
-*IEEE Computer* 27 (10).
-:::
+Greg Wilson. Still. *On Spec*, 22(2), Summer 2010.
 
-::: {#ref-b:wilson-enterprise-usability-1993}
-Wilson, Gregory V., Jonathan Schaeffer, and Duane Szafron. 1993.
-"Enterprise in Context: Assessing the Usability of Parallel Programming
-Environments." In *Proc. 1993 Conference of the Centre for Advanced
-Studies on Collaborative Research*, 999--1010. IBM.
-:::
+Greg Wilson. Software carpentry: lessons learned. *F1000Research*,
+January 2016.
 
-::: {#ref-b:wilson-hpc-harmful-2008}
-Wilson, Gregory Vance. 2008. "High-Performance Computing Considered
-Harmful." In *22nd Annual International Symposium on High Performance
-Computing Systems and Applications (HPCS 2008)*.
-:::
+Greg Wilson. *Teaching Tech Together*. Taylor & Francis, 2019. How to
+create and deliver lessons that work and build a teaching community
+around them.
 
-::: {#ref-b:winter-browser-2007}
-Winter, D., B. Vinegar, H. Nahal, R. Ammar, G. V. Wilson, and N. J.
-Provart. 2007. "An 'Electronic Fluorescent Pictograph' Browser for
-Exploring and Analyzing Large-Scale Biological Data Sets." *PLoS ONE* 2
-(8). PLoS.
-:::
+Gregory V. Wilson. What should computer scientists teach to physical
+scientists and engineers? *IEEE Computational Science and Engineering*,
+Summer and Fall 1996.
+
+Greg Wilson. *Three Sensible Adventures*. Annick Press, 1999.
+
+Gregory V. Wilson, Brent Gorda, and Paul Lu. Twelve ways to make sure
+your parallel programming system doesn't make others look bad. *IEEE
+Computer*, 27(10), 1994.
+
+Greg Wilson. ...but with a whimper. *On Spec*, 19(3), Fall 2007.
+
+Greg Wilson. XML-based programming systems. *Doctor Dobb's Journal*,
+March 2003.
+
+D. Winter, B. Vinegar, H. Nahal, R. Ammar, G. V. Wilson, and N. J.
+Provart. An 'electronic fluorescent pictograph' browser for exploring
+and analyzing large-scale biological data sets. *PLoS ONE*, 2(8), 2007.
+
+[BibTeX]({{site.github.url}}/files/gvwilson.bib)

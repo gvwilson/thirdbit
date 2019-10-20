@@ -6,14 +6,14 @@ layout: single
 
 ![Greg Wilson]({{site.github.url}}/files/gvwilson-toque-2013.jpg)
 
-I was born in 1963, and grew up on [Vancouver Island](http://www.town.lakecowichan.bc.ca/),
+I was born in 1963 and grew up on [Vancouver Island](http://www.town.lakecowichan.bc.ca/),
 where two inches of rain is considered a light shower.
 I completed a Bachelor's degree in Mathematics and Engineering at [Queen's University](http://www.queensu.ca) in 1984,
 then worked in Ottawa before moving to Edinburgh
 to do an M.Sc. in Artificial Intelligence in 1985-86.
-I spent the next six years working as a programmer at the [Edinburgh Parallel Computing Centre](http://www.epcc.ed.ac.uk/)
+I spent the next six years working at the [Edinburgh Parallel Computing Centre](http://www.epcc.ed.ac.uk/)
 while doing a Ph.D. in Computer Science (which I completed in 1992)
-and writing popular science articles.
+and writing popular science articles for *The Independent* and [*New Scientist*](https://www.newscientist.com/).
 
 Between 1992 and 1995
 I wrote [a book on parallel programming](http://www.amazon.com/Practical-Programming-Scientific-Engineering-Computation/dp/0262231867/)
@@ -26,18 +26,18 @@ I co-edited
 [another book on parallel programming](http://www.amazon.com/Parallel-Programming-Scientific-Engineering-Computation/dp/0262731185/).
 
 I went independent in 1998,
-working primarily for [Los Alamos National Laboratory](http://www.lanl.gov),
-wrote [my first children's book](http://www.amazon.com/Three-Sensible-Adventures-Greg-Wilson/dp/1550375989),
+working primarily for [Los Alamos National Laboratory](http://www.lanl.gov)
+while I wrote [my first children's book](http://www.amazon.com/Three-Sensible-Adventures-Greg-Wilson/dp/1550375989)
 and started playing the saxophone and Ultimate frisbee (though not simultaneously).
 I also became involved in open source development,
 particularly Python.
 Between 2000 and 2004 I was part of a computer security startup
 that was eventually acquired by Hewlett-Packard,
 a contributing editor with *Doctor Dobb's Journal*,
-and an adjunct professor in [Computer Science](http://web.cs.toronto.edu/)
-at the [University of Toronto](http://www.utoronto.ca).
+and an adjunct professor at the [University of Toronto](http://www.utoronto.ca).
 
-After leaving HP in 2004, I put the [Software Carpentry](https://software-carpentry.org) course online
+After leaving HP in 2004
+I put the [Software Carpentry](https://software-carpentry.org) course online
 and wrote [another book](http://www.amazon.com/gp/product/0974514071).
 I became a professor in [Computer Science](http://web.cs.toronto.edu/)
 at the [University of Toronto](http://www.utoronto.ca) in May 2007,
@@ -56,14 +56,12 @@ and in 2007 we became the proud and happy parents of
 the most wonderful little redhead in the whole wide world.
 
 I left academia in 2010
-and spent the next seven years building [Software Carpentry](https://software-carpentry.org) into
+and spent the next seven years building [Software Carpentry](https://carpentries.org) into
 a non-profit organization that helps thousands of researchers worldwide every year.
 I also helped organize a summit meeting of grassroots groups trying to improve inclusion and diversity in the tech sector,
 edited [a book on evidence-based software engineering](http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/)
 and [a series on software architecture](http://aosabook.org),
-wrote [some more children's books](http://sensibleadventures.com/),
-and turned the Software Carpentry instructor training course into
-a book called [*Teaching Tech Together*](http://teachtogether.tech).
+and wrote [some more children's books](http://sensibleadventures.com/).
 
 I left [Software Carpentry](https://software-carpentry.org) in January 2017,
 and after a brief stints with [Rangle.io](http://rangle.io)
@@ -74,6 +72,10 @@ and
 I am now in the Education group at [RStudio](http://rstudio.com),
 makers of [a world-class IDE](http://rstudio.cloud) and other fine tools.
 My main responsibility is [RStudio's instructor training and certification program](http://education.rstudio.com/trainers),
-but my job gives me a chance to dabble in a bunch of other things,
-including [a book on JavaScript for data scientists](http://js4ds.org).
+but my job gives me a chance to do a lot of other things,
+including a book called [*Teaching Tech Together*](http://teachtogether.tech)
+and another on [JavaScript for data scientists](http://js4ds.org).
 If you'd ever like to chat, please [drop me a line](mailto:gvwilson@third-bit.com).
+
+- [CV]({{site.github.url}}/files/gvwilson.pdf)
+- [Bibliography]({{site.github.url}}/bib/)
