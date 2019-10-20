@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-11-30 01:19
 title: "Lesson Installation"
 ---

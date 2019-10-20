@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-09-16 01:30:00
 title: "What Works for Women at Work"
 ---

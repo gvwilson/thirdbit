@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Complexity vs. Subtlety"
 date: 2016-03-05 08:00:00
 original: swc

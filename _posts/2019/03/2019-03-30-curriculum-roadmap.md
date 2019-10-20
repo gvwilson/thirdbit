@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-03-30 02:57
 title: "Curriculum Roadmap"
 ---

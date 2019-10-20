@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Not on the Shelves: 20th Anniversary Edition"
 date: 2017-11-11 12:00:00
 ---

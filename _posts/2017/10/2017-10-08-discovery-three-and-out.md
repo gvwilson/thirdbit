@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Discovery: Three and Out"
 date: 2017-10-08 05:00:00
 ---

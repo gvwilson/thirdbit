@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-06 05:34
 title: "Bootcamps"
 ---

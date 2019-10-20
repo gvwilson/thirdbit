@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to Design an Effective Lesson"
 date: 2017-12-01 05:00
 ---

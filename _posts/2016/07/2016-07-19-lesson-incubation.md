@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Lesson Incubation"
 date: 2016-07-19 00:05:00
 original: swc

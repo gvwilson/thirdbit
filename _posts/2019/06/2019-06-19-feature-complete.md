@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-06-19 16:27
 title: "Feature Complete"
 ---

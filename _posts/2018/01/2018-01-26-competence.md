@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Assessing Competence"
 date: 2018-01-26 04:20
 ---

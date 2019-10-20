@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Rules for Teaching"
 date: 2018-05-13 01:30
 ---

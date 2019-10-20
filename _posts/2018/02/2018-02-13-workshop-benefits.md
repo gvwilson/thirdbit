@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Workshop Benefits"
 date: 2018-02-13 04:20
 ---

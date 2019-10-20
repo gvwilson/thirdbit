@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-08-28 01:00:00
 title: Two Abstracts for Two Audiences
 ---

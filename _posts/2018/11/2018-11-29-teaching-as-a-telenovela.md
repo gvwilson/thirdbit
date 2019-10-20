@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-11-29 02:37
 title: "Teaching as a Telenovela"
 ---

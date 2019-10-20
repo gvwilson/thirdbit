@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-13 01:44
 title: "Buzzfeed on DataCamp"
 ---

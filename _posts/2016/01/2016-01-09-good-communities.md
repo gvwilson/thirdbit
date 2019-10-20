@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Good Communities (Kinds Of)"
 date: 2016-01-09 11:00:00
 original: swc

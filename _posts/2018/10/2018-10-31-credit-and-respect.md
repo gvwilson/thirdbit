@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-10-31 01:27
 title: "Credit and Respect"
 ---

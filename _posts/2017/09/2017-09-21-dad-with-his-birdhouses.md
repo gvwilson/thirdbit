@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Dad With His Birdhouses"
 date: 2017-09-21 05:00:00
 ---

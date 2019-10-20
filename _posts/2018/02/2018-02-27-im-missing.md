@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "I'm Missing"
 date: 2018-02-27 01:30
 ---

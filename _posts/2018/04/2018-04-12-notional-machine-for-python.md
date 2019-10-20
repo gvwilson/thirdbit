@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Is This a Notional Machine for Python?"
 date: 2018-04-12 01:30
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Analog is More Satisfying"
 date: 2018-03-24 01:30
 ---

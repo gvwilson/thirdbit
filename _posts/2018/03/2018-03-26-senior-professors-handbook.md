@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Senior Professor's Handbook"
 date: 2018-03-26 01:30
 logic: "https://isbndb.com/book/9780262524407"

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-11-28 02:00
 title: "My To-Don't List"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Stand with Government Scientists"
 date: 2017-01-25 05:00:00
 ---

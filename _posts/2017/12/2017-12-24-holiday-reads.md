@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Holiday Reads"
 date: 2017-12-23 03:30:00
 ---

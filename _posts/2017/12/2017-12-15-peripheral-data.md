@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "What Does Peripheral Participation in Data Look Like?"
 date: 2017-12-15 05:00
 ---

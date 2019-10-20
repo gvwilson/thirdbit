@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "More Dagstuhl"
 date: 2018-02-12 04:20
 ---

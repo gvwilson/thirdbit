@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-03-15 04:38
 title: "Christchurch and Shopify"
 ---

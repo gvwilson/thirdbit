@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-30 02:00
 title: "Harper: Lesson Discovery and Aggregation"
 ---

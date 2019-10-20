@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Ten Ways to Turn Off Learners"
 date: 2016-08-19 00:11:00
 original: swc

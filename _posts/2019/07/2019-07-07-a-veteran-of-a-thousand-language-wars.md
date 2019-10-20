@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-07-07 03:09
 title: "A Veteran of a Thousand Language Wars"
 ---

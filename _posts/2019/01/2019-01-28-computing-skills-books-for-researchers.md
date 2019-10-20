@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-01-28 01:59
 title: "Computing Skills Books for Researchers"
 ---

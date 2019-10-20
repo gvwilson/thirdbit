@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "A Counterpoint to Collaborative Lesson Design"
 date: 2016-02-16 00:30:00
 original: swc

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-07-15 13:00:00
 title: Teaching Tech Together
 purchase: "http://www.lulu.com/commerce/index.php?fBuyContent=23123539"

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Doing Good and Getting Paid"
 date: 2019-07-27 04:30
 ---

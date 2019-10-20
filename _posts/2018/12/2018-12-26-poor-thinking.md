@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-26 02:00
 title: "Poor Thinking"
 ---

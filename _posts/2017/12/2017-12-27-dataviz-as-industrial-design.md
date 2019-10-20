@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Data Visualization as Industrial Design"
 date: 2017-12-27 03:30:00
 ---

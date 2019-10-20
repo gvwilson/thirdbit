@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Elsewhere on the Web"
 date: 2016-01-29 06:00:00
 original: swc

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "So You've Been Fired"
 date: 2019-10-17 01:38
 ---

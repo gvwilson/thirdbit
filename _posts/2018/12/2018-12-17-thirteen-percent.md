@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-17 02:00
 title: "Thirteen Percent and Counting"
 ---

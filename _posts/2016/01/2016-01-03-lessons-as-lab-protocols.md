@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Lessons as Lab Protocols"
 date: 2016-01-03 03:00:00
 original: swc

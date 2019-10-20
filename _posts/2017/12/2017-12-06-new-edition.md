@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Second Edition of 'How to Teach Programming (and Other Things)'"
 date: 2017-12-06 05:00
 ---

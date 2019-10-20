@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-11-05 03:35
 title: "Abstraction and Comprehension Continued"
 ---

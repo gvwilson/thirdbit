@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Two Pages of Evidence"
 date: 2016-02-02 06:30:00
 original: swc

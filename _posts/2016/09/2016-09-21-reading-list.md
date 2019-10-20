@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "What I Wish I'd Read"
 date: 2016-09-21 06:00
 ---

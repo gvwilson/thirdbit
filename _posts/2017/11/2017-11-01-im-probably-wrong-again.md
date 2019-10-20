@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "I'm Probably Wrong Again"
 date: 2017-11-01 13:00:00
 ---

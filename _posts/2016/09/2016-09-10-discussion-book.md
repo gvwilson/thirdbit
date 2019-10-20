@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Discussion Book"
 date: 2016-09-10 06:30:00
 original: swc

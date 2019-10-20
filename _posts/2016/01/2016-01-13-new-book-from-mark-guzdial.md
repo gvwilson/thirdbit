@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "A New Book from Mark Guzdial"
 date: 2016-01-13 06:00:00
 original: swc

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Explanation-Oriented Programming"
 date: 2017-12-27 05:20
 ---

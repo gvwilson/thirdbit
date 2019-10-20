@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-03 01:49
 title: "Shorter Lines"
 ---

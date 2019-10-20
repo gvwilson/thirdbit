@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Freakonomics, But For Good"
 date: 2017-11-17 05:00:00
 ---

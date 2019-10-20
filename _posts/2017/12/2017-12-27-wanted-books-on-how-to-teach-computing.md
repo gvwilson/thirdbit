@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Wanted: Books on How to Teach Computing"
 date: 2017-12-27 07:20
 ---

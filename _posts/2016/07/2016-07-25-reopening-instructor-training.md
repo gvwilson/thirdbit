@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Reopening Instructor Training"
 date: 2016-07-25 00:04:00
 original: swc

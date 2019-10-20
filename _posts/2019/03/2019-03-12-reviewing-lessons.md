@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-03-12 01:05
 title: "Reviewing Lessons"
 ---

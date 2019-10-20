@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-04 07:31
 title: "Not a Hammer"
 ---

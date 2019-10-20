@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Documentation Types"
 date: 2019-08-08 03:24
 ---

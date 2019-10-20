@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Library Carpentry is One Year Old"
 date: 2016-10-22 12:00:00
 original: swc

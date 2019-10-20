@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-16 03:13
 title: "What Docs When"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Wind Chimes in the Rain"
 date: 2019-09-13 08:08
 ---

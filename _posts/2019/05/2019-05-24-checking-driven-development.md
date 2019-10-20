@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-24 07:09
 title: "Checking-Driven Development"
 ---

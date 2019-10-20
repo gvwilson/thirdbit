@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Research This!"
 date: 2019-08-14 07:37
 ---

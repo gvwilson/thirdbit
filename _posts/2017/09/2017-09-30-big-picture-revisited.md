@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Big Picture Revisited"
 date: 2017-09-30 10:00:00
 ---

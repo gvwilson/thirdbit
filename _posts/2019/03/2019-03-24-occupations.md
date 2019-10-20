@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-03-24 14:51
 title: "Occupations"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-10-25 02:15
 title: "Amazon Makes Me Sad"
 ---

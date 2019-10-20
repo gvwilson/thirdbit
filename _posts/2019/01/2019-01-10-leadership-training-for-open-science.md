@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-01-10 03:11
 title: "Leadership Training for Open Science"
 ---

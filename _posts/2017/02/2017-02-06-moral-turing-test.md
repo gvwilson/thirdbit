@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "A Moral Equivalent of the Turing Test"
 date: 2017-02-06 05:00:00
 ---

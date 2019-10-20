@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "And Now There Are Three"
 date: 2016-10-04 07:45:00
 original: swc

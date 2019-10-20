@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Heuristic Evaluation for Novice Programming Systems"
 date: 2016-08-02 00:01:00
 original: swc

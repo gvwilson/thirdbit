@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-02-11 02:21
 title: "Examples Wanted for Code Review"
 ---

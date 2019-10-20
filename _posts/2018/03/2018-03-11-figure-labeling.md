@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Wanted: A Tool for Figure Labeling Exercises"
 date: 2018-03-11 01:30
 ---

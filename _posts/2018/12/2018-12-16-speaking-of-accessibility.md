@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-16 01:55
 title: "Speaking of Accessibility"
 ---

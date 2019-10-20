@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-09-04 01:30:00
 title: "Two Courses"
 ---

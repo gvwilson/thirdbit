@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-03-20 12:31
 title: "Educational Paramedics"
 ---

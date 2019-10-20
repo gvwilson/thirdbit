@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-26 04:24
 title: "Active Teaching"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "What the Data Says About Novice Programming Mistakes"
 date: 2016-01-09 07:00:00
 original: swc

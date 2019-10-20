@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Cigarettes and Shopify"
 date: 2018-05-06 03:30
 nocomments: true

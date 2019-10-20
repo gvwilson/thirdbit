@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How Do You Tell?"
 date: 2019-09-05 03:16
 ---

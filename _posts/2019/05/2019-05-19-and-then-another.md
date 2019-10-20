@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-19 15:10
 title: "And Then Another"
 ---

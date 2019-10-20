@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-02 03:45
 title: "OER Landmines"
 ---

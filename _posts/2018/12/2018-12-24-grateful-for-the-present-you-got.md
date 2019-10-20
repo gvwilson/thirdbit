@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-24 02:30
 title: "Be Grateful for the Present You Got"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Exercises for Teaching Programming"
 date: 2017-10-16 05:00:00
 ---

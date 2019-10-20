@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-02-20 02:21
 title: "Is Code-Along Formative Assessment?"
 ---

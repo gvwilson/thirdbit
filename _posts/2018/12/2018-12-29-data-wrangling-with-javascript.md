@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-29 02:00
 title: "Data Wrangling with JavaScript"
 ---

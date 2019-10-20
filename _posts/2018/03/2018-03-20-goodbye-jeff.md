@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Goodbye, Jeff"
 date: 2018-03-20 03:30
 favorite: true

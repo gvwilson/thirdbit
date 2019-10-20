@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Exoplanets"
 date: 2019-08-10 13:35
 ---

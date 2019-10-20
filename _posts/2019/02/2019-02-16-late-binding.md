@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-02-16 02:21
 title: "Late Binding"
 ---

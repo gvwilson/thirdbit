@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-31 03:11
 title: "How Feasible is a Harassment Canary?"
 ---

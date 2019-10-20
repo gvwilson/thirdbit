@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-27 02:00
 title: "Use Case Maps Revisited"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Open Instructor Training"
 date: 2016-11-19 10:00:00
 original: swc

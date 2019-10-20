@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Collaborative Lesson Development"
 date: 2018-03-03 01:30
 ---

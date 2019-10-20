@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The New Standard Model"
 date: 2017-12-06 12:00
 ---

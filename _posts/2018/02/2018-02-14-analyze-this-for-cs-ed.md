@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "'Analyze This!' for CS Education"
 date: 2018-02-14 05:15
 ---

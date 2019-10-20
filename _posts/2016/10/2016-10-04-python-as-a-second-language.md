@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Python as a Second Language"
 date: 2016-10-04 00:07:30
 original: swc

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Third Walls and Eighth Bolts"
 date: 2019-07-22 04:30
 ---

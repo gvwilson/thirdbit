@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Disappearing Data"
 date: 2017-09-18 05:00:00
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Good Enough Practices in Scientific Computing"
 date: 2017-06-22 10:00:00
 original: swc

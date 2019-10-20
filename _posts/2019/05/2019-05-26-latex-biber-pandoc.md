@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-26 03:22
 title: "LaTeX, Biber, and Pandoc"
 ---

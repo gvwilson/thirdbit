@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-07-05 04:45
 title: "Patterns in Git"
 ---

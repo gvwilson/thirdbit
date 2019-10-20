@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "RIP Toni Morrison"
 date: 2019-08-06 08:35
 ---

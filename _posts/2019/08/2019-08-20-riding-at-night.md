@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Riding at Night"
 date: 2019-08-20 17:20
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Grand Unified Editor Theory"
 date: 2018-03-24 03:30
 ---

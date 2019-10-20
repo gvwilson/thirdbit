@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Wanted: A Workable Lesson Competition"
 date: 2017-12-30 05:35
 ---

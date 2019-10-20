@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-01-06 03:11
 title: "Not on the Shelves (2019 Edition)"
 ---

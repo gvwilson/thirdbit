@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-07-05 03:45
 title: "A Modest Proposal"
 ---

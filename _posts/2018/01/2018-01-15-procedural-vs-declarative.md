@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Procedural versus Declarative"
 date: 2018-01-15 04:20
 ---

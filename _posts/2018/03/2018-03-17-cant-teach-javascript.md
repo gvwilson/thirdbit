@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "I Can't (Quite) Teach JavaScript"
 date: 2018-03-17 02:30
 ---

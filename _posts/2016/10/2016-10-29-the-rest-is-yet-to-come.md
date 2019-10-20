@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Rest Is Yet To Come"
 date: 2016-10-29 00:12:45
 original: swc

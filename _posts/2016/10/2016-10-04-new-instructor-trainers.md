@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Congratulations to Our New Instructor Trainers"
 date: 2016-10-04 07:00:00
 original: swc

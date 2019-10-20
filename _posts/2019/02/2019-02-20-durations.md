@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-02-20 05:40
 title: "Durations"
 ---

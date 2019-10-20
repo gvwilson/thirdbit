@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-08-31 01:00:00
 title: "High and Low, One by One or All Together"
 ---

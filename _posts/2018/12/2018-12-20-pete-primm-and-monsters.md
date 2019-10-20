@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-20 02:00
 title: "PETE, PRIMM, and Monsters"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-03-30 03:11
 title: "Online Teaching Setup"
 ---

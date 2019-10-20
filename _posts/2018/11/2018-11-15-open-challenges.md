@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-11-15 08:00
 title: "The Real Open Challenges"
 ---

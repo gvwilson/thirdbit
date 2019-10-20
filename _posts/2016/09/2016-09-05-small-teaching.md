@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Small Teaching"
 date: 2016-09-05 00:01:30
 original: swc

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Programming as Theory Building"
 date: 2016-10-23 05:00:00
 original: swc

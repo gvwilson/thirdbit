@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-02-04 03:59
 title: "Classifying Data"
 ---

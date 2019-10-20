@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-11-01 03:35
 title: "Twelve Questions"
 ---

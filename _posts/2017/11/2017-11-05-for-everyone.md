@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Carpentry For Everyone"
 date: 2017-11-05 03:00:00
 ---

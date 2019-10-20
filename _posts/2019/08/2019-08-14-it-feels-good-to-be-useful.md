@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "It Feels Good to be Useful"
 date: 2019-08-14 08:33
 ---

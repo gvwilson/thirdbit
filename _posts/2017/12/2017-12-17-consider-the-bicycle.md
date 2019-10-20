@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Consider the Bicycle"
 date: 2017-12-17 03:30:00
 ---

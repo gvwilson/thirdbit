@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Books for Programmers"
 date: 2017-11-04 03:00:00
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "End-User Teachers"
 date: 2018-06-20 01:30
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Our Introduction to Git Has Been Published"
 date: 2016-01-21 05:00:00
 original: swc

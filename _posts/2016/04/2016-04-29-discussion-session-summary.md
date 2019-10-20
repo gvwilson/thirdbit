@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Summarizing Our Lesson Discussion Sessions"
 date: 2016-04-29 05:30:00
 original: swc

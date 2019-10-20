@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "No Support for Hate"
 date: 2019-08-04 06:19
 ---

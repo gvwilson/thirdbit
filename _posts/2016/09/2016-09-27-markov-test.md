@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Markov Test"
 date: 2016-09-27 15:00
 ---

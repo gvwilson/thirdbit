@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Further Analysis of Instructor Training Data"
 date: 2016-05-31 08:30:00
 original: swc

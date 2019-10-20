@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Teaching Statistics in the 21st Century"
 date: 2018-01-09 02:00:00
 original: swc

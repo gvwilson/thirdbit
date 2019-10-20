@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Quantifying the Learning Curve"
 date: 2005-01-02 13:25:44
 ---

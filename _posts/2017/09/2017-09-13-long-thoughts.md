@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Long Thoughts"
 date: 2017-09-13 05:00:00
 ---

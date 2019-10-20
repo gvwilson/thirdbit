@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-10-06 03:00
 title: "Flake and Collins, Mark and Jack and Tobi"
 ---

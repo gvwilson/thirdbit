@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Workshop on Organizing for Progressive Community Change"
 date: 2018-02-28 01:30
 ---

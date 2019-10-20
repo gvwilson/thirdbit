@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Teaching Online"
 date: 2019-08-03 04:44
 ---

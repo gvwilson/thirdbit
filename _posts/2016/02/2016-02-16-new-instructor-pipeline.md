@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Our New Instructor Pipeline"
 date: 2016-02-16 06:00:00
 original: swc

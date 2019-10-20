@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "More on Instructor Training"
 date: 2016-07-26 00:08:00
 original: swc

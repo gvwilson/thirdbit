@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-08-12 01:00:00
 title: The Real Challenge
 ---

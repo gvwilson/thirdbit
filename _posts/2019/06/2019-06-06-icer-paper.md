@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-06-06 03:44
 title: "ICER Acceptance"
 ---

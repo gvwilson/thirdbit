@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Where Does This Come From?"
 date: 2018-03-23 07:30
 ---

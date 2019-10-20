@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-02-25 13:59
 title: "Making It Work in Practice"
 ---

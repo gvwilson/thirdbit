@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-05 01:44
 title: "The Worst Behavior"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Seven Ways to Think Like a Programmer"
 date: 2018-03-16 02:30
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-01-24 03:11
 title: "The Principle of Least Precision"
 ---

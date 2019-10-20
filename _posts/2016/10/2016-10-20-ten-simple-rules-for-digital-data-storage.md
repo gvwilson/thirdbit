@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Ten Simple Rules for Digital Data Storage"
 date: 2016-10-20 21:00:00
 original: swc

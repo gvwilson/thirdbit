@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "My Favorite Tool - Asking for Help"
 date: 2017-11-28 08:00:00
 original: swc

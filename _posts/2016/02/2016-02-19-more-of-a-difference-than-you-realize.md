@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "More of a Difference Than You Realize"
 date: 2016-02-19 04:00:00
 original: swc

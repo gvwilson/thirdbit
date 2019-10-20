@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to Teach Programming (And Other Things)"
 date: 2017-05-31 05:00:00
 ---

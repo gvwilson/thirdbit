@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "There's No Such Thing As KeepItGoingCamp"
 date: 2009-11-02 06:05:06
 ---

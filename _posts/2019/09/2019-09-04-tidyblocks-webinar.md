@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "TidyBlocks Webinar"
 date: 2019-09-04 06:37
 ---

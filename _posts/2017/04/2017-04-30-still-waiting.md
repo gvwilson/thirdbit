@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Still Waiting"
 date: 2017-04-30 05:00:00
 ---

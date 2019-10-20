@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-13 07:31
 title: "A Story Line Game for Teaching"
 ---

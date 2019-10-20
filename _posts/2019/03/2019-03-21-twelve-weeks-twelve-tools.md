@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-03-21 13:22
 title: "Twelve Weeks, Twelve Tools"
 ---

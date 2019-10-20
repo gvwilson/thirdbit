@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Hunter S. Thompson, Football, and the GOP"
 date: 2017-07-20 05:00:00
 ---

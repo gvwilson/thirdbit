@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-23 06:31
 title: "Bottle of Light"
 ---

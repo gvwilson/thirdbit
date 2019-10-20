@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Common Misconceptions"
 date: 2017-11-24 05:00:00
 ---

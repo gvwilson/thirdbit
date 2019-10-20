@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Teaching Guide Updated"
 date: 2017-11-27 05:00:00
 ---

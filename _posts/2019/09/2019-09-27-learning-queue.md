@@ -1,5 +1,4 @@
 ﻿---
-layout: post
 title: "Managing a Queue of Learners"
 date: 2019-09-27 06:37
 ---

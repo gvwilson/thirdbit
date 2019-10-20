@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-20 02:55
 title: "Leading Questions for Creating a Learning Commons"
 ---

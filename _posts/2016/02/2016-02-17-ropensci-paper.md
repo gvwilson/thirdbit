@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Building Software, Building Community: Lessons from the rOpenSci Project"
 date: 2016-02-17 05:00:00
 original: swc

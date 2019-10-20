@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Close Cousins"
 date: 2016-10-30 07:00:00
 original: swc

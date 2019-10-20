@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Library Carpentry in Toronto"
 date: 2016-07-30 00:08:00
 original: swc

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-17 04:31
 title: "Learning Curves"
 ---

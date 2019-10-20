@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-10-24 01:15
 title: "Two Columns"
 ---

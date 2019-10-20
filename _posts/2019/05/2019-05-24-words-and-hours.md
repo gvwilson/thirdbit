@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-24 13:22
 title: "Words and Hours"
 ---

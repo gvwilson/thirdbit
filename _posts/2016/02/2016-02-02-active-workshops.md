@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Active Workshops"
 date: 2016-02-02 06:00:00
 original: swc

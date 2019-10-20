@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "18 Months of Progress"
 date: 2016-01-15 04:00:00
 original: swc

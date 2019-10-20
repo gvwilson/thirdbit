@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-03-07 03:59
 title: "Learning to Program"
 ---

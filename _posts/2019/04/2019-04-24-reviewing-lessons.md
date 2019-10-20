@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-24 04:12
 title: "Ten Quick Tips for Reviewing Lessons"
 ---

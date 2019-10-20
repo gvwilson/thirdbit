@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-09-16 01:45:00
 title: "Ten Simple Rules for Creating an Effective Lesson"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Teaching Programming in the Wild"
 date: 2018-02-18 04:20
 ---

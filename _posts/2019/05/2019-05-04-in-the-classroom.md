@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-04 02:00
 title: "In the Classroom"
 ---

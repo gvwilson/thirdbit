@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-29 09:53
 title: "R in the Browser"
 ---

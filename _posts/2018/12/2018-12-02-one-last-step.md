@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-02 11:24
 title: "One Last Step"
 ---

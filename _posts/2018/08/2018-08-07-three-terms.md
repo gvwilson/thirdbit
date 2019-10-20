@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-08-07 01:00:00
 title: Three Terms
 ---

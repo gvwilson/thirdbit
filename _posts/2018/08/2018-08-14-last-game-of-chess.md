@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-08-14 01:00:00
 title: Our Last Game
 ---

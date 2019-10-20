@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-06-16 12:27
 title: "Chunks versus Functions"
 ---

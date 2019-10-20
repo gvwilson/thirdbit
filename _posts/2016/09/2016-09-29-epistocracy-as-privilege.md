@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Epistocracy as Privilege"
 date: 2016-09-29 08:00
 ---

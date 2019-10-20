@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-06-24 02:48
 title: "Chapter Summaries"
 ---

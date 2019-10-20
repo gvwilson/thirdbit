@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Invitation: Exercise Types Extended"
 date: 2017-12-17 03:45:00
 ---

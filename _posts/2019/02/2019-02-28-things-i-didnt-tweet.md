@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-02-28 03:59
 title: "Things I Didn't Tweet This Month"
 ---

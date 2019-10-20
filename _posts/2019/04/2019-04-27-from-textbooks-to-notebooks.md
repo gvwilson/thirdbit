@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-27 08:33
 title: "From Textbooks to Notebooks and Back"
 ---

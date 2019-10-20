@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Ecosystems"
 date: 2019-09-22 11:52
 ---

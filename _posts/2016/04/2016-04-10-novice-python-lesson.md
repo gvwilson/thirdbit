@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Designing a New Novice Python Lesson"
 date: 2016-04-10 05:00:00
 original: swc

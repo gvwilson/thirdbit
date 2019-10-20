@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-03-10 11:59
 title: "The Tool I Want"
 ---

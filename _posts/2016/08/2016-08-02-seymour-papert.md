@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Seymour Papert 1928-2016"
 date: 2016-08-02 00:01:30
 original: swc

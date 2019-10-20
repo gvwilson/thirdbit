@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Git, Graphs, and Software Engineering"
 date: 2017-09-30 05:00:00
 ---

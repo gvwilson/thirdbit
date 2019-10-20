@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Proficiency"
 date: 2019-10-11 03:29
 ---

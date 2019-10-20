@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How Well Do Developers Understand Open Source Licenses?"
 date: 2016-08-02 00:02:30
 original: swc

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-02 01:57
 title: "Learning from McMaster"
 ---

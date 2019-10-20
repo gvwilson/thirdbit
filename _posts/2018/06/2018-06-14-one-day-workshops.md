@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "One-Day Workshops"
 date: 2018-06-14 08:00
 ---

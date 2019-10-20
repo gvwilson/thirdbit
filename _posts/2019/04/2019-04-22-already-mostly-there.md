@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-22 01:30
 title: "Already Mostly There"
 ---

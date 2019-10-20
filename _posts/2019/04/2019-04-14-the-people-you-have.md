@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-14 06:13
 title: "The People You Have"
 ---

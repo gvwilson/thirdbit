@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-06-20 02:51
 title: "Typography"
 ---

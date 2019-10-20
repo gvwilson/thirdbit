@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Making Maintainable Lessons"
 date: 2017-10-21 11:00:00
 ---

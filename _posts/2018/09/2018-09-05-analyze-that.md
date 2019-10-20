@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-09-05 03:00:00
 title: "Analyze That!"
 form: https://docs.google.com/forms/d/e/1FAIpQLSc8-kwE6SmF3o5xRDM_3_sf3hnzYYoAhlyPQl5Hx05gAzskhQ/viewform

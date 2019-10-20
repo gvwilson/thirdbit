@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Teaching Programming to the Blind"
 date: 2016-09-23 07:00:00
 original: swc

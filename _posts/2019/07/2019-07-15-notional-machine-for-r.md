@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Is This a Notional Machine for R?"
 date: 2019-07-15 04:30
 ---

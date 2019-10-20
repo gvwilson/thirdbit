@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Numerical JavaScript"
 date: 2017-05-22 05:00:00
 ---

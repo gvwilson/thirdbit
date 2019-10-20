@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Petzold's Rules Revisited"
 date: 2017-12-24 05:20
 petzold: http://www.charlespetzold.com

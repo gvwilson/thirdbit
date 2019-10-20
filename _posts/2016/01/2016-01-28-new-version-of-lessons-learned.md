@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "A New Version of 'Lessons Learned'"
 date: 2016-01-28 07:00:00
 original: swc

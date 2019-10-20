@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-21 05:22
 title: "Contrarians"
 ---

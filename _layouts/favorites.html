@@ -1,0 +1,11 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+{% for post in site.posts %}
+  {% if post.favorite %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}

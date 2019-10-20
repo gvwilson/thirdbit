@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Software Engineering Revisited"
 date: 2019-05-30 04:30
 ---

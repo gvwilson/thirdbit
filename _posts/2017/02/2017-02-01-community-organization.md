@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Community Organization Training in Toronto"
 date: 2017-02-01 05:00:00
 ---

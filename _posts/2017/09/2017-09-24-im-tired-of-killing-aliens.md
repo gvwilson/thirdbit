@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "I'm Tired of Killing Aliens"
 date: 2017-09-24 05:00:00
 ---

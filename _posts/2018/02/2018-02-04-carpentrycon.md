@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "CarpentryCon 2018"
 date: 2018-02-04 04:20
 ---

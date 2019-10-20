@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Collaborative Choral Software Exegesis"
 date: 2016-09-12 12:00
 ---

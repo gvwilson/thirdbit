@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Teaching Tech Together Toronto: January 2018 Meetup"
 date: 2018-01-03 12:20
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-08 10:25
 title: "The Third Wall"
 ---

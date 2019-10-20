@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-09-18 01:35:00
 title: "Teaching Ethics"
 ---

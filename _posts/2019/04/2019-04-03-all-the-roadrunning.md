@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-03 17:31
 title: "All the Roadrunning"
 ---

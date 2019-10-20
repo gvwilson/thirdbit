@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-06 11:55
 title: "Three Courses"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Designing Lessons Collaboratively"
 date: 2016-02-15 00:30:00
 original: swc

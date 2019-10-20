@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-12 02:00
 title: "Twelve Percent of a Plan"
 ---

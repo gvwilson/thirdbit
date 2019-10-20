@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-10-19 13:00
 title: "Writing Fiction"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Finally Real"
 date: 2019-08-22 14:20
 ---

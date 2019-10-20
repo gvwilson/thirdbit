@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Request for Review: ESIP's Software Guidelines"
 date: 2016-10-05 00:07:30
 original: swc

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Next Steps"
 date: 2016-12-14 00:10:00
 original: swc

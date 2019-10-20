@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Machine Learning with Python"
 date: 2016-10-17 00:07:30
 original: swc

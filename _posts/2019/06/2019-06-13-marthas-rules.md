@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-06-13 03:44
 title: "Martha's Rules"
 favorite: true

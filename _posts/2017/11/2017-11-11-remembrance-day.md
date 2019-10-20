@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Remembrance Day"
 date: 2017-11-11 11:00:00
 ---

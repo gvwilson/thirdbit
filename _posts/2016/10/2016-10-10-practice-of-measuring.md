@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Beth Duckles on the Practice of Measuring"
 date: 2016-10-10 00:15:30
 original: swc

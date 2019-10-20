@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-19 02:00
 title: "Fourteen Percent and a Change of Direction"
 ---

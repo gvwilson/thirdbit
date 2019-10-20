@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-10-18 03:00
 title: "Four Forms of Documentation"
 ---

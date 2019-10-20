@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-07-07 02:51
 title: "Deskilling Learning"
 ---

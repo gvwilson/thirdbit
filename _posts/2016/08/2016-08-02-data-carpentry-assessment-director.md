@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Data Carpentry's New Deputy Director of Assessment"
 date: 2016-08-02 00:04:00
 original: swc

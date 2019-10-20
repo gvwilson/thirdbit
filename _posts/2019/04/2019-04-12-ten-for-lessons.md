@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-12 01:48
 title: "Ten Quick Tips for Creating an Effective Lesson"
 ---

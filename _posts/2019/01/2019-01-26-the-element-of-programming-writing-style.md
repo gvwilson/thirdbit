@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-01-26 03:11
 title: "The Elements of Programming Writing Style"
 ---

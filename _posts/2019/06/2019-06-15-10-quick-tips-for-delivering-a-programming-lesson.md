@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-06-15 03:17
 title: "Ten Quick Tips for Delivering a Programming Lesson"
 ---

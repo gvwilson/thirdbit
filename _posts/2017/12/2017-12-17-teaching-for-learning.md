@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Teaching for Learning"
 date: 2017-12-17 05:45:00
 t4l: https://www.amazon.com/Teaching-Learning-Intentionally-Educational-Activities/dp/0415699363/

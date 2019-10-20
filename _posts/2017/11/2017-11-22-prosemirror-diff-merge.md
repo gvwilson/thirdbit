@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Diff and Merge for ProseMirror"
 date: 2017-11-22 03:00:00
 ---

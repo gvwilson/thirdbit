@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-12-05 09:14
 title: "Teaching Workshop on March 2, 2019"
 ---

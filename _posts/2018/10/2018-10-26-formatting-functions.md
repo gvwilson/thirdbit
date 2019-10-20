@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-10-26 02:15
 title: "Formatting Functions"
 ---

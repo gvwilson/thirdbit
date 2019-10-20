@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Two Studies of Online Communities"
 date: 2016-09-30 00:07:00
 original: swc

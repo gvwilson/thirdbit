@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Show Me Your Model"
 date: 2016-09-18 00:08:00
 original: swc

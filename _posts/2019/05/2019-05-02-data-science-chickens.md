@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-02 02:49
 title: "Sexing Data Science Chickens"
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Ordering Jekyll Collections"
 date: 2017-02-25 05:00:00
 ---

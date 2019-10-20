@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-05-11 11:04
 title: "Positive and Negative Openness"
 ---

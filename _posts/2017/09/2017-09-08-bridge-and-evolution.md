@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Bridge and Evolution"
 date: 2017-09-08 05:00:00
 ---

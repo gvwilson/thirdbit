@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Software Isn't Sustainable"
 date: 2019-06-14 05:00:00
 ---

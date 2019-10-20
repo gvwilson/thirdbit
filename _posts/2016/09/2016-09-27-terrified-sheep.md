@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Terrified Sheep"
 date: 2016-09-27 14:00
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2019-04-22 02:30
 title: "DataCamp Clarifications"
 ---
