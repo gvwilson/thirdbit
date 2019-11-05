@@ -11,7 +11,7 @@ all of which are available online:
 -   [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 -   [Ten Simple Rules for Making Research Software More Robust](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412)
 -   [Ten Simple Rules for Collaborative Lesson Development](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005963)
--   [Ten Quick Tips for Teaching Programming](https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1006023)
+-   [Ten Quick Tips for Teaching Programming](https://journals.plos.org/ploscompbiol/article/article?id=10.1371/journal.pcbi.1006023)
 -   [Ten Quick Tips for Creating an Effective Lesson](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006915)
 -   [Ten Simple Rules for Helping Newcomers Become Contributors to Open Source Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007296)
 -   [Ten Quick Tips for Delivering Programming Lessons](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007433)
