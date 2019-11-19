@@ -20,6 +20,7 @@ I also have some shorter sets of guidelines for:
 
 -   [...Teaching](#teaching)
 -   [...Being a Good Research Partner](#being-a-good-research-partner)
+-   [...Supervising Undergraduate Software Projects](#supervising-undergraduate-software-projects)
 -   [...Talking People Into Things](#talking-people-into-things)
 -   [...Handing Over and Moving On](#handing-over-and-moving-on)
 
@@ -41,6 +42,46 @@ See *[Teaching Tech Together][t3]* for a much longer discussion.
 1.  ...and that nobody will be more excited about the lesson than you are.
 
 [t3]: http://teachtogether.tech
+
+---
+
+## ...Supervising Undergraduate Software Projects
+
+1.  Insist that they adopt a code of conduct for team members.
+    Tell them how to report violations and how reports will be handled.
+
+2.  Teach them [how to run a meeting]({{site.github.url}}/2018/05/11/meetings.html)
+    and [how to make decisions as a group]({{site.github.url}}/2019/06/13/marthas-rules.html).
+
+3.  Teach them how to
+    [manage conflict within the team]({{site.github.url}}/2019/11/19/team-conflict.html).
+
+4.  Make sure everyone understands and agrees to the evaluation scheme,
+    particularly parts related to group work.
+
+5.  Teach them how to
+    [allocate responsibilities]({{site.github.url}}/2019/11/19/responsibilities.html).
+
+6.  Spend an hour showing them how to use tools properly
+    (e.g., linter, debugger, profiler)
+    and then give them a performance exam to check that they have become proficient.
+
+7.  Don't try to insist that they use an agile development methodology (or any other):
+    they are probably juggling several courses at once,
+    each of which is setting deadlines without consulting the others,
+    so it's unfair to expect them to work as if they weren't constantly being interrupted.
+
+8.  Require them to create and close issues for tasks
+    so that you can review their progress
+    and they have a record of it when the time comes to write their final report.
+
+9.  Tell them that they're allowed to
+    [cut corners]({{site.github.url}}/2019/11/19/cutting-corners.html)
+    when they have to.
+
+10. Celebrate their victories,
+    however small,
+    because shared pain is lessened and shared joy increased.
 
 ---
 
