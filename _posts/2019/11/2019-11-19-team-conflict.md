@@ -128,11 +128,10 @@ to see the world through your eyes, if only for a few moments.
 
 ## What sort of people make teamwork hard?
 
-All happy families resemble one another, but each unhappy family is
-unhappy in its own way.  Tolstoy wrote that all happy families
-resemble one another, but each unhappy family is unhappy in its own
-way.  Similarly, all good team members share certain characteristics,
-but bad ones can be bad in many different ways.  Here are a few:
+Tolstoy wrote that all happy families resemble one another, but each unhappy
+family is unhappy in its own way.  Similarly, all good team members share
+certain characteristics, but bad ones can be bad in many different ways.  Here
+are a few:
 
 Anna
 : knows more about every subject than everyone else on the team put
