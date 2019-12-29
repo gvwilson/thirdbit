@@ -59,13 +59,15 @@ expanding the high-level solution automatically won't help them:
 they'll understand the individual steps,
 but the cognitive load of assembling those steps will defeat them.
 
-What I've realized while writing this is that there's a connection between Caulfield's Chorus
+What I've realized while writing this is that there's a connection between
+[Caulfield's Chorus of Explanations](https://hapgood.us/2016/05/13/choral-explanations/)
 and one of my favorite teaching techniques:
 [proofs and refutations](https://www.amazon.com/Proofs-Refutations-Mathematical-Discovery-Philosophy/dp/1107534054).
 I often teach by presenting a simple solution to a simple problem,
 then adding a bit of complexity to the problem and showing why the simple solution no longer serves
 in order to motivate a solution that's more powerful but more complex.
-(I once spend an entire hour showing a class [how to count things in files](https://github.com/swcarpentry/v4/blob/gh-pages/essays/counting.html).)
+(I once spend an entire hour showing a class
+[how to count things in files](https://github.com/swcarpentry/v4/blob/gh-pages/essays/counting.html).)
 Caulfield's Chorus serves groups of mixed ability in which some learners know enough to skip directly to the more complex solution;
 the terse, highly abstract solutions in the chorus work for readers who are fluent with patterns,
 but who have also seen the refutations of the simpler solutions
