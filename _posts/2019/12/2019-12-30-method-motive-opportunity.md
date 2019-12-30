@@ -66,6 +66,8 @@ How are you going to make your effort self-sustaining
 so that they'll still have an opportunity to learn next year
 when you realize you've been away from home too often and for too long?
 
+<h2 id="proposal">Proposal</h2>
+
 I am thinking about all of this again because
 teaching programmers how the world works
 now seems more important than teaching researchers how to program.
@@ -76,7 +78,7 @@ I now believe that would be like
 starting a programming class with object-oriented programming and performance optimization
 when people are still struggling with `for` loops and `if` statements.
 Instead,
-I think we should start with something <span id="proposal">like this</a>:
+I think we should start with something like this:
 
 -   The *learner* is a male white or Asian programmer in his mid-20s
     who has been working in industry for four years.
