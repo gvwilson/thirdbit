@@ -145,8 +145,9 @@ and has made *Freakonomics* the most influential piece of propaganda for neolibe
 in the last twenty-five years.
 My starting point would be:
 
--   How can someone can own something intangible?
--   Why does discrimination persist when it's theory says it's economically inefficient?
+-   How did we decide that someone can own something intangible?
+-   Why does discrimination persist when it's economically inefficient?
+-   Why do [bullshit jobs](https://en.wikipedia.org/wiki/Bullshit_Jobs) proliferate as companies get larger?
 -   Why does the US put
     [so many more people in prison](http://newjimcrow.com/)
     than other countries?
@@ -157,11 +158,23 @@ My starting point would be:
 -   How are dictators and oligarchs able to
     [stay in power](https://www.publicaffairsbooks.com/titles/bruce-bueno-de-mesquita/the-dictators-handbook/9781610390453/)?
 
-However,
-I'm not the right person to decide on content:
+These topics are chosen because they allow us to sidle up to the larger points we want to make
+without scaring our intended audience away.
+We can't start with [Audre Lorde](https://en.wikipedia.org/wiki/Audre_Lorde)
+or [Ijemoa Oluo](https://en.wikipedia.org/wiki/Ijeoma_Oluo)
+or [Zeynep Tufekci](https://en.wikipedia.org/wiki/Zeynep_Tufekci):
+again,
+that would be like starting an introductory coding bootcamp with callbacks and recursion.
+I *think* we can learners to the point where
+they could tackle [Tressie McMillan Cottom](https://tressiemc.com/)'s
+[*Lower Ed*](https://thenewpress.com/books/lower-ed)
+or [James Scott](https://politicalscience.yale.edu/people/james-scott)'s
+[*Seeing Like a State*](https://yalebooks.yale.edu/book/9780300078152/seeing-state),
+but I'm not the right person to make that decision:
 as a straight middle-aged white guy who got into tech in the 1980s
-I still have a lot of blind spots.
-I'd want to recruit half a dozen who understand the industry and the people in it—who
+I have a lot of blind spots.
+
+I would therefore want to recruit half a dozen who understand the industry and the people in it—who
 have worked with our prototypical learner and know what he'll actually listen to—and
 have them decide what stories are most likely to be effective.
 I would want to pay them for their time,
