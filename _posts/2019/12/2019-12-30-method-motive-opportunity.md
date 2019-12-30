@@ -197,3 +197,9 @@ while democracy rots and the planet burns.
 Giving young programmers the tools they need to see that for what it is won't fix it—not by itself,
 and not right away—but what we're doing right now isn't working,
 and this might.
+
+> You can't spend your whole life criticizing something and then,
+> when you have the chance to do it better,
+> refuse to go near it.
+>
+> — Václav Havel
