@@ -1,6 +1,6 @@
 ---
 title: "Method, Motive, and Opportunity"
-date: 2019-12-30 03:08:00
+date: 2019-12-30 05:08:00
 ---
 
 > TL;DR: I propose [a two-day workshop](#proposal)
