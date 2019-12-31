@@ -63,14 +63,39 @@ while the Spearman rank correlation is moderately negative (about -0.26).
 
 <div align="center">
   <img src="{{site.github.url}}/files/2019/12/correlation.svg" width="500" alt="Correlation of correlations" />
+  <p>Correlation of correlations</p>
 </div>
 
 My question is,
 what does this difference between the two types of correlation tell me?
-If,
-for example,
-the mean of a distribution is much higher than the median,
+For example,
+if the mean of a distribution is much higher than the median
 then I know that the distribution has a few high-valued outliers
 (think income distribution in the US).
-What intuition should I have about a positive Pearson's correlation
+What general intuition should I have about a positive Pearson's correlation
 coupled with a negative Spearman's rank correlation and why?
+
+Addendum: if it helps,
+here are the scatter plots of commits vs. lines (log scale on both axes)
+for three repositories.
+The first is NumPy (a large code repository);
+the second is the Software Carpentry lesson on the Unix shell,
+and the third is the lesson on Git (which has the puzzling mis-match between correlations).
+I can share others,
+but honestly,
+nothing jumps out in any of them.
+
+<div align="center">
+  <img src="{{site.github.url}}/files/2019/12/commits-lines-numpy.svg" width="500" alt="NumPy commits vs. lines" />
+  <p>NumPy commits vs. lines</p>
+</div>
+
+<div align="center">
+  <img src="{{site.github.url}}/files/2019/12/commits-lines-shell-novice.svg" width="500" alt="Shell lesson commits vs. lines" />
+  <p>Shell lesson commits vs. lines</p>
+</div>
+
+<div align="center">
+  <img src="{{site.github.url}}/files/2019/12/commits-lines-git-novice.svg" width="500" alt="Git lesson commits vs. lines" />
+  <p>Git lesson commits vs. lines</p>
+</div>
