@@ -22,16 +22,16 @@ much more closely:
 
 | filename | commits | blame |
 | :------- | -----------: | ---------: |
-| data/commits-lines-git-novice.csv | 0.7866 | 0.9157 |
-| data/commits-lines-python-novice-gapminder.csv | 0.8249 | 0.9272 |
-| data/commits-lines-r-novice-gapminder.csv | 0.7898 | 0.9321 |
-| data/commits-lines-shell-novice.csv | 0.7955 | 0.9655 |
-| data/commits-lines-sql-novice-survey.csv | 0.8100 | 0.9157 |
-| data/commits-lines-numpy.csv | 0.9097 | 0.9624 |
-| data/commits-lines-pandas.csv | 0.8742 | 0.9443 |
-| data/commits-lines-scikit-image.csv | 0.8547 | 0.8673 |
-| data/commits-lines-scikit-learn.csv | 0.8836 | 0.9162 |
-| data/commits-lines-scipy.csv | 0.8821 | 0.9464 |
+| git-novice | 0.7866 | 0.9157 |
+| python-novice-gapminder | 0.8249 | 0.9272 |
+| r-novice-gapminder | 0.7898 | 0.9321 |
+| shell-novice | 0.7955 | 0.9655 |
+| sql-novice-survey | 0.8100 | 0.9157 |
+| numpy | 0.9097 | 0.9624 |
+| pandas | 0.8742 | 0.9443 |
+| scikit-image | 0.8547 | 0.8673 |
+| scikit-learn | 0.8836 | 0.9162 |
+| scipy | 0.8821 | 0.9464 |
 
 But now I have another problem.
 If I count the number of commits per author in each repo,
