@@ -98,9 +98,7 @@ I think we should start with something like this:
     But what's their motive?
     Why would the guy described in the previous bullet point
     show up of his own accord and actually listen?
-    My current answer comes from a discussion with Melissa Nightingale
-    at [Raw Signal Group](https://www.rawsignal.ca/):
-    we tell them that we're going to teach them
+    My current answer is that we tell them that we're going to teach them
     what they need to know about politics, economics, and justice to succeed in tech.
     Society isn't going to let Zuckerberg and Bezos play robber baron forever,
     or keep overlooking Lutke's support for white nationalist hatemongers.
