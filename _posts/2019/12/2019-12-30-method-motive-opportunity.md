@@ -98,11 +98,11 @@ I think we should start with something like this:
     But what's their motive?
     Why would the guy described in the previous bullet point
     show up of his own accord and actually listen?
-    My current answer is that we tell them that we're going to teach them
-    what they need to know about politics, economics, and justice to succeed in tech.
+    My current answer is that this is now something they need to know
+    in order to survive and thrive in tech.
     Society isn't going to let Zuckerberg and Bezos play robber baron forever,
     or keep overlooking Lutke's support for white nationalist hatemongers.
-    What do you need to know to get ahead of all of that?
+    What do you need to know to be ready as tech starts to take its social impact and obligations seriously?
     What do you need to know in order to understand
     where [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) comes from
     or how monopolies have been broken up and regulated in the past?
