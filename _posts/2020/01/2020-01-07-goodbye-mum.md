@@ -19,7 +19,18 @@ and how much she enjoyed reading biographies,
 and knowing that she loved me even when I thought no one else did.
 I remember how much she enjoyed fresh cut flowers,
 and her 70th birthday trip to San Francisco,
-and pictures of her grandchildren.
+and telling her friends what her children and grandchildren were up to.
+
+The happiest moment of her life was when the doctor told her that
+her youngest son was going to survive his cancer;
+the saddest came years later
+when she learned that her daughter wasn't going to survive hers,
+and again six years later when that same son called her to say that his was back.
+She taught hundreds of children to read,
+to clean up after themselves,
+and to hug their friends when they were sad,
+and she believed that the world would be a better place
+if everyone would do those three simple things.
 
 Goodbye, Mum.
 I know you were ready to leave,
