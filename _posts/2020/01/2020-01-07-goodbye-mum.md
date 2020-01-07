@@ -24,7 +24,7 @@ and how proud she was of her children and grandchildren.
 The happiest moment of her life was when the doctor told her that
 her youngest son was going to survive his cancer;
 the saddest came years later
-when she learned that her daughter wasn't going to survive hers.
+when she learned that she was going to outlive her daughter.
 She taught hundreds of children to read,
 to clean up after themselves,
 and to hug their friends when they were sad,
