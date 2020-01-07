@@ -1,6 +1,6 @@
 ---
 title: "Goodbye, Mum"
-date: 2020-01-07 03:30
+date: 2020-01-07 14:30
 favorite: true
 nocomments: true
 ---
@@ -18,18 +18,17 @@ while raising four kids,
 and how much she enjoyed reading biographies,
 and knowing that she loved me even when I thought no one else did.
 I remember how much she enjoyed fresh cut flowers,
-and her 70th birthday trip to San Francisco,
-and telling her friends what her children and grandchildren were up to.
+and going back to San Francisco for the first time in 65 years,
+and how proud she was of her children and grandchildren.
 
 The happiest moment of her life was when the doctor told her that
 her youngest son was going to survive his cancer;
 the saddest came years later
-when she learned that her daughter wasn't going to survive hers,
-and again six years later when that same son called her to say that his was back.
+when she learned that her daughter wasn't going to survive hers.
 She taught hundreds of children to read,
 to clean up after themselves,
 and to hug their friends when they were sad,
-and she believed that the world would be a better place
+and I think she believed that the world would be a better place
 if everyone would do those three simple things.
 
 Goodbye, Mum.
