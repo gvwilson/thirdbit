@@ -3,7 +3,7 @@ title: "The Doors Are Quiet Now"
 date: 2020-01-13 02:29
 ---
 
-The cupboard doors in my mum's kitchen always rattled when someone opened them.
+The cupboard doors in my mum's kitchen always rattled when I opened them.
 Her measuring spoons hung on hooks on the back of the left door and her measuring cups on the right,
 and they always jingled against one another no matter how quiet I tried to be.
 We gave them away yesterday to a young couple who are moving in together for the first time
