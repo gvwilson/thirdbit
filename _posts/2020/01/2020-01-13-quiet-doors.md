@@ -17,3 +17,9 @@ and how long it will be after that before they stop checking on it.
 It snowed overnight,
 and there's a lot of winter between them and spring.
 I hope they'll be OK.
+
+*Later: I left home in September of 1980.
+I didn't call every week,
+but I figure I probably talked to my mum four Sundays out of five—say,
+1600 times or more over forty years.
+I didn't call last night because there was no one there to answer any more.*
