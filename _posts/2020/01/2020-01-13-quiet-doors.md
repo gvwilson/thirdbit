@@ -22,4 +22,6 @@ I hope they'll be OK.
 I didn't call every week,
 but I figure I probably talked to my mum four Sundays out of five—say,
 1600 times or more over forty years.
-I didn't call last night because there was no one there to answer any more.*
+I didn't call last night because there was no one there to answer any more.
+I haven't taken the number off my phone, though;
+I don't think I know how to do that...*
