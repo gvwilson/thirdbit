@@ -49,7 +49,7 @@ and two more on programming
 won a Jolt Award in 2008),
 supervised graduate students and Google Summer of Code projects,
 set up a [cross-country undergraduate capstone project program](http://ucosp.ca/),
-helped create a [Master's degree in Applied Computing](http://web.cs.toronto.edu/Graduate/prospective_gradwhy/mscac.htm),
+helped create a [Master's degree in Applied Computing](https://mscac.utoronto.ca/),
 and was named ComputerWorld Canada's "IT Educator of the Year" for 2010.
 I also met the woman I'm now married to (which probably ought to have gone at the start of this paragraph),
 and in 2007 we became the proud and happy parents of

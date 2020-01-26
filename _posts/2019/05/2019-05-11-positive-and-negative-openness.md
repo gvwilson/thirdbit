@@ -16,7 +16,7 @@ I disagree,
 and my reason for doing so is based on Isaiah Berlin's distinction between two kinds of liberty.
 Negative liberty is the absence of obstacles:
 nobody's actively stopping you from doing something.
-Positive liberty, on the other hand, is real possibility of acting:
+Positive liberty, on the other hand, is the real possibility of acting:
 you have the means to accomplish your goal.
 
 This is why community matters so much.

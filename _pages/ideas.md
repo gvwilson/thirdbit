@@ -233,7 +233,7 @@ and never discuss how to prevent, diagnose, and fix errors.
 are high-level handwaving,
 user guides for particular debugging tools,
 or [out of date](http://www.amazon.com/Find-Bug-Book-Incorrect-Programs/dp/0321223918/);
-the *[one notable exception](http://www.amazon.com/Why-Programs-Fail-Second-Edition/dp/0123745152/)*
+the [one notable exception](http://www.amazon.com/Why-Programs-Fail-Second-Edition/dp/0123745152/)
 is an excellent read,
 but too advanced for most undergraduates.
 This book fills that gap by combining an exploration of how debugging tools actually work
