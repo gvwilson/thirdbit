@@ -267,6 +267,8 @@ it explains concepts clearly and provides examples for each.
 
 ## What I Would Organize If I Still Organized Things
 
+*Please see [this post from December 2019]({{site.github.url}}/2019/12/30/method-motive-opportunity.html) for ideas about a precursor to this workshop.*
+
 ### Background
 
 Many people in open communities have technical knowledge, enthusiasm, and good intentions,
