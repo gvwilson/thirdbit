@@ -159,7 +159,7 @@ My starting point would be:
 These topics are chosen because they allow us to sidle up to the larger points we want to make
 without scaring our intended audience away.
 We can't start with [Audre Lorde](https://en.wikipedia.org/wiki/Audre_Lorde)
-or [Ijemoa Oluo](https://en.wikipedia.org/wiki/Ijeoma_Oluo)
+or [Ijeoma Oluo](https://en.wikipedia.org/wiki/Ijeoma_Oluo)
 or [Zeynep Tufekci](https://en.wikipedia.org/wiki/Zeynep_Tufekci):
 again,
 that would be like starting an introductory coding bootcamp with callbacks and recursion.
