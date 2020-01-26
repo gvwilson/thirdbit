@@ -192,9 +192,8 @@ instead of *doing* something.
 I've been frightened and angry for the last three years
 watching tech moguls amass obscene fortunes by amplifying hate
 while democracy rots and the planet burns.
-Giving young programmers the tools they need to see that for what it is won't fix it—not by itself,
-and not right away—but what we're doing right now isn't working,
-and this might.
+Giving young programmers the tools they need to see that for what it is won't fix it right away,
+but what we're doing right now isn't going to fix it at all.
 
 > You can't spend your whole life criticizing something and then,
 > when you have the chance to do it better,
