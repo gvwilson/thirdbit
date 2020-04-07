@@ -104,5 +104,5 @@ if __name__ == '__main__':
     print('number', n)
 ```
 
-I haven't (yet) had learned do code reviews with checklists on GitHub,
+I haven't (yet) had learners do code reviews with checklists on GitHub,
 but it seems like a natural next step.
