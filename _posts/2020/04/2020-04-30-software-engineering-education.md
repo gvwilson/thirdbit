@@ -5,11 +5,16 @@ date: 2020-04-30
 
 I was surprised and honored to be given
 [ACM SIGSOFT's Influential Educator Award]({{site.github.url}}/2020/03/30/sigsoft-educator.html)
-for 2020.
-Now that I've had a chance to digest the news,
+for 2020,
+though I was a bit surprised by the "influential" part:
+while I like to think I've helped some scientists,
+nothing I've done in the last 20 years has changed software engineering curricula or teaching methods
+in any noticeable way.
+
+But now that I've had a chance to digest the news,
 I have a few thoughts about software engineering education that I'd like to share.
-None of them will be new to regular readers of this blog,
-but I hope they'll make more sense if they're all in one place.
+They won't be new to regular readers of this blog,
+but I still hope we'll see movement in this direction in undergraduate SE curricula some day.
 
 1.  **Stop asking students to follow a process when they can't.**
     Many software engineering courses put students into project teams
