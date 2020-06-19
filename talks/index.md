@@ -7,6 +7,21 @@ title: "Talks"
 I am always happy to talk:
 please see [this rider]({{site.github.url}}/speaking/) for details
 
+## [Teaching Online on Short Notice](https://docs.google.com/presentation/d/1bp8Po8XMGCBN0Kz_kyT6V4Td-m8CCM5vW69dmkXVchU/)
+
+A webinar given for RStudio in March 2020;
+[video available](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/).
+
+*Last updated March 2020.*
+
+## [How to Design an Effective Lesson]({{site.github.url}}/talks/lesson-design/) {#lesson-design}
+
+Having tried to cram a dozen books about teaching into a two-day course,
+I have now tried to cram key ideas from that course about designing
+effective lessons into this one-hour talk.
+
+*Last updated January 2019; [video available](https://vimeo.com/314074539).*
+
 ## [Software Carpentry: Lessons Learned]({{site.github.url}}/talks/lessons-learned/) {#carpentry-lessons}
 
 Since its start in 1998, Software Carpentry has evolved from a week-long
@@ -24,14 +39,6 @@ Keynote at [CarpentryCon 2018](http://www.carpentrycon.org/) in Dublin;
 [video available](https://www.youtube.com/watch?v=7xR50ty5DZ0).
 
 *Last updated May 2018.*
-
-## [How to Design an Effective Lesson]({{site.github.url}}/talks/lesson-design/) {#lesson-design}
-
-Having tried to cram a dozen books about teaching into a two-day course,
-I have now tried to cram key ideas from that course about designing
-effective lessons into this one-hour talk.
-
-*Last updated January 2019; [video available](https://vimeo.com/314074539).*
 
 ## [Software Engineering's Greatest Hits]({{site.github.url}}/talks/greatest-hits/) {#software-engineering-greatest-hits}
 
