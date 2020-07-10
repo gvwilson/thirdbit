@@ -1,4 +1,7 @@
-Thoughts from a Not-So-Influential Educator
+---
+title: "Thoughts from a Not-So-Influential Educator"
+date: 2020-07-09
+---
 
 I was honored to receive ACM SIGSOFT's
 [Influential Educator Award](http://www.sigsoft.org/awards/influentialEducatorAward.html)
@@ -18,13 +21,13 @@ they built.
 
 In frustration, I asked several dozen well-known programmers to describe the
 most beautiful pieces of software they'd ever seen. Their responses were
-published as *[Beautiful Code](http://shop.oreilly.com/product/9780596510046.do)*,
+published as [*Beautiful Code*](http://shop.oreilly.com/product/9780596510046.do),
 which won the 2008 Jolt Award for best general book. I found every chapter
 fascinating, but the sheer diversity of examples they chose meant it still
 wasn't what I needed for teaching.
 
 Amy Brown and I therefore organized a follow-on series called
-*[The Architecture of Open Source Applications](http://aosabook.org)*.
+[*The Architecture of Open Source Applications*](http://aosabook.org).
 In the first two volumes, the creators of fifty open source projects explained
 how those systems were structured and why. The third volume looked at
 performance issues, while the fourth presented small tutorial re-implementations
@@ -32,11 +35,11 @@ of spreadsheets, web servers, and other applications. Ironically, by the time I
 had what I'd wanted to teach I had left academia behind.
 
 In parallel with these efforts Andy Oram and I edited another book called
-*[Making Software](http://shop.oreilly.com/product/9780596808303.do)*,
+[*Making Software*](http://shop.oreilly.com/product/9780596808303.do),
 in which empirical software engineering researchers described their favorite
 discoveries and explained why we believe they're true. Jorge Aranda and I
 followed that up with a website called
-*[It Will Never Work In Theory](http://neverworkintheory.org/)*
+[*It Will Never Work In Theory*](http://neverworkintheory.org/)
 where we presented brief summaries of empirical research that we hoped
 practitioners would find interesting. The site was active for six years, but
 never reached critical mass: most researchers weren't interested in explaining
@@ -70,7 +73,7 @@ already know. Are some programming languages actually easier to read than
 others? (Yes.) Does test-driven development actually produce better code faster?
 (Probably not.) Other engineering disciplines teach students to tackle questions
 like these by collecting and analyzing data, and we should too. Conferences like
-*[Mining Software Repositories](http://www.msrconf.org/)* have made a lot of raw
+[*Mining Software Repositories*](http://www.msrconf.org/) have made a lot of raw
 material available and produced some fascinating results for students to
 replicate (or refute). Such a course would be culturally defensible---no one
 ever got fired for saying that computer science students should learn more
@@ -87,9 +90,9 @@ why we thought it would work, and why we now do something else, but that's an
 hour, not a semester. If we are going to teach modeling, we should teach
 something that is both rigorous and useful:
 Daniel Jackson's
-*[Software Abstractions](https://mitpress.mit.edu/books/software-abstractions-revised-edition)*
+[*Software Abstractions*](https://mitpress.mit.edu/books/software-abstractions-revised-edition)
 or Hillel Wayne's
-*[Practical TLA+](https://www.apress.com/gp/book/9781484238288)*
+[*Practical TLA+*](https://www.apress.com/gp/book/9781484238288)
 would be excellent choices.
 
 I would also shelve team project courses that require students to pretend to
@@ -109,3 +112,21 @@ help do so, please mail me at <gvwilson@third-bit.com>.
 
 My thanks once again to SIGSOFT for this award; I hope you and yours are safe
 and well.
+
+Published in [ACM SIGSOFT Software Engineering Notes, July 2020](https://dl.acm.org/doi/abs/10.1145/3402127.3402136).
+
+```
+@article{Wilson2020,
+  doi = {10.1145/3402127.3402136},
+  url = {https://doi.org/10.1145/3402127.3402136},
+  year = {2020},
+  month = {July},
+  publisher = {Association for Computing Machinery ({ACM})},
+  volume = {45},
+  number = {3},
+  pages = {21--22},
+  author = {Greg Wilson},
+  title = {Thoughts from a Not-So-Influential Educator},
+  journal = {% raw %}{{ACM}{% endraw %} {SIGSOFT} Software Engineering Notes}
+}
+```
