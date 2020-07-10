@@ -3,15 +3,16 @@ title: "Thoughts from a Not-So-Influential Educator"
 date: 2020-07-09
 ---
 
-I was honored to receive ACM SIGSOFT's
-[Influential Educator Award](http://www.sigsoft.org/awards/influentialEducatorAward.html)
-for 2020 this past April. I was also surprised: while I think I've helped
-scientists through Software Carpentry and other projects, nothing I've done in
-the last twenty years seems to have had much influence on software engineering.
+I was honored to receive ACM SIGSOFT's [Influential Educator
+Award](http://www.sigsoft.org/awards/influentialEducatorAward.html) for 2020
+this past April. I was also surprised: while I think I've helped scientists
+through [Software Carpentry](http://carpentries.org) and other projects, nothing
+I've done in the last twenty years seems to have had much influence on software
+engineering.
 
 It isn't for lack of trying. In the early 2000s I began teaching classes at the
 University of Toronto. One was titled "Software Architecture", and after three
-very frustrating offerings I told the department they should cancel it. The
+very unsatisfying offerings I told the department they should cancel it. The
 problem was that the half-dozen textbooks I read with "software architecture" in
 their titles spent hundreds of pages explaining how to elicit architectural
 requirements and how to document architectures, but devoted less than 20 pages
@@ -26,8 +27,8 @@ which won the 2008 Jolt Award for best general book. I found every chapter
 fascinating, but the sheer diversity of examples they chose meant it still
 wasn't what I needed for teaching.
 
-Amy Brown and I therefore organized a follow-on series called
-[*The Architecture of Open Source Applications*](http://aosabook.org).
+[Amy Brown](https://amyrhodabrown.com/) and I therefore organized a follow-on
+series called [*The Architecture of Open Source Applications*](http://aosabook.org).
 In the first two volumes, the creators of fifty open source projects explained
 how those systems were structured and why. The third volume looked at
 performance issues, while the fourth presented small tutorial re-implementations
@@ -37,8 +38,8 @@ had what I'd wanted to teach I had left academia behind.
 In parallel with these efforts Andy Oram and I edited another book called
 [*Making Software*](http://shop.oreilly.com/product/9780596808303.do),
 in which empirical software engineering researchers described their favorite
-discoveries and explained why we believe they're true. Jorge Aranda and I
-followed that up with a website called
+discoveries and explained why we believe they're true. [Jorge Aranda](https://cuevano.ca/about/)
+and I followed that up with a website called
 [*It Will Never Work In Theory*](http://neverworkintheory.org/)
 where we presented brief summaries of empirical research that we hoped
 practitioners would find interesting. The site was active for six years, but
@@ -81,8 +82,8 @@ math---and from a self-interested point of view, graduates of such a course
 would be better prepared for grad school.
 
 At the same time, there are several things we should stop doing, one of
-which is UML. Marian Petre's award-winning
-"[UML in Practice]( http://oro.open.ac.uk/35805/)"
+which is UML. [Marian Petre](https://en.wikipedia.org/wiki/Marian_Petre)'s
+award-winning "[UML in Practice]( http://oro.open.ac.uk/35805/)"
 analyzed why most developers don't use it; quoting one of her subjects, "UML is
 to the modeling we do every day as Latin is to the language we use every day."
 Mike Hoye likens it to trepanation: medical students should know why it exists,
