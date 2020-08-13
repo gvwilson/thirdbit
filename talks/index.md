@@ -7,6 +7,11 @@ title: "Talks"
 I am always happy to talk:
 please see [this rider]({{site.github.url}}/speaking/) for details
 
+## [How to Run a Meeting](https://docs.google.com/presentation/d/1HSdgVQjq0d3UYh-aA4uWHXxYYpySn_xXwfn_M4Ms8Ts/)
+
+A talk given for [CarpentryCon 2020](https://2020.carpentrycon.org/);
+[video available](https://www.youtube.com/watch?v=5f3-q9SzkeE).
+
 ## [Teaching Online on Short Notice](https://docs.google.com/presentation/d/1bp8Po8XMGCBN0Kz_kyT6V4Td-m8CCM5vW69dmkXVchU/)
 
 A webinar given for RStudio in March 2020;
