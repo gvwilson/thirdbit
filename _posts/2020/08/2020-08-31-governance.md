@@ -17,7 +17,7 @@ or who gets a say in deciding that?
 Large organizations like the [Python Software Foundation](https://www.python.org/psf/)
 [typically have bylaws](https://arxiv.org/abs/2005.10063)---as registered non-profits,
 they're legally required to---but
-[most smaller don't explain any of this](https://opensource.com/open-organization/18/4/new-governance-model-research).
+[most smaller organizations don't explain any of this](https://opensource.com/open-organization/18/4/new-governance-model-research).
 They may have a `CONTRIBUTING.md` file,
 but that usually describes how to set up a build environment and how to file bug reports,
 not how decisions are made or by whom.
@@ -59,5 +59,7 @@ a project with a single decision maker (typically the founder) could copy
 the [bucks stops here]({{site.github.url}}/files/2020/08/buck-stops-here.md) file into its repository,
 while a consensus-based team project could use [Martha's Rules]({{site.github.url}}/files/2020/08/marthas.md).
 I don't think we would need many more,
-but agreeing on names and wording and making rules findable
+but agreeing on names and wording,
+making rules findable,
+and providing [a simple guide](https://choosealicense.com/)
 would make life a little bit easier for a lot of people.
