@@ -24,7 +24,10 @@ not how decisions are made or by whom.
 
 Spelling this out helps people [make their first contributions](https://en.wikipedia.org/wiki/Legitimate_peripheral_participation),
 which [helps projects grow](https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1007296).
-More importantly,
+It's also better ergonomics:
+if you don't know who to ask or whose consent you need to make something happen,
+the something you want probably isn't going to.
+But most importantly,
 it's essential to making a project genuinely inclusive.
 Every organization has a power structure;
 the only question is [whether it's accountable or not](https://www.jofreeman.com/joreen/tyranny.htm).
@@ -35,10 +38,6 @@ and on how self-confident and assertive you are.
 If you didn't room with one of the core developers in college
 and aren't willing to barge into discussions,
 you can effectively be voiceless.
-To quote Mike,
-it's about ergonomics:
-if you don't know who to ask or whose consent you need to make something happen,
-the something you want probably isn't going to.
 
 I think every open project should have a file in its root directory called `GOVERNANCE.md`
 that explains:
