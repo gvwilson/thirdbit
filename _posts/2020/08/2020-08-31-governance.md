@@ -22,24 +22,25 @@ They may have a `CONTRIBUTING.md` file,
 but that usually describes how to set up a build environment and how to file bug reports,
 not how decisions are made or by whom.
 
-Spelling this out facilitates
-[legitimate peripheral participation](https://en.wikipedia.org/wiki/Legitimate_peripheral_participation),
+Spelling this out helps people [make their first contributions](https://en.wikipedia.org/wiki/Legitimate_peripheral_participation),
 which [helps projects grow](https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1007296).
 More importantly,
 it's essential to making a project genuinely inclusive.
-As Jo Freeman pointed out fifty years ago in her influential essay
-"[The Tyranny of Structurelessness](https://www.jofreeman.com/joreen/tyranny.htm)",
-every organization has a power structure:
-the only question is whether it's accountable or not.
+Every organization has a power structure;
+the only question is [whether it's accountable or not](https://www.jofreeman.com/joreen/tyranny.htm).
 If a group says it doesn't have rules,
-what it's really saying is that it's run by an old boys' network,
+what it's really saying is that it's an old boys' network,
 and that getting things done depends on your personal connections with unofficial influencers
 and on how self-confident and assertive you are.
 If you didn't room with one of the core developers in college
 and aren't willing to barge into discussions,
-you are often effectively voiceless.
+you can effectively be voiceless.
+To quote Mike,
+it's about ergonomics:
+if you don't know who to ask or whose consent you need to make something happen,
+the something you want probably isn't going to.
 
-I would therefore like every open project to have a file in its root directory called `GOVERNANCE.md`
+I think every open project should have a file in its root directory called `GOVERNANCE.md`
 that explains:
 
 1.  Who gets a say in which decisions
