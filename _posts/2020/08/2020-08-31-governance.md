@@ -25,8 +25,8 @@ not how decisions are made or by whom.
 Spelling this out helps people [make their first contributions](https://en.wikipedia.org/wiki/Legitimate_peripheral_participation),
 which [helps projects grow](https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1007296).
 It's also better ergonomics:
-if you don't know who to ask or whose consent you need to make something happen,
-the something you want probably isn't going to.
+if you don't know who to ask or whose consent you need,
+whatever you want probably won't happen.
 But most importantly,
 it's essential to making a project genuinely inclusive.
 Every organization has a power structure;
