@@ -12,6 +12,8 @@ Here are a few other things that would help programming communities:
 
 -   [this vs. that](https://thisthat.dev/): short explanations of the differences between things that are frequently confused.
 
+-   a [glossary](https://glosario.carpentries.org/): preferably subsetted from a shared one because why reinvent the world?
+
 -   [concept maps](https://github.com/rstudio/concept-maps/): or other remixable illustrations of key ideas.
 
 Please [let me know](mailto:gvwilson@third-bit.com) what else is on your list:
