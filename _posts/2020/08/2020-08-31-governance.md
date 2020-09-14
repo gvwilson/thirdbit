@@ -63,3 +63,6 @@ but agreeing on names and wording,
 making rules findable,
 and providing [a simple guide](https://choosealicense.com/)
 would make life a little bit easier for a lot of people.
+
+*Update: <http://lua-users.org/lists/lua-l/2008-06/msg00407.html> explains
+how the [Lua](https://www.lua.org/) project runs itself and why.*
