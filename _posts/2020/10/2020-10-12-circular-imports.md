@@ -10,10 +10,11 @@ Here's a short example in Python:
 <table>
   <tr>
     <th><code>a.py</code></th>
+    <th></th>
     <th><code>b.py</code></th>
   </tr> 
   <tr>
-    <td valign="top">
+    <td class="top">
 <pre>
 import b
 
@@ -25,7 +26,8 @@ def R():
     print("R")
 </pre>
     </td>
-    <td valign="top">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top">
 <pre>
 import a
 
@@ -52,10 +54,11 @@ And if we change `a.py` to call `P()` *as the file is being loaded*, it still wo
 <table>
   <tr>
     <th><code>a.py</code></th>
+    <th></th>
     <th><code>b.py</code></th>
   </tr> 
   <tr>
-    <td valign="top">
+    <td class="top">
 <pre>
 import b
 
@@ -69,7 +72,8 @@ def R():
 P() # ADDED
 </pre>
     </td>
-    <td valign="top">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top">
 <pre>
 import a
 
@@ -111,10 +115,11 @@ Suppose I have two JavaScript files `a.js` and `b.js`:
 <table>
   <tr>
     <th><code>a.js</code></th>
+    <th></th>
     <th><code>b.js</code></th>
   </tr>
   <tr>
-    <td valign="top">
+    <td class="top">
 <pre>
 const {Q} = require('./b')
 
@@ -130,7 +135,8 @@ const R = () => {
 module.exports = {P, R}
 </pre>
     </td>
-    <td valign="top">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="top">
 <pre>
 const {R} = require('./a')
 
