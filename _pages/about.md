@@ -17,43 +17,45 @@ and writing popular science articles for *The Independent* and [*New Scientist*]
 
 Over the next few years
 I wrote and edited my first few books
-while doing post-doctoral work at several universities,
+while doing post-doctoral work at several universities
 and working at IBM, a data visualization startup, and Los Alamos National Laboratory.
-I also became involved in open source development (particularly Python)
+I became involved in open source development, particularly Python,
 and started playing the saxophone and Ultimate frisbee (though not simultaneously).
-Between 2000 and 2004 I was part of a computer security startup
-that was eventually acquired by Hewlett-Packard,
-a contributing editor with *Doctor Dobb's Journal*,
-and an adjunct professor at the [University of Toronto](http://www.utoronto.ca).
+From 2000 to 2004 I was part of a computer security startup
+that was eventually acquired by Hewlett-Packard
+and a contributing editor with *Doctor Dobb's Journal*.
+I also published my first children's book and met the woman I'm married to,
+and in 2007 we became the happy parents of a wonderful little troublemaker.
 
 I was a professor in [Computer Science](http://web.cs.toronto.edu/)
-at the [University of Toronto](http://www.utoronto.ca) in from 2007-2010,
-during which time I wrote some more books
+at the [University of Toronto](http://www.utoronto.ca) from 2007 to 2010,
+during which time I helped create a [Master's degree in Applied Computing](https://mscac.utoronto.ca/)
+was named ComputerWorld Canada's "IT Educator of the Year",
+and wrote some more books
 (one of which, [*Beautiful Code*](http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/),
-won a Jolt Award in 2008),
-set up a [cross-country undergraduate capstone project program](http://ucosp.ca/),
-helped create a [Master's degree in Applied Computing](https://mscac.utoronto.ca/),
-and was named ComputerWorld Canada's "IT Educator of the Year" for 2010.
-I also met the woman I'm now married to (which probably ought to have gone at the start of this paragraph),
-and in 2007 we became the proud and happy parents of
-the most wonderful little redhead in the whole wide world.
+won a Jolt Award in 2008).
 
 I left academia in 2010
 and spent the next seven years building [Software Carpentry](https://carpentries.org) into
 a worldwide volunteer organization that helps thousands of researchers every year.
-I also edited [a book on evidence-based software engineering](http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/)
-and [*The Architecture of Open Source Applications*](http://aosabook.org),
-in which the creators of fifty open source projects of various sizes describe and critique their systems' designs.
-I stepped down from [Software Carpentry](https://software-carpentry.org) in January 2017.
-After a brief stint with [Rangle.io](http://rangle.io) I joined DataCamp,
+Somewhere in there I found time to edit
+[a book on evidence-based software engineering](http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/)
+and a multi-volume series called [*The Architecture of Open Source Applications*](http://aosabook.org).
+I stepped down from [Software Carpentry](https://software-carpentry.org) in January 2017,
+and after a brief stint with [Rangle.io](http://rangle.io) I joined DataCamp,
 who I'm proud to say [fired me in 2018](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup).
 
 I am now in the Education group at [RStudio](http://rstudio.com),
-where my main responsibility is the [instructor training and certification program](http://education.rstudio.com/trainers).
+where I run the [instructor training and certification program](http://education.rstudio.com/trainers).
 In my free time I work on books like [*Teaching Tech Together*](http://teachtogether.tech)
 and [*JavaScript for Data Science*](http://js4ds.org)
 and help build [TidyBlocks](http://tidyblocks.tech) and [Glosario](https://glosario.carpentries.org/).
-If you'd like to chat, please [drop me a line](mailto:gvwilson@third-bit.com).
+
+*I had to disable comments on this site
+after some of my posts about [Shopify]({{site.github.url}}/2018/05/06/cigarettes-and-shopify.html)
+and [DataCamp]({{site.github.url}}/2019/04/15/an-exchange-with-datacamp.html),
+so if you'd like to chat,
+please [drop me a line](mailto:gvwilson@third-bit.com).*
 
 - [CV]({{site.github.url}}/cv/gvwilson.pdf)
 - [Bibliography]({{site.github.url}}/cv/bib.html)

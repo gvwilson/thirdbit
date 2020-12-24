@@ -9,6 +9,17 @@ author_profile: true
 "Jeff, I could teach you everything I know and you'd still be an idiot."
 Please keep that in mind as you read this site.</p>
 
+<h2>Current Projects</h2>
+
+<p class="paper-details">
+{% for p in site.projects %}
+<strong><a href="{{p.url}}">{{p.title}}</a></strong>: {{p.details}}
+{% unless forloop.last %}<br/>{% endunless %}
+{% endfor %}
+</p>
+
+<h2>Recent Writing</h2>
+
 <div align="center">
 <p>
   {% for b in site.books %}
@@ -16,3 +27,10 @@ Please keep that in mind as you read this site.</p>
   {% endfor %}
 </p>
 </div>
+
+<p class="paper-details">
+{% for p in site.papers %}
+{{p.authors}}: "<a href="{{p.url}}">{{p.title}}</a>"
+{% unless forloop.last %}<br/>{% endunless %}
+{% endfor %}
+</p>
