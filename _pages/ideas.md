@@ -1,6 +1,6 @@
 ---
 permalink: /ideas/
-title: "Ideas"
+title: "To Don't"
 layout: single
 redirect_from:
 - "/2019/03/15/leadership-training-for-open-science.html"

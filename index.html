@@ -5,32 +5,15 @@ author_profile: true
 
 <h2>Disclaimer</h2>
 
-<p>Years ago I lost my temper while arguing with my brother and said,
-"Jeff, I could teach you everything I know and you'd still be an idiot."
-Please keep that in mind as you read this site.</p>
-
-<h2>Current Projects</h2>
-
-<p class="paper-details">
-{% for p in site.projects %}
-<strong><a href="{{p.url}}">{{p.title}}</a></strong>: {{p.details}}
-{% unless forloop.last %}<br/>{% endunless %}
-{% endfor %}
-</p>
-
-<h2>Recent Writing</h2>
-
-<div align="center">
 <p>
-  {% for b in site.books %}
-  <a href="{{b.url}}"><img src="{{b.cover | prepend: '/files/' | relative_url}}" alt="{{b.title}}" class="book-cover" /></a>
-  {% endfor %}
+  Years ago I lost my temper while arguing with my brother and said,
+  "Jeff, I could teach you everything I know and you'd still be an idiot."
+  Please keep that in mind as you read this site.
 </p>
-</div>
 
-<p class="paper-details">
-{% for p in site.papers %}
-{{p.authors}}: "<a href="{{p.url}}">{{p.title}}</a>"
-{% unless forloop.last %}<br/>{% endunless %}
-{% endfor %}
+<p>
+  <em>
+    See <a href="{{site.github.url}}/current/">this page</a> for current
+    projects and recent publications.
+  </em>
 </p>

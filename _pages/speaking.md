@@ -49,7 +49,7 @@ I now require hosts to agree to a few things in advance.
 - No branding of my content (e.g., addition of someone else's logo) without my express prior approval.
 - I reserve the right to charge extra if my content is branded.
 - I reserve the right to charge for my labor if I am required to reformat my content in any way.
-  Any such requirement, and my rate, must be agreed before a contract is signed,
+  Any such requirement, and my rate, must be agreed before a contract is signed.
 
 ## Costs
 
@@ -69,7 +69,6 @@ I now require hosts to agree to a few things in advance.
 - You must provide the option to purchase both travel and accommodation on behalf of the speaker.
   While I may choose to pay and then claim,
   the reimbursement model excludes people who cannot front the cost for what is sometimes months.
-  (Looking at you, University of Illinois...)
 - Similarly, you must leave your credit card on file for the hotel.
 
 ### Speaker honorarium
