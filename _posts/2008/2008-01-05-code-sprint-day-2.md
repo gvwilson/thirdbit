@@ -1,0 +1,10 @@
+---
+title: "Code Sprint Day 2"
+date: 2008-01-05 15:30:17
+year: 2008
+---
+10:00 am start; thirteen of us busying away.  We're opening as many bugs as we're closing (thanks to the testing team), but it still feels like progress.  Lebanese food for lunch; coffee all 'round, and our first engagement announcement (congrats, <a href="http://blog.codekills.net">David</a>!).  I'm reminded (again) just how much programming is a social activity: like knitting or sports, it's often just an excuse for people to hang out together.
+
+Later: we broke around 5:15; good progress on DrProject, OLM, and UTest.  Best part for me is watching Luke and Yi Qing learn the find art of making developers cry from Adam; second best is watching DW gnaw on the cord for his headphones.  You can tell how things are going by how hard he bites down...
+
+Later still: speaking of gnawing, my other take-away from yesterday is how far behind my skills have fallen. On my right, Blake was launching DrProject with Eclipse's <a href="http://pydev.sourceforge.net/">PyDev</a> plugin to test his changes to the wiki parser; on my left, DW was using using <a href="http://www.openqa.org/selenium/">Selenium</a> to get <a href="http://www.sqlalchemy.org/">two</a> <a href="http://elixir.ematia.de/trac/wiki">layers</a> of object/relational mapping to behave, while out in the main room, Jeff was playing games with <a href="http://dojotoolkit.org/">Dojo</a> and <a href="http://www.getfirebug.com/">FireBug</a>. I know what they're all for, and tell my students they're good things, but I don't really <em>know</em> them.  It's been three and a half years since I was doing product development; AJAX, Rails-like web frameworks, Python Eggs and easy_install...a whole new set of dev tools have become "normal".  I either find a way to catch up, or reconcile myself to watching the waves from the shore instead of surfing.

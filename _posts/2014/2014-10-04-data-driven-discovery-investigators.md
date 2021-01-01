@@ -1,0 +1,16 @@
+---
+title: "Congratulations to the Moore Investigators"
+date: 2014-10-04 16:00:00
+year: 2014
+original: swc
+---
+<p>
+  The Gordon and Betty Moore Foundation has just
+  <a href="http://www.moore.org/programs/science/data-driven-discovery/investigators">announced</a>
+  $21 million in grants to fourteen investigators in the emerging field of data-driven discovery.
+  Among the recipients are <a href="{{site.baseurl}}/team/#brown.ct">Titus Brown</a>
+  and <a href="{{site.baseurl}}/team/#white.e">Ethan White</a>,
+  who have both been key contributors to Software Carpentry.
+  Congratulations to them and to the other award winners&mdash;we look forward to working with them
+  in the years to come.
+</p>

@@ -1,0 +1,6 @@
+<p>
+  {% for paper in site.papers %}
+  {{ paper.author }} ({{ paper.year }}): <a href="{{ paper.url }}">{{ paper.title }}</a>
+  {% unless forloop.last %}<br/>{% endunless %}
+  {% endfor %}
+</p>

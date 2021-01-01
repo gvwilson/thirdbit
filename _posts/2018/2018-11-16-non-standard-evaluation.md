@@ -1,0 +1,449 @@
+---
+date: 2018-11-16 08:00
+year: 2018
+title: "Non-Standard Evaluation in R"
+---
+
+<p>This post is my attempt to explain how <strong>non-standard evaluation</strong> works in R. I'm writing from the standpoint of a C and Python programmer who was once conversant in Scheme, and who has spent a lot of the last fifteen years teaching people how to program. I'm going to cut a few corners, but if you want a reliable mental model that explains how to write functions that play nicely with <a href="https://www.tidyverse.org/">the tidyverse</a>, I don't think any of what's included below can be skipped.</p>
+
+<p><em>My thanks to Jenny Bryan, Garrett Grolemund, Kara Woo, and especially Lionel Henry for answering my questions. Any errors that have survived their feedback are mine and mine alone.</em></p>
+<div id="python-first" class="section level2">
+<h2>Python First</h2>
+<p>Let's start by looking at a small Python program and its output:</p>
+<pre class="python"><code>def ones_func(ones_arg):
+    return ones_arg + &quot; ones&quot;
+def tens_func(tens_arg):
+    return ones_func(tens_arg + &quot; tens&quot;)
+initial = &quot;start&quot;
+final = tens_func(initial + &quot; more&quot;)
+print(final)
+#&gt; start more tens ones</code></pre>
+<p>When we call <code>tens_func</code> we pass it <code>initial + &quot; more&quot;</code>; since <code>initial</code> has just been assigned <code>&quot;start&quot;</code>, that's the same as calling <code>tens_func</code> with <code>&quot;start more&quot;</code>. <code>tens_func</code> then calls <code>ones_func</code> with <code>&quot;start more tens&quot;</code>, and <code>ones_func</code> returns <code>&quot;start more tens ones&quot;</code>. But there's a lot more going on here than first meets the eye. Let's spell out the steps:</p>
+<pre class="python"><code>def ones_func(ones_arg):
+    ones_temp_1 = ones_arg + &quot; ones&quot;
+    return ones_temp_1
+def tens_func(tens_arg):
+    tens_temp_1 = tens_arg + &quot; tens&quot;
+    tens_temp_2 = ones_func(tens_temp_1)
+    return tens_temp_2
+initial = &quot;start&quot;
+global_temp_1 = initial + &quot; more&quot;
+final = tens_func(global_temp_1)
+print(final)</code></pre>
+<p>Step 1: we assign <code>&quot;start&quot;</code> to <code>initial</code> at the global level:</p>
+<pre><code>           +--------
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 2: we ask Python to call <code>tens_func(initial + &quot;more&quot;)</code>, so it creates a temporary variable to hold the result of the concatenation <em>before</em> calling <code>tens_func</code>:</p>
+<pre><code>           +--------
+           | global_temp_1 ----&gt; value:&quot;start more&quot;
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 3: Python creates a new stack frame to hold the call to <code>tens_func</code>:</p>
+<pre><code>           +--------
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; value:&quot;start more&quot;
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Note that <code>tens_arg</code> points to the same thing in memory as <code>global_temp_1</code>, since Python passes everything by reference.</p>
+<p>Step 4: we ask Python to call <code>ones_func(tens_arg + &quot; tens&quot;)</code>, so it creates another temporary:</p>
+<pre><code>           +--------
+           | tens_temp_1   ----&gt; value:&quot;start more tens&quot;
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; value:&quot;start more&quot;
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 5: Python creates a new stack frame to hold the call to <code>ones_func</code>:</p>
+<pre><code>           +--------
+ ones_func | ones_arg      --+
+           +--------         |
+           | tens_temp_1   --+-&gt; value:&quot;start more tens&quot;
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; value:&quot;start more&quot;
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 6: Python creates a temporary to hold <code>ones_arg + 3</code>:</p>
+<pre><code>           +--------
+           | ones_temp_1   ----&gt; value:&quot;start more tens ones&quot;
+ ones_func | ones_arg      --+
+           +--------         |
+           | tens_temp_1   --+-&gt; value:&quot;start more tens&quot;
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; value:&quot;start more&quot;
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 7: Python returns from <code>ones_func</code> and puts its result in yet another temporary variable in <code>tens_func</code>:</p>
+<pre><code>           +--------
+           | tens_temp_2   ----&gt; value:&quot;start more tens ones&quot;
+           | tens_temp_1   ----&gt; value:&quot;start more tens&quot;
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; value:&quot;start more&quot;
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 8: Python returns from <code>tens_func</code> and puts its result in <code>final</code>:</p>
+<pre><code>           +--------
+           | final         ----&gt; value:&quot;start more tens ones&quot;
+           | global_temp_1 ----&gt; value:&quot;start more&quot;
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>The most important thing here is not that I'm using a million lines of code on a supercomputer to draw ASCII art, but rather the fact that Python evaluates expressions <em>before</em> it calls functions, and passes the results of those evaluations to the functions. This is called <strong>eager evaluation</strong>, and is what most modern programming languages do.</p>
+</div>
+<div id="once-more-in-r" class="section level2">
+<h2>Once More in R</h2>
+<p>R, on the other hand, uses <strong>lazy evaluation</strong>. Here's an R program that's roughly equivalent to the Python shown above:</p>
+<pre class="r"><code>ones_func &lt;- function(ones_arg) {
+  paste(ones_arg, &quot;ones&quot;)
+}
+
+tens_func &lt;- function(tens_arg) {
+  ones_func(paste(tens_arg, &quot;tens&quot;))
+}
+
+initial &lt;- &quot;start&quot;
+final &lt;- tens_func(paste(initial, &quot;more&quot;))
+print(final)
+#&gt; [1] &quot;start more tens ones&quot;</code></pre>
+<p>And here it is with the intermediate steps spelled out in a syntax I just made up:</p>
+<pre class="r"><code>ones_func &lt;- function(ones_arg) {
+  ones_arg.RESOLVE(@tens_func@, paste(tens_arg, &quot;tens&quot;), &quot;start more tens&quot;)
+  ones_temp_1 &lt;- paste(ones_arg, &quot;ones&quot;)
+  return(ones_temp_1)
+}
+
+tens_func &lt;- function(tens_arg) {
+  tens_arg.RESOLVE(@global@, paste(initial, &quot;more&quot;), &quot;start more&quot;)
+  tens_temp_1 &lt;- PROMISE(@tens_func@, paste(tens_arg, &quot;tens&quot;), ____)
+  tens_temp_2 &lt;- ones_func(paste(tens_temp_1))
+  return(tens_temp_2)
+}
+
+initial &lt;- &quot;start&quot;
+global_temp_1 &lt;- PROMISE(@global@, paste(initial, &quot;more&quot;), ____)
+final &lt;- tens_func(global_temp_1)
+print(final)</code></pre>
+<p>While the original code looked much like our Python, the evaluation trace is very different, and hinges on the fact that <em>an expression in a programming language can be represented as a data structure</em>.</p>
+<blockquote>
+<p><strong>What's an Expression?</strong></p>
+<p>An expression is anything that has a value. The simplest expressions are literal values like the number 1, the string <code>&quot;stuff&quot;</code>, and the Boolean <code>TRUE</code>. A variable like <code>least</code> is also an expression: its value is whatever the variable currently refers to.</p>
+<p>Complex expressions are built out of simpler expressions: <code>1 + 2</code> is an expression that uses <code>+</code> to combine 1 and 2, while the expression <code>c(10, 20, 30)</code> uses the function <code>c</code> to create a vector out of the values 10, 20, 30. Expressions are often drawn as trees like this:</p>
+<pre><code>    +
+   / \
+  1   2</code></pre>
+<p>When Python (or R, or any other language) reads a program, it parses the text and builds trees like the one shown above to represent what the program is supposed to do. Processing that data structure to find its value is called <strong>evaluating</strong> the expression.</p>
+<p>Most modern languages allow us to build trees ourselves, either by concatenating strings to create program text and then asking the language to parse the result:</p>
+<pre><code>left &lt;- '1'
+right &lt;- '2'
+op &lt;- '+'
+combined &lt;- paste(left, op, right)
+tree &lt;- parse(text = combined)</code></pre>
+<p>or by calling functions. The function-based approach is safer and more flexible, so once we introduce the way R handles regular function calls, we'll dive into that.</p>
+</blockquote>
+<p>Step 1: we assign "start" to <code>initial</code> in the global environment:</p>
+<pre><code>           +--------
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 2: we ask R to call <code>tens_func(initial + &quot;more&quot;)</code>, so it creates a <strong>promise</strong> to hold:</p>
+<ul>
+<li>the environment we're in (which I'm surrounding with <code>@</code>),</li>
+<li>the expression we're passing to the function, and</li>
+<li>the value of that expression (which I'm showing as <code>____</code>, since it's initially empty).</li>
+</ul>
+<pre><code>           +--------
+           | global_temp_1 ----&gt; PROMISE(@global@, paste(initial, &quot;more&quot;), ____)
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>and passes that into <code>tens_func</code>:</p>
+<pre><code>           +--------
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; PROMISE(@global@, paste(initial, &quot;more&quot;), ____)
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Crucially, the promise in <code>tens_func</code> remembers that it was created in the global environment: it's eventually going to need a value for <code>initial</code>, so it needs to know where to look to find the right one.</p>
+<p>Step 3: since the very next thing we ask for is <code>paste(tens_arg, &quot;tens&quot;)</code>, R needs a value for <code>tens_arg</code>. To get it, R evaluates the promise that <code>tens_arg</code> refers to:</p>
+<pre><code>           +--------
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; PROMISE(@global@, paste(initial, &quot;more&quot;), &quot;start more&quot;)
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>This evaluation happens <em>after</em> <code>tens_func</code> has been called, not before as in Python, which is why this scheme is called "lazy" evaluation. Once a promise has been resolved, R uses its value, and that value never changes.</p>
+<p>Steps 4: <code>tens_func</code> wants to call <code>ones_func</code>, so R creates another promise to record what's being passed into <code>ones_func</code>:</p>
+<pre><code>           +--------
+           | tens_temp_1   ----&gt; PROMISE(@tens_func@, paste(tens_arg, &quot;tens&quot;), ____)
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; PROMISE(@global@, paste(initial, &quot;more&quot;), &quot;start more&quot;)
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 5: R calls <code>ones_func</code>, binding the newly-created promise to <code>ones_arg</code> as it does so:</p>
+<pre><code>           +--------
+ ones_func | ones_arg      --+
+           +--------         |
+           | tens_temp_1   --+-&gt; PROMISE(@tens_func@, paste(tens_arg, &quot;tens&quot;), ____)
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; PROMISE(@global@, paste(initial, &quot;more&quot;), &quot;start more&quot;)
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 6: R needs a value for <code>ones_arg</code> to pass to <code>paste</code>, so it resolves the promise:</p>
+<pre><code>           +--------
+ ones_func | ones_arg      --+
+           +--------         |
+           | tens_temp_1   --+-&gt; PROMISE(@tens_func@, paste(tens_arg, &quot;tens&quot;), &quot;start more tens&quot;)
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; PROMISE(@global@, paste(initial, &quot;more&quot;), &quot;start more&quot;)
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 7: <code>ones_func</code> uses <code>paste</code> to concatenate strings:</p>
+<pre><code>           +--------
+           | ones_temp_1   ----&gt; value:&quot;start more tens ones&quot;
+ ones_func | ones_arg      --+
+           +--------         |
+           | tens_temp_1   --+-&gt; PROMISE(@tens_func@, paste(tens_arg, &quot;tens&quot;), &quot;start more tens&quot;)
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; PROMISE(@global@, paste(initial, &quot;more&quot;), &quot;start more&quot;)
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 8: <code>ones_func</code> returns:</p>
+<pre><code>           +--------
+           | tens_temp_2   ----&gt; &quot;start more tens ones&quot;
+           | tens_temp_1   --+-&gt; PROMISE(@tens_func@, paste(tens_arg, &quot;tens&quot;), &quot;start more tens&quot;)
+ tens_func | tens_arg      --+
+           +--------         |
+           | global_temp_1 --+-&gt; PROMISE(@global@, paste(initial, &quot;more&quot;), &quot;start more&quot;)
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>Step 9: <code>tens_func</code> returns:</p>
+<pre><code>           +--------
+           | final         ----&gt; &quot;start more tens ones&quot;
+           | global_temp_1 --+-&gt; PROMISE(@global@, paste(initial, &quot;more&quot;), &quot;start more&quot;)
+    global | initial       ----&gt; value:&quot;start&quot;
+           +--------</code></pre>
+<p>We got the same answer, but in a significantly different way. Each time we passed something into a function, R created a promise to record what it was and where it came from, and then resolved the promise when the value was needed. R <em>always</em> does this: if we call:</p>
+<pre class="r"><code>sign(2)</code></pre>
+<p>then behind the scenes, R is creating a promise and passing it to <code>sign</code>, where it is automatically resolved to get the number 2 when its value is needed. (If I wanted to be thorough, I would have shown the promises passed into <code>paste</code> at each stage of execution above, but that's a lot of typing even for me.)</p>
+</div>
+<div id="let-me-show-you-a-magic-trick" class="section level2">
+<h2>Let Me Show You a Magic Trick</h2>
+<p>R's lazy evaluation seems pointless if it always produces the same answer as Python's eager evaluation, but as you may already have guessed, it doesn't have to. To see how powerful lazy evaluation can be, let's create an expression of our own:</p>
+<pre class="r"><code>my_expr &lt;- expr(a)</code></pre>
+<p>Displaying the value of <code>my_expr</code> isn't very exciting:</p>
+<pre class="r"><code>my_expr
+#&gt; a</code></pre>
+<p>but what kind of thing is it?</p>
+<pre class="r"><code>typeof(my_expr)
+#&gt; [1] &quot;symbol&quot;</code></pre>
+<p>A symbol is a kind of expression. It is not a string (though strings can be converted to symbols and symbols to strings) nor is it a value---not yet. If we try to get the value it refers to, R displays an error message:</p>
+<pre class="r"><code>eval(my_expr)
+#&gt; Error in eval(my_expr): object 'a' not found</code></pre>
+<p>We haven't created a variable called <code>my_expr</code>, so R cannot evaluate an expression that asks for it.</p>
+<p>But what if we create such a variable now and then re-evaluate the expression?</p>
+<pre class="r"><code>a &lt;- &quot;this is a&quot;
+eval(my_expr)
+#&gt; [1] &quot;this is a&quot;</code></pre>
+<p>More usefully, what if we create something that has a value for <code>a</code>:</p>
+<pre class="r"><code>my_data &lt;- tribble(
+  ~a, ~b,
+  1,  10,
+  2,  20
+)
+my_data
+#&gt; # A tibble: 2 x 2
+#&gt;       a     b
+#&gt;   &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     1    10
+#&gt; 2     2    20</code></pre>
+<p>and then ask R to evaluate our expression in the <strong>context</strong> of that tibble:</p>
+<pre class="r"><code>eval(my_expr, my_data)
+#&gt; [1] 1 2</code></pre>
+<p>When we do this, <code>eval</code> looks for definitions of variables in the data structure we've given it---in this case, in the tibble <code>my_data</code>. Since that tibble has a column called <code>a</code>, <code>eval(my_expr, my_data)</code> gives us that column.</p>
+<p>This may not seem life-changing yet, but being able to pass expressions around and evaluate them in various contexts allows us to seem very clever indeed. For example, let's create another expression:</p>
+<pre class="r"><code>add_a_b &lt;- expr(a + b)
+typeof(add_a_b)
+#&gt; [1] &quot;language&quot;</code></pre>
+<p>The type of <code>add_a_b</code> is <code>language</code> rather than <code>symbol</code> because it contains more than just a symbol, but it's still an expression, so we can evaluate it in the context of our data frame:</p>
+<pre class="r"><code>eval(add_a_b, my_data)
+#&gt; [1] 11 22</code></pre>
+<p>Still not convinced? Have a look at this function:</p>
+<pre class="r"><code>run_many_checks &lt;- function(data, ...) {
+  conditions &lt;- list(...)
+  checks &lt;- vector(&quot;list&quot;, length(conditions))
+  for (i in seq_along(conditions)) {
+    checks[[i]] &lt;- eval(conditions[[i]], data)
+  }
+  checks
+}</code></pre>
+<p>It takes a tibble and some logical expressions, evaluates each expression in turn, and returns a vector of results:</p>
+<pre class="r"><code>run_many_checks(my_data, expr(0 &lt; a), expr(a &lt; b))
+#&gt; [[1]]
+#&gt; [1] TRUE TRUE
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] TRUE TRUE</code></pre>
+<p>We can take it one step further and simply report whether the checks passed or not:</p>
+<pre class="r"><code>run_all_checks &lt;- function(data, ...) {
+  conditions &lt;- list(...)
+  checks &lt;- vector(&quot;logical&quot;, length(conditions))
+  for (i in seq_along(conditions)) {
+    checks[[i]] &lt;- all(eval(conditions[[i]], data))
+  }
+  all(checks)
+}
+
+run_all_checks(my_data, expr(0 &lt; a), expr(a &lt; b))
+#&gt; [1] TRUE</code></pre>
+<p>Just to make sure it's actually working, we'll try something that ought to fail:</p>
+<pre class="r"><code>run_all_checks(my_data, expr(b &lt; 0))
+#&gt; [1] FALSE</code></pre>
+<p>This is cool, but typing <code>expr(...)</code> over and over is kind of clumsy. It also seems superfluous, since we know that arguments aren't evaluated before they're passed into functions. Can we get rid of this and write something that does this?</p>
+<pre class="r"><code>check_all(my_data, 0 &lt; a, a &lt; b)</code></pre>
+<p>The answer is going to be "yes", but it's going to take a bit of work.</p>
+<blockquote>
+<p><strong>Square Brackets... Why'd It Have to Be Square Brackets?</strong></p>
+<p>Before we go there, a word (or code snippet) of warning. The first version of <code>run_many_checks</code> essentially did this:</p>
+<pre class="r"><code>conditions &lt;- list(expr(a + b))
+eval(conditions[1], my_data)
+#&gt; [[1]]
+#&gt; a + b</code></pre>
+<p>What I did wrong was use <code>[</code> instead of <code>[[</code>, which meant that <code>conditions[1]</code> was not an expression---it wa a list containing a single expression:</p>
+<pre class="r"><code>conditions[1]
+#&gt; [[1]]
+#&gt; a + b</code></pre>
+<p>It turns out that evaluating a list containing an expression produces a list of expressions rather than an error, which is so helpful that it only took me an hour to figure out my mistake.</p>
+</blockquote>
+</div>
+<div id="tidy-evaluation" class="section level2">
+<h2>Tidy Evaluation</h2>
+<p>Our goal is to write something that looks like it belongs in the tidyverse. We'll start by creating a tibble to play with:</p>
+<pre class="r"><code>both_hands &lt;- tribble(
+  ~left, ~right,
+  1,     10,
+  2,     20
+)
+both_hands
+#&gt; # A tibble: 2 x 2
+#&gt;    left right
+#&gt;   &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     1    10
+#&gt; 2     2    20</code></pre>
+<p>We want to be able to write this:</p>
+<pre class="r"><code>check_all(both_hands, 0 &lt; left, left &lt; right)</code></pre>
+<p>without calling <code>expr</code> to quote our expressions explicitly. For simplicity's sake, our first attempt only handles a single expression:</p>
+<pre class="r"><code>check_naive &lt;- function(data, test) {
+  eval(test, data)
+}</code></pre>
+<p>When we try it, it fails:</p>
+<pre class="r"><code>check_naive(both_hands, left != right)
+#&gt; Error in eval(test, data): object 'left' not found</code></pre>
+<p>This makes sense: by the time we get to the <code>eval</code> call, <code>test</code> refers to a promise that represents the value of <code>left != right</code> in the global environment. Promises are not expressions---each promise contains an expression, but it also contains an environment and a copy of the expression's value (if it has ever been calculated). As a result, when R sees the call to <code>eval</code> inside <code>check_naive</code> it automatically tries to resolve the promise that contains <code>left != right</code>, and fails because there are no variables with those names in the global environment.</p>
+<p>So how can we get the expression out of the promise without triggering evaluation? One way is to use a function called <code>substitute</code>:</p>
+<pre class="r"><code>check_using_substitute &lt;- function(data, test) {
+  subst_test &lt;- substitute(test)
+  eval(subst_test, data)
+}
+check_using_substitute(both_hands, left != right)
+#&gt; [1] TRUE TRUE</code></pre>
+<p>However, <code>substitute</code> is frowned upon because it does one thing when called interactively on the command line and something else when called inside a function. Instead, we should use a function called <code>enquo</code> which returns an object called a <strong>quosure</strong> that contains only an unevaluated expression and an environment. Let's try using that:</p>
+<pre class="r"><code>check_using_enquo &lt;- function(data, test) {
+  q_test &lt;- enquo(test)
+  eval(q_test, data)
+}
+check_using_enquo(both_hands, left != right)
+#&gt; &lt;quosure&gt;
+#&gt; expr: ^left != right
+#&gt; env:  global</code></pre>
+<p>Ah: a quosure is a structured object, so evaluating it just gives it back to us in the same way that evaluating <code>2</code> or <code>&quot;hello&quot;</code> would. What we want to <code>eval</code> is the expression inside the quosure, which we can get using <code>quo_get_expr</code>:</p>
+<pre class="r"><code>check_using_quo_get_expr &lt;- function(data, test) {
+  q_test &lt;- enquo(test)
+  eval(quo_get_expr(q_test), data)
+}
+check_using_quo_get_expr(list(left = 1, right = 2), left != right)
+#&gt; [1] TRUE</code></pre>
+<p>All right: we're ready to write <code>check_all</code>. As a reminder, our test data looks like this:</p>
+<pre class="r"><code>both_hands
+#&gt; # A tibble: 2 x 2
+#&gt;    left right
+#&gt;   &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     1    10
+#&gt; 2     2    20</code></pre>
+<p>Our first attempt (which only handles a single test) is a deliberate failure:</p>
+<pre class="r"><code>check_without_quoting_test &lt;- function(data, test) {
+  data %&gt;% transmute(result = test) %&gt;% pull(result) %&gt;% all()
+}
+check_without_quoting_test(both_hands, left &lt; right)
+#&gt; Warning: The `printer` argument is soft-deprecated as of rlang 0.3.0.
+#&gt; This warning is displayed once per session.
+#&gt; Error in mutate_impl(.data, dots): object 'left' not found</code></pre>
+<p>Good: we expected that to fail because we're not enquoting the test. (If this <em>had</em> worked, it would have told us that we still don't understand what we're doing.) Let's modify it to enquote and then pass in the expression:</p>
+<pre class="r"><code>check_without_quoting_test &lt;- function(data, test) {
+  q_test &lt;- enquo(test)
+  x_test &lt;- quo_get_expr(q_test)
+  data %&gt;% transmute(result = x_test) %&gt;% pull(result) %&gt;% all()
+}
+check_without_quoting_test(both_hands, left &lt; right)
+#&gt; Error in mutate_impl(.data, dots): Column `result` is of unsupported type quoted call</code></pre>
+<p>Damn---we thought this one had a chance. The problem is that when we say <code>result = x_test</code>, what actually gets passed into <code>transmute</code> is a promise containing an expression. Somehow, we need to prevent R from doing that promise wrapping.</p>
+<p>This brings us to <code>enquo</code>'s partner <code>!!</code>, which we can use to splice the expression in a quosure into a function call. <code>!!</code> is pronounced "bang bang" or "oh hell", depending on how your day is going. It only works in contexts like function calls where R is automatically quoting things for us, but if we use it then, it does exactly what we want:</p>
+<pre class="r"><code>check_using_bangbang &lt;- function(data, test) {
+  q_test &lt;- enquo(test)
+  data %&gt;% transmute(result = !!q_test) %&gt;% pull(result) %&gt;% all()
+}
+check_using_bangbang(both_hands, left &lt; right)
+#&gt; Warning: `lang()` is soft-deprecated as of rlang 0.2.0.
+#&gt; Please use `call2()` instead
+#&gt; This warning is displayed once per session.
+#&gt; Warning: `new_overscope()` is soft-deprecated as of rlang 0.2.0.
+#&gt; Please use `new_data_mask()` instead
+#&gt; This warning is displayed once per session.
+#&gt; [1] TRUE</code></pre>
+<p>We are almost in a state of grace. The two rules we must follow are:</p>
+<ol style="list-style-type: decimal">
+<li>Use <code>enquo</code> to enquote every argument that contains an unevaluated expression.</li>
+<li>Use <code>!!</code> when passing each of those arguments into a tidyverse function.</li>
+</ol>
+<pre class="r"><code>check_all &lt;- function(data, ...) {
+  tests &lt;- enquos(...)
+  result &lt;- TRUE
+  for (t in tests) {
+    result &lt;- result &amp;&amp; (data %&gt;% transmute(result = !!t) %&gt;% pull(result) %&gt;% all())
+  }
+  result
+}
+
+check_all(both_hands, 0 &lt; left, left &lt; right)
+#&gt; [1] TRUE</code></pre>
+<p>And just to make sure that it fails when it's supposed to:</p>
+<pre class="r"><code>check_all(both_hands, left &gt; right)
+#&gt; [1] FALSE</code></pre>
+<p>Backing up a bit, <code>!!</code> works because <a href="https://tidyeval.tidyverse.org/getting-up-to-speed.html#whats-special-about-quoting-functions">there are two broad categories of functions in R</a>: <strong>evaluating functions</strong> and <strong>quoting functions</strong>. Evaluating functions take arguments as values---they're what most of us are used to working with. Quoting functions, on the other hand, aren't passed the values of expressions, but the expressions themselves. When we write <code>both_hands$left</code>, the <code>$</code> function is being passed <code>both_hands</code> and the quoted expression <code>left</code>. This is why we can't use variables as field names with <code>$</code>:</p>
+<pre class="r"><code>the_string_left &lt;- &quot;left&quot;
+both_hands$the_string_left
+#&gt; Warning: Unknown or uninitialised column: 'the_string_left'.
+#&gt; NULL</code></pre>
+<p>The square bracket operators <code>[</code> and <code>[[</code>, on the other hand, are evaluating functions, so we can give them a variable containing a column name and get either a single-column tibble:</p>
+<pre class="r"><code>both_hands[the_string_left]     # single square brackets
+#&gt; # A tibble: 2 x 1
+#&gt;    left
+#&gt;   &lt;dbl&gt;
+#&gt; 1     1
+#&gt; 2     2</code></pre>
+<p>or a naked vector:</p>
+<pre class="r"><code>both_hands[[the_string_left]]   # double square brackets
+#&gt; [1] 1 2</code></pre>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>I think delayed evaluation and quoting seem confusing for two reasons:</p>
+<ol style="list-style-type: decimal">
+<li>It exposes machinery that most programmers have never had to deal with before (and might not even have known existed). It's rather like learning to drive an automatic transmission and then switching to a manual one---all of a sudden you have to worry about a gear shift and a clutch.</li>
+<li>R's built-in tools don't behave as consistently as they could, and the functions provided by the tidverse as alternatives use variations on a small number of names: <code>quo</code>, <code>quote</code>, and <code>enquo</code> might all appear on the same page. That said, we aren't quite at the point of writing, "The probability density function describing the density of dense matter in interstellar space is everywhere dense."</li>
+</ol>
+<p>Thank you for reading---if you spot any technical errors, can suggest improvements, or have questions, please get in touch.</p>

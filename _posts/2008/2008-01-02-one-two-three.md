@@ -1,0 +1,42 @@
+---
+title: "One, Two, Three"
+date: 2008-01-02 10:47:17
+year: 2008
+---
+My favorite books these days are Boynton's <a href="http://www.amazon.com/Your-Personal-Penguin-Boynton-Board/dp/0761143726"><cite>Your Personal Penguin</cite></a> and Pratchett's <a href="http://www.amazon.com/Wheres-My-Cow-Terry-Pratchett/dp/0060872675"><cite>Where's My Cow?</cite></a>, but since this is a magazine for programmers, not parents, I'll turn my attention to six others: one very good, two useful, and three that missed the mark.
+
+The first is Smith and Marchesini's <cite>The Craft of System Security</cite>, which is the best undergraduate textbook on computer security I've read to date.  The authors know their field well---Smith does academic research into trustworthy systems, while Marchesini has worked at several software security companies---and their experience is evident on almost every page.
+
+The book is broken down into five sections: history, the modern landscape (which summarizes flaws in operating systems and networks, and explain where and why they arise), building blocks (including cryptography and authentication), applications (the web, desktop tools, e-cash) and emerging tools, such as formal proofs of correctness, hardware-based security, AI techniques for detecting intrusion, and human factors.  The history section was particularly welcome: unlike most books aimed at developers, this one takes the time to explain and critique the US Department of Defense "Orange Book", Bell and LaPadula's groundbreaking work on formal analysis of security, and Saltzer and Schroeder's design principles.
+
+The topics in the middle three sections are more conventional, but still well done.  Throughout, the authors hit exactly the right tone and level for their intended audience, use clear, pertinent examples, and provide extensive references to the primary literature.  The final section, on emerging tools, is necessarily less nitty-gritty than its predecessors, since much of what they describe is still taking shape. Even there, though, they show how practical theory can be.
+
+My one criticism of the book is that it doesn't devote as much space as I would have liked to "soft" issues, such as the economics of information security, usability, or developers' professional responsibilities.  That's a minor quibble, though; at over 500 pages, the book is already going to be a challenge to get through in a single semester course.  I believe the rewards for doing so are considerable, and I hope many instructors and students choose to take it on.
+
+Next up is Holmes' <cite>Windows PowerShell Cookbook</cite>. Regular readers will know that I think PowerShell (formerly known as "Monad") is one of the most important developments in practical programming in the last ten years.  If you still need convincing, the recipes in this book show why.  Yes, the syntax could have been better (there are better models to borrow from than Perl), but look at what you can do when your pipes and filters can pass objects around, instead of having to squeeze everything into lines of plain old ASCII. The core cmdlets show up several times, and hundreds of simple pipes and longer scripts are shown and explained.
+
+Shortcomings?  First, I would have liked more for developers, rather than users---if you want to extend PowerShell with new cmdlets, you're going to need more than what's here.  Second, it all runs only on recent versions of Windows.  As a result, examples involving Active Directory and registry manipulation probably won't make much sense to readers from the other side of the "two solitudes" that are Unix and Windows.  Finally, and most importantly, I don't know why this is a printed book, rather than a dynamic web site.  As much as I love flipping pages, I don't think reference material belongs on paper any more: it's hard to search, it's never at hand when you need it, and the under-30s who do most of the world's programming just aren't that into dead trees.
+
+I had the same reaction to Burns et al's <cite>Security Power Tools</cite>.  It contains a wealth of useful information on how to use a wide variety of tools for reconnaissance, penetration, defense, monitoring, and hardening, but some of it is already out of date (damn those new releases), and its 850 pages of often dense text would be more useful to me online and hyperlinked.
+
+That said, it's more than useful in its present form.  The authors build firewalls, VPNs, and intrusion detection products for a living, and their in-depth experience with Linux, Windows, and Mac OS shows through in their examples.  Most importantly, they almost never lose sight of the fact that the point of these tools is to find and fix problems.  Sys admins and testers will particularly like this book, as it gives them a toolbox full of ways to find out what's broken before the bad guys do.  It's not for cover-to-cover reading, but for sixty dollars plus shipping and handling, it's a pretty good investment.
+
+That brings us to the last three books in this month's column. Shore and Warden's <cite>Art of Agile Development</cite> was the best: well written and well organized, it covers everything in the agile canon without ever being preachy.  However, it doesn't say anything new: pair programming, test-driven development, continuous integration, and all the other practices it describes are now standard fare in undergraduate software engineering courses, and I doubt that anyone in industry who actually cares about their craft hasn't heard about them before.
+
+The same cannot be said of Pelesko's <cite>Self Assembly</cite>. As the subtitle says, this book is about the science of things that put themselves together---in particular, about how we might be able to get nanomachines to build themselves in the same way as many biological molecules and other self-organizing systems.  Most of it is very new (at least to me), and all of it's fascinating.
+
+However, playing this game requires more math than most programmers have today.  If integrals frighten you, or if you're not sure what an amphiphile is, a lot of what's in here will wash right over you.  If you're under 30, this ought to worry you---it's easy to imagine a future in which knowing aspect-oriented functional concurrent languages is the equivalent of being really good at COBOL, while all the really cool stuff is being done by physicists on nano-quantum thingies.  Until then, though, this one is probably something most readers of this column will only want to dip into.
+
+Finally, there is Inmon and Nesavich's <cite>Tapping Into Unstructured Data</cite>, which I read in manuscript.  To be frank, I'm not sure who this book is for: it doesn't have enough depth or detail to be useful to programmers, and its "explanation" of the kinds of data to be found in spreadsheets and email messages won't come as news to anyone in management, either.  The authors have impressive credentials, and this is an important topic; it's a shame the book doesn't live up to either.
+
+<hr />Bryan Burns, Jennifer Stisa Granick, Steve Manzuik, Paul Guersch, Dave Killion, Nicolas Beauchesne, Eric Moret, Julien Sobrier, Michael Lynn, Eric Markham, Chris Iezzoni, Philippe Biondi: <cite>Security Power Tools</cite>.  O'Reilly Media, 2007, <a href="http://www.amazon.com/Security-Power-Tools-Bryan-Burns/dp/0596009631">978-0596009632</a>.
+
+Lee Holmes: <cite>Windows PowerShell Cookbook</cite>.  O'Reilly Media, 2007, <a href="http://www.amazon.com/Windows-PowerShell-Cookbook-Exchange-2007/dp/0596528493">978-0596528492</a>.
+
+William H. Inmon and Anthony Nesavich: <cite>Tapping Into Unstructured Data</cite>.  Prentice Hall, 2007, <a href="http://www.amazon.com/Tapping-into-Unstructured-Data-Intelligence/dp/0132360292">978-0132360296</a>.
+
+John A. Pelesko: <cite>Self Assembly: The Science of Things That Put Themselves Together</cite>.  Chapman & Hall/CRC, 2007, <a href="http://www.amazon.com/Self-Assembly-Science-Themselves-Together/dp/1584886870">978-1584886877</a>.
+
+James Shore and Shane Warden: <cite>The Art of Agile Development</cite>.  O'Reilly Media, 2007, <a href="http://www.amazon.com/Art-Agile-Development-James-Shore/dp/0596527675">978-0596527679</a>.
+
+Sean Smith and John Marchesini: <cite>The Craft of System Security</cite>.  Addison-Wesley, 2007, <a href="http://www.amazon.com/Craft-System-Security-Sean-Smith/dp/0321434838">978-0321434838</a>.

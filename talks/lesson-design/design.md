@@ -1,6 +1,5 @@
 ---
-layout: default
-permalink: /lesson-design/design.html
+layout: page
 title: "The Design of Lesson Design"
 ---
 
@@ -163,7 +162,6 @@ practices, including
 **Prerequisites**
 
 None.
-This course is a prerequisite for *How to Make a DataCamp Course*.
 
 [bad-live]: https://www.youtube.com/watch?v=-ApVt04rB4U
 [bad-screencast]: https://www.dropbox.com/s/bf3hof8lgmqr1ou/Greg%20Wilson%20-%20bad-teaching.m4v

@@ -1,0 +1,20 @@
+---
+title: "Managing, Reviewing, and RESTing"
+date: 2007-09-02 11:00:15
+year: 2007
+---
+It's Sunday morning.  My daughter (the cutest baby <em>ever</em>) is still asleep, my coffee is just the right temperature, and I have the pleasure of being able to review three very good books.  If some passing Samaritan would mow my lawn for me, life would be pretty much perfect.
+
+First up is Johanna Rothman's <cite>Manage It!</cite>.  I liked her 2004 book on hiring techical people, and enjoyed 2005's <cite>Behind Closed Doors</cite> as well, so I was already a fan.  Her new book is her best yet: personal without being chatty, and informative without being dry, it covers everything a technical manager needs to know about running a development project.  Life cycles, planning and estimation, building teams, integrating testing into the project, how to finish---each topic has a chapter illustrated by war stories from her clients and colleagues.  I particularly liked the chapters on managing meetings and project dashboards: the students in the software engineering class I'm due to start teaching in nine days will probably get healthy doses of both.
+
+The book's only real weakness, in my opinion, is that it doesn't back up its descriptions with examples often enough.  In the chapter on meetings, for example, I woud have liked to have seen what well-written meeting minutes look like, or the agenda from an actual meeting (with some comments about how the meeting actually went). Similarly, the discussion of product risk would have been stronger if it included a listing of the risks faced by an actual product part-way through its development.  These are minor complaints, though; I think <cite>Manage It!</cite> is a solid, useful, book, and I'm glad to have read it.
+
+I'm equally glad that I read Richardson and Ruby's book, though it is very different from Rothman's.  "REST", which stands for "Representational State Transfer", is an architecture for web applications that leverages HTTP methods and URLs, rather than replacing them.  <cite>RESTful Web Services</cite> is, for want of a better term, technically-grounded propaganda: its authors believe they know how (most) web services should be built, and this book is their attempt to persuade others that they're right.  Luckily for readers, their persuasion takes the form of lucid exposition, balanced argument, and lots of examples.  It's exactly the kind of book that still needs to <em>be</em> a book: as useful as blogged essays like those in Joe Gregorio's "Restful Web" column are, 400 pages allows Richardson and Ruby to develop their themes at length.
+
+Finally, there is <cite>Best Kept Secrets of Peer Code Review</cite>.  I'm instinctively sceptical of any book whose title includes the word "secrets" (or "Zen"---how come we never see books like "The Presbyterianism of Device Drivers" or "The Reformed Judaism of Web Design"?), and of anything published in-house by software companies with something to sell.  This book, though, is a very welcome exception.  Slim and well-written, it examines why "classic" peer code review has never taken off (hint: too much effort for too little reward), then presents results from a large, long-running study at Cisco Systems that shows what actually works (hint: one reviewer, a few hundred lines, and tool support).  Yes, the author is trying to persuade you to do things his way, and that it'd be worth buying his company's peer review tool, but I actually came away believing him.  I don't know if I'll be able to persuade my students to start critiquing their teammates' code, but having read this book, I'm certainly going to try.
+
+<hr />Jason Cohen: <cite>Best Kept Secrets of Peer Code Review. SmartBear Software, 2007.  Available from <a href="http://smartbearsoftware.com/codecollab-code-review-book.php">http://smartbearsoftware.com/codecollab-code-review-book.php</a>.</cite>
+
+Leonard Richardson and Sam Ruby: <cite>RESTful Web Services</cite> O'Reilly Media, 2007, 0596529260.
+
+Johanna Rothman: <cite>Manage It! Your Guide to Modern, Pragmatic Project Management</cite>.  Pragmatic Bookshelf, 2007, 0978739248.

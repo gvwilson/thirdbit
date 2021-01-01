@@ -1,0 +1,55 @@
+---
+layout: default
+title: Blog
+---
+
+{% include archive.html %}
+
+<div class="posts">
+  {% for post in paginator.posts %}
+  <article class="post">
+    <h1 class="post-title">
+      <a href="{{ post.url | relative_url }}">
+        {{ post.title }}
+      </a>
+    </h1>
+
+    <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date: "%Y-%m-%d" }}</time>
+
+    {% if post.truncated_preview == true or site.blog.truncated_preview and post.truncated_preview != false %}
+      {{ post.excerpt }}
+      <a href="{{ post.url | relative_url }}">Read more</a>
+    {% else %}
+      {{ post.content }}
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}">
+      &lArr;
+      <span class="pagination-text">older posts</span>
+    </a>
+  {% else %}
+    <span class="pagination-item">
+      &lArr;
+      <span class="pagination-text">older posts</span>
+    </span>
+  {% endif %}
+
+  <!-- <a class="pagination-item" href="#">archive</a> -->
+
+  {% if paginator.previous_page %}
+    <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}">
+      <span class="pagination-text">newer posts</span> 
+      &rArr;
+    </a>
+  {% else %}
+    <span class="pagination-item">
+      <span class="pagination-text">newer posts</span> 
+      &rArr;
+    </span>
+  {% endif %}
+</div>

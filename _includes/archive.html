@@ -1,0 +1,11 @@
+<div align="center">
+<p>
+{% for decade in site.years %}
+  {% for year in decade %}
+    <a href="{{ '/archive/' | append: year | append: '/' | relative_url }}">{{ year }}</a>
+    {% unless forloop.last %} &middot; {% endunless %}
+  {% endfor %}
+  {% unless forloop.last %}<br/>{% endunless %}
+{% endfor %}
+</p>
+</div>

@@ -1,0 +1,17 @@
+---
+title: "Achintya Rao's PhD Starter Kit"
+date: 2015-05-02 08:00:00
+year: 2015
+original: swc
+---
+<p>
+  Achintya Rao started a PhD last January,
+  and in response to a request for advice from a friend,
+  wrote a <a href="https://raoofphysics.github.io/phd-starter-kit/">PhD Starter Kit</a>
+  that lists useful tools and practices.
+  Most of them involve software of one kind or another,
+  and it's interesting to compare the list to what we teach:
+  if nothing else,
+  it tells me that we really do need to figure out what to teach people
+  about publishing science in the 21st Century.
+</p>

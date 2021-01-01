@@ -1,0 +1,6 @@
+---
+title: "Name This Book!"
+date: 2008-07-25 08:58:19
+year: 2008
+---
+<a href="http://www.cs.toronto.edu/~campbell">Jennifer</a>, <a href="http://www.cs.toronto.edu/~pgries">Paul</a>, <a href="http://www.digitaldorkroom.com/">Jason</a>, and I have been working on a introductory Computer Science textbook using Python.  We're in the last lap, but still haven't chosen a name, so I'd like to ask for suggestions.  <cite><a href="http://www.amazon.com/Python-Programming-Introduction-Computer-Science/dp/1887902996">Python Programming: An Introduction to Computer Science</a></cite> is taken, as are <cite><a href="http://www.amazon.com/Computer-Science-Python-Programming-Language/dp/076374316X">Computer Science: The Python Programming Language</a></cite>, <cite><a href="http://www.amazon.com/Problem-Solving-Algorithms-Structures-Python/dp/1590280539">Problem Solving With Algorithms And Data Structures Using Python</a></cite>, and <cite><a href="http://www.amazon.com/Python-Rookies-Sarah-Mount/dp/1844807010">Python for Rookies</a></cite>; any other ideas?  If it helps, the distinctive features of our book include drawing examples from the sciences, and introducing GUI construction and databases as well as algorithm design and object-oriented programming.  Winner gets a free copy!

@@ -1,0 +1,7 @@
+---
+title: A New Testing Framework for MATLAB
+date: 2013-03-12 09:00:00
+year: 2013
+original: swc
+---
+<p>Steve Eddins just announced <a href="http://blogs.mathworks.com/steve/2013/03/12/matlab-software-testing-tools-old-and-new-r2013a/">a new unit testing framework for MATLAB</a>.  Based in part on lessons learned from his earlier mUnit framework, it has everything you'd want from a modern framework: setup and teardown, analysis, and a bag full of helpful assertions.  If you're using MATLAB, you should definitely check it out.</p>

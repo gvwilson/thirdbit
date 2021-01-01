@@ -1,0 +1,7 @@
+---
+title: "More Musings on the Value of a PhD"
+date: 2010-12-29 14:07:36
+year: 2010
+---
+Yet <a href="http://computinged.wordpress.com/2010/12/29/whats-college-good-for-anyway/">another good post from Mark Guzdial</a> pointed me at an article in <em>The Economist</em> about <a href="http://www.economist.com/node/17723223?story_id=17723223">the value (or otherwise) of a PhD</a>. Key stat (bold emphasis mine):
+<blockquote>A study in the <em>Journal of Higher Education Policy and Management</em>...shows that British men with a bachelor's degree earn 14%  more than those who could have gone to university but chose not to. The  earnings premium for a PhD is 26%. But the premium for a master's  degree...is almost as  high, at 23%. In some subjects the premium for a PhD vanishes entirely. <span style="text-decoration: underline;"> <strong>PhDs in</strong></span> maths and <span style="text-decoration: underline;"><strong>computing</strong></span>, social sciences and languages <span style="text-decoration: underline;"><strong>earn no more  than those with master's degrees</strong></span>. The premium for a PhD is actually  smaller than for a master's degree in engineering and technology,  architecture and education. Only in medicine, other sciences, and  business and financial studies is it high enough to be worthwhile. Over  all subjects, a PhD commands only a 3% premium over a master's degree.</blockquote>

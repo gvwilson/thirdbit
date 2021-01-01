@@ -1,0 +1,6 @@
+---
+title: "Jason Cohen Thinks Aloud"
+date: 2009-02-12 05:48:46
+year: 2009
+---
+Jason Cohen's company <a href="http://www.smartbear.com">Smart Bear</a> makes a very nice code review tool; more importantly (to me, anyway), he's the author of a very nice (and free) <a href="http://smartbear.com/codecollab-code-review-book.php">book</a> about code review that includes a description of <a href="http://smartbear.com/docs/book/code-review-cisco-case-study.pdf">a large study done at Cisco</a> on what works and what doesn't. He's been blogging recently about the <a href="http://blog.asmartbear.com/blog/discount-gambit.html">joy</a> <a href="http://blog.asmartbear.com/blog/starting-up-while-employed-admit-it.html">of</a> <a href="http://blog.asmartbear.com/blog/differentiate-yourself-through-honesty.html">honesty</a> <a href="http://blog.asmartbear.com/blog/convert-shortcomings-into-advantages-without-lying.html">in</a> business (I'll link to part 5 as soon as it goes up).  Good reading; grad students should ask themselves how it applies to academic work.

@@ -1,346 +1,70 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
+title: The Third Bit
+subtitle: Start where you are, use what you have, help who you can.
+url: https://third-bit.com
+repository: gvwilson/thirdbit
 
-# Theme Settings
-#
-# Review documentation to determine if you should use `theme` or `remote_theme`
-# https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
-
-# theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "default", "dirt", "neon", "mint", "plum", "sunrise"
-
-# Site Settings
-locale                   : "en-US"
-title                    : "The Third Bit"
-title_separator          : "-"
-subtitle                 : "Start where you are, use what you have, help who you can."
-name                     : "Greg Wilson"
-description              : "Thoughts on programming, writing, teaching, and more."
-url                      : http://third-bit.com
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : https://github.com/gvwilson/thirdbit
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-# breadcrumbs            : false # true, false (default)
-words_per_minute         : 200
-comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
-staticman:
-  allowedFields          : # ['name', 'email', 'url', 'message']
-  branch                 : # "master"
-  commitMessage          : # "New comment by {fields.name}"
-  filename               : # comment-{@timestamp}
-  format                 : # "yml"
-  moderation             : # true
-  path                   : # "/_data/comments/{options.slug}" (default)
-  requiredFields         : # ['name', 'email', 'message']
-  transforms:
-    email                : # "md5"
-  generatedFields:
-    date:
-      type               : # "date"
-      options:
-        format           : # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
-  endpoint               : # URL of your own deployment with trailing slash, will fallback to the public instance
-reCaptcha:
-  siteKey                :
-  secret                 :
-atom_feed:
-  path                   : # blank (default) uses feed.xml
-search                   : # true, false (default)
-search_full_content      : # true, false (default)
-search_provider          : # lunr (default), algolia, google
-algolia:
-  application_id         : # YOUR_APPLICATION_ID
-  index_name             : # YOUR_INDEX_NAME
-  search_only_api_key    : # YOUR_SEARCH_ONLY_API_KEY
-  powered_by             : # true (default), false
-google:
-  search_engine_id       : # YOUR_SEARCH_ENGINE_ID
-  instant_search         : # false (default), true
-# SEO Related
-google_site_verification :
-bing_site_verification   :
-yandex_site_verification :
-naver_site_verification  :
-
-# Social Sharing
-# twitter:
-#   username               : gvwilson
-# og_image                 : # Open Graph/Twitter default site image
-# For specifying social profiles
-# - https://developers.google.com/structured-data/customize/social-profiles
-social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
-
-# Analytics
-analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
-  google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
-
-
-# Site Author
-author:
-  name             : "Greg Wilson"
-  avatar           : "/files/gvwilson-tpl-2017-outline.png"
-  bio              : "Educator, writer, and programmer"
-  location         : "Toronto, Ontario, Canada"
-  email            :
-  links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:gvwilson@third-bit.com"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/gvwilson"
-    - label: "LinkedIn"
-      icon: "fab fa-linkedin-in"
-      url: "https://www.linkedin.com/in/greg-wilson-a26510b6/"
-    - label: "Teaching Tech Together"
-      icon: "fas fa-chalkboard-teacher"
-      url: "http://teachtogether.tech"
-    - label: "JavaScript for Data Science"
-      icon: "fab fa-js-square"
-      url: "https://software-tools-in-javascript.github.io/js4ds/"
-    - label: "Research Software Engineering<br/>with Python"
-      icon: "fas fa-microscope"
-      url: "https://merely-useful.github.io/py-rse/"
-    - label: "TidyBlocks"
-      icon: "fas fa-cubes"
-      url: "http://tidyblocks.tech"
-    - label: "Glosario"
-      icon: "fa fa-globe"
-      url: "https://glosario.carpentries.org/"
-    - label: "Software Tools in JavaScript"
-      icon: "fas fa-screwdriver"
-      url: "https://stjs.tech"
-    - label: "Architecture of Open Source<br/>Applications"
-      icon: "fas fa-mosque"
-      url: "http://aosabook.org"
-    - label: "Sensible Adventures"
-      icon: "fas fa-book-reader"
-      url: "http://sensibleadventures.com"
-    - label: "The Carpentries"
-      icon: "fas fa-wrench"
-      url: "http://carpentries.org"
-
-# Projects
-projects:
-  - url: "https://education.rstudio.com/trainers"
-    title: "RStudio Instructor Certification"
-    details: "Teaching data scientists evidence-based teaching practices."
-  - url: "http://tidyblocks.tech"
-    title: "TidyBlocks"
-    details: "A blocks-based platform for teaching basic data science."
-  - url: "https://stjs.tech"
-    title: "Software Tools in JavaScript"
-    details: "An introduction to software design using Node.js."
-  - url: "https://merely-useful.github.io/py-rse/"
-    title: "Research Software Engineering with Python"
-    details: "Building the software that makes research possible."
-  - url: "https://glosario.carpentries.org/"
-    title: "Glosario"
-    details: "A multilingual glossary package of data science terms."
-
-# Books
-books:
-  - cover: "books/t3-cover.jpg"
-    title: "Teaching Tech Together"
-    url: "http://teachtogether.tech"
-    authors: "Wilson"
-    year: "2019"
-  - cover: "books/js4ds-cover.jpg"
-    title: "JavaScript for Data Science"
-    url: "http://js4ds.org"
-    authors: "Gans, Hodges, and Wilson"
-    year: "2020"
-
-# Papers
-papers:
-  - authors: "Smalls & Wilson"
-    url: "https://github.com/gvwilson/10-safety/"
-    title: "Ten simple rules for staying safe online"
-    details: "PLoS Comp Bio, in press"
-  - authors: "Denny et al"
-    url: "https://third-bit.com/files/2019/08/research-this.pdf"
-    title: "Research This! Questions that Computing Educators Most Want Computing Education Researchers to Answer"
-    details: "ICER 2019"
-  - authors: "Sholler et al"
-    url: "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007296"
-    title: "Ten simple rules for helping newcomers become contributors to open projects"
-    details: "PLoS Comp Bio, 2019"
-  - authors: "Wilson"
-    url: "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006915"
-    title: "Ten quick tips for creating an effective lesson"
-    details: "PLoS Comp Bio, 2019"
-  - authors: "Brown & Wilson"
-    url: "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006023"
-    title: "Ten quick tips for teaching programming"
-    details: "PLoS Comp Bio, 2018"
-
-# Site Footer
-footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
-
-
-# Reading Files
-include:
-  - .htaccess
-  - _pages
-exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - vendor
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - assets/js/plugins
-  - assets/js/_main.js
-  - assets/js/vendor
-  - Capfile
-  - CHANGELOG
-  - config
-  - Gemfile
-  - Gruntfile.js
-  - gulpfile.js
-  - LICENSE
-  - log
-  - node_modules
-  - package.json
-  - Rakefile
-  - README
-  - tmp
-keep_files:
-  - .git
-  - .svn
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-
-# Conversion
 markdown: kramdown
 highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
 
+exclude:
+  - '*.sublime-*'
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor/bundle
 
-# Markdown Processing
-kramdown:
-  input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
+permalink: pretty
+paginate: 5
+paginate_path: /blog/:num
 
+blog:
+  truncated_preview: false
 
-# Sass/SCSS
 sass:
   sass_dir: _sass
-  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  style: :compressed
 
+author:
+  name: Greg Wilson
+  url: third-bit.com
+  email: gvwilson@third-bit.com
+  github: https://github.com/gvwilson
+  twitter: https://twitter.com/gvwilson
+  linkedin: https://www.linkedin.com/in/greg-wilson-a26510b6/
 
-# Outputting
-permalink: /:year/:month/:day/:title.html
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+papers:
+  - author: "Lin et al"
+    title: "Ten quick tips for making things findable"
+    url: "https://doi.org/10.1371/journal.pcbi.1008469"
+    year: 2020
+  - author: "Nederbragt et al"
+    title: "Ten quick tips for teaching with participatory live coding"
+    url: "https://doi.org/10.1371/journal.pcbi.1008090"
+    year: 2020
+  - author: "Denny et al"
+    title: "Research this! Questions that computing educators most want computing education researchers to answer"
+    url: "https://dl.acm.org/doi/abs/10.1145/3291279.3339402"
+    year: 2019
+  - author: "Sholler et al"
+    title: "Ten simple rules for helping newcomers become contributors to open projects"
+    url: "https://doi.org/10.1371/journal.pcbi.1007296"
+    year: 2019
+  - author: "Wilson"
+    title: "Ten quick tips for creating an effective lesson"
+    url: "https://doi.org/10.1371/journal.pcbi.1006915"
+    year: 2019
+  - author: "Brown & Wilson"
+    title: "Ten quick tips for teaching programming"
+    url: "https://doi.org/10.1371/journal.pcbi.1006023"
+    year: 2019
 
+years:
+  - [2004, 2005, 2006, 2007, 2008, 2009]
+  - [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
+  - [2020, 2021]
 
-# Plugins (previously gems:)
 plugins:
+  - jekyll-coffeescript
   - jekyll-paginate
-  - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
-  - jekyll-include-cache
-
-# mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jekyll-include-cache
-
-
-# Archives
-#  Type
-#  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
-#  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
-#  Path (examples)
-#  - Archive page should exist at path when using Liquid method or you can
-#    expect broken links (especially with breadcrumbs enabled)
-#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
-#  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
-#  - <base_path>/my-awesome-category/index.html ~> path: /
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-# https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
-
-
-# HTML Compression
-# - https://jch.penibelst.de/
-compress_html:
-  clippings: all
-  ignore:
-    envs: development
-
-# Defaults
-defaults:
-  # _posts
-  - scope:
-      path: ""
-    values:
-      layout: single
-      author_profile: true
-      read_time: false
-      comments: false
-      share: false
-      related: false

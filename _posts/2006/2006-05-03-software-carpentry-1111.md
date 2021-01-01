@@ -1,0 +1,23 @@
+---
+title: "Software Carpentry 1111"
+date: 2006-05-03 11:37:06
+year: 2006
+---
+Revision 1111 of <a href="http://www.third-bit.com/swc2">Software Carpentry</a> just went into the repository.  All the images are now there (thanks, Nick), along with code fragments and exercises (not as many as I'd like, but enough to get people started).  Printed, it comes to 346 pages, but don't do this at home---the supposedly-transparent PNGs are still solid black when printed.
+
+Things I'd like to do (or would like volunteers to contribute in the usual open source way) include:
+<ul>
+	<li>#5: complete the description of how to use the <code>subprocess</code> module.</li>
+	<li>#14: add a lecture on numerical programming, and another one on how to test numerical code.</li>
+	<li>#24, #25, #115, and #120: put material on <code>eval</code>, <code>exec</code>, code coverage, profiling, and other reflective ideas back in.</li>
+	<li>#28: fix the markers around regular expressions so that they display on all platforms.</li>
+	<li>#40: add a lecture on object-oriented analysis and design using the ICONIX process.</li>
+	<li>#65: come up with a better way to display the evolution of code fragments on-line using JavaScript.</li>
+	<li>#67: document the XML markup used in slides so that other people can easily contribute.</li>
+	<li>#93: fix image backgrounds so that they print properly.</li>
+	<li>Several: clean up the build process used to produce the notes.</li>
+	<li>#105: automatically check that all Python source examples conform to style guidelines.</li>
+	<li>#116: put material on time/date handling back into lectures.</li>
+	<li>#121: add a second lecture on style that focuses on what makes a good (or bad) class.</li>
+</ul>
+Any volunteers?

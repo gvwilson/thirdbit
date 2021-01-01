@@ -1,0 +1,8 @@
+---
+title: "Today Was More Fun"
+date: 2007-10-25 15:45:32
+year: 2007
+---
+I spent today at the <a href="http://fsoss.senecac.on.ca/2007/">Free Software & Open Source Symposium</a> at <strike>York University</strike> Seneca College's York U campus (sorry, David).  It was a lot more fun than the academic workshops I've been at recently.  The speakers and audience are genuinely engaged in what they're talking about, and what they're talking about is stuff: software, development processes, ways to make the world a better place...  I attended Mike LeVan's talk on creating a Linux administration course for university students (which isn't just tech training: by the time you know how to admin a Linux box, you know a fair bit about how networks and operating systems actually work) and Benjamin Smedberg's discussion of code review at the Mozilla Foundation (pretty standard as far as reasons and practices go, but it was cool to hear first-hand about the implementation).  I meant to go to others, but I got sidetracked by discussions with Trent Mick from <a href="http://www.activestate.com">ActiveState</a>, Michael and Jennifer from Waterloo, Mic Berman from <a href="http://www.mozilla.org">Mozilla</a>, and a bunch of other people as well.  Bob Young (<a href="http://www.redhat.com">Red Hat</a> and <a href="http://www.lulu.com">Lulu</a>) is talking about the evils of software patents right now.  As I said at the start, it's a lot more fun...
+
+<em>Later: kudos to <a href="http://cs.senecac.on.ca/~david.humphrey/">David Humphrey</a> and co. for a well run show --- I have a stack of cards and notes to follow up on, and am looking forward to seeing many of the attendees at future DemoCamps.</em>
