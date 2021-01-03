@@ -4,6 +4,7 @@ date: 2016-02-08 01:00:00
 year: 2016
 original: swc
 ---
+
 <p>
   We've run instructor training both online and in person for several years,
   so it's time to look at how they compare.

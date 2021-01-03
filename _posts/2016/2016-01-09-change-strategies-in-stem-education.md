@@ -4,6 +4,7 @@ date: 2016-01-09 03:00:00
 year: 2016
 original: swc
 ---
+
 <p>I recently had a chance to read:</p>
 
 <blockquote>

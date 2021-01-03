@@ -2,7 +2,6 @@
 title: "Late Night Thoughts on Listening to Ike Quebec"
 date: 2018-05-30 01:30
 year: 2018
-nocomments: true
 favorite: true
 ---
 

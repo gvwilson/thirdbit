@@ -3,7 +3,6 @@ title: "Goodbye, Mum"
 date: 2020-01-07 14:30
 year: 2020
 favorite: true
-nocomments: true
 ---
 
 In the end you think about the beginning.

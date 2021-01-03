@@ -3,7 +3,6 @@ title: "We Have Nothing To Give Them"
 date: 2012-01-21 19:00:36
 year: 2012
 favorite: true
-nocomments: true
 ---
 <p>
   <em>

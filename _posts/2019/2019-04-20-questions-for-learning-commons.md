@@ -2,6 +2,7 @@
 date: 2019-04-20 02:55
 year: 2019
 title: "Leading Questions for Creating a Learning Commons"
+favorite: true
 ---
 
 [DataCamp's mishandling of a sexual assault case][computerworld]

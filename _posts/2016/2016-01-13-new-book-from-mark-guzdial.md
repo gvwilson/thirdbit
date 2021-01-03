@@ -4,6 +4,7 @@ date: 2016-01-13 06:00:00
 year: 2016
 original: swc
 ---
+
 Regular readers will know that I am a huge fan of Mark Guzdial,
 a professor at Georgia Tech whose group does world-class work on computing education,
 and who [blogs about it](https://computinged.wordpress.com/) regularly and incisively.

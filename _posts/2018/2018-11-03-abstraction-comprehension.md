@@ -2,6 +2,7 @@
 date: 2018-11-03 03:35
 year: 2018
 title: "Abstraction and Comprehension"
+favorite: true
 ---
 
 I've been thinking a lot about the notations we use for programming
@@ -19,11 +20,11 @@ More experienced programmers are more capable at both ends of the curve,
 but that's not the only thing that changes.
 If a novice's comfort curve looks like this:
 
-![Novice Comfort Curve]({{site.github.url}}/files/2018/11/comprehension-01.svg)
+![Novice Comfort Curve]({{ '/files/2018/11/comprehension-01.svg' | relative_url }})
 
 then an expert's comfort curve looks like this:
 
-![Expert Comfort Curve]({{site.github.url}}/files/2018/11/comprehension-02.svg)
+![Expert Comfort Curve]({{ '/files/2018/11/comprehension-02.svg' | relative_url }})
 
 Experts don't just understand more at all levels of abstraction;
 their *preferred* level has also shifted
@@ -37,7 +38,7 @@ the software that is quickest for a novice to comprehend
 will almost certainly be different from the software that
 an expert can understand most quickly:
 
-![Comprehension Time Curves]({{site.github.url}}/files/2018/11/comprehension-03.svg)
+![Comprehension Time Curves]({{ '/files/2018/11/comprehension-03.svg' | relative_url }})
 
 This brings us back,
 as so many things do,

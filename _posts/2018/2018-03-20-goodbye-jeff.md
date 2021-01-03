@@ -3,7 +3,6 @@ title: "Goodbye, Jeff"
 date: 2018-03-20 03:30
 year: 2018
 favorite: true
-nocomments: true
 ---
 
 In the end you think about the beginning.

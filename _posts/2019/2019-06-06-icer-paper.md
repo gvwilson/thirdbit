@@ -4,7 +4,6 @@ year: 2019
 title: "ICER Acceptance"
 ---
 
-
 Paul Denny, Brett Becker, Michelle Craig, Piotr Banaszkiewicz, and I
 were very pleased to receive notice last week
 that [ICER 2019](https://icer.acm.org/)

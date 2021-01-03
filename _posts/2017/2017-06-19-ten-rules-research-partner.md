@@ -3,6 +3,7 @@ title: "Ten Simple Rules for Being a Good Research Partner"
 date: 2017-06-19 04:00:00
 year: 2017
 ---
+
 <p>Half a century ago, C.P. Snow decried the gulf between the two
 cultures of science and humanities.  There is just as great a gulf
 today between researchers and practitioners, which frequently makes

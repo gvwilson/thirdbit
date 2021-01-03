@@ -4,6 +4,7 @@ date: 2016-01-28 07:00:00
 year: 2016
 original: swc
 ---
+
 A new version of "Software Carpentry: Lessons Learned" is
 [now available on F1000](http://f1000research.com/articles/3-62/v2).
 We think it's an interesting complement to

@@ -2,6 +2,7 @@
 date: 2018-12-27 02:00
 year: 2018
 title: "Use Case Maps Revisited"
+favorite: true
 ---
 
 Back when I was struggling to teach a meaningful course on software architecture at the University of Toronto,
@@ -14,17 +15,17 @@ These two diagrams show what use case maps look like:
 
 <div class="row">
   <div class="col-md-6">
-    <img src="{{site.github.url}}/files/2018/12/use-case-maps-b.png" alt="Use Case Map Example" width="300" />
+    <img src="{{ '/files/2018/12/use-case-maps-b.png' | relative_url }}" alt="Use Case Map Example" width="300" />
   </div>
   <div class="col-md-6">
-    <img src="{{site.github.url}}/files/2018/12/use-case-maps-c.png" alt="Use Case Map Example" width="300" />
+    <img src="{{ '/files/2018/12/use-case-maps-c.png' | relative_url }}" alt="Use Case Map Example" width="300" />
   </div>
 </div>
 
 The background is the system's conceptual architecture;
 the overlay uses these elements to trace what happens during a particular use case:
 
-<img src="{{site.github.url}}/files/2018/12/use-case-maps-a.png" alt="Use Case Map Notation" width="300" />
+<img src="{{ '/files/2018/12/use-case-maps-a.png' | relative_url }}" alt="Use Case Map Notation" width="300" />
 
 It's easy to understand,
 and I found it very useful for tracing the behavior of moderately complex systems.

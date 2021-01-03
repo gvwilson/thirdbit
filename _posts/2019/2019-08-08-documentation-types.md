@@ -2,6 +2,7 @@
 title: "Documentation Types"
 date: 2019-08-08 03:24
 year: 2019
+favorite: true
 ---
 
 *This post is an update on [an earlier one]({{site.github.url}}/2019/04/16/what-docs-when.html)
@@ -39,7 +40,7 @@ The difference is illustrated by these two cases:
     We sometimes say that their understanding is *brittle*:
     even small changes can shatter their ability to accomplish tasks because they don't have enough of a mental model to generalize or adapt.
 
-<img src="{{site.github.url}}/files/2019/08/doctypes.svg" width="80%" alt="Documentation Types" />
+<img src="{{ '/files/2019/08/doctypes.svg' | relative_url }}" width="80%" alt="Documentation Types" />
 
 This diagram refers to the following kinds of material:
 

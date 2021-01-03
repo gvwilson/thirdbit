@@ -2,6 +2,7 @@
 title: "Seven Ways to Think Like a Programmer"
 date: 2018-03-16 02:30
 year: 2018
+favorite: true
 ---
 
 Jon Udell's essay "[Seven Ways to Think Like the Web](http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/)"
@@ -57,7 +58,7 @@ four bytes are in is a CAD model.
 The reason for this is that machines don't understand; they obey.  If
 you look at this image, you can't help but see the word "data":
 
-![The Word "Data"]({{site.github.url}}/files/2018/03/data.png)
+![The Word "Data"]({{ '/files/2018/03/data.png' | relative_url }})
 
 A machine doesn't; it doesn't even see four blobs of blue pixels on a
 gray background, because it doesn't "see" anything.  The computer
@@ -103,7 +104,7 @@ part or all of that model that human beings can understand.  For
 example, an HTML document consists of elements with attributes that
 contain other elements or blocks of raw text:
 
-![Model-View Separation]({{site.github.url}}/files/2018/03/modelview.png)
+![Model-View Separation]({{ '/files/2018/03/modelview.png' | relative_url }})
 
 That model can be rendered in a browser, turned into speech for
 someone who is visually impaired, or displayed as text using angle

@@ -2,7 +2,7 @@
 title: "Why I Teach (Revisited)"
 date: 2019-01-30 00:30:00
 year: 2019
-redirect_from: "/2015/12/19/why-i-teach.html"
+favorite: true
 ---
 <p>
   When I first started volunteering at the University of Toronto,

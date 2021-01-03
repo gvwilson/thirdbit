@@ -2,7 +2,6 @@
 title: "Cigarettes and Shopify"
 date: 2018-05-06 03:30
 year: 2018
-nocomments: true
 favorite: true
 ---
 

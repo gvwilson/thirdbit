@@ -2,12 +2,13 @@
 title: "Consider the Bicycle"
 date: 2017-12-17 03:30:00
 year: 2017
+favorite: true
 ---
 
 Consider the bicycle–more specifically,
 the De Rosa SK Pininfarina:
 
-![De Rosa]({{site.github.url}}/files/2017/12/derosa.jpg)
+![De Rosa]({{ '/files/2017/12/derosa.jpg' | relative_url }})
 
 I think it's beautiful,
 but I wouldn't call it art,

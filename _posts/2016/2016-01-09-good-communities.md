@@ -4,6 +4,7 @@ date: 2016-01-09 11:00:00
 year: 2016
 original: swc
 ---
+
 Back in October,
 [Sarah Sharp](http://sarah.thesharps.us/) posted a really useful article titled
 "[What makes a good community?](http://sarah.thesharps.us/2015/10/06/what-makes-a-good-community/)".

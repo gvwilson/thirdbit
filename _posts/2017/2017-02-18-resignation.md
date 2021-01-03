@@ -1,8 +1,8 @@
 ---
-title: "Resignation"
+title: "Resignation from Shopify"
 date: 2017-02-18 05:00:00
 year: 2017
-nocomments: true
+favorite: true
 ---
 
 I have resigned my position at Shopify because of the company's decision to continue hosting Breitbart's online store.

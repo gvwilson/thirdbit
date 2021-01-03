@@ -4,6 +4,7 @@ date: 2016-02-02 06:30:00
 year: 2016
 original: swc
 ---
+
 Andreas Stefik and his colleagues have written
 [a two-page summary](http://quorumlanguage.com/evidence/evidence.pdf)
 of what we actually know about usability and programming language design.

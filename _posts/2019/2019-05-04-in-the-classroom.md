@@ -2,6 +2,7 @@
 date: 2019-05-04 02:00
 year: 2019
 title: "In the Classroom"
+favorite: true
 ---
 
 My [ten rules for teaching](http://teachtogether.tech/en/#s:index-rules) are too high-level to be immediately useful in the classroom,

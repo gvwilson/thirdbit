@@ -4,6 +4,7 @@ date: 2016-01-15 04:00:00
 year: 2016
 original: swc
 ---
+
 [My talk at SciPy](https://youtu.be/1e26rp6qPbA?t=1748) in 2014
 quoted one of our instructors as saying:
 

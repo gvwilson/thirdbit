@@ -2,6 +2,7 @@
 date: 2019-04-24 04:12
 year: 2019
 title: "Ten Quick Tips for Reviewing Lessons"
+favorite: true
 ---
 
 If you do a degree in English literature,

@@ -2,6 +2,7 @@
 date: 2018-08-13 01:00:00
 year: 2018
 title: "Authoring"
+favorite: true
 ---
 
 In the beginning was the finger, and paint, and the wall of the cave.
