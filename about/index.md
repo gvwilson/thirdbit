@@ -3,7 +3,7 @@ title: "About Me"
 layout: page
 ---
 
-<img src="{{ '/files/gvwilson-tgac-2014-large.jpg' | relative_url }}" alt="Greg Wilson" width="200px" />
+<img src="{{ '/files/bio/gvwilson-tgac-2014-large.jpg' | relative_url }}" alt="Greg Wilson" width="200px" />
 
 I was born in 1963 and grew up on [Vancouver Island](http://www.town.lakecowichan.bc.ca/),
 where two inches of rain is considered a light shower.
