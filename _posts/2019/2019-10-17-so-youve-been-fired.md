@@ -2,7 +2,6 @@
 title: "So You've Been Fired"
 date: 2019-10-17 01:38
 year: 2019
-favorite: true
 ---
 
 1.  Insist on a record of all conversations.
