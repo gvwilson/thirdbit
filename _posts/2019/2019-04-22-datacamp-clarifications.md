@@ -2,7 +2,6 @@
 date: 2019-04-22 02:30
 year: 2019
 title: "DataCamp Clarifications"
-favorite: true
 ---
 
 There has been a lot of discussion online about DataCamp's mishandling of a sexual assault case
