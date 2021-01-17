@@ -12,7 +12,7 @@ I [tweeted yesterday](https://twitter.com/gvwilson/status/1350419811080269824)
 about using static website generator templates for lessons:
 
 1.  Programmers follow many conventions to make code repos more usable,
-    from having `README`, `LICENSE`, and `CONDUCT1 files in the root directory
+    from having `README`, `LICENSE`, and `CONDUCT` files in the root directory
     to naming conventions, package structure, and having `make test` or `npm run test` do something useful.
 
 1.  Every time I see an aggregation like this,
@@ -20,7 +20,7 @@ about using static website generator templates for lessons:
     That doesn't mean "one template to rule them all"
     any more than it means every software project must have exactly the same structure, but…
 
-1.  …imagine a world in which every tutorial had a GLOSSARY file beside its README and LICENSE files
+1.  …imagine a world in which every tutorial had a `GLOSSARY` file beside its `README` and `LICENSE` files
     so that you could easily find out what terms that lesson defined
     (which in turn would tell you what it was about)?
     Or a convention for structuring exercises…
