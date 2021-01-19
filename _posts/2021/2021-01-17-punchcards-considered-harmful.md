@@ -116,9 +116,10 @@ because I don't want you to trust people—I want you to trust *data*.
 And of course once this is working,
 the next experiment would be to add a tree editing widget to several common programming editors
 and see if it's better, worse, or the same.
-(For fairness' sake I think it's essential to add these widgets to existing editors:
+I use `[ a | b ]` is my way of showing two editable cells side by side,
+and for fairness' sake I think it's essential to add these widgets to existing editors:
 many programmers will change operating system, citizenship, and gender
-before abandoning Emacs.)
+before abandoning Emacs.
 
 ```
 ├──[ book_filename | "r4de" ]
@@ -140,7 +141,6 @@ before abandoning Emacs.)
    └──references.Rmd
 ```
 
-(where `[ a | b ]` is my way of showing two editable cells side by side).
 I don't think "the other 99%" of humanity will
 [use static site generators to write lessons]({{ '/2021/01/17/the-page-is-not-the-lesson/' | relative_url }})
 unless we make them much (much) more approachable.
