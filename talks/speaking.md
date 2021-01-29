@@ -7,7 +7,10 @@ I am always happy to [give a talk]({{ '/talks/' | relative_url }}),
 but after seeing things go wrong and speakers taken advantage of,
 I now require hosts to agree to a few things in advance.
 
-*This rider is derived from the one written by [Tatiana Mac][tatiana].*
+*This rider is derived from the one written by [Tatiana Mac][tatiana].
+[These guidelines](https://opennews.org/projects/speaker-rider/)
+developed by [OpenNews](https://opennews.org/) and [The Pudding](https://pudding.cool/)
+may also be helpful.*
 
 ## Inclusivity
 
