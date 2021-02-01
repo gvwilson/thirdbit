@@ -44,17 +44,13 @@ I stepped down from [Software Carpentry](https://software-carpentry.org) in Janu
 and after a brief stint with [Rangle.io](http://rangle.io) I joined DataCamp,
 who I'm proud to say [fired me in 2018](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup).
 
-I am now in the Education group at [RStudio](http://rstudio.com),
-where I run the [instructor training and certification program](http://education.rstudio.com/trainers).
-In my free time I work on books like [*Teaching Tech Together*](http://teachtogether.tech)
+Most recently I spent two and a half years in the Education group at [RStudio](http://rstudio.com),
+where I ran the [instructor training and certification program](http://education.rstudio.com/trainers).
+In my free time I worked on books like [*Teaching Tech Together*](http://teachtogether.tech)
 and [*JavaScript for Data Science*](http://js4ds.org)
-and help build [TidyBlocks](http://tidyblocks.tech) and [Glosario](https://glosario.carpentries.org/).
+and helped build [TidyBlocks](http://tidyblocks.tech) and [Glosario](https://glosario.carpentries.org/).
+If you'd like to chat,
+please [drop me a line](mailto:gvwilson@third-bit.com).
 
-*I had to disable comments on this site
-after some of my posts about [Shopify]({{ '/2018/05/06/cigarettes-and-shopify/' | relative_url }})
-and [DataCamp]({{ '/2019/04/15/an-exchange-with-datacamp/' | relative_url }}),
-so if you'd like to chat,
-please [drop me a line](mailto:gvwilson@third-bit.com).*
-
-- [CV]({{ '/cv/gvwilson.pdf' | relative_url }})
+- CV ([PDF]({{ '/cv/gvwilson.pdf' | relative_url }}), [HTML]({{ '/cv/' | relative_url }}))
 - [Bibliography]({{ '/bib/' | relative_url }})
