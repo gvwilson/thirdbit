@@ -28,7 +28,7 @@ and in 2007 we became the happy parents of a wonderful little troublemaker.
 
 I was a professor in [Computer Science](http://web.cs.toronto.edu/)
 at the [University of Toronto](http://www.utoronto.ca) from 2007 to 2010,
-during which time I helped create a [Master's degree in Applied Computing](https://mscac.utoronto.ca/)
+during which time I helped create a [Master's degree in Applied Computing](https://mscac.utoronto.ca/),
 was named ComputerWorld Canada's "IT Educator of the Year",
 and wrote some more books
 (one of which, [*Beautiful Code*](http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/),
