@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   I am updating the
-  <a href="{{site.github_url}}/software-carpentry-lessons-learned/">lessons learned</a> paper,
+  <a href="{{'/files/papers/wilson-2016-swc-lessons-learned.pdf' | relative_url }}">lessons learned</a> paper,
   and would like to include histograms showing how many people have contributed how often to our lessons.
   More specifically,
   I have 9 data sets (one for each lesson),

@@ -233,7 +233,7 @@ original: swc
         when they want to cite us&mdash;our
         <a href="http://arxiv.org/abs/1210.0530">Best Practices in Scientific Computing</a> paper
         isn't quite that.
-        (<a href="{{site.github.url}}/files/bib/software-carpentry-lessons-learned-2016.pdf">Software Carpentry: Lessons Learned</a>
+        (<a href="{{'/files/papers/wilson-2016-swc-lessons-learned.pdf' | relative_url }}">Software Carpentry: Lessons Learned</a>
         is a start toward this.)
       </li>
       <li>
