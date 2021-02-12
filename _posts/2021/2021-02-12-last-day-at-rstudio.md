@@ -19,3 +19,8 @@ I'd enjoy hearing from you.
 <p><img src="{{ '/files/2021/rstudio-trainers.jpg' | relative_url }}" alt="RStudio trainers" width="100%" /></p>
 <p>211 certified instructors in 745 days</p>
 </div>
+
+<div align="center">
+<p><img src="{{ '/files/2021/last-day-at-rstudio.jpg' | relative_url }}" alt="Greg Wilson" width="60%" /></p>
+<p>I make unemployment look <em>good</em>.</p>
+</div>
