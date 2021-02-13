@@ -34,8 +34,8 @@ title: Home
           <br/>
           Author or editor of over a dozen books on programming and two for children
         </p>
-        <p align="right">
-          <em>...<a href="{{ '/bib/' | relative_url }}">Publications</a></em>
+        <p>
+          <em>...<a href="{{site.author.calendly}}">book a meeting</a></em>
         </p>
       </div>
     </div>
@@ -46,13 +46,18 @@ title: Home
   </div>
   <div class="flex-row">
     <div class="flex-col">
-      <h4>Posts</h4>
+      <h4>Recent Posts</h4>
       {% include recent.html %}
-      <p>...or follow me on <a href="{{site.author.twitter}}">Twitter</a>
+      <p>
+        <em>...or follow me on <a href="{{site.author.twitter}}">Twitter</a></em>
+      </p>
     </div>
     <div class="flex-col">
-      <h4>Papers</h4>
+      <h4>Recent Papers</h4>
       {% include papers.html %}
+      <p>
+        <em>...<a href="{{ '/bib/' | relative_url }}">all publications</a></em>
+      </p>
     </div>
   </div>
 
