@@ -17,7 +17,11 @@ I'd enjoy hearing from you.
 
 <div align="center">
 <p><img src="{{ '/files/2021/rstudio-trainers.jpg' | relative_url }}" alt="RStudio trainers" width="100%" /></p>
-<p>211 certified instructors in 745 days</p>
+<p>239 certifications in 774 days</p>
+</div>
+
+<div align="center">
+<p><img src="{{ '/files/2021/rstudio-trainers-by-date.svg' | relative_url }}" alt="RStudio trainers by date" width="80%" /></p>
 </div>
 
 <div align="center">
