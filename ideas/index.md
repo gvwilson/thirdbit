@@ -9,16 +9,94 @@ but which you are *not* going to do because life is too short
 and you already have too much on the go.
 Here's mine.
 
--   [What I Would Do If I Still Did Research](#what-i-would-do-if-i-still-did-research)
 -   [What I Would Build If I Still Wrote Software](#what-i-would-build-if-i-still-wrote-software)
+-   [What I Would Do If I Still Did Research](#what-i-would-do-if-i-still-did-research)
 -   [What I Would Write If I Was Smarter Than I Am](#what-i-would-write-if-i-was-smarter-than-i-am)
 -   [What Else I Would Write](#what-else-i-would-write)
 -   [What I Would Organize If I Still Organized Things](#what-i-would-organize-if-i-still-organized-things)
+
+## What I Would Build If I Still Wrote Software
+
+**Tutorial implementations of common software tools.**
+:   *[Software Tools](http://www.amazon.com/Software-Tools-Brian-W-Kernighan/dp/020103669X/)*
+    and [its sequel](http://www.amazon.com/Software-Tools-Pascal-Brian-Kernighan/dp/0201103427/)
+    taught my generation how to design software
+    by showing us how to create small versions of the very tools we were using.
+    The goal of *[Software Tools in JavaScript][stjs]* is to do the same thing with JavaScript, JSON, and HTTP
+    instead of C, ASCII strings, and standard I/O.
+    Mary Rose Cook's [Gitlet][gitlet] is a beautiful example of what this might look like;
+    I want to do the same thing for ESLint, NPM, and the like in order to teach software architecture.
+    *Current status: under way.*
+
+**A blocks-based tool for data science.**
+:   [Scratch][scratch] is the most effective tool we have for teaching programming to newcomers of all ages
+    because it reduces [cognitive load][cognitive-load] on learners.
+    [TidyBlocks][tidyblocks] is an attempt to replicate its success for data science;
+    it needs 10-12 programmer-months to make it ready for general use,
+    but the fact that volunteers have already translated its interface into several languages
+    shows just how much impact it could have.
+    *Current status: on hold waiting for funding.*
+
+**A lightweight lesson aggregation tool.**
+:   Instead of building yet another repository for lessons or trying to get people to use a single template,
+    it would probably be more useful to
+    [aggregate metadata about the lessons they already have][harper].
+
+**A computational notebook for blocks-based programming.**
+:   R Markdown, Stencila, and the Jupyter notebook are great ways to tell dynamic stories with and about code.
+    I'd really like a notebook whose code sections were built with blocks rather than text.
+
+**A computational notebook that includes a drawing tool.**
+:   And while we're at it, the workflow for putting hand-drawn (vector) diagrams into notebooks is pretty clumsy.
+    Open drawing tool, save file, add reference to notebook, render, curse, re-draw, re-render...
+    I'd like to be able to click on a diagram in a notebook and edit it in place
+    just like I can in Word or Google Doc.
+    There are several good open source JavaScript vector drawing tools out there,
+    and the SVG could either be embedded in the notebook document or stored in a side file.
+
+**Diff and merge for SVG and CSV.**
+:   And while we're talking about drawing,
+    I think developers would be much (much) more likely to include diagrams in their documentation
+    if they could diff and merge those diagrams as easily as they do text.
+    GitHub has supported a [split-pane view][github-svg-diff] for years,
+    but it doesn't automatically highlight differences or help you merge them
+    the way punchard emulators (i.e., programmers' other editing tools) have done for decades.
+    I'd be almost as grateful for a tool to diff and merge CSV files
+    that understood columns as well as rows.
+
+**Browsercast.**
+:   It's been ten years since I first wanted to be able to add a voiceover to an HTML slideshow.
+    I still want it,
+    but these days I'd like to be able to replay a computational notebook with commentary as well.
+    We came close a couple of times, but never quite got there;
+    playback is straightforward,
+    but tools to edit and sync the audio require more thought.
+    Given recent advances in text-to-speech technology,
+    this one may now be moot.
+
+**A single-pass LaTeX compiler.**
+:   Because we can fit an entire encyclopedia into memory these days
+    and I am *so* done with writing Makefiles to run LaTeX two or three times
+    to update numbered cross-references.
 
 ## What I Would Do If I Still Did Research
 
 I never had the patience or diligence to be a good researcher,
 but I still have lots of questions that I would like answered.
+
+**How well do data scientists agree with each other about the correctness of analyses?**
+:   There's an old joke that physicists worry about decimal places,
+    astronomers worry about exponents,
+    and economists are happy if they've got the sign right.
+    The truth beneath this is that
+    every disciplines uses its own implicit heuristics to judge how good is "good enough".
+    I suspect that data science doesn't yet have a shared set of heuristics,
+    both because it's such a young field
+    and because its practitioners come from such varied background.
+    This study would put a dozen two-page data analyses in front of a couple of dozen data scientists
+    and ask them which ones seem OK and which ones seem dodgy,
+    then explore the degree of inter-grader agreement and the reasons behind disagreements.
+    *Current status: under way.*
 
 **Are programmers who use version control more productive that programmers who don't?**
 :   This may seem too obvious to be worth investigating,
@@ -56,30 +134,14 @@ but I still have lots of questions that I would like answered.
     Does this help them write better code?
     If so,
     how quickly and how well?
-    (One of Mine Çetinkaya-Rundel's interns
-    is exploring the design of this experiment this summer.)
-
-**How well do data scientists agree with each other about the correctness of analyses?**
-:   There's an old joke that physicists worry about decimal places,
-    astronomers worry about exponents,
-    and economists are happy if they've got the sign right.
-    The truth beneath this is that
-    every disciplines uses its own implicit heuristics to judge how good is "good enough".
-    I suspect that data science doesn't yet have a shared set of heuristics,
-    both because it's such a young field
-    and because its practitioners come from such varied background.
-    This study would put a dozen two-page data analyses in front of a couple of dozen data scientists
-    and ask them which ones seem OK and which ones seem dodgy,
-    then explore the degree of inter-grader agreement and the reasons behind disagreements.
 
 **Do novices learn data science faster or better using blocks or text?**
 :   Multiple studies have shown that novices learn programming faster using blocks-based tools like Scratch
     than using text-based programming languages.
     Is the same true for data science?
     The study subjects would be high school students preparing for something like the AP Stats exam,
-    and the blocks would implement the operations in the tidyverse.
-    (One of my summer interns is building a tool so that we can study this.
-    If you're a JavaScript programmer and you want to help, please get in touch.)
+    and the blocks would implement the operations in the Tidyverse.
+    *Current status: we need to finish [TidyBlocks][tidyblocks]...*
 
 **How much software would pass a Moses Test?**
 :   Robert Moses reshaped New York City and surrounding areas;
@@ -95,49 +157,6 @@ but I still have lots of questions that I would like answered.
     the real system fails the test.
     This would allow us to gauge how fair systems are without having to define fairness,
     in the same way that the Turing Test does for intelligence.
-
-## What I Would Build If I Still Wrote Software
-
-**A computational notebook for blocks-based programming.**
-:   R Markdown, Stencila, and the Jupyter notebook are great ways to tell dynamic stories with and about code.
-    I'd really like a notebook whose code sections were built with blocks rather than text.
-
-**A computational notebook that includes a drawing tool.**
-:   And while we're at it, the workflow for putting hand-drawn (vector) diagrams into notebooks is pretty clumsy.
-    Open drawing tool, save file, add reference to notebook, render, curse, re-draw, re-render...
-    I'd like to be able to click on a diagram in a notebook and edit it in place
-    just like I can in Word or Google Doc.
-    There are several good open source JavaScript vector drawing tools out there,
-    and the SVG could either be embedded in the notebook document or stored in a side file.
-
-**[Browsercast]({{ '/browsercast/' | relative_url }}).**
-:   It's been almost ten years since I first wanted to be able to add a voiceover to an HTML slideshow.
-    I still want it,
-    but these days I'd like to be able to replay a computational notebook with commentary as well.
-    We came close a couple of times, but never quite got there;
-    playback is straightforward,
-    but tools to edit and sync the audio require more thought.
-
-**A lightweight lesson aggregation tool.**
-:   Instead of building yet another repository for lessons or trying to get people to use a single template,
-    it would probably be more useful to
-    [aggregate metadata about the lessons they already have](https://github.com/gvwilson/harper).
-
-**Tutorial implementations of common software tools.**
-:   *[Software Tools](http://www.amazon.com/Software-Tools-Brian-W-Kernighan/dp/020103669X/)*
-    and *[its sequel](http://www.amazon.com/Software-Tools-Pascal-Brian-Kernighan/dp/0201103427/)*
-    taught my generation how to design software
-    by showing us how to create small versions of the very tools we were using.
-    I'd like to do the same exercise using JavaScript, JSON, and HTTP
-    instead of C, ASCII strings, and standard I/O.
-    Mary Rose Cook's [Gitlet](http://gitlet.maryrosecook.com/) is a beautiful example of what this might look like;
-    I want to do the same thing for eslint, NPM, and the like
-    and then use them to teach software architecture.
-
-**A single-pass LaTeX compiler.**
-:   Because we can fit an entire encyclopedia into memory these days
-    and I am *so* done with writing Makefiles to run LaTeX two or three times
-    to update numbered cross-references.
 
 ## What I Would Write If I Was Smarter Than I Am
 
@@ -210,56 +229,52 @@ But more importantly, please read:
 1. Richard Wilkinson and Kate Pickett: *[The Spirit Level][spirit-level]*.
    An evidence-based exploration of how and why greater equality is better for everyone.
 
-## What Else I Would Write
+I would also like to write:
 
-### A Catalog of Errors
+**A Catalog of Errors**
+:   Most programmers spend a large part of their time debugging,
+    but most books only show working code,
+    and never discuss how to prevent, diagnose, and fix errors.
+    [Most](http://www.amazon.com/Debugging-Indispensable-Software-Hardware-Problems/dp/0814474578/)
+    [books](http://www.amazon.com/Debugging-Thinking-Multidisciplinary-Approach-Technologies/dp/1555583075/)
+    [ostensibly](http://www.amazon.com/Debug-It-Prevent-Pragmatic-Programmers/dp/193435628X/)
+    [about](http://www.amazon.com/The-Developers-Guide-Debugging-Edition/dp/1470185520/)
+    [debugging](http://www.amazon.com/The-Art-Debugging-GDB-Eclipse/dp/1593271743/)
+    are high-level handwaving,
+    user guides for particular debugging tools,
+    or [out of date](http://www.amazon.com/Find-Bug-Book-Incorrect-Programs/dp/0321223918/);
+    the [one notable exception](http://www.amazon.com/Why-Programs-Fail-Second-Edition/dp/0123745152/)
+    is an excellent read,
+    but too advanced for most undergraduates.
+    This book would fill that gap by combining an exploration of how debugging tools actually work
+    with dozens of case studies showing how to apply them to real-world problems.
+    Along the way,
+    it would present examples of what programmers can do to handle errors gracefully,
+    from data structure repair to automatically restarting servers.
 
-Most programmers spend a large part of their time debugging,
-but most books only show working code,
-and never discuss how to prevent, diagnose, and fix errors.
-[Most](http://www.amazon.com/Debugging-Indispensable-Software-Hardware-Problems/dp/0814474578/)
-[books](http://www.amazon.com/Debugging-Thinking-Multidisciplinary-Approach-Technologies/dp/1555583075/)
-[ostensibly](http://www.amazon.com/Debug-It-Prevent-Pragmatic-Programmers/dp/193435628X/)
-[about](http://www.amazon.com/The-Developers-Guide-Debugging-Edition/dp/1470185520/)
-[debugging](http://www.amazon.com/The-Art-Debugging-GDB-Eclipse/dp/1593271743/)
-are high-level handwaving,
-user guides for particular debugging tools,
-or [out of date](http://www.amazon.com/Find-Bug-Book-Incorrect-Programs/dp/0321223918/);
-the [one notable exception](http://www.amazon.com/Why-Programs-Fail-Second-Edition/dp/0123745152/)
-is an excellent read,
-but too advanced for most undergraduates.
-This book fills that gap by combining an exploration of how debugging tools actually work
-with dozens of case studies showing how to apply them to real-world problems.
-Along the way,
-it presents examples of what programmers can do to handle errors gracefully,
-from data structure repair to automatically restarting servers.
+**The Undergraduate Operator's Manual**
+:   What effect does pulling an all-nighter have on the quality of your work?
+    How do people absorb and retain knowledge?
+    What are some good ways to run a project meeting,
+    and how can you get people to actually pull their weight?
+    Every undergraduate has to deal with these issues and a hundred others,
+    but most of the time,
+    they are expected to rediscover or reinvent methods themselves.
+    This textbook for a one-semester course would put solutions in one place,
+    and by doing so teach a lot about physiology, psychology, and organizational behavior.
 
-### The Undergraduate Operator's Manual
-
-What effect does pulling an all-nighter have on the quality of your work?
-How do people absorb and retain knowledge?
-What are some good ways to run a project meeting,
-and how can you get people to actually pull their weight?
-Every undergraduate has to deal with these issues and a hundred others,
-but most of the time,
-they are expected to rediscover or reinvent methods themselves.
-This textbook for a one-semester course puts solutions in one place,
-and by doing so teaches a lot about physiology, psychology, and organizational behavior.
-
-### Computing and the Law: A Guide for the Perplexed
-
-The legal aspects of software have always been complicated;
-the web has done nothing to make them simpler.
-This book seeks to help programmers understand the rules (or lack thereof)
-they have to live with
-by tracing the historical development of patents, copyrights, privacy, and professional liability
-from the Industrial Revolution to the present day.
-Aimed squarely at people with no prior exposure to legal terminology,
-it explains concepts clearly and provides examples for each.
+**Computing and the Law: A Guide for the Perplexed**
+:   The legal aspects of software have always been complicated;
+    the web has done nothing to make them simpler.
+    This book would help programmers understand the rules they have to live with
+    by tracing the historical development of patents, copyrights, privacy, and professional liability
+    from the Industrial Revolution to the present day.
+    Aimed squarely at people with no prior exposure to legal terminology,
+    it would explain concepts clearly and provides examples for each.
 
 ## What I Would Organize If I Still Organized Things
 
-*Please see [this post from December 2019]({{ '/2019/12/30/method-motive-opportunity/' | relative_url }}) for ideas about a precursor to this workshop.*
+Because "better" never happens on its own.
 
 ### Background
 
@@ -399,23 +414,22 @@ to school boards and city councils and professional societies.
 Creationists, gunaholics, fossil fuel addicts, and anti-choicers have been doing it for many years to great effect;
 do we really care so much less about our issues that we're not willing to do it too?
 
-See also [Maciej Ceglowski's work to secure political campaigns in the US][ceglowski],
-which is a great example of how to engage with power.
-And please note that
-I would be happy to run an online one-day training class on [how to teach][t3]
-for people who are organizing and running workshops on digital self-defense.
-Please [email me](mailto:gvwilson@third-bit.com) if you're interested.
-
 [aaas-program]: https://www.aaas.org/programs/community-engagement-fellows
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
 [bpco]: https://isbndb.com/book/0977151808
 [carpentries-training]: https://carpentries.github.io/instructor-training/
-[ceglowski]: https://idlewords.com/2019/05/what_i_learned_trying_to_secure_congressional_campaigns.htm
+[cognitive-load]: http://teachtogether.tech/en/index.html#s:architecture-load
 [fearless-change]: https://fearlesschangepatterns.com/
+[github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
+[gitlet]: http://gitlet.maryrosecook.com/
+[harper]: https://github.com/gvwilson/harper
 [marketing-for-scientists]: https://islandpress.org/books/marketing-scientists
 [raw-signal]: https://www.rawsignal.ca/
+[scratch]: https://scratch.mit.edu/
 [security]: https://sec.eff.org/
+[stjs]: https://stjs.tech/
 [t3]: http://teachtogether.tech
+[tidyblocks]: https://tidyblocks.tech/
 
 [lower-ed]: https://isbndb.com/book/9781620974384
 [flyover]: https://isbndb.com/book/9781250189998
