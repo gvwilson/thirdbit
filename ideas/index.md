@@ -229,7 +229,21 @@ But more importantly, please read:
 1. Richard Wilkinson and Kate Pickett: *[The Spirit Level][spirit-level]*.
    An evidence-based exploration of how and why greater equality is better for everyone.
 
-I would also like to write:
+I would also like:
+
+**Data Science for Software Engineers**
+:   Programmers frequently make claims about software development practices,
+    the relative merits of different languages,
+    and the causes of bias in the tech sector,
+    but most programmers are never taught how to find, analyze, and interpret evidence on those topics.
+    This book would be an introduction to data science
+    using software engineering questions and data to motivate common statistical tools and methods.
+    It would assume readers can write short Python programs and remember some college-level mathematics,
+    and would cover data tidying and visualization,
+    descriptive statistics,
+    modeling,
+    and reproducible research practices,
+    then use those tools to explore key findings from empirical software engineering research.
 
 **A Catalog of Errors**
 :   Most programmers spend a large part of their time debugging,
