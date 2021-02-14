@@ -231,6 +231,17 @@ But more importantly, please read:
 
 I would also like:
 
+**R for Data Engineers**
+:   I found R confusing upon first encountering it after four decades of C,
+    Java, and Python.  I slowly realized that R's rules are no more confusing or
+    contradictory than those of other programming languages; They only appear so
+    because R draws on a tradition unfamiliar to those of us raised with
+    derivatives of C.  Counting from one, copying data rather than modifying it,
+    lazy evaluation: to quote Terry Pratchett, these are not mad, just
+    differently sane. This book is an introduction to the language and its use
+    for people who are coming from a computer science background, and who need
+    to integrate R with their other tools. *Status: [in progress][tidynomicon].*
+
 **Data Science for Software Engineers**
 :   Programmers frequently make claims about software development practices,
     the relative merits of different languages,
@@ -444,6 +455,7 @@ do we really care so much less about our issues that we're not willing to do it 
 [stjs]: https://stjs.tech/
 [t3]: http://teachtogether.tech
 [tidyblocks]: https://tidyblocks.tech/
+[tidynomicon]: https://tidynomicon.github.io/tidynomicon/
 
 [lower-ed]: https://isbndb.com/book/9781620974384
 [flyover]: https://isbndb.com/book/9781250189998
