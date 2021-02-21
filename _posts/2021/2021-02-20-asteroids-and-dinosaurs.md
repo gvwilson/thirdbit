@@ -13,11 +13,11 @@ that other divisions in the company said they needed.
 
 My boss had been with the company his entire career;
 he knew people who knew people.
-After a big of digging he found out that
+After a bit of digging he found out that
 a couple of vice presidents three levels up from us and three timezones away
 had been arm-wrestling for a year.
 The one we indirectly reported to had lost,
-and the one who had was consolidating his position
+and the one who had won was consolidating his position
 by shutting down everything his adversary had started.
 
 I was outraged,
