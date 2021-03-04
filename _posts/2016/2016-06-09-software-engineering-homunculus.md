@@ -11,10 +11,10 @@ original: nwit
 <table cellpadding="10px">
   <tr>
     <td>
-      <img src="http://www.maxplanckflorida.org/fitzpatricklab/homunculus/cms/wp-content/uploads/2015/03/brain-slice-1002x1024.png" width="300px" />
+      <img src="{{ '/files/2016/06/homunculus-brain.png' | relative_url }}" width="300px" />
     </td>
     <td>
-      <img src="http://www.maxplanckflorida.org/fitzpatricklab/homunculus/cms/wp-content/uploads/2015/03/homunculus-front.png" width="300px" />
+      <img src="{{ '/files/2016/06/homunculus-front.png' | relative_url }}" width="300px" />
     </td>
   </tr>
 </table>
