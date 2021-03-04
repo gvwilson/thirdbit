@@ -1,5 +1,4 @@
 JEKYLL=bundle exec jekyll
-BIB=_includes/bib.html
 SITE=./_site
 
 CONFIG=_config.yml
@@ -23,15 +22,12 @@ commands:
 	@grep -h -E '^##' ${MAKEFILE_LIST} | sed -e 's/## //g' | column -t -s ':'
 
 ## build: rebuild site without running server
-build: ${BIB}
+build:
 	${JEKYLL} build
 
 ## serve: build site and run server
-serve: ${BIB}
+serve:
 	${JEKYLL} serve
-
-## bibliography: rebuild HTML version of bibliography
-bibliography: ${BIB}
 
 ## ----
 
@@ -43,11 +39,3 @@ clean:
 sterile:
 	@make clean
 	@rm -rf ${SITE}
-
-# ----
-
-${BIB} : cv/bib.md cv/gvwilson.bib
-	cd cv && \
-	pandoc --filter=pandoc-citeproc --csl computing-surveys.csl bib.md -o - \
-	| grep -v h1 \
-	> ../$@
