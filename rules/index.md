@@ -296,7 +296,7 @@ Gilliam's *Brazil*.
 
 **6. Remember that universities work in seasons, not weeks.**
 
-The timescale mis-match decribed in Rule #1 is due in part to the fact that
+The timescale mis-match described in Rule #1 is due in part to the fact that
 academic researchers are almost always multi-tasking, and that many of those
 tasks are things they've never been trained to do. As students, they juggle
 several courses at once (which effectively means that they answer to several
