@@ -145,7 +145,7 @@ here are some of the paths different people have taken.
         over the last three years
         because I think that public libraries are one of the crown jewels of civilization
         and I want to help them however I can.
-        I've also run clasess for local companies in exchange for donations to charities I want to support,
+        I've also run classes for local companies in exchange for donations to charities I want to support,
         which is better for both parties once the tax implications are sorted out.
 
 These are my tips:
