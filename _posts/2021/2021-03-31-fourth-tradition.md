@@ -24,6 +24,6 @@ way we think interacts with the way we program, the most interesting thinking
 about computing as a whole is coming from people who have outgrown the "Wernher
 von Braun" mentality.
 
-> If you never ask, "Who's responsible for this?" then the answer can't ever be, "You."
+> If you never ask, "Who's responsible for this?" the answer can't ever be, "You."
 >
 > --- a colleague of mine, many years ago
