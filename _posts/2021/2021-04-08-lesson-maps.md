@@ -44,5 +44,17 @@ many other orderings would work just as well.
 And my made-up notation sucks,
 but I think the idea of tracing the flow of a lesson
 over the unordered relationships between its key ideas is an intriguing one.
+In my dreams,
+the phrases making up the lesson would be attached to the arcs so that
+(for example)
+clicking on the number "3" would bring up a sidebar showing
+the paragraph corresponding to that stanza.
+That way,
+if someone moved the arcs around
+(i.e., changed the path through the lesson)
+we'd be able to see which parts of the text needed to change.
+
+It's quarter-baked if that,
+but the idea won't leave me alone.
 As always,
 I'd be grateful for [feedback](mailto:gvwilson@third-bit.com) or for pointers to similar work.
