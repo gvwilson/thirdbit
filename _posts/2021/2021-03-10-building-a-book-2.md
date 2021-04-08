@@ -22,7 +22,7 @@ and my other book projects does right now.
     They're copied verbatim into the generated pages like any other HTML
     and I use a little bit of JavaScript to convert them to links (more about this below).
 
-    *Note: I can't* use special tags like `<g key="label">text</g>`
+    *Note: I can't use special tags like `<g key="label">text</g>`
     since the Kramdown parser doesn't transcribe non-standard tags in some cases.
     After working as a programmer for almost 40 years,
     I still don't know where to document insights like this
