@@ -99,7 +99,6 @@ and my other book projects does right now.
           - https://www.antlr.org/
           - ANTLR
         ...
-      }
     ```
     To get around [this bug](https://stackoverflow.com/questions/66320774/how-to-pre-define-links-in-jekyll-config-yml-using-kramdown-links-def-options),
     though,
