@@ -12,7 +12,7 @@ or anything else that requires learners to use knowledge as they're acquiring it
 Study after study has shown that it's more effective than sitting and listening,
 which its proponents refer to as "passive learning".
 
-My colleague Garrett Grolemund recently started using analogous phrases
+Garrett Grolemund recently started using analogous phrases
 to describe two approaches to teaching.
 Where passive learning is listening to,
 *passive teaching* is talking at;

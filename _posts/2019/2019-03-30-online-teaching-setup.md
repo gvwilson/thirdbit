@@ -5,7 +5,7 @@ title: "Online Teaching Setup"
 ---
 
 As [I mentioned last week]({{site.github.url}}/2019/03/20/educational-paramedics.html),
-Garrett Grolemund and I have been teaching
+a colleague and I have been teaching
 [RStudio's instructor training and certification](https://blog.rstudio.com/2019/02/28/rstudio-instructor-training/) online,
 and I'm pretty pleased with our setup:
 

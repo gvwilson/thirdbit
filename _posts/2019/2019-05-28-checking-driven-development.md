@@ -4,7 +4,7 @@ year: 2019
 title: "Checking-Driven Development"
 ---
 
-I spent some time talking to my colleague Garrett Grolemund this week about software testing and data science,
+I spent some time talking to a colleague this week about software testing and data science,
 and I think I'm a little less confused about a few things than I used to be:
 
 1.  I know how to test "normal" software (like e-commerce websites or database drivers):

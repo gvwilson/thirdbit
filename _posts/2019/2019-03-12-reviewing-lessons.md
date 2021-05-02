@@ -4,8 +4,7 @@ year: 2019
 title: "Reviewing Lessons"
 ---
 
-I had a great discussion yesterday with [Garrett Grolemund](https://github.com/garrettgman)
-about reviewing slides for lessons.
+I had a great discussion yesterday with a colleague about reviewing slides for lessons.
 We're teaching a class together next week,
 and while I'm happy waving my arms and telling stories,
 he likes to put lots of meaningful graphics in front of learners,

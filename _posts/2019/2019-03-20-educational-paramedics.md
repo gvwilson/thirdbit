@@ -4,7 +4,7 @@ year: 2019
 title: "Educational Paramedics"
 ---
 
-Garrett Grolemund and I just wrapped up a couple of days of instructor training for RStudio staff,
+A colleague and I just wrapped up a couple of days of instructor training for RStudio staff,
 and one of the things I learned from participants' questions is
 how little I still know about teaching outside a classroom of some kind.
 Many of them are in customer support roles
