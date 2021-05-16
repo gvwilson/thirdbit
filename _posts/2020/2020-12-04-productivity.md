@@ -19,14 +19,14 @@ helps me get more done,
 but the gains from these practices will be lost in the noise
 without changes that only the organization as a whole can make:
 
--   [Requiring every meeting to have an agenda and minutes]({{site.baseurl}}/2018/05/11/meetings.html).
--   [Having an unambiguous decision-making process]({{site.baseurl}}/2019/06/13/marthas-rules.html).
+-   [Requiring every meeting to have an agenda and minutes]({{site.baseurl}}/2018/05/11/meetings/).
+-   [Having an unambiguous decision-making process]({{site.baseurl}}/2019/06/13/marthas-rules/).
 -   [Making information findable](https://github.com/gvwilson/10-findable/)
     (including people's roles and responsibilities, so that you know who to talk to about what).
 
 I'm still in touch with a few of the students I mentored when I was at the University of Toronto,
 and without exception,
-they tell me that what I taught them about [this stuff]({{site.baseurl}}/2020/11/20/management-skills.html)
+they tell me that what I taught them about [this stuff]({{site.baseurl}}/2020/11/20/management-skills/)
 helped them more than anything they learned from me about Python or version control.
 
 There's a world of difference between helping the poor and working to end poverty;
