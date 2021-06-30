@@ -2,7 +2,6 @@
 title: "That Seems Simple to Me"
 date: 2012-06-29 20:06:42
 year: 2012
-favorite: true
 ---
 <strong>1997</strong>
 
