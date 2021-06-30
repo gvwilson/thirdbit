@@ -36,6 +36,6 @@ ML: Machine learning.
 
 PF: You mean you can automatically make lessons more effective and tell us how to make videos and autograded exercises more engaging?
 
-ML: Uh---
+ML: Uh, what?
 
-PF: When can you start?
+PF: Cool! When can you start?
