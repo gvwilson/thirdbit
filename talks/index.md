@@ -51,7 +51,7 @@ evidence-based research discipline. This talk describes how that is
 happening, why it matters, and a few of the more interesting,
 surprising, and controversial results to date.
 
-*Last updated: March 2017. This talk is an update of one given at [CUSEC 2010](https://vimeo.com/9270320).*
+*Last updated: March 2021.*
 
 ## [Not in the Calendar]({{ '/talks/not-in-the-calendar/' | relative_url }})
 
