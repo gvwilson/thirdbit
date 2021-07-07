@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ten Quick Software Design Tips for Data Scientists</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+      <div align="center" style="padding-top: 6rem;">
+	<h1>Ten Software Design Tips<br/>for Data Scientists</h1>
+	<h2>Greg Wilson</h2>
+      </div>
+
+---
+
+## Introduction
+
+FIXME
+
+---
+
+<p class="split-title">Design…</p>
+<h2 class="split-title">…for people's cognitive capacity</h2>
+
+- Short-term memory vs. long-term memory
+- 7±2 (@Miller1956)
+- Brains use *chunks* to expand effective size of short-term memory, so create those
+- Design software to keep *cognitive load* manageable
+  - Number of parameters or variables in (mental) scope at any time
+  - Constants are easier to remember than varying values unless those values vary in predictable ways
+  - Function length and depth: complex code metrics don't tell us anything more than LoC (@ElEmam2001), but they capture an important idea
+- Example
+  - Combining things into structures, e.g., Point3d instead of three separate values
+  - Pipe with strict left-to-right reading order rather than unpredictable in-and-out
+- *Cohesion*: the Single Responsibility Principle for functions and classes
+
+---
+
+<p class="split-title">Design…</p>
+<h2 class="split-title">…toward widely-used abstractions</h2>
+
+- Experts use *patterns*, so learn those
+  - It will make you a better programmer (@Tichy2010)
+- Example
+  - `for` loop over 2D matrix
+  - Filter-group-summarize
+- Conforming to patterns makes code easier to understand (higher grammar)
+  - But only if you match the patterns: example of incorrect double loop being like a typo in a common word (eye doesn't see it)
+- And only if people know the patterns
+  - Abstraction vs. comprehension depends on how much people know in general and in specific
+  - So the best design for a double novice is different from the best designs for the other three quadrants
+- Sidebar
+  - Some people say that if you need to comment your code you should have written clearer code
+  - That is *expert blind spot* at work: newcomers need help building a *mental model* of the code+problem
+
+---
+
+<p class="split-title">Design…</p>
+<h2 class="split-title">…for evolution</h2>
+
+- Software changes over time because the problem changes *and* because we learn more
+  - The tool shapes the hand
+- A good design makes independent evolution of parts easier
+  - Fix a bug or improve performance *here* shouldn't require changes *there*
+  - Or at least, should only require a small number of changes in limited, predictable places
+- Function and method names should indicate what the code does, not how it achieves that
+  - `createConfiguration()` rather than `parseCommandLine()` because you might have a GUI or a configuration file tomorrow
+- Sidebar
+  - @Schon1984 and others have found that experts jump between levels looking for concrete refutations of plans as soon as possible
+  - Depth-first design is therefore a good strategy *if* you write the hard parts first, which most of us avoid
+- Key ideas are *information hiding* and *loose coupling*, which manifest as *interface vs. implementation*
+  - Many of the more advanced features of programming languages exist to check this
+  - Example: deriving classes, polymorphic functions, explicit interfaces or traits
+- Liskov Substitution Principle (@Liskov1994): it should always be possible to replace the general thing with a specific thing without breaking
+- Design by contract (@Meyer1994) extends this idea through time
+  - *Pre-conditions* can be weakened (take input the earlier implementation wouldn't)
+  - *Post-conditions* can be strengthened (produce a subset of the earlier implementation's output)
+  - Can be used to define and verify tests
+
+---
+      
+<p class="split-title">Design…</p>
+<h2 class="split-title">…for testability</h2>
+
+- Legacy code is code we're afraid to modify because things will break unexpectedly (@Feathers2004)
+  - Comprehensive tests make us less afraid
+  - But we need testable pieces in order to create tests economically
+  - Brings us back to pre-and-post rather than how
+- You can tell how you're doing by asking:
+  - How easy is it to create a *fixture*?
+  - How easy is it to invoke just the behavior we want?
+  - How easy is it to check the result (and do you know what "right" is)?
+- *Refactoring* is the process of reorganizing or rewriting code without changing behavior
+  - By which we mean "high-level behavior" because of course if you look closely enough...
+- @Fowler2018 describes common refactoring moves for code
+  - These do to code what tidying steps in a data pipeline do to data (@Wickham2017): move it toward well-understood forms (@Kerievsky2004)
+
+---
+
+<p class="split-title">Design…</p>
+<h2 class="split-title">…as if code was data</h2>
+
+- The great insight on which all of modern computing is based
+  - A program is a bunch of text files that can be searched and processed like any other
+  - Code in memory is a data structure that can be processed like any other
+- Example
+  - Style-checking tools
+  - Embedded documentation tools (explain the difference between doc comments and docstrings)
+  - Dynamic loading (interface vs. implementation)
+  - Lazy evaluation in R
+  - Decorators in Python
+- But see the discussion earlier of comprehension curves
+  - What is powerful in the hands of experts is incomprehensible action-at-a-distance in the eyes of novices
+
+---
+
+<p class="split-title">Design…</p>
+<h2 class="split-title">…for delivery</h2>
+
+- Development operations (DevOps) has become a buzzword
+  - Like "data science" or "computational thinking", the term is popular because people can use it to mean whatever they want
+- But the core idea is a good one (@Kim2016,@Forsgren2018)
+  - The code you ship is surrounded and supported by software and practices that deliver that code
+  - Putting effort into the support pays off many times over
+- Example
+  - Use whatever *build tool* your language expects (`pip` or `conda` for Python, `devtools` for R - many conflicting options for JavaScript)
+  - Organize files the way your build system expects
+  - Use *semantic versioning* to identify releases (*not* the names of your cats in the order in which they adopted you)
+  - Publish your software wherever your ecosystem expects it
+- Handle errors
+  - Don't just catch and discard (@Nakshatri2016)
+- Integrate logging
+  - A log that can be dialed up or down is really helpful in production *if* the messages are helpful
+  - Another pattern to learn and use
+
+---
+
+<p class="split-title">Design…</p>
+<h2 class="split-title">…graphically</h2>
+
+- Flowcharts are unfairly maligned (@Scanlan1989)
+- Very few programmers use UML the way it was intended (@Petre2013)
+- But almost all draw pictures to help them design (@Cherubini2007)
+- Tension between brainstorming and blueprints
+  - The term "software engineering" was aspirational and misguided
+  - Code *is* the design: the manufacturing step is cheap and can be automated
+- Examples
+  - Entity-relationship diagrams: widely used because they are actually helpful
+  - Class diagrams: not widely used outside textbooks because they're not
+  - Swim lane diagrams showing message exchanges: useful in their niche
+  - Block-and-arrow architecture diagrams: probably the most widely used (probably because of their informality)
+  - (My favorite) use case maps: message exchanges overlaid on architecture diagrams
+
+---
+
+<p class="split-title">Design…</p>
+<h2 class="split-title">…after the fact</h2>
+
+- @Parnas1986: the most important thing is to *look* as though you designed things
+  - So that the next person (who might be you a year from now) can understand it
+- Many designers explain architecture by recapitulating history (@Brown2011,@Brown2012)
+  - Challenge and response
+  - Can only understand why it does what it does by understanding the problem it was designed to solve
+- Good messages in assertions serve as documentation
+  - Not just "pivot index must be greater than 1" but "pivot index must be greater than 1 because the algorithm needs at least two elements below the pivot"
+- People don't write this
+  - And are often right not to: speculating about what detail will be needed (and almost always getting it wrong)
+  - Keeping that narrative up to date is expensive
+
+---
+
+<p class="split-title">Design…</p>
+<h2 class="split-title">…with villains in mind</h2>
+
+- Privacy, security, and fairness cannot be sprinkled on after the fact
+- *Principle of Least Privilege*: what is the least information this part of the software absolutely needs to do its job?
+- Examples
+  - Work with partial (obfuscated) personal information
+  - Design to work with reduced permissions (e.g., PostgreSQL allows select-only access to tables)
+  - Test with database of synthetic information so that you can check for bias
+
+---
+
+<p class="split-title">Design…</p>
+<h2 class="split-title">…collaboratively and inclusively</h2>
+
+- Diversity improves outcomes in fields from business to healthcare (@Gompers2018,@Gomez2019)
+  - Bouncing ideas off each other reveals flaws
+  - A vocal minority in tech have subverted this finding by claiming that "diversity of thought" can serve instead of diversity of race, gender, or wealth
+- An open license and a code of conduct tells people they are invited to take part in the conversation
+  - Licensing *is* a design issue, since you cannot use components whose licenses are incompatible with yours
+- Similarly, designing so that software is easy to extend and bugs usually only require changes in one place makes it possible for newcomers to contribute (@Sholler2019)
+
+---
+
+## Conclusion
+
+FIXME
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
