@@ -89,10 +89,40 @@
 
 - Brains use *chunks* to expand effective size of short-term memory
 - So combine things into structures
-  - A single `Point3d` instead of three separate values
+
+<pre>
+  <code class="remark-code">
+def enclose(x0, y0, z0, x0, y0, z0, nearness):
+    …
+
+# versus
+
+def enclose(p0, p1, nearness):
+    …
+  </code>
+</pre>
+
+---
+
+<div class="split-title">
+  <p>Design…</p>
+  <h2>…for people's cognitive capacity</h2>
+</div>
+
 - Functions should be short, shallow, and single-purpose
-- *Cohesion*
-  - The Single Responsibility Principle for functions and classes
+  - Of course, no one would argue the opposite…
+- If I read a function aloud, are all the steps at the same conceptual level?
+
+```
+function main() {
+    const config = buildConfig(process.argv);
+    const state = initState(config);
+    while (config.currentTime < config.haltTime) {
+        updateState(config, state);
+    }
+    report(config, state);
+}
+```
 
 ---
 
@@ -100,7 +130,7 @@ class: sidebar
 
 ## Sidebar
 
-- Complex code metrics don't tell us anything more than lines of code
+- Fancy code metrics don't tell us more about effort required or fault rates than lines of code
   (<a href="#ElEmam2001">ElEmam2001</a>)
 
 ---
