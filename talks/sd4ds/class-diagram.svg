@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="960" height="720" xmlns="http://www.w3.org/2000/svg">
+  <title>Composite pattern</title>
+  <defs>
+    <style type="text/css">
+      <![CDATA[
+        g{
+          stroke       : #000;
+        }
+        rect, path{
+          fill         : #fff;
+          fill-opacity : 0;
+        }
+        rect{
+          stroke-width : 6;
+        }
+        path, line{
+          stroke-width : 2;
+        }
+        text{
+          fill         : #000;
+          stroke-width : 0;
+          font-family  : sans-serif;
+        }
+        text.name{
+          font-size    : 25px;
+          font-weight  : bold;
+          text-anchor  : middle;
+        }
+        text.item{
+          font-size    : 25px;
+        }
+        text.visibility{
+          font-size    : 28px;
+          font-family  : monospace;
+          font-weight  : bold;
+          text-anchor  : middle;
+        }
+        text.abstract{
+          font-style   : italic;
+        }
+        text.relation{
+          font-size    : 22px;
+          text-anchor  : middle;
+        }
+        text.roll{
+          font-size    : 22px;
+          text-anchor  : left;
+        }
+      ]]>
+    </style>
+  </defs>
+  <g transform="translate(260,40)">
+    <rect width="320" height="237" />
+    <line x1="0" x2="320" y1="60" y2="60" />
+    <line x1="0" x2="320" y1="80" y2="80" />
+    <text x="160" y="45"  class="name abstract">Component</text>
+    <text x="30"  y="115" class="visibility">+</text>
+    <text x="60"  y="115" class="item abstract">operation()</text>
+    <text x="30"  y="150" class="visibility">+</text>
+    <text x="60"  y="150" class="item">add()</text>
+    <text x="30"  y="185" class="visibility">+</text>
+    <text x="60"  y="185" class="item">remove()</text>
+    <text x="30"  y="220" class="visibility">+</text>
+    <text x="60"  y="220" class="item">getChild()</text>
+  </g>
+  <g transform="translate(40,440)">
+    <rect width="320" height="132" />
+    <line x1="0" x2="320" y1="60" y2="60" />
+    <line x1="0" x2="320" y1="80" y2="80" />
+    <text x="160" y="45"  class="name">Leaf</text>
+    <text x="30"  y="115" class="visibility">+</text>
+    <text x="60"  y="115" class="item">operation()</text>
+  </g>
+  <g transform="translate(480,440)">
+    <rect width="320" height="237" />
+    <line x1="0" x2="320" y1="60" y2="60" />
+    <line x1="0" x2="320" y1="80" y2="80" />
+    <text x="160" y="45"  class="name">Composite</text>
+    <text x="30"  y="115" class="visibility">+</text>
+    <text x="60"  y="115" class="item">operation()</text>
+    <text x="30"  y="150" class="visibility">+</text>
+    <text x="60"  y="150" class="item">add()</text>
+    <text x="30"  y="185" class="visibility">+</text>
+    <text x="60"  y="185" class="item">remove()</text>
+    <text x="30"  y="220" class="visibility">+</text>
+    <text x="60"  y="220" class="item">getChild()</text>
+  </g>
+  <g transform="translate(420,280)">
+    <desc>Leaf and Composite extend Component</desc>
+    <path d="M 0 2 l -15 30 l 30 0 z" />
+    <path d="M 0 32 L 0 95" />
+    <path d="M -220 160 L -220 95 L 220 95 L 220 160" />
+  </g>
+  <g transform="translate(800,560)">
+    <desc>Composite has no or plural Components. The roll of Composite is "parent" and the other is "child".</desc>
+    <path d="M 5 0 l 20 -10 l 20 10 l -20 10 z" />
+    <path d="M 45 0 l 75 0 l 0 -400 l -340 0" />
+    <text x="55"   y="-5"   class="relation">1</text>
+    <text x="-190" y="-405" class="relation">0..*</text>
+    <text x="50"   y="20"   class="roll">parent</text>
+    <text x="-205" y="-380" class="roll">child</text>
+  </g>
+</svg>
