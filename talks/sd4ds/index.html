@@ -17,9 +17,53 @@
 
 ---
 
-## Introduction
+<div class="split-title split-first">
+  <h2>You</h2>
+</div>
 
-FIXME
+- Spend your time squeezing insights out of data
+- Mostly taught yourself how to program
+- Are struggling to design bigger things
+
+<div align="center">
+  <p>
+    <a href="https://xkcd.com/2347/"><img src="./dependency.png" alt="XKCD Dependency cartoon" width="40%" /></a>
+  </p>
+</div>
+
+---
+
+<div class="split-title split-first">
+  <h2>Me</h2>
+</div>
+
+- Don't remember much statistics…
+- …but I've built a lot of complicated software…
+- …and I've been lucky enough to hang out with some very smart people
+
+<div align="center">
+  <p>
+    <img src="./beautiful-code.png" alt="Beautiful Code cover" />
+    <img src="./aosa1.png" alt="AOSA vol 1 cover" />
+    <img src="./aosa2.png" alt="AOSA vol 2 cover" />
+  </p>
+</div>
+
+---
+
+<div class="split-title split-first">
+  <h2>The Most Important Thing</h2>
+</div>
+
+<div align="center">
+  <h3>
+    Computer scientists<br/>aren't taught how to design software
+  </h3>
+</div>
+
+- The most design-intensive "engineering" discipline there is
+- But courses where students analyze and critique others' programs are rare
+- So no, you haven't missed something obvious
 
 ---
 
@@ -29,12 +73,12 @@ FIXME
 </div>
 
 - Short-term memory vs. long-term memory
-- 7±2 (<a href="./bib.html#Miller1956">Miller1956</a>)
-- Design software to keep *cognitive load* manageable
-  - Number of parameters or variables in (mental) scope at any time
-  - Pipe with strict left-to-right reading order rather than unpredictable in-and-out
+- You can manage 7±2 things at a time (<a href="#Miller1956">Miller1956</a>)
+- So design software to keep *cognitive load* manageable
 - Constants are easier to remember than varying values…
   - …unless those values vary in predictable ways
+- Keep number of parameters or variables in (mental) scope at any time below this threshold
+- Pipes with strict left-to-right reading order are easier to understand than nested function calls
 
 ---
 
@@ -44,21 +88,20 @@ FIXME
 </div>
 
 - Brains use *chunks* to expand effective size of short-term memory
-  - So create those
-- Combine things into structures
-  - `Point3d` instead of three separate values
+- So combine things into structures
+  - A single `Point3d` instead of three separate values
+- Functions should be short, shallow, and single-purpose
+- *Cohesion*
+  - The Single Responsibility Principle for functions and classes
 
 ---
 
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…for people's cognitive capacity</h2>
-</div>
+class: sidebar
 
-- Complex code metrics don't tell us anything more than LoC (<a href="./bib.html#ElEmam2001">ElEmam2001</a>)
-  - But they capture an important idea
-- Functions should be short, shallow, and single-purpose
-- *Cohesion*: the Single Responsibility Principle for functions and classes
+## Sidebar
+
+- Complex code metrics don't tell us anything more than lines of code
+  (<a href="#ElEmam2001">ElEmam2001</a>)
 
 ---
 
@@ -67,10 +110,12 @@ FIXME
   <h2>…toward widely-used abstractions</h2>
 </div>
 
-- Experts use *patterns*, so learn those
-  - It will make you a better programmer (<a href="./bib.html#Tichy2010">Tichy2010</a>)
-- Example
-  - Nested `for` loops over 2D matrix
+- Experts have *design patterns* in mind when building code
+- Learning will make you a better programmer (<a href="#Tichy2010">Tichy2010</a>)
+  - But will also make your code seem more familiar to others
+- Examples include:
+  - "Most valuable" variable (<a href="#Byckling2005">Byckling2005</a>)
+  - Nested `for` loops over 2D array
   - Filter-group-summarize
 
 ---
@@ -80,11 +125,22 @@ FIXME
   <h2>…toward widely-used abstractions</h2>
 </div>
 
-- Conforming to patterns makes code easier to understand
-  - A higher grammar
-- But only if you match the patterns:
-  - An incorrect double loop is like a typo in a common word
-  - The eye (literally) doesn't see it
+- A close miss to a pattern is worse than no pattern at all
+
+```
+for (i=0; i<a.width; i++) {
+    for (j=0; i<a.height; j++) {
+        a[i][j] = cos(abs(a[i][j]) - lemaitre(b_norm, a[j][i]))
+    }
+}
+```
+
+- The eye (literally) doesn't see it
+- Maximize "what's unique to this operation / boilerplate"
+
+```
+a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
+```
 
 ---
 
@@ -93,7 +149,7 @@ FIXME
   <h2>…toward widely-used abstractions</h2>
 </div>
 
-- But only if people know the patterns
+- And only if readers know the patterns
 - Abstraction vs. comprehension depends on how much people know in general and in specific
 
 <div class="flex-row">
@@ -167,9 +223,9 @@ class: sidebar
   <h2>…for evolution</h2>
 </div>
 
-- Liskov Substitution Principle (<a href="./bib.html#Liskov1994">Liskov1994</a>):
+- Liskov Substitution Principle (<a href="#Liskov1994">Liskov1994</a>):
   it should always be possible to replace the general thing with a specific thing without breaking
-- Design by contract (<a href="./bib.html#Meyer1994">Meyer1994</a>) extends this idea through time
+- Design by contract (<a href="#Meyer1994">Meyer1994</a>) extends this idea through time
   - *Pre-conditions* can be weakened (take input the earlier implementation wouldn't)
   - *Post-conditions* can be strengthened (produce a subset of the earlier implementation's output)
   - Can be used to define and verify tests
@@ -180,7 +236,7 @@ class: sidebar
 
 <h2>Sidebar</h2>
 
-- <a href="./bib.html#Schon1984">Schon1984</a> and others have found that
+- <a href="#Schon1984">Schon1984</a> and others have found that
   experts jump between levels looking for concrete refutations of plans as soon as possible
 - Depth-first design is therefore a good strategy *if* you write the hard parts first
   - Which most of us avoid
@@ -192,7 +248,7 @@ class: sidebar
   <h2>…for testability</h2>
 </div>
 
-- Legacy code is code we're afraid to modify because things will break unexpectedly (<a href="./bib.html#Feathers2004">Feathers2004</a>)
+- Legacy code is code we're afraid to modify because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
   - Comprehensive tests make us less afraid
   - But we need testable pieces in order to create tests economically
   - Brings us back to pre-and-post rather than how
@@ -218,9 +274,9 @@ class: sidebar
 
 - *Refactoring* is the process of reorganizing or rewriting code without changing behavior
   - By which we mean "high-level behavior" because of course if you look closely enough...
-- <a href="./bib.html#Fowler2018">Fowler2018</a> describes common refactoring moves for code
-- These do to code what tidying steps in a data pipeline do to data (<a href="./bib.html#Wickham2017">Wickham2017</a>):
-  move it toward well-understood forms (<a href="./bib.html#Kerievsky2004">Kerievsky2004</a>)
+- <a href="#Fowler2018">Fowler2018</a> describes common refactoring moves for code
+- These do to code what tidying steps in a data pipeline do to data (<a href="#Wickham2017">Wickham2017</a>):
+  move it toward well-understood forms (<a href="#Kerievsky2004">Kerievsky2004</a>)
 
 ---
 
@@ -267,7 +323,7 @@ class: sidebar
 
 - Development operations (DevOps) has become a buzzword
   - Like "data science" or "computational thinking", the term is popular because people can use it to mean whatever they want
-- But the core idea is a good one (<a href="./bib.html#Kim2016">Kim2016</a>,<a href="./bib.html#Forsgren2018">Forsgren2018</a>)
+- But the core idea is a good one (<a href="#Kim2016">Kim2016</a>,<a href="#Forsgren2018">Forsgren2018</a>)
   - The code you ship is surrounded and supported by software and practices that deliver that code
   - Investment automation pays off many times over
 
@@ -295,7 +351,7 @@ class: sidebar
 </div>
 
 - Handle errors
-  - Don't just catch and discard (<a href="./bib.html#Nakshatri2016">Nakshatri2016</a>)
+  - Don't just catch and discard (<a href="#Nakshatri2016">Nakshatri2016</a>)
 - Integrate logging
   - Reporting that can be dialed up or down is really helpful in production…
   - …particularly if messages from many components are collated…
@@ -309,7 +365,7 @@ class: sidebar
   <h2>…graphically</h2>
 </div>
 
-- Flowcharts are unfairly maligned (<a href="./bib.html#Scanlan1989">Scanlan1989</a>)
+- Flowcharts are unfairly maligned (<a href="#Scanlan1989">Scanlan1989</a>)
 
 ---
 
@@ -318,8 +374,8 @@ class: sidebar
   <h2>…graphically</h2>
 </div>
 
-- Very few programmers use UML the way it was intended (<a href="./bib.html#Petre2013">Petre2013</a>)
-- But almost all draw pictures to help them design (<a href="./bib.html#Cherubini2007">Cherubini2007</a>)
+- Very few programmers use UML the way it was intended (<a href="#Petre2013">Petre2013</a>)
+- But almost all draw pictures to help them design (<a href="#Cherubini2007">Cherubini2007</a>)
 - Tension between brainstorming and blueprints
   - The term "software engineering" was aspirational and misguided
   - Code *is* the design: the manufacturing step is cheap and can be automated
@@ -377,7 +433,7 @@ class: sidebar
   <h2>…after the fact</h2>
 </div>
 
-- The most important thing is to *look* as though you designed things (<a href="./bib.html#Parnas1986">Parnas1986</a>)
+- The most important thing is to *look* as though you designed things (<a href="#Parnas1986">Parnas1986</a>)
 - So that the next person (who might be you a year from now) can understand it
 
 ---
@@ -387,7 +443,7 @@ class: sidebar
   <h2>…after the fact</h2>
 </div>
 
-- Many designers explain architecture by recapitulating history (<a href="./bib.html#Brown2011">Brown2011</a>,<a href="./bib.html#Brown2012">Brown2012</a>)
+- Many designers explain architecture by recapitulating history (<a href="#Brown2011">Brown2011</a>,<a href="#Brown2012">Brown2012</a>)
 - Challenge and response
   - Can only understand why it does what it does by understanding the problem it was designed to solve
 
@@ -427,7 +483,7 @@ class: sidebar
 </div>
 
 - Diversity improves outcomes in fields from business to healthcare
-  (<a href="./bib.html#Gompers2018">Gompers2018</a>,<a href="./bib.html#Gomez2019">Gomez2019</a>)
+  (<a href="#Gompers2018">Gompers2018</a>,<a href="#Gomez2019">Gomez2019</a>)
   - Bouncing ideas off each other reveals flaws
 - But you should do it because *it's the right thing to do*
 
@@ -450,7 +506,7 @@ class: sidebar
 - Licensing is a design issue
   - You cannot use components whose licenses are incompatible with yours
 - A Code of Conduct people they are invited to take part in the conversation
-- Modular designs makes it easier for newcomers to contribute (<a href="./bib.html#Sholler2019">Sholler2019</a>)
+- Modular designs makes it easier for newcomers to contribute (<a href="#Sholler2019">Sholler2019</a>)
 
 ---
 
