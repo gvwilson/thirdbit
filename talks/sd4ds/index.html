@@ -256,7 +256,7 @@ class: sidebar
   <h2>…for testability</h2>
 </div>
 
-- *Legacy code* is code we're afraid to modify because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
+- We're afraid to modify *legacy code* because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
 - Comprehensive tests make us less afraid
   - But we need testable pieces in order to create tests economically
   - Brings us back to pre-and-post rather than how
@@ -306,7 +306,7 @@ class: sidebar
   <h2>…as if code was data</h2>
 </div>
 
-- Code in memory is just another data structure
+- But what's *really* cool is that code in memory is just another data structure
 - Functions as arguments
 - Functions in data structures
 - Dynamic loading
@@ -350,9 +350,6 @@ class: sidebar
   - `devtools` for R
   - Many conflicting options for JavaScript
 - Organize code and files the way your build system expects
-- Design *components*
-  - "I'm not ashamed of anything—I just don't want to share anything with you"
-  - Services with APIs
 
 ---
 
@@ -367,6 +364,9 @@ class: sidebar
   - Reporting that can be dialed up or down is really helpful in production…
   - …particularly if messages from many components are collated…
   - …*if* the messages are helpful
+- Design *components*
+  - "I'm not ashamed of anything—I just don't want to share anything with you"
+  - Services with APIs
 
 ---
 
@@ -397,11 +397,9 @@ class: sidebar
   <h2>…graphically</h2>
 </div>
 
-- Very few programmers use UML the way it was intended (<a href="#Petre2013">Petre2013</a>)
+- Very few programmers use UML the "right" way (<a href="#Petre2013">Petre2013</a>)
 - But almost all draw pictures to help them design (<a href="#Cherubini2007">Cherubini2007</a>)
-- Tension between brainstorming and blueprints
-  - The term "software engineering" was aspirational and misguided
-  - Code *is* the design: the manufacturing step is cheap and can be automated
+- Blueprints versus brainstorming
 
 ---
 
@@ -413,7 +411,7 @@ class: sidebar
 - Architecture diagrams: probably the most widely used (probably because of their informality)
 
 <div align="center">
-  <img src="architecture-diagram.png" alt="Architecture diagram" width="80%" />
+  <img src="architecture-diagram.png" alt="Architecture diagram" width="60%" />
 </div>
 
 ---
@@ -436,23 +434,10 @@ class: sidebar
   <h2>…graphically</h2>
 </div>
 
-- Class diagrams: not widely used outside textbooks
-
-<div align="center">
-  <img src="class-diagram.svg" alt="Class diagram" width="80%" />
-</div>
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
-</div>
-
 - Use case maps: actions overlaid on architecture
 
 <div align="center">
-  <img src="use-case-map.png" alt="Use case map" width="60%" />
+  <img src="use-case-map.png" alt="Use case map" width="70%" />
 </div>
 
 ---
@@ -463,15 +448,7 @@ class: sidebar
 </div>
 
 - The most important thing is to *look* as though you designed things (<a href="#Parnas1986">Parnas1986</a>)
-- So that the next person (who might be you a year from now) can understand it
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…after the fact</h2>
-</div>
-
+- So that the next person can understand it
 - Many designers explain architecture by recapitulating history (<a href="#Brown2011">Brown2011</a>,<a href="#Brown2012">Brown2012</a>)
 - Challenge and response
   - Can only understand why it does what it does by understanding the problem it was designed to solve
@@ -486,8 +463,8 @@ class: sidebar
 - Good messages in assertions serve as documentation
   - Not just "pivot index must be greater than 1" but "pivot index must be greater than 1 because the algorithm needs at least two elements below the pivot"
 - People never write this
-- And are often right not to
-  - Speculation about what detail will be needed is almost always wrong
+- And that's often the correct decision
+  - Predictions about what detail will be needed are usually wrong
   - Keeping that narrative up to date is expensive
 
 ---
