@@ -89,10 +89,40 @@
 
 - Brains use *chunks* to expand effective size of short-term memory
 - So combine things into structures
-  - A single `Point3d` instead of three separate values
+
+<hr/>
+
+```
+def enclose(x0, y0, z0, x0, y0, z0, nearness):
+    …
+```
+
+<hr/>
+
+```
+def enclose(p0, p1, nearness):
+    …
+```
+
+---
+
+<div class="split-title">
+  <p>Design…</p>
+  <h2>…for people's cognitive capacity</h2>
+</div>
+
 - Functions should be short, shallow, and single-purpose
-- *Cohesion*
-  - The Single Responsibility Principle for functions and classes
+  - Of course, no one would argue the opposite…
+- If I read a function aloud, are all the steps at the same conceptual level?
+
+```
+def main():
+    config = buildConfig(sys.argv)
+    state = initState(config)
+    while (config.currentTime < config.haltTime):
+        updateState(config, state)
+    report(config, state)
+```
 
 ---
 
@@ -100,7 +130,7 @@ class: sidebar
 
 ## Sidebar
 
-- Complex code metrics don't tell us anything more than lines of code
+- Fancy code metrics don't tell us more about effort required or fault rates than lines of code
   (<a href="#ElEmam2001">ElEmam2001</a>)
 
 ---
@@ -111,8 +141,8 @@ class: sidebar
 </div>
 
 - Experts have *design patterns* in mind when building code
-- Learning will make you a better programmer (<a href="#Tichy2010">Tichy2010</a>)
-  - But will also make your code seem more familiar to others
+- Learning them makes you a better programmer (<a href="#Tichy2010">Tichy2010</a>)
+- But also makes your code seem more familiar to others
 - Examples include:
   - "Most valuable" variable (<a href="#Byckling2005">Byckling2005</a>)
   - Nested `for` loops over 2D array
@@ -125,7 +155,7 @@ class: sidebar
   <h2>…toward widely-used abstractions</h2>
 </div>
 
-- A close miss to a pattern is worse than no pattern at all
+- A near miss is worse than no pattern at all
 
 ```
 for (i=0; i<a.width; i++) {
@@ -149,24 +179,12 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
   <h2>…toward widely-used abstractions</h2>
 </div>
 
-- And only if readers know the patterns
-- Abstraction vs. comprehension depends on how much people know in general and in specific
+- Balance of abstraction and comprehension depends on how much people know
 
 <div class="flex-row">
   <div class="flex-col"><img src="./comprehension-01.svg" alt="Novice comprehension" width="90%" /></div>
   <div class="flex-col"><img src="./comprehension-02.svg" alt="Expert comprehension" width="90%" /></div>
 </div>
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…toward widely-used abstractions</h2>
-</div>
-
-- So the best design for a double novice is different from the best designs for the other three quadrants
-
-FIXME diagram
 
 ---
 
@@ -176,7 +194,7 @@ class: sidebar
 
 - Some people say that if you need to comment your code you should have written clearer code
 - That is *expert blind spot* at work
-  - Newcomers need help building a *mental model* of the code+problem
+- Newcomers need help building a *mental model* of the code and problem
 
 ---
 
@@ -188,18 +206,8 @@ class: sidebar
 - Software changes over time because the problem changes *and* because we learn more
   - The tool shapes the hand
 - A good design makes independent evolution of parts easier
-  - Fix a bug or improve performance *here* shouldn't require changes *there*
-  - Or at least, should only require a small number of changes in limited, predictable places
-
----
-
-<div class="split-title split-first">
-  <p>Design…</p>
-  <h2>…for evolution</h2>
-</div>
-
-- Function and method names should indicate what the code does, not how it achieves that
-- `createConfiguration()` rather than `parseCommandLine()` because you might have a GUI or a configuration file tomorrow
+  - A fix *here* shouldn't require changes *there*
+  - Realistically, should only require a small number of changes in limited, predictable places
 
 ---
 
@@ -248,8 +256,8 @@ class: sidebar
   <h2>…for testability</h2>
 </div>
 
-- Legacy code is code we're afraid to modify because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
-  - Comprehensive tests make us less afraid
+- We're afraid to modify *legacy code* because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
+- Comprehensive tests make us less afraid
   - But we need testable pieces in order to create tests economically
   - Brings us back to pre-and-post rather than how
 
@@ -263,7 +271,8 @@ class: sidebar
 - You can tell how you're doing by asking:
   - How easy is it to create a *fixture*?
   - How easy is it to invoke just the behavior we want?
-  - How easy is it to check the result (and do you know what "right" is)?
+  - How easy is it to check the result?
+  - How easy is it to figure out what "right" is?
 
 ---
       
@@ -285,10 +294,10 @@ class: sidebar
   <h2>…as if code was data</h2>
 </div>
 
-- The great insight on which all of modern computing is based
-- Programs are text files that can be processed like other text files
+- The insight on which modern computing is based
+- Programs are just text files
   - Style-checking tools
-  - Embedded documentation tools (explain the difference between doc comments and docstrings)
+  - Specially-formatted comments as embedded documentation
 
 ---
 
@@ -297,12 +306,13 @@ class: sidebar
   <h2>…as if code was data</h2>
 </div>
 
-- Code in memory is just another data structure
-  - Functions as arguments
-  - Functions in data structures
-  - Dynamic loading (interface vs. implementation)
-  - Lazy evaluation in R
-  - Decorators in Python
+- But what's *really* cool is that code in memory is just another data structure
+- Functions as arguments
+- Functions in data structures
+- Dynamic loading
+  - Interface vs. implementation
+- Lazy evaluation in R
+- Decorators in Python
 
 ---
 
@@ -312,7 +322,7 @@ class: sidebar
 </div>
 
 - But see the discussion earlier of comprehension curves
-- What is powerful in the hands of experts is spooky action-at-a-distance in the eyes of novices
+- What is powerful in the hands of experts is spooky action-at-a-distance for novices
 
 ---
 
@@ -324,8 +334,9 @@ class: sidebar
 - Development operations (DevOps) has become a buzzword
   - Like "data science" or "computational thinking", the term is popular because people can use it to mean whatever they want
 - But the core idea is a good one (<a href="#Kim2016">Kim2016</a>,<a href="#Forsgren2018">Forsgren2018</a>)
-  - The code you ship is surrounded and supported by software and practices that deliver that code
-  - Investment automation pays off many times over
+  - The code you ship is surrounded and supported by software (and practices) that deliver that code
+  - Investment in automation pays off many times over
+  - *If* you design things so that they can be automated
 
 ---
 
@@ -337,11 +348,8 @@ class: sidebar
 - Use whatever *build tool* your language expects
   - `pip` or `conda` for Python
   - `devtools` for R
-  - many conflicting options for JavaScript
-- Organize files the way your build system expects
-- Use *semantic versioning* to identify releases
-  - *Not* the names of your cats in the order in which they adopted you
-- Publish your software wherever your ecosystem expects it
+  - Many conflicting options for JavaScript
+- Organize code and files the way your build system expects
 
 ---
 
@@ -356,7 +364,18 @@ class: sidebar
   - Reporting that can be dialed up or down is really helpful in production…
   - …particularly if messages from many components are collated…
   - …*if* the messages are helpful
-- Another pattern to learn and use
+- Design *components*
+  - "I'm not ashamed of anything—I just don't want to share anything with you"
+  - Services with APIs
+
+---
+
+class: sidebar
+
+<h2>Sidebar</h2>
+
+- 2005–2025: trying to get information back out of PDFs
+- 2025—???: trying to get information back out of Docker images
 
 ---
 
@@ -367,6 +386,10 @@ class: sidebar
 
 - Flowcharts are unfairly maligned (<a href="#Scanlan1989">Scanlan1989</a>)
 
+<div align="center">
+  <img src="complaint-flowchart.svg" alt="Wikimedia complaint flowchart" width="40%" />
+</div>
+
 ---
 
 <div class="split-title">
@@ -374,11 +397,22 @@ class: sidebar
   <h2>…graphically</h2>
 </div>
 
-- Very few programmers use UML the way it was intended (<a href="#Petre2013">Petre2013</a>)
+- Very few programmers use UML the "right" way (<a href="#Petre2013">Petre2013</a>)
 - But almost all draw pictures to help them design (<a href="#Cherubini2007">Cherubini2007</a>)
-- Tension between brainstorming and blueprints
-  - The term "software engineering" was aspirational and misguided
-  - Code *is* the design: the manufacturing step is cheap and can be automated
+- Blueprints versus brainstorming
+
+---
+
+<div class="split-title">
+  <p>Design…</p>
+  <h2>…graphically</h2>
+</div>
+
+- Architecture diagrams: probably the most widely used (probably because of their informality)
+
+<div align="center">
+  <img src="architecture-diagram.png" alt="Architecture diagram" width="60%" />
+</div>
 
 ---
 
@@ -389,23 +423,9 @@ class: sidebar
 
 - Entity-relationship diagrams: widely used because they are actually helpful
 
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
+<div align="center">
+  <img src="er-diagram.png" alt="Entity-relationship diagram" width="80%" />
 </div>
-
-- Class diagrams: not widely used outside textbooks because they're not
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
-</div>
-
-- Swim lane diagrams showing message exchanges: useful in their niche
 
 ---
 
@@ -414,17 +434,11 @@ class: sidebar
   <h2>…graphically</h2>
 </div>
 
-- Block-and-arrow architecture diagrams: probably the most widely used (probably because of their informality)
+- Use case maps: actions overlaid on architecture
 
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
+<div align="center">
+  <img src="use-case-map.png" alt="Use case map" width="70%" />
 </div>
-
-- Use case maps: message exchanges overlaid on architecture diagrams
-  - My favorite
 
 ---
 
@@ -434,15 +448,7 @@ class: sidebar
 </div>
 
 - The most important thing is to *look* as though you designed things (<a href="#Parnas1986">Parnas1986</a>)
-- So that the next person (who might be you a year from now) can understand it
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…after the fact</h2>
-</div>
-
+- So that the next person can understand it
 - Many designers explain architecture by recapitulating history (<a href="#Brown2011">Brown2011</a>,<a href="#Brown2012">Brown2012</a>)
 - Challenge and response
   - Can only understand why it does what it does by understanding the problem it was designed to solve
@@ -457,8 +463,8 @@ class: sidebar
 - Good messages in assertions serve as documentation
   - Not just "pivot index must be greater than 1" but "pivot index must be greater than 1 because the algorithm needs at least two elements below the pivot"
 - People never write this
-- And are often right not to
-  - Speculation about what detail will be needed is almost always wrong
+- And that's often the correct decision
+  - Predictions about what detail will be needed are usually wrong
   - Keeping that narrative up to date is expensive
 
 ---
