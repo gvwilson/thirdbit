@@ -317,10 +317,9 @@ class: sidebar
 
 ---
 
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…as if code was data</h2>
-</div>
+class: sidebar
+
+## Sidebar
 
 - But see the discussion earlier of comprehension curves
 - What is powerful in the hands of experts is spooky action-at-a-distance for novices
@@ -336,7 +335,7 @@ class: sidebar
   - Like "data science" or "computational thinking", the term is popular because people can use it to mean whatever they want
 - But the core idea is a good one (<a href="#Kim2016">Kim2016</a>,<a href="#Forsgren2018">Forsgren2018</a>)
   - The code you ship is surrounded and supported by software (and practices) that deliver that code
-  - Investment in automation pays off many times over
+- Investment in automation pays off many times over
   - *If* you design things so that they can be automated
 
 ---
@@ -362,12 +361,12 @@ class: sidebar
 - Handle errors
   - Don't just catch and discard (<a href="#Nakshatri2016">Nakshatri2016</a>)
 - Integrate logging
-  - Reporting that can be dialed up or down is really helpful in production…
-  - …particularly if messages from many components are collated…
-  - …*if* the messages are helpful
+  - A volume control is really helpful in production…
+  - …particularly if messages are collated…
+  - …but only if the messages are helpful
 - Design *components*
-  - "I'm not ashamed of anything—I just don't want to share anything with you"
   - Services with APIs
+  - "I'm not ashamed of anything—I just don't want to share anything with you"
 
 ---
 
@@ -475,12 +474,11 @@ class: sidebar
   <h2>…with villains in mind</h2>
 </div>
 
-- Privacy, security, and fairness cannot be sprinkled on after the fact
+- Fairness, privacy, and security cannot be sprinkled on after the fact
 - *Principle of Least Privilege*: what is the least information this part of the software absolutely needs to do its job?
-- Work with partial (obfuscated) personal information
-- Work with reduced permissions
+- Design to work with partial or obfuscated personal information
+- Design to work with reduced permissions
   - E.g., PostgreSQL allows select-only access to tables
-- Test with database of synthetic information so that you can check for bias
 
 ---
 
@@ -491,17 +489,7 @@ class: sidebar
 
 - Diversity improves outcomes in fields from business to healthcare
   (<a href="#Gompers2018">Gompers2018</a>,<a href="#Gomez2019">Gomez2019</a>)
-  - Bouncing ideas off each other reveals flaws
 - But you should do it because *it's the right thing to do*
-
----
-
-class: sidebar
-
-<h2>Sidebar</h2>
-
-- A vocal minority in tech claim that "diversity of thought" is equivalent to diversity of race, gender, or wealth
-- They are hypocrites, cowards, or trying so hard to be clever that they've tied their own shoes together
 
 ---
 
@@ -512,14 +500,31 @@ class: sidebar
 
 - Licensing is a design issue
   - You cannot use components whose licenses are incompatible with yours
-- A Code of Conduct people they are invited to take part in the conversation
 - Modular designs makes it easier for newcomers to contribute (<a href="#Sholler2019">Sholler2019</a>)
+- A Code of Conduct tells people they are invited to take part in the conversation
 
 ---
 
 ## Conclusion
 
-FIXME
+- This is not art
+- But it *is* beautiful
+
+<div align="center">
+  <img src="derosa.jpg" alt="bicycle" width="50%"/>
+</div>
+
+- I believe that we can make bicycles too
+
+---
+
+<div align="center">
+  <h2>Thank You</h2>
+  <p><img src="gvwilson.png" width="40%"/></p>
+  <p><a href="http://third-bit.com">Greg Wilson</a></p>
+  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+  <p><a href="http://third-bit.com/talks/sd4ds/">http://third-bit.com/talks/sd4ds/</a></p>
+</div>
 
     </textarea>
     <script src="../remark-latest.min.js">
