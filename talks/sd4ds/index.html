@@ -126,12 +126,32 @@ def enclose(p0, p1, nearness):
 - If I read a function aloud, are all the steps at the same conceptual level?
 
 ```
-def main():
-    config = buildConfig(sys.argv)
-    state = initState(config)
-    while (config.currentTime < config.haltTime):
-        updateState(config, state)
-    report(config, state)
+ def main():
+     config = buildConfig(sys.argv)
+     state = initState(config)
+     while (config.currentTime < config.haltTime):
+         updateState(config, state)
+     report(config, state)
+```
+
+---
+
+<div class="split-title">
+  <p>Design…</p>
+  <h2>…for people's cognitive capacity</h2>
+</div>
+
+- Functions should be short, shallow, and single-purpose
+  - Of course, no one would argue the opposite…
+- If I read a function aloud, are all the steps at the same conceptual level?
+
+```
+ def main():
+     config = buildConfig(sys.argv)
+     state = initState(config)
+*    while (config.currentTime < config.haltTime):
+         updateState(config, state)
+     report(config, state)
 ```
 
 ---
@@ -168,11 +188,28 @@ class: sidebar
 - A near miss is worse than no pattern at all
 
 ```
-for (i=0; i<a.width; i++) {
-    for (j=0; i<a.height; j++) {
-        a[i][j] = cos(abs(a[i][j]) - lemaitre(b_norm, a[j][i]))
-    }
-}
+ for (i=0; i<a.width; i++) {
+     for (j=0; i<a.height; j++) {
+         a[i][j] = cos(abs(a[i][j]) - lemaitre(b_norm, a[j][i]))
+     }
+ }
+```
+
+---
+
+<div class="split-title">
+  <p>Design…</p>
+  <h2>…toward widely-used abstractions</h2>
+</div>
+
+- A near miss is worse than no pattern at all
+
+```
+ for (i=0; i<a.width; i++) {
+*    for (j=0; i<a.height; j++) {
+         a[i][j] = cos(abs(a[i][j]) - lemaitre(b_norm, a[j][i]))
+     }
+ }
 ```
 
 - The eye (literally) doesn't see it
@@ -492,10 +529,35 @@ class: sidebar
 
 - Good messages in assertions serve as documentation
   - Not just "pivot index must be greater than 1" but "pivot index must be greater than 1 because the algorithm needs at least two elements below the pivot"
+
+---
+
+<div class="split-title">
+  <p>Design…</p>
+  <h2>…after the fact</h2>
+</div>
+
+- Good messages in assertions serve as documentation
+  - Not just "pivot index must be greater than 1" but "pivot index must be greater than 1 because the algorithm needs at least two elements below the pivot"
 - But people never actually write this
 - And they're right not to
   - Predictions about what detail will be needed are usually wrong
   - Keeping that narrative up to date is expensive
+
+---
+
+<div class="split-title">
+  <p>Design…</p>
+  <h2>…after the fact</h2>
+</div>
+
+- Good messages in assertions serve as documentation
+  - Not just "pivot index must be greater than 1" but "pivot index must be greater than 1 because the algorithm needs at least two elements below the pivot"
+- But people never actually write this
+- And they're right not to
+  - Predictions about what detail will be needed are usually wrong
+  - Keeping that narrative up to date is expensive
+- This is an unsolved problem
 
 ---
 
@@ -561,7 +623,9 @@ class: sidebar
     <script src="../remark-latest.min.js">
     </script>
     <script>
-      var slideshow = remark.create();
+      var slideshow = remark.create({
+        highlightLines: true
+      });
     </script>
   </body>
 </html>
