@@ -49,7 +49,8 @@ where I ran the [instructor training and certification program](http://education
 In my free time I worked on books like [*Teaching Tech Together*](http://teachtogether.tech)
 and [*JavaScript for Data Science*](http://js4ds.org)
 and helped build [TidyBlocks](http://tidyblocks.tech) and [Glosario](https://glosario.carpentries.org/).
-If you'd like to chat,
+I am now Head of Education for [Metabase](http://www.metabase.com/);
+if you'd like to chat,
 please [drop me a line](mailto:gvwilson@third-bit.com).
 
 - CV ([PDF]({{ '/cv/gvwilson.pdf' | relative_url }}), [HTML]({{ '/cv/' | relative_url }}))
