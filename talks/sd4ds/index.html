@@ -76,10 +76,19 @@
 - Short-term memory vs. long-term memory
 - You can manage 7±2 things at a time (<a href="#Miller1956">Miller1956</a>)
 - So design software to keep *cognitive load* manageable
+
+---
+
+<div class="split-title split-first">
+  <p>Design…</p>
+  <h2>…for people's cognitive capacity</h2>
+</div>
+
 - Constants are easier to remember than varying values…
   - …unless those values vary in predictable ways
 - Keep number of parameters or variables in (mental) scope at any time below this threshold
 - Pipes with strict left-to-right reading order are easier to understand than nested function calls
+- *Build framewoks that encourage this*
 
 ---
 
@@ -167,11 +176,21 @@ for (i=0; i<a.width; i++) {
 ```
 
 - The eye (literally) doesn't see it
+
+---
+
+<div class="split-title">
+  <p>Design…</p>
+  <h2>…toward widely-used abstractions</h2>
+</div>
+
 - Maximize "what's unique to this operation / boilerplate"
 
 ```
 a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 ```
+
+- *Build framewoks that encourage this*
 
 ---
 
@@ -257,7 +276,7 @@ class: sidebar
   <h2>…for testability</h2>
 </div>
 
-- We're afraid to modify *legacy code* because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
+- *Legacy code*: we're afraid to modify it because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
 - Comprehensive tests make us less afraid
   - But we need testable pieces in order to create tests economically
   - Brings us back to pre-and-post rather than how
@@ -269,11 +288,10 @@ class: sidebar
   <h2>…for testability</h2>
 </div>
 
-- You can tell how you're doing by asking:
-  - How easy is it to create a *fixture*?
-  - How easy is it to invoke just the behavior we want?
-  - How easy is it to check the result?
-  - How easy is it to figure out what "right" is?
+- How easy is it to create a *fixture*?
+- How easy is it to invoke just the behavior we want?
+- How easy is it to check the result?
+- How easy is it to figure out what "right" is?
 
 ---
       
@@ -299,6 +317,7 @@ class: sidebar
 - Programs are just text files
   - Style-checking tools
   - Specially-formatted comments as embedded documentation
+- But wait…
 
 ---
 
@@ -307,7 +326,7 @@ class: sidebar
   <h2>…as if code was data</h2>
 </div>
 
-- But what's *really* cool is that code in memory is just another data structure
+- What's *really* cool is that code in memory is just another data structure
 - Functions as arguments
 - Functions in data structures
 - Dynamic loading
@@ -387,7 +406,7 @@ class: sidebar
 - Flowcharts are unfairly maligned (<a href="#Scanlan1989">Scanlan1989</a>)
 
 <div align="center">
-  <img src="complaint-flowchart.svg" alt="Wikimedia complaint flowchart" width="40%" />
+  <img src="flowchart.svg" alt=" complaint flowchart" width="30%" />
 </div>
 
 ---
@@ -462,8 +481,8 @@ class: sidebar
 
 - Good messages in assertions serve as documentation
   - Not just "pivot index must be greater than 1" but "pivot index must be greater than 1 because the algorithm needs at least two elements below the pivot"
-- People never write this
-- And that's often the correct decision
+- But people never actually write this
+- And they're right not to
   - Predictions about what detail will be needed are usually wrong
   - Keeping that narrative up to date is expensive
 
@@ -487,6 +506,7 @@ class: sidebar
   <h2>…collaboratively and inclusively</h2>
 </div>
 
+- Many perspectives make for fewer errors
 - Diversity improves outcomes in fields from business to healthcare
   (<a href="#Gompers2018">Gompers2018</a>,<a href="#Gomez2019">Gomez2019</a>)
 - But you should do it because *it's the right thing to do*
@@ -501,7 +521,7 @@ class: sidebar
 - Licensing is a design issue
   - You cannot use components whose licenses are incompatible with yours
 - Modular designs makes it easier for newcomers to contribute (<a href="#Sholler2019">Sholler2019</a>)
-- A Code of Conduct tells people they are invited to take part in the conversation
+- Accessibility can't be sprinkled on afterward either
 
 ---
 
@@ -514,7 +534,7 @@ class: sidebar
   <img src="derosa.jpg" alt="bicycle" width="50%"/>
 </div>
 
-- I believe that we can make bicycles too
+- I believe that data scientists can make bicycles too
 
 ---
 
