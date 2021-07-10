@@ -6,23 +6,43 @@ title: "Talks"
 I am always happy to talk:
 please see [this rider]({{ '/talks/speaking/' | relative_url }}) for details
 
+## [Software Design for Data Scientists]({{ '/talks/sd4ds/' | relative_url }}) {#sd4ds}
+
+Many data scientists are self-taught programmers
+and have never been shown how to think about design in the large.
+This talk presents ten different approaches,
+each of which gives different insights.
+
+*Last updated: July 2021.*
+
+## [Software Engineering's Greatest Hits]({{ '/talks/greatest-hits/' | relative_url }}) {#software-engineering-greatest-hits}
+
+Software engineering is in the process of turning itself into an
+evidence-based research discipline. This talk describes how that is
+happening, why it matters, and a few of the more interesting,
+surprising, and controversial results to date.
+
+*Last updated: July 2021.*
+
 ## [How to Run a Meeting](https://docs.google.com/presentation/d/1HSdgVQjq0d3UYh-aA4uWHXxYYpySn_xXwfn_M4Ms8Ts/)
 
-A talk given for [CarpentryCon 2020](https://2020.carpentrycon.org/);
-[video available](https://www.youtube.com/watch?v=5f3-q9SzkeE).
+A few simple rules that can make everyone's life run a little more smoothly;
+[video available](https://www.youtube.com/watch?v=5f3-q9SzkeE)
+from [CarpentryCon 2020](https://2020.carpentrycon.org/).
+
+*Last updated: July 2020.*
 
 ## [Teaching Online on Short Notice](https://docs.google.com/presentation/d/1bp8Po8XMGCBN0Kz_kyT6V4Td-m8CCM5vW69dmkXVchU/)
 
-A webinar given for RStudio in March 2020;
+A webinar given in the early days of COVID-19;
 [video available](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/).
 
-*Last updated March 2020.*
+*Last updated: March 2020.*
 
 ## [How to Design an Effective Lesson]({{ '/talks/lesson-design/' | relative_url }}) {#lesson-design}
 
 Having tried to cram a dozen books about teaching into a two-day course,
-I have now tried to cram key ideas from that course about designing
-effective lessons into this one-hour talk.
+I have now tried to cram key ideas from that course into this one-hour talk.
 
 *Last updated January 2019; [video available](https://vimeo.com/314074539).*
 
@@ -42,16 +62,7 @@ getting people and institutions to change the way they work.
 Keynote at [CarpentryCon 2018](http://www.carpentrycon.org/) in Dublin;
 [video available](https://www.youtube.com/watch?v=7xR50ty5DZ0).
 
-*Last updated May 2018.*
-
-## [Software Engineering's Greatest Hits]({{ '/talks/greatest-hits/' | relative_url }}) {#software-engineering-greatest-hits}
-
-Software engineering is in the process of turning itself into an
-evidence-based research discipline. This talk describes how that is
-happening, why it matters, and a few of the more interesting,
-surprising, and controversial results to date.
-
-*Last updated: March 2021.*
+*Last updated: May 2018.*
 
 ## [Not in the Calendar]({{ '/talks/not-in-the-calendar/' | relative_url }})
 
