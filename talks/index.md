@@ -26,18 +26,15 @@ surprising, and controversial results to date.
 
 ## [How to Run a Meeting](https://docs.google.com/presentation/d/1HSdgVQjq0d3UYh-aA4uWHXxYYpySn_xXwfn_M4Ms8Ts/)
 
-A few simple rules that can make everyone's life run a little more smoothly;
-[video available](https://www.youtube.com/watch?v=5f3-q9SzkeE)
-from [CarpentryCon 2020](https://2020.carpentrycon.org/).
+A few simple rules that can make everyone's life run a little more smoothly.
 
-*Last updated: July 2020.*
+*Last updated: July 2020; [video available](https://www.youtube.com/watch?v=5f3-q9SzkeE).*
 
 ## [Teaching Online on Short Notice](https://docs.google.com/presentation/d/1bp8Po8XMGCBN0Kz_kyT6V4Td-m8CCM5vW69dmkXVchU/)
 
-A webinar given in the early days of COVID-19;
-[video available](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/).
+A webinar given in the early days of COVID-19.
 
-*Last updated: March 2020.*
+*Last updated: March 2020; [video available](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/).*
 
 ## [How to Design an Effective Lesson]({{ '/talks/lesson-design/' | relative_url }}) {#lesson-design}
 
