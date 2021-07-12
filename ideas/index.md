@@ -10,10 +10,11 @@ and you already have too much on the go.
 Here's mine.
 
 -   [What I Would Build If I Still Wrote Software](#what-i-would-build-if-i-still-wrote-software)
--   [What I Would Do If I Still Did Research](#what-i-would-do-if-i-still-did-research)
+-   [What I Would Study If I Still Did Research](#what-i-would-study-if-i-still-did-research)
+-   [What I Would Write If I Had a Year](#what-i-would-write-if-i-had-a-year)
 -   [What I Would Write If I Was Smarter Than I Am](#what-i-would-write-if-i-was-smarter-than-i-am)
--   [What Else I Would Write](#what-else-i-would-write)
 -   [What I Would Organize If I Still Organized Things](#what-i-would-organize-if-i-still-organized-things)
+-   [What Else I Would Like](#what-else-i-would-like)
 
 ## What I Would Build If I Still Wrote Software
 
@@ -26,7 +27,7 @@ Here's mine.
     instead of C, ASCII strings, and standard I/O.
     Mary Rose Cook's [Gitlet][gitlet] is a beautiful example of what this might look like;
     I want to do the same thing for ESLint, NPM, and the like in order to teach software architecture.
-    *Current status: under way.*
+    *Current status: in draft---see [Software Tools in JavaScript](https://stjs.tech/).*
 
 **A blocks-based tool for data science.**
 :   [Scratch][scratch] is the most effective tool we have for teaching programming to newcomers of all ages
@@ -79,7 +80,7 @@ Here's mine.
     and I am *so* done with writing Makefiles to run LaTeX two or three times
     to update numbered cross-references.
 
-## What I Would Do If I Still Did Research
+## What I Would Study If I Still Did Research
 
 I never had the patience or diligence to be a good researcher,
 but I still have lots of questions that I would like answered.
@@ -158,6 +159,58 @@ but I still have lots of questions that I would like answered.
     This would allow us to gauge how fair systems are without having to define fairness,
     in the same way that the Turing Test does for intelligence.
 
+## What I Would Write If I Had A Year
+
+Are some programming languages easier for novices to pick up than others? Does test-driven development produce higher-quality code in less time? Is there any truth behind the "10X programmer" meme? And if a team has limited resources for testing, what should they focus on? Empirical research has answers to all of these questions and more, but most programmers don't know that research exists. As a result, many continue to use inefficient or insecure practices when better alternatives exist.
+
+I would like teach basic data science to programmers, then get them to use their new knowledge and skills to understand analyses of what makes software engineers more effective.  This show-don't-tell approach would ensure that what they learn actually sticks, and give them the tools they need to start analyzing and improving their own work. More specifically, I would like to create lessons suitable for self-study, industry training, and classroom use that would:
+
+1. introduce key data science concepts so that learners can understand the methods and claims of empirical studies;
+
+2. teach them how to reproduce (scaled-down versions of) key results using Python and freely-available datasets; and
+
+3. present and discuss those key results and others.
+
+All of the material would published with a Creative Commons license to enable extension and translation. I would work with instructors in both academia and industry to ensure that the material is relevant, approachable, and actually adopted. Once the material stabilized it would be published as a book.
+
+### FAQ
+
+How long will this take?
+:   I believe a minimum viable set of lessons can be ready to test in six months, and the first release can be ready six months after that.
+
+What do you need?
+:   Funding for one person for 12 months to build, try out, and proselytize the lessons; funding for a graduate-level researcher for 6 months to study the use and impact of these lessons would help a lot too.
+
+What are your qualifications for doing this?
+:   [Software Carpentry][carpentries], a non-profit I founded in 2010 to teach programming skills to researchers, has delivered several thousand workshops worldwide to over 80,000 people; the books I organized and edited on [software architecture][aosa] and [empirical software engineering research][making-software] have been read by tens of thousands of people; I received the ACM SIGSOFT Influential Educator of the Year Award in 2020; and I have extensive contacts in both academia and industry.
+
+Why can't you do this on your own time?
+:   I tried: it was going to be next after *[Teaching Tech Together][t3]*, *[Software Tools in JavaScript][stjs]*, and *[Building Software Together][bst]*. What I found while prototyping is that the material requires so much more unbroken concentration that I don't think I will complete it as an evening-and-weekend project.
+
+Why are you teaching data science rather than just summarizing published results?
+:   The average computer science student does a lot less data analysis in college than the average biologist or economist, so most programmers don't have the background needed to understand what's actually being claimed or the evidence for it. If we're going to reach the majority we need to give them a foundation; presenting this as "let's teach you the Python you need to wrangle data" seems most likely to hook them.
+
+Why are you teaching data science when there are so many good free courses already?
+:   People learn best if the examples are drawn from their domain: people in finance want finance examples, people in pharma want pharma data, etc., so we should use software engineering data to introduce statistical thinking to programmers. Generic courses will reach the 5-15% of programmers who are just generally interested in learning new things, but I'd like to go wider than that.
+
+What data science will these lessons cover?
+:   Data cleaning, reproducible analysis, significance testing, linear regression, clustering, and classic visualization will be enough for people to follow and evaluate the overviews that follow. This material is necessary because many programmers have no statistical training and need to be introduced to the software tools used later.
+
+What research findings will be covered?
+:   The questions raised in the opening paragraph will definitely be addressed; other topics will be prioritized by polling an advisory group to find out what's most likely to appeal to the target audience, and based on what datasets researchers are willing to share. A few favorites include showing that the distribution of error messages follow Zipf's Law, Altadmri & Brown's work on the mistakes novices make (and the fact that their teachers mis-predict common errors), Xu et al's work on how infrequently used most configuration options are, Nakshatri et al's demonstration that exceptions are mostly ignored, and Zeller et al's "IROP" study.
+
+What tools will be used for practical examples?
+:   We will use the scientific Python stack, primarily because the average programmer is more likely to have encountered Python than R, Julia, or other data science languages.
+
+Will these lessons cover qualitative methods as well as quantitative ones?
+:   They should---learners should be aware of the unique insights that qualitative methods can produce---but it will depend on whether compelling exercises can be created.
+
+Do you think people will actually read it?
+:   Yes: something that bills itself as "data science for software engineers using software engineering examples" is going to strike a lot of chords, as will "here's what we actually know about building better software faster".
+
+Who else has tried to do this?
+:   *[Facts and Fallacies of Software Engineering][facts-fallacies]*, *[Rapid Development][rapid-development]*, *[Making Software][making-software]*, and *[Accelerate][accelerate]* have presented empirical evidence about software development in one form or another (and have all sold pretty well). *[Empirical Software Engineering using R][eseur]* is more recent and more comprehensive, but is too dense for our target audience.
+
 ## What I Would Write If I Was Smarter Than I Am
 
 Everything above is less important than what I would write if I was smarter than I am.
@@ -229,74 +282,6 @@ But more importantly, please read:
 1. Richard Wilkinson and Kate Pickett: *[The Spirit Level][spirit-level]*.
    An evidence-based exploration of how and why greater equality is better for everyone.
 
-I would also like:
-
-**R for Data Engineers**
-:   I found R confusing upon first encountering it after four decades of C,
-    Java, and Python.  I slowly realized that R's rules are no more confusing or
-    contradictory than those of other programming languages; They only appear so
-    because R draws on a tradition unfamiliar to those of us raised with
-    derivatives of C.  Counting from one, copying data rather than modifying it,
-    lazy evaluation: to quote Terry Pratchett, these are not mad, just
-    differently sane. This book is an introduction to the language and its use
-    for people who are coming from a computer science background, and who need
-    to integrate R with their other tools. *Status: [in progress][tidynomicon].*
-
-**Data Science for Software Engineers**
-:   Programmers frequently make claims about software development practices,
-    the relative merits of different languages,
-    and the causes of bias in the tech sector,
-    but most programmers are never taught how to find, analyze, and interpret evidence on those topics.
-    This book would be an introduction to data science
-    using software engineering questions and data to motivate common statistical tools and methods.
-    It would assume readers can write short Python programs and remember some college-level mathematics,
-    and would cover data tidying and visualization,
-    descriptive statistics,
-    modeling,
-    and reproducible research practices,
-    then use those tools to explore key findings from empirical software engineering research.
-
-**A Catalog of Errors**
-:   Most programmers spend a large part of their time debugging,
-    but most books only show working code,
-    and never discuss how to prevent, diagnose, and fix errors.
-    [Most](http://www.amazon.com/Debugging-Indispensable-Software-Hardware-Problems/dp/0814474578/)
-    [books](http://www.amazon.com/Debugging-Thinking-Multidisciplinary-Approach-Technologies/dp/1555583075/)
-    [ostensibly](http://www.amazon.com/Debug-It-Prevent-Pragmatic-Programmers/dp/193435628X/)
-    [about](http://www.amazon.com/The-Developers-Guide-Debugging-Edition/dp/1470185520/)
-    [debugging](http://www.amazon.com/The-Art-Debugging-GDB-Eclipse/dp/1593271743/)
-    are high-level handwaving,
-    user guides for particular debugging tools,
-    or [out of date](http://www.amazon.com/Find-Bug-Book-Incorrect-Programs/dp/0321223918/);
-    the [one notable exception](http://www.amazon.com/Why-Programs-Fail-Second-Edition/dp/0123745152/)
-    is an excellent read,
-    but too advanced for most undergraduates.
-    This book would fill that gap by combining an exploration of how debugging tools actually work
-    with dozens of case studies showing how to apply them to real-world problems.
-    Along the way,
-    it would present examples of what programmers can do to handle errors gracefully,
-    from data structure repair to automatically restarting servers.
-
-**The Undergraduate Operator's Manual**
-:   What effect does pulling an all-nighter have on the quality of your work?
-    How do people absorb and retain knowledge?
-    What are some good ways to run a project meeting,
-    and how can you get people to actually pull their weight?
-    Every undergraduate has to deal with these issues and a hundred others,
-    but most of the time,
-    they are expected to rediscover or reinvent methods themselves.
-    This textbook for a one-semester course would put solutions in one place,
-    and by doing so teach a lot about physiology, psychology, and organizational behavior.
-
-**Computing and the Law: A Guide for the Perplexed**
-:   The legal aspects of software have always been complicated;
-    the web has done nothing to make them simpler.
-    This book would help programmers understand the rules they have to live with
-    by tracing the historical development of patents, copyrights, privacy, and professional liability
-    from the Industrial Revolution to the present day.
-    Aimed squarely at people with no prior exposure to legal terminology,
-    it would explain concepts clearly and provides examples for each.
-
 ## What I Would Organize If I Still Organized Things
 
 Because "better" never happens on its own.
@@ -338,7 +323,7 @@ and the participants themselves:
 -   How to be a good ally (e.g., [Aurora's workshop on ally skills][ally-skills])
     so that they can use their power and influence to support people who are targets of discrimination.
 
--   Personal digital security (e.g., [the Electronic Frontier Foundation's training materials][security]),
+-   [Personal digital security][security],
     because online harassment is unfortunately now a fact of life,
     and people in visible roles need to safeguard themselves against it.
 
@@ -439,30 +424,81 @@ to school boards and city councils and professional societies.
 Creationists, gunaholics, fossil fuel addicts, and anti-choicers have been doing it for many years to great effect;
 do we really care so much less about our issues that we're not willing to do it too?
 
+## What Else I Would Like
+
+I'd like to write these, but I'd be just as happy to read 'em...
+
+**R for Data Engineers**
+:   I found R confusing upon first encountering it after four decades of C,
+    Java, and Python.  I slowly realized that R's rules are no more confusing or
+    contradictory than those of other programming languages; They only appear so
+    because R draws on a tradition unfamiliar to those of us raised with
+    derivatives of C.  Counting from one, copying data rather than modifying it,
+    lazy evaluation: to quote Terry Pratchett, these are not mad, just
+    differently sane. This book is an introduction to the language and its use
+    for people who are coming from a computer science background, and who need
+    to integrate R with their other tools. *Status: [on hold][tidynomicon].*
+
+**A Catalog of Errors**
+:   Most programmers spend a large part of their time debugging,
+    but most books only show working code,
+    and never discuss how to prevent, diagnose, and fix errors.
+    [Most](http://www.amazon.com/Debugging-Indispensable-Software-Hardware-Problems/dp/0814474578/)
+    [books](http://www.amazon.com/Debugging-Thinking-Multidisciplinary-Approach-Technologies/dp/1555583075/)
+    [ostensibly](http://www.amazon.com/Debug-It-Prevent-Pragmatic-Programmers/dp/193435628X/)
+    [about](http://www.amazon.com/The-Developers-Guide-Debugging-Edition/dp/1470185520/)
+    [debugging](http://www.amazon.com/The-Art-Debugging-GDB-Eclipse/dp/1593271743/)
+    are high-level handwaving,
+    user guides for particular debugging tools,
+    or [out of date](http://www.amazon.com/Find-Bug-Book-Incorrect-Programs/dp/0321223918/);
+    the [one notable exception](http://www.amazon.com/Why-Programs-Fail-Second-Edition/dp/0123745152/)
+    is an excellent read,
+    but too advanced for most undergraduates.
+    This book would fill that gap by combining an exploration of how debugging tools actually work
+    with dozens of case studies showing how to apply them to real-world problems.
+    Along the way,
+    it would present examples of what programmers can do to handle errors gracefully,
+    from data structure repair to automatically restarting servers.
+
+**Computing and the Law: A Guide for the Perplexed**
+:   The legal aspects of software have always been complicated;
+    the web has done nothing to make them simpler.
+    This book would help programmers understand the rules they have to live with
+    by tracing the historical development of patents, copyrights, privacy, and professional liability
+    from the Industrial Revolution to the present day.
+    Aimed squarely at people with no prior exposure to legal terminology,
+    it would explain concepts clearly and provides examples for each.
+
 [aaas-program]: https://www.aaas.org/programs/community-engagement-fellows
+[accelerate]: https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339/
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
 [bpco]: https://isbndb.com/book/0977151808
+[bst]: https://buildtogether.tech/
 [carpentries-training]: https://carpentries.github.io/instructor-training/
+[carpentries]: https://carpentries.org/
 [cognitive-load]: http://teachtogether.tech/en/index.html#s:architecture-load
+[economics-everyone]: https://isbndb.com/book/9780745335773
+[eseur]: http://www.knosof.co.uk/ESEUR/
+[facts-fallacies]: https://www.amazon.com/Facts-Fallacies-Software-Engineering-Robert/dp/0321117425/
 [fearless-change]: https://fearlesschangepatterns.com/
+[flyover]: https://isbndb.com/book/9781250189998
 [github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
 [gitlet]: http://gitlet.maryrosecook.com/
 [harper]: https://github.com/gvwilson/harper
+[humanizing-economy]: https://www.newsociety.com/Books/H/Humanizing-the-Economy
+[lower-ed]: https://isbndb.com/book/9781620974384
+[making-software]: https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/
 [marketing-for-scientists]: https://islandpress.org/books/marketing-scientists
+[owning-earth]: https://isbndb.com/book/9781620402917
+[peoples-walmart]: https://www.versobooks.com/books/2822-the-people-s-republic-of-walmart
+[rapid-development]: https://www.amazon.com/Rapid-Development-Taming-Software-Schedules/dp/1556159005/
 [raw-signal]: https://www.rawsignal.ca/
 [scratch]: https://scratch.mit.edu/
-[security]: https://sec.eff.org/
+[security]: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008563
+[seeing-like-state]: https://isbndb.com/book/9780300078152
+[spirit-level]: https://isbndb.com/book/9781608193417
 [stjs]: https://stjs.tech/
 [t3]: http://teachtogether.tech
 [tidyblocks]: https://tidyblocks.tech/
 [tidynomicon]: https://tidynomicon.github.io/tidynomicon/
-
-[lower-ed]: https://isbndb.com/book/9781620974384
-[flyover]: https://isbndb.com/book/9781250189998
-[owning-earth]: https://isbndb.com/book/9781620402917
-[peoples-walmart]: https://www.versobooks.com/books/2822-the-people-s-republic-of-walmart
-[humanizing-economy]: https://www.newsociety.com/Books/H/Humanizing-the-Economy
-[seeing-like-state]: https://isbndb.com/book/9780300078152
-[economics-everyone]: https://isbndb.com/book/9780745335773
 [twitter-tear-gas]: https://isbndb.com/book/9780300234176
-[spirit-level]: https://isbndb.com/book/9781608193417
