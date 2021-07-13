@@ -3,33 +3,30 @@ title: "Ideas"
 layout: page
 ---
 
-The most effective productivity strategy I ever learned was
-to keep a "to don't" list of things that would be fun and worthwhile
-but which you are *not* going to do because life is too short
+Someday I hope I'll have a chance to tackle one of these projects---I think
+they would all be fun to do and would make the world a better place:
+
+- [Software Engineering: An Evidence-Based Approach]({{'/ideas/seeba/' | relative_url}})
+- [Building Software Together]({{'/ideas/bst/' | relative_url}})
+- [Leadership Skills for Open Science]({{'/ideas/leadership/' | relative_url}})
+
+I'd like to do a lot of other things as well,
+but the best productivity tip I ever got
+was to keep a "to don't" list of
+things that you are *not* going to do
+because life is too short
 and you already have too much on the go.
-Here's mine.
+Here's mine:
 
 -   [What I Would Build If I Still Wrote Software](#what-i-would-build-if-i-still-wrote-software)
 -   [What I Would Study If I Still Did Research](#what-i-would-study-if-i-still-did-research)
--   [What I Would Write If I Had a Year](#what-i-would-write-if-i-had-a-year)
 -   [What I Would Write If I Was Smarter Than I Am](#what-i-would-write-if-i-was-smarter-than-i-am)
 -   [What I Would Organize If I Still Organized Things](#what-i-would-organize-if-i-still-organized-things)
 -   [What Else I Would Like](#what-else-i-would-like)
 
 ## What I Would Build If I Still Wrote Software
 
-**Tutorial implementations of common software tools.**
-:   *[Software Tools](http://www.amazon.com/Software-Tools-Brian-W-Kernighan/dp/020103669X/)*
-    and [its sequel](http://www.amazon.com/Software-Tools-Pascal-Brian-Kernighan/dp/0201103427/)
-    taught my generation how to design software
-    by showing us how to create small versions of the very tools we were using.
-    The goal of *[Software Tools in JavaScript][stjs]* is to do the same thing with JavaScript, JSON, and HTTP
-    instead of C, ASCII strings, and standard I/O.
-    Mary Rose Cook's [Gitlet][gitlet] is a beautiful example of what this might look like;
-    I want to do the same thing for ESLint, NPM, and the like in order to teach software architecture.
-    *Current status: in draft---see [Software Tools in JavaScript](https://stjs.tech/).*
-
-**A blocks-based tool for data science.**
+   **A blocks-based tool for data science.**
 :   [Scratch][scratch] is the most effective tool we have for teaching programming to newcomers of all ages
     because it reduces [cognitive load][cognitive-load] on learners.
     [TidyBlocks][tidyblocks] is an attempt to replicate its success for data science;
@@ -42,10 +39,7 @@ Here's mine.
 :   Instead of building yet another repository for lessons or trying to get people to use a single template,
     it would probably be more useful to
     [aggregate metadata about the lessons they already have][harper].
-
-**A computational notebook for blocks-based programming.**
-:   R Markdown, Stencila, and the Jupyter notebook are great ways to tell dynamic stories with and about code.
-    I'd really like a notebook whose code sections were built with blocks rather than text.
+    *Current status: never started.*
 
 **A computational notebook that includes a drawing tool.**
 :   And while we're at it, the workflow for putting hand-drawn (vector) diagrams into notebooks is pretty clumsy.
@@ -54,6 +48,8 @@ Here's mine.
     just like I can in Word or Google Doc.
     There are several good open source JavaScript vector drawing tools out there,
     and the SVG could either be embedded in the notebook document or stored in a side file.
+    *Current status: there are drawing plugins for the Jupyter notebook,
+    but none seem to be under active development.*
 
 **Diff and merge for SVG and CSV.**
 :   And while we're talking about drawing,
@@ -159,58 +155,6 @@ but I still have lots of questions that I would like answered.
     This would allow us to gauge how fair systems are without having to define fairness,
     in the same way that the Turing Test does for intelligence.
 
-## What I Would Write If I Had A Year
-
-Are some programming languages easier for novices to pick up than others? Does test-driven development produce higher-quality code in less time? Is there any truth behind the "10X programmer" meme? And if a team has limited resources for testing, what should they focus on? Empirical research has answers to all of these questions and more, but most programmers don't know that research exists. As a result, many continue to use inefficient or insecure practices when better alternatives exist.
-
-I would like teach basic data science to programmers, then get them to use their new knowledge and skills to understand analyses of what makes software engineers more effective.  This show-don't-tell approach would ensure that what they learn actually sticks, and give them the tools they need to start analyzing and improving their own work. More specifically, I would like to create lessons suitable for self-study, industry training, and classroom use that would:
-
-1. introduce key data science concepts so that learners can understand the methods and claims of empirical studies;
-
-2. teach them how to reproduce (scaled-down versions of) key results using Python and freely-available datasets; and
-
-3. present and discuss those key results and others.
-
-All of the material would published with a Creative Commons license to enable extension and translation. I would work with instructors in both academia and industry to ensure that the material is relevant, approachable, and actually adopted. Once the material stabilized it would be published as a book.
-
-### FAQ
-
-How long will this take?
-:   I believe a minimum viable set of lessons can be ready to test in six months, and the first release can be ready six months after that.
-
-What do you need?
-:   Funding for one person for 12 months to build, try out, and proselytize the lessons; funding for a graduate-level researcher for 6 months to study the use and impact of these lessons would help a lot too.
-
-What are your qualifications for doing this?
-:   [Software Carpentry][carpentries], a non-profit I founded in 2010 to teach programming skills to researchers, has delivered several thousand workshops worldwide to over 80,000 people; the books I organized and edited on [software architecture][aosa] and [empirical software engineering research][making-software] have been read by tens of thousands of people; I received the ACM SIGSOFT Influential Educator of the Year Award in 2020; and I have extensive contacts in both academia and industry.
-
-Why can't you do this on your own time?
-:   I tried: it was going to be next after *[Teaching Tech Together][t3]*, *[Software Tools in JavaScript][stjs]*, and *[Building Software Together][bst]*. What I found while prototyping is that the material requires so much more unbroken concentration that I don't think I will complete it as an evening-and-weekend project.
-
-Why are you teaching data science rather than just summarizing published results?
-:   The average computer science student does a lot less data analysis in college than the average biologist or economist, so most programmers don't have the background needed to understand what's actually being claimed or the evidence for it. If we're going to reach the majority we need to give them a foundation; presenting this as "let's teach you the Python you need to wrangle data" seems most likely to hook them.
-
-Why are you teaching data science when there are so many good free courses already?
-:   People learn best if the examples are drawn from their domain: people in finance want finance examples, people in pharma want pharma data, etc., so we should use software engineering data to introduce statistical thinking to programmers. Generic courses will reach the 5-15% of programmers who are just generally interested in learning new things, but I'd like to go wider than that.
-
-What data science will these lessons cover?
-:   Data cleaning, reproducible analysis, significance testing, linear regression, clustering, and classic visualization will be enough for people to follow and evaluate the overviews that follow. This material is necessary because many programmers have no statistical training and need to be introduced to the software tools used later.
-
-What research findings will be covered?
-:   The questions raised in the opening paragraph will definitely be addressed; other topics will be prioritized by polling an advisory group to find out what's most likely to appeal to the target audience, and based on what datasets researchers are willing to share. A few favorites include showing that the distribution of error messages follow Zipf's Law, Altadmri & Brown's work on the mistakes novices make (and the fact that their teachers mis-predict common errors), Xu et al's work on how infrequently used most configuration options are, Nakshatri et al's demonstration that exceptions are mostly ignored, and Zeller et al's "IROP" study.
-
-What tools will be used for practical examples?
-:   We will use the scientific Python stack, primarily because the average programmer is more likely to have encountered Python than R, Julia, or other data science languages.
-
-Will these lessons cover qualitative methods as well as quantitative ones?
-:   They should---learners should be aware of the unique insights that qualitative methods can produce---but it will depend on whether compelling exercises can be created.
-
-Do you think people will actually read it?
-:   Yes: something that bills itself as "data science for software engineers using software engineering examples" is going to strike a lot of chords, as will "here's what we actually know about building better software faster".
-
-Who else has tried to do this?
-:   *[Facts and Fallacies of Software Engineering][facts-fallacies]*, *[Rapid Development][rapid-development]*, *[Making Software][making-software]*, and *[Accelerate][accelerate]* have presented empirical evidence about software development in one form or another (and have all sold pretty well). *[Empirical Software Engineering using R][eseur]* is more recent and more comprehensive, but is too dense for our target audience.
-
 ## What I Would Write If I Was Smarter Than I Am
 
 Everything above is less important than what I would write if I was smarter than I am.
@@ -230,7 +174,8 @@ Why do Americans keep shooting one another?
 And why is Boris Johnson?
 
 Lots of books give cogent answers to these questions
-that draw on alternatives to the *Freakonomics* view of the world---my favorites are [listed here]({{ '/reading/' | relative_url }}).
+that draw on alternatives to the *Freakonomics* view of the world---my
+favorites are [listed here]({{ '/reading/' | relative_url }}).
 But asking a programmer who has never done a civics course
 to read nine thousand pages about something they're not yet sure is real
 is functionally equivalent to telling them to piss off.
@@ -282,148 +227,6 @@ But more importantly, please read:
 1. Richard Wilkinson and Kate Pickett: *[The Spirit Level][spirit-level]*.
    An evidence-based exploration of how and why greater equality is better for everyone.
 
-## What I Would Organize If I Still Organized Things
-
-Because "better" never happens on its own.
-
-### Background
-
-Many people in open communities have technical knowledge, enthusiasm, and good intentions,
-but no experience engineering structural change in organizations.
-Pushing through changes to the curriculum,
-nurturing a user group that can sustain itself,
-and removing bias from hiring practices
-all require skills that most scientists and programmers have never learned.
-Fortunately, we do not have to invent these skills ourselves:
-many groups before us have made the kinds of changes we now seek
-and can teach us how to be more effective.
-
-### Proposal
-
-We propose a four-day workshop.
-In the first three days,
-participants rotate through six half-day training sessions;
-on the final day they work in small groups to plan their next steps.
-The topics listed below give the flavor of the workshop topics;
-the final list would be put together in consultation with community leaders
-and the participants themselves:
-
--   Strategies for institutional change (e.g., Manns & Rising's *[Fearless Change][fearless-change]*)
-    to give people a toolbox for acting on what they know.
-
--   Community organization (e.g., Brown's *[Building Powerful Community Organizations][bpco]*),
-    which lays out the steps needed to build an effective grassroots organization.
-
--   Marketing (e.g., based on Kuchner's *[Marketing for Scientists][marketing-for-scientists]*)
-    so that people learn how to match what they want with what decision makers think they need.
-
--   Leadership skills (e.g., the [Raw Signal Group][raw-signal]'s training)
-    so that they can get people pulling in the same direction.
-
--   How to be a good ally (e.g., [Aurora's workshop on ally skills][ally-skills])
-    so that they can use their power and influence to support people who are targets of discrimination.
-
--   [Personal digital security][security],
-    because online harassment is unfortunately now a fact of life,
-    and people in visible roles need to safeguard themselves against it.
-
-Participants would be selected based on:
-
-1.  A previously-demonstrated commitment to inclusive open communities.
-2.  Career stage: we would give preference to people who are likely to be able to act on what they learn
-    in the 1-2 years following the workshop.
-3.  Reach: we would give preference to people who live and work outside existing hotbeds of open activity.
-
-### Benefits
-
-Many people share a vision of a better kind of open:
-one that is inclusive *and* effective.
-The more skills they have for organizing and leading,
-the sooner that vision will be realized.
-
-### Budget
-
-1.  Each instructor would teach for half a day (either morning or afternoon)
-    and have the other half of the day off
-    for three consecutive days.
-2.  Each class would have 20 participants at a time,
-    so the entire workshop would have 60 participants.
-3.  The budget assumes $6,000 for 3 days of training plus $2,000 in expenses per instructor.
-4.  Most organizing will be done by volunteers,
-    but the budget includes 20 days of paid support staff time as well.
-5.  Participants will be charged $500
-    and will be required to cover their own travel and accommodation costs
-    as well as breakfast and dinner.
-6.  One third of participants will be offered partial financial support
-    and will not be charged registration.
-
-<table class="table table-striped">
-<tr>
-  <td><strong>Item</strong></td>
-  <td align="right"><strong>Each</strong></td>
-  <td align="right"><strong>Number</strong></td>
-  <td align="right"><strong>Total</strong></td>
-</tr>
-<tr>
-  <td>Venue (per day)</td>
-  <td align="right">$1,500</td>
-  <td align="right">4</td>
-  <td align="right">$6,000</td>
-</tr>
-<tr>
-  <td>Instructors</td>
-  <td align="right">$8,000</td>
-  <td align="right">6</td>
-  <td align="right">$48,000</td>
-</tr>
-<tr>
-  <td>Lunch/snacks (per person per day)</td>
-  <td align="right">$30</td>
-  <td align="right">4 &times; 60</td>
-  <td align="right">$7,200</td>
-</tr>
-<tr>
-  <td>Support/admin staff (per day)</td>
-  <td align="right">$500</td>
-  <td align="right">20</td>
-  <td align="right">$10,000</td>
-</tr>
-<tr>
-  <td>Travel scholarships</td>
-  <td align="right">$800</td>
-  <td align="right">20</td>
-  <td align="right">$16,000</td>
-</tr>
-<tr>
-  <td><em>Registration fee (per person)</em></td>
-  <td align="right"><em>- $500</em></td>
-  <td align="right">40</td>
-  <td align="right"><em>- $20,000</em></td>
-</tr>
-<tr>
-  <td colspan="3"><strong>Total</strong></td>
-  <td align="right"><strong>$67,200</strong></td>
-</tr>
-</table>
-
-I think a workshop like this is a logical and necessary follow-on
-to things like [the Carpentries' instructor training][carpentries-training]
-and the [AAAS community engagement program][aaas-program].
-Almost without exception,
-we think and act as if we're always going to be outside the room where decisions are made,
-waving our placards or trying to get someone's attention long enough to explain that better is possible
-and we're already built it
-and could they please give it a try.
-If we truly want a better world,
-we need to be *inside* the room when the vote is called.
-
-Training like this is,
-I believe,
-a necessary step toward getting advocates of openness elected
-to school boards and city councils and professional societies.
-Creationists, gunaholics, fossil fuel addicts, and anti-choicers have been doing it for many years to great effect;
-do we really care so much less about our issues that we're not willing to do it too?
-
 ## What Else I Would Like
 
 I'd like to write these, but I'd be just as happy to read 'em...
@@ -469,36 +272,18 @@ I'd like to write these, but I'd be just as happy to read 'em...
     Aimed squarely at people with no prior exposure to legal terminology,
     it would explain concepts clearly and provides examples for each.
 
-[aaas-program]: https://www.aaas.org/programs/community-engagement-fellows
-[accelerate]: https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339/
-[ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
-[bpco]: https://isbndb.com/book/0977151808
-[bst]: https://buildtogether.tech/
-[carpentries-training]: https://carpentries.github.io/instructor-training/
-[carpentries]: https://carpentries.org/
 [cognitive-load]: http://teachtogether.tech/en/index.html#s:architecture-load
 [economics-everyone]: https://isbndb.com/book/9780745335773
-[eseur]: http://www.knosof.co.uk/ESEUR/
-[facts-fallacies]: https://www.amazon.com/Facts-Fallacies-Software-Engineering-Robert/dp/0321117425/
-[fearless-change]: https://fearlesschangepatterns.com/
 [flyover]: https://isbndb.com/book/9781250189998
 [github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
-[gitlet]: http://gitlet.maryrosecook.com/
 [harper]: https://github.com/gvwilson/harper
 [humanizing-economy]: https://www.newsociety.com/Books/H/Humanizing-the-Economy
 [lower-ed]: https://isbndb.com/book/9781620974384
-[making-software]: https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/
-[marketing-for-scientists]: https://islandpress.org/books/marketing-scientists
 [owning-earth]: https://isbndb.com/book/9781620402917
 [peoples-walmart]: https://www.versobooks.com/books/2822-the-people-s-republic-of-walmart
-[rapid-development]: https://www.amazon.com/Rapid-Development-Taming-Software-Schedules/dp/1556159005/
-[raw-signal]: https://www.rawsignal.ca/
 [scratch]: https://scratch.mit.edu/
-[security]: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008563
 [seeing-like-state]: https://isbndb.com/book/9780300078152
 [spirit-level]: https://isbndb.com/book/9781608193417
-[stjs]: https://stjs.tech/
-[t3]: http://teachtogether.tech
 [tidyblocks]: https://tidyblocks.tech/
 [tidynomicon]: https://tidynomicon.github.io/tidynomicon/
 [twitter-tear-gas]: https://isbndb.com/book/9780300234176
