@@ -10,13 +10,75 @@
 
 <div align="center" style="padding-top: 2rem;">
   <h1>Software Engineering's Greatest Hits</h1>
+  <p><strong>what we actually know about software development<br/>and why we believe it's true</strong></p>
   <p><img src="./codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
-  <h2>Greg Wilson</h2>
-  <p><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></p>
+  <h4>Greg Wilson</h4>
+  <p><small><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></small></p>
   <p><img src="../img/cc-by.svg" width="20%" alt="CC-BY" /></p>
 </div>
 ---
+<div class="split-title">
+  <h2>In the Beginning</h2>
+</div>
+  <div align="center">
+    <img src="ships.jpg" alt="Sailing ships"/>
+  </div>
 
+  - Seven Years' War (actually lasted nine years)
+  - British lost 1512 sailors to enemy action…
+  - …and almost 100,000 to scurvy
+</div>
+---
+name: james-lind
+<div class="split-title">
+  <h2>Irony</h2>
+</div>
+<div class="flex-row">
+  <div class="flex-col" width="30%">
+    <img src="james-lind.jpg" alt="James Lind"/>
+  </div>
+  <div class="flex-col">
+    <ul>
+      <li>James Lind (1716–94)</li>
+      <li>1747: first controlled medical experiment</li>
+    </ul>
+    <table>
+      <tr>
+	<td>cider</td>
+	<td>sea water</td>
+      </tr>
+      <tr>
+	<td>vitriol</td>
+	<td>vinegar</td>
+      </tr>
+      <tr>
+	<td>barley water</td>
+	<td>oranges</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+---
+
+template: james-lind
+
+- Those given oranges survived
+- Admiralty ignored the result until 1794
+---
+name: doctors
+<div class="split-title">
+  <h2>It Took a While</h2>
+</div>
+
+<img src="doctors.jpg" alt="Doctors" />
+
+- 1950: Hill & Doll publish a case-control study comparing smokers with non-smokers
+- Found that smoking causes lung cancer…
+---
+template: doctors
+- …and that many people would rather fail than change
+---
 name: introduction
 <div class="split-title">
   <h2>Is Software Engineering?</h2>
@@ -43,7 +105,7 @@ template: introduction
 </p>
 
 - We know a lot about software and how it's built
-- But students aren't taught methods or results
+- But students aren't taught methods or results in school
 - And we're all too busy to learn them later
 
 ---
@@ -52,7 +114,7 @@ template: introduction
   <h2>We Can Do Better</h2>
 </div>
 
-- Steady growth over 30 years of empirical studies
+- Steady growth of empirical studies over 30 years
 - Fueled in part by data from open source projects
 - Many studies are small, and not all are well done
 - But we can refute some myths and reveal new insights
@@ -63,18 +125,22 @@ template: introduction
 
 ---
 
+name: stefik-1
+
 <div class="split-title">
   <h2>Are Some Languages Better Than Others?</h2>
 </div>
 
 <a href="#Stefik2013">Stefik</a>: "An Empirical Investigation into Programming Language Syntax"
 
-- First studied compared learnability of
+- Measured how easily novices could read:
   - Perl
   - Quorum: the language their team is building
   - Randomo: syntax "designed" by rolling D&D dice
-- Perl is as hard for novices to learn as a language with a randomly-designed syntax
+---
 
+template: stefik-1
+- Perl is as hard for novices to learn as a language with a randomly-designed syntax
 ---
 
 <div class="split-title">
@@ -83,7 +149,7 @@ template: introduction
 - Second study
   - More subjects
   - Multiple assessment strategies
-- Languages in the C family are as hard to learn as a randomly-designed language
+- Languages in the C family are as hard for novices to learn to read as a randomly-designed language
 - Ruby and Python are significantly easier
 - Quorum is easier still
 
@@ -103,6 +169,8 @@ template: introduction
 
 ---
 
+name: altadmri-1
+
 <div class="split-title">
   <h2>Nobody Knows Anything</h2>
 </div>
@@ -112,12 +180,9 @@ Most common actual errors are:
 - Mis-matched parentheses (*not* confusing `=` with `==`)
 - Invoking methods with the wrong arguments
 - Reaching end of non-`void` method without `return`
-
 ---
 
-<div class="split-title">
-  <h2>Nobody Knows Anything</h2>
-</div>
+template: altadmri-1
 
 The three that take the most time to fix are:
 
@@ -133,7 +198,7 @@ The three that take the most time to fix are:
 
 <a href="#Shull2010">Shull2010</a>: "How Effective is Test-Driven Development?"
 
-> [e]vidence from controlled experiments suggests an
+> …evidence from controlled experiments suggests an
 > improvement in productivity when TDD is used.
 > However…pilot studies provide mixed evidence, some in
 > favor of and others against TDD. In the industrial
@@ -144,6 +209,8 @@ The three that take the most time to fix are:
 
 ---
 
+name: fucci-1
+
 <div class="split-title">
   <h2>Let's Talk About Test-Driven Development</h2>
 </div>
@@ -152,35 +219,32 @@ The three that take the most time to fix are:
 
 - Replication study, 39 professionals, real projects
 - No significant difference between test-first and test-last development
+---
+
+template: fucci-1
+name: fucci-2
 - "The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."
-
 ---
 
-<div class="split-title">
-  <h2>Let's Talk About Test-Driven Development</h2>
-</div>
-
+template: fucci-2
 > I practice TDD…and it works great. We don't need to prove that it works anymore.
-
 ---
+
+name: metrics-1
 
 <div class="split-title">
   <h2>Code Metrics</h2>
 </div>
+
 - Lots of code metrics have been proposed
   - Halstead's measures
-  - Cyclometric complexity
+  - Cyclomatic complexity
   - Many object-oriented measures
-
 ---
-
-<div class="split-title">
-  <h2>Code Metrics</h2>
-</div>
+template: metrics-1
 - But nothing works better than counting lines of code
   - <a href="#ElEmam2001">ElEmam2001</a>: "Confounding Effects of Class Size on the Validity of Object-Oriented Metrics"
   - <a href="#Herraiz2010">Herraiz2010</a>: "Beyond Lines of Code: Do We Need More Complexity Metrics?"
-
 ---
 
 <div class="split-title">
@@ -190,9 +254,19 @@ The three that take the most time to fix are:
 <a href="#Yuan2014">Yuan2014</a>: "Simple Testing Can Prevent Most Critical Failures: An Analysis of Production Failures in Distributed Data-Intensive Systems"
 
 - 198 randomly selected, user-reported failures on Cassandra, Hadoop MapReduce, etc.
-- Almost all failures require ≤3 nodes to reproduce
-- Error logs typically contain sufficient data to reproduce
-- *Majority of catastrophic failures could easily have been prevented by performing simple testing on error handling code*
+- Majority of catastrophic failures could easily have been prevented by performing simple testing on error handling code
+---
+
+<div class="split-title">
+  <h2>Check Your Error Handling</h2>
+</div>
+
+<a href="#Nakshatri2016">Nakshatri2016</a>: "Analysis of Exception Handling Patterns in Java Projects: An Empirical Study"
+
+- Most common `catch` block logs the error rather than trying to recover from it
+- Next most common does nothing at all (20% of cases)
+  - Or converts the checked exception into an unchecked one so it can be ignored.
+- Most programmers simply catch `Exception` (78%) or `Throwable` (84%) rather than their subclasses
 
 ---
 
@@ -233,6 +307,8 @@ The three that take the most time to fix are:
 <div align="center">
   <img src="productivity.svg" />
 </div>
+
+---
 
 <div class="split-title">
   <h2>Productivity</h2>
@@ -322,30 +398,85 @@ class: sidebar
   <h2>A Few Random Results</h2>
 </div>
 
+<a href="#Xu2015">Xu2015</a>: developers create a lot more configuration options than people use
+
+-   Only 6.1%-16.7% of parameters set by majority of users
+-   54.1% of parameters are rarely set by *any* user
+-   Only 1.8%-7.8% of parameters are configured by more than 90% of users
+-   Up to 48.5% of config issues are about difficulty finding or setting parameters
+-   Up to 53.3% of config errors are due to users' staying with default values incorrectly
+-   Searching user manuals by keywords is not efficient to help users identify parameters
+
+---
+
+<div class="split-title">
+  <h2>A Few Random Results</h2>
+</div>
+
 - Major benefit of pair programming is transfer of problem-specific knowledge (<a href="#Zieris2020">Zieris2020</a>)
 - Only 7% of hackathon projects have any activity after 6 months (<a href="#McIntosh2021">McIntosh2021</a>)
 - Use of code review bots increases the number of merged PRs but decreases inter-programmer communication (<a href="#Wessel2020">Wessel2020</a>)
 - Community smells lead to code smells (<a href="#Palomba2018">Palomba2018</a>)
 
 ---
-name: rule-the-world
+
+name: how-1
+
 <div class="split-title">
-  <h2>When I Rule the World</h2>
+  <h2>What Hasn't Worked?</h2>
 </div>
 
-- Software engineering assignments will look like this:
+- People have tried explaining all of this before
+
+<table>
+  <td width="30%"><img src="./rapid-development.jpg" width="80%" /></td>
+  <td width="30%"><img src="./facts-fallacies.jpg" width="80%" /></td>
+  <td width="30%"><img src="./making-software.jpg" width="80%" /></td>
+</table>
+---
+
+template: how-1
+
+<table>
+  <td width="60%" valign="top"><ul><li>In several different formats</li></ul></td>
+  <td valign="top"><img src="./nwit.png" width="80%" /></td>
+</table>
+
+---
+name: proposal
+<div class="split-title">
+  <h2>What Might?</h2>
+</div>
+
+- Start with a little data science
+  - Using software engineering datasets (because people learn best when examples are relevant)
+  - And Python (because computer science students will probably already know it)
+  - Academically defensible ("Look, math!")
+  - And attractive to students
+---
+
+template: proposal
+- Then replicate a few simple results
+  - <a href="#Fucci2016">Fucci2016</a>, <a href="#Prechelt2000">Prechelt2000</a>, etc.
+- Then survey other results
+  - At this point, students will be able to understand and assess the claims
+
+---
+name: assignment
+<div class="split-title">
+  <h2>When We're Done</h2>
+</div>
+
+Assignment #3
 
 > Given version control repositories for six software
 > projects, determine whether long functions are
 > more likely to be buggy than short ones.
-
 ---
-template: rule-the-world
-          
-- Fits into existing curriculum
-- Culturally defensible
+template: assignment
+
 - Requires tool use, model building, and statistics
-- Encourages students to *do* science
+- Require students to *do* science
   - So they *understand* it
   - So they *value* it
 
@@ -435,6 +566,12 @@ Barton Miller, Mengxiao Zhang, and Elisa Heymann:
   <h2>Bibliography</h2>
 </div>
 
+<p id="Nakshatri2016" class="bibliography"><span class="bibliographykey">Nakshatri2016</span>
+Suman Nakshatri, Maithri Hegde, and Sahithi Thandra:
+"<a href="https://doi.org/10.1145/2901739.2903499">Analysis of exception handling patterns in Java projects</a>".
+<em>Proceedings of the 13th International Conference on Mining Software Repositories</em>, <a class="doi" href="https://doi.org/10.1145/2901739.2903499">10.1145/2901739.2903499</a>.
+</p>
+
 <p id="Palomba2021" class="bibliography"><span class="bibliographykey">Palomba2021</span>
 Fabio Palomba, Damian Andrew Tamburri, Francesca Arcelli Fontana, Rocco Oliveto, Andy Zaidman, and Alexander Serebrenik:
 "<a href="https://doi.org/10.1109/tse.2018.2883603">Beyond Technical Aspects: How Do Community Smells Influence the Intensity of Code Smells?</a>".
@@ -480,17 +617,23 @@ Andy Oram and Greg Wilson (eds.):
 O'Reilly, 2010, 0596808321.
 </p>
 
+---
+
+<div class="split-title">
+  <h2>Bibliography</h2>
+</div>
+
 <p id="Wessel2020" class="bibliography"><span class="bibliographykey">Wessel2020</span>
 Mairieli Wessel, Alexander Serebrenik, Igor Wiese, Igor Steinmacher, and Marco A. Gerosa:
 "<a href="https://doi.org/10.1109/icsme46990.2020.00011">Effects of Adopting Code Review Bots on Pull Requests to OSS Projects</a>".
 <em>ICSME'20</em>, <a class="doi" href="https://doi.org/10.1109/icsme46990.2020.00011">10.1109/icsme46990.2020.00011</a>.
 </p>
 
----
-
-<div class="split-title">
-  <h2>Bibliography</h2>
-</div>
+<p id="Xu2015" class="bibliography"><span class="bibliographykey">Xu2015</span>
+Tianyin Xu, Long Jin, Xuepeng Fan, Yuanyuan Zhou, Shankar Pasupathy, and Rukma Talwadker:
+"<a href="https://doi.org/10.1145/2786805.2786852">Hey,  you have given me too many knobs!: understanding and dealing with over-designed configuration in system software</a>".
+<em>Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering</em>, <a class="doi" href="https://doi.org/10.1145/2786805.2786852">10.1145/2786805.2786852</a>.
+</p>
 
 <p id="Yuan2014" class="bibliography"><span class="bibliographykey">Yuan2014</span>
 Ding Yuan, Yu Luo, Xin Zhuang, Guilherme Renna Rodrigues, Xu Zhao, Yongle Zhang, Pranay U. Jain, and Michael Stumm:
