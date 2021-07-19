@@ -4,7 +4,7 @@ date: 2021-07-17
 year: 2021
 ---
 
-I have just posted a [30-minute video of my talk "Software Engineering's Greatest Hits"](https://www.youtube.com/watch?v=HrVtA-ue-x0).
+I have just posted a [30-minute video of my talk "Software Engineering's Greatest Hits"][video].
 In brief:
 software engineering researchers have learned a lot over the last 50 years,
 but most working programmers don't even know that knowledge exists.
@@ -27,3 +27,5 @@ Related:
 - [slides]({{'/talks/greatest-hits/' | relative_url}})
 - [Thoughts from a Not-So-Influential Educator]({{'/2020/07/09/acm-sigsoft-award/' | relative_url}})
 - [Exaptation and the Future of Software Engineering]({{'/2015/11/28/exaptation/' | relative_url}})
+
+[video]: https://www.youtube.com/watch?v=HrVtA-ue-x0
