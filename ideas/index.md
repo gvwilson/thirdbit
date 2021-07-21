@@ -21,7 +21,6 @@ Here's mine:
 -   [What I Would Build If I Still Wrote Software](#what-i-would-build-if-i-still-wrote-software)
 -   [What I Would Study If I Still Did Research](#what-i-would-study-if-i-still-did-research)
 -   [What I Would Write If I Was Smarter Than I Am](#what-i-would-write-if-i-was-smarter-than-i-am)
--   [What I Would Organize If I Still Organized Things](#what-i-would-organize-if-i-still-organized-things)
 -   [What Else I Would Like](#what-else-i-would-like)
 
 ## What I Would Build If I Still Wrote Software
