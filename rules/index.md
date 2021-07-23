@@ -447,7 +447,7 @@ See *[Teaching Tech Together][t3]* for a much longer discussion.
 
 ## Supervising Undergraduate Software Projects
 
-See *[Building Tech Together][btt]* for a much longer discussion.
+See *[Building Software Together][bst]* for a much longer discussion.
 
 1.  Insist that they adopt a code of conduct for team members.
     Tell them how to report violations and how reports will be handled.
@@ -485,5 +485,5 @@ See *[Building Tech Together][btt]* for a much longer discussion.
     however small,
     because shared pain is lessened and shared joy increased.
 
-[btt]: https://buildtogether.tech/
+[bst]: https://buildtogether.tech/
 [t3]: https://teachtogether.tech/
