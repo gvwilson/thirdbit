@@ -254,6 +254,7 @@ class: sidebar
 - Some people say that if you need to comment your code you should have written clearer code
 - That is *expert blind spot* at work
 - Newcomers need help building a *mental model* of the code and problem
+- And everyone needs the "why" that code alone doesn't capture
 
 ---
 
@@ -292,6 +293,14 @@ class: sidebar
 
 - Liskov Substitution Principle (<a href="#Liskov1994">Liskov1994</a>):
   it should always be possible to replace the general thing with a specific thing without breaking
+
+---
+
+<div class="split-title">
+  <p>Design…</p>
+  <h2>…for evolution</h2>
+</div>
+
 - Design by contract (<a href="#Meyer1994">Meyer1994</a>) extends this idea through time
   - *Pre-conditions* can be weakened (take input the earlier implementation wouldn't)
   - *Post-conditions* can be strengthened (produce a subset of the earlier implementation's output)
@@ -334,6 +343,18 @@ class: sidebar
 - How easy is it to delete the feature?
 
 ---
+
+class: sidebar
+
+<h2>Sidebar</h2>
+
+- Test-driven development (TDD) is the practice of writing the tests
+  *before* writing the code
+- Multiple studies have shown that it doesn't actually improve productivity
+  (<a href="#Fucci2016">Fucci2016</a>, <a href="#Krueger2020">Krueger2020</a>)
+- But alternating rapidly between testing and coding seems to
+
+---
       
 <div class="split-title">
   <p>Design…</p>
@@ -366,7 +387,12 @@ class: sidebar
   <h2>…as if code was data</h2>
 </div>
 
-- What's *really* cool is that code in memory is just another data structure
+<div align="center">
+  <h3>
+    Code in memory is just another data structure
+  </h3>
+</div>
+
 - Functions as arguments
 - Functions in data structures
 - Dynamic loading
@@ -539,9 +565,8 @@ name: after-the-fact-1
 template: after-the-fact-1
 name: after-the-fact-2
 - But people never actually write this
-- And they're right not to
-  - Predictions about what detail will be needed are usually wrong
-  - Keeping that narrative up to date is expensive
+- Because predictions about what detail will be needed are usually wrong
+- And keeping that narrative up to date is expensive
 - This is an unsolved problem
 
 ---
@@ -668,16 +693,16 @@ Martin Fowler:
 Addison-Wesley Professional, 2018, 978-0134757599.
 </p>
 
+<p id="Fucci2016" class="bibliography"><span class="bibliographykey">Fucci2016</span>
+Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo:
+"<a href="https://doi.org/10.1145/2961111.2962592">An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach</a>".
+<em>ESEM'16</em>, <a class="doi" href="https://doi.org/10.1145/2961111.2962592">10.1145/2961111.2962592</a>.
+</p>
+
 <p id="Gomez2019" class="bibliography"><span class="bibliographykey">Gomez2019</span>
 L.E. Gomez and Patrick Bernet:
 "<a href="https://doi.org/10.1016/j.jnma.2019.01.006">Diversity improves performance and outcomes</a>".
 <em>Journal of the National Medical Association</em>, 111(4), 2019, <a class="doi" href="https://doi.org/10.1016/j.jnma.2019.01.006">10.1016/j.jnma.2019.01.006</a>.
-</p>
-
-<p id="Gompers2018" class="bibliography"><span class="bibliographykey">Gompers2018</span>
-Paul Gompers and Silpa Kovvali:
-"The Other Diversity Dividend".
-<em>Harvard Business Review</em>, 96(4), 2018.
 </p>
 
 ---
@@ -685,6 +710,12 @@ Paul Gompers and Silpa Kovvali:
 <div class="split-title">
 <h2>Bibliography</h2>
 </div>
+
+<p id="Gompers2018" class="bibliography"><span class="bibliographykey">Gompers2018</span>
+Paul Gompers and Silpa Kovvali:
+"The Other Diversity Dividend".
+<em>Harvard Business Review</em>, 96(4), 2018.
+</p>
 
 <p id="Kerievsky2004" class="bibliography"><span class="bibliographykey">Kerievsky2004</span>
 Joshua Kerievsky:
@@ -696,6 +727,12 @@ Addison-Wesley Professional, 2004, 978-0321213358.
 Gene Kim, Patrick Debois, John Willis, and Jez Humble:
 <em>The DevOps Handbook</em>.
 IT Revolution Press, 2016, 978-1942788003.
+</p>
+
+<p id="Krueger2020" class="bibliography"><span class="bibliographykey">Krueger2020</span>
+Ryan Krueger, Yu Huang, Xinyu Liu, Tyler Santander, Westley Weimer, and Kevin Leach:
+"<a href="https://doi.org/10.1145/3377811.3380348">Neurological divide</a>".
+<em>Proceedings of the ACM/IEEE 42nd International Conference on Software Engineering</em>, <a class="doi" href="https://doi.org/10.1145/3377811.3380348">10.1145/3377811.3380348</a>.
 </p>
 
 <p id="Liskov1994" class="bibliography"><span class="bibliographykey">Liskov1994</span>
@@ -734,6 +771,12 @@ David A. Scanlan:
 <em>IEEE Software</em>, 6(5), 1989, <a class="doi" href="https://doi.org/10.1109/52.35587">10.1109/52.35587</a>.
 </p>
 
+---
+
+<div class="split-title">
+<h2>Bibliography</h2>
+</div>
+
 <p id="Schon1984" class="bibliography"><span class="bibliographykey">Schon1984</span>
 Donald A. Schon:
 <em>The Reflective Practitioner: How Professionals Think in Action</em>.
@@ -745,12 +788,6 @@ Dan Sholler, Igor Steinmacher, Denae Ford, Mara Averick, Mike Hoye, and Greg Wil
 "Ten simple rules for helping newcomers become contributors to open projects".
 <em>PLOS Computational Biology</em>, 15(9), 2019, <a class="doi" href="https://doi.org/10.1371/journal.pcbi.1007296">10.1371/journal.pcbi.1007296</a>.
 </p>
-
----
-
-<div class="split-title">
-<h2>Bibliography</h2>
-</div>
 
 <p id="Tichy2010" class="bibliography"><span class="bibliographykey">Tichy2010</span>
 Walter Tichy:
