@@ -20,9 +20,8 @@ while doing post-doctoral work at several universities
 and working at IBM, a data visualization startup, and Los Alamos National Laboratory.
 I became involved in open source development, particularly Python,
 and started playing the saxophone and Ultimate frisbee (though not simultaneously).
-From 2000 to 2004 I was part of a computer security startup
-that was eventually acquired by Hewlett-Packard
-and a contributing editor with *Doctor Dobb's Journal*.
+From 2000 to 2004 I was a contributing editor with *Doctor Dobb's Journal*
+and part of a computer security startup that was eventually acquired by Hewlett-Packard.
 I also published my first children's book and met the woman I'm married to,
 and in 2007 we became the happy parents of a wonderful little troublemaker.
 
@@ -36,7 +35,7 @@ won a Jolt Award in 2008).
 
 I left academia in 2010
 and spent the next seven years building [Software Carpentry](https://carpentries.org) into
-a worldwide volunteer organization that helps thousands of researchers every year.
+a worldwide volunteer organization that teaches basic computing skills to thousands of researchers every year.
 Somewhere in there I found time to edit
 [a book on evidence-based software engineering](http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/)
 and a multi-volume series called [*The Architecture of Open Source Applications*](http://aosabook.org).
@@ -46,8 +45,9 @@ who I'm proud to say [fired me in 2018](https://www.buzzfeednews.com/article/dav
 
 Most recently I spent two and a half years in the Education group at [RStudio](http://rstudio.com),
 where I ran the [instructor training and certification program](http://education.rstudio.com/trainers).
-In my free time I worked on books like [*Teaching Tech Together*](http://teachtogether.tech)
-and [*JavaScript for Data Science*](http://js4ds.org)
+In my free time I worked on books like [*Teaching Tech Together*](http://teachtogether.tech),
+[*JavaScript for Data Science*](http://js4ds.org),
+and [*Research Software Engineering with Python*](https://merely-useful.tech/py-rse/),
 and helped build [TidyBlocks](http://tidyblocks.tech) and [Glosario](https://glosario.carpentries.org/).
 I am now Head of Education for [Metabase](http://www.metabase.com/);
 if you'd like to chat,
