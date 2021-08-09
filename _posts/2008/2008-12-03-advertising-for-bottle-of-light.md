@@ -1,5 +1,5 @@
 ---
-title: "Advertising for &quot;Bottle of Light&quot;"
+title: "Advertising for "Bottle of Light""
 date: 2008-12-03 09:28:15
 year: 2008
 ---
