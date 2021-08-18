@@ -29,7 +29,7 @@ I was a professor in [Computer Science](http://web.cs.toronto.edu/)
 at the [University of Toronto](http://www.utoronto.ca) from 2007 to 2010,
 during which time I helped create a [Master's degree in Applied Computing](https://mscac.utoronto.ca/),
 was named ComputerWorld Canada's "IT Educator of the Year",
-and wrote some more books
+and published some more books
 (one of which, [*Beautiful Code*](http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/),
 won a Jolt Award in 2008).
 
