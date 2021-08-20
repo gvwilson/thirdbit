@@ -21,7 +21,7 @@ I think about it every time I stub my mind on questions like:
     Why isn't there a Comprehensive Learning Archive Network (CLAN)?
     I recognize that [the Reusability Paradox](http://opencontent.org/docs/paradox.html)
     would make the lessons in CLAN less immediately useful than the libraries in CRAN,
-    but we could still do a lot to [make lessons more discoverable](https://github.com/gvwilson/harper).
+    but we could still do a lot to [make lessons more discoverable][harper].
 
 -   So far as I've been able to determine,
     no computer science department at a major Canadian university
@@ -41,3 +41,5 @@ Somewhere out there---but not here.
 <div align="center">
 <img src="{{ '/files/2021/twilight-zone.jpg' | relative_url }}" alt="Twilight Zone logo" />
 </div>
+
+[harper]: {{'/ideas/harper/' | relative_url}}

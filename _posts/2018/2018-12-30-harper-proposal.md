@@ -7,7 +7,7 @@ title: "Harper: Lesson Discovery and Aggregation"
 After feedback from several people,
 I have updated the proposal for a lesson discovery and aggregation system
 (now called "Harper")
-and put it in [its own page]({{site.github.url}}/harper/).
+and put it in [its own page]({{'/ideas/harper/' | relative_url}}).
 The key differences between this version and earlier ones are:
 
 1.  This version is much shorter.
@@ -19,7 +19,7 @@ The key differences between this version and earlier ones are:
     please see [these][twelve-percent] [three][thirteen-percent] [posts][fourteen-percent].
 
 If you can spare 15 minutes,
-please have a look at [the sample `lesson.md` file]({{site.github.url}}/harper/#s:proposal)
+please have a look at the lesson discovery file in the proposal
 and let me know what you think:
 
 -   Would you write one?
@@ -28,12 +28,6 @@ and let me know what you think:
     (This is probably the most important question.)
 -   Is there anything you absolutely, positively need as an instructor that isn't included in this proposal?
 -   Is there anything you believe is unworkable (such as inferring prerequisites from terms that are used but not defined)?
-
-I'm grateful to [everyone who has given feedback]({{site.github.url}}/harper/#s:acknowledgments),
-and to Peter Quill for show us that
-[you only need twelve percent of a plan][guardians-video] to save the galaxy.
-Comments on [the proposal page]({{site.github.url}}/harper) (not here)
-or [email to me](mailto:gvwilson@third-bit.com) would be greatly appreciated.
 
 [guardians-video]: https://www.youtube.com/watch?v=XC8qrH3Zwog
 [twelve-percent]: {{site.github.url}}/2018/12/12/twelve-percent.html

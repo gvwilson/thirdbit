@@ -9,6 +9,7 @@ they would all be fun to do and would make the world a better place:
 - [Software Engineering: An Evidence-Based Approach]({{'/ideas/seeba/' | relative_url}})
 - [Building Software Together]({{'/ideas/bst/' | relative_url}})
 - [Leadership Skills for Open Science]({{'/ideas/leadership/' | relative_url}})
+- [Harper-Lite: Simple Lesson Discovery and Aggregation]({{'/ideas/harper/' | relative_url}})
 
 I'd like to do a lot of other things as well,
 but the best productivity tip I ever got

@@ -138,7 +138,7 @@ so please [send me ideas by email](mailto:gvwilson@third-bit.com).)
 [dublin-core]: http://dublincore.org/
 [good-enough]: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510#sec014
 [happy-git]: https://happygitwithr.com/
-[harper]: https://github.com/gvwilson/harper
+[harper]: {{'/ideas/harper/' | relative_url}}
 [kerb-cuts]: https://medium.com/@mosaicofminds/the-curb-cut-effect-how-making-public-spaces-accessible-to-people-with-disabilities-helps-everyone-d69f24c58785
 [scorm]: https://scorm.com/
 [t3-objectives]: http://teachtogether.tech/en/process/#s:process-objectives

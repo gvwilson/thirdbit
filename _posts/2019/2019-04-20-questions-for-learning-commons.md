@@ -150,7 +150,7 @@ and I don't have one.
 [coursesource]: https://www.coursesource.org/
 [diagnose]: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006915#sec009
 [engage-cs]: https://www.engage-csedu.org/
-[harper]: https://github.com/gvwilson/harper
+[harper]: {{'/ideas/harper/' | relative_url}}
 [hypothesis]: https://web.hypothes.is/
 [jose]: https://jose.theoj.org/
 [newcomers]: https://github.com/gvwilson/10-newcomers
