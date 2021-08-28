@@ -69,8 +69,31 @@
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…for people's cognitive capacity</h2>
+  <h2>1. Design after the fact</h2>
+</div>
+
+- The most important thing is to *look* as though you designed things (<a href="#Parnas1986">Parnas1986</a>)
+- So that the next person can understand it
+- Many designers explain architecture by recapitulating history (<a href="#Brown2011">Brown2011</a>,<a href="#Brown2012">Brown2012</a>)
+- Challenge and response
+  - Can only understand why it does what it does by understanding the problem it was designed to solve
+
+---
+      
+<div class="split-title">
+  <h2>1. Design after the fact</h2>
+</div>
+
+- *Refactoring* is the process of reorganizing or rewriting code without changing behavior
+  - By which we mean "high-level behavior" because of course if you look closely enough...
+- <a href="#Fowler2018">Fowler2018</a> describes common refactoring moves for code
+- These do to code what tidying steps in a data pipeline do to data (<a href="#Wickham2017">Wickham2017</a>):
+  move it toward well-understood forms (<a href="#Kerievsky2004">Kerievsky2004</a>)
+
+---
+
+<div class="split-title">
+  <h2>2. Design for people's cognitive capacity</h2>
 </div>
 
 - Short-term memory vs. long-term memory
@@ -80,8 +103,7 @@
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…for people's cognitive capacity</h2>
+  <h2>2. Design for people's cognitive capacity</h2>
 </div>
 
 - Constants are easier to remember than varying values…
@@ -93,8 +115,93 @@
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…for people's cognitive capacity</h2>
+  <h2>3. Design in coherent levels</h2>
+</div>
+
+- Functions should be short, shallow, and single-purpose
+  - Of course, no one would argue the opposite…
+- If I read a function aloud, are all the steps at the same conceptual level?
+
+```
+ def main():
+     config = buildConfig(sys.argv)
+     state = initState(config)
+     while (config.currentTime < config.haltTime):
+         updateState(config, state)
+     report(config, state)
+```
+
+---
+
+<div class="split-title">
+  <h2>3. Design in coherent levels</h2>
+</div>
+
+- Functions should be short, shallow, and single-purpose
+  - Of course, no one would argue the opposite…
+- If I read a function aloud, are all the steps at the same conceptual level?
+
+```
+ def main():
+     config = buildConfig(sys.argv)
+     state = initState(config)
+*    while (config.currentTime < config.haltTime):
+         updateState(config, state)
+     report(config, state)
+```
+
+---
+
+<div class="split-title">
+  <h2>4. Design for evolution</h2>
+</div>
+
+- Software changes over time because the problem changes *and* because we learn more
+  - The tool shapes the hand
+- A good design makes independent evolution of parts easier
+  - A fix *here* shouldn't require changes *there*
+  - Realistically, should only require a small number of changes in limited, predictable places
+
+---
+
+<div class="split-title">
+  <h2>4. Design for evolution</h2>
+</div>
+
+- Key ideas are *information hiding* and *loose coupling*
+- Which manifest as *interface vs. implementation*
+  - Many of the more advanced features of programming languages exist to check this
+- Examples
+  - Deriving classes
+  - Polymorphic functions
+  - Explicit interfaces or traits
+
+---
+
+<div class="split-title">
+  <h2>4. Design for evolution</h2>
+</div>
+
+- Design by contract (<a href="#Meyer1994">Meyer1994</a>) extends this idea through time
+  - *Pre-conditions* can be weakened (take input the earlier implementation wouldn't)
+  - *Post-conditions* can be strengthened (produce a subset of the earlier implementation's output)
+  - Can be used to define and verify tests
+
+---
+
+class: sidebar
+
+<h2>Sidebar</h2>
+
+- <a href="#Schon1984">Schon1984</a> and others have found that
+  experts jump between levels looking for concrete refutations of plans as soon as possible
+- Depth-first design is therefore a good strategy *if* you write the hard parts first
+  - Which most of us avoid
+
+---
+
+<div class="split-title">
+  <h2>5. Group related information together</h2>
 </div>
 
 - Brains use *chunks* to expand effective size of short-term memory
@@ -117,48 +224,7 @@ def enclose(p0, p1, nearness):
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…for people's cognitive capacity</h2>
-</div>
-
-- Functions should be short, shallow, and single-purpose
-  - Of course, no one would argue the opposite…
-- If I read a function aloud, are all the steps at the same conceptual level?
-
-```
- def main():
-     config = buildConfig(sys.argv)
-     state = initState(config)
-     while (config.currentTime < config.haltTime):
-         updateState(config, state)
-     report(config, state)
-```
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…for people's cognitive capacity</h2>
-</div>
-
-- Functions should be short, shallow, and single-purpose
-  - Of course, no one would argue the opposite…
-- If I read a function aloud, are all the steps at the same conceptual level?
-
-```
- def main():
-     config = buildConfig(sys.argv)
-     state = initState(config)
-*    while (config.currentTime < config.haltTime):
-         updateState(config, state)
-     report(config, state)
-```
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…toward widely-used abstractions</h2>
+  <h2>6. Use common patterns</h2>
 </div>
 
 - Experts have *design patterns* in mind when building code
@@ -172,8 +238,7 @@ def enclose(p0, p1, nearness):
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…toward widely-used abstractions</h2>
+  <h2>6. Use common patterns</h2>
 </div>
 
 - A near miss is worse than no pattern at all
@@ -189,8 +254,7 @@ def enclose(p0, p1, nearness):
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…toward widely-used abstractions</h2>
+  <h2>6. Use common patterns</h2>
 </div>
 
 - A near miss is worse than no pattern at all
@@ -208,8 +272,7 @@ def enclose(p0, p1, nearness):
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…toward widely-used abstractions</h2>
+  <h2>6. Use common patterns</h2>
 </div>
 
 - Maximize "what's unique to this operation / boilerplate"
@@ -223,8 +286,7 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…toward widely-used abstractions</h2>
+  <h2>6. Use common patterns</h2>
 </div>
 
 - Balance of abstraction and comprehension depends on how much people know
@@ -237,8 +299,7 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…toward widely-used abstractions</h2>
+  <h2>6. Use common patterns</h2>
 </div>
 
 <div align="center">
@@ -257,71 +318,9 @@ class: sidebar
 - And everyone needs the "why" that code alone doesn't capture
 
 ---
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…for evolution</h2>
-</div>
-
-- Software changes over time because the problem changes *and* because we learn more
-  - The tool shapes the hand
-- A good design makes independent evolution of parts easier
-  - A fix *here* shouldn't require changes *there*
-  - Realistically, should only require a small number of changes in limited, predictable places
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…for evolution</h2>
-</div>
-
-- Key ideas are *information hiding* and *loose coupling*
-- Which manifest as *interface vs. implementation*
-  - Many of the more advanced features of programming languages exist to check this
-- Examples
-  - Deriving classes
-  - Polymorphic functions
-  - Explicit interfaces or traits
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…for evolution</h2>
-</div>
-
-- Liskov Substitution Principle (<a href="#Liskov1994">Liskov1994</a>):
-  it should always be possible to replace the general thing with a specific thing without breaking
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…for evolution</h2>
-</div>
-
-- Design by contract (<a href="#Meyer1994">Meyer1994</a>) extends this idea through time
-  - *Pre-conditions* can be weakened (take input the earlier implementation wouldn't)
-  - *Post-conditions* can be strengthened (produce a subset of the earlier implementation's output)
-  - Can be used to define and verify tests
-
----
-
-class: sidebar
-
-<h2>Sidebar</h2>
-
-- <a href="#Schon1984">Schon1984</a> and others have found that
-  experts jump between levels looking for concrete refutations of plans as soon as possible
-- Depth-first design is therefore a good strategy *if* you write the hard parts first
-  - Which most of us avoid
-
----
       
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…for testability</h2>
+  <h2>7. Design for testability</h2>
 </div>
 
 - *Legacy code*: we're afraid to modify it because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
@@ -332,8 +331,7 @@ class: sidebar
 ---
       
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…for testability</h2>
+  <h2>7. Design for testability</h2>
 </div>
 
 - How easy is it to create a *fixture*?
@@ -355,23 +353,9 @@ class: sidebar
 - But alternating rapidly between testing and coding seems to
 
 ---
-      
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…for testability</h2>
-</div>
-
-- *Refactoring* is the process of reorganizing or rewriting code without changing behavior
-  - By which we mean "high-level behavior" because of course if you look closely enough...
-- <a href="#Fowler2018">Fowler2018</a> describes common refactoring moves for code
-- These do to code what tidying steps in a data pipeline do to data (<a href="#Wickham2017">Wickham2017</a>):
-  move it toward well-understood forms (<a href="#Kerievsky2004">Kerievsky2004</a>)
-
----
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…as if code was data</h2>
+  <h2>8. Design as if code was data</h2>
 </div>
 
 - The insight on which modern computing is based
@@ -383,8 +367,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…as if code was data</h2>
+  <h2>8. Design as if code was data</h2>
 </div>
 
 <div align="center">
@@ -402,6 +385,45 @@ class: sidebar
 
 ---
 
+<div class="split-title">
+  <h2>8. Design as if code was data</h2>
+</div>
+
+- Count the number of values that pass a test
+
+```
+ def count_positive(array):
+     number = 0
+     for value in array:
+*        if value >= 0:
+             number = number + 1
+     return number
+```
+
+---
+
+<div class="split-title">
+  <h2>8. Design as if code was data</h2>
+</div>
+
+- Count the number of values that pass a test
+
+```
+*def count_interesting(array, test):
+     number = 0
+     for value in array:
+*        if test(value):
+             number = number + 1
+     return number
+
+*def is_positive(value):
+*    return value >= 0
+*
+*count_interesting(array, is_positive)
+```
+
+---
+
 class: sidebar
 
 ## Sidebar
@@ -412,8 +434,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…for delivery</h2>
+  <h2>9. Design for delivery</h2>
 </div>
 
 - Development operations (DevOps) has become a buzzword
@@ -426,8 +447,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…for delivery</h2>
+  <h2>9. Design for delivery</h2>
 </div>
 
 - Use whatever *build tool* your language expects
@@ -439,34 +459,21 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…for delivery</h2>
+  <h2>9. Design for delivery</h2>
 </div>
 
 - Handle errors
   - Don't just catch and discard (<a href="#Nakshatri2016">Nakshatri2016</a>)
-- Integrate logging
+- Use a logging library
   - A volume control is really helpful in production…
   - …particularly if messages are collated…
   - …but only if the messages are helpful
-- Design *components*
-  - Services with APIs
-  - "I'm not ashamed of anything—I just don't want to share anything with you"
-
----
-
-class: sidebar
-
-<h2>Sidebar</h2>
-
-- 2005–2025: trying to get information back out of PDFs
-- 2025—???: trying to get information back out of Docker images
+- And follow the rest of <a href="#Taschuk2017">Taschuk2017</a>
 
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
+  <h2>10. Design graphically</h2>
 </div>
 
 - Very few programmers use UML the "right" way (<a href="#Petre2013">Petre2013</a>)
@@ -476,8 +483,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
+  <h2>10. Design graphically</h2>
 </div>
 
 - Flowcharts are unfairly maligned (<a href="#Scanlan1989">Scanlan1989</a>)
@@ -489,8 +495,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
+  <h2>10. Design graphically</h2>
 </div>
 
 - Architecture diagrams: probably the most widely used (probably because of their informality)
@@ -502,8 +507,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
+  <h2>10. Design graphically</h2>
 </div>
 
 - Entity-relationship diagrams: widely used because they are actually helpful
@@ -515,8 +519,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
+  <h2>10. Design graphically</h2>
 </div>
 
 - Use case maps: actions overlaid on architecture
@@ -528,68 +531,33 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…graphically</h2>
-</div>
-
-- Feature models
-
-<div align="center">
-  <img src="feature-model.png" alt="Feature model" width="100%" />
-</div>
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…after the fact</h2>
-</div>
-
-- The most important thing is to *look* as though you designed things (<a href="#Parnas1986">Parnas1986</a>)
-- So that the next person can understand it
-- Many designers explain architecture by recapitulating history (<a href="#Brown2011">Brown2011</a>,<a href="#Brown2012">Brown2012</a>)
-- Challenge and response
-  - Can only understand why it does what it does by understanding the problem it was designed to solve
-
----
-name: after-the-fact-1
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…after the fact</h2>
-</div>
-
-- Good messages in assertions serve as documentation
-  - Not just "pivot index must be greater than 1" but "pivot index must be greater than 1 because the algorithm needs at least two elements below the pivot"
----
-
-template: after-the-fact-1
-name: after-the-fact-2
-- But people never actually write this
-- Because predictions about what detail will be needed are usually wrong
-- And keeping that narrative up to date is expensive
-- This is an unsolved problem
-
----
-
-<div class="split-title">
-  <p>Design…</p>
-  <h2>…with villains in mind</h2>
+  <h2>11. Design with everyone in mind</h2>
 </div>
 
 - Fairness, privacy, and security cannot be sprinkled on after the fact
 - *Principle of Least Privilege*: what is the least information this part of the software absolutely needs to do its job?
-- Design to work with partial or obfuscated personal information
-- Design to work with reduced permissions
-  - E.g., PostgreSQL allows select-only access to tables
+- But that's not all
+  - If users have to reset passwords frequently, they will choose insecure passwords (<a href="#Smalls2021">Smalls2021</a>)
+  - Systems that email attachments train people to be vulnerable to phishing attacks
+  - Most social media isn't designed with abusive ex-partners in mind…
 
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…collaboratively and inclusively</h2>
+  <h2>11. Design with everyone in mind</h2>
 </div>
 
-- Many perspectives make for fewer errors
+- Accessibility can't be sprinkled on after the fact either
+- Close your eyes and try to navigate your department's website
+  - Or tape popsicle sticks to your fingers to simulate severe arthritis
+- More important as the population ages (<a href="#Johnson2017">Johnson2017</a>)
+
+---
+
+<div class="split-title">
+  <h2>12. Design for contribution</h2>
+</div>
+
 - Diversity improves outcomes in fields from business to healthcare
   (<a href="#Gompers2018">Gompers2018</a>,<a href="#Gomez2019">Gomez2019</a>)
 - But you should do it because *it's the right thing to do*
@@ -597,8 +565,7 @@ name: after-the-fact-2
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…collaboratively and inclusively</h2>
+  <h2>12. Design for contribution</h2>
 </div>
 
 <div align="center">
@@ -611,14 +578,13 @@ name: after-the-fact-2
 ---
 
 <div class="split-title">
-  <p>Design…</p>
-  <h2>…collaboratively and inclusively</h2>
+  <h2>12. Design for contribution</h2>
 </div>
 
 - Licensing is a design issue
   - You cannot use components whose licenses are incompatible with yours
-- Modular designs makes it easier for newcomers to contribute (<a href="#Sholler2019">Sholler2019</a>)
-- Accessibility can't be sprinkled on afterward either
+- Plugin architectures make small additions more approachable
+- Discoverable designs do too (<a href="#Sholler2019">Sholler2019</a>)
 
 ---
 
@@ -699,22 +665,28 @@ Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni
 <em>ESEM'16</em>, <a class="doi" href="https://doi.org/10.1145/2961111.2962592">10.1145/2961111.2962592</a>.
 </p>
 
-<p id="Gomez2019" class="bibliography"><span class="bibliographykey">Gomez2019</span>
-L.E. Gomez and Patrick Bernet:
-"<a href="https://doi.org/10.1016/j.jnma.2019.01.006">Diversity improves performance and outcomes</a>".
-<em>Journal of the National Medical Association</em>, 111(4), 2019, <a class="doi" href="https://doi.org/10.1016/j.jnma.2019.01.006">10.1016/j.jnma.2019.01.006</a>.
-</p>
-
 ---
 
 <div class="split-title">
 <h2>Bibliography</h2>
 </div>
 
+<p id="Gomez2019" class="bibliography"><span class="bibliographykey">Gomez2019</span>
+L.E. Gomez and Patrick Bernet:
+"<a href="https://doi.org/10.1016/j.jnma.2019.01.006">Diversity improves performance and outcomes</a>".
+<em>Journal of the National Medical Association</em>, 111(4), 2019, <a class="doi" href="https://doi.org/10.1016/j.jnma.2019.01.006">10.1016/j.jnma.2019.01.006</a>.
+</p>
+
 <p id="Gompers2018" class="bibliography"><span class="bibliographykey">Gompers2018</span>
 Paul Gompers and Silpa Kovvali:
 "The Other Diversity Dividend".
 <em>Harvard Business Review</em>, 96(4), 2018.
+</p>
+
+<p id="Johnson2017" class="bibliography"><span class="bibliographykey">Johnson2017</span>
+Jeff Johnson and Kate Finn:
+<em>Designing User Interfaces for an Aging Population: Towards Universal Design</em>.
+Morgan Kaufmann, 2017, 978-0128044674.
 </p>
 
 <p id="Kerievsky2004" class="bibliography"><span class="bibliographykey">Kerievsky2004</span>
@@ -727,12 +699,6 @@ Addison-Wesley Professional, 2004, 978-0321213358.
 Gene Kim, Patrick Debois, John Willis, and Jez Humble:
 <em>The DevOps Handbook</em>.
 IT Revolution Press, 2016, 978-1942788003.
-</p>
-
-<p id="Liskov1994" class="bibliography"><span class="bibliographykey">Liskov1994</span>
-Barbara H. Liskov and Jeannette M. Wing:
-"A behavioral notion of subtyping".
-<em>ACM Transactions on Programming Languages and Systems</em>, 16(6), 1994, <a class="doi" href="https://doi.org/10.1145/197320.197383">10.1145/197320.197383</a>.
 </p>
 
 <p id="Meyer1994" class="bibliography"><span class="bibliographykey">Meyer1994</span>
@@ -781,6 +747,17 @@ Basic Books, 1984, 978-0465068784.
 Dan Sholler, Igor Steinmacher, Denae Ford, Mara Averick, Mike Hoye, and Greg Wilson:
 "Ten simple rules for helping newcomers become contributors to open projects".
 <em>PLOS Computational Biology</em>, 15(9), 2019, <a class="doi" href="https://doi.org/10.1371/journal.pcbi.1007296">10.1371/journal.pcbi.1007296</a>.
+</p>
+
+<p id="Smalls2021" class="bibliography"><span class="bibliographykey">Smalls2021</span>
+Danielle Smalls and Greg Wilson: "Ten quick tips for staying safe online."
+<em>PLoS Computational Biology</em>, 17(3), 2021, <a class="doi" href="https://doi.org/10.1371/journal.pcbi.1008563">10.1371/journal.pcbi.1008563</a>.
+</p>
+
+<p id="Taschuk2017" class="bibliography"><span class="bibliographykey">Taschuk2017</span>
+Morgan Taschuk and Greg Wilson:
+"Ten simple rules for making research software more robust."
+<em>PLoS Computational Biology</em>, 13(4), 2017, <a class="doi" href="https://doi.org/10.1371/journal.pcbi.1005412">10.1371/journal.pcbi.1005412</a>.
 </p>
 
 <p id="Tichy2010" class="bibliography"><span class="bibliographykey">Tichy2010</span>
