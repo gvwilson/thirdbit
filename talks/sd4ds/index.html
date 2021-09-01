@@ -318,9 +318,48 @@ class: sidebar
 - And everyone needs the "why" that code alone doesn't capture
 
 ---
+
+<div class="split-title">
+  <h2>7. Design for delivery</h2>
+</div>
+
+- Development operations (DevOps) has become a buzzword
+  - Like "data science" or "computational thinking", the term is popular because people can use it to mean whatever they want
+- But the core idea is a good one (<a href="#Kim2016">Kim2016</a>,<a href="#Forsgren2018">Forsgren2018</a>)
+  - The code you ship is surrounded and supported by software (and practices) that deliver that code
+- Investment in automation pays off many times over
+  - *If* you design things so that they can be automated
+
+---
+
+<div class="split-title">
+  <h2>7. Design for delivery</h2>
+</div>
+
+- Use whatever *build tool* your language expects
+  - `pip` or `conda` for Python
+  - `devtools` for R
+  - Many conflicting options for JavaScript
+- Organize code and files the way your build system expects
+
+---
+
+<div class="split-title">
+  <h2>7. Design for delivery</h2>
+</div>
+
+- Handle errors
+  - Don't just catch and discard (<a href="#Nakshatri2016">Nakshatri2016</a>)
+- Use a logging library
+  - A volume control is really helpful in production…
+  - …particularly if messages are collated…
+  - …but only if the messages are helpful
+- And follow the rest of <a href="#Taschuk2017">Taschuk2017</a>
+
+---
       
 <div class="split-title">
-  <h2>7. Design for testability</h2>
+  <h2>8. Design for testability</h2>
 </div>
 
 - *Legacy code*: we're afraid to modify it because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
@@ -331,7 +370,7 @@ class: sidebar
 ---
       
 <div class="split-title">
-  <h2>7. Design for testability</h2>
+  <h2>8. Design for testability</h2>
 </div>
 
 - How easy is it to create a *fixture*?
@@ -355,7 +394,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <h2>8. Design as if code was data</h2>
+  <h2>9. Design as if code was data</h2>
 </div>
 
 - The insight on which modern computing is based
@@ -367,7 +406,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <h2>8. Design as if code was data</h2>
+  <h2>9. Design as if code was data</h2>
 </div>
 
 <div align="center">
@@ -386,7 +425,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <h2>8. Design as if code was data</h2>
+  <h2>9. Design as if code was data</h2>
 </div>
 
 - Count the number of values that pass a test
@@ -403,7 +442,7 @@ class: sidebar
 ---
 
 <div class="split-title">
-  <h2>8. Design as if code was data</h2>
+  <h2>9. Design as if code was data</h2>
 </div>
 
 - Count the number of values that pass a test
@@ -430,45 +469,6 @@ class: sidebar
 
 - But see the discussion earlier of comprehension curves
 - What is powerful in the hands of experts is spooky action-at-a-distance for novices
-
----
-
-<div class="split-title">
-  <h2>9. Design for delivery</h2>
-</div>
-
-- Development operations (DevOps) has become a buzzword
-  - Like "data science" or "computational thinking", the term is popular because people can use it to mean whatever they want
-- But the core idea is a good one (<a href="#Kim2016">Kim2016</a>,<a href="#Forsgren2018">Forsgren2018</a>)
-  - The code you ship is surrounded and supported by software (and practices) that deliver that code
-- Investment in automation pays off many times over
-  - *If* you design things so that they can be automated
-
----
-
-<div class="split-title">
-  <h2>9. Design for delivery</h2>
-</div>
-
-- Use whatever *build tool* your language expects
-  - `pip` or `conda` for Python
-  - `devtools` for R
-  - Many conflicting options for JavaScript
-- Organize code and files the way your build system expects
-
----
-
-<div class="split-title">
-  <h2>9. Design for delivery</h2>
-</div>
-
-- Handle errors
-  - Don't just catch and discard (<a href="#Nakshatri2016">Nakshatri2016</a>)
-- Use a logging library
-  - A volume control is really helpful in production…
-  - …particularly if messages are collated…
-  - …but only if the messages are helpful
-- And follow the rest of <a href="#Taschuk2017">Taschuk2017</a>
 
 ---
 
@@ -683,10 +683,23 @@ Paul Gompers and Silpa Kovvali:
 <em>Harvard Business Review</em>, 96(4), 2018.
 </p>
 
+<p id="Hook2009" class="bibliography"><span class="bibliographykey">Hook2009</span>
+D. Hook and D. Kelly:
+"Testing for trustworthiness in scientific software."
+<em>Proc. 2009 ICSE Workshop on Software Engineering for Computational Science and Engineering</em>,
+2009,
+<a class="doi" href="https://doi.org/10.1109/secse.2009.5069163">10.1109/secse.2009.5069163</a>.
+</p>
+
 <p id="Johnson2017" class="bibliography"><span class="bibliographykey">Johnson2017</span>
 Jeff Johnson and Kate Finn:
 <em>Designing User Interfaces for an Aging Population: Towards Universal Design</em>.
 Morgan Kaufmann, 2017, 978-0128044674.
+</p>
+
+<p id="Kanewala2014" class="bibliography"><span class="bibliographykey">Kanewala2014</span>
+U. Kanewala and JM Bieman: "Testing scientific software: A systematic literature review."
+<em>Information and Software Technology</em>. 56(10), 2014, <a class="doi" href="https://doi.org/10.1016/j.infsof.2014.05.006">10.1016/j.infsof.2014.05.006</a>.
 </p>
 
 <p id="Kerievsky2004" class="bibliography"><span class="bibliographykey">Kerievsky2004</span>
@@ -719,6 +732,12 @@ David Lorge Parnas and Paul C. Clements:
 <em>IEEE Transactions on Software Engineering</em>, SE-12(2), 1986, <a class="doi" href="https://doi.org/10.1109/tse.1986.6312940">10.1109/tse.1986.6312940</a>.
 </p>
 
+---
+
+<div class="split-title">
+<h2>Bibliography</h2>
+</div>
+
 <p id="Petre2013" class="bibliography"><span class="bibliographykey">Petre2013</span>
 Marian Petre:
 "UML in practice".
@@ -730,12 +749,6 @@ David A. Scanlan:
 "Structured Flowcharts Outperform Pseudocode: An Experimental Comparison".
 <em>IEEE Software</em>, 6(5), 1989, <a class="doi" href="https://doi.org/10.1109/52.35587">10.1109/52.35587</a>.
 </p>
-
----
-
-<div class="split-title">
-<h2>Bibliography</h2>
-</div>
 
 <p id="Schon1984" class="bibliography"><span class="bibliographykey">Schon1984</span>
 Donald A. Schon:
