@@ -114,6 +114,17 @@
 
 ---
 
+class: sidebar
+
+<h2>Sidebar</h2>
+
+- Some people say that if you need to comment your code you should have written clearer code
+- That is *expert blind spot* at work
+- Newcomers need help building a *mental model* of the code and problem
+- And everyone needs the "why" that code alone doesn't capture
+
+---
+
 <div class="split-title">
   <h2>3. Design in coherent levels</h2>
 </div>
@@ -153,6 +164,36 @@
 ---
 
 <div class="split-title">
+  <h2>3. Design in coherent levels</h2>
+</div>
+
+- Functions should be short, shallow, and single-purpose
+  - Of course, no one would argue the opposite…
+- If I read a function aloud, are all the steps at the same conceptual level?
+
+```
+ def main():
+     config = buildConfig(sys.argv)
+     state = initState(config)
+*    while stillEvolving(config):
+         updateState(config, state)
+     report(config, state)
+```
+
+---
+
+class: sidebar
+
+<h2>Sidebar</h2>
+
+- <a href="#Schon1984">Schon1984</a> and others have found that
+  experts jump between levels looking for concrete refutations of plans as soon as possible
+- Depth-first design is therefore a good strategy *if* you write the hard parts first
+  - Which most of us avoid
+
+---
+
+<div class="split-title">
   <h2>4. Design for evolution</h2>
 </div>
 
@@ -161,6 +202,7 @@
 - A good design makes independent evolution of parts easier
   - A fix *here* shouldn't require changes *there*
   - Realistically, should only require a small number of changes in limited, predictable places
+- The switch to `stillEvolving` in the previous slide insulates `main` from lower-level changes
 
 ---
 
@@ -183,20 +225,21 @@
 </div>
 
 - Design by contract (<a href="#Meyer1994">Meyer1994</a>) extends this idea through time
-  - *Pre-conditions* can be weakened (take input the earlier implementation wouldn't)
-  - *Post-conditions* can be strengthened (produce a subset of the earlier implementation's output)
+  - *Pre-conditions* have to be true in order for the function to run
+  - *Post-conditions* are what the function guarantees will be true when it completes
   - Can be used to define and verify tests
 
 ---
 
-class: sidebar
+<div class="split-title">
+  <h2>4. Design for evolution</h2>
+</div>
 
-<h2>Sidebar</h2>
-
-- <a href="#Schon1984">Schon1984</a> and others have found that
-  experts jump between levels looking for concrete refutations of plans as soon as possible
-- Depth-first design is therefore a good strategy *if* you write the hard parts first
-  - Which most of us avoid
+- But wait, there's more
+- Pre-conditions can only be *relaxed*
+  - I.e., the function can take input the earlier implementation wouldn't
+- Post-conditions can only be strengthened
+  - I.e., the function can only produce a subset of the earlier implementation's output
 
 ---
 
@@ -302,20 +345,11 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
   <h2>6. Use common patterns</h2>
 </div>
 
+- Patterns can be taught (but only by example)
+
 <div align="center">
   <img src="game-programming-patterns.jpg" alt="Game Programming Patterns cover" width="40%" />
 </div>
-
----
-
-class: sidebar
-
-<h2>Sidebar</h2>
-
-- Some people say that if you need to comment your code you should have written clearer code
-- That is *expert blind spot* at work
-- Newcomers need help building a *mental model* of the code and problem
-- And everyone needs the "why" that code alone doesn't capture
 
 ---
 
@@ -348,8 +382,6 @@ class: sidebar
   <h2>7. Design for delivery</h2>
 </div>
 
-- Handle errors
-  - Don't just catch and discard (<a href="#Nakshatri2016">Nakshatri2016</a>)
 - Use a logging library
   - A volume control is really helpful in production…
   - …particularly if messages are collated…
@@ -726,17 +758,17 @@ George A. Miller:
 <em>Psychological Review</em>, 63(2), 1956, <a class="doi" href="https://doi.org/10.1037/h0043158">10.1037/h0043158</a>.
 </p>
 
-<p id="Parnas1986" class="bibliography"><span class="bibliographykey">Parnas1986</span>
-David Lorge Parnas and Paul C. Clements:
-"A Rational Design Process: How and Why to Fake It".
-<em>IEEE Transactions on Software Engineering</em>, SE-12(2), 1986, <a class="doi" href="https://doi.org/10.1109/tse.1986.6312940">10.1109/tse.1986.6312940</a>.
-</p>
-
 ---
 
 <div class="split-title">
 <h2>Bibliography</h2>
 </div>
+
+<p id="Parnas1986" class="bibliography"><span class="bibliographykey">Parnas1986</span>
+David Lorge Parnas and Paul C. Clements:
+"A Rational Design Process: How and Why to Fake It".
+<em>IEEE Transactions on Software Engineering</em>, SE-12(2), 1986, <a class="doi" href="https://doi.org/10.1109/tse.1986.6312940">10.1109/tse.1986.6312940</a>.
+</p>
 
 <p id="Petre2013" class="bibliography"><span class="bibliographykey">Petre2013</span>
 Marian Petre:
