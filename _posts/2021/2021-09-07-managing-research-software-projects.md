@@ -14,6 +14,8 @@ I am running an online workshop on "Managing Research Software Projects" from 10
 
 Tickets and details are available at <https://www.eventbrite.com/e/managing-research-software-projects-tickets-169833409299> - I hope to see you there.
 
+*If your company would like to sponsor this workshop, the best way is to purchase tickets for people who couldn't otherwise take part—please [contact me](mailto:gvwilson@third-bit.com) for details, and thank you in advance.*
+
 ## Learner Persona
 
 Jo, 31, completed a PhD in geology several years ago and now works for a national laboratory.
