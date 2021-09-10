@@ -105,3 +105,12 @@ and what you think doesn't need to be covered.
     </tr>
   </table>
 </div>
+
+We may also delve into a few bonus topics:
+
+- Making research software robust enough to be run by anyone, anywhere.
+- Building good working relationships between academia and industry.
+- Making work more findable.
+- The basics of personal digital safety (because having a higher profile may attract the wrong kind of attention).
+- What to do if you've been fired.
+- How to wrap up and move on when the time comes.
