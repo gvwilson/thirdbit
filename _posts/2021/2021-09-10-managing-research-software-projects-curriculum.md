@@ -7,7 +7,8 @@ year: 2021
 As [I announced a few days ago]({{'/2021/09/07/managing-research-software-projects/' | relative_url}}),
 I am running an online workshop on "Managing Research Software Projects" on September 29-30
 to raise money for [MetaDocencia](https://www.metadocencia.org/).
-The curriculum and schedule are taking shape;
+Tickets are available [on Eventbrite](https://www.eventbrite.com/e/managing-research-software-projects-tickets-169833409299)
+and the curriculum and schedule are taking shape:
 I'd be very grateful for feedback on what's missing
 and what you think doesn't need to be covered.
 
