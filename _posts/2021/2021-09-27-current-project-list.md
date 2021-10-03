@@ -4,7 +4,7 @@ date: 2021-09-27
 year: 2021
 ---
 
-I'm starting a new job as a software engineering with [Deep Genomics](https://www.deepgenomics.com/) next week.
+I'm starting a new job as a software engineer with [Deep Genomics](https://www.deepgenomics.com/) next week.
 I'm looking forward to writing Python for a living again after a decade of doing other things,
 but hope I'll be able to wrap up these side projects soon as well:
 
