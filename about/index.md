@@ -49,7 +49,8 @@ In my free time I worked on books like [*Teaching Tech Together*](http://teachto
 [*JavaScript for Data Science*](http://js4ds.org),
 and [*Research Software Engineering with Python*](https://merely-useful.tech/py-rse/),
 and helped build [TidyBlocks](http://tidyblocks.tech) and [Glosario](https://glosario.carpentries.org/).
-I am now Head of Education for [Metabase](http://www.metabase.com/);
+After a stint as Head of Education for [Metabase](http://www.metabase.com/),
+I am now a software engineer at [Deep Genomics](https://www.deepgenomics.com/) in Toronto.
 if you'd like to chat,
 please [drop me a line](mailto:gvwilson@third-bit.com).
 
