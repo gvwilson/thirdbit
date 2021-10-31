@@ -4,7 +4,6 @@ date: 2021-10-30
 year: 2021
 ---
 
-
 Maddy shrieked and stumbled backward.
 Her feet slipped on a submerged patch of weeds.
 She half-fell clumsily in the knee-deep water
