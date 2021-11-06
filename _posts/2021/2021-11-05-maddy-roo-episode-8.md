@@ -51,15 +51,16 @@ It threw the boot across the room and lashed out,
 trying to find her again.
 
 *Clunk!*
-The boot hit the second lever on the wall next to the inner door.
+The boot hit the second glass panel on the wall next to the inner door.
 "Grab it!" Maddy told Sindy.
 "No, not the boot!
-The lever!
-Pull the other lever"
+The panel!
+Press the other panel!"
 She didn't know what would happen,
 but it couldn't be worse than---
 
-Sindy pulled down hard on the second lever.
+Sindy slapped her hand hard against the second panel.
+*Ping!*
 Rumbling and grinding,
 the outer door began to close.
 
