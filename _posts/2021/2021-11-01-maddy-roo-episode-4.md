@@ -1,5 +1,5 @@
 ---
-title: "Maddy Roo Episode 4: Raid!"
+title: "Maddy Roo Episode 4: Raid"
 date: 2021-11-01
 year: 2021
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Maddy Roo Episode 1: Salvage!"
+title: "Maddy Roo Episode 1: Salvage"
 date: 2021-10-29
 year: 2021
 ---

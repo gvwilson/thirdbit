@@ -1,5 +1,5 @@
 ---
-title: "Maddy Roo Episode 2: Targets Acquired!"
+title: "Maddy Roo Episode 2: Targets Acquired"
 date: 2021-10-30
 year: 2021
 ---
