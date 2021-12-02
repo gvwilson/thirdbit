@@ -14,22 +14,29 @@ may also be helpful.*
 
 ## Inclusivity
 
+- Please note that I will usually suggest you invite a speaker who isn't as privileged as I am instead of me.
+  I've had a lot of chances to express my opinions on stage;
+  I think other people, and other kinds of people, deserve that chance as well.
+
 ### No Support for Hate
 
 - I will not work with,
   or attend events sponsored by,
   any company that has been cited as an inspiration by a mass killer,
   or any company that provides hosting or other services for such companies.
-  (You would think this would be an easy bar to get over, but..)
 - You don't include speakers who publicly advocate racism, misogyny, or homophobia.
-  (Again, you'd think this would be a given...)
+- [Added Nov 2021]
+  I will not take part in events that do not offer participants a fully-remote option,
+  as the COVID-19 lockdown showed that this is feasible
+  and that it makes events much more accessible
+  to people with physical disabilities
+  and people from less affluent parts of the world.
 
 ### Strictly-enforced Code of Conduct
 
-- Your CoC must explicitly explain what abuse is with clear examples.
+- Your CoC must explicitly explain what constitutes abusive or unacceptable behavior.
 - You must have clearly defined methods for dealing with conflicts when they arise
-  and trained staff to to handle complaints,
-  because CoCs are only as good as their enforcement.
+  and trained staff to to handle complaints.
 
 ### Representation
 
@@ -66,12 +73,13 @@ may also be helpful.*
 
 ### Lodging expenses
 
-- For the full duration of the conference.
-- For engagements requiring more than a four-hour flight, I ask for at least one full day of lodging before the conference.
+- For engagements requiring more than a four-hour flight,
+  I require at least one night's lodging before the day I'm scheduled to speak
+  as well as lodging on the day itself.
 - You must provide the option to purchase both travel and accommodation on behalf of the speaker.
   While I may choose to pay and then claim,
   the reimbursement model excludes people who cannot front the cost for what is sometimes months.
-- Similarly, you must leave your credit card on file for the hotel.
+- Similarly, you must leave your credit card on file for the hotel for incidental expenses.
 
 ### Speaker honorarium
 
@@ -100,7 +108,7 @@ may also be helpful.*
 ### Safety and security
 
 - Security should be provided as needed.
-- No transfer or sale of data (in particular, to conference sponsors) without express, prior, case-by-case approval.
+- No transfer or sale of my data (in particular, to conference sponsors) without express, prior, case-by-case approval.
 
 ### Gender neutral and accessible bathrooms
 
@@ -114,10 +122,10 @@ may also be helpful.*
 ### Scholarship program
 
 - If you have a scholarship program, don't call it "diversity scholarship":
-  that reinforces the notion that "diverse" (which is often falsely interpreted solely as racial diversity) candidates all need charity.
-- Call them Scholarships.
-  Be explicit to how you choose candidates and don't make them conduct trauma porn to be approved.
-- Include travel so that you aren't excluding people who are economically disadvantaged.
+  that reinforces the notion that "diverse" (which is often interpreted solely as racial diversity) candidates all need charity.
+- Call them "scholarships".
+  Be explicit to how you choose candidates, and don't make them recapitulate personal trauma to be approved.
+- Include travel costs in scholarships so that you aren't excluding people who are economically disadvantaged.
   If you can't do this, make it clear that they are solely ticket scholarships.
 
 ### Stage setup
@@ -144,8 +152,8 @@ may also be helpful.*
 - If I withdraw,
   you may no longer associate me with your event in any way
   (for example, you may not use any materials I have prepared or videos of me that you have recorded).
-- You are responsible for any costs associated with this,
-  not limited to accommodations and travel plan changes.
+- You are responsible for any and all costs associated with this,
+  specifically including accommodations and travel plan changes.
 
 Please note that I have never had to exercise this clause,
 but my experiences with [Shopify][shopify] and [DataCamp][datacamp] have made me realize that

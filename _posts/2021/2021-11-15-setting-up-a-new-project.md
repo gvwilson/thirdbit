@@ -67,3 +67,11 @@ or what you would reprioritize.
 1.  Choose a project logo.
     -   Which made discussion of build tools look calm and rational…
 </div>
+
+<em markdown="1">
+Later: things people have suggested that we didn't include:
+
+- a list of supported platforms (FlavorOfLinux, OS X Version, etc.) 
+- a list of supported python versions
+- instructions for setting up, say, virtualenv, to make sure users are all on the same Python version
+</em>
