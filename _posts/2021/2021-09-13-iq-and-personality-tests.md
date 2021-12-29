@@ -5,7 +5,7 @@ year: 2021
 ---
 
 Not long ago I interviewed for a community manager position
-with a company that's pretty well known in open source.
+with <strike>a company that's pretty well known in open source</strike> Canonical.
 They opened by asking me to write paragraph-length answers to some fairly innocuous questions,
 but in the second round,
 they asked me to do an IQ test and a personality profile test.
@@ -22,7 +22,7 @@ At this point my reservations broke out of the basement I'd locked them in
 and began clamoring for attention.
 As far as I could tell,
 the IQ test consisted of number-matching problems;
-I'm not going to believe that scores in that need to be adjusted by gender
+I'm not going to believe scores in that need to be adjusted by gender
 without seeing (and checking) the data.
 Second,
 any company in the HR business today should know better than to restrict gender choices
