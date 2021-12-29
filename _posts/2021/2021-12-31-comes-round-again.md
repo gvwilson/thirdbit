@@ -35,7 +35,7 @@ Another year over; what have I learned?
   [here's what happened with Canonical]({{site.github.url}}/2021/09/13/iq-and-personality-tests/).
 
 - I spent six months with [Metabase](https://www.metabase.com/)
-  them moved to a straight-up programming position at [Deep Genomics](https://www.deepgenomics.com/).
+  then moved to a straight-up programming position at [Deep Genomics](https://www.deepgenomics.com/).
   I'm really enjoying coding for a living again after so many years,
   but a little dumbfounded by how much Python now looks like Enterprise Java...
 
