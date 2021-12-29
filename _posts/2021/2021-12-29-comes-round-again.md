@@ -1,10 +1,10 @@
 ---
-title: "Slowly"
+title: "Comes Round Again"
 date: 2021-12-31
 year: 2021
 ---
 
-Another year over, and what have I done?
+Another year over; what have I learned?
 
 - A story I wrote after my brother died
   [was published by *On Spec*](https://onspecmag.wpcomstaging.com/2021/01/06/issue-115-coming-soon/);
@@ -70,3 +70,13 @@ Another year over, and what have I done?
 - I got [another tattoo]({{site.github.url}}/2021/07/22/knitting-mouse/)
   to commemorate my mother and sister.
   I hope they would have liked it.
+
+- Favorite book: *[Driftwood](https://www.goodreads.com/book/show/51600238-driftwood)*
+  by [Marie Brennan](https://www.swantower.com/).
+
+- Favorite movie: *Free Guy*.
+  It's not great art, but it was just what I needed.
+
+- Favorite album: Elina Duni's *[Partir](http://elinaduni.com/music/partir/)*.
+
+- Favorite moment: a waltz with my wife.
