@@ -5,12 +5,12 @@ year: 2013
 original: swc
 ---
 <p>
-  <a href="{{site.baseurl}}/lessons/previous/#test">Testing</a> has always been part of Software Carpentry,
+  Testing has always been part of Software Carpentry,
   but it's also always been one of our weak spots.
   We explain that testing can't possibly uncover all the mistakes in a piece of software,
   but is useful anyway, then talk about unit testing and test-driven development.
   Separately,
-  in the <a href="{{site.baseurl}}/lessons/previous/#invperc">extended program design example</a>,
+  in the extended program design example,
   we demonstrate how to refactor code to make it more testable.
 </p>
 <p>
@@ -130,5 +130,5 @@ original: swc
   programs ought to be treated like any other kind of experimental apparatus.
   My question now is,
   what rules of thumb do <em>you</em> have for testing the science-y bits of your code?
-  We'd welcome replies as comments or <a href="mailto:gvwilson@third-bit.com">email</a>.
+  We'd welcome replies as comments or email.
 </p>

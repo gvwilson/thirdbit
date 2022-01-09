@@ -17,7 +17,7 @@ original: swc
 <p>
   One of our group exercises was to design a proficiency exam
   to determine whether a biologist was computationally competent.
-  This was inspired by the <a href="{{site.baseurl}}/blog/2013/02/dirac-dry-run-two.html">driver's license exam</a>
+  This was inspired by the <a href="{{site.github.url}}/2013/02/dirac-dry-run-two/">driver's license exam</a>
   we've helped put together for the DiRAC supercomputing consortium,
   but we weren't seriously proposing such a test.
   Instead,

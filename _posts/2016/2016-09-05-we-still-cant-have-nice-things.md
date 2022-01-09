@@ -199,7 +199,7 @@ Suppose each of our websites defines a variable called `site.baseurl` in its con
 to be the name of the project with a leading `/`.
 All of our web pages can then refer to things using:
 
-    <link rel="stylesheet" type="text/css" href="{% raw %}{{site.baseurl}}{% endraw %}/css/pretty.css" />
+    <link rel="stylesheet" type="text/css" href="{% raw %}{{site.github.url}}{% endraw %}/css/pretty.css" />
 
 which Jekyll expands to something like:
 

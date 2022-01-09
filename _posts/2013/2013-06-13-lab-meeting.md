@@ -6,8 +6,7 @@ original: swc
 ---
 <p>
   Earlier this week,
-  Software Carpentry had its first online lab meeting since
-  <a href="{{site.baseurl}}/blog/2012/10/minutes-2012-10-29-meeting.html">October 2012</a>.
+  Software Carpentry had its first online lab meeting since October 2012.
   In attendance were:
 </p>
 <table>
@@ -75,7 +74,7 @@ original: swc
   </li>
 </ol>
 
-<p><strong>Sustainability</strong> (see <a href="{{site.baseurl}}/blog/2013/06/running-bootcamps.html">this post</a> for background):</p>
+<p><strong>Sustainability</strong>:</p>
 
 <ol>
   <li>
@@ -109,7 +108,7 @@ original: swc
   <li>
     Create a new mailing list
     for people interested in discussing this.
-    (If you'd like to be added please <a href="mailto:gvwilson@software-carpentry.org">mail me</a>.)
+    (If you'd like to be added please mail me.)
   </li>
 </ol>
 
@@ -142,7 +141,7 @@ original: swc
     To be an instructor:
     <ul>
       <li>
-        Complete our <a href="{{site.training_url}}">online training</a>
+        Complete our online training
         (which includes teaching at least once with a more experienced instructor),
         <br/>
         <em>or</em>

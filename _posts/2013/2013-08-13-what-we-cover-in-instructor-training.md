@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   The sixth round of our
-  <a href="{{site.training_url}}">online training class for Software Carpentry instructors</a>
+  online training class for Software Carpentry instructors
   is kicking off this week with 28 participants.
   Our main text is
   <a href="http://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/"><cite>How Learning Works</cite></a>,
@@ -39,7 +39,7 @@ original: swc
     to teaching live and to recorded video.
   </li>
   <li>
-    Work through our <a href="{{site.baseurl}}/blog/2013/07/dirac-roll-out.html">"driver's license" exam</a>
+    Work through our <a href="{{site.github.url}}/2013/07/dirac-roll-out/">"driver's license" exam</a>
     to demonstrate mastery of core Software Carpentry tools and concepts.
   </li>
   <li>
@@ -58,6 +58,6 @@ original: swc
 <p>
   The next round of training&mdash;our seventh&mdash;will start in early October.
   If you would like to take part,
-  please <a href="mailto:{{site.contact}}">send us email</a>
+  please send us email
   and we'll add you to the contact list.
 </p>

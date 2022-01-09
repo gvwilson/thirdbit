@@ -56,15 +56,14 @@ original: swc
     <ol>
       <li>
         Ensure that everyone is aware of
-        the <a href="{{site.baseurl}}/conduct/">code of conduct</a>,
+        the code of conduct,
         no matter how they sign up.
       </li>
       <li>
         Make sure people know that
         anyone can use our content (which is all CC-BY licensed),
         but the Software Carpentry name and logo are trademarked,
-        and that there are some
-	<a href="{{site.baseurl}}/faq/#trademark">restrictions on their use</a>).
+        and that there are some restrictions on their use).
       </li>
       <li>
         Create a unified online checklist for each bootcamp
@@ -193,7 +192,7 @@ original: swc
     We're now running the instructor training for the fifth time,
     and we've learned a lot about what works and what doesn't.
     <ol>
-      <li>Put a rough curriculum on the <a href="{{site.training_url}}">teaching web site</a>.</li>
+      <li>Put a rough curriculum on the teaching web site.</li>
       <li>Switch from a WordPress blog to a compiled web site using the same tooling as the main web site.</li>
       <li>
         Clarify the certification process: people must complete the training
@@ -215,7 +214,7 @@ original: swc
       <li>Automate production of PDF certificates and digital badges for both completion and proficiency.</li>
       <li>
         Make sure that whatever we do for proficiency integrates with
-        the <a href="{{site.baseurl}}/blog/2013/02/dirac-dry-run-two.html">driver's license</a>
+        the <a href="{{site.github.url}}/2013/02/dirac-dry-run-two/">driver's license</a>
         being developed in conjunction with
         the <a href="http://www.software.ac.uk/">Software Sustainability Institute</a>.
       </li>
@@ -233,11 +232,10 @@ original: swc
         when they want to cite us&mdash;our
         <a href="http://arxiv.org/abs/1210.0530">Best Practices in Scientific Computing</a> paper
         isn't quite that.
-        (<a href="{{'/files/papers/wilson-2016-swc-lessons-learned.pdf' | relative_url }}">Software Carpentry: Lessons Learned</a>
-        is a start toward this.)
+        ("Software Carpentry: Lessons Learned" is a start toward this.)
       </li>
       <li>
-        <em>Break the <a href="{{site.github_url}}/assets">assets</a> repository into several pieces.</em>
+        <em>Break the assets repository into several pieces.</em>
         At the very least,
         assessment materials,
         papers,
