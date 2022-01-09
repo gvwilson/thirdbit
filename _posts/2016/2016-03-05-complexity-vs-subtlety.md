@@ -30,7 +30,7 @@ there are a lot of fiendishly tricky algorithms in science,
 but they're often hidden in libraries built and maintained by specialists
 who work and think like software engineers.
 
-All of this brings me back to the issue of [testing]({{site.baseurl}}/blog/2014/10/why-we-dont-teach-testing.html).
+All of this brings me back to the issue of [testing]({{site.baseurl}}/2014/10/why-we-dont-teach-testing/).
 (I'll pause a moment to let long-time readers groan, "Oh no, not this again.")
 A lot of tools and techniques for testing mainstream software
 are really about managing its complexity:

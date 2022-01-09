@@ -3,7 +3,7 @@ title: "DrProject Internals: Testing"
 date: 2006-11-19 10:32:53
 year: 2006
 ---
-In two of the <a href="http://pyre.third-bit.com/blog/archives/694.html">earlier</a> <a href="http://pyre.third-bit.com/blog/archives/696.html">postings</a> in this series, I said that you can't add security to a system after it has been built: instead, you have to design it in, right from the start.  The same is true of testing: if you don't think about how you're going to test your application while you're designing it, the odds are very good that you'll build something that can't (or cannot easily) be tested.
+In two of the earlier postings in this series, I said that you can't add security to a system after it has been built: instead, you have to design it in, right from the start.  The same is true of testing: if you don't think about how you're going to test your application while you're designing it, the odds are very good that you'll build something that can't (or cannot easily) be tested.
 
 Trac was one of those.  Its developers had written some unit tests, but they only covered a small part of the code in the version we started with in May 2005.  Given that we were going to have high turnover in our development team (students rotating in and out on a term-by-term basis), we <em>had</em> to have better coverage, or we'd become mired in a downward spiral of "fixing A breaks B, fixing B breaks C, fixing C breaks A".
 
@@ -28,7 +28,7 @@ Now, how to check the result of the test?  We're expecting HTML, which is just t
 A better strategy is to add unique IDs to significant elements in the HTML page, and only check the contents of those elements.  For example, if we're testing login, then somewhere on the page there ought to be an element like this:
 <blockquote>
 <pre>
-<div id="currentuser">Logged in as <strong>gvwilson</strong>   (<a href="/logout">logout</a> | <a href="/preferences">preferences</a>)</div>
+<div id="currentuser">Logged in as <strong>gvwilson</strong>   (logout | preferences)</div>
 </pre>
 </blockquote>
 We can find that pretty easily with an <a href="http://en.wikipedia.org/wiki/XPath">XPath</a> query, or by crawling the DOM tree produced by parsing the HTML ourselves [1].  We can then move the <code>div</code> around without breaking any of our tests; if we were a little more polite about formatting its internals (i.e., if we used something symbolic to highlight the user name, and trusted CSS to do the formatting), we'd be in even better shape.

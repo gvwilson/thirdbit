@@ -14,7 +14,7 @@ year: 2006
 	<li>Enthought does open source software and consulting for scientific computing with Python
 <ul>
 	<li>One of the sponsors of this conference</li>
-	<li>Providing hosting for <a href="http://www.swc.scipy.org">Software Carpentry</a></li>
+	<li>Providing hosting for Software Carpentry</li>
 	<li>Walked through traits and other offerings</li>
 </ul>
 <strong>Chris Mueller: Synthetic Programming with Python</strong>
@@ -110,7 +110,7 @@ year: 2006
 <ul>
 	<li>Last talk of the day --- some locals had already headed home, but there were about 70 people present</li>
 	<li>Went well, but no one's offering to teach the course at their institution this fall</li>
-	<li>Slides available <a href="http://www.third-bit.com/scipy2006.pdf">online</a></li>
+	<li>Slides available online</li>
 </ul>
 </li>
 </ul>

@@ -3,7 +3,7 @@ title: "New Year's Schedule for Software Carpentry"
 date: 2005-12-27 09:07:44
 year: 2005
 ---
-I'm teaching a cut-down version of <a href="http://www.third-bit.com/swc">Software Carpentry</a> at the <a href="http://www.softwareeng.org/">IASSE</a> in two and a half weeks. I'll have students half days for the weeks of January 16 and 23, and full days for the week of February 6.  That's only 20 lectures (rather than 26), so the question is, what to cut?  The answer has wider implications, since this will be the version of the course I take to the <a href="http://www.aaas.org/meetings/Annual_Meeting/02_PE/PE_06_Career_Workshops.shtml#EssentialSoftware">AAAS workshop</a>.
+I'm teaching a cut-down version of Software Carpentry at the <a href="http://www.softwareeng.org/">IASSE</a> in two and a half weeks. I'll have students half days for the weeks of January 16 and 23, and full days for the week of February 6.  That's only 20 lectures (rather than 26), so the question is, what to cut?  The answer has wider implications, since this will be the version of the course I take to the <a href="http://www.aaas.org/meetings/Annual_Meeting/02_PE/PE_06_Career_Workshops.shtml#EssentialSoftware">AAAS workshop</a>.
 
 My plan is:
 <table>
@@ -77,7 +77,7 @@ My plan is:
 <td></td>
 <td></td>
 <td valign="top">Debugging</td>
-<td valign="top">Deepened to include material from <a href="http://pyre.third-bit.com/blog/archives/000335.html">Zeller</a>.</td>
+<td valign="top">Deepened to include material from Zeller.</td>
 </tr>
 <tr>
 <td></td>
@@ -130,10 +130,10 @@ My plan is:
 </table>
 Client-side and CGI web programming, security, and databases have disappeared completely; the three lectures on process have been folded into one; and there's no end-of-course summary.  I'm comfortable with those changes; what I don't like is the amount of time spent teaching Python-the-language.  I'd rather spend those hours showing them how to use Python to automate development activities, but you can't cut trees 'til you have an ax.
 
-Second, there's no place in this new scheme for a lecture based on Paul Dubois's CiSE article on <a href="http://pyre.third-bit.com/blog/archives/000326.html">maintaining correctness</a>.  There really ought to be: it shows the jigsaw puzzle of which many good practices are pieces.
+Second, there's no place in this new scheme for a lecture based on Paul Dubois's CiSE article on maintaining correctness.  There really ought to be: it shows the jigsaw puzzle of which many good practices are pieces.
 
-Third, I'd like a second project lecture, showing students part of the <a href="http://pyre.third-bit.com/blog/archives/000334.html">build system</a> for the course notes.  This would let them see regular expressions and DOM in action, and would tie together many of the earlier ideas on automation.  It's this or teamware, though, and I think the latter is more important.  Having made that decision, I'm wavering on whether to pull out the material on regular expressions and DOM.
+Third, I'd like a second project lecture, showing students part of the build system for the course notes.  This would let them see regular expressions and DOM in action, and would tie together many of the earlier ideas on automation.  It's this or teamware, though, and I think the latter is more important.  Having made that decision, I'm wavering on whether to pull out the material on regular expressions and DOM.
 
 Finally, everything I have to say about the development process is now squeezed into a single hour.  It makes sense in this case, since <a href="http://www.softwareeng.org/">IASSE</a> students will get several more courses on the subject, but it's definitely under weight for the <a href="http://www.aaas.org/meetings/Annual_Meeting/02_PE/PE_06_Career_Workshops.shtml#EssentialSoftware">AAAS workshop</a>.
 
-So: in order to pull this off, I'm going to have to revise one lecture per day from January 2 onward (including diagrams).  I'll post the new materials <a href="http://www.third-bit.com/swc2">here</a> until they're polished, at which point I'll swap them into the <a href="http://www.third-bit.com/swc">standard location</a>.  I'll blog each time a lecture goes up: timely feedback would be greatly appreciated.
+So: in order to pull this off, I'm going to have to revise one lecture per day from January 2 onward (including diagrams).  I'll post the new materials here until they're polished, at which point I'll swap them into the standard location.  I'll blog each time a lecture goes up: timely feedback would be greatly appreciated.

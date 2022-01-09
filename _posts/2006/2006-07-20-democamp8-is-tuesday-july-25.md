@@ -7,7 +7,7 @@ Late breaking news: <a href="http://barcamp.org/DemoCampToronto8">DemoCamp8</a> 
 <ul>
 	<li><a href="http://wildapricot.com/">WildApricot</a></li>
 	<li><a href="http://www.filemobile.com/">FileMobile</a></li>
-	<li><a href="http://languify.com/">Languify</a> (a <a href="http://www.nuvvo.com/">Nuvvo</a>/<a href="http://www.third-bit.com/">CSC494</a> collaboration) and</li>
+	<li><a href="http://languify.com/">Languify</a> (a <a href="http://www.nuvvo.com/">Nuvvo</a>/CSC494 collaboration) and</li>
 	<li><a href="http://www.pursudo.com/">Pursudo</a></li>
 </ul>
 There's still one slot free if anyone's feeling adventurous ;-)

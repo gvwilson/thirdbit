@@ -35,7 +35,7 @@ scale?  Are the authoring patterns the same as they are at <a href="http://www.w
 co-authoring sites?  And can we apply the technique to make software
 development more efficient?</p>
 
-<p>Wanting to explore these ideas was one of the motivations behind <a href="https://wwwcgi.cdf.utoronto.ca/~cs494hf/cgi-bin/argon.cgi">DrProject</a>.
+<p>Wanting to explore these ideas was one of the motivations behind DrProject.
 I figured that once we had hundreds of students using basic teamware
 routinely, we could start introducing new elements, or modifying
 existing ones, to explore new ideas.  The other motivation, of course,
@@ -54,11 +54,11 @@ shown how to program.  They get a first-year course in C, and (maybe)
 another course in numerical methods, and then they're expected to
 discover or invent everything else on their own.</p>
 
-<p>I'm now teaching <a href="http://www.third-bit.com/swc">a
-course</a> designed to introduce non-Computer Science grad students to
+<p>I'm now teaching a
+course designed to introduce non-Computer Science grad students to
 the programming and data crunching skills they need to work more
 efficiently.  I think it's going pretty well, and I'd welcome a chance
-to polish and extend it.  (The <a href="http://207.22.26.166/GroupwareReport.html">report</a> Jon Udell
+to polish and extend it.  (The report Jon Udell
 wrote for the original Software Carpentry project several years ago is
 just one indication of how much more could be done here...)  The
 problem, of course, is finding someone to fund it...</p>
@@ -77,10 +77,9 @@ match-making, and find ways to get students course credit for working
 on real open source projects.  <a href="http://www.google.com">Google</a> doesn't seem interested---if
 someone else is, I'm easy to find ;-)</p>
 
-<p>Finally, there are the blue-sky options: <a href="http://www.third-bit.com/~gvwilson/papers/queue2004-extprog.pdf">extensible
-programming systems</a>, turning JavaScript into a credible
+<p>Finally, there are the blue-sky options: extensible
+programming systems, turning JavaScript into a credible
 command-line scripting language, and, well, pretty much anything else
 fresh that pays my bills without straining my conscience.  If I sound
-like <a href="http://www.third-bit.com/~gvwilson">what you're looking
-for</a>, please <a href="mailto:gvwilson@third-bit.com">drop me a
-line</a>.</p>
+like what you're looking
+for, please drop me a line.</p>

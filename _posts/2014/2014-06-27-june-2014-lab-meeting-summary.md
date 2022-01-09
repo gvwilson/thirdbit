@@ -19,7 +19,7 @@ original: swc
     <em>without</em> discouraging people who haven't,
     or getting into a situation in which bootcamp hosts ask,
     "Why aren't you sending your most experienced people to us?"
-    We've opened <a href="{{site.github_url}}/bc/issues/575">a GitHub issue</a>
+    We've opened a GitHub issue
     for people who'd like to discuss this topic,
     and we'd be grateful if you could share experiences with other systems
     and suggestions about what we could do.
@@ -64,7 +64,7 @@ original: swc
     so that instructors can create a page in their bootcamp site where learners can play around.
   </li>
   <li>
-    Jonah Duckles has created <a href="{{site.github_url}}/bc/pull/415">a pull request</a>
+    Jonah Duckles has created a pull request
     that would change the way installation instructions are managed.
     Instead of editing <code>_includes/setup.html</code>,
     instructors would add a list of topics to the header of <code>index.html</code>
@@ -94,7 +94,7 @@ original: swc
 <li>Announcements</li>
 <li>Directions</li>
 <li>Volunteers/Reviewers Wanted</li>
-<li>Plans for the July 22-23 sprint: <a href="https://etherpad.mozilla.org/swc-sprint-2014">https://etherpad.mozilla.org/swc-sprint-2014</a></li>
+<li>Plans for the July 22-23 sprint</li>
 <li>Other Business
 <ul>
 <li>Online Helpouts (Russell Alleen-Willems)</li>
@@ -149,18 +149,16 @@ original: swc
 </ul>
 <p><strong>Announcements</strong></p>
 <ul>
-<li>See <a href="{{site.github_url}}/bc/issues?labels=getting-started">{{site.github_url}}/bc/issues?labels=getting-started</a> for issues that instructor trainees are encouraged to work on</li>
+<li>See here for issues that instructor trainees are encouraged to work on</li>
 <li>How should we mentor new instructors?
 <ul>
-<li><a href="{{site.github_url}}/bc/issues/568">{{site.github_url}}/bc/issues/568</a></li>
 </ul></li>
 </ul>
 <p><strong>Directions</strong></p>
 <ul>
 <li>Lessons in Python and R on creating packages?
 <ul>
-<li><a href="{{site.github_url}}/bc/issues/536">{{site.github_url}}/bc/issues/536</a> (this is OS X commands lack features...)</li>
-<li><a href="{{site.github_url}}/bc/pull/507">{{site.github_url}}/bc/pull/507</a></li>
+<li>This is OS X commands lack features...</li>
 <li>Volunteers:
 <ul>
 <li>I'm happy to give a look at the R packaging lesson (Fran&ccedil;ois Michonneau)</li>
@@ -179,16 +177,16 @@ original: swc
 <li>Those ones, yes.</li>
 </ul></li>
 <li>Anaconda now supports it</li>
-<li>&quot;Canopy provides access to Python 2.7.6&quot; - no indication on side of 3.0 support</li>
+<li>"Canopy provides access to Python 2.7.6" - no indication on side of 3.0 support</li>
 <li>But most code is still written in Python 2.7</li>
 <li>Integer division is a huge stumbling/exasperation point for novices</li>
 <li>Votes: 0 +1+10 +1+0-100+1+10000+0.50+1+1+1+1+10000+100</li>
 <li>Votes for using 3.* syntax but installing 2.7: -1+1+1-1-1+1+1</li>
-<li>List of incompatible packages? Currently summarized in <a href="{{site.github_url}}/bc/issues/107#issuecomment-32144981">{{site.github_url}}/bc/issues/107#issuecomment-32144981</a></li>
+<li>List of incompatible packages? Currently summarized in this issue</li>
 </ul></li>
 <li>Add a GUI diff/merge tool to our version control lessons?
 <ul>
-<li><a href="{{site.github_url}}/bc/issues/527">{{site.github_url}}/bc/issues/527</a></li>
+<li>This issue</li>
 <li><a href="https://stackoverflow.com/questions/426026/git-on-windows-how-do-you-set-up-a-mergetool">https://stackoverflow.com/questions/426026/git-on-windows-how-do-you-set-up-a-mergetool</a></li>
 <li>Votes:+1+1 0+1+0.5+1+1+10-1+0.50-1+1+1+1+1-1+1+1+1+0+100-1+1</li>
 <li>Karin: +1 for gui, -1 if not cross platform, same here (ethan white, raniere silva, Jory Schossau)</li>
@@ -198,7 +196,7 @@ original: swc
 </ul></li>
 <li>Install ipythonblocks by default?
 <ul>
-<li><a href="{{site.github_url}}/bc/issues/486">{{site.github_url}}/bc/issues/486</a></li>
+<li>This issue</li>
 <li>note: it is used in some lessons</li>
 <li>Votes: +1+1+1+0+1+1-1+1+1+1+1+1+1+1</li>
 <li>How many people use it: Greg, Karin, Damien, Tracy (sometimes)</li>
@@ -209,7 +207,7 @@ original: swc
 </ul></li>
 <li>Integrate regexpal.com into our lessons for teaching regular expressions
 <ul>
-<li>See <a href="{{site.github_url}}/bc/issues/498">{{site.github_url}}/bc/issues/498</a></li>
+<li>See this issue</li>
 <li>Votes: +1 +1 +1+1+1+1+1+1+1+000+1+1+1+10+1</li>
 <li>Volunteers:
 <ul>
@@ -225,23 +223,23 @@ original: swc
 </ul></li>
 <li>Use templates to control what's displayed in setup instructions
 <ul>
-<li><a href="{{site.github_url}}/bc/pull/415">{{site.github_url}}/bc/pull/415</a></li>
+<li>This issue</li>
 <li>Votes: +1+1+10+1+10+000+00+1+1+1+10+1+1+1+1+10+10+1</li>
 </ul></li>
-<li>Highlight &quot;senior&quot; instructors somehow on <a href="{{site.baseurl}}/team/">the team page</a>?
+<li>Highlight "senior" instructors somehow on the team page?
 <ul>
-<li>See also <a href="{{site.github_url}}/bc/pull/570">{{site.github_url}}/bc/pull/570</a></li>
+<li>See also this issue</li>
 <li>Suggestions: open a discussion thread - this one's complicated</li>
-<li>Count option can lead to &quot;Senior&quot; later by defining what that means</li>
+<li>Count option can lead to "Senior" later by defining what that means</li>
 </ul></li>
 <li>EPUB version of lesson
 <ul>
-<li>The majors issues was addressed: <a href="{{site.github_url}}/bc/pull/435">{{site.github_url}}/bc/pull/435</a> Raniere wants green light to merge all the related PR.</li>
+<li>The majors issues was addressed: this PR Raniere wants green light to merge all the related PR.</li>
 </ul></li>
 </ul>
 <p><strong>July 22-23 Sprint</strong></p>
 <ul>
-<li>Planning: <a href="https://etherpad.mozilla.org/swc-sprint-2014">https://etherpad.mozilla.org/swc-sprint-2014</a></li>
+<li>Planning</li>
 <li>Meet with hosts/project leaders/anyone else who's interested next Thursday (July 3) to talk details - if you're interested in being part of the meeting, please sign up below
   <table class="table table-striped">
     <tr>
@@ -279,76 +277,76 @@ original: swc
 <ul>
 <li>Bioinformatics capstone example
 <ul>
-<li>Really good discussion at <a href="{{site.github_url}}/bc/issues/532">{{site.github_url}}/bc/issues/532</a></li>
+<li>Really good discussion at this issue</li>
 <li>Volunteers: Karin L</li>
 </ul></li>
-<li>&quot;Starry night&quot; image manipulation using sk.image.novice and ipythonblocks
+<li>"Starry night" image manipulation using sk.image.novice and ipythonblocks
 <ul>
-<li><a href="{{site.github_url}}/bc/pull/508">{{site.github_url}}/bc/pull/508</a></li>
+<li>This pull request</li>
 <li>Reviewers:P Barmby</li>
 </ul></li>
 <li>Syndicating data as a way to introduce web programming
 <ul>
-<li><a href="{{site.github_url}}/bc/pull/513">{{site.github_url}}/bc/pull/513</a>
+<li>This pull request
 <ul>
-<li>Replaces <a href="{{site.github_url}}/bc/pull/502">{{site.github_url}}/bc/pull/502</a></li>
+<li>Replaces this pull request</li>
 </ul></li>
 <li>Volunteers:</li>
 </ul></li>
 <li>Creating slides to introduce topics
 <ul>
-<li><a href="{{site.github_url}}/bc/pull/510">{{site.github_url}}/bc/pull/510</a></li>
+<li>This pull request</li>
 <li>Needs work on CSS</li>
 <li>Needs intro decks for each major topic</li>
-<li>Hope to record these as &quot;why you care about this lesson&quot; videos</li>
-<li>See <a href="{{site.github_url}}/bc/issues/559">{{site.github_url}}/bc/issues/559</a></li>
+<li>Hope to record these as "why you care about this lesson" videos</li>
+<li>See this issue</li>
 <li>Volunteers: Dav Clark, Jacob Levernier</li>
 </ul></li>
 <li>Novice lesson on indexing in NumPy
 <ul>
-<li><a href="{{site.github_url}}/bc/pull/487">{{site.github_url}}/bc/pull/487</a></li>
+<li>This PR</li>
 <li>Reviewers: Jeremiah Lant</li>
 </ul></li>
-<li>Improving our &quot;how do I do X?&quot; instructions
+<li>Improving our "how do I do X?" instructions
 <ul>
-<li><a href="{{site.github_url}}/bc/issues/482">{{site.github_url}}/bc/issues/482</a></li>
+<li>This issue</li>
 <li>Volunteers:</li>
 </ul></li>
 <li>Code review lesson + Git branching
 <ul>
-<li><a href="{{site.github_url}}/bc/issues/517">{{site.github_url}}/bc/issues/517</a></li>
-<li><a href="{{site.github_url}}/bc/pull/471">{{site.github_url}}/bc/pull/471</a></li>
+<li>This issue</li>
+<li>this PR</li>
 <li>Volunteers:P Barmby R Davey</li>
 </ul></li>
 <li>What are we doing to do about statistics/data analysis/Pandas in Python?
 <ul>
-<li><a href="{{site.github_url}}/bc/pull/432">{{site.github_url}}/bc/pull/432</a></li>
-<li><a href="{{site.github_url}}/bc/pull/266">{{site.github_url}}/bc/pull/266</a></li>
+<li>this issue</li>
+<li>this issue</li>
 <li>Volunteers:</li>
 </ul></li>
 <li>Add next/previous navigation links for lessons
 <ul>
-<li><a href="{{site.github_url}}/bc/pull/384">{{site.github_url}}/bc/pull/384</a></li>
+<li>this pull request</li>
 <li>Volunteers:</li>
 </ul></li>
 <li>Medical image processing example
 <ul>
-<li><a href="{{site.github_url}}/bc/pull/529">{{site.github_url}}/bc/pull/529</a></li>
+<li>this PR</li>
 </ul></li>
 <li>Rewriting shell lesson that it only talks about Nelle
 <ul>
-<li>Minimal rewrite: <a href="{{site.github_url}}/bc/pull/535">{{site.github_url}}/bc/pull/535</a></li>
-<li>More extensive rewrite: <a href="{{site.github_url}}/bc/pull/437">{{site.github_url}}/bc/pull/437</a></li>
-<li>Notes: <a href="{{site.github_url}}/bc/issues/405">{{site.github_url}}/bc/issues/405</a></li>
+<li>Minimal rewrite: this PR</li>
+<li>More extensive rewrite: this PR</li>
+<li>Notes: here</li>
 </ul></li>
 <li>Version control with Mercurial:
 <ul>
-<li><a href="{{site.github_url}}/bc/pull/439">{{site.github_url}}/bc/pull/439</a></li>
+<li>this PR</li>
 </ul></li>
 <li>Give instructors more credit
 <ul>
 <li>Make their names more prominent on bootcamp webpages</li>
-<li>See <a href="{{site.github_url}}/bc/pull/570">{{site.github_url}}/bc/pull/570</a></li>
+<li>See this PR</li>
 <li>Votes:</li>
 </ul></li>
 </ul>

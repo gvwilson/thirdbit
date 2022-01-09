@@ -6,7 +6,7 @@ favorite: true
 ---
 
 Back when I was struggling to teach a meaningful course on software architecture at the University of Toronto,
-I [mentioned]({{site.github.url}}/2011/06/12/if-youre-going-to-teach-an-undergrad-intro-to-software-engineering.html)
+I [mentioned]({{site.github.url}}/2011/06/12/if-youre-going-to-teach-an-undergrad-intro-to-software-engineering/)
 Reekie and McAdam's book *[A Software Architecture Primer](http://www.amazon.com/Software-Architecture-Primer-John-Reekie/dp/0646458418/)*,
 which was one of the few I found useful.
 Ten years on,

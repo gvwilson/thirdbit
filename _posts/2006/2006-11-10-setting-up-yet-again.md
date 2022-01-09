@@ -20,13 +20,13 @@ I now have a Windows PC on my desktop --- using the Mac laptop as my main comput
 </ul>
 Everything else I need I got by checking out a repository from one of (quick count) four machines:
 <ul>
-	<li>One set of <a href="http://www.cs.utoronto.ca/~csc407h">course notes</a></li>
-	<li>Six <a href="http://www.drproject.org">CSC49X</a> projects</li>
+	<li>One set of course notes</li>
+	<li>Six CSC49X projects</li>
 	<li>Five other projects for the <a href="http://www.cs.utoronto.ca">Computer Science department</a></li>
 	<li>The two books I'm working on</li>
 	<li>The <a href="http://swc.scipy.org">Software Carpentry</a> notes</li>
 	<li>My personal stuff (address list, photos, etc.)</li>
-	<li>The web site for <a href="http://www.third-bit.com">third-bit.com</a></li>
+	<li>The web site for third-bit.com</li>
 	<li>Some archival stuff that I probably don't need, but like to have just in case</li>
 </ul>
 Elapsed time: about two hours, during most of which I was reading mail and talking to people.

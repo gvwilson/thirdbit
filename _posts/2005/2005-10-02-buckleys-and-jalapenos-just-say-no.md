@@ -9,7 +9,7 @@ year: 2005
 
 <li>A mix of Buckley's cough syrup and jalapeno peppers clears sinus congestion better than either on its own.</li>
 
-<li>Lecturing under the influence of such a mixture is a bad idea: I made of mess of both the <a href="http://www.third-bit.com/swc/www/test.html">first lecture on testing</a>, and the spec for <a href="http://www.third-bit.com/swc/toronto/ex02.html">exercise 2</a>.  I'm also worried that some students are being left behind, but it seems that these are mostly people with no prior programming experience.  As much as I'd like the course to be accessible to them, trying to cater to both complete newcomers, and people looking for a second-level course on software construction, will leave both unsatisfied.</li>
+<li>Lecturing under the influence of such a mixture is a bad idea: I made of mess of both the first lecture on testing, and the spec for exercise 2.  I'm also worried that some students are being left behind, but it seems that these are mostly people with no prior programming experience.  As much as I'd like the course to be accessible to them, trying to cater to both complete newcomers, and people looking for a second-level course on software construction, will leave both unsatisfied.</li>
 
 <li>That said, the course seems to be going reasonably well: 66 students submitted solutions to Exercise 1, and of those, 48 of the 55 based in Toronto got 80% or better.  The graphics are coming along (as soon as I figure out how to stop the backgrounds coming out black when you print from Firefox, I'll post a fresh set of PDFs), and:</li>
 

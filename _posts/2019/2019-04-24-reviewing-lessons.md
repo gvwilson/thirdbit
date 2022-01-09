@@ -33,7 +33,7 @@ because you can't choose examples unless you have some idea what they're example
 What follows is my first attempt at defining those rules.
 It doesn't cover spelling and grammar or the logical flow of the lesson---I will try
 to work up a separate checkable list for that---but I think it's more useful than
-[my earlier post]({{site.github.url}}/2019/04/20/questions-for-learning-commons.html).
+[my earlier post]({{site.github.url}}/2019/04/20/questions-for-learning-commons/).
 I hope that people who are sharing lessons freely available online will find it useful,
 and I'd be very grateful for feedback.
 (I have once again had to disable comments on this blog,
@@ -130,7 +130,7 @@ so please [send me ideas by email](mailto:gvwilson@third-bit.com).)
     and playing basketball isn't the best (or only) way to teach people how to play.
     Every lesson should *include exercises of several different kinds*
     to keep learners engaged and to provide a variety of feedback.
-    [This post]({{site.github.url}}/2017/10/16/exercise-types.html) describes some that can be used in programming classes,
+    [This post]({{site.github.url}}/2017/10/16/exercise-types/) describes some that can be used in programming classes,
     while *[Teaching for Learning][t4l]* and *[The Discussion Book][discussion]* present many others.
 
 [10-lesson]: https://journals.plos.org/ploscompbiol/article/authors?id=10.1371/journal.pcbi.1006915

@@ -123,8 +123,8 @@ isn't part of the standard undergraduate curriculum, but <a href="http://www.cs.
 to change that by modifying <a href="http://projects.edgewall.com/trac">Trac</a> to provide the
 features that we need to run courses.  Once we do that, we'll have a
 way to collect data on how students actually do group assignments.  We
-were surprised in the summer of 2004 that <a href="http://www.third-bit.com/~gvwilson/msr2005.pdf">we couldn't
-find</a> any correlation between the way students used CVS
+were surprised in the summer of 2004 that we couldn't
+find any correlation between the way students used CVS
 repositories in a second-year course, and the grades they were given.
 So:
 <ol>
@@ -143,8 +143,8 @@ programs;</li>
 	<li>using XML-based markup, rather than arbitrary text formats, to
 store data.</li>
 </ul>
-I believe the logical endpoint of this convergence is <a href="http://www.third-bit.com/~gvwilson/extprog-acmqueue.pdf">extensible
-programming systems</a>, in which "programs" are mixed-media
+I believe the logical endpoint of this convergence is extensible
+programming systems, in which "programs" are mixed-media
 representations of application code, meta-code for tools such as
 compilers and debuggers, and meta-data such as class diagrams and
 pictures of the dev team.  Pretty much everyone else is already

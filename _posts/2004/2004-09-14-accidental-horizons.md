@@ -27,4 +27,4 @@ year: 2004
 
 <p>[<a name="2">2</a>] Which isn't to say that it wouldn't take a lot of thoughtful design and hard work to create the right hooks in <a href="http://www.eclipse.org">Eclipse</a> for developers to plug into.  Master's thesis, anyone?</p>
 
-<p>[<a name="3">3</a>] See also my article on <a href="http://www.third-bit.com/~gvwilson/xmlprog.html">extensible programming systems</a>.</p>
+<p>[<a name="3">3</a>] See also my article on extensible programming systems.</p>

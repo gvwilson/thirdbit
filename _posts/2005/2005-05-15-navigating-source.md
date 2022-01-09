@@ -3,9 +3,9 @@ title: "Navigating Source"
 date: 2005-05-15 12:32:57
 year: 2005
 ---
-One of the minor items on my to-do list is to replace the <a href="http://projects.edgewall.com/trac">default Trac graphics</a> on the <a href="http://www.third-bit.com/trac/Argon">Argon</a> web site with ones that include some reference to the <a href="http://www.utoronto.ca">University of Toronto</a> and our hippo mascot.  Having spent half an hour on Friday talking to a colleague about how we teach students how to write code, but not how to read it, I thought I'd describe how I figured out what files I'd need to change, and where to find them.
+One of the minor items on my to-do list is to replace the <a href="http://projects.edgewall.com/trac">default Trac graphics</a> on the Argon web site with ones that include some reference to the <a href="http://www.utoronto.ca">University of Toronto</a> and our hippo mascot.  Having spent half an hour on Friday talking to a colleague about how we teach students how to write code, but not how to read it, I thought I'd describe how I figured out what files I'd need to change, and where to find them.
 
-Step 1: what am I looking for?  If you take a look at the <a href="http://www.third-bit.com/trac/Argon">Argon</a> site, you'll see two logos: a large banner at the top of the page, and a smaller "Trac Powered" logo at the bottom.  "View Source" shows me that the top one is produced by the following HTML:
+Step 1: what am I looking for?  If you take a look at the Argon site, you'll see two logos: a large banner at the top of the page, and a smaller "Trac Powered" logo at the bottom.  "View Source" shows me that the top one is produced by the following HTML:
 <blockquote>
 <pre>&lt;div id="header"&gt; &lt;a id="logo" xhref="http://trac.edgewall.com/" mce_href="http://trac.edgewall.com/" &gt;&lt;img xsrc="/trac-static/trac_banner.png" mce_src="/trac-static/trac_banner.png"  width="236" height="73" alt="Trac" /&gt;&lt;/a&gt; &lt;hr /&gt; &lt;/div&gt;</pre>
 </blockquote>

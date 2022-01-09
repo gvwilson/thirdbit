@@ -3,7 +3,7 @@ title: "Revised List of Project Students"
 date: 2006-08-20 14:58:53
 year: 2006
 ---
-I've updated my roster of project students (appears below the divide): 116 students, of whom 28 have done two projects. I still need to update my <a href="{{site.github.url}}/files//49xmap.gif">map</a>, though, and I don't have birthplaces for the following people:
+I've updated my roster of project students (appears below the divide): 116 students, of whom 28 have done two projects. I still need to update my map, though, and I don't have birthplaces for the following people:
 <ul>
 	<li>Lillian Angel</li>
 	<li>Daniel Charles</li>

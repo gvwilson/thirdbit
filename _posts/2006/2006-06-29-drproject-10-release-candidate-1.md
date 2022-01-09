@@ -5,9 +5,9 @@ year: 2006
 ---
 We are very pleased to announce that DrProject 1.0  RC1 is now  available:
 <ul>
-	<li>As a tarball: <a class="ext-link" href="http://www.third-bit.com/drproject-1.0.tar.gz">http://www.third-bit.com/drproject-1.0.tar.gz</a></li>
-	<li>Via Subversion: https://pyre.third-bit.com/svn/drproject/trunk</li>
-	<li>Questions and feedback: <a href="mailto:drproject@third-bit.com">drproject@third-bit.com</a></li>
+	<li>As a tarball</li>
+	<li>Via Subversion</li>
+	<li>Questions and feedback</li>
 </ul>
 Thanks to everyone who got us this far---we look forward to your feedback.
 

@@ -253,6 +253,6 @@ Note that we archive past Harper files but not the actual lesson content.
 [guardians-video]: https://www.youtube.com/watch?v=XC8qrH3Zwog
 [harper]: {{'/ideas/harper/harper-full/' | relative_url}}
 [harper-william]: https://en.wikipedia.org/wiki/William_Rainey_Harper
-[oer-landmines]: http://third-bit.com/2018/12/02/oer-landmines.html
+[oer-landmines]: http://third-bit.com/2018/12/02/oer-landmines/
 [stack]: http://stackoverflow.com
 [swc-shell]: http://swcarpentry.github.io/shell-novice/

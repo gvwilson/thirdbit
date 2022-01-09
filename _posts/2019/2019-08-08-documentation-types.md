@@ -5,7 +5,7 @@ year: 2019
 favorite: true
 ---
 
-*This post is an update on [an earlier one]({{site.github.url}}/2019/04/16/what-docs-when.html)
+*This post is an update on [an earlier one]({{site.github.url}}/2019/04/16/what-docs-when/)
 that slims down the set of documentation types.
 [Feedback](mailto:gvwilson@third-bit.com?subject=documentation types) is very welcome.*
 

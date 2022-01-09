@@ -30,7 +30,7 @@ to saying, "somebody is going to help you,"
 and that has made all the difference in the world to thousands of tentative newcomers.
 
 People who like things the way they are tend to think negative liberty is all the world needs,
-or [work very hard to avoid talking about the subject at all]({{site.github.url}}/2018/11/24/afraid-of-change.html).
+or [work very hard to avoid talking about the subject at all]({{site.github.url}}/2018/11/24/afraid-of-change/).
 I certainly did:
 I spent my first thirty-odd years
 [playing on easy mode](https://whatever.scalzi.com/2012/05/15/straight-white-male-the-lowest-difficulty-setting-there-is/)
