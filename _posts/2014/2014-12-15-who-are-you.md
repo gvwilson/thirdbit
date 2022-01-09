@@ -22,7 +22,7 @@ original: swc
   I don't think I've introduced any new risks.)
 </p>
 <p>
-  The SQL source for the database is <a href="swc-db-2014-12-14.sql">here</a>;
+  The SQL source for the database is here;
   with it,
   you can regenerate the database using:
 </p>

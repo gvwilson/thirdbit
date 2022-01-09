@@ -130,5 +130,5 @@ original: swc
   programs ought to be treated like any other kind of experimental apparatus.
   My question now is,
   what rules of thumb do <em>you</em> have for testing the science-y bits of your code?
-  We'd welcome replies as comments or <a href="mailto:{{site.contact}}">email</a>.
+  We'd welcome replies as comments or <a href="mailto:gvwilson@third-bit.com">email</a>.
 </p>

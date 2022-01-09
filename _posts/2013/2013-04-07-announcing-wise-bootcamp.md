@@ -29,9 +29,9 @@ original: swc
   Registration is only $20;
   to sign up, or find out more, please visit
   the <u>registration page</u>
-  or email <a href="mailto:{{site.contact}}">{{site.contact}}</a>.
+  or email us.
   And if you would like to volunteer to help during practical sessions on either or both days,
-  please <a href="mailto:{{site.contact}}">contact us</a> as well.
+  please contact us as well.
 </p>
 <p>
   This bootcamp has been made possibly by support from

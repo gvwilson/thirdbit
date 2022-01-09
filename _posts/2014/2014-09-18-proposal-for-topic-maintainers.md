@@ -53,8 +53,7 @@ original: swc
   </li>
 </ul>
 <p>
-  We'll put this to a vote at the
-  <a href="./sept-2014-lab-meeting.html">end-of-September lab meeting</a>.
+  We'll put this to a vote at the end-of-September lab meeting.
   If it passes,
   I'll invite a few people to be maintainers for our core novice lessons for the next six months.
   If it looks like this is working,

@@ -81,8 +81,7 @@ original: swc
   Conversely,
   I believe that if a project <em>can't</em> do this,
   it won't be able to scale up.
-  It isn't the only obstacle to
-  <a href="../03/collaborative-lesson-development.html">collaborative lesson development</a>,
+  It isn't the only obstacle to collaborative lesson development,
   or the biggest,
   but it <em>is</em> an obstacle,
   even within Software Carpentry itself.

@@ -5,10 +5,10 @@ year: 2014
 original: swc
 ---
 <p>
-  As a warm-up for <a href="./announcing-june-2014-lab-meeting.html">our lab meeting on June 26</a>,
+  As a warm-up for our lab meeting on June 26,
   we have some more information to share
-  about our <a href="{{site.baseurl}}/blog/2014/05/multisite-sprint-in-july.html">two-day sprint in July</a>.
-  Please see <a href="https://etherpad.mozilla.org/swc-sprint-2014">our Etherpad</a> for details,
+  about our two-day sprint in July.
+  Please see our Etherpad for details,
   including more about sites and projects.
 </p>
 <p><strong>Overview</strong></p>
@@ -29,9 +29,9 @@ original: swc
   there be something concrete to start with
   (because experience shows that starting with a blank screen is a good way to spend two days going in circles),
   and that someone volunteer to coordinate the work.
-  Projects currently on <a href="https://etherpad.mozilla.org/swc-sprint-2014">our Etherpad</a>
+  Projects currently on our Etherpad
   include adding domain-specific capstone examples to Software Carpentry,
-  <a href="./khmer-mini-hackathon.html">introducing scientists to testing and code review</a>,
+  introducing scientists to testing and code review,
   building some administrative infrastructure to help coordinate workshops,
   and more.
 </p>
@@ -49,7 +49,7 @@ original: swc
 </p>
 <p>
   If you'd like to take part,
-  please add yourself to <a href="https://etherpad.mozilla.org/swc-sprint-2014">the sprint Etherpad</a>
+  please add yourself to the sprint Etherpad
   so that we have an idea of numbers at each site.
   If you'd like your project to be part of the sprint,
   or be a host site,

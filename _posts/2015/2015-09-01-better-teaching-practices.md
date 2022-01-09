@@ -58,7 +58,7 @@ original: swc
       the <a href="http://www.teachingperspectives.com/tpi/">Teaching Perspectives Inventory</a>,
       an evidence-based division of how teachers think about what they're doing that distinguishes between
       Transmission, Apprenticeship, Developmental, Nurturing, and Social Reform views.
-      <a href="gvwilson-tpi.png">My scores</a> are fairly balanced among the last four views,
+      My scores are fairly balanced among the last four views,
       with Transmission a distant last place.
     </p>
   </li>

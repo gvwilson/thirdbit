@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  Last week's post about <a href="original-logo.html">our original logo</a>
+  Last week's post about our original logo
   reminded me that I'd never blogged about one of the books that inspired Software Carpentry in the first place:
   Rubin Landau and Paul Fink's
   <em><a href="http://www.amazon.com/Scientists-Engineers-Guide-Workstations-Supercomputers/dp/0471532711/">A Scientist's and Engineer's Guide to Workstations and Supercomputers: Coping with Unix, RISC, Vectors, and Programming</a></em>.

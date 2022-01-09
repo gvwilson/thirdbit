@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   I am updating the
-  <a href="{{'/files/papers/wilson-2016-swc-lessons-learned.pdf' | relative_url }}">lessons learned</a> paper,
+  lessons learned paper,
   and would like to include histograms showing how many people have contributed how often to our lessons.
   More specifically,
   I have 9 data sets (one for each lesson),
@@ -34,5 +34,4 @@ original: swc
   What's the best way to visualize this,
   given the spread of values on the X axis?
   And what's the easiest way to generate that visualization in Python?
-  (You can <a href="repo-contributions.zip">get the data here</a> to try out your ideas.)
 </p>

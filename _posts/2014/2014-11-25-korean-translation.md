@@ -30,8 +30,7 @@ original: swc
 </ul>
 <p>
   We still need to figure out how to manage this:
-  <a href="lessons-repo-split-and-translations.html">Gabriel Devenyi's post</a>
-  outlined our options,
+  Gabriel Devenyi's post outlined our options,
   but someone will need to take the lead to set something up
   so that versions in various languages can stay in sync.
 </p>

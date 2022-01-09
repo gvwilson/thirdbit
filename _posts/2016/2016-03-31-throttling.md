@@ -9,7 +9,7 @@ year: 2016
   Online discussions (including Twitter, mailing lists, and comment threads on blogs)
   are a prime example.
   As Megan O'Donnell points out in
-  <a href="lists.ala.org/sympa/arc/scholcomm/2016-03/msg00208.html">these</a>
+  <a href="http://lists.ala.org/sympa/arc/scholcomm/2016-03/msg00208.html">these</a>
   <a href="http://lists.ala.org/sympa/arc/scholcomm/2016-03/msg00300.html">posts</a>
   on the Scholarly Communication list [<a href="#1">1</a>]:
 </p>

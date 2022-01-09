@@ -23,7 +23,7 @@ and the third is for the even smaller group of people who find themselves runnin
 
 The outlines for these three courses are now hosted in the [Merely Useful](https://github.com/merely-useful/) organization on GitHub.
 As always,
-I'd be very grateful for feedback---you can reach me at [mailto:gvwilson@third-bit.com](gvwilson@third-bit.com).
+I'd be very grateful for feedback.
 
 - Term 1: [basic skills](https://merely-useful.github.io/one-extra-fact/en/)
   - An introduction to tidy data using spreadsheets

@@ -15,8 +15,7 @@ original: swc
   Getting the Software Carpentry Foundation up and running almost immediately pushed that aside,
   but now that the SCF is up and running,
   it's time to return to the subject.
-  Discussion of <a href="how-teaching-knowledge-is-transferred.html">how teaching practices are transferred</a>
-  is part of that;
+  Discussion of how teaching practices are transferred is part of that;
   so are two other developments this week.
 </p>
 <p>
@@ -30,11 +29,11 @@ original: swc
 </p>
 <p>
   Second,
-  <a href="{{site.baseurl}}/team/#bostroem.a">Azalee Bostroem</a> surveyed people who have taught our current Python lesson
+  Azalee Bostroem surveyed people who have taught our current Python lesson
   to find out what they're actually doing and how it has been going.
   46 people responded,
   almost all of them instructors,
-  and <a href="python-lesson-survey-results.pdf">the results</a> are fascinating.
+  and the results are fascinating.
   Here are some of the key findings, and my comments:
 </p>
 <dl>
@@ -100,7 +99,7 @@ original: swc
     <p>
       I (reluctantly) agree,
       at least for people who are learning programming for the first time.
-      As with <a href="{{site.baseurl}}/blog/2014/10/why-we-dont-teach-testing.html">testing</a>,
+      As with testing,
       there's no point putting scarce classroom or maintenance time into something that doesn't stick.
     </p>
   </dd>
@@ -133,10 +132,9 @@ original: swc
 <p>
   We would like even more data:
   if you have taught Python for us and have three minutes to spare,
-  please <a href="https://docs.google.com/forms/d/1jfzFt-OQpiridqOo2ykLTSsIB6R-13rMFm3SuV2Qoeg/viewform?c=0&w=1">fill
-  in the survey</a>.
+  please fill in the survey.
   And if you can give us half an hour,
   we'd be grateful for help sorting and summarizing the comments we've had on our Python lessons
-  in debriefing sessions&mdash;please <a href="mailto:gvwilson@software-carpentry.org">get in touch</a>
+  in debriefing sessions&mdash;please get in touch
   if you can spare some time.
 </p>

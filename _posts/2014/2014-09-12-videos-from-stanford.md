@@ -8,7 +8,7 @@ original: swc
   Stanford University has posted videos from the Software Carpentry workshop held there in August
   featuring Azalee Bostroem, Chris Lonnen, Dani Traphagen, and Chris Beitel.
   These are a great place to start if you'd like to do a little informal
-  <a href="building-better-teachers.html"><em>jugyokenkyu</em></a>.
+  <em>jugyokenkyu</em>.
 </p>
 <ul>
   <li><a href="http://purl.stanford.edu/tx853fp2857">August 14, 2014</a></li>

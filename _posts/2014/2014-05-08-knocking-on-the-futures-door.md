@@ -15,11 +15,11 @@ original: swc
   It's not,
   and the reasons why highlight yet again
   why so many scientists would rather
-  <a href="./playing-the-kazoo.html">keep playing the kazoo</a>
+  keep playing the kazoo
   than learn to play the violin.
 </p>
 <p>
-  Our starting point is <a href="{{site.github_url}}/bc">this Git repository</a>.
+  Our starting point is this Git repository.
   In it,
   you'll find a directory called <code>novice</code> that contains
   a mixture of IPython Notebooks (<code>.ipynb</code>) and Markdown files (<code>.md</code>).
@@ -130,7 +130,7 @@ A storage area where a [version control](#version-control) system...
 <p>
   I can rhyme off half a dozen reasons why what we're trying to do is the "right" way,
   but most scientists would (quite rightly) respond, "Yeah, but it doesn't actually work."
-  It comes back once again to <a href="playing-the-kazoo.html#glass-law">Glass's Law</a>
+  It comes back once again to Glass's Law
   and the initial productivity dip that comes with any new way of doing things:
 </p>
 <p>

@@ -13,7 +13,7 @@ original: swc
 <ol>
   <li>
     <p>
-      As <a href="proposal-for-topic-maintainers.html">mentioned last week</a>,
+      As mentioned last week,
       we are asking specific people to take charge of particular topics in our core material.
       They will <em>not</em> be responsible for developing lessons themselves
       (though they may of course do so).
@@ -39,12 +39,12 @@ original: swc
   <li>
     <p>
       Related to this,
-      we are going to break up the <a href="{{site.github_url}}/bc"><code>bc</code> repository</a>.
+      we are going to break up the <code>bc</code> repository.
       It currently holds both our lessons and the templates for creating workshop sites,
       and has become too large and too complicated to manage.
       Our plan is to have a one-to-one match between repositories and lessons
       (e.g., the <code>novice/python</code> lesson will be in a small repository of its own);
-      we're working out a <a href="splitting-the-repo.html">detailed proposal</a>,
+      we're working out a detailed proposal,
       and hope to have it up early next week.
       Trevor King, Trevor Bekolay, R&eacute; Emonet, and Erik Bray have volunteered to help
       with the Git magic that will be needed to do this without losing history&mdash;more help
@@ -55,9 +55,8 @@ original: swc
   </li>
   <li>
     <p>
-      <a href="building-better-teachers.html">Greg Wilson's post on <em>Building a Better Teacher</em></a>
-      and companion posts by <a href="more-thoughts-on-better-teachers.html">Azalee Bostroem</a>
-      and <a href="further-thoughts-on-better-teachers.html">Justin Kitzes</a>
+      Greg Wilson's post on <em>Building a Better Teacher</em>
+      and companion posts by Azalee Bostroem and Justin Kitzes
       have generated a lot of suggestions over the past three weeks
       about how we could share good teaching practices among our instructors.
       The specific suggestions made at this week's meeting were:

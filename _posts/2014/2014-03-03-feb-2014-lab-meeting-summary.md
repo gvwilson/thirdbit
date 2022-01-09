@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  We held a <a href="./lab-meeting-feb-2014.html">lab meeting</a> last week.
+  We held a lab meeting last week.
   48 people attended in two sessions (to accommodate different time zones);
   the main points are summarized below.
 </p>
@@ -32,7 +32,7 @@ original: swc
   <li><strong>Lesson Content</strong>
     <ul>
       <li>Our novice lessons are coming together well: they have been merged into the <a href="{{site.github_url}}/bc/tree/gh-pages">gh-pages branch of the bootcamp repository on GitHub</a> and are now <a href="{{site.baseurl}}/lessons/">on the web site</a>.</li>
-      <li>We still need to assemble our novice R materials; <a href="mailto:jdblischakATuchicagoDOTedu">John Blischak has</a> volunteered to coordinate, so please contact him if you'd like to help.</li>
+      <li>We still need to assemble our novice R materials; John Blischak has volunteered to coordinate, so please contact him if you'd like to help.</li>
     </ul>
   </li>
   <li><strong>Building Lessons</strong>

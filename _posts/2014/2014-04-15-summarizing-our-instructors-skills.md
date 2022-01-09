@@ -70,6 +70,6 @@ original: swc
   Once we've recovered from running our biggest events ever,
   we'll dig into it a little more and share what we find;
   until then,
-  you can <a href="instructor-survey-processed-2014-04-04.csv">download the raw data</a>
+  you can download the raw data
   and tell us what correlations <em>you</em> can find.
 </p>

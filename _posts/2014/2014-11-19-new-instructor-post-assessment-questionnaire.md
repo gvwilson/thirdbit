@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  As <a href="revised-instructor-survey.html">mentioned two weeks ago</a>,
+  As mentioned two weeks ago,
   a group led by Daniel Chen have been revising the post-workshop survey for instructors
   so that we can get a better idea of who's actually teaching what,
   how long it's taking,

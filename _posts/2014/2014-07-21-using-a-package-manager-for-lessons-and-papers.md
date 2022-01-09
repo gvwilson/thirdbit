@@ -45,7 +45,7 @@ original: swc
 </p>
 <p>
   Several people are taking a run at this idea as part of our two-day sprint this week:
-  see <a href=" https://etherpad.mozilla.org/sciencelab-2014summersprint-lessons-package-manager">this Etherpad</a>
+  see <a href="https://etherpad.mozilla.org/sciencelab-2014summersprint-lessons-package-manager">this Etherpad</a>
   for details,
   and <a href="https://github.com/twitwi/lesson-manager">this GitHub repo</a> for further discussion.
   We'd be grateful for your thoughts and your help.

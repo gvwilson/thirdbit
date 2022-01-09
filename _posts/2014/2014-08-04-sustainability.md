@@ -6,8 +6,8 @@ original: swc
 ---
 <p>
   I took part in a meeting about
-  <a href="https://conference.scipy.org/scipy2014/participate/wssspe/">sustainable scientific software</a>
-  at last month's <a href="../07/scipy-2014-talks.html">SciPy conference</a>.
+  sustainable scientific software
+  at last month's SciPy conference.
   Much of it was taken up with discussion of getting scientists recognition for building software,
   but there was also some interesting debate about what "sustainability" actually means.
   After talking to a few people in the software engineering research community,

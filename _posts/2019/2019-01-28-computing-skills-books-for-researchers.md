@@ -5,7 +5,7 @@ title: "Computing Skills Books for Researchers"
 ---
 
 Thrice upon a time,
-I ran [Software Carpentry](http:software-carpentry.org) as a one-semester course at the University of Toronto.
+I ran [Software Carpentry](http://software-carpentry.org) as a one-semester course at the University of Toronto.
 I toyed with the idea of turning those notes into a textbook,
 but [got a little sidetracked](https://f1000research.com/articles/3-62/v2).
 

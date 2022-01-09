@@ -8,10 +8,10 @@ original: swc
   United Airlines messed up my travel again last weekend,
   so I finally had a chance to think some more about how Software Carpentry works
   and how we can make it work better.
-  Having <a href="proposal-for-topic-maintainers.html">topic maintainers</a> is one improvement;
+  Having topic maintainers is one improvement;
   another,
-  which was discussed at <a href="sept-2014-lab-meeting-report.html">this month's lab meeting</a>,
-  is to break the <a href="{{site.github_url}}/bc"><code>bc</code></a> repository
+  which was discussed at this month's lab meeting,
+  is to break the <code>bc</code> repository
   that holds our lessons and workshop home pages
   into smaller and more manageable pieces.
 </p>
@@ -116,7 +116,7 @@ original: swc
     In the short run,
     we'll certify the lessons we already have.
     In the long run,
-    our <a href="proposal-for-topic-maintainers.html">topic maintainers</a>,
+    our topic maintainers,
     possibly in conjunction with some sort of scientific advisory board,
     will decide what meets our needs and standards.
   </dd>
@@ -211,7 +211,7 @@ original: swc
   This template is guaranteed <em>not</em> to be what we eventually use,
   but we hope it will serve as a starting point for discussion.
   If you have specific questions or suggestions,
-  please add them to <a href="{{site.github_url}}/bc/issues/759">this GitHub issue</a>
+  please add them to this GitHub issue
   rather than putting them in comments on this blog post
   so that the whole conversation is in one place.
 </p>

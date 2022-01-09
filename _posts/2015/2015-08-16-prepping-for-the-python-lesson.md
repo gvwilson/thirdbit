@@ -5,8 +5,8 @@ year: 2015
 original: swc
 ---
 <p>
-  Inspired in part by <a href="trimming-the-python-lesson.html">Byron Smith's post</a>
-  about trimming <a href="{{site.github_io_url}}/python-novice-inflammation">our standard Python lesson</a>,
+  Inspired in part by Byron Smith's post
+  about trimming <our standard Python lesson,
   Christina Koch has written a post of her own about
   <a href="http://christinalk.github.io/blog/python-prep.html">preparing to teach that lesson</a>.
   She organizes her discussion around the motivating question that opens the lesson:
@@ -14,7 +14,7 @@ original: swc
   It's a good read,
   as it shows how an experienced instructor thinks about (re-)designing teaching material.
   I hope her conclusions will feed into
-  <a href="{{site.github_url}}/python-novice-inflammation/issues/127">our discussion of how to revise the lesson</a>
+  our discussion of how to revise the lesson
   (which we're going to decide in September).
 </p>
 <p>
