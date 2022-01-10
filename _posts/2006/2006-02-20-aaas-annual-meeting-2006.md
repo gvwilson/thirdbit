@@ -13,7 +13,7 @@ year: 2006
 	<li>"In Search of Genes that Influence Language" (without, but still interesting)</li>
 	<li>"New Approaches to Paleontological Investigation" (use a CT scan of a fossil to drive a 3D lithography machine, and you can photocopy dinosaur bones at sub-millimeter resolution---oh, and check out <a href="http://www.digimorph.org">www.digimorph.org</a>)</li>
 </ul>
-<strong>Friday noon</strong>: <a href="http://osl.iu.edu/~lums/">Andy Lumsdaine</a> and <a href="http://www.osl.iu.edu/~pgottsch/">Peter Gottschling</a> arrive from Indiana University for our workshop on Essential Software Development Skills for Research Scientists.  We covered the <a href="http://www.third-bit.com/~gvwilson/aaas-2006.pdf">usual topics</a>:
+<strong>Friday noon</strong>: <a href="http://osl.iu.edu/~lums/">Andy Lumsdaine</a> and <a href="http://www.osl.iu.edu/~pgottsch/">Peter Gottschling</a> arrive from Indiana University for our workshop on Essential Software Development Skills for Research Scientists.  We covered the usual topics:
 <ul>
 	<li>Computational scientists don't pay as much attention to quality and reproducibility as experimental scientists (in fact, many of them don't pay <em>any</em> attention to these issues).</li>
 	<li>Most scientific programmers are woefully inefficient compared to their industrial counterparts, largely because no one has ever taught them basic software engineering skills.</li>
@@ -21,7 +21,7 @@ year: 2006
 	<li>There are many personal and institutional obstacles (ranging from "I have a degree in physics, so programming must be easy" to "journals and tenure committees don't care, so I can't afford to").</li>
 	<li>We either fix this ourselves, proactively, or someone else will legislate bad rules in the wake of a very public disaster.</li>
 </ul>
-Randy Heiland's <a href="http://www.third-bit.com/~gvwilson/aaas-2006.jpg">picture</a> shows the three of us on stage; there weren't as many lab managers or funding directors as I'd hoped for, but lots of good questions and discussion.
+Randy Heiland's picture shows the three of us on stage; there weren't as many lab managers or funding directors as I'd hoped for, but lots of good questions and discussion.
 
 <strong>Friday evening</strong>: a recap of the 2005 <a href="http://www.improb.com/ig/ig-pastwinners.html#ig2005">Ig Nobel Prize</a> awards for science that cannot, or should not, be repeated, including:
 <ul>

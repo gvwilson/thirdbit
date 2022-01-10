@@ -9,4 +9,4 @@ This year's Summer of Code recipients were announced last week.  I wanted to bro
 
 ...and then I run into the problem of character encodings and HTML entities.  The polite, professional thing would be to spend 10 minutes remembering how to get the Polish-L-with-a-slash-through-it to display properly in Firefox, <em>and</em> print correctly.  Instead, I add another ten lines to my script to translate the non-ASCII as I go, and bing, there's the page I wanted.
 
-So yes, it probably would have been quicker to click-print-back-down 102 times, but I've saved some trees this way, and can share <a href="http://www.third-bit.com/soc2006.html">my results</a> with you.
+So yes, it probably would have been quicker to click-print-back-down 102 times, but I've saved some trees this way, and can share my results with you.

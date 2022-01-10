@@ -3,7 +3,7 @@ title: "Showstopper: Hanging Processes"
 date: 2006-03-29 07:08:03
 year: 2006
 ---
-We've run into a rather annoying bug in <a href="http://www.third-bit.com/drproject/drproject-dev">DrProject</a>. I've been keeping some brief notes in this <a href="http://www.third-bit.com/drproject/drproject-dev/ticket/233">ticket</a>, but I'll try to organize my thoughts better here.
+We've run into a rather annoying bug in DrProject. I've been keeping some brief notes in this ticket, but I'll try to organize my thoughts better here.
 
 First, some background.  DrProject is run as a cgi script under Apache and is backed by PostgreSQL.  Every so often (almost daily), we notice that a number of python/postgres processes are hung:
 <blockquote>

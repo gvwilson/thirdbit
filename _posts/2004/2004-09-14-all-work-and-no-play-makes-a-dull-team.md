@@ -17,7 +17,7 @@ year: 2004
   <li>Maintaining enough confidence that we could joke about failure</li>
   <li>Hippo T-shirts</li>
   <li>Tuesday lunches</li>
-  <li><a href="/helium/images/burger.jpg">Defiling the mascot</a></li>
+  <li>Defiling the mascot</li>
   <li>Our very own coffee maker (mmmmm...)</li>
   <li>Trips to 7-11</li>
   <li>Penny tossing</li>

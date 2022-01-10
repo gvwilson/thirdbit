@@ -3,7 +3,7 @@ title: "What Else for Software Carpentry?"
 date: 2006-02-21 14:18:19
 year: 2006
 ---
-16 lectures are now in place (more or less), which means I have 8 more to do.  The <a href="http://www.third-bit.com/swc2/lec/syllabus.html">syllabus</a> shows what I've covered already; my current plans include:
+16 lectures are now in place (more or less), which means I have 8 more to do.  The syllabus shows what I've covered already; my current plans include:
 <ul>
 	<li>unit testing</li>
 	<li>XML</li>
@@ -13,13 +13,7 @@ year: 2006
 </ul>
 What do you think the other three should cover (keeping in mind that this is supposed to be a course on basic software engineering, rather than scientific programming)?  Options include:
 <ol>
-	<li>Basic web programming, with much-revised versions of:
-<ul>
-	<li><a href="http://www.third-bit.com/swc1/www/client.html">http://www.third-bit.com/swc1/www/client.html</a></li>
-	<li><a href="http://www.third-bit.com/swc1/www/server.html">http://www.third-bit.com/swc1/www/server.html</a></li>
-	<li><a href="http://www.third-bit.com/swc1/www/security.html">http://www.third-bit.com/swc1/www/security.html</a></li>
-</ul>
-</li>
+	<li>Basic web programming, with much-revised versions of client, server, and security</li>
 	<li>Integration, including:
 <ul>
 	<li>wrapping C code so that it can be called from Python</li>
@@ -50,4 +44,4 @@ What do you think the other three should cover (keeping in mind that this is sup
 </li>
 	<li>Something else entirely --- suggestions would be very welcome.</li>
 </ol>
-Please <a href="mailto:gvwilson@cs.utoronto.ca">let me know</a> what you think.
+Please let me know what you think.
