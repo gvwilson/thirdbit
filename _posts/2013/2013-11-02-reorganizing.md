@@ -148,8 +148,7 @@ original: swc
   <tr>
     <td>H.</td>
     <td>
-      Write an explicit description of
-      <a href="{{site.baseurl}}/blog/2013/11/scope.html">Software Carpentry's scope</a>.
+      Write an explicit description of Software Carpentry's scope.
     </td>
   </tr>
   <tr>
@@ -177,18 +176,18 @@ original: swc
   and I hope that having a plan for the next couple of months will fuel that.
 </p>
 <p>
-  I look forward to seeing you in <a href="{{site.baseurl}}/blog/2013/11//nov-2013-lab-meeting-announcement.html">our next lab meeting</a>
+  I look forward to seeing you in our next lab meeting
   at 11:00 am and 7:00 pm Eastern on Nov 14.
 </p>
 <p>
   See also:
 </p>
 <ul>
-  <li><a href="{{site.github_url}}/bc/issues/119">Find and/or build tools to help manage lesson material.</a></li>
-  <li><a href="{{site.github_url}}/bc/issues/120">What structure and metadata should lessons have?</a></li>
-  <li>Unix Shell: <a href="{{site.github_url}}/bc/issues/121">novice</a> and <a href="{{site.github_url}}/bc/issues/126">intermediate</a></li>
-  <li>Git: <a href="{{site.github_url}}/bc/issues/122">novice</a> and <a href="{{site.github_url}}/bc/issues/127">intermediate</a></li>
-  <li>Python: <a href="{{site.github_url}}/bc/issues/123">novice</a> and <a href="{{site.github_url}}/bc/issues/128">intermediate</a></li>
-  <li>R: <a href="{{site.github_url}}/bc/issues/124">novice</a> and <a href="{{site.github_url}}/bc/issues/129">intermediate</a></li>
-  <li>SQL: <a href="{{site.github_url}}/bc/issues/125">novice</a> and <a href="{{site.github_url}}/bc/issues/130">intermediate</a></li>
+  <li>Find and/or build tools to help manage lesson material.</li>
+  <li>What structure and metadata should lessons have?</li>
+  <li>Unix Shell: novice and intermediate</li>
+  <li>Git: novice and intermediate</li>
+  <li>Python: novice and intermediate</li>
+  <li>R: novice and intermediate</li>
+  <li>SQL: novice and intermediate</li>
 </ul>

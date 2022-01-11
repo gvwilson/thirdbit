@@ -23,7 +23,7 @@ title: "What I Didn't Tweet in March"
     when applying for jobs.)
 
 -   [This](https://flourish.studio/2019/02/07/audio-talkie-visualisation-data-stories/)
-    is *so* close to [Browsercast](http://third-bit.com/browsercast/).
+    is *so* close to Browsercast.
     We'll get there some day...
 
 -   I really want someone to make earbuds that clip onto the arms of my glasses
@@ -67,17 +67,17 @@ title: "What I Didn't Tweet in March"
     but honestly, I think I'm more of a cautionary tale.
 
 -   Posts:
-    -   [Learning to Program](http://third-bit.com/2019/03/07/learning-to-program.html)
-    -   [The Tool I Want](http://third-bit.com/2019/03/10/the-tool-i-want.html)
-    -   [Reviewing Lessons](http://third-bit.com/2019/03/12/reviewing-lessons.html)
-    -   [Keep Me In Your Heart For a While](http://third-bit.com/2019/03/14/keep-me-in-your-heart-for-a-while.html)
-        (I miss you, [Jeff](http://third-bit.com/2018/03/20/goodbye-jeff.html))
-    -   [Leadership Training for Open Science](http://third-bit.com/2019/03/15/leadership-training-for-open-science.html)
-    -   [Christchurch and Shopify](http://third-bit.com/2019/03/15/christchurch-and-shopify.html)
-    -   [Educational Paramedics](http://third-bit.com/2019/03/20/educational-paramedics.html)
-    -   [Twelve Weeks, Twelve Tools](http://third-bit.com/2019/03/21/twelve-weeks-twelve-tools.html)
-    -   [Occupations](http://third-bit.com/2019/03/24/occupations.html)
-    -   [You Should Talk to HR](http://third-bit.com/2019/03/27/talk-to-hr.html)
-    -   [Curriculum Roadmap](http://third-bit.com/2019/03/30/curriculum-roadmap.html)
-    -   [Online Teaching Setup](http://third-bit.com/2019/03/30/online-teaching-setup.html)
-    -   [Concept Maps](http://third-bit.com/2019/03/31/concept-maps.html)
+    -   [Learning to Program]({{site.github.url}}/2019/03/07/learning-to-program/)
+    -   [The Tool I Want]({{site.github.url}}/2019/03/10/the-tool-i-want/)
+    -   [Reviewing Lessons]({{site.github.url}}/2019/03/12/reviewing-lessons/)
+    -   [Keep Me In Your Heart For a While]({{site.github.url}}/2019/03/14/keep-me-in-your-heart-for-a-while/)
+        ({{site.github.url}}](http://third-bit.com/2018/03/20/goodbye-jeff/))
+    -   [Leadership Training for Open Science]({{site.github.url}}/2019/03/15/leadership-training-for-open-science/)
+    -   [Christchurch and Shopify]({{site.github.url}}/2019/03/15/christchurch-and-shopify/)
+    -   [Educational Paramedics]({{site.github.url}}/2019/03/20/educational-paramedics/)
+    -   [Twelve Weeks, Twelve Tools]({{site.github.url}}/2019/03/21/twelve-weeks-twelve-tools/)
+    -   [Occupations]({{site.github.url}}/2019/03/24/occupations/)
+    -   [You Should Talk to HR]({{site.github.url}}/2019/03/27/talk-to-hr/)
+    -   [Curriculum Roadmap]({{site.github.url}}/2019/03/30/curriculum-roadmap/)
+    -   [Online Teaching Setup]({{site.github.url}}/2019/03/30/online-teaching-setup/)
+    -   [Concept Maps]({{site.github.url}}/2019/03/31/concept-maps/)

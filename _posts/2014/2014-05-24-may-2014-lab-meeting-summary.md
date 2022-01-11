@@ -12,25 +12,24 @@ original: swc
 </p>
 <ol>
   <li>
-    <a href="{{site.baseurl}}/blog/2014/05/job-openings-at-mozilla-science-lab.html">The Mozilla Science Lab is hiring</a>
-    a developer and a community manager.
+    The Mozilla Science Lab is hiring a developer and a community manager.
   </li>
   <li>
     People and projects that would like to take part in our global sprint on July 22-23
     are invited to sign up on
-    <a href="https://etherpad.mozilla.org/swc-sprint-2014">this Etherpad</a>.
+    this Etherpad.
     We won't just work on Software Carpentry curriculum and tooling:
     related projects are welcome to use this opportunity
     to bring their communities together as well.
   </li>
   <li>
-    <a href="{{site.baseurl}}/team/#collins.arliss">Arliss Collins</a> and others
+    Arliss Collins and others
     will try to simplify the workflow for creating and managing bootcamps.
     (Right now, we rely on five different online systems,
     and most of the administrators we work with at host institutions
     can't make heads or tails of them.)
     If you would like to help,
-    please <a href="mailto:{{site.contact}}">let us know</a>.
+    please let us know.
   </li>
   <li>
     We will add people who want to be helpers at bootcamps to our <code>instructors</code> mailing list
@@ -65,7 +64,7 @@ original: swc
 	Using Excel properly, using Make to manage data pipelines, and regular expressions were all approved.
       </li>
       <li>
-	The <a href="{{site.github_url}}/bc/pull/502">draft lesson</a> on creating and syndicating data on the web was deferred
+	The draft lesson on creating and syndicating data on the web was deferred
 	(only a few people had looked at it).
       </li>
       <li>
@@ -86,7 +85,7 @@ original: swc
   <li>Announcements</li>
   <li>Votes on pull requests</li>
   <li>Votes on possible additions</li>
-  <li>Plans for the July 22-23 sprint (<a href="https://etherpad.mozilla.org/swc-sprint-2014">https://etherpad.mozilla.org/swc-sprint-2014</a> )</li>
+  <li>Plans for the July 22-23 sprint</li>
   <li>Tracking bootcamp tasks</li>
   <li>Adding helpers to the 'instructors' list</li>
   <li>How to engage departments?</li>
@@ -149,16 +148,11 @@ original: swc
 </ul>
 <p><b><u>Announcements</u></b></p>
 <ul>
-  <li>The Mozilla Science Lab is looking for a developer and a community manager. For details, please see:
-    <ul>
-      <li><a href="https://careers.mozilla.org/en-US/position/o7nXYfw9">https://careers.mozilla.org/en-US/position/o7nXYfw9</a></li>
-      <li><a href="https://careers.mozilla.org/en-US/position/olnXYfwn">https://careers.mozilla.org/en-US/position/olnXYfwn</a></li>
-    </ul>
-  </li>
+  <li>The Mozilla Science Lab is looking for a developer and a community manager.</li>
 </ul>
 <p><b><u>July Sprint - July 22-23</u></b></p>
 <ul>
-  <li>Planning: <a href="https://etherpad.mozilla.org/swc-sprint-2014">https://etherpad.mozilla.org/swc-sprint-2014</a></li>
+  <li>Planning:</li>
   <li>Locations
     <ul>
       <li>Melbourne</li>
@@ -201,63 +195,63 @@ original: swc
       <li>Vote: put it under topic (clear majority)</li>
       <li>Stephen Turner: can't make call, but seems to me extra lesson should go in topic, e.g., novice/r/extras/ggplot2--etc..., otherwise /extras could get pretty cluttered</li>
       <li>Evening voting: +1+1+1+1+100+1+10+1+1 in favor of putting stuff under</li>
-      <li>And a related decision, where to put materials that teach Git using RStudio? <a href="{{site.github_url}}/bc/issues/492">{{site.github_url}}/bc/issues/492</a></li>
+      <li>And a related decision, where to put materials that teach Git using RStudio?</li>
       <li>Vote: put it under R (clear majority)</li>
     </ul>
   </li>
-  <li>Discussion of tmux: <a href="{{site.github_url}}/bc/pull/249">{{site.github_url}}/bc/pull/249</a>
+  <li>Discussion of tmux:
     <ul>
       <li>Needs markup updates (ask Raniere for more)</li>
       <li>vote: too advanced for us, but hang onto it until we have a story for "import lesson"</li>
     </ul>
   </li>
-  <li>Using 'parameter' instead of 'argument': <a href="{{site.github_url}}/bc/pull/420">{{site.github_url}}/bc/pull/420</a>
+  <li>Using 'parameter' instead of 'argument':
     <ul>
       <li>No consensus (morning voting)</li>
       <li>Voting for the evening: A is "parameter for definition, argument for value passed in", B is "only use parameter", C is "only use argument", D is "don't even try"</li>
       <li>Evening voting: (!B)DDDDDDDDDDDAD</li>
     </ul>
   </li>
-  <li>IPython Parallel: <a href="{{site.github_url}}/bc/pull/438">{{site.github_url}}/bc/pull/438</a>
+  <li>IPython Parallel:
     <ul>
       <li>I need to do more here, but have lots of good feedback, can we vote next time?</li>
     </ul>
   </li>
-  <li>Introduction to scikit-learn: <a href="{{site.github_url}}/bc/pull/443">{{site.github_url}}/bc/pull/443</a>
+  <li>Introduction to scikit-learn:
     <ul>
       <li>Votes: 0, +1 +1</li>
     </ul>
   </li>
-  <li>Python string formatting: <a href="{{site.github_url}}/bc/pull/457">{{site.github_url}}/bc/pull/457</a>
+  <li>Python string formatting:
     <ul>
       <li>Votes: +1 +1</li>
     </ul>
   </li>
-  <li>Common Python error messages: <a href="{{site.github_url}}/bc/pull/461">{{site.github_url}}/bc/pull/461</a>
+  <li>Common Python error messages:
     <ul>
       <li>Votes: +1 +1 +1 +1+1+1+1+1+1</li>
       <li>Paul Wilson: I haven't looked at PR, is this kind of language-deep?</li>
       <li>Greg Wilson: yes, but we can translate into R and other languages</li>
     </ul>
   </li>
-  <li>Add syllabus to default home page: <a href="{{site.github_url}}/bc/pull/494">{{site.github_url}}/bc/pull/494</a>
+  <li>Add syllabus to default home page:
     <ul>
       <li>Votes: +1+1+1+1+1 +1+1</li>
     </ul>
   </li>
-  <li>Text data mining in the shell: <a href="{{site.github_url}}/bc/pull/475">{{site.github_url}}/bc/pull/475</a>
+  <li>Text data mining in the shell:
     <ul>
       <li>Votes: +1 0 (looks very similar to shell intro?)(good idea, haven't really looked at materials)(needs work)</li>
     </ul>
   </li>
-  <li>Setting up SSH keys for GitHub: <a href="{{site.github_url}}/bc/pull/470">{{site.github_url}}/bc/pull/470</a>
+  <li>Setting up SSH keys for GitHub:
     <ul>
       <li>Votes:+1(amanda harlin) +1 (extras) +1 (extras)+1 +1+1+1+1</li>
     </ul>
   </li>
-  <li>Port version control lesson to Mercurial: <a href="{{site.github_url}}/bc/pull/439">{{site.github_url}}/bc/pull/439</a>
+  <li>Port version control lesson to Mercurial:
     <ul>
-      <li>Rendered version for review is at <a href="http://eos.ubc.ca/~dlatorne/swc/novice/hg/">http://eos.ubc.ca/~dlatorne/swc/novice/hg/</a></li>
+      <li>Rendered version for review is here</li>
       <li>Unresolved discussion re: merge conflicts, file annotation vs. GUI tools<ul>
 	  <li>Need some more opinions on this; just 2 that oppose each other at the moment; see "Default behaviour of hg merge and merge tools" thread in hg@ list</li>
 	</ul>
@@ -286,16 +280,16 @@ original: swc
       <li>Evening voting: +1+1+1+1+10</li>
     </ul>
   </li>
-  <li>creating web-accessible content/data (?) (see <a href="{{site.github_url}}/bc/pull/502">{{site.github_url}}/bc/pull/502</a> )
+  <li>creating web-accessible content/data (?)
     <ul>
       <li>Morning voting: +1 +1 0 +1+1+1+1(intermediate level)+1</li>
       <li>Evening voting: +1+10</li>
     </ul>
   </li>
-  <li>Statistics and Pandas (see <a href="{{site.github_url}}/bc/pull/432">{{site.github_url}}/bc/pull/432</a> and <a href="{{site.github_url}}/bc/pull/266">{{site.github_url}}/bc/pull/266</a> )
+  <li>Statistics and Pandas
     <ul>
       <li>Morning voting:  we need someone to take the lead<ul>
-	  <li>keen to contribute but a little too busy to lead atm (rob beagrie)</li>
+	  <li>keen to contribute but a little too busy to lead atm (Rob Beagrie)</li>
 	  <li>ditto to what Rob said (Pauline)</li>
 	  <li>Chris Friedline can help too</li>
 	  <li>Happy to help with aligning Pandas material with the R lessons (Gavin Simpson)</li>
@@ -308,7 +302,7 @@ original: swc
       </li>
     </ul>
   </li>
-  <li>Geospatial data (see <a href="{{site.github_url}}/bc/pull/387">{{site.github_url}}/bc/pull/387</a> )
+  <li>Geospatial data
     <ul>
       <li>I'd be happy to do a very basic lesson on handling GIS data in R (Dan Warren)</li>
       <li>Matt Davis can help with Python map stuff.</li>
@@ -317,8 +311,8 @@ original: swc
 </ul>
 <p id="tracking"><b><u>Tracking Bootcamp Tasks</u></b></p>
 <ul>
-  <li>See also <a href="#admin">Administration Tooling and Process</a> below</li>
-  <li><a href="{{site.baseurl}}/workshops/operations/">Checklists</a> are useful, but not actionable</li>
+  <li>See also Administration Tooling and Process below</li>
+  <li>Checklists are useful, but not actionable</li>
   <li>Conclusion: we'll use a Google Doc spreadsheet per bootcamp for the next couple of months and see how that goes
     <ul>
       <li>Easy to set up</li>
@@ -331,13 +325,13 @@ original: swc
 	<ul>
 	  <li>Rob Beagrie: is it easy to populate a new repo with a whole bunch of issues?
 	    <ul>
-	      <li>Yes. <a href="https://developer.github.com/v3/">https://developer.github.com/v3/</a></li>
+	      <li>Yes.</li>
 	    </ul>
 	  </li>
 	  <li>Morning voting:  +1 +1+1+1 -1 if university admins have to use it-1, same, -1 for admins</li>
 	</ul>
       </li>
-      <li>Github markdown supports to-do lists (see <a href="https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)">https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)</a> - could we put a default to-do list in the main bc repo?
+      <li>Github markdown supports to-do lists - could we put a default to-do list in the main bc repo?
 	<ul>
 	  <li>+1+1 checklist in issue -1 if university admins have to use it1, same</li>
 	  <li>Updates in comments don't give watches notification by email (Raniere already request this feature)
@@ -358,7 +352,7 @@ original: swc
 </ul>
 <p id="admin"><b><u>SWC Administration Tooling and Processes</u></b></p>
 <ul>
-  <li><em>See also <a href="#tracking">Tracking Bootcamp Tasks</a> above</em></li>
+  <li><em>See also Tracking Bootcamp Tasks above</em></li>
   <li>Neil Chue Hong: I'd like to raise the issue that we should revisit the issue of improving and streamlining our tooling and processes for administrating Software Carpentry across the world [unfortunately I can't join the call, but I hope that Aleksandra can]</li>
   <li>As Software Carpentry grows, we will need to get more people contributing to the administrative effort to support the growth +1</li>
   <li>The current administration process requires the use of five separate pieces of infrastructure and some parts are not easy for people without a software development background+1</li>
@@ -373,8 +367,8 @@ original: swc
   </li>
   <li>We currently have a Mozilla colleague pulling together a prototype that should help with instructor matching, and are looking to revamp some of the pre and post bootcamp emails, followups, and discuss how to roll out comprehensively (possibly pre-set for instructors to fine tune and send through the eventbrites, for example).
     <ul>
-      <li>Here's the <a href="{{site.baseurl}}/checklists/lead/#email">pre-bootcamp email</a> that we'd like to have sent with the install instructions for all events</li>
-      <li>Would welcome comments and thoughts. Will be working on post-event mailings, as well. (Feel free to ping me directly at kaitlin@mozillafoundation.org)</li>
+      <li>Here's the pre-bootcamp email that we'd like to have sent with the install instructions for all events</li>
+      <li>Would welcome comments and thoughts. Will be working on post-event mailings, as well.</li>
     </ul>
   </li>
 </ul>
