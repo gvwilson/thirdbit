@@ -3,7 +3,7 @@ title: "Wrapping Up"
 date: 2009-12-07 22:23:22
 year: 2009
 ---
-On the same day that the <em>New York Times</em> ran an article about <a href="http://www.nytimes.com/2009/12/07/technology/internet/07cities.html">open data and Government 2.0</a>, the graduate and undergraduate students in <a href="http://pyre.third-bit.com/blog/archives/category/gov20">this term's consulting course</a> did their final presentations. On deck were:
+On the same day that the <em>New York Times</em> ran an article about <a href="http://www.nytimes.com/2009/12/07/technology/internet/07cities.html">open data and Government 2.0</a>, the graduate and undergraduate students in this term's consulting course did their final presentations. On deck were:
 <ol>
 	<li><a href="http://www.cs.toronto.edu/~dtarlow/xtagg_screencast.m4v"><em>Managing Twitter Conversations</em></a>: Tyler Lu, Kevin Regan, Jasper Snoek, and Danny Tarlow</li>
 	<li><a href="http://www.dgp.toronto.edu/~mccrae/2125project/"><em>Finding the Best Place to Live</em></a>: Andrew Borzenko, Abayomi King, and James McCrae</li>

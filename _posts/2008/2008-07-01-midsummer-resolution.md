@@ -3,7 +3,7 @@ title: "Midsummer Resolution"
 date: 2008-07-01 11:03:56
 year: 2008
 ---
-I've resolved to say "no" to at least one good idea each week. It's going to be hard---the world is full of fun things that need to be done, and I'd like to do 'em all---but I won't have any right to whine about there <a href="http://pyre.third-bit.com/blog/archives/1600.html">not being enough hours in the day</a> if I don't start cutting stuff.
+I've resolved to say "no" to at least one good idea each week. It's going to be hard---the world is full of fun things that need to be done, and I'd like to do 'em all---but I won't have any right to whine about there not being enough hours in the day if I don't start cutting stuff.
 
 Today, I said "no" to running a <a href="http://barcamp.org/DemoCamp">DemoCamp</a> at <a href="http://www.cs.arizona.edu/groups/sigcse09/">SIGCSE'09</a>. For those who haven't been, DemoCamp is like open mike night at your local pub, but for technical types: people give live five-minute demos of something new and exciting, and the audience gives feedback. SIGCSE is the big annual Computer Science education conference: more than a thousand people get together to talk about everything from what language to use in first year courses to how to measure teaching's impact on industrial practice.
 

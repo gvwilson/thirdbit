@@ -12,7 +12,7 @@ After looking at a few alternatives, we settled on <a href="http://kid.lesscode.
 
 Once we eventually finished porting the view layer to Kid (a non-trivial process which I will describe in an upcoming post), the end result was cleaner controlling code and cleaner templates, which will be significantly easier to maintain.
 
-But Kid isn't perfect (what is?).  There are many problems and "gotcha's", which I have been <a href="http://pyre.third-bit.com/drproject/drproject-dev/wiki/KidGotchas">documenting</a>. Most of these issues are minor, and only ever catch the developer once. Rendering speed, however, is turning out to be a very significant problem. Simply put, Kid is slow.  In my tests, the rendering phase of a single web request is approximately 2-3 times longer than the processing phase, which includes many database seeks.  You can see the difference by running this simple test:
+But Kid isn't perfect (what is?).  There are many problems and "gotcha's", which I have been documenting. Most of these issues are minor, and only ever catch the developer once. Rendering speed, however, is turning out to be a very significant problem. Simply put, Kid is slow.  In my tests, the rendering phase of a single web request is approximately 2-3 times longer than the processing phase, which includes many database seeks.  You can see the difference by running this simple test:
 <blockquote>
 <pre>#!/usr/bin/python
 #

@@ -3,7 +3,7 @@ title: "Further Thoughts on Filing Bugs"
 date: 2006-12-18 17:32:44
 year: 2006
 ---
-Pursuant<sup>1</sup> to last week's post on <a href="http://pyre.third-bit.com/blog/archives/754.html">making tickets simpler to work with</a> in <a href="http://www.drproject.org">DrProject</a>, I'm now wondering whether the real problem isn't the number of fields, but the fact that the only way to file a ticket is through a web browser.  If you're grinding away in <a href="http://www.eclipse.org">Eclipse</a> (or Notepad) and want to add a note to your project, you have to:
+Pursuant<sup>1</sup> to last week's post on making tickets simpler to work with in <a href="http://www.drproject.org">DrProject</a>, I'm now wondering whether the real problem isn't the number of fields, but the fact that the only way to file a ticket is through a web browser.  If you're grinding away in <a href="http://www.eclipse.org">Eclipse</a> (or Notepad) and want to add a note to your project, you have to:
 <ol>
 	<li>Click on "Favorites"</li>
 	<li>Click on the link to your project</li>

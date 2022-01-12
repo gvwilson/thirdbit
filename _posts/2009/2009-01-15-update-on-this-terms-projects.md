@@ -3,7 +3,7 @@ title: "Update on This Term's Projects"
 date: 2009-01-15 08:16:22
 year: 2009
 ---
-I blogged <a href="http://pyre.third-bit.com/blog/archives/1868.html">a couple of weeks ago</a> about this term's consulting projects.  Here are a few more details:
+I blogged a couple of weeks ago about this term's consulting projects.  Here are a few more details:
 <ul>
 	<li>Hanieh Bastani is working with AutoDesk to create animation software with realistic flesh and bone models.</li>
 	<li>Botond Ballo, David Cooper, Eran Henig, Bill Konrad, Derek Kwok, Phyllis Lee, and Kosta Zabashta are porting <a href="http://www.drproject.org">DrProject</a> to <a href="http://www.djangoproject.com/">Django</a>.  They're joined by Heather Grant (University of Alberta), Zuzel Vera Pacheco (University of Havana), Dan Servos (Lakehead University), and Jason Whyne (University of Waterloo).</li>
@@ -23,7 +23,7 @@ I blogged <a href="http://pyre.third-bit.com/blog/archives/1868.html">a couple o
 	<li>Michalis Famelis is helping <a href="http://stereologic.com/">StereoLogic</a> build tools to reverse engineer business processes.</li>
 	<li>Nick Shim and (probably) Olga Irzak are putting <a href="http://www.clearcanvas.ca">ClearCanvas</a>'s medical imaging software on a Microsoft Surface.</li>
 	<li>Andrew Trusty is preparing the first open source release of <a href="http://psiphon.ca">Psiphon</a>.</li>
-	<li>Carolyn MacLeod is extending our <a href="http://pyre.third-bit.com/blog/archives/1764.html">survey</a> of how scientists use computers.</li>
+	<li>Carolyn MacLeod is extending our survey of how scientists use computers.</li>
 	<li>Hooman Bahador, Nikola Kramaric, and Ainsley Lawson are helping Prof. Ian Spence (Psychology) study the effects of video games on attentional field of view.</li>
 	<li>Michael Reimer is trying to get the Tesseract OCR software to work as an accessibility aid.</li>
 	<li>Jennifer Ruttan is working with <a href="http://www.mozilla.org">Mozilla</a> to adapt Ubiquity as an accessibility aid.</li>

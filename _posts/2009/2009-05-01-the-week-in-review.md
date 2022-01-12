@@ -5,7 +5,7 @@ year: 2009
 ---
 Things I did this week that I was supposed to:
 <ol>
-	<li>Give <a href="http://pyre.third-bit.com/blog/archives/2416.html">a talk at the NRC</a> on empirical software engineering and computational science.</li>
+	<li>Give a talk at the NRC on empirical software engineering and computational science.</li>
 	<li>Submit grades for this term's courses.</li>
 	<li>File my income tax return.</li>
 </ol>
@@ -15,11 +15,11 @@ Things I didn't do that I really needed to:
 	<li>Start article for <a href="http://www.amsci.org"><em>American Scientist</em></a>.</li>
 	<li>Revise at least one lecture for <a href="http://www.software-carpentry.org">Software Carpentry</a>.</li>
 	<li>Send papers for the <a href="http://cise.aip.org/"><em>CiSE</em></a> special issue on software engineering for computational science out for review.</li>
-	<li>Send out a follow-up to the survey of <a href="http://pyre.third-bit.com/blog/archives/1764.html">how scientists use computers</a>.</li>
+	<li>Send out a follow-up to the survey of how scientists use computers.</li>
 </ol>
 Things I hadn't planned to do that were worth doing:
 <ol>
-	<li><a href="http://softwarecarpentry.wordpress.com/2009/04/27/firming-up-course-goals/">Write</a> <a href="http://blog.basieproject.org/?p=726">a</a> <a href="http://blog.basieproject.org/?p=744">handful</a> <a href="http://pyre.third-bit.com/blog/archives/2421.html">of</a> <a href="http://pyre.third-bit.com/blog/archives/2423.html">blog</a> <a href="http://pyre.third-bit.com/blog/archives/2442.html">posts</a> about things that matter to me.  (Did lots of email in the background about women in open source as well.)</li>
+	<li><a href="http://softwarecarpentry.wordpress.com/2009/04/27/firming-up-course-goals/">Write</a> <a href="http://blog.basieproject.org/?p=726">a</a> <a href="http://blog.basieproject.org/?p=744">handful</a> of blog posts about things that matter to me.  (Did lots of email in the background about women in open source as well.)</li>
 </ol>
 Things that I did that I really shouldn't have wasted time on:
 <ol>

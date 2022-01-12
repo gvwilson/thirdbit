@@ -15,7 +15,7 @@ One of the things I teach my students is that the real purpose of a schedule is 
 </ol>
 Everything else has to go by the boards. In particular:
 <ul>
-	<li>I have resigned from my contributing editor post at <a href="http://www.ddj.com"><em>Doctor Dobb's Journal</em></a>. It was a lot of fun, and I really enjoyed working with Jon Erickson, but as <a href="http://pyre.third-bit.com/blog/archives/1763.html">I said back in October</a>, I'd rather not do it than do it badly.</li>
+	<li>I have resigned from my contributing editor post at <a href="http://www.ddj.com"><em>Doctor Dobb's Journal</em></a>. It was a lot of fun, and I really enjoyed working with Jon Erickson, but as I said back in October, I'd rather not do it than do it badly.</li>
 	<li>The software developers' reading group I'd planned to start this January isn't going to happen. I'd really like something to pick up the slack now that DemoCamp seems to have stalled (if only to provide an excuse to get together with former students on a regular basis), but someone else is going to have to organize it.</li>
 	<li>After this term, I'm going to stop supervising student projects (except those directly relevant to <a href="http://www.drproject.org">DrProject</a> and/or <a href="http://swc.scipy.org">Software Carpentry</a>). Next to 10:00 am coffee breaks with the lecturers, this is the part of university life I enjoy the most, but there just isn't time... :-(</li>
 	<li>The <em>Software Project Coloring Book</em> (my attempt to write down everything I try to teach undergraduates about real-world software development) is being put back on the shelf. I have written 35,000 words, but those were the easy bits: conservatively, I'd need 4-6 months of full-time work to finish it off.</li>
@@ -26,4 +26,4 @@ On the upside, Sadie got me some biking gear for Christmas, so now I'll <em>have
 
 [2] Companies like <a href="http://www.nitido.com">Nitido</a>, the <a href="http://www.jonahgroup.com">Jonah Group</a>, <a href="http://www.ideeinc.com">Idee</a>, and <a href="http://www.rogers.com">Rogers</a> have kindly donated a few thousand dollars each to keep things like <a href="http://www.drproject.org">DrProject</a> going, as have  <a href="http://www.dgp.toronto.edu/~ravin/">several</a> <a href="http://www.cs.toronto.edu/~sme">of my</a> <a href="http://www3.fis.utoronto.ca/~yu/">fellow</a> <a href="http://www.cs.toronto.edu/~lilien/">professors</a>,  but a $24K grant from <a href="http://www.mathworks.com">The MathWorks</a> is the only "research" funding I've been able to raise.
 
-[3] As <a href="http://pyre.third-bit.com/blog/archives/1857.html">I said yesterday</a>, I'm looking for a mentor in the Toronto area who can show me how to do this.
+[3] As I said yesterday, I'm looking for a mentor in the Toronto area who can show me how to do this.

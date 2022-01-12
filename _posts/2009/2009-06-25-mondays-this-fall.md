@@ -3,7 +3,7 @@ title: "Mondays This Fall"
 date: 2009-06-25 14:09:56
 year: 2009
 ---
-We have a green light!  As <a href="http://pyre.third-bit.com/blog/archives/2460.html">I hinted back in May</a>, I'm going to run my consulting course this fall (CSC490 for undergrads, CSC2125 for grad students), but with a twist: every project will involve doing something with the data that the City of Toronto is about to start making available for citizens to use.  The course will run 3-5 pm on Mondays from September to December; we hope to know by late July or early August exactly what data sets we'll have access to.
+We have a green light!  As I hinted back in May, I'm going to run my consulting course this fall (CSC490 for undergrads, CSC2125 for grad students), but with a twist: every project will involve doing something with the data that the City of Toronto is about to start making available for citizens to use.  The course will run 3-5 pm on Mondays from September to December; we hope to know by late July or early August exactly what data sets we'll have access to.
 
 I'd therefore like to ask you all for help.  First, if you're a current or former student, please help me get the word out about this course.  (I only have access to students' university email accounts, which most don't check over the summer, particularly if they're doing a PEY internship.)
 

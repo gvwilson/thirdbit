@@ -7,7 +7,7 @@ year: 2004
 
 <p><a href="http://www.eclipse.org/">Eclipse</a> and <a href="http://subversion.tigris.org">Subversion</a> made me feel like one of those poor guys today.  Here's what happened:</p>
 
-<p>1. I checked out a copy of <a href="http://pyre.third-bit.com/hippo">Hippo</a> onto my laptop, and created a directory in which to do the training exercise we've assigned to the incoming students.</p>
+<p>1. I checked out a copy of Hippo onto my laptop, and created a directory in which to do the training exercise we've assigned to the incoming students.</p>
 
 <p>2. I fired up <a href="http://www.eclipse.org/">Eclipse</a> to create a Java project in that directory.  I put my Java source files in a sub-directory called <code>src</code>, the JAR files my project needed in a sub-directory called <code>lib</code>, and created an empty directory called <code>bin</code> for <a href="http://www.eclipse.org/">Eclipse</a> to put compiled class files in.  I used <code>svn&nbsp;add</code> to add all three directories to the repository.</p>
 

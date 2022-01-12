@@ -20,7 +20,7 @@ do?</p>
 
   <tr>
     <td valign="top">2. Can you make a build in one step?</td>
-    <td valign="top">The <a href="http://pyre.third-bit.com/helium">Helium</a> team was pretty
+    <td valign="top">The Helium team was pretty
     close; the only thing that stood in the way was setting up the
     database.  Other teams vary---getting this right will probably be
     worth a mark or two this term.</td>
@@ -28,15 +28,15 @@ do?</p>
 
   <tr>
     <td valign="top">3. Do you make daily builds?</td>
-    <td valign="top"><a href="http://pyre.third-bit.com/helium">Helium</a> team did a
+    <td valign="top">Helium team did a
     build every twenty minutes, and had a glowing ball on their home
     page to show its status.</td>
   </tr>
 
   <tr>
     <td valign="top">4. Do you have a bug database?</td>
-    <td valign="top">Yes.  The <a href="http://pyre.third-bit.com/memview">Memview</a> team got into
-    using theirs to coordinate their work early on; the <a href="http://pyre.third-bit.com/helium">Helium</a> team just got
+    <td valign="top">Yes.  The Memview team got into
+    using theirs to coordinate their work early on; the Helium team just got
     into the swing of doing this in mid-August.</td>
   </tr>
 
@@ -51,18 +51,18 @@ do?</p>
 
   <tr>
     <td valign="top">6. Do you have an up-to-date schedule?</td>
-    <td valign="top">We did for the last lap of <a href="http://pyre.third-bit.com/helium">Helium</a>, which helped
+    <td valign="top">We did for the last lap of Helium, which helped
     us cut corners as the end-of-summer deadline rushed toward us.
-    The <a href="http://pyre.third-bit.com/memview">Memview</a> team
+    The Memview team
     stopped reporting weekly progress once they got into the crunch.</td>
   </tr>
 
   <tr>
     <td valign="top">7. Do you have a spec?</td>
-    <td valign="top">Low marks here---we <em>did</em> for <a href="http://pyre.third-bit.com/helium">Helium</a>, but it fell
+    <td valign="top">Low marks here---we <em>did</em> for Helium, but it fell
     out of date while work was under way.  It's being updated now so
     that the incoming students will know what they're supposed to
-    build.  The <a href="http://pyre.third-bit.com/memview">Memview</a> team wrote a
+    build.  The Memview team wrote a
     good A&amp;E (analysis &amp; estimation) document at the start of
     term, which gave them a roadmap for their work.</td>
   </tr>
@@ -70,8 +70,8 @@ do?</p>
   <tr>
     <td valign="top">8. Do programmers have quiet working
     conditions?</td>
-    <td valign="top">No.  The <a href="http://pyre.third-bit.com/helium">Helium</a> students are in
-    an open plan office (without a window); the <a href="http://pyre.third-bit.com/memview">Memview</a> team worked
+    <td valign="top">No.  The Helium students are in
+    an open plan office (without a window); the Memview team worked
     on their own machines at home most of the time, so I'm guessing
     their environment included a lot of heavy metal music.  (I dunno,
     they just look like those kind of guys...) </td>
@@ -82,7 +82,7 @@ do?</p>
     <td valign="top">Half marks: <a href="http://www.eclipse.org">Eclipse</a> is a pretty good IDE,
     and the  machines were good enough to run it and the application
     they were developing at the same time.  Our server, Pyre, is a
-    little underpowered, but other than <a href="http://pyre.third-bit.com/helium">Helium</a>'s regular
+    little underpowered, but other than Helium's regular
     build, it's only being used as a CVS/SVN host.</td>
   </tr>
 
@@ -106,6 +106,6 @@ do?</p>
 
 </table>
 
-<p>So, that leaves <a href="http://pyre.third-bit.com/helium">Helium</a> with 6/12, and
-<a href="http://pyre.third-bit.com/memview">Memview</a> with 5/12.
+<p>So, that leaves Helium with 6/12, and
+Memview with 5/12.
 Let's see how much better we can do this fall...</p>

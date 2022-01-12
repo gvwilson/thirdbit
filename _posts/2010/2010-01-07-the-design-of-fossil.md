@@ -3,7 +3,7 @@ title: "The Design of Fossil"
 date: 2010-01-07 08:15:11
 year: 2010
 ---
-Partly in response to <a href="http://pyre.third-bit.com/blog/archives/3338.html">my post</a> about building something <a href="http://www.fossil-scm.org/">Fossil</a>-like on a NoSQL data store, Richard Hipp has written <a href="http://www.fossil-scm.org/fossil/doc/tip/www/theory1.wiki">a brief discussion of Fossil's design</a> that tackles two questions:
+Partly in response to my post about building something <a href="http://www.fossil-scm.org/">Fossil</a>-like on a NoSQL data store, Richard Hipp has written <a href="http://www.fossil-scm.org/fossil/doc/tip/www/theory1.wiki">a brief discussion of Fossil's design</a> that tackles two questions:
 <ol>
 	<li>Why is Fossil based on SQLite instead of a distributed NoSQL database?</li>
 	<li>Why is Fossil written in C instead of a modern high-level language?</li>

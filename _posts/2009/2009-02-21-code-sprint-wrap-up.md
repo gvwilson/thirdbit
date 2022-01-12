@@ -3,7 +3,7 @@ title: "Code Sprint Wrap-Up"
 date: 2009-02-21 21:00:06
 year: 2009
 ---
-I really did mean to blog several times a day about this term's <a href="http://pyre.third-bit.com/blog/archives/2092.html">code sprint</a>, but too much was happening during the day, and I was too tired at night. There were lots of high points:
+I really did mean to blog several times a day about this term's code sprint, but too much was happening during the day, and I was too tired at night. There were lots of high points:
 <ul>
 	<li><a href="http://andrewtrusty.com/">Andrew Trusty</a>, <a href="http://hyfen.net/">Andrew Louis</a>, <a href="http://twitter.com/shazow/">Andrey Petrov</a>, Severin Gehwolf, and Blake Winton came out for part or all of it to help, just because. Thanks, guys.</li>
 	<li>The <a href="http://code.google.com/p/pysync/">PyVCal</a> team, who are building an abstraction library on top of <a href="http://www.perforce.com">Perforce</a>, <a href="http://subversion.tigris.org/">Subversion</a>, and <a href="http://git-scm.com/">Git</a>, got some scripts working with all three, and Derek Kwok started building a mock implementation of the API to use in testing.</li>

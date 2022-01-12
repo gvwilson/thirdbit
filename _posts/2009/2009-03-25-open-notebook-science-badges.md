@@ -3,7 +3,7 @@ title: "Open Notebook Science Badges"
 date: 2009-03-25 18:17:44
 year: 2009
 ---
-I blogged last summer about <a href="http://pyre.third-bit.com/blog/archives/1677.html">creating a badging scheme</a> for open science. Turns out it's been done: <a href="http://onsclaims.wikispaces.com/">ONS Claims</a> has badges for four flavors of open science.  Two sets are available in various sizes, all variations on the themes below:
+I blogged last summer about creating a badging scheme for open science. Turns out it's been done: <a href="http://onsclaims.wikispaces.com/">ONS Claims</a> has badges for four flavors of open science.  Two sets are available in various sizes, all variations on the themes below:
 <table border="0">
 <tbody>
 <tr>

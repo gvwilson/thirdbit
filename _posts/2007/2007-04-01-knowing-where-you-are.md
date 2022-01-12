@@ -13,7 +13,7 @@ And here's this month on the <a href="http://www.third-bit.com/blog">Third Bit b
 
 In order, the spikes are:
 <ul>
-	<li><a href="http://pyre.third-bit.com/blog/archives/174.html">Interviewing at Google</a> (until recently my most-favorite-ever posting)</li>
+	<li>Interviewing at Google (until recently my most-favorite-ever posting)</li>
 	<li>the <a href="http://www.third-bit.com//blog/archives/863.html">first post about <em>Beautiful Code</em></a></li>
 	<li>the updated chapter list for <a href="http://www.third-bit.com//blog/archives/887.html"><em>Beautiful Code</em><em>
 </em></a></li>

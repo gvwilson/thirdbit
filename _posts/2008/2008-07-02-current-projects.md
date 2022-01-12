@@ -3,7 +3,7 @@ title: "Current Projects"
 date: 2008-07-02 19:56:18
 year: 2008
 ---
-Speaking of <a href="http://pyre.third-bit.com/blog/archives/1600.html">where the times goes</a>, these are my current projects:
+Speaking of where the times goes, these are my current projects:
 <ol>
 	<li>Overseeing MSc students' research.
 <ul>

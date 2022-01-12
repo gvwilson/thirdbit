@@ -3,7 +3,7 @@ title: "Unicode in Action"
 date: 2004-12-12 08:54:51
 year: 2004
 ---
-<p>From Pat Smith and Jeffrey Jia, who've been working on the <a href="http://pyre.third-bit.com/psiphon">Psiphon</a> project:</p>
+<p>From Pat Smith and Jeffrey Jia, who've been working on the Psiphon project:</p>
 
 <p>One of the more challenging parts of getting Psiphon up and running
 was the internationalization and localization of the interface. The

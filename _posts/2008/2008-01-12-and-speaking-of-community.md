@@ -3,7 +3,7 @@ title: "And Speaking of Community..."
 date: 2008-01-12 18:11:03
 year: 2008
 ---
-As a follow-up to my <a href="http://pyre.third-bit.com/blog/archives/1309.html">previous post</a>, I'd like to say "thank you" to all the people who proposed projects for my <a href="https://stanley.cdf.toronto.edu/drproject/consulting-2008-01">software consulting course</a> this term.  I'm sorry we weren't able to find students to work on all of them, but I'm very excited by the ones we're running:
+As a follow-up to my previous post, I'd like to say "thank you" to all the people who proposed projects for my <a href="https://stanley.cdf.toronto.edu/drproject/consulting-2008-01">software consulting course</a> this term.  I'm sorry we weren't able to find students to work on all of them, but I'm very excited by the ones we're running:
 <table>
 <tr>
 <td><strong>Proposer</strong></td>

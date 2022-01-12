@@ -61,7 +61,7 @@ the <a href="http://www.cs.utoronto.ca">University of Toronto</a>, is
 an attempt to get the individual-oriented bits of this model into the
 curriculum.
 
-The goal of the <a href="http://pyre.third-bit.com/helium">Helium</a> project is
+The goal of the Helium project is
 to make it easy for instructors to
 teach the team-oriented bits of the New Standard Model.
 In order to do this, we are building a web application that is
@@ -72,7 +72,7 @@ programming projects, while students will gain experience with
 version control, issue tracking, and so on.
 
 This
-blog will record our progress as we figure out what <a href="http://pyre.third-bit.com/helium">Helium</a> should do (most
+blog will record our progress as we figure out what Helium should do (most
 importantly, what it should do <em>differently</em> from
 industrial-strength systems like <a href="http://www.sf.net">SourceForce</a>), and as we discover how to
 build it.  Comments and pointers are very welcome.

@@ -3,7 +3,7 @@ title: "It Went Well"
 date: 2008-04-10 14:25:24
 year: 2008
 ---
-Yesterday's <a href="http://pyre.third-bit.com/blog/archives/1472.html">consulting course showcase</a> went well: lots of visitors, lots of noise, lots of fun.  David Wolever was there to take pictures...
+Yesterday's consulting course showcase went well: lots of visitors, lots of noise, lots of fun.  David Wolever was there to take pictures...
 
 <img src="{{site.github.url}}/files/2008/04/9398large.jpg" alt="9398large.jpg" />
 

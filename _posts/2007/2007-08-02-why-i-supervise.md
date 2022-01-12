@@ -3,7 +3,7 @@ title: "Why I Supervise"
 date: 2007-08-02 16:34:08
 year: 2007
 ---
-Back in 2004, I posted an explanation of <a href="http://pyre.third-bit.com/blog/archives/157.html">why I teach</a>.  Today reminded me of why I supervise summer interns.  Our Samsung high-definition TV <em>still</em> won't talk to our Samsung high-definition DVD player, despite three visits to Downtown Dupont Electronics<sup>1</sup>; the meeting I came in for<sup>2</sup> was canceled, and it turns out that the audio recordings we did during our usability testing sessions on Tuesday and Wednesday were cutting in and out.
+Back in 2004, I posted an explanation of why I teach.  Today reminded me of why I supervise summer interns.  Our Samsung high-definition TV <em>still</em> won't talk to our Samsung high-definition DVD player, despite three visits to Downtown Dupont Electronics<sup>1</sup>; the meeting I came in for<sup>2</sup> was canceled, and it turns out that the audio recordings we did during our usability testing sessions on Tuesday and Wednesday were cutting in and out.
 
 So what did I do to cheer myself up? I went and talked to our summer students:
 <ul>

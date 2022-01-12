@@ -3,7 +3,7 @@ title: "Guidance on Undergraduate Software Projects"
 date: 2007-04-23 09:40:11
 year: 2007
 ---
-As announced <a href="http://pyre.third-bit.com/blog/archives/882.html">previously</a>, <a href="http://www.cs.toronto.edu">U of T</a> is bringing in two new software engineering courses starting in 2007-08.  Team projects will play a large part in both, so I'm looking for student-friendly guides to project management.  I know of three books and one online resource that focus specifically on this topic:
+As announced previously, <a href="http://www.cs.toronto.edu">U of T</a> is bringing in two new software engineering courses starting in 2007-08.  Team projects will play a large part in both, so I'm looking for student-friendly guides to project management.  I know of three books and one online resource that focus specifically on this topic:
 <ol>
 	<li>Dawson: <a href="http://www.amazon.com/Essence-Computing-Projects-Students-Prentice-Hall/dp/013021972X"><em>The Essence of Computing Projects -- A Student's Guide</em></a> (Prentice-Hall, 1999, 013021972X).  Focuses on research projects, rather than development, but does have some material on project planning.</li>
 	<li>Fincher, Petre, and Clark (eds): <a href="http://www.amazon.com/Computer-Science-Project-Work-Principles/dp/185233357X"><em>Computer Science Project Work</em></a> (Springer, 2001, 185233357X).  Surveys the types of projects students can do, rather than providing how-to advice.</li>

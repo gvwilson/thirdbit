@@ -3,12 +3,12 @@ title: "Where the Time Goes"
 date: 2008-06-12 09:17:12
 year: 2008
 ---
-OK, so what <em>am</em> I doing if I'm <a href="http://pyre.third-bit.com/blog/archives/1593.html">not coding</a>?
+OK, so what <em>am</em> I doing if I'm not coding?
 <ol>
 	<li>Teaching: at least two full days per week during term, and about half a day a week right now (because as I found out last year, if you don't do enough prep over the summer, your fall is hell).</li>
 	<li>Reading: at least half a day a week, maybe more. This includes other people's blogs and technical (journal) articles. The former are usually more informative than the latter.</li>
 	<li>Giving <a href="http://www.cs.toronto.edu/~gvwilson/hpc-considered-harmful-2008.pdf">talks</a>: about two days a month once you include prep and travel time.</li>
-	<li>Writing <a href="http://pyre.third-bit.com/blog/archives/category/books">book reviews</a> and <a href="http://www.cs.toronto.edu/~gvwilson/articles/cise-will-not-learn-2008.pdf">opinion pieces</a>: probably about the same.</li>
+	<li>Writing book reviews and <a href="http://www.cs.toronto.edu/~gvwilson/articles/cise-will-not-learn-2008.pdf">opinion pieces</a>: probably about the same.</li>
 	<li>Writing a "CS-1 in Python" book: probably averaging half a day per week right now.</li>
 	<li>Herding <strike>cats</strike> <a href="https://stanley.cdf.toronto.edu/drproject/csc49x/2008summer">kittens</a>: a day a week---a day and a half if you include grad students.</li>
 	<li>Writing grant proposals: variable, but I'd guess it has averaged at least two days a week since last May. Three small ones have come through, along with contributions from the Jonah Group and Idee (thanks, folks), but NSERC and a couple of other companies have turned down all the larger (i.e., more time-consuming) ones.</li>

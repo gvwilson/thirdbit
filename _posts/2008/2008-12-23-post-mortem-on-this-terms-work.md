@@ -3,7 +3,7 @@ title: "Post-Mortem on This Term's Work"
 date: 2008-12-23 14:43:14
 year: 2008
 ---
-As I've <a href="http://pyre.third-bit.com/blog/archives/1818.html">mentioned</a> <a href="http://pyre.third-bit.com/blog/archives/1829.html">several</a> <a href="http://pyre.third-bit.com/blog/archives/1828.html">times</a>, we've started rebuilding <a href="http://www.drproject.org">DrProject</a> on top of <a href="http://www.djangoproject.com">Django</a>.  We had a post-mortem last Tuesday on our first term's work, which <a href="http://weblog.latte.ca/">Blake Winton</a> was kind enough to summarize.  The highlights (good and bad) are listed below.
+As I've mentioned several times, we've started rebuilding <a href="http://www.drproject.org">DrProject</a> on top of <a href="http://www.djangoproject.com">Django</a>.  We had a post-mortem last Tuesday on our first term's work, which <a href="http://weblog.latte.ca/">Blake Winton</a> was kind enough to summarize.  The highlights (good and bad) are listed below.
 
 <strong>Good</strong>
 <ul>

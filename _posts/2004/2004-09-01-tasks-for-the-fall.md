@@ -6,7 +6,7 @@ year: 2004
 <p>We've finalized the list of things we want to accomplish between now and December, in order to be ready for beta use in the Winter term:</p>
 
 <p>Bug tracking system: we need to build a simple issue tracking system (like
-<a href="http://pyre.third-bit.com/cvstrac/run/neon/index">Neon</a>'s) that
+Neon's) that
 integrates with Subversion, the rest of Hippo's user interface, and the
 server-side scripting framework.  UI, database work, testing---this has
 it all.  3 people needed; one slot spoken for.</p>

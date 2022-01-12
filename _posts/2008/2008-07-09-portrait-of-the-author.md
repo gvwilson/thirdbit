@@ -3,7 +3,7 @@ title: "Portrait of the Author"
 date: 2008-07-09 13:27:34
 year: 2008
 ---
-I got my first two copies of <a href="http://pyre.third-bit.com/blog/archives/1280.html"><em>A Bottle of Light</em></a> last week, and immediately handed them off to my nephews (to whom the book is dedicated).  About half an hour ago, the postman delivered a (small) box full --- w00t!  It's only available through a special reading program that Scholastic is running in schools, rather than regular and online bookstores, but I'm still happy enough to see it to grin a cheesy grin:
+I got my first two copies of <em>A Bottle of Light</em> last week, and immediately handed them off to my nephews (to whom the book is dedicated).  About half an hour ago, the postman delivered a (small) box full --- w00t!  It's only available through a special reading program that Scholastic is running in schools, rather than regular and online bookstores, but I'm still happy enough to see it to grin a cheesy grin:
 
 <img src="{{site.github.url}}/files/2008/07/picture.jpg" alt="Portrait of the Author" />
 

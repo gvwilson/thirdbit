@@ -3,7 +3,7 @@ title: "End-of-Term Showcase Went Well"
 date: 2009-04-15 07:47:38
 year: 2009
 ---
-The students in the combined CSC494/CSC2125 consulting course showed off their stuff at the Graduate Student Union yesterday, and I think it went well (see <a href="http://pyre.third-bit.com/blog/archives/2314.html">here</a> for the original announcement and project list).  19 graduate and 21 undergraduate students had posters and demos for 20 different projects; by my count, about two dozen people showed up from industry, and another thirty or so from the university (though sadly only two CS profs put in an appearance---perhaps we would have seen more if I'd advertised the free beer a little more aggressively).  All the feedback I've had so far has been very positive, and several students are intending to carry on with their projects after the term is over.
+The students in the combined CSC494/CSC2125 consulting course showed off their stuff at the Graduate Student Union yesterday, and I think it went well (see here for the original announcement and project list).  19 graduate and 21 undergraduate students had posters and demos for 20 different projects; by my count, about two dozen people showed up from industry, and another thirty or so from the university (though sadly only two CS profs put in an appearance---perhaps we would have seen more if I'd advertised the free beer a little more aggressively).  All the feedback I've had so far has been very positive, and several students are intending to carry on with their projects after the term is over.
 
 My thanks once again to everyone who took part---I promise to post pictures just as soon as I get them.
 

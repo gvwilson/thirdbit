@@ -3,9 +3,9 @@ title: "Step 3: Your Daily Routine"
 date: 2006-09-04 18:17:50
 year: 2006
 ---
-OK, your project is up and running: you know <a href="http://pyre.third-bit.com/blog/archives/637.html">what you're supposed to be building</a>, and you have <a href="http://pyre.third-bit.com/blog/archives/638.html">a schedule</a> for producing it.  Now what? "Code 'til your fingers bleed" is a lousy strategy for individual work; it's almost certain to fail on team projects.  Instead, you should invest a little time in getting your day-to-day operations right.
+OK, your project is up and running: you know what you're supposed to be building, and you have a schedule for producing it.  Now what? "Code 'til your fingers bleed" is a lousy strategy for individual work; it's almost certain to fail on team projects.  Instead, you should invest a little time in getting your day-to-day operations right.
 
-First, <strong>learn how to run meetings.</strong> I blogged <a href="http://pyre.third-bit.com/blog/archives/292.html">my rules</a> last autumn, and believe them even more strongly today.
+First, <strong>learn how to run meetings.</strong> I blogged my rules last autumn, and believe them even more strongly today.
 
 Second, <strong>read Stephanie Ludi's <a href="http://www.csc.calpoly.edu/~sludi/SEmanual/TableOfContents.html">guide to student software projects</a></strong>, and pay particular attention to the section titled "<a href="http://www.csc.calpoly.edu/~sludi/SEmanual/Part4.html">Student Project Myths</a>".  If you have time, you should also dip into Karl Fogel's excellent book <a href="http://www.amazon.com/Producing-Open-Source-Software-Successful/dp/0596007590"><cite>Producing Open Source Software</cite></a>, which is available <a href="http://producingoss.com/">online</a>.  Both have a lot of good advice about communication and respect; I'll talk about both issues in a future post.
 
@@ -25,6 +25,6 @@ You'll know you have it right when your working day looks something like this:
 </ul>
 Three sessions like that a week, from each person on the project, plus a single one-hour team meeting, and you'll be in great shape.
 <ul>
-	<li><a href="http://pyre.third-bit.com/blog/archives/637.html">Part 1</a></li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/638.html">Part 2</a></li>
+	<li>Part 1</li>
+	<li>Part 2</li>
 </ul>

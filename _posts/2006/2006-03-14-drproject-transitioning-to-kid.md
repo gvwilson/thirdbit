@@ -3,7 +3,7 @@ title: "DrProject: Transitioning to Kid"
 date: 2006-03-14 16:34:13
 year: 2006
 ---
-<em>Update</em>:  Previously, I discussed some of the issues we encountered by <a href="http://pyre.third-bit.com/blog/archives/2006_02.html">switching to Kid</a> for our templating framework.  While Kid was much nicer to work with, we were surprised at how slow it was.  Chris Lenz, however, corrected me by pointing out that inserting XML fragments into the template (via the <code>XML(...)</code> function) should be avoided whenever possible.  Instead, your controllers should be creating ElementTree objects that can be rendered directly by Kid.
+<em>Update</em>:  Previously, I discussed some of the issues we encountered by switching to Kid for our templating framework.  While Kid was much nicer to work with, we were surprised at how slow it was.  Chris Lenz, however, corrected me by pointing out that inserting XML fragments into the template (via the <code>XML(...)</code> function) should be avoided whenever possible.  Instead, your controllers should be creating ElementTree objects that can be rendered directly by Kid.
 
 For example, instead of passing the string <code>&lt;em&gt;foobar&lt;/em&gt;</code> to your template, pass an ElementTree:
 <blockquote>

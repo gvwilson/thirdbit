@@ -3,8 +3,8 @@ title: "A Few Simple Rules"
 date: 2004-09-02 16:29:47
 year: 2004
 ---
-<p>We held the <a href="http://pyre.third-bit.com/helium/postmortem.html">post-mortem</a>
-for <a href="http://pyre.third-bit.com/helium">Helium</a> this
+<p>We held the post-mortem
+for Helium this
 morning.  Lots of things went wrong, but many more went right---it was
 a fun, productive summer.</p>
 
@@ -18,7 +18,7 @@ handicaps the rest of the team, since it prevents people learning from
 each other, sharing resources (such as useful keyboard macros),
 doubling up to debug hard problems, and so on.</p>
 
-<p>So, with that, the <a href="http://pyre.third-bit.com/helium/postmortem.html">post-mortem</a>,
+<p>So, with that, the post-mortem,
 and the <a href="http://www.joelonsoftware.com/articles/fog0000000043.html">Joel
 Test</a> in hand, here are the rules by which this fall's projects
 will be run:</p>

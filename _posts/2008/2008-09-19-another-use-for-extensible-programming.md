@@ -3,7 +3,7 @@ title: "Another Use for Extensible Programming"
 date: 2008-09-19 12:51:28
 year: 2008
 ---
-I've grumbled <a href="http://pyre.third-bit.com/blog/archives/category/extensible-programming">before</a> about the fact that mass-market tools like Firefox and Microsoft Word allow people to mix pictures and text, but programmers' editors (including IDEs) do not.  My standard answer when people ask why I'd want that is, "So that I can put before and after pictures of data structures for methods, just like I would in a textbook."  Discussion about the <a href="http://www.djangoproject.com/">Django</a> port of <a href="http://www.drproject.org">DrProject</a> has brought up another use case, though.  Suppose you need to initialize a set of objects for a test fixture, and their mutual reference graph contains cycles.  Using text, you have to do things like this:
+I've grumbled before about the fact that mass-market tools like Firefox and Microsoft Word allow people to mix pictures and text, but programmers' editors (including IDEs) do not.  My standard answer when people ask why I'd want that is, "So that I can put before and after pictures of data structures for methods, just like I would in a textbook."  Discussion about the <a href="http://www.djangoproject.com/">Django</a> port of <a href="http://www.drproject.org">DrProject</a> has brought up another use case, though.  Suppose you need to initialize a set of objects for a test fixture, and their mutual reference graph contains cycles.  Using text, you have to do things like this:
 <blockquote>left = Something(null)
 
 right = Something(left)

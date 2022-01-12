@@ -3,7 +3,7 @@ title: "Polymorphism"
 date: 2009-12-23 15:49:09
 year: 2009
 ---
-<a href="http://pyre.third-bit.com/blog/archives/3338.html">Yesterday</a>, I asked if anyone was building something like <a href="http://www.fossil-scm.org/">Fossil</a> using a NoSQL database.  In response, someone named Pete (who didn't leave a real email address) asked, "Why NoSQL? This is a perfect application for an SQL database."  Respectfully, I disagree, but my reason will take a little explaining.
+Yesterday, I asked if anyone was building something like <a href="http://www.fossil-scm.org/">Fossil</a> using a NoSQL database.  In response, someone named Pete (who didn't leave a real email address) asked, "Why NoSQL? This is a perfect application for an SQL database."  Respectfully, I disagree, but my reason will take a little explaining.
 
 Over the past 16 months, several waves of students have been working with me on a replacement for <a href="http://trac.edgewall.org">Trac</a> called <a href="http://basieproject.org">Basie</a>. Like Trac, Basie is meant to be a minimalist software forge: it combines version control, ticketing, wikis, the like into one package, but is much simpler than the open source and commercial forges that Jordi Cabot and I <a href="http://www.ddj.com/development-tools/220301068">surveyed</a>. Unlike Trac, Basie is built using modern web tools (<a href="http://www.djangoproject.com/">Django</a> and <a href="http://jquery.com/">jQuery</a>), and supports multiple projects per forge and per-project mailing lists out of the box.
 

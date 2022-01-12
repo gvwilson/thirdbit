@@ -45,7 +45,7 @@ year: 2004
 
 <p>At this point, I know how to work around the problem (run Ant twice), and could go back to working on my Hibernate example.  But how am I going to explain this to students?  "Hi, everyone, this term we're going to be using Ant.  It's a replacement for Make, and sometimes, well, sometimes you just have to run it a couple of times to get it to work."  I don't think it's acceptable for software to act like a spoiled six-year-old ("I won't! I won't! I won't I won't I won't and you can't make me!"); I certainly don't feel comfortable telling my students that when it does, they should just put up with it.</p>
 
-<p>If you know something about Ant and Hibernate, and would like to figure out what's going on, I've put the project's four files <a href="http://pyre.third-bit.com/hb1/index.html">on the web</a>, and I'm <a href="mailto:gvwilson@cs.utoronto.ca">easy to reach</a>.  I look forward to hearing from you.</p>
+<p>If you know something about Ant and Hibernate, and would like to figure out what's going on, I've put the project's four files on the web, and I'm <a href="mailto:gvwilson@cs.utoronto.ca">easy to reach</a>.  I look forward to hearing from you.</p>
 
 <p>[<a name="1">1</a>] "Pear-shaped" is a British expression meaning "gone bad".  No idea how it originated; if anyone knows, I'd like to hear.</p>
 

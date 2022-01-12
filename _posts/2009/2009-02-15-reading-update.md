@@ -3,7 +3,7 @@ title: "Reading Update"
 date: 2009-02-15 20:30:06
 year: 2009
 ---
-Back in December, I <a href="http://pyre.third-bit.com/blog/archives/1821.html">blogged</a> the books I was planning to read in January and February.  Here are the quick summaries:
+Back in December, I blogged the books I was planning to read in January and February.  Here are the quick summaries:
 <ul>
 	<li><a href="http://www.amazon.com/Glut-Mastering-Information-Through-Ages/dp/0309102383"><em>Glut: Mastering Information Through the Ages</em></a>: too much "gosh wow" for me (and also too much shaky science).</li>
 	<li><a href="http://www.amazon.com/Online-Learning-Idea-Book-Technology-Based/dp/0787981680"><em>The Online Learning Idea Book</em></a>: to paraphrase, what was new wasn't interesting, what was interesting wasn't new.</li>
@@ -16,7 +16,7 @@ I also read:
 <ul>
 	<li><a href="http://www.amazon.com/Foundations-Security-Every-Programmer-Experts/dp/1590597842"><em>Foundations of Security: What Every Programmer Needs to Know</em></a>: a good undergraduate-level intro that lives up to its subtitle.</li>
 	<li><em><a href="http://www.amazon.com/Pragmatic-Thinking-Learning-Refactor-Programmers/dp/1934356050">Pragmatic Thinking &amp; Learning</a>: </em>uneven, but thought-provoking.</li>
-	<li><a href="http://www.amazon.com/Scientific-Collaboration-Internet-Acting-Technology/dp/0262151200"><em>Scientific Collaboration on the Internet</em></a>: would have been out of date two years before it was published, and manages to make <a href="http://pyre.third-bit.com/blog/archives/2035.html">one of the things I'm most interested in these days</a> seem as unappetizing as stale cornflakes.</li>
+	<li><a href="http://www.amazon.com/Scientific-Collaboration-Internet-Acting-Technology/dp/0262151200"><em>Scientific Collaboration on the Internet</em></a>: would have been out of date two years before it was published, and manages to make one of the things I'm most interested in these days seem as unappetizing as stale cornflakes.</li>
 	<li><a href="http://www.amazon.com/Art-Debugging-GDB-DDD-Eclipse/dp/1593271743"><em>The Art of Debugging</em></a>: decent intro to the standard features of debuggers for imperative languages; not much on strategies or the zillion other kinds of debugging developers routinely encounter (like the configuration problem I spent a couple of hours trying to track down a couple of weeks ago).</li>
 </ul>
 Thankfully, there are lots of interesting books coming out in the next few months.  I'll be lucky if I get to read any three of them, of course, but I can always dream:

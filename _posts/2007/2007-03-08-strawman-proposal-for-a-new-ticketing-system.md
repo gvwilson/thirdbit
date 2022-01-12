@@ -35,12 +35,12 @@ Open questions:
 </ol>
 See also:
 <ul>
-	<li><a href="http://pyre.third-bit.com/blog/archives/702.html">DrProject Internals: Tickets</a> (2006-11-01)</li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/708.html">DrProject Internals: Tickets Again</a> (2006-11-05)</li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/710.html">DrProject Internals: I Wasn't Quite Done With Tickets</a> (2006-11-06)</li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/713.html">Can't Get (Directly) There From Here</a> (2006-11-09)</li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/718.html">Requirements As Tickets (or, Hierarchy to the Rescue)</a> (2006-11-11)</li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/754.html">Changes to DrProject's Ticketing System</a> (2006-12-16)</li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/755.html">Further Thoughts on Filing Bugs</a> (2006-12-18)</li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/841.html">Database Schema to Support Customizable/Extensible Application</a> (2007-02-20)</li>
+	<li>DrProject Internals: Tickets (2006-11-01)</li>
+	<li>DrProject Internals: Tickets Again (2006-11-05)</li>
+	<li>DrProject Internals: I Wasn't Quite Done With Tickets (2006-11-06)</li>
+	<li>Can't Get (Directly) There From Here (2006-11-09)</li>
+	<li>Requirements As Tickets (or, Hierarchy to the Rescue) (2006-11-11)</li>
+	<li>Changes to DrProject's Ticketing System (2006-12-16)</li>
+	<li>Further Thoughts on Filing Bugs (2006-12-18)</li>
+	<li>Database Schema to Support Customizable/Extensible Application (2007-02-20)</li>
 </ul>

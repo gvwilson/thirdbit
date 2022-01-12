@@ -37,9 +37,9 @@ One last story. The first time I taught CSC207, I had my students write a couple
 
 Respect.
 <ul>
-	<li><a href="http://pyre.third-bit.com/blog/archives/637.html">Part 1</a></li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/638.html">Part 2</a></li>
-	<li><a href="http://pyre.third-bit.com/blog/archives/641.html">Part 3</a></li>
+	<li>Part 1</li>
+	<li>Part 2</li>
+	<li>Part 3</li>
 </ul>
 <em>Later: Sutha Kamal of <a href="http://www.ambientvector.com">Ambient Vector</a> has written <a href="http://suthakamal.blogspot.com/2006/09/is-it-my-turn-to-rant.html">a post</a> inspired by a conversation we had last week, which includes a pointer to <a href="http://www.hyperbio.net/fric_frac/2006/09/i_dont_need_you.html">this one</a> by Leila Boujnane of <a href="http://www.ideeinc.com">Idee</a>.</em>
 

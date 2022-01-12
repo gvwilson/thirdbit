@@ -3,7 +3,7 @@ title: "Feature List"
 date: 2008-04-11 20:11:26
 year: 2008
 ---
-I skipped an important step in my <a href="http://pyre.third-bit.com/blog/archives/1487.html">previous post</a>: I wasn't explicit about the features something had to have to qualify (in my mind, if no one else's) as a "software project portal".  Here are my current thoughts, sorted in order of importance.
+I skipped an important step in my previous post: I wasn't explicit about the features something had to have to qualify (in my mind, if no one else's) as a "software project portal".  Here are my current thoughts, sorted in order of importance.
 <ol>
 	<li>Identity management and access control (i.e., accounts, privileges, and all that jazz).
 <ul>

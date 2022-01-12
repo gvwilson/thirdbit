@@ -3,7 +3,7 @@ title: "Where My Time Is Going"
 date: 2009-01-26 09:56:13
 year: 2009
 ---
-An update on a <a href="http://pyre.third-bit.com/blog/archives/1898.html">previous post</a>: here's where the last two weeks' worth of working time went.  I'm including time spent sorting out the house during working hours, but not the two hours a day I spend getting to and from work (much of which I spend reading technical material).
+An update on a previous post: here's where the last two weeks' worth of working time went.  I'm including time spent sorting out the house during working hours, but not the two hours a day I spend getting to and from work (much of which I spend reading technical material).
 <table border="0">
 <tbody>
 <tr>

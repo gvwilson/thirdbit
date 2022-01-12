@@ -3,7 +3,7 @@ title: "Changes to DrProject's Ticketing System"
 date: 2006-12-16 12:01:19
 year: 2006
 ---
-Here's a draft proposal for modifying <a href="http://www.drproject.org">DrProject</a>'s ticketing system based on feedback from the <a href="http://pyre.third-bit.com/blog/archives/747.html">post-mortem</a>:
+Here's a draft proposal for modifying <a href="http://www.drproject.org">DrProject</a>'s ticketing system based on feedback from the post-mortem:
 <ol>
 	<li>State is simply "open" or "closed", and becomes implicit: the buttons to update a ticket are labeled "Preview", "Update", and "Close".</li>
 	<li>Tickets can be assigned to roles, as well as to specific users, so that if an organization distinguishes "tester" from "developer", tickets can be marked accordingly.</li>

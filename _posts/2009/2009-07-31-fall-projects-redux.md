@@ -3,9 +3,9 @@ title: "Fall Projects Redux"
 date: 2009-07-31 18:24:35
 year: 2009
 ---
-Now that the Software Carpentry course is over, it's time to get back to planning projects for the fall, and there's good news on two fronts.  The first is that we had a very productive meeting on Tuesday about <a href="http://pyre.third-bit.com/blog/archives/2665.html">projects using the City of Toronto's data</a>.  The CUPE strike may mean that we start off using canned data instead of live feeds, but lots of people are willing to put in time to help our students figure out what's worth building and how to build it.  Ten undergraduate and two graduate students are already signed up; on past experience, we'll probably have 15 and 20 respectively by the time we start work.
+Now that the Software Carpentry course is over, it's time to get back to planning projects for the fall, and there's good news on two fronts.  The first is that we had a very productive meeting on Tuesday about projects using the City of Toronto's data.  The CUPE strike may mean that we start off using canned data instead of live feeds, but lots of people are willing to put in time to help our students figure out what's worth building and how to build it.  Ten undergraduate and two graduate students are already signed up; on past experience, we'll probably have 15 and 20 respectively by the time we start work.
 
-The second piece of news is about the <a href="http://pyre.third-bit.com/blog/archives/2692.html">cross-Canada undergraduate projects</a>.  We now have interested faculty at:
+The second piece of news is about the cross-Canada undergraduate projects.  We now have interested faculty at:
 <ul>
 	<li><a href="http://www.cs.ualberta.ca">University of Alberta</a></li>
 	<li><a href="http://www.cpsc.ucalgary.ca">University of Calgary</a></li>

@@ -3,7 +3,7 @@ title: "Summer of DrProject"
 date: 2007-04-17 15:42:56
 year: 2007
 ---
-As noted <a href="http://pyre.third-bit.com/blog/archives/904.html">previously</a>, we have quite a team working for us this summer, four of whom are full-time on <a href="http://www.drproject.org">DrProject</a>.  Two of the students (Jeff Balogh and David Cooper) will be <a href="http://pyre.third-bit.com/blog/archives/858.html">rebuilding the ticketing system</a>, but we still have to figure out what Alex Krizhevsky and David Wolever should do.  Options include:
+As noted previously, we have quite a team working for us this summer, four of whom are full-time on <a href="http://www.drproject.org">DrProject</a>.  Two of the students (Jeff Balogh and David Cooper) will be rebuilding the ticketing system, but we still have to figure out what Alex Krizhevsky and David Wolever should do.  Options include:
 <ol>
 	<li>General bug fixes.  and small extensions (no shortage of <a href="https://www.drproject.org/DrProject/query">work</a> here). Useful, but not particularly exciting for the students.</li>
 	<li>Integrate the <a href="https://www.drproject.org/dashboard">dashboard display</a> that Ali and Adam built this term to show stats on project size, tickets filed/closed over time, etc.  This is a must-have, but it's not a full summer.</li>
@@ -21,9 +21,9 @@ Votes?  Others?
 Later: some others have been suggested.
 <ol start="11">
 	<li>Modify a WYSIWYG in-browser HTML editor to generate wiki syntax to make it easier for people to enter wiki pages.  It would have to generate wiki text (rather than HTML) in the background so that people could still use wiki syntax in check-in comments, email, etc.</li>
-	<li>Integrate with Eclipse, so that users can edit wiki pages, view and modify tickets, etc., without leaving their IDE.  As noted <a href="http://pyre.third-bit.com/blog/archives/904.html">previously</a>, Xiaoyang Guan is going to be working toward this; it's a big job, but will be made simpler if we---</li>
+	<li>Integrate with Eclipse, so that users can edit wiki pages, view and modify tickets, etc., without leaving their IDE.  As noted previously, Xiaoyang Guan is going to be working toward this; it's a big job, but will be made simpler if we---</li>
 	<li>---create a web services API for DrProject to support remote scripting.  We thought about doing this two years ago, instead of a Python library-style API; I can now see that both would be useful.</li>
 	<li>Create a human-content blog for each project.  Right now, each project's blog only contains automatically-generated listings of check-in comments, ticket changes, wiki edits, and so on; there's no way for a human being to write something (such as a release announcement, or a description of how a particularly nasty bug was fixed).  Human-content blog entries should show up as wiki pages as well, as in Martin Fowler's "<a href="http://www.martinfowler.com/bliki/">bliki</a>".  However, all of this will only be useful if we can---</li>
-	<li>---sort out the authentication problems for blogs.  As noted <a href="http://pyre.third-bit.com/blog/archives/763.html">before</a>, we can't allow student teams to read each other's event blogs, but there's no standard for storing and forwarding credentials in the blogging world.  We have therefore disabled RSS feeds for most course projects, which I think is a big loss.  <a href="http://openid.net/">OpenID </a>seems to be gathering strength---maybe this summer we'll be able to fix this one. (And yes, this does tie in to #6 above; I'm just not sure how.)</li>
+	<li>---sort out the authentication problems for blogs.  As noted before, we can't allow student teams to read each other's event blogs, but there's no standard for storing and forwarding credentials in the blogging world.  We have therefore disabled RSS feeds for most course projects, which I think is a big loss.  <a href="http://openid.net/">OpenID </a>seems to be gathering strength---maybe this summer we'll be able to fix this one. (And yes, this does tie in to #6 above; I'm just not sure how.)</li>
 </ol>
 Others?

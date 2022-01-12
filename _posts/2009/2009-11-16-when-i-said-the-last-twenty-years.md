@@ -3,7 +3,7 @@ title: "When I Said &quot;The Last Twenty Years...&quot;"
 date: 2009-11-16 13:13:27
 year: 2009
 ---
-<p>Last week, in response to Google's announcement of a new programming language called Go, I <a href="http://pyre.third-bit.com/blog/archives/3161.html">said</a>:<p>
+<p>Last week, in response to Google's announcement of a new programming language called Go, I said:<p>
 <blockquote>I'm underwhelmed: it's as if the last 20 years of programming language research hadn't happened.</blockquote>
 Turns out I was being generous: read <a href="http://www.cowlark.com/2009-11-15-go/">this post</a> from start to finish, and you'll see what I mean.
 <p>So what <em>should</em> a new programming language do to get my attention? First, just as applications should be designed for testability, languages should be too. That means choosing constructs to make the lives of static and dynamic analysis tools better. Building such tools after the fact is like trying to add security to an app after it has been deployed; I think we'd do better to treat the capabilities of today's leading-edge program analysis tools as hard (but not unbreakable) constraints on what's allowed to go into a language, and see how far it gets us. I suspect this will push us toward strongly typed and mostly functional languages.</p>

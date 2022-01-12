@@ -3,7 +3,7 @@ title: "Game-Changing Results"
 date: 2008-12-01 09:58:02
 year: 2008
 ---
-As <a href="http://pyre.third-bit.com/blog/archives/1782.html">reported earlier</a>, the Computing Community Consortium asked people to submit "game-changing advances" from computer research. Results are <a href="http://www.cccblog.org/2008/11/30/game-changing-advances-from-computing-research-followup/">now up on their site</a>, and include:
+As reported earlier, the Computing Community Consortium asked people to submit "game-changing advances" from computer research. Results are <a href="http://www.cccblog.org/2008/11/30/game-changing-advances-from-computing-research-followup/">now up on their site</a>, and include:
 <ul>
 	<li>The Internet and the World Wide Web</li>
 	<li>Search technology</li>

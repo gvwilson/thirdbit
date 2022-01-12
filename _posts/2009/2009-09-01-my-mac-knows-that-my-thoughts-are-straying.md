@@ -3,7 +3,7 @@ title: "My Mac Knows That My Thoughts Are Straying"
 date: 2009-09-01 06:39:28
 year: 2009
 ---
-After spending some more time yesterday browsing for <a href="http://pyre.third-bit.com/blog/archives/2862.html">a new laptop</a>, I came back to the office and plugged some speakers into my Mac so that I could listen to music while filling in forms for ethics review. At the end of the day I pulled the RCA jack out of my computer, folded it up, and biked home.
+After spending some more time yesterday browsing for a new laptop, I came back to the office and plugged some speakers into my Mac so that I could listen to music while filling in forms for ethics review. At the end of the day I pulled the RCA jack out of my computer, folded it up, and biked home.
 
 When I opened up my Mac in the evening, the sound wasn't working: the volume control still showed up on the menu bar, but the slider was frozen in the "max" position. System Preferences &gt; Sound &gt; Output tells me I only have one output device (Name: "Digital Out", Port: "Built-In Output"), and says, "The selected device has no output controls". Volume can't be adjusted there, either --- the control at the bottom is grayed out with the slider in the "max" position. The only thing that seems different from normal is a small red LED <em>inside</em> the RCA port for the audio output, but as I watch, it switches itself off.
 

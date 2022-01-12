@@ -3,7 +3,7 @@ title: "Why Developers Don't Do Code Reviews"
 date: 2008-03-08 15:48:29
 year: 2008
 ---
-Further to <a href="http://pyre.third-bit.com/blog/archives/1417.html">thoughts on student-oriented software process</a>, there's this list from Jason Cohen at <a href="http://www.smartbearsoftware.com">SmartBear Software</a> of reasons why developers <em>don't</em> do code reviews:
+Further to thoughts on student-oriented software process, there's this list from Jason Cohen at <a href="http://www.smartbearsoftware.com">SmartBear Software</a> of reasons why developers <em>don't</em> do code reviews:
 <ul>
 	<li>Egos.  Don't want other people telling you how to do things.</li>
 	<li>Egos.  Think it's a waste of time because you think you write awesome code and you're smarter than all the other developers anyway so how could they teach you anything.</li>

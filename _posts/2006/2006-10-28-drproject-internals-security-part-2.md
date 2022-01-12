@@ -3,7 +3,7 @@ title: "DrProject Internals: Security Part 2"
 date: 2006-10-28 15:43:55
 year: 2006
 ---
-The <a href="http://pyre.third-bit.com/blog/archives/694.html">previous article</a> in this series introduced a simple security model based on authentication, authorization, and access control, then described how <a href="http://www.drproject.org">DrProject</a> implements the first of these.  That still leaves two important pieces, though: how to represent who's allowed to do what, and how to enforce those rules.
+The previous article in this series introduced a simple security model based on authentication, authorization, and access control, then described how <a href="http://www.drproject.org">DrProject</a> implements the first of these.  That still leaves two important pieces, though: how to represent who's allowed to do what, and how to enforce those rules.
 
 The key concept here is that of a <em>permission</em>, which combines a <em>user profile</em> (e.g., an account) with the <em>capability</em> to perform some action.  A simple authorization system associates every operation with a capability, such as <code>EDIT_WIKI_PAGE</code> or <code>DELETE_USER_ACCOUNT</code>.  When a user U attempts to perform an operation that requires a capability C, the authorization system looks for the pair (U,C) in its database (Figure 1).  If that pair exists, the operation is allowed; if it doesn't, the operation is denied.
 

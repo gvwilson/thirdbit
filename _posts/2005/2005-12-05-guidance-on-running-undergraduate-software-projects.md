@@ -9,7 +9,7 @@ As regular readers know, I supervise senior undergraduate software engineering p
 	<li>Dawson's Essence of Computing Projects and Ricketts' Managing Your Software Project: out of print, somewhat dated, and very dry.</li>
 	<li>Fincher et al's Computer Science Project Work: a stamp-collecting compare-and-contrast look at different kinds of project courses.</li>
 </ul>
-One criticism of all of them is that they are virtually tool-free: in my experience, students want to know <em>how</em> to do things at least as much as <em>what</em> to do.  An entry-level cross between Doar's <a href="http://pyre.third-bit.com/blog/archives/000299.html">Practical Development Environments</a>, and Fogel's <a href="http://pyre.third-bit.com/blog/archives/000305.html">Producing Open Source Software</a> would fit the bill nicely: if anyone knows of such a beast (either in print or on line), I'd welcome a pointer.
+One criticism of all of them is that they are virtually tool-free: in my experience, students want to know <em>how</em> to do things at least as much as <em>what</em> to do.  An entry-level cross between Doar's Practical Development Environments, and Fogel's Producing Open Source Software would fit the bill nicely: if anyone knows of such a beast (either in print or on line), I'd welcome a pointer.
 
 Update: Dawson has <a href="http://www.amazon.com/gp/product/0321263553">a new book out</a>, but I haven't seen a copy yet.
 

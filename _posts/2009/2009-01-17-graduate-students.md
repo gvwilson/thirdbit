@@ -3,7 +3,7 @@ title: "Graduate Students"
 date: 2009-01-17 08:29:18
 year: 2009
 ---
-Along with students doing course-sized <a href="http://pyre.third-bit.com/blog/archives/1912.html">consulting projects</a>, I have a metric passle of graduate students who are starting to converge on thesis topics:
+Along with students doing course-sized consulting projects, I have a metric passle of graduate students who are starting to converge on thesis topics:
 <ul>
 	<li><a href="http://littlecomputerscientist.wordpress.com/">Aran Donohue</a> may look at the cognitive processes involved in reading code (we're still negotiating).</li>
 	<li>Alecia Fowler wants to <a href="http://ajfowler.wordpress.com/2009/01/12/the-problem/">make map data accessible</a>.</li>

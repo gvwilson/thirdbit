@@ -3,7 +3,7 @@ title: "DrProject Architecture"
 date: 2007-02-10 14:55:37
 year: 2007
 ---
-I posted a picture of <a href="http://www.drproject.org">DrProject</a>'s <a href="http://pyre.third-bit.com/blog/archives/741.html">database schema</a> a while ago.  Last week, I found myself drawing its architecture on the blackboard in class, so I figured I should post that too.  (It would have been up two hours ago, but my Mac died again...)
+I posted a picture of <a href="http://www.drproject.org">DrProject</a>'s database schema a while ago.  Last week, I found myself drawing its architecture on the blackboard in class, so I figured I should post that too.  (It would have been up two hours ago, but my Mac died again...)
 
 <img alt="architecture1.png" id="image833" src="{{site.github.url}}/files/2007/02/architecture1.png" />
 Here are the key elements:
