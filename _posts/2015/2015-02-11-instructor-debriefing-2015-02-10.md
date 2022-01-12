@@ -63,8 +63,8 @@ original: swc
 </p>
 <p>
   Thomas Guignard taught at both
-  <a href="http://drlabratory.github.io/2015-01-31-ualbany/">SUNY Albany</a>
-  and <a href="http://swcarpentry.github.io/2015-02-05-toronto/">the University of Toronto</a>
+  SUNY Albany
+  and the University of Toronto
   He commented that he's not comfortable ad libbing in front of learners,
   so he could defer difficult questions,
   figure out the answer during the break,

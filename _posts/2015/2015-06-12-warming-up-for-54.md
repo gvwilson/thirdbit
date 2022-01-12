@@ -11,13 +11,13 @@ original: swc
   please add your thoughts there.
 </p>
 <ul>
-  <li><a href="https://github.com/swcarpentry/shell-novice/issues/194">Unix shell</a></li>
-  <li><a href="https://github.com/swcarpentry/git-novice/issues/155">Git</a></li>
-  <li><a href="https://github.com/swcarpentry/hg-novice/issues/21">Mercurial</a></li>
-  <li><a href="https://github.com/swcarpentry/sql-novice-survey/issues/91">SQL</a></li>
-  <li><a href="https://github.com/swcarpentry/python-novice-inflammation/issues/127">Python</a></li>
-  <li><a href="https://github.com/swcarpentry/r-novice-inflammation/issues/127">R</a></li>
-  <li><a href="https://github.com/swcarpentry/matlab-novice-inflammation/issues/45">MATLAB</a></li>
+  <li>Unix shell</li>
+  <li>Git</li>
+  <li>Mercurial</li>
+  <li>SQL</li>
+  <li>Python</li>
+  <li>R</li>
+  <li>MATLAB</li>
 </ul>
 <p>
   Note:
@@ -26,9 +26,9 @@ original: swc
   <li>
     <p>
       These issues supplement the discussion of
-      <a href="https://github.com/swcarpentry/lesson-template/issues/242">changes to the template</a>,
+      changes to the template,
       which resulted in
-      <a href="https://github.com/swcarpentry/lesson-template/milestones/Version%205.4">these specific issues</a>.
+      these specific issues.
       If you'd like to help with one of those,
       your assistance would be greatly appreciated.
     </p>

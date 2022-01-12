@@ -61,17 +61,17 @@ original: swc
   <li id="lessons">
     <p>
       The core lessons for Data Carpentry are those listed under
-      <a href="http://www.datacarpentry.org/lessons/">Biology Workshop Lessons</a>:
-      <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">spreadsheets</a>,
-      <a href="http://www.datacarpentry.org/OpenRefine-ecology/">OpenRefine</a>,
-      <a href="http://www.datacarpentry.org/sql-ecology/">SQL</a>,
-      <a href="http://www.datacarpentry.org/R-ecology/">programming with R</a>,
-      and <a href="http://www.datacarpentry.org/python-ecology/">programming with Python</a>.
+      Biology Workshop Lessons:
+      spreadsheets,
+      OpenRefine,
+      SQL,
+      programming with R,
+      and programming with Python.
       The core lessons for Software Carpentry are the ones on
-      <a href="http://swcarpentry.github.io/shell-novice/">the Unix shell</a>,
-      <a href="http://swcarpentry.github.io/git-novice/">version control with Git</a>,
-      and programming with <a href="http://swcarpentry.github.io/python-novice-inflammation/">Python</a>
-      or <a href="http://swcarpentry.github.io/r-novice-inflammation/">R</a>.
+      the Unix shell,
+      version control with Git,
+      and programming with Python
+      or R.
     </p>
   </li>
   <li id="submit">

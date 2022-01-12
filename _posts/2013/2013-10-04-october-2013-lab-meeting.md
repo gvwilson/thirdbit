@@ -63,14 +63,14 @@ original: swc
       <li>...and when we look at server logs, it seems that most people who use the site watch a little bit of a few videos, but mostly read or search through our text...</li>
       <li>...but the videos do impress people, and are useful to people using flipped classrooms...</li>
       <li>...but are very expensive to maintain (in fact, there hasn't been any real maintenance in two years)</li>
-      <li>Karin Lagesen suggested that we have a few very polished lessons with videos on the web site as advertising, then link to <a href="http://swcarpentry.github.io/bc/lessons/">the rendered versions</a> of the stuff in the 'bc' repo (<em>not</em> to the repo itself, which would scare newcomers)</li>
+      <li>Karin Lagesen suggested that we have a few very polished lessons with videos on the web site as advertising, then link to the rendered versions of the stuff in the 'bc' repo (<em>not</em> to the repo itself, which would scare newcomers)</li>
       <li>A related suggestion is to have short (one minute?) video intros to lessons, but keep the bulk of the material in text</li>
       <li>Another suggestion is to use extracts from videos recorded at conferences and bootcamps of people presenting this material (e.g., Katy Huff and Matt Davis's lessons at <a href="http://pyvideo.org/video/1932/version-control-and-unit-testing-for-scientific-s">SciPy</a>)
 	<ul>
 	  <li>If someone would like volunteer to do this, we'd be happy to host it on the site</li>
 	</ul>
       </li>
-      <li>See also <a href="{{site.github_url}}/site/issues/132">#132</a></li>
+      <li>See also #132</li>
     </ul>
   </dd>
 

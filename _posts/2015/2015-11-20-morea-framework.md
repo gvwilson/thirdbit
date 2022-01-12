@@ -14,7 +14,7 @@ original: swc
   "Morea" stands for "Modules, Outcomes, Readings, Experiences, and Assessments",
   which are the five main elements the framework supports.
   As you can see from the project <a href="http://morea-framework.github.io/gallery.html">gallery</a>,
-  it's much more structured than <a href="http://swcarpentry.github.io/lesson-example/">our lessons</a>.
+  it's much more structured than our lessons.
   It also requires more tooling&mdash;Morea Framework sites are built using custom Jekyll plugins,
   and the source relies much more heavily on include files than our template&mdash;and
   it's geared very strongly toward traditional semester-long courses.

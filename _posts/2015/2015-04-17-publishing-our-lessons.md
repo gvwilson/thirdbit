@@ -40,9 +40,9 @@ original: swc
   Our target date for release is Thursday, May 14.
   To help us get there,
   participants in the
-  <a href="http://swcarpentry.github.io/training-course/submissions/round-12/index.html">current round of instructor training</a>
+  current round of instructor training
   are being asked to proof-read the lessons and submit small fixes&mdash;see
-  <a href="http://swcarpentry.github.io/training-course/2015/04/final-meeting-for-round-12/">this post on the training course blog</a>
+  this post on the training course blog
   for details.
   If you have a bit of time to look things over,
   we'd be grateful for your comments as well.

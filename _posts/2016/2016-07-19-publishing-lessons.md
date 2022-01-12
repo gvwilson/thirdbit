@@ -38,76 +38,76 @@ original: swc
   <li>
     Daisie Huang and Ivan Gonzalez (eds): "Software Carpentry: Version
     Control with Git."  Version 2016.06, June 2016,
-    <a href="https://github.com/swcarpentry/git-novice/tree/2016.06">https://github.com/swcarpentry/git-novice/tree/2016.06</a>,
+    https://github.com/swcarpentry/git-novice/tree/2016.06,
     <a href="https://zenodo.org/record/57467">10.5281/zenodo.57467</a>.
   </li>
   <li>
     Doug Latornell (ed): "Software Carpentry: Version Control with
     Mercurial."  Version 2016.06, June 2016,
-    <a href="https://github.com/swcarpentry/hg-novice/tree/2016.06">https://github.com/swcarpentry/hg-novice/tree/2016.06</a>,
+    https://github.com/swcarpentry/hg-novice/tree/2016.06,
     <a href="https://zenodo.org/record/57469">10.5281/zenodo.57469</a>.
   </li>
   <li>
     Christina Koch and Greg Wilson (eds): "Software Carpentry:
     Instructor Training."  Version 2016.06, May 2016,
-    <a href="https://github.com/swcarpentry/instructor-training/tree/2016.06">https://github.com/swcarpentry/instructor-training/tree/2016.06</a>,
+    https://github.com/swcarpentry/instructor-training/tree/2016.06,
     <a href="https://zenodo.org/record/57571">10.5281/zenodo.57571</a>.
   </li>
   <li>
     Greg Wilson (ed.): "Software Carpentry: Lesson Example."  Version
     2016.06, June
-    2016, <a href="https://github.com/swcarpentry/lesson-example/tree/2016.06">https://github.com/swcarpentry/lesson-example/tree/2016.06</a>,
+    2016, https://github.com/swcarpentry/lesson-example/tree/2016.06,
     <a href="https://zenodo.org/record/58153">10.5281/zenodo.58153</a>.
   </li>
   <li>
     Mike Jackson (ed.): "Software Carpentry: Automation and Make."
     Version 2016.06, June 2016,
-    <a href="https://github.com/swcarpentry/make-novice/tree/2016.06">https://github.com/swcarpentry/make-novice/tree/2016.06</a>,
+    https://github.com/swcarpentry/make-novice/tree/2016.06,
     <a href="https://zenodo.org/record/57473">10.5281/zenodo.57473</a>.
   </li>
   <li>
     Ashwin Srinath and Isabell Kiral-Kornek (eds): "Software
     Carpentry: Programming with MATLAB."  Version 2016.06, June 2016,
-    <a href="https://github.com/swcarpentry/matlab-novice-inflammation/tree/2016.06">https://github.com/swcarpentry/matlab-novice-inflammation/tree/2016.06</a>,
+    https://github.com/swcarpentry/matlab-novice-inflammation/tree/2016.06,
     <a href="https://zenodo.org/record/57573">10.5281/zenodo.57573</a>.
   </li>
   <li>
     Azalee Bostroem, Trevor Bekolay, and Valentina Staneva (eds):
     "Software Carpentry: Programming with Python."  Version 2016.06,
     June
-    2016, <a href="https://github.com/swcarpentry/python-novice-inflammation/tree/2016.06">https://github.com/swcarpentry/python-novice-inflammation/tree/2016.06</a>,
+    2016, https://github.com/swcarpentry/python-novice-inflammation/tree/2016.06,
     <a href="https://zenodo.org/record/57492">10.5281/zenodo.57492</a>.
   </li>
   <li>
     Thomas Wright and Naupaka Zimmerman (eds): "Software Carpentry: R
     for Reproducible Scientific Analysis."  Version 2016.06, June
     2016,
-    <a href="https://github.com/swcarpentry/r-novice-gapminder/tree/2016.06">https://github.com/swcarpentry/r-novice-gapminder/tree/2016.06</a>,
+    https://github.com/swcarpentry/r-novice-gapminder/tree/2016.06,
     <a href="https://zenodo.org/record/57520">10.5281/zenodo.57520</a>.
   </li>
   <li>
     John Blischak, Daniel Chen, Harriet Dashnow, and Denis Haine
     (eds): "Software Carpentry: Programming with R."  Version 2016.06,
     June 2016,
-    <a href="https://github.com/swcarpentry/r-novice-inflammation/tree/2016.06">https://github.com/swcarpentry/r-novice-inflammation/tree/2016.06</a>,
+    https://github.com/swcarpentry/r-novice-inflammation/tree/2016.06,
     <a href="https://zenodo.org/record/57541">10.5281/zenodo.57541</a>.
   </li>
   <li>
     Gabriel Devenyi, Christina Koch, and Ashwin Srinath (eds):
     "Software Carpentry: The Unix Shell."  Version 2016.06, June 2016,
-    <a href="https://github.com/swcarpentry/shell-novice/tree/2016.06">https://github.com/swcarpentry/shell-novice/tree/2016.06</a>,
+    https://github.com/swcarpentry/shell-novice/tree/2016.06,
     <a href="https://zenodo.org/record/57544">10.5281/zenodo.57544</a>.
   </li>
   <li>
     Abigail Cabunoc and Sheldon McKay (eds): "Software Carpentry:
     Using Databases and SQL."  Version 2016.06, June 2016,
-    <a href="https://github.com/swcarpentry/sql-novice-survey/tree/2016.06">https://github.com/swcarpentry/sql-novice-survey/tree/2016.06</a>,
+    https://github.com/swcarpentry/sql-novice-survey/tree/2016.06,
     <a href="https://zenodo.org/record/57551">10.5281/zenodo.57551</a>.
   </li>
   <li>
     Greg Wilson (ed): "Software Carpentry: Workshop Template."
     Version 2016.06, June
-    2016, <a href="https://github.com/swcarpentry/workshop-template/tree/2016.06">https://github.com/swcarpentry/workshop-template/tree/2016.06</a>,
+    2016, https://github.com/swcarpentry/workshop-template/tree/2016.06,
     <a href="https://zenodo.org/record/58156">10.5281/zenodo.58156</a>.
   </li>
 </ul>

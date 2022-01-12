@@ -3,18 +3,16 @@ title: "A Counterpoint to Collaborative Lesson Design"
 date: 2016-02-16 00:30:00
 year: 2016
 original: swc
-repo: "https://github.com/swcarpentry/modern-scientific-authoring"
-site: "https://swcarpentry.github.io/modern-scientific-authoring"
 ---
 Discussion of our proposed lesson on
-[on modern scientific authoring]({{site.github_url}}/modern-scientific-authoring)
+on modern scientific authoring
 is an instructive counterpoint to our previous post
-extolling the virtues of [collaborative lesson development]({{site.baseurl}}/blog/2016/02/designing-lessons-collaboratively.html).
+extolling the virtues of collaborative lesson development.
 The aim of the lesson is to show researchers how to write and publish in the early 21st Century---or more honestly,
 to persuade them to stop mailing each other copies of Microsoft Word files
 and start using something else.
 After a long-winded opening (which I'll cut substantially),
-the [current introduction]({{page.site}}/01-mess.html) summarizes the strengths and weaknesses of six options:
+the current introduction summarizes the strengths and weaknesses of six options:
 
 1.  WYSIWYG on the desktop (Microsoft Word).
 2.  WYSIWYG on the web (Google Docs).
@@ -63,7 +61,7 @@ I suspect there are two reasons for that:
 2.  There's genuinely less agreement about tools for modern research writing.
 
 The next step is going to be to draw up an outline
-like [this one]({{site.github_url}}/python-novice-gapminder/blob/gh-pages/index.md)
+like this one
 laying out topics, exercises, and timings.
 We've found with the new Python lesson that this focuses the discussion,
 and we're hoping that it will allow parallelization,

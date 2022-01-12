@@ -9,7 +9,7 @@ original: swc
   we've added the following bootcamps in the last couple of weeks,
   and have more on the way.
   If you'd like us to run one where you are,
-  please <a href="{{site.baseurl}}/workshops/request/">fill in this form</a>
+  please fill in this form
   and we'll get the ball rolling.
 </p>
 <table class="table table-striped">

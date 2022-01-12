@@ -3,16 +3,15 @@ title: "Designing Lessons Collaboratively"
 date: 2016-02-15 00:30:00
 year: 2016
 original: swc
-issues: "https://github.com/swcarpentry/python-novice-gapminder/issues"
 ---
 A few days ago,
 I asked for feedback on a new Python lesson aimed at people who've never programmed before.
-The [outline]({{site.github_url}}/python-novice-gapminder/blob/gh-pages/index.md)
+The outline
 had already received several rounds of feedback from a handful of people,
 but there were still lots of comments:
 
 *   As always,
-    the choice of **tools** attracted a [lot of discussion]({{page.issues}}/15).
+    the choice of **tools** attracted a lot of discussion.
     Jeremy Metz opened by saying,
     "I worry that the use of a more abstract environment like the Jupyter Notebook
     might confuse and add an additional barrier to people wanting to 'really' use Python."
@@ -27,9 +26,9 @@ but there were still lots of comments:
     and all of the Python IDEs we've tried have significant shortcomings for our audience.
 
 *   **Time estimates** are one of the places where community input matters most.
-    In [this issue]({{page.issues}}/9),
+    In this issue,
     two experienced instructors discuss how far they think learners could get by lunch,
-    while [here]({{page.issues}}/19),
+    while here,
     two others talk about whether lots of short exercises will be manageable in practice,
     and whether using the Notebook will help.
     The former was a useful reality check
@@ -38,14 +37,14 @@ but there were still lots of comments:
     Parsons Problems,
     and filling in the blanks or tweaking existing code
     rather than writing things from scratch.
-    Rayna Harris has also [suggested]({{page.issues}}/25)
+    Rayna Harris has also suggested
     that we use [Socrative](http://www.socrative.com/) quizzes for real-time assessment.
     While I'm a bit nervous about becoming any more dependent on closed-source commercial sites than we already are,
     it's a great tool,
     and we'll definitely explore it.
 
 *   **Potential problems** are another place where having a community makes a big difference.
-    [This discussion]({{page.issues}}/20) reminded me that loading data is hard
+    This discussion reminded me that loading data is hard
     if you don't know how to navigate the filesystem;
     we've addressed that by allocating 10 minutes for learners to read their first CSV data set,
     most of which we expect will be taken up with tech support.
@@ -54,11 +53,11 @@ but there were still lots of comments:
     and coverage of these practical aspects of programming
     is part of what distinguishes SWC from "pure programming" classes,
     but (a) will it be accessible,
-    (b) will it be [compelling]({{site.baseurl}}/blog/2014/10/why-we-dont-teach-testing.html),
+    (b) will it be compelling,
     and (c) what should we take out to make room for it?
     We could show `assert` and focus on defensive programming rather than testing per se,
     and it's less effort (no separate functions).
-    See [this thread]({{page.issues}}/6) for the discussion.
+    See this thread for the discussion.
 
 *   **Debugging** is also important.
     I'm a big fan of interactive symbolic debuggers,
@@ -66,8 +65,8 @@ but there were still lots of comments:
     which we are *not* showing to novices.
     Instead,
     we have 15 minutes of lesson and discussion on how to make sense of error messages
-    (which will draw on [this discussion]({{page.issues}}/22)
-    as well as recycling [this material]({{site.github_io_url}}/python-novice-inflammation/07-errors.html))
+    (which will draw on this discussion
+    as well as recycling this material)
     and 25 minutes on actual debugging.
     The latter episode is toward the end of the lesson,
     and I suspect that many workshops will drop it because they'll run short of time.
@@ -75,7 +74,7 @@ but there were still lots of comments:
 *   **NumPy** was the heart and soul of scientific Python for many years,
     but this lesson will only mention it in passing,
     devoting its attention to Pandas instead.
-    It really deserves more air time---as [Bartosz Telenczuk observes]({{page.issues}}/17),
+    It really deserves more air time---as Bartosz Telenczuk observes,
     "students leaving the course without basic familiarity of NumPy
     will not be able to understand ~60% (my rough guess) of scientific Python applications."
     The problem once again is what to cut to make room...

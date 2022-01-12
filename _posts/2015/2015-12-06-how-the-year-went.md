@@ -4,23 +4,23 @@ date: 2015-12-06 05:30
 year: 2015
 ---
 <p>
-  I <a href="{{site.github.url}}/2015/01/01/things-i-wont-do-this-year.html">wrote a post on New Year's Day</a>
+  I wrote a post on New Year's Day
   about things I probably <em>wouldn't</em> do this year.
   Here's my score card:
 </p>
 <ul>
   <li>
     Turn Software Carpentry into a book: nope, didn't get to it
-    (though we <em>did</em> <a href="https://software-carpentry.org/blog/2015/09/publishing-our-lessons.html">publish our lessons</a>).
+    (though we <em>did</em> publish our lessons).
   </li>
   <li>
     Turn the instructor training course into something other people can read and understand:
-    huh&mdash;it <a href="http://swcarpentry.github.io/instructor-training/">actually happened</a> (kind of).
+    huh&mdash;it actually happened (kind of).
   </li>
   <li>
     Finish any of the fiction I've been working on:
     nope.
-    I tidied up <a href="http://sensibleadventures.com/works-in-progress/beneath-coriandel/"><em>Beneath Coriandel</em></a> (again),
+    I tidied up <em>Beneath Coriandel</em> (again),
     but it still needs major surgery to fix some gaping plot holes before it's worth publishing,
     and I didn't touch the others.
   </li>

@@ -19,9 +19,9 @@ The main elements of our approach are:
     *   someone writing something on their own (or translating something they've written before),
     *   a group of people getting together at a hackathon to create a roadmap, or
     *   someone driving an open design process of the kind used for
-        [our new Python lesson](http://swcarpentry.github.io/python-novice-gapminder/)
+        our new Python lesson
 	or
-	[Zack Brym's new visualization lesson](http://swcarpentry.github.io/visualization-novice/).
+	Zack Brym's new visualization lesson.
 2.  The lesson is put in a GitHub repository.
     Everyone is invited to submit enhancements and changes by filing issues and/or submitting pull requests,
     and to comment on other people's submissions.
@@ -90,5 +90,5 @@ Lots of groups are exploring exactly this question with regard to academic publi
 which of their answers could and should we borrow?
 
 If you're interested in discussing this,
-please add your thoughts to [this GitHub issue](https://github.com/programminghistorian/jekyll/issues/304)
+please add your thoughts to this GitHub issue
 some time in the coming weeks.

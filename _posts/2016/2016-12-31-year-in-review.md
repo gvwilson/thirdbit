@@ -21,29 +21,29 @@ year: 2016
   </li>
   <li>
     <p>
-      I <a href="{{site.github.url}}/2016/12/14/next-steps.html">resigned</a>
-      from my position as Director of Instructor Training for <a href="https://software-carpentry.org">Software Carpentry</a>.
-      I start <a href="https://www.shopify.ca/education">my new position with Shopify</a> in February 2017.
+      I resigned
+      from my position as Director of Instructor Training for Software Carpentry.
+      I start my new position with Shopify in February 2017.
       I did this in part because
-      Software Carpentry's <a href="http://swcarpentry.github.io/instructor-training/">instructor training course</a>
+      Software Carpentry's instructor training course
       is finally in reusable form,
       and 15 people are now qualified to teach it.
     </p>
   </li>
   <li>
     <p>
-      I finally wrote down <a href="{{site.github.url}}/2016/10/19/given-infinite-minions.html">all the projects I'll never have time to do</a>
-      and put together <a href="{{site.github.url}}/2016/09/21/reading-list.html">a reading list</a>
+      I finally wrote down all the projects I'll never have time to do
+      and put together a reading list
       that I wish I could send back in time to my twenty-something self.
     </p>
   </li>
   <li>
     <p>
       Thinking about this,
-      about <a href="{{site.github.url}}/2016/08/26/what-i-didnt-learn.html">what I didn't learn in my CS degree</a>,
+      about what I didn't learn in my CS degree,
       and about all of the political catastrophes of 2016
-      spurred me to kick off <a href="{{site.github.url}}/2016/11/13/stuff-that-actually-matters.html">a book about stuff that actually matters</a>.
-      We're also going to try to organize another <a href="http://t3summit.org/">Teaching Tech Together</a> summit,
+      spurred me to kick off a book about stuff that actually matters.
+      We're also going to try to organize another Teaching Tech Together summit,
       and a couple of other things are brewing as well.
     </p>
   </li>
@@ -70,19 +70,19 @@ year: 2016
   </li>
   <li>
     <p>
-      I made progress on <a href="http://sensibleadventures.com/cloudherd-tigers-boy/">the book I'm writing for my daughter</a>,
+      I made progress on the book I'm writing for my daughter,
       but didn't finish it in time for Christmas.
-      I didn't finish rewriting <a href="http://sensibleadventures.com/beneath-coriandel/">this one</a>
-      or <a href="http://sensibleadventures.com/madica/">this one</a>,
+      I didn't finish rewriting this one
+      or this one,
       but I <em>did</em> run a writing class at my daughter's school,
       which was a lot of fun.
     </p>
   </li>
   <li>
     <p>
-      I didn't <a href="{{site.github.url}}/2015/11/09/daddy-why-dont-you-ever-laugh.html">crash</a> this year.
+      I didn't crash this year.
       Instead,
-      I got <a href="{{site.github.url}}/cthulhu.mp3">a new ringtone</a> that seems more in keeping with the spirit of the times.
+      I got a new ringtone that seems more in keeping with the spirit of the times.
     </p>
   </li>
 </ul>

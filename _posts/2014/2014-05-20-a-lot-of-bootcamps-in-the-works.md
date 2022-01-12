@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   Last week,
-  we ran our first bootcamp in Brazil&mdash;many thanks to <a href="{{site.baseurl}}/team/#silva.raniere">Raniere Silva</a>
+  we ran our first bootcamp in Brazil&mdash;many thanks to Raniere Silva
   for <a href="http://blog.rgaiacs.com/2014/05/14/furg.html">this writeup</a>
   about what worked and what didn't.
   We'll visit several other new countries over the next three months,

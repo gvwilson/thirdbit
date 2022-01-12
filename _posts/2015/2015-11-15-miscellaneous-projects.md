@@ -8,7 +8,7 @@ original: swc
   This post is a bit of a
   <a href="http://www.theguardian.com/science/brain-flapping/2014/sep/10/wild-extrapolation-classification-system-science-media-scepticism">link fest</a>,
   but after talking about how to contribute
-  at yesterday's <a href="http://swcarpentry.github.io/instructor-retreat-2015/">instructor retreat</a>,
+  at yesterday's instructor retreat,
   I thought it might be useful to post a few additions to
   <a href="{{page.root}}/pages/projects.html">our projects page</a>.
 </p>

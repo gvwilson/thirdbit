@@ -13,7 +13,7 @@ When asked earlier this week how to teach programming to the blind,
 he sent the response below.
 We're grateful for his comments,
 and for [Evan Williamson](https://vivo.nkn.uidaho.edu/vivo/display/n43629)'s
-[recent pull request](https://github.com/swcarpentry/styles/pull/103)
+recent pull request
 to improve the accessibility of our lessons.
 
 ---

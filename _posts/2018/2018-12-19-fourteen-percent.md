@@ -23,7 +23,7 @@ title: "Fourteen Percent and a Change of Direction"
 2.  I believe adapters will be able to do this faster and better
     if they understand why a lesson was written the way it was,
     but that knowledge is usually unwritten.
-    The [Carpentries lesson on the Unix shell](http://swcarpentry.github.io/shell-novice/)
+    The Carpentries lesson on the Unix shell
     embodies a lot of experience
     with topics and orders and examples that *didn't* work,
     or worked less well than what's in there now.

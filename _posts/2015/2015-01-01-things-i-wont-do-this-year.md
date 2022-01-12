@@ -10,12 +10,12 @@ year: 2015
 </p>
 <dl>
   <dt>
-    Turn <a href="https://software-carpentry.org">Software Carpentry</a> into a book.
+    Turn Software Carpentry into a book.
   </dt>
   <dd>
     <p>
       I promised <a href="http://www.oreilly.com/news/frank_0701.html">Frank Willison</a> I would do this more than a decade ago,
-      and got as far as turning <a href="https://software-carpentry.org/lessons.html">the existing lessons</a>
+      and got as far as turning the existing lessons
       into a badly-formatted e-book last summer.
       I've never been satisfied with the results,
       but have never made time to revise it all.
@@ -25,7 +25,7 @@ year: 2015
     </p>
   </dd>
   <dt>
-    Turn the <a href="https://github.com/swcarpentry/instructor-training">Software Carpentry instructor training course</a>
+    Turn the Software Carpentry instructor training course
     into something other people can read and understand.
   </dt>
   <dd>

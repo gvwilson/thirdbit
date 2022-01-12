@@ -5,21 +5,21 @@ year: 2015
 original: swc
 ---
 <p>
-  <a href="{{site.baseurl}}/pages/team/#hart.t">Edmund Hart</a>,
-  <a href="{{site.baseurl}}/pages/team/#barmby.pauline">Pauline Barmby</a>,
-  <a href="{{site.baseurl}}/pages/team/#lebauer.david">David LeBauer</a>,
-  <a href="{{site.baseurl}}/pages/team/#michonneau.francois">Fran&ccedil;ois Michonneau</a>,
+  Edmund Hart,
+  Pauline Barmby,
+  David LeBauer,
+  Fran&ccedil;ois Michonneau,
   Sarah Mount,
   Timoth&eacute;e Poisot,
-  <a href="{{site.baseurl}}/pages/team/#woo.kara">Kara Woo</a>,
-  <a href="{{site.baseurl}}/pages/team/#zimmerman.naupaka">Naupaka Zimmerman</a>,
+  Kara Woo,
+  Naupaka Zimmerman,
   and
-  <a href="{{site.baseurl}}/pages/team/#hollister.jeff">Jeff Hollister</a>
+  Jeff Hollister
   have just posted a pre-print on PeerJ titled
   <a href="https://peerj.com/preprints/1448/">Ten Simple Rules for Digital Data Storage</a>.
   The paper is a distributed collaborative effort
   spawned from a thread on the Software Carpentry instructors mailing list
-  and further carried out on <a href="https://github.com/swcarpentry/site/issues/797">GitHub</a>.
+  and further carried out on GitHub.
   There are a lot of good ideas in it,
   many of which we should fold back into our lessons,
   and we hope it will spark more collaborations in our community.

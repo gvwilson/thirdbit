@@ -6,12 +6,12 @@ original: swc
 ---
 <p>
   As described in these posts from
-  <a href="{{site.baseurl}}/blog/2012/05/whats-wrong-with-all-this">May</a>,
+  May,
   and
-  <a href="{{site.baseurl}}/blog/2012/10/rebuilding-redux.html">October</a>
+  October
   2012
   (which build on
-  <a href="{{site.baseurl}}/blog/2012/04/behind-the-scenes-or-the-ethics-of-cultivating-discontent.html">this one</a>
+  this one
   from April 2012),
   we use a complicated collection of tools to manage our work:
 </p>
@@ -19,9 +19,9 @@ original: swc
   <li>
     Our web pages and blog posts are <a href="http://jinja.pocoo.org/">Jinja2</a> templates
     stored in three GitHub repositories:
-    one for the <a href="{{site.github_url}}/website">main web site</a>,
-    one for the <a href="{{site.github_url}}/lessons_4_0">Version 4</a> videos and slides,
-    and one for the <a href="{{site.github_url}}/lessons_3_0">Version 3</a> notes.
+    one for the main web site,
+    one for the Version 4 videos and slides,
+    and one for the Version 3 notes.
     (We split material between repositories
     because we didn't want people to have to download the earlier versions
     in order to write a blog post&mdash;they're fairly large.
@@ -51,7 +51,7 @@ original: swc
     (More about this later.)
   </li>
   <li>
-    We use <a href="http://software-carpentry.eventbrite.ca/">EventBrite</a> to handle registration
+    We use EventBrite to handle registration
     about two thirds of the time;
     the rest of the time,
     hosts take care of it themselves
@@ -85,24 +85,24 @@ original: swc
   </li>
   <li>
     Which reminds me that there are three other repos as well.
-    <a href="{{site.github_url}}/assets">assets</a>
+    assets
     stores all the "extra" public files that don't go into the web site,
     such as the vector source for our logo
     and the LaTeX and Markdown versions of our papers.
-    <a href="{{site.github_url}}/guide">guide</a>
+    guide
     holds the source for
-    the <a href="http://guide.software-carpentry.org">instructors' guide</a>
+    the instructors' guide
     that was supposed to be finished five months ago.
     Like the web site itself,
     it is written in HTML with Jinja2 templates
     and compiled using a little Python script.
     Finally,
-    <a href="{{site.github_url}}/boot-camps">boot-camps</a>
+    boot-camps
     holds actual teaching materials,
     plus the web pages that instructors create for their bootcamps.
     This repo is a mess right now,
     and cleaning it up is
-    <a href="{{site.baseurl}}/blog/2013/05/planning-for-the-break.html#bc">one of the major jobs</a>
+    one of the major jobs
     for our summer break.
   </li>
   <li>
@@ -115,7 +115,7 @@ original: swc
   </li>
   <li>
     And oh yeah,
-    we <a href="https://twitter.com/swcarpentry/">tweet</a>.
+    we tweet.
     When we were using WordPress,
     tweets were sent automatically when new blog posts appeared;
     we do that manually now
@@ -134,7 +134,7 @@ original: swc
     <td>
       <ol>
         <li>
-          Create a new branch in your clone of the GitHub <a href="{{site.github_url}}/website">website</a> repo.
+          Create a new branch in your clone of the GitHub website repo.
         </li>
         <li>
           Write the post as an HTML file with a bit of Jinja2 boilerplate.
@@ -169,7 +169,7 @@ original: swc
           and add the appropriate people to it.
         </li>
         <li>
-          Create a new branch in your clone of the GitHub <a href="{{site.github_url}}/website">website</a> repo,
+          Create a new branch in your clone of the GitHub website repo,
           add an HTML page for the bootcamp,
           send us a pull request,
           and recompile the site on the server once it's merged
@@ -182,7 +182,7 @@ original: swc
           (We forget to do this sometimes.)
         </li>
         <li>
-          Create a new branch in the <a href="{{site.github_url}}/boot-camps">boot-camps</a> repo
+          Create a new branch in the boot-camps repo
           to hold teaching materials.
         </li>
         <li>
@@ -232,7 +232,7 @@ original: swc
         </li>
         <li>
           Make them an author on the
-          <a href="{{site.training_url}}">teaching blog</a>.
+          teaching blog.
         </li>
       </ol>
     </td>
@@ -247,7 +247,7 @@ original: swc
         <li>
           Add an includable snippet of HTML describing them to the web site,
           along with a photo of some kind,
-          that we can use on the <a href="{{site.baseurl}}/team/">roster page</a>.
+          that we can use on the roster page.
         </li>
         <li>
           Add a line to the badge directory's index file

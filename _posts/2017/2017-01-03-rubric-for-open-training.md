@@ -18,12 +18,9 @@ will continue to be nominated by their institution as before.
 Note that as a condition of being trained,
 people must:
 
-1.  Abide by our code of conduct, which can be found
-    at <https://software-carpentry.org/conduct/> and
-    <http://datacarpentry.org/code-of-conduct/>.
+1.  Abide by our code of conduct, which can be found here and here.
 2.  Complete three short tasks after the course in order to
-    complete certification. The tasks are described at
-    <http://swcarpentry.github.io/instructor-training/checkout/>, and
+    complete certification. The tasks are described here, and
     take a total of approximately 8-10 hours.
 3.  Help teach a Software Carpentry, Data Carpentry, or Library Carpentry
     workshop within 12 months of the course.

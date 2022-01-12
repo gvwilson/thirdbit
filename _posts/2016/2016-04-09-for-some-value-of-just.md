@@ -4,8 +4,8 @@ date: 2016-04-09 05:00
 year: 2016
 ---
 <p>
-  One of the cardinal rules of <a href="https://software-carpentry.org">Software Carpentry</a> is
-  <a href="http://swcarpentry.github.io/instructor-training/05-expertise.html#the-j-word">never say 'just'</a>,
+  One of the cardinal rules of Software Carpentry is
+  never say 'just',
   because it signals the listener that the speaker thinks their problem is trivial.
   I've been reminded of this recently when hearing people say things like,
   "It doesn't matter what language you choose: <em>just</em> pick one and master it,"
@@ -21,13 +21,13 @@ year: 2016
   and was genuinely puzzled when I said, "But I don't know what to do."
 </p>
 <p>
-  My favorite talk at Ed Foo this year was by <a href="http://www.annmarie-thomas.com/about/">AnnMarie Thomas</a>,
+  My favorite talk at Ed Foo this year was by AnnMarie Thomas,
   who said, "Please stop telling people to fail fast and fail often, because only the privileged can afford to."
   More and more I feel the same way about "just try something",
   because a lot of people have learned the hard way that there's a cost to trying and failing,
   even if it's just the opportunity cost of things left undone.
   Making mistakes and
-  <a href="{{site.github.url}}/2016/04/01/zen-and-the-art-of-assignment-operators.html">recapitulating the thoughts of others</a>
+  recapitulating the thoughts of others
   are important parts of learning,
   but people shouldn't be shut out just because
   they don't want to wander around in the dark,

@@ -19,9 +19,8 @@ to summarize what we've learned so far ourselves.
     answering basic questions seemed really useful*, which has us
     asking yet again if we should record some model workshops.
 
-1.  *[Aleksandra Pawlik's
-    guidelines](https://github.com/swcarpentry/board/issues/72#issuecomment-190284557)
-    were very helpful*, and have now been folded into the instructor
+1.  *Aleksandra Pawlik's guidelines were very helpful*,
+    and have now been folded into the instructor
     training course's guidelines.
 
 1.  *Organizing things through an Etherpad is easy but error-prone.*

@@ -60,7 +60,7 @@ favorite: true
   Things were so bad at one point that I decided I'd better polish my rusty programming skills,
   just in case I had to get a real job.
   The last thing I'd worked on was an e-commerce application written in Django,
-  so I started building <a href="http://github.com/swcarpentry/amy/">a forms-based application to manage Software Carpentry workshops</a>.
+  so I started building a forms-based application to manage Software Carpentry workshops.
 </p>
 <p>
   All of that might have been manageable,
@@ -72,7 +72,7 @@ favorite: true
   Meanwhile,
   angered by Gamergate and a bunch of other things,
   I approached a bunch of people about organizing
-  a <a href="{{ '/2015/06/12/teaching-tech-together/' | relative_url }}">two-day workshop</a>
+  a two-day workshop
   for grassroots get-into-tech groups focused on women,
   minorities,
   the physically and mentally challenged,

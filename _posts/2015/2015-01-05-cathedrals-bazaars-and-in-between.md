@@ -27,9 +27,9 @@ year: 2015
 <p>
   Having spent a chunk of the holidays trying to explain and justify
   the baroque procedures needed to work with
-  <a href="https://github.com/swcarpentry/workshop-template">our workshop template</a>,
-  <a href="https://github.com/swcarpentry/lesson-template">our lesson template</a>,
-  and <a href="https://github.com/swcarpentry/site">this site</a>,
+  our workshop template,
+  our lesson template,
+  and this site,
   and why they're all different,
   I sympathize deeply with his yearning for clean design.
   Unfortunately, however, the cathedral model fails just as often and just as badly as the bazaar.
@@ -65,7 +65,7 @@ year: 2015
   <a href="https://software-carpentry.org/scf/index.html">the rules we have written</a>
   a good starting point.
   I also hope that our instructors will find
-  <a href="https://github.com/swcarpentry/workshop-template">our</a> <a href="https://github.com/swcarpentry/lesson-template">templates</a>
+  our templates
   more of a help than a hindrance,
   and that there will be enough mutual trust in the community we've become
   for people to step forward and say, "That's broken, I'll fix it,"

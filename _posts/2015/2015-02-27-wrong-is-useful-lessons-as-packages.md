@@ -10,8 +10,8 @@ original: swc
   &mdash; overheard
 </blockquote>
 <p>
-  I wrote <a href="{{site.baseurl}}/blog/2014/07/using-a-package-manager-for-lessons-and-papers.html">a post last July</a>
-  about using <a href="https://en.wikipedia.org/wiki/Package_manager">package managers</a>
+  I wrote a post last July
+  about using package managers
   like RPM, Homebrew, and Conda to track dependencies between lessons,
   so that a student could say something like <code>conda install unit_testing</code>
   and get a lesson on unit testing,
@@ -35,7 +35,7 @@ original: swc
   I'm still not sure whether this is a good idea,
   and since I've always done what passes for my best thinking when I've got something to fix
   rather than a blank sheet of paper,
-  I've thrown together <a href="https://github.com/swcarpentry/installable-lesson-demo-01">a really small demo</a>.
+  I've thrown together a really small demo.
   I'm sure it's wrongheaded in many ways,
   but I hope it will help focus discussion by giving people something specific to correct.
   If you'd like to kick its tires:
@@ -48,7 +48,7 @@ original: swc
   </li>
   <li>
     <p>
-      Clone <a href="https://github.com/swcarpentry/installable-lesson-demo-01">this GitHub repository</a>.
+      Clone this GitHub repository.
     </p>
   </li>
   <li>

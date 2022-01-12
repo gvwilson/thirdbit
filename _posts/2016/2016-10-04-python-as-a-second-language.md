@@ -6,7 +6,7 @@ original: swc
 ---
 
 Donny Winston, Joey Montoya, and I taught a one-day class for [Lawrence Berkeley National Laboratory](http://lbl.gov)
-on [Python as a Second Language](http://swcarpentry.github.io/python-second-language/) last week.
+on Python as a Second Language last week.
 As its introductory blurb says,
 "This lesson is an introduction to programming in Python
 for people who are already comfortable in some other language such as Perl or MATLAB."
@@ -14,7 +14,7 @@ The notes are still very much under development,
 but having delivered it twice,
 we're pretty confident that it can actually be delivered in one day.
 We would be very grateful for feedback:
-please file issues in [the GitHub repository](https://github.com/swcarpentry/python-second-language/)
+please file issues in the GitHub repository
 to let us know what you think,
 to add more exercises and bullet points,
 or anything else.

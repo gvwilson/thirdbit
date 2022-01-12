@@ -35,7 +35,7 @@ year: 2016
     Ironically,
     programmers create get-into-coding groups so that people won't have to teach themselves how to write Javascript,
     but then reinvent all the wheels when it comes to teaching, running a non-profit, or organizing a community.
-    I think it would be cool to combine the <a href="http://swcarpentry.github.io/instructor-training">Software Carpentry instructor training course</a>
+    I think it would be cool to combine the Software Carpentry instructor training course
     with material on <a href="https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/">building community organizations</a>
     to fill in those gaps.
   </p>
@@ -137,14 +137,14 @@ year: 2016
   </p>
 </dd>
 
-<dt><a href="https://swcarpentry.github.io/managing-research-software-projects/short/"><em>Managing Research Software Projects</em></a></dt>
+<dt><em>Managing Research Software Projects</em></dt>
 <dd>
   <p>
     Your graduate degree is in ecology,
     but now you're running a three-person team responsible for building and maintaining a hundred thousand lines of code?
     This book (or course, or whatever) is everything you absolutely, positively need to know
     <em>after</em> you know how to program.
-    (We've <a href="https://swcarpentry.github.io/managing-research-software-projects/short/">started work</a> on this,
+    (We've started work on this,
     but more hands would be welcome.)
   </p>
 </dd>

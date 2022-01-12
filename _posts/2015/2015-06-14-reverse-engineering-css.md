@@ -4,7 +4,7 @@ date: 2015-06-14 17:00
 year: 2015
 ---
 <p>
-  <a href="https://software-carpentry.org/lessons.html">Software Carpentry's lessons</a>
+  Software Carpentry's lessons
   are written in <a href="http://daringfireball.net/projects/markdown/">Markdown</a>,
   then transformed into HTML using <a href="http://pandoc.org/">Pandoc</a>
   which is styled using <a href="http://getbootstrap.com/css/">Bootstrap</a>
@@ -53,6 +53,6 @@ year: 2015
   so that our pages look the same as they do now?
   If so,
   the source for the existing format is in
-  <a href="https://github.com/swcarpentry/lesson-example">this GitHub repo</a>
-  and the new version is coming together <a href="https://github.com/gvwilson/using-jekyll">in this one</a>.
+  this GitHub repo
+  and the new version is coming together in this one.
 </p>

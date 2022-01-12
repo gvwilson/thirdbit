@@ -68,7 +68,7 @@ I often teach by presenting a simple solution to a simple problem,
 then adding a bit of complexity to the problem and showing why the simple solution no longer serves
 in order to motivate a solution that's more powerful but more complex.
 (I once spend an entire hour showing a class
-[how to count things in files](https://github.com/swcarpentry/v4/blob/gh-pages/essays/counting.html).)
+how to count things in files.)
 Caulfield's Chorus serves groups of mixed ability in which some learners know enough to skip directly to the more complex solution;
 the terse, highly abstract solutions in the chorus work for readers who are fluent with patterns,
 but who have also seen the refutations of the simpler solutions

@@ -63,28 +63,28 @@ original: swc
 </p>
 <ul>
   <li>We're switching web hosting services over the next couple of days&mdash;we'll try to minimize disruption, and apologize in advance for any outages.</li>
-  <li>We have some <a href="{{site.baseurl}}/blog/2013/07/welcome-new-instructors.html">new instructors</a> to welcome.</li>
+  <li>We have some new instructors to welcome.</li>
   <li>
-    We have pulled together a lot of the <a href="http://swcarpentry.github.io/bc/lessons/index.html">lesson material</a>
+    We have pulled together a lot of the lesson material
     that people have created over the past twelve months
     in a form that we hope will be easier to re-use.
   </li>
   <li>
-    We also have a <a href="http://swcarpentry.github.io/bc/">new look for bootcamp home pages</a>,
+    We also have a new look for bootcamp home pages,
     and,
     thanks to Preston Holmes,
-    an <a href="{{site.github_url}}/bc">illustrated guide</a> for creating them.
+    an illustrated guide for creating them.
     We'd be grateful for improvements to the styling of the former,
     and for feedback and improvements on the latter.
   </li>
   <li>
-    And we've <a href="{{site.github_url}}/site/">simplified the procedure for building the web site</a>,
+    And we've simplified the procedure for building the web site,
     which will make it a lot easier for people to contribute to our blog.
   </li>
   <li>
     Amy Brown,
     our indefatigable admin,
-    has updated our <a href="{{site.baseurl}}/workshops/operations/">operations guide</a>
+    has updated our operations guide
     and created some checklists for hosts, instructors, and other bootcamp roles.
     The static pages on our web site are the reference versions;
     going forward,
@@ -103,7 +103,7 @@ original: swc
     and we'll create a Google Form per bootcamp for learners who are registering in other ways.
   </li>
   <li>
-    The <a href="{{site.baseurl}}/blog/2013/08/what-we-cover-in-instructor-training.html">curriculum for instructor training</a>
+    The curriculum for instructor training
     has stabilized
     (although we'll be adding one more exercise based on discussion last night).
     We are also now designating a lead instructor for each bootcamp
@@ -119,7 +119,7 @@ original: swc
 <ul>
   <li>
     I'll put "how to get involved" into a top-level menu item to make things more findable.
-    (The <a href="{{site.github_url}}/site/pull/90">pull request</a> is already in,
+    (The pull request is already in,
     and should be merged today.)
   </li>
   <li>

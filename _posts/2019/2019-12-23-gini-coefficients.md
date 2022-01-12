@@ -46,31 +46,31 @@ I'd enjoy hearing from you.
     <th>Ratio</th>
   </tr>
   <tr>
-    <td><a href="https://github.com/swcarpentry/git-novice/">Git Lesson</a></td>
+    <td>Git Lesson</td>
     <td class="right">0.7867</td>
     <td class="right">0.0306</td>
     <td class="right">25.69</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/swcarpentry/python-novice-gapminder/">Python Lesson</a></td>
+    <td>Python Lesson</td>
     <td class="right">0.8250</td>
     <td class="right">0.0982</td>
     <td class="right">8.40</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/swcarpentry/r-novice-gapminder/">R Lesson</a></td>
+    <td>R Lesson</td>
     <td class="right">0.7899</td>
     <td class="right">0.0299</td>
     <td class="right">26.42</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/swcarpentry/shell-novice/">Shell Lesson</a></td>
+    <td>Shell Lesson</td>
     <td class="right">0.7955</td>
     <td class="right">0.0362</td>
     <td class="right">21.96</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/swcarpentry/sql-novice-survey/">SQL Lesson</a></td>
+    <td>SQL Lesson</td>
     <td class="right">0.8101</td>
     <td class="right">0.0462</td>
     <td class="right">17.52</td>
@@ -82,31 +82,31 @@ I'd enjoy hearing from you.
     <td class="right"><strong>20.00</strong></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/numpy/numpy/">NumPy</a></td>
+    <td>NumPy</td>
     <td class="right">0.9097</td>
     <td class="right">0.0105</td>
     <td class="right">86.89</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/pandas-dev/pandas/">Pandas</a></td>
+    <td>Pandas</td>
     <td class="right">0.8743</td>
     <td class="right">0.0306</td>
     <td class="right">28.55</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/scikit-image/scikit-image/">Scikit-Image</a></td>
+    <td>Scikit-Image</td>
     <td class="right">0.8547</td>
     <td class="right">0.2495</td>
     <td class="right">3.42</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/scikit-learn/scikit-learn/">Scikit-Learn</a></td>
+    <td>Scikit-Learn</td>
     <td class="right">0.8836</td>
     <td class="right">0.0492</td>
     <td class="right">179.51</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/scipy/scipy/">SciPy</a></td>
+    <td>SciPy</td>
     <td class="right">0.8821</td>
     <td class="right">0.0047</td>
     <td class="right">185.94</td>

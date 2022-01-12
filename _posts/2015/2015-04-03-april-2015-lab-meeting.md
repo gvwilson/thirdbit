@@ -52,15 +52,15 @@ original: swc
 <li>Looking for a new volunteer sys admin (Greg Wilson)</li>
 <li>Update on lessons
 <ul>
-<li>shell-extras (Christina Koch): <a href="https://github.com/swcarpentry/shell-extras" class="uri">https://github.com/swcarpentry/shell-extras</a></li>
-<li>Examples of beginner problems (Noam Ross): <a href="{{site.mailing_lists}}/pipermail/discuss/2015-March/002816.html" class="uri">http://lists.software-carpentry.org/pipermail/discuss/2015-March/002816.html</a></li>
+<li>shell-extras (Christina Koch): https://github.com/swcarpentry/shell-extras</li>
+<li>Examples of beginner problems (Noam Ross): http://lists.software-carpentry.org/pipermail/discuss/2015-March/002816.html</li>
 </ul></li>
 <li>Making lessons citable by giving them DOIs
 <ul>
-<li><a href="https://guides.github.com/activities/citable-code/" class="uri">https://guides.github.com/activities/citable-code/</a></li>
+<li>https://guides.github.com/activities/citable-code/</li>
 <li>Aim to have everything stable (enough) by the end of April</li>
 </ul></li>
-<li><a href="http://ivory.idyll.org/blog/2015-some-workshop-or-unconference-ideas.html" class="uri">http://ivory.idyll.org/blog/2015-some-workshop-or-unconference-ideas.html</a></li>
+<li>http://ivory.idyll.org/blog/2015-some-workshop-or-unconference-ideas.html</li>
 </ul>
 <p><strong>10:00 Eastern</strong></p>
 <ul>
@@ -162,11 +162,10 @@ original: swc
 </ul></li>
 <li>Karin: Notes from Steering Committee meetings are now openly available in the repo
 <ul>
-<li>See l<a href="https://github.com/swcarpentry/board/tree/master/minutes" class="uri">https://github.com/swcarpentry/board/tree/master/minutes</a></li>
+<li>See lhttps://github.com/swcarpentry/board/tree/master/minutes</li>
 </ul></li>
 <li>Greg: LinkedIn group for instructors
 <ul>
-<li><a href="https://www.linkedin.com/grp/home?gid=8279689" class="uri">https://www.linkedin.com/grp/home?gid=8279689</a></li>
 <li>Looking for a volunteer to help manage this, please get in touch</li>
 <li>Leigh Sheneman volunteers to help</li>
 <li>Lynne Williams volunteers to help &lt;williams.lynne99@gmail.com&gt;</li>

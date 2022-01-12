@@ -5,9 +5,9 @@ year: 2014
 original: swc
 ---
 <p>
-  The <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-instructor-training.html">previous</a>
-  <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-workshop-organization.html">three</a>
-  <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-mentorship-and-assessment.html">posts</a>
+  The previous
+  three
+  posts
   in this set looked at instructor training,
   workshop organization,
   and the twin challenges of mentorship and assessment.
@@ -16,11 +16,11 @@ original: swc
 </p>
 <p>
   We described the new template for lessons
-  <a href="{{site.baseurl}}/blog/2014/10/new-lesson-template-v2.html">back in October</a>,
+  back in October,
   and since then,
   a handful of people have been working to improve it
   and to extract our existing lessons from
-  <a href="{{site.github_url}}/bc">the 'bc' repository</a>
+  the 'bc' repository
   and convert them to the new format.
   The first step has taken longer than planned:
   we want to be sure we get the entire history of each lesson,
@@ -30,8 +30,8 @@ original: swc
 <p>
   The good news is,
   you can now see what the result will look like.
-  Our novice lesson on SQL now lives in <a href="{{site.github_url}}/sql-novice-survey">this repository</a>,
-  and you can view its rendered form in <a href="http://swcarpentry.github.io/sql-novice-survey/">this GitHub pages site</a>.
+  Our novice lesson on SQL now lives in this repository,
+  and you can view its rendered form in this GitHub pages site.
   There's still a lot to do&mdash;the learning objectives need to be cleaned up,
   the challenges all need meaningful names,
   and there's clearly lots of scope for improving the lesson's appearance&mdash;but
@@ -39,8 +39,8 @@ original: swc
 </p>
 <p>
   You can also see what entirely new lessons will look like.
-  <a href="{{site.github_url}}/capstone-novice-spreadsheet-biblio">This lesson</a>
-  (which is rendered <a href="http://swcarpentry.github.io/capstone-novice-spreadsheet-biblio/index.html">here</a>)
+  This lesson
+  (which is rendered here)
   takes a bibliography embedded in a spreadsheet
   and converts it to a single-table database
   so that we can ask questions like, "Who has co-authored papers with whom?"
@@ -51,19 +51,19 @@ original: swc
 <p>
   We obviously still have a lot of work to do,
   but I hope we're finally in sight of a system that will make it so easy for instructors
-  to add <a href="https://twitter.com/drclimate/status/539279488660430848">their personal notes</a> to our lessons
+  to add their personal notes to our lessons
   that they will routinely do so.
-  As I've <a href="http://third-bit.com/2013/05/01/merging-is-the-real-revolution.html">argued</a>
-  <a href="http://third-bit.com/2014/10/27/shuttleworth.html">elsewhere</a>,
+  As I've argued
+  elsewhere,
   <em>that</em> would be the start of a real revolution.
 </p>
 <p>
   <em>
     p.s.
     If you'd like to help finish the "bibliography in a spreadsheet" lesson,
-    please <a href="{{site.github_url}}/capstone-novice-spreadsheet-biblio/issues">file an issue</a>,
-    <a href="{{site.github_url}}/capstone-novice-spreadsheet-biblio/pulls">send a pull request</a>,
-    or just <a href="{{page.contact}}">send an email</a>&mdash;like our other lessons,
+    please file an issue,
+    send a pull request,
+    or just send an email&mdash;like our other lessons,
     it will need a maintainer.
   </em>
 </p>
