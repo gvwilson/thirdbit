@@ -3,7 +3,7 @@ title: "An Unexpected Result"
 date: 2008-03-28 12:23:03
 year: 2008
 ---
-This term, the students in <a href="https://stanley.cdf.toronto.edu/drproject/csc301-2008-01">my third-year software engineering course</a> have been working in teams to build a shared to-do list plugin for <a href="http://www.facebook.com">Facebook</a>.  Each of the six teams has worked independently (well, as independently as students ever work) for the first three exercises.  For the fourth, each team conducted a review of every other team's code to decide which one they would continue with for the final exercise.  They <em>had</em> to switch: teams were not allowed to continue with their own code.
+This term, the students in my third-year software engineering course have been working in teams to build a shared to-do list plugin for <a href="http://www.facebook.com">Facebook</a>.  Each of the six teams has worked independently (well, as independently as students ever work) for the first three exercises.  For the fourth, each team conducted a review of every other team's code to decide which one they would continue with for the final exercise.  They <em>had</em> to switch: teams were not allowed to continue with their own code.
 
 <a href="http://www.cs.toronto.edu/~dw/">Dave Wortman</a> has been doing this "review and buy" exercise for a couple of decades. This time, the result is almost a perfect permutation:
 <ul>

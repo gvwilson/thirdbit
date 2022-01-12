@@ -10,7 +10,7 @@ OK, so what <em>am</em> I doing if I'm not coding?
 	<li>Giving <a href="http://www.cs.toronto.edu/~gvwilson/hpc-considered-harmful-2008.pdf">talks</a>: about two days a month once you include prep and travel time.</li>
 	<li>Writing book reviews and <a href="http://www.cs.toronto.edu/~gvwilson/articles/cise-will-not-learn-2008.pdf">opinion pieces</a>: probably about the same.</li>
 	<li>Writing a "CS-1 in Python" book: probably averaging half a day per week right now.</li>
-	<li>Herding <strike>cats</strike> <a href="https://stanley.cdf.toronto.edu/drproject/csc49x/2008summer">kittens</a>: a day a week---a day and a half if you include grad students.</li>
+	<li>Herding <strike>cats</strike> kittens: a day a week---a day and a half if you include grad students.</li>
 	<li>Writing grant proposals: variable, but I'd guess it has averaged at least two days a week since last May. Three small ones have come through, along with contributions from the Jonah Group and Idee (thanks, folks), but NSERC and a couple of other companies have turned down all the larger (i.e., more time-consuming) ones.</li>
 	<li>Organizing stuff: a day and a half per week. This includes student lunches with people from industry, DemoCamp, special issues of journals, meetings to introduce local companies with researchers in the department, networking on behalf of my grad students, etc. I could cut a lot of this, but I honestly think this is where I add most value.</li>
 	<li>Departmental responsibilities (such as preparing a proposal for a Professional Master's in Computer Science): has been highly variable; probably averages half a day a week.</li>

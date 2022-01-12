@@ -35,7 +35,7 @@ Speaking of where the times goes, these are my current projects:
 <ul>
 	<li>Updating course notes for <em>CSC301: Introduction to Software Engineering</em> (which I'm teaching again this fall).</li>
 	<li>Recruiting students for <em>CSC490: Computer Science Capstone</em> (which I'm also teaching this fall).</li>
-	<li>Day-to-day administration for our <a href="https://stanley.cdf.toronto.edu/drproject/csc49x/2008summer">19 summer interns</a>.</li>
+	<li>Day-to-day administration for our 19 summer interns.</li>
 </ul>
 </li>
 </ol>

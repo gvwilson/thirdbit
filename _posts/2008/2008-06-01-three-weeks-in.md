@@ -3,7 +3,7 @@ title: "Three Weeks In"
 date: 2008-06-01 11:34:43
 year: 2008
 ---
-Our <a href="https://stanley.cdf.toronto.edu/drproject/csc49x/2008summer">summer interns</a> are three weeks in, and making great progress:
+Our summer interns are three weeks in, and making great progress:
 <ul>
 	<li>Nicole Allard (Eclipse Feature Diagram Plugin): isn't blogging, so I don't know.</li>
 	<li>Jeff Balogh (Dojo Form Editor): has been working with Nick Jamil on a new customizable ticketing system for <a href="http://www.drproject.org">DrProject</a>, and has also <a href="http://dojotoolkit.org/2008/05/31/soc-week-1-semi-random-thoughts">posted some thoughts</a> at the end of his first week working on a drag-and-drop form editor for Dojo. Misleading debugging tools---check, but SVN plus patches considered harmful? Hm... What he actually says is, "Dojo, like a lot of other projects, is still using svn. This is great for, um, somebody, but I think it's more detrimental than good for open source projects." He likes the GIT way of doing things ("send it to the list").</li>

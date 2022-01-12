@@ -3,7 +3,7 @@ title: "And Speaking of Community..."
 date: 2008-01-12 18:11:03
 year: 2008
 ---
-As a follow-up to my previous post, I'd like to say "thank you" to all the people who proposed projects for my <a href="https://stanley.cdf.toronto.edu/drproject/consulting-2008-01">software consulting course</a> this term.  I'm sorry we weren't able to find students to work on all of them, but I'm very excited by the ones we're running:
+As a follow-up to my previous post, I'd like to say "thank you" to all the people who proposed projects for my software consulting course this term.  I'm sorry we weren't able to find students to work on all of them, but I'm very excited by the ones we're running:
 <table>
 <tr>
 <td><strong>Proposer</strong></td>
@@ -94,4 +94,4 @@ As a follow-up to my previous post, I'd like to say "thank you" to all the peopl
 <td>Social Services Mashup</td>
 </tr>
 </table>
-You can follow the students' progress on the <a href="https://stanley.cdf.toronto.edu/drproject/consulting-2008-01">course web site</a>, or drop by <a href="http://www.mollyblooms.ca">Molly Bloom's</a> at 191 College Street between 1:00 and 3:00 on Wednesday afternoons to listen to their elevator pitches and progress report, watch their demos, and heckle.  It'll be a good place to recruit, and you might even seen <a href="http://www.imitationpickles.org/galcon/index.html">Galcon</a> on the big screen.
+You can follow the students' progress on the course web site, or drop by <a href="http://www.mollyblooms.ca">Molly Bloom's</a> at 191 College Street between 1:00 and 3:00 on Wednesday afternoons to listen to their elevator pitches and progress report, watch their demos, and heckle.  It'll be a good place to recruit, and you might even seen <a href="http://www.imitationpickles.org/galcon/index.html">Galcon</a> on the big screen.

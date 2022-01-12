@@ -3,7 +3,7 @@ title: "Another Week of Progress"
 date: 2008-06-13 10:17:10
 year: 2008
 ---
-Our <a href="https://stanley.cdf.toronto.edu/drproject/csc49x/2008summer">students</a> all seem to be making progress:
+Our students all seem to be making progress:
 <ul>
 	<li>Kosta Zabashta has posted a (rather quiet) <a href="http://drprojectirc.wordpress.com/2008/06/13/current-state/">screencast</a> showing the current state of IRC integration. Your comments on the user interface would be very welcome.</li>
 	<li>Eva Wong has been wrestling with <a href="http://iwa-wong.livejournal.com/2382.html">security and domains in Flex</a>. Input would be welcome --- surely it can't be this hard? Meanwhile, Matthew Basset managed to <a href="http://mbasset.wordpress.com/2008/06/13/steady-as-she-goes/">burn 100% of his CPU</a> on logging, but is making good progress regardless.</li>
