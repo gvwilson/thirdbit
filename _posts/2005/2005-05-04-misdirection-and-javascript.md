@@ -19,8 +19,8 @@ web---they all just kind of grew while the grownups were worrying
 about something else, until one day, everyone turned around and said,
 "Hey, this is huge!"</p>
 
-<p>So, as a follow-on to last week's post about <a href="http://pyre.third-bit.com/blog/archives/000230.html">you and
-your research</a>, here's another idea that I think has at least a
+<p>So, as a follow-on to last week's post about you and
+your research, here's another idea that I think has at least a
 fighting chance of going through that same cycle of stealthy growth
 followed by overnight success.  I think there's at least an even money
 chance that Perl, Python, and Ruby will all turn out to have been

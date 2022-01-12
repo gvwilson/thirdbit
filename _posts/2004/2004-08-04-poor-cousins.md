@@ -53,8 +53,7 @@ have with P?  We decided two and a half months ago to use the
 transitive closure, and if any of them allow U to perform a requested
 operation on P, the operation is permitted.</p>
 
-<p>The problem is, that leads to <a href="http://pyre.third-bit.com/cvstrac/run/helium/tktview?tn=36,6">Bug
-#36</a>:</p>
+<p>The problem is, that leads to Bug #36:</p>
 
 <blockquote><p>
 Users are allowed to have multiple memberships to a single project,
@@ -81,8 +80,7 @@ object, since that would potentially affect other users' relationships
 with other projects.</p>
 
 <p>OK, so we don't change that object; we add a new one representing
-the more specific relationship.  That solution fails to address <a href="http://pyre.third-bit.com/cvstrac/run/helium/tktview?tn=37,6">Bug
-#37</a>:</p>
+the more specific relationship.  That solution fails to address Bug #37:</p>
 
 <blockquote><p>
 Another problem with implicit memberships: users cannot be deleted
@@ -97,8 +95,7 @@ explicitly (no groups, no project tree) would make this problem go
 away, but we believe it would make administration much more onerous.
 Adopting Unix-style permissions (rwxr-xr--, anyone?) is tempting, but
 we worked through that three months ago, and it doesn't address all of
-our <a href="http://pyre.third-bit.com/helium/use-cases.html">use
-cases</a> either.</p>
+our use cases either.</p>
 
 <p>Which brings us to this posting's title.  HP's marketing literature
 describes the product I work on in terms of authentication,

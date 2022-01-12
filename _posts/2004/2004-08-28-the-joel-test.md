@@ -8,8 +8,7 @@ company called <a href="http://www.fogcreek.com">Fog Creek</a>, and
 writes a <a href="http://www.joelonsoftware.com/">weblog</a> that
 everyone in the software industry either reads, or ought to) has a <a href="http://www.joelonsoftware.com/articles/fog0000000043.html">12-question
 test</a> to help you measure how well your team is doing.  How do the
-student teams hosted on <a href="http://pyre.third-bit.com">Pyre</a>
-do?</p>
+student teams hosted on Pyre do?</p>
 
 <table border="1">
 

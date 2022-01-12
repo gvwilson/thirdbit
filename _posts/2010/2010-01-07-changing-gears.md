@@ -45,7 +45,7 @@ We are currently seeking contributions of $20-25K toward the $130K needed to rea
 
 Biography:
 
-Greg Wilson (http://pyre.third-bit.com/blog/cv) holds a Ph.D. in Computer Science from the University of Edinburgh, and has worked on high-performance scientific computing, data visualization, and computer security. He is currently an Assistant Professor in Computer Science at the University of Toronto, where his primary interests are lightweight software engineering tools and education. Greg has served on the editorial boards of <em>Doctor Dobb's Journal</em> and <em>Computing in Science and Engineering</em>; his most recent books are <em>Data Crunching</em> (Pragmatic, 2005), <em>Beautiful Code</em> (O'Reilly, 2007), and <em>Practical Programming</em> (Pragmatic, 2009).
+Greg Wilson holds a Ph.D. in Computer Science from the University of Edinburgh, and has worked on high-performance scientific computing, data visualization, and computer security. He is currently an Assistant Professor in Computer Science at the University of Toronto, where his primary interests are lightweight software engineering tools and education. Greg has served on the editorial boards of <em>Doctor Dobb's Journal</em> and <em>Computing in Science and Engineering</em>; his most recent books are <em>Data Crunching</em> (Pragmatic, 2005), <em>Beautiful Code</em> (O'Reilly, 2007), and <em>Practical Programming</em> (Pragmatic, 2009).
 
 Links:
 <ol>

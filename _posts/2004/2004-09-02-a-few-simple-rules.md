@@ -42,8 +42,7 @@ will be run:</p>
     <td valign="top">
       <b>Everyone uses Eclipse.</b>
       And Ant.  And JUnit.  And all the
-      <a href="http://pyre.third-bit.com/helium/docs/tools_and_technologies.html">other
-      tools</a>
+      other tools
       that are part of the environment.  If you don't, you are slowing
       down your teammates, and making extra work for them.
     </td>
@@ -77,9 +76,8 @@ will be run:</p>
     <td valign="top">
       <b>Everyone writes tests,</b>
       preferably <em>before</em> they write the code itself.
-      Take a look at Helium's
-      <a href="http://pyre.third-bit.com/helium/#progress">progress
-      chart</a>; one of the reasons the team go that far, that fast,
+      Take a look at Helium's progress chart;
+      one of the reasons the team go that far, that fast,
       was that they tested early, and tested often.  You owe it to
       your successors to do the same.
     </td>
