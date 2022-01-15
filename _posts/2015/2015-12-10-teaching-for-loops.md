@@ -8,7 +8,7 @@ original: swc
   A few days ago,
   Karin Lagesen asked people what metaphors they use when teaching for loops.
   It kicked off an
-  <a href="{{site.mailing_lists}}/pipermail/discuss/2015-December/003604.html">entertaining thread</a>.
+  entertaining thread.
   When we talk about pedagogical content knowledge (PCK) in instructor training,
   this is exactly the kind of thing we mean:
 </p>
@@ -16,7 +16,8 @@ original: swc
   <li>
     <p>
       A weekly travel card/multiride card on whatever the local public transport is.
-      (On GM buses, this used to be a real piece of cardboard that would be clipped by a machine, giving a visual representation).
+      (On GM buses, this used to be a real piece of cardboard that would be clipped by a machine,
+      giving a visual representation).
       It kind of breaks down as you do other things at either end of the journey, rather than remaining within the loop.
     </p>
   </li>
