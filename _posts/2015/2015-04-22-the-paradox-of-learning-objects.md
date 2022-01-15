@@ -14,7 +14,7 @@ original: swc
   and the paradox at the core of the idea of remixing and reusing teaching material.
   Since Software Carpentry is (sort of) trying to do exactly that,
   I think everyone who's currently teaching for us or helping us meet our
-  <a href="{{site.baseurl}}/blog/2015/04/publishing-our-lessons.html">first publication deadline</a>
+  first publication deadline
   should look it over.
 </p>
 <p>
@@ -86,7 +86,7 @@ original: swc
   is what led us to the model that Software Carpentry uses.
   The first is that <em>formative review works better than summative review</em>.
   Giving people feedback on their code when they're "done"
-  <a href="{{site.baseurl}}/blog/2015/04/quality-is-free-getting-there-isnt.html">doesn't work as well</a>
+  doesn't work as well
   as reviewing small changes incrementally as they're written.
   Equally,
   picking up someone else's learning object when it's "done" isn't going to work as well as
@@ -99,9 +99,9 @@ original: swc
   then cobble together bits and pieces of lessons to teach it.
   Instead,
   we should
-  <a href="{{site.baseurl}}/blog/2014/09/building-better-teachers.html">talk to each other</a>
+  talk to each other
   and
-  <a href="{{site.baseurl}}/blog/2014/09/further-thoughts-on-better-teachers.html">learn from each other</a>
+  learn from each other
   in order to figure out what's worth teaching,
   as well as how best to teach it.
   One of the key benefits of code review is that it spreads understanding around;
@@ -135,7 +135,7 @@ original: swc
   Taking what you've done and incorporating it into my lesson is useful,
   but offering you my changes to improve the original is more useful still.
   Open source software wouldn't exist without that,
-  and as I've <a href="{{site.baseurl}}/blog/2011/12/fork-merge-and-share.html">argued before</a>,
+  and as I've argued before,
   I don't think truly open educational resources will take off
   until pull requests on lessons become the new normal.
   I hope Software Carpentry's experiments with that will help make it a reality a little bit sooner.

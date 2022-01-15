@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  As we <a href="{{site.baseurl}}/blog/2014/10/announcing-the-creation-of-the-software-carpentry-foundational.html">announced</a>
+  As we announced
   two weeks ago,
   we are setting up an independent foundation to manage Software Carpentry's continued growth.
   This week, we passed an important milestone

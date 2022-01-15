@@ -264,7 +264,7 @@ original: swc
   We can do this using standard video sharing sites,
   or adopt something like <a href="https://beasmartercookie.com/">SmarterCookie</a>
   or <a href="http://www.edthena.com/">Edthena</a>
-  (which I <a href="{{site.baseurl}}/blog/2014/02/a-reminder-about-instructor-training.html">mentioned</a>
+  (which I mentioned
   back in February).
   The emphasis here would be "snippets":
   Edthena and SmarterCookie both allow people to upload only 5-10 minutes at a time,
@@ -303,7 +303,7 @@ original: swc
 <p>
   Like John,
   I find asynchronous when-you-can email a lot easier to manage than scheduled meetings.
-  After <a href="{{site.baseurl}}/blog/2014/08/conversations-about-teaching.html">last month's kerfuffle on the mailing list</a>,
+  After last month's kerfuffle on the mailing list,
   though,
   several people made it clear that they aren't fond of forums, IRC, and mailing lists,
   and would rather interact directly.

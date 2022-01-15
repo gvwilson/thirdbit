@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  It's <a href="{{site.baseurl}}/blog/2015/03/ten-more-instructors.html">been several months</a>
+  It's been several months
   since we last welcomed new instructors to the team.
   A lot of people have finished training since then,
   so please say hello to:

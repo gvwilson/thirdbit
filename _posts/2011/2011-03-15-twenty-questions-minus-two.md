@@ -4,7 +4,7 @@ year: 2011
 original: swc
 title: Twenty Questions (Minus Two)
 ---
-<p>Following up on last week's <a href="{{site.baseurl}}/blog/2011/03/musing-about-reorganization.html">musings about reorganizing the course</a>, we've drawn up eighteen questions that we think cover the reasons people come to this course. That leaves us two short of the traditional twenty: what would <em>you</em> add to this list?</p>
+<p>Following up on last week's musings about reorganizing the course, we've drawn up eighteen questions that we think cover the reasons people come to this course. That leaves us two short of the traditional twenty: what would <em>you</em> add to this list?</p>
 <ol>
 <li>How can I automate this task?</li>
 <li>How can I read/control hardware?</li>

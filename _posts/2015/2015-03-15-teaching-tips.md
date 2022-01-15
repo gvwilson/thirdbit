@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  Last week's post on <a href="{{site.baseurl}}/blog/2015/03/whats-in-your-bag.html">what's in your bag</a>
+  Last week's post on what's in your bag
   generated so many useful comments
   that we'd like to follow it up with another:
   what tips do you have for new instructors?

@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Rebuilding Redux
 ---
-<p>The time has come to replace our creaking combination of web tools with something that will let us do more for more people while spending less time switching between browser tabs. To recap <a href="{{site.baseurl}}/blog/2012/04/behind-the-scenes-or-the-ethics-of-cultivating-discontent.html">an earlier post</a>, we currently use:</p>
+<p>The time has come to replace our creaking combination of web tools with something that will let us do more for more people while spending less time switching between browser tabs. To recap an earlier post, we currently use:</p>
 <ul>
 <li>WordPress for our blog, web site pages, and comments;</li>
 <li>YouTube to host our videos (links to which are embedded in the WordPress pages);</li>
@@ -16,7 +16,7 @@ title: Rebuilding Redux
 <li>EventBrite to handle event signup; and</li>
 <li>OpenBadges to keep track of who's accomplished what (currently in beta).</li>
 </ul>
-<p>We also use Vidyo for video conferencing (primarily tutorials), and run Etherpad beside it so that people have a text channel for asking questions, posting links and code fragments, taking minutes, and so on. As I pointed out in that <a href="{{site.baseurl}}/blog/2012/04/behind-the-scenes-or-the-ethics-of-cultivating-discontent.html">aforementioned post</a>, this means admins need at least six different logins to get things done, and need to copy a lot of information from place to place. For example, whenever we commit to a new bootcamp, someone needs to:</p>
+<p>We also use Vidyo for video conferencing (primarily tutorials), and run Etherpad beside it so that people have a text channel for asking questions, posting links and code fragments, taking minutes, and so on. As I pointed out in that aforementioned post, this means admins need at least six different logins to get things done, and need to copy a lot of information from place to place. For example, whenever we commit to a new bootcamp, someone needs to:</p>
 <ol>
 <li>create a new event on EventBrite;</li>
 <li>create a new page for it on WordPress;</li>

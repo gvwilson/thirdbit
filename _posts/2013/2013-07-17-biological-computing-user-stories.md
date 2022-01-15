@@ -10,7 +10,7 @@ original: swc
   we wrote some brief descriptions of our intended audience
   and how we thought we could help them.
   One of the exercises we at the SESYNC meeting last week
-  (described briefly <a href="{{site.baseurl}}/blog/2013/07/computational-competence-for-biologists.html">here</a>)
+  (described briefly here)
   was to write some similar before-and-after stories for biologists who do computing.
   The descriptions we got are listed below;
   some of my takeaways are:

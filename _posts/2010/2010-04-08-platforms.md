@@ -4,7 +4,7 @@ year: 2010
 original: swc
 title: Platforms
 ---
-<p>After <a href="{{site.baseurl}}/blog/2010/04/feedback-and-boundaries.html">Thursday's post-mortem on the latest offering of Software Carpentry</a> at the Universitiy of Toronto, I had a chance to talk further with <a href="http://skoolr.blogspot.com/">Jon Pipitone</a>, who was one of the tutors (and who is just wrapping up an M.Sc. looking at code quality in climate models). We got onto the topic of infrastructure for Version 4, which needs to be settled quickly.</p>
+<p>After Thursday's post-mortem on the latest offering of Software Carpentry at the Universitiy of Toronto, I had a chance to talk further with <a href="http://skoolr.blogspot.com/">Jon Pipitone</a>, who was one of the tutors (and who is just wrapping up an M.Sc. looking at code quality in climate models). We got onto the topic of infrastructure for Version 4, which needs to be settled quickly.</p>
 <ol>
 <li>a way to deliver content to students, including text and images, audio/video, exercises (with solutions), sample data sets, and useful software;</li>
 <li>a way for students to feed questions back to the course organizers (asynchronously through email and bulletin boards and/or synchronously through VoIP and desktop sharing);</li>

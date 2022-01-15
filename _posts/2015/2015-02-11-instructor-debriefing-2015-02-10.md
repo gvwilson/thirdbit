@@ -38,7 +38,7 @@ original: swc
   Most were aerospace, chemical, and materials engineers,
   with a few biologists and geologists along to liven things up.
   As one of the instructors described in
-  <a href="{{site.baseurl}}/blog/2015/02/workshop-in-illinois.html">an earlier post</a>,
+  an earlier post,
   they collected feedback at every break,
   and took 5-10 minutes at the start of each session
   to address issues raised

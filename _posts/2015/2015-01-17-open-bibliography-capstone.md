@@ -75,7 +75,7 @@ original: swc
 </p>
 <p>
   In 2013,
-  I said that <a href="{{site.baseurl}}/blog/2013/05/what-does-victory-look-like.html">we would know we had won</a>
+  I said that we would know we had won
   when scientists stopped submitting, publishing, and downloading papers,
   and started forking and merging projects instead.
   I now realize that goal was incomplete;

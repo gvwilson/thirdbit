@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Never Mind the Content, What About the Format?
 ---
-<p>I'm still gnawing on the problem of how to construct content for 21st Century learning&mdash;or, more prosaically, what I should use to build the next version of Software Carpentry. My starting point is the need to serve several different kinds of users [<a id="a1" href="#f1">1</a>], whose descriptions I have moved to a separate post on <a href="{{site.baseurl}}/blog/2012/01/learners-and-their-needs.html">learners and their needs</a>.</p>
+<p>I'm still gnawing on the problem of how to construct content for 21st Century learning&mdash;or, more prosaically, what I should use to build the next version of Software Carpentry. My starting point is the need to serve several different kinds of users [<a id="a1" href="#f1">1</a>], whose descriptions I have moved to a separate post on learners and their needs.</p>
 <ul>
 <li><em>Textbook</em>: big blocks of prose in some narrative order, with pictures, either printed or electronic, read at the learner's pace, alone.
 <ul>

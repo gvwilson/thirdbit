@@ -13,5 +13,5 @@ original: swc
   <li>Be proactive.</li>
   <li>IT all-rounder.</li>
 </ol>
-<p>This, and Katy Huff's "<a href="{{site.baseurl}}/blog/2012/10/how-to-help-at-a-boot-camp.html">How to Help at a Bootcamp</a>", are tremendously valuable: if you have tips of your own to add, please send 'em in.</p>
+<p>This, and Katy Huff's "How to Help at a Bootcamp", are tremendously valuable: if you have tips of your own to add, please send 'em in.</p>
 

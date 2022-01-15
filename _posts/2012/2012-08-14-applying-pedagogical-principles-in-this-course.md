@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Applying Pedagogical Principles in This Course
 ---
-<p>I've talked a bit about <a href="{{site.baseurl}}/blog/2012/06/if-you-want-to-teach-isnt-it-only-fair-to-learn-a-few-things-first.html">instructional design</a> and <a href="{{site.baseurl}}/blog/2012/05/what-to-read-if-youre-teaching-software-carpentry.html">educational principles</a> in this blog in the past; here's a concrete example of how we try to apply those ideas. As well as teaching the basics of the Bash shell and Python, we also (try to) teach people that <em>every programming system must have:</em></p>
+<p>I've talked a bit about instructional design and educational principles in this blog in the past; here's a concrete example of how we try to apply those ideas. As well as teaching the basics of the Bash shell and Python, we also (try to) teach people that <em>every programming system must have:</em></p>
 <ul>
 <li><em>Individual things.</em> A typical "thing" in the shell is a file; in Python, it's a number or string.</li>
 <li><em>Groups of things.</em> In the shell, these are the lines in a file, or the files that match a pattern like <code>*.dat</code>. In Python, they're lists and dictionaries.</li>

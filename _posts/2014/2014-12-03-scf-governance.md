@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   I am pleased to announce that
-  <a href="{{site.baseurl}}/blog/2014/10/announcing-the-creation-of-the-software-carpentry-foundational.html">our interim Steering Committee</a>
+  our interim Steering Committee
   has adopted bylaws for the Software Carpentry Foundation,
   which is the final step in us becoming an independent organization.
   The authoritative version is stored in
@@ -47,8 +47,8 @@ original: swc
 <p>
   The next priority is fundraising:
   I've been without a salary since my contract with Mozilla ended in October,
-  which <a href="{{site.baseurl}}/blog/2014/11/where-the-time-goes.html">clearly isn't sustainable</a>.
-  The <a href="{{site.baseurl}}/blog/2014/12/scf-membership.html">next post in this series</a> describes
+  which clearly isn't sustainable.
+  The next post in this series describes
   the different ways in which organizations can support us;
   we're close to signing deals with several groups,
   so I'm confident we'll start the new year with our finances in order.

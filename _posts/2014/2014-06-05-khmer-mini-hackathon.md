@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  As part of our <a href="{{site.baseurl}}/blog/2014/05/multisite-sprint-in-july.html">two-day sprint in July</a>,
+  As part of our two-day sprint in July,
   the <a href="https://github.com/ged-lab/khmer/">khmer project</a> will be offering
   a <a href="http://ivory.idyll.org/blog/2014-khmer-hackathon.html">mentored open source contributathon</a>.
   This will provide an opportunity for people interested in trying out the "GitHub flow" model,

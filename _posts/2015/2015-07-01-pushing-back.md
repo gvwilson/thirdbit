@@ -7,7 +7,7 @@ original: swc
 <p>
   A week ago,
   we posted a proposal to
-  <a href="{{site.baseurl}}/blog/2015/06/using-jekyll-for-lessons.html">use Jekyll to build our lessons</a>
+  use Jekyll to build our lessons
   rather than Pandoc.
   The immediate reaction was almost uniformly positive,
   but in the days since,

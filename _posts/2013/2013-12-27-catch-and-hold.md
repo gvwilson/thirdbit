@@ -41,7 +41,7 @@ original: swc
   most working scientists seem more interested in productivity and empowerment.
   We need to find ways to reconcile these,
   which means doing more follow-ups like
-  <a href="{{site.baseurl}}/blog/2013/12/oxford-one-year-on.html">Philip Fowler's</a>.
+  Philip Fowler's.
 </p>
 <p>
   Further down in that same blog post,
@@ -58,8 +58,8 @@ original: swc
 <p>
   We've made progress with respect to gender balance
   (even outwith our
-  <a href="{{site.baseurl}}/blog/2013/07/wise-roundup.html">WiSE</a>
-  <a href="{{site.baseurl}}/blog/2013/11/wise-bootcamp-at-lbl.html">bootcamps</a>),
+  WiSE
+  bootcamps),
   but not with under-represented minorities,
   with smaller, poorer, and more remote schools,
   or with developing countries.

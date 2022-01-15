@@ -13,7 +13,7 @@ title: Halfway Home
 </ol>
 <p>In more detail:</p>
 <p id="productive"><em>1. Our training makes scientists more productive.</em></p>
-<p><a href="{{site.baseurl}}/blog/2012/03/the-trieste-workshop-one-week-later.html">Feedback</a> <a href="{{site.baseurl}}/blog/2012/03/wrapping-up-the-stsci-course.html">from</a> <a href="{{site.baseurl}}/blog/2012/03/our-indiana-u-workshop-went-well.html">learners</a> <a href="{{site.baseurl}}/blog/2012/03/wrapping-up-mbari-workshop.html">has</a> <a href="{{site.baseurl}}/blog/2012/04/lessons-learned-at-the-university-of-chicago.html">been</a> <a href="{{site.baseurl}}/blog/2012/03/wrapping-up-in-oakland.html">overwhelmingly</a> <a href="{{site.baseurl}}/blog/2012/04/utah-state-university-wrap-up.html">positive</a>: they believe that what we're teaching is relevant and useful, and they're going to incorporate into their work. Where that isn't the case, it's usually because of a mis-match between their level and the level of the material we're teaching. As we <a href="#scale">scale up</a>, we'll be able to address this by running separate workshops for people with different backgrounds.</p>
+<p>Feedback from learners has been overwhelmingly positive: they believe that what we're teaching is relevant and useful, and they're going to incorporate into their work. Where that isn't the case, it's usually because of a mis-match between their level and the level of the material we're teaching. As we <a href="#scale">scale up</a>, we'll be able to address this by running separate workshops for people with different backgrounds.</p>
 <p id="proof"><em>2. We can prove it.</em></p>
 <p>By June, we will be able to show that:</p>
 <ul>

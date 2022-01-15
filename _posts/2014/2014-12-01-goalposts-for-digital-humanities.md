@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   As a follow-on to last month's post about
-  <a href="{{site.baseurl}}/blog/2014/10/british-library-courses.html">courses at the British Library</a>,
+  courses at the British Library,
   I asked some people who are teaching digital humanists
   where their goalposts are,
   i.e.,

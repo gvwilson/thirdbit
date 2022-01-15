@@ -5,8 +5,8 @@ year: 2014
 original: swc
 ---
 <p>
-  The <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-instructor-training.html">previous</a>
-  <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-workshop-organization.html">posts</a>
+  The previous
+  posts
   in this set looked at instructor training and workshop organization.
   In this one,
   I'd like to look at mentorship and assessment,
@@ -14,7 +14,7 @@ original: swc
   and are good examples of the kinds of tasks that Steering Committee members will be asked to take on.
 </p>
 <p>
-  Azalee Bostroem did <a href="{{site.baseurl}}/blog/2014/09/more-thoughts-on-better-teachers.html">a great job summarizing</a>
+  Azalee Bostroem did a great job summarizing
   why we need to mentor our new instructors
   (and keep those who've been with us a while up to date with changes to our lessons and procedures).
   The question is, how?
@@ -29,7 +29,7 @@ original: swc
   Jory Schossau has done valuable service
   <a href="http://arxiv.org/abs/1407.6220">analyzing survey data and interviewing bootcamp participants</a>,
   and Daniel Chen and others are working hard to
-  <a href="{{site.baseurl}}/blog/2014/11/revised-instructor-survey.html">revise the instructors' post-workshop questionnaire</a>,
+  revise the instructors' post-workshop questionnaire,
   but despite several attempts,
   we haven't found anyone willing to fund a systematic look at
   what we're actually doing and what impact it's having.

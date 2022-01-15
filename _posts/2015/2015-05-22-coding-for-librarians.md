@@ -7,7 +7,7 @@ original: swc
 <p>
   <a href="http://andromedayelton.com">Andromeda Yelton</a>
   (who has featured in this blog
-  <a href="{{site.baseurl}}/blog/2013/12/andromedas-advice.html">before</a>)
+  before)
   has written a set of six articles for <em>Library Technology Reports</em>
   titled <a href="http://journals.ala.org/ltr/issue/view/506">Coding for Librarians: Learning by Example</a>.
   From the introduction:

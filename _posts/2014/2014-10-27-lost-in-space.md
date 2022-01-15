@@ -83,7 +83,7 @@ original: swc
 </p>
 <p>
   The Japanese math teachers that Green described in
-  <a href="{{site.baseurl}}/blog/2014/09/building-better-teachers.html"><em>Building a Better Teacher</em></a>
+  <em>Building a Better Teacher</em>
   have only half the problem we do:
   they "only" need to figure out how to teach math,
   not how it works.

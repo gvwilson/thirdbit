@@ -16,7 +16,7 @@ original: swc
   for several years.
 </p>
 <p>
-  As we <a href="{{site.baseurl}}/blog/2015/07/our-next-big-step.html">discussed in July</a>,
+  As we discussed in July,
   Jonah and Greg Wilson will job-share during a short transition period,
   after which Jonah will devote himself to building relations with partners,
   overseeing the development of our curriculum,

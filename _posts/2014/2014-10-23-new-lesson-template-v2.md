@@ -13,7 +13,7 @@ original: swc
 </p>
 <p>
   Thanks to everyone for their feedback on
-  <a href="{{site.baseurl}}/blog/2014/10/a-new-template-for-lessons.html">the first draft</a>
+  the first draft
   of our new template for lessons.
   The major suggestions were:
 </p>

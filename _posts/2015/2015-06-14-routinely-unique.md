@@ -40,6 +40,6 @@ original: swc
   Just as in the lab,
   what we can know is limited by what we can do.
   This is also why
-  <a href="{{site.baseurl}}/blog/2014/10/why-we-dont-teach-testing.html">teaching testing is hard</a>:
+  teaching testing is hard:
   each one of the unique analyses Chang identified might need to be checked in a different way.
 </p>

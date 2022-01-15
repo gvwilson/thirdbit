@@ -26,7 +26,7 @@ original: swc
   most of what's uploaded to lesson repositories just sits there.
 </p>
 <p>
-  Ever since we <a href="{{site.baseurl}}/blog/2015/09/publishing-our-lessons.html">published our lessons</a>
+  Ever since we published our lessons
   I've been wondering why journals like <a href="http://www.coursesource.org/">CourseSource</a>
   aren't the norm.
   Academics invest a lot of time in creating teaching materials,

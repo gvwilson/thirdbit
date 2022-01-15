@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  Ian Hawke (who put together <a href="{{site.baseurl}}/blog/2015/04/close-enough-redux.html">these notebooks</a> on testing numerical code)
+  Ian Hawke (who put together these notebooks on testing numerical code)
   is now putting together some Jupyter Notebooks
   to <a href="https://github.com/IanHawke/maths-with-python">teach Python to first-year undergraduates in mathematics</a>.
   He would be grateful for feedback, and we'd be grateful if you could give him some:

@@ -11,53 +11,53 @@ original: swc
 <ol>
   <li>
     <p>
-      <a href="{{site.baseurl}}/blog/2014/12/scf-governance.html">The bylaws for the Software Carpentry Foundation</a>.
+      The bylaws for the Software Carpentry Foundation.
     </p>
   </li>
   <li>
     <p>
-      <a href="{{site.baseurl}}/blog/2014/12/scf-membership.html">Our organizational membership scheme</a>.
+      Our organizational membership scheme.
     </p>
   </li>
   <li>
     <p>
-      <a href="{{site.baseurl}}/blog/2014/12/scf-workshops.html">New rules for organizing and running workshops</a>
+      New rules for organizing and running workshops
       (including fees).
     </p>
   </li>
   <li>
     <p>
-      <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-instructor-training.html">Plans for instructor training</a>
+      Plans for instructor training
       (which also explains why we're delaying the start of the next online course by a month).
     </p>
   </li>
   <li>
     <p>
-      <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-workshop-organization.html">Why we need more admin support</a>
+      Why we need more admin support
       and the tool we have started building to support that.
     </p>
   </li>
   <li>
     <p>
-      <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-mentorship-and-assessment.html">Plans for mentorship and assessment</a>,
+      Plans for mentorship and assessment,
       which are two of the things that elected members of our Steering Committee will be asked to take on...
     </p>
   </li>
   <li>
     <p>
-      <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-lessons.html">An update on our new lesson format</a>
+      An update on our new lesson format
       (and links to some examples).
     </p>
   </li>
   <li>
     <p>
-      <a href="{{site.baseurl}}/blog/2014/12/election-date.html">The date of our first election</a>.
+      The date of our first election.
     </p>
   </li>
 </ol>
 <p>
   We'll talk about all of this at
-  <a href="{{site.baseurl}}/blog/2014/12/lab-meeting-reminder.html">the Dec 4 lab meeting</a>
+  the Dec 4 lab meeting
   (which takes place at 10:00 and again at 19:00, both times Eastern &mdash; see
   <a href="https://etherpad.mozilla.org/swc-labmeeting-2014-11">this Etherpad</a> for connection details).
   Hope to see you there...

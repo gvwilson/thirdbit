@@ -4,7 +4,7 @@ year: 2011
 original: swc
 title: "An Easy Place to Start: Systems Programming"
 ---
-<p>As a follow-up to recent posts on <a href="{{site.baseurl}}/blog/2011/02/how-to-contribute.html">how to contribute</a>, <a href="{{site.baseurl}}/blog/2011/02/what-better-looks-like.html">what better looks like</a>, and Elango Cheran's <a href="{{site.baseurl}}/blog/2011/02/ask-and-ye-shall-receive.html">secure shell episode</a>, here's a specific request: we would like three episodes on systems programming, by which we mean writing programs to:</p>
+<p>As a follow-up to recent posts on how to contribute, what better looks like, and Elango Cheran's secure shell episode, here's a specific request: we would like three episodes on systems programming, by which we mean writing programs to:</p>
 <ul>
 <li>manipulate files and directories (chdir, stat, etc.)</li>
 <li>working with archives (tar, zip, etc.)</li>

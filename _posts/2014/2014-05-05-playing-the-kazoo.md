@@ -13,7 +13,7 @@ original: swc
   "Exactly: anyone who wants to make music can play a kazoo right away without days of training."
   The difference between these two points of view lies at the heart of Software Carpentry.
   As I said in
-  <a href="{{site.baseurl}}/blog/2012/03/performance-curves-curriculum-design-and-trust.html">a post</a>
+  a post
   two years ago:
 </p>
 <blockquote>

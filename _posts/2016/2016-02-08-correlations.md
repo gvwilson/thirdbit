@@ -37,7 +37,7 @@ original: swc
 <hr/>
 <h2>Rayna Harris <a href="https://github.com/raynamharris/swc_data">added this</a>:</h2>
 <p>
-  Greg Wilson wrote two blog posts about <a href="{{site.baseurl}}/blog/2016/02/active-workshops.html">active SWC workshops</a>
+  Greg Wilson wrote two blog posts about active SWC workshops
   and instructor training.
   He made some pretty graphs and asked for other plots.
   So, here is my  attempt to make some pretty correlation plots using the instructor training data.

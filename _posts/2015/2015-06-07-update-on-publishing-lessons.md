@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   Just a quick update on
-  <a href="{{site.baseurl}}/blog/2015/04/publishing-our-lessons.html">publishing our lessons</a>:
+  publishing our lessons:
   we prepared the release on schedule,
   uploaded it to Zenodo,
   and then discovered that we couldn't actually specify editors through their web interface,

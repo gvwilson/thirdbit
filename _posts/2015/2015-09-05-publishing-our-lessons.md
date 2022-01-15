@@ -50,7 +50,7 @@ original: swc
   The contributors to each lesson are listed in the Zenodo record as authors, in alphabetical order by surname.
   Unfortunately,
   this means that the automatically-generated "Cite as" on their Zenodo pages doesn't match what's above:
-  as <a href="{{site.baseurl}}/blog/2015/08/publishing-metadata-and-the-curve.html">previously noted</a>,
+  as previously noted,
   bibliographic systems don't recognize lessons as a first-class type,
   and don't yet accommodate common open source conventions like maintainers.
 </p>

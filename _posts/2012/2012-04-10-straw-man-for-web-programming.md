@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Straw Man for Web Programming
 ---
-<p>Last week, I asked what <a href="{{site.baseurl}}/blog/2012/04/what-to-teach-researchers-about-the-web.html">we should teach researchers about the web</a>. I think that I have an answer, and that the easiest way to describe it is by describing what we want learners to be able to build when we're done. So, imagine you are studying changes in rainfall due to climate change in North America. As part of that work, you're comparing results from your simulation with historical data from Environment Canada. Since your calculations may be useful to other scientists, you want to share them on the web. You are therefore going to build a command-line tool so that:</p>
+<p>Last week, I asked what we should teach researchers about the web. I think that I have an answer, and that the easiest way to describe it is by describing what we want learners to be able to build when we're done. So, imagine you are studying changes in rainfall due to climate change in North America. As part of that work, you're comparing results from your simulation with historical data from Environment Canada. Since your calculations may be useful to other scientists, you want to share them on the web. You are therefore going to build a command-line tool so that:</p>
 <pre>rainy path-to-index.html start-date end-date location</pre>
 <p>adds a new entry to your online results page by:</p>
 <ol>

@@ -30,7 +30,7 @@ original: swc
   i.e.,
   the things we do to ensure that our code actually works.
   We talked last October about
-  <a href="{{site.baseurl}}/blog/2014/10/why-we-dont-teach-testing.html">why we don't include testing in the core</a>,
+  why we don't include testing in the core,
   but some instructors still do cover testing and debugging using
   <a href="{{site.github_url}}/boot-camps/tree/master/python/debugging">this material</a>
   from the Hacker Within,

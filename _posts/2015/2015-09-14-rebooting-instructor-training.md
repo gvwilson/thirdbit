@@ -68,7 +68,7 @@ original: swc
   <p>Note: for the <a href="#pilot">Fall 2015 pilot</a> discussed below, we will waive these requirements.  Instead, we will pick some participants from the current waiting list.</p>
 </li>
 <li>
-  <p>Watch a short video of someone teaching part of our core lessons and write a summary of what was taught and how. Participants in the Fall 2015 pilot <em>will</em> be required to complete this step, and we will select segments from the <a href="{{site.baseurl}}/blog/2015/07/scipy-2015.html">videos from SciPy 2015</a>.</p>
+  <p>Watch a short video of someone teaching part of our core lessons and write a summary of what was taught and how. Participants in the Fall 2015 pilot <em>will</em> be required to complete this step, and we will select segments from the videos from SciPy 2015.</p>
 </li>
 </ol>
 <p>The first task ensures that they have the technical skills needed to participate in the course (and in our community); the second ensures that they have seen and thought about how we teach.</p>

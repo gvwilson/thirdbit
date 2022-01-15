@@ -18,7 +18,7 @@ original: swc
   less is checked during the peer review process.  In August-September
   2013, the Mozilla Science Lab, PLOS, and Prof. Marian Petre (Open
   University, UK) therefore conducted a
-  <a href="{{site.baseurl}}/blog/2013/11/code-review-report.html">pilot study</a>
+  pilot study
   of code review of scientific software.  Professional
   software developers form Mozilla reviewed parts of the software
   associated with papers published during the preceding year in "PLoS

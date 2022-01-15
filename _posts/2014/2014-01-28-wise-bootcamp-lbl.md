@@ -15,7 +15,7 @@ original: swc
   so please sign up early and pass the word on to your friends and colleagues.
 </p>
 <p>
-  This workshop builds on the success of <a href="{{site.baseurl}}/blog/2013/07/wise-roundup.html">our first WiSE workshop</a>
+  This workshop builds on the success of our first WiSE workshop
   in Boston last June.
   It will cover topics such as:
 </p>

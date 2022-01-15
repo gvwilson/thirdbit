@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   We wrote about
-  <a href="{{site.baseurl}}/blog/2014/10/british-library-courses.html">the digital skills classes at the British Library</a>
+  the digital skills classes at the British Library
   last October.
   We were therefore very pleased to see that James Baker,
   a <a href="http://britishlibrary.typepad.co.uk/digital-scholarship/2014/12/software-sustainbility-institute-fellowship.html">Software Sustainability Institute Fellow</a>,

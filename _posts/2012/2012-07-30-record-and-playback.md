@@ -53,7 +53,7 @@ results are meant to emulate a hardcopy terminal.</pre>
 <p>This leaves us with a few options:</p>
 <ol>
 <li>Abandon the idea of recording the text itself, and only record pixels. I'm going to cross this one off the list unilaterally.</li>
-<li>Figure out how to do what we want with the existing <code>script</code> command. <a href="{{site.baseurl}}/blog/2012/07/software-carpentry-needs-you.html">Your help</a> would be appreciated.</li>
+<li>Figure out how to do what we want with the existing <code>script</code> command. Your help would be appreciated.</li>
 <li>Hack <code>script</code> (which is, after all, open source) to do what we want. If we go down this path, we'd appreciate help with it as well.</li>
 <li>Find another way to do what we want. By this point, you probably aren't surprised by me inviting pointers and proposals.</li>
 </ol>

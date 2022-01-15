@@ -25,7 +25,7 @@ original: swc
   57 people are currently taking part in our seventh cohort,
   69 are due to start in mid-January,
   and registration will open next month for a
-  <a href="{{site.baseurl}}/blog/2013/11/instructor-training-in-three-days.html">live three-day version</a>
+  live three-day version
   of the course in Toronto in April.
   If you'd like to take part,
   please <a href="mailto:{{site.contact}}">mail us</a> to sign up.

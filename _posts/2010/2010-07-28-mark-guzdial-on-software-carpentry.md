@@ -13,4 +13,4 @@ title: Mark Guzdial on Software Carpentry
 <li>Matter can remember descriptions and interpret and act on them.</li>
 <li>Matter can hold and interpret and act on descriptions that describe anything that matter can do.</li>
 </ol>
-<p>and asks, "How do we frame [this] in a way that fledgling scientists and engineers would find valuable and learnable?" I agree that these ideas are at the heart of computing, but trying to map them directly to "here's what you do on Tuesday morning" is a <em>really</em> big step. I hope that our <a href="{{site.baseurl}}/blog/2010/06/the-big-picture-version-3.html">concept map</a> is one of the intermediate steps, but there have to be many, many more.</p>
+<p>and asks, "How do we frame [this] in a way that fledgling scientists and engineers would find valuable and learnable?" I agree that these ideas are at the heart of computing, but trying to map them directly to "here's what you do on Tuesday morning" is a <em>really</em> big step. I hope that our concept map is one of the intermediate steps, but there have to be many, many more.</p>

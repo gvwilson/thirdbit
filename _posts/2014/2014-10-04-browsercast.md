@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  As we mentioned <a href="{{site.baseurl}}/blog/2014/04/gsoc-projects-2014.html">back in April</a>,
+  As we mentioned back in April,
   Gabriel Ivanica spent the summer working on a Google Summer of Code project called Browsercast.
   His goal was to build a web-native alternative to screencasts;
   if you'd like to see the result,

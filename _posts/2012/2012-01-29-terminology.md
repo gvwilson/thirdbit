@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Terminology
 ---
-<p>Before going further with the <a href="{{site.baseurl}}/blog/2012/01/take-out-agile-and-add-what.html">redesign of the Software Carpentry curriculum</a>, I need to define a few terms and their relationships. These definitions refer to another post on <a href="{{site.baseurl}}/blog/2012/01/learners-and-their-needs.html">learners and their needs</a>, which you may want to read first.</p>
+<p>Before going further with the redesign of the Software Carpentry curriculum, I need to define a few terms and their relationships. These definitions refer to another post on learners and their needs, which you may want to read first.</p>
 <ul>
 <li>A <em>concept</em> is an atom of learning. It can be a <em>fact</em> (e.g., what a call stack is), a <em>technique</em> (e.g., how to pass parameters to a function), or a <em>rule</em> (e.g., when to copy data).</li>
 <li>An <em>association</em> is any connection between two concepts. Obviously, all concepts in a topic should be strongly associated.</li>
@@ -33,5 +33,5 @@ title: Terminology
 </ul>
 Formative assessment is a kind of reinforcement; summative and evaluative are (usually) not.</li>
 </ul>
-<p>The diagram below shows these relationships. I've drawn most relationships as many-to-many, but in practice, we hope that most will actually be one-to-many, i.e., that concepts will fit neatly into topics, and topics into lessons. The one-to-one relationship between summative assessments and topics is also a bit misleading: what it's meant to imply is that any particular learner will eventually demonstrate mastery of some topic (e.g., Yeleina will show that she understands functions). This is the smallest "chunk" for which we'd contemplate awarding a badge, though as <a href="{{site.baseurl}}/blog/2012/01/badging.html">discussed earlier</a>, we're going to start with something coarser-grained.</p>
+<p>The diagram below shows these relationships. I've drawn most relationships as many-to-many, but in practice, we hope that most will actually be one-to-many, i.e., that concepts will fit neatly into topics, and topics into lessons. The one-to-one relationship between summative assessments and topics is also a bit misleading: what it's meant to imply is that any particular learner will eventually demonstrate mastery of some topic (e.g., Yeleina will show that she understands functions). This is the smallest "chunk" for which we'd contemplate awarding a badge, though as discussed earlier, we're going to start with something coarser-grained.</p>
 <p><img src="{{site.github.url}}/files/2012/01/syllabus.png" /></p>

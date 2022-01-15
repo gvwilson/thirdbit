@@ -9,7 +9,7 @@ original: swc
   228 people have been certified to teach Software Carpentry workshops,
   of whom 136 have taught in the past twelve months.
   That's amazing,
-  but as I said in <a href="{{site.baseurl}}/blog/2014/11/where-the-time-goes.html">a previous post</a>,
+  but as I said in a previous post,
   growth in one part of a pipeline inevitably turns another into a bottleneck.
   In our case,
   that bottleneck is organizational:

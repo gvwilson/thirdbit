@@ -7,7 +7,7 @@ original: swc
 <p>
   Last November,
   I wrote a post about
-  <a href="{{site.baseurl}}/blog/2014/11/where-the-time-goes.html">where my time was going</a>.
+  where my time was going.
   A lot has changed since then,
   including my workload,
   so here's an update:

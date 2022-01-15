@@ -9,7 +9,7 @@ title: Where We Are (June 2012 edition)
 <ol>
 <li>We've reached a lot of people
 <ul>
-<li>We have delivered 12 workshops to 376 learners in 4 countries (<a href="{{site.baseurl}}/blog/2012/03/what-we-teach-in-two-days.html">curriculum</a>)</li>
+<li>We have delivered 12 workshops to 376 learners in 4 countries (curriculum)</li>
 <li>Numbers will be 18 workshops, 520 learners, and 5 countries by the end of July</li>
 <li>Have actually lost count of the number of online tutorials we've run...</li>
 </ul>
@@ -18,7 +18,7 @@ title: Where We Are (June 2012 edition)
 <ul>
 <li>96% of participants happy with training</li>
 <li>Significant improvement in computational understanding</li>
-<li><a href="{{site.baseurl}}/blog/2012/06/we-get-mail.html">We get mail</a></li>
+<li>We get mail</li>
 </ul>
 </li>
 <li>Scientists want more
@@ -39,7 +39,7 @@ title: Where We Are (June 2012 edition)
 <li>Have raised $25K in other funding</li>
 <li>Shifting to "host pays costs" model for workshops</li>
 <li>Will try to count Software Carpentry training toward NSF requirements for training in <a href="http://www.nsf.gov/bfa/dias/policy/rcr.jsp">Responsible Conduct of Research</a></li>
-<li>Working with the <a href="http://software.ac.uk/">Software Sustainability Institute</a> to create a <a href="{{site.baseurl}}/blog/2012/06/a-supercomputing-drivers-license.html">driver's license</a> for the <a href="http://www.stfc.ac.uk/Our+Research/24711.aspx">DiRAC</a> supercomputing facility</li>
+<li>Working with the <a href="http://software.ac.uk/">Software Sustainability Institute</a> to create a driver's license for the <a href="http://www.stfc.ac.uk/Our+Research/24711.aspx">DiRAC</a> supercomputing facility</li>
 </ul>
 </li>
 </ol>
@@ -94,5 +94,5 @@ title: Where We Are (June 2012 edition)
 <li>Now in contact with WiSE/diversity groups in the US to try to arrange workshops for their members</li>
 </ul>
 </li>
-<li>Still don't know <a href="{{site.baseurl}}/blog/2012/04/what-to-teach-researchers-about-the-web.html">what to teach scientists about the web</a></li>
+<li>Still don't know what to teach scientists about the web</li>
 </ol>

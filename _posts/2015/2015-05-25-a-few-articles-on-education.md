@@ -13,7 +13,7 @@ original: swc
   In particular,
   they need to learn that it's possible to study software and programming scientifically,
   which is what motivated yesterday's post about
-  <a href="{{site.baseurl}}/blog/2015/05/icse2015.html">my favorite papers from ICSE 2015</a>.
+  my favorite papers from ICSE 2015.
 </p>
 <p>
   And both groups need to learn about evidence-based teaching practices

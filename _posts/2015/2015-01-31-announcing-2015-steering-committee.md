@@ -14,39 +14,39 @@ original: swc
   <div class="col-sm-3">
     <img src="{{site.github.url}}/files/people/davis_m.jpg" alt="Matt Davis" />
     <br/>
-    <a href="{{site.baseurl}}/blog/2015/01/scf-nomination-davis.html">Matt Davis</a>
+    Matt Davis
   </div>
   <div class="col-sm-3">
     <img src="{{site.github.url}}/files/people/chuang-howe_a.jpg" alt="Adina Howe" />
     <br/>
-    <a href="{{site.baseurl}}/blog/2015/01/scf-nomination-howe.html">Adina Howe</a>
+    Adina Howe
   </div>
   <div class="col-sm-3">
     <img src="{{site.github.url}}/files/people/huff_k.png" alt="Katy Huff" />
     <br/>
-    <a href="{{site.baseurl}}/blog/2015/01/scf-nomination-huff.html">Katy Huff</a>
+    Katy Huff
   </div>
   <div class="col-sm-3">
     <img src="{{site.github.url}}/files/people/lagesen_k.jpg" alt="Karin Lagesen" />
     <br/>
-    <a href="{{site.baseurl}}/blog/2015/01/scf-nomination-lagesen.html">Karin Lagesen</a>
+    Karin Lagesen
   </div>
 </div>
 <div class="row">
   <div class="col-sm-3">
     <img src="{{site.github.url}}/files/people/pawlik_a.jpg" alt="Aleksandra Pawlik" />
     <br/>
-    <a href="{{site.baseurl}}/blog/2015/01/scf-nomination-pawlik.html">Aleksandra Pawlik</a>
+    Aleksandra Pawlik
   </div>
   <div class="col-sm-3">
     <img src="{{site.github.url}}/files/people/silva_raniere.jpg" alt="Raniere Silva" />
     <br/>
-    <a href="{{site.baseurl}}/blog/2015/01/scf-nomination-silva.html">Raniere Silva</a>
+    Raniere Silva
   </div>
   <div class="col-sm-3">
     <img src="{{site.github.url}}/files/people/williams_jason.jpg" alt="Jason Williams" />
     <br/>
-    <a href="{{site.baseurl}}/blog/2015/01/scf-nomination-williams.html">Jason Williams</a>
+    Jason Williams
   </div>
   <div class="col-sm-3">
   </div>
