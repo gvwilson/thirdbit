@@ -10,8 +10,8 @@ original: swc
   but after talking about how to contribute
   at yesterday's instructor retreat,
   I thought it might be useful to post a few additions to
-  <a href="{{page.root}}/pages/projects.html">our projects page</a>.
-</p>
+  our projects page.
+
 <ul>
   <li>
     <p>
@@ -20,7 +20,7 @@ original: swc
       For example,
       given the words "cat", "eating", "quietly", "is", and "the",
       you could be asked to construct a grammatically correct sentence that explains what the cat is doing.
-      <a href="http://js-parsons.github.io/">js-parsons</a> is a Javascript library
+      <a href="http://js-parsons.github.io/">js-parsons is a Javascript library
       for building Parsons Problems for programming.
       It would be cool to incorporate it into our lessons
       (and to see whether it's easier to auto-grade solutions to such exercises
@@ -38,7 +38,7 @@ original: swc
   </li>
   <li>
     <p>
-      <a href="https://github.com/edwindj/daff">daff</a>
+      daff
       is an R package that can find difference in values between data.frames,
       store this difference,
       render it,
@@ -49,11 +49,11 @@ original: swc
       is daff a step toward this?
       If so,
       should we teach it in our workshops?
-    </p>
+    
   </li>
   <li>
     <p>
-      I really like <a href="{{site.github_io_url}}/sql-novice-survey/">our lesson on SQL</a>,
+      I really like our lesson on SQL,
       but as non-relational databases become more popular,
       I wonder if it's time for us to cover them as well.
       Setup wouldn't be as big an obstacle as it once was,
@@ -78,19 +78,19 @@ original: swc
     <p>
       And speaking of lessons,
       it would be great to have more people contribute to Fiona Tweedie's
-      <a href="https://github.com/FCTweedie/NLTK">lesson on natural language processing</a>
-      (possibly incorporating material from <a href="http://rwet.decontextualize.com/book/textblob/">Allison Parrish</a>).
+      lesson on natural language processing
+      (possibly incorporating material from Allison Parrish).
       I don't know if this should be combined with
-      a user-friendly replacement for <a href="{{site.v4_url}}/regexp/index.html">our old lesson on regular expressions</a>,
+      a user-friendly replacement for our old lesson on regular expressions,
       but it should definitely include
-      <a href="https://twitter.com/veltman/status/459782149390860288">this example</a>
+      this example
       of the problems with manually-entered data.
     </p>
   </li>
   <li>
     <p>
       I think our learners would also like a couple of hours on image processing
-      (the <a href="{{site.v4_url}}/media/index.html">Version 4 lesson on multimedia</a>
+      (the Version 4 lesson on multimedia
       is woefully out of date,
       and was never particularly well organized)...
     </p>
@@ -98,13 +98,13 @@ original: swc
   <li>
     <p>
       ...but most of all I want a lesson on
-      <a href="{{site.github_url}}/modern-scientific-authoring">how to write and publish in the early 21st Century</a>.
+      how to write and publish in the early 21st Century.
       Word or LibreOffice?
       Version control can't handle them.
       Markdown or LaTeX?
       A lot of scientists are simply never going to adopt them,
       even with <a href="http://thomaspark.co/2015/01/pubcss-formatting-academic-publications-in-html-css/">help like this</a>.
-      Are <a href="https://www.youtube.com/watch?v=SfQezwSCklc">Authorea</a> or Google Docs the happy medium?
+      Are Authorea or Google Docs the happy medium?
       We might not be able to offer a single best solution,
       but we should at least be able to explain the tradeoffs.
       And that's just authoring:
@@ -162,9 +162,9 @@ original: swc
   <li>
     <p>
       We'd like to rebuild our web site using the same "Feeling Responsive" theme
-      that the <a href="http://datacarpentry.org">Data Carpentry</a> site uses.
+      that the Data Carpentry site uses.
       We've made good progress,
-      but there's <a href="https://github.com/gvwilson/feeling-responsive/issues">a lot left to do</a>.
+      but there's a lot left to do.
       If you have good CSS and web design skills,
       or if you're up for a bit of Python hacking,
       this is the job for you.
