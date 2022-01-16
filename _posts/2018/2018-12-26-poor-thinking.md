@@ -25,7 +25,7 @@ they can simply change their mind.
 I haven't gone looking for research on the effects of self-imposed short-term thinking,
 either,
 but I suspect it's pernicious.
-That's why [I'm taking a break from Twitter]({{site.github.url}}/2018/12/24/off-twitter.html):
+That's why I'm taking a break from Twitter:
 looking back at the last two years,
 it seems that most of my thoughts could fit into a tweet.
 Those that couldn't are almost all recycled:
@@ -33,18 +33,18 @@ most of *[Teaching Tech Together](http://teachtogether.tech)*,
 for example,
 is drawn from [the Carpentries' instructor training program](https://carpentries.github.io/instructor-training/).
 The few original thoughts I've had,
-like [this classification of programming exercises]({{site.github.url}}/2017/10/16/exercise-types.html)
-and various lists of [ten simple rules]({{site.github.url}}/10rules/),
+like this classification of programming exercises
+and various lists of ten simple rules,
 haven't been particularly deep---I've written most of them early in the morning
 to help myself wake up,
 and I think that shows.
 And yeah,
-there have been a few distractions---[resigning from Shopify]({{site.github.url}}/2018/05/06/cigarettes-and-shopify.html),
+there have been a few distractions---resigning from Shopify,
 being fired by DataCamp (for poor performance, in case you were wondering),
-[my brother's death]({{site.github.url}}/2018/03/20/goodbye-jeff.html),
-[joining RStudio]({{site.github.url}}/2018/09/04/rstudio.html)---but
+my brother's death,
+joining RStudio---but
 I think that if I want to create something worthwhile in 2019,
 I need to stop thinking as if I was intellectual impoverished.
 If you'd like to converse 280 words at a time,
 I've re-enabled comments on this blog,
-and you can always reach me [by email](mailto:gvwilson@third-bit.com).
+and you can always reach me by email.

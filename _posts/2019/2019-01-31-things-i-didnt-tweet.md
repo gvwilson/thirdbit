@@ -6,20 +6,20 @@ title: "Things I Didn't Tweet This Month"
 
 -   "I did then what I knew how to do. Now that I know better, I do better." - Maya Angelou
 
--   [Not on the Shelves (2019 Edition)]({{site.github.url}}/2019/01/06/not-on-the-shelves-2019.html)
+-   Not on the Shelves (2019 Edition)
 
--   [Leadership Training for Open Science]({{site.github.url}}/2019/01/10/leadership-training-for-open-science..html)
+-   Leadership Training for Open Science
 
--   [The Principle of Least Precision]({{site.github.url}}/2019/01/24/principle-of-least-precision.html)
+-   The Principle of Least Precision
 
--   [The Elements of Programming Writing Style]({{site.github.url}}/2019/01/26/the-element-of-programming-writing-style.html)
+-   The Elements of Programming Writing Style
 
--   [Why I Teach (Revisited)]({{site.github.url}}/2019/01/30/why-i-teach.html)
+-   Why I Teach (Revisited)
 
 -   "I don’t mind people DM'ng to ask why I'm mean to Shopify, why I want the great people who work there to leave.
     Fair game to lean on opinions that feel uncomfortable.
     But if you don't spend equal time leaning on Shopify to stop helping Nazis make money, well, that's interesting."
-    -- [Johnathan Nightingale](https://twitter.com/johnath/status/1090043751291109378)
+    -- Johnathan Nightingale
 
 -   Fascism (n.): treating people the way Apple treats your music collection.
 
@@ -27,7 +27,7 @@ title: "Things I Didn't Tweet This Month"
 
 -   We are not going to revolutionize education with blockchain.
     This shouldn't need to be said,
-    but unfortunately [this post]({{site.github.url}}/2012/06/29/those-who-ignore-history.html) never gets old.
+    but unfortunately this post never gets old.
 
 -   LaaaaaaTeeeeeeXxxxxx...
 
@@ -37,14 +37,14 @@ title: "Things I Didn't Tweet This Month"
 
 -   The ACM is making the last fifty years of SIGCSE proceedings freely available---for one month.
 
--   I almost reactivated my Twitter account to +1 [this tweet by Dave Beazley](https://twitter.com/dabeaz/status/1081268555721699329).
+-   I almost reactivated my Twitter account to +1 this tweet by Dave Beazley.
 
 -   Faaaaaactoooorrrssss...
 
 -   It has been 0 days since our last kitchen incident.
 
 -   It's weird and uncomfortable to see DataCamp
-    [using my name to advertise a course](https://twitter.com/DataCamp/status/1083800829172371457)
+    using my name to advertise a course
     seven months after firing me.
 
 -   I still can't listen to Tracy Chapman's "Fast Car" without wanting to cry.
@@ -57,7 +57,7 @@ title: "Things I Didn't Tweet This Month"
 
 -   Grief and sadness are very different things.
 
--   Try to find something in your life that makes you feel [like Cassandra Wilson sounds](https://www.youtube.com/watch?v=PB1HK-rlVig).
+-   Try to find something in your life that makes you feel like Cassandra Wilson sounds.
 
 -   "Do I need to be liked? Absolutely not. I like to be liked. I enjoy being liked. I have to be liked. But it's not like this compulsive need to be liked, like my need to be praised." - Michael Scott
 
