@@ -86,7 +86,7 @@ original: swc
   (which Data Carpentry is using).
   Several others have counter-arguments,
   some of which are in 
-  <a href="{{site.mailing_lists}}/pipermail/discuss/2015-June/003118.html">this thread</a>
+  this thread
   from our discussion list.
   In particular,
   please read:
@@ -94,20 +94,20 @@ original: swc
 <ul>
   <li>
     <p>
-      <a href="{{site.mailing_lists}}/pipermail/discuss/2015-June/003127.html">this post</a>
+      this post
       from John Blischak about us having come full circle,
       and about us putting time into tooling that we should be putting into creating lesson content;
     </p>
   </li>
   <li>
     <p>
-      <a href="{{site.mailing_lists}}/pipermail/discuss/2015-June/003135.html">this one</a>
+      this one
       from Doug Latornell about re-mixing our current Pandoc-based workflow; and
     </p>
   </li>
   <li>
     <p>
-      <a href="{{site.mailing_lists}}/pipermail/discuss/2015-June/003137.html">this one</a>
+      this one
       from Carl Boettiger about Markdown syntax.
     </p>
   </li>

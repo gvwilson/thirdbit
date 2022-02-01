@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  The <a href="{{site.baseurl}}/blog/2014/12/scf-governance.html">Software Carpentry Foundation's bylaws</a>
+  The Software Carpentry Foundation's bylaws
   state that the Steering Committee must be elected annually.
   With a new year upon us,
   the interim committee has decided that the first such election will take place
@@ -31,7 +31,7 @@ original: swc
   </li>
   <li>
     <p>
-      As discussed <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-mentorship-and-assessment.html">in an earlier post</a>,
+      As discussed in an earlier post,
       members of the Steering Committee are expected to volunteer at least 2-3 hours a week
       to help mentor our instructors,
       conduct assessment,

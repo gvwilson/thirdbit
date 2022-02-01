@@ -8,21 +8,18 @@ archives:
 <p>
   Over the last few days,
   there have been
-  <a href="{{site.mailing_lists}}/pipermail/discuss/2014-August/001944.html">four</a>
-  <a href="{{site.mailing_lists}}/pipermail/discuss/2014-August/001951.html">related</a>
-  <a href="{{site.mailing_lists}}/pipermail/r-discuss/2014-August/000119.html">discussion</a>
-  <a href="{{site.mailing_lists}}/pipermail/discuss/2014-August/002018.html">threads</a>
+  four
+  related
+  discussion
+  threads
   on the Software Carpentry mailing lists
   about what we use, what we teach, and how we teach it.
   Together,
   they highlight what we're doing well and where we need to do better.
 </p>
 <p>
-  Stuart Rossiter did a great job of
-  <a
-  {{site.mailing_lists}}/pipermail/discuss/2014-August/002024.html">summarizing the first two of those</a>
-  (with some 
-  <a href="{{site.mailing_lists}}/pipermail/discuss/2014-August/002027.html">later follow-up</a>):
+  Stuart Rossiter did a great job of summarizing the first two of those
+  (with some later follow-up):
 </p>
 <blockquote>
   <p>There was discussion on:</p>
@@ -81,8 +78,7 @@ archives:
     As the saying goes,
     "The fox knows how to do many things; the hedgehog knows how to do one thing well."
     If we concentrate on a handful of tasks with lots of reinforcement
-    (as Bennet Fauber
-    <a href="{{site.mailing_lists}}/pipermail/discuss/2014-August/002021.html">stressed</a>),
+    (as Bennet Fauber stressed),
     learners will leave knowing how to do a few things well&mdash;but only a few.
     A broad overview of the full landscape of tools and techniques
     may give them a better understanding of how things fit together,
@@ -133,8 +129,7 @@ archives:
 </p>
 <p>
   Meawhile,
-  Tim McNamara re-raises the perennial question of
-  <a href="{{site.mailing_lists}}/pipermail/discuss/2014-August/002018.html">assessment</a>:
+  Tim McNamara re-raises the perennial question of assessment:
 </p>
 <blockquote>
   <p>
@@ -185,9 +180,7 @@ archives:
   </p>
 </blockquote>
 <p>
-  I think
-  <a href="{{site.mailing_lists}}/pipermail/r-discuss/2014-August/000119.html">this thread</a>
-  shows that there's a useful third path.
+  I think this thread shows that there's a useful third path.
   In it,
   a dozen instructors who have been teaching R compare notes about what they're doing and how it's working.
   I really enjoyed the exchange of specifics,
@@ -208,14 +201,12 @@ archives:
     I hope that's a cost potential instructors will be willing to bear.
   </li>
   <li>
-    I need to foster more discussions like the one about
-    <a href="{{site.mailing_lists}}/pipermail/r-discuss/2014-August/000119.html">how we teach R</a>,
+    I need to foster more discussions like the one about how we teach R,
     and turn those discussions into training material so we don't have to repeat them
     every twelve months.
     To get started on that,
     I'm going to prod people who've taught this year to complete our post-bootcamp instructor survey,
-    and try to get discussions going on
-    <a href="{{site.mailing_lists}}/pipermail/discuss/">the discussion list</a>
+    and try to get discussions going on the discussion list
     about how we all actually teach the shell, Python, and Git.
   </li>
   <li>
@@ -224,7 +215,7 @@ archives:
   <li>
     I need to do a better job of monitoring the mailing list
     (and get someone else to keep an eye on it when I'm not available).
-    Some of the discussion was less respectful than our <a href="{{site.baseurl}}/conduct/">code of conduct</a> requires,
+    Some of the discussion was less respectful than our code of conduct requires,
     and the onus is on us to make sure that everyone always feels welcome.
   </li>
 </ol>

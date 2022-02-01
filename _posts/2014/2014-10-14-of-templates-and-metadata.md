@@ -6,11 +6,11 @@ original: swc
 ---
 <p>
   As an appendix to the
-  <a href="{{site.baseurl}}/blog/2014/09/splitting-the-repo.html">splitting the repository post</a>,
+  splitting the repository post,
   Greg recently posted
-  <a href="{{site.baseurl}}/blog/2014/10/a-new-template-for-workshop-websites.html">a straw man template</a>
+  a straw man template
   for how lessons might be structured after the repo split.
-  He followed up after with <a href="{{site.baseurl}}/blog/2014/10/a-new-template-for-lessons.html">more details.</a>
+  He followed up after with more details.
   There a lot of good ideas there on how we can encourage good structure for lessons
   and help learners and instructors alike going forward.
 </p>
@@ -42,7 +42,7 @@ authors: [Gabriel A. Devenyi, Greg Wilson]
   how large a change qualifies someone for being listed as an author.)
 </p>
 <p>
-  <a href="{{site.baseurl}}/blog/2014/09/sept-2014-lab-meeting-report.html">There have recently been discussions</a>
+  There have recently been discussions
   about recording and reporting the time required to teach lessons.
   Including the average in the metadata would allow someone constructing a multi-lesson workshop to determine if they have time to present all the material.
 </p>
@@ -100,7 +100,7 @@ preq: [http://github.com/user/repo/tree/commitid, http://github.com/anotheruser/
 </p>
 <p>
   Tying this all together with
-  <a href="{{site.baseurl}}/blog/2014/10/a-new-template-for-workshop-websites.html">the Makefile that Greg proposed</a>,
+  the Makefile that Greg proposed,
   we can construct a workshop that includes lessons from a number of lesson repositories, check dependencies, and construct a nice site.
 </p>
 <p>

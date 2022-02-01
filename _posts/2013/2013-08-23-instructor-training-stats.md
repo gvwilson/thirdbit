@@ -33,7 +33,7 @@ original: swc
   some people just disappear and stop responding to email.
 </p>
 <p>
-  The <a href="{{site.baseurl}}/blog/2013/08/what-we-cover-in-instructor-training.html">curriculum</a>
+  The curriculum
   is now pretty stable
   (though we'll continue to tweak it based on feedback from learners and lab meetings),
   and feedback from people who've gone through it has mostly been positive.

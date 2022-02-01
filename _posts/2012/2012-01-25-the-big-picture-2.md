@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: The Big Picture
 ---
-<p>I'm trying to be systematic about re-designing the <a href="{{site.baseurl}}/blog/2012/01/revising-the-curriculum.html">core curriculum</a> of Software Carpentry. So far, I've identified 11 common questions:</p>
+<p>I'm trying to be systematic about re-designing the core curriculum of Software Carpentry. So far, I've identified 11 common questions:</p>
 <table>
 <tbody>
 <tr>

@@ -15,7 +15,7 @@ title: Comparing Software Carpentry to CS Principles
 <li><strong>Working in Teams</strong>: also not directly our focus, but again, we hope that teaching people things like version control will help them collaborate.</li>
 </ol>
 <p><strong>Big Ideas</strong></p>
-<p>Ours are described in two <a href="{{site.baseurl}}/blog/2012/01/revising-the-curriculum.html">recent</a> <a href="{{site.baseurl}}/blog/2012/01/the-big-picture-2.html">posts</a>. CS Principles lists these:</p>
+<p>Ours are described in two recent posts. CS Principles lists these:</p>
 <ol>
 <li><strong>Computing is a creative activity</strong>: we says "computing is a <em>human</em> activity", which isn't quite the same.</li>
 <li><strong>Abstraction reduces information and detail to facilitate focus on relevant concepts</strong>: we say "programming is about creating and composing abstractions", which isn't quite the same.</li>

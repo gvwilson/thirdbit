@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   So it turns out we have more events coming up than
-  <a href="{{site.baseurl}}/blog/2014/08/fall-2014-bootcamps.html">I realized</a>:
+  I realized:
 </p>
 <table class="table table-striped">
   <tr>

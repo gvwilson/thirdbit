@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Alpha Test of Driver's License Exam
 ---
-<p>As <a href="{{site.baseurl}}/blog/2012/06/a-supercomputing-drivers-license.html">we announced back in June</a>, we're working with the <a href="http://www.software.ac.uk/">Software Sustainability Institute</a> to create a "driver's license" exam for the <a href="http://www.stfc.ac.uk/Our+Research/24711.aspx">DiRAC</a> supercomputing facility. Mike Jackson at the SSI alpha tested our exam on four people last week; the exam itself, and his comments, are below. We would be <em>very</em> grateful for feedback from the community on the scope and level of the questions.</p>
+<p>As we announced back in June, we're working with the <a href="http://www.software.ac.uk/">Software Sustainability Institute</a> to create a "driver's license" exam for the <a href="http://www.stfc.ac.uk/Our+Research/24711.aspx">DiRAC</a> supercomputing facility. Mike Jackson at the SSI alpha tested our exam on four people last week; the exam itself, and his comments, are below. We would be <em>very</em> grateful for feedback from the community on the scope and level of the questions.</p>
 <h2>Exam</h2>
 <p>You have been given the URL of a version control repository, along with a username and a password for it. You have one hour to complete the following tasks. If at any point you would like clarification, please do not hesitate to ask. If at any point you are unable to complete a task, you may also ask for help so that you can proceed to the next task, but doing so will be considered equivalent to not completing that task.</p>
 <h3>Version Control</h3>

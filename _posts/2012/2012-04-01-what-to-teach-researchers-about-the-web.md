@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: What to Teach Researchers About the Web
 ---
-<p>One reason I'm reflecting on <a href="{{site.baseurl}}/blog/2012/04/sending-email-back-in-time.html">what I've learned in the last two years</a> is a question that is back on the top of my work pile: what should we teach researchers about the web? Partly, it's a priority because I'm currently embedded in Mozilla; their mandate is to defend and extend the open web, and their educational efforts are all aimed at that, so I ought to be doing something too. The real reason, though, is that a lot of things have brought this into sharper focus recently:</p>
+<p>One reason I'm reflecting on what I've learned in the last two years is a question that is back on the top of my work pile: what should we teach researchers about the web? Partly, it's a priority because I'm currently embedded in Mozilla; their mandate is to defend and extend the open web, and their educational efforts are all aimed at that, so I ought to be doing something too. The real reason, though, is that a lot of things have brought this into sharper focus recently:</p>
 <ol>
 <li>Audrey Watters' investigation of what and how to teach people about webmaking (summarized in <a href="http://openmatt.org/2012/03/28/audrey-watters/">this short talk</a> and <a href="http://hackeducation.com/2012/03/17/what-every-techie-should-know-about-education/">the Audrey Test</a>).</li>
 <li>Mark Guzdial's commentary on <a href="http://computinged.wordpress.com/2012/03/30/getting-the-level-right-in-learning-to-be-computationally-literate/">getting the level right</a> (and everything else he's been writing for the last year).</li>

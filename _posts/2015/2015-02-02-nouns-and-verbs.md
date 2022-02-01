@@ -33,7 +33,7 @@ original: swc
   and focusing on them is like focusing on the teacup rather than the tea.
   This is more or less the point of Elizabeth Green's
   <a href="http://www.amazon.com/Building-Better-Teacher-Teaching-Everyone/dp/0393081591/"><em>Building a Better Teacher</em></a>
-  (which we <a href="{{site.baseurl}}/blog/2014/09/building-better-teachers.html">discussed</a> in the autumn),
+  (which we discussed in the autumn),
   and is why I was so excited to finally get the second edition of Doug Lemov's book
   <a href="http://www.amazon.com/Teach-Like-Champion-2-0-Techniques/dp/1118901851/"><em>Teach Like a Champion</em></a>.
   It doesn't just describe 62 teaching techniques that make a difference:

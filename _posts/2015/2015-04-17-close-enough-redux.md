@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   Back in October,
-  we explained why <a href="{{site.baseurl}}/blog/2014/10/why-we-dont-teach-testing.html">we don't teach testing</a>
+  we explained why we don't teach testing
   in Software Carpentry workshops.
   In response,
   Ian Hawke has put together

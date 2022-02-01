@@ -7,8 +7,8 @@ original: swc
 <button type="button" class="btn btn-danger"> THIS POST IS OUTDATED AND NO LONGER ACCURATE!!!</button>
 <div style="opacity: 0.8; background-color: gray;-webkit-filter: blur(4px); -moz-filter: blur(4px); -o-filter: blur(4px); -ms-filter: blur(4px); filter: blur(4px);">
 <p>
-  As we said in the <a href="{{site.baseurl}}/blog/2014/12/scf-governance.html">previous post</a> in this series,
-  <a href="{{site.baseurl}}/blog/2014/10/announcing-the-creation-of-the-software-carpentry-foundational.html">our interim Steering Committee</a>
+  As we said in the previous post in this series,
+  our interim Steering Committee
   has adopted bylaws for the Software Carpentry Foundation.
   They have also agreed on four tiers of membership
   so that universities, companies, government labs, and other entities
@@ -50,7 +50,7 @@ original: swc
 </p>
 <p>
   Next up:
-  <a href="{{site.baseurl}}/blog/2014/12/scf-workshops.html">organizing and funding workshops</a>.
+  organizing and funding workshops.
 </p>
 <h2>Organizational Membership</h2>
 <h3 id="terminology">Terminology</h3>

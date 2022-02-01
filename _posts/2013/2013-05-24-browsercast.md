@@ -31,8 +31,8 @@ original: swc
   and accessibility aids can't read it aloud.
   David Seifried and Jeremy Banks took a run at solving this problem last year
   using slideshows as their starting point
-  (see <a href="{{site.baseurl}}/blog/2012/02/slide-drive.html">this post</a> for an early progress report,
-  and <a href="{{site.baseurl}}/blog/2012/07/ipython-notebook-towtruck-etherpad-slide-drive-win.html">this one</a>
+  (see this post for an early progress report,
+  and this one
   for a later discussion of why our lives would all be better if someone made this work).
   BrowserCast comes closer than anything ever has to what I've been dreaming of;
   if and when we can add in-browser drawing

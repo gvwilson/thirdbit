@@ -80,7 +80,7 @@ year: 2006
 </li>
 	<li>Print becomes a function (boo)
 <ul>
-	<li>See <a href="http://mail.python.org/pipermail/python-dev/2005-September/056154.html">mailing list thread</a> for justification</li>
+	<li>See mailing list thread for justification</li>
 	<li><em>But I think that putting the output file at the end in print(x, y, file=z) is going to trip people up</em></li>
 </ul>
 </li>

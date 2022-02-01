@@ -6,8 +6,8 @@ original: swc
 ---
 <p>
   The Mozilla Science Lab's first-ever
-  <a href="{{site.baseurl}}/blog/2014/05/multisite-sprint-in-july.html">two</a>-<a href="{{site.baseurl}}/blog/2014/06/planning-our-summer-sprint.html">day</a>
-  <a href="{{site.baseurl}}/blog/2014/06/update-on-sprint-plans.html">sprint</a>
+  two-day
+  sprint
   is less than three weeks away,
   so here's a short FAQ to tell you who can take part and how.
 </p>

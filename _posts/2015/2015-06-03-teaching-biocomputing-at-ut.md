@@ -9,7 +9,7 @@ original: swc
   has just posted an article about her experiences
   <a href="http://www.rebeccatarvin.com/#!Teaching-biocomputing-at-UT/clfr/556f16020cf293eac7f7bb9a">teaching biocomputing at the University of Texas</a>.
   Like last month's report on
-  <a href="{{site.baseurl}}/blog/2015/05/experiences-with-geoscientists.html">teaching geoscientists</a>,
+  teaching geoscientists,
   it's a welcome chance to compare what Software Carpentry does with
   what's possible in more conventional academic settings.
   As Becca says in summary:

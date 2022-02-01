@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  Plans for our <a href="{{site.baseurl}}/blog/2014/05/multisite-sprint-in-july.html">two-day sprint in July</a>
+  Plans for our two-day sprint in July
   are coming together:
   full details are being compiled on <a href="https://etherpad.mozilla.org/swc-sprint-2014">our Etherpad</a>,
   but we hope the summary below will give you a taste of what we're hoping to do.

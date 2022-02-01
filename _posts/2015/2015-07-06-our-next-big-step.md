@@ -13,7 +13,7 @@ original: swc
 </p>
 <p>
   The Software Carpentry Foundation is therefore
-  <a href="{{site.baseurl}}/blog/2015/07/new-executive-director-search.html">hiring a new Executive Director</a>.
+  hiring a new Executive Director.
   I will transition to running instructor training
   so that the new ED can devote themselves to building relations with partners,
   overseeing the development of our curriculum,
@@ -46,7 +46,7 @@ original: swc
 </p>
 <p>
   The full description of the Co-Executive Director position is in
-  <a href="{{site.baseurl}}/blog/2015/07/new-executive-director-search.html">this blog post</a>.
+  this blog post.
   To apply, please send email to <a href="mailto:{{site.contact}}">{{site.contact}}</a> by July 31, 2015
   with &quot;Co-Executive Director&quot; in the subject line, and include:
 </p>

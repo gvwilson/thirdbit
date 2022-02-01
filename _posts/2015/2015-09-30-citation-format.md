@@ -6,9 +6,9 @@ original: swc
 ---
 <p>
   Earlier this month,
-  we <a href="{{site.baseurl}}/blog/2015/09/publishing-our-lessons.html">published our lessons</a>
+  we published our lessons
   by giving them DOIs through <a href="http://zenodo.org">Zenodo</a>.
-  As we said in an <a href="{{site.baseurl}}/blog/2015/08/publishing-metadata-and-the-curve.html">earlier post</a>,
+  As we said in an earlier post,
   though,
   we've been struggling to figure out
   (a) how to cite them in text

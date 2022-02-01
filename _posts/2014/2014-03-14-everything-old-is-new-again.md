@@ -20,7 +20,7 @@ original: swc
     What does it offer that <a href="http://pipes.yahoo.com/pipes/">Yahoo! Pipes</a> didn't seven years ago?
   </li>
   <li>
-    (How) have they addressed Pipes' shortcomings?  (See for example the <a href="http://neverworkintheory.org/2011/06/27/refactoring-pipe-like-mashups-for-end-user-programmers.html">Stolee and Elbaum paper</a> from 2011, or <a href="{{site.baseurl}}/blog/2011/09/the-simplest-web-that-could-possibly-work.html">my post</a> from 2011 about <a href="https://ifttt.com/">If This Then That</a> for science.)
+    (How) have they addressed Pipes' shortcomings?  (See for example the <a href="http://neverworkintheory.org/2011/06/27/refactoring-pipe-like-mashups-for-end-user-programmers.html">Stolee and Elbaum paper</a> from 2011, or my post from 2011 about <a href="https://ifttt.com/">If This Then That</a> for science.)
   </li>
   <li>
     Why would I use any of these systems rather than something like the <a href="http://www.amazon.com/The-Live-Web-Event-Based-Connections/dp/1133686680">Kinetic Rules Language</a>?

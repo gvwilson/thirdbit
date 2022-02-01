@@ -80,7 +80,7 @@ original: swc
   we need a Treasurer;
   if your passion is helping new instructors or figuring out how well we're doing,
   we need people to lead
-  <a href="{{site.baseurl}}/blog/2014/12/plans-for-2015-mentorship-and-assessment.html">mentorship and assessment</a>,
+  mentorship and assessment,
   while if you come from a part of the world that hasn't seen much Software Carpentry activity yet,
   you might want to take the lead in getting us going there.
 </p>

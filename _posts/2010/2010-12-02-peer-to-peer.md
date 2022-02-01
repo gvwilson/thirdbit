@@ -4,7 +4,7 @@ year: 2010
 original: swc
 title: Peer to Peer
 ---
-<p>One of the things we think<a href="{{site.baseurl}}/blog/2010/12/fall-2010-what-went-right-what-went-wrong.html"> didn't work well</a> in this term's online run of the course was peer-to-peer discussion among students.  Such discussion is one sign of a vibrant open source project or educational community, but our mailing list was almost silent except for announcements we posted ourselves, and other than a few bug reports, there were very few comments from students on the lecture pages.  We think students will get more out of the course if they talk more amongst themselves for several reasons:</p>
+<p>One of the things we think didn't work well in this term's online run of the course was peer-to-peer discussion among students.  Such discussion is one sign of a vibrant open source project or educational community, but our mailing list was almost silent except for announcements we posted ourselves, and other than a few bug reports, there were very few comments from students on the lecture pages.  We think students will get more out of the course if they talk more amongst themselves for several reasons:</p>
 <ol>
 <li>Learning: you don't really know something well until you teach it yourself.</li>
 <li>Scalability: there aren't enough of us to give everyone personal help (particularly not with numbers tripling next time 'round).</li>

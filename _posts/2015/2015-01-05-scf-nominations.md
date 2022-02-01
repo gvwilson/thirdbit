@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  As we <a href="{{site.baseurl}}/blog/2014/12/standing-for-election.html">announced last year</a>,
+  As we announced last year,
   an election will be held on January 26-30
   for the seven positions on the Steering Committee of the Software Carpentry Foundation.
   If you are a qualified instructor who has taught at least twice in the past two years,

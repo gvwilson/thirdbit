@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   It's been quite a year for Software Carpentry instructor training:
-  we had <a href="{{site.baseurl}}/blog/2015/01/instructor-training-at-uc-davis.html">a great session at UC Davis</a>
+  we had a great session at UC Davis
   (see also <a href="http://neuro.plos.org/2015/02/12/effective-teaching-tips-from-a-train-the-trainers-workshop/">this excellent post</a>
   from Rayna Harris)
   and another at
@@ -80,7 +80,7 @@ original: swc
   which has gone poorly more often than it has gone well.
 </p>
 <p>
-  My <a href="{{site.baseurl}}/blog/2015/02/nouns-and-verbs.html">previous musings on teaching</a>
+  My previous musings on teaching
   didn't end with anything actionable,
   so this one should.
   First,
@@ -127,9 +127,9 @@ original: swc
   Voting on changes to lessons at each lab meeting proved unworkable;
   having topic maintainers is much better;
   the 
-  <a href="{{site.baseurl}}/blog/2015/01/instructor-debriefing.html">post-workshop</a>
-  <a href="{{site.baseurl}}/blog/2015/02/instructor-debriefing-2015-02-10.html">instructor</a>
-  <a href="{{site.baseurl}}/blog/2015/02/instructor-debriefing-2015-01-27.html">debriefings</a>
+  post-workshop
+  instructor
+  debriefings
   that Sheldon McKay and Rayna Harris are running will hopefully help us capture more of our experiences
   in shareable ways.
   I'd be grateful for feedback on whether these ideas are (a) good and (b) workable&mdash;please

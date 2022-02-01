@@ -44,7 +44,7 @@ original: swc
 <ul>
 <li>Update on finances (Jason Williams)</li>
 <li>Workshops for companies (Karin Lagesen / Matt Davis)</li>
-<li>LinkedIn group for instructors: <a href="https://www.linkedin.com/grp/home?gid=8279689" class="uri">https://www.linkedin.com/grp/home?gid=8279689</a>
+<li>LinkedIn group for instructors
 <ul>
 <li>Volunteer wanted to administer</li>
 </ul></li>
@@ -53,7 +53,7 @@ original: swc
 <li>Update on lessons
 <ul>
 <li>shell-extras (Christina Koch): https://github.com/swcarpentry/shell-extras</li>
-<li>Examples of beginner problems (Noam Ross): http://lists.software-carpentry.org/pipermail/discuss/2015-March/002816.html</li>
+<li>Examples of beginner problems (Noam Ross)</li>
 </ul></li>
 <li>Making lessons citable by giving them DOIs
 <ul>

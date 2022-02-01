@@ -7,7 +7,7 @@ original: swc
 <p>
   As regular readers will know,
   our instructor training classes are heavily over-subscribed:
-  even after the <a href="{{site.baseurl}}/blog/2015/12/three-flavors-of-instructor-training.html">classes we ran this fall</a>,
+  even after the classes we ran this fall,
   we still have over 400 people on our waiting list,
   some of whom have been there for months.
 </p>

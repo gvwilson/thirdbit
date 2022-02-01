@@ -26,10 +26,10 @@ original: swc
 </p>
 <p>
   Something similar happens pretty regularly on
-  <a href="{{site.mailing_lists}}/pipermail/discuss/">our 'discuss' list</a>.
+  our 'discuss' list.
   This week,
   for example,
-  <a href="{{site.mailing_lists}}/pipermail/discuss/2014-October/002259.html">Ben Marwick's message</a>
+  Ben Marwick's message
   about Docker containers
   generated a thread with a couple of dozen replies (and counting).
   Some of the discussion is about the mechanics of deploying Docker,
@@ -83,7 +83,7 @@ original: swc
 </p>
 <p>
   The Japanese math teachers that Green described in
-  <a href="{{site.baseurl}}/blog/2014/09/building-better-teachers.html"><em>Building a Better Teacher</em></a>
+  <em>Building a Better Teacher</em>
   have only half the problem we do:
   they "only" need to figure out how to teach math,
   not how it works.

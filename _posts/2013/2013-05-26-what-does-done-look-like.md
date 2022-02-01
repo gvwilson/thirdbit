@@ -6,10 +6,10 @@ original: swc
 ---
 <p>
   After recent posts about
-  <a href="{{site.baseurl}}/blog/2013/05/where-we-are.html">where we are</a>,
-  <a href="{{site.baseurl}}/blog/2013/05/our-infrastructure.html">our infrastructure</a>,
+  where we are,
+  our infrastructure,
   and
-  <a href="{{site.baseurl}}/blog/2013/05/planning-for-the-break.html">our plans for the summer break</a>,
+  our plans for the summer break,
   it seems like a good time to raise our sights and ask
   how we want Software Carpentry to run once it's all grown up,
   and what the practice of science will look like
@@ -18,7 +18,7 @@ original: swc
 </p>
 <p>
   We'll leave the second question to another post,
-  but the <a href="{{site.baseurl}}/blog/2013/05/our-infrastructure.html">infrastructure post</a>
+  but the infrastructure post
   implies answers to the first.
   Now that we're using a "host site pays travel costs model",
   there's no financial obstacle to us scaling up to a thousand bootcamps a year worldwide.

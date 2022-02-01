@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Learners and Their Needs
 ---
-<p>I originally wrote these descriptions as part of a post on <a href="{{site.baseurl}}/blog/2012/01/never-mind-the-content-what-about-the-format.html">formats for learning material</a>. I'm finding them useful in <a href="{{site.baseurl}}/blog/2012/01/terminology.html">other contexts</a> as well, so I'm re-posting them separately. Our description of our audience describes four scientific users in more detail.</p>
+<p>I originally wrote these descriptions as part of a post on formats for learning material. I'm finding them useful in other contexts as well, so I'm re-posting them separately. Our description of our audience describes four scientific users in more detail.</p>
 <ul>
 <li><em>Zuzel</em> likes textbooks. More specifically, she likes prose that she can read and re-read at leisure. She'll use a tablet, but would rather listen to music while she learns than to someone lecturing.</li>
 <li><em>Yeleina</em> prefers interactive learning. She wants to see things evolve on the whiteboard or on the screen; recordings of live coding sessions with voiceover are OK, but slide after slide of bullet points puts her to sleep. She also wants to be able to share ideas about learning content with her peers.</li>

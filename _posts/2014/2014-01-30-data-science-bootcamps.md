@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   We are pleased to announce that we will be running workshops simultaneously
-  at the <a href="{{site.baseurl}}/blog/2013/11/data-science-centers.html">data science centers</a>
+  at the data science centers
   at UC Berkeley, New York University, and the University of Washington
   on March 17-18, 2014.
   These workshops will introduce participants to the skills they should master

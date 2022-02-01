@@ -4,7 +4,7 @@ year: 2010
 original: swc
 title: Another Example of small-p Patterns
 ---
-<p>A couple of weeks ago, I asked whether people would find an exploration of <a href="{{site.baseurl}}/blog/2010/06/counting-things.html">ways to count things</a> useful. The consensus was "yes", so I've started drawing up notes. While working on them, it occurred to me that "ways to persist things" might be just as interesting.  Some of the approaches that could be discussed are:</p>
+<p>A couple of weeks ago, I asked whether people would find an exploration of ways to count things useful. The consensus was "yes", so I've started drawing up notes. While working on them, it occurred to me that "ways to persist things" might be just as interesting.  Some of the approaches that could be discussed are:</p>
 <ol>
 <li>Save a list of numbers (one per line).</li>
 <li>Save a matrix using a header line to record dimensions (introducing the idea of metadata) and M values per line.</li>

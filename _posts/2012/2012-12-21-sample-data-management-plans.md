@@ -17,4 +17,4 @@ original: swc
     which people can use as reference models.
   </li>
 </ol>
-<p>Data management is something we deliberately left out of <a href="{{site.baseurl}}/blog/2012/10/best-practices-for-scientific-computing.html">"Best Practices"</a> paper&mdash;it would have increased the paper's length by half again&mdash;but what we should put together is some sample code management plans.  Any volunteers?</p>
+<p>Data management is something we deliberately left out of "Best Practices" paper&mdash;it would have increased the paper's length by half again&mdash;but what we should put together is some sample code management plans.  Any volunteers?</p>

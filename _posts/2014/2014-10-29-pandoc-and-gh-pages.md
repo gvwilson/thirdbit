@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   Long-time readers of this blog and
-  <a href="{{site.mailing_lists}}/pipermail/discuss/">our discussion list</a>
+  our discussion list
   will know that I'm unhappy with the choices we have for formatting our lessons.
   Thanks to <a href="https://twitter.com/kwbroman/status/526776697828671488">a tweet</a>
   from <a href="http://kbroman.org/">Karl Broman</a>,

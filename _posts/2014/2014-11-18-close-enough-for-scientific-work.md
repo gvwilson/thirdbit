@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   The discussion around last month's post
-  "<a href="{{site.baseurl}}/blog/2014/10/why-we-dont-teach-testing.html">Why We Don't Teach Testing (Even Though We'd Like To)</a>"
+  "Why We Don't Teach Testing (Even Though We'd Like To)"
   has been one of the most interesting in Software Carpentry's history.
   Inspired by that,
   and by discussion at <a href="http://wssspe.researchcomputing.org.uk/WSSSPE2/">WSSSPE 2.0</a>,

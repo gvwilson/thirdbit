@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   Updating my description of
-  <a href="{{site.baseurl}}/blog/2015/06/where-the-time-goes.html">where my time goes</a>
+  where my time goes
   made me realize that our list of
   <a href="{{site.baseurl}}/join/projects/">things we need help with</a>
   had fallen out of date.

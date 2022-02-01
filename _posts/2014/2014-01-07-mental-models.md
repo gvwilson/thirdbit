@@ -66,7 +66,7 @@ original: swc
   <a href="http://people.csail.mit.edu/sperezde/onward13.pdf">conceptual design analysis of Git</a>.
   We'll soon be looking for volunteers ourselves
   to help with the next phase of
-  <a href="{{site.baseurl}}/blog/2013/11/code-review-report.html">our study of code review</a>;
+  our study of code review;
   if you'd like to take part,
   please stay tuned for further announcements.
 </p>

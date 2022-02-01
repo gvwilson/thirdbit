@@ -4,7 +4,7 @@ year: 2011
 original: swc
 title: I'm Not Normally Lost for Words
 ---
-<p>I <a href="{{site.baseurl}}/blog/2011/09/what-happens-when-you-install-something.html">mentioned last week</a> that I'm trying to put together a lecture on packaging and installation. It's proving harder than I expected: I'm not normally lost for words, but I'm struggling to get these ones to come together. My goal is to help people understand what happens when they install software on a computer, so that they can:</p>
+<p>I mentioned last week that I'm trying to put together a lecture on packaging and installation. It's proving harder than I expected: I'm not normally lost for words, but I'm struggling to get these ones to come together. My goal is to help people understand what happens when they install software on a computer, so that they can:</p>
 <ol>
 <li>diagnose and fix problems when things go wrong;</li>
 <li>understand why the things that are in packaging tools are there, and how to use them.</li>

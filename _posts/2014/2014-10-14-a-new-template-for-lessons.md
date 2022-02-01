@@ -6,21 +6,21 @@ original: swc
 ---
 <p align="center">
   <em>
-    Note: this post has been superseded by <a href="{{site.baseurl}}/blog/2014/10/new-lesson-template-v2.html">this one</a>.
+    Note: this post has been superseded by this one.
     Please post comments and feedback there.
   </em>
 </p>
 <p>
   We blogged two weeks ago about
-  <a href="{{site.baseurl}}/blog/2014/10/a-new-template-for-workshop-websites.html">a new template for workshop websites</a>.
+  a new template for workshop websites.
   It's now time to start thinking about what lessons will look like:
-  as we said at <a href="{{site.baseurl}}/blog/2014/09/sept-2014-lab-meeting-report.html">the last lab meeting</a>,
+  as we said at the last lab meeting,
   we're going to break the current lesson repository into smaller and more manageable pieces,
   but we need to decide what those pieces will look like first.
   The post below is our current thoughts;
   comments and/or follow-on posts about alternatives like those already written
-  by <a href="{{site.baseurl}}/blog/2014/10/of-templates-and-metadata.html">Gabriel Devenyi</a>
-  and <a href="{{site.baseurl}}/blog/2014/10/yet-another-template-for-lessons.html">Raniere Silva</a>
+  by Gabriel Devenyi
+  and Raniere Silva
   would be very welcome.
 </p>
 <h2>Terms</h2>

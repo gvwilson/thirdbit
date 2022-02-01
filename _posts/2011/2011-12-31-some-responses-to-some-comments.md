@@ -4,8 +4,8 @@ year: 2011
 original: swc
 title: Some Responses to Some Comments
 ---
-<p>Several people have <a href="{{site.baseurl}}/blog/2011/12/what-success-looks-like-five-years-out.html">written</a> <a href="{{site.baseurl}}/blog/2011/12/fork-merge-and-share.html">some</a> <a href="{{site.baseurl}}/blog/2011/12/what-ive-learned-so-far.html">useful</a> <a href="{{site.baseurl}}/blog/2011/12/organizing-instruction-and-study-to-improve-student-learning.html">comments</a> on my recent "where are we going?" posts. It's exactly the kind of feedback I was after, so here are my answers.</p>
-<p><strong>Goal #1: <a href="{{site.baseurl}}/blog/2011/12/what-success-looks-like-five-years-out.html">helping thousands of people each year</a>.</strong></p>
+<p>Several people have written some useful comments on my recent "where are we going?" posts. It's exactly the kind of feedback I was after, so here are my answers.</p>
+<p><strong>Goal #1: helping thousands of people each year.</strong></p>
 <blockquote><p><em>You propose two very broad ideas for what this would mean: a) community "co-learning" initiatives like Hacker Within, presumably using Software Carpentry content, or somehow organised by SWC? and b) more people contributing to SWC content, as well as supporting others online. In essence, the vision is for both offline and online co-learning communities to exist. It doesn't sounds like you envision SWC as an authorative source for instruction or community, but it is to be a hub of some sort, right?</em></p></blockquote>
 <p>Hm... I don't like the word "authoritative" (do you think of <a href="http://python.org">python.org</a> that way?). Setting that aside, I'd be satisfied if we were either helping people who are running workshops, or a hub for people to share learning materials. Of course, I'd be happier if we were both, and I think they go hand-in-hand:</p>
 <ol>
@@ -13,9 +13,9 @@ title: Some Responses to Some Comments
 <li>It's easier to run your first few workshops if you don't have to create all the material from scratch.</li>
 <li>If people are trying to meet local needs, they're going to be creating materials to meet those needs. Other people are likely to have the same or similar needs, so we ought to make it easy for them to find and recycle what others have done.</li>
 </ol>
-<p><strong><a href="{{site.baseurl}}/blog/2011/12/fork-merge-and-share.html">The merging problem</a>.</strong></p>
+<p><strong>The merging problem.</strong></p>
 <blockquote><p><em>You've identified the "merging problem" as central to ramping up SWC's reach...why is [it] so central?</em></p></blockquote>
-<p>It isn't as "central" to Software Carpentry as <a href="#impact">coming up with a way to tell if we're on the right track</a> or <a href="{{site.baseurl}}/blog/2011/12/what-success-looks-like-five-years-out.html">increasing the project's bus factor</a>. I emphasized it in <a href="{{site.baseurl}}/blog/2011/12/fork-merge-and-share.html">that post</a> because (a) it isn't as widely recognized as an impediment to developing and sharing learning resources as it should be, and (b) it's something that lends itself to technical solutions (which I, as an engineer, am always more comfortable with than purely social solutions).</p>
+<p>It isn't as "central" to Software Carpentry as <a href="#impact">coming up with a way to tell if we're on the right track</a> or increasing the project's bus factor. I emphasized it in that post because (a) it isn't as widely recognized as an impediment to developing and sharing learning resources as it should be, and (b) it's something that lends itself to technical solutions (which I, as an engineer, am always more comfortable with than purely social solutions).</p>
 <blockquote><p><em>...even if the merging problem turns out to be a relevant hindrance... [it is] so deep and ill-defined that...I have no reason to believe the payoff from tackling it will arrive in any practical amount of time.</em></p></blockquote>
 <p>Agreed. That said, there are things we can do to make it easier for people to contribute customizations and extensions. The most important is to use a mergeable format like hand-written HTML for our slides instead of PowerPoint. I moved away from this because it forces us to segregate text and graphics, where PowerPoint makes it easy to mingle them; I suspect that if we do switch, I'll decide a year from now that we should switch back (again).</p>
 <p><strong>Institutional support.</strong></p>

@@ -9,9 +9,9 @@ original: swc
 
 <div style="opacity: 0.8; background-color: gray;-webkit-filter: blur(4px); -moz-filter: blur(4px); -o-filter: blur(4px); -ms-filter: blur(4px); filter: blur(4px);">
 <p>
-  As we said in the <a href="{{site.baseurl}}/blog/2014/12/scf-governance.html">previous</a>
-  <a href="{{site.baseurl}}/blog/2014/12/scf-membership.html">posts</a> in this series,
-  <a href="{{site.baseurl}}/blog/2014/10/announcing-the-creation-of-the-software-carpentry-foundational.html">our interim Steering Committee</a>
+  As we said in the previous
+  posts in this series,
+  our interim Steering Committee
   has adopted bylaws for the Software Carpentry Foundation
   and a plan for organizational membership.
   Those memberships won't cover all of our central costs

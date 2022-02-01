@@ -11,7 +11,7 @@ original: swc
 <blockquote>Python's first and foremost influence was <a href="http://homepages.cwi.nl/%7Esteven/abc/">ABC</a>, a language designed in the early 1980s [that] was meant to be a teaching language, a replacement for BASIC, and a language and environment for personal computing. It was designed by first doing a task analysis of...programming...and then doing several iterations that included serious user testing... ABC's authors did invent the use of the colon that separates the lead-in clause from the indented block. After early user testing without the colon, it was discovered that the meaning of the indentation was unclear to beginners being taught the first steps of programming. The addition of the colon clarified it significantly: the colon somehow draws attention to what follows and ties the phrases before and after it together in just the right way.</blockquote>
 <p>This story and others like it were something of a revelation to me when I first encountered Python in the late 1990s. Usability testing of programming languages? Huh&mdash;why isn't <em>everyone</em> doing that?</p>
 
-<p>2. So when an enriched syntax for loops was proposed in 2000, I conducted <a href="http://mail.python.org/pipermail/python-dev/2000-July/006098.html">a little experiment</a>:</p>
+<p>2. So when an enriched syntax for loops was proposed in 2000, I conducted a little experiment:</p>
 <blockquote>Given the statement:
 <pre>for x in [10, 20, 30]; y in [1, 2]:
     print x+y</pre>
@@ -32,7 +32,7 @@ original: swc
         <li>an error message because the two lists are not the same length?</li>
 </ol>
 </blockquote>
-<p>All 11 of the people I tested voted for 'B', which is not what the designer of this syntax had intended it to mean. I did a <a href="http://mail.python.org/pipermail/python-dev/2000-July/006427.html">slightly larger experiment</a> a few days later to compare a few other syntax proposals, and while it was both fun and informative, the practice never caught on.</p>
+<p>All 11 of the people I tested voted for 'B', which is not what the designer of this syntax had intended it to mean. I did a slightly larger experiment a few days later to compare a few other syntax proposals, and while it was both fun and informative, the practice never caught on.</p>
 
 <p>3. A few years later, I discovered the <a href="http://coweb.cc.gatech.edu/mediaComp-teach">Media Computation work</a> of Barbara Ericson and Mark Guzdial at Georgia Tech. They weren't interested in syntactic details; they were tackling the much larger issue of retention:</p>
 <ol>

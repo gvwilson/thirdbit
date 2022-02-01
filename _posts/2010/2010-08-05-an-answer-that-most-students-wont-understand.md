@@ -4,7 +4,7 @@ year: 2010
 original: swc
 title: An Answer That Most Students Won't Understand
 ---
-<p>Two days ago, I <a href="{{site.baseurl}}/blog/2010/08/a-question-about-nose.html">asked</a> how to generates tests from tables of fixtures using Nose:</p>
+<p>Two days ago, I asked how to generates tests from tables of fixtures using Nose:</p>
 <blockquote><p>...does Nose already have a tool for running through a table of fixtures and expected results?  My hand-rolled version is:</p>
 <pre>Tests = (
     #  R1                 R2                  Expected

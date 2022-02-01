@@ -4,7 +4,7 @@ year: 2010
 original: swc
 title: Instructional Design
 ---
-<p>As well as <a href="{{site.baseurl}}/blog/2010/03/online-delivery.html">deciding on the format of the course</a>, I have to re-shape its content. In contrast to e-learning, there seems to be a lot of solid material available on instructional design. The most useful guide I've found so far is Wiggins &amp; McTighe's <a href="http://www.amazon.com/Understanding-Design-Expanded-Grant-Wiggins/dp/0131950843"><em>Understanding by Design</em></a>. I was initially a bit put off by the micro-industry the authors have built around the book, but its step-by-step approach immediately felt right:</p>
+<p>As well as deciding on the format of the course, I have to re-shape its content. In contrast to e-learning, there seems to be a lot of solid material available on instructional design. The most useful guide I've found so far is Wiggins &amp; McTighe's <a href="http://www.amazon.com/Understanding-Design-Expanded-Grant-Wiggins/dp/0131950843"><em>Understanding by Design</em></a>. I was initially a bit put off by the micro-industry the authors have built around the book, but its step-by-step approach immediately felt right:</p>
 <ol>
 <li>What are students supposed to understand at the end of the lesson?</li>
 <li>How is that going to be determined, i.e., what questions will they be answer that they couldn't answer before, or what will they be able to do that they couldn't do before?</li>

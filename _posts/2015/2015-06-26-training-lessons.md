@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   I wrote about
-  <a href="{{site.baseurl}}/blog/2015/05/online-instructor-training.html">our experiments with the format of instructor training</a>
+  our experiments with the format of instructor training
   back in May.
   At that time,
   we had run the class as:
@@ -110,7 +110,7 @@ original: swc
       but I'm not sure that requiring the pull request within (say) two weeks
       is either fair or realistic.
       (I hope that providing
-      <a href="{{site.baseurl}}/blog/2015/06/recycling-training-course-material.html">an archive of old assessment exercises</a>
+      an archive of old assessment exercises
       for people to recycle
       will help.)
     </p>
