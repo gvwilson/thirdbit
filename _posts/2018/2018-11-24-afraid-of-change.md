@@ -82,4 +82,6 @@ several months after the company's CEO sexually assaulted one of the staff
 but before that had become public knowledge.
 I think the fact that a CEO would reach for this book as a solution to the crisis caused by his actions
 says a lot about whose interests "radical candor" actually serves.
+For more about DataCamp's mishandling of this incident,
+please see [Davey Alba's excellent summary in Buzzfeed](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup).
 </em>
