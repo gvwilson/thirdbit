@@ -7,7 +7,7 @@ year: 2021
 I recently ran [a workshop on managing research software projects](https://codebender.org),
 and one of the questions that came up was,
 "What does 'done' look like?"
-KThere are lots of answers elsewhere for the technical side
+There are lots of answers elsewhere for the technical side
 [[1](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745),
 [2](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510),
 [3](https://merely-useful.tech/py-rse/)],

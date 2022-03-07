@@ -72,6 +72,6 @@ or what you would reprioritize.
 Later: things people have suggested that we didn't include:
 
 - a list of supported platforms (FlavorOfLinux, OS X Version, etc.) 
-- a list of supported python versions
+- a list of supported Python versions
 - instructions for setting up, say, virtualenv, to make sure users are all on the same Python version
 </em>
