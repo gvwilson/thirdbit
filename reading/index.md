@@ -11,6 +11,10 @@ just how intellectually impoverished Silicon Valley's worldview is;
 if you find them useful,
 I'd appreciate suggestions for additions.
 
+<div align="center" markdown="1">
+  <img src="{{'/files/reading-combined.jpg' | relative_url}}" alt="Combined books covers" width="90%" />
+</div>
+
 1. Karen Armstrong: *[The Great Transformation][great-transformation]*.
    Chronicles the critical centuries in which Confucianism and Daoism arose in China,
    Hinduism and Buddhism in India,
