@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="stjs.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Software Design by Example: Code Generator</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+  
+  <h2><a href="../">Software Design by Example</a></h2>
+  <h1 id="code-generator">Chapter 15: Code Generator</h1>
+  
+  <p>
+    <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+  </p>
+</div>
+
+    <main>
+<p>We've been writing tests since <a class="crossref" href="../unit-test/">Chapter 4</a>,
+but how much of our code do they actually check?
+One way to find out is to use a <span class="indexref" key="code coverage" markdown="1"><a class="glossref" href="../glossary/#code_coverage" markdown="1">code coverage</a></span> tool
+like <span class="indexref" key="Istanbul" markdown="1"><a href="https://istanbul.js.org/">Istanbul</a></span>
+that watches a program while it executes
+and keeps track of which lines have run and which haven't.
+Making sure that each line is tested at least once doesn't guarantee that the code is bug-free,
+but any code that <em>isn't</em> run shouldn't be trusted.</p>
+<p>Our code coverage tool will keep track of which functions have and haven't been called.
+Rather than rewriting <a href="https://nodejs.org/en/">Node</a> to keep track of this for us,
+we will modify the functions themselves
+by parsing the code with <span class="indexref" key="Acorn" markdown="1"><a href="https://github.com/acornjs/acorn">Acorn</a></span>,
+inserting the instructions we need into the <span class="indexref" key="abstract syntax tree" markdown="1">AST</span>,
+and then turning the AST back into code.</p>
+<blockquote>
+<h3>Simple usually isn't</h3>
+<p>At first glance it would be a lot simpler
+to use regular expressions to find every line that looks like the start of a function definition
+and insert a line right after each one
+to record the information we want.
+Of course,
+some people split function headers across several lines if they have lots of parameters,
+and there might be things that look like function definitions embedded in comments or strings.
+It doesn't take long before our simple solution turns into
+a poorly-implemented parser for a subset of JavaScript that no-one else understands.
+Using a full-blown parser and working with the AST is almost always less work.</p>
+</blockquote>
+<h2 id="code-generator-replace">How can we replace a function with another function?</h2>
+<p>The first thing we need is a way to wrap up an arbitrary function call.
+If we declare a function in JavaScript with a parameter like <code>...args</code>,
+all of the "extra" arguments in the call that don't line up with regular parameters
+are stuffed into the variable <code>args</code>
+(<a class="figref" href="../code-generator/#code-generator-spread">Figure 15.1</a>).
+We can also call a function by putting values in a variable
+and using <code>func(...var)</code> to <span class="indexref" key="spread!function arguments" markdown="1">spread</span> those values out.
+There's nothing special about the names <code>args</code> and <code>vars</code>:
+what matters is the ellipsis <code>...</code></p>
+<figure id="code-generator-spread">
+  <img src="./figures/spread.svg" alt="Spreading parameters" />
+  <figcaption markdown="1">Figure 15.1: Using ...args to capture and spread parameters.</figcaption>
+</figure>
+
+<p>We can use <code>...args</code> to capture all of the arguments to a function call
+and forward them to another function.
+Let's start by creating functions with a varying number of parameters
+that run to completion or throw an exception,
+then run them to make sure they do what we want:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">zero</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;zero&#39;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nx">one</span> <span class="o">=</span> <span class="p">(</span><span class="nx">first</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`one(</span><span class="si">${</span><span class="nx">first</span><span class="si">}</span><span class="sb">)`</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nx">two</span> <span class="o">=</span> <span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`two(</span><span class="si">${</span><span class="nx">first</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">second</span><span class="si">}</span><span class="sb">)`</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nx">error</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
+  <span class="k">throw</span> <span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;from error&#39;</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;should not reach this&#39;</span><span class="p">)</span> <span class="c1">// eslint-disable-line</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">runAll</span> <span class="o">=</span> <span class="p">(</span><span class="nx">title</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span>
+  <span class="nx">zero</span><span class="p">()</span>
+  <span class="nx">one</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+  <span class="nx">two</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">)</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">error</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`caught </span><span class="si">${</span><span class="nx">error</span><span class="si">}</span><span class="sb"> as expected`</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="nx">runAll</span><span class="p">(</span><span class="s1">&#39;first time&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>We can now write a function that takes a function as an input
+and creates a new function that handles all of the errors in the original function:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">replace</span> <span class="o">=</span> <span class="p">(</span><span class="nx">func</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;before&#39;</span><span class="p">)</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">func</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;after&#39;</span><span class="p">)</span>
+      <span class="k">return</span> <span class="nx">result</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
+      <span class="k">throw</span> <span class="nx">error</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">zero</span> <span class="o">=</span> <span class="nx">replace</span><span class="p">(</span><span class="nx">zero</span><span class="p">)</span>
+<span class="nx">one</span> <span class="o">=</span> <span class="nx">replace</span><span class="p">(</span><span class="nx">one</span><span class="p">)</span>
+<span class="nx">two</span> <span class="o">=</span> <span class="nx">replace</span><span class="p">(</span><span class="nx">two</span><span class="p">)</span>
+<span class="nx">error</span> <span class="o">=</span> <span class="nx">replace</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+
+<span class="nx">runAll</span><span class="p">(</span><span class="s1">&#39;second time&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Let's try it out:</p>
+<div class="codehilite"><pre><span></span><code>first time
+zero
+one(1)
+two(1, 2)
+error
+caught Error: from error as expected
+
+second time
+before
+zero
+after
+before
+one(1)
+after
+before
+two(1, 2)
+after
+before
+error
+error
+caught Error: from error as expected
+</code></pre></div>
+
+<p>This is an example of the <span class="indexref" key="Decorator pattern;design pattern!Decorator" markdown="1"><a class="glossref" href="../glossary/#decorator_pattern" markdown="1">Decorator</a></span> design pattern.
+A decorator is a function whose job is to modify the behavior of other functions
+in some general ways.
+Decorators are built in to some languages (like <span class="indexref" key="Python" markdown="1"><a href="https://www.python.org/">Python</a></span>),
+and we can add them in most others as we have done here.</p>
+<h2 id="code-generator-generate">How can we generate JavaScript?</h2>
+<p>We could use a decorator to replace every function in our program
+with one that keeps track of whether or not it was called,
+but it would be tedious to apply the decorator to every one of our functions by hand.
+What we really want is a way to do this automatically for everything,
+and for that we need to parse and generate code.</p>
+<blockquote>
+<h3>Other ways to do it</h3>
+<p>A third way to achieve what we want is
+to let the system turn code into runnable instructions
+and then modify those instructions.
+This approach is often used in compiled languages like <span class="indexref" key="Java" markdown="1"><a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a></span>,
+where the <a class="glossref" href="../glossary/#byte_code" markdown="1">byte code</a> produced by the <a class="glossref" href="../glossary/#compiler" markdown="1">compiler</a> is saved in files
+in order to be run.
+We can't do this here because Node compiles and runs code in a single step.</p>
+</blockquote>
+<p>Our tool will parse the JavaScript with Acorn to create an AST,
+modify the AST,
+and then use a library called <span class="indexref" key="Escodegen" markdown="1"><a href="https://github.com/estools/escodegen/">Escodegen</a></span> to turn the AST back into JavaScript.
+To start,
+let's look at the AST for a simple function definition,
+which is 75 lines of pretty-printed JSON:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span> <span class="nx">acorn</span> <span class="kr">from</span> <span class="s1">&#39;acorn&#39;</span>
+
+<span class="kd">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="sb">`const func = (param) =&gt; {</span>
+<span class="sb">  return param + 1</span>
+<span class="sb">}`</span>
+
+<span class="kd">const</span> <span class="nx">ast</span> <span class="o">=</span> <span class="nx">acorn</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="p">{</span> <span class="nx">sourceType</span><span class="o">:</span> <span class="s1">&#39;module&#39;</span> <span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">ast</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mf">2</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Program&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VariableDeclaration&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;declarations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VariableDeclarator&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Identifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;func&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="s2">&quot;init&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ArrowFunctionExpression&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;expression&quot;</span><span class="p">:</span><span class="w"> </span><span class="bp">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;generator&quot;</span><span class="p">:</span><span class="w"> </span><span class="bp">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;async&quot;</span><span class="p">:</span><span class="w"> </span><span class="bp">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">              </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Identifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;param&quot;</span><span class="w"></span>
+<span class="w">              </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BlockStatement&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">              </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
+<span class="w">              </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span><span class="w"></span>
+<span class="w">              </span><span class="s2">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                  </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ReturnStatement&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                  </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"></span>
+<span class="w">                  </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w"></span>
+<span class="w">                  </span><span class="s2">&quot;argument&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BinaryExpression&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;left&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Identifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;param&quot;</span><span class="w"></span>
+<span class="w">                    </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;right&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Literal&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;raw&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                  </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">],</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;const&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;sourceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;module&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>After inspecting a few nodes,
+we can try to create some of our own and turn them into code.
+Here,
+for example,
+we have the JSON representation of the expression <code>40+2</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span> <span class="nx">escodegen</span> <span class="kr">from</span> <span class="s1">&#39;escodegen&#39;</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">escodegen</span><span class="p">.</span><span class="nx">generate</span><span class="p">({</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;BinaryExpression&#39;</span><span class="p">,</span>
+  <span class="nx">operator</span><span class="o">:</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span>
+  <span class="nx">left</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Literal&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">40</span> <span class="p">},</span>
+  <span class="nx">right</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Literal&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">2</span> <span class="p">}</span>
+<span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="mf">40</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="code-generator-count">How can we count how often functions are executed?</h2>
+<p>Our tool will find all the function declaration nodes in the program
+and insert a node to increment an entry in a global variable called <code>__counters</code>.
+(Prefixing the name with two underscores doesn't guarantee that
+we won't accidentally clobber a variable in the user's program with the same name,
+but hopefully it makes that less likely.)
+Our test case is:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">TEXT</span> <span class="o">=</span> <span class="sb">`</span>
+<span class="sb">const funcOuter = (param) =&gt; {</span>
+<span class="sb">  return param + 1</span>
+<span class="sb">}</span>
+<span class="sb">const funcInner = (param) =&gt; {</span>
+<span class="sb">  return param + 1</span>
+<span class="sb">}</span>
+<span class="sb">for (const i of [1, 3, 5]) {</span>
+<span class="sb">  funcOuter(funcInner(i) + funcInner(i))</span>
+<span class="sb">}</span>
+<span class="sb">`</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>and the main function of our program is:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">main</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">ast</span> <span class="o">=</span> <span class="nx">acorn</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">TEXT</span><span class="p">,</span> <span class="p">{</span> <span class="nx">sourceType</span><span class="o">:</span> <span class="s1">&#39;module&#39;</span> <span class="p">})</span>
+
+  <span class="kd">const</span> <span class="nx">allNodes</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="nx">walk</span><span class="p">.</span><span class="nx">simple</span><span class="p">(</span><span class="nx">ast</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">VariableDeclarator</span><span class="o">:</span> <span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">init</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;ArrowFunctionExpression&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">state</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">allNodes</span><span class="p">)</span>
+
+  <span class="kd">const</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="nx">allNodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">node</span> <span class="p">=&gt;</span> <span class="nx">insertCounter</span><span class="p">(</span><span class="nx">names</span><span class="p">,</span> <span class="nx">node</span><span class="p">))</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">initializeCounters</span><span class="p">(</span><span class="nx">names</span><span class="p">))</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">escodegen</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">ast</span><span class="p">))</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reportCounters</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>To insert a count we call <code>insertCounter</code>
+to record the function's name and modify the node:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">insertCounter</span> <span class="o">=</span> <span class="p">(</span><span class="nx">names</span><span class="p">,</span> <span class="nx">node</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">name</span>
+  <span class="nx">names</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0</span>
+
+  <span class="kd">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">body</span>
+  <span class="kd">const</span> <span class="nx">increment</span> <span class="o">=</span>
+    <span class="nx">acorn</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="sb">`__counters[&#39;</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">&#39;] += 1`</span><span class="p">,</span> <span class="p">{</span> <span class="nx">sourceType</span><span class="o">:</span> <span class="s1">&#39;module&#39;</span> <span class="p">})</span>
+  <span class="nx">body</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">increment</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>Notice how we don't try to build the nodes by hand,
+but instead construct the string we need,
+use <span class="indexref" key="Acorn" markdown="1">Acorn</span> to parse that,
+and use the result.
+Doing this saves us from embedding multiple lines of JSON in our program
+and also ensures that if a newer version of Acorn decides to generate a different AST,
+our program will do the right thing automatically.</p>
+<p>Finally,
+we need to add a couple of <span class="indexref" key="helper function" markdown="1">helper functions</span>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">initializeCounters</span> <span class="o">=</span> <span class="p">(</span><span class="nx">names</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">names</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="p">=&gt;</span> <span class="sb">`&#39;</span><span class="si">${</span><span class="nx">n</span><span class="si">}</span><span class="sb">&#39;: 0`</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,\n&#39;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="s1">&#39;const __counters = {\n&#39;</span> <span class="o">+</span> <span class="nx">body</span> <span class="o">+</span> <span class="s1">&#39;\n}&#39;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">reportCounters</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">&#39;console.log(__counters)&#39;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>and run it to make sure it all works:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">__counters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="s1">&#39;funcOuter&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="s1">&#39;funcInner&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">funcOuter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">__counters</span><span class="p">[</span><span class="s1">&#39;funcOuter&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">funcInner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">__counters</span><span class="p">[</span><span class="s1">&#39;funcInner&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="mi">5</span><span class="w"></span>
+<span class="w">    </span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">funcOuter</span><span class="p">(</span><span class="n">funcInner</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">funcInner</span><span class="p">(</span><span class="n">i</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">__counters</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<blockquote>
+<h3>Too simple to be safe</h3>
+<p>Our simple approach to naming counters doesn't work if functions can have the same names,
+which they can if we use modules or <span class="indexref" key="nested function;function!nested" markdown="1"><a class="glossref" href="../glossary/#nested_function" markdown="1">nested functions</a></span>.
+One way to solve this would be to manufacture a label from the function's name
+and the line number in the source code;
+another would be to keep track of which functions are nested within which
+and concatenate their names to produce a unique key.
+Problems like this are why people say that naming things
+is one of the <span class="indexref" key="two hard problems in computer science" markdown="1"><a class="glossref" href="../glossary/#two_hard_problems" markdown="1">two hard problems</a></span> in computer science.</p>
+</blockquote>
+<h2 id="code-generator-time">How can we time function execution?</h2>
+<p>Now that we have a way to insert code into functions
+we can use it to do many other things.
+For example,
+we can find out how long it takes functions to run
+by wrapping them up in code that records the start and end time of each call.
+As before,
+we find the nodes of interest and decorate them,
+then stitch the result together with a bit of bookkeeping:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">timeFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">ast</span> <span class="o">=</span> <span class="nx">acorn</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="p">{</span> <span class="nx">sourceType</span><span class="o">:</span> <span class="s1">&#39;module&#39;</span> <span class="p">})</span>
+  <span class="kd">const</span> <span class="nx">allNodes</span> <span class="o">=</span> <span class="nx">gatherNodes</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+  <span class="nx">allNodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">node</span> <span class="p">=&gt;</span> <span class="nx">wrapFuncDef</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
+  <span class="k">return</span> <span class="p">[</span>
+    <span class="nx">initializeCounters</span><span class="p">(</span><span class="nx">allNodes</span><span class="p">),</span>
+    <span class="nx">escodegen</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">ast</span><span class="p">),</span>
+    <span class="nx">reportCounters</span><span class="p">()</span>
+  <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Gathering nodes is straightforward:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">gatherNodes</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ast</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">allNodes</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="nx">walk</span><span class="p">.</span><span class="nx">simple</span><span class="p">(</span><span class="nx">ast</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">VariableDeclarator</span><span class="o">:</span> <span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">init</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">&#39;ArrowFunctionExpression&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">state</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">allNodes</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">allNodes</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>as is wrapping the function definition:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">wrapFuncDef</span> <span class="o">=</span> <span class="p">(</span><span class="nx">originalAst</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">originalAst</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">name</span>
+  <span class="kd">const</span> <span class="nx">wrapperAst</span> <span class="o">=</span> <span class="nx">makeWrapperAst</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+  <span class="nx">wrapperAst</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">declarations</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">init</span> <span class="o">=</span> <span class="nx">originalAst</span><span class="p">.</span><span class="nx">init</span>
+  <span class="nx">originalAst</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="nx">wrapperAst</span><span class="p">.</span><span class="nx">init</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The only big difference is how we make the wrapper function.
+We create it with a placeholder for the original function
+so that we have a spot in the AST to insert the actual code:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">timeFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">ast</span> <span class="o">=</span> <span class="nx">acorn</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="p">{</span> <span class="nx">sourceType</span><span class="o">:</span> <span class="s1">&#39;module&#39;</span> <span class="p">})</span>
+  <span class="kd">const</span> <span class="nx">allNodes</span> <span class="o">=</span> <span class="nx">gatherNodes</span><span class="p">(</span><span class="nx">ast</span><span class="p">)</span>
+  <span class="nx">allNodes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">node</span> <span class="p">=&gt;</span> <span class="nx">wrapFuncDef</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
+  <span class="k">return</span> <span class="p">[</span>
+    <span class="nx">initializeCounters</span><span class="p">(</span><span class="nx">allNodes</span><span class="p">),</span>
+    <span class="nx">escodegen</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">ast</span><span class="p">),</span>
+    <span class="nx">reportCounters</span><span class="p">()</span>
+  <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Let's run one last test:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">__counters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="s1">&#39;assignment&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="s1">&#39;readFile&#39;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">assignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">...</span><span class="n">originalArgs</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">originalFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">range</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">range</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">startTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="o">.</span><span class="n">now</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">originalFunc</span><span class="p">(</span><span class="o">...</span><span class="n">originalArgs</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">endTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="o">.</span><span class="n">now</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">__counters</span><span class="p">[</span><span class="s1">&#39;assignment&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">endTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startTime</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">catch</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">endTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="o">.</span><span class="n">now</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">__counters</span><span class="p">[</span><span class="s1">&#39;assignment&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">endTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startTime</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">throw</span><span class="w"> </span><span class="n">error</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">readFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">...</span><span class="n">originalArgs</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">originalFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nb">range</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">range</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">fs</span><span class="o">.</span><span class="n">readFileSync</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;utf-8&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">startTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="o">.</span><span class="n">now</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">originalFunc</span><span class="p">(</span><span class="o">...</span><span class="n">originalArgs</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">endTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="o">.</span><span class="n">now</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">__counters</span><span class="p">[</span><span class="s1">&#39;readFile&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">endTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startTime</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">catch</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">endTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Date</span><span class="o">.</span><span class="n">now</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">__counters</span><span class="p">[</span><span class="s1">&#39;readFile&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">endTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startTime</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">throw</span><span class="w"> </span><span class="n">error</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">numLoops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100000</span><span class="p">;</span><span class="w"></span>
+<span class="n">assignment</span><span class="p">(</span><span class="n">numLoops</span><span class="p">);</span><span class="w"></span>
+<span class="n">readFile</span><span class="p">(</span><span class="n">numLoops</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index.md&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">__counters</span><span class="p">)</span><span class="w"></span>
+<span class="n">OUTPUT</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="n">assignment</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">readFile</span><span class="p">:</span><span class="w"> </span><span class="mi">3879</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>Source-to-source translation is widely used in JavaScript:
+tools like <span class="indexref" key="Babel" markdown="1"><a href="https://babeljs.io/">Babel</a></span> use it to transform modern features like <code>async</code> and <code>await</code>
+(<a class="crossref" href="../async-programming/">Chapter 3</a>)
+into code that older browsers can understand.
+The technique is so powerful that it is built into languages like Scheme,
+which allow programmers to add new syntax to the language
+by defining <span class="indexref" key="macro" markdown="1"><a class="glossref" href="../glossary/#macro" markdown="1">macros</a></span>.
+Depending on how carefully they are used,
+macros can make programs elegant, incomprehensible, or both.</p>
+<h2 id="code-generator-exercises">Exercises</h2>
+<h3 class="exercise">JSON to JavaScript</h3>
+<p>Write a tool that uses <a href="https://github.com/estools/escodegen/">Escodegen</a>
+to translate simple expressions written in JSON into runnable JavaScript.
+For example, the tool should translate:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="mf">5</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]]</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>into:</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">3</span> <span class="o">+</span> <span class="p">(</span><span class="mf">5</span> <span class="o">*</span> <span class="nx">a</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 class="exercise">JavaScript to HTML</h3>
+<p>Write a function that takes nested JavaScript function calls for generating HTML like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">div</span><span class="p">(</span><span class="nx">h1</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">),</span> <span class="nx">p</span><span class="p">(</span><span class="s1">&#39;explanation&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>and turns them into HTML like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div&gt;&lt;h1&gt;</span>title<span class="nt">&lt;/h1&gt;&lt;p&gt;</span>explanation<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
+</code></pre></div>
+
+<h3 class="exercise">Handling modules</h3>
+<p>Modify the code that counts the number of times a function is called
+to handle functions with the same name from different modules.</p>
+<h3 class="exercise">Tracking calls</h3>
+<p>Write a decorator that takes a function as its argument
+and returns a new function that behaves exactly the same way
+except that it keeps track of who called it.</p>
+<ol>
+<li>
+<p>The program contains a stack where decorated functions push and pop their names
+    as they are called and as they exit.</p>
+</li>
+<li>
+<p>Each time a function is called
+    it adds a record to an array to record its name and the name at the top of the stack
+    (i.e., the most-recently-called decorated function).</p>
+</li>
+</ol>
+<h3 class="exercise">Counting classical function definitions</h3>
+<p>Modify the code generator to handle functions declared with the <code>function</code> keyword
+as well as functions declared using <code>=&gt;</code>.</p>
+<h3 class="exercise">Recording input file size</h3>
+<ol>
+<li>
+<p>Write a program that replaces all calls to <code>fs.readFileSync</code>
+    with calls to <code>readFileSyncCount</code>.</p>
+</li>
+<li>
+<p>Write the function <code>readFileSyncCount</code> to read and return a file using <code>fs.readFileSync</code>
+    but to also record the file's name and size in bytes.</p>
+</li>
+<li>
+<p>Write a third function <code>reportInputFileSizes</code> that reports
+    what files were read and how large they were.</p>
+</li>
+<li>
+<p>Write tests for these functions using Mocha and <code>mock-fs</code>.</p>
+</li>
+</ol>
+<h3 class="exercise">Checking argument types</h3>
+<p>Write a tool that modifies functions to check the types of their arguments at run-time.</p>
+<ol>
+<li>
+<p>Each function is replaced by a function that passes all of its arguments to <code>checkArgs</code>
+    along with the function's name,
+    then continues with the function's original operation.</p>
+</li>
+<li>
+<p>The first time <code>checkArgs</code> is called for a particular function
+    it records the actual types of the arguments.</p>
+</li>
+<li>
+<p>On subsequent calls, it checks that the argument types match those of the first call
+    and throws an exception if they do not.</p>
+</li>
+</ol>
+<h3 class="exercise">Two-dimensional arrays</h3>
+<p>The function <code>make2D</code> takes a row length and one or more values
+and creates a two-dimensional array from those values:</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">make2D</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="c1">// produces [[&#39;a&#39;, &#39;b&#39;], [&#39;c&#39;, &#39;d&#39;]]</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>Write a function that searches code to find calls to <code>make2D</code>
+and replaces them with inline arrays-of-arrays.
+This function only has to work for calls with a fixed row length,
+i.e., it does <em>not</em> have to handle <code>make2D(N, 'a', 'b')</code>.</p>
+<h3 class="exercise">From require to import</h3>
+<p>Write a function that searches code for simple calls to <code>require</code>
+and replaces them with calls to <code>import</code>.
+This function only needs to work for the simplest case;
+for example, if the input is:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;module&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>then the output is:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span> <span class="nx">name</span> <span class="kr">from</span> <span class="s1">&#39;module&#39;</span>
+</code></pre></div>
+
+<h3 class="exercise">Removing empty constructors</h3>
+<p>Write a function that removes empty constructors from class definitions.
+For example, if the input is:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nx">Example</span> <span class="p">{</span>
+  <span class="kr">constructor</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+  <span class="nx">someMethod</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;some method&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>then the output should be:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nx">Example</span> <span class="p">{</span>
+  <span class="nx">someMethod</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;some method&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+    </main>
+  <div class="centered footer">
+  <hr/>
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/software-tools-books/stjs/">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>
