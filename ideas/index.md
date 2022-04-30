@@ -182,7 +182,7 @@ is functionally equivalent to telling them to piss off.
 We need something that tells a story that coders will feel smarter for having heard.
 We need what Sarah Kendzior, Zeynep Tufekci, and N.K. Jemisin would write
 if they had six months and some great music to listen to.
-Call it *Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, and Power*,
+Call it *Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, Justice, and Power*,
 get *Wired* to tell everyone it's the new new thing,
 and you just might change the world.
 
