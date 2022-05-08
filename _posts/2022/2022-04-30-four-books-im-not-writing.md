@@ -1,5 +1,5 @@
 ---
-title: "Four Books I'm Not Writing"
+title: "Four Books I'm Not Writing (Plus One)"
 date: 2022-04-30
 year: 2022
 ---
@@ -99,10 +99,22 @@ it's all too easy to spend half an hour writing a blog post.
 Family's awake; time to make tea.
 Be well.
 
+> Later: the book I'd *actually* like to write is
+> *[Sex and Drugs and Guns and Code][sdgc]*,
+> but I still don't know enough
+> and I'm not a good enough writer.
+> *Building Software Together* and the software engineering textbook in the #4 spot above
+> are partly attempts to smuggle some of those ideas
+> past the defenses that people like my younger self have erected
+> to protect themselves from feeling uncomfortable about themselves;
+> one of the reasons I set *BST* aside
+> was the realization that I'm not stealthy enough to pull it off.
+
 [12-tips]: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009809
 [bc]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
 [brain]: https://www.manning.com/books/the-programmers-brain
 [interpreters]: https://craftinginterpreters.com/
 [nwit]: https://neverworkintheory.org/
 [py-rse]: https://merely-useful.tech/py-rse/
+[sdgc]: {{ '/ideas/#what-i-would-write-if-i-was-smarter-than-i-am' | relative_url }}
 [sdxjs]: https://third-bit.com/sdxjs/index.html
