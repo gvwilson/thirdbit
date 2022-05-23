@@ -21,7 +21,7 @@ title: Some Responses to Some Comments
 <p><strong>Institutional support.</strong></p>
 <blockquote><p><em>One hindrance you identify is that without institutional support, taking software classes will be hard for students/profs/etc. to justify doing. Does this suggest that another vision in 5 years is for there to be a certain level of institutional support for Software Carpentry?</em></p></blockquote>
 <p>Realistically, I don't expect more institutional support or recognition five years from now than we have today. I think that when our existing system of higher education implodes, it's going to do so faster than anyone ever thought possible (cf. the final days of the Soviet Union), but I think it would be foolish to count on this happening within five years. Conversely, I think that today's model of scholarly publishing is going to last a lot longer than many optimists think it will. That means that journals and funding bodies will look closely at scientific software as infrequently five years from now as they do today, which in turn means that most scientists still won't have a compelling reason to up their game. However, I <em>hope</em> that in five years many (most?) will believe that the writing is on the wall.</p>
-<p><strong>Goal #2: <a href="{{site.baseurl}}/blog/2011/12/what-success-looks-like-five-years-out.html#impact">We know what we're doing is helping</a>.</strong></p>
+<p><strong>Goal #2: We know what we're doing is helping.</strong></p>
 <blockquote>
 <p id="impact"><em>The 5 year vision is then...what? We have some justifiable and principled way of gauging the usefulness of these teachings, and that we actually are measuring and reporting on them?</em></p>
 </blockquote>

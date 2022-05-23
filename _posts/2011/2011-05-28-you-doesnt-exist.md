@@ -38,7 +38,6 @@ year: 2011
 </p>
 <p>
   I think that making something where nothing existed before
-  is <a href="/2007/11/08/file-under-still-not-getting-it.html">the
-  greatest adventure there is</a>. If you'd like to give it a try,
+  is the greatest adventure there is. If you'd like to give it a try,
   please <a href="mailto:aosa@aosabook.org">get in touch</a>.
 </p>

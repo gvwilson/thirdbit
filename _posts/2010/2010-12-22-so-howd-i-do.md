@@ -3,7 +3,7 @@ title: "So How'd I Do?"
 date: 2010-12-22 12:11:39
 year: 2010
 ---
-Back on <a href="/blog/archives/4069.html">November 9</a>, I laid out my goals for the remainder of the year. Let's see how I did:
+Back in November 9 I laid out my goals for the remainder of the year. Let's see how I did:
 <ol>
 	<li>Time with family: yes.</li>
 	<li>Help Mike and Zuzel finish their theses: mostly. Mike's is done, Zuzel's is close.</li>

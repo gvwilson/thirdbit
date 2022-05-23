@@ -36,5 +36,5 @@ original: swc
   <li>Can you implement the functionality in a more limited, but much simpler manner?</li>
 </ol>
 
-<p>Everything Brian says applies directly to open courseware like Software Carpentry.  People constantly suggest new topics that could be added to <a href="{{site.baseurl}}/lessons/">our material</a>, but few of them say, "...and I'll write it," and more often than not, the topics are things that would interest only a fraction of scientists.  We have therefore been cutting back on material rather than expanding it: as useful as Make, object-oriented programming, image manipulation, and disciplined use of spreadsheets are, they just aren't useful <em>enough</em> to justify expenditure of our scarcest resource&mdash;time.</p>
+<p>Everything Brian says applies directly to open courseware like Software Carpentry.  People constantly suggest new topics that could be added to our material, but few of them say, "...and I'll write it," and more often than not, the topics are things that would interest only a fraction of scientists.  We have therefore been cutting back on material rather than expanding it: as useful as Make, object-oriented programming, image manipulation, and disciplined use of spreadsheets are, they just aren't useful <em>enough</em> to justify expenditure of our scarcest resource&mdash;time.</p>
 

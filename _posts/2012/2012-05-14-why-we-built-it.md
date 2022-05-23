@@ -3,7 +3,7 @@ title: "Why We Built It"
 date: 2012-05-14 18:26:28
 year: 2012
 ---
-If you want to know why we created <a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a> (now in <a href="/blog/archives/4476.html">two volumes</a>), you need look no further than the descriptions of other books about software architecture on Amazon. Here's part of the blurb of <a href="http://www.amazon.com/gp/product/032171833X/">one that appeared last year</a>:
+If you want to know why we created <a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a> (now in two volumes), you need look no further than the descriptions of other books about software architecture on Amazon. Here's part of the blurb of <a href="http://www.amazon.com/gp/product/032171833X/">one that appeared last year</a>:
 
 Specifically, the book shows you
 <ul>

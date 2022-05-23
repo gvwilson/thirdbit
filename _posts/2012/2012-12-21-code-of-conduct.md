@@ -9,7 +9,7 @@ original: swc
   regardless of gender, sexual orientation, disability, physical appearance, body size, race, religion,
   or choice of text editor.
   Following the example of the Python Software Foundation, PyCon Canada, and other community members,
-  we have therefore decided to adopt a <a href="{{site.baseurl}}/conduct/">code of conduct</a>
+  we have therefore decided to adopt a code of conduct
   to make it clear what kinds of language and behavior are and are not acceptable at our events.
   If you'd like to know more,
   we couldn't possibly write anything better than

@@ -4,7 +4,7 @@ year: 2009
 original: swc
 title: Osmosis is Just a Fancy Name for Failure
 ---
-<p>My <a href="{{site.baseurl}}/blog/2009/12/dudley-and-butte-on-software-skills.html">last
+<p>My <a href="{{site.baseurl}}/blog/2009/12/27/dudley-and-butte-on-software-skills.html">last
 post</a> linked to
 a <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000589">PLoS
 paper</a> by Dudley and Butte on developing effective bioinformatics
@@ -24,9 +24,8 @@ have been doing computational science for almost seventy years, and
 have been calling it the third branch of science since (at least) the
 mid-1980s. If picking things up by osmosis was going to work as an
 educational strategy, we'd know by now. Instead, what
-we <a href="{{site.github.url}}/files/bib/secse-survey-2009.pdf">actually</a>
-<a href="{{site.github.url}}/files/bib/amsci-survey-2009.pdf">see</a>
-hasn't changed in 25 years: a small minority working wonders, and the
+we actually see hasn't changed in 25 years:
+a small minority working wonders, and the
 vast majority not even knowing where they ought to start. We don't
 expect grad students to pick up all the math and stats they need by
 osmosis, on their own, without any structured guidance&mdash;why
