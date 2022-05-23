@@ -10,7 +10,7 @@ Another year over; what have I learned?
   [was published by *On Spec*](https://onspecmag.wpcomstaging.com/2021/01/06/issue-115-coming-soon/);
   you can read it [here](https://sensibleadventures.com/fall-behind/).
   I received over a dozen rejections and didn't make any other sales,
-  but decided to self-publish a novel called *[Beneath Coriandel]({{site.github.url}}/2021/07/05/beneath-coriandel/)*;
+  but decided to self-publish a novel called *[Beneath Coriandel]({{'/2021/07/05/beneath-coriandel/' | relative_url}})*;
   I hope you like it.
 
 - *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)* was published.
@@ -23,7 +23,7 @@ Another year over; what have I learned?
 - RStudio laid me off.
   I don't understand why,
   or why I wasn't allowed to try to find another role within the company,
-  but [asteroids happen]({{site.github.url}}/2021/02/20/asteroids-and-dinosaurs/).
+  but [asteroids happen]({{'/2021/02/20/asteroids-and-dinosaurs/' | relative_url}}).
   What angers me is how they fumbled the wind-down of the instructor certification program:
   a lot of people worked hard to get certified,
   and I think they deserved better.
@@ -32,7 +32,7 @@ Another year over; what have I learned?
   Some companies, like [Automattic](https://artiss.blog/2019/03/the-automattic-hiring-process/),
   do a great job of explaining the process and trying to make it fair.
   Others---well,
-  [here's what happened with Canonical]({{site.github.url}}/2021/09/13/iq-and-personality-tests/).
+  [here's what happened with Canonical]({{'/2021/09/13/iq-and-personality-tests/' | relative_url}}).
 
 - I spent six months with [Metabase](https://www.metabase.com/)
   then moved to a straight-up programming position at [Deep Genomics](https://www.deepgenomics.com/).
@@ -41,10 +41,10 @@ Another year over; what have I learned?
 
 - We mothballed the [TidyBlocks](https://tidyblocks.tech/) project:
   we'd reached the limits of what we could do as volunteers
-  and [nobody wanted to fund it]({{site.github.url}}/2021/07/22/whatever-happened-to-tidyblocks/).
+  and [nobody wanted to fund it]({{'/2021/07/22/whatever-happened-to-tidyblocks/' | relative_url}}).
 
 - I finished *[Software Tools in JavaScript](https://stjs.tech/)*,
-  but [there hasn't been a lot of interest]({{site.github.url}}/2021/11/23/not-what-i-set-out-to-do/),
+  but [there hasn't been a lot of interest]({{'/2021/11/23/not-what-i-set-out-to-do/' | relative_url}}),
   so I decided to [publish it on Leanpub](https://leanpub.com/stjs)
   until I can figure out what's wrong with my beliefs about what programmers want to learn.
 
@@ -67,7 +67,7 @@ Another year over; what have I learned?
   I've picked up the tenor sax again in its place,
   which I'm probably enjoying more than our neighbors.
 
-- I got [another tattoo]({{site.github.url}}/2021/07/22/knitting-mouse/)
+- I got [another tattoo]({{'/2021/07/22/knitting-mouse/' | relative_url}})
   to commemorate my mother and sister.
   I hope they would have liked it.
 
