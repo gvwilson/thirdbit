@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   I started working on
-  a <a href="{{site.github_url}}/capstone-novice-spreadsheet-biblio">short capstone example</a>
+  a short capstone example
   last month
   to show learners how to get a badly-formatted reference list out of an Excel spreadsheet
   and into a relational database
@@ -18,7 +18,7 @@ original: swc
 </p>
 <p>
   The problem is easy to state:
-  given a bibliography (like <a href="{{site.github.url}}/files/bib/software-carpentry.bib">this one</a>),
+  given a bibliography (like this one),
   find all papers published in the last N years that <em>aren't</em> in the bibliography
   but which reference items that are.
   The use case is someone wanting to find out what's been done in some area

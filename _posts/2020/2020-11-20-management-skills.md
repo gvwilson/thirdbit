@@ -9,7 +9,7 @@ The four skills I needed most when I was managing people have all turned out to 
 1.  How to intervene when people behave badly.
     It doesn't come up often, but [knowing how makes you more likely to do it when you should](https://hbr.org/2020/05/why-sexual-harassment-programs-backfire).
 
-2.  [How to run a meeting]({{site.baseurl}}/2018/05/11/meetings.html).
+2.  How to run a meeting.
     Agenda before, minutes after, manage speaking time---none of it is magic,
     but without it, everything else is harder than it needs to be.
 

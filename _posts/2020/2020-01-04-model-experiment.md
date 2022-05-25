@@ -5,8 +5,7 @@ year: 2020
 ---
 
 A couple of years ago,
-I [pointed out]({{site.baseurl}}/2018/03/13/base-case-for-empirical-software-engineering.html)
-that no one has ever done an empirical study to determine whether version control
+I pointed out that no one has ever done an empirical study to determine whether version control
 is actually a better way to manage software projects than throwing files in a shared drive
 or emailing them around.
 I *think* it is,

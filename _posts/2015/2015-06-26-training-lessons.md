@@ -21,9 +21,9 @@ original: swc
   (three universities in Arizona for one run,
   and universities in Cape Town, Sheffield, and Ann Arbor for the other).
   We've also gathered
-  <a href="{{site.github_url}}/training-course/issues/514">a lot of feedback</a>
+  a lot of feedback
   on what people want from instructor training
-  and <a href="{{site.github_url}}/training-course/issues/445">what its prerequisites should be</a>.
+  and what its prerequisites should be.
   Here's what we've learned.
 </p>
 <dl>

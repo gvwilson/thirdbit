@@ -4,8 +4,7 @@ date: 2021-02-22
 year: 2021
 ---
 
-I've [written]({{ '/2016/01/09/change-strategies-in-stem-education/' | relative_url }})
-[before]({{ '/2017/10/21/change-strategies/' | relative_url }})
+I've written] before
 about Henderson et al's work on theories of change in education,
 and a recent conversation made me wonder if anyone had built a similar theoretical basis
 for adoption of new software development practices.

@@ -6,7 +6,7 @@ original: swc
 ---
 
 Hot on the heels of *[Small Teaching](https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496/)*
-(which we reviewed [last week]({{site.url}}/blog/2016/09/small-teaching.html))
+(which we reviewed last week)
 comes Brookfield and Preskill's *[The Discussion Book](https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/)*.
 Its subtitle is "50 great ways to get people talking",
 and that's exactly what it delivers:

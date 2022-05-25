@@ -6,7 +6,7 @@ original: swc
 ---
 
 Dr. Beth Duckles,
-who did [a valuable study of our instructor community]({{site.url}}/blog/2016/01/instructor-survey.html)
+who did a valuable study of our instructor community
 earlier this year,
 gave a talk at the recent [Measuring the Impact of Workshops](https://www.software.ac.uk/miw/) workshop
 titled "[The Practice of Measuring](https://www.youtube.com/watch?v=2d6UjiN7JxU)".

@@ -5,11 +5,11 @@ year: 2016
 original: swc
 ---
 Last fall,
-we decided to [reboot]({{site.baseurl}}/blog/2015/09/rebooting-instructor-training.html)
-our [instructor training course]({{site.github_io_url}}/instructor-training/).
-We've [tried a lot of things]({{site.baseurl}}/blog/2015/12/three-flavors-of-instructor-training.html) since then,
+we decided to reboot
+our instructor training course.
+We've tried a lot of things since then,
 and one of the biggest successes has been
-[our new checkout procedure]({{site.baseurl}}/blog/2015/12/instructor-training-checkout-procedure.html).
+our new checkout procedure.
 In brief:
 
 1.  After completing the instructor training course,
@@ -60,7 +60,7 @@ but there's still lots of work to do:
 
 2.  We need to automate scheduling and signup for discussion sessions and checkouts
     instead of using a pile of Etherpads and a flurry of emails.
-    I expect we will do this via [AMY]({{site.github_url}}/amy/),
+    I expect we will do this via AMY,
     though I'm still leery of opening it up to hundreds of people.
 
 3.  We need to make our expectations of trainees clearer.
@@ -91,19 +91,19 @@ but there's still lots of work to do:
 I'm sure lots of other things will come up,
 but we're making progress.
 And it really is "we":
-[Steve Crouch]({{site.baseurl}}/team/#crouch_s),
-[Christina Koch]({{site.baseurl}}/team/#koch_christina),
-[Aleksandra Pawlik]({{site.baseurl}}/team/#pawlik_a),
-and [Tracy Teal]({{site.baseurl}}/team/#teal_t)
+Steve Crouch,
+Christina Koch,
+Aleksandra Pawlik,
+and Tracy Teal
 are now certified instructor trainers,
-[Ariel Rokem]({{site.baseurl}}/team/#rokem_a) is in training to become one,
+Ariel Rokem is in training to become one,
 and we are about add six more:
-[Neal Davis]({{site.baseurl}}/team/#davis_neal),
-[Rayna Harris]({{site.baseurl}}/team/#harris_rayna),
-[Lex Nederbragt]({{site.baseurl}}/team/#nederbragt_l),
-[Anelda van der Walt]({{site.baseurl}}/team/#van-der-walt_anelda),
-[Belinda Weaver]({{site.baseurl}}/team/#weaver_belinda),
-and [Jason Williams]({{site.baseurl}}/team/#williams_jason).
+Neal Davis,
+Rayna Harris,
+Lex Nederbragt,
+Anelda van der Walt,
+Belinda Weaver,
+and Jason Williams.
 By August,
 we may finally have the capacity
 to help all the people who come to us

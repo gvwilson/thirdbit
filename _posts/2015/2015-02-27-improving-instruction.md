@@ -13,7 +13,7 @@ original: swc
   <a href="http://melbourne.resbaz.edu.au/post/110950818524/software-carpentry-set-to-explode-in-aus-nz">the Research Bazaar kickoff</a>
   in Melbourne.
   We've also started
-  <a href="{{site.github_io_url}}/training-course/submissions/round-12/index.html">the twelfth round of online instructor training</a>
+  the twelfth round of online instructor training
   with 75 participants,
   making it our largest yet.
 </p>

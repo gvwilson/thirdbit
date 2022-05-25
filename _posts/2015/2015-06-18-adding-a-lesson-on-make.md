@@ -6,9 +6,9 @@ original: swc
 ---
 <p>
   We are very pleased to announce the addition of a lesson on
-  <a href="{{site.github_io_url}}/make-novice">automation and Make</a>,
+  automation and Make,
   which was created by the SSI's Mike Jackson and Steve Crouch.
-  The <a href="{{site.github_url}}/make-novice">repository</a> contains everything you need to teach it,
+  The repository contains everything you need to teach it,
   and pull requests are very welcome.
 </p>
 

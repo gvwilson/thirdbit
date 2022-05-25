@@ -5,13 +5,11 @@ year: 2016
 original: swc
 ---
 
-*(Originally posted on [the Data Carpentry blog]({{site.dc_url}}/blog/open-instructor-training/).)*
-
 After workshops and conferences, we frequently get questions from people who are interested in teaching with the
 Carpentries. We're overjoyed by this interest and excited to bring more committed and enthusiastic instructors
 into our community. Unfortunately, until recently, we haven't had the resources to open up our
 instructor training program, and have been holding training events primarily with
-[Partnering institutions]({{site.url}}/scf/partners/).
+partnering institutions.
 
 In response to this sustained community interest, Data and Software Carpentry re-opened applications in July for
 anyone interested in instructor training, regardless of affiliation.

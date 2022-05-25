@@ -7,7 +7,7 @@ year: 2020
 Over the course of my last several jobs,
 I've been trying to develop a lightweight process for small teams who are developing lessons together.
 Version control and a standard template are the "what",
-and while [there's a lot of room to improve the templates]({{site.baseurl}}/2020/09/13/static-generators.html),
+and while there's a lot of room to improve the templates,
 the "how" needs even more attention.
 Here's my current best guess
 for a team of half a dozen technically-skilled people who are building a large-ish set of tutorials,
@@ -17,7 +17,7 @@ please read *[Teaching What You Don't Know](https://www.hup.harvard.edu/catalog.
 and then tell me what process you come up with.)
 
 1.  Spend a few hours brainstorming the overall structure of the curriculum.
-    I like [concept maps](https://github.com/rstudio/concept-maps/) for this,
+    I like [concept maps](https://github.com/gvwilson/concept-maps/) for this,
     but what's important is coming up with a rough decomposition of material into lessons.
     The details will change once you start work---probably more than you think---but
     this decomposition allows team members to work in parallel.
@@ -63,8 +63,3 @@ and then tell me what process you come up with.)
 Nothing in this process is revolutionary,
 but it seems to work reasonably well.
 I'd be grateful for feedback on what other people have come up with and how well it's working.
-(Please send feedback [by email](mailto:gvwilson@third-bit.com);
-I had to start policing the comments on this site
-after my comments about [Shopify]({{site.baseurl}}/2018/05/06/cigarettes-and-shopify.html)
-and [DataCamp]({{site.baseurl}}/2019/04/15/an-exchange-with-datacamp.html)
-and I haven't bothered to turn them back on.)

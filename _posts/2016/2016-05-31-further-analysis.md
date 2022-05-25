@@ -4,8 +4,8 @@ date: 2016-05-31 08:30:00
 year: 2016
 original: swc
 ---
-Following [Erin Becker's analysis of our instructor training data]({{site.baseurl}}/blog/2016/05/first-analysis.html),
-Byron Smith has done [another analysis](http://blog.byronjsmith.com/instructor-survival.html)
+Following Erin Becker's analysis of our instructor training data,
+Byron Smith has done another analysis
 using survival statistics.
 The three key figures are:
 

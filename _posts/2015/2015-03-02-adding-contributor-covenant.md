@@ -6,10 +6,10 @@ original: swc
 ---
 <p>
   The Software Carpentry Foundation's Steering Committee has voted to add
-  a <a href="{{site.github_url}}/lesson-template/blob/gh-pages/CONDUCT.md">Contributor Covenant</a>
+  a Contributor Covenant
   to our lessons and other repositories.
-  Like the <a href="{{site.baseurl}}/conduct/">Code of Conduct</a> for our workshops,
-  the <a href="{{site.github_url}}/lesson-template/blob/gh-pages/CONDUCT.md">Contributor Covenant</a>'s aim is
+  Like the Code of Conduct for our workshops,
+  the Contributor Covenant's aim is
   to ensure that participation in Software Carpentry is a harassment-free experience for everyone,
   regardless of level of experience, gender, gender identity and expression, sexual orientation,
   disability, personal appearance, body size, race, ethnicity, age, or religion.

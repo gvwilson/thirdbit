@@ -11,8 +11,7 @@ original: swc
   and a two-day version of the same material.
   We have also been training four new trainers,
   and have put the first complete draft
-  of <a href="{{site.github_io_url}}/instructor-training/">the training materials</a>
-  online.
+  of the training materials online.
   Here's some of what we think we've learned so far.
 </p>
 <p>
@@ -128,7 +127,7 @@ original: swc
 </p>
 <p>
   We won't be able to compare the two pilots fully until participants have
-  <a href="{{page.root}}/blog/2015/12/instructor-training-checkout-procedure.html">finished qualifying</a>
+  finished qualifying
   and started teaching,
   but until then,
   we'd be grateful for feedback from people who took part.

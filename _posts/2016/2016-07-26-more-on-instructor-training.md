@@ -6,7 +6,7 @@ original: swc
 ---
 
 Since we announced yesterday that we are
-[re-opening applications for instructor training]({{site.baseurl}}/blog/2016/07/reopening-instructor-training.html),
+re-opening applications for instructor training,
 several questions have come in by email and on Twitter.
 We've answered the general ones below,
 and will update this post as others arrive.
@@ -16,11 +16,11 @@ and will update this post as others arrive.
     many geographic regions and research disciplines are sparsely represented in our instructor pool,
     or not represented at all,
     and we are always conscious of the need to
-    [maintain and improve diversity]({{site.baseurl}}/blog/2016/02/checking-the-balance.html).
+    maintain and improve diversity.
 
 **How does this relate to instructor training for partner organizations?**
 :   Partner organizations are
-    [guaranteed a certain number of instructor training slots]({{site.baseurl}}/scf/join/)
+    guaranteed a certain number of instructor training slots
     as part of their agreement with us,
     and those trainings are given priority over open-enrollment offerings.
 
@@ -40,7 +40,7 @@ and will update this post as others arrive.
     previous teaching experience,
     ability to commit time to teaching and mentorship,
     and all of the other factors in
-    [the application form](https://amy.software-carpentry.org/workshops/request_training/).
+    the application form.
 
 **When will selections be made?**
 :   We will start notifying people in a few weeks

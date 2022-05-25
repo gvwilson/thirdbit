@@ -72,12 +72,12 @@ original: swc
 <ul>
   <li>
     <p>
-      the <a href="{{site.github_url}}/workshop-template">workshop template</a> is much easier to use;
+      the workshop template is much easier to use;
     </p>
   </li>
   <li>
     <p>
-      our lessons (mostly) conform to the <a href="{{site.github_url}}/lesson-example">new template</a>
+      our lessons (mostly) conform to the new template
       and have <em>almost</em> been published;
     </p>
   </li>

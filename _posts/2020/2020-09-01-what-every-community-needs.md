@@ -4,7 +4,7 @@ date: 2020-09-01
 year: 2020
 ---
 
-Yesterday I wrote that [every project should make its governance discoverable]({{site.baseurl}}/2020/08/31/governance.html).
+Yesterday I wrote that every project should make its governance discoverable.
 Here are a few other things that would help programming communities:
 
 -   [tldr pages](https://tldr.sh/): one-line manual pages with practical examples.

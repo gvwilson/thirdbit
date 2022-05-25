@@ -11,13 +11,13 @@ but it's something I use frequently to solve a wide range of problems,
 so I think it qualifies.
 Whether it's saying,
 "I don't know what to do next – does anyone have any ideas?" when teaching,
-or [cold-calling people]({{site.baseurl}}/blog/2013/11/updated-cold-call.html)
+or cold-calling people
 to see if they'll host a workshop,
 asking for help has probably done more for me
 than Emacs and version control combined.
 
 Have you got a favourite tool you would like to tell us about? 
-Please use this [form](https://docs.google.com/forms/d/e/1FAIpQLSeiu5NzJsLxYueaQrNn_qKbaa5JR2Sz12CeCRyedKQxwb54Dw/viewform) 
+Please use this form 
 to add a bit of detail and we will do the rest. You can read 
-the [background to these posts](https://software-carpentry.org/blog/2017/10/fave-tools.html) here, 
-or see what [other tools people have written about](https://software-carpentry.org/blog/2017/10/favorites.html).
+the background to these posts here, 
+or see what other tools people have written about.

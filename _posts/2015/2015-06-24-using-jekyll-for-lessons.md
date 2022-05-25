@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  A recurring complaint about our <a href="{{site.github_url}}/lesson-template">lesson template</a>
+  A recurring complaint about our lesson template
   is that it requires authors to commit generated HTML files to their repositories
   as well as their Markdown source files.
   This is necessary because we use <a href="http://pandoc.org">Pandoc</a> to convert Markdown to HTML,

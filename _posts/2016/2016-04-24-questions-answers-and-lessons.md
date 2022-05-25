@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   While working on an outline of
-  <a href="{{site.github_url}}/python-novice-gapminder">a new lesson on Python</a>,
+  a new lesson on Python,
   I began thinking about the overall coherence of what we teach.
   In particular,
   I started to worry that we might be teaching some things because we teach them,

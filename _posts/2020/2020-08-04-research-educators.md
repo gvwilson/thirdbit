@@ -22,7 +22,7 @@ Since 2014, though,
 I have spent most of my time teaching people how to teach rather than how to program.
 Some of those people have been Python or JavaScript developers working in industry,
 but most have been researchers who teach in contexts ranging from weekend workshops to full-semester courses.
-They are [end-user teachers]({{site.baseurl}}/2018/06/20/end-user-teachers.html),
+They are end-user teachers,
 but I now think they're a distinct enough subset to deserve their own label.
 
 By analogy with research software engineers, I propose calling these people *research educators* (REs).

@@ -158,7 +158,7 @@ and Cooks [Gitlet](http://gitlet.maryrosecook.com/)
 are proof that discussion of this kind is both possible and valuable at several levels;
 (Go ahead: spend half an hour with [this page](http://gitlet.maryrosecook.com/docs/gitlet.html)---you
 can thank me later.)
-If I really had [any influence on software engineering education]({{site.baseurl}}/2020/07/09/acm-sigsoft-award.html),
+If I really had any influence on software engineering education,
 every undergrad would read a couple of dozens essays like this in a third-year course
 and write at least two.
 As it is,

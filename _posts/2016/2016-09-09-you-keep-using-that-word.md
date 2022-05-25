@@ -7,7 +7,7 @@ original: nwit
 
 <p>
   We decided in 2012 that
-  <a href="{{site.url}}/2012/05/29/open-access-research-at-nwit-and-everywhere.html">we would only review material that is openly available</a>.
+  we would only review material that is openly available.
   I was therefore pleased to discover earlier this week that I could actually download papers from this year's
   International Computing Education Research conference from the ACM's site.
 </p>

@@ -134,7 +134,7 @@ original: swc
   </li>
   <li>
     <p>
-      The <a href="{{site.github_io_url}}/python-novice-inflammation/07-errors.html">errors and exceptions</a> topic
+      The errors and exceptions topic
       in our standard Python lesson is really useful:
       programmers at all levels spend much (or most) of their time trying to diagnose and correct errors,
       but most textbooks and courses give the topic short shrift.

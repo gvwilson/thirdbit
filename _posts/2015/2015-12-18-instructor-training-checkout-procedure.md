@@ -92,7 +92,7 @@ original: swc
 </ul>
 <p>
   This process won't be the last word in instructor training&mdash;we
-  <a href="{{page.root}}/blog/2015/12/three-flavors-of-instructor-training.html">learn something new</a>
+  learn something new
   every time we run a class&mdash;but we believe it improves on what we're doing now,
   and that we can implement it with the resources we have.
   We will start running mentoring and checkout sessions in the second week of January;

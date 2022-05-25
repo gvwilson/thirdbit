@@ -5,11 +5,9 @@ year: 2016
 original: swc
 ---
 
-Elizabeth Green's *[Building a Better Teacher]({{site.url}}/blog/2014/09/building-better-teachers.html)*
+Elizabeth Green's *Building a Better Teacher*
 changed how I think about teaching,
-and sparked some [good]({{site.url}}/blog/2014/09/further-thoughts-on-better-teachers.html)
-[discussion]({{site.url}}/blog/2014/09/more-thoughts-on-better-teachers.html)
-in our community.
+and sparked some good] discussion in our community.
 Therese Huston's *[Teaching What You Don't Know](https://www.amazon.com/Teaching-What-You-Don%E2%80%99t-Know/dp/0674066170/)*
 had a similar impact a few years earlier,
 and now there is James Lang's *[Small Teaching](https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496/)*.

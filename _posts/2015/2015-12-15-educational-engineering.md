@@ -26,7 +26,7 @@ original: swc
 </p>
 <p>
   But there's another reason why "educational engineering" isn't common-place:
-  as <a href="{{page.root}}/blog/2015/09/how-teaching-knowledge-is-transferred.html">Fincher and her colleagues have found</a>,
+  as Fincher and her colleagues have found,
   it's difficult to transfer the "how" of teaching in static form.
   Good musicians can sight-read,
   but the angsty hipster in your local coffee shop probably still practices for hours

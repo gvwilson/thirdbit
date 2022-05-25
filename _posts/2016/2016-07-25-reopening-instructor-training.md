@@ -35,19 +35,18 @@ please mail
 [training@software-carpentry.org](mailto:training@software-carpentry.org).
 
 If you would like to accelerate the process,
-check out our [Partnership program]({{site.baseurl}}/scf/join/).
+check out our Partnership program.
 Organizational partners make ongoing commitments to supporting our organization
 and are prioritized for instructor training.
 If you need help making the case at your organization,
-feel free to contact us at
-[partnerships@software-carpentry.org](mailto:partnerships@software-carpentry.org):
+feel free to contact us:
 we'd be happy to help.
 
 Please note that as a condition of taking this training, you must:
 
 *   abide by our code of conduct, which can be found at
-    <https://software-carpentry.org/conduct/> and
-    <http://datacarpentry.org/code-of-conduct/>,
+    https://software-carpentry.org/conduct/ and
+    http://datacarpentry.org/code-of-conduct/,
 
 *   agree to teach at a Software Carpentry or Data Carpentry workshop
     within 12 months of the course,
@@ -55,13 +54,7 @@ Please note that as a condition of taking this training, you must:
 
 *   complete three short tasks after the course in order to complete certification.
     The tasks take a total of approximately 8-10 hours,
-    and are described at
-    <{{site.training_url}}/checkout/>.
+    and are described online.
 
 For more information on Software and Data Carpentry instructor training,
-please see the course material at:
-
-<{{site.training_url}}>
-
-Please also see [this additional post]({{site.baseurl}}/blog/2016/07/more-on-instructor-training.html),
-which answers some frequently-asked questions about this training.
+please see the course material.

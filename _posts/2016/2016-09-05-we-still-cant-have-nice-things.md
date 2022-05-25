@@ -5,7 +5,7 @@ year: 2016
 original: swc
 ---
 
-Last year I used YAML and Norway to explain why [why we can't have nice things][nice-things].
+Last year I used YAML and Norway to explain why why we can't have nice things.
 We've just stumbled over a problem that has forced us to re-do some of the work we did
 to publish our lessons a couple of months ago,
 and which illustrates how openness can still be frustrating to actually do.
@@ -385,5 +385,4 @@ we have to make openness a lot less frustrating.
 
 [baseurl]: https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/
 [github-cname]: https://help.github.com/articles/securing-your-github-pages-site-with-https/
-[nice-things]: {{site.url}}/blog/2015/06/why-we-cant-have-nice-things.html
 [science-experiment]: http://imgur.com/pkg1qIE?r

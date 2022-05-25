@@ -55,7 +55,7 @@ original: swc
       In particular,
       we will convert our Python lesson to Python 3
       and figure out how to act on
-      <a href="{{site.github_url}}/python-novice-inflammation/issues/127">this discussion about its future</a>.
+      this discussion about its future.
     </p>
   </li>
 </ol>

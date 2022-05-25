@@ -32,11 +32,11 @@ original: swc
   We talked last October about
   why we don't include testing in the core,
   but some instructors still do cover testing and debugging using
-  <a href="{{site.github_url}}/boot-camps/tree/master/python/debugging">this material</a>
+  this material
   from the Hacker Within,
-  <a href="{{site.github_io_url}}/2014-04-14-wise/advanced/python/testing/index.html">these notes</a>
+  these notes
   from one of last year's WiSE workshops,
-  or <a href="{{site.v4_url}}/test/index.html">our Version 4 notes</a>
+  or our Version 4 notes
   from five years ago.
   I think we should try once again to combine this with material on code review
   to create a half-day lesson on QA for the working scientist.
@@ -49,7 +49,7 @@ original: swc
 </p>
 <p>
   Another candidate for "something else" is
-  <a href="{{site.github_url}}/make-condensed-reproduce-paper">how to use Make</a>
+  how to use Make
   to create a reproducible paper.
   Make's syntax is famously opaque,
   and that lesson moves far too quickly for most of our audience,

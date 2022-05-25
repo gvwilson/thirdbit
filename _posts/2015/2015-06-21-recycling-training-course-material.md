@@ -15,11 +15,11 @@ original: swc
 </p>
 <p>
   I have therefore pulled all the training course posts tagged "Assessment" or "MCQ"
-  into <a href="{{site.github_io_url}}/recycling/">a temporary GitHub pages site</a>
-  (the repository is <a href="{{site.github_url}}/recycling/">here</a>).
+  into a temporary GitHub pages site
+  (the repository is here).
   If you are looking for a way to make a contribution to our material,
   recycling one of these would be a great way to do it
   (whether you're the original author or not).
-  Please see <a href="{{site.baseurl}}/lessons/">our lessons page</a>
+  Please see our lessons page
   for the URLs of our GitHub repos&mdash;we look forward to your pull requests.
 </p>

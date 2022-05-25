@@ -49,7 +49,7 @@ original: swc
   </li>
 </ul>
 <p>
-  We're planning to <a href="{{page.root}}/blog/2015/09/publishing-our-lessons.html">publish</a>
+  We're planning to publish
   updates to our lessons some time in 2016.
   I don't think <a href="http://coursesource.org">CourseSource</a> will be the right venue&mdash;we're
   not specific to biology,

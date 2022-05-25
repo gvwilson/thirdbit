@@ -4,8 +4,8 @@ date: 2016-05-20 06:30:00
 year: 2016
 original: swc
 ---
-Following up on [Wednesday's post about instructor training stats]({{site.baseurl}}/blog/2016/05/looking-for-a-model.html),
-Erin Becker (Data Carpentry's new Associate Director) has [posted an analysis](http://www.datacarpentry.org/blog/instructor-metrics/).
+Following up on Wednesday's post about instructor training stats,
+Erin Becker (Data Carpentry's new Associate Director) has posted an analysis.
 I was very surprised to discover that less than 20% of people trained over a year ago haven't taught yet:
 I believed the number to be much higher.
 51% of those trained in the last 12 months haven't taught yet,

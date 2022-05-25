@@ -10,7 +10,7 @@ original: swc
   for workshops that we help organize in order to reflect the real
   cost of our staff's time and our overheads, and to reflect the value
   of the training.  Please see
-  <a href="{{site.baseurl}}/workshops/request/">the workshop request page</a>
+  the workshop request page
   for the updated pricing information.
 </p>
 <p>

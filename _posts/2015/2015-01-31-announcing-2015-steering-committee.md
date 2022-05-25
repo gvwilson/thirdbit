@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  The election for the <a href="{{site.baseurl}}/scf/">Software Carpentry Foundation</a>'s Steering Committee
+  The election for the Software Carpentry Foundation's Steering Committee
   is now complete.
   122 ballots were exercised out of 179 mailed out,
   and our new committee is:
