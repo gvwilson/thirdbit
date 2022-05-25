@@ -15,7 +15,7 @@ original: swc
   to help administrators find instructors based on geography and skills.
   We'd like many other features&mdash;in particular,
   bulk upload of attendance lists from bootcamps&mdash;so if you would like to help us out,
-  please <a href="{{site.github_url}}/admintool/">clone this repository</a>
+  please clone this repository
   and send us fixes and additions.
 </p>
 <p>

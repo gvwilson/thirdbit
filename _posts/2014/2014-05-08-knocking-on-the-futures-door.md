@@ -137,10 +137,10 @@ A storage area where a [version control](#version-control) system...
   <img src="{{site.github.url}}/files/2012/03/final.png" />
 </p>
 <p>
-  If you'd like to help us solve <a href="{{site.github_url}}/bc/pull/433">this particular problem</a>,
+  If you'd like to help us solve this particular problem,
   we would appreciate your assistance.
   If there's a simpler way to accomplish what we want,
-  we'd <a href="mailto:{{site.contact}}">appreciate a pointer</a> even more:
+  we'd appreciate a pointer even more:
   after all,
   a problem avoided is better than a problem solved.
   But most of all,

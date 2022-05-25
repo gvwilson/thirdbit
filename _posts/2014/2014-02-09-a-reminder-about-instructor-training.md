@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   We had the wrap-up meetings for Round 7 of instructor training this past Thursday.
-  The full summary is <a href="{{site.training_url}}/2014/02/07/wrapping-up-round-7/">on the training blog</a>,
+  The full summary is on the training blog,
   but the key points are:
 </p>
 <ul>

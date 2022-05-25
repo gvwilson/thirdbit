@@ -11,7 +11,7 @@ original: swc
   The UUhistle system he built is interesting,
   and the research he did with it is thought-provoking,
   but what's <em>really</em> great is the summary of educational research in the first third of the thesis.
-  I've <a href="{{site.training_url}}/wp-content/uploads/2012/08/sorva-thesis-1.pdf">extracted that part</a>
+  I've extracted that part
   with his permission,
   and I can't recommend it highly enough.
 </p>

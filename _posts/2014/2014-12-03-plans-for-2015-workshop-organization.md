@@ -13,8 +13,8 @@ original: swc
   growth in one part of a pipeline inevitably turns another into a bottleneck.
   In our case,
   that bottleneck is organizational:
-  <a href="{{site.baseurl}}/team/#collins.arliss">Arliss Collins</a>
-  and <a href="{{site.baseurl}}/team/#peru.giacomo">Giacomo Peru</a>
+  Arliss Collins
+  and Giacomo Peru
   are stretched to the limit handling requests and lining up instructors,
   and we're still not keeping up with demand.
 </p>
@@ -24,13 +24,13 @@ original: swc
   as is the context required to manage each conversation,
   and there are time when mail really needs to be answered right now,
   not when it's convenient.
-  We are therefore asking our <a href="{{site.baseurl}}/blog/2014/12/scf-membership.html#partner">Partners</a>
+  We are therefore asking our Partners
   to organize workshops in their region,
   and hope that others will shoulder some of the burden as well.
 </p>
 <p>
   We're also trying once again to build a tool to simplify workshop management.
-  I have started <a href="{{site.github_url}}/amy">a simple Django application called Amy</a>
+  I have started a simple Django application called Amy
   to keep track of who wants a workshop,
   who can teach what,
   who our learners have been,
@@ -44,7 +44,7 @@ original: swc
   All Amy can do now is display information.
   What we want to do is add and edit new data.
   If you'd like to help,
-  please <a href="{{site.github_url}}/amy">fork the project</a>
+  please fork the project
   and send us pull requests&mdash;we'd be grateful for your help.
 </p>
 <div align="center">

@@ -31,11 +31,7 @@ original: swc
     Attendees were asked to read
     <a href="http://www.amazon.com/How-Learning-Works-Research-Based-Jossey-Bass/dp/0470484101/"><em>How Learning Works</em></a>,
     but not pointed at specific sections.
-    We also should provide
-    <a href="{{site.training_url}}/wp-content/uploads/2013/08/whitecraft-williams.pdf">more</a>
-    <a href="{{site.training_url}}/wp-content/uploads/2013/08/p34-porter.pdf">targeted</a>
-    <a href="{{site.training_url}}/wp-content/uploads/2012/08/crouch-mazur-peer-instruction-ten-years-2001.pdf">readings</a>
-    in advance,
+    We also should provide more targeted readings in advance,
     and do a better job of connecting the readings with what we're teaching.
   </li>
 
@@ -43,8 +39,7 @@ original: swc
     <strong>Devote half a day to mechanics.</strong>
     We talked a couple of times about how to set up and run a bootcamp,
     but it was pretty disjointed.
-    We should walk attendees through
-    <a href="{{site.baseurl}}/workshops/operations/">our operations guide</a>,
+    We should walk attendees through our operations guide,
     our checklists,
     the assessment questionnaires we use,
     and our instructions on

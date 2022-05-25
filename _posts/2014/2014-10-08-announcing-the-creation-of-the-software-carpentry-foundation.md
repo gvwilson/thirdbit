@@ -40,8 +40,7 @@ original: swc
   the Software Sustainability Institute,
   Lawrence Berkeley Laboratory,
   Research Bazaar,
-  and everyone else listed on
-  <a href="{{site.baseurl}}/scf/partners/">our partners page</a>
+  and everyone else listed on our partners page
   for their sponsorship,
   and to all of our volunteer instructors for making Software Carpentry possible.
 </p>

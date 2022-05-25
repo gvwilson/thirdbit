@@ -8,9 +8,8 @@ original: swc
   Software Carpentry values the participation of every member of the
   scientific community and want all attendees to have an enjoyable and
   fulfilling experience.
-  Thanks to <a href="{{site.baseurl}}/team/#barmby.pauline">Pauline Barmby</a>,
-  we now have
-  <a href="{{site.baseurl}}/checklists/accessibility/">an accessibility checklist</a>
+  Thanks to Pauline Barmby,
+  we now have an accessibility checklist
   for instructors and workshop hosts.
   Please have a look
   and send us fixes and suggestions for improvements.

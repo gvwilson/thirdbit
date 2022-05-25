@@ -4,8 +4,6 @@ date: 2014-12-03 09:05:00
 year: 2014
 original: swc
 ---
-<button type="button" class="btn btn-danger"> THIS POST IS OUTDATED AND NO LONGER ACCURATE!!!</button>
-<div style="opacity: 0.8; background-color: gray;-webkit-filter: blur(4px); -moz-filter: blur(4px); -o-filter: blur(4px); -ms-filter: blur(4px); filter: blur(4px);">
 <p>
   As we said in the previous post in this series,
   our interim Steering Committee
@@ -14,7 +12,7 @@ original: swc
   so that universities, companies, government labs, and other entities
   can help support and guide our work.
   The authoritative version is stored in
-  <a href="{{site.github_url}}/board">this public GitHub repository</a>,
+  this public GitHub repository,
   but in brief,
   the tiers are:
 </p>

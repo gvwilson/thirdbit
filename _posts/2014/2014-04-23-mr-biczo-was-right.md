@@ -100,8 +100,7 @@ env DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib/ \
 <hr/>
 <p>
   Postscript:
-  there were several comments on this post
-  <a href="{{site.github_url}}/site/pull/475">on GitHub</a>
+  there were several comments on this post on GitHub
   while it was still in draft;
   I've included them below,
   and more would be welcome.

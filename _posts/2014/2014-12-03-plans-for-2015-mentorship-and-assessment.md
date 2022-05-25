@@ -40,7 +40,7 @@ original: swc
 <p>
   That plan ties back to our new bylaws.
   Broadly speaking,
-  the <a href="{{site.baseurl}}/blog/2014/12/scf-governance.html#steering-committee">people who run a non-profit</a>
+  the people who run a non-profit
   can be either active or passive,
   i.e.,
   they can either do the work needed to actually run the operation,

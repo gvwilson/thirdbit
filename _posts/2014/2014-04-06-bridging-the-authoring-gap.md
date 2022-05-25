@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   A few months ago,
-  we had an <a href="{{site.github_url}}/bc/issues/199">interesting discussion</a>
+  we had an interesting discussion
   about what Software Carpentry should teach about writing and publishing in the 21st Century.
   One thing that came through loud and clear was the gulf between
   people who value the "I can see what I'm doing" of Microsoft Word

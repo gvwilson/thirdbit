@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  We have updated our <a href="{{site.baseurl}}/join/projects/">projects page</a> with links to:
+  We have updated our projects page with links to:
 </p>
 <ol>
   <li>
@@ -16,21 +16,17 @@ original: swc
   </li>
 </ol>
 <p>
-  The first list includes the templates for
-  <a href="{{site.github_url}}/lesson-template">lessons</a>
-  and <a href="{{site.github_url}}/workshop-template">workshop websites</a>,
-  a <a href="{{site.github_url}}/amy">a tool for managing workshops</a>
-  (for which we're using Django),
-  the <a href="https://github.com/twitwi/deck.browsercast.js/">latest version</a> of
-  <a href="http://third-bit.com/browsercast/">Browsercast</a>,
+  The first list includes the templates for lessons and workshop websites,
+  a a tool for managing workshops (for which we're using Django),
+  the latest version of Browsercast,
   and more.
   The second list has everything from
   <a href="http://www.activepapers.org/" class="project">active papers</a>
   to <a href="http://jrsmith3.github.io/tec/">utilities for simulating vacuum thermionic energy conversion devices</a>.
   If you'd like to help with the first,
-  or if you're a <a href="{{site.baseurl}}/blog/2014/12/standing-for-election.html#members">member</a>
+  or if you're a member
   and would like your project listed in the second,
-  please <a href="mailto:{{site.contact}}">get in touch</a>.
+  please get in touch.
 </p>
 <p>
   And since this is likely to be my last post of 2014,

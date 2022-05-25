@@ -11,7 +11,7 @@ original: swc
   Inspired by that,
   and by discussion at <a href="http://wssspe.researchcomputing.org.uk/WSSSPE2/">WSSSPE 2.0</a>,
   we are launching a collaborative book project called
-  <a href="{{site.github_url}}/close-enough-for-scientific-work">Close Enough for Scientific Work</a>
+  Close Enough for Scientific Work
   in which scientists will show one another how they test their software.
 </p>
 <p>
@@ -92,8 +92,8 @@ original: swc
 <p>
   If you would like to contribute, please either
   submit a pull request to
-  <a href="{{site.github_url}}/close-enough-for-scientific-work">the repository</a>
-  <a href="mailto:gvwilson@software-carpentry.org">mail Greg Wilson</a>.
+  the repository
+  mail Greg Wilson.
   And please help spread the word&mdash;we
   think that a couple of dozen worked examples
   will help most scientists more than any amount of preaching,

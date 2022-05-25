@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   A few days ago,
-  Konrad Hinsen asked this on our <a href="{{site.baseurl}}/join/">discussion list</a>:
+  Konrad Hinsen asked this on our discussion list:
 </p>
 <blockquote>
   Is anyone aware of teaching methods that aim at either developing or

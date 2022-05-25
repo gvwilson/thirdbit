@@ -7,8 +7,7 @@ original: swc
 <p>
   The first step in reorganizing the <code>bc</code> repository is
   making it easier (<em>much</em> easier) for people to create
-  websites for workshops.  The
-  <a href="{{site.github_url}}/bc">current instructions</a>
+  websites for workshops.  The current instruction
   are almost 3000 words long, and even experienced GitHub users find
   the process daunting, so we're going to simplify things as much as
   we can, even if that means not doing things the "right"

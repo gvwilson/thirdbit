@@ -51,8 +51,8 @@ original: swc
 </ul>
 <p>
   You can submit your post as a pull request
-  to <a href="{{site.github_url}}/site">this website's repository</a>
-  or <a href="mailto:{{site.contact}}">by email</a>.
+  to this website's repository
+  or by email.
   It should explain:
 </p>
 <ul>

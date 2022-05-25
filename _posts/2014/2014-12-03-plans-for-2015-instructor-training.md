@@ -36,7 +36,7 @@ original: swc
   By then,
   we should have at least one more instructor trainer up and running,
   two more partially trained,
-  and <a href="{{site.github_url}}/instructor-training">the curriculum</a>
+  and the curriculum
   written down in an intelligible form,
   all of which will help keep us on track going forward.
 </p>

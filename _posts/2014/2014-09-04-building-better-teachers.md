@@ -224,7 +224,7 @@ original: swc
   but it doesn't ask, "How far did you get with each topic?"
   or, "What worked really well or really poorly?"
   People occasionally post unsolicited answers to these questions on the blog
-  or <a href="{{site.mailing_lists}}/listinfo/discuss">discussion list</a>,
+  or discussion list,
   but I haven't systematically synthesized that material,
   which means we don't really know how our lessons are working from the instructors' point of view.
 </p>
@@ -327,7 +327,7 @@ original: swc
   <p>Notes:</p>
   <ol>
     <li>
-      <a href="{{site.github_url}}/bc/issues/689">This issue</a>
+      This issue
       that John Blischak opened in our lesson repository,
       which asks people to report how long it takes to teach our lessons,
       was one of the inspirations for this article.
