@@ -1,0 +1,205 @@
+<!DOCTYPE html lang="en">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Managing Research Software Projects: Project Checklist</title>
+    
+    <script defer data-domain="codebender.org" src="https://plausible.io/js/plausible.js"></script>
+    
+    <link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+    <link rel="stylesheet" href="../mccole.css">
+  </head>
+  <body class="page">
+    <div align="center" style="padding-top: 2rem;">
+      
+      <h2><a href="../">Managing Research Software Projects</a></h2>
+      <h1>Project Checklist</h1>
+      
+      <p>
+        <img src="../files/codebender.svg" alt="logo" width="10%" />
+      </p>
+    </div>
+
+<h2>Project Management</h2>
+<ol>
+<li>A shared Google Drive with a doc called "Roles and Responsibilities"<ul>
+<li>Google Doc because some collaborators aren't comfortable with Git<ul>
+<li>And to make it easier to paste in figures and screenshots</li>
+</ul>
+</li>
+<li>Defines roles and explains what each is responsible for in one page</li>
+<li>Each role has a doc of its own with its checklists</li>
+</ul>
+</li>
+<li>The same shared Google Drive has one doc per year called (e.g.) "Progress 2022"<ul>
+<li>Section headings are weekly meeting dates<ul>
+<li>Table for each week with columns <code>Name</code>, <code>Progress</code>, <code>Plans</code>, and <code>Problems</code></li>
+</ul>
+</li>
+<li>Cells filled with short bullet points<ul>
+<li>Anything too long to fit comfortably in the table is linked to an issue in the project's GitHub repository</li>
+</ul>
+</li>
+<li>Project has a little script that lists issues and PRs touched by each person (reminder)</li>
+</ul>
+</li>
+<li>Weekly hour-long status meeting (which often finishes early)<ul>
+<li>On Tuesday so that people aren't scrambling on Friday or a weekend (or holiday Monday) to write status updates</li>
+<li>Rotating moderator: last week's moderator is this week's note-taker</li>
+<li>At start of meeting, members star points in the status doc they want to discuss</li>
+<li>Moderator amends agenda based on starred items</li>
+</ul>
+</li>
+<li>Proposals can be done as either Google Docs (in shared folder) or GitHub issues<ul>
+<li>Must be flagged to moderator the day before the meeting for inclusion</li>
+<li>Added to agenda</li>
+</ul>
+</li>
+<li>Project has a single repo with code, website, tutorials, etc.<ul>
+<li>So that releases are in sync</li>
+</ul>
+</li>
+<li>Uses Google Docs for publicity materials (again, because non-programmers)<ul>
+<li>All materials are owned by project account, not personal accounts</li>
+<li>Every change larger than a typo produces a new doc</li>
+<li>Every doc has date in title, e.g., "University Press Release 2022-05-13"</li>
+</ul>
+</li>
+<li>Budgets for grant proposals, job contracts, etc., are stored in university system<ul>
+<li>Legal requirement</li>
+</ul>
+</li>
+<li><code>GOVERNANCE.md</code> in root directory of project explains Martha's Rules<ul>
+<li>And membership rule:
+    anyone who has had a PR merged in the last year or made some other significant contribution
+as determined by majority vote</li>
+<li>List of active members and alumni is in the foot of <code>GOVERNANCE.md</code></li>
+</ul>
+</li>
+<li>Another small script checks that the tags in each project repository are consistent
+    and that each issue has at least one tag</li>
+<li>Project website has a "skills ladder" on the "Positions" page (even when positions aren't open)<ul>
+<li>"What we mean by each of these terms for the research and coding tracks"</li>
+</ul>
+</li>
+<li>Project website has a value statement and a contact address that <em>isn't</em> anyone's personal address<ul>
+<li>Plus a page for publications</li>
+<li>Plus a page pointing at all repositories</li>
+<li>Plus a "Getting Started" page</li>
+<li>And a "Who's Using Us How" page</li>
+<li>And a "People" page</li>
+</ul>
+</li>
+<li>The "help" option for the software includes the URL to the project page</li>
+</ol>
+<h2>Setup</h2>
+<ol>
+<li>Create a mailing list for the project.<ul>
+<li>The team voted 2:1 for email over Slack because they want better search and fewer interruptions.</li>
+</ul>
+</li>
+<li>Create a new GitHub organization for the project and add everyone to it.<ul>
+<li>So that nothing belonging to the project is under a personal account.</li>
+</ul>
+</li>
+<li>Create a new repo within that GitHub organization.<ul>
+<li>Everything is in one repo for now, but that might change.</li>
+</ul>
+</li>
+<li>Redefine the tags in that repo.<ul>
+<li>Governance: <code>discussion</code> (including questions) and <code>proposal</code> (for votable items).</li>
+<li>Issues: <code>bug</code> and <code>request</code>.</li>
+<li>Pull requests: <code>fix</code>, <code>enhancement</code>, <code>docs</code>, and <code>refactor</code>.</li>
+<li>Meta: <code>paused</code>, <code>helped wanted</code>, <code>good first issue</code>.</li>
+</ul>
+</li>
+<li>Add <code>README</code>, <code>LICENSE</code>, <code>CODE_OF_CONDUCT</code>, <code>GOVERNANCE</code>, <code>Makefile</code>, and <code>.gitignore</code> to the repo.<ul>
+<li>We settled on Make because nobody could agree on what to use instead.</li>
+</ul>
+</li>
+<li>Create two <code>pip</code> requirements files:<ul>
+<li><code>requirements.txt</code> is a minimal setup for using the software.</li>
+<li><code>development.txt</code> sources that and adds everything needed for building, testing, and documenting.</li>
+</ul>
+</li>
+<li>Create <code>socks</code>, <code>docs</code>, and <code>tests</code> directories in the root of the repo along with a <code>setup.py</code> file.<ul>
+<li>Pretty standard structure for a <code>pip</code>-installable Python package (and no, "socks" isn't its real name).</li>
+</ul>
+</li>
+<li>Set up <code>pytest</code> for running tests and <code>pdoc</code> for building documentation.<ul>
+<li><code>tests/conftest.py</code> for <code>pytest</code>.</li>
+<li>A docstring in every <code>__init__.py</code> file (rather than leaving it empty) to make <code>pdoc</code> happy.</li>
+<li>Use <a href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">Google-style docstrings</a>.</li>
+</ul>
+</li>
+<li>Add targets to <code>Makefile</code> to:<ul>
+<li>Build the package.</li>
+<li>Run the tests.</li>
+<li>Run the tests with coverage and display the coverage report (to identify untested code).</li>
+<li>Rebuild the documentation.</li>
+<li>Run <code>flake8</code>, <code>black</code>, and <code>isort</code> to check that the code meets style guidelines.</li>
+</ul>
+</li>
+<li>Add a <code>workflow.yml</code> file with pre-commit checks.</li>
+<li>Use <a href="https://www.dmulholl.com/docs/ivy/dev/">Ivy</a> to turn hand-written documentation into HTML.<ul>
+<li>The team has Markdown design notes and the beginnings of a tutorial that they want to put beside the <code>pdoc</code> docs.</li>
+<li>And a <code>glossary.md</code> file in <a href="https://github.com/carpentries/glosario">glosario</a> format.</li>
+</ul>
+</li>
+<li>Add a <code>data</code> directory with sample data for testing and a couple of real datasets.<ul>
+<li>Each dataset is in its own subdirectory with a <code>MANIFEST.yml</code> file describing files, columns, provenance, etc.</li>
+</ul>
+</li>
+<li>Add a <code>CITATION.cff</code> file with citation information.<ul>
+<li>And make sure every contributor has an ORCID.</li>
+</ul>
+</li>
+<li>Add a <code>bin</code> directory at the top level with various utility scripts.<ul>
+<li>Most of which use the code in the <code>socks</code> directory directly (rather than through a local install of the package).</li>
+</ul>
+</li>
+<li>Add a <code>results</code> directory at the top level with one sub-directory for each paper.<ul>
+<li>Each sub-directory under <code>results</code> has its own <code>Makefile</code>.</li>
+<li><code>make all</code> in the project sub-directory regenerates everything.</li>
+<li>We haven't added a <a href="https://cookiecutter.readthedocs.io/en/1.7.2/">cookiecutter</a> template yet, but we will.</li>
+</ul>
+</li>
+<li>Add a short Ivy extension to convert CSV files to HTML.</li>
+<li>Add a <code>static</code> directory with some CSS and JavaScript files.<ul>
+<li>Because everyone wants their HTML tables to be dynamically sortable…</li>
+</ul>
+</li>
+<li>Add a BibTeX file to the root <code>results</code> directory to be used by all project papers.<ul>
+<li>And another Ivy extension to convert it to HTML using <a href="https://pybtex.org/">Pybtex</a>.</li>
+</ul>
+</li>
+<li>Write a short code review checklist.<ul>
+<li>How to run pre-commit checks, how and why to use the <code>logging</code> library, what exceptions to use for what, etc.</li>
+</ul>
+</li>
+<li>Add a small utility script for loading program configurations.<ul>
+<li>In order: system config, personal config, project config, config file specified on the command line, command-line flags.</li>
+</ul>
+</li>
+<li>Choose a project logo.<ul>
+<li>Which made the rest of the discussion look calm and rational…</li>
+</ul>
+</li>
+</ol>
+
+
+    <hr/>
+
+    <div align="center">
+      <table class="plain" width="90%">
+        <tr>
+          <td align="center"><a href="../license/">License</a></td>
+          <td align="center"><a href="../conduct/">Code of Conduct</a></td>
+          <td align="center"><a href="../contributing/">Contributing</a></td>
+          <td align="center"><a href="../bibliography/">Bibliography</a></td>
+          <td align="center"><a href="https://github.com/gvwilson/codebender">GitHub</a></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

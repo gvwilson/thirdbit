@@ -1,0 +1,233 @@
+<!DOCTYPE html lang="en">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Managing Research Software Projects: Findability</title>
+    
+    <script defer data-domain="codebender.org" src="https://plausible.io/js/plausible.js"></script>
+    
+    <link rel="icon" type="image/x-icon" href="../../files/favicon.ico">
+    <link rel="stylesheet" href="../../mccole.css">
+  </head>
+  <body class="page">
+    <div align="center" style="padding-top: 2rem;">
+      
+      <h2><a href="../../">Managing Research Software Projects</a></h2>
+      <h1>Findability</h1>
+      
+      <p>
+        <img src="../../files/codebender.svg" alt="logo" width="10%" />
+      </p>
+    </div>
+
+<p>
+  The <a href="https://www.go-fair.org/fair-principles/">FAIR Principles</a>
+  encourage researchers to make data findable,
+  accessible interoperable, and reusable [<a href="../../bibliography/#Wilkinson2016">Wilkinson2016</a>].
+  The tips below, taken from [<a href="../../bibliography/#Lin2020">Lin2020</a>], will
+  help you turn those principles into practice.
+</p>
+
+<dl>
+
+  <dt>Design for a wide range of users.</dt>
+  <dd>
+    <p>
+    You might think only a few experts know your field well enough to care
+    about your data, newcomers also need to use your work to gain
+    experience, and other people may access your work in translation or
+    via a screen reader.  Establish context, to use clear and concise
+    language, and minimize the use of jargon.
+    </p>
+  </dd>
+
+  <dt>Design with the end in mind.</dt>
+  <dd>
+    <p>
+    Think ahead about the things you would want to be found at the
+    completion of the project, including relevant preprints, and then
+    decide what should go where. For example:
+    <ul>
+      <li>
+        Finalized laboratory data can be stored in <a href="https://datadryad.org/">Dryad</a>
+        so that you can cite the same data source in multiple publications with a single DOI.
+      </li>
+      <li>
+        Lab protocols can be maintained in <a href="https://www.protocols.io/">Protocols.io</a>
+        so that future collaborators can find them using a DOI
+        while keeping incomplete protocol drafts private.
+      </li>
+      <li>
+        Analysis code can be deposited in <a href="https://zenodo.org/">Zenodo</a>,
+        which you can cite and update as code evolves.
+      </li>
+      <li>
+        Research manuscripts can be posted to sites like <a href="https://arxiv.org/">arXiv</a>.
+      </li>
+      <li>
+        Your ORCID can be linked to each of the DOIs created by these repositories.
+      </li>
+    </ul>
+    </p>
+  </dd>
+
+  <dt>Use textual structure.</dt>
+  <dd>
+    <p>
+    A key part of searching the web is scanning the text returned by
+    search engines to see if it contains target information.  Textual
+    structure helps that process: formatted headers (rather than just
+    enlarged text), bulleted or numbered lists, and highlighted terms all
+    make both the information and its structure easier to understand.
+    Other examples include:
+    <ul>
+      <li>
+        GitHub allows users to add tags to issues and commit messages which
+        can then be searched across projects.
+      </li>
+      <li>
+        Using specific Google Docs heading levels creates a table of
+        contents in real time, visible when the file is open.
+      </li>
+      <li>
+        CSV files do not have a standard way to store metadata, but authors
+        commonly create a README or MANIFEST file that describes the
+        structure and content of the files in a collection.
+      </li>
+    </ul>
+    </p>
+  </dd>
+
+  <dt>Add metadata.</dt>
+  <dd>
+    <p>
+    All modern operating systems allow you to add information to the
+    properties of a file or directory. Databases, word processors, and
+    website construction programs also have built-in metadata
+    capabilities, though application-specific metadata can quickly become
+    inconsistent. Creating a list of terms and writing a small program to
+    check that only terms from that list goes a long way toward preventing
+    this.
+    </p>
+  </dd>
+
+  <dt>Use search and browsing.</dt>
+  <dd>
+    <p>
+    People search <em>and</em> browse when they're trying to find information, so
+    design for both. As people browse, they build a mental map of the
+    content they could possibly find, then search based on that map.  You
+    should therefore make information accessible both ways and make it
+    easy to move from searching to browsing and back again. Tags and other
+    metadata help with searching, while structural clues tell users about
+    the content contained in the information they are looking at.
+    </p>
+  </dd>
+
+  <dt>Mimic real world directions.</dt>
+  <dd>
+    <p>
+    Research shows that people scan but don't read: they click on the
+    first close thing they see and give up very, very quickly.  Markers
+    and directions should therefore be as consistent as highway signs with
+    regards to appearance, style, and type of information.
+    File paths and breadcrumb trails on websites give users a sense of
+    where information is and suggest new paths they can take. For example,
+    the URLs of a website might all include the name of a section of the
+    site, such as <code>/papers/</code> or <code>/blog/</code>,
+    while DOIs and ORCIDs serve as beacons that people can always get back to.
+    </p>
+  </dd>
+
+  <dt>Use meaningful names.</dt>
+  <dd>
+    <p>
+    Filenames and URLs are the one kind of metadata you can't avoid
+    creating, so always choose ones that are human-readable and that
+    convey information about what they name, both when navigated to <em>and</em>
+    when returned in search results. For example, it's easy to call a
+    paper <code>nature2021.pdf</code>, but since other people will publish papers
+    there that year, a longer name like <code>wilson-managing-rse-plos-2021.pdf</code>
+    will convey more information at a glance and retain that information
+    after the paper has been downloaded and put in a folder with dozens of
+    others.
+    </p>
+  </dd>
+
+  <dt>Use unusual names.</dt>
+  <dd>
+    <p>
+    The more generic a term is, the harder it is to search
+    for. A quick test is to search for the name before adopting it: if
+    dozens of unrelated results come up, you may want to pick a different
+    name.
+    </p>
+  </dd>
+
+  <dt>Use tags.</dt>
+  <dd>
+    <p>
+    After meaningful names, tags are the easiest and most effective
+    metadata you can create. Most tools support tagging, and most search
+    tools use them to narrow the scope of queries.  This means that you
+    can now file a single thing in multiple "locations", which was not
+    possible in the pre-digital era. Multiple tags also assist users from
+    varied backgrounds because the terms can be customized to be inclusive
+    of a diverse set of users.
+    </p>
+  </dd>
+
+  <dt>Use other people's tags.</dt>
+  <dd>
+    <p>
+    Where possible, used established subject terms taken from article
+    databases, data repositories, and library catalogs that you and your
+    users might already be familiar with, such as the National Cancer
+    Institute Thesaurus and the Medical Subject Headings.
+    </p>
+  </dd>
+
+  <dt>Understand the difference between format and subject.</dt>
+  <dd>
+    <p>
+    Format describes what your content <em>is</em>, while subject describes what
+    it is <em>about</em>: for example, this <em>is</em> a web page, but it is <em>about</em>
+    making information findable. You can rely on filename suffixes to
+    distinguish computational notebooks from PDF files, tabular data sets,
+    or slide decks, but file formats can change (e.g., slides can be printed as a PDF).
+    Naming and metadata conventions threfore tend to be more robust as well as more
+    informative than relying on file types.
+    </p>
+  </dd>
+
+  <dt>Do not abbrvt.</dt>
+  <dd>
+    <p>
+    Acronyms and abbreviations make communication between those who know
+    them more efficient at the price of making them less accessible to
+    newcomers. Spell out acronyms and abbreviations that you take for
+    granted (or hyperlink to their definitions), but remember that
+    acronyms are often repurposed by different professions or disciplines,
+    so write them all out the first time they appear or point to a
+    glossary.
+    </p>
+  </dd>
+</dl>
+
+
+
+    <hr/>
+
+    <div align="center">
+      <table class="plain" width="90%">
+        <tr>
+          <td align="center"><a href="../../license/">License</a></td>
+          <td align="center"><a href="../../conduct/">Code of Conduct</a></td>
+          <td align="center"><a href="../../contributing/">Contributing</a></td>
+          <td align="center"><a href="../../bibliography/">Bibliography</a></td>
+          <td align="center"><a href="https://github.com/gvwilson/codebender">GitHub</a></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
