@@ -8,7 +8,7 @@ Another year over; what have I learned?
 
 - A story I wrote after my brother died
   [was published by *On Spec*](https://onspecmag.wpcomstaging.com/2021/01/06/issue-115-coming-soon/);
-  you can read it [here](https://sensibleadventures.com/fall-behind/).
+  you can read it [here]({{'/fiction/fall-behind/' | relative_url}}).
   I received over a dozen rejections and didn't make any other sales,
   but decided to self-publish a novel called *[Beneath Coriandel]({{'/2021/07/05/beneath-coriandel/' | relative_url}})*;
   I hope you like it.
@@ -37,7 +37,7 @@ Another year over; what have I learned?
 - I spent six months with [Metabase](https://www.metabase.com/)
   then moved to a straight-up programming position at [Deep Genomics](https://www.deepgenomics.com/).
   I'm really enjoying coding for a living again after so many years,
-  but a little dumbfounded by how much Python now looks like Enterprise Java...
+  but a little dumbfounded by how much Python now looks like Enterprise Java.
 
 - We mothballed the [TidyBlocks](https://tidyblocks.tech/) project:
   we'd reached the limits of what we could do as volunteers
