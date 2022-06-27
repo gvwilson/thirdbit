@@ -1,0 +1,198 @@
+Lars Schöbitz
+
+Thanks for inviting me to review this exciting paper, @gvwilson. I will provide my comments along the sections below, but I like the overall order. It starts very practical and then gets into detail with specific advice. The Appendixes are highly useful and deserve the paper the tree has made to let me print them on a poster for our office corridor. 
+
+# What is a Project
+
+- In the workshop this shows up in Mechanics and I value the slides 5 to 9 a lot: https://codebender.org/mechanics/#5
+- I think the paper would benefit from a section that includes this
+
+# How to think about your new role
+
+- "Recalibrate your sensors" - I will turn this into a poster and put it up on my wall! 
+- I like how the roles/departments turn into the outline of the paper. The Finance Department currently doesn't show up in the outline and I suggest also adding Governance to make it complete. 
+
+# Project Management
+
+- What I am missing here are the projects where there would be a mix of people that write code and those that write the narrative, for example, as part of a journal paper.
+	- The social scientists that contribute to the research projects that I work with largely do qualitative research without computational work. 	
+	- Understandably, they do not see the point of using version control and using issues for shared to-do lists for writing a manuscript that combines quantitative computational analysis (e.g. air quality sensor data) with their work (thematic analysis of focus group discussions)
+	- We end up with a mess of proprietary file formats scattered across different locations and additional project and task management tools that aren't really helping us either.
+	- While it's my job to solve that problem, I would love to see it addressed in this section
+
+## Time
+
+- This section is so brilliant and I will reference and share it any time that I have a discussion about working hours.
+- What I think could add value here is to highlight that this is also the case in academia.
+
+- I often hear statements like "You cannot get your PhD if you don't work 60 hours/week." or "I do not understand how a woman can have a family and be a professor." (which highlights several issues)
+- My experience is also that the higher the rank, the less you need to report on time tracking. First, it's "hours you worked", then it's "tracking absences", and finally "nothing to track". Tenure track and tenured professors do not even need to track when they take their vacation. What does that lead to? People won't take time off and set bad examples.
+
+# Sales
+
+- Fantastic line! https://github.com/gvwilson/codebender/blob/paper/mrsp.tex#L526
+Date: Sun, 07 Nov 2021 14:52:05 -0800
+From: Paul Wilson <notifications@github.com>
+
+There may be value in how hierarchical leadership structures from outside a project are superimposed onto a software project.  For example, when my students and I all participate in a project, the leadership structure of our academic environment influences (but doesn't define!) the authority with which we all participate in the project.
+From: "Daniel S. Katz" <dskatz@illinois.edu>
+Date: Sat, 6 Nov 2021 18:57:07 -0500
+
+The being fired part is one thing that I would cut in this format.
+
+Thoughts:
+
+I'm not sure I understand a dataset as a project.
+I'm also not sure about the mapping/guidance for repositories at the end of S1
+
+2 seems aimed at the/a leader of the project (your new role), but I'm not sure how we got to this point, rather than talking about the different roles that are needed.
+Also in 2, I don't see where grants fits in - it doesn't fit sales or finance as they are describe, though this is a way to get some of the resources needed to sustain a project
+
+In 3, I see
+Elected representation at the very large end
+  - With explicit rules for suffrage
+- In between, best to use Martha's Rules \cite{Minahan1986}
+but I don't know what in-between means, since there's no other option described.  What's the small-project process?
+
+Re hours worked per day - you might be interested in https://www.npr.org/2021/10/27/1049786108/nice-work-week-if-you-can-get-it - it's not clear to me that 40 is a magic number, and while you seem to say that it is, you might want to cite something to demonstrate this.
+
+In 6, maybe talk about coding in interviews.
+
+In 7, you might want to talk about storing metadata about authors in the repo, updating it frequently, then using it when needed (when writing papers or publishing software versions)
+And how to do this, CITATION.cff, CodeMeta,json, etc.
+
+I really don't like "Your actual product is your grant proposals".  You actual product is your product. Getting grants to build it or support it means that you've made a case that this product is important to the funder to support. If you think about volunteers, they don't join a project because it has gotten a grant - they join because they think the actual product is (or could be) useful, and they can contribute to it
+
+In 8, I think users do care about "here's what's in it for me - If I use this software, I will be able to better/faster ..."
+
+
+Dan
+Date: Wed, 10 Nov 2021 16:25:51 -0800
+From: "Stefan van der Walt" <stefanv@berkeley.edu>
+
+Hi Greg,
+
+I took a look at the paper skeleton.  Since I read your slides after theworkshop, and this seems to be a concatenated selection of those, I wasalready familiar with most of the content.
+
+It looks like you are targeting research software---but these are developed in very many different environments.  E.g., when there is a PIthat instructs a postdoc to deliver some software because it was listedas a grant outcome, you're already in trouble.  If the PI takes an active interest, but still knows little about software, different problems. Contrast that with the work we do, developing research software in opencommunities: there, you a project manager can assign work, but has no expectation of that work being done on a specific schedule.  This becomesapparent in the "work only so much" discussion; not a real concern for volunteer efforts because (a) most work is done voluntarily after hours and (b) there is no mechanism by which the project leader can force people to work long hours.  Carrots, not sticks.
+
+Overall, I would fish out principles and leave the details out, since those differ so much from project to project.  E.g., the governance section is quite detailed, but most of our projects follow different guidelines; unless there is an easy way to distill the best practice (i.e., it isfollowed very commonly), I would outline the intent and not the method. Or in the issues-as-shared-to-do-list section, tags are deemed important: but in practice, while tags can be useful, again it is not clear that this is a fundamental part of success.  The principle is that you needto organizing and keep track of issues and work, who takes it on, and what progress has been made.
+
+I.t.o. meetings, different meetings have different styles.  E.g., for work check-in meetings, we have a slightly different form of agenda: the work log of the previous week's work.  And for planning meetings, we almost always have a problem to solve / need to address.  As such, it is clear what the output of the meeting should be.  Therefore, we tend not to concern ourselves with time limits on agenda items, because it takes what it takes to get it done (we're not very corporate).  This is not to say that times on agenda items can't be useful, just that---as mentioned above---it may not be the best fit across the board.
+
+As an aside, communityrules.info is a good idea, but the templates are too sparse to be useful as-is.  In many of ours projects (see e.g. skimage/learn governance) we follow an onion model: consensus by community, escalating to consensus by core developers, escalating to vote.
+
+I may have missed it, but is there a discussion around remote work and challenges? This is becoming more and more relevant, even for in-person labs.
+
+The human resources section makes it clear that we are talking PI-in-a-lab-research-software.  There, I'd say don't engage postdocs in software development tracks unless (a) it is rewarded in your field or (b) they want to exit to industry or similar.  Focus needs to be on the people in your lab, and the software output needs to tie into the work you do.  For getting them credit, you often need to publish papers with the software developers.
+
+I don't think I understand the marketing section very well.  When you build useful software, people will come: but not by themselves.  So there is certainly academic advertising involved, as well as concerted community building.  Software that you don't intend to build a community aroundwill become a GitHub or Zenodo dump of research output, and will soon be unusable.  Still better than nothing, I suppose.
+
+Support---again, building a community around your software is crucial.  So it doesn't die, and so other can help share the burden of support, while everyone gains from the same software development effort.  StackOverflow is not a friendly place; don't send people there (better are community forums like discourse, mailing lists, or chat).
+
+Those are some initial thoughts; we can chat again once the paper has congealed a bit.
+From: BANKHEAD Peter <p.bankhead@ed.ac.uk>
+Date: Sat, 6 Nov 2021 19:31:06 +0000
+
+I'm not sure I can contribute very useful feedback; your workshop jolted me into an overdue time of reflection about my own work, and I feel like I need to do more thinking to formulate my opinions. I think the manuscript has a similar effect and it would be really good to see it published.
+
+Having spent some time in industry (and left some positions in less than ideal circumstances) I especially enjoyed the appendices in your manuscript. And I find the Project/Product manager distinction a really important one that I need to get straight in my own head.
+
+I'm not sure it fits here, but the one thing I 'really wish the people [I] work with knew and did' is recognize that, in academia, there is often a distinction between 'research' and 'software' that is unhelpful for everyone - particularly with the mistaken assumption that 'research' is somehow harder. I often think that if someone develops an algorithm to solve a problem, they can publish this as a mess of math and code; the work will be valued as research, although no one will ever use it. However, if the same person puts in orders of magnitude more effort to build user-friendly and well-documented software around the same algorithm, then their work can have a huge impact - but they are likely to be viewed less favourably a developer and not a researcher. Nevertheless, a substantial number of people do this extra work anyway.
+
+With that in mind, the only thing I can think of possibly adding is a few more statements on why anyone would manage a research software project at all. It's a lot of work and responsibility, and (at least in academia) probably not the most effective path to career progression. There can be a tension between programming and publishing, your vision for a project vs that of others, and whether to maximize users or usefulness. For a reader who (like me) has blundered into leading a project that they established because they believed in its importance and underestimated the costs, it can be hard to remember to step back, look after yourself and those nearby, and keep sight of whatever values led to starting the project in the first place - while avoiding dictatorship. I don't yet have a dozen people to manage, and I'm not sure whether I want to get to that point - but still even with a much smaller group, the article is extremely relevant.
+
+I guess I am just mulling over not just how to make the project successful, but also the different things 'successful' could mean - and why (or whether) each matters. But feel free to disregard this; I already found your writing very thought-provoking, sensitive and empathetic, and there's a strong chance this is already covered.
+
+Thanks again,
+
+Pete
+
+PS. The last thing I read that prompted a similar kind of reflection was'Working in Public: The Making and Maintenance of Open Source Software', although it didn't specifically deal with research software projects. There is a lot in your article that is entirely new to me. I need to read more...
+From: Eric Holscher <eric@ericholscher.com>
+Date: Tue, 16 Nov 2021 11:35:59 -0800
+
+I looked through the document, but honestly it's a bit overwhelming. I'm
+not well-versed in Tex so maybe there's a better way to get an overview of
+it, but overall it looks similar to the content we went over in the CZI
+meeting.
+
+I really thought the workshop was quite valuable, and appreciated a lot of
+the insights in it. A couple ideas or suggestions from reading over the tex
+doc:
+
+* I loved the call out about how to measure productivity. This is
+something I've (mostly) figured out, but is a really hard transition.
+* The breakdown of all the roles, and the split between Product & Project
+management I think is super important to developers.
+* Governance at the top makes a lot of sense, since it's the basis of all
+other decisions making. Should it be included in the `How to Think About
+Your New Role` slide, since it's also part of the organization?
+* Sticking to your grant budget and how to plan around that is something
+that we really struggled with. It might be outside of the scope of this
+document, but I think it could be an interesting addition.
+
+Overall the content seemed immensely valuable. Having management training
+for people who never intended to be managers is going to make everyone
+working for them more successful, and lead to much more success of the
+projects overall.
+
+Cheers,
+Eric
+From: Noam Ross <noam.ross@gmail.com>
+Date: Mon, 8 Nov 2021 10:15:38 -0500
+
+Feedback on structure:
+ - One area where I have the most opinions is the "What is a Project?"" and
+I think it is actually strongly tied to the "Project Management" and
+"Marketing" Sections and those should be moved up.  I think the human
+resources kind of breaks up the flow between the areas of Product
+Management and Marketing/Sales, but perhaps it was a deliberate decision to
+alternate between product- and people- topics as you grow the scope of the
+top.
+
+A few other thoughts on topics here:
+- Defining the product well and having a feedback mechanism between
+development and potential users is important.  Lots of times the
+funder/client themselves aren't really sure about the needs of their target
+user base (e.g., a government agency R&D division does not know what
+applied users within its own agency need on a day-to-day basis), and
+working your way towards the users is an important part of managing your
+client.
+ - One area that I find is undersupported by common frameworks and tools is
+the idea that projects and datasets bleed into each other. In research
+projects, the data collection phase isn't fixed and datasets continue to be
+updated, appended, and used for other projects defining/depositing a single
+data set with a DOI doesn't solve the continuous change project.  For many
+of my projects that have "products", data (often "live" datasets") and
+software are a tightly coupled outcome, and this requires re-thinking your
+project architecture. I've been using versioned AWS buckets, and recently
+Dolt <https://www.dolthub.com/> as tools to deal with these but it's an
+organizational problem as much as a technical one. Similarly, components of
+software get pulled out of one project into another and the best practice
+of how to handle this really depends on project scopes and definitions.
+- Trade-offs in organizing a project: I've leaned more recently towards
+large single repositories for projects rather than breaking them up into
+different tools and packages because keeping everything in sync with the
+latter strategy can be difficult, and it's easier to have a single place
+for issue tracking and communication.  That said, we try to design the
+large single repositories so they _can_ be broken up (e.g., functions
+defined in individual files that could be move to different packages).
+
+Best,
+Noam
+From: Christina Koch <koch.christinal@gmail.com>
+Date: Mon, 7 Feb 2022 21:07:18 -0600
+
+here's my 5 min of brainstorming from before:
+
+   - Disclaimer: YMMV in terms of local staff/support
+   - Partnership/trust relationships - Finding someone who treats you like
+   a partner
+   - How to ask good questions
+   - When to ask for help
+   - Follow the policies - explain common policies / ask when in doubt
+   - Taschuk's rules
+
+If that helps? Could also fit in marketing/HR because it's a lot about
+communication.
