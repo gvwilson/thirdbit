@@ -2,7 +2,6 @@
 title: "Beneath Coriandel"
 date: 2021-07-05 03:04:05
 year: 2021
-favorite: true
 ---
 
 My novel *Beneath Coriandel* is now for sale on Amazon in
