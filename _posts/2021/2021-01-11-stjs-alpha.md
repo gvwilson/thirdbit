@@ -8,7 +8,7 @@ I have to fix two bugs in the examples,
 draw 91 diagrams,
 fill in an appendix on cognitive load,
 and then revise all 52,000 words,
-but [the first draft](https://stjs.tech/vol1/) is done.
+but [the first draft]({{'/sdxjs/' | relative_url}}) is done.
 Feedback would be greatly appreciated:
 you can [mail me](mailto:gvwilson@third-bit.com)
 or file issues in [the book's GitHub repository](https://github.com/software-tools-in-javascript/stjs/).

@@ -7,19 +7,20 @@ year: 2021
 I'm starting work as a software engineer with [Deep Genomics](https://www.deepgenomics.com/) tomorrow;
 here's what I've done in the three weeks since I left Metabase:
 
-- Ran a workshop on [Managing Research Software Projects](https://codebender.org/)
+- Ran a workshop on [Managing Research Software Projects]({{'/mrsp/' | relative_url}})
   to raise money for [MetaDocencia](https://www.metadocencia.org/).
 
 - Wrote 43 posts on empirical software engineering research
   for [It Will Never Work in Theory](https://neverworkintheory.org/).
 
-- Started acting as client and product owner for some projects based on [*Software Tools in JavaScript*](https://stjs.tech/)
+- Started acting as client and product owner for some projects based on
+  [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}})
   for Mike Hoye's software engineering course at the University of Toronto.
 
 - Starting playing the clarinet
   (because tenosynovitis in my right hand meant I had to give up guitar).
 
-- Revised a middle-grade novel titled *Maddy Roo*
+- Revised a middle-grade novel titled [*Maddy Roo*]({{'/fiction/maddy-roo/' | relative_url}})
   (furries versus robots with a bit of family drama)---if you'd like to give it a read,
   I'd be grateful for feedback.
 

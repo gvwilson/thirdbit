@@ -6,10 +6,11 @@ year: 2021
 
 Today was my last day at RStudio.
 I'm sad to leave,
-but grateful to everyone in the R community who made me feel welcome.
-I don't know what comes next---the company is being generous about redundancy pay,
-so I have a few weeks to figure it out---but I think I'm going to spend the next couple of weeks
-polishing *[Software Tools in JavaScript](https://stjs.tech/)*,
+particularly given how clumsy the company has been with certified and in-flight trainers,
+but I'm grateful to everyone in the R community who made me feel welcome.
+I don't know what comes next,
+but I think I'm going to spend the next couple of weeks
+polishing [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}}),
 trying to get another short story out the door,
 and working on some guitar chords.
 If you're hiring,

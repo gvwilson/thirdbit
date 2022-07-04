@@ -9,7 +9,7 @@ the little language that Bob Nystrom created for his wonderful book
 *[Crafting Interpreters](https://craftinginterpreters.com/)*.
 As [I said then]({{site.github.url}}/2021/12/26/effort-estimation/),
 languages like Python and JavaScript are larger than they used to be,
-so I'm looking for something smaller for teaching [software design](https://stjs.tech/)
+so I'm looking for something smaller for teaching [software design]({{'/sdxjs/' | relative_url}})
 (say, about the same size as Pascal was in 1980).
 I don't have time to make all the changes I'd like to Lox,
 but I hope that writing them down and explaining why will spark ideas in someone else:

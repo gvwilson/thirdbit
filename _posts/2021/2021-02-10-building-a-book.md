@@ -50,7 +50,8 @@ do the things I want:
     I have Makefiles... Lots of Makefiles...
 
 1.  **Support for multiple languages.**
-    *[Software Tools in JavaScript](https://stjs.tech/) has examples in Node.js, Python, and the Bash shell;
+    [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}})
+    has examples in Node.js, Python, and the Bash shell;
     other books have an even greater diversity.
     Today's computational notebooks handle this reasonably well;
     for LaTeX and static site generators I have to trust my Makefiles.

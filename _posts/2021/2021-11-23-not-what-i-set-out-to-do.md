@@ -4,8 +4,8 @@ date: 2021-11-23
 year: 2021
 ---
 
-*[Software Tools in JavaScript](https://stjs.tech/)* is now
-[available on Leanpub](https://leanpub.com/stjs/),
+[*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}})
+is now available on Leanpub,
 and printed copies will soon be available as well.
 I'm glad it's finally out,
 and I hope you find it useful,
@@ -22,7 +22,7 @@ only a handful of teachers used them in class.
 The chapters were written at very different levels and used many different programming languages,
 which meant they required far more background knowledge than most undergraduates had.
 
-*[STJS](https://stjs.tech/)* fixes that by tackling problems at more or less the same level,
+[*SDXJS*]({{'/sdxjs/' | relative_url}}) fixes that by tackling problems at more or less the same level,
 in a domain that software engineering students will be familiar with (programming tools),
 and by using a single language that most potential readers will already have encountered.
 Despite all that, and being free,
@@ -41,7 +41,7 @@ while a quarter of the people we reached out to were women,
 35 of the final 36 contributors were men
 (and almost all of them were white).
 *AOSA* wasn't quite as bad,
-but I wanted *[STJS](https://stjs.tech/)* to be better
+but I wanted [*SDXJS*]({{'/sdxjs/' | relative_url}}) to be better
 because I want computer science and the tech industry to be better.
 
 Because here's the thing:
@@ -54,7 +54,7 @@ not my middling-good ability to code in C or Python,
 and I figured that if it worked for me by accident
 then maybe it could be made to work for other people by design.
 
-When I started work on *[STJS](https://stjs.tech/)* three years ago,
+When I started work on [*SDXJS*]({{'/sdxjs/' | relative_url}}) three years ago,
 my plan was to invite people from groups our industry has marginalized or excluded
 to write chapters,
 and to turn those chapters into conference talks,

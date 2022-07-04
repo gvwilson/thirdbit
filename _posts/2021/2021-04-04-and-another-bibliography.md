@@ -4,7 +4,7 @@ date: 2021-04-04
 year: 2021
 ---
 
-<p>I've actually been working on two books to take advantage of <a href="{{ '/2021/02/12/last-day-at-rstudio/' | relative_url }}">my unexpected leisure</a>.  This one is about software design, and you can read it at <https://stjs.tech>; its bibliography is shorter than <a href="{{ '/2021/04/03/another-bibliography/' | relative_url }}">yesterday's</a>, but I hope it's just as useful.</p>
+<p>I've actually been working on two books to take advantage of <a href="{{ '/2021/02/12/last-day-at-rstudio/' | relative_url }}">my unexpected leisure</a>.  This one is about software design, and you can read it at <https://third-bit.com/sdxjs/>; its bibliography is shorter than <a href="{{ '/2021/04/03/another-bibliography/' | relative_url }}">yesterday's</a>, but I hope it's just as useful.</p>
 
 <ul>
 <li>

@@ -43,12 +43,12 @@ Another year over; what have I learned?
   we'd reached the limits of what we could do as volunteers
   and [nobody wanted to fund it]({{'/2021/07/22/whatever-happened-to-tidyblocks/' | relative_url}}).
 
-- I finished *[Software Tools in JavaScript](https://stjs.tech/)*,
+- I finished [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}}),
   but [there hasn't been a lot of interest]({{'/2021/11/23/not-what-i-set-out-to-do/' | relative_url}}),
-  so I decided to [publish it on Leanpub](https://leanpub.com/stjs)
+  so I decided to publish it on Leanpub
   until I can figure out what's wrong with my beliefs about what programmers want to learn.
 
-- I ran [a workshop on managing research software projects](https://codebender.org/)
+- I ran [a workshop on managing research software projects]({{'/mrsp/' | relative_url}})
   to help raise money for [MetaDocencia](https://www.metadocencia.org/).
   There was much less interest in it than I expected,
   so once again I'm going to pause any further development

@@ -21,7 +21,8 @@ Then the exuberance of the birds in our back yard woke me up
 and I had to return a world in which my hands hurt when I type
 and my brain hurts when I word.
 Iffy won't escape from Antarctica by magic;
-the errors and inconsistencies in *[STJS](https://stjs.tech/)* and *[BST](https://buildtogether.tech/)* won't correct themselves,
+the errors and inconsistencies in *[SDXJS]({{'/sdxjs/' | relative_url}})*
+and *[BST](https://buildtogether.tech/)* won't correct themselves,
 and as for the programming tools and jazz,
 you can only have everything you want in dreams and sometimes not even then.
 

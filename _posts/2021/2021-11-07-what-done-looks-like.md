@@ -4,7 +4,7 @@ date: 2021-11-07
 year: 2021
 ---
 
-I recently ran [a workshop on managing research software projects](https://codebender.org),
+I recently ran [a workshop on managing research software projects]({{'/mrsp/' | relative_url}}),
 and one of the questions that came up was,
 "What does 'done' look like?"
 There are lots of answers elsewhere for the technical side

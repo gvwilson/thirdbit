@@ -5,7 +5,7 @@ year: 2021
 ---
 
 A month ago I [wrote]({{site.github.url}}/2021/11/23/not-what-i-set-out-to-do/) about
-*[Software Tools in JavaScript](https://stjs.tech/)*
+[*Software Design by Example using JavaScript*]({{'/sdxjs/' | relative_url}})
 and how it fell short of what I'd hoped to create.
 Part of the problem is that from a teaching point of view,
 JavaScript is still crippled by design decisions made in haste in its early days.
@@ -38,7 +38,7 @@ and enhancing the source of Lox (the little language it builds)
 to include array and table primitives and a few other features.
 Based on that,
 and on a comparison of the size of Dictu's source code with
-a need-to-have list based on [*STJS*](https://stjs.tech/),
+a need-to-have list based on [*SDXJS*]({{'/sdxjs/' | relative_url}}),
 I estimate it would take about 200 hours to turn Dictu into
 what I'd want to take a second run at a book on software tools
 (which itself would only take about another 200 hours,

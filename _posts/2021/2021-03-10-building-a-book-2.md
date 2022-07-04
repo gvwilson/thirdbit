@@ -5,7 +5,7 @@ year: 2021
 ---
 
 As a follow-up to [last month's post about building a book]({{ '/2021/02/10/building-a-book/' | relative_url }}),
-here's a rundown of what the template for *[Software Tools in JavaScript](https://stjs.tech/)*
+here's a rundown of what the template for [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}})
 and my other book projects does right now.
 
 1.  **Jekyll with GitHub Pages' settings.**

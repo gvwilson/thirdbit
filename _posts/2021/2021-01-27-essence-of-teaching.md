@@ -65,12 +65,12 @@ and I find the language overly formal in some places---but it's a very good one,
 and the closest thing I've seen in the wild
 to Carroll's [minimal manual](http://teachtogether.tech/en/index.html#s:architecture-load) approach to lesson design.
 It isn't the right approach for every situation,
-but I could have written *[Software Tools in JavaScript](https://stjs.tech)* this way,
+but I could have written [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}}) this way,
 I would have.
 
 All of which brings me to the point of this post,
-which is that I *couldn't* write *[STJS](https://stjs.tech)* that way.
-We couldn't have written *[JavaScript for Data Science](http://js4ds.org/)* in this style either,
+which is that I *couldn't* write [*SDXJS*]({{'/sdxjs/' | relative_url}}) that way.
+We couldn't have written [*JavaScript for Data Science*]({{'/js4ds/' | relative_url}}) in this style either,
 though we could use it for some parts of
 *[Research Software Engineering with Python](https://merely-useful.github.io/py-rse/)*,
 such as the introduction to the Unix shell and the introduction to Make.

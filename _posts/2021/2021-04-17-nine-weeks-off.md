@@ -5,7 +5,7 @@ year: 2021
 ---
 
 I'm starting a new job on Monday;
-what have I done with the nine weeks since RStudio laid me off?
+what have I done with the nine weeks since RStudio laid me off without warning?
 
 -   Published [a short story](https://onspecmag.wpcomstaging.com/2021/01/23/issue-115-in-the-mail-to-your-home-soon/)
     that I wrote after my brother died
@@ -16,7 +16,7 @@ what have I done with the nine weeks since RStudio laid me off?
 -   Wrapped up *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*:
     it should be on the shelves this quarter.
 
--   Finished the first usable draft of *[Software Tools in JavaScript](https://stjs.tech/)*,
+-   Finished the first usable draft of [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}}),
     which teaches software design by building small versions of the tools programmers use themselves.
     Comments and feedback would be very welcome.
 

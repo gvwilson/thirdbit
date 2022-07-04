@@ -5,7 +5,7 @@ year: 2021
 ---
 
 The [previous post in this series](https://third-bit.com/2021/03/10/building-a-book-2/)
-described the template I'm using for *[Software Tools in JavaScript][stjs]*
+described the template I'm using for [*Software Design by Example Using JavaScript*][sdxjs]
 and *[Building Tech Together][bst]*.
 Here's more detail on the helper scripts I had to write
 to work around Jekyll's inadequacies,
@@ -44,7 +44,7 @@ for a second-year course on software design and testing.
 
 1.  `check-chunk-length.py`:
     look for text inclusions (e.g., sample programs) that are too long to fit on a single printed page.
-    *[STJS][stjs]* has several of these;
+    [*SDXJS*][sdxjs] has several of these;
     if I stick with this template,
     I'll modify this script and some of the others
     so that directives in the Markdown source will turn off warnings for specific inclusions.
@@ -99,5 +99,5 @@ I also have:
     display the number of pages in each chapter of the final PDF.
 
 [bst]: https://bst.tech/
-[stjs]: https://stjs.tech/
+[sdxjs]: {{'/sdxjs/' | relative_url}}
 [yaml-bug]: https://stackoverflow.com/questions/66320774/how-to-pre-define-links-in-jekyll-config-yml-using-kramdown-links-def-options

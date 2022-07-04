@@ -6,7 +6,7 @@ year: 2021
 
 I have written four technical books (with three more in progress) and have edited seven others.
 They have all been different, but I do now have something approximating a process.
-For *[Software Tools in JavaScript](https://stjs.tech/)* it went like this:
+For [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}}) it went like this:
 
 1.  Draw a concept map for major topics (about 20 nodes and 40 links).
 

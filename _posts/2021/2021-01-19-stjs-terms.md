@@ -4,7 +4,7 @@ date: 2021-01-19
 year: 2021
 ---
 
-I still have 48 figures to draw for *[Software Tools in JavaScript](https://stjs.tech/)*,
+I still have 48 figures to draw for *[Software Design by Example Using JavaScript]({{'/sdxjs/' | relative_url}})*,
 but to follow up on [this post about its topics]({{ '/2021/01/11/stjs-alpha/' | relative_url }})
 and [this post about using glossaries to summarize lesson content]({{ '/2021/01/17/the-page-is-not-the-lesson/' | relative_url }}),
 here's a list of the terms defined in each chapter.

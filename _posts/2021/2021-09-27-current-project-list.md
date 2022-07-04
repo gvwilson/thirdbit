@@ -8,12 +8,14 @@ I'm starting a new job as a software engineer with [Deep Genomics](https://www.d
 I'm looking forward to writing Python for a living again after a decade of doing other things,
 but hope I'll be able to wrap up these side projects soon as well:
 
-- running workshops on [Managing Research Software Projects](https://codebender.org/)
+- running workshops on [Managing Research Software Projects]({{'/mrsp/' | relative_url}})
 
-- acting as client and product owner for some projects based on [*Software Tools in JavaScript*](https://stjs.tech/)
+- acting as client and product owner for some projects based on
+  [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}})
   for Mike Hoye's software engineering course at the University of Toronto
 
-- finishing [*STJS*](https://stjs.tech/) and its companion [*Building Software Together*](https://buildtogether.tech/)
+- finishing [*SDXJS*]({{'/sdxjs/' | relative_url}})
+  and its companion [*Building Software Together*](https://buildtogether.tech/)
 
 - finishing the paper "[Twelve Quick Tips for Software Design](https://github.com/gvwilson/12-design/)"
 
