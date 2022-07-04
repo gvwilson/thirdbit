@@ -5,7 +5,7 @@ year: 2021
 ---
 
 My mum would have been 94 today, and my sister would have been 57.
-Mum knit every day for more than 80 years and Sylvia collected toy mice, so I got this.
+Mum knit almost every day for more than 70 years and Sylvia collected toy mice, so I got this.
 I suspect both would have disapproved but secretly been pleased.
 
 <div align="center">
