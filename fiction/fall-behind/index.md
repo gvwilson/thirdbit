@@ -290,7 +290,7 @@ She had started doodling it once at the dinner table,
 but her mother had stopped her.
 "I'm going to run a few errands---I'll be back later."
 
-She shrugged her arms into her coat on his way out the door,
+She shrugged her arms into her coat on her way out the door,
 pulled out her phone,
 and opened her contact list.
 It had been fifteen years,
@@ -1076,7 +1076,7 @@ like the record on Voyager.
 I fiddled the inspection records so that everyone would think someone else had checked it.*
 The files appended to the message had the titles of 20th Century classics,
 but when George opened them,
-he laughed for the first time since her brother's death.
+she laughed for the first time since her brother's death.
 Trolls and mermaids,
 four-armed green Martians,
 evil empires,
@@ -1084,17 +1084,17 @@ heroes with blasters who nevertheless fought with swords:
 they were all there,
 ready for their billion-year slumber.
 
-George stared at the blank page in front of him.
+George stared at the blank page in front of her.
 The next set of satellites was going up in a month.
-There was no way he could get any more stories on board,
+There was no way she could get any more stories on board,
 so what was the point of writing them?
-But then he remembered what his brother told him
+But then she remembered what her brother told her
 as they played one last hand of poker
 to the sound of Bowie and Yes.
 "The point is that it's not over *yet*," Robbie had said.
 "The point is whatever you do *now*."
 
-George picked up his pen.
+George picked up her pen.
 
 *He set the last stone on the double cairn
 and wiped the sweat from his brow.
