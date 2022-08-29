@@ -62,3 +62,18 @@ calculate a Gini coefficient for how effectively scientists use computing, I thi
 How does the number of (active) Slack channels in an org grow as a function of time or of the number of employees?
 how well do the abstracts of SE research papers summarize actual findings?
 what do tech support staff informally teach during tech support calls?
+I wish there was a simple, standard, widely-supported notation like CSS selectors for selecting parts of a program to display in tutorials. I've used five (six?) tools based on specially-formatted comments with various publishers, and it's getting tired
+how does the order in which people write code for production differ from the order in which they explain code in a tutorial and why?
+computational notebook with 2-column display (code on the left, commentary on the right): how does that change things?
+extract E-R diagrams from Pandas/tidyverse scripts and see if they help
+what percentage of time to developers spend debugging and how does that vary by the kind of code they're working on?
+balance between rewriting and fixing
+are SQL statements written in execution order easier for novices to understand? Less likely to be buggy? Does syntactic congruence with notional machines have measurable impact?
+what error recovery techniques are used in what languages and applications how often?
+what labels do people use on GitHub and how do they transfer between projects when people move?
+what examples do people use when teaching security? is it still Ariadne crashing or do they talk about intimate partner abuse?
+how much do engineering managers know about settled results from organizational behavior, social psychology, etc.? and how much pseudoscience do they know?
+evolution of the PEP system
+create a set of scenarios, each w/ multiple-choice options; have an ethics expert determine the best available answer; then have students & professionals answer the same questions and see where they do/don't agree w/ the expert on ethics.
+tudy students from 1st to final year of college/uni and see what tools they start using when. Particularly interested in when/whether they start to use more advanced features of their IDE (e.g., "rename variable in scope").
+how whisper networks in tech adapted to COVID lockdown
