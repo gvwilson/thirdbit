@@ -77,3 +77,4 @@ evolution of the PEP system
 create a set of scenarios, each w/ multiple-choice options; have an ethics expert determine the best available answer; then have students & professionals answer the same questions and see where they do/don't agree w/ the expert on ethics.
 tudy students from 1st to final year of college/uni and see what tools they start using when. Particularly interested in when/whether they start to use more advanced features of their IDE (e.g., "rename variable in scope").
 how whisper networks in tech adapted to COVID lockdown
+Repeat "Different languages, similar encoding efficiency" (Coupé et al 2019) for programming languages
