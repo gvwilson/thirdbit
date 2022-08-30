@@ -4,17 +4,85 @@ date: 2022-08-30
 year: 2022
 ---
 
-do docs in code (e.g. docstring) actually work better?
-any studies of effects of doctest-style tests on long-term usability/maintainability?
-what do devs collaborate on and what do they do solo
-Hypothesis: slideshows written in HTML/Markdown are more text-intensive & use fewer graphics than those in PowerPoint.
-Like code metrics, but for measuring/ranking the difficulty of getting software installed and configured.
-a graphical notation for software development processes https://lostgarden.home.blog/2006/01/16/creating-a-system-of-game-play-notation/
-how does the %age of effort devoted to tooling & deployment change as the project grows or ages?
-how do open source projects actually track and manage requirements or user needs?
-quantitative survey of non-textbooks to find out what people in industry care enough to write about? (or think others care about)
-quantitative survey of data structures used in textbooks in non-DS&A courses
-metrics for code fitness that take process and team into account https://twitter.com/sarahmei/status/819256231869214721
+I have been collecting random software engineering research ideas from friends and colleagues
+for more than a decade.
+I know it's a weird hobby,
+but I've always thought that
+studying the things practitioners are actually curious about
+would lead to more fruitful collaboration between academia and industry.
+(There's certainly room for improvement:
+if you compare highly-ranked questions from
+[[Begel and Zimmermann 2014](https://thomas-zimmermann.com/publications/files/begel-icse-2014.pdf)]
+or [[Huijgens et al 2020](https://arxiv.org/abs/2010.03165)]
+to a list of topics from recent software engineering conferences,
+there isn't much overlap.)
+
+So here,
+in no particular order,
+are the questions I've been asked since I started taking notes ten years ago.
+I apologize for not keeping track of who wanted to know,
+but if you're working on any of these,
+please get in touch and I'll try to track them down.
+
+1.  Does putting documentation in code (e.g., Python's docstrings) actually work better
+    than keeping the documentation in separate files,
+    and if so,
+    by what measure(s)?
+
+1.  Do [doctest](https://docs.python.org/3/library/doctest.html)-style tests
+    (i.e., tests embedded directly in the code being tested)
+    have any impact long-term usability or maintainability
+    compared to putting tests in separate files?
+
+1.  Which tasks do developers collaborate on most often
+    and which do they do solo most often?
+    (If I'm reading my handwriting correctly,
+    the questioner hypothesized that programmers routinely do bug triage in groups,
+    but usually write new code alone,
+    with other tasks falling in between.)
+
+1.  Are slideshows written using HTML- or Markdown-based tools more text-intensive
+    than those written in PowerPoint?
+    In particular,
+    are slides written in formats that version control understands (text)
+    less likely to use diagrams
+    than slides written with GUI tools?
+
+1.  A lot of [code metrics](https://neverworkintheory.org/category/#metrics)
+    have been developed over the years;
+    are there any for measuring/ranking the difficulty of getting software installed and configured?
+
+1.  How does the percentage of effort devoted to tooling and deployment change
+    as a project grows and/or ages?
+    And how has it changed as we've moved from desktop applications to cloud-based applications?
+    (Note: coming back to full-time coding after a decade away,
+    my impression is that we've gone from packaging or building an installer taking 10% of effort
+    to cloud deployment infrastructure being 25-30% of effort,
+    but that's just one data point.)
+
+1.  Has anyone developed a graphical notation for software development processes
+    like [this one for game play](https://lostgarden.home.blog/2006/01/16/creating-a-system-of-game-play-notation/)?
+
+1.  How do open source projects actually track and manage requirements or user needs?
+    Do they use issues,
+    is it done through discussion threads on email or chat,
+    do people write wiki pages or [PEPs](https://peps.python.org/),
+    etc.?
+
+1.  Has anyone ever done a quantitative survey of programming books aimed at professionals
+    (i.e., not textbooks)
+    to find out what people in industry care enough to write about
+    or think others care about?
+
+1.  Has anyone ever done a quantitative survey of the data structures used in undergraduate textbooks
+    for courses that *aren't* about data structures?
+    I.e.,
+    do we know what data structures students are shown
+    in their "other" courses?
+
+1.  Are there any metrics for code fitness that take process and team into account?
+    (I actually have [the source](https://twitter.com/sarahmei/status/819256231869214721) for this one.)
+
 score existing collaboration apps against "The Discussion Book": how many methods do they support?
 graphical notation (like UML) to show the problems you're designing around or the special cases you've had to take into account as well as the final solution
 ditto for architectural evolution over time
