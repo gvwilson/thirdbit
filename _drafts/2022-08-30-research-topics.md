@@ -129,33 +129,133 @@ please get in touch and I'll try to track them down.
 1.  Is there data anywhere on speakers' fees at tech conferences
     broken down by by age, subject, gender, and geography?
 
-are programmers with gardens in the office (https://twitter.com/gvwilson/status/852869480841662464) happier than programmers with foosball tables?
-compare time-to-understand with and without UML or other notations
-how much do developers know about cognitive psychology and/or social psychology? what mistruths and urban myths do they believe?
-trace genealogy of software engineering lesson decks
-apply security analysis techniques to peer review models
-compare-and-contrast Markdown-ish tools for building documentation and/or tutorials
-follow-up to https://programming-journal.org/2017/1/17/
-impact of retrospectives: https://twitter.com/pauldambra/status/882959719370964994
-adoption of fixes to git interface (e.g. git switch) over time
-correlation between README length and usage stats: https://twitter.com/teabass/status/884708605441843200
-does it help to have one operator for defining variables and another for updating them?
-how and when do people migrate between open source projects?
-how often do devs do performance profiling, how do they do it?
-how often are ESE findings mentioned in SE courses (not textbooks)? which ones?
-score ICSE papers against "Analyze That!"
-how do people physically organize lessons when using Markdown-ish compilers?
-things like Sajaniemi's roles of variables for refactoring steps or test cases or...
-roles of columns (like roles of variables)
-follow-up to https://dl.acm.org/doi/10.1145/3230977.3230986
-how does team size affect the proportion of time spent planning and its accuracy?
-update of new CSS features over time
-correlation between quality of error messages and community quality
-analyze data from a dozen projects, then try to guess which ones think they're doing agile and which aren't. Compare it to what team members tell you they're doing. See if there's anything more than weak correlation
-what is taught about debugging after first year?
-Can we assess students' proficiency with tools by watching screencasts of their work? And can we do it efficiently enough to make it a feasible way to grade how they code (as well as the code they write)?
-altruism in software teams: how to detect it, what's the effect?
-Embedded code chunks in OpenOffice: https://twitter.com/gvwilson/status/1159857430219644929
+1.  Are programmers with greenery or mini-gardens in the office happier and/or more productive
+    than programmers with foosball tables?
+    What about programmers working from home:
+    does the presence of greenery and/or pets make a difference?
+
+1.  How much do software engineering managers know about organizational behavior and/or social psychology?
+    What mistruths and urban myths do they believe?
+
+1.  Has anyone ever compared how long it takes to reach a workable level of understanding of a software system
+    with and without UML diagrams or other graphical notations?
+    More generally,
+    is there any correlation between the amount or quality of different kinds of developer-oriented documentation
+    and time-to-understanding,
+    and if so,
+    which kinds of documentation fare best?
+
+1.  Is it possible to trace the genealogy of the slide decks used in undergrad software engineering classes
+    (i.e., figure out who is adapting lessons originally written by whom)?
+    If so,
+    how does the material change over time?
+
+1.  How do people physically organize coding lessons when using static site generators?
+    For example,
+    do they keep example programs in the same directory or subdirectory as the slides,
+    or keep the slides in one place and the examples in another?
+    And how do they handle incremental evolution of examples,
+    where the first lesson builds a simple version of X,
+    the next lesson changes some parts but leaves others alone,
+    etc.?
+
+1.  Has anyone ever applied security analysis techniques to emerging models of peer review
+    to (for example) anticipate ways in which different kinds of open review might be gamed?
+
+1.  Has anyone ever written a compare-and-contrast feature analysis
+    of tools for building documentation and tutorials?
+    For example,
+    how do [Sphinx](https://www.sphinx-doc.org/),
+    [Jekyll](https://jekyllrb.com/),
+    and [roxygen](https://roxygen2.r-lib.org/) stack up?
+
+1.  [Käfer et al's paper](https://programming-journal.org/2017/1/17/)
+    comparing text and video tutorials for learning new software tools
+    was interesting:
+    has anyone done a follow-up?
+
+1.  [Bjarnason et al's paper](https://ieeexplore.ieee.org/document/6619486) on retrospectives
+    was interesting:
+    has anyone looked in more detail at what developers discuss in retrospectives
+    and (crucially) what impact that has?
+
+1.  Has anyone studied adoption over time of changes (read: fixes) to Git's interface?
+    For example, how widely is `git switch` actually now being used?
+    And how do adopters find out about it?
+
+1.  Same questions for adoption of new CSS features.
+
+1.  Is ther any correlation between the length of a project's `README` file
+    and how widely that software is used?
+    If so, which drives which:
+    does a more detailed `README` drive adoption
+    or does adoption spur development of a more detailed `README`?
+
+1.  Do any programming languages use one syntax for assigning an initial value to a variable
+    and another syntax for updating that value,
+    and if so,
+    does distinguishing the two cases help?
+    (Note: I think the person asking this question initially assumed that
+    Python's new `:=` operator could only be used to assign an initial value.)
+
+1.  How, when, and why do people move from one open source project to another?
+    For example,
+    do they tend to move from a project to one of its dependencies
+    or one of the projects that depends on it?
+    And do they tend to keep the same role in the new project
+    or use the switch as an opportunity to change roles?
+
+1.  How often do developers do performance profiling,
+    what do they measure,
+    and how do they measure it?
+
+1.  Has anyone ever created some like [Sajaniemi's roles of variables](https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf)
+    for refactoring steps or test cases?
+    (Note: the person asking the question is a self-taught programmer
+    who found [Gamma et al's book](https://www.pearson.com/en-us/subject-catalog/p/design-patterns-elements-of-reusable-object-oriented-software/P200000009480)
+    a bit intimidating,
+    and is looking for beginner-level patterns.)
+
+1.  Has anyone defined a set of design patterns for the roles that columns play in dataframes
+    during a data analysis?
+
+1.  (How) does team size affect the proportion of time spent on planning and the accuracy of plans?
+
+1.  Is there any way to detect altruism in software teams
+    (i.e., how much time developer A spends helping developer B
+    even though B's problem isn't officially A's concern)?
+    If so,
+    is there any correlation between altruism and
+    (for example)
+    staff turnover or the long-term maintainability of the code base?
+
+1.  Is there any correlation between the quality of the error messages in a software system
+    and the quality of the community?
+    (Note: by "quality of the community",
+    I believe the questioner meant things like "welcoming to newcomers"
+    and "actually enforces its code of conduct".)
+
+1.  If you collect data from a dozen projects
+    and guess which ones think they're doing agile and which aren't,
+    is there anything more than a weak correlation to
+    what process team members tell you they think they're following?
+    I.e.,
+    are different development methodologies distinct rhetorically but not practically?
+
+1.  What are students taught about debugging after their introductory courses?
+    How much of what they're explicitly taught is domain-specific
+    (e.g., "how to debug a graphics pipeline")?
+
+1.  Can we assess students' proficiency with tools by watching screencasts of their work?
+    And can we do it efficiently enough to make it a feasible way to grade how they code
+    (as well as the code they write)?
+
+1.  A lot of people have built computational notebooks based on text formats (like Markdown)
+    or that run in the browser.
+    Has anyone built a computational notebook starting with Microsoft Word or OpenOffice,
+    i.e.,
+    embedded runnable code chunks and their output in a rich document?
+
 when people write essay-length explanations like https://beepb00p.xyz/mypy-error-handling.html and https://fly.io/blog/sqlite-internals-wal/, what do they explain and how?
 has anyone done a study that plots when people get funded on a loose timeline of "building a startup"? like if 0 is idea and 100 is fully functioning company, where do most black/brown founders get funded vs. other poc founders vs. white founders?
 prevalence of pseudoscience (e.g., Myers-Briggs) in tech hiring
@@ -176,7 +276,6 @@ are SQL statements written in execution order easier for novices to understand? 
 what error recovery techniques are used in what languages and applications how often?
 what labels do people use on GitHub and how do they transfer between projects when people move?
 what examples do people use when teaching security? is it still Ariadne crashing or do they talk about intimate partner abuse?
-how much do engineering managers know about settled results from organizational behavior, social psychology, etc.? and how much pseudoscience do they know?
 evolution of the PEP system
 create a set of scenarios, each w/ multiple-choice options; have an ethics expert determine the best available answer; then have students & professionals answer the same questions and see where they do/don't agree w/ the expert on ethics.
 tudy students from 1st to final year of college/uni and see what tools they start using when. Particularly interested in when/whether they start to use more advanced features of their IDE (e.g., "rename variable in scope").
