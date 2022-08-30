@@ -80,14 +80,41 @@ please get in touch and I'll try to track them down.
     do we know what data structures students are shown
     in their "other" courses?
 
+1.  Has anyone ever done a quantitative survey of
+    how many claims in the top 100 software development books are backed by citations,
+    and of those,
+    how many are still considered valid?
+
 1.  Are there any metrics for code fitness that take process and team into account?
     (I actually have [the source](https://twitter.com/sarahmei/status/819256231869214721) for this one.)
 
-score existing collaboration apps against "The Discussion Book": how many methods do they support?
-graphical notation (like UML) to show the problems you're designing around or the special cases you've had to take into account as well as the final solution
-ditto for architectural evolution over time
-quantitative measure of how many claims in the top 100 software development books are backed by citations that haven't been invalidated
-Hoye Test (like Turing Test but for malicious software)
+1.  Which of the techniques catalogued in
+    [*The Discussion Book*](https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715)
+    are programmers familiar with?
+    Which ones do they use informally (i.e., without explicit tool support),
+    and how do they operationalize them?
+
+1.  Is there a graphical notation like UML to show the problems you're designing around
+    or the special cases you've had to take into account
+    rather than the finished solution to the problem
+    (other than complete UML diagrams of the solutions you didn't implement)?
+
+1.  Ditto for architectural evolution over time:
+    is there an explicit notation for "here's how the system has changed",
+    and if so,
+    can it show multiple changes in a single diagram
+    or is it just stepwise?
+
+1.  The Turing Test classifies a machine as "intelligent"
+    if an independent observer can't distinguish between it and a human being in conversation.
+    Has anyone ever implemented a similar test for malicious software
+    (which we should call the [Hoye Test](https://exple.tive.org/blarg/) in honor of the person who proposed it,
+    or the [Moses Test](https://twitter.com/gvwilson/status/1159605481196937216) in "honor" of the person who inspired it):
+    1.	Pick an application (e.g., Twitter).
+    1.	Build a work-alike that is deliberately malicious in some way
+    	(e.g., designed to radicalize its users).
+    1.	Have people selected at random use both and then guess which is which.
+
 summarize ACM distinguished dissertation awards
 survey developers to find out what the most boring part of their job is
 survey speakers' fees at tech conferences by age/subject/gender/geography
@@ -118,7 +145,6 @@ analyze data from a dozen projects, then try to guess which ones think they're d
 what is taught about debugging after first year?
 Can we assess students' proficiency with tools by watching screencasts of their work? And can we do it efficiently enough to make it a feasible way to grade how they code (as well as the code they write)?
 altruism in software teams: how to detect it, what's the effect?
-Moses test: https://twitter.com/gvwilson/status/1159605481196937216
 Embedded code chunks in OpenOffice: https://twitter.com/gvwilson/status/1159857430219644929
 when people write essay-length explanations like https://beepb00p.xyz/mypy-error-handling.html and https://fly.io/blog/sqlite-internals-wal/, what do they explain and how?
 has anyone done a study that plots when people get funded on a loose timeline of "building a startup"? like if 0 is idea and 100 is fully functioning company, where do most black/brown founders get funded vs. other poc founders vs. white founders?
