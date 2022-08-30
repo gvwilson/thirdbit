@@ -80,6 +80,10 @@ please get in touch and I'll try to track them down.
     do we know what data structures students are shown
     in their "other" courses?
 
+1.  Has anyone ever compared a list of things empirical software engineering research has "proven"
+    (ranked by confidence)
+    versus a list of things programmers believe (similarly ranked)?
+
 1.  Has anyone ever done a quantitative survey of
     how many claims in the top 100 software development books are backed by citations,
     and of those,
@@ -115,10 +119,16 @@ please get in touch and I'll try to track them down.
     	(e.g., designed to radicalize its users).
     1.	Have people selected at random use both and then guess which is which.
 
-summarize ACM distinguished dissertation awards
-survey developers to find out what the most boring part of their job is
-survey speakers' fees at tech conferences by age/subject/gender/geography
-list of things ESE has "proven" (ranked) vs. list of things programmers believe (ranked)
+1.  Has anyone ever summarized the topics covered
+    by [ACM Doctoral Dissertation Award](https://awards.acm.org/doctoral-dissertation) winners
+    to see what computer science is *actually* about?
+    (A subject is defined by what it gives awards for…)
+
+1.  Has anyone ever surveyed developers to find out what the most boring part of their job is?
+
+1.  Is there data anywhere on speakers' fees at tech conferences
+    broken down by by age, subject, gender, and geography?
+
 are programmers with gardens in the office (https://twitter.com/gvwilson/status/852869480841662464) happier than programmers with foosball tables?
 compare time-to-understand with and without UML or other notations
 how much do developers know about cognitive psychology and/or social psychology? what mistruths and urban myths do they believe?
