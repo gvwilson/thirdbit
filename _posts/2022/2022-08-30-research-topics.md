@@ -4,21 +4,24 @@ date: 2022-08-30
 year: 2022
 ---
 
+I was honored to be given ACM SIGSOFT's "Influential Educator" award in 2020,
+but [I was also surprised]({{'/2020/07/09/acm-sigsoft-award/' | relative_url}}):
+as far as I can tell,
+projects like [*Beautiful Code*](https://www.oreilly.com/library/view/beautiful-code/9780596510046/),
+[*Making Software*](https://www.oreilly.com/library/view/making-software/9780596808310/),
+[*The Architecture of Open Source Applications*](http://aosabook.org/),
+and [*It Will Never Work in Theory*](https://neverworkintheory.org/)
+haven't actually had any impact on how software engineering is taught.
+
+However,
 I have been collecting random software engineering research ideas from friends and colleagues
 for more than a decade.
 I know it's a weird hobby,
-but I've always thought that
-studying the things practitioners are actually curious about
+but I've always believed that
+studying things practitioners are actually curious about
 would lead to more fruitful collaboration between academia and industry.
-(There's certainly room for improvement:
-if you compare highly-ranked questions from
-[[Begel and Zimmermann 2014](https://thomas-zimmermann.com/publications/files/begel-icse-2014.pdf)]
-or [[Huijgens et al 2020](https://arxiv.org/abs/2010.03165)]
-to a list of topics from recent software engineering conferences,
-there isn't much overlap.)
-
-So here,
-in no particular order,
+Here,
+therefore,
 are the questions I've been asked since I started taking notes ten years ago.
 I apologize for not keeping track of who wanted to know,
 but if you're working on any of these,
@@ -256,28 +259,105 @@ please get in touch and I'll try to track them down.
     i.e.,
     embedded runnable code chunks and their output in a rich document?
 
-when people write essay-length explanations like https://beepb00p.xyz/mypy-error-handling.html and https://fly.io/blog/sqlite-internals-wal/, what do they explain and how?
-has anyone done a study that plots when people get funded on a loose timeline of "building a startup"? like if 0 is idea and 100 is fully functioning company, where do most black/brown founders get funded vs. other poc founders vs. white founders?
-prevalence of pseudoscience (e.g., Myers-Briggs) in tech hiring
-analyze videos of coding clubs: are girls treated differently than boys by instructors?
-how does the distribution of language constructs actually used in large programs vary by language? e.g., repeat https://twitter.com/Noahpinion/status/1211039070152880128 for programming languages
-calculate a Gini coefficient for how effectively scientists use computing, I think you'd find the inequality is steadily increasing: the most proficient are getting better but the vast majority haven't budged in 25 years.
-1. Train a Markov text generator on your software's documentation. 2. Generate some fake man pages. 3. Give users a mix of real & fake pages and see if they can tell them apart.
-How does the number of (active) Slack channels in an org grow as a function of time or of the number of employees?
-how well do the abstracts of SE research papers summarize actual findings?
-what do tech support staff informally teach during tech support calls?
-I wish there was a simple, standard, widely-supported notation like CSS selectors for selecting parts of a program to display in tutorials. I've used five (six?) tools based on specially-formatted comments with various publishers, and it's getting tired
-how does the order in which people write code for production differ from the order in which they explain code in a tutorial and why?
-computational notebook with 2-column display (code on the left, commentary on the right): how does that change things?
-extract E-R diagrams from Pandas/tidyverse scripts and see if they help
-what percentage of time to developers spend debugging and how does that vary by the kind of code they're working on?
-balance between rewriting and fixing
-are SQL statements written in execution order easier for novices to understand? Less likely to be buggy? Does syntactic congruence with notional machines have measurable impact?
-what error recovery techniques are used in what languages and applications how often?
-what labels do people use on GitHub and how do they transfer between projects when people move?
-what examples do people use when teaching security? is it still Ariadne crashing or do they talk about intimate partner abuse?
-evolution of the PEP system
-create a set of scenarios, each w/ multiple-choice options; have an ethics expert determine the best available answer; then have students & professionals answer the same questions and see where they do/don't agree w/ the expert on ethics.
-tudy students from 1st to final year of college/uni and see what tools they start using when. Particularly interested in when/whether they start to use more advanced features of their IDE (e.g., "rename variable in scope").
-how whisper networks in tech adapted to COVID lockdown
-Repeat "Different languages, similar encoding efficiency" (Coupé et al 2019) for programming languages
+1.  When people write essay-length explanations about [error handling](https://beepb00p.xyz/mypy-error-handling.html)
+    or [database internals](https://fly.io/blog/sqlite-internals-wal/),
+    how do they decide what's worth explaining?
+    Is it "I struggled to figure this out and want to save you the pain"
+    or "I'm trying to build my reputation as an expert in this field"
+    or something else?
+
+1.  Has anyone done a study that plots when people get funded on a loose timeline of "building a startup"
+    broken out by founders' characteristics?
+    I.e.,
+    if 0 is "I have an idea"
+    and 100 is fully functioning company,
+    where do most black/brown founders get funded vs. other poc founders vs. white founders?
+
+1.  Has anyone analyzed videos of coding clubs for children or teens
+    to see if girls are treated differently than boys by instructors
+    and by their peers?
+
+1.  How does the distribution of language constructs actually used in large programs vary by language?
+    For example,
+    if we plot percentage of programs that use feature X in a language,
+    ordered by decreasing frequency,
+    how do the curves for different languages compare?
+
+1.  Is it possible to calculate something like a Gini coefficient to see how effectively scientists use computing?
+    If so,
+    is inequality static, decreasing, or increasing?
+    (Note: the questioner felt strongly that
+    the most proficient scientists are getting better at programming
+    but the vast majority haven't budged in the last three decades,
+    so the gap between "median" and "best" is actually widening.)
+
+1.  If you train a Markov text generator on your software's documentation,
+    generate some fake man pages,
+    and give users a mix of real and fake pages,
+    can they tell which are which?
+
+1.  How does the number of (active) Slack channels in an organization grow as a function of time
+    or of the number of employees?
+
+1.  How well are software engineering researchers able to summarize each other's work
+    based solely on the abstracts of their research papers,
+    and how does that compare to researchers in other domains?
+
+1.  Second-line tech support staff often spend a lot of time explaining how things work in general
+    so that they can solve a specific problem.
+    How do they tell how much detail they need to go into?
+
+1.  Is there a notation like CSS selectors for selecting parts of a program to display in tutorials?
+    (Note: I've used several systems that relied on specially-formatted comments
+    to slice sections out of programs for display;
+    the questioner was using one of these for the first time
+    and wondering if there was something simpler, more robust, or more general.)
+
+1.  How does the order in which people write code
+    differ from the order in which they explain code in a tutorial and why?
+
+1.  Has anyone built a computational notebook that presents a two-column display
+    with the code on the left and commentary on the right?
+    If so, how does that change what people do or how they do it?
+
+1.  Is it possible to extract entity-relationship diagrams
+    from programs that use Pandas or the tidyverse
+    to show how dataframes are being combined
+    (e.g., to infer foreign key relationships)?
+
+1.  What percentage of time to developers spend debugging
+    and how does that vary by the kind of code they're working on?
+
+1.  At what point is it more economical to throw away a module and write a replacement
+    instead of refactoring or extending the module to meet new needs?
+
+1.  Are SQL statements written in execution order easier for novices to understand
+    or less likely to be buggy
+    than ones written in standard order?
+    (Note: the questioner was learning SQL after learning to manipulate dataframes with the tidyverse,
+    and found the out-of-order execution of SQL confusing
+    after the in-order execution of tidyverse pipelines.)
+
+1.  What error recovery techniques are used in what languages and applications how often?
+
+1.  What labels do people define for GitHub issues and pull requests,
+    and do they take those labels with them to new projects
+    or re-think each project?
+
+1.  Has anyone ever taught software engineering ethics by:
+    1.	Creating a set of scenarios, each with multiple-choice options.
+    1.	Having an ethics expert determine the best answer for each.
+    1.	Then have students and professionals answer the same questions.
+    1.	Analyzed the results to see how well each group matches the experts' opinions
+    	and whether practitioners are any better than students.
+
+1.  Has anyone ever studied students from the first year to the final year of their program
+    to see what tools they actually start using when.
+    In particular,
+    when (if ever) do they start to use more advanced features of their IDE
+    (e.g., "rename variable in scope")?
+
+1.  Underrepresented groups often develop "whisper networks" to share essential knowledge
+    (e.g., a young woman joining a company might be taken aside for an off-the-record chat
+    by an older colleague and cautioned about the behavior of certain senior male colleagues).
+    How have these networks changed during the COVID-19 lockdown?
