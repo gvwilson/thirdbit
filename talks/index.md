@@ -41,7 +41,7 @@ A few simple rules that can make everyone's life run a little more smoothly.
 
 A webinar given in the early days of COVID-19.
 
-*Last updated: March 2020; [video available](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/).*
+*Last updated: March 2020.*
 
 ## [Software Carpentry: Lessons Learned]({{ '/talks/lessons-learned/' | relative_url }}) {#carpentry-lessons}
 
