@@ -37,11 +37,11 @@ A few simple rules that can make everyone's life run a little more smoothly.
 
 *Last updated: July 2020; [video available](https://www.youtube.com/watch?v=5f3-q9SzkeE).*
 
-## [Teaching Online on Short Notice](https://docs.google.com/presentation/d/1bp8Po8XMGCBN0Kz_kyT6V4Td-m8CCM5vW69dmkXVchU/)
+## [Teaching Online on Short Notice](https://docs.google.com/presentation/d/1rE5e2kSFNICNkBJ4iIIgd9eqACi62gxahknKLtw9Hzs/)
 
 A webinar given in the early days of COVID-19.
 
-*Last updated: March 2020; [video available](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/).*
+*Last updated: March 2020; [video available](https://www.youtube.com/watch?v=-2enQV3Dfng).*
 
 ## [Software Carpentry: Lessons Learned]({{ '/talks/lessons-learned/' | relative_url }}) {#carpentry-lessons}
 
