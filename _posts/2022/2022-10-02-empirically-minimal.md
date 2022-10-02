@@ -1,5 +1,5 @@
 ---
-title: "Whose Minimal?"
+title: "Empirically Minimal"
 date: 2022-10-02
 year: 2022
 ---
