@@ -58,3 +58,12 @@ I've never done this before,
 though,
 so if you have with either a lithium chloride or lithium iodide photozygometer,
 I'd be grateful if you could give me a shout.
+
+<em>
+  <a href="https://twitter.com/gvwilson/status/1574737474500403201">Update</a>:
+  lithium iodide is *not* fractionally stable above 300°C,
+  which is where my thermocouple
+  (and the beam collimator I spent a year collecting parts for)
+  suffered what is euphemistically labelled "thermal failure".
+  Back to the drawing board…
+</em>
