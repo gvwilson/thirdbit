@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="buildtogether.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Building Software Together: Communicating</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+      
+      <h2><a href="../">Building Software Together</a></h2>
+      <h1>Chapter 10: Communicating</h1>
+      
+      <p>
+        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+      </p>
+    </div>
+
+<p>Knowing how to steer and change gears isn't all there is to driving—you need
+to know how to signal when you're turning or changing lanes.  Similarly, knowing
+how to commit to Git and do a code review are necessary but not sufficient for
+working with other programmers.  This chapter therefore looks at how to
+communicate with your teammates.</p>
+<h2>To Do</h2>
+<p>You probably have a to-do list somewhere. It might be scribbled in a calendar or
+lab notebook, kept in a text file on your laptop, or in your head; wherever and
+however you maintain it, it lists the things you're supposed to do, when they're
+due, and (possibly) how urgent they are.</p>
+<p>At its simplest, an <span class="indexref" key="issue tracker;issue" markdown="1"><a class="glossref" href="../glossary/#issue_tracker" markdown="1">issue tracker</a></span>
+is a shared to-do list. Issue tracking systems are also called
+<span class="indexref" key="ticketing system" markdown="1">ticketing systems</span> and <span class="indexref" key="bug
+tracker" markdown="1">bug trackers</span> because most software projects use them to keep
+track of the bugs that developers and users find. These days, issue trackers are
+almost invariably web-based. To create a new issue, you enter a title and a
+short description; the system then assigns it a unique serial number. You can
+usually also specify:</p>
+<ul>
+<li>
+<p>what kind of issue it is (such as a bug report, a request for a new feature,
+    or a question to be answered);</p>
+</li>
+<li>
+<p>who is responsible for the issue (i.e., who's supposed to fix the bug, test
+    the fix, or update the documentation);</p>
+</li>
+<li>
+<p>how important it is; and</p>
+</li>
+<li>
+<p>when it's due.</p>
+</li>
+</ul>
+<p>If version control keeps track of where your project has been, your issue
+tracking system keeps track of where you're going. After version control, it is
+the most important part of a team project; without it, you and your teammates
+will have to constantly ask each other "What are you working on?", "What am I
+supposed to be working on?", and "Who was supposed to do that?" Once you start
+using one it's easy (or at least easier) to find out what the project's status
+is: just look at the open issues and at those that have been closed recently.
+You can use this to create agendas for your status meetings, and to remind
+yourself what you were doing three months ago when the time comes to write your
+final report.</p>
+<p>Of course, a issue tracker is only as useful as what you put into it.  If you're
+describing a bug in a large application, you should include enough information
+to allow someone to reproduce the problem. This is why industrial-strength
+systems like <span class="indexref" key="Jira (issue tracker);issue
+tracker!Jira" markdown="1"><a href="https://www.atlassian.com/software/jira">Jira</a></span> can have a couple of dozen <span class="indexref" key="issue!fields" markdown="1">fields</span> for each issue, including:</p>
+<ul>
+<li>
+<p>what version of the software you were using;</p>
+</li>
+<li>
+<p>what platform it was running on;</p>
+</li>
+<li>
+<p>what you did to make it crash;</p>
+</li>
+<li>
+<p>any data or configuration files the program relies on;</p>
+</li>
+<li>
+<p>whatever stack traces, error reports, or log messages the program produced;</p>
+</li>
+<li>
+<p>its severity (i.e., how much damage the bug might do); and</p>
+</li>
+<li>
+<p>other issues that might be related.</p>
+</li>
+</ul>
+<p>This is a lot more information than student projects require. In addition,
+students are almost always working on several courses at once, and it's common
+for students to have to put their team project aside for a few days to work on
+assignments for other courses. For these reasons, I've found that most student
+teams won't actually use anything more sophisticated than a web-base to-do list
+unless they're forced to by the grading scheme. In that case, most come away
+with the impression that issues are something you only use when you have to.</p>
+<p>So what does a good issue look like?  [<a href="../bibliography/#Bettenburg2008">Bettenburg2008</a>] found that the
+information users supply when they file a bug report tends not to be that which
+the relevant developers need the most, and most importantly, it differs in
+fairly predictable ways and for understandable reasons.  Here's one I filed for
+the duplicate file finder reviewed in <a href="../git-team/">Chapter 8</a>:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">id</span><span class="o">:</span><span class="w"> </span><span class="mi">47</span><span class="w">                                                      </span><span class="err">#</span><span class="w"> </span><span class="mi">01</span><span class="w"></span>
+<span class="n">date</span><span class="o">:</span><span class="w"> </span><span class="mi">2021</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">19</span><span class="n">T09</span><span class="o">:</span><span class="mi">30</span><span class="o">:</span><span class="mi">20</span><span class="o">+</span><span class="mi">0500</span><span class="w">                              </span><span class="err">#</span><span class="w"> </span><span class="mi">02</span><span class="w"></span>
+<span class="n">title</span><span class="o">:</span><span class="w"> </span><span class="n">Binary</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">files</span><span class="w">                  </span><span class="err">#</span><span class="w"> </span><span class="mi">03</span><span class="w"></span>
+<span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">bug</span><span class="w">                                                   </span><span class="err">#</span><span class="w"> </span><span class="mi">04</span><span class="w"></span>
+<span class="n">severity</span><span class="o">:</span><span class="w"> </span><span class="n">low</span><span class="w">                                               </span><span class="err">#</span><span class="w"> </span><span class="mi">05</span><span class="w"></span>
+<span class="n">labels</span><span class="o">:</span><span class="w"> </span><span class="n">utilities</span><span class="w">                                           </span><span class="err">#</span><span class="w"> </span><span class="mi">06</span><span class="w"></span>
+<span class="w">                                                            </span><span class="err">#</span><span class="w"> </span><span class="mi">07</span><span class="w"></span>
+<span class="n">The</span><span class="w"> </span><span class="err">`</span><span class="n">dup</span><span class="o">.</span><span class="na">py</span><span class="err">`</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="n">opens</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="err">`</span><span class="s1">&#39;r&#39;</span><span class="err">`</span><span class="w"> </span><span class="o">(</span><span class="k">for</span><span class="w">       </span><span class="err">#</span><span class="w"> </span><span class="mi">08</span><span class="w"></span>
+<span class="n">text</span><span class="o">)</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="err">`</span><span class="s1">&#39;rb&#39;</span><span class="err">`</span><span class="w"> </span><span class="o">(</span><span class="k">for</span><span class="w"> </span><span class="n">binary</span><span class="o">),</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">carriage</span><span class="w">       </span><span class="err">#</span><span class="w"> </span><span class="mi">09</span><span class="w"></span>
+<span class="k">return</span><span class="o">/</span><span class="n">newline</span><span class="w"> </span><span class="n">pairs</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">converted</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">newlines</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">before</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="n">the</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">calculated</span><span class="o">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">doesn</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="k">break</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">matching</span><span class="o">,</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="mi">11</span><span class="w"></span>
+<span class="n">since</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="n">consistently</span><span class="o">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">probably</span><span class="w"> </span><span class="n">slows</span><span class="w"> </span><span class="n">the</span><span class="w">       </span><span class="err">#</span><span class="w"> </span><span class="mi">12</span><span class="w"></span>
+<span class="n">program</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">little</span><span class="o">.</span><span class="w">                                      </span><span class="err">#</span><span class="w"> </span><span class="mi">13</span><span class="w"></span>
+</code></pre></div>
+
+<p>The ID on the first line is assigned by the issue tracker, an often serves as a
+shorthand name for the issue in conversation. ("Hey, is anyone working on number
+fifty-five yet?") The date is in <span class="indexref" key="issue!timestamps" markdown="1"><a class="glossref" href="../glossary/#utc" markdown="1">UTC</a></span>
+so that it is unambiguous: while your team may all be in one place, it's
+increasingly likely that you are scattered across several time zones.</p>
+<p>The <span class="indexref" key="issue!good titles" markdown="1">title</span> on line 3 is probably the most
+important part of the issue. Projects will accumulate hundreds of issues over
+time; a good subject line makes it much easier to find the ones you need. The
+<code>type</code>, <code>severity</code>, and <code>labels</code> fields also improve
+<span class="indexref" key="discoverability!of issues" markdown="1"><a class="glossref" href="../glossary/#discoverability" markdown="1">discoverability</a></span>;
+while <code>type</code> and <code>severity</code> could be labels, having them in fields of their own
+makes it easier to sort and filter issues.</p>
+<p>Finally, the <span class="indexref" key="issue!description of" markdown="1">description</span> briefly
+summarizes the problem. If the author hadn't already identified the cause, it
+should include a <span class="indexref" key="reproducible example (reprex)" markdown="1"><a class="glossref" href="../glossary/#reprex" markdown="1">reproducible example</a></span> (also called a reprex). This helps the person understand what the
+issue is much more than, "The program crashes when I open strange files," but
+experience shows that if people are required to come up with a reprex when
+filing an issue, they will often solve their own problem along the way.  We'll
+talk more about the value of minimal reproducible examples in
+<a href="../debugging/">Chapter 15</a>.</p>
+<blockquote>
+<h3>When to start saying "no"</h3>
+<p>As we will see in <a href="../process/">Chapter 19</a>, one purpose of a schedule is to tell you
+when to start cutting corners. Similarly, one of the main reasons to keep
+<span class="indexref" key="issue tracker!helping triage;triage!using issue tracker" markdown="1">issues</span> in
+one place is to help you prioritize work when time starts to run short.</p>
+</blockquote>
+<h2>Labeling Issues</h2>
+<p>The bigger a project gets, the harder it is to find things.  Issue trackers
+therefore let project members add <span class="indexref" key="issue!classifying" markdown="1"><a class="glossref" href="../glossary/#issue_label" markdown="1">labels</a></span> to issues to make things easier to search
+and organize.  Labels are also often called tags; whatever term is used, each
+one is just a descriptive word or two.</p>
+<p>GitHub allows project owners to define any labels they want.  A small project
+should always use some variation on these three:</p>
+<dl>
+<dt>Bug</dt>
+<dd>Something should work but doesn't.</dd>
+<dt>Enhancement</dt>
+<dd>Something that someone wants added to the software.</dd>
+<dt>Task</dt>
+<dd>something needs to be done, but won't show up in code (e.g., organizing the
+next team meeting).</dd>
+</dl>
+<p>Projects also often use:</p>
+<dl>
+<dt>Question</dt>
+<dd>where is something or how is something supposed to work?  As noted above,
+issues with this label can often be recycled as documentation.</dd>
+<dt>Discussion or Proposal</dt>
+<dd>something the team needs to make a decision about or a concrete proposal to
+resolve such a discussion.  All issues can have discussion: this category is
+for issues that start that way.  (Issues that are initially questions are
+often relabeled as discussions or proposals after some back and forth.)</dd>
+</dl>
+<p>The labels listed above identify the kind of work an issue describes.  A
+separate set of labels can be used to indicate the state of an issue:</p>
+<dl>
+<dt>Urgent</dt>
+<dd>Work needs to be done right away.  (This label is typically reserved for
+security fixes).</dd>
+<dt>Current</dt>
+<dd>This issue is included in the current round of work.</dd>
+<dt>Next</dt>
+<dd>This issue is (probably) going to be included in the next round.</dd>
+<dt>Eventually</dt>
+<dd>Someone has looked at the issue and believes it needs to be tackled, but
+there's no immediate plan to do it.</dd>
+<dt>Won't Fix</dt>
+<dd>Someone has decided that the issue isn't going to be addressed, either
+because it's out of scope or because it's not actually a bug.  Once an issue
+has been marked this way, it is usually then closed.  When this happens,
+send the issue's creator a note explaining why the issue won't be addressed
+and encourage them to continue working with the project.</dd>
+<dt>Duplicate</dt>
+<dd>This issue is a duplicate of one that's already in the system.  Issues
+marked this way are usually also then closed; this is another opportunity to
+encourage people to stay involved.</dd>
+</dl>
+<p>Some projects use labels corresponding to upcoming assignments instead of
+Current, Next, and Eventually.  This approach works well in the short term, but
+becomes unwieldy as labels with names like <code>exercise-14</code> pile up.  Instead, a
+project team will usually create a <span class="indexref" key="milestone (in issue tracker);issue tracker!milestones" markdown="1"><a class="glossref" href="../glossary/#milestone" markdown="1">milestone</a></span>, which is a set of issues
+and pull requests in a single project repository.  GitHub milestones can have a
+due date and display aggregate progress toward completion, so the team can
+easily see when work is due and how much is left to be done.</p>
+<h2>Other Ways to Communicate</h2>
+<p>Issues are the best way to keep track of where you are, but there are lots of
+other ways the team can and should communicate. These can be <span class="indexref" key="communication!synchronous" markdown="1">synchronous</span>, like chat and video calls, or
+<span class="indexref" key="communication!asynchronous" markdown="1">asynchronous</span>, like issues and
+email. The former are better for quick back-and-forth and for maintaining social
+connections, but they can also be a constant stream of interruptions, which
+lowers productivity (<a href="../important/">Chapter 2</a>). Synchronous tools also tend to bias
+communication in favor of people who are more self-confident, more fluent in the
+language, or have better network connections, and finding things afterward in
+archives of stream-of-consciousness exchanges is harder than finding things in
+asynchronous media.</p>
+<p>But who am I kidding? You're going to use <span class="indexref" key="communication!instant
+messaging;instant messaging!inevitable use of" markdown="1">instant messaging</span> no
+matter what I say.  If more than two people are in the conversation, follow the
+same rules you would for a short meeting: post a summary of any decisions you
+made where everyone can see it.</p>
+<p>If you prefer fewer interruptions and longer periods of thought, you can always
+go back to <span class="indexref" key="communication!email;email (for team
+communication)" markdown="1">email</span>, which has been used to run projects since the
+1970s.  It brings content directly to people while allowing everyone to deal
+with issues when it's convenient for them, and supports long-running
+conversations. Email really comes into its own, though, when messages are routed
+through a central mailing list, so that people don't have to remember to CC the
+other five people on their team, and a shared archive can be created for later
+searching. The second point is as important as the first: if you can't go back
+and find out what was said a month ago—or, just as importantly, if someone
+<em>else</em> can't do that—you might as well not have said it.</p>
+<blockquote>
+<h3>Filters are your friend</h3>
+<p>Every email client allows you to set up
+<span class="indexref" key="email!filters" markdown="1"><a class="glossref" href="../glossary/#mail_filter" markdown="1">filters</a></span>
+that automatically flag messages matching
+certain patterns or file them in particular mailboxes. I have fourteen of these
+set up right now to organize messages belonging to particular projects; it only
+took a couple of minutes, and it means that when I check mail in the morning or
+after lunch, everything is set up for me to focus on one topic at a time.</p>
+</blockquote>
+<p><span class="indexref" key="software portal!communication tools" markdown="1">Software portals</span> provide
+many other ways to communicate, which project members use in a wide variety of
+ways [<a href="../bibliography/#Treude2011">Treude2011</a>].  <span class="indexref" key="wiki;communication!wiki" markdown="1">Wikis</span>
+seem like a good way to keep notes, create documentation, and so on. Their main
+strength is the fact that content is automatically and immediately visible on
+the web.  These days, you will probably get more mileage out of a bunch of
+<span class="indexref" key="Markdown" markdown="1">Markdown</span> pages under version control—you have to set up a
+repository anyway, and version control systems are much better at reconciling
+conflicts between concurrent authors than wikis.</p>
+<p><span class="indexref" key="communication!blog;blog!as team journal" markdown="1">Blogs</span>, on the other
+hand, have proven more useful. One kind of project blog consists of articles
+written by the team's members as a journal of their progress. This is most
+useful for people who are watching the project from the outside, like
+instructors.</p>
+<p>The second kind of <span class="indexref" key="blog!automatically generated" markdown="1">blog</span> is one
+created automatically by tools. In many project management systems, every
+project has a blog.  Every time someone checks code into version control,
+creates or closes an issue, or sends email, an entry is added to that blog. This
+allows the project's members to see changes scroll by in their usual blog
+reader, which is a handy way to keep track of what their teammates are doing.</p>
+<p>If you are going to create a blog, use a <span class="indexref" key="static site generator" markdown="1"><a class="glossref" href="../glossary/#static_site_generator" markdown="1">static site generator</a></span> to format and publish
+content consistently.  On GitHub, for example, you can create a site with <span class="indexref" key="GitHub Pages" markdown="1"><a href="https://pages.github.com/">GitHub Pages</a></span> using a tool called <span class="indexref" key="Jekyll;static site generator!Jekyll" markdown="1"><a href="https://jekyllrb.com/">Jekyll</a></span>; lots of
+different themes are available, and there are many good tutorials online.</p>
+<blockquote>
+<h3>Comments as communication</h3>
+<p>People don't usually think of <span class="indexref" key="comments!as communication;communication!comments" markdown="1">comments</span>
+as a form of communication like email or
+instant messaging, but if they are used properly, the only significant
+difference is that the comments are right there in the code where the recipients
+can't miss them rather than in an archive somewhere that they'll have to go and
+search.  If you choose names for functions and variables carefully, the code
+itself will explain what it's doing when someone reads it aloud; the comments
+should therefore explain <em>why</em>, just as you would in an email.  For example,
+this is not a useful comment:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="c1"># take all but first element of list</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>This, on the other hand, tells the next person why we're doing it:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">threads</span> <span class="o">=</span> <span class="n">threads</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="c1"># We are already running the first thread, so save the others.</span>
+</code></pre></div>
+
+</blockquote>
+<h2>Reporting Up</h2>
+<p>As well as reporting progress to your teammates, you may have to <span class="indexref" key="reporting!to your manager" markdown="1">report</span> it regularly to your instructor, who
+is effectively your manager. <span class="indexref" key="Evans, Julia" markdown="1"><a href="https://jvns.ca/">Julia
+Evans</a></span> has described <a href="https://jvns.ca/blog/things-your-manager-might-not-know/">eight things your manager might not
+know</a>, all of which apply to student teams:</p>
+<ol>
+<li>
+<p>What's slowing the team down.</p>
+</li>
+<li>
+<p>Exactly what individual people on the team are working on.</p>
+</li>
+<li>
+<p>Where the <span class="indexref" key="technical debt" markdown="1"><a class="glossref" href="../glossary/#technical_debt" markdown="1">technical debt</a></span> is.</p>
+</li>
+<li>
+<p>How to help you get better at your job.</p>
+</li>
+<li>
+<p>What your goals are.</p>
+</li>
+<li>
+<p>What issues they should be escalating.</p>
+</li>
+<li>
+<p>What extra work you're doing.</p>
+</li>
+<li>
+<p>How compensation/promotions work at the company.  (For students, this one
+    translates to, "How grading actually works.")</p>
+</li>
+</ol>
+<p><span class="indexref" key="Kaplan-Moss, Jacob" markdown="1"><a href="https://jacobian.org/">Jacob Kaplan-Moss</a></span> has a
+similar guide to <a href="https://jacobian.org/2021/mar/5/exec-status-update/">giving a status update to executives</a>,
+and <a href="https://www.askamanager.org/">Ask a Manager</a> is full of good advice and discussion as
+well. If you follow those guidelines, you get briefs like this:</p>
+<blockquote>
+<p>Project X is running smoothly. We're making steady progress: we've delivered a
+bit over half of the features on our roadmap, and we're on track to launch
+publicly in May.</p>
+<p>I want to particularly highlight J's design work; every time we share a new
+demo with our user research group they rave over how much they love the
+design.</p>
+<p>We do have some cost risk: right now, the code's pretty inefficient and would
+require us to increase our AWS spend by 25% when we put this into
+production. We either need to decide that cost is acceptable, or add some
+extra time to the schedule for performance optimization. I need some guidance
+from this team on that point: can you folks let me know if that cost seems OK
+or not?</p>
+</blockquote>
+<p>If you learn how to summarize your status like this, you will be a very popular
+team member.</p>
+<h2>Documentation</h2>
+<p>An old proverb says, "Trust, but verify."  The equivalent in programming is, "Be
+clear, but <span class="indexref" key="documentation!as communication" markdown="1">document</span>."  No matter
+how well software is written, it always embodies decisions that aren't explicit
+in the final code or accommodates complications that aren't going to be obvious
+to the next reader.  Putting it another way, the best function names in the
+world aren't going to answer the questions "Why does the software do this?"  and
+"Why doesn't it do this in a simpler way?"</p>
+<p>In most cases, <span class="indexref" key="documentation!embedded" markdown="1">embedded documentation</span> in
+the form of a short <a class="glossref" href="../glossary/#docstring" markdown="1">docstring</a> or <a class="glossref" href="../glossary/#doc_comment" markdown="1">doc comment</a> to remind ourselves of each function's
+purpose is probably as much documentation as we need.  (In fact, it's probably
+better than what most people do.)  That one- or two-liner should begin with an
+active verb and describe either how inputs are turned into outputs, or what side
+effects the function has; as we discuss below, if we need to describe both, we
+should probably rewrite our function.</p>
+<p>An active verb is something like "extract", "normalize", or "plot".  Some
+examples of good one-line docstrings include:</p>
+<ul>
+<li>"Create a list of capital cities from a list of countries."</li>
+<li>"Clip signals to lie in [0...1]."</li>
+<li>"Reduce the red component of each pixel."</li>
+</ul>
+<!-- continue -->
+<p>You can tell our one-liners are useful if you can read them aloud in the order
+the functions are called in place of the function's name and parameters.</p>
+<p>Once you start writing code for other people (or your future self) your <span class="indexref" key="documentation!what to include" markdown="1">documentation</span> should include:</p>
+<ul>
+<li>
+<p>The name and purpose of every public class, function, and constant in our
+    code.</p>
+</li>
+<li>
+<p>The name, purpose, and default value (if any) of every parameter to every
+    function.</p>
+</li>
+<li>
+<p>Any side effects the functions and methods have.</p>
+</li>
+<li>
+<p>The type of value returned by every function or method.</p>
+</li>
+<li>
+<p>What exceptions those functions can raise and when.</p>
+</li>
+</ul>
+<p>The word "public" in the first rule is important.  You don't have to write full
+documentation for helper functions that are only used inside your package and
+aren't meant to be called by users, but these should still have at least a
+comment explaining their purpose.</p>
+<p>As <a href="../thinking/">Appendix F</a> explains, we can divide people in any domain into
+novices, competent practitioners, and experts.  Each of these three groups needs
+a different kind of documentation:</p>
+<ul>
+<li>
+<p>A <span class="indexref" key="novice!documentation needs;documentation!for
+    novices" markdown="1">novice</span> needs a tutorial that introduces her to key ideas one
+    by one and shows how they fit together.</p>
+</li>
+<li>
+<p>A <span class="indexref" key="competent practitioner!documentation needs;documentation!for
+    competent practitioners" markdown="1">competent practitioner</span> needs reference guides,
+    cookbooks, and Q&amp;A sites; these give her solutions close enough to what she
+    needs that she can tweak them the rest of the way.</p>
+</li>
+<li>
+<p><span class="indexref" key="expert!documentation needs;documentation!for experts" markdown="1">Experts</span>
+    need this material as well—nobody's memory is perfect—but they may also
+    paradoxically want tutorials.  The difference between them and novices is
+    that experts want tutorials on how things work and why they were designed
+    that way.</p>
+</li>
+</ul>
+<p>The first thing to decide when writing documentation is therefore to decide
+which of these needs we are trying to meet.  Tutorials like this book should be
+long-form prose that contain code samples and diagrams.  They should show people
+things they actually want to do rather than printing the numbers from 1 to 10,
+and should include regular check-ins so that people can tell if they're making
+progress.</p>
+<p>Tutorials help novices build a <span class="indexref" key="mental model" markdown="1">mental model</span>, but
+competent practitioners and experts will be frustrated by their slow pace and
+low information density.  They will want single-point solutions to specific
+problems, like how to find cells in a spreadsheet that contain a certain string
+or how to configure the web server to load an access control module.  They can
+make use of an alphabetical list of the functions in a library, but are much
+happier if they can search by keyword to find what they need; one of the signs
+that someone is no longer a novice is that they're able to compose useful
+queries and tell if the results are on the right track or not.</p>
+<h2>Creating an FAQ</h2>
+<p>As projects grow, documentation within functions alone may be insufficient for
+users to apply code to their own problems.  One strategy to assist other people
+with understanding a project is with an <span class="indexref" key="FAQ" markdown="1">FAQ</span>.  A good FAQ
+uses the terms and concepts that people bring to the software rather than the
+vocabulary of its authors; putting it another way, the questions should be
+things that people actually search for online, not the things the program's
+developers wish they would ask.</p>
+<p>Creating and maintaining an FAQ is a lot of work, and unless the community is
+large and active, a lot of that effort may turn out to be wasted, because it's
+hard for the authors or maintainers of a piece of software to anticipate what
+newcomers will be mystified by.  A better approach is to leverage sites like
+<span class="indexref" key="Stack Overflow" markdown="1"><a href="https://stackoverflow.com/">Stack Overflow</a></span>, which is where
+most programmers are going to look for answers anyway.</p>
+<p>The Stack Overflow guide to <a href="https://stackoverflow.com/help/how-to-ask">asking a good
+question</a> has been refined over many years, and is
+a good guide for any project:</p>
+<dl>
+<dt>Write the most specific title we can.</dt>
+<dd>"Why does division sometimes give a different result in Python 2.7 and
+Python 3.5?"  is much better than, "Help! Math in Python!!"</dd>
+<dt>Give context before giving sample code.</dt>
+<dd>A few sentences to explain what we are trying to do and why it will help
+people determine if their question is a close match to ours or not.</dd>
+<dt>Provide a minimal reprex.</dt>
+<dd>Readers will have a much easier time figuring out if this question and its
+answers are for them if they can see <em>and understand</em> a few lines of code.</dd>
+<dt>Tag, tag, tag.</dt>
+<dd>Keywords make everything from scientific papers to left-handed cellos easier
+to find.  They are even more effective if the system encourages people to
+re-use tags so that they don't proliferate [<a href="../bibliography/#Lin2020">Lin2020</a>].</dd>
+<dt>Use "I" and question words (how/what/when/where/why).</dt>
+<dd>Writing this way forces us to think more clearly about what someone might
+actually be thinking when they need help.</dd>
+<dt>Keep each item short.</dt>
+<dd>Break everything down into single-page steps, with half of that page devoted
+to troubleshooting.  This may feel trivializing to the person doing the
+writing, but is often as much as a person searching and reading can handle.
+It also helps writers realize just how much implicit knowledge they are
+assuming.</dd>
+<dt>Allow for a chorus of explanations.</dt>
+<dd>Do not be afraid of providing multiple explanations to a single question
+that suggest different approaches or are written for different prior levels
+of understanding. This is one of the things that has made Stack Overflow so
+successful: if users are different from one another, they are best served by
+a <span class="indexref" key="chorus of explanation" markdown="1">chorus of explanations</span>
+[<a href="../bibliography/#Caulfield2016">Caulfield2016</a>].</dd>
+</dl>
+
+  <hr/>
+<div class="centered">
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="buildtogether.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Building Software Together: Testing</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+      
+      <h2><a href="../">Building Software Together</a></h2>
+      <h1>Chapter 11: Testing</h1>
+      
+      <p>
+        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+      </p>
+    </div>
+
+<p>A friend of mine once told me that she could write any application I wanted in
+under a minute, as long as I didn't insist that it actually work. Her point was
+that software is only done when it works well enough to be used.  It doesn't
+have to be perfect—every non-trivial program has a few bugs, and most trivial
+ones do too—but if you care at all about your users (and your own reputation)
+you will do what you can to minimize these.</p>
+<p>That's not the only reason to test, though. As we'll see below, designing
+programs so that they <em>can</em> be tested makes them easier to understand and
+modify, which in turn makes the next piece of work easier to tackle.</p>
+<h2>Unit Testing</h2>
+<p>As the name suggests, a <span class="indexref" key="unit test" markdown="1"><a class="glossref" href="../glossary/#unit_test" markdown="1">unit test</a></span>
+checks the correctness of a single unit of software.  Exactly what constitutes a
+"unit" is subjective, but it typically means the behavior of a single function
+or method in one situation.</p>
+<p>A unit test will typically have:</p>
+<ul>
+<li>
+<p>A <span class="indexref" key="fixture (in unit test);unit test!fixture" markdown="1"><a class="glossref" href="../glossary/#fixture" markdown="1">fixture</a></span>, which is the thing being tested (e.g., an
+    array of numbers). The fixture is typically a subset or smaller version of
+    the data the function will typically process. In fact, it should be a reprex
+    (<a href="../communicate/">Chapter 10</a>), i.e., exactly the same kind of minimal example
+    you would post online if you were asking for help.</p>
+</li>
+<li>
+<p>An <span class="indexref" key="actual result (in unit test);unit test!actual result" markdown="1"><a class="glossref" href="../glossary/#actual_result" markdown="1">actual result</a></span>, which is what the code produces when given the
+    fixture.</p>
+</li>
+<li>
+<p>An <span class="indexref" key="expected result (in unit test);unit test!expected result" markdown="1"><a class="glossref" href="../glossary/#expected_result" markdown="1">expected result</a></span> that the actual result is
+    compared to.</p>
+</li>
+</ul>
+<p>Good programmers often run informal unit tests interactively when debugging
+(<a href="../tooling/">Chapter 17</a>), but they are much more valuable when they can be re-run
+at a moment's notice to make sure that the most recent changes haven't broken
+anything that was working a few minutes ago.  To do this, you can use a <span class="indexref" key="test framework;unit test!test framework" markdown="1"><a class="glossref" href="../glossary/#test_framework" markdown="1">test framework</a></span> (also called a <span class="indexref" key="test runner" markdown="1"><a class="glossref" href="../glossary/#test_runner" markdown="1">test runner</a></span>).  Dozens of these have been built for almost every language you
+can think of; most are very similar because they were inspired by the same
+forerunners. The most widely-used test framework for Python is called
+<a href="http://pytest.org/"><code>pytest</code></a>, which structures tests like this:</p>
+<ol>
+<li>Tests are put in files whose names begin with <code>test_</code>.</li>
+<li>Each test is a function whose name also begins with <code>test_</code>.</li>
+<li>These functions use <code>assert</code> to check results.</li>
+</ol>
+<p>The <code>pytest</code> library comes with a command-line tool that is also called
+<code>pytest</code>.  When it runs, it searches for all files in or below the working
+directory whose names match the pattern <code>test_*.py</code>.  It then runs the test
+functions it finds in these files and summarizes their results.</p>
+<p>If running all the tests is taking so long that it's disrupting your <span class="indexref" key="flow" markdown="1">flow</span> (<a href="../important/">Chapter 2</a>), you can give <code>pytest</code> (and other
+test runners) arguments to specify which subset of tests to run. This speeds up
+development, but you should always re-run the entire <span class="indexref" key="test suite;unit test!test suite" markdown="1"><a class="glossref" href="../glossary/#test_suite" markdown="1">test suite</a></span> before committing your
+changes to version control. If the tests reveal that the change you have just
+made to one part of a program unexpectedly affects some other part, it's a sign
+that you should change your design to remove that long-range interaction: sooner
+or later (probably sooner) it will break again, and you may not catch it the
+second time around.</p>
+<blockquote>
+<h3>Fuzzing</h3>
+<p>In 1988, a professor teaching a class on operating systems decided to throw
+randomly-generated strings at standard Unix command-line utilities
+[<a href="../bibliography/#Miller1990">Miller1990</a>].  To their surprise, the students were able to crash
+almost a third of the programs they tested, some of which had been in daily use
+for two decades.</p>
+<p>While they weren't the first people to test with random data, their results
+sparked interest in <span class="indexref" key="fuzz testing;unit test!fuzzing" markdown="1"><a class="glossref" href="../glossary/#fuzz_testing" markdown="1">fuzz testing</a></span>
+(or "fuzzing" for short), which is now a
+standard part of most testers' repertoire [<a href="../bibliography/#Zeller2019">Zeller2019</a>].  Despite
+this, [<a href="../bibliography/#Miller2020">Miller2020</a>] found that thirty years later, programs are still
+failing at about the same rate and for the same reasons.  <a href="../debugging/">Chapter 15</a>
+discusses a technique for making fuzz testing even more useful.</p>
+</blockquote>
+<h2>Design for Testability</h2>
+<p>When most developers hear the word "design", they think about either the
+application's structure or its user interface. If you don't think about how
+you're going to test your application while you're designing it, though, the
+odds are very good that you'll build something that cannot (or cannot easily) be
+tested.  Conversely, if you <span class="indexref" key="design for test;unit test!influence on software design" markdown="1"><a class="glossref" href="../glossary/#design_for_test" markdown="1">design for test</a></span>, it'll be a lot easier
+to check whether your finished application actually does what it's supposed to.</p>
+<p>Thinking about testability from the start turns out to be a good <span class="indexref" key="software design!influence of testability;testability!influence on software design" markdown="1"><a class="glossref" href="../glossary/#heuristic" markdown="1">heuristic</a></span> for design in general
+[<a href="../bibliography/#Feathers2004">Feathers2004</a>], since it forces you to think in terms of small
+components with well-defined interfaces. Not only can these be tested more
+easily, they can also be modified or replaced in isolation, which significantly
+reduces the probability of requiring rework in the naïve model presented at the
+start of this chapter.</p>
+<p>For example, let's consider a typical three-tier web site that uses the <span class="indexref" key="model-view-controller architecture" markdown="1"><a class="glossref" href="../glossary/#mvc" markdown="1">Model-View-Controller</a></span>
+(MVC) <span class="indexref" key="design pattern!model-view-controller" markdown="1"><a class="glossref" href="../glossary/#design_pattern" markdown="1">design pattern</a></span>. The model, which is stored in a relational database, is the data
+that the application manipulates, such as purchase orders and game states. The
+controller encapsulates the application's business rules: who's allowed to
+cancel games while they're in progress, how much interest to add on
+out-of-province orders, and so on.  Finally, the view translates the
+application's state into HTML for display and handles the button clicks and form
+submissions that drive the system from one state to another.</p>
+<blockquote>
+<h3>Design patterns help</h3>
+<p>Design patterns were a hot topic in the 1990s and early 2000s, and while there
+isn't as much excitement about them now, their value has not diminished.
+Knowing some design patterns is like knowing chord progressions in music: it
+gives you a larger mental toolkit to work with.  [<a href="../bibliography/#Tichy2010">Tichy2010</a>]
+summarizes some of the evidence, more recent studies like [<a href="../bibliography/#Krein2016">Krein2016</a>]
+confirm it, and books like [<a href="../bibliography/#Olsen2007">Olsen2007</a>, <a href="../bibliography/#Nystrom2014">Nystrom2014</a>, <a href="../bibliography/#Casciaro2020">Casciaro2020</a>] are
+great places to get started.</p>
+</blockquote>
+<p>The MVC architecture presents several <span class="indexref" key="model-view-controller
+architecture!testing" markdown="1">challenges for testing</span>:</p>
+<dl>
+<dt>Unit testing libraries are designed to run within a single process.</dt>
+<dd>As the word "library" implies, they're made up of code that's meant to be
+loaded into a single running program. Most debuggers and testing libraries
+don't track interactions <em>between</em> processes.</dd>
+<dt>Configuring a test environment is a pain.</dt>
+<dd>You have to set up a database server, clear the browser's cache, make sure
+the right clauses are in your web server's configuration file, and so on.</dd>
+<dt>Running tests is slow.</dt>
+<dd>In order to ensure that tests are independent, you have to create an
+entirely new fixture for each test. This means reinitializing the database,
+restarting the web server, and so on, which can take several seconds per
+test. That translates into an hour or more for a thousand tests, which is
+pretty much a guarantee that developers won't run them routinely while
+they're coding, and might not even run them before checking changes in.</dd>
+</dl>
+<p>The first step in fixing this is to get rid of the browser and web server. One
+way to do this is to replace the browser with a script that generates HTTP
+requests as multi-line strings and passes them via a function call to a library
+that does whatever the web server's HTTP handler would do. After invoking our
+actual program, this library passes the text of an HTTP response back to our
+script, which then checks that the right values are present (about which more in
+a moment). The library's job is to emulate the environment the web app under
+test would see if it was being invoked by the real server: environment variables
+are set, standard input and output are replaced by <span class="indexref" key="string I/O" markdown="1"><a class="glossref" href="../glossary/#string_io" markdown="1">string I/O</a></span> objects, and so on, so that the application has no (easy)
+way to tell how it's being invoked.</p>
+<p>Why go through this rigmarole? Why not just have a top-level function in the web
+app that takes a URL, a dictionary full of header keys and values, and a string
+containing the POST data, and check the HTML page it generates? The answer is
+that structuring our tests in this way allows us to run them both in this test
+harness, and against a real system. By replacing the fake HTTP handler with code
+that sends the HTTP request through a socket connected to an actual web server,
+and reads that server's response, we can check that our application still does
+what it's supposed to when it's actually deployed. The tests will run much more
+slowly, but that's OK: if we've done our job properly, we'll have caught most of
+the problems in our faked environment, where debugging is much easier to do.</p>
+<p>Now, how to check the result of the test? We're expecting HTML, which is just
+text, so why not store the HTML page we want in the test and do a string
+comparison? The problem with that literal approach is that every time we make
+any change at all to the format of the HTML, we have to rewrite every test that
+produces that page. Even something as simple as introducing white space, or
+changing the order of attributes within a tag, will break string comparison.</p>
+<p>A better strategy is to add unique IDs to significant elements in the HTML page,
+and only check the contents of those elements. For example, if we're testing
+login, then somewhere on the page there ought to be an element like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;currentuser&quot;</span><span class="p">&gt;</span>Logged in as <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>marian<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+(<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.example.org/logout&quot;</span><span class="p">&gt;</span>logout<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+|
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.example.org/preferences&quot;</span><span class="p">&gt;</span>preferences<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>)
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>We can find that pretty easily with a <span class="indexref" key="CSS selector!use in testing" markdown="1"><a class="glossref" href="../glossary/#css_selector" markdown="1">CSS selector</a></span> that looks for a <code>div</code> with the ID
+<code>currentuser</code>.  We can then move the <code>div</code> around without breaking any of our
+tests; if we were a little more polite about formatting its internals (i.e., if
+we used something symbolic to highlight the user name and trusted CSS to do the
+formatting), we'd be in even better shape.</p>
+<p>We've still only addressed half of our overall problem, though: our web
+application is still talking to a database, and reinitializing it each time a
+test runs is slow.  We can solve this by moving the database into memory. Most
+applications rely on an external database server, which is a long-lived process
+that manages data on disk. An alternative is an <span class="indexref" key="embedded database!use in testing" markdown="1"><a class="glossref" href="../glossary/#embedded_database" markdown="1">embedded database</a></span>, in which the
+database manipulation code runs inside the user's application as a normal
+library; <a href="https://www.sqlite.org/">SQLite</a> is probably the best known of these.</p>
+<p>The advantage of using an embedded database from a testing point of view is that
+it can be told to store data in memory, rather than on disk. This would be a
+silly thing to do in a production environment (after all, the whole point of a
+database is that it persists), but in a testing environment, an <span class="indexref" key="in-memory database!use in testing" markdown="1"><a class="glossref" href="../glossary/#in_memory_database" markdown="1">in-memory database</a></span> can speed things up by a factor of thousands, since the hard
+drive never has to come into play. The cost of doing this is that you have to
+either commit to using one database in both environments, or avoid using the
+"improvements" that different databases have added to SQL.</p>
+<p>A third choice is to replace the database with a <span class="indexref" key="mock object" markdown="1"><a class="glossref" href="../glossary/#mock_object" markdown="1">mock object</a></span>.
+A mock object has the same interface as the
+function, object, class, or library that it replaces, but is designed to be used
+solely for testing.  For example, Node's <code>mock-fs</code> library provides the same
+functions as its standard filesystem library, but stores everything in memory.
+This prevents tests that create or delete files from doing anything unfortunate
+and also makes tests much faster (since in-memory operations are thousands of
+times faster than operations that touch the disk).</p>
+<p>A mock object can also be designed to give pre-programmed responses to just a
+handful of specific requests:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">INDEX_PAGE</span> <span class="o">=</span> <span class="s1">&#39;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Index Page&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&#39;</span>
+<span class="n">USER_PAGE</span> <span class="o">=</span> <span class="s1">&#39;&lt;html&gt;&lt;body&gt;&lt;h1&gt;User Page&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&#39;</span>
+
+<span class="k">def</span> <span class="nf">mock_http_server</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">url</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">INDEX_PAGE</span>
+    <span class="k">elif</span> <span class="n">url</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;/user/&#39;</span><span class="p">,</span> <span class="s1">&#39;/user/index.html&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">USER_PAGE</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">UrlError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;unhandled URL &quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>The strength of the pre-programmed approach is that if anything ever sends an
+unexpected URL, the failure will be obvious.  The weakness is the tedium of
+writing out all the cases, though in most testing scenarios there are fewer than
+you might expect.</p>
+<p>Once these changes have been made, the application zips through its tests
+quickly enough that developers actually will run the test suite before checking
+in changes to the code. The downside is the loss of <a class="glossref" href="../glossary/#fidelity" markdown="1">fidelity</a>:
+the system we're testing is a close cousin to what
+we're deploying, but not exactly the same. However, this is a good economic
+tradeoff: we may miss a few bugs because our fake HTTP handler doesn't translate
+HTTP requests exactly the same way as the real web server, but we catch (and
+prevent) a lot more by making testing cheap.</p>
+<h2>Testing the Interface</h2>
+<p>All right: we've broken our MVC application into testable modules and are
+reasonably sure that if the interface calls the right function when a button is
+pressed, the back end will respond the right way. But how do we test that the
+browser will call the right function with the right parameters when the button
+is clicked?</p>
+<p>The answer is to use a tool like <a href="https://www.selenium.dev/">Selenium</a> to <span class="indexref" key="browser
+automation!for testing;unit test!browser automation" markdown="1">automate the browser's
+actions</span>. Similar tools exist for desktop and mobile applications; all of
+them rely on the fact that the browser or the screen manager is just another
+piece of software. With a little bit of work, we can tell them to move the
+cursor to a specific (X,Y) location or a particular button or menu, to generate
+a mouse click, or to pretend that the user just typed the letter 'G'. Once we've
+done that, we can check that the web page has the right elements or that the
+database has a new record just as we would with back-end tests.</p>
+<p>Most GUI testing frameworks have two other useful features. The first is <span class="indexref" key="browser automation!record and playback" markdown="1">record and playback</span>: you can
+step through a workflow manually, and the tool can then produce a script that
+will repeat those steps. These scripts tend to be fragile—i.e., small changes
+to the UI will break them—but if you edit them to replace things like absolute
+(X,Y) coordinates with the logical labels of UI elements, you can build a lot of
+tests in a hurry.</p>
+<p>The other thing GUI testing frameworks can do is automate your day-to-day work.
+Any time you have to go to one website to do the first part of a task, then copy
+some information from it to another website to complete the task, you could
+write a Selenium script instead. I've seen it used to file one issue in a
+repository for each student in a class and to check that names and addresses on
+half a dozen different websites are consistent with each other. I don't think
+it's worth learning just for this, but if you're going to use it for testing,
+you might as well use it to make your life easier.</p>
+<h2>Performance Testing</h2>
+<p>Programs don't just have to do the right thing; they have to do it quickly
+enough to be usable.  How fast that needs to be depends on the program, but if a
+text editor takes nine seconds to display each character, people are going to
+write their reports some other way. You should therefore measure <span class="indexref" key="unit
+test!performance" markdown="1">how long your tests take to run</span> so that you can tell
+when the application is slowing down and do something about it.</p>
+<p>The simplest kind of <span class="indexref" key="performance testing!manual" markdown="1">performance
+testing</span> is simply to measure how much time elapses between the start and
+end of a test. You can do this manually:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span> <span class="nf">test_something</span><span class="p">():</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="o">...</span><span class="n">run</span> <span class="n">the</span> <span class="n">test</span><span class="o">...</span>
+    <span class="n">elapsed</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">microsecond</span> <span class="o">-</span> <span class="n">start</span><span class="o">.</span><span class="n">microsecond</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>but most test frameworks will do it for you. If you are using <code>pytest</code>, for
+example, the <code>--durations</code> will report the slowest tests or the running time for
+all tests. If you want to average over several runs (which you should, because
+your computer is probably doing other things while it runs the tests, and those
+other things might slow it down) you can use something like
+<a href="https://pypi.org/project/pytest-benchmark/"><code>pytest-benchmark</code></a>.</p>
+<p>What most frameworks <em>don't</em> do is save performance data in a format that is
+easy to diff.  I sometimes do this so that I can tell how my latest changes have
+impacted running times; in practice, that means saving the output of <code>pytest
+--durations=0</code> as a text file in version control, and then using a one-page
+program I wrote to find tests whose performance has changed by more than a few
+percent. It's probably more than you need for a class project, but it has
+probably saved my users from a lot of unnecessary frustration.</p>
+<blockquote>
+<h3>Profiling</h3>
+<p>If you find a performance problem, the next step is to use a
+<span class="indexref" key="profiler;unit test!profiling" markdown="1"><a class="glossref" href="../glossary/#profiler" markdown="1">profiler</a></span>
+to figure out where the time is actually going.
+While a coverage tool checks which lines of code are
+executed, a profiler measures how long each line, block, or function takes to
+run. Most will report both the average time per run and the total time so that
+you can spot things that are fast but still affect performance because they are
+called hundreds of millions of times.</p>
+<p>Some profilers work by interrupting the program every few hundred microseconds
+and seeing what line of code is being executed; others work by adding extra
+instructions to the code to record the start and end times of functions. Both
+methods change the program's behavior, so the output doesn't reflect the running
+time of the unwatched program perfectly. (By analogy, if you put a thermometer
+in a glass of water, what it reports is the weighted average of its own
+temperature and the water's.) However, most modern profiling tools don't affect
+performance very much, and tend to slow down most parts of the program by the
+same amount; in practice, the <a class="glossref" href="../glossary/#hot_spot" markdown="1">hot spots</a> are usually
+very easy to see.</p>
+</blockquote>
+<h2>Are We Done Yet?</h2>
+<p>The last thing you need (and you <em>do</em> need it) is some idea of how well you are
+testing.  How much of your code do your tests actually check, and what parts of
+your code aren't being tested?  To find out, you can check the <span class="indexref" key="coverage!code;code coverage;unit test!code coverage" markdown="1"><a class="glossref" href="../glossary/#code_coverage" markdown="1">code coverage</a></span> of your tests, i.e., measure the number of lines, statements, or
+possible paths through the code that the tests are actually exercising.</p>
+<p>If you are using Python, you can check your tests' coverage with the <code>coverage</code>
+library.  The command:</p>
+<div class="codehilite"><pre><span></span><code>$ coverage run -m pytest
+</code></pre></div>
+
+<!-- continue -->
+<p>doesn't display any information of its own, since mixing that in with our
+program's output would be confusing.  Instead, it puts coverage data in a file
+called <code>.coverage</code> in the current directory.  To display that data, you run:</p>
+<div class="codehilite"><pre><span></span><code>$ coverage report -m
+</code></pre></div>
+
+<p>Its output shows you what percentage of your program was and wasn't executed.
+You can get a more complete report by running <code>coverage html</code> at the command
+line and opening the file <code>htmlcov/index.html</code>, which displays a colorized
+line-by-line summary of execution.</p>
+<p>So how much testing is enough?  The answer depends on what the software is being
+used for.  If it is for a safety-critical application such as a medical device,
+you should aim for 100% code coverage, i.e., every single line in the
+application should be tested.  In fact, we should probably go further and aim
+for 100% <span class="indexref" key="coverage!path;path coverage;unit test!path coverage" markdown="1"><a class="glossref" href="../glossary/#path_coverage" markdown="1">path coverage</a></span> to ensure that every possible path through the
+code has been checked.  Similarly, if the software has become popular and is
+being used by thousands of people all over the world, we should probably check
+that it's not going to embarrass us.</p>
+<p>But most of us don't write software like that, so requiring 100% code coverage
+is like asking for ten decimal places of accuracy when checking the voltage of a
+household electrical outlet.  We always need to balance the effort required to
+create tests against the likelihood that those tests will uncover useful
+information.  We also have to accept that no amount of testing can prove a piece
+of software is completely correct.  A function with only two numeric arguments
+has \(2^{128}\) possible inputs.  Even if we could write the tests, how could we
+be sure we were checking the result of each one correctly?</p>
+<h2>What's Hard to Test</h2>
+<p>Some things are intrinsically harder to test than others. Take <span class="indexref" key="visualization!difficulty of testing;unit
+test!visualization" markdown="1">visualizations</span>: any change to the dimension of the
+plot, however small, can change many pixels in a <a class="glossref" href="../glossary/#raster_image" markdown="1">raster
+image</a>, and cosmetic changes such as moving the legend up a couple of
+pixels will cause all of the tests to fail.</p>
+<p>The simplest solution is therefore to test the data used to produce the image
+rather than the image itself.  Unless the drawing library itself contains bugs,
+the correct data should always produce the correct plot.  If you're testing the
+drawing library itself, comparing pixels may be your only option; in that case,
+designing the library so that it can draw axes without data points, points
+without axes, and so on will minimize the number of tests you need to rewrite
+as the library changes.</p>
+<p>Computer graphics, data science, and anything else that uses <span class="indexref" key="floating-point arithmetic!difficulty of testing;unit test!floating-point
+arithmetic" markdown="1">floating-point arithmetic</span> is also hard to test. One problem
+is that floating-point numbers are approximations, just as 0.33333333 is an
+approximation to 1/3.  When we work with them, we have to think in terms of
+error bars, just as scientists working in a lab do; rather than checking if the
+actual result is exactly the same as the expected result, we have to ask, "Are
+they close enough that I don't have to worry?" To answer that question, we have
+to decide what is "close enough". One part in a thousand?  One part in a
+million? Any two programmers will probably answer this question differently; if
+nothing else, writing tests forces us to be explicit about our tolerances.</p>
+<p>Another challenge when testing numerical software is that we often don't know
+what the right answer is. If your program is supposed to simulate the
+gravitational effects of a rapidly-rotating black hole, there isn't a formula
+that tells you what the answer should be—if there was, you'd use it instead of
+writing a program. Similarly, if you are using machine learning to cluster
+people according to their medical histories, there is no "right" answer:
+slightly different parameters can produce slightly different clusters, and if
+there was an easy way to predict the result, you'd be using that. Again, one of
+the benefits of writing tests is that it forces us to be explicit about what we
+think the right and wrong answers are so that we can have more productive
+conversations with our colleagues.</p>
+
+  <hr/>
+<div class="centered">
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>

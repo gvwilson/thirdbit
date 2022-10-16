@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="buildtogether.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Building Software Together: Security</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+      
+      <h2><a href="../">Building Software Together</a></h2>
+      <h1>Chapter 13: Security</h1>
+      
+      <p>
+        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+      </p>
+    </div>
+
+<p>Companies, universities, and other institutions have mostly failed to protect us
+from online threats: nothing happens to them if they don't, and as
+<span class="indexref" key="Schneier, Bruce" markdown="1">Bruce Schneier</span> has pointed out, their business models
+are designed to put the cost of security failures on users
+[<a href="../bibliography/#Schneier2021">Schneier2021</a>]. As a result, much of what we are forced to go through
+is <span class="indexref" key="security theater" markdown="1"><a class="glossref" href="../glossary/#security_theater" markdown="1">security theater</a></span>
+intended to make us believe something is being done rather than to actually make
+us safer: forcing people to change passwords every three months encourages
+people to choose memorable (and therefore easy-to-guess) passwords, while all
+that random searches of backpacks and bags at the entrance to the subway do is
+encourage a would-be attacker to go to another entrance.</p>
+<p>It doesn't have to be like this.  As [<a href="../bibliography/#Schneier2019">Schneier2019</a>] points out, most
+security breaches are a result of poor design and rather than Hollywood-style
+hacking.  If we think about the threats people actually face, we can build
+systems that are safer to use [<a href="../bibliography/#Smalls2021">Smalls2021</a>].</p>
+<blockquote>
+<h3>Privacy is a right</h3>
+<p>Software doesn't just need to be secure to prevent fraud: it is also an
+essential to protecting your <a href="https://en.wikipedia.org/wiki/Right_to_privacy">right to privacy</a>, which is
+guaranteed by the <a href="https://en.wikipedia.org/wiki/Universal_Declaration_of_Human_Rights">Universal Declaration of Human Rights</a>.  There are many
+situations in which governments and law enforcement agencies have legitimate
+reasons to violate that right, but we have learned the hard way that the more
+access we give them, the more likely that access is to be abused, both by them
+and by others.</p>
+</blockquote>
+<h2>Threat Models</h2>
+<p>The first step is to realize that digital security is usually not the weakest
+link.  At an airport several years ago, I heard a professor of computer science
+try to reset an online account over the phone. In just a couple of minutes,
+everyone within a few meters knew their full name, their date of birth, their
+credit card number (including three-digit verification code on the back), and
+what was almost certainly their mother's maiden name.</p>
+<p><span class="indexref" key="social engineering" markdown="1"><a class="glossref" href="../glossary/#social_engineering" markdown="1">Social engineering</a></span> is
+far more common than hacking: it is much easier to trick someone into giving you
+their password than to break into their devices digitally.  The defense against
+this is to pay attention to what's happening and respond accordingly.  However,
+being on guard all the time is exhausting; <span class="indexref" key="Snowden, Edward" markdown="1">Edward
+Snowden</span> and the journalists who worked with him took extraordinary
+measures to safeguard themselves against <a class="glossref" href="../glossary/#state_level_actor" markdown="1">state-level
+actors</a> [<a href="../bibliography/#Snowden2019">Snowden2019</a>], but most of us aren't involved in issues
+of national security and don't need to take those kinds of precautions.
+Instead, we typically face one of three kinds of threat:</p>
+<ul>
+<li>
+<p><span class="indexref" key="casual threat;threat!casual" markdown="1"><a class="glossref" href="../glossary/#casual_threat" markdown="1">Casual threats</a></span>
+    are opportunistic. For example, Monica, a professor, is targeted by Mohan,
+    an undergraduate who spends hours every day in online echo chambers
+    complaining about how "SJW bullshit" is ruining tech. He thinks it would be
+    a laugh to make her the target of anonymous abuse online; he is unlikely to
+    invest significant effort in his attack, but his attack may be backed up by
+    more knowledgeable allies in online forums.</p>
+</li>
+<li>
+<p><span class="indexref" key="intimate threat;threat!intimate" markdown="1"><a class="glossref" href="../glossary/#intimate_threat" markdown="1">Intimate threats</a></span> come from people who know their targets' passwords or have a
+    chance to install spyware on their targets' devices (which abusers
+    frequently do [<a href="../bibliography/#Leitao2019">Leitao2019</a>]). For example, Elena has ended an
+    unhappy relationship and is rebuilding her life.  Her ex, Eric, is obsessed
+    with the idea that she left him for someone else and is now stalking her.
+    He knows the IDs she uses on social media, some of her old passwords, and
+    the PIN for phone.</p>
+</li>
+<li>
+<p><span class="indexref" key="insider threat;threat!insider" markdown="1"><a class="glossref" href="../glossary/#insider_threat" markdown="1">Insider threats</a></span> come from people who abuse legitimate access to accounts and
+    devices. For example, Boris, a professor, has agreed to serve as an expert
+    witness in an upcoming lawsuit; Bethany, a sys admin in his department, has
+    been asked by a former colleague to find out what he is going to say in
+    order to discredit his testimony.</p>
+</li>
+</ul>
+<p>How can you help counter these threats?</p>
+<ol>
+<li>
+<p>Have and enforce a Code of Conduct (<a href="../important/">Chapter 2</a>) for any site you
+    build so that people who are abusing the system can be shut down quickly.
+    Requiring a 24-hour waiting period for creation of new accounts helps as
+    well: if casual abusers can't get their kicks right away, many of them will
+    move on.</p>
+</li>
+<li>
+<p>Notify a device's owner when you send data from their device to someone
+    else. (Doing this should be required by law for the same reason that
+    everyone who manufactures packaged food is required to list its
+    ingredients.)</p>
+</li>
+<li>
+<p>Keep a <span class="indexref" key="logging!for security" markdown="1">log</span> of every administrative
+    action (<a href="../errors/">Chapter 14</a>) so that there will be a record if someone uses
+    their privileges inappropriately. They might be able to delete that record,
+    but if it is <span class="indexref" key="digital signature!for activity logs" markdown="1"><a class="glossref" href="../glossary/#digital_signature" markdown="1">digitally signed</a></span> there will still be evidence of tampering.</p>
+</li>
+<li>
+<p>Do code reviews to ensure that programmers aren't inserting
+    <span class="indexref" key="code review!for security" markdown="1"><a class="glossref" href="../glossary/#back_door" markdown="1">back doors</a></span> in software
+    [<a href="../bibliography/#Sharma2021">Sharma2021</a>] or accidentally leaving access points intended
+    solely for testing.</p>
+</li>
+</ol>
+<h2>Authentication</h2>
+<p>Using a weak password is a good way to ensure that your account will eventually
+be compromised, in part because <span class="indexref" key="dictionary attack" markdown="1"><a class="glossref" href="../glossary/#dictionary_attack" markdown="1">dictionary attacks</a></span> can be run offline against stored passwords to
+find ones that match common patterns. Using a clever password scheme, such as
+the name of the site plus a word only you know, does not make you more secure:
+whatever scheme you have thought of, attackers have seen before.  And since
+people are often identified on multiple sites by the same email address, as soon
+as one site where you've used that scheme is compromised, attackers can guess
+the scheme and use it elsewhere.</p>
+<p>As a programmer, you should therefore require users to create strong passwords.
+This does <em>not</em> mean requiring upper-case letters, digits, punctuation
+characters, Egyptian hieroglyphics, and emoji; as <a href="https://xkcd.com/936/">this XKCD
+cartoon</a> points out, a phrase containing four random words is
+more secure and easier to remember.</p>
+<p>Another solution is to use a password manager that generates strong passwords
+and saves them all under a master passphrase (which again should be several
+words long and hard to forget).  Doing this does create a single point of
+attack, but is still safer than choosing passwords yourself.  In addition,
+password managers aren't fooled by sites with names like <code>paypaI.com</code>.</p>
+<blockquote>
+<h3>I know how to do that</h3>
+<p>Writing passwords down and keeping them in your wallet is not necessarily a bad
+practice—it depends on who is doing it. For example, an elderly person who
+finds tech confusing might well choose simple, easy-to-guess passwords for their
+accounts if they have to be remembered. On the other hand, they have a lifetime
+of practice keeping track of bits of paper, and will probably notice if their
+purse or wallet is stolen.</p>
+</blockquote>
+<p>Passwords are just one form of <span class="indexref" key="authentication" markdown="1">authentication</span>.
+In general, proving your identity relies on something you know (like a
+password), something you have (like a swipe card), or something you are (like
+your fingerprints).  <span class="indexref" key="two-factor authentication;authentication!two-factor" markdown="1"><a class="glossref" href="../glossary/#2fa" markdown="1">Two-factor authentication</a></span> (2FA) requires two
+of these together to establish your identity, e.g., a password (which can be
+stolen electronically) plus a random code generated by an app on your phone
+(which means attackers need access to you).</p>
+<p>It is more secure to use an app for 2FA instead of text messages or email, but
+either is a big advance on single-factor authentication.  Many security experts
+now recommend using a physical 2FA key such as a
+<span class="indexref" key="YubiKey" markdown="1">YubiKey</span> that fits on a keychain and plugs into a standard USB
+port.  Sites like <span class="indexref" key="Tech Solidarity" markdown="1"><a href="https://techsolidarity.org/">Tech Solidarity</a></span>
+have easy-to-follow instructions explaining
+how to set them up for a range of popular social networking sites.</p>
+<p>What you should <em>never</em> do is share a confirmation code, since a common attack
+is to trigger a password reset and then call the victim pretending to be from
+the IT department and ask them to read the code back to "verify" your
+account. As soon as you do this, the attacker can change your password and get
+into your account.</p>
+<p>The advice above leads directly to some recommendations for developers:</p>
+<ol>
+<li>
+<p>Require strong passwords, but don't require people to change them
+    frequently.</p>
+</li>
+<li>
+<p>Support two-factor authentication. (Use a library rather than building
+    it yourself.)</p>
+</li>
+<li>
+<p>Include a health warning with every confirmation code you send to your
+    users telling them not to share the code with anyone, ever.</p>
+</li>
+</ol>
+<h2>Don't Open That</h2>
+<p>Much of the software we use was designed in more innocent times, and since
+companies are almost never held liable for the damage caused by their software,
+they have consistently prioritized convenience for the many over harm to the
+few. One common example is documents that contain code that automatically runs
+when the document is opened. Used for good, these <span class="indexref" key="macro" markdown="1">macros</span>
+can check that an address field has been filled in correctly. Used for evil, it
+can email everyone in your address book, or send a copy of it to anyone in the
+world.  Microsoft Word and various game mods are particularly notorious for this
+vulnerability.</p>
+<p>Attempts to get you to open an email attachment, click on a link, install
+software, or log into a website are called <span class="indexref" key="phishing" markdown="1"><a class="glossref" href="../glossary/#phishing" markdown="1">phishing</a></span> attacks.  The strongest defense is to never do
+these things, but that would make most work impossible. The second-best defense
+is to invest in a <span class="indexref" key="virus scanner" markdown="1">virus scanner</span> to check email
+attachments and downloads before you open them.</p>
+<p>Similarly, don't click links in emails without checking them first: instead,
+hover over the link and see if it matches the site it claims to be.  You can
+also log into the site manually rather than following the provided link: it may
+take a few extra seconds, but is still faster than fixing your credit rating.
+And when you go to a web site, check the real domain name in the URL:
+<code>paypaI.com</code> with an upper-case "I" instead of a lower-case "l" is not the site
+it pretends to be, and <code>wwwpaypal.com</code> is a different domain than
+<code>www.paypal.com</code>.</p>
+<blockquote>
+<h3>Trained to do the wrong thing</h3>
+<p>Many sites send an email with a random URL to confirm your identity when you are
+resetting your password. On the one hand, this means that an attacker has to get
+access to your email in order to break into your account. On the other hand,
+random URLs are hard to type in, so these emails encourage us to click on links
+in emails. If you are not expecting a password reset email, <em>don't click on the
+link</em>, even if it includes your name or other details:
+<span class="indexref" key="spearphishing" markdown="1"><a class="glossref" href="../glossary/#spearphishing" markdown="1">spearphishing</a></span> uses data harvested
+from previous victims to attack specific targets.</p>
+<p>Similarly, if someone from your bank calls you up and asks for information to
+confirm your identity, you should ask <em>them</em> for information to confirm theirs,
+such as, "What were the dates of my last two transactions?"  If they say they're
+unable to answer because that's another department, end the conversation and
+then call your bank directly to either complete the operation or report the
+attack.</p>
+</blockquote>
+<p>How can you support these safety rules with software?</p>
+<ol>
+<li>
+<p>I really want to say, "Don't send attachments," but that's not practical.
+    What you <em>can</em> do is send email telling people that there's a document for
+    them to download, then require them to log in to your site in order to
+    download it.</p>
+</li>
+<li>
+<p>Notify people immediately of any data breaches so that they can warn others.
+    Don't wait until a breach happens before figuring out how to do this: build
+    an emergency notification system directly into your product.</p>
+</li>
+</ol>
+<h2>Delete Before Discarding</h2>
+<p>Moving files into the trash and then emptying it does not actually erase the
+data: it just tells the computer that the space is available for reuse. (This is
+why reporters and private investigators regularly go <span class="indexref" key="dumpster diving" markdown="1"><a class="glossref" href="../glossary/#dumpster_diving" markdown="1">dumpster diving</a></span>.) The best way to address this
+problem is to encrypt your hard drive, which is a quick setup option for all
+major operating systems these days.</p>
+<p>Even with that, you should act as if any device you throw away might fall into
+unfriendly hands.  (The odds of this happening by accident are low, but it won't
+be by accident: attackers have been known to get jobs in electronics recycling
+depots in order to collect the raw material for attacks.)  Use a <span class="indexref" key="secure
+deletion tool" markdown="1">secure deletion tool</span> like <a href="https://www.bleachbit.org/">BleachBit</a> (for
+Linux or Windows) or <a href="https://voidtech.net/apps/fileshredder/">FileShredder</a> (for MacOS) before selling,
+recycling, or discarding your hardware, but keep in mind that this doesn't
+affect backups or files stored online on sites like <a href="https://dropbox.com">Dropbox</a>. And keep
+in mind that it is practically impossible to truly delete data from social
+networking sites: in most cases, their "delete" usually means "don't show any
+more" rather than "erase all past record of".</p>
+<p>That brings us to the fact that many tech companies who offer free products and
+services make money by selling targeted advertising to you using the data they
+have about you, or by selling the data you've given them to third parties.  (As
+they saying goes, if you're not paying for the service, you are probably the
+product.)  Companies do give users some control over personal data, but they
+frequently change their terms of service in opaque ways. Seemingly-innocuous
+information can give attackers valuable clues: restaurant "likes" reveal where
+you were at specific times, while funny stories about childhood birthday parties
+reveal likely answers to security questions. Again, it's a good practice to get
+into the habit of checking your privacy settings every time you do some other
+regular task.</p>
+<p>Unfortunately, even if you do this, information may leak through other
+means. For example, attackers can friend your friends in an attempt to get
+information about you, such as the name of your first school. And as bad as
+social media sites are for social engineering in this way, cell phone apps are
+often worse. If a game wants access to your camera and address book, you should
+probably find a different game to play.</p>
+<p>Since social media is a fact of life for most of us, you should check your
+settings periodically, just as you would take your car in for an oil change. (I
+do these things at the same time in order to remember both.) Turn off everything
+you can and then use a tracking blocker such as <a href="https://www.ghostery.com/">Ghostery</a> to reduce
+information leakage.</p>
+<p>Here are some things you can do as a developer to support these rules:</p>
+<ol>
+<li>
+<p>Don't store any information you don't have to, or only store it in encrypted
+    form [<a href="../bibliography/#Wayner2009">Wayner2009</a>].</p>
+</li>
+<li>
+<p>Charge people for your software or the service you provide rather than
+    relying on ads or selling their data. You won't see the kind of growth that
+    Facebook did in its early days, but on the other hand, you won't be <a href="https://www.buzzfeednews.com/article/meghara/facebook-myanmar-rohingya-genocide">fueling
+    genocide</a>.</p>
+</li>
+<li>
+<p>Make your terms of service as clear as possible, and provide a translation
+    into everyday language. For example, look up the license for your favorite
+    social media site on <a href="https://tldrlegal.com/">TLDRlegal</a> and compare the legal language
+    to the plain English description.</p>
+</li>
+<li>
+<p>Allow people to actually delete personal information.</p>
+</li>
+</ol>
+<p>The last of these rules shows why security is hard. On the one hand, people
+should be able to erase themselves from your records. On the other, abusers will
+use this to cover their tracks. You may not get to decide how to balance these
+two needs: legislation like the EU's <span class="indexref" key="General Data Protection Regulation
+(GDPR)" markdown="1"><a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">General Data Protection Regulation</a></span> (GDPR) includes a
+<a href="https://www.gdpreu.org/right-to-be-forgotten/">right to be forgotten</a>.</p>
+<blockquote>
+<h3>When you travel</h3>
+<p>Many experts recommend using separate devices or accounts for work and personal
+life, but this is unrealistic for most people: everyone checks their personal
+email from their work device eventually, and everyone uses their personal phone
+for 2FA. However, you should consider getting a second phone for international
+travel: the legalities around who can take your devices and/or force you to
+unlock them are complicated and frequently overstepped, so you should assume
+that anything on or connected to the devices you are traveling with will be
+compromised.</p>
+</blockquote>
+<h2>Fighting Back</h2>
+<p>Casual attackers may eventually get bored and move on, but like all bullies,
+they will sometimes revisit previous victims.  Even if they don't, they are
+likely to pick new ones.  It's unjust to ask the victim of an attack to do extra
+work, but please consider taking these four steps:</p>
+<dl>
+<dt>Do not engage directly.</dt>
+<dd>Casual attackers are often seeking attention, so a direct response often
+encourages further attacks (and can draw attention from like-minded
+attackers).</dd>
+<dt>Find support.</dt>
+<dd>Being targeted is frightening and wearying, particularly if you belong to one
+of the many groups that are targeted in real life as well as online. Let
+family, friends, and colleagues know what is happening so that they can
+support you. They may also be able to offer advice if they have been in
+similar situations.</dd>
+<dt>Use anti-harassment apps like <a href="https://www.blockpartyapp.com/">Block Party</a>.</dt>
+<dd>And document everything: save emails and take screenshots of sites like
+Facebook and Twitter in case attackers delete or alter material.</dd>
+<dt>Report the attack.</dt>
+<dd>Social media sites have done everything they can to avoid legal
+accountability for online attacks, but companies and universities will
+usually (eventually) take what steps they can once they know there is a
+problem. They are more inclined to take real action against the attacker if
+they believe that you might speak publicly about what has happened and
+thereby damage their reputation, so never agree to a <span class="indexref" key="non-disclosure
+agreement!abuse of" markdown="1">non-disclosure agreement</span> that would prevent you
+from doing so (<a href="../fairness/">Chapter 24</a>).</dd>
+</dl>
+<p>Above all, remember that it's not just about you. We don't just wear masks to
+prevent ourselves from becoming infected: we also wear them so that we will not
+infect others. Similarly, if you do not take precautions with online security
+then you are putting others at risk.  Simple steps like putting passwords on
+PDFs that contain sensitive information can go a long way to deter attackers, in
+the same way that a sturdy-looking bike lock encourages would-be thieves to go
+after some other bike.</p>
+<p>The only long-term way to improve everyone's online safety is to pressure
+politicians to strengthen legislation so that companies, universities, and other
+institutions have real incentives to take meaningful action. Cars and drugs are
+as safe as they are because their manufacturers are liable for negligence and
+harm. The sooner software companies and social media sites are liable as well,
+the safer all of us will be. As a programmer, you can push for this:</p>
+<ol>
+<li>
+<p>The next time there is an election in your area, ask the candidates whether
+    they support meaningful liability for privacy breaches and online abuse.  In
+    my experience, if three people ask about something in quick succession,
+    candidates will decide that they need to have some sort of answer.</p>
+</li>
+<li>
+<p>The next time your college or university is updating its curriculum,
+    petition for a full-semester course on computer security—one that focuses
+    on common exploits rather than the minutiae of cryptography.</p>
+</li>
+<li>
+<p>Add your voice to campaigns to get companies to clean up their act, and if
+    you have a choice, don't work for the worst of them (<a href="../fairness/">Chapter 24</a>).</p>
+</li>
+</ol>
+<blockquote>
+<p>If you are currently in…an undergraduate software engineering or
+computer science course, the first thing you need to understand is
+that you will spend your career working alongside equally competent
+professionals who had a completely different educational pathway from
+yours. They may have come to development from another field entirely;
+they may have come to development through a focused educational
+experience such as a code academy; and they may have fallen into
+development for the fun of it with no formal web education whatsoever…</p>
+<p>So if you're assuming that there will be a common set of knowledge of
+practices, procedures, and processes regarding privacy for you to draw
+upon throughout your career, you need to adjust your expectations…
+Don't look towards your management and leadership either, as they're
+none the wiser. If privacy is a factor in your future workplaces, it's
+likely to be driven by the legal department as a strictly reactive,
+scary, and deeply resented legal compliance obligation whose purpose
+is to cover your company's backside rather than protect the people in
+your data.</p>
+<p>All of that means that someone in your workplaces, and on your career
+journeys, needs to show leadership in privacy, and it might as well be
+you.</p>
+<p>— <span class="indexref" key="Burns, Heather" markdown="1"><a href="https://webdevlaw.uk/2021/03/21/privacy-curriculum-developers/">Heather Burns</a></span></p>
+</blockquote>
+<h2>An Example Attack</h2>
+<p>Dozens of books have been written about the mechanics of computer security
+[<a href="../bibliography/#Easttom2019">Easttom2019</a>, <a href="../bibliography/#McDonald2020">McDonald2020</a>, <a href="../bibliography/#Seitz2021">Seitz2021</a>].  We won't try to cover all of
+that here, but it wouldn't feel right to wrap up this chapter without showing
+you at least one software exploit that's unfortunately still quite common.</p>
+<p>Suppose your application lets the user type in their ID, then uses that to look
+up their account details in a database:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_account</span><span class="p">(</span><span class="n">database_connection</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Username:&#39;</span><span class="p">)</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;select * from User where username=&quot;</span><span class="si">{}</span><span class="s1">&quot;;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">database_connection</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+
+<p>It's simple, and the programmer has even remembered to wrap the username in
+quotes. But suppose a malicious user enters this as their username:</p>
+<div class="codehilite"><pre><span></span><code>&quot;; drop table User; select &quot;
+</code></pre></div>
+
+<!-- continue -->
+<p>Once this is inserted, the query becomes:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">User</span> <span class="n">where</span> <span class="n">username</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="n">drop</span> <span class="n">table</span> <span class="n">User</span><span class="p">;</span> <span class="n">select</span> <span class="s2">&quot;&quot;</span><span class="p">;</span><span class="s1">&#39;</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>which looks up a user without a name, erases all of the data in the <code>User</code>
+table, and then returns an empty string (the final <code>select</code>).  This is called an
+<span class="indexref" key="SQL injection attack" markdown="1"><a class="glossref" href="../glossary/#sql_injection" markdown="1">SQL injection attack</a></span>,
+and with a few modifications, it can be used to <span class="indexref" key="exfiltrate" markdown="1">exfiltrate</span> data rather than delete it.</p>
+<p>You defend against this by always <span class="indexref" key="sanitizing data" markdown="1"><a class="glossref" href="../glossary/#sanitizing_data" markdown="1">sanitizing user input</a></span> before using it. In this case, the query can
+be written as:</p>
+<div class="codehilite"><pre><span></span><code>    <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;select * from User where username=?;&#39;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">database_connection</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>The database connection library will escape special characters like the quotes
+and semi-colons in the user's input and then use the result in place of the
+question mark <code>?</code> in the query.</p>
+<p>A <a class="glossref" href="../glossary/#xss" markdown="1">cross-site scripting</a> attack works in the same way.
+Suppose an online chat system displays whatever the user types as a message.  If
+the user types in something that looks like a <code>&lt;script&gt;</code> tag containing some
+JavaScript, then whoever views the message will run that JavaScript in their
+browser. Again, the defense is to sanitize input; as with SQL, use a well-tested
+library (preferably one whose source code you can check) rather than trying to
+figure out the details yourself.</p>
+
+  <hr/>
+<div class="centered">
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>

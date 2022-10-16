@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="buildtogether.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Building Software Together: Wrapping Up</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+      
+      <h2><a href="../">Building Software Together</a></h2>
+      <h1>Chapter 26: Wrapping Up</h1>
+      
+      <p>
+        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+      </p>
+    </div>
+
+<p>In most courses you never have to work on an assignment again once you submit
+it.  Most project courses are different:</p>
+<ol>
+<li>
+<p>Assignments are cumulative, i.e., each one builds on the ones before it.</p>
+</li>
+<li>
+<p>Projects may roll forward from one term to the next, so the end of one team's
+    involvement isn't necessarily the end of the project.</p>
+</li>
+<li>
+<p>These courses are meant to simulate real life, where delivery of a
+    particular version is just another step in the product lifecycle.</p>
+</li>
+</ol>
+<p>This chapter describes some things you might be asked to do when wrapping up.
+Even if they aren't required, doing them is good practice for working in the
+real world.</p>
+<h2>What to Deliver</h2>
+<p>At a minimum, your finished project should have:</p>
+<ol>
+<li>
+<p>A home page with an elevator pitch and a few paragraphs or bullet lists to
+    help newcomers orient themselves.</p>
+</li>
+<li>
+<p>An architectural overview, including a block diagram of the major components
+    and a walkthrough of how it behaves.  (I prefer the <span class="indexref" key="use-case
+    map" markdown="1">use-case maps</span> introduced in <a href="../design/">Chapter 12</a> for this.)</p>
+</li>
+<li>
+<p>An installation guide.</p>
+</li>
+<li>
+<p>An up-to-date set of <span class="indexref" key="issue tracker!as course
+    deliverable" markdown="1">issues</span>. If the work has been done, the issue should be
+    closed; if not, it should describe the state of the bug (or enhancement, or
+    question) well enough for someone to know where to start work.</p>
+</li>
+</ol>
+<p>Another possible deliverable is a <span class="indexref" key="package!as course
+deliverable" markdown="1">package</span> that other people can download and install
+(<a href="../design/">Chapter 12</a>). It isn't an either/or choice: every good package has a home page,
+installation instructions, and so on.</p>
+<blockquote>
+<h2>Bugs</h2>
+<p>It's OK to have bugs in your code when you finish your project—after all,
+almost all products do. This isn't because developers are lazy or careless;
+instead, it's a matter of economics.  If you're near the end of the development
+cycle, it may be riskier to fix a minor bug (and introduce new bugs in doing so)
+than to document its existence and provide a workaround.</p>
+</blockquote>
+<p>Depending on the structure of your course, you may be asked to figure out how
+much you would charge for the software you have produced.  The answer is out of
+scope for this book, but [<a href="../bibliography/#Davidson2009">Davidson2009</a>] is a good short introduction
+to the topic.</p>
+<p>You may also be asked to do some <span class="indexref" key="marketing" markdown="1"><a class="glossref" href="../glossary/#marketing" markdown="1">marketing</a></span>,
+which is the process of figuring out how to tell
+the people you're trying to help how you can help them. This doesn't mean
+spamming people with discount coupons; instead, it means explaining the problem
+that the product will solve in ways that will reach the intended users.  I have
+seen more startups fail because of poor marketing than because of poor
+programming; it is also out of scope for this book, but [<a href="../bibliography/#Jackson2017">Jackson2017</a>]
+is a good introduction.</p>
+<h2>Version Numbers</h2>
+<p>If your project is like most, you're going to submit your work several times
+over the course of the term. That means it's important for you to keep track of
+exactly what version you're working on at any time, where it came from, and
+where it's going.</p>
+<p>The usual way to do this is with <span class="indexref" key="version numbers" markdown="1"><a class="glossref" href="../glossary/#version_number" markdown="1">version numbers</a></span>.  Most projects these days use
+<span class="indexref" key="semantic versioning;version numbers!semantic versioning" markdown="1"><a class="glossref" href="../glossary/#semantic_versioning" markdown="1">semantic versioning</a></span>;
+when you see a number like "6.2.3.1407"
+attached to a piece of software, it generally means:</p>
+<ul>
+<li>
+<p>major version 6</p>
+</li>
+<li>
+<p>minor version 2</p>
+</li>
+<li>
+<p>patch 3</p>
+</li>
+<li>
+<p>build 1407</p>
+</li>
+</ul>
+<p>The <span class="indexref" key="major version number;version numbers!major" markdown="1">major version
+number</span> is only incremented when significant changes are made. In
+practice, "significant" means "changes that make it impossible for older
+versions to read the new version's data or configuration files". In practice,
+major version numbers are often under the control of the marketing
+department—if a competitor releases a new major version, we'd pretty much have
+to as well.</p>
+<p><span class="indexref" key="version numbers!minor;minor version number" markdown="1">Minor version
+numbers</span> are what most people think of as releases. If you've added a few
+new features, changed part of the GUI, etc., you increment the minor version
+number so that your customers can talk intelligently about which version they
+have.</p>
+<p><span class="indexref" key="patch (software);software patch;version numbers!patch" markdown="1"><a class="glossref" href="../glossary/#patch" markdown="1">Patches</a></span> don't have their own installers. If, for example,
+you need to change one HTML form, or one DLL, you will often just mail that out
+to customers, along with instructions about where to put it, rather than
+creating a new installer. You should still give it a number, though, and make an
+entry in your release log.</p>
+<p>The <span class="indexref" key="build number;version numbers!build" markdown="1"><a class="glossref" href="../glossary/#build_number" markdown="1">build number</a></span> is incremented every time you create a new version of the product
+for QA to test. Build numbers are never reset, i.e. you don't go from 5.2.2.1001
+to 6.0.0.0, but from 5.2.2.1001 to 6.0.0.1002, and so on. Build numbers are what
+developers care about: they're often only matched up with version numbers after
+the fact (i.e. you create build #1017, QA says, "It looks good," so you say,
+"All right, this'll be 6.1.0," and voila, you have 6.1.0.1017.)</p>
+<p>Finally, groups will sometimes identify pre-releases as "beta 1", "beta 2", and
+so on, as in "6.2 beta 2". Again, this label is usually attached to a particular
+build after the fact—you wait until QA (or whoever) says that build #1017 is
+good enough to send out to customers, then tag it in version control.</p>
+<p>A four-part numbering scheme is more than you need for an undergraduate
+course. You can probably get away with just one: the assignment the software was
+submitted for.</p>
+<p>Most programs can report a version number, either through an "About…" menu item
+or through a command-line option like <code>--version</code>.  It helps a lot when people are
+reporting bugs.</p>
+<h2>The Final Report</h2>
+<p>The other thing student projects usually have to deliver is some kind of <span class="indexref" key="final report" markdown="1">final report</span>. Most students short-change this part of
+the course, in part because it comes at the end, but also because they think, "I
+want to write code, not a novel." However, [<a href="../bibliography/#Fogel2005">Fogel2005</a>] had this to
+say:</p>
+<blockquote>
+<p>The ability to write clearly is perhaps the most important skill one can have in
+an open source environment. In the long run it matters more than programming
+talent. A great programmer with lousy communication skills can only get one
+thing done at a time, and even then may have trouble convincing others to pay
+attention. But a lousy programmer with good communication skills can coordinate
+and persuade many people to do many different things, and thereby have a
+significant effect on a project's direction and momentum.</p>
+</blockquote>
+<p>Final reports can range from half a dozen to fifty pages, depending on the
+course's structure and the instructor's whims.  Regardless of their size, they
+will usually include the following:</p>
+<dl>
+<dt>Title page, abstract, and table of contents.</dt>
+<dd>The first identifies the document; the second summarizes it in three or four
+sentences, so that busy people can decide whether they ought to read the
+whole thing; and the third helps people navigate.</dd>
+<dt>An introduction that orients the reader.</dt>
+<dd>This explains what problem the team set out to solve, and summarizes any
+background knowledge needed to understand the team's solution.  It shouldn't
+state the obvious: there's no need to tell readers what the Internet is, or
+how a parser works. Instead, it should cover whatever general knowledge the
+<em>next</em> team will need in order to continue the project.</dd>
+<dt>A summary of what was accomplished.</dt>
+<dd>This should not just summarize the analysis &amp; estimation
+(<a href="../process/">Chapter 19</a>), although that's a good place to start. Instead, it should
+describe the system's architecture, any features of its data formats, class
+structure, or UI that won't immediately make sense to a knowledgeable
+observer, and so on (<a href="../design/">Chapter 12</a>). As with the introduction, the
+target audience is the next team to work on the project.</dd>
+<dt>A summary of the current state of the project.</dt>
+<dd>This should include high-level criticism ("The persistence layer works fine,
+but in retrospect, our concurrency control mechanism was a bad choice") and
+pointers to specifics ("Issue 213 should be addressed before any further
+work is done on user preferences").</dd>
+<dt>An evaluation of the project.</dt>
+<dd>What did the team learn about teamwork? What went well? What should they
+never do again?  Don't bother including generic statements about the
+importance of version control; instead, conduct a proper post mortem (as
+described below) and present as honest a summary of its findings as
+possible.  (The checklists in <a href="../project-eval/">Appendix I</a> and
+<a href="../personal-eval/">Appendix J</a> may be useful starting points.)</dd>
+<dt>References.</dt>
+<dd>Include books, papers, and links the team found helpful so that whoever
+inherits the project doesn't have to search for them again.</dd>
+</dl>
+<p>This report is neither a user's guide nor maintenance documentation. Instead, it
+is like the end-of-contract reports I prepare when I'm consulting.  What have I
+done to earn my customers' money? What should the next person (who might not be
+me) do? What can I tell them that would save them time?</p>
+<p>So much for what the final report should include; how should you actually go
+about writing it? It will probably include:</p>
+<ul>
+<li>
+<p>paragraphs of text;</p>
+</li>
+<li>
+<p>equations;</p>
+</li>
+<li>
+<p>source code;</p>
+</li>
+<li>
+<p>vector graphics (such as graphs and line drawings); and</p>
+</li>
+<li>
+<p>raster graphics (such as screen shots).</p>
+</li>
+</ul>
+<p>Lots of tools exist that will handle these, but they all have shortcomings.  You
+can create your report as a set of wiki pages or Google Docs, but they don't
+flag conflicts between concurrent authors.  On the other end of the spectrum are
+WYSIWYG editors like <span class="indexref" key="Microsoft Word" markdown="1">Microsoft Word</span> and <span class="indexref" key="LibreOffice" markdown="1">LibreOffice</span>. Unfortunately, these get in the way at least
+as much as they help:</p>
+<ol>
+<li>
+<p>They store documents in non-text formats that <span class="indexref" key="version
+    control!inability to handle office documents" markdown="1">version control systems can't
+    diff or merge</span>.</p>
+</li>
+<li>
+<p>It's hard to write scripts to process these documents, so inclusions (such
+    as code fragments) have to be done manually.</p>
+</li>
+<li>
+<p>Neither one handles equations very well (although both are getting better).</p>
+</li>
+<li>
+<p>It's very easy to format things using low-level primitives ("make this
+    italic") rather than logical styles ("making this a book title"), which
+    makes it difficult to keep the document consistent over time.</p>
+</li>
+</ol>
+<p>For these reasons, most teams format their reports as a set of <span class="indexref" key="Markdown!for final report" markdown="1">Markdown</span> pages under version control and
+use a <span class="indexref" key="static site generator" markdown="1">static site generator</span>
+(<a href="../communicate/">Chapter 10</a>) to turn them into a report. That solves the problem of
+multiple authors (Markdown is a text format, so diff and merge will work), and
+if you know a little CSS, you can make it look as pretty as you want. Diagrams
+and screenshots work well, and you can embed <span class="indexref" key="MathML" markdown="1"><a href="https://www.w3.org/Math/">MathML</a></span> for equations if you need to.  The downside
+is that you can't actually see what your document is going to look like until
+you compile it, and doing that breaks your <span class="indexref" key="flow" markdown="1">flow</span>.</p>
+<blockquote>
+<h3>LaTeX</h3>
+<p><span class="indexref" key="LaTeX" markdown="1">LaTeX</span> is a markup language that's much more sophisticated
+than HTML and has literally thousands of add-on packages for equations, code
+formatting, and just about everything else you could want. Like HTML, LaTeX is a
+text format, so it plays nicely with version control.  However, its power comes
+at a steep price: LaTeX is as hard to master as a programming language. It also
+has a frustratingly slow formatting cycle, since documents have to be compiled
+several times to resolve cross-references.</p>
+</blockquote>
+<h2>The Post Mortem</h2>
+<p>The most valuable part of your project isn't the software you write, or the
+grade you're given: it's the <span class="indexref" key="post mortem" markdown="1"><a class="glossref" href="../glossary/#post_mortem" markdown="1">post mortem</a></span>. Literally, this is an examination of a deceased person; in a
+software project, it's a look back at what went right and what went wrong.</p>
+<p>The aim of a post mortem is to help the team and its members do better next time
+by giving everyone a chance to reflect on what they've just accomplished. It is
+<em>not</em> to shame people, but it can be hard to critique someone's work without
+them taking it personally, so post mortems add a few extra rules to the ones
+introduced for <span class="indexref" key="meetings!extra rules for post mortems" markdown="1">meetings</span>
+in <a href="../important/">Chapter 2</a>:</p>
+<dl>
+<dt>Get a moderator who wasn't part of the project.</dt>
+<dd>Someone who doesn't have a stake in the project should run the meeting.
+Otherwise, the meeting will either go in circles, or focus on only a subset
+of important topics. In the case of student projects, this moderator might
+be the course instructor, or (if the course is too large) a TA.  You can
+have another student as moderator, but since they are probably friends with
+some team members, it may be hard for them to be objective.</dd>
+<dt>Set aside an hour, and <em>only</em> an hour.</dt>
+<dd>In my experience, nothing useful is said in the first ten minutes of anyone's
+first post mortem, since people are naturally a bit shy about praising or
+damning their own work. Equally, nothing useful is said after the first
+hour: if you're still talking, it's probably because one or two people have
+a <em>lot</em> they want to get off their chests.</dd>
+<dt>Require attendance.</dt>
+<dd>Everyone who was part of the project ought to be in the room for the post
+mortem. This is more important than you might think: the people who have the
+most to learn from the post mortem are often least likely to show up if the
+meeting is optional.</dd>
+<dt>Make two lists.</dt>
+<dd>Put the headings "Keep" and "Change" on the board, then do a lap around the
+room and ask every person to give me one item that hasn't already been
+mentioned for each list.  The "hasn't already been mentioned" part is
+important: after the first few safe responses are up on the board, people
+have to start saying the more difficult things that really matter.</dd>
+<dt>Comment on actions rather than individuals.</dt>
+<dd>Don't let tension between teammates sidetrack the meeting: if someone has a
+specific complaint about another member of the team, require them to
+criticize a particular event or decision. "They had a bad attitude" does
+<em>not</em> help anyone improve their game.</dd>
+</dl>
+<p>Once everyone's thoughts are out in the open, organize them somehow so that you
+can make specific recommendations about what to do next time.  For example, here
+are the recommendations that came out of one post mortem I did with students:</p>
+<ol>
+<li>
+<p>Do a better job of tracking actual progress, rather than reported progress.
+    Maybe require a one-minute demo every time a feature is marked "complete"?</p>
+</li>
+<li>
+<p>Teams should find one block of 2--3 hours per week when they can work side
+    by side: IM meetings and email resulted in a lot of dropped balls.</p>
+</li>
+<li>
+<p>Having someone who worked on the project in the previous term come in to get
+    the new team up to speed made a huge difference.</p>
+</li>
+<li>
+<p>Issue tracking system was too complicated for students' needs: really just
+    want a shared online to-do list.</p>
+</li>
+<li>
+<p>Teams should have to report test coverage at every progress meeting to make
+    sure that a lot of untested code doesn't pile up during the term.</p>
+</li>
+</ol>
+<blockquote>
+<h3>Pay it forward</h3>
+<p>Ask your instructor at the start of your course for copies of the post mortems
+written by previous student teams.  Go through and pick out some common themes,
+then use them as a list of things to do or avoid in your own project.  Sharing
+what you've learned with those who come after you is the most compassionate
+thing you can do.</p>
+</blockquote>
+
+  <hr/>
+<div class="centered">
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>

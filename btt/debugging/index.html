@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="buildtogether.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Building Software Together: Debugging</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+      
+      <h2><a href="../">Building Software Together</a></h2>
+      <h1>Chapter 15: Debugging</h1>
+      
+      <p>
+        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+      </p>
+    </div>
+
+<p>Finding errors is good; fixing them is better, so learning how to debug is as
+important as learning how to program in the first place.  However, while most
+schools teach defensive programming and unit testing, only a handful offer a
+course on <span class="indexref" key="debugging!why schools don't teach" markdown="1">debugging</span>, which is
+weird when you consider that most programmers spend anywhere from a quarter to
+three quarters of their time finding and fixing bugs.  A single chapter can't
+make up for that, but I hope the guidance below will help make you more
+efficient.</p>
+<p>Debugging depends on being able to read code, which is the single most effective
+way known to find bugs [<a href="../bibliography/#Basili1987">Basili1987</a>, <a href="../bibliography/#Kemerer2009">Kemerer2009</a>, <a href="../bibliography/#Bacchelli2013">Bacchelli2013</a>].
+However, most schools don't offer courses on that either, and of the thousands
+of books that have been written about writing code, only a handful have been
+written about how to <span class="indexref" key="reading code" markdown="1">read</span> it
+([<a href="../bibliography/#Spinellis2003">Spinellis2003</a>] being my favorite).  As <a href="../rules-joining/">Chapter 20</a>
+says, reading other people's code is one of the best ways to learn how to be a
+better programmer; tracking down a bug may not be when you want to broaden your
+knowledge, but if you're there anyway, you might as well.</p>
+<h2>Build Habits</h2>
+<p>Software can fail in many different ways, but the process for diagnosing and
+fixing problems is consistent from one bug to the next.  The first rule of
+debugging is therefore to make <span class="indexref" key="debugging!importance of good
+habits" markdown="1">good practices a habit</span>.  You are more likely to make mistakes or
+overlook things when you're tired or under pressure; if writing assertions and
+unit testing aren't automatic by then, the odds are that you'll be at your worst
+when it matters most.</p>
+<p>What habits should you have?</p>
+<dl>
+<dt>Make sure you are trying to build the right thing.</dt>
+<dd><span class="indexref" key="requirements error" markdown="1"><a class="glossref" href="../glossary/#requirements_error" markdown="1">Requirements errors</a></span> are a major cause of software projects failing in the real
+world, and every instructor has horror stories about students
+misinterpreting assignments and spending days building the wrong thing. When
+in doubt, ask, and to make your question and its answer clear, provide an
+example and describe what you think the code is supposed to do in that case.</dd>
+<dt>Make sure you understand what the bug actually is.</dt>
+<dd>
+<p>"It doesn't work" isn't good enough: what exactly is going wrong and how do
+you know? If I can't spot a problem in less than a minute, I jot down a note
+to myself like, "shouldn't recurse into footer elements".  Without this, I
+often find myself <a class="glossref" href="../glossary/#rabbit_hole" markdown="1">going down a rabbit hole</a> and
+losing sight of what I was originally trying to fix.</p>
+<p>Writing down what's supposed to be happening also helps you check that you
+are actually exercising the problem that you think you are.  Are you giving
+it the right test data?  Is it configured the way you think it is?  Is it
+the version you think it is?  Has the feature actually been implemented yet?
+Are you sure?  Maybe the reason you can't isolate the problem is that it's
+not there—a couple of minutes talking it through with a teammate can save
+you an hour of trying to fix something that isn't actually broken.</p>
+</dd>
+<dt>Make it fail.</dt>
+<dd>
+<p>You can only debug things when you can see them going wrong, so as we
+discussed in <a href="../communicate/">Chapter 10</a>, you should try to create a minimal
+<span class="indexref" key="reproducible example (reprex)" markdown="1">reproducible example</span> or
+reprex.  Doing this finds the problem in a surprising number of cases, since
+each time you throw out part of the original program or dataset because the
+bug reoccurs without it, you are also throwing out a bunch of possible
+causes.</p>
+<p>The easiest way to create a reprex is to divide and conquer.  The <span class="indexref" key="fault" markdown="1"><a class="glossref" href="../glossary/#fault" markdown="1">fault</a></span> responsible for a <span class="indexref" key="failure" markdown="1"><a class="glossref" href="../glossary/#failure" markdown="1">failure</a></span> has to occur before the failure, so check the
+input to the function where the bug is showing up.  If that's wrong, check
+the function that's calling it, and so on.</p>
+</dd>
+</dl>
+<p>Instrument your code.
+    Add <span class="indexref" key="assertion" markdown="1">assertions</span> to make the checks in your code
+    explicit: they'll help you keep track of what you have looked at for this
+    bug, and if you leave them in, they will help prevent others in future.
+    (This is a form of after-the-fact <span class="indexref" key="defensive programming" markdown="1">defensive
+    programming</span>.)</p>
+<dl>
+<dt>Alternate between exploration and confirmation.</dt>
+<dd>I often don't know what assertions to write until I've looked at the state
+of the program, so I go back and forth between adding logging statements (or
+just <code>print</code> statements if the code is small and I'm reasonably sure I can
+find the bug quickly) and adding assertions.  <span class="indexref" key="logging!during
+debugging" markdown="1">Logging</span> gives me new information to help me formulate
+hypotheses; assertions either confirm or refute those hypotheses.</dd>
+<dt>Change one thing at a time.</dt>
+<dd>
+<p>Replacing random pieces of code in the hope of fixing a bug is unlikely to
+solve your problem: if you got something wrong the first time, what are the
+odds you'll get it right the second?  (Or ninth, or twenty-third?)  Instead,
+change one thing and then re-run your tests to see if the program works,
+breaks in the same way, or breaks in a new way.</p>
+<p>This is another place where version control helps: if you have made a change
+and it hasn't fixed things, <code>git restore</code> will put your code back exactly
+the way it was so that you're not trying to fix something that is mutating
+while you work.</p>
+</dd>
+</dl>
+<blockquote>
+<h3>Programs concurrent to debug hard are</h3>
+<p><span class="indexref" key="concurrent systems!difficult of debugging;debugging!concurrent
+systems" markdown="1">Concurrent systems</span> in which many things are happening
+simultaneously are much harder to debug than sequential systems.  It's not just
+that the order of events is unpredictable; it's often not repeatable, so
+creating a reliable reprex may be impossible.  What's worse, the act of
+observing can hide the bug: a <code>print</code> statement or a breakpoint can change
+timing in a way that makes the bug disappear.  Modeling tools can help
+(<a href="../tooling/">Chapter 17</a>), as can the use of immutable data structures, but the best
+solutions are to test components in isolation using <span class="indexref" key="mock object" markdown="1">mock
+objects</span> in place of the things they communicate with
+(<a href="../testing/">Chapter 11</a>) and to add <em>lots</em> of assertions to check the consistency
+of data structures.  In particular, giving every class a method called <code>isOK</code> to check
+that it's in good shape can save hours of later debugging, as well as helping
+the next programmer understand what the data is supposed to look like.</p>
+</blockquote>
+<h2>Common Errors</h2>
+<p>What mistakes do programmers make <span class="indexref" key="common programming errors;error!common" markdown="1">most often</span>?  The largest study of this for novices is
+[<a href="../bibliography/#Brown2017">Brown2017</a>], which found that mismatched quotes and parentheses are
+the most common type of errors in novice Java programs, but also the easiest to
+fix, while some mistakes (like putting the condition of an <code>if</code> in <code>{…}</code> instead
+of <code>(…)</code> are most often made only once.  Unsurprisingly, mistakes that produce
+compiler errors are fixed much faster than ones that don't.  Some mistakes,
+however, are made many times, like invoking methods with the wrong arguments
+(e.g., passing a string instead of an integer).</p>
+<p>[<a href="../bibliography/#Brown2017">Brown2017</a>] also compared <span class="indexref" key="error!misperception of
+frequency" markdown="1">the mistakes novices actually make</span> with what their teachers
+thought they made.  They found that, "…educators formed only a weak consensus
+about which mistakes are most frequent, that their rankings bore only a moderate
+correspondence to the students in the…data, and that educators' experience had
+no effect on this level of agreement."  For example, mistaking <code>=</code> (assignment)
+and <code>==</code> (equality) wasn't nearly as common as most teachers believed.</p>
+<p>For experienced programmers, [<a href="../bibliography/#Pritchard2015">Pritchard2015</a>] reported that the most
+common errors in Python programs were (in order):</p>
+<ol>
+<li>SyntaxError: invalid syntax</li>
+<li>NameError: name <em>name</em> is not defined</li>
+<li>EOFError: EOF when reading a line</li>
+<li>SyntaxError: unexpected EOF while parsing</li>
+<li>IndentationError: unindent does not match any outer indentation level</li>
+</ol>
+<!-- continue -->
+<p>while the most common in Java were:</p>
+<ol>
+<li>cannot find symbol - variable NAME</li>
+<li>';' expected</li>
+<li>cannot find symbol - method NAME</li>
+<li>cannot find symbol - class NAME</li>
+<li>incompatible types</li>
+</ol>
+<p>Complex errors are one of a kind: that's part of what makes them complex.  But
+some simple errors crop up again and again, and you can use those patterns as a
+checklist for finding problems.  A useful initial checklist for novices'
+programs includes:</p>
+<dl>
+<dt>Numbers</dt>
+<dd>Zero; smallest number; smallest magnitude; most negative; largest number;
+off by one in a loop.</dd>
+<dt>Structure Errors</dt>
+<dd><code>null</code>; empty string; empty collection; contains exactly one element;
+contains maximum number of elements; has duplicate elements; contains one
+element multiple times.</dd>
+<dt>Searching</dt>
+<dd>Match not found; matching element not present; matching element just outside
+search range; exactly one match found; match element on search boundary;
+multiple matches found; multiple references to a single object found; all
+objects match.</dd>
+<dt>Trees and graphs</dt>
+<dd>Empty; minimal non-empty (e.g. tree with just root); circular;
+self-referential (head points to head); circular sub-structure; depth
+greater than one.</dd>
+</dl>
+<!-- continue -->
+<p>As <a href="../git-team/">Chapter 8</a> said, the longer list in
+[<a href="../bibliography/#Stegeman2014">Stegeman2014</a>, <a href="../bibliography/#Stegeman2016">Stegeman2016</a>] can be adapted for more advanced
+students' programs.</p>
+<p>One of the most common errors programmers make is to assume that their first
+attempt at fixing a problem actually worked.  [<a href="../bibliography/#Yin2011">Yin2011</a>] found that
+14--25% of bug "fixes" released for major operating systems didn't actually fix
+the bug (a figure that rose to 39% for concurrency-related bugs), while
+[<a href="../bibliography/#Park2012">Park2012</a>] found that up to a third of bugs required more than one
+attempt to fix.</p>
+<p>But there is good news as well.  [<a href="../bibliography/#Pan2008">Pan2008</a>] identified 27 patterns for
+bug fixes by inspecting the history of seven large open source Java projects and
+found that the five most common are:</p>
+<ol>
+<li>
+<p>changing the condition in an <code>if</code> statement (e.g., replacing <code>==</code> with <code>&gt;=</code>
+    or vice versa);</p>
+</li>
+<li>
+<p>adding a pre-condition check to an <code>if</code> statement (e.g., checking that a
+    variable is not <code>null</code> before comparing its value to a constant);</p>
+</li>
+<li>
+<p>changing the values passed to a method call (e.g., converting a
+    case-sensitive string match to a case-insensitive match);</p>
+</li>
+<li>
+<p>changing the number of parameters to a method call (e.g., adding a
+    non-default value for a parameter where the default value was previously
+    being used); and</p>
+</li>
+<li>
+<p>changing the value assigned to a variable <em>without</em> changing the variable
+    being assigned to.</p>
+</li>
+</ol>
+<p>Wherever we find patterns we can try to write programs to spot them and act on
+them.  The goal of research in <span class="indexref" key="automated program repair" markdown="1"><a class="glossref" href="../glossary/#automated_program_repair" markdown="1">automated program repair</a></span> is to build tools that can fix
+common bugs on their own [<a href="../bibliography/#Monperrus2018">Monperrus2018</a>, <a href="../bibliography/#LeGoues2019">LeGoues2019</a>].  These tools
+use several approaches:</p>
+<dl>
+<dt>Generate and validate.</dt>
+<dd>Given a set of test cases and a set of rules for modifying programs (e.g.,
+adding or removing checks for empty lists in <code>if</code> statements), a tool can
+generate a mutated version of a program and see if it still fails or not.</dd>
+<dt>Machine learning.</dt>
+<dd>Given a large enough set of bugs and bug fixes to learn from, machine
+learning algorithms can be trained to match problem with solutions based on
+past experience.  This approach still requires test cases to validate
+particular changes.</dd>
+<dt>Symbolic execution.</dt>
+<dd>Rather than a program on a particular set of inputs, a tool can simulate
+execution to build constraints, then check if those constraints can be
+satisfied. For example, if a program contains the statements:
+<code>py
+longest = ''
+for name in all_names:
+    if len(name) &gt; len(longest):
+        longest = name</code>
+then symbolic execution can determine that the final value of <code>longest</code> is
+either the empty string or the first string in the list that belongs to the
+set containing the longest strings in the list.  The complexity of that
+sentence is a sign of how complex symbolic execution can be, but when
+combined with the modeling tools discussed in <a href="../tooling/">Chapter 17</a>, this
+approach can find bugs that would otherwise escape detection for years.</dd>
+</dl>
+<p>Most <a href="https://program-repair.org/">program repair tools</a> are still research prototypes, but
+one particularly interesting use case is repairing student programs as a way of
+giving feedback on assignments [<a href="../bibliography/#Hu2019">Hu2019</a>].  If you are looking for an
+ambitious course project that might lead to graduate research, this is a good
+place to start.</p>
+<p>Another semi-automated technique for finding bugs is <span class="indexref" key="delta debugging" markdown="1"><a class="glossref" href="../glossary/#delta_debugging" markdown="1">delta debugging</a></span> [<a href="../bibliography/#Zeller2009">Zeller2009</a>, <a href="../bibliography/#Zeller2021">Zeller2021</a>].
+<span class="indexref" key="fuzz testing" markdown="1">Fuzz testing</span> can automatically generate inputs
+that make programs fail (<a href="../testing/">Chapter 11</a>), but since those inputs are partly
+or entirely random, and can be quite long, it is sometimes hard to figure out
+why they make the software fail.  Delta debugging repeatedly tests subsets of
+the original fixture, then subsets of those subsets, to produce a minimal
+<span class="indexref" key="reproducible example (reprex)" markdown="1">reprex</span>.</p>
+<h2>Using a Debugger</h2>
+<p>The tools described above will make you more productive, but sooner or later
+you're going to have to track a bug down yourself.
+A <span class="indexref" key="debugging!symbolic debugger;symbolic debugger" markdown="1"><a class="glossref" href="../glossary/#symbolic_debugger" markdown="1">symbolic debugger</a></span>
+is a program that allows you to
+control and inspect the execution of another program. Some, like <a href="https://www.gnu.org/software/gdb/">GDB</a>, are
+standalone programs; others are built into IDEs, but they all have the same
+basic capabilities.  (Depending on the language you're using, you may have to
+compile or run your program with specific options to make it debuggable.)</p>
+<dl>
+<dt><span class="indexref" key="breakpoint;debugger!breakpoint" markdown="1"><a class="glossref" href="../glossary/#breakpoint" markdown="1">Breakpoints</a></span>.</dt>
+<dd>You can tell the debugger to pause the program whenever it reaches a certain
+line.  You can also create a <a class="glossref" href="../glossary/#conditional_breakpoint" markdown="1">conditional
+breakpoint</a> that only pauses on that line if some test is true, e.g.,
+if a list is empty or a loop index is zero.</dd>
+<dt>Inspection.</dt>
+<dd>While the program is paused, you can ask the debugger to show you the values
+of variables in both the current active function call and in the call stack.
+This is why we use the word "symbolic": instead of displaying the bytes at
+particular addresses in memory, the debugger uses the names you wrote.</dd>
+<dt><span class="indexref" key="single-stepping;debugger!single-stepping" markdown="1">Single-stepping</span>.</dt>
+<dd>Rather than requiring you to set breakpoints on several successive lines,
+the debugger allows you to step through the program a line at a time to see
+which branches of <code>if</code>/<code>else</code> statements are taken or how the values of
+variables change.  You can also tell it to step into function calls or just
+step over them so that you can stay focused on one particular problem.</dd>
+</dl>
+<p>Using a debugger generally takes less time than adding <code>print</code> statements to
+your program and re-running it.  It's also very easy to make a mistake in the
+<code>print</code> statement: few things are as frustrating as wasting an afternoon
+debugging a problem, only to realize that the <code>print</code> you copied and pasted
+isn't displaying the values you thought it was.</p>
+<p>That said, a page or two of printed output showing which functions are being
+called and what state the data is in at the start and end of each can be less
+<span class="indexref" key="cognitive load!in debugging" markdown="1">cognitive load</span> than holding that
+same information in your head while stepping through the program's execution.
+Again, if you <em>are</em> going to print things, using a <span class="indexref" key="logging!during
+debugging" markdown="1">logging</span> library to give yourself more control.</p>
+<blockquote>
+<h3>If it was important, it would be on the exam</h3>
+<p>Over the years I've been surprised by how few programmers know how to use a
+debugger [<a href="../bibliography/#Beller2018">Beller2018</a>]. The reason can't be the five or ten minutes it
+takes to learn how to use one—that pays for itself almost immediately.  The
+best explanation I've been able to come up with relates to <span class="indexref" key="Goodhart's
+Law" markdown="1"><a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">Goodhart's Law</a></span>, which says that as soon as you use
+some measure to evaluate people it ceases to be a good measure because people
+will start to game the system.</p>
+<p>The inverse of that is that if something <em>isn't</em> being evaluated, it isn't
+important—or rather, if you're juggling five or six courses, you can't afford
+to put time into things that aren't going to affect your grades.  Most students
+have to learn version control because it's the only way to submit their work,
+but "show that you can use the debugger" is (almost) never part of gradable
+work.  As a result, there's no point at which students have to master it.  I
+think this could now be fixed by having students submit screencasts of
+themselves setting breakpoints, inspecting variables, and so on; if you ever try
+this in your class, please let me know how it goes.</p>
+</blockquote>
+
+  <hr/>
+<div class="centered">
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>

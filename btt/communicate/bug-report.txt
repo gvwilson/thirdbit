@@ -1,0 +1,13 @@
+id: 47                                                      # 01
+date: 2021-02-19T09:30:20+0500                              # 02
+title: Binary files are read as text files                  # 03
+type: bug                                                   # 04
+severity: low                                               # 05
+labels: utilities                                           # 06
+                                                            # 07
+The `dup.py` utility opens all files using `'r'` (for       # 08
+text) instead of `'rb'` (for binary), so any carriage       # 09
+return/newline pairs are converted to newlines only before  # 10
+the hash is calculated. This doesn't break the matching,    # 11
+since it is done consistently, but probably slows the       # 12
+program down a little.                                      # 13

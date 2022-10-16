@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="buildtogether.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Building Software Together: Thinking</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+      
+      <h2><a href="../">Building Software Together</a></h2>
+      <h1>Appendix F: Thinking</h1>
+      
+      <p>
+        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+      </p>
+    </div>
+
+<p>We know as much about teaching and learning as we do about public health. The
+problem is, while university professors are experts in their own fields, many of
+them don't know what we know.  Most people in the tech industry don't either,
+which means many of us learn more slowly and less reliably than we could.  This
+chapter will give you a short overview of a few key facts that can help fix
+that.</p>
+<h2>Different Kinds of Learners</h2>
+<p>Research starting in the 1980s showed that most <span class="indexref" key="neurotypical" markdown="1">neurotypical</span> adults undergo a series of fairly
+predictable <span class="indexref" key="cognitive transition" markdown="1"><a class="glossref" href="../glossary/#cognitive_transition" markdown="1">cognitive transitions</a></span> on their way from being a novice to being an expert in any
+domain [<a href="../bibliography/#Benner2000">Benner2000</a>]. (We say "most" and "neurotypical" because as
+with anything involving people, there will be outliers.)</p>
+<p>For our purposes, we will say that people are <span class="indexref" key="novice" markdown="1"><a class="glossref" href="../glossary/#novice" markdown="1">novices</a></span>, <span class="indexref" key="competent practitioner" markdown="1"><a class="glossref" href="../glossary/#competent_practitioner" markdown="1">competent practitioners</a></span>, or <span class="indexref" key="expert" markdown="1"><a class="glossref" href="../glossary/#expert" markdown="1">experts</a></span>. Some characteristics that most novices share include
+doing things by rote (i.e., following a series of steps without understanding
+why they work), asking questions that don't make sense ("What color is the
+database?") and not being able to tell what is and isn't relevant—for example,
+using their own filenames or variable names when searching for help online
+because they don't yet have a clear distinction between what belongs to the
+library and application and what is specific to their code.</p>
+<p>What ties these things together is that novices don't have a <span class="indexref" key="mental model" markdown="1"><a class="glossref" href="../glossary/#mental_model" markdown="1">mental model</a></span> of the problem. A mental
+model is a simplified representation of something that's good enough for present
+needs. One example is the ball-and-spring models used to represent molecules in
+chemistry classes: real atoms aren't marbles and atomic bonds aren't springs,
+but this model is good enough to explain why burning methane produces carbon
+dioxide and water and a host of other things.</p>
+<p>What about experts? They can typically solve problems at a glance, and are
+usually much better at debugging than competent practitioners because they are
+better able to reason backward from effects to causes. They also tend to be
+<em>less</em> good as teachers because of <span class="indexref" key="expert blind spot" markdown="1"><a class="glossref" href="../glossary/#expert_blind_spot" markdown="1">expert blind spot</a></span>: they know their subject so well that they've
+forgotten how hard it is for newcomers.</p>
+<p>To explain where these differences come from, imagine that the knowledge in your
+brain is stored as a graph in which ideas are nodes and the connections between
+them are arcs. (Your brain doesn't actually work this way, but it's a useful
+metaphor.) A novice's mental model is disconnected: some key facts are missing,
+and other pieces don't join up (<a class="figref" href="../thinking/#thinking-models">Figure F.1</a>). In contrast,
+a competent practitioner's mental model is fully connected: given fact <code>A</code>, he
+can reason his way through <code>B</code> and <code>C</code> to solution <code>D</code>. He might take a wrong
+turn to <code>Y</code> and <code>Z</code> along the way and have to backtrack, but he'll get there
+eventually.</p>
+<p>What makes an expert different isn't that she has more facts (though she usually
+does). What makes the difference is that she has many more connections, so the
+distance between any two ideas in her head is usually much less. In fact, in
+many cases the problem and its solution will be directly connected so that she
+can go from one to the other in a single step. This is what we mean by expert
+intuition: rather than <em>reasoning</em> their way through problems, they <em>recognize</em>
+them in the same way that most people recognize human faces. Being able to do
+this explains why they can solve problems at a glance, but also why they have
+trouble explaining their thinking: they can't tell someone else how they did it
+any more than we can explain how we recognize faces.</p>
+<figure id="thinking-models">
+  <img src="./thinking-models.svg" alt="Mental models" />
+  <figcaption markdown="1">Figure F.1: The differences between novice, competent, and expert mental models.</figcaption>
+</figure>
+
+<blockquote>
+<h3>Learning styles aren't a thing</h3>
+<p>You may have heard of "<span class="indexref" key="learning styles;pseudoscience!learning
+styles" markdown="1">learning styles</span>", i.e., that some people learn better visually,
+while others do so more quickly or more accurately by listening, reading, or
+otherwise using language. It's bullshit: while lots of companies make and sell
+materials based on this myth, no one has ever shown that tuning what or how we
+teach to match people's preferences has any impact on outcomes
+[<a href="../bibliography/#DeBruyckere2015">DeBruyckere2015</a>]. Like <span class="indexref" key="Myers-Briggs Type
+Indicator" markdown="1">Myers-Briggs personality types</span> (<a href="../fairness/">Chapter 24</a>),
+learning styles belong with healing crystals and astrology.</p>
+</blockquote>
+<p>This model of learning leaves almost everything discussed in
+[<a href="../bibliography/#Kirschner2018">Kirschner2018</a>] and other recent work, but is good enough to start
+with.  Novices, competent practitioners, and experts are at different stages of
+cognitive development, so they need different kinds of teaching
+[<a href="../bibliography/#Kalyuga2003">Kalyuga2003</a>]. Novices need to be told what to learn next: since they
+don't have yet a mental model of the problem, they don't know what to ask for.
+As [<a href="../bibliography/#Kirschner2006">Kirschner2006</a>] and many others have shown, <span class="indexref" key="discovery-based learning" markdown="1">discovery-based learning</span> in which people are
+told "go figure out how to solve this problem" is less effective for novices
+than guided learning because they don't know what to ask next.</p>
+<p>Once someone is a competent practitioner, though, being told step-by-step what
+to tackle next is both unnecessary and frustrating.  Competent practitioners
+should be <span class="indexref" key="mentoring" markdown="1">mentored</span> instead of lectured: they should
+tackle problems on their own, but have someone at hand to get them unstuck if it
+takes them more than a few minutes to figure out what to do next.</p>
+<p>Finally, the most effective way to "teach" experts is to have them reflect or
+<span class="indexref" key="introspection" markdown="1">introspect</span> on their own practice
+[<a href="../bibliography/#Schon1984">Schon1984</a>]. This usually happens in three stages:</p>
+<ol>
+<li>
+<p>You do some work and get feedback on it.  For example, someone in grade
+    school might write an essay about what they did with their summer holiday
+    and get feedback from the teacher on their spelling, grammar, and structure.</p>
+</li>
+<li>
+<p>You give feedback on other people's work and get feedback <em>on your
+    feedback</em>. This is what most literature courses are about: instead of
+    writing new material, people learn how to critique and analyze things.</p>
+</li>
+<li>
+<p>Once you know how to critique things, you can start to critique your own
+    work as you produce it. This is the tightest feedback loop there can be, and
+    people who reach this stage start to see continuous improvement in their
+    work as a result.</p>
+</li>
+</ol>
+<h2>Formative Assessment</h2>
+<p>Suppose you are teaching a child how to do addition and you give them this
+multiple-choice question:</p>
+<blockquote>
+<p>What is 37 + 45?</p>
+<ul>
+<li>82</li>
+<li>72</li>
+<li>712</li>
+<li>73</li>
+</ul>
+</blockquote>
+<p>If they pick the first answer, it shows they know how to add multi-digit
+numbers. If they pick the second, it signals that they don't know how to carry:
+they add 7 and 5 to get 12, throw away the 1, and then add 3 and 4 to get 7.
+(Alternatively, they might write down 12 and then write the 7 on top of the 1.)</p>
+<p>If they pick 712 it also signals that they don't understand how to carry, but
+it's a different kind of error: instead of throwing away the 1 or overwriting
+it, they're treating the problem as two parallel single-digit problems. As for
+73, it's a sign that they've learned that they're supposed to add the 1 from 12,
+but they're adding it back into the ones column instead of carrying it over to
+the tens column.</p>
+<p>Each of these wrong answers has <span class="indexref" key="diagnostic power (of formative assessment)" markdown="1"><a class="glossref" href="../glossary/#diagnostic_power" markdown="1">diagnostic power</a></span>. Like a good unit test, this
+multiple choice question doesn't just tell us that something is wrong: it points
+us at the source of the problem. Using questions like these in class in order to
+diagnose misunderstandings so that they can be corrected is called <span class="indexref" key="formative assessment" markdown="1"><a class="glossref" href="../glossary/#formative_assessment" markdown="1">formative assessment</a></span>
+because it forms (or shapes) the learning as it is taking place.</p>
+<p>A good formative assessment question takes 30--60 seconds to do (so that it
+doesn't disrupt the flow of the lesson) and has an unambiguous right answer (so
+that it scales—if the answers are paragraphs long, it won't be practical to
+use in a class of 20 students, much less 200). The most important thing, though,
+is that it tells the instructor what to say next. Different learners can
+misunderstand things in different ways; a good formative assessment tells the
+instructor what misconceptions these particular learners have and therefore what
+needs to be corrected.</p>
+<blockquote>
+<h3>Recordings can't respond</h3>
+<p>If an instructor uses a formative assessment in class and then says whatever
+they planned to say next instead of responding to the learner's actual
+misunderstandings, they're not a good teacher. Unfortunately, that is what
+almost all recorded videos do: they always say the same next thing regardless of
+what the viewer did or didn't understand.  Good video games provide many paths
+around or through each obstacle; recorded courses could in theory do that too,
+but in practice the cost is prohibitive.</p>
+</blockquote>
+<p>Formative assessments have many other benefits. One is that in order to come up
+with good ones, the instructor has to build a mental model of all the ways in
+which the learner's mental model might be wrong. Doing this helps them write a
+better lesson, in the same way that if you think about how your program might
+fail you'll write code that prevents or handles those potential failures.</p>
+<p>Another benefit is that formative assessments tell the learners what they do and
+don't actually understand. It's common for someone to come out of a lesson
+believing that they've grasped the key ideas, only to discover when they to do
+homework that they didn't understand after all. Formative assessment on its own
+won't fill in the gaps in their knowledge, but at least they'll know what they
+do and don't actually understand.</p>
+<p>Finally, formative assessments can be used pre-emptively. I once had a professor
+start a math class by putting up a multiple choice question. It was pretty
+easy—I think everyone in the class got it—so he said, "All right, here's
+twenty minutes of your life I don't need to waste," and set aside a section of
+his slides. He then did it again, and again, enough of us got it right that he
+said, "Here's another twenty minutes of your life I don't have to waste," and
+set aside the second chunk of slides. It wasn't until his third question that
+enough of us were wrong that he started lecturing. He did that with every topic
+in the course, and it was great: it meant he wasn't wasting time telling us
+things we already knew, which meant he had more time for helping us understand
+the things we didn't.</p>
+<h2>Cognitive Load</h2>
+<figure id="thinking-cognitive-architecture">
+  <img src="./cognitive-architecture.svg" alt="Cognitive architecture" />
+  <figcaption markdown="1">Figure F.2: The cognitive architecture of the human mind (simplified).</figcaption>
+</figure>
+
+<p><a class="figref" href="../thinking/#thinking-cognitive-architecture">Figure F.2</a> shows a very (very) simple model of
+the cognitive architecture of the human brain. On the left is <span class="indexref" key="long-term memory" markdown="1"><a class="glossref" href="../glossary/#long_term_memory" markdown="1">long-term memory</a></span> (LTM), which
+is where you store things like the spelling of your name and how that awful
+clown scared you when you were ten years old. It is very large—you can keep
+adding to it as long as you live—but you don't have direct conscious access to
+it.</p>
+<p>Instead, evolution has given you a second subsystem called <span class="indexref" key="short-term memory" markdown="1"><a class="glossref" href="../glossary/#short_term_memory" markdown="1">short-term memory</a></span> (STM) or
+<span class="indexref" key="working memory" markdown="1"><a class="glossref" href="../glossary/#working_memory" markdown="1">working memory</a></span>. (More
+sophisticated models distinguish between these two concepts, but this simple
+model is good enough for our needs.)  You are constantly fetching things from
+LTM into STM to use them, then re-encoding them and writing them back to LTM.
+This is one of the differences between your brain and a computer: reading data
+from a hard drive doesn't alter it, but every time you access something in LTM,
+you may write it back in a different or augmented form. We call this "learning".</p>
+<p>Here's the problem: <span class="indexref" key="short-term memory!limited capacity of" markdown="1">STM is
+very small</span>.  [<a href="../bibliography/#Miller1956">Miller1956</a>] famously estimated that it could
+hold 7±2 things at one time; more modern estimates put the number closer to 4±1
+[<a href="../bibliography/#Didau2016">Didau2016</a>]. This means that STM is a bottleneck for learning: if too
+many new ideas are presented too quickly, the new arrivals will knock older ones
+out of STM before you have a chance to encode them and store them in LTM, so
+learning won't take place.</p>
+<p>This realization and others have produced the theory of <span class="indexref" key="cognitive load theory" markdown="1"><a class="glossref" href="../glossary/#cognitive_load" markdown="1">cognitive load</a></span>, which (among other things)
+divides the things you have to do while learning into three categories. The
+<span class="indexref" key="intrinsic load;cognitive load!intrinsic" markdown="1"><a class="glossref" href="../glossary/#intrinsic_load" markdown="1">intrinsic load</a></span> is the thinking that is required by the learning task itself. The
+<span class="indexref" key="germane load;cognitive load!germane" markdown="1"><a class="glossref" href="../glossary/#germane_load" markdown="1">germane</a></span>
+(or relevant) load is the other thinking that the problem requires, but which
+isn't the focus of the lesson, while the <span class="indexref" key="extraneous load;cognitive load!extraneous" markdown="1"><a class="glossref" href="../glossary/#extraneous_load" markdown="1">extraneous load</a></span> is everything you're
+being asked to do that is irrelevant.</p>
+<p>For example, suppose you are learning the grammar of Frisian. If I ask you to
+translate, "How is her knee today?" then the intrinsic load is the rules of
+grammar, but there is also the germane load of recalling vocabulary (which is
+necessary, but isn't the main focus of the lesson). If, on the other hand, I
+give you the words as shown in <a class="figref" href="../thinking/#thinking-frisian">Figure F.3</a> and ask you to
+rearrange them, I have eliminated the germane load, but have added some
+extraneous load by using a mix of fonts. You will solve the problem more quickly
+and more accurately if the words are all in the same font, no matter what that
+font is, than you will if your brain is wondering whether the difference is
+significant.</p>
+<figure id="thinking-frisian">
+  <img src="./thinking-frisian.svg" alt="Translating a sentence" />
+  <figcaption markdown="1">Figure F.3: None</figcaption>
+</figure>
+
+<p>Cognitive load theory explains why tools like <span class="indexref" key="Scratch" markdown="1"><a href="https://scratch.mit.edu/">Scratch</a></span> work so well: they reduce germane load by
+getting rid of the commas, curly braces, and other distractions so that learners
+can focus on mastering concepts like assignment and loops. It also explains why
+working with code written in a mix of styles is so painful: each minor
+difference adds extraneous load.</p>
+<p>In order to handle larger sets of information, our minds create <span class="indexref" key="chunking;short-term memory!chunking" markdown="1"><a class="glossref" href="../glossary/#chunking" markdown="1">chunks</a></span> that only
+take up one slot in STM.  For example, most of us remember words as single items
+rather than as sequences of letters.  Similarly, the pattern made by five spots
+on cards or dice is remembered as a whole rather than as five separate pieces of
+information.</p>
+<p>Experts have more and larger chunks than non-experts, i.e., experts "see" larger
+patterns and have more patterns to match things against.  This allows them to
+reason at a higher level and to search for information more quickly and more
+accurately.  However, chunking can also mislead us if we mis-identify things:
+newcomers really can sometimes see things that experts have looked at and
+missed.</p>
+<p>Given how important chunking is to thinking, it is tempting to try to teach
+design patterns directly to learners as early as possible.  These patterns help
+competent practitioners think and talk to each other in many domains, but
+pattern catalogs are too dry and too abstract for novices to make sense of on
+their own.  However, giving names to a small number of patterns does seem to
+help, primarily by giving the learners a richer vocabulary to think and
+communicate with [<a href="../bibliography/#Sajaniemi2006">Sajaniemi2006</a>].</p>
+<h2>Learning Strategies</h2>
+<p>All of this leads to six <span class="indexref" key="learning strategies" markdown="1">strategies</span> that
+have been proven to help people learn faster and better
+[<a href="../bibliography/#Weinstein2018">Weinstein2018</a>].  While researchers still disagree on <em>why</em> they
+work, everyone now agrees that they <em>do</em>.</p>
+<dl>
+<dt><span class="indexref" key="spaced practice;learning strategies!spaced practice" markdown="1">Spaced practice</span>.</dt>
+<dd>
+<p>Ten hours of study spread out over five days is more effective than two
+five-hour days, and far better than one ten-hour day.  You should therefore
+create a study schedule that spreads study activities over time: block off
+at least half an hour to study each topic each day rather than trying to
+cram everything in the night before an exam [<a href="../bibliography/#Kang2016">Kang2016</a>].</p>
+<p>You should also review material after each class, but not immediately
+after—take at least a half-hour break.  Doing this also helps you catch
+any gaps or mistakes in previous sets of notes while there's still time to
+correct them or ask questions.</p>
+</dd>
+<dt><span class="indexref" key="retrieval practice;learning strategies!retrieval practice" markdown="1">Retrieval practice</span>.</dt>
+<dd>
+<p>The limiting factor for long-term memory is not retention (what is stored)
+but recall (what can be accessed).  Recall of specific information improves
+with practice, so outcomes in real situations can be improved by taking
+practice tests or summarizing the details of a topic from memory and then
+checking what was and wasn't remembered.</p>
+<p>Recall is better when practice uses activities similar to those used in
+testing.  For example, writing personal journal entries helps with
+multiple-choice quizzes, but less than doing practice quizzes.  One way to
+exercise retrieval skills is to solve problems twice.  The first time, do it
+entirely from memory without notes or discussion with peers.  After grading
+your own work against a rubric supplied by the teacher, solve the problem
+again using whatever resources you want.  The difference between the two
+shows you how well you were able to retrieve and apply knowledge.</p>
+<p>Another method is to create flash cards.  Physical cards have a question or
+other prompt on one side and the answer on the other, and many flash card
+apps are available for phones.  If you are studying as part of a group,
+swapping flash cards with a partner helps you discover important ideas that
+you may have missed or misunderstood.</p>
+</dd>
+<dt><span class="indexref" key="interleaving;learning strategies!interleaving" markdown="1">Interleaving</span>.</dt>
+<dd>One way you can space your practice is to interleave study of different
+topics: instead of mastering one subject, then a second and third, shuffle
+study sessions.  Even better, switch up the order: <code>A-B-C-B-A-C</code> is better
+than <code>A-B-C-A-B-C</code>, which in turn is better than <code>A-A-B-B-C-C</code>
+[<a href="../bibliography/#Rohrer2015">Rohrer2015</a>].  This works because interleaving fosters creation
+of more links between different topics, which in turn improves recall.
+Interleaving study will initially feel harder than focusing on one topic at
+a time, but that's a sign that it's working.  If you are using flash cards
+or practice tests to gauge your progress, you should see improvement after
+only a couple of days.</dd>
+<dt><span class="indexref" key="elaboration;learning strategies!elaboration" markdown="1">Elaboration</span>.</dt>
+<dd>
+<p>Explaining things to yourself as you go through them helps you understand
+and remember them.  One way to do this is to follow up each answer on a
+practice quiz with an explanation of why that answer is correct, or
+conversely with an explanation of why some other plausible answer isn't.
+Another is to tell yourself how a new idea is similar to or different from
+one you have seen previously.</p>
+<p>Talking to yourself may seem like an odd way to study, but
+[<a href="../bibliography/#Bielaczyc1995">Bielaczyc1995</a>] found that people trained in self-explanation
+outperformed those who hadn't been trained.  Similarly, [<a href="../bibliography/#Chi1989">Chi1989</a>]
+found that some learners simply halt when they hit a step they don't
+understand when trying to solve problems.  Others pause and generate an
+explanation of what's going on, and the latter group learns faster.  An
+exercise to build this skill is to go through an example program line by
+line with a class, having a different person explain each line in turn and
+say why it is there and what it accomplishes.</p>
+<p><span class="indexref" key="note-taking (as a learning strategy)" markdown="1">Note-taking</span> is a form
+of real-time elaboration: it forces you to organize and reflect on material
+as it's coming in, which in turn increases the likelihood that you will
+transfer it to long-term memory.  Many studies have shown that taking notes
+while learning improves retention [<a href="../bibliography/#Aiken1975">Aiken1975</a>, <a href="../bibliography/#Bohay2011">Bohay2011</a>].</p>
+</dd>
+<dt><span class="indexref" key="concrete examples;learning strategies!concrete examples" markdown="1">Concrete examples</span>.</dt>
+<dd>
+<p>One particularly useful form of elaboration is the use of concrete examples.
+Whenever you have a statement of a general principle, try to provide one or
+more examples of its use, or conversely take each particular problem and
+list the general principles it embodies.  [<a href="../bibliography/#Rawson2014">Rawson2014</a>] found that
+interleaving examples and definitions like this made it more likely that
+learners would remember the latter correctly.</p>
+<p>One structured way to do this is the ADEPT method: give an analogy, draw a
+diagram, present an example, describe the idea in plain language, and then
+give the technical details.  Again, if you are studying with a partner or in
+a group, you can swap and check work: see if you agree that other people's
+examples actually embody the principle being discussed or which principles
+are used in an example that they haven't listed.</p>
+</dd>
+<dt><span class="indexref" key="dual coding;learning strategies!dual coding" markdown="1">Dual coding</span>.</dt>
+<dd>
+<p>Different subsystems in our brains handle and store linguistic and visual
+information, so if complementary information is presented through both
+channels, they can reinforce one another.  However, learning is less
+effective when the same information is presented simultaneously in two
+different channels, because then the brain has to expend effort to check the
+channels against each other [<a href="../bibliography/#Mayer2009">Mayer2009</a>].</p>
+<p>One way to take advantage of dual coding is to draw or label timelines,
+maps, family trees, or whatever else seems appropriate to the material.  (I
+am personally fond of pictures showing which functions call which others in
+a program.)  Drawing a diagram without labels and then coming back later to
+label it is excellent retrieval practice.</p>
+</dd>
+</dl>
+<p>One powerful finding in learning research is the <span class="indexref" key="hypercorrection effect" markdown="1"><a class="glossref" href="../glossary/#hypercorrection_effect" markdown="1">hypercorrection effect</a></span> [<a href="../bibliography/#Metcalfe2016">Metcalfe2016</a>].  Most people don't like to be told
+they're wrong, so it would be reasonable to assume that the more confident
+someone is in the answer they've given on a test, the harder it is to change
+their mind if they were actually wrong.  It turns out that the opposite is true:
+the more confident someone is that they were right, the more likely they are not
+to repeat the error if they are corrected.</p>
+<h2>Motivation</h2>
+<p>One of the strongest predictors of whether or not a <span class="indexref" key="neurotypical" markdown="1">neurotypical</span> adult will learn something or not is
+whether they are <span class="indexref" key="intrinsic motivation;motivation!intrinsic" markdown="1">intrinsically motivated</span> to learn it, i.e., whether
+they're learning it to satisfy their own goals.  If someone is <span class="indexref" key="extrinsic motivation;motivation!extrinsic" markdown="1">extrinsically
+motivated</span>—for example, if they're taking a course because it's a degree
+requirement but they have no real interest in the topic—the learning probably
+won't stick [<a href="../bibliography/#Wlodkowski2017">Wlodkowski2017</a>].  While motivation is deeply personal,
+these three factors influence most people:</p>
+<dl>
+<dt><span class="indexref" key="self-efficacy;motivation!self-efficacy" markdown="1">Self-efficacy</span>.</dt>
+<dd>Also called self-determination, this is the degree to which you feel you are
+in control of your own life. People don't enjoy being treated like robots;
+anything the teacher does to put control back in their hands will increase
+engagement, and with it, learning.  This is one of the reasons formative
+assessment works: if the teacher changes course to respond to students'
+answers, it shows students that they have some control over their lives.</dd>
+<dt>Utility.</dt>
+<dd>Students will learn more if they think the material is useful, but it has to
+be useful to <em>them</em>.  One reason to create <span class="indexref" key="learner persona" markdown="1">learner
+personas</span> like the ones in <a href="../introduction/">Chapter 1</a> is to remind
+instructors of the second rule of teaching: "You are not your learners."
+(The first is, "Be kind.")</dd>
+<dt>Community.</dt>
+<dd>Most people prefer to learn things that they can share with other people who
+are also learning it.  (I can only dream of inspiring the same enthusiasm
+for programming as I see in baseball forums and fan discussions of <em>Avatar:
+The Last Airbender</em>.)</dd>
+</dl>
+<p>What about <span class="indexref" key="demotivation" markdown="1">demotivation</span>? Again, it turns out that
+the same few things turn most people off:</p>
+<dl>
+<dt>Unpredictability.</dt>
+<dd>If what you do seems to have no effect on the outcome, you soon learn to
+stop trying.  This is called <span class="indexref" key="learned helplessness" markdown="1">learned
+helplessness</span>, and anyone who has ever wrestled with an intermittent
+bug or a poorly-written grading rubric is familiar with it.</dd>
+<dt>Unfairness.</dt>
+<dd>If people believe that a game is rigged, they will all try less hard:
+the people who are favored will know they can slack off, while everyone
+else will see less point in trying [<a href="../bibliography/#Wilkinson2011">Wilkinson2011</a>].</dd>
+<dt>Indifference.</dt>
+<dd>Most of us have had a teacher who didn't care whether we learned or not,
+and that kind of apathy is infectious.</dd>
+</dl>
+<p>These factors, both positive and negative, affect teams and team projects.  You
+may not be able to control all of them, but whatever you <em>can</em> do will be repaid
+many times over.</p>
+
+  <hr/>
+<div class="centered">
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>

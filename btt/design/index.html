@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="buildtogether.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Building Software Together: Software Design</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+      
+      <h2><a href="../">Building Software Together</a></h2>
+      <h1>Chapter 12: Software Design</h1>
+      
+      <p>
+        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+      </p>
+    </div>
+
+<blockquote>
+<p>A week of hard work can sometimes save an hour of thought.</p>
+<p>— <span class="indexref" key="Wilson, Robert" markdown="1">Robert Wilson</span></p>
+</blockquote>
+<p>Building large programs with other people is different from building small
+programs on your own in two important ways. The first is communication: in order
+for you and your teammates to collaborate, you need to agree about what you're
+collaborating <em>on</em>, which means you need to tell each other how you are breaking
+the problem up into pieces and how those pieces will interact
+(<a href="../communicate/">Chapter 10</a>).</p>
+<p>The second difference between programming in the small and <span class="indexref" key="programming
+in the large" markdown="1">programming in the large</span> is that while you can hack your
+way from an empty <code>.js</code> or <code>.py</code> file to a hundred-line program in a reasonable
+time, the re-work required by that strategy becomes unaffordable when your final
+product is a thousand lines long.</p>
+<p>To see why, suppose the final program is \(N\) lines long and is made up of
+chunks that are each \(L\) lines long, so there are \(C = N/L\) chunks in total.
+You write chunks one by one; each time you add one, there is a probability \(p\)
+that each of the chunks already written needs to be rewritten.  How many chunks
+do you actually wind up writing?</p>
+<ul>
+<li>
+<p>The first chunk always needs to be written, so that's 1.</p>
+</li>
+<li>
+<p>When you write the second chunk you need to rewrite the first chunk with
+    probability \(p\), so the likely cost of the second chunk is \(1+p\).</p>
+</li>
+<li>
+<p>The likely cost of the third chunk is \(1+2p\), since you might have to
+    rewrite either or both of the first two chunks.</p>
+</li>
+<li>
+<p>In general, the cost of adding chunk \(i\) is \(1+(i-1)p\), so the total cost
+    of writing \(C\) chunks is \(C + p\sum_{i=0}^{C-1}{i}\), which is
+    \(C + p(C-1)(C-2)/2\) or \(pC^{2}/2 + (1-p)C + 1\).</p>
+</li>
+</ul>
+<p>This <span class="indexref" key="model!of software development" markdown="1">model</span> is unrealistic in
+every way—the odds of rewriting old code is lower than the odds of rewriting
+recent code, for example—but it captures a key point: the cost of rework grows
+faster than the number of pieces of work.  You can't lower \(C\) by increasing
+\(L\) (since as <a href="../thinking/">Appendix F</a> explains, there's a limit to how much you
+can hold in your mind at once), so your goal when designing software is to lower
+\(N\) by re-using code from libraries or to reduce the cost of reworking things
+by lowering \(p\).</p>
+<p>I can't tell you how to design software, and I don't know anyone who can. I can
+<em>show</em> you by working through examples on a whiteboard, asking rhetorical
+questions, and setting problems for you to think about, but that doesn't
+translate well to print.  I can also tell you how to describe designs and how to
+tell a good design from a bad one, so we'll start with that.</p>
+<blockquote>
+<h3>Learning by example</h3>
+<p>The best way to learn design in any field is to study examples
+[<a href="../bibliography/#Schon1984">Schon1984</a>, <a href="../bibliography/#Petre2016">Petre2016</a>], and some of the best examples of software
+design come from the tools programmers use in their own work.
+[<a href="../bibliography/#Kernighan1979">Kernighan1979</a>, <a href="../bibliography/#Kernighan1981">Kernighan1981</a>, <a href="../bibliography/#Kernighan1983">Kernighan1983</a>] introduced the Unix
+philosophy to an entire generation of programmers;
+[<a href="../bibliography/#Brown2011">Brown2011</a>, <a href="../bibliography/#Brown2012">Brown2012</a>, <a href="../bibliography/#Brown2016">Brown2016</a>] and <a href="https://maryrosecook.com/">Mary Rose
+Cook</a>'s <a href="http://gitlet.maryrosecook.com/">Gitlet</a> take this approach as well.  There is
+also <em><a href="https://stjs.tech/">Software Design by Example</a></em>, which was developed in tandem with
+this material and can be used as a starting point for many different class
+projects.</p>
+<p>The discussion of how to design for test in <a href="../testing/">Chapter 11</a> is another
+example of teaching by example. A general rule like, "Building components that
+can easily be replaced makes testing easier," would only have been meaningful if
+you already understand the point; explaining it with a specific example (testing
+an MVC application) made it more relatable.</p>
+</blockquote>
+<h2>Describing Designs</h2>
+<p>[<a href="../bibliography/#Cherubini2007">Cherubini2007</a>] found that developers usually don't draw
+<span class="indexref" key="software design!role of diagrams" markdown="1">diagrams</span> to create a permanent
+record of design. Instead, they use diagrams as an aid to conversation in the
+moment—essentially, as a temporary store for ideas that they wouldn't
+otherwise be able to keep track of (<a href="../thinking/">Appendix F</a>). In many cases, the
+people who drew the diagrams couldn't make sense of them a day later; it could
+be that the benefit of diagrams therefore comes from the act of drawing, not
+from having them to study.</p>
+<p>When experienced developers <em>do</em> draw something for later use, they generally
+draw the following:</p>
+<dl>
+<dt><span class="indexref" key="diagrams!data structure;data structure diagrams" markdown="1">Data structures</span>.</dt>
+<dd>These are blob-and-arrow pictures of the objects and containers that make up
+the program and the references that stitch them together. The more
+experience someone has, the fewer of these they need to draw, but everyone
+falls back on them eventually (particularly during difficult debugging
+sessions).</dd>
+<dt>The systems' <span class="indexref" key="conceptual architecture!diagram;diagrams!conceptual architecture" markdown="1"><a class="glossref" href="../glossary/#conceptual_architecture" markdown="1">conceptual architecture</a></span>.</dt>
+<dd>This shows how the important parts of the system fit together. It's also
+the least constrained, since it can include everything from specific
+sections of configuration files to class hierarchies to replicated web
+servers. What qualifies as "important" depends on what aspect(s) of the
+system you're currently concerned with. If I'm trying to explain a bug that
+only arises when the application is configured incorrectly, I might draw its
+configuration files, and the database tables that store user preferences,
+but leave out the password database and log files entirely. If we're trying
+to figure out a better load balancing strategy, on the other hand, I would
+draw most of what would go into a physical architecture diagram, plus just
+enough of the class inheritance hierarchy to show how the servers will load
+user request handlers dynamically.</dd>
+<dt>The system's <span class="indexref" key="physical architecture!diagram;diagrams!physical architecture" markdown="1">physical architecture</span>.</dt>
+<dd>This is the files, processes, sockets, database tables, etc., that make it
+up. In most cases, this consists of a bunch of boxes representing the
+machines the application's components run on, trees showing files and
+directories, and circles showing running processes. A lot of this stuff can
+show up in the conceptual architecture as well.</dd>
+<dt><span class="indexref" key="workflow diagram;diagrams!workflow" markdown="1"><a class="glossref" href="../glossary/#workflow_diagram" markdown="1">Workflow diagrams</a></span> that show how users accomplish things.</dt>
+<dd>Workflows are almost always drawn as <span class="indexref" key="finite state machines!use in software design" markdown="1"><a class="glossref" href="../glossary/#fsm" markdown="1">finite state machines</a></span>. Each node
+represents a state the user and the system can be in, while the arcs show
+how to get from one state to another.</dd>
+<dt>Schemas or data models.</dt>
+<dd>These can be fairly literal pictures of the tables in a database, possibly
+augmented with arrows to show what's a foreign key for what, or <span class="indexref" key="entity-relationship diagram;diagrams!entity-relationship" markdown="1"><a class="glossref" href="../glossary/#er_diagram" markdown="1">entity-relationship diagrams</a></span> that also
+show which relationships are one-to-one, one-to-many, and so on
+(<a class="figref" href="../design/#er-diagram">Figure 12.1</a>).</dd>
+</dl>
+<figure id="er-diagram">
+  <img src="./er-diagram.svg" alt="Entity-relationship diagram" />
+  <figcaption markdown="1">Figure 12.1: An example of an entity-relationship diagram for students, instructors, and courses.</figcaption>
+</figure>
+
+<p>The two kinds of diagram that I find most useful are ER diagrams and a
+combination of conceptual and <span class="indexref" key="use-case map;diagrams!use-case map" markdown="1"><a class="glossref" href="../glossary/#use_case_map" markdown="1">use-case maps</a></span> [<a href="../bibliography/#Reekie2006">Reekie2006</a>].  The
+background of a use-case map is the system's conceptual architecture; the
+overlay traces what happens during a particular workflow
+(<a class="figref" href="../design/#use-case-map">Figure 12.2</a>).  I find these particularly useful for checking the behavior
+of systems built from lots of <span class="indexref" key="microservice" markdown="1"><a class="glossref" href="../glossary/#microservice" markdown="1">microservices</a></span>.</p>
+<figure id="use-case-map">
+  <img src="./use-case-map.png" alt="Use case maps" />
+  <figcaption markdown="1">Figure 12.2: An example of a use case map (from Reekie2006).</figcaption>
+</figure>
+
+<blockquote>
+<h3>UML and why not</h3>
+<p>I'm not a fan of the <span class="indexref" key="Unified Modeling Language" markdown="1"><a class="glossref" href="../glossary/#uml" markdown="1">Unified &gt; Modeling Language</a></span> (UML).
+It defines over a dozen different types of
+diagrams for showing the relationships between classes, the order in which
+things happen when methods are invoked, the states a system goes through when
+performing an action, and so on.  Hundreds of books and thousands of articles
+have been written about UML, but in all the years I've been programming, I've
+only ever met one person who drew UML diagrams of his own free will on a regular
+basis. I've known a handful of other people who occasionally sketched class
+diagrams as part of a larger description of a design, and that's pretty much
+it. Unlike blueprints in architecture or flow diagrams in chemical engineering,
+UML doesn't actually seem to help practitioners very much
+[<a href="../bibliography/#Petre2013">Petre2013</a>].</p>
+<p>If you have to use UML because it's a course requirement, <a href="https://plantuml.com/">PlantUML</a>
+will convert specially-formatted text into diagrams for you, and the former are
+much easier for version control systems to work with.  In my opinion, though,
+you'll get more out of investing time in the modeling tools described at the end
+of <a href="../tooling/">Chapter 17</a>.</p>
+<p>One often-overlooked finding about visualization is that people understand
+flowcharts better than pseudocode <em>if both are
+equally well structured</em> [<a href="../bibliography/#Scanlan1989">Scanlan1989</a>].  Earlier work showing that pseudocode
+outperformed flowcharts used structured pseudocode and tangled flowcharts; when
+the playing field was leveled, novices did better with the graphical
+representation.</p>
+</blockquote>
+<h2>Getting Started</h2>
+<p>Suppose you're starting with a blank sheet of paper (or an empty whiteboard):
+how do you describe something that doesn't exist yet? The best way to start is
+to write your <span class="indexref" key="elevator pitch" markdown="1">elevator pitch</span>
+(<a href="../starting/">Chapter 3</a>). Next, write one or two point-form
+<span class="indexref" key="user story!use in software design" markdown="1"><a class="glossref" href="../glossary/#user_story" markdown="1">user stories</a></span>
+describing how the application, feature, or library would be used. Be as concrete
+as possible: instead of saying, "Allows the user to find overlaps between their
+calendar and their friends' calendars," say:</p>
+<ol>
+<li>
+<p>The user selects one of her friends' calendars.</p>
+</li>
+<li>
+<p>The system displays a page showing how the busy/not-busy times in that
+    person's calendar overlaps with the user's.</p>
+</li>
+<li>
+<p>The user can then add more of her friends' calendars one by one or remove
+    any calendars except her own. The system updates the display after each
+    action to show how many people overlap where.</p>
+</li>
+</ol>
+<p>As short as it is, this story tells us that:</p>
+<ul>
+<li>
+<p>People have friends.</p>
+</li>
+<li>
+<p>Calendars are added one at a time rather than in a batch.</p>
+</li>
+<li>
+<p>The user's own calendar is always displayed.</p>
+</li>
+<li>
+<p>We need to decide how to show the density of overlaps, not just all-or-none.</p>
+</li>
+</ul>
+<p>Once you have half a dozen of these stories, go through and highlight the key
+things and relationships you have described. In the example above, you would
+highlight "user", "friend", "calendar", and "page". As soon as you try to draw a
+diagram showing how these are related to one another, you'll have to start
+making design decisions: for example, is "friend" an entity, or a relationship
+between two entities (i.e., is it a blob or an arrow)?</p>
+<p>If you hear yourself say, "We'll use a linked list to…"  step back and catch
+your breath. Details like that do need to be worked out at some point, but:</p>
+<ul>
+<li>
+<p>you're probably worrying about that as a way to <em>not</em> think about the bigger
+    design questions (which are scarier for beginners);</p>
+</li>
+<li>
+<p>you probably don't know enough yet about your design to make the right
+    decision; and</p>
+</li>
+<li>
+<p>you're probably a good enough coder by now that you can worry about that
+    when the time comes to actually write the code. Remember, not everything
+    actually needs to be designed.</p>
+</li>
+</ul>
+<p>Once you have a diagram—any kind of diagram—start iterating around it. Pick
+one open problem like, "How do users control who can see their calendars?"),
+think of a way to solve it ("they can mark them as 'public', or invite specific
+people to view them"), figure out how to implement your solution, then revisit
+any previous decisions that your most recent decisions affect. Design is a very
+cyclic process: every time you add or change one thing, no matter how small, you
+may need to go back and re-design other things.</p>
+<p>There are three traps here for the inexperienced. The first is <span class="indexref" key="analysis paralysis" markdown="1"><a class="glossref" href="../glossary/#analysis_paralysis" markdown="1">analysis paralysis</a></span>, where
+you find yourself revisiting issues over and over again without ever making any
+decisions that stick. The second is <span class="indexref" key="not invented here syndrome" markdown="1"><a class="glossref" href="../glossary/#nih" markdown="1">not invented here</a></span> syndrome, which leads people to say, "Sure,
+there's a library that does that, but I didn't write it so I'm not going to use
+it."  Its complement is <span class="indexref" key="already invented here syndrome" markdown="1"><a class="glossref" href="../glossary/#aih" markdown="1">already invented here</a></span> syndrome, in which someone says, "Look, we've already made
+a decision about that, let's not reopen the debate." Any of these can sink a
+project; together, they show why it's so hard to teach design, since what I'm
+basically saying is, "Argue enough, but not too much."</p>
+<blockquote>
+<h3>How experts do it</h3>
+<p>One of the biggest differences between <span class="indexref" key="expert" markdown="1">experts</span> and
+non-experts in any field is how quickly experts can rule out possibilities
+[<a href="../bibliography/#Schon1984">Schon1984</a>]. Whether it is software design, chess, or medical
+diagnosis, <span class="indexref" key="novice" markdown="1">novices</span> check to see if their plan will work;
+experts, on the other hand, search for a refutation—a reason why it won't—so
+that they can narrow their focus as early as possible. One way to do this is to
+jump back and forth between a high-level plan and its low-level consequences; if
+one of those consequences reveals a flaw in the plan, they go back to the high
+level and make a correction. Doing this efficiently depends on having experience
+of past failures so that you know how a good idea might fail in practice.</p>
+</blockquote>
+<h2>Design for Evolution</h2>
+<p>How easily we can swap one component for another in order to test a system is
+one way to tell how well designed that system is (<a href="../testing/">Chapter 11</a>). Another
+is how easily we can modify or <span class="indexref" key="software design!evolution" markdown="1">extend</span>
+the system to do new things. If our design is perfect, we can implement changes
+by adding code without modifying what's already there.  This is called the <span class="indexref" key="Open-Closed Principle" markdown="1"><a class="glossref" href="../glossary/#open_closed_principle" markdown="1">Open-Closed Principle</a></span>: systems should be open for extension, but closed for
+modification.</p>
+<p>For example, suppose that we are simulating a hospital emergency room. We could
+write the function that simulates someone's response to a cardiac arrest like
+this:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">handle_cardiac_arrest</span><span class="p">(</span><span class="n">all_actors</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">actor</span> <span class="ow">in</span> <span class="n">all_actors</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">actor</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;nurse&#39;</span><span class="p">:</span>
+            <span class="o">...</span><span class="n">do</span> <span class="n">something</span><span class="o">...</span>
+        <span class="k">elif</span> <span class="n">actor</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;doctor&#39;</span><span class="p">:</span>
+            <span class="o">...</span><span class="n">do</span> <span class="n">something</span> <span class="k">else</span><span class="o">...</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="o">...</span><span class="n">do</span> <span class="n">some</span> <span class="n">default</span> <span class="n">action</span><span class="o">...</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>(The term <a class="glossref" href="../glossary/#actor" markdown="1">actor</a> is often used in simulations to mean
+"anything that can take actions".) If we want to add another kind of actor, we
+need to modify this code to add another <code>elif</code> clause, and if we want to add
+another kind of event, we have to write another function <em>and</em> make sure we
+have an <code>if</code> or <code>elif</code> for kind of actor.</p>
+<p>A better design is to create a base class that defines a generic behavior for
+all actors:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Actor</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+        <span class="o">...</span><span class="n">do</span> <span class="n">generic</span> <span class="n">setup</span><span class="o">...</span>
+    <span class="k">def</span> <span class="nf">handle_cardiac_arrest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span> <span class="c1"># by default, don&#39;t do anything</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>and then derive one class for each type of actor:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Nurse</span><span class="p">(</span><span class="n">Actor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">handle_cardiac_arrest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span><span class="n">do</span> <span class="n">something</span><span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">Doctor</span><span class="p">(</span><span class="n">Actor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">handle_cardiac_arrest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span><span class="n">do</span> <span class="n">something</span> <span class="k">else</span><span class="o">...</span>
+</code></pre></div>
+
+<p>We can then ask each actor to handle the cardiac arrest however they're supposed
+to:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">handle_cardiac_arrest</span><span class="p">(</span><span class="n">all_actors</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">actor</span> <span class="ow">in</span> <span class="n">all_actors</span><span class="p">:</span>
+        <span class="n">actor</span><span class="o">.</span><span class="n">handle_cardiac_arrest</span><span class="p">()</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>If we want to add another kind of actor, we derive another class from <code>Actor</code>
+and override methods to give it the behaviors we want: the general
+<code>handle_cardiac_arrest</code> function doesn't need to change.</p>
+<p>This design isn't perfect, though.  If we want to add another kind of event, we
+need to define a default response to it by adding a method to <code>Actor</code>, then
+override that method for the specific kinds of actors that have different
+behaviors. A more sophisticated design would define classes to represent events
+and select a method to call based on the event:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Actor</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+        <span class="o">...</span><span class="n">do</span> <span class="n">generic</span> <span class="n">setup</span><span class="o">...</span>
+    <span class="k">def</span> <span class="nf">handle_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_handler_for</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+            <span class="n">handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_handler_for</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+            <span class="n">handler</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">default_action</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This design makes it harder to figure out exactly who's doing what, but ensures
+that we can add new actors <em>and</em> new events without having to go back and change
+old code.</p>
+<p>But how can we be sure that our new code is going to do what the old code
+expects? The answer is a technique called <span class="indexref" key="design by contract" markdown="1"><a class="glossref" href="../glossary/#design_by_contract" markdown="1">design by contract</a></span>. Every function or method specifies <span class="indexref" key="pre-condition" markdown="1"><a class="glossref" href="../glossary/#pre_condition" markdown="1">pre-conditions</a></span> that must be true of
+its inputs in order for it to run successfully and <span class="indexref" key="post-condition" markdown="1"><a class="glossref" href="../glossary/#post_condition" markdown="1">post-conditions</a></span> that are guaranteed to be true of its
+results. <span class="indexref" key="type declaration!use in software design" markdown="1"><a class="glossref" href="../glossary/#type_declaration" markdown="1">Type declarations</a></span> are the most common kind of pre-condition and
+post-condition: they say things like, "The input must be a list of strings,"
+and, "The output is a single string." More sophisticated pre-conditions and
+post-conditions can be written as assertions that (for example) check that all
+the input strings are at least one character long or that the output is one of
+the input strings.</p>
+<p>Design by contract gets its name from the fact that a function's pre-conditions
+and post-conditions work like a business contract: if the caller guarantees that
+the inputs meet the pre-conditions, then the function guarantees that the output
+meets the post-conditions. Contracts like these are particularly useful when
+overriding methods or when software evolves:</p>
+<dl>
+<dt>Pre-conditions can only be made <span class="indexref" key="pre-condition!weakening" markdown="1">weaker</span>.</dt>
+<dd>This rule is another way of saying that the new version of the code can only
+put <em>fewer</em> restrictions on the inputs it accepts, or equivalently, it must
+handle everything the old version could, but may handle more. If code breaks
+this rule, then it might fail in cases where the old code ran.</dd>
+<dt>Post-conditions can only be made <span class="indexref" key="post-condition!strengthening" markdown="1">stronger</span>.</dt>
+<dd>This rule ensures that the new function can't produce anything that the old
+function might not have produced, and ensures that anything using the
+function's output will be able to handle everything the new version gives
+it.</dd>
+</dl>
+<p>A programming language called <span class="indexref" key="Eiffel" markdown="1"><a href="https://www.eiffel.org/">Eiffel</a></span>
+demonstrated how powerful design by contract can be. Most other languages don't
+support it directly; we can emulate it by putting assertions at the start and
+end of our functions and methods, but there's no guarantee they'll be checked or
+enforced in derived versions.</p>
+<h2>Design for Accessibility</h2>
+<p>Close your eyes and try to navigate this website. Now imagine having to do that
+all day, every day. Imagine trying to use a computer when your hands are
+crippled by arthritis.  Better yet, don't imagine it: have one of your teammates
+tape some popsicle sticks to your fingers so you can't bend them and then see
+how easy it is to use something like Slack.</p>
+<p>Making software <span class="indexref" key="accessibility;software
+design!accessibility" markdown="1">accessible</span> doesn't just help people with obvious
+disabilities: as [<a href="../bibliography/#Johnson2017">Johnson2017</a>] points out, the population is aging,
+and everything you do to help people who are deaf also helps people who are
+gradually losing their hearing.</p>
+<p>The best short guide I have found for accessible design is <a href="https://ukhomeoffice.github.io/accessibility-posters/posters/accessibility-posters.pdf">this set of posters
+from the UK Home Office</a>. Each one lays out a few simple
+do's and don'ts that will help make your software accessible to people who are
+neurodivergent, use screen readers, are dyslexic, have physical or motor
+challenges, or are hard of hearing. You can also use tools like <span class="indexref" key="accessibility!WebAIM WAVE;WebAIM WAVE" markdown="1"><a href="https://wave.webaim.org/">WebAIM WAVE</a></span> to
+check for common problems, most of which are easy to fix. It only takes a few
+minutes, it's the compassionate thing to do, and almost every change you make
+will also make the software easier to test and maintain.</p>
+<h2>Scriptability</h2>
+<p>Rule #3 of [<a href="../bibliography/#Taschuk2017">Taschuk2017</a>] is, "Make common operations easy to
+control."  Like testing, it's a lot easier to do if you design programs with
+this goal in mind, and programs that are designed to do this tend to be
+easier to understand, test, and extend.</p>
+<p>You can make programs controllable in at least three different ways:</p>
+<dl>
+<dt>Command-line options.</dt>
+<dd>Enable users to run it and control its operation from the command line. For
+example, the <code>-a</code> or <code>--all</code> option could tell the program to process all
+files even if there are errors, while <code>-o</code> or <code>--output</code> could specify the
+name of the output directory.</dd>
+<dt>Configuration files.</dt>
+<dd>Have the program load settings from one or more configuration files.  This
+option saves them typing in common settings over and over, and also provides
+a record of exactly what the settings were (which can be helpful when
+testing).
+<br/>
+Configuration files are often
+<span class="indexref" key="configuration!layered" markdown="1"><a class="glossref" href="../glossary/#layered_configuration" markdown="1">layered</a></span>:
+the program reads a global
+configuration file with general settings, then a user-specific configuration
+file (typically in the user's home directory) with the user's preferences,
+and finally a project-specific file. Those settings can then often be
+overridden using command-line options.  And if you are going to <em>read</em>
+settings from files, do the compassionate thing and teach your programs how
+to <em>write</em> their complete settings to a file as well.  These files make it
+easier for people to reproduce their work and are an invaluable aid to
+debugging.</dd>
+<dt>A programming interface.</dt>
+<dd>If the application is written as a set of libraries, each with its own API,
+then the interface the general user sees can be written as a thin layer that
+combines those libraries. Users can then write code of their own to control
+the libraries if they want to extend the application's behavior.</dd>
+</dl>
+<p>The last of these is what we mean by saying that something is <span class="indexref" key="scriptability;software design!scriptability" markdown="1"><a class="glossref" href="../glossary/#scriptable" markdown="1">scriptable</a></span>.  One of the things that made Microsoft
+Office so popular was users' ability to write scripts for Word, Excel, and other
+tools in <span class="indexref" key="Visual Basic" markdown="1"><a href="https://en.wikipedia.org/wiki/Visual_Basic">Visual Basic</a></span>.  Today,
+many games include a scripting language like <span class="indexref" key="Lua" markdown="1"><a href="https://www.lua.org/">Lua</a></span> so
+that users can write modifications right then and there.  Scripting is
+particularly helpful when you want to test a user interface, since it allows you
+to write short programs that trigger events like "click this button" or "enter
+this password" and to interrogate the system's state afterward.</p>
+<blockquote>
+<h3>Merely useful</h3>
+<p>Why do we call them scripts instead of programs, and why do we call it scripting
+instead of programming? The answer, I think, is that if everyone can do it, it
+can't be cool: as a computer science professor said to me once about something
+similar, "I realize it's popular, but it's merely useful."</p>
+</blockquote>
+<p>The other way to script something is through an external interface.  Most web
+applications these days provide some sort of <span class="indexref" key="Representational State Transfer;REST" markdown="1"><a class="glossref" href="../glossary/#rest" markdown="1">REST</a></span> API
+so that programs can send requests or post
+data via HTTP to control the app's behavior. Many of these require programs to
+authenticate in order to prove that they have a right to do what they want to;
+as soon as we're thinking about that, we need to think about the topic of the
+next chapter: security.</p>
+<h2>Design for Packaging</h2>
+<p>Every language and operating system has its own rules for <span class="indexref" key="packaging;package!building" markdown="1">building packages</span>; designing software with these rules
+in mind makes packaging a lot easier.  In Python, for example, a package
+consists of one or more Python source files in a specific directory structure
+like this:</p>
+<div class="codehilite"><pre><span></span><code>pkg_name
++-- pkg_name
+|   +-- module1.py
+|   +-- module2.py
++-- README.md
++-- setup.py
+</code></pre></div>
+
+<p>The top-level directory is named after the package.  It contains a directory
+that is also named after the package, which contains the package's source files.
+To turn this into an installable package, we put the following in <code>setup.py</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;pkg_name&#39;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Some Name&#39;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;0.1.0&#39;</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pkg_name&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+<!-- continue -->
+<p>The <code>name</code> and <code>author</code> fields are self-explanatory; the <code>packages</code> field lists
+the sub-directories containing packages (there may actually be several), and
+we'll talk about versioning in <a href="../delivery/">Chapter 26</a>.  Once you have this in
+place, you can run:</p>
+<div class="codehilite"><pre><span></span><code>$ pip install .
+</code></pre></div>
+
+<!-- continue -->
+<p>to create a package.</p>
+<h2>Find Your Current Comfort Zone</h2>
+<p>When we use a low-level language, we incur the cognitive load of assembling
+micro-steps into something more meaningful (<a href="../thinking/">Appendix F</a>) When we use a
+high-level language, we incur a similar load translating functions of functions
+of functions (or meta-classes templated on object factories) into actual
+operations on actual data.</p>
+<p>More experienced programmers are more capable at both ends of the curve, but
+that's not the only thing that changes.  <a class="figref" href="../design/#comprehension-curves">Figure 12.3</a>
+compares a <span class="indexref" key="code comprehension;novice!code
+comprehension" markdown="1">novice</span>'s comprehension curve with an <span class="indexref" key="expert!code
+comprehension" markdown="1">expert</span>'s.  Experts don't just understand more at all
+levels of abstraction; their <em>preferred</em> level has also shifted so that
+\(\sqrt{x^2 | y^2}\) is actually more readable than the medieval expression "the
+side of the square whose area is the sum of the areas of the two squares whose
+sides are given by the first part and the second part".</p>
+<figure id="comprehension-curves">
+  <img src="./comprehension-curves.svg" alt="Comprehension curves" />
+  <figcaption markdown="1">Figure 12.3: How the relationship between abstraction and comprehension differs for novices and experts.</figcaption>
+</figure>
+
+<p>This difference implies that the software that is quickest for a novice to
+comprehend will almost certainly be different from the software that an expert
+can understand most quickly, which is why design rules like <span class="indexref" key="Don't Repeat Yourself" markdown="1"><a class="glossref" href="../glossary/#dry" markdown="1">Don't Repeat Yourself</a></span> should be followed by the
+word "however".  Duplicating some code so that it's right in front of the reader
+may help people at one level of development, even if it makes long-term
+maintenance more difficult for people at another level.  In the end, the only
+correct answer to the question, "What's the best way to design this?" is, "For
+whom?"</p>
+
+  <hr/>
+<div class="centered">
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>

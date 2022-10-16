@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="buildtogether.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Building Software Together: The Important Stuff</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+      
+      <h2><a href="../">Building Software Together</a></h2>
+      <h1>Chapter 2: The Important Stuff</h1>
+      
+      <p>
+        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+      </p>
+    </div>
+
+<p>The worst mistakes people make are related to people, not software,
+so before we look at version control or testing,
+we need to talk about overwork,
+meetings,
+and resolving arguments.</p>
+<blockquote>
+<h3>Not writing software takes less time</h3>
+<p>[<a href="../bibliography/#Sedano2017">Sedano2017</a>] found that software development projects have
+<span class="indexref" key="waste (in software development)" markdown="1">nine types of waste</span>:
+building the wrong feature or product,
+mismanaging the backlog,
+rework,
+unnecessarily complex solutions,
+extraneous <span class="indexref" key="cognitive load" markdown="1">cognitive load</span> (<a href="../thinking/">Appendix F</a>),
+psychological distress,
+waiting and <span class="indexref" key="multitasking" markdown="1">multitasking</span>,
+knowledge loss,
+and ineffective communication.
+<em>None of these are software issues,</em>
+so if you only think about the code in your project and not about the people writing it,
+everything will take longer and hurt more than it needs to.</p>
+</blockquote>
+<h2>Crunch Mode</h2>
+<p>I used to brag about the hours I was working.
+Not in so many words, of course—I had <em>some</em> social skills—but
+I'd show up for work around noon,
+unshaven and yawning,
+and casually mention how I'd been up until 6:00 a.m. working on some monster bug.</p>
+<p>Looking back,
+I can't remember who I was trying to impress.
+Instead,
+what I remember is how much of the code I wrote in those all-nighters I threw away
+once I'd had some sleep.
+My mistake was to confuse "long hours" with "getting things done".
+You can't produce software (or anything else) without doing some work,
+but you can easily do lots of work without producing anything of value.
+Scientific study of <span class="indexref" key="overwork" markdown="1">overwork</span> goes back to at least the 1890s—see
+[<a href="../bibliography/#Robinson2005">Robinson2005</a>] for a short, readable summary.
+The most important results are:</p>
+<ol>
+<li>
+<p>Working more than eight hours a day for more than a couple of weeks of time
+    lowers your total productivity,
+    not just your hourly productivity—i.e., you get less done <em>in total</em>
+    in <span class="indexref" key="crunch mode" markdown="1"><a class="glossref" href="../glossary/#crunch_mode" markdown="1">crunch mode</a></span>
+    than when you work regular hours.</p>
+</li>
+<li>
+<p>Working over 21 hours in a stretch
+    increases the odds of you making a catastrophic error
+    just as much as being legally drunk.</p>
+</li>
+</ol>
+<p>These facts have been verified through hundreds of experiments
+over the course of more than a century,
+including some on novice software developers [<a href="../bibliography/#Fucci2020">Fucci2020</a>].
+The data behind them is as solid as the data linking smoking to lung cancer.
+However,
+while most smokers will at least acknowledge that their habit is killing them,
+people in the software industry still talk and act as if
+they were somehow immune to science.
+To quote <span class="indexref" key="Robinson, Evan" markdown="1">Robinson</span>'s article:</p>
+<blockquote>
+<p>When <span class="indexref" key="Ford, Henry" markdown="1">Henry Ford</span> famously adopted a 40-hour workweek in 1926,
+he was bitterly criticized by members of the National Association of Manufacturers.
+But his experiments,
+which he'd been conducting for at least 12 years,
+showed him clearly that cutting the workday from ten hours to eight hours—and
+the workweek from six days to five days—increased
+total worker output and reduced production cost…
+the core of his argument was that reduced shift length meant more output.</p>
+<p>…many studies,
+conducted by businesses, universities, industry associations and the military,
+…support the basic notion that,
+for most people,
+eight hours a day,
+five days per week,
+is the best sustainable long-term balance point between output and exhaustion.
+Throughout the 30s, 40s, and 50s, these studies were apparently conducted by the hundreds;
+and by the 1960s,
+the benefits of the 40-hour week were accepted almost beyond question in corporate America.
+In 1962,
+the Chamber of Commerce even published a pamphlet extolling the productivity gains of reduced hours.</p>
+<p>But, somehow, Silicon Valley didn't get the memo…</p>
+</blockquote>
+<p>I spent two years at a data visualization startup.
+Three months before our first release,
+the head of development "asked" us to start coming in on Saturdays.
+We were already pulling one late night a week at that point
+(without overtime pay—our boss seemed to think that
+ten dollars' worth of pizza
+was adequate compensation for four hours of work)
+and most of us were also working at least a couple of hours at home in the evenings.
+To no one's surprise,
+we missed our "can't miss" deadline by ten weeks,
+and had to follow up our 1.0 release with a 1.1 and then a 1.2
+to fix the crash-and-lose-data bugs we'd created.
+We were all zombies, and zombies can't code.</p>
+<p>Hours like these are sadly still normal in many parts of the software industry,
+and may actually be worse now that so many people are working from home.
+Designing and building software is a creative act that requires a clear head;
+it only takes a couple of minutes to create a bug
+that will take hours to track down later.
+As Robinson writes:</p>
+<blockquote>
+<p><span class="indexref" key="productivity" markdown="1">Productivity</span> varies over the course of the workday,
+with the greatest productivity occurring in the first four to six hours.
+After enough hours,
+productivity approaches zero;
+eventually it becomes negative.</p>
+</blockquote>
+<p>It's hard to quantify the productivity of programmers, testers, and UI designers
+[<a href="../bibliography/#Sadowski2019b">Sadowski2019b</a>, <a href="../bibliography/#Forsgren2021">Forsgren2021</a>],
+but five eight-hour days per week has been proven to maximize long-term total output
+in every industry that has ever been studied.
+There is no reason to believe that ours is any different.</p>
+<p>Ah, you say, but that's <em>long-term</em> output.
+What about short bursts now and then,
+like pulling an all-nighter to meet a deadline?
+That's been studied too,
+and the results aren't pleasant.
+Your ability to think drops by 25 points for each 24 hours you're awake.
+Put it another way,
+the average person's IQ is only 75 after one <span class="indexref" key="all-nighters" markdown="1">all-nighter</span>,
+which puts them in the bottom 5% of the population.
+Two all nighters in a row and their effective IQ is 50—the level at which
+people are considered incapable of independent living.</p>
+<p>The catch in all of this is that people usually don't notice their abilities declining.
+Just like drunks who think they're still able to drive,
+people who are deprived of sleep don't realize that they're not finishing their sentences (or thoughts).
+They certainly don't realize that they're calling functions with parameters in the wrong order
+or that the reason the tests are failing is that
+they've forgotten to redeploy the application—again.</p>
+<p>The first and most important lesson in this chapter is therefore
+to think very hard about what's more important—how much you produce
+or how much of a martyr you appear to be—and to pace yourself accordingly.</p>
+<h2>Time Management</h2>
+<p>[<a href="../bibliography/#Edwards2009">Edwards2009</a>] found that
+starting assignments early and working consistently predicted good grades.
+However,
+while people in industry joke that having two bosses means living in hell,
+students usually answer to four or five professors
+whom don't coordinate due dates across their courses.</p>
+<p>The best way to handle this situation—or more honestly, the least bad way—is
+to prioritize carefully.
+Get a piece of paper and draw
+<span class="indexref" key="effort-importance grid" markdown="1"><a class="glossref" href="../glossary/#effort_importance_grid" markdown="1">a 3×3 grid</a></span>.
+The X axis is effort: label its divisions "minutes", "hours", and "days".
+The Y axis is time: label it "low", "medium", and "high".
+You should wind up with something like <a class="figref" href="../important/#effort-importance">Figure 2.1</a>.</p>
+<figure id="effort-importance">
+  <img src="./effort-importance.svg" alt="Effort/importance matrix" />
+  <figcaption markdown="1">Figure 2.1: An example of an effort/importance matrix.</figcaption>
+</figure>
+
+<p>Next,
+put everything you need to do somewhere on the grid,
+and then throw away the high-effort, low-importance items in the bottom right—you
+aren't going to get to those.
+You can then start assembling the other items into a schedule,
+starting with the upper-left corner.
+These are the things that will give the highest return on invested time;
+more importantly,
+starting with these means that if you've under-estimated effort,
+you will still deliver <em>something</em>.</p>
+<p>The tricky items are the ones on the diagonal.
+Should you tackle one thing that is high effort and high importance
+or three things that are individually less important
+but require the same total effort?
+Laying things out on a grid can't answer that question,
+but at least it can tell you what the question is.</p>
+<blockquote>
+How to prioritize:
+always finish first the tasks that will allow other people to continue/start/finish their work.
+
+— Yanina Bellini Saibene
+</blockquote>
+
+<p>If any task on your list is more than an hour long,
+break it down into smaller pieces and prioritize those separately.
+Figuring out what those pieces are can take time,
+so don't be embarrassed to make "plan XYZ" a task in its own right.
+And remember that the future is approaching at a rate of 24 hours per day:
+if something is going to take thirty hours to finish,
+you had better allow at least five working days for it,
+which means you'd better start at least that far ahead of the deadline.</p>
+<p>The point of all this organization and preparation is
+to be able to immerse yourself in your problem.
+[<a href="../bibliography/#Csikszentmihalyi1991">Csikszentmihalyi1991</a>] popularized the term <span class="indexref" key="flow" markdown="1"><a class="glossref" href="../glossary/#flow" markdown="1">flow</a></span> for this;
+athletes call it "being in the zone",
+while musicians talk about losing themselves in what they're playing.
+The good news is that you're much more productive in this state
+than when you're multi-tasking.
+The bad news is that
+it takes anywhere from several seconds to several minutes
+to get back into this state after an interruption [<a href="../bibliography/#Parnin2010">Parnin2010</a>, <a href="../bibliography/#Borst2015">Borst2015</a>].
+In other words,
+if you are interrupted half a dozen times per hour
+you are <em>never</em> at your productive peak.
+Ironically,
+the cost of self-interruptions may be even worse than the cost for external interruptions [<a href="../bibliography/#Abad2018">Abad2018</a>].</p>
+<blockquote>
+<h3>Open offices suck</h3>
+<p><span class="indexref" key="open offices (evils of)" markdown="1">Open offices</span> were created
+so that (mostly male) managers could keep an eye on (mostly female) office workers,
+and to reduce air conditioning costs [<a href="../bibliography/#Eley1995">Eley1995</a>].
+They lower productivity in every other way we can measure [<a href="../bibliography/#Bernstein2018">Bernstein2018</a>];
+sadly,
+the same is true of other interruption-rich environments
+like your favorite coffee shop.
+If you really want to be productive,
+you should avoid both.</p>
+</blockquote>
+<p>Finally,
+you will be more productive in the long run if your back doesn't ache,
+and being away from the keyboard
+gives your brain a chance to reflect on what you've just been doing.
+You should therefore take a five-minute <span class="indexref" key="breaks (importance of regular)" markdown="1">break</span> every hour.
+Checking email doesn't count:
+get up and stretch,
+refill your water bottle,
+or go and restack the dishwasher.
+You'll be amazed at how often you can solve a problem that's been baffling you for an hour
+by taking a short walk…</p>
+<h2>Meetings</h2>
+<p>The previous section explained how to be productive individually,
+but what about being productive with others?
+The most important thing is running <span class="indexref" key="meetings" markdown="1">meetings</span> efficiently,
+and the key to doing that is to distinguish between:</p>
+<ul>
+<li>
+<p><span class="indexref" key="meetings!status;status meeting" markdown="1"><a class="glossref" href="../glossary/#status_meeting" markdown="1">Status meetings</a></span>
+    for keeping everyone up to date on what everyone else is doing
+    and for making simple decisions when the options are well understood.</p>
+</li>
+<li>
+<p><span class="indexref" key="meetings!discussion" markdown="1"><a class="glossref" href="../glossary/#discussion_meeting" markdown="1">Discussion meetings</a></span>
+    for weighing alternatives and making complex decisions.</p>
+</li>
+<li>
+<p>Co-working sessions like brainstorming sessions and programming sprints
+    that are devoted to the content of the project rather than its operation.</p>
+</li>
+</ul>
+<h3>Status Meetings</h3>
+<p>Every team should have a short weekly status meeting.
+For each meeting,
+create a table in a shared document like the one in <a class="tblref" href="../important/#important-status">Table 2.1</a>.
+Everyone adds a few bullet points to their row in the table
+at least half an hour before the meeting starts
+so that the whole team can mull everything over.
+If anyone wants to discuss something,
+they highlight it by adding a comment.
+The meeting moderator then goes through the highlighted items one by one,
+spending no more than a couple of minutes on each;
+anything that requires more time is deferred to a discussion meeting</p>
+<div class="table"><table id="important-status"><caption>Table 2.1: Status Update Table</caption>
+<thead>
+<tr>
+<th>Person</th>
+<th>Progress</th>
+<th>Plans</th>
+<th>Problems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ren</td>
+<td>Parsing OCTL records</td>
+<td>Tag OCTL records in DVC</td>
+<td>Duplicate OCTL tags?</td>
+</tr>
+<tr>
+<td></td>
+<td>Deployed progress bar patch</td>
+<td>Help onboard Silvia</td>
+<td></td>
+</tr>
+<tr>
+<td>Mikka</td>
+<td>Refactored PostgreSQL connector</td>
+<td>#156: handle records with NULL timestamp</td>
+<td>Clarify authorship guidelines</td>
+</tr>
+<tr>
+<td></td>
+<td>Patched database tests</td>
+<td>#171: auto-archive duplicate records</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanjay</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>Jess</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<h3>Are you a blowfish or a clam?</h3>
+<p><a href="https://coast.noaa.gov/ddb/">NOAA's guide</a> to dealing with disruptive behaviors
+has useful labels and even more useful advice
+for handling people who may send meetings off course.</p>
+</blockquote>
+<h3>Decision Meetings</h3>
+<p>Decision meetings are for issues that will have more long-term impact on the project
+or that team members disagree about.
+Since the stakes are higher,
+they need more structure:</p>
+<dl>
+<dt>Decide if there actually needs to be a meeting.</dt>
+<dd>If the only purpose is to share information,
+send a brief email instead:
+most people can read faster than they can speak.</dd>
+<dt>Write an agenda.</dt>
+<dd>If nobody cares enough about the meeting to prepare
+a point-form list of what's to be discussed,
+the meeting probably doesn't need to happen.
+(Note that "the agenda is all the open issues in our GitHub repo" doesn't count.)</dd>
+<dt>Include timings in the agenda.</dt>
+<dd>Doing this helps prevent early items stealing time from later ones.
+The first estimates with any new group are inevitably optimistic,
+so expect to revise them upward for subsequent meetings.
+But don't have second or third
+meeting just because the first one ran over time: instead, try to figure out
+<em>why</em> it ran over and fix the underlying problem.</dd>
+<dt>Select a moderator.</dt>
+<dd>Put one person in charge of keeping items on time,
+selecting the next person to speak,
+chiding people who are having side conversations or checking email,
+and asking people who are talking too much to get to the point.
+The moderator should <em>not</em> do all the talking:
+in fact,
+the moderator will talk less in a well-run meeting than most other participants.</dd>
+<dt>Prioritize.</dt>
+<dd>Tackle the most important issues first, even if they're the longest,
+because the little ones always take more time than you expect.</dd>
+<dt>Require politeness.</dt>
+<dd>No one gets to be rude,
+no one gets to ramble,
+and if someone goes off topic,
+it's the moderator's job to say, "Let's discuss that elsewhere."</dd>
+<dt>No interruptions.</dt>
+<dd>This rule is a special case of the one above,
+since treating other people with respect is the sincerest form of politeness.
+Participants should raise a hand (physically or electronically)
+when they want to speak.
+The moderator should keep track of the queue
+and give each person time in turn.</dd>
+<dt>No distractions.</dt>
+<dd>Side conversations make meetings less efficient
+because nobody can actually pay attention to two things at once.
+More importantly,
+if someone is checking their email or texting a friend during a meeting,
+it's a clear signal that they don't think the speaker or their work is important.
+This doesn't mean a complete ban on technology—people may need accessibility aids
+or be waiting for a call about childcare—but by default
+phones should be face down and laptops should be closed
+during in-person meetings.</dd>
+<dt>Take minutes.</dt>
+<dd>As discussed below,
+someone other than the moderator should take
+<span class="indexref" key="minutes (of meetings)" markdown="1">point-form notes</span>
+about the most important information that was shared
+and about every decision that was made or every task that was assigned to someone.</dd>
+<dt>End early.</dt>
+<dd>If the meeting is scheduled for 10:00--11:00,
+aim to end at 10:50 to give people a break before whatever they're doing next.</dd>
+</dl>
+<p>As soon as the meeting is over,
+add the minutes to the project's wiki,
+version control repository,
+or shared cloud drive.
+Please don't email minutes to everyone:
+our inboxes are full enough,
+and the more places new team members need to search in order to find things,
+the more likely they are to miss something important.</p>
+<p>Sharing the minutes ensures that:</p>
+<dl>
+<dt>People who weren't at the meeting can follow what's going on.</dt>
+<dd>We all have to juggle tasks from several projects or courses,
+which means that sometimes we can't make it to meetings.
+Checking a shared record is more accurate and more efficient than asking a colleague,
+"What did I miss?"</dd>
+<dt>Everyone can check what was actually said or promised.</dt>
+<dd>Accidentally or not, people often remember things differently;
+writing them down gives everyone a chance to correct mistakes
+and misinterpretations.</dd>
+<dt>People can be held accountable.</dt>
+<dd>Whoever has to draw up the agenda for the next meeting
+can start with the action items from the previous one.</dd>
+</dl>
+<p>If you would like to become better at sharing information and making decisions,
+there is no better place to start than [<a href="../bibliography/#Brookfield2016">Brookfield2016</a>],
+which catalogs fifty different techniques for managing discussions
+and explains when and how each is useful.</p>
+<h2>Air Time</h2>
+<p>One problem with meetings is that
+some people may talk far more than others.
+Other people may be so accustomed to this
+that they don't speak up even when they have valuable points to make.</p>
+<p>You can combat this
+by giving everyone <span class="indexref" key="meetings!three sticky notes;three sticky notes (in meetings)" markdown="1">three sticky notes</span>
+(or coins, or paperclips—anything inedible will do) at the start of the meeting.
+Every time someone speaks,
+they have to give up one sticky note.
+When they're out of stickies,
+they aren't allowed to speak until everyone has used at least one,
+at which point everyone gets all of their sticky notes back.
+This ensures that nobody talks more than three times as often as
+the quietest person in the room,
+which completely changes group dynamics.
+People who have given up trying to be heard suddenly have space to contribute,
+and the overly-frequent speakers realize how talkative they have been.</p>
+<p>Another useful technique is called
+<span class="indexref" key="meetings!interruption bingo;interruption bingo (in meetings)" markdown="1">interruption bingo</span>.
+Draw a grid and label the rows and columns with the participants' names;
+each time person A interrupts person B,
+add a tally mark to the appropriate cell.
+Look at the results Halfway through the meeting:
+in most cases it will be clear that one or two people are doing all of the interrupting,
+and that they're always interrupting the same people.
+After that,
+saying, "All right, I'm adding another tally to the bingo card,"
+is usually enough to get them to throttle back.
+If it isn't,
+well,
+you just learned something about your teammate…</p>
+<p>Online meetings provide special challenges for regulating how often individuals speak.
+[<a href="../bibliography/#Troy2018">Troy2018</a>] discusses why <span class="indexref" key="meetings (online)" markdown="1">online meetings</span>
+are often frustrating,
+and points out that in most online meetings,
+the first person to speak during a pause gets the floor.
+As a result,
+"If you have something you want to say,
+you have to stop listening to the person currently speaking
+and instead focus on when they're gonna pause or finish
+so you can leap into that nanosecond of silence
+and be the first to utter something.
+The format…encourages participants who want to contribute to say more and listen less."</p>
+<p>The solution is to run a text chat beside the video conference
+where people can signal that they want to speak;
+the moderator can then select people from the waiting list.
+Text chat is better than the "raise hand" feature most video conferencing tools offer
+because the person who wants to speak can indicate why.
+For example,
+they can type "question about budget"
+rather than just "question"
+so that the moderator can group related questions together.</p>
+<h2>Making Decisions</h2>
+<p>The first release of GitHub's <a href="https://github.com/github/MVG">Minimum Viable Governance</a> guidelines
+included this:</p>
+<blockquote>
+**2.1. Consensus-Based Decision Making**
+
+Projects make decisions through consensus of the Maintainers.
+While explicit agreement of all Maintainers is preferred,
+it is not required for consensus.
+Rather,
+the Maintainers will determine consensus based on their good faith consideration of a number of factors,
+including the dominant view of the Contributors and nature of support and objections.
+The Maintainers will document evidence of consensus in accordance with these requirements.
+</blockquote>
+
+<p>It sounds reasonable,
+but it is harmfully wrong.
+Every team has a power structure:
+the question is whether it's formal or informal—in other words,
+whether it's accountable or unaccountable [<a href="../bibliography/#Freeman1972">Freeman1972</a>].
+In the latter case,
+decisions will effectively be made by the people
+who are the most self-confident or stubborn
+rather than by those with the most insight.</p>
+<p>To guard against this,
+groups need to spell out who has the authority to make which decisions
+and how to achieve consensus.
+In short,
+they need explicit <span class="indexref" key="governance" markdown="1"><a class="glossref" href="../glossary/#governance" markdown="1">governance</a></span>.</p>
+<p><span class="indexref" key="Martha's Rules" markdown="1"><a class="glossref" href="../glossary/#marthas_rules" markdown="1">Martha's Rules</a></span> [<a href="../bibliography/#Minahan1986">Minahan1986</a>]
+are a practical way to do this in groups of up to a few dozen people,
+and work very well for smaller teams too:</p>
+<ol>
+<li>
+<p>Before each meeting, anyone who wishes may sponsor a proposal.
+    Proposals must be filed at least 24 hours before a meeting in order to be considered,
+    and must include:</p>
+<ul>
+<li>a one-line summary</li>
+<li>the full text of the proposal</li>
+<li>any required background information</li>
+<li>pros and cons</li>
+<li>possible alternatives</li>
+</ul>
+</li>
+<li>
+<p>A quorum is established in a meeting if half or more of voting members are present.</p>
+</li>
+<li>
+<p>Once a person has sponsored a proposal,
+    the group may not discuss or vote on the issue
+    unless the sponsor or their delegate is present.</p>
+</li>
+<li>
+<p>After the sponsor presents the proposal
+    a <span class="indexref" key="sense vote" markdown="1"><a class="glossref" href="../glossary/#sense_vote" markdown="1">sense vote</a></span> is cast:</p>
+<ul>
+<li>Thumbs up: who likes the proposal?</li>
+<li>Thumbs down: who is uncomfortable with the proposal?</li>
+<li>Thumbs sideways: who can live with?</li>
+</ul>
+</li>
+<li>
+<p>If everyone likes or can live with the proposal,
+    it passes with no further discussion.</p>
+</li>
+<li>
+<p>If the majority is uncomfortable with the proposal,
+    it is sent back to its sponsor for further work.
+    (The sponsor may decide to drop it if it's clear the majority isn't ever going to support it.)</p>
+</li>
+<li>
+<p>Otherwise,
+    the group has a brief moderated discussion.
+    After 10 minutes,
+    or when no one has anything further to add,
+    the moderator calls for a straight yes-or-no vote on the proposal.
+    If a majority votes "yes" it is adopted;
+    otherwise,
+    it is returned to the sponsor for further work.</p>
+</li>
+</ol>
+<p>Every group that uses Martha's Rules must make two procedural decisions:</p>
+<dl>
+<dt>How are proposals put forward?</dt>
+<dd>The easiest way to do this in a software project
+is to file an issue in the project's <span class="indexref" key="issue tracker" markdown="1">issue tracker</span>
+tagged <em>Proposal</em>.
+Team members can comment on it there
+so that the sponsor can revise it before bringing it to a vote.</dd>
+<dt>Who gets to vote?</dt>
+<dd>In a course project the answer is "whoever is part of the team,"
+but a more explicit rule is needed for larger or longer-lived projects.
+One method is for existing members to nominate new ones,
+and for the team to hold a straight yes-or-no vote on each.
+Another is to automatically include anyone whose changes to the code
+were accepted by existing members,
+though this under-values non-programming contributions
+like doing code reviews
+or testing new releases.</dd>
+</dl>
+<p>Rules that people don't know about can't help them.
+Once your team agrees on a decision-making procedure,
+document it for newcomers
+(and to prevent disputes among people already in the team).
+You can put this in the project's <span class="indexref" key="README file" markdown="1"><code>README</code></span> file (<a href="../starting/">Chapter 3</a>)
+or in a separate file called <span class="indexref" key="CONTRIBUTING file" markdown="1"><code>CONTRIBUTING</code></span>.
+Wherever it goes,
+remember that the easier it is for people to figure out how to contribute,
+the more likely they are to do so [<a href="../bibliography/#Steinmacher2014">Steinmacher2014</a>].</p>
+<blockquote>
+<h3>Nothing about us without us</h3>
+<p>The rules laid out above were created
+by and for people near the middle of the bell curve with respect to focus and attention span.
+People who are <span class="indexref" key="neurodivergence" markdown="1"><a class="glossref" href="../glossary/#neurodivergence" markdown="1">neurodivergent</a></span>,
+i.e., whose brains work differently from the average
+when it comes to sociability, learning, attention, and mood
+may find that other approaches work better for them.</p>
+<p>But while society accepts that
+people of different heights need different desks and seating to be comfortable,
+there is still a lot of <span class="indexref" key="neurodivergence (stigma associated with)" markdown="1">stigma</span>
+associated with differences in mental function,
+which are often classified according to
+<a href="https://twitter.com/NomeDaBarbarian/status/1369846245200515072">how inconvenient they are to other people</a>.
+One example is how tests for
+<span class="indexref" key="ADHD" markdown="1"><a class="glossref" href="../glossary/#adhd" markdown="1">attention-deficit/hyperactivity disorder</a></span>
+(ADHD) are phrased.
+"Subject is overly talkative": compared to who?
+"Subject does X when it is inappropriate": by whose rules?
+"Struggles to pay attention": in fact,
+most people with ADHD can pay very close attention,
+but not when they are in environments like noisy classrooms
+that are full of distractions.</p>
+<p>Decisions that affect people should only be made
+with the full participation of those who will be affected.
+If you are neurodivergent,
+you probably have a set of strategies for managing time and attention.
+If you are <span class="indexref" key="neurotypical" markdown="1"><a class="glossref" href="../glossary/#neurotypical" markdown="1">neurotypical</a></span>
+and have neurodivergent teammates,
+ask them what works well for them rather than ignoring the difference
+or guessing what they might want.
+Please do the same if you have teammates who have difficulty seeing, hearing, or moving about:
+they have expertise you don't.</p>
+</blockquote>
+
+  <hr/>
+<div class="centered">
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>

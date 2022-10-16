@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<script defer data-domain="buildtogether.tech" src="https://plausible.io/js/plausible.js"></script>
+<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="stylesheet" href="../mccole.css">
+<link rel="stylesheet" href="../codehilite-tango.css">
+
+    <title>Building Software Together: Tooling</title>
+  </head>
+  <body class="page">
+    <div class="centered title">
+      
+      <h2><a href="../">Building Software Together</a></h2>
+      <h1>Chapter 17: Tooling</h1>
+      
+      <p>
+        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
+      </p>
+    </div>
+
+<p>Tools don't just help us do things more easily; they shape what we consider
+possible and encourage some working practices while discouraging others. They
+also advertise how seriously we take our craft: people who want to be good at
+something are willing to invest time in learning how to do it better.</p>
+<p>I believe that processes are more important than tools, but that's because I
+know how to use whatever tools I have to support productive working practices.
+However, I focus on tools when talking to students because they are more
+tangible: it's easier to tell if someone is using version control or a style
+checker than it is to tell if they're designing or estimating sensibly.</p>
+<p><a href="../automation/">Chapter 16</a> introduced build managers, style checkers, and profilers;
+the sections below discuss some other tools you might want in your toolbox.  You
+shouldn't try to adopt all of them in a single semester unless the focus of your
+project course is to try out as many tools as possible (which is actually a good
+theme for a project course).  If you'd rather not improve your tools, but are
+afraid that someone on your team might want to do so, [<a href="../bibliography/#Farmer2006">Farmer2006</a>] is
+a not-entirely-serious guide to preventing something new from being adopted.</p>
+<h2>Programming Language</h2>
+<p>You may not get to choose what programming language you use for your project,
+but it may be the most important choice there is.  Programmers have argued about
+which language is best for as long as there have <em>been</em> programmers. In my
+experience, it makes a lot less difference than most people think…</p>
+<p>…as long as you use the right one, that is. Twenty years ago there was a pretty
+clear tradeoff between how quickly you can get a program running and how fast it
+ran.  <span class="indexref" key="programming language!interpreted" markdown="1"><a class="glossref" href="../glossary/#interpreted_language" markdown="1">Interpreted languages</a></span> like <span class="indexref" key="Perl" markdown="1">Perl</span> optimized programmers' time; <span class="indexref" key="programming language!compiled" markdown="1"><a class="glossref" href="../glossary/#compiled_language" markdown="1">compiled languages</a></span> like <span class="indexref" key="C" markdown="1">C</span> optimized the machine's.</p>
+<p>Today, the balance has shifted in favor of higher-level languages. One reason is
+that processors have gotten faster but people haven't, so one programmer-hour is
+worth many more computer-hours than before. Another reason is that
+<span class="indexref" key="just-in-time compiler" markdown="1"><a class="glossref" href="../glossary/#jit" markdown="1">just-in-time compilers</a></span> (JITs) and
+<span class="indexref" key="generational garbage collection;garbage collection!generational" markdown="1"><a class="glossref" href="../glossary/#generational_garbage_collection" markdown="1">generational garbage collection</a></span>
+have made higher-level languages intrinsically faster. The biggest, though, is that
+the execution time of a modern application depends less on squeezing cycles out
+of processors than it used to. The bottleneck in a web site is almost always
+network latency or the time required to perform database operations; your code
+probably accounts for only a few percent of the total, so doubling or tentupling
+its speed has less effect than you'd think.</p>
+<p>That said, there are three things to keep in mind:</p>
+<dl>
+<dt>Some languages are <span class="indexref" key="programming language!ease of learning" markdown="1">easier to learn</span> than others.</dt>
+<dd>[<a href="../bibliography/#Stefik2013">Stefik2013</a>] did a controlled experiment to see how quickly
+people could learn to recognize correct and incorrect syntax in several
+different languages. They found that <a class="glossref" href="../glossary/#curly_brace_language" markdown="1">curly-brace languages</a> like <span class="indexref" key="Java" markdown="1">Java</span> and <span class="indexref" key="Perl" markdown="1">Perl</span> were as hard for people
+to learn as a language with a randomly designed syntax. (They rolled
+<em>Dungeons &amp; Dragons</em> dice to pick random names and characters for a made-up
+language.) Other languages like <span class="indexref" key="Ruby" markdown="1"><a href="https://www.ruby-lang.org/">Ruby</a></span> and <span class="indexref" key="Python" markdown="1"><a href="https://www.python.org/">Python</a></span> were significantly easier to learn, and
+they are now building a language called <span class="indexref" key="Quorum" markdown="1"><a href="https://quorumlanguage.com/">Quorum</a></span> by testing the usability of every
+language feature.</dd>
+<dt>Static typing helps, but only a little.</dt>
+<dd>A <span class="indexref" key="static typing;typing!static;programming language!statically typed" markdown="1"><a class="glossref" href="../glossary/#static_typing" markdown="1">statically-typed</a></span> language like <span class="indexref" key="Java" markdown="1">Java</span> requires programmers to specify the data type of each
+variable; a <span class="indexref" key="dynamic typing;typing!dynamic;programming language!dynamically typed" markdown="1"><a class="glossref" href="../glossary/#dynamic_typing" markdown="1">dynamically-typed</a></span>
+one like <span class="indexref" key="Python" markdown="1">Python</span> doesn't require them, though you can add
+them if you want, while <span class="indexref" key="TypeScript" markdown="1">TypeScript</span> adds types as
+a layer on top of <span class="indexref" key="JavaScript" markdown="1">JavaScript</span>.
+[<a href="../bibliography/#Endrikat2014">Endrikat2014</a>] found that declaring types does add complexity to
+programs, but it pays off fairly quickly by acting as documentation and by
+making <span class="indexref" key="auto-completion" markdown="1"><a class="glossref" href="../glossary/#auto_completion" markdown="1">auto-completion</a></span>
+more accurate.</dd>
+<dt>The most important thing about a language is its community.</dt>
+<dd>Some programming communities work hard to welcome newcomers and treat
+everyone respectfully. Others are more likely to call naïve questions
+"stupid" or to make excuses when <span class="indexref" key="Linux!toxic leadership" markdown="1">their
+leaders harass people</span> [<a href="../bibliography/#Cohen2018">Cohen2018</a>]. As a junior programmer,
+you will learn more from the former than from the latter.</dd>
+</dl>
+<p>[<a href="../bibliography/#Stefik2017">Stefik2017</a>] is a good short summary of what we know and why we
+believe it's true. If someone disagrees with it, ask them to show you their
+evidence.</p>
+<h2>Package Management</h2>
+<p>There is no point building software if you can't install it.  Inspired by the
+<span class="indexref" key="Comprehensive TeX Archive Network (CTAN)" markdown="1"><a href="https://www.ctan.org/">Comprehensive TeX Archive
+Network</a></span>, most languages now have an online archive from which
+developers can download packages.  Each package typically has a name and one or
+more version(s); each version may have a list of dependencies, and the package
+may specify a version or range of versions for each dependency.</p>
+<p>A <span class="indexref" key="package manager" markdown="1"><a class="glossref" href="../glossary/#package_manager" markdown="1">package manager</a></span> is a
+program that keeps track of which packages are installed on your computer and
+how they depend on each other.  Package managers became popular out of necessity
+in the 1990s along with Linux: so many distributions were being updated so often
+that people needed tools to keep track of what they had.</p>
+<p>Some package managers, like <span class="indexref" key="APT;package manager!APT" markdown="1"><a href="https://en.wikipedia.org/wiki/APT_(software)">APT</a></span>
+for <span class="indexref" key="Linux" markdown="1">Linux</span> and <span class="indexref" key="Homebrew;package
+manager!Homebrew" markdown="1"><a href="https://en.wikipedia.org/wiki/Homebrew_(package_manager)">Homebrew</a></span> for <span class="indexref" key="MacOS" markdown="1">MacOS</span>,
+can handle many languages. Others, like <span class="indexref" key="pip;package
+manager!pip" markdown="1"><a href="https://pypi.org/project/pip/">pip</a></span> for <span class="indexref" key="Python" markdown="1">Python</span> and <span class="indexref" key="NPM;package manager!NPM" markdown="1"><a href="https://en.wikipedia.org/wiki/Npm_(software)">NPM</a></span> for <span class="indexref" key="JavaScript" markdown="1">JavaScript</span>, are language-specific. No matter which one you
+use, the biggest challenge you'll face is finding the packages you need: at the
+time of writing, <a href="https://www.npmjs.com/search?q=xml%20parser">this search</a> turns up over 700 XML parsers for
+a JavaScript. To help narrow the search, NPM allows the results to be sorted by
+popularity, quality, and maintenance. This obviously creates a feedback
+loop—if NPM labels a package "more popular" then more people will find it,
+which raises its popularity score even further—but <span class="indexref" key="NPMS;package
+manager!package ratings" markdown="1"><a href="https://npms.io/about">NPMS</a></span> is open about how these scores are
+calculated, so package authors can find out what they need to do in order to
+improve their scores.</p>
+<p>Whatever package manager you use, your project should follow these rules:</p>
+<dl>
+<dt>Keep a record.</dt>
+<dd>NPM automatically updates a project's <span class="indexref" key="Node.js!package.json
+file" markdown="1"><code>package.json</code></span> file to show which packages have been installed
+explicitly, and its <code>package-lock.json</code> file keeps track of exactly which
+versions of their dependencies have been installed as well, so in theory,
+someone else can duplicate your environment exactly. If you are using pip
+for Python, on the other hand, it's up to you to create a file (typically
+called <code>requirements.txt</code>) that lists the packages someone needs to make
+your project work.</dd>
+<dt>To install is beautiful, to uninstall divine.</dt>
+<dd>You should install packages to try them out before committing to using them,
+but if you decide that something doesn't do what you want, please remember
+to uninstall it. (I have worked with projects that used less than half of
+their "requirements".)</dd>
+<dt>Keep an eye on security updates.</dt>
+<dd>NPM will warn you if there are security problems with things you depend on.
+The world would be a slightly safer place if other package managers did this
+as well.</dd>
+</dl>
+<blockquote>
+<h3>Docker</h3>
+<p><span class="indexref" key="Docker" markdown="1"><a href="https://www.docker.com/">Docker</a></span> uses some clever tricks to run one
+operating system on top of another to create a
+<span class="indexref" key="virtual machine" markdown="1"><a class="glossref" href="../glossary/#virtual_machine" markdown="1">virtual machine</a></span>
+(VM) that is isolated from everything
+beneath it.  It and other tools like it are used by most cloud computing
+services and to run continuous integration systems (<a href="../automation/">Chapter 16</a>), but
+they are essentially an admission that we haven't figured out how to manage
+packaging reliably.</p>
+</blockquote>
+<h2>Integrated Development Environment</h2>
+<p>You are going to spend a lot of time editing code, documentation, and reports,
+so choosing a good editor is as important as choosing a comfortable chair.
+There are literally thousands to consider, from very small plain-text editors
+such as <span class="indexref" key="Notepad;editor!Notepad" markdown="1">Notepad</span> (which comes with <span class="indexref" key="Windows" markdown="1">Windows</span>) to very large ones like <span class="indexref" key="Emacs;editor!Emacs" markdown="1">Emacs</span> (which some people claim is actually Lisp-based
+operating system in disguise).</p>
+<blockquote>
+<h3>Stuck in the punchcard era</h3>
+<p>In many ways, programming is still stuck in the punchcard era: we still insist
+that source code be represented as lines of characters that are drawn
+one-for-one on the screen.  <a class="glossref" href="../glossary/#wysiwyg" markdown="1">WYSIWYG</a> editors like
+Microsoft Word did away with this model decades ago; they store the file in a
+machine-friendly format and then render it in a human-friendly way. There's no
+reason we couldn't do the same with programs.  There's no reason we shouldn't be
+able to draw a diagram directly in our source code like we can in a Google Doc;
+if you are looking for a project to tackle, this would be a good one.</p>
+</blockquote>
+<p>You might already have a favorite editor. If you're like most programmers, you
+will change jobs, languages, operating systems, and nationality before you'll
+switch to another, because it has taken weeks or months for your hands to master
+the current one. However, if it is not an <span class="indexref" key="IDE" markdown="1"><a class="glossref" href="../glossary/#ide" markdown="1">integrated development environment</a></span> (IDE) that combines an editor with other
+programming tools then getting work done will take longer and hurt more than it
+needs to.</p>
+<p>IDEs were invented in the 1970s, but didn't really catch on until <span class="indexref" key="Borland" markdown="1">Borland</span> released <span class="indexref" key="Turbo Pascal" markdown="1">Turbo Pascal</span>
+in the 1980s.  They usually include these tools:</p>
+<ul>
+<li>
+<p>A <span class="indexref" key="console;IDE!console" markdown="1"><a class="glossref" href="../glossary/#console" markdown="1">console</a></span> so that you can
+    type in expressions or call functions and see the results without having to
+    start (or restart) your program.</p>
+</li>
+<li>
+<p>A <span class="indexref" key="code browser" markdown="1"><a class="glossref" href="../glossary/#code_browser" markdown="1">code browser</a></span> that helps you
+    navigate the packages, classes, methods, and data in your program.</p>
+</li>
+<li>
+<p>A <span class="indexref" key="GUI designer" markdown="1"><a class="glossref" href="../glossary/#gui_designer" markdown="1">GUI designer</a></span> that lets you
+    build GUIs by dragging and dropping components;</p>
+</li>
+<li>
+<p>A <span class="indexref" key="test runner" markdown="1">test runner</span> to display the results of tests and
+    let you jump directly to ones that have failed. This is usually a GUI built
+    on top of whatever unit testing framework you are using
+    (<a href="../testing/">Chapter 11</a>), just as graphical interfaces for version control are usually
+    built on top of the command-line tools.</p>
+</li>
+</ul>
+<p>The most popular IDE today is probably <span class="indexref" key="VS Code;Microsoft Visual Studio
+Code;IDE!VS Code" markdown="1"><a href="https://code.visualstudio.com/">Microsoft Visual Studio Code</a></span>, often
+referred to simply as "VS Code".  Along with all the tools above, it has
+hundreds of <span class="indexref" key="plugin!for IDE" markdown="1"><a class="glossref" href="../glossary/#plugin" markdown="1">plugins</a></span> of varying
+quality to support database design, reverse engineering, dozens of different
+programming languages, and more.  These all make you more productive than their
+disconnected counterparts. Since most of these store project data (including
+build instructions) in a proprietary format, your team will do much better if
+you all adopt the same IDE. This will also let you help one another solve
+problems and share plugins.</p>
+<p>But calling VS Code is the world's most popular IDE is misleading.  If you open
+<span class="indexref" key="IDE!in browser" markdown="1">developer tools</span>. in Firefox, Chrome, or Edge, you
+will be shown an HTML browser that's smart enough to tell you which bits of CSS
+are in effect where, a console that displays messages from the JavaScript
+running in the page, a breakpointing debugger (<a href="../debugging/">Chapter 15</a>), a network
+monitor, and much more. It won't help you with your C# or Python—at least, not
+yet—but it will make all of your front-end work a lot easier.</p>
+<h2>Refactoring</h2>
+<p>After a debugger, the most under-appreciated power of most IDEs is their ability
+to <span class="indexref" key="refactoring" markdown="1"><a class="glossref" href="../glossary/#refactoring" markdown="1">refactor</a></span> code, i.e., to change
+its structure without changing what it does [<a href="../bibliography/#Fowler2018">Fowler2018</a>].  It is just
+as much a part of programming as writing code in the first place: nobody gets
+things right the first time, and needs or insights can change over time
+[<a href="../bibliography/#Brand1995">Brand1995</a>].</p>
+<p>Some common refactoring patterns include "hoist repeated calculation out of
+loop" and "replace repeated test with flag". As [<a href="../bibliography/#Kerievsky2004">Kerievsky2004</a>]
+showed, many refactorings make code fit a design pattern or move code from one
+design pattern to another.  If you highlight a variable name in an IDE like VS
+Code and say, "Rename", it parses the code to find all uses of that variable and
+changes their names and <em>only</em> their names, so that (for example) you don't
+accidentally turn <code>alfred</code> into <code>alfblue</code>. "Extract method" is another favorite
+of mine: if a method is getting too long or you want to re-use part of its
+implementation, you can highlight a few lines, click, and enter a name, and the
+IDE will do the rest of the work for you.</p>
+<p>Using refactoring tools doesn't just save you a few seconds of typing: it also
+reduces the chances of making a mistake so that you don't lose time later trying
+to figure out what's gone wrong.  (The <code>alfblue</code> error mentioned in the previous
+paragraph cost me about ten minutes.)  It also helps you maintain concentration,
+since you don't have to make a mental switch from the code you're writing to the
+refactoring you're doing and then back again (<a href="../important/">Chapter 2</a>).</p>
+<h2>The Next Level</h2>
+<p>You and your teammates could use many other tools to make yourselves more
+productive. Some aren't part of the standard undergraduate curriculum yet, even
+though good developers have been relying on them for a decade or more. Others
+may be touched on, but only briefly, so a quick recap won't hurt.</p>
+<p>The first is a <span class="indexref" key="documentation generator" markdown="1"><a class="glossref" href="../glossary/#doc_generator" markdown="1">documentation generator</a></span> like <span class="indexref" key="JSDoc;documentation
+generator!JSDoc" markdown="1"><a href="https://jsdoc.app/">JSDoc</a></span>. This is a compiler of a sort, but
+instead of translating source code into something executable, it extracts
+information from specially-formatted comments and strings, and turns it into
+human-readable documentation.  The justification for this is that when code and
+documentation are stored separately, programmers won't keep the latter up to
+date. Since "rusty" documentation can be worse than no documentation at all, it
+makes a lot of sense to keep the source of the documentation right beside the
+code. Many introductory courses require students to document their packages,
+classes, and methods this way; it's a good habit, and one you should cultivate.</p>
+<p>Another set of tools complement the style checkers discussed in <a href="../automation/">Chapter 16</a>.
+Style checkers do static analysis, i.e., they look at the
+text of your program while it's at rest.  Other tools do <span class="indexref" key="dynamic analysis" markdown="1"><a class="glossref" href="../glossary/#dynamic_analysis" markdown="1">dynamic analysis</a></span>: tools like
+<span class="indexref" key="Valgrind;dynamic analysis!Valgrind" markdown="1">Valgrind</span> watch your <span class="indexref" key="C" markdown="1">C</span> or <span class="indexref" key="C++" markdown="1">C++</span> program run and look for things like
+memory leaks, or inconsistent locking that might lead to deadlocks or race
+conditions.</p>
+<p>Real development projects rely on a lot of other tools as well: schedule
+builders like <span class="indexref" key="Microsoft Project" markdown="1">Microsoft Project</span>, requirements
+tracing tools, and so on. Most are bigger hammers than undergraduate projects
+really require, but good programmers don't just use tools, they build them.  For
+example, I have written two dozen short programs to help me write and maintain
+this book and others like it.  These tools do things like check
+cross-references, make sure I'm using the right CSS attributes for elements, and
+so on.  If you and your teammates find yourselves typing in the same commands
+over and over again, write a program to do it for you.</p>
+<blockquote>
+<h3>From seeds to trees</h3>
+<p>A lot of open source projects and commercial products began with one programmer
+solving a problem for themselves and then discovering that other people found it
+useful as well. <span class="indexref" key="Grand Perspective" markdown="1"><a href="http://grandperspectiv.sourceforge.net/">Grand
+Perspective</a></span> displays a tree map to show what's using
+disk space on a Mac; <span class="indexref" key="Carnac" markdown="1"><a href="http://code52.org/carnac/">Carnac</a></span> shows what special
+keys you're pressing on Windows so that if you're doing a demo, people can see
+the keyboard shortcuts you're using, and so on.  Building one small thing well
+is a lot more useful, and a lot more likely to be used, than building half of
+something larger.</p>
+</blockquote>
+<h2>Modeling</h2>
+<p>If you want to go one big step further, you can start using modeling tools like
+<span class="indexref" key="Alloy;modeling tools!Alloy" markdown="1"><a href="https://alloytools.org/">Alloy</a></span>
+[<a href="../bibliography/#Jackson2016">Jackson2016</a>] and <span class="indexref" key="TLA+;modeling
+tools!TLA+" markdown="1"><a href="https://lamport.azurewebsites.net/tla/tla.html">TLA+</a></span> [<a href="../bibliography/#Wayne2018">Wayne2018</a>].  Instead of
+analyzing source code, you use these tools to build and analyze a <a class="glossref" href="../glossary/#model" markdown="1">model</a> of what the code is supposed to do so that you can look
+for flaws in your algorithms.</p>
+<p>Alloy focuses on describing complex relationships, such as the integrity of data
+structures; TLA+ is designed to help you reason about sequences of concurrent
+actions, such as the different ways microservices can exchange messages. Both of
+them can find counter-examples, i.e., situations that break the rules you have
+described, but both have interfaces that make Git look simple.
+<a href="https://medium.com%2F@medium.com/@markgritter/finding-graph-counterexamples-with-alloy-e4114cc0f2fb">These</a> <a href="https://medium.com%2F@medium.com/@fuzz_ai/reproducing-a-memory-tracking-bug-with-tla-35ce0652ce72">articles</a> give an idea of what they
+can do; you probably won't have time to learn them along the way while working
+on a project, but if your school offers a course devoted to them, it will
+probably change your view of programming just as much as it changed mine.</p>
+
+  <hr/>
+<div class="centered">
+  <table class="plain footer">
+    <tr>
+      
+      <td><a href="../license/">License</a></td>
+      
+      <td><a href="../conduct/">Code of Conduct</a></td>
+      
+      <td><a href="../bibliography/">Bibliography</a></td>
+      
+      <td><a href="../glossary/">Glossary</a></td>
+      
+      <td><a href="../links/">Links</a></td>
+      
+      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
+      
+    </tr>
+  </table>
+</div>
+
+  </body>
+</html>
