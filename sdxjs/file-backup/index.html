@@ -6,6 +6,7 @@
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="stylesheet" href="../mccole.css">
   <link rel="stylesheet" href="../tango.css">
+  <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
   <script>
     MathJax = {
       tex: {
@@ -25,7 +26,7 @@
     <div class="row">
       <div class="column">
         <p>
-  <img src="../logo.svg" alt="site logo" width="10%" />
+  <img src="../logo.svg" alt="site logo" style="width: 10%" />
   <a href="../">Software Design by Example</a>
 </p>
 <ol class="toc-chapter">
@@ -213,48 +214,9 @@
           
 
 	  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  <p class="definitions">
-    Terms defined:
-    <a class="gl-ref" href="../glossary/#api" markdown="1">Application Programming Interface</a>, <a class="gl-ref" href="../glossary/#collision" markdown="1">collision</a>, <a class="gl-ref" href="../glossary/#csv" markdown="1">comma-separated values</a>, <a class="gl-ref" href="../glossary/#utc" markdown="1">Coordinated Universal Time</a>, <a class="gl-ref" href="../glossary/#cryptographic_hash_function" markdown="1">cryptographic hash function</a>, <a class="gl-ref" href="../glossary/#data_migration" markdown="1">data migration</a>, <a class="gl-ref" href="../glossary/#handler" markdown="1">handler</a>, <a class="gl-ref" href="../glossary/#hash_code" markdown="1">hash code</a>, <a class="gl-ref" href="../glossary/#hash_function" markdown="1">hash function</a>, <a class="gl-ref" href="../glossary/#json" markdown="1">JavaScript Object Notation</a>, <a class="gl-ref" href="../glossary/#mock_object" markdown="1">mock object</a>, <a class="gl-ref" href="../glossary/#pipe" markdown="1">pipe</a>, <a class="gl-ref" href="../glossary/#race_condition" markdown="1">race condition</a>, <a class="gl-ref" href="../glossary/#sha_1" markdown="1">SHA-1 hash</a>, <a class="gl-ref" href="../glossary/#stream" markdown="1">stream</a>, <a class="gl-ref" href="../glossary/#streaming_api" markdown="1">streaming API</a>, <a class="gl-ref" href="../glossary/#toctou" markdown="1">Time of check/time of use</a>, <a class="gl-ref" href="../glossary/#timestamp" markdown="1">timestamp</a>, <a class="gl-ref" href="../glossary/#version_control_system" markdown="1">version control system</a>
-  </p>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
+<p class="definitions">
+  Terms defined: <a class="gl-ref" href="../glossary/#api" markdown="1">Application Programming Interface</a>, <a class="gl-ref" href="../glossary/#collision" markdown="1">collision</a>, <a class="gl-ref" href="../glossary/#csv" markdown="1">comma-separated values</a>, <a class="gl-ref" href="../glossary/#utc" markdown="1">Coordinated Universal Time</a>, <a class="gl-ref" href="../glossary/#cryptographic_hash_function" markdown="1">cryptographic hash function</a>, <a class="gl-ref" href="../glossary/#data_migration" markdown="1">data migration</a>, <a class="gl-ref" href="../glossary/#handler" markdown="1">handler</a>, <a class="gl-ref" href="../glossary/#hash_code" markdown="1">hash code</a>, <a class="gl-ref" href="../glossary/#hash_function" markdown="1">hash function</a>, <a class="gl-ref" href="../glossary/#json" markdown="1">JavaScript Object Notation</a>, <a class="gl-ref" href="../glossary/#mock_object" markdown="1">mock object</a>, <a class="gl-ref" href="../glossary/#pipe" markdown="1">pipe</a>, <a class="gl-ref" href="../glossary/#race_condition" markdown="1">race condition</a>, <a class="gl-ref" href="../glossary/#sha_1" markdown="1">SHA-1 hash</a>, <a class="gl-ref" href="../glossary/#stream" markdown="1">stream</a>, <a class="gl-ref" href="../glossary/#streaming_api" markdown="1">streaming API</a>, <a class="gl-ref" href="../glossary/#toctou" markdown="1">Time of check/time of use</a>, <a class="gl-ref" href="../glossary/#timestamp" markdown="1">timestamp</a>, <a class="gl-ref" href="../glossary/#version_control_system" markdown="1">version control system</a>
+</p>
 
 
           <p>Now that we can test software, we have something worth saving.
@@ -668,24 +630,24 @@ so they will both try to create the first one.</p>
 <p>To test our program,
 let&rsquo;s manually create testing directories with manufactured (shortened) hashes:</p>
 <div class="code-sample lang-sh" title="tree-test.sh">
-<div class="highlight"><pre><span></span><code>tree --charset unicode <span class="nb">test</span>
+<div class="highlight"><pre><span></span><code>tree <span class="nb">test</span>
 </code></pre></div>
 </div>
 <div class="code-sample lang-out" title="tree-test.out">
 <div class="highlight"><pre><span></span><code>test
-|-- bck-0-csv-0
-|-- bck-1-csv-1
-|   |-- 0001.csv
-|   `-- abcd1234.bck
-|-- bck-4-csv-2
-|   |-- 0001.csv
-|   |-- 3028.csv
-|   |-- 3456cdef.bck
-|   |-- abcd1234.bck
-|   `-- bcde2345.bck
-|-- test-backup.js
-|-- test-find-mock.js
-`-- test-find.js
+├── bck-0-csv-0
+├── bck-1-csv-1
+│   ├── 0001.csv
+│   └── abcd1234.bck
+├── bck-4-csv-2
+│   ├── 0001.csv
+│   ├── 3028.csv
+│   ├── 3456cdef.bck
+│   ├── abcd1234.bck
+│   └── bcde2345.bck
+├── test-backup.js
+├── test-find-mock.js
+└── test-find.js
 
 3 directories, 10 files
 </code></pre></div>
@@ -757,7 +719,16 @@ Mocha looks for files in <code>test</code> sub-directories of the directories ho
 <div class="highlight"><pre><span></span><code>&gt; stjs@1.0.0 test
 &gt; mocha */test/test-*.js &quot;-g&quot; &quot;pre-existing hashes&quot;
 
-sh: mocha: command not found
+
+  pre-existing hashes and actual filesystem
+    ✓ finds no pre-existing files when none given or exist
+    ✓ finds some files when one is given and none exist
+    ✓ finds nothing needs backup when there is a match
+    ✓ finds something needs backup when there is a mismatch
+    ✓ finds mixed matches
+
+
+  5 passing (16ms)
 </code></pre></div>
 </div>
 <h2 id="file-backup-test">Section 5.4: How can we test code that modifies files?</h2>

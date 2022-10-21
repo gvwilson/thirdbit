@@ -6,6 +6,7 @@
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="stylesheet" href="../mccole.css">
   <link rel="stylesheet" href="../tango.css">
+  <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
   <script>
     MathJax = {
       tex: {
@@ -25,7 +26,7 @@
     <div class="row">
       <div class="column">
         <p>
-  <img src="../logo.svg" alt="site logo" width="10%" />
+  <img src="../logo.svg" alt="site logo" style="width: 10%" />
   <a href="../">Software Design by Example</a>
 </p>
 <ol class="toc-chapter">
@@ -213,48 +214,9 @@
           
 
 	  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  <p class="definitions">
-    Terms defined:
-    <a class="gl-ref" href="../glossary/#bare_object" markdown="1">bare object</a>, <a class="gl-ref" href="../glossary/#dynamic_scoping" markdown="1">dynamic scoping</a>, <a class="gl-ref" href="../glossary/#environment" markdown="1">environment</a>, <a class="gl-ref" href="../glossary/#lexical_scoping" markdown="1">lexical scoping</a>, <a class="gl-ref" href="../glossary/#stack_frame" markdown="1">stack frame</a>, <a class="gl-ref" href="../glossary/#static_site_generator" markdown="1">static site generator</a>, <a class="gl-ref" href="../glossary/#visitor_pattern" markdown="1">Visitor pattern</a>
-  </p>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
+<p class="definitions">
+  Terms defined: <a class="gl-ref" href="../glossary/#bare_object" markdown="1">bare object</a>, <a class="gl-ref" href="../glossary/#dynamic_scoping" markdown="1">dynamic scoping</a>, <a class="gl-ref" href="../glossary/#environment" markdown="1">environment</a>, <a class="gl-ref" href="../glossary/#lexical_scoping" markdown="1">lexical scoping</a>, <a class="gl-ref" href="../glossary/#stack_frame" markdown="1">stack frame</a>, <a class="gl-ref" href="../glossary/#static_site_generator" markdown="1">static site generator</a>, <a class="gl-ref" href="../glossary/#visitor_pattern" markdown="1">Visitor pattern</a>
+</p>
 
 
           <p>Every program needs documentation in order to be usable,
@@ -399,7 +361,7 @@ we look through the stack frames in order to find the uppermost definition of th
 <h3>Scoping rules</h3>
 <p>Searching the stack <span class="ix-entry" ix-key="call stack!stack frame;stack frame" markdown="1">frame</span>-by-frame
 while the program is running
-is called is <span class="ix-entry" ix-key="dynamic scoping;scoping!dynamic" markdown="1"><a class="gl-ref" href="../glossary/#dynamic_scoping" markdown="1">dynamic scoping</a></span>,
+is called <span class="ix-entry" ix-key="dynamic scoping;scoping!dynamic" markdown="1"><a class="gl-ref" href="../glossary/#dynamic_scoping" markdown="1">dynamic scoping</a></span>,
 since we find variables while the program is running.
 In contrast,
 most programming languages used <span class="ix-entry" ix-key="lexical scoping;scoping!lexical" markdown="1"><a class="gl-ref" href="../glossary/#lexical_scoping" markdown="1">lexical scoping</a></span>,
@@ -481,12 +443,12 @@ it uses that instead.</p>
 
 <span class="w">  </span><span class="nx">open</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="s1">&#39;Must implemented &quot;open&quot;&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="s1">&#39;Must implement &quot;open&quot;&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">  </span><span class="nx">close</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="s1">&#39;Must implemented &quot;close&quot;&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="s1">&#39;Must implement &quot;close&quot;&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
@@ -495,7 +457,7 @@ it uses that instead.</p>
 </div>
 <p class="continue"><code>Visitor</code> defines two methods called <code>open</code> and <code>close</code> that are called
 when we first arrive at a node and when we are finished with it
-(<a class="fig-ref" href="../page-templates/#page-templates-visitor">Figure 9.3</a>).
+(shown for the <code>p</code> node in <a class="fig-ref" href="../page-templates/#page-templates-visitor">Figure 9.3</a>).
 The default implementations of these methods throw exceptions
 to remind the creators of derived classes to implement their own versions.</p>
 <figure id="page-templates-visitor">
@@ -1014,9 +976,8 @@ we incur a similar load translating functions of functions (of functions…)
 into actual operations on actual data.</p>
 <p>More experienced programmers are more capable at both ends of the curve,
 but that&rsquo;s not the only thing that changes.
-If a novice&rsquo;s comprehension curve looks like the one on the left
-of <a class="fig-ref" href="../page-templates/#page-templates-comprehension">Figure 9.10</a>,
-then an expert&rsquo;s looks like the one on the right.
+If a novice&rsquo;s comprehension curve looks like the lower curve in <a class="fig-ref" href="../page-templates/#page-templates-comprehension">Figure 9.10</a>,
+then an expert&rsquo;s looks like the upper one.
 Experts don&rsquo;t just understand more at all levels of abstraction;
 their <em>preferred</em> level has also shifted
 so that \(\sqrt{x^2 + y^2}\)
@@ -1034,12 +995,12 @@ will almost certainly be different from the software that
 an expert can understand most quickly.
 In an ideal world our tools would automatically re-represent programs at different levels,
 so that with a click of a button we could view our code as either:</p>
-<div class="highlight"><pre><span></span><code>const hosts = links.map(a =&gt; a.href.split(&#39;:&#39;)[1].split(&#39;/&#39;)[0]).unique()
+<div class="highlight"><pre><span></span><code>const hosts = links.map(a =&gt; a.href.split(&#39;:&#39;)[1].split(&#39;/&#39;)[2]).unique()
 </code></pre></div>
 <p>or:</p>
 <div class="highlight"><pre><span></span><code>hosts = []
 for (each a in links) do
-  temp &lt;- attr(a, &#39;href&#39;).split(&#39;:&#39;)[1].split(&#39;/&#39;)[0]
+  temp &lt;- attr(a, &#39;href&#39;).split(&#39;:&#39;)[1].split(&#39;/&#39;)[2]
   if (not (temp in hosts)) do
     hosts.append(temp)
   end

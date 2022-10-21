@@ -6,6 +6,7 @@
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="stylesheet" href="../mccole.css">
   <link rel="stylesheet" href="../tango.css">
+  <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
   <script>
     MathJax = {
       tex: {
@@ -25,7 +26,7 @@
     <div class="row">
       <div class="column">
         <p>
-  <img src="../logo.svg" alt="site logo" width="10%" />
+  <img src="../logo.svg" alt="site logo" style="width: 10%" />
   <a href="../">Software Design by Example</a>
 </p>
 <ol class="toc-chapter">
@@ -213,48 +214,9 @@
           
 
 	  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  <p class="definitions">
-    Terms defined:
-    <a class="gl-ref" href="../glossary/#anonymous_function" markdown="1">anonymous function</a>, <a class="gl-ref" href="../glossary/#asynchronous" markdown="1">asynchronous</a>, <a class="gl-ref" href="../glossary/#boolean" markdown="1">Boolean</a>, <a class="gl-ref" href="../glossary/#callback" markdown="1">callback function</a>, <a class="gl-ref" href="../glossary/#cognitive_load" markdown="1">cognitive load</a>, <a class="gl-ref" href="../glossary/#command_line_argument" markdown="1">command-line argument</a>, <a class="gl-ref" href="../glossary/#console" markdown="1">console</a>, <a class="gl-ref" href="../glossary/#current_working_directory" markdown="1">current working directory</a>, <a class="gl-ref" href="../glossary/#destructuring_assignment" markdown="1">destructuring assignment</a>, <a class="gl-ref" href="../glossary/#edge_case" markdown="1">edge case</a>, <a class="gl-ref" href="../glossary/#filename_extension" markdown="1">filename extension</a>, <a class="gl-ref" href="../glossary/#filesystem" markdown="1">filesystem</a>, <a class="gl-ref" href="../glossary/#filter" markdown="1">filter</a>, <a class="gl-ref" href="../glossary/#globbing" markdown="1">globbing</a>, <a class="gl-ref" href="../glossary/#idiomatic" markdown="1">idiomatic</a>, <a class="gl-ref" href="../glossary/#log_message" markdown="1">log message</a>, <a class="gl-ref" href="../glossary/#path" markdown="1">path (in filesystem)</a>, <a class="gl-ref" href="../glossary/#protocol" markdown="1">protocol</a>, <a class="gl-ref" href="../glossary/#scope" markdown="1">scope</a>, <a class="gl-ref" href="../glossary/#single_threaded" markdown="1">single-threaded</a>, <a class="gl-ref" href="../glossary/#string_interpolation" markdown="1">string interpolation</a>
-  </p>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
+<p class="definitions">
+  Terms defined: <a class="gl-ref" href="../glossary/#anonymous_function" markdown="1">anonymous function</a>, <a class="gl-ref" href="../glossary/#asynchronous" markdown="1">asynchronous</a>, <a class="gl-ref" href="../glossary/#boolean" markdown="1">Boolean</a>, <a class="gl-ref" href="../glossary/#callback" markdown="1">callback function</a>, <a class="gl-ref" href="../glossary/#cognitive_load" markdown="1">cognitive load</a>, <a class="gl-ref" href="../glossary/#command_line_argument" markdown="1">command-line argument</a>, <a class="gl-ref" href="../glossary/#console" markdown="1">console</a>, <a class="gl-ref" href="../glossary/#current_working_directory" markdown="1">current working directory</a>, <a class="gl-ref" href="../glossary/#destructuring_assignment" markdown="1">destructuring assignment</a>, <a class="gl-ref" href="../glossary/#edge_case" markdown="1">edge case</a>, <a class="gl-ref" href="../glossary/#filename_extension" markdown="1">filename extension</a>, <a class="gl-ref" href="../glossary/#filesystem" markdown="1">filesystem</a>, <a class="gl-ref" href="../glossary/#filter" markdown="1">filter</a>, <a class="gl-ref" href="../glossary/#globbing" markdown="1">globbing</a>, <a class="gl-ref" href="../glossary/#idiomatic" markdown="1">idiomatic</a>, <a class="gl-ref" href="../glossary/#log_message" markdown="1">log message</a>, <a class="gl-ref" href="../glossary/#path" markdown="1">path (in filesystem)</a>, <a class="gl-ref" href="../glossary/#protocol" markdown="1">protocol</a>, <a class="gl-ref" href="../glossary/#scope" markdown="1">scope</a>, <a class="gl-ref" href="../glossary/#single_threaded" markdown="1">single-threaded</a>, <a class="gl-ref" href="../glossary/#string_interpolation" markdown="1">string interpolation</a>
+</p>
 
 
           <p>The biggest difference between JavaScript and most other programming languages
@@ -369,7 +331,7 @@ which Node automatically stores in an array called <span class="ix-entry" ix-key
 The name of the program used to run our code is stored <code>process.argv[0]</code> (which in this case is <code>node</code>),
 while <code>process.argv[1]</code> is the name of our program (in this case <code>list-dir-wrong.js</code>).
 The rest of <code>process.argv</code> holds whatever arguments we gave at the command line when we ran the program,
-so <code>process.argv[2]</code> is the first argument after the name of our program (<a class="fig-ref" href="../systems-programming/#systems-programming-process-argv">Figure 2.1</a>):</p>
+so <code>process.argv[2]</code> is the first argument after the name of our program (<a class="fig-ref" href="../systems-programming/#systems-programming-process-argv">Figure 2.1</a>).</p>
 <figure id="systems-programming-process-argv">
   <img src="./process-argv.svg" alt="Command-line arguments in <code>process.argv</code>"/>
   <figcaption markdown="1">Figure 2.1: How Node stores command-line arguments in <code>process.argv</code>.</figcaption>
@@ -600,10 +562,10 @@ and does something with every filename that matched the pattern:</p>
 </div>
 <div class="code-sample lang-out" title="glob-all-files.slice.out">
 <div class="highlight"><pre><span></span><code>copy-file-filtered.js
+copy-file-filtered.js.bck
 copy-file-unfiltered.js
+copy-file-unfiltered.js.bck
 copy-file-unfiltered.out
-copy-file-unfiltered.sh
-copy-file-unfiltered.txt
 ...
 x-trace-anonymous.md
 x-trace-anonymous/trace.js
@@ -628,7 +590,7 @@ so most commands will leave them alone unless told to do otherwise.</p>
 </figure>
 
 <p>This program works,
-but we probably don&rsquo;t want to copy Emacs backup files whose names end with a tilde.
+but we probably don&rsquo;t want to copy editor backup files whose names end with <code>.bck</code>.
 We can get rid of them by <span class="ix-entry" ix-key="globbing!filtering results" markdown="1"><a class="gl-ref" href="../glossary/#filter" markdown="1">filtering</a></span> the list that <code>glob</code> returns:</p>
 <div class="pagebreak"></div>
 
@@ -639,7 +601,7 @@ We can get rid of them by <span class="ix-entry" ix-key="globbing!filtering resu
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">f</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="nx">f</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">f</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="nx">f</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;.bck&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">filename</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
@@ -685,7 +647,7 @@ and writing just the expression we want the function to return:</p>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">f</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">f</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;.bck&#39;</span><span class="p">))</span><span class="w"></span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">filename</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
@@ -706,7 +668,7 @@ our program becomes:</p>
 <div class="code-sample lang-js" title="glob-filter-with-options.js">
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">glob</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;glob&#39;</span><span class="w"></span>
 
-<span class="nx">glob</span><span class="p">(</span><span class="s1">&#39;**/*.*&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*~&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">glob</span><span class="p">(</span><span class="s1">&#39;**/*.*&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*.bck&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -751,7 +713,7 @@ let&rsquo;s specify a source directory on the command line and include that in t
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">srcDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="w"></span>
 
-<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcDir</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*~&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcDir</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*.bck&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -779,7 +741,7 @@ we can construct the full output path by replacing the name of the source direct
 
 <span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">srcDir</span><span class="p">,</span><span class="w"> </span><span class="nx">dstDir</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="w"></span>
 
-<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcDir</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*~&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcDir</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*.bck&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -815,7 +777,7 @@ The need to do this comes up so often that there is a function called <code>ensu
 
 <span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">srcRoot</span><span class="p">,</span><span class="w"> </span><span class="nx">dstRoot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="w"></span>
 
-<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcRoot</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*~&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcRoot</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*.bck&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -860,7 +822,7 @@ Let&rsquo;s use <code>fs.copy</code> to do that:</p>
 
 <span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">srcRoot</span><span class="p">,</span><span class="w"> </span><span class="nx">dstRoot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="w"></span>
 
-<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcRoot</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*~&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcRoot</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*.bck&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -936,7 +898,7 @@ and since the status of something in the filesystem can be very complex,
 
 <span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">srcRoot</span><span class="p">,</span><span class="w"> </span><span class="nx">dstRoot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="w"></span>
 
-<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcRoot</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*~&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nx">glob</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">srcRoot</span><span class="si">}</span><span class="sb">/**/*.*`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ignore</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*.bck&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -971,7 +933,7 @@ but four levels of asynchronous callbacks is hard for humans to understand.
 that make code like this easier to read.</p>
 <h2 id="systems-programming-exercises">Section 2.7: Exercises</h2>
 <h3 class="exercise">Where is Node?</h3>
-<p>Write a program called <code>wherenode.js</code> that prints the full path to the version of Node is is run with.</p>
+<p>Write a program called <code>wherenode.js</code> that prints the full path to the version of Node it is run with.</p>
 <h3 class="exercise">Tracing callbacks</h3>
 <p>In what order does the program below print messages?</p>
 <div class="code-sample lang-js" title="trace.js">
@@ -1012,20 +974,6 @@ that make code like this easier to read.</p>
 <h3 class="exercise">Checking arguments</h3>
 <p>Modify the file copying program to check that it has been given the right number of command-line arguments
 and to print a sensible error message (including a usage statement) if it hasn&rsquo;t.</p>
-<h3 class="exercise">Significant entries</h3>
-<p><code>count-lines-histogram.js</code> displays many zeroes and gives no visual sense of how large entries are.
-Modify it so that:</p>
-<ol>
-<li>
-<p>When it is run with the <code>--nonzero</code> flag only non-zero values are shown.</p>
-</li>
-<li>
-<p>When it is run with the <code>--graphical</code> flag the numeric values are replaced with rows of asterisks.</p>
-</li>
-<li>
-<p>If both flags are given the program prints an error message instead of running.</p>
-</li>
-</ol>
 <h3 class="exercise">Glob patterns</h3>
 <p>What filenames does each of the following glob patterns match?</p>
 <ul>
@@ -1035,7 +983,7 @@ Modify it so that:</p>
 <li><code>./results.data</code></li>
 </ul>
 <h3 class="exercise">Filtering arrays</h3>
-<p>Fill in the blank in the code below so that it runs correctly.
+<p>Fill in the blank in the code below so that the output matches the one shown.
 Note: you can compare strings in JavaScript using <code>&lt;</code>, <code>&gt;=</code>, and other operators,
 so that (for example) <code>person.personal &gt; 'P'</code> is <code>true</code>
 if someone&rsquo;s personal name starts with a letter that comes after &lsquo;P&rsquo; in the alphabet.</p>
