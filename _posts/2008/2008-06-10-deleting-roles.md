@@ -52,12 +52,12 @@ We've decided to go with #4, and Liz Blankenship has mocked up a UI for it. Anin
 
 <strong>Step 1</strong>
 
-<img src="{{site.github.url}}/files/2008/06/step1.png" alt="Step 1" />
+<img src="{{'/files/2008/06/step1.png' | relative_url}}" alt="Step 1" />
 
 <strong>Step 2</strong>
 
-<img src="{{site.github.url}}/files/2008/06/step2.png" alt="Step 2" />
+<img src="{{'/files/2008/06/step2.png' | relative_url}}" alt="Step 2" />
 
 <strong>Step 3</strong>
 
-<img src="{{site.github.url}}/files/2008/06/step3.png" alt="Step 3" />
+<img src="{{'/files/2008/06/step3.png' | relative_url}}" alt="Step 3" />

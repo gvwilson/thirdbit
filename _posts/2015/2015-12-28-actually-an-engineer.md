@@ -42,7 +42,7 @@ year: 2015
 <ul>
   <li>
     I want to
-    <a href="{{site.github.url}}/2014/10/02/a-better-software-engineering-course.html">teach computer science students the scientific method</a>
+    <a href="{{'/2014/10/02/a-better-software-engineering-course.html' | relative_url}}">teach computer science students the scientific method</a>
     so that they will build tools and choose working practices based on evidence rather than anecdote.
   </li>
   <li>
@@ -68,10 +68,10 @@ year: 2015
   we can make our world better.
   That&mdash;the use of the scientific method to improve the universe instead of merely understanding it&mdash;is
   as good a definition of engineering as I know.
-  Among all the <a href="{{site.github.url}}/2015/12/18/why-i-teach.html">thoughts</a>
+  Among all the <a href="{{'/2015/12/18/why-i-teach.html' | relative_url}}">thoughts</a>
   prompted by this
-  <a href="{{site.github.url}}/2015/09/22/dad.html">difficult</a>
-  <a href="{{site.github.url}}/2015/11/09/daddy-why-dont-you-ever-laugh.html">year</a>,
+  <a href="{{'/2015/09/22/dad.html' | relative_url}}">difficult</a>
+  <a href="{{'/2015/11/09/daddy-why-dont-you-ever-laugh.html' | relative_url}}">year</a>,
   the discovery that I might finally be thinking like an engineer
   three decades after earning a degree in the subject
   is oddly comforting.

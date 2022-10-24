@@ -8,7 +8,7 @@ original: swc
 <p>
   We've run instructor training both online and in person for several years,
   so it's time to look at how they compare.
-  The <a href="{{site.github.url}}/files/2016/02/instructor-training-stats.csv">raw data</a> shows:
+  The <a href="{{'/files/2016/02/instructor-training-stats.csv' | relative_url}}">raw data</a> shows:
 </p>
 <ul>
   <li>the event's start date</li>
@@ -28,7 +28,7 @@ original: swc
   It also shows the absolute number of participants and the follow-through teaching percentage by date.
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2016/02/instructor-training-correlations.png" alt="Correlations in Instructor Training" />
+  <img src="{{'/files/2016/02/instructor-training-correlations.png' | relative_url}}" alt="Correlations in Instructor Training" />
 </p>
 <p>
   There are lots of other ways to analyze this data---if you can find any interesting correlations,
@@ -43,7 +43,7 @@ original: swc
   So, here is my  attempt to make some pretty correlation plots using the instructor training data.
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2016/02/instructor-training-stats-1.png" alt="More Correlations" />
+  <img src="{{'/files/2016/02/instructor-training-stats-1.png' | relative_url}}" alt="More Correlations" />
 </p>
 <h3>Plot Description and Interpretation</h3>
 <h4>A1 &amp; A2. Not all learners but most badged instructors will teach</h4>

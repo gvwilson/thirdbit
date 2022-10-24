@@ -51,8 +51,8 @@ year: 2015
   </li>
   <li>
     Put together a meeting of grassroots "learn to code" organizations targeting under-represented groups:
-    <a href="{{site.github.url}}/2015/06/12/teaching-tech-together.html">it happened</a>,
-    though in the end <a href="{{site.github.url}}/2015/11/09/daddy-why-dont-you-ever-laugh.html">I decided not to attend</a>.
+    <a href="{{'/2015/06/12/teaching-tech-together.html' | relative_url}}">it happened</a>,
+    though in the end <a href="{{'/2015/11/09/daddy-why-dont-you-ever-laugh.html' | relative_url}}">I decided not to attend</a>.
   </li>
   <li>
     Revise <a href="http://sensibleadventures.com/works-in-progress/madica/"><em>Madica</em></a>:
@@ -95,7 +95,7 @@ year: 2015
   <li>
     Figure out what my next big project is going to be.
     I'm going to keep teaching for Software Carpentry,
-    but <a href="{{site.github.url}}/2015/09/06/unwritten-and-undone.html">as I wrote in September</a>,
+    but <a href="{{'/2015/09/06/unwritten-and-undone.html' | relative_url}}">as I wrote in September</a>,
     I'd like to build and ship some software at least once more.
     With luck,
     I'll find a bunch of scientists in Toronto that I could help part-time.

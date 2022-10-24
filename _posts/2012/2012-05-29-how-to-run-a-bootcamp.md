@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: How to Run a Bootcamp
 ---
-<p>With so many people setting up and running Software Carpentry <a href="{{site.baseurl}}/workshops/">workshops</a>, I thought it was time to put together a more complete how-to. If I've forgotten anything, please let me know. <em>(Later: please also see this PLoS paper"<a href="http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002245">Ten Simple Rules for Developing a Short Bioinformatics Training Course</a>".)</em></p>
+<p>With so many people setting up and running Software Carpentry workshops, I thought it was time to put together a more complete how-to. If I've forgotten anything, please let me know. <em>(Later: please also see this PLoS paper"<a href="http://www.ploscollections.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1002245">Ten Simple Rules for Developing a Short Bioinformatics Training Course</a>".)</em></p>
 <p><strong>Assumptions</strong></p>
 <ul>
 <li>bootcamp is 2-3 days long</li>

@@ -4,7 +4,7 @@ date: 2019-12-31 01:31:00
 year: 2019
 ---
 
-A [previous post]({{site.github.url}}/2019/12/23/gini-coefficients.html)
+A [previous post]({{'/2019/12/23/gini-coefficients.html' | relative_url}})
 presented the Gini coefficients for contributions to 10 Git repositories
 measuring number of commits and number of lines committed.
 The two were very different,
@@ -63,7 +63,7 @@ while the Spearman rank correlation is moderately negative (about -0.26).
 | scipy | 0.6565 | 0.4850 |
 
 <div align="center">
-  <img src="{{site.github.url}}/files/2019/12/correlation.svg" width="500" alt="Correlation of correlations" />
+  <img src="{{'/files/2019/12/correlation.svg' | relative_url}}" width="500" alt="Correlation of correlations" />
   <p>Correlation of correlations</p>
 </div>
 
@@ -87,16 +87,16 @@ but honestly,
 nothing jumps out in any of them.
 
 <div align="center">
-  <img src="{{site.github.url}}/files/2019/12/commits-lines-numpy.svg" width="500" alt="NumPy commits vs. lines" />
+  <img src="{{'/files/2019/12/commits-lines-numpy.svg' | relative_url}}" width="500" alt="NumPy commits vs. lines" />
   <p>NumPy commits vs. lines</p>
 </div>
 
 <div align="center">
-  <img src="{{site.github.url}}/files/2019/12/commits-lines-shell-novice.svg" width="500" alt="Shell lesson commits vs. lines" />
+  <img src="{{'/files/2019/12/commits-lines-shell-novice.svg' | relative_url}}" width="500" alt="Shell lesson commits vs. lines" />
   <p>Shell lesson commits vs. lines</p>
 </div>
 
 <div align="center">
-  <img src="{{site.github.url}}/files/2019/12/commits-lines-git-novice.svg" width="500" alt="Git lesson commits vs. lines" />
+  <img src="{{'/files/2019/12/commits-lines-git-novice.svg' | relative_url}}" width="500" alt="Git lesson commits vs. lines" />
   <p>Git lesson commits vs. lines</p>
 </div>

@@ -21,7 +21,7 @@ original: swc
     Suppose you have a processing pipeline with three stages:
   </p>
   <p>
-    <img src="{{site.github.url}}/files/2012/03/pipeline.png" />
+    <img src="{{'/files/2012/03/pipeline.png' | relative_url}}" />
   </p>
   <p>
     Each stage takes one second to run; what's its overall performance?
@@ -31,7 +31,7 @@ original: swc
     Inverting those numbers, its rate is 1/3 result per second for one piece of data, 1/2 result/sec for two, etc.:
   </p>
   <p>
-    <img src="{{site.github.url}}/files/2012/03/curve.png" />
+    <img src="{{'/files/2012/03/curve.png' | relative_url}}" />
   </p>
   <p>
     Any pipeline's curve can be characterized by <em>r<sub>&infin;</sub></em>,
@@ -52,7 +52,7 @@ original: swc
     In fact, our real challenge is that learners' performance over time actually looks like this:
   </p>
   <p>
-    <img src="{{site.github.url}}/files/2012/03/final.png" />
+    <img src="{{'/files/2012/03/final.png' | relative_url}}" />
   </p>
   <p id="glass-law">
     That dip is due to Glass's Law: every innovation initially slows you down.

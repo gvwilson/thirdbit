@@ -18,4 +18,4 @@ Today, the students in my CSC491 project course gave their end-of-term demos. Ea
 </ul>
 I'm really proud to have worked with them---they deserved all the applause they got.
 
-<img src="{{site.github.url}}/files/2008/12/hippo.png" alt="Pink Hippo" />
+<img src="{{'/files/2008/12/hippo.png' | relative_url}}" alt="Pink Hippo" />

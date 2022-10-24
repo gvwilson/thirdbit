@@ -5,4 +5,4 @@ year: 2009
 ---
 Progress on the Django-based reimplementation of DrProject:
 
-<img title="sprint1" src="{{site.github.url}}/files/2009/05/sprint1.png" alt="sprint1" width="404" height="134" />
+<img title="sprint1" src="{{'/files/2009/05/sprint1.png' | relative_url}}" alt="sprint1" width="404" height="134" />

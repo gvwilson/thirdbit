@@ -5,7 +5,7 @@ title: "Be Grateful for the Present You Got"
 ---
 
 Not long before the end,
-I asked my brother [Jeff]({{site.github.url}}/2018/03/20/goodbye-jeff.html)
+I asked my brother [Jeff]({{'/2018/03/20/goodbye-jeff.html' | relative_url}})
 if he was angry about his life being cut so short.
 He said,
 "I try not to be.

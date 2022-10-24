@@ -17,4 +17,4 @@ the weirder ours looks;
 now that so many people are getting into programming in so many different ways,
 perhaps we'll discover that our ideas have been as skewed as astronomers's were.
 
-<p align="center"><img src="{{site.github.url}}/files/2019/08/kepler-orrery.jpg" alt="Kepler Orrery" width="80%" /></p>
+<p align="center"><img src="{{'/files/2019/08/kepler-orrery.jpg' | relative_url}}" alt="Kepler Orrery" width="80%" /></p>

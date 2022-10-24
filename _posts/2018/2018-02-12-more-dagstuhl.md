@@ -4,7 +4,7 @@ date: 2018-02-12 04:20
 year: 2018
 ---
 
-Following up on [my previous post]({{site.github.url}}/2018/02/10/my-dagstuhl.html)
+Following up on [my previous post]({{'/2018/02/10/my-dagstuhl.html' | relative_url}})
 about the recent Dagstuhl meeting on programming language design,
 I had a look at [the slides](http://materials.dagstuhl.de/index.php?semnr=18061).
 There is some awesome stuff here:

@@ -10,11 +10,11 @@ year: 2019
 >
 > — William Gibson
 
-My last post promised one about [teaching online]({{site.github.url}}/2019/07/27/doing-good-and-getting-paid.html),
+My last post promised one about [teaching online]({{'/2019/07/27/doing-good-and-getting-paid.html' | relative_url}}),
 so here goes:
 
 1.  **It's not about in-person vs. online: it's about active teaching vs. passive teaching.**
-    [Active teaching]({{site.github.url}}/2019/05/26/active-teaching.html)
+    [Active teaching]({{'/2019/05/26/active-teaching.html' | relative_url}})
     occurs when the instructor modifies lesson content, pace, and delivery
     based on real-time feedback from learners.
     Videos and scripted slides recited word for word are passive;

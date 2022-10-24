@@ -14,7 +14,7 @@ imagine if economists had only ever studied how Walmart and Amazon set prices,
 while ignoring everyone smaller.
 
 I've been thinking about that paper a lot while fleshing out the bibliography for
-the next edition of *[How to Teach Programming (and Other Things)]({{site.github.url}}/teaching/)*.
+the next edition of *[How to Teach Programming (and Other Things)]({{'/teaching/' | relative_url}})*.
 Of the 282 papers on computing education I've gone through so far,
 the majority by far only look at teaching in formal institutional classrooms or their online imitators.
 Those that do look at bootcamps and other free-range settings
@@ -28,4 +28,4 @@ and to cast fresh light on practices in institutional classrooms.
 If anyone is tackling this,
 I'd enjoy hearing from you.
 
-<div align="center"><img src="{{site.github.url}}/files/2018/02/publications-by-year.png" alt="Publications by Year" width="400" /></div>
+<div align="center"><img src="{{'/files/2018/02/publications-by-year.png' | relative_url}}" alt="Publications by Year" width="400" /></div>

@@ -5,7 +5,7 @@ year: 2019
 ---
 
 A year ago,
-I wrote [a description of a notional machine for Python]({{site.github.url}}/2018/04/12/notional-machine-for-python.html),
+I wrote [a description of a notional machine for Python]({{'/2018/04/12/notional-machine-for-python.html' | relative_url}}),
 i.e.,
 the mental model of how Python programs execute that I want to convey to learners when I'm teaching.
 I didn't get much feedback on it at the time,
@@ -82,7 +82,7 @@ A few notes:
    this description is the model I want learners to have at the end of an introductory course.
 1. It doesn't include loops or conditionals,
    since modern R is a mostly-functional language.
-1. It also doesn't include [non-standard evaluation]({{site.github.url}}/2018/11/16/non-standard-evaluation.html),
+1. It also doesn't include [non-standard evaluation]({{'/2018/11/16/non-standard-evaluation.html' | relative_url}}),
    or try to explain that you can pass column names to functions as if they were variables.
    In my (so far limited) teachinge experience,
    questions about this don't come up:

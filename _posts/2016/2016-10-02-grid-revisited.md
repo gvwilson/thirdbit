@@ -56,7 +56,7 @@ original: nwit
 </p>
 <p>
   It was interesting to read this paper so soon after
-  <a href="{{site.github.url}}/2016/09/30/rethinking-git.html">Perez De Rosso and Jackson's analysis of Git</a>:
+  <a href="{{'/2016/09/30/rethinking-git.html' | relative_url}}">Perez De Rosso and Jackson's analysis of Git</a>:
   Mattmann et al. seem less concerned with developing a general framework for critiquing software architecture,
   but have invested several years in an exhaustive (and no doubt exhausting) compare-and-contrast exercise.
   Their time has paid off handsomely,

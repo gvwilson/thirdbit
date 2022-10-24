@@ -38,7 +38,7 @@ original: swc
   we have a ranked visualization of those responses:
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2014/04/instructor-survey-visualized-2014-04-04.png" alt="Instructor Skills" />
+  <img src="{{'/files/2014/04/instructor-survey-visualized-2014-04-04.png' | relative_url}}" alt="Instructor Skills" />
 </p>
 <p>
   Second,

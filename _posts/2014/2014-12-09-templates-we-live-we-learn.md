@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   We have partially converted four of our core lessons to
-  <a href="{{site.github_url}}/lesson-template">the new lesson template</a>,
+  the new lesson template,
   and are making a few tweaks as a result.
   The most important of these is to move the source files for a lesson's web pages
   out of a <code>pages</code> sub-directory

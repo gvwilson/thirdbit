@@ -6,7 +6,7 @@ title: "Libraries Tell It Like It Is"
 
 <table>
 <tr>
-<td><img src="{{site.github.url}}/files/2019/02/library-software-metaphysics.jpg" width="400"/></td>
-<td><img src="{{site.github.url}}/files/2019/02/library-software-unexplained.jpg" width="400"/></td>
+<td><img src="{{'/files/2019/02/library-software-metaphysics.jpg' | relative_url}}" width="400"/></td>
+<td><img src="{{'/files/2019/02/library-software-unexplained.jpg' | relative_url}}" width="400"/></td>
 </tr>
 </table>

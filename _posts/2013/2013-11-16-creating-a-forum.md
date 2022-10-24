@@ -31,7 +31,7 @@ original: swc
   and as Margolis and Fisher pointed out in
   <a href="http://www.amazon.com/Unlocking-Clubhouse-Computing-Jane-Margolis/dp/0262632691/"><cite>Unlocking the Clubhouse</cite></a>,
   that kind of imbalance is often a sign that other people don't find it congenial either.
-  We <a href="{{site.baseurl}}/conduct/">try hard</a> to make everyone feel like they belong,
+  We try hard to make everyone feel like they belong,
   regardless of what they do or don't know coming in,
   and we hope they (and you) will find our forum useful.
 </p>

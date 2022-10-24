@@ -6,7 +6,7 @@ year: 2018
 
 I've been browsing the [SIGCSE 2018 proceedings](https://dl.acm.org/citation.cfm?id=3159450)
 (which for once I was able to read legally),
-and as [I wrote last week]({{site.github.url}}/2018/02/18/teaching-programming-in-the-wild.html),
+and as [I wrote last week]({{'/2018/02/18/teaching-programming-in-the-wild.html' | relative_url}}),
 I'm repeatedly struck by my own absence.
 There are a handful of mentions of free-range instruction,
 like [this paper by Burke and others](https://dl.acm.org/citation.cfm?id=3159485),

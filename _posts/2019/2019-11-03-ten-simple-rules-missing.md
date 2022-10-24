@@ -6,7 +6,7 @@ year: 2019
 
 I'm a big fan of PLOS's [Ten Simple Rules](https://collections.plos.org/ten-simple-rules)
 and [Quick Tips](https://collections.plos.org/search?q=ten+quick+tips) papers.
-I've contributed to [a few]({{site.github.url}}/10rules/),
+I've contributed to [a few]({{'/10rules/' | relative_url}}),
 but there are many more I'd like to read.
 If you can write any of these,
 I think many people would be grateful readers.

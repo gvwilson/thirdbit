@@ -35,5 +35,5 @@ original: swc
   so that versions in various languages can stay in sync.
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2014/11/korean-translators-with-names.jpg" alt="Korean Translators" />
+  <img src="{{'/files/2014/11/korean-translators-with-names.jpg' | relative_url}}" alt="Korean Translators" />
 </p>

@@ -13,7 +13,7 @@ original: swc
   my reaction was:
 </p>
 <div align="center">
-  <img src="{{site.github.url}}/files/2013/10/inigo.png" alt="I Do Not Think It Means What You Think It Means" />
+  <img src="{{'/files/2013/10/inigo.png' | relative_url}}" alt="I Do Not Think It Means What You Think It Means" />
 </div>
 <p>
   My dictionary defines "sustainable" as
@@ -211,7 +211,7 @@ original: swc
   so let me close with one as well:
 </p>
 <div align="center">
-  <img src="{{site.github.url}}/files/2013/10/wssspe-cycle.png" alt="It's All About the Skills" />
+  <img src="{{'/files/2013/10/wssspe-cycle.png' | relative_url}}" alt="It's All About the Skills" />
 </div>
 <p>
   Scientists needs coding skills to turn models and algorithms into working software.

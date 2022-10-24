@@ -10,7 +10,7 @@ If you are comfortable with LaTeX and GitHub,
 you can read the source at <https://github.com/gvwilson/10-lesson>
 and submit issues or pull requests.
 If you prefer PDFs and email,
-you can [download the current rough draft]({{site.github.url}}/files/2018/09/10-rules-lessons-2018-09-12.pdf)
+you can [download the current rough draft]({{'/files/2018/09/10-rules-lessons-2018-09-12.pdf' | relative_url}})
 and [send me comments](mailto:gvwilson@third-bit.com).
 
 1.  Use learner personas to define your audience.

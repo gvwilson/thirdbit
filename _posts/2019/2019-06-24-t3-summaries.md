@@ -5,7 +5,7 @@ title: "Chapter Summaries"
 ---
 
 Key points from each chapter of *[Teaching Tech Together](http://teachtogether.tech)*
-to complement yesterday's [index]({{site.github.url}}/2019/06/23/t3-index.html).
+to complement yesterday's [index]({{'/2019/06/23/t3-index.html' | relative_url}}).
 
 ## Introduction
 

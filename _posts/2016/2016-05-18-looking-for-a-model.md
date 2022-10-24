@@ -7,7 +7,7 @@ original: swc
 <p>
   <em>
     Updated:
-    <a href="{{site.github.url}}/files/2016/05/teaching-stats-2016-05.csv">this CSV file</a>
+    <a href="{{'/files/2016/05/teaching-stats-2016-05.csv' | relative_url}}">this CSV file</a>
     has information on who taught when.
     The three columns are the person's unique identifier,
     the date on which they first qualified,

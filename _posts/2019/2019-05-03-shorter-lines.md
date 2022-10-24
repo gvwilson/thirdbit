@@ -33,5 +33,5 @@ As a software engineer, I believe in the power of automating repetitive tasks.
 As someone who wants shorter lines at office hours for everyone,
 every time,
 I believe in collective action.
-I think [this kind of training]({{site.github.url}}/2019/01/10/leadership-training-for-open-science.html) would be a start;
+I think [this kind of training]({{'/2019/01/10/leadership-training-for-open-science.html' | relative_url}}) would be a start;
 I'd [welcome your thoughts](mailto:gvwilson@third-bit.com).

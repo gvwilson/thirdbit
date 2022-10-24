@@ -68,7 +68,7 @@ but that hasn't happened.
 Thousands of people are blogging and presenting at tech conferences,
 but their thoughts haven't been gathered into a coherent whole
 in the way that a dozen different books at my local library do for garden design.
-I've [argued]({{site.github.url}}/2014/10/02/a-better-software-engineering-course/)
+I've [argued]({{'/2014/10/02/a-better-software-engineering-course/' | relative_url}})
 [elsewhere](https://vimeo.com/246347756)
 that software engineering is finally going to live up to its name
 as we start to analyze real-world data.

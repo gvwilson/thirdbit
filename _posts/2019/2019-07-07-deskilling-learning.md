@@ -68,5 +68,5 @@ What she cares about is whether she is interacting in complex ways with other hu
 or being treated as if she was just so much "learning capital",
 and it doesn't matter to her whether the latter occurs online or in a 600-person lecture theater.
 So while we're waiting for the benevolent pedagogical singularity,
-I'm going to focus more of my energy on exploring [active teaching]({{site.github.url}}/2019/05/26/active-teaching.html),
+I'm going to focus more of my energy on exploring [active teaching]({{'/2019/05/26/active-teaching.html' | relative_url}}),
 because I believe it will raise up more skillful learners than anything else I could do.

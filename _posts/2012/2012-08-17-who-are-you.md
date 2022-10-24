@@ -9,7 +9,7 @@ title: Who Are You?
 <tbody>
 <tr>
 <td colspan="2" align="center"><strong>Age</strong></td>
-<td rowspan="9"><img src="{{site.github.url}}/files/2012/08/thumb-age.png" /></td>
+<td rowspan="9"><img src="{{'/files/2012/08/thumb-age.png' | relative_url}}" /></td>
 </tr>
 <tr>
 <td>&lt;20</td>
@@ -45,7 +45,7 @@ title: Who Are You?
 </tr>
 <tr>
 <td colspan="2" align="center"><strong>Gender</strong></td>
-<td rowspan="3"><img src="{{site.github.url}}/files/2012/08/thumb-gender.png" /></td>
+<td rowspan="3"><img src="{{'/files/2012/08/thumb-gender.png' | relative_url}}" /></td>
 </tr>
 <tr>
 <td>Female</td>
@@ -57,7 +57,7 @@ title: Who Are You?
 </tr>
 <tr>
 <td colspan="2" align="center"><strong>Occupation</strong></td>
-<td rowspan="7"><img src="{{site.github.url}}/files/2012/08/thumb-role.png" /></td>
+<td rowspan="7"><img src="{{'/files/2012/08/thumb-role.png' | relative_url}}" /></td>
 </tr>
 <tr>
 <td>Undergrad</td>
@@ -85,7 +85,7 @@ title: Who Are You?
 </tr>
 <tr>
 <td colspan="2" align="center"><strong>Preferred Platforms</strong></td>
-<td rowspan="4"><img src="{{site.github.url}}/files/2012/08/thumb-platform.png" /></td>
+<td rowspan="4"><img src="{{'/files/2012/08/thumb-platform.png' | relative_url}}" /></td>
 </tr>
 <tr>
 <td>Linux</td>

@@ -48,5 +48,5 @@ original: swc
   and send us pull requests&mdash;we'd be grateful for your help.
 </p>
 <div align="center">
-  <a href="{{site.github_url}}/amy"><img src="{{site.github.url}}/files/2014/12/amy-logo.png" alt="Amy Logo" /></a>
+  <a href="{{'/amy' | relative_url}}"><img src="{{'/files/2014/12/amy-logo.png' | relative_url}}" alt="Amy Logo" /></a>
 </div>

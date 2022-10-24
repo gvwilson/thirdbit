@@ -12,12 +12,12 @@ and now in [RStudio's instructor training and certification](https://blog.rstudi
 Along with a detailed description of content and activities,
 the paper includes this topic map showing how topics are connected:
 
-<img src="{{site.github.url}}/files/2019/03/sneks-roadmap.png" alt="PythonSneks Roadmap" width="100%" />
+<img src="{{'/files/2019/03/sneks-roadmap.png' | relative_url}}" alt="PythonSneks Roadmap" width="100%" />
 
 I'd love to see topic maps like this for more courses.
 They would be even more useful, though, if they were findable,
 but I don't know how to do that.
-[I learned last year]({{site.github.url}}/2018/12/02/oer-landmines.html)
+[I learned last year]({{'/2018/12/02/oer-landmines.html' | relative_url}})
 that lesson repositories have failed so consistently that we shouldn't build another one,
 but instead should focus on making the lessons we have easier to find.
 If the diagram is SVG and the nodes have appropriate `alt` text,

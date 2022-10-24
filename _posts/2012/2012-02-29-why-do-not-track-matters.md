@@ -11,4 +11,4 @@ Step 3: look at all the red circles, which show sites that are known to be track
 
 Step 4: turn on "<a href="http://donottrack.us/">Do Not Track</a>".
 
-<img title="big-brother" src="{{site.github.url}}/files/2012/02/big-brother-300x227.png" alt="" width="300" height="227" />
+<img title="big-brother" src="{{'/files/2012/02/big-brother-300x227.png' | relative_url}}" alt="" width="300" height="227" />

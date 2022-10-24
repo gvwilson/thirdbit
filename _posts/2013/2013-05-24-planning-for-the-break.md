@@ -214,7 +214,7 @@ original: swc
       <li>Automate production of PDF certificates and digital badges for both completion and proficiency.</li>
       <li>
         Make sure that whatever we do for proficiency integrates with
-        the <a href="{{site.github.url}}/2013/02/dirac-dry-run-two/">driver's license</a>
+        the <a href="{{'/2013/02/dirac-dry-run-two/' | relative_url}}">driver's license</a>
         being developed in conjunction with
         the <a href="http://www.software.ac.uk/">Software Sustainability Institute</a>.
       </li>

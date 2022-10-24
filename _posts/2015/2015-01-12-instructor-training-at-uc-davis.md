@@ -63,7 +63,7 @@ original: swc
   I think that what we've learned from the live courses will improve their experience considerably.
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2015/01/ttt-davis.jpg" alt="Instructor Training at UC Davis Jan 6-7, 2015" class="img-responsive"/>
+  <img src="{{'/files/2015/01/ttt-davis.jpg' | relative_url}}" alt="Instructor Training at UC Davis Jan 6-7, 2015" class="img-responsive"/>
 </p>
 <p>
   <em>

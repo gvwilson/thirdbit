@@ -14,4 +14,4 @@ original: swc
   but other than that,
   it's held up surprisingly (or depressingly) well.
 </p>
-<a href="http://www.amazon.com/Scientists-Engineers-Guide-Workstations-Supercomputers/dp/0471532711/"><img src="{{site.github.url}}/files/2014/03/workstations-and-supercomputers.jpg" alt="Cover of 'Workstations and Supercomputers'" /></a>
+<a href="http://www.amazon.com/Scientists-Engineers-Guide-Workstations-Supercomputers/dp/0471532711/"><img src="{{'/files/2014/03/workstations-and-supercomputers.jpg' | relative_url}}" alt="Cover of 'Workstations and Supercomputers'" /></a>

@@ -27,4 +27,4 @@ My thanks again to everyone who contributed to the book (especially Andy O.)  I 
 
 And here's a picture of Andy Oram accepting the award from Amber Ankerholz while Robert X. Cringely looks on:
 
-<img src="{{site.github.url}}/files/2008/03/jolt.jpg" alt="Jolt Award" />
+<img src="{{'/files/2008/03/jolt.jpg' | relative_url}}" alt="Jolt Award" />

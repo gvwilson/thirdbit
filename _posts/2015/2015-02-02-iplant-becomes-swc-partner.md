@@ -10,7 +10,7 @@ original: swc
   has become an Affiliate Member of the Software Carpentry Foundation.
 </p>
 <p>
-  <img src="{{site.github.url}}/files/orgs/iplant.png" alt="iPlant Collaborative" />
+  <img src="{{'/files/orgs/iplant.png' | relative_url}}" alt="iPlant Collaborative" />
 </p>
 <p>
   Joining with the SCF will further the iPlant Collaborative's mission

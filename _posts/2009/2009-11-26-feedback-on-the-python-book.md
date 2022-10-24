@@ -7,23 +7,23 @@ year: 2009
 
 <strong>Demographics</strong>
 
-<img title="1" src="{{site.github.url}}/files/2009/11/1.png" alt="1" width="414" height="358" />
+<img title="1" src="{{'/files/2009/11/1.png' | relative_url}}" alt="1" width="414" height="358" />
 
 <strong>Channels</strong>
 
-<img title="2" src="{{site.github.url}}/files/2009/11/2.png" alt="2" width="488" height="288" />
+<img title="2" src="{{'/files/2009/11/2.png' | relative_url}}" alt="2" width="488" height="288" />
 
 <strong>General Background</strong>
 
-<img title="3" src="{{site.github.url}}/files/2009/11/3.png" alt="3" width="488" height="288" />
+<img title="3" src="{{'/files/2009/11/3.png' | relative_url}}" alt="3" width="488" height="288" />
 
 <strong>Python Background</strong>
 
-<img title="4" src="{{site.github.url}}/files/2009/11/4.png" alt="4" width="488" height="288" />
+<img title="4" src="{{'/files/2009/11/4.png' | relative_url}}" alt="4" width="488" height="288" />
 
 <strong>Exercises</strong>
 
-<img title="6" src="{{site.github.url}}/files/2009/11/6.png" alt="6" width="488" height="288" />
+<img title="6" src="{{'/files/2009/11/6.png' | relative_url}}" alt="6" width="488" height="288" />
 
 <strong>Individual Chapters</strong>
 <table border="0">

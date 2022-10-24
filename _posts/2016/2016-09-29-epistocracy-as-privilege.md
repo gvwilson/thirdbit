@@ -5,7 +5,7 @@ year: 2016
 ---
 
 Another day,
-[another display of privilege]({{site.github.url}}/2016/09/27/terrified-sheep.html)
+[another display of privilege]({{'/2016/09/27/terrified-sheep.html' | relative_url}})
 from *Aeon* titled,
 "[The right to vote should be restricted to those with knowledge](https://aeon.co/ideas/the-right-to-vote-should-be-restricted-to-those-with-knowledge)".
 No mention of the fact that [so-called literacy tests were used to disenfranchise minorities](https://en.wikipedia.org/wiki/Literacy_test#Voting)

@@ -5,7 +5,7 @@ year: 2006
 ---
 Having written several articles about how <a href="http://www.drproject.org">DrProject</a> works, I figured it was time to talk about how its database is organized.  Of course, that meant figuring it out myself, which took some digging: I eventually dumped the <a href="http://www.postgresql.org">PostgreSQL</a> schema and started doodling.  The result is cleaner than I expected, though there are a few fields whose purpose I still don't understand:
 
-<img border="0" id="image742" alt="DrProject Database Schema" src="{{site.github.url}}/files/2006/12/drp-erd.png" />
+<img border="0" id="image742" alt="DrProject Database Schema" src="{{'/files/2006/12/drp-erd.png' | relative_url}}" />
 
 The dashed lines indicate constraints that aren't enforced by the database; we'll make them explicit as part of Version 1.2.  We probably <em>won't</em> tidy up the inconsistent names of fields, though---we're trying hard to make sure that 1.2 doesn't require schema changes.  Oh, and the fields marked as dates and Booleans ('#' and '?' respectively, as opposed to 'o' for integer and '+' for text) are actually stored as integers right now (Unix timestamps and 0/1, also respectively).  I think this is a holdover from <a href="http://www.sqlite.org">SQLite</a>, but again, I'll dig.
 

@@ -6,7 +6,7 @@ year: 2017
 
 A couple of years ago,
 I complained that distributed version control still hadn't had its
-<a href="{{site.github.url}}/2015/07/20/git-as-goto.html">structured revolution</a>.
+<a href="{{'/2015/07/20/git-as-goto.html' | relative_url}}">structured revolution</a>.
 After yet another discussion about how useful it is versus how hard it is to learn,
 I have a proposal:
 

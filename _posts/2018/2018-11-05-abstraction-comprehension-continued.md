@@ -4,7 +4,7 @@ year: 2018
 title: "Abstraction and Comprehension Continued"
 ---
 
-In response to [my previous post]({{site.github.url}}/2018/11/03/abstraction-comprehension.html),
+In response to [my previous post]({{'/2018/11/03/abstraction-comprehension.html' | relative_url}}),
 [Mark Guzdial](https://www.si.umich.edu/people/mark-guzdial)
 [tweeted this](https://twitter.com/guzdial/status/1059260901105303552):
 
@@ -50,7 +50,7 @@ end
 
 has at least twelve operations,
 and maybe as many as fourteen or fifteen,
-depending on what's in the reader's [notional machine]({{site.github.url}}/2018/04/12/notional-machine-for-python.html).
+depending on what's in the reader's [notional machine]({{'/2018/04/12/notional-machine-for-python.html' | relative_url}}).
 My mind automatically compresses those lower-level operations because they conform to patterns I've seen before:
 to me,
 for example,

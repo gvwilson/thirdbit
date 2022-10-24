@@ -24,4 +24,4 @@ year: 2017
   <tr><td>Geraldo A. Ortiz-Jimenez</td><td></td><td></td><td></td><td></td></tr>
 </table>
 
-<p><img src="{{site.github.url}}/files/2017/06/pride.jpg" alt="Pride Flag" /></p>
+<p><img src="{{'/files/2017/06/pride.jpg' | relative_url}}" alt="Pride Flag" /></p>

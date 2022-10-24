@@ -34,7 +34,7 @@ data, and the tech world. An accomplished conference speaker, Sarah
 attended the University of Michigan for grad school and currently
 resides in New York City.
 
-![Machine Learning with Python]({{site.github.url}}/files/2016/10/machine-learning-with-python.png)
+![Machine Learning with Python]({{'/files/2016/10/machine-learning-with-python.png' | relative_url}})
 
 *If you are the author of a book that is related to Software Carpentry
 or Data Carpentry's mission, and would like to announce it here,

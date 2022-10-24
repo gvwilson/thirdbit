@@ -89,7 +89,7 @@ original: swc
   <p>
     The bootcamp takes place:
   </p>
-  <img src="{{site.github.url}}/files/2013/05/miracle.jpg" alt="Copyright 2006, Sidney Harris" />
+  <img src="{{'/files/2013/05/miracle.jpg' | relative_url}}" alt="Copyright 2006, Sidney Harris" />
   <p>
     Once it's over,
     Paula and her hosts are contacted for feedback.

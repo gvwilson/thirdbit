@@ -8,5 +8,5 @@ original: swc
   Sage advice for our instructors and learners from an eight-year-old:
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2014/04/do-not-be-worried.png" alt="Do not be worried and you will not make mistakes." />
+  <img src="{{'/files/2014/04/do-not-be-worried.png' | relative_url}}" alt="Do not be worried and you will not make mistakes." />
 </p>

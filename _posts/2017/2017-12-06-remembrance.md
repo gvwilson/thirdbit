@@ -4,7 +4,7 @@ date: 2017-12-06 03:30:00
 year: 2017
 ---
 <p>
-  <img src="{{site.github.url}}/files/2016/12/montreal.jpg" alt="The 14" />
+  <img src="{{'/files/2016/12/montreal.jpg' | relative_url}}" alt="The 14" />
 </p>
 <p>
   Jamais plus.

@@ -10,7 +10,7 @@ original: swc
   has adopted bylaws for the Software Carpentry Foundation,
   which is the final step in us becoming an independent organization.
   The authoritative version is stored in
-  <a href="{{site.github_url}}/board">this public GitHub repository</a>,
+  this public GitHub repository,
   along with other key documents that will be outlined in the next couple of blog posts.
   In brief,
   the SCF has four parts:

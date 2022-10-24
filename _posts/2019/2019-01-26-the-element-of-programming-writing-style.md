@@ -4,7 +4,7 @@ year: 2019
 title: "The Elements of Programming Writing Style"
 ---
 
-Along with my [list of unwritten books]({{site.github.url}}/2019/01/06/not-on-the-shelves-2019.html) about programming,
+Along with my [list of unwritten books]({{'/2019/01/06/not-on-the-shelves-2019.html' | relative_url}}) about programming,
 I've kept a haphazard list of ones that have influenced the way I write about the subject.
 Sometimes what I've learned from them is stylistic,
 other times it's about how to shape content,

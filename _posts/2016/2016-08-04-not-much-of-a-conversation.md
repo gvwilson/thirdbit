@@ -11,7 +11,7 @@ year: 2016
   and got this:
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2016/08/conversation.png" />
+  <img src="{{'/files/2016/08/conversation.png' | relative_url}}" />
 </p>
 <p>
   My first reaction was disappointment.

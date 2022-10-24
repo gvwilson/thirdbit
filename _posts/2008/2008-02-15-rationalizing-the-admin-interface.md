@@ -19,20 +19,20 @@ Which is why I'm appealing for help.  <a href="http://www.drproject.org">DrProje
 </ol>
 Other tasks are similarly arduous. The screens in question are below the cut; if you have suggestions for redesign, I'd love to hear them.
 
-<img src="{{site.github.url}}/files/2008/02/add-users.png" alt="Add Users" />
+<img src="{{'/files/2008/02/add-users.png' | relative_url}}" alt="Add Users" />
 
 <hr />
 
-<img src="{{site.github.url}}/files/2008/02/list-users.png" alt="List Users" />
+<img src="{{'/files/2008/02/list-users.png' | relative_url}}" alt="List Users" />
 
 <hr />
 
-<img src="{{site.github.url}}/files/2008/02/create-projects.png" alt="Create Projects" />
+<img src="{{'/files/2008/02/create-projects.png' | relative_url}}" alt="Create Projects" />
 
 <hr />
 
-<img src="{{site.github.url}}/files/2008/02/project-list.png" alt="List Projects" />
+<img src="{{'/files/2008/02/project-list.png' | relative_url}}" alt="List Projects" />
 
 <hr />
 
-<img src="{{site.github.url}}/files/2008/02/instance-settings.png" alt="Instance Settings" />
+<img src="{{'/files/2008/02/instance-settings.png' | relative_url}}" alt="Instance Settings" />

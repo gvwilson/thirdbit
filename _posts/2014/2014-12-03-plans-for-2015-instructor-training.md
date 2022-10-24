@@ -21,7 +21,7 @@ original: swc
   and in the short term,
   I need to focus on building partnerships,
   getting grant applications out the door,
-  and overseeing <a href="{{site.baseurl}}/blog/2014/12/scf-governance.html#steering-committee">election of our Steering Committee</a>.
+  and overseeing election of our Steering Committee.
 </p>
 <p>
   I'm therefore pushing the start of the next online instructor training course

@@ -63,4 +63,4 @@ title: "Things I Didn't Tweet This Month"
 
 -   Coincidence? Perhaps:
 
-<p><a href="{{site.github.url}}/files/2019/01/correlation.png"><img src="{{site.github.url}}/files/2019/01/correlation.png" width="80%" alt="Correlation"></a></p>
+<p><a href="{{'/files/2019/01/correlation.png' | relative_url}}"><img src="{{'/files/2019/01/correlation.png' | relative_url}}" width="80%" alt="Correlation"></a></p>

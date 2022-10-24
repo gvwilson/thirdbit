@@ -59,8 +59,8 @@ but it would be a big step in the right direction.
 
 [compare]: http://cmpp.coodesoft.com/
 [jupyter]: https://jupyter.org/
-[larch]: {{site.github.url}}/2011/09/16/extensible-programming-a-new-hope.html
-[merging]: {{site.github.url}}/2013/05/01/merging-is-the-real-revolution.html
+[larch]: {{'/2011/09/16/extensible-programming-a-new-hope.html' | relative_url}}
+[merging]: {{'/2013/05/01/merging-is-the-real-revolution.html' | relative_url}}
 [mps]: https://www.jetbrains.com/mps/
 [nbdiff]: http://tavisharmstrong.com/2014/04/06/nbdiff-a-diffing-and-merging-tool-for-the-ipython-notebook/
 [nbdime]: https://github.com/jupyter/nbdime

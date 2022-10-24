@@ -151,7 +151,7 @@ original: swc
     </p>
     <p>
       One option I'm personally opposed to is charging for instructor training.
-      As <a href="{{site.github_url}}/training-course/issues/514">several people observed</a>,
+      As <a href="{{'/training-course/issues/514' | relative_url}}">several people observed</a>,
       it seems unfair to ask someone to give us money
       so that they can then volunteer their time.
       On the other hand,

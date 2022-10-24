@@ -16,4 +16,4 @@ we corresponded frequently during Software Carpentry's early years,
 and he was always helpful, insightful, and enthusiastic.
 He will be missed.
 
-![Hans Petter Langtangen, 1962-2016]({{site.github.url}}/files/2016/10/hans-petter-langtangen.jpg)
+![Hans Petter Langtangen, 1962-2016]({{'/files/2016/10/hans-petter-langtangen.jpg' | relative_url}})

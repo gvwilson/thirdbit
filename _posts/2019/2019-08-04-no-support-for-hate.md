@@ -16,5 +16,5 @@ So:
 > or any company that provides hosting or other services for such companies.
 
 <div align="center">
-<img src="{{site.github.url}}/files/2019/08/pledge.png" alt="No Support for Hate" />
+<img src="{{'/files/2019/08/pledge.png' | relative_url}}" alt="No Support for Hate" />
 </div>

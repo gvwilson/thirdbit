@@ -11,11 +11,11 @@ title: Compute Canada's 'Strategic' Plan Isn't
 <table>
 <tbody>
 <tr>
-<td align="center" valign="middle"><img title="pyramid" src="{{site.github.url}}/files/2010/12/pyramid.png" /></td>
+<td align="center" valign="middle"><img title="pyramid" src="{{'/files/2010/12/pyramid.png' | relative_url}}" /></td>
 <td align="center" valign="middle"><strong>Compute Canada's Pyramid</strong></td>
 </tr>
 <tr>
-<td align="center" valign="middle"><img title="skills" src="{{site.github.url}}/files/2010/12/skills.png" /></td>
+<td align="center" valign="middle"><img title="skills" src="{{'/files/2010/12/skills.png' | relative_url}}" /></td>
 <td align="center" valign="middle"><strong>Reality</strong></td>
 </tr>
 </tbody>

@@ -12,7 +12,7 @@ original: swc
   I can't publish it,
   since it contains personal identifying information,
   but since I had to write a script to migrate the data to
-  <a href="{{site.github_url}}/amy">the tool we're building to manage workshops</a>,
+  the tool we're building to manage workshops,
   it only took another few minutes to create a partly-redacted version of the data.
   ("Partly" because someone who was really keen could work backward workshop URLs to instructors' names,
   cross-reference,

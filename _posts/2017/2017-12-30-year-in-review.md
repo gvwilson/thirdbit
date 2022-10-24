@@ -8,7 +8,7 @@ year: 2017
   - Ran another one-day workshop on how to teach for people in Toronto.
     It went well:
     what I learned doing instructor for Software Carpentry seems useful to a wider audience.
-  - Started working on [a general-purpose intro to teaching programming]({{site.github.url}}/teaching/) in response.
+  - Started working on [a general-purpose intro to teaching programming]({{'/teaching/' | relative_url}}) in response.
   - Starting a reading group around *[Building Powerful Community Organizations][bpco]*
     that proved to be equally rewarding.
   - Donald Trump became president.
@@ -33,11 +33,11 @@ year: 2017
   - Spent a few days with my best friend.
     Didn't do much; didn't need to.
 - May
-  - Called off the *[Stuff That Actually Matters]({{site.github.url}}/2016/11/13/stuff-that-actually-matters.html)* project.
+  - Called off the *[Stuff That Actually Matters]({{'/2016/11/13/stuff-that-actually-matters.html' | relative_url}})* project.
     Only three and a half chapters had come in,
     and while it hurt to disappoint the people who'd worked hard on them,
     there was no prospect of a complete book taking shape.
-  - Released the first version of *[How to Teach Programming (and Other Things)]({{site.github.url}}/teaching/)*.
+  - Released the first version of *[How to Teach Programming (and Other Things)]({{'/teaching/' | relative_url}})*.
 - June
   - Visited the Aga Khan Museum for the first time.
     The world is full of beauty.

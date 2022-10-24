@@ -4,7 +4,7 @@ date: 2019-07-22 04:30
 year: 2019
 ---
 
-My brother [Jeff]({{site.github.url}}/2018/03/20/goodbye-jeff.html) used to talk about the third wall.
+My brother [Jeff]({{'/2018/03/20/goodbye-jeff.html' | relative_url}}) used to talk about the third wall.
 When you're painting a room,
 the first wall is easy because you're excited about getting a chore done.
 The second wall is OK too because you've found your rhythm,

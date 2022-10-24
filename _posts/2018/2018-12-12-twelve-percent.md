@@ -4,18 +4,18 @@ year: 2018
 title: "Twelve Percent of a Plan"
 ---
 
-> Please see [this post]({{site.github.url}}/2018/12/17/thirteen-percent.html)
-> and [this one]({{site.github.url}}/2018/12/19/fourteen-percent.html) for follow-on thoughts.
+> Please see [this post]({{'/2018/12/17/thirteen-percent.html' | relative_url}})
+> and [this one]({{'/2018/12/19/fourteen-percent.html' | relative_url}}) for follow-on thoughts.
 
 I've spent much of the last eight years teaching people
 [how to develop lessons collaboratively](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005963)
-and [wondering why they don't do it more often]({{site.github.url}}/2016/04/29/why-teachers-dont-collaborate.html).
+and [wondering why they don't do it more often]({{'/2016/04/29/why-teachers-dont-collaborate.html' | relative_url}}).
 As part of my job at [RStudio](http://rstudio.com),
 I wanted to turn what I think I know into a tool like R's [usethis](https://usethis.r-lib.org/)
 to automate common tasks in lesson setup
 and help ensure that lessons are structured in a uniform way to make sharing easier.
 After some discussions with experts on Open Educational Resources (OER)
-about [what hasn't worked in the past]({{site.github.url}}/2018/12/02/oer-landmines.html),
+about [what hasn't worked in the past]({{'/2018/12/02/oer-landmines.html' | relative_url}}),
 though,
 I realized that my original plan was wrong-headed.
 It assumed far more technical knowledge than most instructors have;
@@ -175,7 +175,7 @@ Our delivery mechanisms for getting lessons to learners are:
    (which may be the same as the one in which the authors created the lesson or one designed specifically for learners' use).
    Experienced programmers almost always think this is the best solution,
    but "GitHub for teachers" is a dead end because
-   [version control is too high a cover charge for most people]({{site.github.url}}/2018/12/02/oer-landmines.html):
+   [version control is too high a cover charge for most people]({{'/2018/12/02/oer-landmines.html' | relative_url}}):
    In practice, early adopters will use it because it's cool, everyone else will vote "no" with their feet.
 
 3. Software packages:

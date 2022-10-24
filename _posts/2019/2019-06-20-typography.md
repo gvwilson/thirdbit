@@ -16,5 +16,5 @@ the rest of the sentence was,
 
 My dad taught English for over thirty years,
 and used this to illustrate the importance of careful editing and good typography.
-Every time I near [the end of a book project]({{site.github.url}}/2019/06/19/feature-complete.html),
+Every time I near [the end of a book project]({{'/2019/06/19/feature-complete.html' | relative_url}}),
 I wonder if anyone ever looked up that little booklet's author...

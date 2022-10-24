@@ -73,7 +73,7 @@ I am thinking about all of this again because
 teaching programmers how the world works
 now seems more important than teaching researchers how to program.
 Earlier this year I outlined
-a [four-day workshop]({{site.github.url}}/ideas/#what-i-would-organize-if-i-still-organized-things)
+a [four-day workshop]({{'/ideas/' | relative_url}}#what-i-would-organize-if-i-still-organized-things)
 that would teach 60 people how to engineer structural change.
 I now believe that would be like
 starting a programming class with object-oriented programming and performance optimization
@@ -182,7 +182,7 @@ getting this workshop into a runnable state will cost something like $80K-$100K.
 That may seem like a lot,
 but it's actually a bit less than it cost to get Software Carpentry up and running back in 2010,
 and if a dozen sponsors each get a workshop in return for their backing,
-it's right in line with [what other professional training costs]({{site.github.url}}/2019/12/13/rates.html).
+it's right in line with [what other professional training costs]({{'/2019/12/13/rates.html' | relative_url}}).
 
 Will this work?
 I don't know,

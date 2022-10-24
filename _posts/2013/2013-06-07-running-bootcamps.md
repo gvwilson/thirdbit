@@ -14,8 +14,8 @@ original: swc
     <th>Cumulative Enrolment</th>
   </tr>
   <tr>
-    <td><img src="{{site.github.url}}/files/2013/06/bootcamps.png" alt="Cumulative Number of Bootcamps" /></td>
-    <td><img src="{{site.github.url}}/files/2013/06/enrolment.png" alt="Cumulative Enrolment" /></td>
+    <td><img src="{{'/files/2013/06/bootcamps.png' | relative_url}}" alt="Cumulative Number of Bootcamps" /></td>
+    <td><img src="{{'/files/2013/06/enrolment.png' | relative_url}}" alt="Cumulative Enrolment" /></td>
   </tr>
 </table>
 <p>

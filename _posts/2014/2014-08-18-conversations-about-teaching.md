@@ -102,7 +102,7 @@ archives:
   Our lessons try to strike a balance between the practical and the conceptual
   by advertising the first and smuggling in the second.
   For example,
-  our <a href="{{site.baseurl}}/lessons/#shell">introduction to the Unix shell</a>
+  our introduction to the Unix shell
   only covers 15 commands in three hours.
   Along the way,
   though,

@@ -60,7 +60,7 @@ Bob --&gt; Alice: Authentication Response
 @enduml</pre>
 into a picture like:
 
-<img title="diagram" src="{{site.github.url}}/files/2009/10/diagram.png" alt="diagram" width="210" height="153" />
+<img title="diagram" src="{{'/files/2009/10/diagram.png' | relative_url}}" alt="diagram" width="210" height="153" />
 
 just as a wiki engine takes <code>//ohmigod!//</code> and turns it into <em>ohmigod!</em>. (Example taken from <a href="http://plantuml.sourceforge.net/">PlantUML</a>.)
 

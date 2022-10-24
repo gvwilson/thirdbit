@@ -7,7 +7,7 @@ Over the next few months, I want to experiment with at least four new learning f
 
 Here's what I want instead:
 
-<img title="player" src="{{site.github.url}}/files/2012/01/player.png" alt="" width="386" height="273" />
+<img title="player" src="{{'/files/2012/01/player.png' | relative_url}}" alt="" width="386" height="273" />
 
 Superficially, it isn't much different from what we have The "Slideshow" area shows the current diagram, code snippet, or whatever. The "Continuous Controls" (the usual forward, pause, and rewind) control the synchronized slideshow and audio track, while the "Stepping Controls" allow users to move forward and back a slide at a time, and the "Pointmarks" show where slide transitions take place. Finally, the "Transcript" is, as its name suggests, a transcript of the audio that accompanies the current slide.
 

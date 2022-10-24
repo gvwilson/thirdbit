@@ -5,7 +5,7 @@ title: "Thirteen Percent and Counting"
 ---
 
 Last week, I posted a description of a half-baked plan for [lesson
-aggregation]({{site.github.url}}/2018/12/12/twelve-percent.html).  I've had some
+aggregation]({{'/2018/12/12/twelve-percent.html' | relative_url}}).  I've had some
 useful discussions since then; what follows is hopefully the first in a series
 of summaries.
 
@@ -26,7 +26,7 @@ conformant metadata?
 
 **Second,** after conversation with Niall Beard, I've realized that while
 [TESS](https://tess.elixir-europe.org/) focuses on helping *learners* find and
-use lessons, [my proposal]({{site.github.url}}/2018/12/12/twelve-percent.html)
+use lessons, [my proposal]({{'/2018/12/12/twelve-percent.html' | relative_url}})
 focuses more on helping *other instructors* find and *remix* lessons.  I still
 believe that YAML-in-GitHub is too high a barrier to entry for most people, but
 I think that we can (and should) generate XML or JSON-LD descriptions for

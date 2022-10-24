@@ -4,7 +4,7 @@ year: 2019
 title: "Online Teaching Setup"
 ---
 
-As [I mentioned last week]({{site.github.url}}/2019/03/20/educational-paramedics.html),
+As [I mentioned last week]({{'/2019/03/20/educational-paramedics.html' | relative_url}}),
 a colleague and I have been teaching
 [RStudio's instructor training and certification](https://blog.rstudio.com/2019/02/28/rstudio-instructor-training/) online,
 and I'm pretty pleased with our setup:
@@ -103,4 +103,4 @@ if you want to learn further,
 learn together.
 I'm pretty excited to have the chance to explore ways of helping people do that.
 
-<img src="{{site.github.url}}/files/2019/03/minecraft.png" alt="Minecraft" width="80%" />
+<img src="{{'/files/2019/03/minecraft.png' | relative_url}}" alt="Minecraft" width="80%" />

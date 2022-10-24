@@ -12,5 +12,5 @@ original: swc
   and I look forward to returning soon.
 </p>
 <p>
-  <a href="http://www.tgac.ac.uk/uploads/images/news/IMG_9528.JPG"><img src="{{site.github.url}}/files/2014/11/tgac-class.jpg" alt="TGAC Class" /></a>
+  <a href="http://www.tgac.ac.uk/uploads/images/news/IMG_9528.JPG"><img src="{{'/files/2014/11/tgac-class.jpg' | relative_url}}" alt="TGAC Class" /></a>
 </p>

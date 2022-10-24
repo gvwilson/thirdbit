@@ -60,5 +60,5 @@ my advice to such contrarians is,
 
 [computerworld]: https://www.computerworld.com/article/3389684/r-community-blasts-datacamp-response-to-execs-inappropriate-behavior.html
 [devil]: https://twitter.com/Shakestweetz/status/1107740466123079681
-[testing]: {{site.github.url}}/2012/05/24/everything-you-need-to-know-about-standardized-testing.html
+[testing]: {{'/2012/05/24/everything-you-need-to-know-about-standardized-testing.html' | relative_url}}
 [true-believer]: https://en.wikipedia.org/wiki/The_True_Believer

@@ -40,7 +40,7 @@ all of the book's material under the [Creative Commons - Attribution
 <div align="center">
 <p>
   <a title="Teaching Tech Together" href="{{page.website}}">
-    <img src="{{site.github.url}}/files/2018/07/t3-cover.png" alt="Teaching Tech Together" />
+    <img src="{{'/files/2018/07/t3-cover.png' | relative_url}}" alt="Teaching Tech Together" />
   </a>
 </p>
 </div>
@@ -86,7 +86,7 @@ conduct.
 
 <div align="center">
 <p>
-  <img src="{{site.github.url}}/files/2018/07/t3-sales.svg" width="80%" alt="First Day Sales (map from https://simplemaps.com/resources/svg-world)" />
+  <img src="{{'/files/2018/07/t3-sales.svg' | relative_url}}" width="80%" alt="First Day Sales (map from https://simplemaps.com/resources/svg-world)" />
 </p>
 <p>
   Paperback Sales to Date.

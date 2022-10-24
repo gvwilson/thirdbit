@@ -121,12 +121,12 @@ original: swc
 </p>
 <div class="row">
   <div class="col-sm-6" align="center">
-    <img src="{{site.github.url}}/files/workshops/lanl-1998-07.jpg" alt="LANL (July 1998)" />
+    <img src="{{'/files/workshops/lanl-1998-07.jpg' | relative_url}}" alt="LANL (July 1998)" />
     <br/>
     Los Alamos National Laboratory, July 1998
   </div>
   <div class="col-sm-6" align="center">
-    <img src="{{site.github.url}}/files/workshops/lanl-1998-09.jpg" alt="LANL (September 1998)" />
+    <img src="{{'/files/workshops/lanl-1998-09.jpg' | relative_url}}" alt="LANL (September 1998)" />
     <br/>
     Los Alamos National Laboratory, September 1998
   </div>

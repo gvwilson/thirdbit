@@ -108,7 +108,7 @@ original: swc
   <li>
     <em>Forkable and mergeable.</em>
     Whatever Rails-like system scientists use <em>must</em> play nicely with version control,
-    because as I wrote <a href="{{site.github.url}}/2013/05/what-does-victory-look-like/">a couple of weeks ago</a>,
+    because as I wrote a couple of weeks ago,
     future scientists won't submit, publish, and download papers:
     they will fork and merge projects.
   </li>

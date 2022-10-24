@@ -39,7 +39,7 @@ year: 2016
 <p>
   In my better world,
   the standard undergraduate course on software engineering teaches students
-  <a href="{{site.github.url}}/2014/10/02/a-better-software-engineering-course.html">how to gather and analyze data from real projects</a>.
+  <a href="{{'/2014/10/02/a-better-software-engineering-course.html' | relative_url}}">how to gather and analyze data from real projects</a>.
   They then expect arguments about design patterns, agile development, and the like
   to be backed up by evidence instead of shouting.
 </p>

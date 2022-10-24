@@ -7,4 +7,4 @@ Tomorrow is our summer students' last day (and two are already gone).  It's been
 
 Thanks, everyone --- it's been a pleasure working with you. (And thanks to Pat Smith for the photo...)
 
-<img src="{{site.github.url}}/files/2007/08/students-summer-2007.jpg" alt="Summer Students 2007" id="image1108" />
+<img src="{{'/files/2007/08/students-summer-2007.jpg' | relative_url}}" alt="Summer Students 2007" id="image1108" />

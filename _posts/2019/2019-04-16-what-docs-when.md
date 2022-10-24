@@ -4,7 +4,7 @@ year: 2019
 title: "What Docs When"
 ---
 
-**Note: this post updates [an earlier one]({{site.github.url}}/2019/04/10/what-docs-and-when.html)
+**Note: this post updates [an earlier one]({{'/2019/04/10/what-docs-and-when.html' | relative_url}})
 based on feedback from several people.
 Please keep the comments coming.**
 
@@ -41,7 +41,7 @@ The difference is illustrated by these two cases:
     We sometimes say that their understanding is *brittle*:
     even small changes can shatter their ability to accomplish tasks because they don't have enough of a mental model to generalize or adapt.
 
-<img src="{{site.github.url}}/files/2019/04/doctypes.svg" width="100%" alt="Documentation Types" />
+<img src="{{'/files/2019/04/doctypes.svg' | relative_url}}" width="100%" alt="Documentation Types" />
 
 This diagram refers to the following kinds of material:
 

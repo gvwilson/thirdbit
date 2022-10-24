@@ -4,7 +4,7 @@ year: 2018
 title: "Teaching Ethics"
 ---
 
-[A couple of days ago]({{site.github.url}}/2018/09/16/what-works-for-women-at-work.html),
+[A couple of days ago]({{'/2018/09/16/what-works-for-women-at-work.html' | relative_url}}),
 I wrote about the excellent book
 *[What Works for Women at Work](https://isbndb.com/book/9781479872664)*
 and said that it would be required reading if I ever taught another undergraduate software engineering class.

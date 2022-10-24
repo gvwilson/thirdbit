@@ -109,7 +109,7 @@ year: 2016
     I've been mistaken in trying to treat lesson construction as software development.
     A "lesson" platform that uses Stack Overflow as its model rather than GitHub or Wikipedia
     would be fascinating to explore,
-    as would <a href="{{site.github.url}}/2016/09/12/collaborative-choral-software-exegesis.html">collaborative choral software exegesis</a>.
+    as would <a href="{{'/2016/09/12/collaborative-choral-software-exegesis.html' | relative_url}}">collaborative choral software exegesis</a>.
   </p>
 </dd>
 

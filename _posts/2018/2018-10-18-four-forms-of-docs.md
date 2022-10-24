@@ -66,8 +66,8 @@ Later: Neil Brown [commented](https://twitter.com/neilccbrown/status/10529955404
 > -   Explanation: something you read years after you should have, to fill in the few remaining knowledge gaps
 
 It's slightly tongue-in-cheek, but there's a lot of truth in it.
-I've also [written]({{site.github.url}}/2017/12/30/lesson-competition.html)
-[before]({{site.github.url}}/2016/09/12/collaborative-choral-software-exegesis.html)
+I've also [written]({{'/2017/12/30/lesson-competition.html' | relative_url}})
+[before]({{'/2016/09/12/collaborative-choral-software-exegesis.html' | relative_url}})
 about Mike Caulfield's notion of [a chorus of explanations](https://hapgood.us/2016/05/13/choral-explanations/),
 which is still the most accurate description I know of how I am using various resources
 as I slowly teach myself R.

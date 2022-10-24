@@ -5,7 +5,7 @@ title: "Patterns in Git"
 ---
 
 Two years ago,
-[I proposed]({{site.github.url}}/2017/09/30/git-graphs-and-engineering.html) that someone could try to fix Git's usability issues by:
+[I proposed]({{'/2017/09/30/git-graphs-and-engineering.html' | relative_url}}) that someone could try to fix Git's usability issues by:
 
 1. Downloading data from several thousand large projects on GitHub.
 
@@ -22,7 +22,7 @@ The short version is that *there are no patterns*—at least,
 none that show up in repository history.
 The first clustering was promising:
 
-<img src="{{site.github.url}}/files/2019/07/global_clustering.png" width="600px" />
+<img src="{{'/files/2019/07/global_clustering.png' | relative_url}}" width="600px" />
 
 However,
 the closer the team looked, the less signal they found.
@@ -31,7 +31,7 @@ once you filter those out,
 most of the remainder are a single linear chain of commits (essentially, one person using Git for file backup).
 Take that away and you're left with this:
 
-<img src="{{site.github.url}}/files/2019/07/embeddings_tsne.png" width="600px" />
+<img src="{{'/files/2019/07/embeddings_tsne.png' | relative_url}}" width="600px" />
 
 There are many possible explanations for these results:
 `git merge` might attenuate or erase the signal we're looking for,

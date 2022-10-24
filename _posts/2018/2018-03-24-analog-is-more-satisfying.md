@@ -5,12 +5,12 @@ year: 2018
 ---
 
 I'm organizing my thoughts about other people's thoughts for
-[the next revision]({{site.github.url}}/2018/03/20/plan-for-version-3.html)
+[the next revision]({{'/2018/03/20/plan-for-version-3.html' | relative_url}})
 of *[How to Teach Programming (and Other Things)](http://third-bit.com/teaching/)*,
 and have found yet again that moving lines of text around in Emacs
 isn't nearly as satisfying as shuffling scraps of paper on a table.
 
-<img src="{{site.github.url}}/files/2018/03/sorted-notes.jpg" alt="Sorted Notes" width="100%" />
+<img src="{{'/files/2018/03/sorted-notes.jpg' | relative_url}}" alt="Sorted Notes" width="100%" />
 
 Categories in this not-very-scientific card sort of 206 new citations include:
 

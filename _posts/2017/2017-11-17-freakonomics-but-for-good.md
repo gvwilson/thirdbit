@@ -60,7 +60,7 @@ isn't going to make a difference.
 What we need is something like *[Freakonomics][freakonomics]*, but for good:
 something that says,
 "Hey, come here, let me show you how the world really works."
-[These books]({{site.github.url}}/reading/) are great examples;
+[These books]({{'/reading/' | relative_url}}) are great examples;
 if you know of others,
 I'd be grateful for pointers.
 
@@ -69,5 +69,5 @@ I'd be grateful for pointers.
 [guardian]: https://www.theguardian.com/environment/climate-consensus-97-per-cent/2013/jul/08/climate-change-superfreakonomics-superfreakingwrong
 [moro]: https://jeffreymoro.com/2017/11/14/the-price-of-admission/
 [oneil-nytimes]: https://www.nytimes.com/2017/11/14/opinion/academia-tech-algorithms.html
-[stam]: {{site.github.url}}/2016/11/13/stuff-that-actually-matters.html
+[stam]: {{'/2016/11/13/stuff-that-actually-matters.html' | relative_url}}
 [twitter-tear-gas]: https://www.amazon.com/Twitter-Tear-Gas-Fragility-Networked/dp/0300215126/

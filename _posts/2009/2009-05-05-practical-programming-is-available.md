@@ -14,4 +14,4 @@ Our new book, <em>Practical Programming</em>, is now available from <a href="htt
 	<li>Building graphical interfaces to make programs easier to use</li>
 	<li>Object-oriented programming and programming patterns</li>
 </ul>
-<a href="http://www.pragprog.com/titles/gwpy/practical-programming"><img title="Practical Programming" src="{{site.github.url}}/files/2009/05/gwpy.jpg" alt="Practical Programming" width="190" height="228" /></a>
+<a href="http://www.pragprog.com/titles/gwpy/practical-programming"><img title="Practical Programming" src="{{'/files/2009/05/gwpy.jpg' | relative_url}}" alt="Practical Programming" width="190" height="228" /></a>

@@ -75,7 +75,7 @@ original: swc
 <p>
   If you think the change is worth making,
   please say so in <strike>the comments below</strike>
-  <a href="{{site.github_url}}/lesson-template/issues/279">this GitHub issue</a>.
+  <a href="{{'/lesson-template/issues/279' | relative_url}}">this GitHub issue</a>.
   If you think we should stick with our existing tools,
   please say that too.
 </p>

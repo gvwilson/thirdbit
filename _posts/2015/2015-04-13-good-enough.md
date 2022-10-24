@@ -32,7 +32,7 @@ original: swc
   which is pretty demoralizing:
 </p>
 <div align="center">
-  <img src="{{site.github.url}}/files/2015/04/impostor-gap.png" class="img-responsive" alt="The Impostor Gap" />
+  <img src="{{'/files/2015/04/impostor-gap.png' | relative_url}}" class="img-responsive" alt="The Impostor Gap" />
 </div>
 <p>
   I believe that

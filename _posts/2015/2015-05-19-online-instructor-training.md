@@ -15,9 +15,9 @@ original: swc
 </ul>
 <p>
   We've also gathered
-  <a href="{{site.github_url}}/training-course/issues/514">a lot of feedback</a>
+  <a href="{{'/training-course/issues/514' | relative_url}}">a lot of feedback</a>
   on what people want from instructor training
-  and <a href="{{site.github_url}}/training-course/issues/445">what its prerequisites should be</a>.
+  and <a href="{{'/training-course/issues/445' | relative_url}}">what its prerequisites should be</a>.
   Based on all of that,
   we're going to try to combine the best features of everything we've done so far.
 </p>
