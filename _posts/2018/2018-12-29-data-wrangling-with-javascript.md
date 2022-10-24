@@ -30,7 +30,7 @@ There are lots of code samples and plenty of diagrams,
 and you can download both the data sets the author uses in examples
 and the Data-Forge library he has developed for data crunching in JavaScript.
 I suspect readers will need some prior familiarity with JavaScript to dive into this,
-and [as I said a few weeks ago]({{site.github.url}}/2018/12/02/one-last-step.html),
+and [as I said a few weeks ago]({{'/2018/12/02/one-last-step/' | relative_url}}),
 I don't think Python and R have anything to worry about
 unless and until JavaScript acquires operator overloading,
 but Davis shows just how far you can go with what's available in modern JavaScript today,

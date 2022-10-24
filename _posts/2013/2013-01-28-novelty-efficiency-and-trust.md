@@ -5,7 +5,7 @@ year: 2013
 original: swc
 ---
 
-<p>I've spent a lot of time trying to figure out what the "big picture" is for Software Carpentry.  What are the <a href="http://arxiv.org/abs/1210.0530">best practices</a> every scientist should master?  What are the <a href="{{site.baseurl}}/lessons/previous/#softeng">principles</a> of computational thinking?  How exactly are we helping people?  My latest attempt to put this all in a nutshell has three strands: <em>novelty</em>, <em>efficiency</em>, and <em>trust</em>:</p>
+<p>I've spent a lot of time trying to figure out what the "big picture" is for Software Carpentry.  What are the <a href="http://arxiv.org/abs/1210.0530">best practices</a> every scientist should master?  What are the principles of computational thinking?  How exactly are we helping people?  My latest attempt to put this all in a nutshell has three strands: <em>novelty</em>, <em>efficiency</em>, and <em>trust</em>:</p>
 <ol>
   <li>By improving scientists' computing skills, we're helping them do things they couldn't do before.</li>
   <li>We're also showing them how to do things with less effort.</li>

@@ -12,22 +12,22 @@ original: swc
   but I'd like to thank the following for their feedback:
 </p>
 <ul>
-  <li><a href="{{site.baseurl}}/team/#bostroem.a">Azalee Bostroem</a> (Space Telescope Science Institute)</li>
-  <li><a href="{{site.baseurl}}/team/#cannam.c">Chris Cannam</a> (Queen Mary, University of London)</li>
-  <li><a href="{{site.baseurl}}/team/#crouch.s">Stephen Crouch</a> (Software Sustainability Institute)</li>
-  <li><a href="{{site.baseurl}}/team/#davis.m">Matt Davis</a> (Datapad, Inc.)</li>
-  <li><a href="{{site.baseurl}}/team/#figueira.l">Luis Figueira</a> (King's College London)</li>
-  <li><a href="{{site.baseurl}}/team/#guy.t">Tommy Guy</a> (Microsoft)</li>
-  <li><a href="{{site.baseurl}}/team/#hart.t">Ted Hart</a> (University of British Columbia)</li>
-  <li><a href="{{site.baseurl}}/team/#chue-hong.n">Neil Chue Hong</a> (Software Sustainability Institute)</li>
-  <li><a href="{{site.baseurl}}/team/#huff.k">Katy Huff</a> (University of Wisconsin)</li>
-  <li><a href="{{site.baseurl}}/team/#jackson.m">Michael Jackson</a> (Edinburgh Parallel Computing Centre)</li>
-  <li><a href="{{site.baseurl}}/team/#king.w">W. Trevor King</a> (freelance software developer)</li>
-  <li><a href="{{site.baseurl}}/team/#kitzes.j">Justin Kitzes</a> (University of California, Berkeley)</li>
-  <li><a href="{{site.baseurl}}/team/#mcgough.s">Stephen McGough</a> (University of Newcastle)</li>
-  <li><a href="{{site.baseurl}}/team/#nederbragt.lex">Lex Nederbragt</a> (University of Oslo)</li>
-  <li><a href="{{site.baseurl}}/team/#teal.t">Tracy Teal</a> (Michigan State University)</li>
-  <li><a href="{{site.baseurl}}/team/#waugh.b">Ben Waugh</a> (University College London)</li>
-  <li><a href="{{site.baseurl}}/team/#white.e">Ethan White</a> (Utah State University)</li>
-  <li><a href="{{site.baseurl}}/team/#williams.l">Lynne J. Williams</a> (Rotman Research Institute)</li>
+  <li>Azalee Bostroem (Space Telescope Science Institute)</li>
+  <li>Chris Cannam (Queen Mary, University of London)</li>
+  <li>Stephen Crouch (Software Sustainability Institute)</li>
+  <li>Matt Davis (Datapad, Inc.)</li>
+  <li>Luis Figueira (King's College London)</li>
+  <li>Tommy Guy (Microsoft)</li>
+  <li>Ted Hart (University of British Columbia)</li>
+  <li>Neil Chue Hong (Software Sustainability Institute)</li>
+  <li>Katy Huff (University of Wisconsin)</li>
+  <li>Michael Jackson (Edinburgh Parallel Computing Centre)</li>
+  <li>W. Trevor King (freelance software developer)</li>
+  <li>Justin Kitzes (University of California, Berkeley)</li>
+  <li>Stephen McGough (University of Newcastle)</li>
+  <li>Lex Nederbragt (University of Oslo)</li>
+  <li>Tracy Teal (Michigan State University)</li>
+  <li>Ben Waugh (University College London)</li>
+  <li>Ethan White (Utah State University)</li>
+  <li>Lynne J. Williams (Rotman Research Institute)</li>
 </ul>

@@ -42,7 +42,7 @@ year: 2015
 <ul>
   <li>
     I want to
-    <a href="{{site.github.url}}/2014/10/02/a-better-software-engineering-course.html">teach computer science students the scientific method</a>
+    <a href="{{'/2014/10/02/a-better-software-engineering-course/' | relative_url}}">teach computer science students the scientific method</a>
     so that they will build tools and choose working practices based on evidence rather than anecdote.
   </li>
   <li>
@@ -51,12 +51,11 @@ year: 2015
     before adding them to the language
   </li>
   <li>
-    I want Software Carpentry and Data Carpentry to do more
-    <a href="https://software-carpentry.org/blog/2015/12/assessment-update.html">assessment</a>
+    I want Software Carpentry and Data Carpentry to do more assessment
     in 2016 to find out what's effective and where we can make improvements.
   </li>
   <li>
-    I'm going to <a href="https://software-carpentry.org/blog/2015/12/plans-for-2016.html">work full-time on instructor training</a>
+    I'm going to work full-time on instructor training
     for the next twelve months
     because I believe that if we apply educational research in the classroom,
     teaching and learning will both be improved.
@@ -68,10 +67,9 @@ year: 2015
   we can make our world better.
   That&mdash;the use of the scientific method to improve the universe instead of merely understanding it&mdash;is
   as good a definition of engineering as I know.
-  Among all the <a href="{{site.github.url}}/2015/12/18/why-i-teach.html">thoughts</a>
-  prompted by this
-  <a href="{{site.github.url}}/2015/09/22/dad.html">difficult</a>
-  <a href="{{site.github.url}}/2015/11/09/daddy-why-dont-you-ever-laugh.html">year</a>,
+  Among all the thoughts prompted by this
+  <a href="{{'/2015/09/22/dad/' | relative_url}}">difficult</a>
+  <a href="{{'/2015/11/09/daddy-why-dont-you-ever-laugh/' | relative_url}}">year</a>,
   the discovery that I might finally be thinking like an engineer
   three decades after earning a degree in the subject
   is oddly comforting.

@@ -14,10 +14,9 @@ original: swc
   but the trainer comes in via the web.</li>
 </ul>
 <p>
-  We've also gathered
-  <a href="{{site.github_url}}/training-course/issues/514">a lot of feedback</a>
+  We've also gathered a lot of feedback
   on what people want from instructor training
-  and <a href="{{site.github_url}}/training-course/issues/445">what its prerequisites should be</a>.
+  and what its prerequisites should be.
   Based on all of that,
   we're going to try to combine the best features of everything we've done so far.
 </p>

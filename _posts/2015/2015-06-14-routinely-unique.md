@@ -29,7 +29,7 @@ original: swc
   </p>
 </blockquote>
 <p>
-  <img src="{{site.github.url}}/files/2015/06/Bio2.jpg" class="responsive" />
+  <img src="{{'/files/2015/06/Bio2.jpg' | relative_url}}" class="responsive" />
 </p>
 <p>
   This is why we teach what we teach:

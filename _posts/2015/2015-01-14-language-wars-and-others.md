@@ -15,8 +15,7 @@ original: swc
     <p>
       We'd be happy to,
       provided you will create and maintain a lesson that covers the same basic ideas as
-      <a href="{{site.baseurl}}/lessons/">our existing ones</a>.
-      (Cf. "<a href="http://third-bit.com/2011/05/28/you-doesnt-exist.html">You Doesn't Exist</a>".)
+      our existing ones.
     </p>
   </li>
   <li>

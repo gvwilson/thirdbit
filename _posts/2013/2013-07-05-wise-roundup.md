@@ -14,5 +14,5 @@ original: swc
 </ul>
 <p>Many thanks once again to everyone who worked so hard to pull it together, and to our sponsors for their support.  We look forward to doing it again soon.</p>
 <p>
-  <img src="{{site.github.url}}/files/2013/07/wise.jpg" alt="WiSE Bootcamp" />
+  <img src="{{'/files/2013/07/wise.jpg' | relative_url}}" alt="WiSE Bootcamp" />
 </p>

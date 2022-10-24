@@ -74,7 +74,7 @@ original: swc
   <dt>How can I make a personal donation to the cause?</dt>
   <dd>
     You can send us money by PayPal,
-    or <a href="mailto:{{site.contact}}">contact us</a> to arrange other payment methods:
+    or <a href="mailto:{{site.author.email}}">contact us</a> to arrange other payment methods:
   </dd>
   <dt>How else can I help?</dt>
   <dd>
@@ -92,7 +92,7 @@ original: swc
   </dd>
   <dt>Where can I find out more?</dt>
   <dd>
-    Please <a href="mailto:{{site.contact}}">mail us</a> or add a comment on this post
+    Please <a href="mailto:{{site.author.email}}">mail us</a> or add a comment on this post
     and we'll get back to you as quickly as we can.
   </dd>
 </dl>

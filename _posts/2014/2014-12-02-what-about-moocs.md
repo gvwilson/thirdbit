@@ -34,5 +34,5 @@ original: swc
   Should this be used as the "day 3" follow-on that everyone keeps asking for?
   We'd like to try all of this and more;
   if you'd like to help,
-  please <a href="mailto:{{site.contact}}">let us know</a>.
+  please <a href="mailto:{{site.author.email}}">let us know</a>.
 </p>

@@ -42,7 +42,7 @@ original: swc
   in January 2016
   by gender.
   (I'd like to show number for a whole year,
-  but <a href="{{site.github.url}}/files/2016/02/balance/bin/get-repo.py">my script</a>
+  but <a href="{{'/files/2016/02/balance/bin/get-repo.py' | relative_url}}">my script</a>
   won't fetch stuff from that far back.)
 </p>
 

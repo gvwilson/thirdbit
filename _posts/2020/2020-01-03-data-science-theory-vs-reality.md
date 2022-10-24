@@ -1,6 +1,6 @@
 ---
 title: "Data Science Theory vs. Practice"
-date: 2020-01-03 01:14:00
+date: 2020-01-03 11:14:00
 year: 2020
 ---
 

@@ -6,7 +6,7 @@ year: 2011
 <table>
 <tbody>
 <tr>
-<td valign="top"><a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321"><img title="cover" src="{{site.github.url}}/files/2011/05/cover.jpg" alt="" width="263" height="345" /></a></td>
+<td valign="top"><a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321"><img title="cover" src="{{'/files/2011/05/cover.jpg' | relative_url}}" alt="" width="263" height="345" /></a></td>
 <td valign="top"><em>This post is based on the work of <a href="http://catenary.wordpress.com">Jorge Aranda</a>, <a href="http://margaretannestorey.wordpress.com/">Margaret-Anne (Peggy) Storey</a>, <a href="http://webhome.cs.uvic.ca/~danielad/">Daniela Damian</a>, <a href="http://mcs.open.ac.uk/mp8/">Marian Petre</a>, and me. It is a re-post from <a href="http://catenary.wordpress.com/2011/05/19/how-do-practitioners-perceive-software-engineering-research/">Jorge's blog</a>&mdash;please post your thoughts there.</em>
 
 <em>

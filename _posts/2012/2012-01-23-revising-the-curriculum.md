@@ -78,7 +78,7 @@ title: Revising the Curriculum
 </ul>
 </li>
 </ol>
-<p>If we use a two-day <a href="{{site.baseurl}}/workshops/">workshop</a> to start, and follow up over six weeks with one lesson per week, I think we can cover:</p>
+<p>If we use a two-day workshop to start, and follow up over six weeks with one lesson per week, I think we can cover:</p>
 <table>
 <tbody>
 <tr>
@@ -160,4 +160,4 @@ evidence-based software engineering</td>
 <li>Performance and parallelism: the most important lesson, which <em>is</em> in the core, is that the right data structures and algorithms can speed programs up more than any amount of code tuning. Everything after that is either inextricably tied to the specifics of a particular langauge implementation (performance tuning), or offers no low-hanging fruit (parallelism). The one exception is job-level parallelism, which <em>could</em> be included in the material on the Unix shell if an appropriate cross-platform tool could be found.</li>
 <li>C/C++, Fortran, C#, or Java: more to introduce fixed typing and compilation, but these are relatively low priority topics.</li>
 </ol>
-<p>We're going to start implementing this plan (or some derivative of it) at the beginning of February, to be ready for workshops starting at the end of that month. We'd welcome feedback; in particular, have we taken something out of the core that you think is more important than something that's in, and that could be taught in the time that's actually available? If you have thoughts, please <a href="mailto:{{site.contact}}">let us know</a>.</p>
+<p>We're going to start implementing this plan (or some derivative of it) at the beginning of February, to be ready for workshops starting at the end of that month. We'd welcome feedback; in particular, have we taken something out of the core that you think is more important than something that's in, and that could be taught in the time that's actually available? If you have thoughts, please <a href="mailto:{{site.author.email}}">let us know</a>.</p>

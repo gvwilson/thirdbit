@@ -30,8 +30,8 @@ their first response should be to say, "Citation, please."
 I believe the only way to fix this is to replace
 our current UML-teamwork-and-handwaving introductions to sofware engineering
 with courses in which students learn the scientific method and the value of research by
-[recapitulating the analyses of landmark papers]({{site.github.url}}/2014/10/02/a-better-software-engineering-course.html).
-I still think [the time is right]({{site.github.url}}/2015/11/29/exaptation.html),
+[recapitulating the analyses of landmark papers]({{'/2014/10/02/a-better-software-engineering-course/' | relative_url}}).
+I still think [the time is right]({{'/2015/11/29/exaptation/' | relative_url}}),
 and next week I'll start interviewing candidates for [a summer internship](https://blog.rstudio.com/2019/01/18/summer-internships-2019/)
 to develop course materials for teaching basic data analysis to programmers using software engineering problems and data sets.
 I'm looking forward to it,

@@ -47,7 +47,7 @@ original: swc
 <p>
   The full description of the Co-Executive Director position is in
   this blog post.
-  To apply, please send email to <a href="mailto:{{site.contact}}">{{site.contact}}</a> by July 31, 2015
+  To apply, please send email to <a href="mailto:{{site.author.email}}">{{site.author.email}}</a> by July 31, 2015
   with &quot;Co-Executive Director&quot; in the subject line, and include:
 </p>
 <ul>

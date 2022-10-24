@@ -183,8 +183,7 @@ original: swc
   that include explanations of <em>why</em>:
   why these tests,
   and why these tolerances?
-  You can see my attempt at something like this
-  <a href="{{site.baseurl}}/lessons/previous/#invperc">here</a>,
+  You can see my attempt at something like this here,
   but that example deliberately doesn't use floating point
   so that the question of error bars didn't arise.
 </p>

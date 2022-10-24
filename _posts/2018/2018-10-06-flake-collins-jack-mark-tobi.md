@@ -37,7 +37,7 @@ What saddens me is how many other people at Twitter and Facebook and Shopify
 are making excuses or changing the subject or saying,
 "Oh, but look at our diversity scholarships!"
 Maybe they've had better luck
-[arguing with the dead]({{site.github.url}}/2018/05/06/cigarettes-and-shopify.html)
+[arguing with the dead]({{'/2018/05/06/cigarettes-and-shopify/' | relative_url}})
 that I have,
 or maybe they think that if they don't say anything today they'll be spared tomorrow,
 or maybe they genuinely don't care.

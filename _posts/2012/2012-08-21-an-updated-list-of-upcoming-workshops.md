@@ -115,4 +115,4 @@ title: An Updated List of Upcoming Workshops
 <li>Washington, D.C. (George Mason University)</li>
 <li>Waterloo</li>
 </ul>
-<p>If you're interested in helping us teach, and in taking part in an online study group this fall on how to teach this stuff, please <a href="mailto:{{site.contact}}">get in touch</a>.</p>
+<p>If you're interested in helping us teach, and in taking part in an online study group this fall on how to teach this stuff, please <a href="mailto:{{site.author.email}}">get in touch</a>.</p>

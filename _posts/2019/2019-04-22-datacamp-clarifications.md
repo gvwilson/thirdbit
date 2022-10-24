@@ -1,18 +1,18 @@
 ---
-date: 2019-04-22 02:30
+date: 2019-04-22 12:30:00
 year: 2019
 title: "DataCamp Clarifications"
 ---
 
 There has been a lot of discussion online about DataCamp's mishandling of a sexual assault case
 since [Kara Woo bravely came forward](https://twitter.com/kara_woo/status/1114229065509003264) on April 5.
-I [published and updated some thoughts]({{site.github.url}}/2019/04/05/the-worst-behavior/) that same day,
-and [summarized my final exchange with the company]({{site.github.url}}/2019/04/15/an-exchange-with-datacamp/) on April 15.
+I [published and updated some thoughts]({{'/2019/04/05/the-worst-behavior/' | relative_url}}) that same day,
+and [summarized my final exchange with the company]({{'/2019/04/15/an-exchange-with-datacamp/' | relative_url}}) on April 15.
 Reading what's been written since,
 I would like to clarify that
 I have not claimed I was fired for my concerns over the company's mishandling of the assault on Kara.
 I was quite vocal in my unhappiness regarding that,
-but as [I said on April 5]({{site.github.url}}/2019/04/05/the-worst-behavior/),
+but as [I said on April 5]({{'/2019/04/05/the-worst-behavior/' | relative_url}}),
 DataCamp's stated reason for firing me was poor performance,
 and I accept that I accomplished less in late 2017 and early 2018 than usual.
 
@@ -25,7 +25,7 @@ their response on July 6, 2018 was,
 "With regards to your personal family situation, I did not hear anything prior but would be open to discussing."
 The company also refused to give me a list of performance targets I had failed to meet at the time of my firing,
 though they backtracked on this point on July 6
-during negotation of [the non-disparagement agreement that I eventually refused to sign]({{site.github.url}}/2019/04/15/an-exchange-with-datacamp/).
+during negotation of [the non-disparagement agreement that I eventually refused to sign]({{'/2019/04/15/an-exchange-with-datacamp/' | relative_url}}).
 
 But whether or not DataCamp was justified in firing me doesn't matter.
 What matters is the assault on Kara Woo and DataCamp's misbehavior since,

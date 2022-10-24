@@ -29,5 +29,5 @@ original: swc
   a university or government institution has already paid $1250 for a
   workshop this year, we will only charge $750 per workshop for their
   subsequent workshops until December 31st.  If you have any
-  questions, please <a href="mailto:{{site.contact}}">get in touch</a>.
+  questions, please <a href="mailto:{{site.author.email}}">get in touch</a>.
 </p>

@@ -7,12 +7,12 @@ original: swc
 <p>
   Back in December,
   I asked a question on the Software Carpentry issue track:
-  <a href="{{site.github_url}}/bc/issues/199">What should we teach about writing/publishing papers in a webby world?</a>
+  What should we teach about writing/publishing papers in a webby world?
   It led to a lively discussion about how the web is changing scientific publishing,
   the tools people can use to take advantage of those changes,
   and the gap between what's possible and what publishers (and senior academics) will actually accept.
   Many commenters dove immediately into the details of specific tools,
-  but Justin Kitzes nailed it when <a href="{{site.github_url}}/bc/issues/199#issuecomment-29940210">he said</a>:
+  but Justin Kitzes nailed it when he said:
 </p>
 <blockquote>
   <p>
@@ -60,7 +60,7 @@ original: swc
   </p>
 </blockquote>
 <p>
-  Carl Boettiger then added <a href="{{site.github_url}}/bc/issues/199#issuecomment-31671978">his recommendations</a>,
+  Carl Boettiger then added his recommendations,
   which I've condensed as:
 </p>
 <ul>
@@ -115,7 +115,7 @@ original: swc
   (and the risk that their supervisor will ask them to re-do it because what's GitHub?).
 </p>
 <p>
-  But Jon Pipitone (who works in a research hospital) <a href="{{site.github_url}}/bc/issues/199#issuecomment-31745008">disagreed</a>:
+  But Jon Pipitone (who works in a research hospital) disagreed:
 </p>
 <blockquote>
   <p>
@@ -139,7 +139,7 @@ original: swc
   </p>
 </blockquote>
 <p>
-  Cameron Neylon then tried to refocus the discussion on <a href="{{site.github_url}}/bc/issues/199#issuecomment-31751479">this key point</a>:
+  Cameron Neylon then tried to refocus the discussion on this key point:
 </p>
 <blockquote>
   <p>
@@ -170,8 +170,7 @@ original: swc
   </p>
 </blockquote>
 <p>
-  Ian Mulvany then contributed
-  <a href="{{site.github_url}}/bc/issues/199#issuecomment-31879806">a lengthy comment</a>,
+  Ian Mulvany then contributed a lengthy comment,
   which he later turned into
   <a href="http://partiallyattended.com/2014/01/08/advice-on-publishing-online/">a detailed, insightful blog post</a>.
   The whole thing merits close reading,
@@ -211,6 +210,5 @@ original: swc
   are now within reach of our learners (if only just).
   If you'd like to help us work out the specifics&mdash;in particular,
   if you'd like to help us create an hour-long teaching module
-  on 21st Century scientific publishing&mdash;please
-  <a href="{{site.github_url}}/bc/issues/199">join the discussion</a>.
+  on 21st Century scientific publishing&mdash;please join the discussion.
 </p>

@@ -5,19 +5,19 @@ year: 2008
 ---
 <table>
 <tr>
-<td><img src="{{site.github.url}}/files/2008/05/supernatural.png" alt="Supernatural" /></td>
-<td><img src="{{site.github.url}}/files/2008/05/eureka1.jpg" alt="Eureka" /></td>
+<td><img src="{{'/files/2008/05/supernatural.png' | relative_url}}" alt="Supernatural" /></td>
+<td><img src="{{'/files/2008/05/eureka1.jpg' | relative_url}}" alt="Eureka" /></td>
 </tr>
 <tr>
-<td><img src="{{site.github.url}}/files/2008/05/stargate-atlantis2.jpg" alt="Stargate: Atlantis" /></td>
-<td><img src="{{site.github.url}}/files/2008/05/house1.jpg" alt="House" /></td>
+<td><img src="{{'/files/2008/05/stargate-atlantis2.jpg' | relative_url}}" alt="Stargate: Atlantis" /></td>
+<td><img src="{{'/files/2008/05/house1.jpg' | relative_url}}" alt="House" /></td>
 </tr>
 <tr>
-<td><img src="{{site.github.url}}/files/2008/05/stormhawks.jpg" alt="Stormhawks" /></td>
-<td><img src="{{site.github.url}}/files/2008/05/closer1.jpg" alt="The Closer" /></td>
+<td><img src="{{'/files/2008/05/stormhawks.jpg' | relative_url}}" alt="Stormhawks" /></td>
+<td><img src="{{'/files/2008/05/closer1.jpg' | relative_url}}" alt="The Closer" /></td>
 </tr>
 <tr>
-<td><img src="{{site.github.url}}/files/2008/05/chuck1.jpg" alt="Chuck" /></td>
-<td><img src="{{site.github.url}}/files/2008/05/battlestar-galactica1.jpg" alt="Battlestar Galactica" /></td>
+<td><img src="{{'/files/2008/05/chuck1.jpg' | relative_url}}" alt="Chuck" /></td>
+<td><img src="{{'/files/2008/05/battlestar-galactica1.jpg' | relative_url}}" alt="Battlestar Galactica" /></td>
 </tr>
 </table>

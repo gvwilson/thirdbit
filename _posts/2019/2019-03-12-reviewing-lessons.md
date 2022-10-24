@@ -1,5 +1,5 @@
 ---
-date: 2019-03-12 01:05
+date: 2019-03-12 11:05:00
 year: 2019
 title: "Reviewing Lessons"
 ---
@@ -50,7 +50,7 @@ A few people contributed to them,
 but pull requests didn't really start to arrive until we switched to the explanatory prose
 they're made up of today.
 At the time I thought it was because the file formats we were using made PRs difficult
-(see [yesterday's mini-rant about version control]({{site.github.url}}/2019/03/10/the-tool-i-want.html)),
+(see [yesterday's mini-rant about version control]({{'/2019/03/10/the-tool-i-want/' | relative_url}})),
 but now I'm wondering whether the real reason was that
 I was asking people to review a song by reading the sheet music
 instead of listening to it.

@@ -11,7 +11,7 @@ original: swc
   has become a partner of the Software Carpentry Foundation.
 </p>
 <p>
-  <img src="{{site.github.url}}/files/orgs/uw-escience.png" alt="eScience Institute, University of Washington" />
+  <img src="{{'/files/orgs/uw-escience.png' | relative_url}}" alt="eScience Institute, University of Washington" />
 </p>
 <p>
   Since its creation in 2008,

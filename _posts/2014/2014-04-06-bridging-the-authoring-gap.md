@@ -43,7 +43,7 @@ original: swc
   how to write the way they're used to,
   then how to do better when and as <em>they</em> are ready.
   If you're interested in working on this,
-  please <a href="mailto:{{site.contact}}">mail us</a>;
+  please <a href="mailto:{{site.author.email}}">mail us</a>;
   we'd be happy to help assemble a coalition of the willing.
 </p>
 <p id="1"><em>

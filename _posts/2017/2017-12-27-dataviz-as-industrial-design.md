@@ -1,11 +1,11 @@
 ---
 title: "Data Visualization as Industrial Design"
-date: 2017-12-27 03:30:00
+date: 2017-12-27 13:30:00
 year: 2017
 ---
 
 I've had some interesting discussions by email since posting my article about
-[software engineering and industrial design]({{site.github.url}}/2017/12/17/consider-the-bicycle.html).
+[software engineering and industrial design]({{'/2017/12/17/consider-the-bicycle/' | relative_url}}).
 A couple of them have asked where they could learn more,
 but unfortunately,
 I don't have much to offer.

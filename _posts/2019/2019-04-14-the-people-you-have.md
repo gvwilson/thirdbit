@@ -1,5 +1,5 @@
 ---
-date: 2019-04-14 06:13
+date: 2019-04-14 16:13:00
 year: 2019
 title: "The People You Have"
 ---
@@ -53,7 +53,7 @@ we drew more on Lang's *[Small Teaching](https://www.wiley.com/en-ca/Small+Teach
 and Huston's *[Teaching What You Don't Know](http://www.hup.harvard.edu/catalog.php?isbn=9780674066175)*.
 
 The thing I want most in an ethical replacement for DataCamp is checks and balances.
-[Make it harder for those with power to cover up misbehavior]({{site.github.url}}/2018/12/31/harassment-canary.html).
+[Make it harder for those with power to cover up misbehavior]({{'/2018/12/31/harassment-canary/' | relative_url}}).
 Ensure that information about users won't be sold to third parties,
 even if the platform is bought or the idealists in the C-suite are sidelined.
 But the thing I want second is to create [a commons](http://www.thinklikeacommoner.com/)

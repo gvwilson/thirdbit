@@ -11,4 +11,4 @@ original: swc
   <li>We arrange for would-be instructors to help out at bootcamps, then co-teach with someone more experienced, and then run one themselves.</li>
   <li>We are (slowly) assembling an instructors' guide that lays out our core material <em>and</em> the pedagogy around it (in educational jargon, the "pedagogical content knowledge").</li>
 </ol>
-<p>The third round of our online study group kicked off last week, and we expect to start another one in March.  If you're interested in taking part, please <a href="mailto:{{site.contact}}">let us know</a>: we're always looking for good people.</p>
+<p>The third round of our online study group kicked off last week, and we expect to start another one in March.  If you're interested in taking part, please <a href="mailto:{{site.author.email}}">let us know</a>: we're always looking for good people.</p>

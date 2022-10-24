@@ -99,7 +99,7 @@ original: swc
   We will start this study in February 2014.  We are currently looking
   for a few more mentors, and more importantly, for small groups of
   scientists who would like to give code review a try.  If you are
-  interested, please <a href="mailto:{{site.contact}}">mail us</a> a
+  interested, please <a href="mailto:{{site.author.email}}">mail us</a> a
   short paragraph describing your research, and a link to your version
   control repository if you have one.
 </p>

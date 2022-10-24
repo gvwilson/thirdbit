@@ -1,6 +1,6 @@
 ---
 title: "Cutting Corners"
-date: 2019-11-19 02:55
+date: 2019-11-19 12:55:00
 year: 2019
 ---
 

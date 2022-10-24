@@ -6,7 +6,7 @@ year: 2018
 <p>
   <em>
     This is a companion to last year's
-    <a href="{{site.github.url}}/2017/06/19/ten-rules-research-partner.html">rules
+    <a href="{{'/2017/06/19/ten-rules-research-partner/' | relative_url}}">rules
     for academic-industry research partnerships</a>.
   </em>
 </p>

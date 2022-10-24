@@ -5,8 +5,7 @@ year: 2013
 original: swc
 ---
 <p>
-  People volunteer to teach Software Carpentry bootcamps for
-  <a href="{{site.baseurl}}/faq/#why-become-an-instructor">many reasons</a>.
+  People volunteer to teach Software Carpentry bootcamps for many reasons.
   We're always grateful that they do,
   and would like them to get all the credit they deserve.
   Here are some of the ways instructors currently mention us in their CVs:
@@ -31,5 +30,5 @@ original: swc
   All of these look good to us,
   and we're always happy to write letters of reference for people who've helped us by teaching,
   coding,
-  or writing lesson materials&mdash;please <a href="mailto:{{site.contact}}">email us</a> if we can help.
+  or writing lesson materials&mdash;please <a href="mailto:{{site.author.email}}">email us</a> if we can help.
 </p>

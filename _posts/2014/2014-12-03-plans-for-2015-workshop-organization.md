@@ -47,6 +47,3 @@ original: swc
   please fork the project
   and send us pull requests&mdash;we'd be grateful for your help.
 </p>
-<div align="center">
-  <a href="{{site.github_url}}/amy"><img src="{{site.github.url}}/files/2014/12/amy-logo.png" alt="Amy Logo" /></a>
-</div>

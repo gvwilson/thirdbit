@@ -7,7 +7,7 @@ title: Practical Computing for Everyone (not just biologists)
 <table>
 <tbody>
 <tr>
-<td><a href="http://practicalcomputing.org/"><img src="{{site.github.url}}/files/2011/06/pcb.png" /></a></td>
+<td><a href="http://practicalcomputing.org/"><img src="{{'/files/2011/06/pcb.png' | relative_url}}" /></a></td>
 <td valign="top">Steven Haddock and Casey Dunn:<br />
 <a href="http://www.amazon.com/gp/product/0878933913"><em>Practical Computing for Biologists</em></a>.<br />
 Sinauer Associates, 2010, 0878933913.</td>

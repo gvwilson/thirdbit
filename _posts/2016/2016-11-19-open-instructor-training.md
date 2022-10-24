@@ -36,9 +36,9 @@ surprisingly smoothly.
 If you were not selected for this round of instructor training, don't lose heart: we have kept everyone's
 application in queue, and hope to revisit our offerings in the new year. If you also have colleagues who
 are interested in teaching for the Carpentries, consider asking
-your institution to [Partner]({{site.url}}/scf/join/) with us! Partnering institutions receive multiple benefits,
+your institution to Partner with us! Partnering institutions receive multiple benefits,
 including reserved seats in instructor training events and discounted workshops.
 
 We are very grateful to everyone who applied, and hope that you will continue to be involved in the community.
 We welcome contributions to our lessons, which are all developed collaboratively by our community, and
-encourage you to help at our [host a Carpentry workshop]({{site.url}}/workshops/request/) at your institution.
+encourage you to help at our host a Carpentry workshop at your institution.

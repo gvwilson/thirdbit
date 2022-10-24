@@ -1,5 +1,5 @@
 ---
-date: 2018-11-28 02:00
+date: 2018-11-28 12:00
 year: 2018
 title: "My To-Don't List"
 ---
@@ -8,7 +8,7 @@ Most of us have a to-do list.
 For years I kept mine in a hardcover lab notebook,
 copying items forward at the start of each day until they were done or I had given up on them.
 
-After [my last crash]({{site.github.url}}/2015/11/09/daddy-why-dont-you-ever-laugh.html),
+After [my last crash]({{'/2015/11/09/daddy-why-dont-you-ever-laugh/' | relative_url}}),
 I started keeping a to-don't list as well---a list of things
 that I'm not going to work on because there isn't time to do everything.
 The first few lines look like this:
@@ -27,11 +27,11 @@ The first few lines look like this:
     <td><em><a href="https://software-tools-in-javascript.github.io/js-vs-ds/">JavaScript versus Data Science</a></em></td>
   </tr>
   <tr>
-    <td><em><a href="{{site.github.url}}/ideas/">Software Engineering: An Evidence-Based Approach</a></em></td>
+    <td><em><a href="{{'/ideas/' | relative_url}}">Software Engineering: An Evidence-Based Approach</a></em></td>
     <td><em>Analyze That!</em></td>
   </tr>
   <tr>
-    <td><em><a href="{{site.github.url}}/ideas/">Sex and Drugs and Guns and Code</a></em></td>
+    <td><em><a href="{{'/ideas/' | relative_url}}">Sex and Drugs and Guns and Code</a></em></td>
     <td><em><a href="http://sensibleadventures.com/cloudherd-tigers-boy/">The Cloudherd and the Tiger's Boy</a></em></td>
   </tr>
 </table>

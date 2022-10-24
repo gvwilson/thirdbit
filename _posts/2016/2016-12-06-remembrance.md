@@ -36,7 +36,7 @@ year: 2016
 </tr>
 </tbody></table>
 <p>
-  <img src="{{site.github.url}}/files/2016/12/montreal.jpg" alt="The 14" />
+  <img src="{{'/files/2016/12/montreal.jpg' | relative_url}}" alt="The 14" />
 </p>
 <p>
   Qu'elles reposent en paix.

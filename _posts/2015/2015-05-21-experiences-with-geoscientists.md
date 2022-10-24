@@ -5,8 +5,8 @@ year: 2015
 original: swc
 ---
 <p>
-  <a href="{{site.baseurl}}/team/#jacobs.christian">Christian Jacobs</a>,
-  <a href="{{site.baseurl}}/team/#gorman.gerard">Gerard Gorman</a>,
+  Christian Jacobs,
+  Gerard Gorman,
   and Lorraine Craig
   have written a paper titled
   "<a href="http://arxiv.org/abs/1505.05425">Experiences with efficient methodologies for teaching computer programming to geoscientists</a>"

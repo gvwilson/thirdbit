@@ -1,6 +1,6 @@
 ---
 title: "Teaching Tech Together Is Out"
-date: 2019-10-25 01:35
+date: 2019-10-25 11:35:00
 year: 2019
 ---
 
@@ -9,7 +9,7 @@ I am pleased to announce that
 You can [buy it from them directly](https://www.crcpress.com/Teaching-Tech-Together-How-to-Make-Your-Lessons-Work-and-Build-a-Teaching/Wilson/p/book/9780367352974)
 or get it through your local library or favorite bookstore.
 
-<p><a href="http://teachtogether.tech"><img src="{{site.github.url}}/files/2019/10/t3-cover.jpg" alt="Teaching Tech Together"></a></p>
+<p><a href="http://teachtogether.tech"><img src="{{'/files/2019/10/t3-cover.jpg' | relative_url}}" alt="Teaching Tech Together"></a></p>
 
 > Greg Wilson: *Teaching Tech Together*. Taylor & Francis, 2019, 978-0-367-35328-5.
 

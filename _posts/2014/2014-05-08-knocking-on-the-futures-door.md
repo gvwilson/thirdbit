@@ -7,7 +7,7 @@ original: swc
 <p>
   Once again I feel like I'm knocking on the future's door but nobody's answering.
   The task we set ourselves seemed simple:
-  produce a nicely-formatted PDF of the <a href="{{site.baseurl}}/lessons/">Version 5 lessons</a>
+  produce a nicely-formatted PDF of the Version 5 lessons
   to give learners as a reference
   (and to print as a book to give instructors when they finish their training).
   Fifty years after the creation of the first computer typesetting systems,
@@ -134,7 +134,7 @@ A storage area where a [version control](#version-control) system...
   and the initial productivity dip that comes with any new way of doing things:
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2012/03/final.png" />
+  <img src="{{'/files/2012/03/final.png' | relative_url}}" />
 </p>
 <p>
   If you'd like to help us solve this particular problem,

@@ -1,6 +1,6 @@
 ---
 title: "So You've Been Fired"
-date: 2019-10-17 01:38
+date: 2019-10-17 11:38:00
 year: 2019
 ---
 

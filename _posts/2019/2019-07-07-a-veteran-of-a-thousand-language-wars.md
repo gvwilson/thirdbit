@@ -1,5 +1,5 @@
 ---
-date: 2019-07-07 03:09
+date: 2019-07-07 13:09:00
 year: 2019
 title: "A Veteran of a Thousand Language Wars"
 ---

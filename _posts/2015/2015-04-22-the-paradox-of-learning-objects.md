@@ -105,7 +105,7 @@ original: swc
   in order to figure out what's worth teaching,
   as well as how best to teach it.
   One of the key benefits of code review is that it spreads understanding around;
-  the discussions going on in <a href="{{site.baseurl}}/lessons/">our lesson repositories</a>
+  the discussions going on in our lesson repositories
   are (I hope) helping instructors understand each other's thinking
   and the reasons why our lessons cover what they do in the order they do.
 </p>

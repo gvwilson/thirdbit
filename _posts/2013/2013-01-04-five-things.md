@@ -28,4 +28,4 @@ year: 2013
 	<li>"<a href="http://www.youtube.com/watch?v=N2zK3sAtr-4">Data Sharing and Management Snafu in Three Short Acts</a>"</li>
 	<li>"<a href="http://www.motherjones.com/environment/2013/01/lead-crime-link-gasoline">America's Real Criminal Element: Lead</a>"</li>
 </ol>
-<p><img title="tobogganing" src="{{site.github.url}}/files/2013/01/tobogganing-300x225.jpg" alt="" width="300" height="225" /></p>
+<p><img title="tobogganing" src="{{'/files/2013/01/tobogganing-300x225.jpg' | relative_url}}" alt="" width="300" height="225" /></p>

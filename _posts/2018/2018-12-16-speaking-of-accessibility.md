@@ -24,5 +24,5 @@ that explains:
 - why so many Americans think that being able to shoot children is an inalienable right; and
 - why taking race, gender, orientation, and other factors into account when hiring is not discrimination.
 
-[My attempt to crowdsource such a book]({{site.github.url}}/ideas/#sex-and-drugs-and-guns-and-code-what-everyone-in-tech-needs-to-know-about-politics-economics-and-power) failed,
+[My attempt to crowdsource such a book]({{'/ideas/' | relative_url}}#sex-and-drugs-and-guns-and-code-what-everyone-in-tech-needs-to-know-about-politics-economics-and-power) failed,
 but I think it would have far more impact than anything I've done in the last thirty years.

@@ -14,7 +14,7 @@ original: swc
   after which they will become the new ED.
 </p>
 <p>
-  To apply, please send email to <a href="mailto:{{site.contact}}">{{site.contact}}</a> by July 31, 2015
+  To apply, please send email to <a href="mailto:{{site.author.email}}">{{site.author.email}}</a> by July 31, 2015
   with &quot;Co-Executive Director&quot; in the subject line, and include:
 </p>
 <ul>

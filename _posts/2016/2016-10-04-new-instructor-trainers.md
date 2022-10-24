@@ -5,8 +5,8 @@ year: 2016
 original: swc
 ---
 
-We are very pleased to welcome [Karin Lagesen]({{page.root}}/team/#lagesen_k)
-and [Anelda van der Walt]({{page.root}}/team/#van-der-walt_anelda)
+We are very pleased to welcome Karin Lagesen
+and Anelda van der Walt
 to our team of instructor trainers.
 Karin and Anelda have been very active in all of our activities–Karin
 is now in her second year on the Steering Committee,

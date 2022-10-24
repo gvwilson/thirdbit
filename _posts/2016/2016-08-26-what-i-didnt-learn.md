@@ -46,7 +46,7 @@ year: 2016
     To aid that,
     Silicon Valley perpetuates a mythos of rags-to-riches startups
     that enables it to extract as much unpaid or low-paid labor from people as it can,
-    regardless of <a href="{{site.github.url}}/2015/11/09/daddy-why-dont-you-ever-laugh.html">the personal cost</a>.
+    regardless of <a href="{{'/2015/11/09/daddy-why-dont-you-ever-laugh/' | relative_url}}">the personal cost</a>.
   </li>
   <li>
     Like most technologists,
@@ -73,11 +73,11 @@ year: 2016
   those boundaries are drawn by the privileged in ways that implicitly enshrine their privilege,
   but they could include this:
 </p>
-  <a href="{{site.github.url}}/files/2016/08/women-in-cs.jpg"><img src="{{site.github.url}}/files/2016/08/women-in-cs.jpg" alt="Declining Female Participation in Computing" width="400px" /></a>
+  <a href="{{'/files/2016/08/women-in-cs.jpg' | relative_url}}"><img src="{{'/files/2016/08/women-in-cs.jpg' | relative_url}}" alt="Declining Female Participation in Computing" width="400px" /></a>
 </p>
 <p>
   or the fact that "Massive Open Online Course" has effectively come to mean
-  <a href="{{site.github.url}}/2014/03/14/learning-at-scale.html">ubiquitous surveillance in the classroom</a>,
+  <a href="{{'/2014/03/14/learning-at-scale/' | relative_url}}">ubiquitous surveillance in the classroom</a>,
   or anything else if we so choose.
 </p>
 <p>

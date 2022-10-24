@@ -5,20 +5,20 @@ year: 2008
 ---
 Maddie on her way to the show:
 
-<img src="{{site.github.url}}/files/2008/07/maddie-stylish.jpg" alt="Maddie Stylin'" />
+<img src="{{'/files/2008/07/maddie-stylish.jpg' | relative_url}}" alt="Maddie Stylin'" />
 
 Theo on stage (in his dreams):
 
-<img src="{{site.github.url}}/files/2008/07/theo-air-guitar.jpg" alt="Theo Playing Air Guitar" />
+<img src="{{'/files/2008/07/theo-air-guitar.jpg' | relative_url}}" alt="Theo Playing Air Guitar" />
 
 Maddie gives it a try:
 
-<img src="{{site.github.url}}/files/2008/07/maddie-air-guitar.jpg" alt="Maddie Playing Air Guitar" />
+<img src="{{'/files/2008/07/maddie-air-guitar.jpg' | relative_url}}" alt="Maddie Playing Air Guitar" />
 
 The backstage party:
 
-<img src="{{site.github.url}}/files/2008/07/maddie-riding-drinking.jpg" alt="Maddie Riding and Drinking" />
+<img src="{{'/files/2008/07/maddie-riding-drinking.jpg' | relative_url}}" alt="Maddie Riding and Drinking" />
 
 Sadie's reaction to it all:
 
-<img src="{{site.github.url}}/files/2008/07/sadie-smiling.jpg" alt="Sadie Smiling" />
+<img src="{{'/files/2008/07/sadie-smiling.jpg' | relative_url}}" alt="Sadie Smiling" />

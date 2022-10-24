@@ -39,7 +39,7 @@ original: swc
     to teaching live and to recorded video.
   </li>
   <li>
-    Work through our <a href="{{site.github.url}}/2013/07/dirac-roll-out/">"driver's license" exam</a>
+    Work through our "driver's license" exam
     to demonstrate mastery of core Software Carpentry tools and concepts.
   </li>
   <li>

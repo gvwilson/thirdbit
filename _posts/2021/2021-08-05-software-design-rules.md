@@ -1,6 +1,6 @@
 ---
 title: "Software Design Rules"
-date: 2021-08-05 04:05:07
+date: 2021-08-05 14:05:07
 year: 2021
 ---
 

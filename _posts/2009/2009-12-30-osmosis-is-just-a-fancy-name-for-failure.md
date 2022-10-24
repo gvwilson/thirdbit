@@ -4,8 +4,7 @@ year: 2009
 original: swc
 title: Osmosis is Just a Fancy Name for Failure
 ---
-<p>My <a href="{{site.baseurl}}/blog/2009/12/27/dudley-and-butte-on-software-skills.html">last
-post</a> linked to
+<p>My <a href="{{'/2009/12/27/dudley-and-butte-on-software-skills/' | relative_url}}">last post</a> linked to
 a <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000589">PLoS
 paper</a> by Dudley and Butte on developing effective bioinformatics
 programming skills. I asked, "How many hours do the authors think are

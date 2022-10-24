@@ -5,7 +5,7 @@ year: 2008
 ---
 The <a href="http://swc.scipy.org">Software Carpentry</a> site is still getting a lot of traffic, despite my neglect:
 
-<img src="{{site.github.url}}/files/2008/04/usage.png" alt="Site Usage" />
+<img src="{{'/files/2008/04/usage.png' | relative_url}}" alt="Site Usage" />
 
 This summer, I'd like to:
 <ol>

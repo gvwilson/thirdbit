@@ -59,7 +59,7 @@ original: swc
   <li>What if a lot of the code you develop is only viewable within your institution? Most of the code on my github is pretty old</li>
   <li>Should we have an area where folks can post links to their "presence"? As an example.
     <ul>
-      <li>We're very happy to include links to personal sites/home pages in <a href="{{site.baseurl}}/team/">the team list</a></li>
+      <li>We're very happy to include links to personal sites/home pages in the team list</li>
       <li>Please send to Greg, or send pull requests against the 'site' repo</li>
     </ul>
   </li>

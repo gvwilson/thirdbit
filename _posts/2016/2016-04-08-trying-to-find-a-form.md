@@ -20,7 +20,7 @@ year: 2016
   <li>the topics within those lessons.</li>
 </ol>
 <p>
-  My current rough draft of the above lives in <a href="{{site.github.url}}/files/2016/04/design.csv">this CSV file</a>
+  My current rough draft of the above lives in <a href="{{'/files/2016/04/design.csv' | relative_url}}">this CSV file</a>
   (taken from <a href="https://github.com/gvwilson/long-form/">this GitHub repository</a>)
   and produces the graph shown below&mdash;which is basically incomprehensible, even to me.
   (I've pushed the connections through various graph layout tools to no avail.)
@@ -34,7 +34,7 @@ year: 2016
   Questions, Answers, Lessons, and Topics
 </h2>
 <p>
-  <img src="{{site.github.url}}/files/2016/04/design.svg" width="90%" />
+  <img src="{{'/files/2016/04/design.svg' | relative_url}}" width="90%" />
 </p>
 <h2 align="center">
   Questions to Answers

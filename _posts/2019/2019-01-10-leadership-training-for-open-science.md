@@ -1,5 +1,5 @@
 ---
-date: 2019-01-10 03:11
+date: 2019-01-10 13:11:00
 year: 2019
 title: "Leadership Training for Open Science"
 ---

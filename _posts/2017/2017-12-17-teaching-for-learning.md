@@ -7,7 +7,7 @@ dbook: https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717
 adept: https://betterexplained.com/articles/adept-method/
 ---
 
-<a href="{{page.t4l}}"><img src="{{site.github.url}}/files/2017/12/teaching-for-learning.jpg" alt="Teaching for Learning" width="200px" /></a>
+<a href="{{page.t4l}}"><img src="{{'/files/2017/12/teaching-for-learning.jpg' | relative_url}}" alt="Teaching for Learning" width="200px" /></a>
 
 <em><a href="{{page.t4l}}">Teaching for Learning: 101 Intentionally Designed Educational Activities to Put Students on the Path to Success</a></em>
 is the book I've been looking for ever since I first read

@@ -1,5 +1,5 @@
 ---
-date: 2019-04-20 02:55
+date: 2019-04-20 12:55:00
 year: 2019
 title: "Leading Questions for Creating a Learning Commons"
 favorite: true
@@ -21,7 +21,7 @@ I therefore believe the best way forward is to foster a commons:
 a set of resources accessible to all members of a community which in turn manages those resources.
 Rather than centralizing lessons,
 we make it easy to create, find, use, and remix them so that
-[the people we have can do the things they want to with the time they've actually got]({{site.github.url}}/2019/04/14/the-people-you-have/).
+[the people we have can do the things they want to with the time they've actually got]({{'/2019/04/14/the-people-you-have/' | relative_url}}).
 
 If we do this,
 though,
@@ -45,7 +45,7 @@ and I would be grateful for comments.
 
 ## 1. Is your lesson findable?
 
-David Wiley and others [have repeatedly said]({{site.github.url}}/2018/12/02/oer-landmines/) that
+David Wiley and others [have repeatedly said]({{'/2018/12/02/oer-landmines/' | relative_url}}) that
 nobody should ever build another lesson repository ever again
 because they don't work.
 Instead, people should focus on making lessons findable

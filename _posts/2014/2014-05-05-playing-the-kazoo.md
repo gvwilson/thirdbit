@@ -6,22 +6,19 @@ original: swc
 ---
 <p>
   Yesterday,
-  <a href="{{site.baseurl}}/team/#davis.m">Matt Davis</a>
-  quoted Peter Wang as saying,
+  Matt Davis quoted Peter Wang as saying,
   "A violin is to a kazoo as Python is to Excel."
   To which I <a href="https://twitter.com/gvwilson/status/463109014776082432">replied</a>,
   "Exactly: anyone who wants to make music can play a kazoo right away without days of training."
   The difference between these two points of view lies at the heart of Software Carpentry.
-  As I said in
-  a post
-  two years ago:
+  As I said in a post two years ago:
 </p>
 <blockquote>
   <p>
     Suppose you have a processing pipeline with three stages:
   </p>
   <p>
-    <img src="{{site.github.url}}/files/2012/03/pipeline.png" />
+    <img src="{{'/files/2012/03/pipeline.png' | relative_url}}" />
   </p>
   <p>
     Each stage takes one second to run; what's its overall performance?
@@ -31,7 +28,7 @@ original: swc
     Inverting those numbers, its rate is 1/3 result per second for one piece of data, 1/2 result/sec for two, etc.:
   </p>
   <p>
-    <img src="{{site.github.url}}/files/2012/03/curve.png" />
+    <img src="{{'/files/2012/03/curve.png' | relative_url}}" />
   </p>
   <p>
     Any pipeline's curve can be characterized by <em>r<sub>&infin;</sub></em>,
@@ -52,7 +49,7 @@ original: swc
     In fact, our real challenge is that learners' performance over time actually looks like this:
   </p>
   <p>
-    <img src="{{site.github.url}}/files/2012/03/final.png" />
+    <img src="{{'/files/2012/03/final.png' | relative_url}}" />
   </p>
   <p id="glass-law">
     That dip is due to Glass's Law: every innovation initially slows you down.
@@ -98,5 +95,5 @@ original: swc
   to convince them stay the course.
   We need more of them:
   if you're interested in helping to create them,
-  please <a href="mailto:{{site.contact}}">get in touch</a>.
+  please <a href="mailto:{{site.author.email}}">get in touch</a>.
 </p>

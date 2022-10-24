@@ -40,8 +40,7 @@ original: swc
   The Steering Committee and Advisory Council will revisit them in a year's time
   to ensure they're meeting everyone's needs,
   and we will always be willing to discuss other arrangements.
-  Please mail <a href="mailto:{{site.board_inquiries}}">{{site.board_inquiries}}</a>
-  if you would like more information,
+  Please mail us if you would like more information,
   or would like to start a discussion about how you could help.
   And of course,
   individual donations to the cause will always be welcome:

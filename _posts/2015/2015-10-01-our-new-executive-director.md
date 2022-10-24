@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  We are very pleased to announce that <a href="{{site.baseurl}}/team/#duckles.jonah">Jonah Duckles</a>
+  We are very pleased to announce that Jonah Duckles
   has accepted the position of Executive Director of the Software Carpentry
   Foundation, and will start on Monday, October 5, 2015.
   Jonah was most recently the Director of Informatics and Innovation

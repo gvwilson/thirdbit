@@ -4,7 +4,7 @@ date: 2021-12-26
 year: 2021
 ---
 
-A month ago I [wrote]({{site.github.url}}/2021/11/23/not-what-i-set-out-to-do/) about
+A month ago I [wrote]({{'/2021/11/23/not-what-i-set-out-to-do/' | relative_url}}) about
 [*Software Design by Example using JavaScript*]({{'/sdxjs/' | relative_url}})
 and how it fell short of what I'd hoped to create.
 Part of the problem is that from a teaching point of view,
@@ -50,7 +50,7 @@ so reluctantly---very reluctantly---I'm probably going to have to shelve this on
 Which is a shame,
 because (a) I've been enjoying writing low-level code again,
 (b) I've been learning stuff, which I always enjoy,
-and (c) despite [a long string of failures]({{site.github.url}}/2020/07/09/acm-sigsoft-award/),
+and (c) despite [a long string of failures]({{'/2020/07/09/acm-sigsoft-award/' | relative_url}}),
 I think the final product would help a lot of people.
 If I still had access to a pool of senior undergraduates in need of thesis projects
 I might reach a different answer;

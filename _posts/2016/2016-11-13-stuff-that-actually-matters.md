@@ -45,7 +45,7 @@ year: 2016
     and a way of seeing the world that most programmers have never been exposed to.
     Similarly,
     if understand how
-    <a href="{{site.github.url}}/2012/05/24/everything-you-need-to-know-about-standardized-testing.html">standardized testing perpetuates the status quo</a>
+    <a href="{{'/2012/05/24/everything-you-need-to-know-about-standardized-testing/' | relative_url}}">standardized testing perpetuates the status quo</a>
     and know
     <a href="https://en.wikipedia.org/wiki/Literacy_test#Voting">how literacy tests were used to disenfranchise racial minorities</a>,
     you're less likely to be seduced by the idea that

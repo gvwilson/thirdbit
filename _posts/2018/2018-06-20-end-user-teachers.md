@@ -44,7 +44,7 @@ any more than someone trying to prepare a report on their school's attendance ra
 needs to know about recursion or virtualization.
 
 I've been thinking about this because I'm revising a chapter on pedagogical content knowledge
-for [the next version of my book on teaching]({{site.github.url}}/2018/04/28/v3-feedback.html).
+for [the next version of my book on teaching]({{'/2018/04/28/v3-feedback/' | relative_url}}).
 I want to tell end-user teachers what current research has to say about teaching and learning computing;
 as an academic, I would hedge statements with disclaimers like, "Research may seem to indicate that…"
 but that feels like talking type theory to someone who wants consistent fonts in their web site.

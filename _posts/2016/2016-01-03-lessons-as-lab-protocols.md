@@ -54,7 +54,7 @@ One of their findings is that:
 > and the person following it may wander freely from side to side, stop to smell the flowers, and so on.
 
 This was the point where the light came on for me.
-Everything they are saying about lab protocols can be said equally well for [lessons]({{site.baseurl}}/lessons/).
+Everything they are saying about lab protocols can be said equally well for lessons.
 A lesson is one idealized path through particular material;
 everyone who actually delivers it will,
 as Abbot et al say,

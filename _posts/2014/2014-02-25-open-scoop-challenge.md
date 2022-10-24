@@ -21,5 +21,5 @@ original: swc
   I'll send you a Software Carpentry t-shirt.
   You'll need to provide specifics,
   but I won't share those details with anyone without your permission.
-  Please <a href="mailto:{{site.contact}}">mail me</a> if you'd like to chat.
+  Please <a href="mailto:{{site.author.email}}">mail me</a> if you'd like to chat.
 </p>

@@ -5,10 +5,10 @@ year: 2015
 original: swc
 ---
 <p>
-  The indefatigable <a href="{{site.baseurl}}/team/#silva.raniere">Raniere Silva</a>
+  The indefatigable Raniere Silva
   has just posted a description of
   <a href="http://blog.rgaiacs.com/2015/06/20/swc_ufc.html">a workshop at the University of Cear&aacute;</a>
-  that he and <a href="{{site.baseurl}}/team/#ushizima.daniela">Dani Ushizima</a> just finished teaching.
+  that he and Dani Ushizima just finished teaching.
   It went well,
   and there are a lot of good ideas in his write-up &mdash; please check it out.
 </p>

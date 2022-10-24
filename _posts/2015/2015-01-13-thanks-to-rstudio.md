@@ -18,5 +18,5 @@ original: swc
   to make it easier for teams to scale and share work.
 </p>
 <p>
-  <a href="http://www.rstudio.com"><img src="{{site.github.url}}/files/2015/01/rstudio-medium.png" alt="RStudio Logo" /></a>
+  <a href="http://www.rstudio.com"><img src="{{'/files/2015/01/rstudio-medium.png' | relative_url}}" alt="RStudio Logo" /></a>
 </p>

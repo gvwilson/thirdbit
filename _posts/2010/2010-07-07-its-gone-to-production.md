@@ -5,7 +5,7 @@ year: 2010
 ---
 The collection of essays on evidence-based software engineering that Andy Oram and I edited has gone to production. The final title is <a href="&lt;a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321"&gt;"><em>Making Software: What Really Works, and Why We Believe It</em></a>. Individual chapters will be available as Rough Cuts from O'Reilly next month, and the book itself should be on the shelves not long after.
 
-<img title="making-software1" src="{{site.github.url}}/files/2010/07/making-software1.jpg" alt="making-software1" width="384" height="500" />
+<img title="making-software1" src="{{'/files/2010/07/making-software1.jpg' | relative_url}}" alt="making-software1" width="384" height="500" />
 
 I'd like to thank all the people who volunteered their time; in no particular order, they and their chapters are:
 <ol>

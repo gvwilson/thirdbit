@@ -1,11 +1,11 @@
 ---
-date: 2019-06-24 02:48
+date: 2019-06-24 12:48:00
 year: 2019
 title: "Chapter Summaries"
 ---
 
 Key points from each chapter of *[Teaching Tech Together](http://teachtogether.tech)*
-to complement yesterday's [index]({{site.github.url}}/2019/06/23/t3-index.html).
+to complement yesterday's [index]({{'/2019/06/23/t3-index/' | relative_url}}).
 
 ## Introduction
 

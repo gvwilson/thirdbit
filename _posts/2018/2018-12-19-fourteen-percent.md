@@ -4,8 +4,8 @@ year: 2018
 title: "Fourteen Percent and a Change of Direction"
 ---
 
-> Following on from [previous]({{site.github.url}}/2018/12/12/twelve-percent.html)
-> [posts]({{site.github.url}}/2018/12/17/thirteen-percent.html)
+> Following on from [previous]({{'/2018/12/12/twelve-percent/' | relative_url}})
+> [posts]({{'/2018/12/17/thirteen-percent/' | relative_url}})
 > about sharing lessons
 > (which were actually more about discoverability),
 > this post is yet another re-think,

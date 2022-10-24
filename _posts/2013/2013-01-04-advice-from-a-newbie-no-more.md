@@ -4,7 +4,7 @@ date: 2013-01-04 09:00:00
 year: 2013
 original: swc
 ---
-<p><a href="{{site.baseurl}}/team/#chuang-howe.a">Adina Chuang-Howe</a> recently wrote a great blog post titled "<a href="http://adina.github.com/2012/12/29/newbie-advice/">Advice from newbie to newbie</a>", in which she gives some advice to her younger and not-yet-computationally-proficient self:</p>
+<p>Adina Chuang-Howe recently wrote a great blog post titled "<a href="http://adina.github.com/2012/12/29/newbie-advice/">Advice from newbie to newbie</a>", in which she gives some advice to her younger and not-yet-computationally-proficient self:</p>
 <ol>
   <li>Commit (and stop whining)</li>
   <li>Use the right tool for the job</li>

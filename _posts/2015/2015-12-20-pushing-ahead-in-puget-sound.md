@@ -25,7 +25,7 @@ original: swc
 </p>
 <p>
   If you have similar stories to share,
-  please <a href="mailto:{{site.contact}}">get in touch</a>:
+  please <a href="mailto:{{site.author.email}}">get in touch</a>:
   we'd love to hear how you're finding your own uses for what we've built
   and how we could help you more.
 </p>

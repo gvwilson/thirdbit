@@ -8,7 +8,7 @@ I'd like to be able to do the following:
 
 Step 1: Create a simple SVG diagram, some of whose labels are marked with `{% raw %}{{…}}{% endraw %}` or something similar:
 
-<img src="{{site.github.url}}/files/2018/03/provinces-original.png" alt="Original diagram" width="500" />
+<img src="{{'/files/2018/03/provinces-original.png' | relative_url}}" alt="Original diagram" width="500" />
 
 Step 2: Include that diagram in a web page, giving it a special class.
 
@@ -20,14 +20,14 @@ Step 4: When the page loads, the JS looks for SVGs that have the magic class and
   (Any undelimited text is left where it was.)
 - Markers are put in the figure to show where the delimited text was.
 
-<img src="{{site.github.url}}/files/2018/03/provinces-unlabeled.png" alt="Labels on the side" width="600" />
+<img src="{{'/files/2018/03/provinces-unlabeled.png' | relative_url}}" alt="Labels on the side" width="600" />
 
 Step 5: The person viewing the page can now drag labels from the side and drop them on the markers to re-label the diagram.
 (If they change their mind about where a label should go, they can re-drag it as many times as they want.)
 
 Step 6: When they're done, the library can compare the diagram they've reconstructed against the original and determine whether all the labels are in the right place.
 
-This tool would let instructors create [many different kinds of exercises]({{site.github.url}}/2017/10/16/exercise-types.html),
+This tool would let instructors create [many different kinds of exercises]({{'/2017/10/16/exercise-types/' | relative_url}}),
 since Parsons Problems and "match things in Column A with things in Column B" are just special cases of "put these bits of text in the right places".
 More importantly,
 it would let people who aren't programmers create them:

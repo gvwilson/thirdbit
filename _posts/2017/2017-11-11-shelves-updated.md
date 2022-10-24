@@ -6,7 +6,7 @@ year: 2017
 
 Twenty years after writing the first version,
 I have posted yet another update to
-[my list of unwritten books]({{site.github.url}}/ideas/).
+[my list of unwritten books]({{'/ideas/' | relative_url}}).
 If anything on this list already exists,
 I'd be grateful for pointers.
 And if you're interested in writing any of them yourself,

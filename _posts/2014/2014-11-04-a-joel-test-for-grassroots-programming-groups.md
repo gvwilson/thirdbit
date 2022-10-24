@@ -266,7 +266,7 @@ original: swc
       (the absence of a rule saying "you can't take part in this")
       and positive openness
       (a sincere effort to make everyone feel welcome and help them take part).
-      A <a href="{{site.baseurl}}/conduct/">code of conduct</a> isn't
+      A code of conduct isn't
       the only way to achieve the latter&mdash;Hacker School has
       their <a href="https://www.hackerschool.com/manual">User's Manual</a>,
       and Ascend has its <a href="https://github.com/mozilla/ascendproject/blob/gh-pages/course_materials/policies/_posts/2014-09-08-class-agreements.md">class agreement</a>&mdash;but

@@ -5,9 +5,9 @@ year: 2015
 original: swc
 ---
 <p>
-  <a href="{{site.baseurl}}/team/#silva.raniere">Raniere Silva</a>
+  Raniere Silva
   has written <a href="http://blog.rgaiacs.com/2015/06/18/swc_shell.html">a short post</a>
-  about a trick he found (via <a href="{{site.baseurl}}/team/#hertweck.kate">Kate Hertweck</a>)
+  about a trick he found (via Kate Hertweck)
   for splitting the terminal window when teaching the shell
   so that recent commands stay visible at the top.
   It's a clever idea;

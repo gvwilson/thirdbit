@@ -1,6 +1,6 @@
 ---
 title: "Power is Always Suspicious of Fun"
-date: 2019-11-05 02:32
+date: 2019-11-05 12:32:00
 year: 2019
 ---
 

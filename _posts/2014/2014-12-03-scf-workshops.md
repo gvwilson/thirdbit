@@ -29,8 +29,7 @@ original: swc
   One thing that <em>won't</em> change
   is that anyone who wants to organize and run a workshop on their own
   will always be free to do so without charge
-  provided they satisfy
-  <a href="{{site.baseurl}}/faq/#trademark">a few simple conditions</a>.
+  provided they satisfy a few simple conditions.
   In fact,
   we strongly encourage groups to get to the point where they can do this regularly,
   and to share their experiences with the community

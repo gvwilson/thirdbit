@@ -10,5 +10,5 @@ original: swc
   &mdash; Amy Brown on <a href="https://twitter.com/amyrbrown/status/410480413808009216">Twitter</a>
 </p>
 <p>
-  <img src="{{site.github.url}}/files/20143/12/how-github-works.jpg" alt="How GitHub Works" />
+  <img src="{{'/files/2013/12/how-github-works.jpg' | relative_url}}" alt="How GitHub Works" />
 </p>

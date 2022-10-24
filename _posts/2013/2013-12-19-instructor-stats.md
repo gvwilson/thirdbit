@@ -28,5 +28,5 @@ original: swc
   live three-day version
   of the course in Toronto in April.
   If you'd like to take part,
-  please <a href="mailto:{{site.contact}}">mail us</a> to sign up.
+  please <a href="mailto:{{site.author.email}}">mail us</a> to sign up.
 </p>

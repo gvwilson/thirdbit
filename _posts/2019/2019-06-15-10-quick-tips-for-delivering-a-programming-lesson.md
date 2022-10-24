@@ -1,5 +1,5 @@
 ---
-date: 2019-06-15 03:17
+date: 2019-06-15 13:17:00
 year: 2019
 title: "Ten Quick Tips for Delivering a Programming Lesson"
 ---

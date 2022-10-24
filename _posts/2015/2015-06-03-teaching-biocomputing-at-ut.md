@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  <a href="{{site.baseurl}}/team/#tarvin.becca">Becca Tarvin</a>
+  Becca Tarvin
   has just posted an article about her experiences
   <a href="http://www.rebeccatarvin.com/#!Teaching-biocomputing-at-UT/clfr/556f16020cf293eac7f7bb9a">teaching biocomputing at the University of Texas</a>.
   Like last month's report on

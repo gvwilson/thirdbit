@@ -7,7 +7,7 @@ original: swc
 <p><em>Update: it's clear from comments that I explained myself 
 poorly in this post. We don't ever teach by starting with a big example 
 like the one below&mdash;we start with basic arithmetic, then assignment, then
- lists and loops, and so on. (See <a href="{{site.baseurl}}/lessons/previous/#python">our Python lectures</a>
+ lists and loops, and so on. (See our Python lectures
  for details.) What I was trying to show was that by the time we reach a
  realistic example, students have to interleave those concepts in a very
  fine-grained way, i.e., if they'd been taking notes in the order in 

@@ -5,7 +5,7 @@ year: 2020
 ---
 
 After receiving ACM SIGSOFT's Influential Educator Award
-I wrote that [I haven't actually had much influence]({{site.baseurl}}/2020/07/09/acm-sigsoft-award/)
+I wrote that [I haven't actually had much influence]({{'/2020/07/09/acm-sigsoft-award/' | relative_url}})
 on software engineering education.
 One sign of that is that I've had no luck at all
 persuading faculty to create a class on data science for software engineers

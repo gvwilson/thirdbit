@@ -54,5 +54,5 @@ original: swc
   If you'd like your project to be part of the sprint,
   or be a host site,
   please update the Etherpad as well,
-  and <a href="mailto:{{site.contact}}">mail us</a> so that we can help advertise.
+  and <a href="mailto:{{site.author.email}}">mail us</a> so that we can help advertise.
 </p>

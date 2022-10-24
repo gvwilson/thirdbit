@@ -8,7 +8,7 @@ Another week,
 another report of a great meeting at Schloss Dagstuhl,
 this one about [designing and evaluating programming languages](https://medium.com/bits-and-behavior/designing-learnable-teachable-and-productive-programming-languages-dagstuhl-trip-report-81e41bde84bd).
 I would probably have enjoyed being there,
-but [as I wrote last year]({{site.github.url}}/2017/01/06/them-thats-got.html),
+but [as I wrote last year]({{'/2017/01/06/them-thats-got/' | relative_url}}),
 invitational meetings trend toward "them's that got shall get":
 if you aren't in the right school at the right moment in your career,
 you don't get invited,

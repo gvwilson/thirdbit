@@ -1,5 +1,5 @@
 ---
-date: 2019-01-06 03:11
+date: 2019-01-06 13:11:00
 year: 2019
 title: "Not on the Shelves (2019 Edition)"
 ---
@@ -9,7 +9,7 @@ I made progress on two book projects last year:
 and *[JavaScript versus Data Science](https://software-tools-in-javascript.github.io/js-vs-ds/)*
 should be out some time in February.
 That means it's time to update my list of
-[books that don't yet exist]({{site.github.url}}/talks/not-on-the-shelves/),
+[books that don't yet exist]({{'/talks/not-on-the-shelves/' | relative_url}}),
 which I have found helps me figure out
 what gaps exist in the literature that I could usefully fill.
 
@@ -97,7 +97,7 @@ It introduces ideas and methods that are commonplace in the social sciences,
 and shows that "the way things are" is neither inevitable nor accidental.
 From the reasons racial discrimination persists despite its illogical economic inefficiency
 to the ways in which "flat" organizations actually operate and how cognitive biases affect us all,
-it gives readers [a toolbox for thinking about society]({{site.github.url}}/reading/)
+it gives readers [a toolbox for thinking about society]({{'/reading/' | relative_url}})
 and how tech is reshaping it for both better and worse.
 
 Status: I tried to get this going in 2017-17, but it didn't take off.

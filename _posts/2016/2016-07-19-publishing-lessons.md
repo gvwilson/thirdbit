@@ -28,10 +28,8 @@ original: swc
 <p>
   Our materials are far from perfect,
   but we're very proud of what our community has built.
-  Please see <a href="{{site.baseurl}}/lessons/previous/">the releases page</a>
-  for links to the archived release,
-  and <a href="{{site.baseurl}}/lessons/">the main lessons page</a>
-  for links to the updated lessons.
+  Please see the releases page for links to the archived release,
+  and the main lessons page for links to the updated lessons.
 </p>
 <h2>Publication Records</h2>
 <ul>

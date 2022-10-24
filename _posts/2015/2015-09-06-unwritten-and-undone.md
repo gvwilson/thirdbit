@@ -9,10 +9,10 @@ year: 2015
   by writing reviews of books that don't actually exist
   in the hope that it will inspire someone to write them.
   Previous versions written in
-  <a href="{{site.github.url}}/pages/not-on-the-shelves-1997.html">1997</a>,
-  <a href="{{site.github.url}}/pages/not-on-the-shelves-2003.html">2003</a>,
-  <a href="{{site.github.url}}/pages/not-on-the-shelves-2009.html">2009</a>,
-  and <a href="{{site.github.url}}/pages/not-on-the-shelves-2014.html">2014</a>
+  <a href="{{'/talks/not-on-the-shelves/1997/' | relative_url}}">1997</a>,
+  <a href="{{'/talks/not-on-the-shelves/2003/' | relative_url}}">2003</a>,
+  <a href="{{'/talks/not-on-the-shelves/2009/' | relative_url}}">2009</a>,
+  and <a href="{{'/talks/not-on-the-shelves/2014/' | relative_url}}">2014</a>
   led to
   <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><em>Beautiful Code</em></a>,
   <a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><em>Making Software</em></a>,
@@ -30,7 +30,7 @@ year: 2015
   <li>
     <p>
       <em>Software Engineering: An Evidence-Based Approach</em>:
-      as <a href="{{site.github.url}}/2014/10/02/a-better-software-engineering-course.html">I outlined last year</a>,
+      as <a href="{{'/2014/10/02/a-better-software-engineering-course/' | relative_url}}">I outlined last year</a>,
       this textbook would show undergraduates how to collect and analyze data about software engineering projects.
       (I'd drop the <em>500 Lines</em>-style analysis of actual architectures,
       since that would be too much for a one-semester course.)
@@ -90,7 +90,7 @@ year: 2015
   </li>
   <li>
     <p>
-      <a href="{{site.github.url}}/2013/05/01/merging-is-the-real-revolution.html"><em>Diff and merge for spreadsheets</em></a>.
+      <a href="{{'/2013/05/01/merging-is-the-real-revolution/' | relative_url}}"><em>Diff and merge for spreadsheets</em></a>.
       Right now,
       most end users have to abandon the file formats (and associated tools) that they've used for years
       if they want to start using version control.
@@ -103,7 +103,7 @@ year: 2015
 </ol>
 <p>
   One project that <em>isn't</em> on this list is
-  <a href="{{site.github.url}}/2014/10/27/shuttleworth.html">the one I proposed to the Shuttleworth Foundation last year</a>:
+  <a href="{{'/2014/10/27/shuttleworth/' | relative_url}}">the one I proposed to the Shuttleworth Foundation last year</a>:
   using off-the-shelf package managers to deploy lessons.
   I'm still interested in that,
   and I still think that "writing better lessons" and "sharing lessons" are chicken and egg,

@@ -8,11 +8,11 @@ original: swc
   Updating my description of
   where my time goes
   made me realize that our list of
-  <a href="{{site.baseurl}}/join/projects/">things we need help with</a>
+  things we need help with
   had fallen out of date.
   The highlights are below;
-  please see <a href="{{site.baseurl}}/join/projects/">the projects page</a> for details,
-  and <a href="mailto:{{site.contact}}">get in touch</a> if you'd like to help.
+  please see the projects page for details,
+  and get in touch if you'd like to help.
 </p>
 <div class="row">
   <div class="col-sm-4">

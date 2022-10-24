@@ -6,5 +6,5 @@ original: swc
 ---
 <p>Votes are in and tallied: here's what you'd like us to work on in 2013.</p>
 <p>
-  <img src="{{site.github.url}}/files/2012/12/what-to-work-on-in-2013.png" />
+  <img src="{{'/files/2012/12/what-to-work-on-in-2013.png' | relative_url}}" />
 </p>

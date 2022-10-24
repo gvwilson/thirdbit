@@ -10,9 +10,6 @@ original: swc
   has become an Affiliate Member of the Software Carpentry Foundation.
 </p>
 <p>
-  <img src="{{site.github.url}}/files/orgs/iplant.png" alt="iPlant Collaborative" />
-</p>
-<p>
   Joining with the SCF will further the iPlant Collaborative's mission
   to provide access to cyberinfrastructure for the broad life science community,
   said Nirav Merchant, Co-PI of iPlant

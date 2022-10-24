@@ -5,4 +5,4 @@ year: 2008
 ---
 Twenty lines of Python, an Excel chart, and here we are:
 
-<img src="{{site.github.url}}/files/2008/07/mail.png" alt="Traffic Over Time" />
+<img src="{{'/files/2008/07/mail.png' | relative_url}}" alt="Traffic Over Time" />

@@ -1,6 +1,6 @@
 ---
 title: "RIP Toni Morrison"
-date: 2019-08-06 08:35
+date: 2019-08-06 18:35:00
 year: 2019
 ---
 

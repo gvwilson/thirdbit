@@ -1,6 +1,6 @@
 ---
 title: "Doing Good and Getting Paid"
-date: 2019-07-27 04:30
+date: 2019-07-27 14:30:00
 year: 2019
 favorite: true
 ---

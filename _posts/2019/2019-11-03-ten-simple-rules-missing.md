@@ -1,12 +1,12 @@
 ---
 title: "Ten Simple Rules That Are Missing"
-date: 2019-11-03 04:34
+date: 2019-11-03 14:34:00
 year: 2019
 ---
 
 I'm a big fan of PLOS's [Ten Simple Rules](https://collections.plos.org/ten-simple-rules)
 and [Quick Tips](https://collections.plos.org/search?q=ten+quick+tips) papers.
-I've contributed to [a few]({{site.github.url}}/10rules/),
+I've contributed to a few,
 but there are many more I'd like to read.
 If you can write any of these,
 I think many people would be grateful readers.

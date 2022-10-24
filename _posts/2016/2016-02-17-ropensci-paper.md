@@ -4,10 +4,10 @@ date: 2016-02-17 05:00:00
 year: 2016
 original: swc
 ---
-[Carl Boettiger]({{site.baseurl}}/team/#boettiger_carl),
-[Scott Chamberlain]({{site.baseurl}}/team/#chamberlain_s),
-[Ted Hart]({{site.baseurl}}/team/#hart_t),
-and [Karthik Ram]({{site.baseurl}}/team/#ram_k)
+Carl Boettiger,
+Scott Chamberlain,
+Ted Hart,
+and Karthik Ram
 have just published a paper titled
 "[Building Software, Building Community: Lessons from the rOpenSci Project](http://openresearchsoftware.metajnl.com/articles/10.5334/jors.bu/)",
 in which they describe what they've learned by growing the [rOpenSci](http://ropensci.org/) project

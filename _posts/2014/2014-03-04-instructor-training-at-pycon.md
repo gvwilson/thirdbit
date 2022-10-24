@@ -8,13 +8,13 @@ original: swc
   We are very pleased to announce that we will be running two one-day workshops
   on how to teach programming
   during the PyCon sprints in Montreal on April 14 and 15, 2014.
-  The workshops will be led by <a href="{{site.baseurl}}/team/#wilson.g">Greg Wilson</a>,
+  The workshops will be led by Greg Wilson,
   who will show participants how to use basic concepts from educational psychology and instructional design
   when teaching beginners how to code.
   The event is open to everyone,
   not just to PyCon attendees;
   please <a href="http://www.eventbrite.com/e/software-carpentry-instructor-training-at-pycon-montreal-registration-10812792353">register here</a>,
-  or <a href="mailto:{{site.contact}}">mail us</a> if you have any questions.
+  or <a href="mailto:{{site.author.email}}">mail us</a> if you have any questions.
 </p>
 <p>
   This event is just one of several we are running in conjunction with PyCon.

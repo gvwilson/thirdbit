@@ -29,7 +29,7 @@ it has retained some awkward features from its younger days,
 but no more so than (for example) C++ or R,
 and Node has a wealth of libraries to do pretty much anything you might want to do
 (except high-performance number crunching,
-but [that would be easy to fix]({{site.github.url}}/2017/05/22/numerical-javascript.html)).
+but [that would be easy to fix]({{'/2017/05/22/numerical-javascript/' | relative_url}})).
 While I haven't finished my introduction to JavaScript for scientists,
 what I have so far has convinced me that it's a good choice for everyday tasks.
 

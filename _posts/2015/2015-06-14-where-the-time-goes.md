@@ -35,7 +35,7 @@ original: swc
   </tr>
   <tr>
     <td>6.0</td>
-    <td>Developing <a href="{{site.github_url}}/amy">Amy</a></td>
+    <td>Developing Amy</td>
     <td>Some is coding/reviewing, most is discussing what it should do.</td>
   </tr>
   <tr>
@@ -94,7 +94,7 @@ original: swc
   </li>
   <li>
     <p>
-      we're using <a href="{{site.github_url}}/amy">Amy</a> on a daily basis;
+      we're using Amy on a daily basis;
       and
     </p>
   </li>

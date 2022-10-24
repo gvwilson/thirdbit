@@ -1,6 +1,6 @@
 ---
 title: "A Model Experiment"
-date: 2020-01-04 04:25:00
+date: 2020-01-04 14:25:00
 year: 2020
 ---
 
@@ -10,7 +10,7 @@ is actually a better way to manage software projects than throwing files in a sh
 or emailing them around.
 I *think* it is,
 but [dentists were wrong about flossing](https://www.bbc.com/news/health-36962667),
-and as I said in [that earlier post]({{site.baseurl}}/2018/03/13/base-case-for-empirical-software-engineering.html),
+and as I said in [that earlier post]({{'/2018/03/13/base-case-for-empirical-software-engineering/' | relative_url}}),
 designing an experiment to assess the value of version control
 would force us to be explicit about how we're measuring the productivity benefits of software tools and practices.
 

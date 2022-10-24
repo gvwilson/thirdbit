@@ -7,7 +7,7 @@ year: 2017
 I've been waiting over a year for <em>Iron Marines</em> to come out.
 My whole family loved Ironhide Games' <em>Kingom Rush</em> trilogy,
 and I hoped that a cartoon RTS would combine the challenge of <em>Homeworld</em>
-with the quick fun of <a href="{{site.github.url}}/2009/10/17/lunchbox-games.html">the Microgames I played as a teenager</a>.
+with the quick fun of <a href="{{'/2009/10/17/lunchbox-games/' | relative_url}}">the Microgames I played as a teenager</a>.
 
 I'm now halfway through the second planet,
 and while I'll probably play through to the end,

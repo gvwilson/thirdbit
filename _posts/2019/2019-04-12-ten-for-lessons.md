@@ -1,5 +1,5 @@
 ---
-date: 2019-04-12 01:48
+date: 2019-04-12 11:48:00
 year: 2019
 title: "Ten Quick Tips for Creating an Effective Lesson"
 ---

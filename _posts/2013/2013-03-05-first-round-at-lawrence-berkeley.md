@@ -52,5 +52,3 @@ original: swc
   </tr>
 </table>
 <p>Many thanks to Shreyas Cholia, Adam Stone, Nina Lucido, Geoff Oxberry, Matthew Brett, Paul Ivanov, and all our learners for making it a success.</p>
-<p><img src="{{site.github.url}}/files/2013/05/pic-2013-03-lbl-1.jpg" alt="Greg Teaching Git??" /></p>
-<p><img src="{{site.github.url}}/files/2013/05/pic-2013-03-lbl-2.jpg" alt="Students Surviving the Experience" /></p>

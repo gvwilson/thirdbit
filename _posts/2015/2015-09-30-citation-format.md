@@ -16,7 +16,7 @@ original: swc
   to produce those human-readable citations.
 </p>
 <p>
-  <a href="{{site.baseurl}}/team/#ross.noam">Noam Ross</a> has come up with
+  Noam Ross has come up with
   <a href="https://twitter.com/noamross/status/648963898079637504">an elegant solution</a>
   to the former problem:
 </p>

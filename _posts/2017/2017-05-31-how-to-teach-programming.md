@@ -19,4 +19,4 @@ If you find it useful,
 please give me a shout:
 I'd welcome a chance to compare notes.
 
-<img src="{{site.github.url}}/files/2017/05/how-to-teach-programming.jpg" alt="How to Teach Programmming (cover)" />
+<img src="{{'/files/2017/05/how-to-teach-programming.jpg' | relative_url}}" alt="How to Teach Programmming (cover)" />

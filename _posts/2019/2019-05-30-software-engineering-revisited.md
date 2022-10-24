@@ -1,6 +1,6 @@
 ---
 title: "Software Engineering Revisited"
-date: 2019-05-30 04:30
+date: 2019-05-30 14:30:00
 year: 2019
 ---
 
@@ -20,7 +20,7 @@ but this fly-by has confirmed several things for me:
     or both.
     However,
     some of it is also
-    [the gulf between researchers and practitioners]({{site.github.url}}/2012/12/06/two-solitudes-illustrated.html),
+    [the gulf between researchers and practitioners]({{'/2012/12/06/two-solitudes-illustrated/' | relative_url}}),
     which hasn't narrowed noticeably since Vancouver in 2009.
     [Our effort to foster dialog](http://neverworkintheory.org/) failed,
     but...
@@ -31,9 +31,9 @@ but this fly-by has confirmed several things for me:
     should be replaced by one that teaches undergraduates how to get, clean, analyze, and understand
     software engineering data.
 
-I've made the case for #3 [before]({{site.github.url}}/2014/10/02/a-better-software-engineering-course.html),
+I've made the case for #3 [before]({{'/2014/10/02/a-better-software-engineering-course/' | relative_url}}),
 and if anything,
-the case is stronger now than it was [then]({{site.github.url}}/2015/11/29/exaptation.html).
+the case is stronger now than it was [then]({{'/2015/11/29/exaptation/' | relative_url}}).
 If we call it "Data Science for Software Engineering" the dean will think it's a good idea;
 if we tell faculty in other disciplines that we're (finally) requiring some math
 in the core software engineering course,

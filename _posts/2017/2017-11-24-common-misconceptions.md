@@ -4,7 +4,7 @@ date: 2017-11-24 05:00:00
 year: 2017
 ---
 
-<a href="https://www.amazon.com/Common-Misconceptions-Mathematics-Strategies-Correct/dp/0761858857/"><img src="{{site.github.url}}/files/2017/11/ojose.jpg" width="200px" alt="Ojose: Common Misconceptions in Mathematics" /></a>
+<a href="https://www.amazon.com/Common-Misconceptions-Mathematics-Strategies-Correct/dp/0761858857/"><img src="{{'/files/2017/11/ojose.jpg' | relative_url}}" width="200px" alt="Ojose: Common Misconceptions in Mathematics" /></a>
 
 This is a wonderful little book,
 not just for what it contains,

@@ -1,10 +1,10 @@
 ---
-date: 2018-08-31 01:00:00
+date: 2018-08-31 11:00:00
 year: 2018
 title: "High and Low, One by One or All Together"
 ---
 
-Thinking some more about [my last post]({{site.github.url}}/2018/08/28/two-abstracts.html),
+Thinking some more about [my last post]({{'/2018/08/28/two-abstracts/' | relative_url}}),
 I've realized why I am so often frustrated with academia:
 it's [high church](https://en.wikipedia.org/wiki/High_church)
 and I'm [low church](https://en.wikipedia.org/wiki/Low_church).

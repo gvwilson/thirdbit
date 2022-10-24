@@ -151,7 +151,7 @@ original: swc
     </p>
     <p>
       One option I'm personally opposed to is charging for instructor training.
-      As <a href="{{site.github_url}}/training-course/issues/514">several people observed</a>,
+      As several people observed,
       it seems unfair to ask someone to give us money
       so that they can then volunteer their time.
       On the other hand,
@@ -165,7 +165,7 @@ original: swc
 <p>
   The biggest lesson of all, at least for me,
   is summed up in something that
-  <a href="{{site.baseurl}}/team/#chuang-howe.a">Adina Chuang Howe</a> said
+  Adina Chuang Howe said
   at last week's Steering Committee meeting.
   Increasingly,
   Software Carpentry's mission isn't to teach scientists basic computing skills:

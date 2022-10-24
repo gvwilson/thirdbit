@@ -58,8 +58,7 @@ original: swc
 <p>
   What science may be moving toward is a "continuous patch" model
   rather than a "continuous release" model.
-  <a href="{{site.baseurl}}/team/#nedebragt.lex">Lex Nederbragt</a>
-  wrote in a comment on an early draft of this post:
+  Lex Nederbragt wrote in a comment on an early draft of this post:
 </p>
 <blockquote>
   <p>
@@ -79,9 +78,7 @@ original: swc
   </p>
 </blockquote>
 <p>
-  To which
-  <a href="{{site.baseurl}}/team/#barmby.pauline">Pauline Barmby</a>
-  replied:
+  To which Pauline Barmby replied:
 </p>
 <blockquote>
   <p>

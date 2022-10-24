@@ -13,7 +13,7 @@ title: Top Ten Why Nots
 <li><strong>You need design help.</strong> I think we look OK.</li>
 <li><strong>You don't have a domain name.</strong> We do.</li>
 <li><strong>You don't have a Twitter account.</strong> <a href="{{site.twitter_url}}">We do</a>.</li>
-<li><strong>Your licensing is unclear.</strong> <a href="{{site.baseurl}}/license/">Our license</a> is very clear and easy to find.</li>
+<li><strong>Your licensing is unclear.</strong> Our license is very clear and easy to find.</li>
 <li><strong>You don't reach out to me.</strong> I think we pass this test.</li>
 <li><strong>You don't speak about your project at conferences at meetups.</strong> We could do more; the question is where?</li>
 <li><strong>You didn't submit it to the Changelog</strong>, which apparently is this week's hot "what's on in open source" blog. *shrug*</li>

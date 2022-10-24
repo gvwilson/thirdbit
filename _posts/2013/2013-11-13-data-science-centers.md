@@ -37,7 +37,7 @@ original: swc
   If you'd like to help,
   we're now accepting applications for the March 2014 run of our
   <a href="{{site.training_url}}">instructor training course</a>;
-  please <a href="mailto:{{site.contact}}">mail us</a> about that,
+  please <a href="mailto:{{site.author.email}}">mail us</a> about that,
   or about running a bootcamp where you are.
 </p>
 <p>

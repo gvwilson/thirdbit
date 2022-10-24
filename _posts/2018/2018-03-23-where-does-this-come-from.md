@@ -12,7 +12,7 @@ graphical snippets to show drawing and motion,
 and so on.
 It looked something like this:
 
-<img src="{{site.github.url}}/files/2018/03/tracing-blocks.png" alt="Tracing Execution of Blocks" width="100%" />
+<img src="{{'/files/2018/03/tracing-blocks.png' | relative_url}}" alt="Tracing Execution of Blocks" width="100%" />
 
 except it had a grid background
 and a slider control to allow the user to scroll backward and forward in time.

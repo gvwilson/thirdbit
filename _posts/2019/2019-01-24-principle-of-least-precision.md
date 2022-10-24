@@ -1,5 +1,5 @@
 ---
-date: 2019-01-24 03:11
+date: 2019-01-24 13:11:00
 year: 2019
 title: "The Principle of Least Precision"
 ---

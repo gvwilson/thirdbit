@@ -38,5 +38,5 @@ original: swc
   (though we'll continue to tweak it based on feedback from learners and lab meetings),
   and feedback from people who've gone through it has mostly been positive.
   If you'd like to take part in a future round,
-  please <a href="mailto:{{site.contact}}">get in touch</a>.
+  please <a href="mailto:{{site.author.email}}">get in touch</a>.
 </p>

@@ -81,7 +81,7 @@ original: swc
     and there's already something in place for people to extend.
     (Experience has taught us that if a project starts with a blank page, it will probably end with one as well.)
     Please add it to <a href="https://etherpad.mozilla.org/sciencelab-2014summersprint-sites">the Etherpad</a>
-    and <a href="mailto:{{site.contact}}">mail us</a> so that we can help advertise it.
+    and <a href="mailto:{{site.author.email}}">mail us</a> so that we can help advertise it.
   </dd>
 
   <dt><em>What should I do to prepare?</em></dt>

@@ -1,5 +1,5 @@
 ---
-date: 2019-01-28 01:59
+date: 2019-01-28 11:59:00
 year: 2019
 title: "Computing Skills Books for Researchers"
 ---

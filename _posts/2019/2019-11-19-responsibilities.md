@@ -1,6 +1,6 @@
 ---
 title: "Allocating Responsibilities"
-date: 2019-11-19 02:59
+date: 2019-11-19 12:59:00
 year: 2019
 ---
 
@@ -141,7 +141,7 @@ focus the argument.
 
 Drawing up a contract also prevents later disagreements about who actually
 promised or agreed to what.  As with
-[meetings]({{site.github.url}}/2018/05/11/meetings/), people often remember
+[meetings]({{'/2018/05/11/meetings/' | relative_url}}), people often remember
 things differently; having a signed record is everyone's second-best
 defense. (The best, of course, is personal integrity.)
 

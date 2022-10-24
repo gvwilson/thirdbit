@@ -103,8 +103,7 @@ original: swc
   and sundry other things
   because big ideas aren't meaningful in the abstract.
   Along the way
-  we hope to convey a deeper understanding of
-  <a href="{{site.baseurl}}/lessons/previous/#softeng">seven big ideas</a>
+  we hope to convey a deeper understanding of seven big ideas
   that I believe can only come from getting your hands dirty:
 </p>
 <ol>

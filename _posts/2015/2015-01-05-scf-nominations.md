@@ -47,10 +47,10 @@ original: swc
   </li>
 </ul>
 <p>
-  Please visit <a href="{{site.baseurl}}/scf/members/">the list of current members</a>
+  Please visit the list of current members
   to see who is eligible to stand and vote in our election.
   If you believe you qualify as a member but are not listed there,
-  please <a href="mailto:{{site.contact}}">contact us</a> as soon as possible&mdash;we've done our best
+  please contact us as soon as possible&mdash;we've done our best
   to keep our records up to date,
   but are missing several people who taught in the second half of 2014.
 </p>

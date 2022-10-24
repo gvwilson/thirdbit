@@ -1,14 +1,14 @@
 ---
 title: "How Do You Tell?"
-date: 2019-09-05 03:16
+date: 2019-09-05 13:16:00
 year: 2019
 ---
 
 I had another good conversation yesterday with [Prof. Sally Fincher](https://www.cs.kent.ac.uk/people/staff/saf/),
 whose work was a big influence on [*Teaching Tech Together*](http://teachtogether.tech).
 The subject was
-[notional]({{site.github.url}}/2018/04/12/notional-machine-for-python.html)
-[machines]({{site.github.url}}/2019/07/15/notional-machine-for-r.html),
+[notional]({{'/2018/04/12/notional-machine-for-python/' | relative_url}})
+[machines]({{'/2019/07/15/notional-machine-for-r/' | relative_url}}),
 and in particular how to figure out as quickly as possible what someone's mental model of program execution includes.
 For example:
 

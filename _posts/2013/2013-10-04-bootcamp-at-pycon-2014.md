@@ -14,7 +14,7 @@ original: swc
   and one more "master class" for scientists who are ready to learn more advanced topics.
 </p>
 <div align="center">
-  <a href="https://us.pycon.org/2014/"><img src="{{site.github.url}}/files/2013/10/pycon2014-blog-image.png" alt="PyCon 2014 logo" /></a>
+  <a href="https://us.pycon.org/2014/"><img src="{{'/files/2013/10/pycon2014-blog-image.png' | relative_url}}" alt="PyCon 2014 logo" /></a>
 </div>
 <p>
   The primary audience is scientists in Montreal, Ottawa, Kingston, Quebec City,

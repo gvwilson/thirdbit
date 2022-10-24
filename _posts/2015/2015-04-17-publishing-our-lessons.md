@@ -11,7 +11,7 @@ original: swc
   <a href="https://guides.github.com/activities/citable-code/">get a DOI for a GitHub repository</a>
   (or more accurately,
   for the state of a GitHub repository at a particular point in time).
-  We are going to use this to publish a citable version of <a href="{{site.baseurl}}/lessons/">our core lessons</a>.
+  We are going to use this to publish a citable version of our core lessons.
 </p>
 <p>
   More specifically:

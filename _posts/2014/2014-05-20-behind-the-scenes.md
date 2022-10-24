@@ -9,13 +9,13 @@ original: swc
   keep our website going (and readable),
   and generally make it possble for the rest of us to do what we do.
   I'd therefore like to offer some long-overdue thanks to
-  <a href="{{site.baseurl}}/team/#brown.amy">Amy Brown</a>,
-  <a href="{{site.baseurl}}/team/#collins.arliss">Arliss Collins</a>,
-  <a href="{{site.baseurl}}/team/#cabunoc.abigail">Abby Cabunoc</a>,
-  <a href="{{site.baseurl}}/team/#gonzalez.ivan">Ivan Gonzalez</a>,
-  <a href="{{site.baseurl}}/team/#pipitone.j">Jon Pipitone</a>,
-  <a href="{{site.baseurl}}/team/#rio.david">David Rio</a>,
-  and <a href="{{site.baseurl}}/team/#silva.raniere">Raniere Silva</a>
+  Amy Brown,
+  Arliss Collins,
+  Abby Cabunoc,
+  Ivan Gonzalez,
+  Jon Pipitone,
+  David Rio,
+  and Raniere Silva
   for all their hard work:
   we wouldn't have come this far without them,
   and we're very grateful for everything they've done.

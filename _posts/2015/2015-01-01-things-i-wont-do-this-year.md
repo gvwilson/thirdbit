@@ -50,11 +50,11 @@ year: 2015
   </dd>
   <dt>
     Write a textbook based on the same idea as <a href="https://github.com/aosabook/500lines"><em>500 Lines or Less</em></a>
-    or one on <a href="{{site.github.url}}/2014/10/02/a-better-software-engineering-course.html">empirical software engineering</a>.
+    or one on <a href="{{'/2014/10/02/a-better-software-engineering-course/' | relative_url}}">empirical software engineering</a>.
   </dt>
   <dd>
     <p>
-      As I said <a href="{{site.github.url}}/2014/10/02/a-better-software-engineering-course.html">a few months ago</a>,
+      As I said <a href="{{'/2014/10/02/a-better-software-engineering-course/' | relative_url}}">a few months ago</a>,
       most intro courses on software engineering are a waste of everyone's time.
       I'd like to create two replacements:
       one in which students analyze data from software projects (and thereby learn how to think about their work like scientists),

@@ -11,7 +11,7 @@ original: swc
   <a href="http://www.lbl.gov/">Lawrence Berkeley National Laboratory</a>
   on April 14-15, 2014.
   This event is a sequel to
-  <a href="{{site.github.url}}/2013/07/wise-roundup/">our first WiSE bootcamp</a>
+  our first WiSE bootcamp
   in Boston this past June,
   and we hope to once again fill three rooms with over 120 learners.
   If you are interested,

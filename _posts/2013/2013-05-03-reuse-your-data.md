@@ -4,7 +4,7 @@ date: 2013-05-03 10:00:00
 year: 2013
 original: swc
 ---
-<p>Software Carpentry has focused on computing for most of its 14 years (primarily because that's what I'm most familiar with) but it's increasingly clear that we need to tackle other parts of the research cycle. One is the new ideas clustered around publication, discovery and metrics, which I'll discuss in a future post.  The other is data management; we only <a href="{{site.baseurl}}/lessons/previous/#data">touch on</a> the topic right now, but it's as important to most scientists as crunching numbers, and how best to do it is changing rapidly.  Luckily, a few of our friends have written a guide for the perplexed:</p>
+<p>Software Carpentry has focused on computing for most of its 14 years (primarily because that's what I'm most familiar with) but it's increasingly clear that we need to tackle other parts of the research cycle. One is the new ideas clustered around publication, discovery and metrics, which I'll discuss in a future post.  The other is data management; we only touch on the topic right now, but it's as important to most scientists as crunching numbers, and how best to do it is changing rapidly.  Luckily, a few of our friends have written a guide for the perplexed:</p>
 <blockquote>
 Ethan P. White, Elita Baldridge, Zachary T. Brym, Kenneth J. Locey, Daniel J. McGlinn, and Sarah R. Supp: "Nine simple ways to make it easier to (re)use your data".  <em>Ideas in Ecology and Evolution</em>, 6(2):1-10 <a href = "http://dx.doi.org/10.4033/iee.2013.6b.6.f"> DOI:10.4033/iee.2013.6b.6.f</a>
 <hr/>

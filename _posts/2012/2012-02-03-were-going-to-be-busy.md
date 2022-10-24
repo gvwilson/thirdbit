@@ -19,4 +19,4 @@ title: We're Going to Be Busy
 <li>University of Alberta, May 16-17</li>
 <li>University of British Columbia, May 22-23</li>
 </ul>
-<p>We could use help with all of them, both in person as they're running, and online as participants follow up with self-paced material. If you'd like to help out, please <a href="mailto:{{site.contact}}">get in touch</a>.</p>
+<p>We could use help with all of them, both in person as they're running, and online as participants follow up with self-paced material. If you'd like to help out, please <a href="mailto:{{site.author.email}}">get in touch</a>.</p>

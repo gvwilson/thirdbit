@@ -102,7 +102,7 @@ archives:
   Our lessons try to strike a balance between the practical and the conceptual
   by advertising the first and smuggling in the second.
   For example,
-  our <a href="{{site.baseurl}}/lessons/#shell">introduction to the Unix shell</a>
+  our introduction to the Unix shell
   only covers 15 commands in three hours.
   Along the way,
   though,
@@ -111,7 +111,7 @@ archives:
   and (hopefully) why lots of small single-purpose tools that work well together
   are better than one large tool that tries to do everything.
   Similarly,
-  the real goal of <a href="{{site.baseurl}}/lessons/#shell">our introduction to Python</a>
+  the real goal of our introduction to Python
   isn't really to teach people the syntax of Python:
   it's to convince them that they ought to write short, readable, testable, reusable functions,
   and that those are actually all the same thing.

@@ -26,6 +26,6 @@ Related:
 
 - [slides]({{'/talks/greatest-hits/' | relative_url}})
 - [Thoughts from a Not-So-Influential Educator]({{'/2020/07/09/acm-sigsoft-award/' | relative_url}})
-- [Exaptation and the Future of Software Engineering]({{'/2015/11/28/exaptation/' | relative_url}})
+- [Exaptation and the Future of Software Engineering]({{'/2015/11/29/exaptation/' | relative_url}})
 
 [video]: https://www.youtube.com/watch?v=HrVtA-ue-x0

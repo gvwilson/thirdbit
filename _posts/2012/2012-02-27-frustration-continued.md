@@ -8,13 +8,13 @@ title: Frustration (continued)
 <table border="1">
 <tbody>
 <tr>
-<td><img src="{{site.github.url}}/files/2012/02/shell-filedir-08.png" /></td>
+<td><img src="{{'/files/2012/02/shell-filedir-08.png' | relative_url}}" /></td>
 </tr>
 <tr>
-<td><img src="{{site.github.url}}/files/2012/02/shell-filedir-37.png" /></td>
+<td><img src="{{'/files/2012/02/shell-filedir-37.png' | relative_url}}" /></td>
 </tr>
 <tr>
-<td><img src="{{site.github.url}}/files/2012/02/shell-filedir-59.png" /></td>
+<td><img src="{{'/files/2012/02/shell-filedir-59.png' | relative_url}}" /></td>
 </tr>
 </tbody>
 </table>

@@ -4,7 +4,7 @@ year: 2018
 title: "One Last Step"
 ---
 
-I've been [saying for a while]({{site.github.url}}/2017/05/22/numerical-javascript.html)
+I've been [saying for a while]({{'/2017/05/22/numerical-javascript/' | relative_url}})
 that within a few years,
 most people who are analyzing data will be doing it in JavaScript.
 It has an enormous user base,

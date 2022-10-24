@@ -30,6 +30,6 @@ and let me know what you think:
 -   Is there anything you believe is unworkable (such as inferring prerequisites from terms that are used but not defined)?
 
 [guardians-video]: https://www.youtube.com/watch?v=XC8qrH3Zwog
-[twelve-percent]: {{site.github.url}}/2018/12/12/twelve-percent.html
-[thirteen-percent]: {{site.github.url}}/2018/12/17/thirteen-percent.html
-[fourteen-percent]: {{site.github.url}}/2018/12/19/fourteen-percent.html
+[twelve-percent]: {{'/2018/12/12/twelve-percent/' | relative_url}}
+[thirteen-percent]: {{'/2018/12/17/thirteen-percent/' | relative_url}}
+[fourteen-percent]: {{'/2018/12/19/fourteen-percent/' | relative_url}}

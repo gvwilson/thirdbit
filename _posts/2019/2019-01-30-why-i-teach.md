@@ -1,6 +1,6 @@
 ---
 title: "Why I Teach (Revisited)"
-date: 2019-01-30 00:30:00
+date: 2019-01-30 10:30:00
 year: 2019
 favorite: true
 ---

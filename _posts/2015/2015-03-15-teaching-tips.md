@@ -15,7 +15,7 @@ original: swc
 </p>
 <h3 id="code-of-conduct">Code of Conduct</h3>
 
-<p>Make sure everyone knows that there's a <a href="{{site.baseurl}}/conduct/">code of conduct</a>.
+<p>Make sure everyone knows that there's a code of conduct.
 If someone (including a fellow instructor) speaks down to someone or otherwise makes them feel unwelcome,
 speak to them about it.
 Make sure <em>you</em> know about
@@ -57,15 +57,14 @@ etc.</p>
 
 <h3 id="online-lessons">Online Lessons</h3>
 
-<p>Point learners at <a href="{{site.baseurl}}/lessons/">our lessons page</a>,
+<p>Point learners at our lessons page,
 which is the permanent home of the current learning materials.
-They should also be directed to
-<a href="{{site.baseurl}}/faq/">Software Carpentry's FAQ</a>.</p>
+They should also be directed to Software Carpentry's FAQ.</p>
 
 <h3 id="re-use">Re-Use</h3>
 
 <p>Explain that the lesson materials can all be freely re-mixed and re-used
-under the <a href="{{site.baseurl}}/license/">Creative Commons - Attribution</a> (CC-BY) license,
+under the Creative Commons - Attribution (CC-BY) license,
 provided people cite us as the original source
 (e.g., provide a link back to our site).
 However,

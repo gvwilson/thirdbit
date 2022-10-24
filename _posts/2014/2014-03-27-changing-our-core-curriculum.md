@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  <a href="{{site.baseurl}}/faq/#trademark">We currently say</a>
+  We currently say
   that people must teach task automation, structured programming, version control, and unit testing
   in order to use the Software Carpentry name.
   However,

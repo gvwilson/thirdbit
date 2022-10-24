@@ -10,7 +10,7 @@ Another year over; what have I learned?
   [was published by *On Spec*](https://onspecmag.wpcomstaging.com/2021/01/06/issue-115-coming-soon/);
   you can read it [here]({{'/fiction/fall-behind/' | relative_url}}).
   I received over a dozen rejections and didn't make any other sales,
-  but decided to self-publish a novel called *[Beneath Coriandel]({{'/2021/07/05/beneath-coriandel/' | relative_url}})*;
+  but decided to self-publish a novel called *Beneath Coriandel*;
   I hope you like it.
 
 - *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)* was published.

@@ -88,7 +88,7 @@ title: Re-doing the Three-Minute Pitch
 </ul>
 <p>For more information, to get involved, or for help organizing a workshop, please</p>
 <ul>
-<li>visit us online at {{site.baseurl}}...</li>
-<li>...follow {{site.twitter_url}} on Twitter...</li>
-<li>...or email {{site.contact}}</li>
+<li>visit us online...</li>
+<li>...follow us on Twitter...</li>
+<li>...or email us.</li>
 </ul>

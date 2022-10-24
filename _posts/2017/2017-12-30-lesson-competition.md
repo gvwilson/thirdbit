@@ -8,7 +8,7 @@ I have sometimes quipped that we'll know our work is done
 when the weekend papers run lesson reviews beside their book and movie reviews.
 (Yes, I quip. I can in fact be extremely quippy, but that's a digression.)
 But reviews aren't the only sign I'm waiting for,
-and neither is [collaborative lesson development]({{site.github.url}}/2016/04/29/why-teachers-dont-collaborate.html).
+and neither is [collaborative lesson development]({{'/2016/04/29/why-teachers-dont-collaborate/' | relative_url}}).
 I also hope I live long enough to see competitions like [Kaggle](https://www.kaggle.com/competitions)'s
 in which people or teams vie with each other to build the best possible lessons
 about particular topics and for particular audiences.

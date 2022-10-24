@@ -1,14 +1,14 @@
 ---
-date: 2019-02-28 03:59
+date: 2019-02-28 13:59:00
 year: 2019
 title: "Things I Didn't Tweet This Month"
 ---
 
--   [Classifying Data]({{site.github.url}}/2019/02/04/classifying-data.html)
+-   [Classifying Data]({{'/2019/02/04/classifying-data/' | relative_url}})
 
--   [Libraries Tell It Like It Is]({{site.github.url}}/2019/02/05/libraries-tell-it-like-it-is.html)
+-   [Libraries Tell It Like It Is]({{'/2019/02/05/libraries-tell-it-like-it-is/' | relative_url}})
 
--   [Late Binding]({{site.github.url}}/2019/02/16/late-binding.html)
+-   [Late Binding]({{'/2019/02/16/late-binding/' | relative_url}})
 
 -   [Is Code-Along Formative Assessment?](http://third-bit.com/2019/02/20/code-along-as-formative-assessment.html)
 

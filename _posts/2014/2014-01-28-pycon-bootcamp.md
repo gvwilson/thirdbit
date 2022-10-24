@@ -59,9 +59,7 @@ original: swc
 </p>
 <p>
   For more information about the workshops and Software Carpentry, 
-  please contact us at
-  <a href="mailto:{{site.contact}}">{{site.contact}}</a> or check
-  out <a href="{{site.baseurl}}">our web site</a>.
+  please contact us or check out our web site.
   For more about Python in Montreal, have a look at the
   <a href="http://montrealpython.org/">Montreal-Python website</a>.
   They organize regular events like workshops and a Project

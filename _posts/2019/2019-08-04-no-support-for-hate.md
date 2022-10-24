@@ -1,6 +1,6 @@
 ---
 title: "No Support for Hate"
-date: 2019-08-04 06:19
+date: 2019-08-04 16:19:00
 year: 2019
 ---
 
@@ -16,5 +16,5 @@ So:
 > or any company that provides hosting or other services for such companies.
 
 <div align="center">
-<img src="{{site.github.url}}/files/2019/08/pledge.png" alt="No Support for Hate" />
+<img src="{{'/files/2019/08/pledge.png' | relative_url}}" alt="No Support for Hate" />
 </div>

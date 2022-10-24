@@ -1,6 +1,6 @@
 ---
 title: "How I Teach Today"
-date: 2019-11-25 03:02
+date: 2019-11-25 13:02:00
 year: 2019
 ---
 
@@ -110,5 +110,5 @@ it will be feasible to add [new types of exercises][dragnet] to collaborative on
 and I'd like to start playing with that now.
 
 [rstudio-instructors]: http://education.rstudio.com/trainers
-[queueing]: {{site.github.url}}/2019/09/27/learning-queue.html
+[queueing]: {{'/2019/09/27/learning-queue/' | relative_url}}
 [dragnet]: https://github.com/iezer/dragnet

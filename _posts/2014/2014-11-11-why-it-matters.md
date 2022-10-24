@@ -51,7 +51,7 @@ original: swc
   But if you give her a box full of parts, you've done this:
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2014/11/lego_ad_1981.jpg" alt="" width="660" height="893" />
+  <img src="{{'/files/2014/11/lego_ad_1981.jpg' | relative_url}}" alt="" width="660" height="893" />
 </p>
 <p>
   You see that smile?

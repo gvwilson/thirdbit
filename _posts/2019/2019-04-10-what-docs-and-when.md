@@ -1,10 +1,10 @@
 ---
-date: 2019-04-10 06:13
+date: 2019-04-10 16:13:00
 year: 2019
 title: "What Docs and When"
 ---
 
-**Note: this post has been superseded by [a more recent one]({{site.github.url}}/2019/04/16/what-docs-when.html).**
+**Note: this post has been superseded by [a more recent one]({{'/2019/04/16/what-docs-when/' | relative_url}}).**
 
 [This blog post from Divio](https://www.divio.com/blog/documentation/)
 divides documentation into tutorials, how-to guides, explanations, and reference works.
@@ -25,7 +25,7 @@ Its starting point is a four-stage model of cognitive development:
 Here's a map showing which kinds of documentation help people get from stage to stage
 and which other kinds are useful across multiple stages:
 
-<img src="{{site.github.url}}/files/2019/04/materials.svg" width="80%" alt="Documentation model" />
+<img src="{{'/files/2019/04/materials.svg' | relative_url}}" width="80%" alt="Documentation model" />
 
 1.  An *orientation* is a general overview that makes people aware something exists.
     Orientations are often delivered as webinars,

@@ -16,7 +16,7 @@ a new open source license that allows people to use software freely with one con
 We are grateful for [Coraline Ada Ehmke][cae] and others for creating this license.
 
 <div align="center">
-  <p><img src="{{site.github.url}}/files/2019/10/ethical-source.png" alt="Ethical Source logo"/></p>
+  <p><img src="{{'/files/2019/10/ethical-source.png' | relative_url}}" alt="Ethical Source logo"/></p>
 </div>
 
 [gans]: https://maya.rbind.io/

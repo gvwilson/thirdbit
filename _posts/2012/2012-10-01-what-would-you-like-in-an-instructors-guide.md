@@ -12,4 +12,4 @@ title: What Would You Like in an Instructor's Guide?
 <li>introduce the notion of combining pieces you have in a uniform way (the pipe and filter model) to create new tools as a way of reducing cognitive load</li>
 </ul>
 <p>That last point is the big one, but it doesn't appear explicitly anywhere in our online video tutorials (largely because I didn't realize that was the big lesson until earlier this year&mdash;it's a classic case of expert blind spot).</p>
-<p>So my question is, what would you like in an instructor's guide? If you took part in one of our workshops, what would you pass on to someone else who was about to teach the material to help them do a better job? Please send us comments (either on this post, or <a href="mailto:{{site.contact}}">by email</a>), and thank you in advance.</p>
+<p>So my question is, what would you like in an instructor's guide? If you took part in one of our workshops, what would you pass on to someone else who was about to teach the material to help them do a better job? Please send us comments (either on this post, or <a href="mailto:{{site.author.email}}">by email</a>), and thank you in advance.</p>

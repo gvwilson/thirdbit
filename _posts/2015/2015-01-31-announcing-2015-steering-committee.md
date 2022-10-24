@@ -12,39 +12,39 @@ original: swc
 </p>
 <div class="row">
   <div class="col-sm-3">
-    <img src="{{site.github.url}}/files/people/davis_m.jpg" alt="Matt Davis" />
+    <img src="{{'/files/people/davis_m.jpg' | relative_url}}" alt="Matt Davis" />
     <br/>
     Matt Davis
   </div>
   <div class="col-sm-3">
-    <img src="{{site.github.url}}/files/people/chuang-howe_a.jpg" alt="Adina Howe" />
+    <img src="{{'/files/people/chuang-howe_a.jpg' | relative_url}}" alt="Adina Howe" />
     <br/>
     Adina Howe
   </div>
   <div class="col-sm-3">
-    <img src="{{site.github.url}}/files/people/huff_k.png" alt="Katy Huff" />
+    <img src="{{'/files/people/huff_k.png' | relative_url}}" alt="Katy Huff" />
     <br/>
     Katy Huff
   </div>
   <div class="col-sm-3">
-    <img src="{{site.github.url}}/files/people/lagesen_k.jpg" alt="Karin Lagesen" />
+    <img src="{{'/files/people/lagesen_k.jpg' | relative_url}}" alt="Karin Lagesen" />
     <br/>
     Karin Lagesen
   </div>
 </div>
 <div class="row">
   <div class="col-sm-3">
-    <img src="{{site.github.url}}/files/people/pawlik_a.jpg" alt="Aleksandra Pawlik" />
+    <img src="{{'/files/people/pawlik_a.jpg' | relative_url}}" alt="Aleksandra Pawlik" />
     <br/>
     Aleksandra Pawlik
   </div>
   <div class="col-sm-3">
-    <img src="{{site.github.url}}/files/people/silva_raniere.jpg" alt="Raniere Silva" />
+    <img src="{{'/files/people/silva_raniere.jpg' | relative_url}}" alt="Raniere Silva" />
     <br/>
     Raniere Silva
   </div>
   <div class="col-sm-3">
-    <img src="{{site.github.url}}/files/people/williams_jason.jpg" alt="Jason Williams" />
+    <img src="{{'/files/people/williams_jason.jpg' | relative_url}}" alt="Jason Williams" />
     <br/>
     Jason Williams
   </div>
@@ -95,10 +95,10 @@ original: swc
   we taught our 10,000<sup>th</sup> learner:
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2015/01/enrolment-2015-01.png" alt="Enrolment 2011-2015" />
+  <img src="{{'/files/2015/01/enrolment-2015-01.png' | relative_url}}" alt="Enrolment 2011-2015" />
 </p>
 <p>
-  so our biggest thanks to out to the <a href="{{site.baseurl}}/team/">instructors</a>,
-  <a href="{{site.baseurl}}/scf/partners/">partners</a>,
+  so our biggest thanks to out to the instructors,
+  partners,
   and helpers who have given so much to so many.
 </p>

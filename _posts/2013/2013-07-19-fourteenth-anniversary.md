@@ -14,5 +14,5 @@ original: swc
   the opposite of "open" isn't "closed" &mdash; it's "broken".
 </p>
 <p>
-  <img src="{{site.github.url}}/files/2013/07/brookhaven-open-source-open-science-1999.jpg" alt="Open Source/Open Science poster" />
+  <img src="{{'/files/2013/07/brookhaven-open-source-open-science-1999.jpg' | relative_url}}" alt="Open Source/Open Science poster" />
 </p>

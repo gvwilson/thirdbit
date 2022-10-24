@@ -1,10 +1,10 @@
 ---
 title: "Documentation Types"
-date: 2019-08-08 03:24
+date: 2019-08-08 13:24:00
 year: 2019
 ---
 
-*This post is an update on [an earlier one]({{site.github.url}}/2019/04/16/what-docs-when/)
+*This post is an update on [an earlier one]({{'/2019/04/16/what-docs-when/' | relative_url}})
 that slims down the set of documentation types.
 [Feedback](mailto:gvwilson@third-bit.com?subject=documentation types) is very welcome.*
 

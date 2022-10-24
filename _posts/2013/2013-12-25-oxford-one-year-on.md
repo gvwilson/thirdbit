@@ -13,5 +13,5 @@ original: swc
   agreed or strongly agreed with the statement,
   "A year on, the workshop really encouraged me to change how I do my research."
   If you'd like to help us gather similar information from participants at other bootcamps,
-  please <a href="mailto:{{site.contact}}">get in touch</a>.
+  please <a href="mailto:{{site.author.email}}">get in touch</a>.
 </p>

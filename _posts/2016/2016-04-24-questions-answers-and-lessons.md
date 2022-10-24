@@ -149,11 +149,11 @@ original: swc
   I haven't produced anything better than this:
 </p>
 <p>
-  <a href="{{site.github.url}}/files/2016/04/design-01.svg"><img src="{{site.github.url}}/files/2016/04/design-01.svg" width="80%" alt="Questions, Answers, and Lessons" /></a>
+  <a href="{{'/files/2016/04/design-01.svg' | relative_url}}"><img src="{{'/files/2016/04/design-01.svg' | relative_url}}" width="80%" alt="Questions, Answers, and Lessons" /></a>
 </p>
 <p>
   (You can click on the image to see the full thing,
-  or <a href="{{site.github.url}}/files/2016/04/design-01.gv">look here</a> for the GraphViz source:
+  or <a href="{{'/files/2016/04/design-01.gv' | relative_url}}">look here</a> for the GraphViz source:
   run <code>dot -Tsvg design-01.gv &gt; design-01.svg</code> to regenerate the SVG.
   Note that I've added a fourth column to the graph to show the half-day modules within each lesson,
   primarily to give a sense of how much time would be devoted to what.)
