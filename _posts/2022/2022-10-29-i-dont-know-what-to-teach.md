@@ -41,3 +41,13 @@ I therefore need to find things to teach to researchers that are a better fit to
 *and* find ways to convince software engineers
 that those needs really are different
 and really do need different kinds of support.
+
+<em markdown="1">
+Later:
+a data scientist DM'd me to ask why there isn't a `git cp` command
+to record the fact that file X is a copy-with-modifications of file Y.
+They've seen tools that draw the branch-and-merge structure of Git commits,
+and want something similar to show the genealogy of files
+that coexist simultaneously in the same branch.
+I'm going to have to think about this one…
+</em>
