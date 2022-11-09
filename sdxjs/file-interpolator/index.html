@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="stylesheet" href="../mccole.css">
   <link rel="stylesheet" href="../tango.css">
-  <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+  
   <script>
     MathJax = {
       tex: {
@@ -24,9 +24,9 @@
 
   <body>
     <div class="row">
-      <div class="column">
+      <div class="sidebar">
         <p>
-  <img src="../logo.svg" alt="site logo" style="width: 10%" />
+  <img src="../logo.svg" alt="site logo" class="logo" />
   <a href="../">Software Design by Example</a>
 </p>
 <ol class="toc-chapter">
@@ -199,15 +199,15 @@
 </ol>
 
       </div>
-      <div id="printable" class="column bordered">
+      <div id="printable" class="contents bordered">
         <main>
-	  
+          
   <h1>Chapter 12: File Interpolator</h1>
 
 
           
 
-	  
+          
 <p class="definitions">
   Terms defined: <a class="gl-ref" href="../glossary/#header_file" markdown="1">header file</a>, <a class="gl-ref" href="../glossary/#literate_programming" markdown="1">literate programming</a>, <a class="gl-ref" href="../glossary/#loader" markdown="1">loader</a>, <a class="gl-ref" href="../glossary/#sandbox" markdown="1">sandbox</a>, <a class="gl-ref" href="../glossary/#search_path" markdown="1">search path</a>, <a class="gl-ref" href="../glossary/#shell_variable" markdown="1">shell variable</a>
 </p>
@@ -822,7 +822,7 @@ only implement part of <span class="ix-entry" ix-key="Knuth, Donald" markdown="1
     but also deletes everything in the directory called <code>target</code>.</p>
 </li>
 <li>
-<p>Write tests for this using [<code>mock-fs</code>][node-mock-fs].</p>
+<p>Write tests for this using <a href="https://www.npmjs.com/package/mock-fs"><code>mock-fs</code></a>.</p>
 </li>
 </ol>
 <p class="continue">Please be careful doing this exercise.</p>
