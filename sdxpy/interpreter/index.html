@@ -19,6 +19,7 @@
     id="MathJax-script"
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
+  <script defer src="../mccole.js"></script>
   <title>Software Design in Python: An Interpreter</title>
 </head>
 
@@ -73,6 +74,12 @@
     </a>
   </li>
   
+  <li>
+    <a href="../server/">
+      A Web Server
+    </a>
+  </li>
+  
   <li class="todo">
     <a href="../dataframe/">
       A Dataframe
@@ -94,12 +101,6 @@
   <li class="todo">
     <a href="../parser/">
       Parsing Regular Expressions
-    </a>
-  </li>
-  
-  <li class="todo">
-    <a href="../server/">
-      A Web Server
     </a>
   </li>
   
@@ -298,7 +299,7 @@ compilers turn text into instructions for interpreters or hardware to run.</p>
 a <a class="gl-ref" href="../glossary/#parser" markdown="1">parser</a> that translates the source code into a data structure in memory,
 and a <a class="gl-ref" href="../glossary/#runtime" markdown="1">runtime</a> that executes the instructions in that data structure.
 This chapter focuses on the runtime;
-<a class="x-ref" href="../parser/">Chapter 11</a> will explore parsing,
+<a class="x-ref" href="../parser/">Chapter 12</a> will explore parsing,
 whle <a class="x-ref" href="../vm/">Chapter 20</a> will look at more efficient ways to execute instructions.</p>
 <h2 id="interpreter-expressions">Section 3.1: Expressions</h2>
 <p>Let&rsquo;s start by building something that can evaluate simple expressions
@@ -812,12 +813,13 @@ The interpreter
 reads an instruction,
 figures out what operation it corresponds to,
 and executes that operation.</p>
+<h2 id="interpreter-summary">Section 3.6: Summary</h2>
 <figure id="interpreter-concept-map">
   <img src="./interpreter_concept_map.svg" alt="Concept map of interpreter"/>
   <figcaption markdown="1">Figure 3.2: Interpreter concept map.</figcaption>
 </figure>
 
-<h2 id="interpreter-exercises">Section 3.6: Exercises</h2>
+<h2 id="interpreter-exercises">Section 3.7: Exercises</h2>
 <h3 class="exercise">Arrays</h3>
 <p>Implement fixed-size one-dimensional arrays:
 <code>["array", "new", 10]</code> creates an array of 10 elements,
