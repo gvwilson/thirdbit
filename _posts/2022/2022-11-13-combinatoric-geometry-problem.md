@@ -15,8 +15,6 @@ It's easy enough to work out the answer for specific cases:
 | 2x2       | 8                 |
 
 but I can't figure out the formula for the general case—a simple recursive formula
-double-counts configurations like the four size-one squares in the diagram above.
-I also can't figure out a simple way to calculate the answer programmatically;
-help with both would be greatly appreciated.
+double-counts configurations like the four size-one squares in the diagram below.
 
 <img src="{{'/files/2022/combinatorics.svg' | relative_url}}" alt="Tilings" width="80%" />
