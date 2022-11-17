@@ -20,7 +20,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../mccole.js"></script>
-  <title>Software Design by Example: Matching Regular Expressions</title>
+  <title>Software Design in Python: Matching Patterns</title>
 </head>
 
   <body>
@@ -28,7 +28,7 @@
       <div class="sidebar">
         <p>
   <img src="../logo.svg" alt="site logo" class="logo" />
-  <a href="../">Software Design by Example</a>
+  <a href="../">Software Design in Python</a>
 </p>
 <ol class="toc-chapter">
   
@@ -82,7 +82,7 @@
   
   <li>
     <a href="../matching/">
-      <strong>Matching Regular Expressions</strong>
+      <strong>Matching Patterns</strong>
     </a>
   </li>
   
@@ -100,7 +100,7 @@
   
   <li class="todo">
     <a href="../parser/">
-      Parsing Regular Expressions
+      Parsing Text
     </a>
   </li>
   
@@ -217,14 +217,14 @@
   
 </ol>
 
-<p><a href="../sdxpy-examples.zip" alt="source code archive">download examples</a></p>
+<p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
 
 
       </div>
       <div id="printable" class="contents bordered">
         <main>
           
-  <h1>Chapter 9: Matching Regular Expressions</h1>
+  <h1>Chapter 9: Matching Patterns</h1>
 
 
           
@@ -248,9 +248,9 @@
   
   <li markdown="1">Use regular expressions to match patterns in text and extra data.</li>
   
-  <li markdown="1">Have objects control other objects using the Chain of Responsibility design pattern.</li>
+  <li markdown="1">Use inheritance to make matchers composable and extensible.</li>
   
-  <li markdown="1">Use inheritance to make matchers composable.</li>
+  <li markdown="1">Objects can delegate work to other objects using the Chain of Responsibility pattern.</li>
   
   </ul>
   
@@ -444,8 +444,14 @@ recycling matchers makes programs more efficient.</p>
 <p>Each matching object has a method
 that takes the target string and the index to start matching at as inputs.
 Its output is the index to continue matching at
-or <code>None</code> indicating that matching failed.
-Our matching classes will be:</p>
+or <code>None</code> indicating that matching failed
+(<a class="fig-ref" href="../matching/#matching-direct">Figure 9.1</a>).</p>
+<figure id="matching-direct">
+  <img src="./matching_direct.svg" alt="Implementing regular expressions with objects"/>
+  <figcaption markdown="1">Figure 9.1: Using nested objects to match regular expressions.</figcaption>
+</figure>
+
+<p>Our matching classes will be:</p>
 <ul>
 <li><code>Alt</code> (for &ldquo;alternative&rdquo;) to match either of two possibilities;</li>
 <li><code>Any</code> to match any single character;</li>
@@ -562,12 +568,18 @@ This ought to match the text <code>"ab"</code>, but will it?
 it matches as much as it can.
 (This is also called <span class="ix-entry" ix-key="eager matching;matching!eager" markdown="1"><a class="gl-ref" href="../glossary/#eager_matching" markdown="1">eager matching</a></span>.)
 As a result,
-<code>a*</code> will match the leading <code>"a"</code>, leaving nothing for the literal <code>a</code> to match.
+<code>a*</code> will match the leading <code>"a"</code>, leaving nothing for the literal <code>a</code> to match
+(<a class="fig-ref" href="../matching/#matching-greedy">Figure 9.2</a>).
 Our current implementation doesn&rsquo;t give us a way to try other possible matches when this happens.</p>
+<figure id="matching-greedy">
+  <img src="./matching_greedy.svg" alt="Overly-greedy matching fails"/>
+  <figcaption markdown="1">Figure 9.2: Why overly greedy matching doesn&rsquo;t work.</figcaption>
+</figure>
+
 <h2 id="matching-alternative">Section 9.3: An Alternative Design</h2>
 <p>Let&rsquo;s re-think our design
 and have each matcher take its own arguments and a <code>rest</code> parameter containing the rest of the matchers
-(<a class="fig-ref" href="../matching/#matching-rest">Figure 9.1</a>).
+(<a class="fig-ref" href="../matching/#matching-rest">Figure 9.3</a>).
 (We will provide a default of <code>None</code> in the creation function
 so we don&rsquo;t have to type <code>None</code> over and over again.)
 Each matcher will try each of its possibilities and then see if the rest will also match:</p>
@@ -588,7 +600,7 @@ Each matcher will try each of its possibilities and then see if the rest will al
 </div>
 <figure id="matching-rest">
   <img src="./matching_rest.svg" alt="Matching using a chain of responsibility"/>
-  <figcaption markdown="1">Figure 9.1: Using Chain of Responsibility for matching.</figcaption>
+  <figcaption markdown="1">Figure 9.3: Using Chain of Responsibility for matching.</figcaption>
 </figure>
 
 <p>This design means we can get rid of <code>Seq</code>,
@@ -704,7 +716,18 @@ so the number of remaining characters is the maximum number of matches worth try
 </div>
 <p>With these classes in place,
 our tests all pass:</p>
-<p><span class="fixme">FIXME f:test_re.out</span></p>
+<div class="code-sample lang-out" title="test_re.out">
+<div class="highlight"><pre><span></span><code>============================= test session starts ==============================
+platform darwin -- Python 3.10.6, pytest-7.1.2, pluggy-1.0.0
+rootdir: /Users/gregwilson/sdxpy/en/src/matching
+plugins: pyfakefs-4.6.3
+collected 21 items
+
+test_re.py .....................                                         [100%]
+
+============================== 21 passed in 0.02s ==============================
+</code></pre></div>
+</div>
 <p>The most important thing about this design is how extensible it is.
 If we want to add other kinds of matching,
 all we have to do is add more classes.
@@ -730,7 +753,7 @@ the things we make learn how to do things better as we use them.</p>
 <h2 id="templating-summary">Section 6.7: Summary</h2>
 <figure id="matching-concept-map">
   <img src="./matching_concept_map.svg" alt="Concept map for regular expression matching"/>
-  <figcaption markdown="1">Figure 9.2: Regular expression matching concept map.</figcaption>
+  <figcaption markdown="1">Figure 9.4: Regular expression matching concept map.</figcaption>
 </figure>
 
 <h2 id="matching-exercises">Section 9.5: Exercises</h2>
