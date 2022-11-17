@@ -19,4 +19,10 @@ double-counts configurations like the four size-one squares in the diagram above
 I also can't figure out a simple way to calculate the answer programmatically;
 help with both would be greatly appreciated.
 
-<img src="{{'/files/2022/combinatorics.svg' | relative_url}}" alt="Tilings" width="80%" />
+<div align="center"><img src="{{'/files/2022/combinatorics.svg' | relative_url}}" alt="Tilings" /></div>
+
+*Later: several people have suggested divide-and-conquer strategies,
+but so far I haven't seen one that would generate this case,
+where there isn't a seam spanning either the entire height or width:*
+
+<div align="center"><img src="{{'/files/2022/combinatorics-2.svg' | relative_url}}" alt="Another Tiling" /></div>
