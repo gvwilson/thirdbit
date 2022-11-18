@@ -9,7 +9,7 @@ they would all be fun to do and would make the world a better place:
 - [Software Engineering: An Evidence-Based Approach]({{'/ideas/seeba/' | relative_url}})
 - [Building Software Together]({{'/ideas/bst/' | relative_url}})
 - [Leadership Skills for Open Science]({{'/ideas/leadership/' | relative_url}})
-- [Harper-Lite: Simple Lesson Discovery and Aggregation]({{'/ideas/harper/' | relative_url}})
+- [Harper-Lite: Simple Lesson Discovery and Aggregation][harper]
 
 I'd like to do a lot of other things as well,
 but the best productivity tip I ever got
@@ -276,7 +276,7 @@ I'd like to write these, but I'd be just as happy to read 'em...
 [economics-everyone]: https://isbndb.com/book/9780745335773
 [flyover]: https://isbndb.com/book/9781250189998
 [github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
-[harper]: https://github.com/gvwilson/harper
+[harper]: ({{'/ideas/harper/' | relative_url}})
 [humanizing-economy]: https://www.newsociety.com/Books/H/Humanizing-the-Economy
 [lower-ed]: https://isbndb.com/book/9781620974384
 [owning-earth]: https://isbndb.com/book/9781620402917
