@@ -7,7 +7,7 @@ year: 2019
 If you've ever played with Scratch or another blocks-based programming tool and said,
 "Gee, I wish I could use something like this to wrangle data,"
 you're in luck:
-<http://tidyblocks.tech> uses the same JavaScript framework as Scratch
+TidyBlocks uses the same JavaScript framework as Scratch
 to provide blocks that select, filter, group, and plot data.
 It's aimed at high school students making their first foray into statistics or data analysis,
 and it's 100% open source—if you're interested using it,

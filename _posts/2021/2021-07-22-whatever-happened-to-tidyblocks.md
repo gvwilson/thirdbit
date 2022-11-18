@@ -4,7 +4,7 @@ date: 2021-07-22
 year: 2021
 ---
 
-[TidyBlocks][tidyblocks] is a Scratch-like tool for doing basic data science.
+TidyBlocks is a Scratch-like tool for doing basic data science.
 Originally built by [Maya Gans][gans-maya],
 it was overhauled in 2020,
 after which several volunteers translated its interface into several different (human) languages.
@@ -31,4 +31,3 @@ I hope someone, some day, will find a way to make it happen.
 
 [blockly]: https://developers.google.com/blockly/
 [gans-maya]: https://maya.rbind.io/
-[tidyblocks]: https://tidyblocks.tech/

@@ -4,7 +4,7 @@ date: 2020-07-30
 year: 2020
 ---
 
-We've been working on the next version of [TidyBlocks](http://tidyblocks.tech),
+We've been working on the next version of TidyBlocks,
 which means I've been programming again after a hiatus of several months.
 I enjoy it,
 much as I imagine my mother enjoyed knitting,

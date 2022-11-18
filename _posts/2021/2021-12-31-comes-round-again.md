@@ -39,7 +39,7 @@ Another year over; what have I learned?
   I'm really enjoying coding for a living again after so many years,
   but a little dumbfounded by how much Python now looks like Enterprise Java.
 
-- We mothballed the [TidyBlocks](https://tidyblocks.tech/) project:
+- We mothballed the TidyBlocks project:
   we'd reached the limits of what we could do as volunteers
   and [nobody wanted to fund it]({{'/2021/07/22/whatever-happened-to-tidyblocks/' | relative_url}}).
 

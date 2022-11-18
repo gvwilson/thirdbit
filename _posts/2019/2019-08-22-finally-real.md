@@ -20,8 +20,7 @@ I am very (very) pleased that two of them have become a reality this summer than
     a blocks-based tool for doing tidyverse-style data analysis.
     All of the usual suspects are supported,
     including select, filter, group-by, summarize, and various kinds of plots.
-    You can find it at <http://tidyblocks.tech>;
-    more features and datasets are in the pipeline,
+    More features and datasets are in the pipeline,
     and contributions would be welcome at <https://github.com/tidyblocks/tidyblocks/>.
     (Oh, and Maya's looking for a job as a developer right now.
     She's smart, learns quickly, is an excellent colleague, and does difficult things well—you'll be glad you hired her.)
