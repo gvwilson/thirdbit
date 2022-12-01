@@ -6,6 +6,12 @@ title: "Talks"
 I am always happy to talk:
 please see [this rider]({{ '/talks/speaking/' | relative_url }}) for details
 
+## [Writing a Technical Book]({{ '/talks/writing-book/' | relative_url }}) {#writing-book}
+
+I've written several technical books and edited several others.
+This talk summarizes what I've learned that first-time authors might find useful.
+*Last updated: November 2022.*
+
 ## [Software Design for Data Scientists]({{ '/talks/sd4ds/' | relative_url }}) {#sd4ds}
 
 Many data scientists are self-taught programmers
