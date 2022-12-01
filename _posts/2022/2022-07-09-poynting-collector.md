@@ -16,7 +16,7 @@ One person responded:
 
 > The rule of thumb is 2<sup>18</sup> quanta per KW/ms if you are using lead,
 > but check your supplier for more modern alternatives.
-> We haven't recommended lead on oscillation thrusters for a decade
+> We haven't recommended lead on overthrusters for a decade
 > due to exactly the problem you're trying to solve.
 
 However, someone else said:
@@ -26,7 +26,7 @@ However, someone else said:
 > Get a Poynting collector and feed it back into your spin condenser.
 
 It was an interesting idea that sent me down a couple of rabbit holes.
-(For example, it turns out there's a thriving market in Soviet-era industrial supplies in Ecuador…)
+(For example, it turns out there's a thriving mail-order market in Soviet-era industrial supplies in Ecuador…)
 By March 2021 I was far enough along to say:
 
 > Beam alignment still isn't phase-neutral
