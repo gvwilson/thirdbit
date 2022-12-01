@@ -1,0 +1,479 @@
+---
+title: "Software Design in Python Glossary"
+date: 2022-12-01
+year: 2022
+---
+
+Your lesson plan will give me a vague idea of what you're planning to teach;
+your glossary will tell me more.
+In that spirit,
+here's the glossary for the upcoming Python version of *Software Design by Example*.
+(The glossary for the JavaScript version is [also online]({{'/sdxjs/glossary/' | relative_url}}).)
+
+<table>
+  <tr>
+    <td>absolute error</td>
+    <td>abstract class</td>
+    <td>abstract method</td>
+  </tr>
+  <tr>
+    <td>abstract syntax tree (AST)</td>
+    <td>accidental complexity</td>
+    <td>actual result (of test)</td>
+  </tr>
+  <tr>
+    <td>affordance</td>
+    <td>alias</td>
+    <td>ANSI character encoding</td>
+  </tr>
+  <tr>
+    <td>Application Binary Interface (ABI)</td>
+    <td>Application Programming Interface (API)</td>
+    <td>argument</td>
+  </tr>
+  <tr>
+    <td>ASCII character encoding</td>
+    <td>assembler</td>
+    <td>assembly code</td>
+  </tr>
+  <tr>
+    <td>assertion</td>
+    <td>associative array</td>
+    <td>atomic operation</td>
+  </tr>
+  <tr>
+    <td>atomic value</td>
+    <td>attribute</td>
+    <td>automatic variable</td>
+  </tr>
+  <tr>
+    <td>backward-compatible</td>
+    <td>base class</td>
+    <td>batch processing</td>
+  </tr>
+  <tr>
+    <td>benchmark</td>
+    <td>big endian</td>
+    <td>binary mode</td>
+  </tr>
+  <tr>
+    <td>bit mask</td>
+    <td>bit shifting</td>
+    <td>bitwise operation</td>
+  </tr>
+  <tr>
+    <td>body (of HTTP request or response)</td>
+    <td>Boolean</td>
+    <td>boxed value</td>
+  </tr>
+  <tr>
+    <td>breakpoint</td>
+    <td>build manager</td>
+    <td>build recipe</td>
+  </tr>
+  <tr>
+    <td>build rule</td>
+    <td>bytecode</td>
+    <td>cache</td>
+  </tr>
+  <tr>
+    <td>call stack</td>
+    <td>catch (an exception)</td>
+    <td>Chain of Responsibility pattern</td>
+  </tr>
+  <tr>
+    <td>child (in a tree)</td>
+    <td>child class</td>
+    <td>class</td>
+  </tr>
+  <tr>
+    <td>class method</td>
+    <td>clear a breakpoint</td>
+    <td>client</td>
+  </tr>
+  <tr>
+    <td>code point</td>
+    <td>cognitive load</td>
+    <td>collision (in hashing)</td>
+  </tr>
+  <tr>
+    <td>column-wise storage</td>
+    <td>comma-separated values (CSV)</td>
+    <td>compile</td>
+  </tr>
+  <tr>
+    <td>compiled language</td>
+    <td>compiler</td>
+    <td>concrete class</td>
+  </tr>
+  <tr>
+    <td>conditional breakpoint</td>
+    <td>conditional jump</td>
+    <td>confirmation bias</td>
+  </tr>
+  <tr>
+    <td>constructor</td>
+    <td>context manager</td>
+    <td>control code</td>
+  </tr>
+  <tr>
+    <td>control flow</td>
+    <td>Coordinated Universal Time (UTC)</td>
+    <td>cryptographic hash function</td>
+  </tr>
+  <tr>
+    <td>data engineer</td>
+    <td>data migration</td>
+    <td>dataframe</td>
+  </tr>
+  <tr>
+    <td>decorator</td>
+    <td>defensive programming</td>
+    <td>dependency (in build)</td>
+  </tr>
+  <tr>
+    <td>derived class</td>
+    <td>design by contract</td>
+    <td>design pattern</td>
+  </tr>
+  <tr>
+    <td>dictionary</td>
+    <td>dictionary comprehension</td>
+    <td>directed acyclic graph (DAG)</td>
+  </tr>
+  <tr>
+    <td>directed graph</td>
+    <td>disassemble</td>
+    <td>disassembler</td>
+  </tr>
+  <tr>
+    <td>dispatch</td>
+    <td>docstring</td>
+    <td>Document Object Model (DOM)</td>
+  </tr>
+  <tr>
+    <td>Domain Name System (DNS)</td>
+    <td>dry run</td>
+    <td>duck typing</td>
+  </tr>
+  <tr>
+    <td>dynamic dispatch</td>
+    <td>dynamic scoping</td>
+    <td>eager evaluation</td>
+  </tr>
+  <tr>
+    <td>eager matching</td>
+    <td>easy mode</td>
+    <td>edge</td>
+  </tr>
+  <tr>
+    <td>element</td>
+    <td>enumeration</td>
+    <td>environment</td>
+  </tr>
+  <tr>
+    <td>error (result of test)</td>
+    <td>error handling</td>
+    <td>escape sequence</td>
+  </tr>
+  <tr>
+    <td>exception</td>
+    <td>exception handler</td>
+    <td>exclusive or</td>
+  </tr>
+  <tr>
+    <td>expected result (of test)</td>
+    <td>exponent</td>
+    <td>extensibility</td>
+  </tr>
+  <tr>
+    <td>failure (result of test)</td>
+    <td>false negative</td>
+    <td>false positive</td>
+  </tr>
+  <tr>
+    <td>falsy</td>
+    <td>field</td>
+    <td>finite state machine (FSM)</td>
+  </tr>
+  <tr>
+    <td>fixture</td>
+    <td>garbage collection</td>
+    <td>generator function</td>
+  </tr>
+  <tr>
+    <td>generic function</td>
+    <td>graph (data structure)</td>
+    <td>greedy algorithm</td>
+  </tr>
+  <tr>
+    <td>hash code</td>
+    <td>hash function</td>
+    <td>hash table</td>
+  </tr>
+  <tr>
+    <td>header (of HTTP request or response)</td>
+    <td>helper class</td>
+    <td>heterogeneous</td>
+  </tr>
+  <tr>
+    <td>hexadecimal</td>
+    <td>homogeneous</td>
+    <td>hostname</td>
+  </tr>
+  <tr>
+    <td>HTTP method</td>
+    <td>HTTP protocol version</td>
+    <td>HTTP request</td>
+  </tr>
+  <tr>
+    <td>HTTP response</td>
+    <td>HTTP status code</td>
+    <td>HyperText Markup Language (HTML)</td>
+  </tr>
+  <tr>
+    <td>HypterText Transfer Protocol (HTTP)</td>
+    <td>immutable</td>
+    <td>index (a database)</td>
+  </tr>
+  <tr>
+    <td>instance</td>
+    <td>instruction pointer</td>
+    <td>instruction set</td>
+  </tr>
+  <tr>
+    <td>Internet Protocol (IP)</td>
+    <td>interpreted language</td>
+    <td>interpreter</td>
+  </tr>
+  <tr>
+    <td>intrinsic complexity</td>
+    <td>introspection</td>
+    <td>IP address (IP)</td>
+  </tr>
+  <tr>
+    <td>ISO date format</td>
+    <td>Iterator pattern</td>
+    <td>JavaScript Object Notation (JSON)</td>
+  </tr>
+  <tr>
+    <td>join (tables)</td>
+    <td>key</td>
+    <td>label (address in memory)</td>
+  </tr>
+  <tr>
+    <td>layout engine</td>
+    <td>lazy evaluation</td>
+    <td>lazy matching</td>
+  </tr>
+  <tr>
+    <td>lexical scoping</td>
+    <td>library</td>
+    <td>link (a program)</td>
+  </tr>
+  <tr>
+    <td>linter</td>
+    <td>Liskov Substitution Principle</td>
+    <td>list</td>
+  </tr>
+  <tr>
+    <td>list comprehension</td>
+    <td>literal</td>
+    <td>little endian</td>
+  </tr>
+  <tr>
+    <td>manifest</td>
+    <td>mantissa</td>
+    <td>Markdown</td>
+  </tr>
+  <tr>
+    <td>markup language</td>
+    <td>metadata</td>
+    <td>method</td>
+  </tr>
+  <tr>
+    <td>method injection</td>
+    <td>minimum testable class</td>
+    <td>mixin</td>
+  </tr>
+  <tr>
+    <td>mock object</td>
+    <td>module</td>
+    <td>multiple inheritance</td>
+  </tr>
+  <tr>
+    <td>named tuple</td>
+    <td>node</td>
+    <td>object</td>
+  </tr>
+  <tr>
+    <td>object-oriented programming (OOP)</td>
+    <td>off-by-one error</td>
+    <td>online analytical processing (OLAP)</td>
+  </tr>
+  <tr>
+    <td>online transaction processing (OLTP)</td>
+    <td>op code</td>
+    <td>Open-Closed Principle</td>
+  </tr>
+  <tr>
+    <td>overlay configuration</td>
+    <td>package</td>
+    <td>parameter</td>
+  </tr>
+  <tr>
+    <td>parameter sweeping</td>
+    <td>parent (in a tree)</td>
+    <td>parent class</td>
+  </tr>
+  <tr>
+    <td>parser</td>
+    <td>pass (result of test)</td>
+    <td>path resolution</td>
+  </tr>
+  <tr>
+    <td>pattern rule (in build)</td>
+    <td>persistence</td>
+    <td>phony target</td>
+  </tr>
+  <tr>
+    <td>pipe (in the Unix shell)</td>
+    <td>placeholder file</td>
+    <td>polymorphism</td>
+  </tr>
+  <tr>
+    <td>port</td>
+    <td>post-condition</td>
+    <td>pre-condition</td>
+  </tr>
+  <tr>
+    <td>precedence</td>
+    <td>prerequisite</td>
+    <td>protocol</td>
+  </tr>
+  <tr>
+    <td>provenance</td>
+    <td>Pythonic</td>
+    <td>query parameter</td>
+  </tr>
+  <tr>
+    <td>race condition</td>
+    <td>raise (an exception)</td>
+    <td>record</td>
+  </tr>
+  <tr>
+    <td>recursion</td>
+    <td>refactor</td>
+    <td>reflection</td>
+  </tr>
+  <tr>
+    <td>register</td>
+    <td>regression</td>
+    <td>regular expression</td>
+  </tr>
+  <tr>
+    <td>relational database</td>
+    <td>relative error</td>
+    <td>reverse lookup</td>
+  </tr>
+  <tr>
+    <td>root (in a tree)</td>
+    <td>row-wise storage</td>
+    <td>runtime</td>
+  </tr>
+  <tr>
+    <td>schema</td>
+    <td>scope</td>
+    <td>server</td>
+  </tr>
+  <tr>
+    <td>SHA-256 hash code</td>
+    <td>sign and magnitude</td>
+    <td>signature</td>
+  </tr>
+  <tr>
+    <td>singleton</td>
+    <td>Singleton pattern</td>
+    <td>socket</td>
+  </tr>
+  <tr>
+    <td>spread</td>
+    <td>SQL</td>
+    <td>stack frame</td>
+  </tr>
+  <tr>
+    <td>stale (in build)</td>
+    <td>standard error</td>
+    <td>standard input</td>
+  </tr>
+  <tr>
+    <td>standard output</td>
+    <td>static method</td>
+    <td>static site generator</td>
+  </tr>
+  <tr>
+    <td>streaming API</td>
+    <td>string</td>
+    <td>table</td>
+  </tr>
+  <tr>
+    <td>target (in build)</td>
+    <td>Template Method pattern</td>
+    <td>test fidelity</td>
+  </tr>
+  <tr>
+    <td>text mode</td>
+    <td>throw exception</td>
+    <td>time of check - time of use</td>
+  </tr>
+  <tr>
+    <td>timestamp</td>
+    <td>token</td>
+    <td>topological order</td>
+  </tr>
+  <tr>
+    <td>Transmission Control Protocol (TCP/IP)</td>
+    <td>tree</td>
+    <td>truthy</td>
+  </tr>
+  <tr>
+    <td>tuple</td>
+    <td>Turing Machine</td>
+    <td>two hard problems in computer science</td>
+  </tr>
+  <tr>
+    <td>two's complement</td>
+    <td>Unicode</td>
+    <td>unit test</td>
+  </tr>
+  <tr>
+    <td>Universal Resource Locator (URL)</td>
+    <td>unparsing</td>
+    <td>upcall</td>
+  </tr>
+  <tr>
+    <td>UTF-32</td>
+    <td>UTF-8</td>
+    <td>variable-length encoding</td>
+  </tr>
+  <tr>
+    <td>vector</td>
+    <td>version control system</td>
+    <td>virtual machine</td>
+  </tr>
+  <tr>
+    <td>Visitor pattern</td>
+    <td>watchpoint</td>
+    <td>well-formed</td>
+  </tr>
+  <tr>
+    <td>word (of memory)</td>
+    <td>XML</td>
+    <td>Yet Another Markup Language (YAML)</td>
+  </tr>
+  <tr>
+    <td>z-buffering</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
