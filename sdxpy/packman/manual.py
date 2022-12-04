@@ -2,7 +2,6 @@ import itertools
 import json
 import sys
 
-# [main]
 def main():
     manifest = json.load(sys.stdin)
     possible = make_possibilities(manifest)
@@ -11,17 +10,28 @@ def main():
     print(f"{len(allowed)} allowed")
     for a in allowed:
         print(a)
-# [/main]
 
-# [possible]
+# [start]
 def make_possibilities(manifest):
     available = []
     for package, versions in manifest.items():
         available.append([(package, v) for v in versions])
-    return list(itertools.product(*available))
-# [/possible]
 
-# [compatible]
+    accumulator = []
+    _make_possible(available, [], accumulator)
+    return accumulator
+# [/start]
+
+# [make]
+def _make_possible(remaining, current, accumulator):
+    if not remaining:
+        accumulator.append(current)
+    else:
+        head, tail = remaining[0], remaining[1:]
+        for h in head:
+            _make_possible(tail, current + [h], accumulator)
+# [/make]
+
 def compatible(manifest, combination):
     for package_i, version_i in combination:
         lookup_i = manifest[package_i][version_i]
@@ -33,7 +43,6 @@ def compatible(manifest, combination):
             if version_j not in lookup_i[package_j]:
                 return False
     return True
-# [/compatible]
 
 if __name__ == "__main__":
     main()
