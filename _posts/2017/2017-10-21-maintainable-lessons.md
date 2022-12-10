@@ -65,7 +65,7 @@ under our control:
 to learn from; if you know of others, please point us at them.
 
 [collab-lesson]: https://arxiv.org/abs/1707.02662
-[exercise-types]: http://third-bit.com/2017/10/16/exercise-types.html
+[exercise-types]: http://third-bit.com/2017/10/16/exercise-types/
 [jupyter]: https://jupyter.org/
 [swc]: https://software-carpentry.org
 [teaching-machine]: http://teachingmachin.es/timeline.html

@@ -10,7 +10,7 @@ year: 2014
   Friday: give <a href="http://www.slideshare.net/gvwilson/two-solitudes">a talk</a> at McGill.
 </p>
 <p>
-  Saturday: <a href="http://third-bit.com/pycon2014/">tell people at PyCon</a> what I know about education.
+  Saturday: tell people at PyCon what I know about education.
 </p>
 <p>
   Sunday: help <a href="http://mikedebo.ca/">Michael DiBernardo</a>

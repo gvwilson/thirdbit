@@ -13,8 +13,8 @@ year: 2008
 	<li><strike>Submit proposal for <a href="http://cise.aip.org/">CiSE</a> special issue on software engineering and computational science.</strike>: 1</li>
 	<li><strike>Write and submit NSERC Discovery Grant Notice of Intent</strike>: 1</li>
 	<li><strike>More revisions</strike> to "CS-1 in Python" book: 0.25</li>
-	<li><strike>Sort out authentication for <a href="http://swc.scipy.org">Software Carpentry</a> portal.</strike>: 1</li>
-	<li><strike>Start</strike> translating <a href="http://swc.scipy.org">Software Carpentry</a> examples into <a href="http://www.mathworks.com">MATLAB</a>: 0</li>
+	<li><strike>Sort out authentication for Software Carpentry portal.</strike>: 1</li>
+	<li><strike>Start</strike> translating Software Carpentry examples into <a href="http://www.mathworks.com">MATLAB</a>: 0</li>
 	<li><strike>Get kids to and from camp every morning</strike>: 1</li>
 </ol>
 Score: 8/12.

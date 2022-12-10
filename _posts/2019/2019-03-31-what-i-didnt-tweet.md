@@ -72,7 +72,7 @@ title: "What I Didn't Tweet in March"
     -   [Reviewing Lessons]({{'/2019/03/12/reviewing-lessons/' | relative_url}})
     -   [Keep Me In Your Heart For a While]({{'/2019/03/14/keep-me-in-your-heart-for-a-while/' | relative_url}})
         ({{site.github.url}}](http://third-bit.com/2018/03/20/goodbye-jeff/))
-    -   [Leadership Training for Open Science]({{'/2019/03/15/leadership-training-for-open-science/' | relative_url}})
+    -   [Leadership Training for Open Science]({{'/2019/01/10/leadership-training-for-open-science/' | relative_url}})
     -   [Christchurch and Shopify]({{'/2019/03/15/christchurch-and-shopify/' | relative_url}})
     -   [Educational Paramedics]({{'/2019/03/20/educational-paramedics/' | relative_url}})
     -   [Twelve Weeks, Twelve Tools]({{'/2019/03/21/twelve-weeks-twelve-tools/' | relative_url}})

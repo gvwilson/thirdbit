@@ -5,7 +5,7 @@ year: 2004
 ---
 <p>Harald Koch just pointed me at <a href="http://xmlstar.sourceforge.net/">XMLStarlet</a>, a command-line toolset for manipulating XML.  This isn't the first beast of its ilk --- Sean McGrath built similar tools several years ago in Python, for example --- but it seems to be more mature than others.</p>
 
-<p>Clicking through the documentation, I'm struck yet again by the disconnect between programming's two approaches to handling "odd jobs".  The first is the Unix command-line filter model; the second, scripting.  The second is more powerful, primarily because it gives programmers access to richer data structures, and a wider set of control constructs.  (I talk about this more in <a href="http://www.third-bit.com/~gvwilson/xmlprog.html">this article</a> on extensible programming systems.)</p>
+<p>Clicking through the documentation, I'm struck yet again by the disconnect between programming's two approaches to handling "odd jobs".  The first is the Unix command-line filter model; the second, scripting.  The second is more powerful, primarily because it gives programmers access to richer data structures, and a wider set of control constructs.  (I talk about this more in this article on extensible programming systems.)</p>
 
 <p>Why then has the command-line model proved so durable?  According to Irving Reid, the main reason is that you get more bang for your keystroke: an experienced Unix geek can do wonderful things in a five-filter pipe.  Once you add a few simple control constructs (like <code>while read var</code>, which I only discovered last fall), you have a lot of power at your fingertips.</p>
 

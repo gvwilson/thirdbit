@@ -500,7 +500,7 @@ Our delivery mechanisms for getting lessons to learners are:
 [choral-explanations]: https://hapgood.us/2016/05/13/choral-explanations/
 [feedly]: http://feedly.com
 [folksonomy]: https://en.wikipedia.org/wiki/Folksonomy
-[fourteen-percent]: http://third-bit.com/2018/12/19/fourteen-percent.html
+[fourteen-percent]: http://third-bit.com/2018/12/19/fourteen-percent/
 [guardians-video]: https://www.youtube.com/watch?v=XC8qrH3Zwog
 [harper-lite]: {{'/ideas/harper/' | relative_url}}
 [harper-william]: https://en.wikipedia.org/wiki/William_Rainey_Harper
@@ -509,12 +509,12 @@ Our delivery mechanisms for getting lessons to learners are:
 [hypothesis]: https://web.hypothes.is/
 [lessons-learned]: https://f1000research.com/articles/3-62/v2
 [mailto]: mailto:gvwilson@third-bit.com
-[oer-landmines]: http://third-bit.com/2018/12/02/oer-landmines.html
+[oer-landmines]: http://third-bit.com/2018/12/02/oer-landmines/
 [reusability-paradox]: https://opencontent.org/blog/archives/3854
 [rstudio-cloud]: https://rstudio.cloud/
 [scorm]: https://scorm.com/
 [stack]: http://stackoverflow.com
 [student-evals]: https://www.sciencedirect.com/science/article/pii/S0191491X16300323
 [swc]: http://software-carpentry.org
-[thirteen-percent]: http://third-bit.com/2018/12/17/thirteen-percent.html
-[twelve-percent]: http://third-bit.com/2018/12/12/twelve-percent.html
+[thirteen-percent]: http://third-bit.com/2018/12/17/thirteen-percent/
+[twelve-percent]: http://third-bit.com/2018/12/12/twelve-percent/

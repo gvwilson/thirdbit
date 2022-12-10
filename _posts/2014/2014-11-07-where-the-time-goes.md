@@ -130,6 +130,6 @@ original: swc
   but organizations that back us will be represented on our board
   and be able to shape what we do and how we do it.
   If this sounds interesting,
-  please <a href="mailto:{{site.board_inquiries}}">get in touch</a>.
+  please get in touch.
   We'd welcome a chance to talk about ways and means.
 </p>

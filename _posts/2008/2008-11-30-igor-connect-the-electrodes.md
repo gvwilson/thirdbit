@@ -3,7 +3,7 @@ title: "Igor, Connect the Electrodes!"
 date: 2008-11-30 15:27:24
 year: 2008
 ---
-The <a href="http://swc.scipy.org">Software Carpentry</a> course site is still getting a fair bit of traffic, although readership is definitely tailing off:
+The Software Carpentry course site is still getting a fair bit of traffic, although readership is definitely tailing off:
 
 <img src="{{'/files/2008/11/usage.png' | relative_url}}" alt="SWC site stats" />
 
