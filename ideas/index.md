@@ -6,8 +6,7 @@ layout: page
 Someday I hope I'll have a chance to tackle one of these projects---I think
 they would all be fun to do and would make the world a better place:
 
-- [Software Engineering: An Evidence-Based Approach]({{'/ideas/seeba/' | relative_url}})
-- [Building Software Together]({{'/ideas/bst/' | relative_url}})
+- [Software Engineering: Compassion, Evidence, Process, and Tools]({{'/ideas/secept/' | relative_url}})
 - [Leadership Skills for Open Science]({{'/ideas/leadership/' | relative_url}})
 - [Harper-Lite: Simple Lesson Discovery and Aggregation][harper]
 
@@ -26,33 +25,26 @@ Here's mine:
 
 ## What I Would Build If I Still Wrote Software
 
-   **A blocks-based tool for data science.**
+**A blocks-based tool for data science.**
 :   [Scratch][scratch] is the most effective tool we have for teaching programming to newcomers of all ages
     because it reduces [cognitive load][cognitive-load] on learners.
-    [TidyBlocks][tidyblocks] is an attempt to replicate its success for data science;
-    it needs 10-12 programmer-months to make it ready for general use,
-    but the fact that volunteers have already translated its interface into several languages
-    shows just how much impact it could have.
-    *Current status: on hold waiting for funding.*
-
-**A lightweight lesson aggregation tool.**
-:   Instead of building yet another repository for lessons or trying to get people to use a single template,
-    it would probably be more useful to
-    [aggregate metadata about the lessons they already have][harper].
-    *Current status: never started.*
+    [TidyBlocks][tidyblocks] was an attempt to replicate its success for data science,
+    but we couldn't get funding
+    and clickable blocks couldn't represent operations like joins in a natural way.
+    A dataflow tool based on [Node-RED][node-red] would probably do better;
+    there has been [some preliminary work][node-red-danfo],
+    and I think it's very promising.
 
 **A computational notebook that includes a drawing tool.**
-:   And while we're at it, the workflow for putting hand-drawn (vector) diagrams into notebooks is pretty clumsy.
-    Open drawing tool, save file, add reference to notebook, render, curse, re-draw, re-render...
+:   The workflow for putting hand-drawn (vector) diagrams into notebooks is clumsy:
+    open drawing tool, save file, add reference to notebook, render, curse, re-draw, re-render...
     I'd like to be able to click on a diagram in a notebook and edit it in place
     just like I can in Word or Google Doc.
-    There are several good open source JavaScript vector drawing tools out there,
+    There are [several][draw-io] [good][excalidraw] open source vector drawing tools out there,
     and the SVG could either be embedded in the notebook document or stored in a side file.
-    *Current status: there are drawing plugins for the Jupyter notebook,
-    but none seem to be under active development.*
 
 **Diff and merge for SVG and CSV.**
-:   And while we're talking about drawing,
+:   While we're talking about drawing,
     I think developers would be much (much) more likely to include diagrams in their documentation
     if they could diff and merge those diagrams as easily as they do text.
     GitHub has supported a [split-pane view][github-svg-diff] for years,
@@ -71,29 +63,10 @@ Here's mine:
     Given recent advances in text-to-speech technology,
     this one may now be moot.
 
-**A single-pass LaTeX compiler.**
-:   Because we can fit an entire encyclopedia into memory these days
-    and I am *so* done with writing Makefiles to run LaTeX two or three times
-    to update numbered cross-references.
-
 ## What I Would Study If I Still Did Research
 
 I never had the patience or diligence to be a good researcher,
 but I still have lots of questions that I would like answered.
-
-**How well do data scientists agree with each other about the correctness of analyses?**
-:   There's an old joke that physicists worry about decimal places,
-    astronomers worry about exponents,
-    and economists are happy if they've got the sign right.
-    The truth beneath this is that
-    every disciplines uses its own implicit heuristics to judge how good is "good enough".
-    I suspect that data science doesn't yet have a shared set of heuristics,
-    both because it's such a young field
-    and because its practitioners come from such varied background.
-    This study would put a dozen two-page data analyses in front of a couple of dozen data scientists
-    and ask them which ones seem OK and which ones seem dodgy,
-    then explore the degree of inter-grader agreement and the reasons behind disagreements.
-    *Current status: under way.*
 
 **Are programmers who use version control more productive that programmers who don't?**
 :   This may seem too obvious to be worth investigating,
@@ -132,16 +105,8 @@ but I still have lots of questions that I would like answered.
     If so,
     how quickly and how well?
 
-**Do novices learn data science faster or better using blocks or text?**
-:   Multiple studies have shown that novices learn programming faster using blocks-based tools like Scratch
-    than using text-based programming languages.
-    Is the same true for data science?
-    The study subjects would be high school students preparing for something like the AP Stats exam,
-    and the blocks would implement the operations in the Tidyverse.
-    *Current status: we need to finish [TidyBlocks][tidyblocks]...*
-
 **How much software would pass a Moses Test?**
-:   Robert Moses reshaped New York City and surrounding areas;
+:   [Robert Moses][robert-moses] reshaped New York City and surrounding areas;
     among other things,
     he deliberately made the bridges over roads leading to public beaches too low for buses
     so that poor people would have a hard time getting there.
@@ -231,17 +196,6 @@ But more importantly, please read:
 
 I'd like to write these, but I'd be just as happy to read 'em...
 
-**R for Data Engineers**
-:   I found R confusing upon first encountering it after four decades of C,
-    Java, and Python.  I slowly realized that R's rules are no more confusing or
-    contradictory than those of other programming languages; They only appear so
-    because R draws on a tradition unfamiliar to those of us raised with
-    derivatives of C.  Counting from one, copying data rather than modifying it,
-    lazy evaluation: to quote Terry Pratchett, these are not mad, just
-    differently sane. This book is an introduction to the language and its use
-    for people who are coming from a computer science background, and who need
-    to integrate R with their other tools. *Status: [on hold][tidynomicon].*
-
 **A Catalog of Errors**
 :   Most programmers spend a large part of their time debugging,
     but most books only show working code,
@@ -253,8 +207,8 @@ I'd like to write these, but I'd be just as happy to read 'em...
     [debugging](http://www.amazon.com/The-Art-Debugging-GDB-Eclipse/dp/1593271743/)
     are high-level handwaving,
     user guides for particular debugging tools,
-    or [out of date](http://www.amazon.com/Find-Bug-Book-Incorrect-Programs/dp/0321223918/);
-    the [one notable exception](http://www.amazon.com/Why-Programs-Fail-Second-Edition/dp/0123745152/)
+    or [out of date](http://www.amazon.com/Find-Bug-Book-Incorrect-Programs/dp/0321223918/).
+    The [one notable exception](http://www.amazon.com/Why-Programs-Fail-Second-Edition/dp/0123745152/)
     is an excellent read,
     but too advanced for most undergraduates.
     This book would fill that gap by combining an exploration of how debugging tools actually work
@@ -273,14 +227,18 @@ I'd like to write these, but I'd be just as happy to read 'em...
     it would explain concepts clearly and provides examples for each.
 
 [cognitive-load]: http://teachtogether.tech/en/index.html#s:architecture-load
+[draw-io]: https://app.diagrams.net/
 [economics-everyone]: https://isbndb.com/book/9780745335773
+[excalidraw]: https://excalidraw.com/
 [flyover]: https://isbndb.com/book/9781250189998
 [github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
-[harper]: ({{'/ideas/harper/' | relative_url}})
 [humanizing-economy]: https://www.newsociety.com/Books/H/Humanizing-the-Economy
 [lower-ed]: https://isbndb.com/book/9781620974384
+[node-red]: https://nodered.org/
+[node-red-danfo]: https://www.youtube.com/watch?v=9KToLbF3ZgM
 [owning-earth]: https://isbndb.com/book/9781620402917
 [peoples-walmart]: https://www.versobooks.com/books/2822-the-people-s-republic-of-walmart
+[robert-moses]: https://en.wikipedia.org/wiki/Robert_Moses
 [scratch]: https://scratch.mit.edu/
 [seeing-like-state]: https://isbndb.com/book/9780300078152
 [spirit-level]: https://isbndb.com/book/9781608193417

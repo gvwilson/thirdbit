@@ -1,21 +1,41 @@
 ---
-title: "Software Engineering: An Evidence-Based Approach"
+title: "Software Engineering: Compassion, Evidence, Process, and Tools"
 layout: page
 ---
 
-Are some programming languages easier for novices to pick up than others? Does test-driven development produce higher-quality code in less time? Is there any truth behind the "10X programmer" meme? And if a team has limited resources for testing, what should they focus on? Empirical research has answers to all of these questions and more, but most programmers don't know that research exists. As a result, many continue to use inefficient or insecure practices when better alternatives exist.
+Are some programming languages easier for novices to pick up than others?
+Does test-driven development produce higher-quality code in less time?
+Is there any truth behind the "10X programmer" meme?
+And if a team has limited resources for testing, what should they focus on?
+Empirical research has answers to all of these questions and more,
+but most programmers don't know that research exists.
+As a result,
+many continue to use inefficient or insecure practices when better alternatives exist.
 
-I would like teach programmers (both students and practitioners) what we actually know about software engineering and why we believe it's true. After a few false starts, I believe the best way to do this is to teach them some basic data science, then have them use their new knowledge and skills to understand analyses of what makes software engineers more effective.  This show-don't-tell approach would ensure that they know what we already know, that what they learn sticks, and that they have the tools they need to analyze and improve their own work.
+I would like teach programmers (both students and practitioners)
+what we actually know about software engineering and why we believe it's true.
+I believe the best way to do this is to teach them some basic data science,
+then have them use their new knowledge and skills
+to understand analyses of what makes software engineers more effective.
+This show-don't-tell approach would ensure that they know what we already know,
+that what they learn sticks,
+and that they have the tools they need to analyze and improve their own work.
 
-More specifically, I would like to create lessons suitable for self-study, industry training, and classroom use that would:
+But that's not enough.
+Many of the hard problems in software engineering stem from the fact that
+we have to design programs to fit our limited mental capacity.
+Many others are rooted in the social psychology of group interactions,
+or in our tendency to believe what people around us believe
+rather than examining evidence.
+This book would therefore be guided by a modified version of [Dobzhansky's Rule][dobzhansky]:
 
-1. introduce key data science concepts so that learners can understand the methods and claims of empirical studies;
+> Nothing in software engineering makes sense except in the light of psychology.
 
-2. teach them how to reproduce (scaled-down versions of) key results using Python and freely-available datasets; and
-
-3. present and discuss those key results and others.
-
-All of the material would published with a Creative Commons license to enable extension and translation. I would work with instructors in both academia and industry to ensure that the material is relevant, approachable, and actually adopted. Once the material stabilized it would be published as a book.
+Our aim is to teach you how to be a *compassionate programmer*:
+one who cares about the well-being of their colleagues and users.
+This focus is not entirely altruistic—everything you do to help others
+also helps your future self—but now that we know how much harm software can do,
+we need to learn to build it in better ways.
 
 ### FAQ
 
@@ -29,7 +49,7 @@ What are your qualifications for doing this?
 :   [Software Carpentry][carpentries], a non-profit I founded in 2010 to teach programming skills to researchers, has delivered several thousand workshops worldwide to over 80,000 people; the books I organized and edited on [software architecture][aosa] and [empirical software engineering research][making-software] have been read by tens of thousands of people; I received the ACM SIGSOFT Influential Educator of the Year Award in 2020; and I have extensive contacts in both academia and industry.
 
 Why can't you do this on your own time?
-:   I tried: it was going to be next after *[Teaching Tech Together][t3]*, *[Software Tools in JavaScript][stjs]*, and *[Building Software Together][bst]*. What I found while prototyping is that the material requires so much more unbroken concentration that I don't think I will complete it as an evening-and-weekend project.
+:   I tried: it was going to be next after *[Teaching Tech Together][t3]* and *[Software Design by Example in JavaScript][sdxjs]*. What I found while prototyping is that the material requires so much more unbroken concentration that I don't think I will complete it as an evening-and-weekend project.
 
 Why are you teaching data science rather than just summarizing published results?
 :   The average computer science student does a lot less data analysis in college than the average biologist or economist, so most programmers don't have the background needed to understand what's actually being claimed or the evidence for it. If we're going to reach the majority we need to give them a foundation; presenting this as "let's teach you the Python you need to wrangle data" seems most likely to hook them.
@@ -59,9 +79,10 @@ Who else has tried to do this?
 [aosa]: https://aosabook.org/
 [bst]: https://buildtogether.tech/
 [carpentries]: https://carpentries.org/
+[dobzhansky]: https://en.wikipedia.org/wiki/Nothing_in_Biology_Makes_Sense_Except_in_the_Light_of_Evolution
 [eseur]: http://www.knosof.co.uk/ESEUR/
 [facts-fallacies]: https://www.amazon.com/Facts-Fallacies-Software-Engineering-Robert/dp/0321117425/
 [making-software]: https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/
 [rapid-development]: https://www.amazon.com/Rapid-Development-Taming-Software-Schedules/dp/1556159005/
-[stjs]: https://stjs.tech/
+[sdxjs]: {{'/sdxjs/' | relative_url}}
 [t3]: http://teachtogether.tech
