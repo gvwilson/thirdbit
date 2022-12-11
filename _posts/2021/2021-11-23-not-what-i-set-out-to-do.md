@@ -89,12 +89,12 @@ I think I could have helped more people with those hours
 by doing something else.
 
 *Footnote: I received two messages within minutes of publishing this post.
-The first told me not to be so down on myself
-to which I replied that
-I need to decide whether to put in a hundred hours to finish
-[Building Software Together](https://buildtogether.tech/);
+The first told me not to be so down on myself,
+to which I replied,
+"I need to decide whether to put in a hundred hours to finish
+Building Software Together;
 if I don't reflect on this project,
-I'm unlikely to do better with the next.*
+I'm unlikely to do better with the next."*
 
 *The second told me, "Don't be such a bleeding heart.
 If diversty [sic] hires don't want to work hard to get ahead they don't deserve to."
