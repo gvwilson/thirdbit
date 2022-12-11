@@ -24,8 +24,8 @@ year: 2016
 <dt>An undergraduate course in empirical software engineering</dt>
 <dd>
   <p>
-    <a href="http://third-bit.com/2014/10/02/a-better-software-engineering-course.html">This post</a> describes the idea,
-    and <a href="http://third-bit.com/2015/11/29/exaptation.html">this one</a> explains why the time is right.
+    This post describes the idea,
+    and this one explains why the time is right.
   </p>
 </dd>
 

@@ -18,7 +18,7 @@ What do you think the other three should cover (keeping in mind that this is sup
 <ul>
 	<li>wrapping C code so that it can be called from Python</li>
 	<li>using popen() and its ilk to run external programs</li>
-	<li>(probably) something on refactoring to make code more testable (as per Feathers' excellent <a href="http://www.third-bit.com/reading.html#feathers-legacy-code">Working Effectively with Legacy Code</a></li>
+	<li>(probably) something on refactoring to make code more testable (as per Feathers' excellent <em>Working Effectively with Legacy Code</em></li>
 </ul>
 </li>
 	<li>Three lecture-length examples, building very simple versions of core tools that haven't been covered elsewhere:

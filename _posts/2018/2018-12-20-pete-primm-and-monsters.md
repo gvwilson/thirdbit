@@ -5,7 +5,7 @@ title: "PETE, PRIMM, and Monsters"
 ---
 
 A year ago,
-I wrote [a short catalog of exercises](http://third-bit.com/2017/10/16/exercise-types.html)
+I wrote [a short catalog of exercises](http://third-bit.com/2017/10/16/exercise-types/)
 that you can use in programming classes.
 I'd now like to build up a catalog of lesson *structures*,
 and would like your help.

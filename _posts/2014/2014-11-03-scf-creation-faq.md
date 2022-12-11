@@ -68,8 +68,7 @@ original: swc
     Yes: we are very interested in talking to potential partners who
     can help us organize and deliver training, and to sponsors who can
     help us financially.
-    Please <a href="mailto:{{site.board_inquiries}}">contact the
-    board</a> if you would like to help.
+    Please contact the board if you would like to help.
   </dd>
   <dt>How can I make a personal donation to the cause?</dt>
   <dd>

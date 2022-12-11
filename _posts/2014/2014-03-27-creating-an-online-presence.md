@@ -42,9 +42,9 @@ original: swc
   </li>
   <li>E.g.:
     <ul>
-      <li><a href="https://github.com/ethanwhite/CV/blob/master/CV.md">Ethan's CV</li></li>
-      <li><a href="https://github.com/ctb/resume/blob/master/full-CV.pdf">Titus's CV</a></li>
-      <li>Greg's <a href="http://third-bit.com/about.html">summary</a> and <a href="http://third-bit.com/greg-wilson.html">CV</a></li>
+      <li>Ethan's CV</li>
+      <li>Titus's CV</li>
+      <li>Greg's summary and CV</li>
     </ul>
   </li>
   <li>for goodness sake, if you are a software carpentry instructor SAY SO somewhere!</li>

@@ -108,6 +108,5 @@ original: nwit
   a large one).  I hope they do another, larger, study, but I hope
   even more that a decade from now, there will be at
   least <em>some</em> correlation between what the
-  <a href="http://third-bit.com/2012/12/06/two-solitudes-illustrated.html">"two
-  solitudes" of software engineering</a> care about.
+  "two solitudes" of software engineering care about.
 </p>

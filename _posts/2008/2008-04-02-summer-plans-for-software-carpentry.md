@@ -3,7 +3,7 @@ title: "Summer Plans for Software Carpentry"
 date: 2008-04-02 15:37:48
 year: 2008
 ---
-The <a href="http://swc.scipy.org">Software Carpentry</a> site is still getting a lot of traffic, despite my neglect:
+The Software Carpentry site is still getting a lot of traffic, despite my neglect:
 
 <img src="{{'/files/2008/04/usage.png' | relative_url}}" alt="Site Usage" />
 

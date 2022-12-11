@@ -77,8 +77,8 @@ inevitable.
 [gatsby]: https://www.gatsbyjs.org/
 [ghp]: https://pages.github.com/
 [jekyll]: https://jekyllrb.com/
-[mistakes]: http://third-bit.com/2015/12/06/just-keep-swimming.html
-[numjs]: http://third-bit.com/2017/05/22/numerical-javascript.html
+[mistakes]: {{'/2015/12/06/just-keep-swimming/' | relative_url}}
+[numjs]: {{'/2017/05/22/numerical-javascript/' | relative_url}}
 [original-tweet]: https://twitter.com/gvwilson/status/925714333392289793
 [react]: https://reactjs.org/
 [stefik]: http://neverworkintheory.org/2014/01/29/stefik-siebert-syntax.html

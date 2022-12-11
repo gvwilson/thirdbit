@@ -3,7 +3,7 @@ title: "Next Lecture?"
 date: 2008-07-28 13:38:46
 year: 2008
 ---
-The <a href="http://swc.scipy.org">Software Carpentry</a> course currently contains the following lectures:
+The Software Carpentry course currently contains the following lectures:
 <ol>
 	<li>Introduction</li>
 	<li>The Unix Shell (2 lectures)</li>

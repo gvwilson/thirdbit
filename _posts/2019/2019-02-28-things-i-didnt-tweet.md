@@ -10,9 +10,9 @@ title: "Things I Didn't Tweet This Month"
 
 -   [Late Binding]({{'/2019/02/16/late-binding/' | relative_url}})
 
--   [Is Code-Along Formative Assessment?](http://third-bit.com/2019/02/20/code-along-as-formative-assessment.html)
+-   [Is Code-Along Formative Assessment?](http://third-bit.com/2019/02/20/code-along-as-formative-assessment/)
 
--   [Making It Work in Practice](http://third-bit.com/2019/02/25/making-it-work-in-practice.html)
+-   [Making It Work in Practice](http://third-bit.com/2019/02/25/making-it-work-in-practice/)
 
 -   Launched [instructor training at RStudio](https://blog.rstudio.com/2019/02/28/rstudio-instructor-training/)
 
