@@ -43,14 +43,14 @@ I stepped down from [Software Carpentry](https://software-carpentry.org) in Janu
 and after a brief stint with [Rangle.io](http://rangle.io) I joined DataCamp,
 who I'm proud to say [fired me in 2018](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup).
 
-Most recently I spent two and a half years in the Education group at [RStudio](http://rstudio.com),
+Most recently I spent two and a half years at [RStudio](http://rstudio.com),
 where I ran the [instructor training and certification program](http://education.rstudio.com/trainers).
 In my free time I worked on books like [*Teaching Tech Together*](http://teachtogether.tech),
 [*JavaScript for Data Science*](http://js4ds.org),
 and [*Research Software Engineering with Python*](https://merely-useful.tech/py-rse/),
-and helped build [TidyBlocks](http://tidyblocks.tech) and [Glosario](https://glosario.carpentries.org/).
+and helped build TidyBlocks and [Glosario](https://glosario.carpentries.org/).
 After a stint as Head of Education for [Metabase](http://www.metabase.com/),
-I am now a software engineer at [Deep Genomics](https://www.deepgenomics.com/) in Toronto.
+I became a software engineering manager at [Deep Genomics](https://www.deepgenomics.com/) in Toronto.
 if you'd like to chat,
 please [drop me a line](mailto:gvwilson@third-bit.com).
 
