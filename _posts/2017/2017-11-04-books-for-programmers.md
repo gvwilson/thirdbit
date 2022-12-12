@@ -152,7 +152,7 @@ I'd be grateful for:
 [last-utopia]: https://www.amazon.com/Last-Utopia-Human-Rights-History/dp/0674048725/
 [life-code]: https://www.amazon.com/Life-Code-Personal-History-Technology/dp/0374534519/
 [lower-ed]: https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/
-[not-on-the-shelves]: {{'/talks/not-on-the-shelves/' | relative_url}}
+[not-on-the-shelves]: {{'/not-on-the-shelves/' | relative_url}}
 [orwell]: https://www.amazon.com/Essays-Everymans-Library-Contemporary-Classics/dp/0375415033/
 [owning-land]: https://www.amazon.com/Owning-Earth-Transforming-History-Ownership/dp/1620402890/
 [physics]: https://www.amazon.com/Physics-Future-Presidents-Science-Headlines/dp/0393337111/

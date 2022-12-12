@@ -282,3 +282,5 @@ or markets are efficient.
 One day,
 I hope,
 I'll have something better to teach.
+
+[html-regexp]: https://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454

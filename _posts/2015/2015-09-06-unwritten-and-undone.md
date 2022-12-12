@@ -9,10 +9,10 @@ year: 2015
   by writing reviews of books that don't actually exist
   in the hope that it will inspire someone to write them.
   Previous versions written in
-  <a href="{{'/talks/not-on-the-shelves/1997/' | relative_url}}">1997</a>,
-  <a href="{{'/talks/not-on-the-shelves/2003/' | relative_url}}">2003</a>,
-  <a href="{{'/talks/not-on-the-shelves/2009/' | relative_url}}">2009</a>,
-  and <a href="{{'/talks/not-on-the-shelves/2014/' | relative_url}}">2014</a>
+  <a href="{{'/not-on-the-shelves/1997/' | relative_url}}">1997</a>,
+  <a href="{{'/not-on-the-shelves/2003/' | relative_url}}">2003</a>,
+  <a href="{{'/not-on-the-shelves/2009/' | relative_url}}">2009</a>,
+  and <a href="{{'/not-on-the-shelves/2014/' | relative_url}}">2014</a>
   led to
   <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><em>Beautiful Code</em></a>,
   <a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><em>Making Software</em></a>,
