@@ -69,14 +69,14 @@ Debugging strategies?
 Absolutely—showing a young programmer how to use a breakpointing debugger effectively
 is one of the kindest things you can do for them.
 
-But I'd include just as much on intellectual property
+But the title says "programmer" not "programming",
+so I'd include just as much on intellectual property
 (because a lot of companies say or do things that aren't actually legally enforceable),
 how to run a meeting so that everyone has a fair chance to be heard
-([slides][meeting-slides]), [video][meeting-video]),
+([slides][meeting-slides], [video][meeting-video]),
 [danger signs in interviews][iq-personality-tests],
-and [what to do if you're unfairly fired][being-fired],
-because the title says "programmer" not "programming".
-I'd explain [why "just tell the truth" is bullshit][radical-candor]
+and [what to do if you're unfairly fired][being-fired].
+I'd explain [why "radical candor" is bullshit][radical-candor]
 so that people wouldn't blame themselves for toxic management.
 And I'd reference every relevant empirical study I could find
 because we know a lot more than most people realize,
@@ -85,16 +85,16 @@ the more likely they are to ask researchers to start tackling
 [problems that practitioners actually care about][nwit-questions].
 
 There's no way all of that could fit in a single book,
-but here's the thing:
-every book embodies its author's priorities.
+but every book leaves out more than it includes,
+which means every book embodies its author's priorities.
 When we say, "If you're going to read one thing about programming, read this,"
-and the book we recommend talks about the Visitor pattern
-but not about algorithmic bias,
-we're telling people the former is more important than the latter.
-I no longer believe that's true;
-I no longer believe it's possible to excel at a craft
-if we exclude how it's used and abused from our thinking about how we build it.
+and the book talks about the Visitor pattern but not about algorithmic bias,
+it's telling people the former is more important than the latter,
+and so are we.
 
+I don't want to do that any more
+because I no longer believe it's possible to build good things well
+unless we think about how they're going to be used and abused.
 I've tried to write this book twice and given up both times.
 I think that doing it properly would require a year of full-time work;
 so far I haven't found a company or foundation willing to support that,
