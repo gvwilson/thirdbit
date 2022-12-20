@@ -6,9 +6,15 @@ year: 2022
 
 Another year over; what have I learned?
 
-- I'd successfully avoided management for two decades,
-  but my luck finally ran out:
-  I was "promoted" to engineering manager at [Deep Genomics][dg].
+- I successfully avoided management for two decades,
+  but my luck finally ran out this year:
+  I was promoted to engineering manager at [Deep Genomics][dg].
+  The company had some layoffs this autumn,
+  which is always difficult,
+  but I got to run [one-day workshops on evidence-based teaching][teaching-workshop]
+  for about forty of my colleagues
+  and spend a couple of hundred hours teaching them R and Python,
+  which has forced me to [re-think what I teach][dont-know-teach].
 
 - The lightning talks that we organized for [It Will Never Work in Theory][nwit]
   went very well;
@@ -29,6 +35,12 @@ Another year over; what have I learned?
 - We went to BC in July to have a much-delayed service for [my mum][mum],
   but came down with COVID on the second day and had to cancel almost everything.
 
+- I said goodbye to some friends this year,
+  including one who shaped who I am today
+  more than anyone else outside my family.
+
+- Goodbye Twitter; hello [Mastodon]({{site.author.mastodon}}).
+
 - Favorite book: either [*Honeycomb*][honeycomb] by Joanne Harris
   or [*The Final Girl Support Group*][final-girl] by Grady Hendrix.
 
@@ -47,6 +59,7 @@ Another year over; what have I learned?
 
 [12-design]: https://doi.org/10.1371/journal.pcbi.1009809
 [dg]: https://www.deepgenomics.com/
+[dont-know-teach]: {{'/2022/10/29/i-dont-know-what-to-teach/' | relative_url}}
 [everything]: https://en.wikipedia.org/wiki/Everything_Everywhere_All_at_Once
 [final-girl]: https://www.goodreads.com/book/show/55829194-the-final-girl-support-group
 [honeycomb]: https://www.goodreads.com/book/show/54304280-honeycomb
@@ -56,3 +69,4 @@ Another year over; what have I learned?
 [nwit]: https://neverworkintheory.org/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}
+[teaching-workshop]: https://drive.google.com/drive/folders/1LVcmp48Ym0c6pA9GOT6TrCa47RU1ugaV
