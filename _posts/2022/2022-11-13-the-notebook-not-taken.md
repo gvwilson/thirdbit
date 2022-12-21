@@ -31,7 +31,7 @@ and found that learning a bit of VB.NET to push around their dataframes
 was a lot easier than shifting to an entirely new suite of tools.
 By the time Google Docs appeared,
 active code blocks were as normal (and as expected) as drawings and tables.
-A few holdouts continued to use Python, R, and plaintext editors,
+A few holdouts continued to use Python and R in text-only editors and IDEs,
 but once a consortium sponsored by Microsoft, Google, and Apple
 implemented diff and merge for office documents,
 the battle was effectively over.
