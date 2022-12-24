@@ -1,13 +1,13 @@
 ---
 title: "Comes Round Again"
-date: 2022-12-31
+date: 2022-12-24
 year: 2022
 ---
 
 Another year over; what have I learned?
 
 - I successfully avoided management for two decades,
-  but my luck finally ran out this year:
+  but my luck finally ran out:
   I was promoted to engineering manager at [Deep Genomics][dg].
   The company had some layoffs this autumn,
   which is always difficult,
@@ -16,9 +16,10 @@ Another year over; what have I learned?
   and spend a couple of hundred hours teaching them R and Python,
   which has forced me to [re-think what I teach][dont-know-teach].
 
-- The lightning talks that we organized for [It Will Never Work in Theory][nwit]
-  went very well;
-  it was a pleasure to work with [Mike Hoye][hoye] and [Brittany Johnson][johnson].
+- The lightning talks that [Mike Hoye][hoye],
+  [Brittany Johnson][johnson],
+  and I organized for [It Will Never Work in Theory][nwit]
+  went very well.
 
 - [*Software Design by Example*][sdxjs] was published.
   I'm working on [the Python version][sdxpy] right now,
@@ -45,7 +46,7 @@ Another year over; what have I learned?
   or [*The Final Girl Support Group*][final-girl] by Grady Hendrix.
 
 - Favorite movie: [*Everything Everywhere All at Once*][everything].
-  We watched it in a Vancouver hotel room one night, sick with COVID,
+  We watched it in a Vancouver hotel room one night while we were sick
   and it was exactly what we needed.
 
 - Favorite album: didn't find anything new this year that particularly excited me.
