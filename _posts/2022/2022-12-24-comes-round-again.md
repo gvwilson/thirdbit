@@ -56,7 +56,7 @@ Another year over; what have I learned?
 
 ## Selected Posts
 
-- [The West Montgomery of Software]({{'/2022/05/14/the-wes-montgomery-of-software/' | relative_url}})
+- [The Wes Montgomery of Software]({{'/2022/05/14/the-wes-montgomery-of-software/' | relative_url}})
 - [Mitigation]({{'/2022/06/06/mitigation/' | relative_url}}) (or, how to think about roles in a company)
 - How to Write a Technical Book
   ([part 1]({{'/2022/06/19/how-to-write-a-technical-book/' | relative_url}}),
