@@ -97,7 +97,7 @@ It introduces ideas and methods that are commonplace in the social sciences,
 and shows that "the way things are" is neither inevitable nor accidental.
 From the reasons racial discrimination persists despite its illogical economic inefficiency
 to the ways in which "flat" organizations actually operate and how cognitive biases affect us all,
-it gives readers [a toolbox for thinking about society]({{'/reading/' | relative_url}})
+it gives readers [a toolbox for thinking about society]({{'/2022/12/28/reading/' | relative_url}})
 and how tech is reshaping it for both better and worse.
 
 Status: I tried to get this going in 2017-17, but it didn't take off.

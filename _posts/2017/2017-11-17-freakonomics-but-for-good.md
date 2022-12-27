@@ -60,7 +60,7 @@ isn't going to make a difference.
 What we need is something like *[Freakonomics][freakonomics]*, but for good:
 something that says,
 "Hey, come here, let me show you how the world really works."
-[These books]({{'/reading/' | relative_url}}) are great examples;
+[These books]({{'/2022/12/28/reading/' | relative_url}}) are great examples;
 if you know of others,
 I'd be grateful for pointers.
 
