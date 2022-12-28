@@ -1,5 +1,5 @@
 ---
-title: "Sessioncasting: Teaching Programming with Replay, Voiceover, and Branching"
+title: "Sessioncasting"
 date: 2022-12-18
 year: 2022
 ---
