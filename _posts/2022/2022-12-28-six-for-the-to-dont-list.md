@@ -13,10 +13,10 @@ but every time I bring it up,
 my spouse's response is,
 "Look, if you want a divorce, just say that you want a divorce."
 
-I can't stop thinking about things I'd like to build,
+I can't stop thinking about things I want to build,
 though,
-both for their own sake and so that we could study their use and impact.
-I have put these all on [my to-don't list][to-dont-post],
+both because they'd be useful and so that we could study their use and impact.
+I have put the <s>six</s> seven all on [my to-don't list][to-dont-post],
 but if you are minded to tackle any of them,
 please give me a shout.
 
@@ -59,7 +59,19 @@ please give me a shout.
    this tool would draw the diagram we all eventually wind up creating by hand
    to show what happens when and where.
 
-6. **A caravan defense game**.
+6. A **[Journal of Comprehensible Explanations][jce-post]**.
+   We've been writing reviews of software engineering research results
+   at [It Will Never Work in Theory][nwit]
+   for years
+   with no noticeable impact on what practitioners believe
+   or how the subject is taught.
+   The lightning talks we organized in 2022 were popular,
+   but I think a set of [research vignettes][vignette-post] could help as well.
+   The trick would be getting people tenure points for writing them;
+   I think a journal (or a track at a major software engineering conference)
+   might do the trick.
+
+7. **A caravan defense game**.
    [*Kingdom Rush: Frontiers*][kingdom-rush-frontiers] is my favorite game
    of the last ten years,
    but I'm increasingly uninterested in killing monsters.
@@ -71,10 +83,12 @@ please give me a shout.
 [blockly]: https://developers.google.com/blockly/
 [browsercast]: {{'/browsercast/' | relative_url}}
 [harper-lite]: {{'/ideas/harper/' | relative_url}}
+[jce-post]: {{'/2022/11/20/journal-of-comprehensible-explanations/' | relative_url}}
 [jupyter-protocol]: https://jupyter-client.readthedocs.io/en/latest/
 [kingdom-rush-frontiers]: https://www.ironhidegames.com/Games/kingdom-rush-frontiers
 [node-red]: https://nodered.org/
 [notebook-post]: {{'/2022/11/13/the-notebook-not-taken/' | relative_url}}
+[nwit]: https://neverworkintheory.org/
 [openoffice]: https://www.openoffice.org/
 [scrimba]: https://scrimba.com/
 [svg-replay]: https://wasimlorgat.com/tils/how-to-share-terminal-demos-as-razor-sharp-animated-svg.html
@@ -82,4 +96,5 @@ please give me a shout.
 [tidyblocks-repo]: https://github.com/tidyblocks/tidyblocks
 [to-dont-post]: {{'/2018/11/28/to-dont-list/' | relative_url}}
 [use-case-maps-post]: {{'/2018/12/27/use-case-maps/' | relative_url}}
+[vignette-post]: {{'/2022/08/14/ese-vignette/' | relative_url}}
 [yahoo-pipes]: https://en.wikipedia.org/wiki/Yahoo!_Pipes
