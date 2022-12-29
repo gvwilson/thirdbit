@@ -16,8 +16,8 @@ my spouse's response is,
 I can't stop thinking about things I want to build,
 though,
 both because they'd be useful and so that we could study their use and impact.
-I have put the <s>six</s> <s>seven</s> eight all on [my to-don't list][to-dont-post],
-but if you are minded to tackle any of them,
+I have put the <s>six</s> <s>seven</s> <s>eight</s> nine below on [my to-don't list][to-dont-post],
+but if you're minded to tackle any of them,
 please give me a shout.
 
 1. **[A lesson aggregation system][harper-lite]**.
@@ -37,7 +37,7 @@ please give me a shout.
 
 3. **A WYSIWYG computational notebook**.
    In [a better universe than ours][notebook-post]
-   someone has already built a plugin for [OpenOffice][openoffice]
+   someone has already built a plugin for [LibreOffice][libreoffice]
    that leverages the [the Jupyter messaging protocol][jupyter-protocol],
    and the 99% of our species who prefer WYSIWYG to Markdown plus YAML plus compilation
    can create the reports they want the way they want to.
@@ -81,7 +81,17 @@ please give me a shout.
    I think a superset of Elm with libraries for creating files and directories
    would be just about perfect.
 
-8. **A caravan defense game**.
+8. **Diff and merge for SVG, CSV, and office documents.**
+   I think developers would be much (much) more likely to include diagrams in their documentation
+   if they could diff and merge those diagrams as easily as they do text.
+   GitHub has supported a [split-pane view][github-svg-diff] for years,
+   but it doesn't automatically highlight differences or help you merge them
+   the way punchard emulators (i.e., programmers' other editing tools) have done for decades.
+   I'd be almost as grateful for a tool to diff and merge CSV files
+   that understood columns as well as rows,
+   and even more so for one that would handle [LibreOffice][libreoffice] documents.
+
+9. **A caravan defense game**.
    [*Kingdom Rush: Frontiers*][kingdom-rush-frontiers] is my favorite game
    of the last ten years,
    but I'm increasingly uninterested in killing monsters.
@@ -93,16 +103,17 @@ please give me a shout.
 [blockly]: https://developers.google.com/blockly/
 [browsercast]: {{'/browsercast/' | relative_url}}
 [elm]: https://elm-lang.org/
+[github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
 [harper-lite]: {{'/ideas/harper/' | relative_url}}
 [haskell]: https://www.haskell.org/
 [jce-post]: {{'/2022/11/20/journal-of-comprehensible-explanations/' | relative_url}}
 [jupyter-protocol]: https://jupyter-client.readthedocs.io/en/latest/
 [kingdom-rush-frontiers]: https://www.ironhidegames.com/Games/kingdom-rush-frontiers
+[libreoffice]: https://www.libreoffice.org/
 [node-js]: https://nodejs.org/
 [node-red]: https://nodered.org/
 [notebook-post]: {{'/2022/11/13/the-notebook-not-taken/' | relative_url}}
 [nwit]: https://neverworkintheory.org/
-[openoffice]: https://www.openoffice.org/
 [scrimba]: https://scrimba.com/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [svg-replay]: https://wasimlorgat.com/tils/how-to-share-terminal-demos-as-razor-sharp-animated-svg.html

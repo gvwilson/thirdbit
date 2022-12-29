@@ -22,23 +22,66 @@ the rest are in [my list of unwritten books]({{'/not-on-the-shelves/' | relative
 
 ## What I Would Build
 
-**A drag-and-drop tool for teaching data science.**
-:   [Scratch][scratch] is the most effective tool we have for teaching programming to newcomers of all ages
-    because it reduces [cognitive load][cognitive-load] on learners.
-    [TidyBlocks][tidyblocks] was an attempt to replicate its success for data science,
-    but we couldn't get funding
-    and clickable blocks couldn't represent operations like joins in a natural way.
-    A dataflow tool based on [Node-RED][node-red] would probably do better;
-    there has been [some preliminary work][node-red-danfo],
-    and I think it's very promising.
+**[A lesson aggregation system][harper-lite]**.
+:   Instead of building yet another repository for lessons,
+    let's draw inspiration from RSS
+    (which I think is right up there with "view source" as an example of what the web *could* be)
+    and create a way to find and aggregate lessons.
 
-**A computational notebook that includes a drawing tool.**
-:   The workflow for putting hand-drawn (vector) diagrams into notebooks is clumsy:
-    open drawing tool, save file, add reference to notebook, render, curse, re-draw, re-render...
-    I'd like to be able to click on a diagram in a notebook and edit it in place
-    just like I can in Word or Google Doc.
-    There are [several][draw-io] [good][excalidraw] open source vector drawing tools out there,
-    and the SVG could either be embedded in the notebook document or stored in a side file.
+**A browser-based drag-and-drop tool for data analytics**.*
+:   The [TidyBlocks][tidyblocks-repo] project [ground to a halt][tidyblocks-post]
+    due to a lack of funding and some difficult technical challenges.
+    I still believe in the idea, though,
+    and think that using [Node-RED] as a starting point instead of [Blockly][blockly]
+    would circumvent the technical challenges,
+    give non-programmers an interface they could use immediately,
+    *and* be a natural successor to [Yahoo! Pipes][yahoo-pipes].
+
+**A WYSIWYG computational notebook**.
+:   In [a better universe than ours][notebook-post]
+    someone has already built a plugin for [LibreOffice][libreoffice]
+    that leverages the [the Jupyter messaging protocol][jupyter-protocol],
+    and the 99% of our species who prefer WYSIWYG to Markdown plus YAML plus compilation
+    can create the reports they want the way they want to.
+    It's not too late…
+
+**[Browsercast][browsercast],**
+:   which would replay an HTML slideshow in sync with a voiceover.
+    Tools like Wasim Lorgat's [SVG replay][svg-replay] and [Scrimba][scrimba]
+    have made me more certain than ever that
+    we shouldn't turn text and HTML into video streams:
+    we should share them in their original form
+    so that people can search them, style them, copy and paste them,
+    and feed them to screenreaders and other accessibility aids.
+
+**[Use case maps][use-case-maps-post]**.
+:   Given an SVG diagram showing the elements of your system that produce log entries,
+    be they classes or microservices,
+    and UUIDs to identify the descendents of initiating messages,
+    this tool would draw the diagram we all eventually wind up creating by hand
+    to show what happens when and where.
+
+A **[Journal of Comprehensible Explanations][jce-post]**.
+:   We've been writing reviews of software engineering research results
+    at [It Will Never Work in Theory][nwit]
+    for years
+    with no noticeable impact on what practitioners believe
+    or how the subject is taught.
+    The lightning talks we organized in 2022 were popular,
+    but I think a set of [research vignettes][vignette-post] could help as well.
+    The trick would be getting people tenure points for writing them;
+    I think a journal (or a track at a major software engineering conference)
+    might do the trick.
+
+**A superset of [Elm][elm] for systems programming.**
+:   I've been fascinated by pure functional programming
+    since I first encountered it in the mid-1980s.
+    I'd really like to do a version of [*Software Design by Example*][sdxjs]
+    in a pure functiona language,
+    but want one that is to [Haskell][haskell] what Pascal was to Algol-68:
+    smaller, simpler, and more accessible.
+    I think a superset of Elm with libraries for creating files and directories
+    would be just about perfect.
 
 **Diff and merge for SVG, CSV, and office documents.**
 :   While we're talking about drawing,
@@ -51,13 +94,14 @@ the rest are in [my list of unwritten books]({{'/not-on-the-shelves/' | relative
     that understood columns as well as rows,
     and for one that would handle [LibreOffice][libreoffice] documents.
 
-**Browsercast.**
-:   It's been over ten years since I first wanted to be able to add a voiceover to an HTML slideshow.
-    I still want it,
-    but these days I'd like to be able to replay a computational notebook with commentary as well.
-    We came close a couple of times, but never quite got there;
-    playback is straightforward,
-    but tools to edit and sync the audio require more thought.
+**A caravan defense game**.
+:   [*Kingdom Rush: Frontiers*][kingdom-rush-frontiers] is my favorite game
+    of the last ten years,
+    but I'm increasingly uninterested in killing monsters.
+    I want a game where I build towers to *defend* the travelers
+    from bandits, predators, natural disasters, swindlers, and other threats.
+    It has nothing to do with software engineering,
+    but I think it would be a lot of fun.
 
 ## What I Would Study
 
@@ -101,13 +145,29 @@ but I still have lots of questions that I would like answered.
     If so,
     how quickly and how well?
 
-[cognitive-load]: http://teachtogether.tech/en/index.html#s:architecture-load
+[blockly]: https://developers.google.com/blockly/
+[browsercast]: {{'/browsercast/' | relative_url}}
 [draw-io]: https://app.diagrams.net/
-[excalidraw]: https://excalidraw.com/
+[elm]: https://elm-lang.org/
 [github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
+[harper-lite]: {{'/ideas/harper/' | relative_url}}
+[haskell]: https://www.haskell.org/
+[jce-post]: {{'/2022/11/20/journal-of-comprehensible-explanations/' | relative_url}}
+[jupyter-protocol]: https://jupyter-client.readthedocs.io/en/latest/
+[kingdom-rush-frontiers]: https://www.ironhidegames.com/Games/kingdom-rush-frontiers
 [libreoffice]: https://www.libreoffice.org/
+[node-js]: https://nodejs.org/
 [node-red]: https://nodered.org/
-[node-red-danfo]: https://www.youtube.com/watch?v=9KToLbF3ZgM
+[notebook-post]: {{'/2022/11/13/the-notebook-not-taken/' | relative_url}}
+[nwit]: https://neverworkintheory.org/
 [scratch]: https://scratch.mit.edu/
-[tidyblocks]: https://tidyblocks.tech/
+[scrimba]: https://scrimba.com/
+[sdxjs]: {{'/sdxjs/' | relative_url}}
+[svg-replay]: https://wasimlorgat.com/tils/how-to-share-terminal-demos-as-razor-sharp-animated-svg.html
+[tidyblocks-post]: {{'/2021/07/22/whatever-happened-to-tidyblocks/' | relative_url}}
+[tidyblocks-repo]: https://github.com/tidyblocks/tidyblocks
 [tidynomicon]: https://tidynomicon.github.io/tidynomicon/
+[to-dont-post]: {{'/2018/11/28/to-dont-list/' | relative_url}}
+[use-case-maps-post]: {{'/2018/12/27/use-case-maps/' | relative_url}}
+[vignette-post]: {{'/2022/08/14/ese-vignette/' | relative_url}}
+[yahoo-pipes]: https://en.wikipedia.org/wiki/Yahoo!_Pipes
