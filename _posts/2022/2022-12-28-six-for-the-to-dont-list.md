@@ -16,7 +16,7 @@ my spouse's response is,
 I can't stop thinking about things I want to build,
 though,
 both because they'd be useful and so that we could study their use and impact.
-I have put the <s>six</s> seven all on [my to-don't list][to-dont-post],
+I have put the <s>six</s> <s>seven</s> eight all on [my to-don't list][to-dont-post],
 but if you are minded to tackle any of them,
 please give me a shout.
 
@@ -71,7 +71,17 @@ please give me a shout.
    I think a journal (or a track at a major software engineering conference)
    might do the trick.
 
-7. **A caravan defense game**.
+7. **A superset of [Elm][elm] for systems programming.**
+   I've been fascinated by pure functional programming
+   since I first encountered it in the mid-1980s.
+   I'd really like to do a version of [*Software Design by Example*][sdxjs]
+   in a pure functiona language,
+   but want one that is to [Haskell][haskell] what Pascal was to Algol-68:
+   smaller, simpler, and more accessible.
+   I think a superset of Elm with libraries for creating files and directories
+   would be just about perfect.
+
+8. **A caravan defense game**.
    [*Kingdom Rush: Frontiers*][kingdom-rush-frontiers] is my favorite game
    of the last ten years,
    but I'm increasingly uninterested in killing monsters.
@@ -82,15 +92,19 @@ please give me a shout.
 
 [blockly]: https://developers.google.com/blockly/
 [browsercast]: {{'/browsercast/' | relative_url}}
+[elm]: https://elm-lang.org/
 [harper-lite]: {{'/ideas/harper/' | relative_url}}
+[haskell]: https://www.haskell.org/
 [jce-post]: {{'/2022/11/20/journal-of-comprehensible-explanations/' | relative_url}}
 [jupyter-protocol]: https://jupyter-client.readthedocs.io/en/latest/
 [kingdom-rush-frontiers]: https://www.ironhidegames.com/Games/kingdom-rush-frontiers
+[node-js]: https://nodejs.org/
 [node-red]: https://nodered.org/
 [notebook-post]: {{'/2022/11/13/the-notebook-not-taken/' | relative_url}}
 [nwit]: https://neverworkintheory.org/
 [openoffice]: https://www.openoffice.org/
 [scrimba]: https://scrimba.com/
+[sdxjs]: {{'/sdxjs/' | relative_url}}
 [svg-replay]: https://wasimlorgat.com/tils/how-to-share-terminal-demos-as-razor-sharp-animated-svg.html
 [tidyblocks-post]: {{'/2021/07/22/whatever-happened-to-tidyblocks/' | relative_url}}
 [tidyblocks-repo]: https://github.com/tidyblocks/tidyblocks
