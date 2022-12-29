@@ -54,7 +54,7 @@ is an excellent overview:
 Reading it again today,
 though,
 I'm struck by what's *not* there
-(and by the fact that it's taken me almost 15 years to realize that something is missing).
+(and by the fact that it's taken me almost 15 years to notice its absence).
 I think there should be a fourth column titled "Humanist tradition"
 that focuses on values,
 on how computing is used,
