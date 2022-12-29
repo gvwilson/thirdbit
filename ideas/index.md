@@ -18,7 +18,8 @@ things that you are *not* going to do
 because life is too short
 and you already have too much on the go.
 Parts of mine are below;
-the rest are in [my list of unwritten books]({{'/not-on-the-shelves/' | relative_url}}).
+the rest are in [my list of unwritten books][unwritten]
+and [this summary of software engineering research ideas][se-ideas-post].
 
 ## What I Would Build
 
@@ -163,11 +164,13 @@ but I still have lots of questions that I would like answered.
 [scratch]: https://scratch.mit.edu/
 [scrimba]: https://scrimba.com/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
+[se-ideas-post]: {{'/2022/08/30/research-topics/' | relative_url}}
 [svg-replay]: https://wasimlorgat.com/tils/how-to-share-terminal-demos-as-razor-sharp-animated-svg.html
 [tidyblocks-post]: {{'/2021/07/22/whatever-happened-to-tidyblocks/' | relative_url}}
 [tidyblocks-repo]: https://github.com/tidyblocks/tidyblocks
 [tidynomicon]: https://tidynomicon.github.io/tidynomicon/
 [to-dont-post]: {{'/2018/11/28/to-dont-list/' | relative_url}}
+[unwritten]: {{'/not-on-the-shelves/' | relative_url}}
 [use-case-maps-post]: {{'/2018/12/27/use-case-maps/' | relative_url}}
 [vignette-post]: {{'/2022/08/14/ese-vignette/' | relative_url}}
 [yahoo-pipes]: https://en.wikipedia.org/wiki/Yahoo!_Pipes
