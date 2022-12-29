@@ -7,10 +7,9 @@ year: 2022
 I was a professor from 2007 to 2010.
 My grad students had a pretty rough time:
 all five of the grant proposals I made in those 40 months were turned down,
-which meant I never got any of the projects I'd envisioned for them off the ground.
+which meant none of the projects I'd envisioned for them ever got off the ground.
 I've thought occasionally about going back and trying again,
-but every time I bring it up,
-my spouse's response is,
+but every time I bring it up my spouse's response is,
 "Look, if you want a divorce, just say that you want a divorce."
 
 I can't stop thinking about things I want to build,
