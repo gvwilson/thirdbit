@@ -4,6 +4,8 @@ date: 2023-01-17
 year: 2023
 ---
 
+> Terms defined: absolute path, alias, circular dependency, closure, directed graph, encapsulate, immediately-invoked function expression, inner function, Least Recently Used cache, namespace, plugin architecture.
+
 [%x file-interpolator %] showed how to use `eval` to load code dynamically.
 We can use this to build our own version of JavaScript's `require` function.
 Our function will take the name of a source file as an argument

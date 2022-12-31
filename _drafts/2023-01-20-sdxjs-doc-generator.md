@@ -4,6 +4,8 @@ date: 2023-01-20
 year: 2023
 ---
 
+> Terms defined: accumulator, block comment, deprecation, doc comment, line comment, slug.
+
 Many programmers believe they're more likely to write documentation and keep it up to date
 if it is close to the code.
 Tools that extract specially-formatted comments from code and turn them into documentation

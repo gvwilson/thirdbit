@@ -4,6 +4,8 @@ date: 2023-01-25
 year: 2023
 ---
 
+> Terms defined: Application Binary Interface, assembler, assembly code, bitwise operation, disassembler, instruction pointer, instruction set, label (address in memory), op code, register, virtual machine, word (of memory).
+
 Computers don't execute JavaScript directly.
 Instead,
 each processor has its own [%i "instruction set" %][%g instruction_set "instruction set" %][%/i%],

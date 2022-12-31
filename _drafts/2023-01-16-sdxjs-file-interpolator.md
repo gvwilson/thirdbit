@@ -4,6 +4,8 @@ date: 2023-01-16
 year: 2023
 ---
 
+> Terms defined: header file, literate programming, loader, sandbox, search path, shell variable.
+
 Many of the examples in these lessons are too long
 to show comfortably in one block of code on a printed page,
 so we needed a way to break them up.

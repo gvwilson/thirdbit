@@ -4,6 +4,8 @@ date: 2023-01-09
 year: 2023
 ---
 
+> Terms defined: base class, Chain of Responsibility pattern, child (in a tree), coupling, depth-first, derived class, Document Object Model, eager matching, eager matching, greedy algorithm, lazy matching, node, Open-Closed Principle, polymorphism, query selector, regular expression, scope creep, test-driven development.
+
 We have been globbing to match filenames against patterns since [%x systems-programming %].
 This lesson will explore how that works
 by building a simple version of the [%i "regular expression" %][%g regular_expression "regular expressions" %][%/i%]

@@ -4,6 +4,8 @@ date: 2023-01-18
 year: 2023
 ---
 
+> Terms defined: abstract syntax tree, Adapter pattern, column-major storage, dynamic lookup, generator function, intrinsic complexity, Iterator pattern, linter, Markdown, row-major storage, walk (a tree).
+
 Programmers argue endlessly about the best way to format their programs,
 but everyone agrees that the most important thing is to be [%i "coding style!importance of consistency" %]consistent[%/i%]
 [%b Binkley2012 Johnson2019 %].

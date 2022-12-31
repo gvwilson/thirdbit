@@ -4,6 +4,8 @@ date: 2023-01-10
 year: 2023
 ---
 
+> Terms defined: finite state machine, literal, parser, precedence, token, Turing Machine, well formed, YAML.
+
 In [%x pattern-matching %] we created regular expressions by constructing objects.
 It takes a lot less typing to write them as strings as we did for HTML selectors,
 but if we're going to do that we need something to convert those strings to the required objects.

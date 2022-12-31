@@ -4,6 +4,8 @@ date: 2023-01-12
 year: 2023
 ---
 
+> Terms defined: automatic variable, build manager, build recipe, build rule, build target, compiled language, cycle (in a graph), dependency, directed acyclic graph, driver, interpreted language, link (a program), pattern rule, runnable documentation, stale (in build), Template Method pattern, topological order.
+
 Suppose we are using a page templating system to create a website ([%x page-templates %]).
 If we change a single page our tool should translate it,
 but it shouldn't waste time translating others.

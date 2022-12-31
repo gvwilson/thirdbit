@@ -4,6 +4,8 @@ date: 2023-01-23
 year: 2023
 ---
 
+> Terms defined: entry point, module bundler, transitive closure.
+
 [%i "JavaScript!hurried design of" %]JavaScript[%/i%] was designed in a hurry 25 years ago to make web pages interactive.
 Nobody realized it would become so popular,
 so it didn't include support for things that large programs need.

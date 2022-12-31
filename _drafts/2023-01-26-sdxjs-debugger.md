@@ -3,6 +3,9 @@ title: "Debugger"
 date: 2023-01-26
 year: 2023
 ---
+
+> Terms defined: breakpoint, source map, tab completion, watchpoint.
+
 We have finally come to another of the topics that sparked this book:
 how does a [%i "debugger" %]debugger[%/i%] work?
 Debuggers are as much a part of programmers' lives as version control

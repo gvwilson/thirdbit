@@ -4,6 +4,8 @@ date: 2023-01-06
 year: 2023
 ---
 
+> Terms defined: character encoding, column-major storage, data frame, fixed-width (of strings), fixed-width (of strings), garbage collection, heterogeneous, homogeneous, immutable, index (in a database), JavaScript Object Notation, join, pad (a string), row-major storage, sparse matrix, SQL, tagged data, test harness.
+
 [%x systems-programming %] said that
 operations in memory are thousands of times faster than operations that touch the filesystem,
 but what about different in-memory operations---how do they compare with each other?

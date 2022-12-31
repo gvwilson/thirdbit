@@ -4,6 +4,8 @@ date: 2023-01-13
 year: 2023
 ---
 
+> Terms defined: attribute, cache, confirmation bias, design by contract, easy mode, layout engine, Liskov Substitution Principle, query selector, signature, z-buffering.
+
 You might be reading this as an HTML page,
 an e-book (which is basically the same thing),
 or on the printed page.

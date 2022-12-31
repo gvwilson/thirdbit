@@ -4,6 +4,8 @@ date: 2023-01-24
 year: 2023
 ---
 
+> Terms defined: backward-compatible, combinatorial explosion, heuristic, manifest, patch, prune, SAT solver, scoring function, seed, semantic versioning.
+
 There is no point building software if you can't install it.
 Inspired by the [%i "Comprehensive TeX Archive Network" %]Comprehensive TeX Archive Network[%/i%] [CTAN][ctan],
 most languages now have an online archive from which developers can download packages.

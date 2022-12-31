@@ -4,6 +4,8 @@ date: 2023-01-19
 year: 2023
 ---
 
+> Terms defined: byte code, code coverage (in testing), compiler, Decorator pattern, macro, nested function, two hard problems in computer science.
+
 We've been writing tests since [%x unit-test %],
 but how much of our code do they actually check?
 One way to find out is to use a [%i "code coverage" %][%g code_coverage "code coverage" %][%/i%] tool

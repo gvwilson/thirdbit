@@ -4,6 +4,8 @@ date: 2023-01-11
 year: 2023
 ---
 
+> Terms defined: bare object, dynamic scoping, environment, lexical scoping, stack frame, static site generator, Visitor pattern.
+
 Every program needs documentation in order to be usable,
 and the best place to put that documentation is on the web.
 Writing and updating pages by hand is time-consuming and error-prone,
