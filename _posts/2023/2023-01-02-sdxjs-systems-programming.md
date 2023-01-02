@@ -39,9 +39,9 @@ this theme is going to come up in program after program.
 
 > Terms defined: anonymous function, asynchronous, Boolean, callback function, cognitive load, command-line argument, console, current working directory, destructuring assignment, edge case, filename extension, filesystem, filter, globbing, idiomatic, log message, path (in filesystem), protocol, scope, single-threaded, string interpolation.
 
-<figure id="systems-programming-callbacks">
+<figure id="systems-programming-callbacks" align="center">
   <img src="{{'/sdxjs/systems-programming/callbacks.svg' | relative_url}}" alt="Running callbacks"/>
-  <figcaption markdown="1">Figure 2.2: How JavaScript runs callback functions.</figcaption>
+  <figcaption>Figure 2.2: How JavaScript runs callback functions.</figcaption>
 </figure>
 
 [sdxjs_systems_programming]: {{'/sdxjs/systems-programming/' | relative_url}}
