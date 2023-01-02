@@ -1,45 +1,16 @@
 ---
 layout: page
 title: Maddy Roo
+fiction: true
 ---
 
-<p>
-  <a href="#episode-1-salvage">Episode 1: Salvage!</a>
-  <br/>
-  <a href="#episode-2-targets-acquired">Episode 2: Targets Acquired!</a>
-  <br/>
-  <a href="#episode-3-you-gotta-listen">Episode 3: You Gotta Listen!</a>
-  <br/>
-  <a href="#episode-4-raid">Episode 4: Raid!</a>
-  <br/>
-  <a href="#episode-5-unlikely-help">Episode 5: Unlikely Help</a>
-  <br/>
-  <a href="#episode-6-out-of-the-cage-cart">Episode 6: Out of the Cage Cart…</a>
-  <br/>
-  <a href="#episode-7-and-into-the-mire">Episode 7: …And Into the Mire</a>
-  <br/>
-  <a href="#episode-8-underground">Episode 8: Underground</a>
-  <br/>
-  <a href="#episode-9-patient-in-darkness">Episode 9: Patient in Darkness</a>
-  <br/>
-  <a href="#episode-10-unison">Episode 10: Unison</a>
-  <br/>
-  <a href="#episode-11-eyes-everywhere">Episode 11: Eyes Everywhere</a>
-  <br/>
-  <a href="#episode-12-the-way-out">Episode 12: The Way Out</a>
-  <br/>
-  <a href="#episode-13-crash-landing">Episode 13: Crash Landing</a>
-  <br/>
-  <a href="#episode-14-the-battle-of-rusty-bridge">Episode 14: The Battle of Rusty Bridge</a>
-  <br/>
-  <a href="#episode-15-the-key">Episode 15: The Key</a>
-  <br/>
-  <a href="#episode-16-the-battle-of-the-bots">Episode 16: The Battle of the Bots</a>
-  <br/>
-  <a href="#epilog">Epilog</a>
-</p>
+<div class="flex-col">
+  <ol id="toc"></ol>
+</div>
 
-## Episode 1: Salvage!
+<section markdown="1">
+
+## Salvage!
 
 Maddy was trying to sketch the willow tree in the center of the village square
 when Gumption showed up with a couple of books under his arm.
@@ -536,7 +507,11 @@ he wouldn't be able to keep his head above water!
 A battered bot burst out of the trees
 and hurtled down the gravel toward them!
 
-## Episode 2: Targets Acquired!
+</section>
+
+<section markdown="1">
+
+## Targets Acquired!
 
 Maddy shrieked and stumbled backward.
 Her feet slipped on a submerged patch of weeds.
@@ -914,7 +889,11 @@ she would just have been taken too.
 Everyone told her that,
 but it didn't make any difference.*
 
-## Episode 3: You Gotta Listen!
+</section>
+
+<section markdown="1">
+
+## You Gotta Listen!
 
 "Wait---a sneak attack?"
 Maddy demanded.
@@ -1236,7 +1215,11 @@ He slipped between Maddy and Gumption,
 climbed the steps onto the mayor's veranda,
 and rang the alarm bell.
 
-## Episode 4: Raid!
+</section>
+
+<section markdown="1">
+
+## Raid!
 
 *Clunk! Clunk! Clunk!*
 "Bother," the old tortoise said mildly,
@@ -1497,7 +1480,11 @@ but as Mama Roo wrapped Gumption and Maddy in a hug
 all Maddy could think was that her little sister was gone,
 gone just like her father.
 
-## Episode 5: Unlikely Help
+</section>
+
+<section markdown="1">
+
+## Unlikely Help
 
 "They have my *daughter*!
 We *have* to go after them!"
@@ -1917,7 +1904,11 @@ knocking another off balance.
 With no more warning than that,
 Dockety hurled Maddy into the air.
 
-## Episode 6: Out of the Cage Cart...
+</section>
+
+<section markdown="1">
+
+## Out of the Cage Cart...
 
 Maddy screamed.
 Afterward,
@@ -2272,7 +2263,11 @@ leaving the two young roos alone in the Mire
 with a dented bot for company
 and no idea how to get home.
 
-## Episode 7: ...And Into the Mire
+</section>
+
+<section markdown="1">
+
+## ...And Into the Mire
 
 "Thank you for saving us,"
 Maddy said to Dockety belatedly once the boat was finally out of sight.
@@ -2610,7 +2605,11 @@ as Dockety turned and followed her sister into whatever lay behind the door.
 Just as she reached it,
 something cold and mechanical grabbed hold of her ankle.
 
-## Episode 8: Underground
+</section>
+
+<section markdown="1">
+
+## Underground
 
 Maddy screamed.
 She tried to pull her leg free,
@@ -2857,7 +2856,11 @@ And that was when a crackly voice said through speakers,
 "Well, since you're here,
 you might as well come and say hello."
 
-## Episode 9: Patient in Darkness
+</section>
+
+<section markdown="1">
+
+## Patient in Darkness
 
 *Click. Click. Click.*
 One by one the ceiling lights that had come on behind them went out.
@@ -3184,7 +3187,11 @@ A pair of double doors whooshed open in the wall to Maddy's right.
 Two bulky service bots that looked like small versions of the cargo hauler rolled forward,
 arms raised and red warning lights flashing on their shoulders.
 
-## Episode 10: Unison
+</section>
+
+<section markdown="1">
+
+## Unison
 
 "Surrender!" the service bots boomed in unison,
 their mechanical voices making keyboards and coffee cups rattle.
@@ -3509,7 +3516,11 @@ she twisted around onto her stomach,
 grabbed hold of Dockety's arm with both paws,
 and slid down it into the unknown.
 
-## Episode 11: Eyes Everywhere
+</section>
+
+<section markdown="1">
+
+## Eyes Everywhere
 
 Maddy had never seen the ocean, but she had read about it in Special Leaf's books.
 She knew that it was as deep as the highest mountains were high,
@@ -3889,7 +3900,11 @@ They were heading back to the village,
 she realized.
 The bots were about to attack Rusty Bridge again!
 
-## Episode 12: The Way Out
+</section>
+
+<section markdown="1">
+
+## The Way Out
 
 "Wake up. Sindy, wake up!"
 Maddy shook her sister gently, then more firmly.
@@ -4394,7 +4409,11 @@ Patient's voice crackled from all around them.
 Up and up they went toward the patch of dawn in the ceiling.
 With a roar they were through and into the honey-warm light of dawn.
 
-## Episode 13: Crash Landing
+</section>
+
+<section markdown="1">
+
+## Crash Landing
 
 Maddy's initial fright at being airborne
 was instantly replaced by full-blown terror.
@@ -4742,7 +4761,11 @@ The two fliers Maddy had seen earlier zipped overhead and dropped their canister
 Thick black dizzysmoke spilled into the square
 as a dozen engines rumbled in the distance.
 
-## Episode 14: The Battle of Rusty Bridge
+</section>
+
+<section markdown="1">
+
+## The Battle of Rusty Bridge
 
 *Dang! Dang! Dang!*
 The alarm bell rang cold and clear,
@@ -5156,7 +5179,11 @@ a mechanical voice said,
 The rotor began to spin,
 and she shot into the air.
 
-## Episode 15: The Key
+</section>
+
+<section markdown="1">
+
+## The Key
 
 Maddy's second flight was just like her first,
 except twice as fast and ten times more frightening.
@@ -5491,7 +5518,11 @@ The orange light overhead flickered.
 as the little light on Crusher's regulator went out.
 The little lights on *all* of the bots' regulators went out.
 
-## Episode 16: The Battle of the Bots
+</section>
+
+<section markdown="1">
+
+## The Battle of the Bots
 
 Maddy grabbed a chunk of concrete from one of the broken bunker blocks
 and charged the bots.
@@ -5648,7 +5679,11 @@ but it was too late.
 None of the other bots could fly,
 and Patient was already just a dwindling speck on its way to Heck.
 
-<h2 id="epilog">Epilog</h2>
+</section>
+
+<section markdown="1">
+
+## Epilog
 
 *Three days later...*
 
@@ -5763,3 +5798,5 @@ it said.
 <center>
 <em>To be continued...</em>
 </center>
+
+</section>
