@@ -15,7 +15,7 @@ But no book outline ever survives contact with reality.
 I made so many mistakes while writing the chapter on version control
 that I realized I'd have to show readers
 how to test something that interacted with the file system.
-I could have used Mocha without explanation,
+I could have just used Mocha,
 but showing how xUnit testing frameworks find files containing tests
 and run tests from those files
 turned out to be a great way to introduce some ideas
@@ -48,9 +48,9 @@ without going mad…
 
 > Terms defined: absolute error, actual result (of test), assertion, caching, defensive programming, design pattern, dynamic loading, error (in a test), exception handler, expected result (of test), exploratory programming, fail (a test), fixture, global variable, introspection, lifecycle, pass (a test), relative error, side effect, Singleton pattern, test runner, test subject, throw (exception), unit test.
 
-<figure id="unit-test-lifecycle">
+<figure id="unit-test-lifecycle" align="center">
   <img src="{{'/sdxjs/unit-test/lifecycle.svg' | relative_url}}" alt="Unit testing lifecycle"/>
-  <figcaption markdown="1">Figure 4.3: Lifecycle of dynamically-discovered unit tests.</figcaption>
+  <figcaption>Figure 4.3: Lifecycle of dynamically-discovered unit tests.</figcaption>
 </figure>
 
 [11_techbook]: https://github.com/gvwilson/11-techbook
