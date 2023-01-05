@@ -63,6 +63,12 @@
   </li>
   
   <li>
+    <a href="../dataframe/">
+      A Dataframe
+    </a>
+  </li>
+  
+  <li>
     <a href="../persistence/">
       Object Persistence
     </a>
@@ -93,8 +99,20 @@
   </li>
   
   <li>
+    <a href="../editor/">
+      An Editor
+    </a>
+  </li>
+  
+  <li>
     <a href="../server/">
       A Web Server
+    </a>
+  </li>
+  
+  <li>
+    <a href="../packman/">
+      A Package Manager
     </a>
   </li>
   
@@ -125,36 +143,6 @@
   <li>
     <a href="../debugger/">
       A Debugger
-    </a>
-  </li>
-  
-  <li>
-    <a href="../packman/">
-      A Package Manager
-    </a>
-  </li>
-  
-  <li>
-    <a href="../dataframe/">
-      A Dataframe
-    </a>
-  </li>
-  
-  <li>
-    <a href="../database/">
-      A Database
-    </a>
-  </li>
-  
-  <li class="todo">
-    <a href="../pipeline/">
-      A Pipeline Runner
-    </a>
-  </li>
-  
-  <li class="todo">
-    <a href="../editor/">
-      An Editor
     </a>
   </li>
   
@@ -281,10 +269,6 @@
 
   
 
-  
-
-  
-
 
             
 <p class="definitions">
@@ -296,15 +280,15 @@
             <p><a class="x-ref" href="../tester/">Chapter 2</a> introduced the idea that programs are just another kind of data.
 Similarly,
 the compilers and interpreters that make programs run are just programs themselves.
-instead of changing the characters in a block of memory like text editors,
+Instead of changing the characters in a block of memory like text editors,
 or calculating sums and averages like spreadsheets,
 compilers turn text into instructions for interpreters or hardware to run.</p>
 <p>Most real programming languages have two parts:
 a <a class="gl-ref" href="../glossary/#parser" markdown="1">parser</a> that translates the source code into a data structure in memory,
 and a <a class="gl-ref" href="../glossary/#runtime" markdown="1">runtime</a> that executes the instructions in that data structure.
 This chapter focuses on the runtime;
-<a class="x-ref" href="../parser/">Chapter 13</a> will explore parsing,
-while <a class="x-ref" href="../vm/">Chapter 15</a> will look at more efficient ways to execute instructions.</p>
+<a class="x-ref" href="../parser/">Chapter 16</a> will explore parsing,
+while <a class="x-ref" href="../vm/">Chapter 18</a> will look at more efficient ways to execute instructions.</p>
 <h2 id="interpreter-expressions">Section 3.1: Expressions</h2>
 <p>Let&rsquo;s start by building something that can evaluate simple expressions
 like <code>1+2</code> or <code>abs(-3.5)</code>.
@@ -451,7 +435,7 @@ but our programs will be easier to read with variables
 that let us give names to values.
 We can add them to our interpreter
 by passing around a dictionary containing all the variables seen so far.
-Such a dictionary is sometimes called an <a class="gl-ref" href="../glossary/#environment" markdown="1">&ldquo;environment</a>
+Such a dictionary is sometimes called an <a class="gl-ref" href="../glossary/#environment" markdown="1">environment</a>
 because it is the setting in which expressions are evaluated;
 the dictionaries returned by the <code>globals</code> and <code>locals</code> functions
 introduced in <a class="x-ref" href="../tester/">Chapter 2</a> are both environments.</p>
@@ -588,7 +572,7 @@ the code to select and run an operation is:</p>
 </div>
 <p>As with unit test functions in <a class="x-ref" href="../tester/">Chapter 2</a>,
 the <code>do_*</code> functions must have exactly the same <a class="gl-ref" href="../glossary/#signature" markdown="1">signature</a>
-so that we can all any of them with an environment and a list of arguments
+so that we can call any of them with an environment and a list of arguments
 without knowing exactly which function we&rsquo;re calling.
 And as with finding tests,
 introspection is more reliable than a hand-written lookup table,
@@ -767,16 +751,28 @@ which figures out what a variable name refers to based on the structure of the p
 </div>
 <p class="continue">And here&rsquo;s the implementation of <code>do_call</code>:</p>
 <div class="code-sample lang-py" title="func.py">
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">do_def</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Define a new function.</span>
-<span class="sd">    [&quot;def&quot; name [...params...] body] =&gt; None # and define function</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">do_call</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Call a function.</span>
+<span class="sd">    [&quot;call&quot; name ...expr...] =&gt; env[name](*expr)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="c1"># Set up the call.</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">env_set</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;func&quot;</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">body</span><span class="p">])</span>
-    <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">do</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+
+    <span class="c1"># Find the function.</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="n">env_get</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">func</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;func&quot;</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="n">func</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">func</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="c1"># Run in new environment.</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">values</span><span class="p">)))</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="c1"># Report.</span>
+    <span class="k">return</span> <span class="n">result</span>
 </code></pre></div>
 </div>
 <p class="continue">Our test program and its output are:</p>
