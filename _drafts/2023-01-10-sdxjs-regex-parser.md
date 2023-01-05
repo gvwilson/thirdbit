@@ -37,7 +37,7 @@ the exercises will tackle the latter.
 
 [% figure
    slug="regex-parser-expression-tree"
-   img="expression-tree.svg"
+   img="{{'/sdxjs/regex-parser/expression-tree.svg' | relative_url}}"
    alt="Expression tree for regular expression"
    caption="Representing the result of parsing a regular expression as an tree."
 %]

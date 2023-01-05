@@ -1,5 +1,5 @@
 ---
-title: "Pattern Matching"
+title: "Software Design by Example 7: Pattern Matching"
 date: 2023-01-09
 year: 2023
 ---
@@ -54,7 +54,7 @@ Until then,
 the best we can do is try to meet the standard that Kernighan set for us forty years ago.
 
 <figure id="pattern-matching-greedy-failure" align="center">
-  <img src="./greedy-failure.svg" alt="Overly-greedy matching fails"/>
+  <img src="{{'/sdxjs/pattern-matching/greedy-failure.svg' | relative_url}}" alt="Overly-greedy matching fails"/>
   <figcaption>Figure 7.4: Why overly greedy matching doesn't work.</figcaption>
 </figure>
 

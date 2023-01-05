@@ -33,14 +33,14 @@ It was a bit contrived,
 but I think it worked out pretty well,
 and it motivated discussion of the difference between interface and implementation rather neatly.
 
-<figure id="data-table-storage-order">
+<figure id="data-table-storage-order" align="center">
   <img src="{{'/sdxjs/data-table//storage-order.svg' | relative_url}}" alt="Row-major vs. column-major storage order"/>
-  <figcaption markdown="1">Figure 6.2: Row-major storage vs. column-major storage for data tables.</figcaption>
+  <figcaption>Figure 6.2: Row-major storage vs. column-major storage for data tables.</figcaption>
 </figure>
 
 > Terms defined: character encoding, column-major storage, data frame, fixed-width (of strings), fixed-width (of strings), garbage collection, heterogeneous, homogeneous, immutable, index (in a database), JavaScript Object Notation, join, pad (a string), row-major storage, sparse matrix, SQL, tagged data, test harness.
 
 [efficient]: https://www.goodreads.com/book/show/128599.Writing_Efficient_Programs
-[sdxjs]
-[sdxjs_data_table]
-[vignette]: https://third-bit.com/2022/08/14/ese-vignette/
+[sdxjs]: {{'/sdxjs/' | relative_url}}
+[sdxjs_data_table]: {{'/sdxjs/data-table/' | relative_url}}
+[vignette]: {{'/2022/08/14/ese-vignette/' | relative_url}}
