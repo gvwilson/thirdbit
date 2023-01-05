@@ -4,10 +4,11 @@ date: 2023-01-05
 year: 2023
 ---
 
-The chapter explaining [how hash-based version control systems work][sdxjs_file_backup]
+The chapter explaining [how hash-based version control systems work][sdxjs_backup]
 was one of the three starting points for this book.
-The others were [how a browser lays out a page][sdxjs_layout_engine] and [how a debugger works][sdxjs_debugger];
-I tackled this one first because of [Mary Rose Cook's][cook_mary_rose] excellent [Gitlet][gitlet] project,
+The others were how a browser [lays out a page][sdxjs_layout]
+and [how a debugger works][sdxjs_debugger];
+I tackled this one first because of [Mary Rose Cook's][cook] excellent [Gitlet][gitlet] project,
 though if I'd known about Panchekha and Harrelson's equally inspiring [*Browser Engineering*][browser_engineering]
 I might have begun with the layout engine.
 (I *wish* that starting with the debugger example had been an option,
@@ -35,16 +36,18 @@ with a system inspired by [Fossil][fossil],
 in the same way that comparing the implementation of undo/redo in Emacs and Vim
 can show just how large the space of possible designs actually is.
 
-<figure id="file-backup-storage">
+<figure id="file-backup-storage" align="center">
   <img src="{{'/sdxjs/file-backup/storage.svg' | relative_url}}" alt="Backup file storage"/>
-  <figcaption markdown="1">Figure 5.3: Organization of backup file storage.</figcaption>
+  <figcaption>Figure 5.3: Organization of backup file storage.</figcaption>
 </figure>
 
 > Terms defined: Application Programming Interface, collision, comma-separated values, Coordinated Universal Time, cryptographic hash function, data migration, handler, hash code, hash function, JavaScript Object Notation, mock object, pipe, race condition, SHA-1 hash, stream, streaming API, Time of check/time of use, timestamp, version control system.
 
-[browser_engineering: https://browser.engineering/
+[browser_engineering]: https://browser.engineering/
+[cook]: https://maryrosecook.com/
 [fossil]: https://www2.fossil-scm.org/
+[gitlet]: http://gitlet.maryrosecook.com/
 [not_on_the_shelves]: {{'/not-on-the-shelves/' | relative_url}}
 [sdxjs_debugger]: {{'/sdxjs/debugger/' | relative_url}}
-[sdxjs_file_backup]: {{'/sdxjs/file-backup/' | relative_url}}
-[sdxjs_layout_engine]: {{'/sdxjs/layout-engine/' | relative_url}}
+[sdxjs_backup]: {{'/sdxjs/file-backup/' | relative_url}}
+[sdxjs_layout]: {{'/sdxjs/layout-engine/' | relative_url}}
