@@ -48,27 +48,27 @@ this chapter will hope readers get it right if it's ever their turn.
 
 > Terms defined: bare object, dynamic scoping, environment, lexical scoping, stack frame, static site generator, Visitor pattern.
 
-> ## A Note on Open Source Etiquette
->
-> While using [Ivy][ivy] and [Ibis][ibis] on another project,
-> I ran into a problem that I'd never encountered before.
-> [Ibis][ibis] is hosted on PyPI at <https://pypi.org/project/ibis/>,
-> installed with `pip install ibis`,
-> and imported with `import ibis`.
-> There is another project called the [Ibis Framework][ibis_framework]
-> that is hosted on PyPI at <https://pypi.org/project/ibis-framework/>,
-> installed with `pip install ibis-framework`,
-> but which is *also* imported with `import ibis`.
-> That naming conflict makes it impossible to use the two together
-> without manually renaming one or the other.
->
-> [Ibis-the-templating-engine][ibis] was created first,
-> which I presume is why [Ibis-the-framework][ibis_framework] uses a two-part name.
-> I recognize that [Ibis-the-framework][ibis_framework] is a bigger project
-> than [Ibis-the-templating-engine][ibis],
-> and that the space of package names is getting pretty crowded,
-> but I still think the authors of the latter should have chosen a different name
-> to avoid the conflict.
+## A Note on Open Source Etiquette
+
+While using [Ivy][ivy] and [Ibis][ibis] on another project,
+I ran into a problem that I'd never encountered before.
+[Ibis][ibis] is hosted on PyPI at <https://pypi.org/project/ibis/>,
+installed with `pip install ibis`,
+and imported with `import ibis`.
+There is another project called the [Ibis Framework][ibis_framework]
+that is hosted on PyPI at <https://pypi.org/project/ibis-framework/>,
+installed with `pip install ibis-framework`,
+but which is *also* imported with `import ibis`.
+That naming conflict makes it impossible to use the two together
+without manually renaming one or the other.
+
+[Ibis-the-templating-engine][ibis] was created first,
+which I presume is why [Ibis-the-framework][ibis_framework] uses a two-part name.
+I recognize that [Ibis-the-framework][ibis_framework] is a bigger project
+than [Ibis-the-templating-engine][ibis],
+and that the space of package names is getting pretty crowded,
+but I still think the authors of the latter should have chosen a different name
+to avoid the conflict.
 
 [crafting]: https://craftinginterpreters.com/
 [crafting_1]: http://journal.stuffwithstuff.com/2020/04/05/crafting-crafting-interpreters/
@@ -77,3 +77,4 @@ this chapter will hope readers get it right if it's ever their turn.
 [ibis_framework]: https://ibis-project.org/
 [ivy]: https://www.dmulholl.com/docs/ivy/dev/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
+[sdxjs_templates]: {{'/sdxjs/page-templates/' | relative_url}}
