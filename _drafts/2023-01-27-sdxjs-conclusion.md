@@ -53,7 +53,7 @@ then it was worth writing.
   Help who you can
 </div>
 
-[bicycle]: {{'/2017/12/17/consider-the-bicycle/' | relative_url}
+[bicycle]: {{'/2017/12/17/consider-the-bicycle/' | relative_url}}
 [sdxjs-introduction-post]: {{'/2023/01/01/sdxjs-introduction/' | relative_url}}
 [sdxjs-version-control]: {{'/sdxjs/file-backup/' | relative_url}}
 [sdxjs-unit-test]: {{'/sdxjs/unit-test/' | relative_url}}

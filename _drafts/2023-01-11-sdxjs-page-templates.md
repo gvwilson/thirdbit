@@ -4,6 +4,8 @@ date: 2023-01-11
 year: 2023
 ---
 
+Some day I'll blog about the tools I built to create "Software Design by Example", but if you're interested in that kind of thing, check out Bob Nystrom's articles about how he built "Crafting Interpreters" (https://craftinginterpreters.com/), which is the most beautiful book about programming I've seen in years. (Seriously: it's worth buying hard copy just to admire the production values.) http://journal.stuffwithstuff.com/2020/04/05/crafting-crafting-interpreters/ http://journal.stuffwithstuff.com/2021/07/29/640-pages-in-15-months/
+
 > Terms defined: bare object, dynamic scoping, environment, lexical scoping, stack frame, static site generator, Visitor pattern.
 
 Every program needs documentation in order to be usable,
