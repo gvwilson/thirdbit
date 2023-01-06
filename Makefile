@@ -29,6 +29,10 @@ build:
 serve:
 	${JEKYLL} serve
 
+## drafts: build site and run server showing drafts
+drafts:
+	${JEKYLL} serve --future --drafts
+
 ## ----
 
 ## clean: clean up stray files
