@@ -1,5 +1,5 @@
 ---
-title: "Page Templates"
+title: "Software Design by Example 9: Page Templates"
 date: 2023-01-11
 year: 2023
 ---
