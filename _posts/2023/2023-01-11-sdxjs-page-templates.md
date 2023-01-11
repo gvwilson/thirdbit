@@ -39,7 +39,7 @@ requires the implementation of variables and scope—in short,
 a programming language.
 There are lots of ways to get this wrong;
 hopefully,
-this chapter will hope readers get it right if it's ever their turn.
+this chapter will help readers get it right if it's ever their turn.
 
 <figure id="page-templates-options" align="center">
   <img src="{{'/sdxjs/page-templates/options.svg' | relative_url}}" alt="Three options for page templates"/>
@@ -68,7 +68,7 @@ I recognize that [Ibis-the-framework][ibis_framework] is a bigger project
 than [Ibis-the-templating-engine][ibis],
 and that the space of package names is getting pretty crowded,
 but I still think the authors of the latter should have chosen a different name
-to avoid the conflict.
+to avoid the import conflict.
 
 [crafting]: https://craftinginterpreters.com/
 [crafting_1]: http://journal.stuffwithstuff.com/2020/04/05/crafting-crafting-interpreters/
