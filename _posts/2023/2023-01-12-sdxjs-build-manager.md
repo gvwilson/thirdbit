@@ -34,3 +34,6 @@ I'll let you know in a few months whether my energy levels picked up or not.
 </figure>
 
 > Terms defined: automatic variable, build manager, build recipe, build rule, build target, compiled language, cycle (in a graph), dependency, directed acyclic graph, driver, interpreted language, link (a program), pattern rule, runnable documentation, stale (in build), Template Method pattern, topological order.
+
+[sdxjs]: {{'/sdxjs/build-manager/' | relative_url}}
+[sdxjs_build]: {{'/sdxjs/build-manager/' | relative_url}}
