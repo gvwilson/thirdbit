@@ -4,7 +4,7 @@ date: 2021-02-22
 year: 2021
 ---
 
-I've written] before
+I've written before
 about Henderson et al's work on theories of change in education,
 and a recent conversation made me wonder if anyone had built a similar theoretical basis
 for adoption of new software development practices.
