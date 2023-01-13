@@ -1,9 +1,7 @@
 ---
-title: "About Me"
+title: "About Greg"
 layout: page
 ---
-
-<img src="{{ '/files/bio/gvwilson-tgac-2014-large.jpg' | relative_url }}" alt="Greg Wilson" width="200px" />
 
 I was born in 1963 and grew up on [Vancouver Island](http://www.town.lakecowichan.bc.ca/),
 where two inches of rain is considered a light shower.
@@ -54,5 +52,6 @@ I became a software engineering manager at [Deep Genomics](https://www.deepgenom
 if you'd like to chat,
 please [drop me a line](mailto:gvwilson@third-bit.com).
 
-- CV ([PDF]({{ '/cv/gvwilson.pdf' | relative_url }}), [HTML]({{ '/cv/' | relative_url }}))
-- [Bibliography]({{ '/bib/' | relative_url }})
+CV (<a href="{{ '/cv/gvwilson.pdf' | relative_url }}">PDF</a>, <a href="{{ '/cv/' | relative_url }}">HTML</a>)
+<br/>
+<a href="{{ '/bib/' | relative_url }}">Bibliography</a>
