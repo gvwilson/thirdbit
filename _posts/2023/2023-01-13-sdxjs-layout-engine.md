@@ -1,5 +1,5 @@
 ---
-title: "Layout Engine"
+title: "Software Design by Example 11: Layout Engine"
 date: 2023-01-13
 year: 2023
 ---
