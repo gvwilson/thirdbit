@@ -19,7 +19,7 @@ Things I didn't do that I really needed to:
 </ol>
 Things I hadn't planned to do that were worth doing:
 <ol>
-	<li><a href="http://softwarecarpentry.wordpress.com/2009/04/27/firming-up-course-goals/">Write</a> <a href="http://blog.basieproject.org/?p=726">a</a> <a href="http://blog.basieproject.org/?p=744">handful</a> of blog posts about things that matter to me.  (Did lots of email in the background about women in open source as well.)</li>
+	<li><a href="http://softwarecarpentry.wordpress.com/2009/04/27/firming-up-course-goals/">Write</a> a handful of blog posts about things that matter to me.  (Did lots of email in the background about women in open source as well.)</li>
 </ol>
 Things that I did that I really shouldn't have wasted time on:
 <ol>

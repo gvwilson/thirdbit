@@ -4,9 +4,7 @@ title: Maddy Roo
 fiction: true
 ---
 
-<div class="flex-col">
-  <ol id="toc"></ol>
-</div>
+<ol id="toc"></ol>
 
 <section markdown="1">
 

@@ -22,7 +22,7 @@ Ward Cunningham created the first wiki in 1994-95 so that people could easily ed
 <td valign="middle">ThirdBit</td>
 </tr>
 <tr>
-<td valign="middle"><code>[http://www.third-bit.com home]</code></td>
+<td valign="middle"><code>[http://third-bit.com home]</code></td>
 <td valign="middle">home</td>
 </tr>
 </table>

@@ -3,13 +3,13 @@ title: "Alternatives to DrProject"
 date: 2008-04-11 10:45:55
 year: 2008
 ---
-We're hoping to release a new version of <a href="http://www.drproject.org">DrProject</a> next week, and persuade some <a href="http://trac.edgewall.org">Trac</a> users to upgrade.  (Multiple projects!  Mailing lists!  Role-based access control!  Scripting interface!)  This is therefore a good time to take a fresh look at what other systems offer:
+We're hoping to release a new version of DrProject next week, and persuade some <a href="http://trac.edgewall.org">Trac</a> users to upgrade.  (Multiple projects!  Mailing lists!  Role-based access control!  Scripting interface!)  This is therefore a good time to take a fresh look at what other systems offer:
 
 <a href="http://www.sourceforge.net">SourceForge</a>: not the first web-based software project portal, but certainly the best known and (probably) the most widely used; not free, and too big for most student projects and startups (though there are lots of cases of both using it).
 
 <a href="http://code.google.com/hosting/">Google Code</a>: much smaller, but growing fast; only available as a hosted service (which rules it out for course projects in many jurisdictions, and for companies that want to keep their software behind their firewall).
 
-<a href="http://trac.edgewall.org">Trac</a>: probably the most popular entry-level open source system; this is what we forked <a href="http://www.drproject.org">DrProject</a> from, and what we're hoping to supercede.
+<a href="http://trac.edgewall.org">Trac</a>: probably the most popular entry-level open source system; this is what we forked DrProject from, and what we're hoping to supercede.
 
 <a href="http://studios.thoughtworks.com/mingle-project-intelligence">Mingle</a>: a relatively new offering from <a href="http://www.thoughtworks.com">ThoughtWorks</a> specifically aimed at agile projects (and lovers of sticky notes everywhere). Very attractive, but not open.
 

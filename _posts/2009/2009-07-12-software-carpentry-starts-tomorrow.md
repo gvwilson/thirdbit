@@ -9,7 +9,7 @@ Similarly, the notes are still in scroll format because there wasn't time to deb
 
 Most depressingly, almost none of the content has been updated. Doing this was #1 on my to-do list back in April, but it turned out that being #1 takes second place to things like booking rooms and making sure there's a working projector.
 
-Things are going much better with <a href="http://basieproject.org">Basie</a> (the Django-based rewrite of <a href="http://www.drproject.org">DrProject</a> that we're hoping will grow up to be a replacement for <a href="http://trac.edgewall.org">Trac</a>). Feature freeze happened two days ago, and while a couple of key components still need some real development work, almost everything else is more or less working. There are still seven weeks left in the summer, so barring outright disaster, we're on track to have a working system to use this fall.
+Things are going much better with Basie (the Django-based rewrite of DrProject that we're hoping will grow up to be a replacement for <a href="http://trac.edgewall.org">Trac</a>). Feature freeze happened two days ago, and while a couple of key components still need some real development work, almost everything else is more or less working. There are still seven weeks left in the summer, so barring outright disaster, we're on track to have a working system to use this fall.
 
 The other summer projects have been making good progress as well---if you'd like to know more, check out their blogs:
 <ul>

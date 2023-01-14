@@ -3,7 +3,7 @@ title: "DrProject Internals: Tickets Again"
 date: 2006-11-05 10:40:02
 year: 2006
 ---
-So that's tickets taken care of, right?  If only...  Versioning is far from being the only thorny issue in building a ticketing system.  To understand some of the others, it helps to know a little about how <a href="http://www.drproject.org">DrProject</a> evolved from <a href="http://trac.edgewall.org">Trac</a>.
+So that's tickets taken care of, right?  If only...  Versioning is far from being the only thorny issue in building a ticketing system.  To understand some of the others, it helps to know a little about how DrProject evolved from <a href="http://trac.edgewall.org">Trac</a>.
 
 When we first started using <a href="http://trac.edgewall.org">Trac</a> in January 2005, each installation of the software managed one, and only one, project: a single ticket database, a single set of wiki pages, and (most importantly) a single Subversion repository.  Each installation needed its own stanza in Apache's configuration file, and users had to be added to each installation separately (Figure 1).
 
@@ -54,7 +54,7 @@ All right, why don't we just use the project's name, and the ticket's ID within 
 
 Things like this are why I'm sceptical about the most extreme interpretations of <a href="http://www.extremeprogramming.org/">Extreme Programming</a>. "Don't design it 'til you need it" is great if changes don't have long-range ripple effects, but in my experience, the harder the problem, the more likely it is to send shock waves through the whole system.
 <h2>Tags</h2>
-Here's another example.  Over the summer, Apple Viriyakattiyaporn added tagging to <a href="http://www.drproject.org">DrProject</a>, so that keywords can be attached to wiki pages, tickets, email messages, and just about everything else. She had two independent decisions to make: how to store the tag values, and how to index them.  Options for storing the tag values were:
+Here's another example.  Over the summer, Apple Viriyakattiyaporn added tagging to DrProject, so that keywords can be attached to wiki pages, tickets, email messages, and just about everything else. She had two independent decisions to make: how to store the tag values, and how to index them.  Options for storing the tag values were:
 <ol>
 	<li>Store each tag separately, one per database record.</li>
 	<li>Store all the tags together in a delimited list (e.g., <code>"bug fix|concurrency|GUI"</code>) in a single record.</li>
@@ -81,7 +81,7 @@ In the first option, the thing the tag belongs to is implicit in the table: only
 
 We hemmed and hawed over this for a while, then finally went with option 3.  We thought that everything we'd ever want to index tags by would be representable as text somehow, and options 1 and 2 might require us to add new tables (i.e., change the database schema) when adding new components in the future.  Changing the schema is always a Bad Thing, since it means upgrading existing installations; "everything is text" seemed like the lesser of the available evils.
 <h2>Attachments</h2>
-One final note on tickets.  People often want to attach screen shots, configuration files, and other odds and ends to them.  Like <a href="http://trac.edgewall.org">Trac</a>, <a href="http://www.drproject.org">DrProject</a> stores attachments in the file system in an <code>attachments</code> sub-directory of its working directory. <code>attachments</code> has two sub-directories, <code>wiki</code> and <code>ticket</code>, which store the wiki and ticket attachments respectively.
+One final note on tickets.  People often want to attach screen shots, configuration files, and other odds and ends to them.  Like <a href="http://trac.edgewall.org">Trac</a>, DrProject stores attachments in the file system in an <code>attachments</code> sub-directory of its working directory. <code>attachments</code> has two sub-directories, <code>wiki</code> and <code>ticket</code>, which store the wiki and ticket attachments respectively.
 
 Each of these has sub-directories whose names correspond to the wiki page's name or the ticket's number; the attached files are put into these directories.  Thus, the attachment <code>attach.txt</code> for ticket #222 would be located at <code>/drp/attachments/ticket/222/attach.txt</code>, while the attachment <code>attach.txt</code> for the wiki page <code>MyWiki</code> would be located at <code>/drp/attachments/wiki/MyWiki/attach.txt</code>.
 

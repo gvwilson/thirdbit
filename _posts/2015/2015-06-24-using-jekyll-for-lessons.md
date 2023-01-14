@@ -15,9 +15,7 @@ original: swc
   There were a bunch of reasons for using Pandoc instead of Jekyll,
   but it is now clear that the simplicity of only committing Markdown&mdash;i.e.,
   of using GitHub pages the way they're meant to be used&mdash;is more important.
-  We have therefore created
-  <a href="https://github.com/gvwilson/using-jekyll">a prototype of a Jekyll-based template</a>
-  (which is rendered <a href="http://gvwilson.github.io/using-jekyll/">here</a>).
+  We have therefore created a prototype of a Jekyll-based template.
   The most important changes are:
 </p>
 <ul>

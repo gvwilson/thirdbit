@@ -7,7 +7,7 @@ Andrew Louis has posted a great summary of the <a href="http://ucosp.ca/fall2010
 <ul>
 	<li><a href="http://posit.hfoss.org/">POSIT</a> (an Android app for disaster relief workers),</li>
 	<li>The <a href="http://community.ingres.com/wiki/IngresGeospatial">geospatial components for INGRES</a>,</li>
-	<li>a <a href="http://blog.basieproject.org/">mail relay and archive module for Pinax</a>,</li>
+	<li>a mail relay and archive module for Pinax,</li>
 	<li><a href="http://fosslc.org/drupal/freeseer">Freeseer</a> (a tool for capturing video presentations),</li>
 	<li><a href="http://code.google.com/p/fab4browser/">fab4browser</a> (for annotating web pages),</li>
 	<li><a href="http://www.reviewboard.org/">ReviewBoard</a> (an open source code review tool),</li>

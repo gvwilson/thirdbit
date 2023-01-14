@@ -3,7 +3,7 @@ title: "Problems with Pandoc"
 date: 2013-06-13 18:48:09
 year: 2013
 ---
-<p>People have been asking me to write the <a href="http://guide.software-carpentry.org/">Software Carpentry instructor's guide</a> in Markdown instead of HTML, mostly so that it will be easier for other people to review and contribute. I was initially against the idea because standard Markdown lacks so many features that I'd basically be writing HTML with back quotes instead of &lt;code&gt; tags, but it turns out that Pandoc's variation on Markdown provides a lot of what I want&mdash;a lot, but not all. After converting the section on databases, I've come up against the following:</p>
+<p>People have been asking me to write the Software Carpentry instructor's guide in Markdown instead of HTML, mostly so that it will be easier for other people to review and contribute. I was initially against the idea because standard Markdown lacks so many features that I'd basically be writing HTML with back quotes instead of &lt;code&gt; tags, but it turns out that Pandoc's variation on Markdown provides a lot of what I want&mdash;a lot, but not all. After converting the section on databases, I've come up against the following:</p>
 <ol>
 	<li>Pandoc won't number figures and insert those numbers in references. I can do this by inserting \label{...}'s and \ref{...}'s if my target format is LaTeX, but I want HTML.</li>
 	<li>There's no way to attach a CSS class to a table. I can do this to a heading by writing:

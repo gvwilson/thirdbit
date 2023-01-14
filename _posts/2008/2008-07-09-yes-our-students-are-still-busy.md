@@ -6,9 +6,9 @@ year: 2008
 Week 9 of 15 (or 10, or 16, depending on which student we're talking about), and we're all staying busy:
 <ul>
 	<li>I wrote five mid-term evaluations this morning. Unsurprisingly, I had more to say about the students who blog regularly than about those who don't.</li>
-	<li>Qiyu Zhu has <a href="http://qzdrproject.wordpress.com/2008/07/09/final-role-editor-for-now/">wrapped up the role editor</a>. He's learned enough about software development to add, "for now" :-)  He'd also like you to know that <a href="http://qzdrproject.wordpress.com/2008/07/10/great-bug-writers-think-alike/">great bug writers think alike</a>.</li>
+	<li>Qiyu Zhu has wrapped up the role editor. He's learned enough about software development to add, "for now" :-)  He'd also like you to know that great bug writers think alike.</li>
 	<li>Bing Li and Ming Chow are <a href="http://pipe3f.wordpress.com/2008/07/09/don%e2%80%99t-cha-wish-your-methods-can-overload-like-mine/">less in love with ActionScript</a> than they used to be.</li>
-	<li>Kosta Zabashta gets to show his stuff off at <a href="http://democamp.info/2008/06/12/democamptoronto18/">DemoCamp</a> next week; right now, he's cursing the fact that <a href="http://drprojectirc.wordpress.com/2008/07/09/irc-services-supybot-drproject/">localhost isn't always a loopback</a>.</li>
+	<li>Kosta Zabashta gets to show his stuff off at <a href="http://democamp.info/2008/06/12/democamptoronto18/">DemoCamp</a> next week; right now, he's cursing the fact that localhost isn't always a loopback.</li>
 	<li>Nick Jamil is <a href="http://nickjamil.livejournal.com/11587.html">ringing a death knell</a>.  I think he means his project is getting close to completion, rather than to cancellation...</li>
 	<li>Victoria Mui is <a href="http://idea021.wordpress.com/2008/07/10/algorithms/">reading about algorithms</a>.  Reading, reading, reading...</li>
 	<li>Eva Wong thinks that working without a debugger is <a href="http://iwa-wong.livejournal.com/3163.html">not funny at all</a>.</li>

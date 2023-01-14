@@ -11,7 +11,7 @@ An introduction to agile development methods appropriate for medium-sized teams 
 
 <em>Rationale</em>: CSC301 will introduce students to a complete, coherent set of development practices that are widely used in industry, and also appropriate for graduate-level research.  It will be appropriate for students in specializations other than Software Engineering (such as Information Systems and HCI).
 
-<em>Structure</em>: The course will be built around a term-long project, which will be done in two-week iterations by teams of 3-4 students using agile development methods.  An example of such a project is adding internationalization and accessibility support to <a href="http://www.drproject.org">DrProject</a>; another is building a simple educational game for the <a href="http://www.laptop.org">OLPC</a>.
+<em>Structure</em>: The course will be built around a term-long project, which will be done in two-week iterations by teams of 3-4 students using agile development methods.  An example of such a project is adding internationalization and accessibility support to DrProject; another is building a simple educational game for the <a href="http://www.laptop.org">OLPC</a>.
 <table border="1">
 <tr>
 <td><strong>Topic</strong></td>

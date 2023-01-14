@@ -6,8 +6,7 @@ favorite: true
 ---
 
 I've been thinking a lot about the notations we use for programming
-as I've been [teaching myself R](https://gvwilson.github.io/tidynomicon/),
-and I have a theory.
+as I've been teaching myself R and I have a theory.
 When we use a low-level language,
 we incur the [cognitive load](http://teachtogether.tech/en/load/)
 of assembling micro-steps into something more meaningful;

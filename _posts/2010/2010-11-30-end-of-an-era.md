@@ -3,7 +3,7 @@ title: "End of an Era"
 date: 2010-11-30 14:57:54
 year: 2010
 ---
-From <a href="http://basieproject.org">http://basieproject.org</a>:
+From http://basieproject.org:
 <blockquote>We have decided to wind down the Basie project and put our effort into <a href="http://pinaxproject.com">Pinax</a>, a collection of reusable <a href="http://djangoproject.com">Django</a> components designed to simplify the construction of social networking sites.  We made this decision because many of the things we want in Basie are actually common to groupware of all kinds, not just software project management tools, and because students working on the project will have a better learning experience if they are embedded in an active non-academic open source community.
 
 Our first contribution to <a href="http://pinaxproject.com">Pinax</a> is a repository browser component with back-ends for Subversion and Mercurial. We are now working on a mailing list component, which we hope to release in December 2010.</blockquote>

@@ -9,7 +9,7 @@ Today, I said "no" to running a <a href="http://barcamp.org/DemoCamp">DemoCamp</
 
 A lot of SIGCSE attendees build cool tools; giving half a dozen of them a chance to get up and show their stuff off seemed like a natural fit. But it would take organizing---lots of organizing, since it would be the first one---and that would take time away from the research I'm supposed to be doing, the students I'm supposed to be supervising, and the funding I ought to be chasing to support numbers one and two.
 
-So farewell, DemoCamp SIGCSE 2009---I'm sure it would have been fun, but getting <a href="http://www.drproject.org">DrProject</a> into the <a href="http://trac.edgewall.org">Trac</a> community is more important.
+So farewell, DemoCamp SIGCSE 2009---I'm sure it would have been fun, but getting DrProject into the <a href="http://trac.edgewall.org">Trac</a> community is more important.
 
 *sigh*
 

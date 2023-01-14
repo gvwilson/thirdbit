@@ -26,7 +26,7 @@ So, that's what I've done in the past.  This term, I'm going to try something di
 	<li>An installation guide.</li>
 	<li>An evaluation similar to those that have been included in previous terms' reports.</li>
 </ol>
-All but the last will be written as <a href="http://www.drproject.org">DrProject</a> wiki pages, so that the next team can pick up right where their predecessors left off.  I hope this will give students a better feeling for what it would be like to work on a real long-lived project.
+All but the last will be written as DrProject wiki pages, so that the next team can pick up right where their predecessors left off.  I hope this will give students a better feeling for what it would be like to work on a real long-lived project.
 
 I'll close with a few quotes from Fogel's book:
 <blockquote>...many projects don't bother to standardize their installation procedures until very late int he game, telling themselves they can do it at any time: <em>"We'll sort all that stuff out when the code is closer to being ready."</em>  What they don't realize is that by putting off the boring work of finishing the build and installation procedures, they are actually makingg the code take longer to get ready...  Boring work with a high payoff should always be done early. (pg. 26)</blockquote>

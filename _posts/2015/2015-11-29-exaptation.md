@@ -65,7 +65,7 @@ favorite: true
   New books like
   <a href="http://www.amazon.com/Art-Science-Analyzing-Software-Data/dp/0124115195/"><cite>The Art and Science of Analyzing Sofware Data</cite></a>,
   <a href="http://www.amazon.com/Sharing-Data-Models-Software-Engineering/dp/0124172954/"><cite>Sharing Data and Models in Software Engineering</cite></a>,
-  and the upcoming <a href="https://github.com/ds4se/chapters"><cite>Perspectives on Data Science for Software Engineering</cite></a>
+  and the upcoming <cite>Perspectives on Data Science for Software Engineering</cite>
   show that this community can answer questions that matter.
 </p>
 <p>

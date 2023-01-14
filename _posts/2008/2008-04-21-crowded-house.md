@@ -15,9 +15,9 @@ Google <a href="http://google-opensource.blogspot.com/2008/04/announcing-accepte
 Four students from other schools (Jeff Balogh, Luke Paireepinart, Daniel Servos, and Artem Yunusov) will be doing projects we're involved in, and of course there are our non-GSoC students:
 <ul>
 	<li>Nicole Allard and Dmitri Vassiliev will continue their work on the feature diagram plugin for Eclipse and browser plugins for SlashID respectively.</li>
-	<li>Geofrey Flores and Kosta Zabashta have been awarded an NSERC USRA to study the usability and productivity of web-based and IDE-based grading tools (GF) and to integrate instant messaging into <a href="http://www.drproject.org">DrProject</a> (KZ).</li>
-	<li>Luke Petrolekas will be testing and documenting <a href="http://www.drproject.org">DrProject</a> (and probably other projects as well).</li>
-	<li>Nick Jamil will be doing miscellaneous <a href="http://www.drproject.org">DrProject</a> development.</li>
+	<li>Geofrey Flores and Kosta Zabashta have been awarded an NSERC USRA to study the usability and productivity of web-based and IDE-based grading tools (GF) and to integrate instant messaging into DrProject (KZ).</li>
+	<li>Luke Petrolekas will be testing and documenting DrProject (and probably other projects as well).</li>
+	<li>Nick Jamil will be doing miscellaneous DrProject development.</li>
 	<li>Chris Maddison and Hardeep Singh are going to help beef up the Python multimedia libraries we use in first-year teaching thanks to an ITCDF grant.</li>
 </ul>
 Oh, and we mustn't forget the graduate students:

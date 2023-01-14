@@ -4,11 +4,11 @@ title: "The Voyage of the Unshadowed Land"
 fiction: true
 ---
 
-<div class="flex-row">
-  <div class="flex-col">
+<div class="row">
+  <div class="col col-6">
     <img src="./cherne.png" alt="Terrain map of Cherne" />
   </div>
-  <div class="flex-col">
+  <div class="col col-6">
     <ol id="toc"></ol>
   </div>
 </div>

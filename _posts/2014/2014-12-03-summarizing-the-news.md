@@ -59,6 +59,6 @@ original: swc
   We'll talk about all of this at
   the Dec 4 lab meeting
   (which takes place at 10:00 and again at 19:00, both times Eastern &mdash; see
-  <a href="https://etherpad.mozilla.org/swc-labmeeting-2014-11">this Etherpad</a> for connection details).
+  this Etherpad for connection details).
   Hope to see you there...
 </p>

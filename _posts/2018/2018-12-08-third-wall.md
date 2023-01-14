@@ -24,7 +24,7 @@ and I really have to push myself to do 500 words on either.
 Similarly,
 Toby Hodges and I have written about 32,000 words of
 [our tutorial on JavaScript for data scientists](https://software-tools-in-javascript.github.io/js-vs-ds/en/),
-and I've written about 19,000 words explaining [R for Python programmers](https://gvwilson.github.io/tidynomicon/);
+and I've written about 19,000 words explaining R for Python programmers;
 what both projects need now is a bunch of holes filled in and diagrams drawn
 and citations tracked down and examples cleaned up to be consistent and honestly,
 I'd rather do dishes and laundry and watch inane YouTube videos than look at any of them.

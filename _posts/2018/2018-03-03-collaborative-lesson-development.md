@@ -24,7 +24,7 @@ contribution has finally been published:
 Its appearance marks the end of a chapter in my life: I had planned to
 do a companion paper on collaborative lesson *delivery*, but my focus
 has shifted to [community organizing](http://teachtogether.tech) and
-to passing on [what I've learned](http://third-bit.com/teaching/) to
+to passing on [what I've learned](https://teachtogether.tech/) to
 other free-range instructors.  (And to be honest, getting this paper
 through PLoS's production pipeline was so much more work than writing
 it that it'll be a while before I can face the task again.)

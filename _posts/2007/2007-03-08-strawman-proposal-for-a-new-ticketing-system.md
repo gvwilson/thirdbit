@@ -3,7 +3,7 @@ title: "Strawman Proposal for a New Ticketing System"
 date: 2007-03-08 09:38:12
 year: 2007
 ---
-<a href="http://www.drproject.org">DrProject</a> has been in use in half a dozen courses at two universities for over six months.  We're mostly pleased with it, but it's clear that the ticketing system needs a major overhaul.  Most class projects need nothing more than a shared to-do list, but some (like DrProject and <a href="https://stanley.cs.toronto.edu/olm-screencast.html">OLM</a>) need the priorities, due dates, and so on that real ticketing systems provide.
+DrProject has been in use in half a dozen courses at two universities for over six months.  We're mostly pleased with it, but it's clear that the ticketing system needs a major overhaul.  Most class projects need nothing more than a shared to-do list, but some (like DrProject and <a href="https://stanley.cs.toronto.edu/olm-screencast.html">OLM</a>) need the priorities, due dates, and so on that real ticketing systems provide.
 
 Cutting it another way, I'm mostly opposed to telling students they <em>have</em> to use tools---I think it's more likely to turn students off, and if the tool doesn't appeal, it should be redesigned.  There are times, though, when the whole point of a course is to teach students to work a certain way, and in those cases, I want to have a full-blown ticketing system for them to practice with.
 

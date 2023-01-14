@@ -142,7 +142,7 @@ original: swc
       </li>
     </ol>
   </dd>
-  <dt id="guide">Finish the <a href="http://guide.software-carpentry.org">instructors' guide</a>.</dt>
+  <dt id="guide">Finish the instructors' guide.</dt>
   <dd>
     We desperately need more instructors;
     we also need to do more to ensure that people are teaching the same (kinds of) things,

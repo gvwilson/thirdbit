@@ -22,7 +22,7 @@ I skipped an important step in my previous post: I wasn't explicit about the fea
 	<li>More bonus marks if fields in tickets can be customized without rewriting any code.</li>
 	<li>Still more bonus marks if this is combined with a calendar so that users can group tickets by release or due date.
 <ul>
-	<li><a href="http://www.drproject.org">DrProject</a>'s "milestones" have been inherited from <a href="http://trac.edgewall.org">Trac</a>, and are just as lame.</li>
+	<li>DrProject's "milestones" have been inherited from <a href="http://trac.edgewall.org">Trac</a>, and are just as lame.</li>
 </ul>
 </li>
 </ul>
@@ -37,7 +37,7 @@ I skipped an important step in my previous post: I wasn't explicit about the fea
 	<li>Cross-component search.</li>
 	<li>A plugin or extension system.
 <ul>
-	<li><a href="http://www.drproject.org">DrProject</a>'s needs a major overhaul...</li>
+	<li>DrProject's needs a major overhaul...</li>
 </ul>
 </li>
 	<li>Some kind of over-the-web API (REST, SOAP, or RPC doesn't matter, just so long as it allows remote scripting, automation, and integration).</li>
@@ -48,7 +48,7 @@ I skipped an important step in my previous post: I wasn't explicit about the fea
 	<li>There should also be a separate, more detailed event log for auditing and administrative purposes.</li>
 	<li>Plus charts and other analytic tools.
 <ul>
-	<li>We're going to try again this summer to build something like this for <a href="http://www.drproject.org">DrProject</a>.</li>
+	<li>We're going to try again this summer to build something like this for DrProject.</li>
 </ul>
 </li>
 </ul>
@@ -66,7 +66,7 @@ I skipped an important step in my previous post: I wasn't explicit about the fea
 </li>
 	<li>Requirements management.
 <ul>
-	<li>A lot of systems, including <a href="http://www.drproject.org">DrProject</a>, just use tickets for this, but <a href="http://studios.thoughtworks.com/mingle-project-intelligence">Mingle</a> and other agile-oriented portals support user story cards or the like.</li>
+	<li>A lot of systems, including DrProject, just use tickets for this, but <a href="http://studios.thoughtworks.com/mingle-project-intelligence">Mingle</a> and other agile-oriented portals support user story cards or the like.</li>
 	<li>As an aside, I think it's pretty telling that nothing smaller than <a href="http://www-306.ibm.com/software/awdtools/clearcase/">ClearCase</a> offers, or even integrates with, a "classic" requirements management tool like <a href="http://www.telelogic.com/Products/doors/doors/index.cfm">DOORS</a>.</li>
 </ul>
 </li>
@@ -83,7 +83,7 @@ I skipped an important step in my previous post: I wasn't explicit about the fea
 	<li>Support for internationalization and localization.</li>
 	<li>Forums or some other kind of bulletin board system.
 <ul>
-	<li>I personally think this is redundant given mailing lists and a wiki, but a lot of portals offer them, and we regularly get requests to add them to <a href="http://www.drproject.org">DrProject</a>.</li>
+	<li>I personally think this is redundant given mailing lists and a wiki, but a lot of portals offer them, and we regularly get requests to add them to DrProject.</li>
 </ul>
 </li>
 </ol>

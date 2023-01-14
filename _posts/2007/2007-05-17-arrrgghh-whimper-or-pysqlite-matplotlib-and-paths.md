@@ -3,9 +3,9 @@ title: "Arrrgghh *whimper* (or, PySqlite, Matplotlib, and paths)"
 date: 2007-05-17 16:41:15
 year: 2007
 ---
-Muhammad Ali and Adam Foster prototyped a dashboard display for <a href="http://www.drproject.org">DrProject</a> as a term project this winter. It collects information on the number of tickets in various states, and the number of check-ins, then uses <a href="http://matplotlib.sourceforge.net/">Matplotlib</a> to construct time-series charts. It's pretty cool, so Ali agreed to spend a week integrating into <a href="http://www.drproject.org">DrProject</a> for deployment.
+Muhammad Ali and Adam Foster prototyped a dashboard display for DrProject as a term project this winter. It collects information on the number of tickets in various states, and the number of check-ins, then uses <a href="http://matplotlib.sourceforge.net/">Matplotlib</a> to construct time-series charts. It's pretty cool, so Ali agreed to spend a week integrating into DrProject for deployment.
 
-In order to make it work, <a href="http://www.drproject.org">DrProject</a> has to load <a href="http://matplotlib.sourceforge.net/">Matplotlib</a>  and  <a href="http://initd.org/tracker/pysqlite">PySqlite</a> (the Python wrappers for <a href="http://www.sqlite.org">SQLite</a>) at the same time. After a day of wrestling with versions, packages, LD_LIBRARY_PATH, and other junk, Ali can get it to load one or the other, but never both.  The symptoms are described here:
+In order to make it work, DrProject has to load <a href="http://matplotlib.sourceforge.net/">Matplotlib</a>  and  <a href="http://initd.org/tracker/pysqlite">PySqlite</a> (the Python wrappers for <a href="http://www.sqlite.org">SQLite</a>) at the same time. After a day of wrestling with versions, packages, LD_LIBRARY_PATH, and other junk, Ali can get it to load one or the other, but never both.  The symptoms are described here:
 
 <ul>
 	<li>message to SQLite list</li>

@@ -3,7 +3,7 @@ title: "Creating Tables in DrProject"
 date: 2007-01-18 10:25:34
 year: 2007
 ---
-Courtesy of David Scannell, here's a quick rundown of how to create a new table in <a href="http://www.drproject.org">DrProject</a>'s database.  (Yes, I know, we should convert to <a href="http://www.sqlobject.org/">SQLObject</a> or <a href="http://www.sqlalchemy.org/">SQLAlchemy</a>; if you have time to do the work, please let me know...)
+Courtesy of David Scannell, here's a quick rundown of how to create a new table in DrProject's database.  (Yes, I know, we should convert to <a href="http://www.sqlobject.org/">SQLObject</a> or <a href="http://www.sqlalchemy.org/">SQLAlchemy</a>; if you have time to do the work, please let me know...)
 
 Suppose I want to create a table called <code>Demo</code> with three fields:
 <ul>

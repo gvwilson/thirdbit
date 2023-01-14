@@ -12,7 +12,7 @@ original: swc
   including task automation, version control, modular programming, and databases.
   The event is open to everyone,
   not just to PyCon attendees;
-  please see <a href="http://gvwilson.github.io/2014-04-14-pycon-lib/">this page</a> for more information,
+  please see this page for more information,
   <a href="http://www.eventbrite.com/e/software-carpentry-bootcamp-for-librarians-at-pycon-montreal-registration-10812972893">register here</a>,
   <a href="mailto:{{site.author.email}}">mail us</a> if you have any questions,
   and help spread the word to your friends and colleagues.

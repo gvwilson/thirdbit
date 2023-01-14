@@ -1,5 +1,5 @@
 ---
-title: "About Greg"
+title: "About Me"
 layout: page
 ---
 
@@ -44,7 +44,7 @@ who I'm proud to say [fired me in 2018](https://www.buzzfeednews.com/article/dav
 Most recently I spent two and a half years at [RStudio](http://rstudio.com),
 where I ran the [instructor training and certification program](http://education.rstudio.com/trainers).
 In my free time I worked on books like [*Teaching Tech Together*](http://teachtogether.tech),
-[*JavaScript for Data Science*](http://js4ds.org),
+[*JavaScript for Data Science*]({{'/js4ds/' | relative_url}}),
 and [*Research Software Engineering with Python*](https://merely-useful.tech/py-rse/),
 and helped build TidyBlocks and [Glosario](https://glosario.carpentries.org/).
 After a stint as Head of Education for [Metabase](http://www.metabase.com/),
@@ -55,3 +55,5 @@ please [drop me a line](mailto:gvwilson@third-bit.com).
 CV (<a href="{{ '/cv/gvwilson.pdf' | relative_url }}">PDF</a>, <a href="{{ '/cv/' | relative_url }}">HTML</a>)
 <br/>
 <a href="{{ '/bib/' | relative_url }}">Bibliography</a>
+<br/>
+<a href="https://www.getpapercss.com/">PaperCSS</a> theme by <a href="https://www.vlaservich.com/">Rhyne</a>

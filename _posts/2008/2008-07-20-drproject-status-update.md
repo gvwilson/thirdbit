@@ -3,7 +3,7 @@ title: "DrProject Status Update"
 date: 2008-07-20 08:43:22
 year: 2008
 ---
-<a href="http://www.drproject.org">http://www.drproject.org</a> hosts two projects: <code>All</code>, which is for people interested in announcements and general news, and <code>DrProject</code> itself, which is for developers (and those wishing to file tickets against our code).  This message is going out to the list belonging to the former; if you'd like to join the latter, you can do so by following the <code>Preferences</code> link and requesting membership.  (There are about half a dozen messages per day.)
+http://www.drproject.org hosts two projects: <code>All</code>, which is for people interested in announcements and general news, and <code>DrProject</code> itself, which is for developers (and those wishing to file tickets against our code).  This message is going out to the list belonging to the former; if you'd like to join the latter, you can do so by following the <code>Preferences</code> link and requesting membership.  (There are about half a dozen messages per day.)
 
 Along with the usual bug fixes, we are working on some new features:
 <ol>

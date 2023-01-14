@@ -29,7 +29,7 @@ The Software Carpentry course currently contains the following lectures:
 	<li>Web Server Programming (basic CGI processing)</li>
 	<li>Security (the weakest lecture of the bunch)</li>
 	<li>The Development Process (a mish-mash of sturdy and agile)</li>
-	<li>Teamware (introduces portals like <a href="http://www.drproject.org">DrProject</a>)</li>
+	<li>Teamware (introduces portals like DrProject)</li>
 	<li>Conclusion (various "where to look next" suggestions)</li>
 </ol>
 Between now and Christmas, I want to tidy them up, duplicate the examples in MATLAB, and add some of the content I wrote for "CSC301: Introduction to Software Engineering".  Since I won't have time to do everything, I'd like your help prioritizing.  Which of the following topics do you think is most important to add?  And what have I forgotten entirely?

@@ -3,7 +3,7 @@ title: "Another DrProject Design Question"
 date: 2008-05-15 08:42:52
 year: 2008
 ---
-We're pleased to welcome <a href="http://www.lizblankenship.com/">Liz Blankenship</a>, a <a href="http://openusability.org/">Season of Usability</a> intern, to the <a href="http://www.drproject.org">DrProject</a> team.  Liz, a grad student in HCI, is going to help us redesign DrProject's admin interface.  Along the way, I'm hoping she can give us some advice on a few other things as well, chief among them the notion of the "All" project.
+We're pleased to welcome <a href="http://www.lizblankenship.com/">Liz Blankenship</a>, a <a href="http://openusability.org/">Season of Usability</a> intern, to the DrProject team.  Liz, a grad student in HCI, is going to help us redesign DrProject's admin interface.  Along the way, I'm hoping she can give us some advice on a few other things as well, chief among them the notion of the "All" project.
 
 The background is this: <a href="http://trac.edgewall.org">Trac</a> (DrProject's ancestor) only allows one project per installation.  We weren't going to install it forty times to manage a class of eighty students working in pairs, so one of the first things we did back in 2005 was extend it to support multiple projects per portal.  We then faced two questions, which we decided were related:
 <ol>

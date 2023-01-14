@@ -20,7 +20,7 @@ The first few lines look like this:
   </tr>
   <tr>
     <td><em><a href="https://merely-useful.github.io/en/">Merely Useful</a></em></td>
-    <td><em><a href="https://gvwilson.github.io/tidynomicon/">The Tidynomicon</a></em></td>
+    <td><em>The Tidynomicon</em></td>
   </tr>
   <tr>
     <td><em><a href="https://github.com/software-tools-in-javascript/software-tools-in-javascript">Software Tools in JavaScript</a></em></td>

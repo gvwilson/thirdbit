@@ -6,7 +6,7 @@ year: 2009
 I blogged a couple of weeks ago about this term's consulting projects.  Here are a few more details:
 <ul>
 	<li>Hanieh Bastani is working with AutoDesk to create animation software with realistic flesh and bone models.</li>
-	<li>Botond Ballo, David Cooper, Eran Henig, Bill Konrad, Derek Kwok, Phyllis Lee, and Kosta Zabashta are porting <a href="http://www.drproject.org">DrProject</a> to <a href="http://www.djangoproject.com/">Django</a>.  They're joined by Heather Grant (University of Alberta), Zuzel Vera Pacheco (University of Havana), Dan Servos (Lakehead University), and Jason Whyne (University of Waterloo).</li>
+	<li>Botond Ballo, David Cooper, Eran Henig, Bill Konrad, Derek Kwok, Phyllis Lee, and Kosta Zabashta are porting DrProject to <a href="http://www.djangoproject.com/">Django</a>.  They're joined by Heather Grant (University of Alberta), Zuzel Vera Pacheco (University of Havana), Dan Servos (Lakehead University), and Jason Whyne (University of Waterloo).</li>
 	<li>Arnold Binas and Alex Levinshtein are building a better friend finder for Chapters/Indigo, while Laurent Charlin and Maksims Volkovs are building them a better recommendation engine.</li>
 	<li>Aran Donohue and Veronica Quinones are working with James Leung of the University of Alberta to build an abstraction library in Python so that we can plug different version control systems into applications.</li>
 	<li>Fan Dong is continuing his work on the usability of scientific workflow tools.</li>

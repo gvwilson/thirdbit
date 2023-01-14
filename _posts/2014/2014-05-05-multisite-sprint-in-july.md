@@ -18,7 +18,7 @@ original: swc
   We have booked space for the sprint at the Mozilla offices in Paris, London, Toronto, Vancouver, and San Francisco.
   If you aren't in one of those cities,
   but are willing to help organize in your area,
-  please add yourself to <a href="https://etherpad.mozilla.org/swc-sprint-2014">this Etherpad</a>.
+  please add yourself to this Etherpad.
   We'll hash out the what and how at the next lab meeting&mdash;it's a community event,
   so we'd like the community to choose what to sprint on&mdash;but
   please get the date in your calendar:

@@ -6,7 +6,7 @@ year: 2007
 Another term, another <a href="https://stanley.cs.toronto.edu/reports/reports.html#2007-winter">great bunch of 49X projects</a>:
 <ul>
 	<li>David Wright and Richard Zhao made a lot of progress rewriting a brain scan visualizer for the <a href="http://rotman-baycrest.on.ca/">Rotman Research Institute</a>.  The project was co-supervised by Imran Somji, an ex-49er himself.</li>
-	<li>Muhammad Ali and Adam Foster built a very nice dashboard display for <a href="http://www.drproject.org">DrProject</a>.  It hasn't been integrated into the main code yet, but that ought to happen in May.</li>
+	<li>Muhammad Ali and Adam Foster built a very nice dashboard display for DrProject.  It hasn't been integrated into the main code yet, but that ought to happen in May.</li>
 	<li>Melissa Luu, Lisa Ly, and Apple Viriyakattiyaporn improved the user interface for a family tree visualizer for the <a href="http://www.reed.utoronto.ca/index.html">REED</a>.  Their customers plan to deploy it this summer.</li>
 	<li>Rick Valenzano and Debbie Winter explored the relationships between game theory and evolution.</li>
 	<li>Lillian Angel, Jane Shen, and Martin Williams made a lot of improvements to the <a href="https://www.drproject.org/olm">Online Marking Tool</a>;Martin is going to continue working on it full-time this summer.</li>

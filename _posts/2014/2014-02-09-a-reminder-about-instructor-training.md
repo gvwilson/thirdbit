@@ -13,7 +13,7 @@ original: swc
   <li>
     <em>We need to include a lesson early in the course on the structure of the materials in our repository, and how to configure things for a workshop.</em>
     We'll do a trial run on Thursday, February 20, in the usual time slots (10:00, 14:00, and 19:00 Eastern);
-    please have a look at the <a href="https://etherpad.mozilla.org/swc-teaching">Etherpad</a> for connection details on the day.
+    please have a look at the Etherpad for connection details on the day.
   </li>
   <li>
     <em>People want a chance to watch more experienced teachers in action.</em>

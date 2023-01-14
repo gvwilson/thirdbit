@@ -23,4 +23,4 @@ Options we can see are:
 	<li>Show the union of all the columns. This is awkward for all the obvious reasons: it'll be very wide, many tickets will have blanks in many columns, enumerations with the same name but different values will be a pain, etc.</li>
 	<li>Have one table for each project, but put all the tables on the same HTML page. A basic version is easy to implement, but sorting and filtering would be difficult.</li>
 </ol>
-Anyone have strong preferences? Can anyone see anything better? The ticket for this problem is <a href="https://www.drproject.org/DrProject/ticket/1506">#1506</a>,  and as I said, input would be welcome.
+Anyone have strong preferences? Can anyone see anything better? The ticket for this problem is #1506,  and as I said, input would be welcome.

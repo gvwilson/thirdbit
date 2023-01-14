@@ -3,7 +3,7 @@ title: "Summer of DrProject"
 date: 2007-04-17 15:42:56
 year: 2007
 ---
-As noted previously, we have quite a team working for us this summer, four of whom are full-time on <a href="http://www.drproject.org">DrProject</a>.  Two of the students (Jeff Balogh and David Cooper) will be rebuilding the ticketing system, but we still have to figure out what Alex Krizhevsky and David Wolever should do.  Options include:
+As noted previously, we have quite a team working for us this summer, four of whom are full-time on DrProject.  Two of the students (Jeff Balogh and David Cooper) will be rebuilding the ticketing system, but we still have to figure out what Alex Krizhevsky and David Wolever should do.  Options include:
 <ol>
 	<li>General bug fixes.  and small extensions (no shortage of <a href="https://www.drproject.org/DrProject/query">work</a> here). Useful, but not particularly exciting for the students.</li>
 	<li>Integrate the <a href="https://www.drproject.org/dashboard">dashboard display</a> that Ali and Adam built this term to show stats on project size, tickets filed/closed over time, etc.  This is a must-have, but it's not a full summer.</li>

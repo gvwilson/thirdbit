@@ -15,7 +15,7 @@ OK, so what <em>am</em> I doing if I'm not coding?
 	<li>Organizing stuff: a day and a half per week. This includes student lunches with people from industry, DemoCamp, special issues of journals, meetings to introduce local companies with researchers in the department, networking on behalf of my grad students, etc. I could cut a lot of this, but I honestly think this is where I add most value.</li>
 	<li>Departmental responsibilities (such as preparing a proposal for a Professional Master's in Computer Science): has been highly variable; probably averages half a day a week.</li>
 	<li>Keeping up with email: I send roughly 2500 email messages a month, and read at least three times that number; I think this takes 2-3 hours per day, much of it outside office hours.</li>
-	<li>Research: half a day per week, tops. I'm including everything from design discussions for <a href="http://www.drproject.org">DrProject</a> to writing "real" academic papers in this category.</li>
+	<li>Research: half a day per week, tops. I'm including everything from design discussions for DrProject to writing "real" academic papers in this category.</li>
 	<li>Socializing with colleagues: half an hour to an hour a day. Coffee-room discussions are where most small issues around teaching and organizational matters seem to get hashed out.</li>
 </ol>
 As you can see, there's not a lot of room in their to learn <a href="http://www.dojotoolkit.org">Dojo</a>...

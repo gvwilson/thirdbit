@@ -19,8 +19,7 @@ Why do Americans keep shooting one another?
 And why was Boris Johnson?
 
 Lots of books give cogent answers to these questions
-that draw on alternatives to the *Freakonomics* view of the world---my
-favorites are [listed here]({{ '/reading/' | relative_url }}).
+that draw on alternatives to the *Freakonomics* view of the world.
 But asking a programmer who has never done a civics course
 to read nine thousand pages about something they're not yet sure is real
 is functionally equivalent to telling them to piss off.

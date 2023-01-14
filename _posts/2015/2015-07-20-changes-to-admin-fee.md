@@ -15,8 +15,7 @@ original: swc
 </p>
 <p>
   These rules keep us in step with Data Carpentry,
-  which <a href="http://datacarpentry.github.io/blog/2015/07/20/workshop-fees/">recently
-  decided</a> to make similar changes in their administrative fees.
+  which recently decided to make similar changes in their administrative fees.
   The only significant differences is that Data Carpentry doesn't yet
   have a partnership or affiliation scheme, so there are no discounts
   for DC workshops.

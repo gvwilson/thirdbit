@@ -1,67 +1,20 @@
 ---
 layout: page
 title: Madica
+fiction: true
 ---
 
 <div align="center">
   <p><em>For Maddie, who saves my world every day.</em></p>
 </div>
 
+<ol id="toc"></ol>
+
 <hr/>
 
-<p>
-  <a href="#episode-1-strange-sounds-in-the-night">Episode 1: Strange Sounds in the Night!</a>
-  <br/>
-  <a href="#episode-2-crash">Episode 2: Crash!</a>
-  <br/>
-  <a href="#episode-3-lasers">Episode 3: Lasers!</a>
-  <br/>
-  <a href="#episode-4-mom-comes-home">Episode 4: Mom Comes Home!</a>
-  <br/>
-  <a href="#episode-5-taken">Episode 5: Taken!</a>
-  <br/>
-  <a href="#episode-6-ninjas">Episode 6: Ninjas!</a>
-  <br/>
-  <a href="#episode-7-captured">Episode 7: Captured!</a>
-  <br/>
-  <a href="#episode-8-deskbots-and-tankbots">Episode 8: Deskbots and Tankbots!</a>
-  <br/>
-  <a href="#episode-9-imprisoned">Episode 9: Imprisoned!</a>
-  <br/>
-  <a href="#episode-10-elf">Episode 10: ELF!</a>
-  <br/>
-  <a href="#episode-11-betrayed">Episode 11: Betrayed!</a>
-  <br/>
-  <a href="#episode-12-santasaurus-rex">Episode 12: Santasaurus Rex!</a>
-  <br/>
-  <a href="#episode-13-lunch">Episode 13: Lunch!</a>
-  <br/>
-  <a href="#episode-14-glue">Episode 14: Glue!</a>
-  <br/>
-  <a href="#episode-15-escape">Episode 15: Escape!</a>
-  <br/>
-  <a href="#episode-16-brains">Episode 16: Brains!</a>
-  <br/>
-  <a href="#episode-17-sixteen-orange-kneecap">Episode 17: Sixteen Orange Kneecap!</a>
-  <br/>
-  <a href="#episode-18-outer-space">Episode 18: Outer Space!</a>
-  <br/>
-  <a href="#episode-19-once-upon-a-time">Episode 19: Once Upon a Time…</a>
-  <br/>
-  <a href="#episode-20-what-are-you-doing-here">Episode 20: What Are <em>You</em> Doing Here?</a>
-  <br/>
-  <a href="#episode-21-taking-command">Episode 21: Taking Command!</a>
-  <br/>
-  <a href="#episode-22-a-new-moon">Episode 22: A New Moon!</a>
-  <br/>
-  <a href="#episode-23-free">Episode 23: Free!</a>
-  <br/>
-  <a href="#episode-24-this-is-my-saucer-now">Episode 24: “This Is My Saucer Now!”</a>
-  <br/>
-  <a href="#episode-25-home">Episode 25: Home</a>
-</p>
+<section markdown="1">
 
-## Episode 1: Strange Sounds in the Night!
+## Strange Sounds in the Night!
 
 Once upon a time, a fairy named Madica lived with her mom and dad in a
 little house on a quiet street in a hidden city not far from the South
@@ -178,7 +131,11 @@ so she slipped back into bed and pulled the blankets over her head once
 again. She'd tell Laurellen tomorrow. And she would *definitely* do
 something about cats for her science project.
 
-## Episode 2: Crash!
+</section>
+
+<section markdown="1">
+
+## Crash!
 
 Madica woke up like normal the next morning. First her mom came and
 shook her gently and told her it was time for breakfast. When that
@@ -297,7 +254,11 @@ on its head sparkled and turned transparent. "Is that better?"
 The two girls gasped once more. "You're---you're a dinosaur!" Madica
 said.
 
-## Episode 3: Lasers!
+</section>
+
+<section markdown="1">
+
+## Lasers!
 
 "A snarkasaurus, actually," the little creature replied with a sniff.
 "Now can we please get inside before---uh oh." It dove into the
@@ -441,7 +402,11 @@ window as lightly as a balloon. The little dinosaur threw itself under
 the bed. An instant later, a bright red beam of light shot through the
 window and blew Mrs. Mop's head into a thousand smoldering pieces.
 
-## Episode 4: Mom Comes Home!
+</section>
+
+<section markdown="1">
+
+## Mom Comes Home!
 
 Madica shrieked. The saucer tilted forward to give its bubble-headed
 pilot a better view of her bedroom. "Look out!" Laurellen grabbed
@@ -584,7 +549,11 @@ was still wondering when sleep found her, not knowing that a small,
 furry shape was curled up on the roof above her, its paws tucked under
 its body to stay warm, keeping watch through the night.
 
-## Episode 5: Taken!
+</section>
+
+<section markdown="1">
+
+## Taken!
 
 Why was her mom was shaking her shoulder, telling her it was time to get
 up? She buried her head under her pillow, but it was no use: it really
@@ -872,7 +841,11 @@ retrieve your friends."
 She turned around slowly. There, in the open gate, sat a familiar black
 cat.
 
-## Episode 6: Ninjas!
+</section>
+
+<section markdown="1">
+
+## Ninjas!
 
 "He-hello?" she said uncertainly. "Did you just speak to me?"
 
@@ -997,7 +970,11 @@ Heeyah!" It dug its claws into her arms. She squeezed the handlebars,
 and with a whoosh that pushed her down into her seat, the saucer shot
 into the air.
 
-## Episode 7: Captured!
+</section>
+
+<section markdown="1">
+
+## Captured!
 
 Outer space is vast, empty, silent, and cold. A tiny flying saucer with
 a cat and a fairy crammed into it isn't any of those things,
@@ -1173,7 +1150,11 @@ Madica gasped. Her captors' ragged red coats and tasselled hats
 couldn't hide their rust-stained steel bodies, and electric red eyes
 gleamed in their cheery painted faces. She had been captured by elfs!
 
-## Episode 8: Deskbots and Tankbots!
+</section>
+
+<section markdown="1">
+
+## Deskbots and Tankbots!
 
 Madica's heart skipped a beat. Every fairy child knew how Santa Claws
 made elfs. It was why so many of them lay sleepless at night, listening
@@ -1424,7 +1405,11 @@ the elf muttered, "But orders are orders." And with just enough of a
 shove to let her know that resistance would be futile, Madica was
 marched away beside the whimpering, whiskered elf.
 
-## Episode 9: Imprisoned!
+</section>
+
+<section markdown="1">
+
+## Imprisoned!
 
 The rest of Santa's castle---at least, the bits that Madica got to see
 in the next few minutes---looked a lot more like a run-down factory than
@@ -1491,7 +1476,11 @@ took one hesitant step inside and---
 friend in the whole world. Behind her, the door closed with a menacing
 *click*.
 
-## Episode 10: ELF!
+</section>
+
+<section markdown="1">
+
+## ELF!
 
 The next few seconds were a noisy mix of, "Are you all right?" and,
 "I was so worried!" and, "How did you get here?" that quickly turned
@@ -1649,7 +1638,11 @@ you mean, enhancements?"
 "Enhancements!" Ike repeated impatiently. "Like my wings and stuff.
 They're going to turn you into ELFs too."
 
-## Episode 11: Betrayed!
+</section>
+
+<section markdown="1">
+
+## Betrayed!
 
 The next few minutes were a confused babble of, "But I don't want to
 be enhanced!" and, "Of course you do---you can get radar and lasers
@@ -1809,7 +1802,11 @@ you apart, and take the brain chip out, and then you miss home more than
 you can possibly imagine." And with that, he pushed the two girls
 forward into the room.
 
-## Episode 12: Santasaurus Rex!
+</section>
+
+<section markdown="1">
+
+## Santasaurus Rex!
 
 The fitting room was larger than it first seemed. Tables, shelves,
 racks, cupboards, and stacks of boxes made it a maze, so that no matter
@@ -1960,7 +1957,11 @@ He lowered his head slightly, turning it from side to side to look at
 them with each of his glowing red eyes in turn. "Mm..." he rumbled.
 "Are you my lunch?"
 
-## Episode 13: Lunch!
+</section>
+
+<section markdown="1">
+
+## Lunch!
 
 "No, sir," rasped a voice from behind the two girls. "They aren't
 your lunch. We're not having lunch today."
@@ -2075,7 +2076,11 @@ its claws into Madica's arm and threw itself to the side. With a yelp
 and a tumble, she rolled clumsily past the rusty metal ear, slid down
 Santa's next, and landed splat on the floor on her backside.
 
-## Episode 14: Glue!
+</section>
+
+<section markdown="1">
+
+## Glue!
 
 The next few moments were a symphony of yelling and clanking. Some of
 the ELFs ran for the door. Others started shooting at Santa Claws, who
@@ -2200,7 +2205,11 @@ you want to go home?"
 Ike slumped. "This *is* my home now." Then he straightened. "But
 I'll help you go back to yours if you want."
 
-## Episode 15: Escape!
+</section>
+
+<section markdown="1">
+
+## Escape!
 
 It turned out that jets weren't very good at climbing stairs. Ike's
 wings kept banging against the handrail, so he had to turn sideways, but
@@ -2416,7 +2425,11 @@ courage, Madica *did* close her eyes. A moment later they flew straight
 into the side of the saucer, burst into flames, and were never heard
 from again.
 
-## Episode 16: Brains!
+</section>
+
+<section markdown="1">
+
+## Brains!
 
 At least, that's what Madica *expected* would happen, but at the last
 second Ike rolled onto his side and put on one final burst of speed.
@@ -2559,7 +2572,11 @@ panel. A hundred headless robot bodies stepped out, raised their arms,
 and began slow-marching forward as the muttering resumed:
 "Braaaains... fresh braaaains..."
 
-## Episode 17: Sixteen Orange Kneecap!
+</section>
+
+<section markdown="1">
+
+## Sixteen Orange Kneecap!
 
 The cat shot her a sour look. "I'm sorry," she said defensively. "I
 just---" *I just thought the little dinosaur might still be in it,* she
@@ -2716,7 +2733,11 @@ All around Madica and the snarkasaurus, a hundred zombie robots raised
 their arms. "Braaaains... fresh braaaains..." they moaned, turning
 as one toward the pair.
 
-## Episode 18: Outer Space!
+</section>
+
+<section markdown="1">
+
+## Outer Space!
 
 "Don't let them get me!" the snarkasaurus squeaked, leaping into
 Madica's arms.
@@ -2839,7 +2860,11 @@ alarm going, "BRRRRMP! BRRRRMP! BRRRRMP!" and a recorded voice saying,
 "Warning---collision alert. Warning---collision imminent. Total
 destruction of this space craft in five... four..."
 
-## Episode 19: Once Upon a Time...
+</section>
+
+<section markdown="1">
+
+## Once Upon a Time...
 
 Down was suddenly down again. Madica and Laurellen hit the floor with a
 thump and a double "ow!" The cat, of course, landed on its feet,
@@ -2982,7 +3007,11 @@ like I was *nobody*."
 At which point the gravelly recorded voice said, "Oh, we didn't think
 you were nobody. Far from it."
 
-## Episode 20: What Are *You* Doing Here?
+</section>
+
+<section markdown="1">
+
+## What Are *You* Doing Here?
 
 They all froze: the two fairies, the ELF, the sniffling snarkasaurus,
 and the regrettably less than fully-tailed cat. They all froze, but the
@@ -3197,7 +3226,11 @@ were equal parts "be careful" and "don't worry---I'll be OK" and
 "how are we *ever* going to tell our parents about this?" and then she
 squeezed through the half-open door to follow.
 
-## Episode 21: Taking Command!
+</section>
+
+<section markdown="1">
+
+## Taking Command!
 
 The stairs went up and up---one hundred, two hundred, so many that
 Madica would have lost track if she had been counting. Each landing had
@@ -3352,7 +3385,11 @@ three buttons in quick succession. Sixteen! Orange! Kneecap!
 Madica slapped her hand down on the big red button in the center of the
 control panel.
 
-## Episode 22: A New Moon!
+</section>
+
+<section markdown="1">
+
+## A New Moon!
 
 *Click!* A set of handlebars popped up out of the control panel in front
 of the command chair. Madica seized them with both hands and yanked them
@@ -3495,7 +3532,11 @@ without a backward glance as the panel slid closed behind him.
 As if that was a signal, the zombie robots lying on the floor began to
 stir. "Braaaains... fresh braaaains..." their heads began to moan.
 
-## Episode 23: Free!
+</section>
+
+<section markdown="1">
+
+## Free!
 
 *It's not fair!* Madica thought. She had just saved the world. She was
 apparently doomed to spend eternity floating through space, and now
@@ -3601,7 +3642,11 @@ sick after what had happened to Ike and Laurellen.
 
 "All right," she said, opening her eyes. "Let's go be pirates."
 
-## Episode 24: "This Is My Saucer Now!"
+</section>
+
+<section markdown="1">
+
+## "This Is My Saucer Now!"
 
 The raptor turned out to be very good at picking locks. "It'sss all in
 the clawsss," it said proudly as the panel that Mr. Poudell had
@@ -3732,7 +3777,11 @@ And then the sawblade came down just a fingernail's width away from her
 ear. As a stray tuft of hair fell silently to the table, the saucer's
 voice said, "Finally. That's been bothering me since we met."
 
-## Episode 25: Home
+</section>
+
+<section markdown="1">
+
+## Home
 
 "What?" Madica asked blankly.
 
@@ -3877,3 +3926,5 @@ day after school now that she and Ike were---whatever they were.
 
 All she knew was, the ELFs on the shelves around her were going to have
 the best... Christmas... ever.
+
+</section>

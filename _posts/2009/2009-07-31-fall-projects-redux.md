@@ -23,7 +23,7 @@ The second piece of news is about the cross-Canada undergraduate projects.  We n
 </ul>
 and several have already started recruiting students.  Our project list has also grown to include:
 <ul>
-	<li><a href="http://basieproject.org">Basie</a></li>
+	<li>Basie</li>
 	<li><a href="http://wiki.eclipse.org/Eclipse_IDE_for_Education">Eclipse IDE for Education</a></li>
 	<li><a href="http://blog.jonudell.net/elmcity-project-faq/">Elmcity</a></li>
 	<li><a href="http://markusproject.org/">MarkUs</a></li>

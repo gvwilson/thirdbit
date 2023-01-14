@@ -201,7 +201,7 @@ John Cook posted <a href="http://blog.codekills.net/">this</a> to his widely-rea
 <p>
   We're pausing to catch our breath from mid-July to the end of August this year,
   during which time we'll clean up our GitHub repositories,
-  finish the <a href="http://guide.software-carpentry.org">instructors' guide</a>,
+  finish the instructors' guide,
   and generally get ready for another round of bootcamps in the fall.
   Before then,
   though,

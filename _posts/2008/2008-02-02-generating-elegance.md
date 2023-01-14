@@ -3,7 +3,7 @@ title: "Generating Elegance"
 date: 2008-02-02 17:38:31
 year: 2008
 ---
-There was a moment on Friday that sums up why I like to teach.  As part of preparing for <a href="http://us.pycon.org/2008/about/">PyCon'08</a>, <a href="http://blog.codekills.net/">David Wolever</a> is tidying up <a href="http://www.drproject.org">DrProject</a>'s database schema.  One task is to rationalize the handling of enumerations such as ticket states: at present, these are variously represented as:
+There was a moment on Friday that sums up why I like to teach.  As part of preparing for <a href="http://us.pycon.org/2008/about/">PyCon'08</a>, <a href="http://blog.codekills.net/">David Wolever</a> is tidying up DrProject's database schema.  One task is to rationalize the handling of enumerations such as ticket states: at present, these are variously represented as:
 <ul>
 	<li>string columns in the database;</li>
 	<li>integer columns that index into tables that store the corresponding human-readable string; and</li>

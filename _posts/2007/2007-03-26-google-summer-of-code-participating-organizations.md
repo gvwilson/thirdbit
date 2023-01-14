@@ -5,7 +5,6 @@ year: 2007
 ---
 As I was paging through the <a href="http://code.google.com/soc/">Google Summer of Code</a> site this morning, I realized that I recognized less than half of the participating organizations.  Ten minutes and twenty-five lines of Python later, I had all their descriptions in a single page for easier printing. (Note: it was only this easy because Google's websters had taken the time to put in clearly-labelled div's --- thanks, Google.) So, here they all are --- hope it's useful.
 
-<!--more-->
 <h2>AbiSource</h2>
 The AbiSource community consists of a highly skilled group of people interested in, as our tagline states, bringing Word Processing to Everyone. We do this for example by making our software, AbiWord being our flagship product, available on as many (operating) systems as possible, and adapting it for use on the One Laptop Per Child system.
 <h2>Adium</h2>

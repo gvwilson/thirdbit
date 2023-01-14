@@ -3,7 +3,7 @@ title: "Where Next for DrProject?"
 date: 2006-03-31 08:42:47
 year: 2006
 ---
-It's time to start thinking about what to add to <a href="http://www.third-bit.com/drproject">DrProject</a> this summer. Please <a href="mailto:gvwilson@cs.utoronto.ca?subject=drproject-vote">vote</a> for any <em>two</em> of the following; I'll collate and re-post.
+It's time to start thinking about what to add to DrProject this summer. Please <a href="mailto:gvwilson@cs.utoronto.ca?subject=drproject-vote">vote</a> for any <em>two</em> of the following; I'll collate and re-post.
 <ol>
 	<li>web-based administration interface</li>
 	<li>user-oriented pages</li>

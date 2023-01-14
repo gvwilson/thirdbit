@@ -3,7 +3,7 @@ title: "Knowing Where You Are"
 date: 2007-04-01 18:30:21
 year: 2007
 ---
-End-of-the-month report time (while the baby is sleeping). Here's what traffic has looked like on the <a href="http://swc.scipy.org">Software Carpentry</a> site since it opened:
+End-of-the-month report time (while the baby is sleeping). Here's what traffic has looked like on the Software Carpentry site since it opened:
 
 <img alt="Software Carpentry stats" id="image892" src="{{'/files/2007/04/swc_usage.png' | relative_url}}" />
 
@@ -15,8 +15,7 @@ In order, the spikes are:
 <ul>
 	<li>Interviewing at Google (until recently my most-favorite-ever posting)</li>
 	<li>the first post about <em>Beautiful Code</em></li>
-	<li>the updated chapter list for <em>Beautiful Code<em>
-</em></a></li>
+	<li>the updated chapter list for <em>Beautiful Code<em></li>
 	<li>the list of organizations participating in Google Summer of Code</li>
 	<li>my daughter's birth announcement</li>
 </ul>

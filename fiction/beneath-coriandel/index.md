@@ -1,13 +1,18 @@
 ---
 layout: page
 title: "Beneath Coriandel"
+fiction: true
 ---
 
 <div align="center">
   <p><em>For Sadie, who taught me how to climb the ladder.</em></p>
 </div>
 
+<ol id="toc"></ol>
+
 <hr/>
+
+<section markdown="1">
 
 ## Then: Ishad's Onions
 
@@ -298,6 +303,10 @@ paddock.  Cup and Strap and I exchanged grins.  We slipped over the fence---
 
 ---and the warhorse bellowed, "Guards! Guards!" and just like that, my onions
 were well and truly stewed.
+
+</section>
+
+<section markdown="1">
 
 ## Then: Sweet in the Corral
 
@@ -594,6 +603,10 @@ The guards took them away to the palace.  I did not bother to ask what would
 happen next---they had tried to steal from the emir, and Oro was never by nature
 a forgiving man.  I went back to my post in the middle of the paddock and waited
 for sunrise.
+
+</section>
+
+<section markdown="1">
 
 ## Then: Cup Rainbow Reaching Follows a Madman into Hell
 
@@ -927,6 +940,10 @@ long braids back and knotted them into a club.  "Eyes and ears," he said
 crisply, drawing his sword.  "And if you ever want to see sunshine again, don't
 drop your damn lanterns.  Ready?" We nodded and followed him to our deaths.
 
+</section>
+
+<section markdown="1">
+
 ## Now: Vurt at the Moonrise Door
 
 "I didn't kill it, you know."
@@ -1176,6 +1193,10 @@ Stairs identical to the ones I just climbed lead down into the Tombs---the
 actual Tombs---on the other side.  The bonescuttle is waiting for me.  I swallow
 and go looking for it.
 
+</section>
+
+<section markdown="1">
+
 ## Now: Patience Slumbers
 
 I am patient.  I snack on fish and worms and little things with many legs.  I
@@ -1187,6 +1208,10 @@ and people mean I might get a proper meal of sun-warmed flesh.
 
 Might.  Most lose their way on the other side of the door, or are eaten by
 something less patient than me.  Time will tell.
+
+</section>
+
+<section markdown="1">
 
 ## In Between: Onnemeno and the Rats
 
@@ -1490,6 +1515,10 @@ It seemed to me like he'd been climbing stairs without me ever since.
 I wiped my face with my sleeve.  It didn't matter if he was a rat catcher, a
 duelist, or a dung shoveler.  He was still my son.  I picked up my bag and set
 off for my next job.
+
+</section>
+
+<section markdown="1">
 
 ## Recently: Eleñima Disapproves of Her Niece
 
@@ -1836,6 +1865,10 @@ pardon us," to passers-by.
 
 Vurt Meshash é Onnemeno, I thought, and Ishad.  Well, well, well.  As I hurried
 home through streets nearly emptied by the sun's glare, I smiled.
+
+</section>
+
+<section markdown="1">
 
 ## Now: Vurt's Oath
 
@@ -2188,6 +2221,10 @@ is polished stone, unmarked by time or dripping water.  You could drive two
 carts through it side by side, and my lantern's light seems even smaller than it
 did in the cavern behind me.  I heft my spear and keep moving.
 
+</section>
+
+<section markdown="1">
+
 ## Now: Kerrem Brings Two Guardsmen a Drink
 
 Some stories have to be dragged into the world.  No, they're like...  telling
@@ -2461,6 +2498,10 @@ them except wine.  It's the best I could afford."
 The first one doesn't even look at me.  The second one, Mirtan, clears his
 throat and spits on the bottles.  Ashamed and excited, I turn and hurry back
 into the city.
+
+</section>
+
+<section markdown="1">
 
 ## Recently: Has Eleñima's Moment Arrived?
 
@@ -2795,6 +2836,10 @@ you're satisfied."
 "No, not yet." I smiled.  It was late, and I still had to walk home.  "But I
 expect I shall be soon."
 
+</section>
+
+<section markdown="1">
+
 ## Recently: Shau Sheu Contemplates Murder
 
 That stupid woman.  That vain, self-righteous, altogether horrible woman.  My
@@ -3120,6 +3165,10 @@ up the nonsense notion of a "slow spell" ourselves.  This was just coincidence.
 Still, no matter what happened next, Eleñima would expect a miracle.  When she
 didn't get one, she might finally begin to doubt me.  "Make preparations," I
 instructed Oë.  "You may get to sink her after all."
+
+</section>
+
+<section markdown="1">
 
 ## Recently: Ishad Speaks to Old Friends
 
@@ -3515,6 +3564,10 @@ I take a nap?" Some coffee would help, though.  There were probably students
 waiting at my gate, wondering where the old man was.  And I had a pair of boots
 to steal.
 
+</section>
+
+<section markdown="1">
+
 ## Recently: Lady Kembe Has a Sleepless Night
 
 Ah, Swallow.  I knew he would come back one day.  The quiet life fit him no
@@ -3778,6 +3831,10 @@ I sat down at my desk and set the bracelet in front of me.  One long, slow
 breath, and then I looked up at my mirror and said, "Wave, I need to speak with
 you."
 
+</section>
+
+<section markdown="1">
+
 ## Then: Vurt's Gloves
 
 Ishad told me once that you can't ever know the whole story about anything.  You
@@ -3931,6 +3988,10 @@ put my shirt back on.  To hell with running away.  I said it out loud: "To hell
 with running away."  And to hell with being a rat catcher, too.  I was going to
 be somebody that people would cross the street rather than rob.  I was going to
 be the kind of person who deserved to wear a fine pair of gloves.
+
+</section>
+
+<section markdown="1">
 
 ## Recently: Sehdie in the Umram
 
@@ -4248,6 +4309,10 @@ giddy in the darkness.  I closed my eyes and imagined all the things he could
 have said to me and what I could have said to him in return until I drifted on a
 cloud into dreams.
 
+</section>
+
+<section markdown="1">
+
 ## Recently: A Conversation in an Alley
 
 "So you just shoved the flowers at her and ran away?"
@@ -4490,6 +4555,10 @@ yourself in the dragon's mouth I'm not going to stop you."
 "Sure.  Good night."
 
 "Good night."
+
+</section>
+
+<section markdown="1">
 
 ## Cup Rainbow Reaching Remembers Lights Among Trees
 
@@ -4799,6 +4868,10 @@ The Karabandi swallowed another mouthful from his canteen.  "Ready?" I have
 wondered since what he would have said or done if we had said "no".  But
 instead, we nodded and followed him.
 
+</section>
+
+<section markdown="1">
+
 ## Oro Shares Some Pistachios
 
 When I sent him to Ossisswe, I thought I would call him back in a year.  I would
@@ -5070,6 +5143,10 @@ would have them repaired myself.  The treasury could afford it.  And if that dry
 fountain was replaced by a statue, Six Ears Square might even become slightly
 fashionable.  A statue of a horse, perhaps...
 
+</section>
+
+<section markdown="1">
+
 ## Recently: Sweet's Return
 
 My heart beat a little faster as we crested the last rise and saw Coriandel laid
@@ -5320,6 +5397,10 @@ here."
 
 She looked at me miserably.  "It's not him."
 
+</section>
+
+<section markdown="1">
+
 ## Then: Cup Rainbow Reaching Remembers the Taste of Plums
 
 My mother called my name "Cup".  My father added "Rainbow".  A grass thrower
@@ -5533,6 +5614,10 @@ like a plum stone stuck in my throat.  He brought me some once when I was sick,
 sweet and juicy red.  Our uncle beat him for stealing them, but they were the
 most delicious thing I ever tasted.
 
+</section>
+
+<section markdown="1">
+
 ## Now: Meshash Waits for Sunrise
 
 Bringing back the bonescuttle's head made Ishad famous, at least for a while.
@@ -5611,6 +5696,10 @@ was when my youngest son fell in love with the sound of swordplay.
 
 Oh please, Pilots and saints, if you have ever loved anyone, love him.  Please,
 watch over him tonight and bring him home safe to me.
+
+</section>
+
+<section markdown="1">
 
 ## Now: Ishad on the Stairs
 
@@ -5934,6 +6023,10 @@ then I feel a particular kind of chill, one you never forget.
 I put his skull down carefully, clear my throat, and put my fingers in my ears.
 "Cup Rainbow Reaching," I say, my head bowed.  "I greet you."
 
+</section>
+
+<section markdown="1">
+
 ## Now: Patience Wakes
 
 Something splashes in the water above me on the other side of the dam.  A
@@ -5969,6 +6062,10 @@ But until then, I must eat what the darkness brings me.  I let the current pull
 me away from my customary perch into the center of the pool.  I am patient, but
 I am hungry as well.
 
+</section>
+
+<section markdown="1">
+
 ## Now: Boots in Darkness
 
 *Clump clump...  clump clump...* We are awake now, more or less.  We have been
@@ -5995,6 +6092,10 @@ a long, long time.
 
 But that doesn't matter.  Tonight we are boots, *clump clump clump clump* from
 here to where we need to be.
+
+</section>
+
+<section markdown="1">
 
 ## Now: Vurt in Darkness
 
@@ -6264,6 +6365,10 @@ around the handle of a scroll being eternally read by a woman who seems slightly
 amused by what is in front of her.  Then I swing myself up onto an empty plinth
 to wait.
 
+</section>
+
+<section markdown="1">
+
 ## Recently: Sehdie Holding Hands
 
 It was exciting.  No, it was exhilarating.  For the first time in my life I had
@@ -6403,6 +6508,10 @@ without looking up.
 I glanced down at the *umram*'s sandy floor.  Yes he was.  I kissed the
 fingertips of my right hand and waved, as he'd told me other bravos ladies' did.
 Eyes as dark as midnight pools...  Oh, this was going to be complicated.
+
+</section>
+
+<section markdown="1">
 
 ## Now: Kerrem Accepts New Employment
 
@@ -6738,6 +6847,10 @@ vest on, and her hair back under a rag, she looks like---she looks beautiful.
 
 "Almost." She leans forward and kisses me.  "There.  Now we can go."
 
+</section>
+
+<section markdown="1">
+
 ## Now: Vurt Receives a Gift
 
 I sit on my plinth with my lantern shuttered and wait for the bonescuttle.  The
@@ -6844,6 +6957,10 @@ in a strange house.
 The rush of recollection dims, leaving me with just a memory of a memory and the
 name of a name.  "Cup Rainbow Reaching," I say softly.  "Thank you, honored sir.
 Thank you for your gift."
+
+</section>
+
+<section markdown="1">
 
 ## Then: Cup Rainbow Reaching Earns His Name
 
@@ -7101,6 +7218,10 @@ The Karabandi pulled on the rope, dragging me through the water to safety.
 And as I reached for him, jaws closed around my waist.  I opened my mouth to
 scream one last time, then everything went away.
 
+</section>
+
+<section markdown="1">
+
 ## Now: Ishad Waits
 
 There were ghosts at Armaq.  Always are around battlefields, what with so many
@@ -7257,6 +7378,10 @@ down, but still holding together.
 
 I spit onto the ground beside me.  Vurt's as much of a son as I'll ever have.
 He's coming out, or I'm staying down here with him.
+
+</section>
+
+<section markdown="1">
 
 ## Now: Sehdie on a Cloud
 
@@ -7451,6 +7576,10 @@ feet and slightly slippery to the touch, like silk.  Kerrem comes up behind me,
 and the cloudherd behind him.  I nestle against Kerrem's side.  Silently, we
 rise into the night.
 
+</section>
+
+<section markdown="1">
+
 ## Now: Vurt Learns Something About Courage
 
 The tomb looks like the houses on the lower slopes of Palace Mount.  It has an
@@ -7571,6 +7700,10 @@ then figure out how to tell my mother and Ishad, and then---I push the thought
 of Tessor away.  No point thinking about any of that now.  I have to go swimming
 first.
 
+</section>
+
+<section markdown="1">
+
 ## Now: Patience Is Rewarded
 
 The man *finally* reaches the bottom of the stairs.  He rests for a few moments,
@@ -7615,12 +7748,20 @@ stretch and wrap a tentacle around his booted foot and---
 And freeze with shock.  No, it can't be.  It *can't* be, not after all these
 long dark patient centuries.  My love? Is it really *you*?
 
+</section>
+
+<section markdown="1">
+
 ## Now: Boots No More
 
 What? Who? Who is that? Who are we? No, who am *I*, I I I me me me I am me I am
 *me* I remember now I am not a pair of boots that is just a shape a form a
 container I am *me* and I am home and---oh, my love, is that you?  After so
 long, is that you?  It is!  It *is*!  I am *home*.
+
+</section>
+
+<section markdown="1">
 
 ## Now: Eleñima Is Disappointed
 
@@ -7849,6 +7990,10 @@ do you understand? Tell her the spell must have gone wrong.  Tell her about
 Sehdie.  She'll know what to do."
 
 The female guard stops in her tracks, turns to me.  "Spell? What spell?"
+
+</section>
+
+<section markdown="1">
 
 ## Now: Oro in the Morning
 
@@ -8096,6 +8241,10 @@ and something in front of me to hack at.  For the ten thousandth time, I wish
 that I could ask Lady Kembe for help.  And for the ten thousandth time, I sigh
 as the collar reminds me why I can't.
 
+</section>
+
+<section markdown="1">
+
 ## Now: Cup Rainbow Reaching's Farewell
 
 I do not know how long it took me to gather myself.  Months? Years? Did I wander
@@ -8198,6 +8347,10 @@ the boy softly.  He glances up at the sky and sees a single cloud on its way
 north to Gandan.  "What...?" he says as his oath fades, fades, and is gone.  He
 has slain the monster and seen the girl free from her prison.  This story is as
 over as any ever can be.
+
+</section>
+
+<section markdown="1">
 
 ## Later: A Conversation in a Palace
 
@@ -8333,3 +8486,5 @@ really had.  Grinning, I tossed the bag into the air and caught it.  The knot
 the emir had tied came undone.  Dozens of tiny nuts fell to the floor, bouncing
 away in every direction.  A trio of children walking past on their way to class
 or to chores scampered after them, each one their own story.
+
+</section>

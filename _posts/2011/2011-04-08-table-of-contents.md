@@ -4,7 +4,7 @@ date: 2011-04-08 16:18:03
 year: 2011
 ---
 If all goes well, <em>The Architecture of Open Source Applications</em> will be available for purchase by the beginning of May. As a teaser, there's a table of contents below the fold&mdash;we think it's going to be a great book, and hope you'll think so too.
-<!--more-->
+
 <ul>
 	<li>Amy Brown &amp; Greg Wilson: <em>Introduction</em> (15)</li>
 	<li>Russell Bryant: <em>Asterisk</em> (21)

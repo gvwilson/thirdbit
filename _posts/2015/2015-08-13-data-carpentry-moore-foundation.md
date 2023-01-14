@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  <em>Reposted from <a href="http://datacarpentry.github.io/blog/moore/">the Data Carpentry blog</a>.</em>
+  <em>Reposted from the Data Carpentry blog.</em>
 </p>
 <p>
   We are extremely pleased to announce that Data Carpentry has

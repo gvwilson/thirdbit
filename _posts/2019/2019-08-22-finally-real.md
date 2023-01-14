@@ -10,11 +10,9 @@ I am very (very) pleased that two of them have become a reality this summer than
 -   [Yim Register](https://towardsdatascience.com/@yimregister) is building lessons
     that teach statistics and data analysis to undergraduate software engineers
     using software engineering data and questions as examples.
-    What she's written so far is online at <http://ds4se.tech>
+    What she's written so far is online
     (the domain name means "data science for software engineers"),
     and more case studies will be added in the weeks and months to come.
-    If you'd like to help,
-    please head over to <https://github.com/rstudio-education/ds4se>.
 
 -   [Maya Gans](https://maya.rbind.io/) has created TidyBlocks,
     a blocks-based tool for doing tidyverse-style data analysis.

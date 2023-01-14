@@ -5,8 +5,8 @@ year: 2014
 original: swc
 ---
 <p>
-  In case you missed <a href="http://datacarpentry.github.io/blog/2014/11/05/announce/">the announcement last week</a>,
-  our sibling organization <a href="http://datacarpentry.org/">Data Carpentry</a>
+  In case you missed the announcement last week,
+  our sibling organization Data Carpentry
   has received funding from the <a href="http://www.moore.org/">Moore Foundation</a>
   to support its activities and growth,
   and Dr. Tracy Teal
@@ -52,5 +52,5 @@ original: swc
   and put people through the same <a href="{{site.training_url}}">instructor training</a>
   (though we'll probably each supplement that in different curriculum-specific ways).
   If you'd like to help them out,
-  please <a href="http://datacarpentry.org/contact.html">get in touch</a>.
+  please get in touch.
 </p>

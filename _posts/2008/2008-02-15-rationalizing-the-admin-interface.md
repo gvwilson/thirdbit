@@ -5,7 +5,7 @@ year: 2008
 ---
 Anyone who has ever worked with me knows that I should <em>not</em> be allowed to design user interfaces. Nature, nurture---dunno why, but anything that I find intuitive and pleasing leaves most people queasy and confused.
 
-Which is why I'm appealing for help.  <a href="http://www.drproject.org">DrProject</a>'s browser-based administration interface is invaluable, but we're finding the workflow frustrating. For example, in order to add a new user, make her a member of the 'All' and 'fribble' projects, and turn on mail forwarding for her for both of those lists, I have to:
+Which is why I'm appealing for help.  DrProject's browser-based administration interface is invaluable, but we're finding the workflow frustrating. For example, in order to add a new user, make her a member of the 'All' and 'fribble' projects, and turn on mail forwarding for her for both of those lists, I have to:
 <ol>
 	<li>Go to the 'add user' page.</li>
 	<li>Fill in her user ID, default email address, real name, and affiliation.</li>

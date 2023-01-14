@@ -23,13 +23,13 @@ and [this summary of software engineering research ideas][se-ideas-post].
 
 ## What I Would Build
 
-**[A lesson aggregation system][harper-lite]**.
+[A lesson aggregation system][harper-lite].
 :   Instead of building yet another repository for lessons,
     let's draw inspiration from RSS
     (which I think is right up there with "view source" as an example of what the web *could* be)
     and create a way to find and aggregate lessons.
 
-**A browser-based drag-and-drop tool for data analytics**.*
+A browser-based drag-and-drop tool for data analytics.
 :   The [TidyBlocks][tidyblocks-repo] project [ground to a halt][tidyblocks-post]
     due to a lack of funding and some difficult technical challenges.
     I still believe in the idea, though,
@@ -38,7 +38,7 @@ and [this summary of software engineering research ideas][se-ideas-post].
     give non-programmers an interface they could use immediately,
     *and* be a natural successor to [Yahoo! Pipes][yahoo-pipes].
 
-**A WYSIWYG computational notebook**.
+A WYSIWYG computational notebook.
 :   In [a better universe than ours][notebook-post]
     someone has already built a plugin for [LibreOffice][libreoffice]
     that leverages the [the Jupyter messaging protocol][jupyter-protocol],
@@ -46,7 +46,7 @@ and [this summary of software engineering research ideas][se-ideas-post].
     can create the reports they want the way they want to.
     It's not too late…
 
-**[Browsercast][browsercast],**
+[Browsercast][browsercast],
 :   which would replay an HTML slideshow in sync with a voiceover.
     Tools like Wasim Lorgat's [SVG replay][svg-replay] and [Scrimba][scrimba]
     have made me more certain than ever that
@@ -55,14 +55,14 @@ and [this summary of software engineering research ideas][se-ideas-post].
     so that people can search them, style them, copy and paste them,
     and feed them to screenreaders and other accessibility aids.
 
-**[Use case maps][use-case-maps-post]**.
+[Use case maps][use-case-maps-post].
 :   Given an SVG diagram showing the elements of your system that produce log entries,
     be they classes or microservices,
     and UUIDs to identify the descendents of initiating messages,
     this tool would draw the diagram we all eventually wind up creating by hand
     to show what happens when and where.
 
-A **[Journal of Comprehensible Explanations][jce-post]**.
+A [Journal of Comprehensible Explanations][jce-post].
 :   We've been writing reviews of software engineering research results
     at [It Will Never Work in Theory][nwit]
     for years
@@ -74,7 +74,7 @@ A **[Journal of Comprehensible Explanations][jce-post]**.
     I think a journal (or a track at a major software engineering conference)
     might do the trick.
 
-**A superset of [Elm][elm] for systems programming.**
+A superset of [Elm][elm] for systems programming.
 :   I've been fascinated by pure functional programming
     since I first encountered it in the mid-1980s.
     I'd really like to do a version of [*Software Design by Example*][sdxjs]
@@ -84,7 +84,7 @@ A **[Journal of Comprehensible Explanations][jce-post]**.
     I think a superset of Elm with libraries for creating files and directories
     would be just about perfect.
 
-**Diff and merge for SVG, CSV, and office documents.**
+Diff and merge for SVG, CSV, and office documents.
 :   While we're talking about drawing,
     I think developers would be much (much) more likely to include diagrams in their documentation
     if they could diff and merge those diagrams as easily as they do text.
@@ -95,7 +95,7 @@ A **[Journal of Comprehensible Explanations][jce-post]**.
     that understood columns as well as rows,
     and for one that would handle [LibreOffice][libreoffice] documents.
 
-**A caravan defense game**.
+A caravan defense game.
 :   [*Kingdom Rush: Frontiers*][kingdom-rush-frontiers] is my favorite game
     of the last ten years,
     but I'm increasingly uninterested in killing monsters.
@@ -109,7 +109,7 @@ A **[Journal of Comprehensible Explanations][jce-post]**.
 I never had the patience or diligence to be a good researcher,
 but I still have lots of questions that I would like answered.
 
-**Are programmers who use version control more productive that programmers who don't?**
+Are programmers who use version control more productive that programmers who don't?
 :   This may seem too obvious to be worth investigating,
     but what I really want to do is calibrate and compare different ways to measure productivity.
     If a method *doesn't* find that version control helps,
@@ -118,7 +118,7 @@ but I still have lots of questions that I would like answered.
     and thereby help the research community agree on what to measure and how
     when tackling cases that *aren't* obvious.
 
-**Can we assess students' proficiency with tools by watching screencasts of their work?**
+Can we assess students' proficiency with tools by watching screencasts of their work?
 :   Just before I left the University of Toronto,
     I asked several people to record their desktop while solving a small data analysis problem.
     The result shook me:
@@ -136,7 +136,7 @@ but I still have lots of questions that I would like answered.
     What I don't know is whether this would help learners,
     or whether it would help more than other things we could have them do.
 
-**Does calibrated peer review improve the quality of novices' programmers code?**
+Does calibrated peer review improve the quality of novices' programmers code?
 :   Give a student a one-page program and have them score it using a checklist,
     then grade them on how closely their scoring matches the instructor's.
     (They start with 100%, and lose one mark for each false positive or false negative.)

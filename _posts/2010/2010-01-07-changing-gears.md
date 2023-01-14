@@ -7,8 +7,6 @@ As some of you already know, my contract with the University of Toronto runs out
 
 What I'd most like to do next is spend a year working full-time on the <a href="https://software-carpentry.org">Software Carpentry</a> course---of all the things I've done, it's the one that I think has the most potential to make scientists' lives better. My goal is to raise approximately CDN$25,000 from each of half a dozen sponsors so that I can reorganize and revamp the content, add screencasts and video lectures, and generally drag it into the 21st Century. An abbreviated proposal is included below the cut---if you or anyone you know would be interested in discussing possibilities, please give me a shout.
 
-<!--more-->
-
 Computers are as important to modern science as telescopes and test tubes. From analyzing climate data to modeling the internals of cells, they allow scientists to study problems that are too big, too small, too fast, too slow, too expensive, or too dangerous to tackle in the lab.
 
 Unfortunately, most scientists are never taught how to use computers effectively. After a generic first-year programming course, and possibly a numerical methods or statistics course later on, graduate students and working scientists are expected to figure out for themselves own how to build, validate, maintain, and share complex programs. This is about as fair as teaching someone arithmetic and then expecting them to figure out calculus on their own, and about as likely to succeed.
@@ -53,5 +51,5 @@ Links:
 	<li><a href="http://www.mitacs.ca">http://www.mitacs.ca</a>.</li>
 	<li><a href="http://www.cybera.ca">http://www.cybera.ca</a>.</li>
 	<li><a href="http://softwarecarpentry.wordpress.com/a-fresh-start/">http://softwarecarpentry.wordpress.com/a-fresh-start/</a> describes the revised course, and <a href="http://softwarecarpentry.wordpress.com/user-profiles/">http://softwarecarpentry.wordpress.com/user-profiles/</a> describes its target audience.</li>
-	<li>In 2009, we conducted the largest survey ever done of how scientists actually use computers. The results are reported in http://www.third-bit.com/articles/how-scientists-use-computers-2009.pdf, a shorter and more readable version of which is at http://www.third-bit.com/articles/amsci-survey-2009.pdf. http://www.third-bit.com/articles/amsci-swc-2005.pdf and http://www.third-bit.com/articles/cise-will-not-learn-2008.pdf explain why scientists need to learn on these skills before tackling parallelism, cloud computing, and other leading-edge technologies.</li>
+	<li>In 2009, we conducted the largest survey ever done of how scientists actually use computers. The results are reported in http://third-bit.com/articles/how-scientists-use-computers-2009.pdf, a shorter and more readable version of which is at http://third-bit.com/articles/amsci-survey-2009.pdf. http://third-bit.com/articles/amsci-swc-2005.pdf and http://third-bit.com/articles/cise-will-not-learn-2008.pdf explain why scientists need to learn on these skills before tackling parallelism, cloud computing, and other leading-edge technologies.</li>
 </ol>

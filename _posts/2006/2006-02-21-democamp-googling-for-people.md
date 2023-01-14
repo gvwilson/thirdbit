@@ -3,7 +3,7 @@ title: "DemoCamp: Googling for People"
 date: 2006-02-21 08:18:59
 year: 2006
 ---
-People talk a lot about on-line communities, but there are things that only the in-person kind can accomplish.  Take last night's <a href="http://barcamp.pbwiki.com/TorCampDemoCamp3">DemoCamp 3</a>, for example.  Ninety-plus people crowded into <a href="http://www.tucows.com">TUCOW</a>'s offices in Toronto to watch half a dozen demos projected against a white-painted brick wall with a nail in it.  The most important part for me, though, came afterward.Sean Dawson and I led off with <a href="http://www.third-bit.com/drproject">DrProject</a>, and were followed by:
+People talk a lot about on-line communities, but there are things that only the in-person kind can accomplish.  Take last night's <a href="http://barcamp.pbwiki.com/TorCampDemoCamp3">DemoCamp 3</a>, for example.  Ninety-plus people crowded into <a href="http://www.tucows.com">TUCOW</a>'s offices in Toronto to watch half a dozen demos projected against a white-painted brick wall with a nail in it.  The most important part for me, though, came afterward.Sean Dawson and I led off with DrProject, and were followed by:
 <ul>
 	<li><a href="http://www.openbluenetworks.com">a jewellery retailing platform</a>;</li>
 	<li><a href="http://www.thelocalguru.com">a system to help you find local expertise</a>;</li>

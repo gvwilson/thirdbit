@@ -54,6 +54,6 @@ title: How to Cite Software Carpentry
     title =        {Software Carpentry web site},
     howpublished = {https://software-carpentry.org},
     accessed =     {December 2010},
-    note =         {Main web site for Software Carpentry, replacing http://swc.scipy.org.}
+    note =         {Main web site for Software Carpentry.}
 }
 </pre>

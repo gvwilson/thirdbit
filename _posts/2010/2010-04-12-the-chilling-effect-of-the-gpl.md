@@ -3,9 +3,9 @@ title: "The Chilling Effect of the GPL"
 date: 2010-04-12 14:34:57
 year: 2010
 ---
-<p>Distributed version control systems have finally passed my two-year test [<a href="#1">1</a>], so while I was at <a href="http://us.pycon.org/2010/about/">PyCon</a> in February, I asked a few questions about what it would take to add a <a href="http://mercurial.selenic.com/">Mercurial</a> repository browser to <a href="http://basieproject.org">Basie</a>.  Two months and a couple of dozen email messages later, the answer seems to be that it can't be done---at least, not unless we're willing to use someone else's definition of "freedom".</p>
+<p>Distributed version control systems have finally passed my two-year test [<a href="#1">1</a>], so while I was at <a href="http://us.pycon.org/2010/about/">PyCon</a> in February, I asked a few questions about what it would take to add a <a href="http://mercurial.selenic.com/">Mercurial</a> repository browser to Basie.  Two months and a couple of dozen email messages later, the answer seems to be that it can't be done---at least, not unless we're willing to use someone else's definition of "freedom".</p>
 
-<p>Like Django itself, <a href="http://basieproject.org">Basie</a> uses the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>, which does little except disclaim liability.  In particular, it allows people to create closed-source derivatives and extensions if they think there's a market for them.  <a href="http://mercurial.selenic.com/">Mercurial</a>, on the other hand, uses the GNU Public License (GPL), which requires that source remain open, and (crucially) that derived works also be GPL'd.  The question is, if <a href="http://basieproject.org">Basie</a> dynamically loads a plugin module that interfaces with <a href="http://mercurial.selenic.com/">Mercurial</a>, does that make <a href="http://basieproject.org">Basie</a> a derived work or not?  Matt Mackall, who is one of its developers, believes that it does:</p>
+<p>Like Django itself, Basie uses the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>, which does little except disclaim liability.  In particular, it allows people to create closed-source derivatives and extensions if they think there's a market for them.  <a href="http://mercurial.selenic.com/">Mercurial</a>, on the other hand, uses the GNU Public License (GPL), which requires that source remain open, and (crucially) that derived works also be GPL'd.  The question is, if Basie dynamically loads a plugin module that interfaces with <a href="http://mercurial.selenic.com/">Mercurial</a>, does that make Basie a derived work or not?  Matt Mackall, who is one of its developers, believes that it does:</p>
 
 <blockquote>My position is that Mercurial extensions are very probably derived works as they are potentially (and generally) significantly more intimate with Mercurial internals than a typical library user, and thus are subject to the GPL.</blockquote>
 
@@ -55,7 +55,7 @@ year: 2010
 <ol>
 	<li>build the plugin anyway and dare Mercurial's developers to make an issue of it (which would be pretty rude);</li>
 	<li>give up (which rankles because so many developers are switching to Mercurial or Git, and I don't want to be left behind); or</li>
-	<li>change the license on <a href="http://basieproject.org">Basie</a> (which rankles because I don't think I should have to close off options on someone else's say-so).</li>
+	<li>change the license on Basie (which rankles because I don't think I should have to close off options on someone else's say-so).</li>
 </ol>
 
 <p>George Orwell argued that the real purpose of censorship is to make people worry about what writing something troublesome might cost them, so that they never actually write anything that would have to be censored.  Every time someone puts the GPL on something, they are forcing other developers to make the same kind of decision: accept someone else's idea of what "free" means, or run the risk of not being able to use their "free" software without a whole lot of trouble [<a href="#2">2</a>].  Having to make that choices rankles too...</p>

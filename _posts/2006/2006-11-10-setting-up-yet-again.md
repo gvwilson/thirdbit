@@ -24,7 +24,7 @@ Everything else I need I got by checking out a repository from one of (quick cou
 	<li>Six CSC49X projects</li>
 	<li>Five other projects for the <a href="http://www.cs.utoronto.ca">Computer Science department</a></li>
 	<li>The two books I'm working on</li>
-	<li>The <a href="http://swc.scipy.org">Software Carpentry</a> notes</li>
+	<li>The Software Carpentry notes</li>
 	<li>My personal stuff (address list, photos, etc.)</li>
 	<li>The web site for third-bit.com</li>
 	<li>Some archival stuff that I probably don't need, but like to have just in case</li>

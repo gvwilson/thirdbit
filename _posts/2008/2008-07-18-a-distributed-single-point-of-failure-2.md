@@ -5,7 +5,7 @@ year: 2008
 ---
 And this week:
 <ul>
-	<li>Kosta Zabashta has discovered that <a href="http://drprojectirc.wordpress.com/2008/07/18/wonders-of-rtfming/">infinite loops can span machines</a>.</li>
+	<li>Kosta Zabashta has discovered that infinite loops can span machines.</li>
 	<li>Nicole Allard has finished her Eclipse plugin, and made a <a href="http://youtube.com/watch?v=XbleLff3ydI">new screencast</a> to show it off.</li>
 	<li>Liz Blankenship has been <a href="http://www.lizblankenship.com/drproject/blog/?p=12">busy</a>.</li>
 	<li>Dan Servos has discovered that <a href="http://hackerdan.com/open-source/bugs-patches-and-open-source/">the web never sleeps</a>.</li>

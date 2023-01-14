@@ -3,8 +3,7 @@ title: "Building Filters"
 date: 2008-02-15 12:07:57
 year: 2008
 ---
-I decided earlier this week that the time had come to convert the <a href="http://swc.scipy.org">Software Carpentry</a>
-notes to a wiki to make it easier for other people to contribute.  My decision was motivated partly by thinking about converting <a href="http://www.drproject.org">DrProject</a> to use <a href="http://daringfireball.net/projects/markdown/">Markdown</a> syntax for its wiki, and partly by the realization that I'm not going to have time in the next ten months to fix all the typos people keep pointing out, add new content, bring the examples up to date with <a href="http://www.python.org/dev/peps/pep-3000/">Python 3000</a>, and so on.
+I decided earlier this week that the time had come to convert the Software Carpentry notes to a wiki to make it easier for other people to contribute.  My decision was motivated partly by thinking about converting DrProject to use <a href="http://daringfireball.net/projects/markdown/">Markdown</a> syntax for its wiki, and partly by the realization that I'm not going to have time in the next ten months to fix all the typos people keep pointing out, add new content, bring the examples up to date with <a href="http://www.python.org/dev/peps/pep-3000/">Python 3000</a>, and so on.
 
 The first step was to pick a wiki syntax.  That was easy: there are Markdown processors for Perl, PHP, and Python, several wikis support them, and my hands are going to be learning those typing rules anyway.  The second step was to convert the existing notes, which are marked up in a homegrown XML format.  This seemed like a good candidate for a classic Unix read-process-print-repeat filter, and sure enough, a few hours later, I have something working.  I took notes as I did it; I'm posting them here as a record of how a moderately experienced developer tackles a routine problem.
 <ol>

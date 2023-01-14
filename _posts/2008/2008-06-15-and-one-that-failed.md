@@ -3,9 +3,9 @@ title: "And One That Failed"
 date: 2008-06-15 07:47:24
 year: 2008
 ---
-To round out the series, this proposal went in last year, but was rejected.  I wish I could blame it on wrong place/wrong time, but NSERC (Canada's major funding agency for science and engineering) has rejected everything related to <a href="http://www.drproject.org">DrProject</a> that I've sent them as well. Maybe someone's trying to tell me something?
+To round out the series, this proposal went in last year, but was rejected.  I wish I could blame it on wrong place/wrong time, but NSERC (Canada's major funding agency for science and engineering) has rejected everything related to DrProject that I've sent them as well. Maybe someone's trying to tell me something?
 
-<!--more--> <strong>Overview</strong>
+<strong>Overview</strong>
 
 The goal of my research is to improve the uptake of modern software development tools and practices by making them more appealing and effective. I am primarily focused on integrating Web 2.0 collaboration tools into the development lifecycle in order to make good practices more appealing to junior developers (including students), but believe that answers and solutions will be applicable in other areas and to other groups. If this research is successful, developers will be better prepared to participate in both open and closed source development projects---particularly distributed ones---earlier in their careers.
 

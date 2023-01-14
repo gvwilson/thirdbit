@@ -3,7 +3,7 @@ title: "Show Me The Data"
 date: 2006-12-05 10:13:57
 year: 2006
 ---
-Having written several articles about how <a href="http://www.drproject.org">DrProject</a> works, I figured it was time to talk about how its database is organized.  Of course, that meant figuring it out myself, which took some digging: I eventually dumped the <a href="http://www.postgresql.org">PostgreSQL</a> schema and started doodling.  The result is cleaner than I expected, though there are a few fields whose purpose I still don't understand:
+Having written several articles about how DrProject works, I figured it was time to talk about how its database is organized.  Of course, that meant figuring it out myself, which took some digging: I eventually dumped the <a href="http://www.postgresql.org">PostgreSQL</a> schema and started doodling.  The result is cleaner than I expected, though there are a few fields whose purpose I still don't understand:
 
 <img border="0" id="image742" alt="DrProject Database Schema" src="{{'/files/2006/12/drp-erd.png' | relative_url}}" />
 

@@ -4,9 +4,9 @@ layout: default
 
 {% assign posts = site.posts | where_exp: "post", "post.year == page.year" %}
 
-<h1 class="page-title">Blog Archive {{ page.year }}</h1>
-<div class="posts">
+<h1 class="page-title">Blog Archive {{ page.year }} ({{posts | size}} posts)</h1>
+<table>
   {% for post in posts %}
-  <p>{{ post.date | date: "%Y-%m-%d" }}: <a href="{{ post.url | relative_url }}">{{ post.title }}</a></p>
+  <tr><td>{{ post.date | date: "%Y-%m-%d" }}</td><td><a href="{{ post.url | relative_url }}">{{ post.title }}</a></td></tr>
   {% endfor %}
-</div>
+</table>

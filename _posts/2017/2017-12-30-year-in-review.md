@@ -97,4 +97,4 @@ year: 2017
 [ba]: http://sensibleadventures.com/
 [bpco]: https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/
 [ctb]: http://sensibleadventures.com/
-[jsrc]: https://gvwilson.github.io/js-vs-rc/
+[jsrc]: {{'/js4ds/' | relative_url}}

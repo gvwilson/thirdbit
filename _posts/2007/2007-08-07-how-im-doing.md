@@ -3,7 +3,7 @@ title: "How I'm Doing"
 date: 2007-08-07 12:14:32
 year: 2007
 ---
-I wasn't happy with the two courses I taught this past winter --- too many distractions, too little preparation.  The feedback on the <a href="http://swc.scipy.org">Software Carpentry</a> course was therefore a pleasant surprise: I've heard second-hand that several of the <a href="http://www.cs.toronto.edu">Computer Science</a> grad students were disappointed by its slow pace, but overall I did better than I expected.  On a 1-5 scale:
+I wasn't happy with the two courses I taught this past winter --- too many distractions, too little preparation.  The feedback on the Software Carpentry course was therefore a pleasant surprise: I've heard second-hand that several of the Computer Science grad students were disappointed by its slow pace, but overall I did better than I expected.  On a 1-5 scale:
 <ul>
 	<li>Background required to successfully complete the course: 2.0</li>
 	<li>How easy to obtain details/background to supplement lecture material: 2.0</li>

@@ -4,7 +4,7 @@ date: 2008-05-09 11:15:42
 year: 2008
 ---
 I mailed my former undergraduate project students a few days ago to find out where they are now and what they're doing, and thought readers of this blog might be interested in their answers.
-<h2><!--more-->Muhammad Ali</h2>
+<h2>Muhammad Ali</h2>
 I'm working in the Jurisica Lab, where I develop visualization software to help biologists manipulate and analyse large-scale protein-protein interaction networks to assist them with their cancer research goals.  We develop in Java and use OpenGL for the visualization front-end.
 <h2>Tony Balkissoon</h2>
 I'm finishing my first of three years at Harvard Law.  I'll be working for a free legal clinic for low income residents of York Region this summer, and as of next year will be focusing on issues relating to gender violence.

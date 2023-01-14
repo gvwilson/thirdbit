@@ -4,8 +4,7 @@ year: 2019
 title: "From Textbooks to Notebooks and Back"
 ---
 
-I just converted [my introduction to R for Python programmers][tidynomicon]
-from Jekyll to [bookdown][bookdown],
+I just converted my introduction to R for Python programmers from Jekyll to [bookdown][bookdown],
 partly because I wanted to learn how bookdown works
 but also because I think that computational notebooks are one of the futures of programming.
 (We're a pretty big field, so I think we're going to have more than one.)
@@ -66,4 +65,3 @@ I think he does.*
 [bookdown]: https://bookdown.org/
 [js-vs-ds]: https://software-tools-in-javascript.github.io/js-vs-ds/
 [sets-pep]: https://www.python.org/dev/peps/pep-0218/
-[tidynomicon]: https://gvwilson.github.io/tidynomicon/

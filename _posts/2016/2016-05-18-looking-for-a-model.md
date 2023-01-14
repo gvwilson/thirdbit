@@ -17,7 +17,7 @@ original: swc
     People who haven't taught at all are at the bottom
     with empty values in the third column.
     Erin Becker's analysis of this data is
-    <a href="http://www.datacarpentry.org/blog/instructor-metrics/">posted on the Data Carpentry blog</a>.
+    posted on the Data Carpentry blog.
   </em>
 </p>
 <p>

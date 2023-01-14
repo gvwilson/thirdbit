@@ -1,11 +1,11 @@
-<div align="center">
-<p>
-{% for decade in site.years %}
-  {% for year in decade %}
-    <a href="{{ '/archive/' | append: year | append: '/' | relative_url }}">{{ year }}</a>
-    {% unless forloop.last %} &middot; {% endunless %}
+<table>
+  <tbody>
+  {% for years in site.years %}
+  <tr>
+    {% for y in (years.low..years.high) %}
+    <td>{% if years.start <= y and y <= years.end %}<a href="{{'/archive/' | append: y | append: '/' | relative_url}}">{{y}}</a>{% endif %}</td>
+    {% endfor %}
+  </tr>
   {% endfor %}
-  {% unless forloop.last %}<br/>{% endunless %}
-{% endfor %}
-</p>
-</div>
+  </tbody>
+</table>

@@ -22,7 +22,7 @@ to try to get the damn thing out so we could start over.
 I think a lot about third walls and eighth bolts when I'm writing.
 [*JavaScript for Data Science*](http://js4ds.org) has passed that stage—while there is
 still a lot to do,
-we can see the finish line—but [*The Tidynomicon*](https://gvwilson.github.io/tidynomicon/)
+we can see the finish line—but *The Tidynomicon*
 still feels like a pile of parts scattered across the floor.
 Some don't appear to be in the instructions,
 others don't fit where they're supposed to,

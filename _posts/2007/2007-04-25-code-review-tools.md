@@ -3,7 +3,7 @@ title: "Code Review Tools"
 date: 2007-04-25 07:58:57
 year: 2007
 ---
-We're two weeks away from starting another round of revisions on the Online Marking Tool (<a href="https://www.drproject.org/olm">OLM</a>), so I've started catching up with other code review tools.  So far, I've looked at:
+We're two weeks away from starting another round of revisions on the Online Marking Tool (OLM), so I've started catching up with other code review tools.  So far, I've looked at:
 <ul>
 	<li><a href="http://www.cenqua.com/crucible/">Crucible</a>, from Cenqua (via <a href="http://www.geocities.com/mattdoar/">Matt Doar</a>)</li>
 	<li><a href="http://smartbear.com/codecollab.php">Code Collaborator</a>, from SmartBear</li>

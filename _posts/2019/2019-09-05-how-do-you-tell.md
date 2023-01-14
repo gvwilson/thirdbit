@@ -61,7 +61,7 @@ And finally:
 > ```
 
 The answer in most languages is F-G,
-but the answer in R is G-F because of [lazy evaluation](https://gvwilson.github.io/tidynomicon/nse.html).
+but the answer in R is G-F because of lazy evaluation.
 
 If you have short questions that you use to probe or classify people's mental models of program execution,
 I'd enjoy hearing about them:
