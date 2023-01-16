@@ -1,9 +1,6 @@
 ---
 layout: default
 ---
-
-<article>
-  <h1 class="post-title">{{ page.title }}</h1>
-  <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date: "%Y-%m-%d" }}</time>
-  {{ content }}
-</article>
+<h1>{{ page.title }}</h1>
+{{ content }}
+<p class="time">Posted <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date: "%Y-%m-%d" }}</time></p>

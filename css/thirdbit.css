@@ -1,36 +1,143 @@
+/*  Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+/* Variables */
+:root {
+    --lightgray: #E8E8E8;
+    --darkgray: #D8D8D8;
+    --shadow: rgba(0, 0, 0, 0.2);
+
+    --stamp-brown: #5F483C;
+    --stamp-red: #8B000F;
+    --stamp-purple: #7D6E87;
+    --stamp-blue: #1B2A83;
+    --stamp-green: #7F9971;
+    --stamp-orange: #AD7353;
+
+    --lightborder: 1px;
+    --mediumborder: 2px;
+    --heavyborder: 5px;
+
+    --page-width: 68rem;
+
+    --small-spacing: 0.25rem;
+    --medium-spacing: 0.5rem;
+    --large-spacing: 1rem;
+    --shadow-spacing: 15px 28px 25px -18px;
+}
+
+/* Overall appearance */
 html {
-    --muted-light: #e6e7e9;
-    line-height: 1.25;
+    font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
-article p {
-    line-height: 1.25;
+nav {
+  border-bottom: solid var(--lightgray) var(--lightborder);
+}
+a.navlink {
+    margin-left: var(--small-spacing);
+    margin-right: var(--small-spacing);
 }
 
-li p {
-    display: inline;
+body {
+    margin-left: var(--large-spacing);
+    max-width: var(--page-width);
 }
 
-h1, h2, h3, h4 {
+footer {
+    margin-top: var(--medium-spacing);
+    text-align: center;
+    border-top: solid var(--lightgray) var(--lightborder);
+}
+
+/* Cards */
+div.card {
+  box-shadow: var(--shadow-spacing) var(--shadow);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: solid var(--lightgray) var(--lightborder);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: var(--small-spacing);
+  padding-right: var(--small-spacing);
+  margin: var(--small-spacing);
+}
+div.card img {
+    margin: auto;
+    display: block;
+}
+div.card img:last-child {
+    padding-bottom: var(--small-spacing);
+}
+
+/* Elements */
+blockquote {
+    padding-left: var(--medium-spacing);
+    border-left: solid var(--lightgray) var(--heavyborder);
+}
+
+code {
+    font-family: "Source Code Pro", monospace;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
     margin-bottom: 0px;
 }
 
-h2, h3, h4 {
-    margin-top: 0px;
+img.image {
+    width: 80%;
 }
 
-dd {
-    padding-bottom: 5px;
+table {
+    border-collapse: collapse;
 }
-
-b,
-strong,
+th, td {
+    padding-top: var(--small-spacing);
+    padding-bottom: var(--small-spacing);
+    padding-left: var(--medium-spacing);
+    padding-right: var(--medium-spacing);
+    vertical-align: top;
+    border: solid var(--lightborder) var(--lightgray);
+}
 th {
-    background-color: var(--muted-light);
+    font-weight: bold;
 }
 
-blockquote {
-    border-left: var(--muted-light) 5px solid;
-    padding-left: 5px;
-    margin-left: 0px;
+/* Flex grid */
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%
+}
+.row > * {
+  flex: 1; /* allow children to grow when space available */
+}
+.col-1 { flex-basis: 8.33%; }
+.col-2 { flex-basis: 16.66%; }
+.col-3 { flex-basis: 25%; }
+.col-4 { flex-basis: 33.33%; }
+.col-5 { flex-basis: 41.66%; }
+.col-6 { flex-basis: 50%; }
+.col-7 { flex-basis: 58.33%; }
+.col-8 { flex-basis: 66.66%; }
+.col-9 { flex-basis: 75%; }
+.col-10 { flex-basis: 83.33%; }
+.col-11 { flex-basis: 91.66%; }
+.col-12 { flex-basis: 100%; }
+
+/* Generic positioning */
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.center {
+    text-align: center;
 }

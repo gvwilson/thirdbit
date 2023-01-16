@@ -3,7 +3,7 @@ layout: page
 title: Blog
 ---
 
-{% include archive.html %}
+{% include archive-all.html %}
 
 {% for post in paginator.posts %}
 <article class="post">
@@ -18,7 +18,7 @@ title: Blog
 {% endfor %}
 
 <div class="row">
-  <div class="col col-2">
+  <div class="col-2">
     {% if paginator.next_page %}
     <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}">
       &lArr;
@@ -32,9 +32,9 @@ title: Blog
     {% endif %}
   </div>
 
-  <div class="col col-8">&nbsp;</div>
+  <div class="col-8">&nbsp;</div>
 
-  <div class="col col-2">
+  <div class="col-2">
     {% if paginator.previous_page %}
     <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}">
       <span class="pagination-text">newer posts</span> 

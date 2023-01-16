@@ -55,5 +55,11 @@ please [drop me a line](mailto:gvwilson@third-bit.com).
 CV (<a href="{{ '/cv/gvwilson.pdf' | relative_url }}">PDF</a>, <a href="{{ '/cv/' | relative_url }}">HTML</a>)
 <br/>
 <a href="{{ '/bib/' | relative_url }}">Bibliography</a>
-<br/>
-<a href="https://www.getpapercss.com/">PaperCSS</a> theme by <a href="https://www.vlaservich.com/">Rhyne</a>
+
+<div class="center" markdown="1">
+
+*This site is built using [Jekyll](https://jekyllrb.com/)
+and typeset with [Atkinson Hyperlegible](https://brailleinstitute.org/freefont)
+and [Source Code Pro](https://fonts.adobe.com/fonts/source-code-pro).*
+
+</div>

@@ -1,18 +1,16 @@
 ---
-layout: default
-title: Home
+layout: page
+title: The Third Bit
 ---
-<h1 align="center">{{ site.title }}</h1>
-
 <div class="row">
-  <div class="col-6 col">
-    <h4><a href="{{ '/about/' | relative_url }}">{{ site.author.name }}</a></h4>
+  <div class="col-6">
+    <h3><a href="{{ '/about/' | relative_url }}">{{ site.author.name }}</a></h3>
     <p>
-      <img src="{{ '/files/bio/gvwilson-tpl-2017-large.jpg' | relative_url }}" alt="{{ site.author.name }}" />
+      <img src="{{ '/files/bio/gvwilson-tpl-2017-large.jpg' | relative_url }}" alt="{{ site.author.name }}" class="image" />
     </p>
   </div>
-  <div class="col-6 col">
-    <h4>In Brief</h4>
+  <div class="col-6">
+    <h3>In Brief</h3>
     <p>
       Co-founder of <a href="http://carpentries.org">Software Carpentry</a>,
       <a href="http://aosabook.org/">The Architecture of Open Source Applications</a>,
@@ -34,19 +32,18 @@ title: Home
   </div>
 </div>
 
-<div align="center">
-  <h2>Projects</h2>
-</div>
+<h2>Projects</h2>
 
 <div class="row">
-  <div class="col-3 col">
+  <div class="col-2"></div>
+  <div class="col-2">
     <p>
       <a href="https://www.taylorfrancis.com/books/mono/10.1201/9781003317807/software-design-example-greg-wilson">
-        <img src="{{'/sdxjs/sdxjs-cover.png' | relative_url}}" alt="Book cover" width="100%" />
+        <img src="{{'/sdxjs/sdxjs-cover.png' | relative_url}}" alt="Book cover" class="image" />
       </a>
     </p>
   </div>
-  <div class="col-9 col">
+  <div class="col-6">
     <p>
       <a href="https://www.taylorfrancis.com/books/mono/10.1201/9781003317807/software-design-example-greg-wilson">
 	<em>Software Design by Example: A Tool-Based Introduction with JavaScript</em>
@@ -58,52 +55,26 @@ title: Home
       and <a href="https://github.com/gvwilson/sdxjs/issues">feedback</a> is greatly appreciated.
     </p>
   </div>
+  <div class="col-2"></div>
 </div>
 
 <div class="row">
   <div class="col-6 col">
     <div class="card">
-      <div class="card-body">
-        <h4><a href="http://teachtogether.tech"><em>Teaching Tech Together</em></a></h4>
-        <p>
-          An introduction to evidence-based teaching for people with technical backgrounds.
-          (2019, <a href="{{'/t3/' | relative_url}}">slides</a>)
-        </p>
-      </div>
+      <h3><a href="http://teachtogether.tech"><em>Teaching Tech Together</em></a></h3>
+      <p>
+        An introduction to evidence-based teaching for people with technical backgrounds.
+        (2019, <a href="{{'/t3/' | relative_url}}">slides</a>)
+      </p>
     </div>
   </div>
   <div class="col-6 col">
     <div class="card">
-      <div class="card-body">
-        <h4><a href="{{'/sdxjs/' | relative_url}}"><em>Software Design by Example</em></a></h4>
-        <p>
-          An introduction to software design
-          using scale models of programmers' own tools. (2022)
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-6 col">
-    <div class="card">
-      <div class="card-body">
-        <h4><a href="https://merely-useful.github.io/py-rse/"><em>Research Software Engineering with Python</em></a></h4>
-        <p>
-          A textbook on building research software and running research software projects. (2021)
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-6 col">
-    <div class="card">
-      <div class="card-body">
-        <h4><a href="{{'/js4ds/' | relative_url}}"><em>JavaScript for Data Science</em></a></h4>
-        <p>
-          An introduction to JavaScript and web programming for data scientists. (2020)
-        </p>
-      </div>
+      <h3><a href="{{'/sdxjs/' | relative_url}}"><em>Software Design by Example</em></a></h3>
+      <p>
+        An introduction to software design
+        using scale models of programmers' own tools. (2022)
+      </p>
     </div>
   </div>
 </div>
@@ -111,22 +82,18 @@ title: Home
 <div class="row">
   <div class="col-6 col">
     <div class="card">
-      <div class="card-body">
-        <h4><em><a href="https://carpentries.org">The Carpentries</a></em></h4>
-        <p>
-          A non-profit organization teaching basic software and data skills to researchers world-wide.
-        </p>
-      </div>
+      <h3><a href="https://merely-useful.github.io/py-rse/"><em>Research Software Engineering with Python</em></a></h3>
+      <p>
+        A textbook on building research software and running research software projects. (2021)
+      </p>
     </div>
   </div>
   <div class="col-6 col">
     <div class="card">
-      <div class="card-body">
-        <h4><a href="http://neverworkintheory.org"><em>It Will Never Work in Theory</em></a></h4>
-        <p>
-          Brief reviews for working programmers of empirical results in software engineering.
-        </p>
-      </div>
+      <h3><a href="{{'/js4ds/' | relative_url}}"><em>JavaScript for Data Science</em></a></h3>
+      <p>
+        An introduction to JavaScript and web programming for data scientists. (2020)
+      </p>
     </div>
   </div>
 </div>
@@ -134,22 +101,37 @@ title: Home
 <div class="row">
   <div class="col-6 col">
     <div class="card">
-      <div class="card-body">
-        <h4><a href="https://aosabook.org/"><em>The Architecture of Open Source Applications</em></a></h4>
-        <p>
-          A collection of essays describing the architectures of fifty open source projects. (2011–12)
-        </p>
-      </div>
+      <h3><em><a href="https://carpentries.org">The Carpentries</a></em></h3>
+      <p>
+        A non-profit organization teaching basic software and data skills to researchers world-wide.
+      </p>
     </div>
   </div>
   <div class="col-6 col">
     <div class="card">
-      <div class="card-body">
-        <h4><a href="{{'/mrsp/' | relative_url}}"><em>Managing Research Software Projects</em></a></h4>
-        <p>
-          A one-day introduction to managing a small team of research software engineers.
-        </p>
-      </div>
+      <h3><a href="http://neverworkintheory.org"><em>It Will Never Work in Theory</em></a></h3>
+      <p>
+        Brief reviews for working programmers of empirical results in software engineering.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 col">
+    <div class="card">
+      <h3><a href="https://aosabook.org/"><em>The Architecture of Open Source Applications</em></a></h3>
+      <p>
+        A collection of essays describing the architectures of fifty open source projects. (2011–12)
+      </p>
+    </div>
+  </div>
+  <div class="col-6 col">
+    <div class="card">
+      <h3><a href="{{'/mrsp/' | relative_url}}"><em>Managing Research Software Projects</em></a></h3>
+      <p>
+        A one-day introduction to managing a small team of research software engineers.
+      </p>
     </div>
   </div>
 </div>
@@ -157,13 +139,11 @@ title: Home
 <div class="row">
   <div class="col-12 col">
     <div class="card">
-      <div class="card-body">
-        <h4><a href="{{'/blog/' | relative_url}}">Posts</a></h4>
-        {% include recent.html %}
-        <p>
-          <em>...or follow me on <a href="{{site.author.mastodon}}">Mastodon</a></em>
-        </p>
-      </div>
+      <h3><a href="{{'/blog/' | relative_url}}">Posts</a></h3>
+      {% include recent.html %}
+      <p>
+        <em>...or follow me on <a href="{{site.author.mastodon}}">Mastodon</a></em>
+      </p>
     </div>
   </div>
 </div>
@@ -171,13 +151,11 @@ title: Home
 <div class="row">
   <div class="col-12 col">
     <div class="card">
-      <div class="card-body">
-        <h4><a href="{{'/bib/' | relative_url}}">Papers</a></h4>
-        {% include papers.html %}
-        <p>
-          <em>...<a href="{{ '/bib/' | relative_url }}">all publications</a></em>
-        </p>
-      </div>
+      <h3><a href="{{'/bib/' | relative_url}}">Papers</a></h3>
+      {% include papers.html %}
+      <p>
+        <em>...<a href="{{ '/bib/' | relative_url }}">all publications</a></em>
+      </p>
     </div>
   </div>
 </div>
