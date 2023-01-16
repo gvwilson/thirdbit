@@ -55,14 +55,12 @@ I had three [learner personas][t3_personas] in mind as I wrote:
     she now wants to learn how to build back-end applications.
     *SDXJS* will fill in some gaps in her programming knowledge
     and teach her some common design patterns.
-
 -   **Rupinder** is studying computer science at college.
     He has learned a lot about the theory of algorithms,
     and while he uses Git and unit testing tools in his assignments,
     he doesn't feel he understands how they work.
     *SDXJS* will give him a better understanding of those tools
     and of how to design new ones.
-
 -   **Yim** builds mobile apps for a living
     but also teaches two college courses:
     one on full-stack web development using JavaScript and Node

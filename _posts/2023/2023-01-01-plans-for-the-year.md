@@ -13,7 +13,6 @@ here's what I <s>plan</s> hope to accomplish in the coming year.
     I write fiction because I want my daughter to be able to hear my voice after I'm gone,
     and half-done sketches won't do that as well as something that has
     a beginning, a middle, and an end.
-
 -   Wrap up the Python version of [*Software Design by Example*][sdxjs].
     I have three chapters to finish and then a ton of revising to do,
     but as you may have gathered from recent grumbles ([1][teaching_3d], [2][memory_diagram], [3][code_in_textbooks]),
@@ -21,26 +20,22 @@ here's what I <s>plan</s> hope to accomplish in the coming year.
     the more dissatisfied with I am with the ways we have to present material like this.
     All the solutions are on the to-don't list mentioned in the opening paragraph of this post, though,
     so I'm just going to plow through and ship it.
-
 -   Help organize another series of lightning talks for [It Will Never Work in Theory][nwit].
     [I no longer believe][acm_essay] that these will change how computer science is taught—not in
     my lifetime, anyway—but I've learned a lot from the speakers we've had so far,
     and it's been a good way to make some new acquaintances.
-
 -   Refurbish my dad's reclining chair,
     which now looks like something salvaged from the side of the road.
     It would be much cheaper to replace it,
     but sometimes,
     late at night or early in the morning,
     I still imagine I can smell my dad's cigarettes when I sit in this one.
-
 -   Terrace the back half of our back yard.
     We took 1700lb of junk out of the soil when we moved in
     (I know because you pay by weight for disposal here in Toronto);
     between that and building garden boxes we ran out of steam,
     but a couple of weeks of spadework and about 250 blocks of rough-cut stone
     and we'd have something worth planting on.
-
 -   Pick up another musical instrument.
     Too much typing on shallow, hard-strike laptop keyboards
     has given me [tenosynovitis][tenosynovitis] in my right hand,
