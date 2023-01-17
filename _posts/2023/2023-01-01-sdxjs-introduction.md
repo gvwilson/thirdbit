@@ -80,7 +80,7 @@ I hope you find the material useful,
 and I'm happy to answer questions [by email][contact].
 
 <div align="center">
-  <img src="{{'/files/bib/sdxjs-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" />
+  <img src="{{'/sdxjs/sdxjs-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" />
 </div>
 
 > I am grateful to the creators of [diagrams.net][diagrams_net],
