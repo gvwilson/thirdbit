@@ -12,6 +12,7 @@ This function takes the name of a source file as an argument and returns whateve
 The key requirement for such a function is to avoid accidentally overwriting things:
 if we just `eval` some code and it happens to assign to a variable called `x`,
 anything called `x` already in our program might be overwritten.
+
 The real focus of the chapter is therefore how to encapsulate what we're loading,
 i.e.,
 how closures work and how to use them to implement namespaces.
@@ -35,7 +36,7 @@ which contains a lot of other useful information as well.
   </div>
 </div>
 
-> Terms defined: absolute path, alias, circular dependency, closure, directed graph, encapsulate, immediately-invoked function expression, inner function, Least Recently Used cache, namespace, plugin architecture.
+> Terms defined: absolute path, alias, circular dependency, closure, directed graph, encapsulate, immediately-invoked function expression (IIFE), inner function, Least Recently Used cache, namespace, plugin architecture.
 
 [node_patterns]: https://www.packtpub.com/product/nodejs-design-patterns-third-edition/9781839214110
 [sdxjs]: {{'/sdxjs/' | relative_url}}
