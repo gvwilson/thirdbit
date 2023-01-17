@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Favorites
+permalink: "/favorites/"
 ---
 
 <table>

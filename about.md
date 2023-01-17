@@ -1,6 +1,7 @@
 ---
 title: "About Me"
 layout: page
+permalink: "/about/"
 ---
 
 I was born in 1963 and grew up on [Vancouver Island](http://www.town.lakecowichan.bc.ca/),

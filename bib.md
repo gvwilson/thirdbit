@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Bibliography
+permalink: "/bib/"
 ---
 
 <div align="center">

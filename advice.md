@@ -1,6 +1,7 @@
 ---
 title: "Ten Simple Rules"
 layout: page
+permalink: "/advice/"
 ---
 
 I've collaborated on a handful of papers that give practical tips on building research software and teaching others how to do it,
