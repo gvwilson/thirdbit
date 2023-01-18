@@ -1,6 +1,6 @@
-<p>
+<table>
+  <tr><th>Date</th><th>Title</th></tr>
   {% for post in site.posts limit:14 %}
-  {{ post.date | date: "%Y-%m-%d" }}: <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-  {% unless forloop.last %}<br/>{% endunless %}
+  <tr><td>{{ post.date | date: "%Y-%m-%d" }}</td><td><a href="{{ post.url | relative_url }}">{{ post.title }}</a></td></tr>
   {% endfor %}
-</p>
+</table>
