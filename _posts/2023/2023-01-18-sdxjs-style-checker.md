@@ -33,6 +33,21 @@ please [give me a shout][email].
 
 > Terms defined: abstract syntax tree, Adapter pattern, column-major storage, dynamic lookup, generator function, intrinsic complexity, Iterator pattern, linter, Markdown, row-major storage, walk (a tree).
 
+This chapter got me thinking about why Lisp-like languages such as Scheme have remained a niche interest
+despite computer scientists using them in introductory courses for several decades.
+These languages' distinguishing features are (a) their preference for recursion instead of iteration
+and (b) the fact that programs are explicitly represented as data structures (in this case, nested lists),
+which makes the kind of introspection and manipulation described in this chapter much easier.
+I firmly believe that recursion is harder for most people to wrap their heads around than loops,
+though I accept that true believers won't ever agree with me.
+What took me longer to realize,
+though,
+is that Lisp's homoiconic representation of programs as lists is irrelevant to most novices
+because *it solves a problem they aren't ready to worry about yet*.
+Looking over [*Software Design by Example*][sdxjs] now,
+I'm not sure it introduces challenges in the order that readers will be ready for;
+I'm going to have to think hard about this for the Python edition.
+
 [email]: mailto:gvwilson@third-bit.com
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxjs_checker]: {{'/sdxjs/style-checker/' | relative_url}}
