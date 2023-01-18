@@ -12,7 +12,7 @@ which animates memory diagrams like the one below
 as users single-step through code:
 
 <div align="center">
-  <img src="{{'/files/2022/pythontutor.png' | relative_url}}" alt="PythonTutor screenshot" />
+  <img class="iamge" src="{{'/files/2022/pythontutor.png' | relative_url}}" alt="PythonTutor screenshot" />
 </div>
 
 I want a tool that will let me specify a program,

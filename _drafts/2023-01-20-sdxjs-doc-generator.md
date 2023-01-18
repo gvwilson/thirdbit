@@ -42,7 +42,24 @@ In a better world than this…
 
 > Terms defined: accumulator, block comment, deprecation, doc comment, line comment, slug.
 
+And in answer to a question online,
+no,
+I didn't draw UML diagrams anywhere in this book:
+there wasn't a single case where one of the standard diagram forms
+felt like the best way to present what I wanted to convey.
+I don't think it's because my programs are too small—there are
+lots of places in the book where I wish I'd drawn more,
+but I was wearied by the thought of having to maintain them.
+I've grumbled about this in [[1][explain_code], [2][memory_diagram], [3][code_textbooks], [4][tools_exist]],
+and frankly,
+I'll start believing Silicon Valley is serious about being desperate for more programmers
+when I see companies putting some real resources behind tools to help teach them better.
+
+[code_textbooks]: {{'/2022/11/30/what-i-want-for-code-in-textbooks/' | relative_url}}
 [doctest]: https://docs.python.org/3/library/doctest.html
+[explain_code]: {{'/2022/12/28/ways-to-explain-code/' | relative_url}}
+[memory_diagram]: {{'/2022/12/04/i-want-a-memory-diagram-generator/' | relative_url}}
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxjs_checker]: {{'/sdxjs/style-checker/' | relative_url}}
 [sdxjs_doc]: {{'/sdxjs/doc-generator/' | relative_url}}
+[tools_exist]: {{'/2023/01/14/do-these-tools-exist/' | relative_url}}

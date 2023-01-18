@@ -25,9 +25,9 @@ The greatest strength of languages like [Scheme][scheme] is that
 these two representations are much more closely aligned,
 which makes this kind of metaprogramming much easier---once you get over the hurdle
 of typing in parse trees.
-Sixty years after Lisp syntax was first invented,
-and despite decades of use in education,
-the overwhelming majority of programmers still prefer not to do this.
+As [noted yesterday][sdxjs_checker],
+the overwhelming majority of programmers still prefer not to do this
+sixty years after Lisp syntax was invented and despite decades of use in education.
 I [used to believe][extensible] that programmers would one day switch from
 punchcard-compatible programming tools to ones that separated models from views,
 but I no longer expect to see that in my lifetime.
