@@ -12,7 +12,7 @@ and elsewhere.
 I hope you enjoy reading it as much as I enjoyed writing it.
 
 <div align="center">
-  <img src="{{'/files/bib/beneath-coriandel-cover.jpg' | relative_url}}" alt="Cover of 'Beneath Coriandel'" />
+  <img src="{{'/files/bib/beneath-coriandel.jpg' | relative_url}}" alt="Cover of 'Beneath Coriandel'" />
 </div>
 
 A young man descends into the tombs beneath the city to slay a monster,

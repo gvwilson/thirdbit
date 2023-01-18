@@ -6,11 +6,7 @@ original: swc
 ---
 <p>
   We have spent a lot of time thinking about how to assess the impact that Software Carpentry is having.
-  We've done
-  <a href="{{'/files/bib/aranda-assessment-2012-07.pdf' | relative_url}}">some</a>
-  <a href="{{'/files/bib/libarkin-assessment-report-2012-06.pdf' | relative_url}}">small</a>
-  <a href="http://arxiv.org/abs/1407.6220">studies</a>
-  and collected a few testimonials,
+  We've done some small studies and collected a few testimonials,
   but it's been small potatoes compared to the 5000 people we taught last year alone.
 </p>
 <p>
