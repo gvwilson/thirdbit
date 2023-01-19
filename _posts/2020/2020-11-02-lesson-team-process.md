@@ -17,7 +17,7 @@ please read *[Teaching What You Don't Know](https://www.hup.harvard.edu/catalog.
 and then tell me what process you come up with.)
 
 1.  Spend a few hours brainstorming the overall structure of the curriculum.
-    I like [concept maps](https://github.com/gvwilson/concept-maps/) for this,
+    I like [concept maps][concept-maps] for this,
     but what's important is coming up with a rough decomposition of material into lessons.
     The details will change once you start work---probably more than you think---but
     this decomposition allows team members to work in parallel.
@@ -63,3 +63,5 @@ and then tell me what process you come up with.)
 Nothing in this process is revolutionary,
 but it seems to work reasonably well.
 I'd be grateful for feedback on what other people have come up with and how well it's working.
+
+[concept-maps]: {{'/ideas/concept-maps/' | relative_url}}

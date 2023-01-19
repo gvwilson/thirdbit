@@ -15,7 +15,9 @@ Here are a few other things that would help programming communities:
 
 -   a [glossary](https://glosario.carpentries.org/): preferably subsetted from a shared one because why reinvent the world?
 
--   [concept maps](https://github.com/rstudio/concept-maps/): or other remixable illustrations of key ideas.
+-   [concept maps][concept-maps]: or other remixable illustrations of key ideas.
 
 Please [let me know](mailto:gvwilson@third-bit.com) what else is on your list:
 I'm always grateful for pointers.
+
+[concept-maps]: {{'/ideas/concept-maps/' | relative_url}}

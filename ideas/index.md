@@ -95,6 +95,16 @@ Diff and merge for SVG, CSV, and office documents.
     that understood columns as well as rows,
     and for one that would handle [LibreOffice][libreoffice] documents.
 
+A portfolio of [learner personas][learner-personas].
+:   Good lessons are written for specific learners;
+    I think it would be really helpful to create a set
+    that gave us shorthand names for people who want to learn programming and/or data science.
+
+A portfolio of [concept maps][concept-maps].
+:   A good lesson helps the learner build a mental model of a problem or problem domain.
+    I think it would be really helpful to create a set
+    that encapsulated a consensus view of the core concepts in particular topics.
+
 A caravan defense game.
 :   [*Kingdom Rush: Frontiers*][kingdom-rush-frontiers] is my favorite game
     of the last ten years,
@@ -148,6 +158,7 @@ Does calibrated peer review improve the quality of novices' programmers code?
 
 [blockly]: https://developers.google.com/blockly/
 [browsercast]: {{'/browsercast/' | relative_url}}
+[concept-maps]: {{'/ideas/concept-maps/' | relative_url}}
 [draw-io]: https://app.diagrams.net/
 [elm]: https://elm-lang.org/
 [github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
@@ -156,6 +167,7 @@ Does calibrated peer review improve the quality of novices' programmers code?
 [jce-post]: {{'/2022/11/20/journal-of-comprehensible-explanations/' | relative_url}}
 [jupyter-protocol]: https://jupyter-client.readthedocs.io/en/latest/
 [kingdom-rush-frontiers]: https://www.ironhidegames.com/Games/kingdom-rush-frontiers
+[learner-personas]: {{'/ideas/learner-personas/' | relative_url}}
 [libreoffice]: https://www.libreoffice.org/
 [node-js]: https://nodejs.org/
 [node-red]: https://nodered.org/
