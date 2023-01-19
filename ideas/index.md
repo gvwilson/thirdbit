@@ -21,7 +21,7 @@ Parts of mine are below;
 the rest are in [my list of unwritten books][unwritten]
 and [this summary of software engineering research ideas][se-ideas-post].
 
-## What I Would Build
+## What I Won't Build
 
 [A lesson aggregation system][harper-lite].
 :   Instead of building yet another repository for lessons,
@@ -104,10 +104,10 @@ A caravan defense game.
     It has nothing to do with software engineering,
     but I think it would be a lot of fun.
 
-## What I Would Study
+## What I Won't Study
 
 I never had the patience or diligence to be a good researcher,
-but I still have lots of questions that I would like answered.
+but I still have lots of questions.
 
 Are programmers who use version control more productive that programmers who don't?
 :   This may seem too obvious to be worth investigating,

@@ -146,28 +146,16 @@ title: The Third Bit
   </div>
 </div>
 
-<div class="row">
-  <div class="col-12 col">
-    <div class="card">
-      <h3><a href="{{'/blog/' | relative_url}}">Posts</a></h3>
-      {% include recent.html %}
-      <p>
-        <em>...or follow me on <a href="{{site.author.mastodon}}">Mastodon</a></em>
-      </p>
-    </div>
-  </div>
-</div>
+<h2><a href="{{'/blog/' | relative_url}}">Posts</a></h2>
+{% include recent.html %}
+<p>
+  <em>...or follow me on <a href="{{site.author.mastodon}}">Mastodon</a></em>
+</p>
 
-<div class="row">
-  <div class="col-12 col">
-    <div class="card">
-      <h3><a href="{{'/bib/' | relative_url}}">Papers</a></h3>
-      {% include papers.html %}
-      <p>
-        <em>...<a href="{{ '/bib/' | relative_url }}">all publications</a></em>
-      </p>
-    </div>
-  </div>
-</div>
+<h2><a href="{{'/bib/' | relative_url}}">Papers</a></h2>
+{% include papers.html %}
+<p>
+  <em>...<a href="{{ '/bib/' | relative_url }}">all publications</a></em>
+</p>
 
 {% include comments.html %}
