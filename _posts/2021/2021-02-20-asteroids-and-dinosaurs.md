@@ -2,6 +2,7 @@
 title: "Asteroids and Dinosaurs"
 date: 2021-02-20
 year: 2021
+favorite: true
 ---
 
 Many years ago,
@@ -27,11 +28,13 @@ There you are,
 happily grazing on palm fronds and thinking about making little dinosaurs
 when *wham!*
 a cubic kilometer of rock hits the planet and that's all she wrote.
+
 In a small company you can usually tell when something's coming:
 you may not know *why* the senior management team is spending all their time in the board room
 with the curtains down so that no one else can see what's on the whiteboard,
 but you know it's happening.
-But in a large company,
+In a large company,
+though,
 or a distributed one,
 too much is going on and too much is out of your peripheral vision.
 And if you're on the other side of the planet from the point of impact,
@@ -45,9 +48,28 @@ and their descendents are still flying around all over the world.
 That long-ago project didn't ship,
 but bits and pieces of what we built cropped up later
 in other things that members of our team were reassigned to.
+
 And without that great big *wham!* 65 million years ago,
 my distant ancestors wouldn't have had a bunch of empty ecological niches to expand into.
 Having a cubic kilometer of rock make a crater in your world is always going to be a bit of a shock,
 but after the dust settles,
 it's better to think about how much there was and what came after
 than about how unexpectedly it all ended.
+
+> Jan 2023:
+>
+> I wrote this shortly after being canned by RStudio for reasons that were never clear
+> (at least not to me).
+> I said I was less outraged than I had been the first time an asteroid hit me,
+> but in retrospect it hurt more than I let myself realize—particularly
+> as I watched the company ditch the instructor training program I'd built
+> without telling people who'd paid and worked hard to get certified that they were doing so.
+> Today,
+> as big tech companies lay off thousands of people despite multi-billion dollar profits,
+> I find it harder to shrug my shoulders and move on.
+> An asteroid is a random cosmic event;
+> a layoff is a decision made by people that hurts other people.
+> Pretending that the latter is like the former is just a way to exonerate the powerful,
+> and I think we do that too easily and too often.
+>
+> "There isn't a way things should be. There's just what happens, and what we do." – Terry Pratchett
