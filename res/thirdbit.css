@@ -19,8 +19,12 @@
     --mediumborder: 2px;
     --heavyborder: 5px;
 
-    --page-width: 68rem;
+    --page-width: 60rem;
+    --body-size: large;
+    --code-size: medium;
+    --image-width: 80%;
 
+    --no-spacing: 0px;
     --small-spacing: 0.25rem;
     --medium-spacing: 0.5rem;
     --large-spacing: 1rem;
@@ -30,6 +34,7 @@
 /* Overall appearance */
 html {
     font-family: "Atkinson Hyperlegible", sans-serif;
+    font-size: var(--body-size);
 }
 
 nav {
@@ -80,6 +85,7 @@ blockquote {
 
 code {
     font-family: "Source Code Pro", monospace;
+    font-size: var(--code-size);
 }
 
 h1 {
@@ -92,11 +98,11 @@ h3 {
 }
 
 img.image {
-    width: 80%;
+    width: var(--image-width);
 }
 
 blockquote {
-    margin-left: 0px;
+    margin-left: var(--no-spacing);
 }
 
 dt {
