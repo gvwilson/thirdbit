@@ -3,7 +3,12 @@ title: "Ideas"
 layout: page
 ---
 
-Someday I hope I'll have a chance to tackle these projects---they would be fun to do
+The best productivity tip I ever got
+was to keep a "to don't" list of
+things that you are *not* going to do
+because life is too short
+and you already have too much on the go.
+The ones I'd like to tackle most would be fun to do
 and would make the world a better place:
 
 - [Sex and Drugs and Guns and Code](./sdgc/)
@@ -11,23 +16,13 @@ and would make the world a better place:
 - [Software Engineering: Compassion, Evidence, Process, and Tools](./secept/)
 - [Harper-Lite: Simple Lesson Discovery and Aggregation](./harper/)
 
-I'd like to do a lot of other things as well,
-but the best productivity tip I ever got
-was to keep a "to don't" list of
-things that you are *not* going to do
-because life is too short
-and you already have too much on the go.
-Parts of mine are below;
-the rest are in [my list of unwritten books][unwritten]
+Others are listed below
+and in [my list of unwritten books][unwritten]
 and [this summary of software engineering research ideas][se-ideas-post].
+If you are already working on any of these,
+please let me know.
 
 ## What I Won't Build
-
-[A lesson aggregation system][harper-lite].
-:   Instead of building yet another repository for lessons,
-    let's draw inspiration from RSS
-    (which I think is right up there with "view source" as an example of what the web *could* be)
-    and create a way to find and aggregate lessons.
 
 A browser-based drag-and-drop tool for data analytics.
 :   The [TidyBlocks][tidyblocks-repo] project [ground to a halt][tidyblocks-post]
