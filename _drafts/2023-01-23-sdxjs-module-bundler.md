@@ -57,12 +57,10 @@ other than running the code to see what it does.
 If you would like to understand why not,
 and learn about a pivotal moment in the history of computing,
 I highly recommend [*The Annotated Turing*][annotated_turing].
-You might also enjoy [*Linkers and Loaders*][linkers_loaders],
-which taught me more about how system-level software actually works
-than a full course on operating systems.
-*Linkers and Loaders* was also one of the inspirations for *SDXJS*:
-it convinced me that a challenge-and-response analysis of solutions to a problem
-could be readable as well as informative.
+You might also enjoy [*Linkers and Loaders*][linkers_loaders];
+while it is now more than 20 years old,
+it taught me as much about how to design system-level software
+as either of the courses I took on operating systems.
 
 <figure id="module-bundler-bundling" align="center">
   <img src="{{'/sdxjs/module-bundler/bundling.svg' | relative_url}}" alt="Bundling modules"/>

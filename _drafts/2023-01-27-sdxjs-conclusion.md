@@ -5,15 +5,15 @@ year: 2023
 ---
 
 We've come a long way since the start of this series of posts.
-[Version control systems][sdxjs-version-control],
-[unit testing frameworks][sdxjs-unit-test],
-[style checkers][sdxjs-style-checker],
-[module bundlers][sdxjs-module-bundler],
-[debuggers][sdxjs-debugger]:
-I hope that understanding how those tools work will help you use them better.
-And as [I wrote four weeks ago][sdxjs-introduction-post],
-the best way to learn how to design software is to look at examples,
-so I hope that understanding why these tools are built the way they are
+I hope that understanding how
+[version control systems][sdxjs_version_control],
+[unit testing frameworks][sdxjs_unit_test],
+[style checkers][sdxjs_style_checker],
+[module bundlers][sdxjs_module_bundler],
+and [debuggers][sdxjs_debugger] work
+will help you use them better.
+And as [I wrote four weeks ago][sdxjs_introduction_post],
+I hope that understanding their designs
 will help you make things that are elegant as well as useful.
 
 But I want this post to be a beginning, not an ending.
@@ -22,8 +22,9 @@ I would love to see a second volume that took apart front-end tools and distribu
 but don't know enough to write it.
 I do,
 however,
-have a fair bit of experience editing,
-so if you'd like to contribute a chapter to a collection,
+have a lot of experience [editing][bib],
+so if you'd like to contribute a chapter to a collection that described
+working models of editors, message queues, databases, and the like,
 please get in touch.
 
 I would also enjoy hearing from anyone who is using this material in class.
@@ -33,17 +34,13 @@ Where are more diagrams needed?
 I'm always happy to do a guest lecture in exchange for feedback…
 
 Finally,
-I have spent most of my life building things out of bits.
-I don't think any of my code is still in widespread use,
+I turned 60 a couple of days ago.
+I've spent 40 of those years building things out of bits.
+None of my code was ever widely used,
 but I'm still quite proud of some of it.
 I hope that one day we'll have a vocabulary for talking about that—about
-[what it means for software to be "beautiful"][bicycle]—and
-if this book helps you see that,
-then it was worth writing.
-
-<div align="center">
-  <img src="{{'/files/bib/sdxjs-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" />
-</div>
+[what it means for software to be "beautiful"][bicycle].
+Until then:
 
 <div align="center">
   Start where you are
@@ -53,10 +50,15 @@ then it was worth writing.
   Help who you can
 </div>
 
+<div align="center">
+  <img src="{{'/files/bib/sdxjs-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" />
+</div>
+
 [bicycle]: {{'/2017/12/17/consider-the-bicycle/' | relative_url}}
-[sdxjs-introduction-post]: {{'/2023/01/01/sdxjs-introduction/' | relative_url}}
-[sdxjs-version-control]: {{'/sdxjs/file-backup/' | relative_url}}
-[sdxjs-unit-test]: {{'/sdxjs/unit-test/' | relative_url}}
-[sdxjs-style-checker]: {{'/sdxjs/style-checker/' | relative_url}}
-[sdxjs-module-bundler]: {{'/sdxjs/module-bundler/' | relative_url}}
-[sdxjs-debugger]: {{'/sdxjs/debugger/' | relative_url}}
+[bib]: {{'/bib/' | relative_url}}
+[sdxjs_introduction_post]: {{'/2023/01/01/sdxjs-introduction/' | relative_url}}
+[sdxjs_version_control]: {{'/sdxjs/file-backup/' | relative_url}}
+[sdxjs_unit_test]: {{'/sdxjs/unit-test/' | relative_url}}
+[sdxjs_style_checker]: {{'/sdxjs/style-checker/' | relative_url}}
+[sdxjs_module_bundler]: {{'/sdxjs/module-bundler/' | relative_url}}
+[sdxjs_debugger]: {{'/sdxjs/debugger/' | relative_url}}
