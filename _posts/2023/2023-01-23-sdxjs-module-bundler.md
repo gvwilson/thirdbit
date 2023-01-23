@@ -56,11 +56,10 @@ Once again,
 other than running the code to see what it does.
 If you would like to understand why not,
 and learn about a pivotal moment in the history of computing,
-I highly recommend [*The Annotated Turing*][annotated_turing].
-You might also enjoy [*Linkers and Loaders*][linkers_loaders];
+I highly recommend Petzold's [*The Annotated Turing*][annotated_turing].
+You might also enjoy Levine's [*Linkers and Loaders*][linkers_loaders];
 while it is now more than 20 years old,
-it taught me as much about how to design system-level software
-as either of the courses I took on operating systems.
+it taught me things I'd never known enough to even wonder about.
 
 <figure id="module-bundler-bundling" align="center">
   <img src="{{'/sdxjs/module-bundler/bundling.svg' | relative_url}}" alt="Bundling modules"/>
