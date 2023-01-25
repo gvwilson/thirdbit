@@ -73,7 +73,7 @@ John Cook posted <a href="http://blog.codekills.net/">this</a> to his widely-rea
     Testing,
     focusing on the idea of tests
     as a way to specify what a program is supposed to do,
-    and how to to structure unit tests using an xUnit-style library.
+    and how to structure unit tests using an xUnit-style library.
     This is probably the weakest part of our standard two days:
     we've got the "how" down cold,
     but the "what" for scientific software is still very much up in the air.

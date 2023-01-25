@@ -34,8 +34,7 @@ Where are more diagrams needed?
 I'm always happy to do a guest lecture in exchange for feedback…
 
 Finally,
-I turned 60 a couple of days ago.
-I've spent 40 of those years building things out of bits.
+I've spent 40 years building things out of bits.
 None of my code was ever widely used,
 but I'm still quite proud of some of it.
 I hope that one day we'll have a vocabulary for talking about that—about
