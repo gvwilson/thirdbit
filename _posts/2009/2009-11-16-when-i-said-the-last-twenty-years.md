@@ -1,5 +1,5 @@
 ---
-title: "When I Said &quot;The Last Twenty Years...&quot;"
+title: "When I Said 'The Last Twenty Years…'"
 date: 2009-11-16 13:13:27
 year: 2009
 ---

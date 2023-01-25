@@ -19,7 +19,7 @@ original: swc
   version control,
   basic Python programming,
   testing,
-  and debugging&mdash;the
+  and debugging–the
   core skills needed to write, test and manage research software.
 </p>
 <p>
@@ -54,5 +54,5 @@ original: swc
     results more; I don't mind revisiting and revising old work; collaborators and
     potential employers are more impressed; and I'm happier.
   </p>
-  <cite>&mdash; Josie Hughes develops models of mountain pine beetles and other outbreaking forest insects</cite>
+  <cite>– Josie Hughes develops models of mountain pine beetles and other outbreaking forest insects</cite>
 </blockquote>

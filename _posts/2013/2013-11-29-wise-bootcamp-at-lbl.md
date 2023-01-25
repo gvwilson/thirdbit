@@ -15,5 +15,5 @@ original: swc
   in Boston this past June,
   and we hope to once again fill three rooms with over 120 learners.
   If you are interested,
-  please mark the dates in your calendar&mdash;registration will open in January.
+  please mark the dates in your calendar–registration will open in January.
 </p>

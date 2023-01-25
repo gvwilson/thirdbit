@@ -1,5 +1,5 @@
 ---
-title: "&quot;Communicate First, Standardize Second&quot;"
+title: "Communicate First, Standardize Second"
 date: 2009-01-30 15:34:36
 year: 2009
 ---

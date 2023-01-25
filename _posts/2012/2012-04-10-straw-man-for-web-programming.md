@@ -15,8 +15,8 @@ title: Straw Man for Web Programming
 <p>In order to do this, you will need to understand:</p>
 <ul>
 <li>how HTTP GET with query parameters works;</li>
-<li>how to pull things out of XML data (I believe that's what Environment Canada will give us&mdash;no sign of JSON on their site); and</li>
+<li>how to pull things out of XML data (I believe that's what Environment Canada will give us–no sign of JSON on their site); and</li>
 <li>how to create HTML programmatically.</li>
 </ul>
-<p>More fundamentally, they'll see the fetch-remix-publish cycle that underpins so much of the web. Their tool won't be interactive&mdash;we won't try to turn it into a CGI script, because doing so would open up too many cans of worms&mdash;but I think we can actually do the above in half a day if people are already familiar with something like Python.</p>
+<p>More fundamentally, they'll see the fetch-remix-publish cycle that underpins so much of the web. Their tool won't be interactive–we won't try to turn it into a CGI script, because doing so would open up too many cans of worms–but I think we can actually do the above in half a day if people are already familiar with something like Python.</p>
 <p>Thoughts?</p>

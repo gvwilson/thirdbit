@@ -39,7 +39,7 @@ original: swc
   (by integrating an SVG sketching tool into the IPython Notebook),
   I think it will be a world-beating platform for teaching people how to program.
   So check it out,
-  and give David feedback&mdash;he'd love to hear from you.
+  and give David feedback–he'd love to hear from you.
 </p>
 <p><em>
     Thanks to <a href="http://ivory.idyll.org/blog/">Titus Brown</a> for supporting this,

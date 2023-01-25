@@ -24,7 +24,7 @@ titus_post: "http://ivory.idyll.org/blog/2015-software-hardening-q.html"
   to making the software usable by other people, in other places, on other problems.
 </p>
 <p>
-  Titus would like to hear what other people think of this practice&mdash;comments on
+  Titus would like to hear what other people think of this practice–comments on
   <a href="{{page.titus_post}}">his post</a> would be welcomed.
   I would personally be grateful for a fuller list of the steps that often need to be taken
   to turn what graduate students duct-tape together for themselves

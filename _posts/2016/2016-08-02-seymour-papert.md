@@ -12,4 +12,4 @@ if I hadn't stumbled across
 his inspirational book *[Mindstorms](https://www.amazon.com/Mindstorms-Children-Computers-Powerful-Ideas/dp/0465046746/)*.
 You can read more about his life and work [here](http://news.mit.edu/2016/seymour-papert-pioneer-of-constructionist-learning-dies-0801);
 when you're done,
-please go and help someone learn something&mdash;I think he'd have liked that.
+please go and help someone learn something–I think he'd have liked that.

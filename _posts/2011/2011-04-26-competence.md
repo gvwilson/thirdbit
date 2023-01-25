@@ -3,7 +3,7 @@ title: "Competence"
 date: 2011-04-26 19:07:29
 year: 2011
 ---
-<p>When I first saw Starling Software's <a href="http://www.starling-software.com/employment/programmer-competency-matrix.html">Programmer Competency Matrix</a>, I was struck by the parallels between its four levels and the first four of the five that Dr. Patricia Benner identified in her landmark book <a href="http://www.amazon.com/Novice-Expert-Excellence-Clinical-Commemorative/dp/0130325228/"><cite>From Novice to Expert: Excellence and Power in Clinical Nursing Practice</cite></a>.  Her five levels&mdash;which are grounded in a ton of empirical data&mdash;are as follows:</p>
+<p>When I first saw Starling Software's <a href="http://www.starling-software.com/employment/programmer-competency-matrix.html">Programmer Competency Matrix</a>, I was struck by the parallels between its four levels and the first four of the five that Dr. Patricia Benner identified in her landmark book <a href="http://www.amazon.com/Novice-Expert-Excellence-Clinical-Commemorative/dp/0130325228/"><cite>From Novice to Expert: Excellence and Power in Clinical Nursing Practice</cite></a>.  Her five levels–which are grounded in a ton of empirical data–are as follows:</p>
 
 <dl>
   <dt><strong>Stage 1: Novice</strong></dt>
@@ -75,7 +75,7 @@ year: 2011
 <td valign="top">readline<br/>substring<br/>escape characters<br/>tokenization using split</td>
 <td valign="top">wildcard regular expressions</td>
 <td valign="top">character encoding (Unicode)</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 <td valign="top">recursive descent parsing</td>
 </tr>
 <tr>
@@ -92,7 +92,7 @@ where</td>
 <td valign="top">shared drive</td>
 <td valign="top">version control<br/>structured vs. unstructured data<br/>compression</td>
 <td valign="top">dirty/missing data<br/>metadata (format specifiers, provenance)<br/>discipline-scale databases</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 <td valign="top">ontologies</td>
 </tr>
 <tr>
@@ -101,7 +101,7 @@ where</td>
 <td valign="top">entities and relationships<br/>encapsulation<br/>interface vs. implementation</td>
 <td valign="top">polymorphism<br/>inheritance<br/>Open/Closed Principle</td>
 <td valign="top">Liskov Substitution Principle<br/>frameworks<br/>OO design patterns</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top">Version Control</td>
@@ -109,7 +109,7 @@ where</td>
 <td valign="top">merge</td>
 <td valign="top">rollback</td>
 <td valign="top">branch management</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top">Build</td>
@@ -123,17 +123,17 @@ where</td>
 <td valign="top">Documentation</td>
 <td valign="top">README.txt</td>
 <td valign="top">Javadoc and equivalents</td>
-<td valign="top">&mdash;</td>
-<td valign="top">&mdash;</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
+<td valign="top">–</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top">Coordination</td>
 <td valign="top">email</td>
 <td valign="top">mailing list<br/>shared spreadsheet<br/>project blog</td>
 <td valign="top">bug tracker<br/>IRC/chat (archived)</td>
-<td valign="top">&mdash;</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top">Testing</td>
@@ -149,7 +149,7 @@ where</td>
 <td valign="top">version control labels<br/>"make tarball"</td>
 <td valign="top">installation scripts</td>
 <td valign="top">RPMs, Eggs, autoconf</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top">Web Programming</td>

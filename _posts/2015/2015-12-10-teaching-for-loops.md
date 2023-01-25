@@ -50,7 +50,7 @@ original: swc
       I just flip pages on a book.
       I like the book analogy because the action could be, read the page, search for a string or fill the "o"s.
       Additionally, since the books have page numbers I could get the "index" too (i.e., enumerate),
-      but I don't explain the two examples at the same time&mdash;I introduce the enumerate function
+      but I don't explain the two examples at the same time–I introduce the enumerate function
       to people is already confident with the loop.
     </p>
   </li>
@@ -61,7 +61,7 @@ original: swc
       (for example convert color to grayscale).
       Most students have a good intuition about images, pixels, and other media examples.
       (Note: Matt Davis built a very cool module for the Jupyter notebook called <a href="http://ipythonblocks.org/">ipythonblocks</a>
-      that rendered small images using HTML and CSS&mdash;you can grab the plugin
+      that rendered small images using HTML and CSS–you can grab the plugin
       from <a href="https://github.com/jiffyclub/ipythonblocks">GitHub</a>.
       Mike Hansen built the <a href="http://scikit-image.org/docs/stable/api/skimage.novice.html">skimage.novice</a> module
       to provide similar functionality on top of SciPy's image manipulation

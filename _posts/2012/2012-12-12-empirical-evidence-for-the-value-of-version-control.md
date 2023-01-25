@@ -17,4 +17,4 @@ original: nwit
 <p>In addition, there's a difference between the needs of a single developer vs. a small team, vs. a large, distributed team.</p>
 <p>Is there published experimental evidence showing that a version control system is more useful than, say, developing using Dropbox? I tried looking for the relevant papers but I don't know how to search that field and I couldn't find anything.</p>
 </blockquote>
-<p>It's a good question&mdash;does anyone have an answer?</p>
+<p>It's a good question–does anyone have an answer?</p>

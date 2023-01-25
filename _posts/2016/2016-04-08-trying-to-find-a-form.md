@@ -22,13 +22,13 @@ year: 2016
 <p>
   My current rough draft of the above lives in <a href="{{'/files/2016/04/design.csv' | relative_url}}">this CSV file</a>
   (taken from <a href="https://github.com/gvwilson/long-form/">this GitHub repository</a>)
-  and produces the graph shown below&mdash;which is basically incomprehensible, even to me.
+  and produces the graph shown below–which is basically incomprehensible, even to me.
   (I've pushed the connections through various graph layout tools to no avail.)
   Discarding the specific topics for the moment,
   the connections can be represented as tables (also shown below),
   which are no more revealing.
   My question is,
-  what's the best way&mdash;or just a <em>better</em> way&mdash;to represent this?
+  what's the best way–or just a <em>better</em> way–to represent this?
 </p>
 <h2 align="center">
   Questions, Answers, Lessons, and Topics

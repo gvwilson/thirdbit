@@ -5,7 +5,7 @@ year: 2012
 ---
 <p>As I wrote a few days ago, I asked <a href="http://hackeducation.com/">Audrey Watters</a> to put together a "Joel test" to assess how much someone technical knew about education. She has now posted <a href="http://www.hackeducation.com/2012/03/17/what-every-techie-should-know-about-education/">her response</a>; if I were grading it, I'd say, "Exceeds expectations," because what she has done is explain why a simple 12-point yes-or-no test wouldn't be enough:</p>
 
-<blockquote>What you <em>do</em> with your code or your content or your users' data&mdash;while incredibly important&mdash;is only be part of what I "test." ... If I were to really formalize such [test], I think it would also have to involve what you know, what you think about education, about teaching, about learning, about politics and theory and practice&mdash;its history, its present, its future.</blockquote>
+<blockquote>What you <em>do</em> with your code or your content or your users' data–while incredibly important–is only be part of what I "test." ... If I were to really formalize such [test], I think it would also have to involve what you know, what you think about education, about teaching, about learning, about politics and theory and practice–its history, its present, its future.</blockquote>
 
 <p>A few questions are US-centric, but I'm sure it would be easy to swap in Canadian (or British, or Estonian) acronyms for FERPA and the like. What they're all triangulating, I think, comes down to one crucial question:</p>
 

@@ -27,7 +27,7 @@ def R():
     print("R")
 </pre>
     </td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>    </td>
     <td class="top">
 <pre>
 import a
@@ -73,7 +73,7 @@ def R():
 P() # ADDED
 </pre>
     </td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>    </td>
     <td class="top">
 <pre>
 import a
@@ -138,7 +138,7 @@ const R = () => {
 module.exports = {P, R}
 </pre>
     </td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>    </td>
     <td class="top">
 <pre>
 const {R} = require('./a')

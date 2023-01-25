@@ -1,5 +1,5 @@
 ---
-title: "&quot;...And Thousands of Their Closest Friends&quot;"
+title: "'…And Thousands of Their Closest Friends'"
 date: 2009-02-22 07:18:52
 year: 2009
 ---

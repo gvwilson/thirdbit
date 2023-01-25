@@ -22,7 +22,7 @@ original: swc
   and aging populations in the industrialized world
   are all going to hit us at more or less the same time.
   Research that doesn't directly address one or more of these problems
-  will be sidelined in favor of research that does&mdash;basically,
+  will be sidelined in favor of research that does–basically,
   trips to Mars and LHC-style "big physics" will be starved
   so that climatology,
   ecology<sup><a href="#1">1</a></sup>,
@@ -67,7 +67,7 @@ original: swc
   If scientific research is going to be more closely directed
   (which I believe is inevitable),
   we need mechanisms that will let researchers chase unicorns.
-  I'm sure the model I'm proposing will fail in perverse ways&mdash;every incentive scheme does&mdash;but
+  I'm sure the model I'm proposing will fail in perverse ways–every incentive scheme does–but
   I think it would be a good counter-balance to the necessary focus on grand challenges described above.
 </p>
 <p>Notes:</p>
@@ -98,9 +98,9 @@ original: swc
     This is our fault,
     since we have allowed those who like power concentrated to conflate the ideas of "consumer" and "citizen".
     The good news is,
-    we have fixed this before&mdash;think the <a href="https://en.wikipedia.org/wiki/Reform_Act_1832">Reform Act</a>,
+    we have fixed this before–think the <a href="https://en.wikipedia.org/wiki/Reform_Act_1832">Reform Act</a>,
     Teddy Roosevelt's trust-busting,
-    or the New Deal&mdash;and I believe we can do it again.
+    or the New Deal–and I believe we can do it again.
     In particular,
     I think that when the going gets rough,
     genuine public service will once again become expected and respectable.

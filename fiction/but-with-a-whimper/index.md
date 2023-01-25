@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "...But With a Whimper"
+title: "…But With a Whimper"
 ---
 
 <div align="center">

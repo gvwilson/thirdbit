@@ -27,6 +27,6 @@ we actually see hasn't changed in 25 years:
 a small minority working wonders, and the
 vast majority not even knowing where they ought to start. We don't
 expect grad students to pick up all the math and stats they need by
-osmosis, on their own, without any structured guidance&mdash;why
+osmosis, on their own, without any structured guidance–why
 should expect them to become proficient computationalists that
 way?</p>

@@ -92,7 +92,7 @@ original: swc
 <blockquote>
   <p>
     Word is easier to use for normal tasks (like writing a paper with bullet points and italics) than Markdown,
-    much less LaTeX&mdash;it's only Stockholm Syndrome that makes us believe otherwise :-).
+    much less LaTeX–it's only Stockholm Syndrome that makes us believe otherwise :-).
     And as long as both senior faculty and journals require people to submit Word (or PDFs derived from specific Word templates),
     it's hard for us to say, "No, really, version control is better in the long run,"
     because the long run ends in you wrestling with Pandoc to try to get it to format things the way some particular conference requires.
@@ -208,7 +208,7 @@ original: swc
   i.e.,
   that the tools and practices people like Justin, Cameron, Carl, Jon, and Ian use
   are now within reach of our learners (if only just).
-  If you'd like to help us work out the specifics&mdash;in particular,
+  If you'd like to help us work out the specifics–in particular,
   if you'd like to help us create an hour-long teaching module
-  on 21st Century scientific publishing&mdash;please join the discussion.
+  on 21st Century scientific publishing–please join the discussion.
 </p>

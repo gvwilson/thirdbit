@@ -3,7 +3,7 @@ title: "The World Question 2008"
 date: 2008-01-01 09:40:46
 year: 2008
 ---
-<a href="http://www.edge.org/q2008/q08_index.html">The <em>Edge</em> Annual Question &mdash; 2008</a>
+<a href="http://www.edge.org/q2008/q08_index.html">The <em>Edge</em> Annual Question – 2008</a>
 
 When thinking changes your mind, that's philosophy.
 When God changes your mind, that's faith.

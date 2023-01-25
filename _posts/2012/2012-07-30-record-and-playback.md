@@ -5,7 +5,7 @@ original: swc
 title: Record and Playback
 ---
 <p>The biggest bottleneck Software Carpentry faces right now is a shortage of experienced instructors. To help fix that, we are going to record a complete presentation of our core two-day material so that people who want to teach it themselves can see <em>how</em> we say things, as well as <em>what</em> we say [<a href="#1">1</a>, <a href="#2">2</a>].</p>
-<p>As soon as we say "record", though, we have to ask, what exactly are we recording? Audio and video of a presenter in front of a whiteboard? Sure&mdash;that helps humanize the presentation. But what about the presenter's desktop? Viewers definitely need to see it, but should they see an MP4 in which the text on the presenter's screen appears as colored pixels arranged in the shapes of characters, or should we record the characters directly? I think the latter is by far the best option, since:</p>
+<p>As soon as we say "record", though, we have to ask, what exactly are we recording? Audio and video of a presenter in front of a whiteboard? Sure–that helps humanize the presentation. But what about the presenter's desktop? Viewers definitely need to see it, but should they see an MP4 in which the text on the presenter's screen appears as colored pixels arranged in the shapes of characters, or should we record the characters directly? I think the latter is by far the best option, since:</p>
 <ol>
 <li>it's much more compact (compare the size of an MP4 of an hour's typing with the size of the text typed);</li>
 <li>it can be copied and pasted (when you freeze a movie and copy what's on your screen, what you get is an image rather than a chunk of program text you can run yourself);</li>

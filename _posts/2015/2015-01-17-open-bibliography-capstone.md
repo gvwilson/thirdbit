@@ -45,7 +45,7 @@ original: swc
   will probably also reference others.
 </p>
 <p>
-  The real problem is step number two&mdash;the one where the problem stops being technical
+  The real problem is step number two–the one where the problem stops being technical
   and starts being political.
   I haven't been able to find any publicly available service
   that lets me search for papers whose references include one or more DOIs.
@@ -64,9 +64,9 @@ original: swc
   In it,
   Orwell said that while Dickens saw the sins of Victorian society very clearly,
   he never allowed himself to see that those sins were part and parcel of how that society was organized.
-  The protagonists in Dickens' novels might be saved individually&mdash;an unexpected inheritance,
+  The protagonists in Dickens' novels might be saved individually–an unexpected inheritance,
   a fortunate encounter with a pious benefactor,
-  and the like&mdash;but such solutions leave the equally deserving people standing to their left and right
+  and the like–but such solutions leave the equally deserving people standing to their left and right
   still mired in muck.
   Equally,
   having friends who are still in academia mail me PDFs of papers doesn't help my neighbors,

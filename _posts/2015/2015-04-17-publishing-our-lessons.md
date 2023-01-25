@@ -41,7 +41,7 @@ original: swc
   To help us get there,
   participants in the
   current round of instructor training
-  are being asked to proof-read the lessons and submit small fixes&mdash;see
+  are being asked to proof-read the lessons and submit small fixes–see
   this post on the training course blog
   for details.
   If you have a bit of time to look things over,

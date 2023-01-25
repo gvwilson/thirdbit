@@ -1,5 +1,5 @@
 ---
-title: "&quot;Practical Programming&quot; Is Available"
+title: "'Practical Programming' Is Available"
 date: 2009-05-05 11:32:57
 year: 2009
 ---

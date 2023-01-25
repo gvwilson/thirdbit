@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Our Indiana U Workshop Went Well
 ---
-<p>Our two-day bootcamp at Indiana U. on March 7 and 8 went well&mdash;while less than half of the people who registered actually showed up (more on that in a moment), everyone who did attend the two days seemed to get a lot out of it. Special thanks are due to Prof. Andy Lumsdaine (host), Jennifer Richards (organizer), and Ben Martin, Randy Heiland, Joe Cottam, Mike Hansen, DongInn Kim, and Purdue's own Jeff Shelton for helping out.</p>
+<p>Our two-day bootcamp at Indiana U. on March 7 and 8 went well–while less than half of the people who registered actually showed up (more on that in a moment), everyone who did attend the two days seemed to get a lot out of it. Special thanks are due to Prof. Andy Lumsdaine (host), Jennifer Richards (organizer), and Ben Martin, Randy Heiland, Joe Cottam, Mike Hansen, DongInn Kim, and Purdue's own Jeff Shelton for helping out.</p>
 <p>At the end, we asked everyone to give us one good and one bad thing about the bootcamp:</p>
 <table>
 <tbody>
@@ -63,4 +63,4 @@ title: Our Indiana U Workshop Went Well
 </tbody>
 </table>
 <p>I agree with most of what's in the second column (especially the comment about breakfast). What I want to fix first, though, is the high no-show rate that plagues any free event. One suggestion is to charge people $20 or so when they register, then refund it when they show up, so that only no-shows wind up paying anything. What would your reaction to that be?</p>
-<p>We'll start online tutorials with our Indiana students next week&mdash;like their predecessors from the Space Telescope Science Institute, they'll meet once a week to work through a few simple problems that are directly relevant to their research. Next up: the Monterey Bay Aquarium Research Institute and Lawrence Berkeley National Laboratory.</p>
+<p>We'll start online tutorials with our Indiana students next week–like their predecessors from the Space Telescope Science Institute, they'll meet once a week to work through a few simple problems that are directly relevant to their research. Next up: the Monterey Bay Aquarium Research Institute and Lawrence Berkeley National Laboratory.</p>

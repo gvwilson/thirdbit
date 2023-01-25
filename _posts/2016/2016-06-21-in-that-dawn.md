@@ -10,7 +10,7 @@ jupyter: http://jupyter.org/
   <em>
     "Bliss was it in that dawn to be alive..."
     <br/>
-    &mdash; Wordsworth
+    – Wordsworth
   </em>
 </p>
 <p>
@@ -72,7 +72,7 @@ jupyter: http://jupyter.org/
 <p>
   Ravetz's article may also explain why so many people in open science
   are drawn to open source software.  It isn't so that they can check
-  each other's code&mdash;as far as I can tell, scientists still don't
+  each other's code–as far as I can tell, scientists still don't
   do that to any significant degree.  Instead, it's that when you're
   building something new, you can do something on a human scale that
   actually matters.  As just one example,
@@ -85,7 +85,7 @@ jupyter: http://jupyter.org/
   Nobody becomes a scientist in order to figure out how to increase
   the frequency resolution of a linear chirp filter.  We become
   scientists because it's an adventure.  Open science is still new
-  enough&mdash;still open enough&mdash;that individuals can still feel
+  enough–still open enough–that individuals can still feel
   that.  And it's still small enough that you can look left and look
   right and recognize the faces you see, and recognize the same
   excitement on them that you feel yourself.

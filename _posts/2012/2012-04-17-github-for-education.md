@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: GitHub for Education
 ---
-<p>In my experience, most teachers don't develop courses from scratch. Instead, they take whatever material is at hand, modify it to meet their needs, and then&mdash;well, that's usually where they stop. Unlike open source software developers, they usually don't give it back to the community in any explicit way. Instead, the next person who needs a starting point has to stumble over it in a Google search, and the original creator may never know that someone improved upon what they did.</p>
+<p>In my experience, most teachers don't develop courses from scratch. Instead, they take whatever material is at hand, modify it to meet their needs, and then–well, that's usually where they stop. Unlike open source software developers, they usually don't give it back to the community in any explicit way. Instead, the next person who needs a starting point has to stumble over it in a Google search, and the original creator may never know that someone improved upon what they did.</p>
 <p>Back in December (of 2011), I wondered whether the fork, merge, and share model that underpins so much of modern open source software development could be applied to education. It turns out that lots of other people have been thinking along these lines (and that some of them have actually done something about it):</p>
 <ul>
 <li>Joseph Reagle: <a href="http://reagle.org/joseph/blog/career/teaching/fork-merge-share.html">fork-merge-share</a> (describing, among other things, a geek-oriented solution to one practical obstacle I mentioned)</li>

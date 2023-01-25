@@ -39,7 +39,7 @@ original: swc
     along with the <a href="http://www.software.ac.uk/">Software Sustainability Institute</a>
     and <a href="http://lbl.gov">Lawrence Berkeley National Laboratory</a>.
     All three are represented on our interim board,
-    and we hope other organizations will partner with us soon as well&mdash;please
+    and we hope other organizations will partner with us soon as well–please
     stay tuned for announcements.
   </dd>
   <dt>Who works for the Software Carpentry Foundation?</dt>

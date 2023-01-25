@@ -48,7 +48,7 @@ original: nwit
   and the correlation between test and production code co-evolving is even weaker (0.35).
   Fast tests don't correlate with more frequent test execution,
   and <em>only 4% of sessions that had test execution followed the classic red-green-refactor TDD cycle</em>.
-  It's possible&mdash;indeed, likely&mdash;that the researchers' IDE instrumentation missed some things,
+  It's possible–indeed, likely–that the researchers' IDE instrumentation missed some things,
   but it's painfully clear that we still have a long way to go
   when it comes to real-world adoption of better testing practices.
 </p>

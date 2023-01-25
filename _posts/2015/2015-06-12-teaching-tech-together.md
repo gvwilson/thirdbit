@@ -15,7 +15,7 @@ year: 2015
 </p>
 <p>
   I hope this will help start a conversation that's long overdue.
-  Too many people in tech speak and act as if knowledge only needs to flow one way &mdash;
+  Too many people in tech speak and act as if knowledge only needs to flow one way –
   as if everyone who can't program should just show up and learn.
   The truth is,
   <a href="http://www.amazon.com/Rules-Radicals-Practical-Primer-Realistic/dp/0679721134/">social change is a skill too</a>,

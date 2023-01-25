@@ -9,9 +9,9 @@ year: 2004
 
 <p>1. I checked out a copy of Hippo onto my laptop, and created a directory in which to do the training exercise we've assigned to the incoming students.</p>
 
-<p>2. I fired up <a href="http://www.eclipse.org/">Eclipse</a> to create a Java project in that directory.  I put my Java source files in a sub-directory called <code>src</code>, the JAR files my project needed in a sub-directory called <code>lib</code>, and created an empty directory called <code>bin</code> for <a href="http://www.eclipse.org/">Eclipse</a> to put compiled class files in.  I used <code>svn&nbsp;add</code> to add all three directories to the repository.</p>
+<p>2. I fired up <a href="http://www.eclipse.org/">Eclipse</a> to create a Java project in that directory.  I put my Java source files in a sub-directory called <code>src</code>, the JAR files my project needed in a sub-directory called <code>lib</code>, and created an empty directory called <code>bin</code> for <a href="http://www.eclipse.org/">Eclipse</a> to put compiled class files in.  I used <code>svn add</code> to add all three directories to the repository.</p>
 
-<p>3. Reading the <a href="http://www.hibernate.org">Hibernate</a> documentation, I thought I had to put the mapping file that described how to store my Java objects in a database in the same directory as the compiled class files.  All right, no problem---I created <code>bin/LoanRecord.hbm.xml</code>, and used <code>svn&nbsp;add</code> to add it to the repository.</p>
+<p>3. Reading the <a href="http://www.hibernate.org">Hibernate</a> documentation, I thought I had to put the mapping file that described how to store my Java objects in a database in the same directory as the compiled class files.  All right, no problem---I created <code>bin/LoanRecord.hbm.xml</code>, and used <code>svn add</code> to add it to the repository.</p>
 
 <p>At this point, my workspace looked like this:</p>
 

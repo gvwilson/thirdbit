@@ -1,5 +1,5 @@
 ---
-title: "Titus Brown's &quot;Not in the Syllabus&quot;"
+title: "Titus Brown's 'Not in the Syllabus'"
 date: 2007-02-16 18:15:43
 year: 2007
 ---

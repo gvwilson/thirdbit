@@ -105,7 +105,7 @@ original: swc
       (If you're behind the Great Paywall of Academia,
       you can read <a href="http://www.sciencedirect.com/science/article/pii/S0272775714000417">another study</a>
       by Braga, Paccagnella, and Pellizzari that reaches the same conclusion.)
-      Despite knowing this&mdash;the results aren't exactly new&mdash;universities
+      Despite knowing this–the results aren't exactly new–universities
       continue to use such surveys because...
       well, that gets us back into a discussion of politics and learning,
       which is probably best saved for <a href="http://third-bit.com/">my personal blog</a>,

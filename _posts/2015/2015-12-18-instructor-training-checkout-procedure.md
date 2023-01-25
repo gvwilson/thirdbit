@@ -91,9 +91,9 @@ original: swc
   </li>
 </ul>
 <p>
-  This process won't be the last word in instructor training&mdash;we
+  This process won't be the last word in instructor training–we
   learn something new
-  every time we run a class&mdash;but we believe it improves on what we're doing now,
+  every time we run a class–but we believe it improves on what we're doing now,
   and that we can implement it with the resources we have.
   We will start running mentoring and checkout sessions in the second week of January;
   until then,

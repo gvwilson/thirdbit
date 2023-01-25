@@ -24,7 +24,7 @@ original: swc
     These include data import, export, and cleanup;
     expanded reporting capability;
     and patron-facing services such as improvements to catalog and LibGuide usability.
-    Most of the programs discussed are short&mash;under a hundred lines&mdash;so that
+    Most of the programs discussed are short&mash;under a hundred lines–so that
     implementing or modifying them is within the reach of relatively novice programmers.
     Where possible, links to the code itself are provided.
     Several scripts are explained in depth.

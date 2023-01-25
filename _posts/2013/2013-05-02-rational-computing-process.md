@@ -13,7 +13,7 @@ original: swc
   so that other people can retrace the designers' thinking without heroic effort.
   Acknowledging the messiness of reality wasn't new:
   a century ago,
-  <a href="http://en.wikipedia.org/wiki/Henri_Poincar%C3%A9#Philosophy">Poincar&eacute;</a> wrote that
+  <a href="http://en.wikipedia.org/wiki/Henri_Poincar%C3%A9#Philosophy">Poincaré</a> wrote that
   most mathematicians figured out the proof <em>after</em> they had figured out the answer,
   and everyone knows that the description of the experiment that's put in the paper
   is almost never how the experiment was actually done
@@ -77,7 +77,7 @@ original: swc
   is to show people the pieces out of which
   most of their competent peers assemble their daily work.
   What would help us do this is
-  a collection of profiles of competent scientists' computational workflows&mdash;of
+  a collection of profiles of competent scientists' computational workflows–of
   how people who know what they're doing fit the pieces together
   when solving particular problems in particular domains.
   They would take time to produce

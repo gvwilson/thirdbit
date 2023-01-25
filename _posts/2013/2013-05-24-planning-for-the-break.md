@@ -113,8 +113,8 @@ original: swc
       <li>
         Collect feedback on instructors to help them improve their teaching
         (and then actually give it back to them).
-        This will have to be done carefully&mdash;we have no wish to encourage
-        a "big brother" atmosphere&mdash;but it will help maintain and improve quality.
+        This will have to be done carefully–we have no wish to encourage
+        a "big brother" atmosphere–but it will help maintain and improve quality.
       </li>
       <li>
         Finish, deploy, and publicize the Windows installation script
@@ -228,7 +228,7 @@ original: swc
         because it no longer represented what we actually do.
         We need to create new ones aimed at potential learners, hosts, instructors, and backers.
         We also need to write a paper that people can refer to
-        when they want to cite us&mdash;our
+        when they want to cite us–our
         <a href="http://arxiv.org/abs/1210.0530">Best Practices in Scientific Computing</a> paper
         isn't quite that.
         ("Software Carpentry: Lessons Learned" is a start toward this.)

@@ -3,7 +3,7 @@ title: "A Browser-Based Programming Tool That's Better Than Many Desktop Tools"
 date: 2012-01-29 11:56:54
 year: 2012
 ---
-I don't know who <a href="http://www.stanford.edu/~pgbovine/">Philip Guo</a> is, but I think he's amazing&mdash;at least, the software he creates is. Like several other tools, his <a href="http://people.csail.mit.edu/pgbovine/python/">Online Python Tutor</a> lets you write and run code in the browser; unlike others, though, his allows users to step forward <em>and backward</em> through program execution, and displays simple, but effective, box-and-arrow visualizations of the program's state as it evolves:
+I don't know who <a href="http://www.stanford.edu/~pgbovine/">Philip Guo</a> is, but I think he's amazing–at least, the software he creates is. Like several other tools, his <a href="http://people.csail.mit.edu/pgbovine/python/">Online Python Tutor</a> lets you write and run code in the browser; unlike others, though, his allows users to step forward <em>and backward</em> through program execution, and displays simple, but effective, box-and-arrow visualizations of the program's state as it evolves:
 
 <img title="guo-web-python" src="{{'/files/2012/01/guo-web-python-150x150.png' | relative_url}}" alt="" width="150" height="150" />
 

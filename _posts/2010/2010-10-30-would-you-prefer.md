@@ -19,6 +19,6 @@ title: Would You Prefer...
 <p>So my questions are:</p>
 <ol>
 <li>Do you like them more than what we're doing?</li>
-<li>Are they "better enough" than what we're doing to justify the extra effort? We'd produce half as much material if we did this&mdash;would that be a good tradeoff?</li>
+<li>Are they "better enough" than what we're doing to justify the extra effort? We'd produce half as much material if we did this–would that be a good tradeoff?</li>
 </ol>
 <ol></ol>

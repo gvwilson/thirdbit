@@ -1,5 +1,5 @@
 ---
-title: "&quot;Beautiful Code&quot; at Google"
+title: "Beautiful Code at Google"
 date: 2008-01-31 13:54:38
 year: 2008
 ---

@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: How Robust Is Your Programming Language?
 ---
-<p>One of the biggest problems in teaching novices how to program is that most programming systems are not robust. A car can go quite a long distance on a slightly-flat tire, and people can live for years with just one kidney or half a liver, but get one character out of place in a program, and boof&mdash;it's game over. And spotting that one character can be very hard, particularly if you're a novice and are learning mostly through copy-paste-and-tweak.</p>
+<p>One of the biggest problems in teaching novices how to program is that most programming systems are not robust. A car can go quite a long distance on a slightly-flat tire, and people can live for years with just one kidney or half a liver, but get one character out of place in a program, and boof–it's game over. And spotting that one character can be very hard, particularly if you're a novice and are learning mostly through copy-paste-and-tweak.</p>
 <p>Here's an example from a recent workshop. Learners had a bunch of data files that looked like this:</p>
 <pre>Date,Species,Count
 2012-07-03,raccoon,3

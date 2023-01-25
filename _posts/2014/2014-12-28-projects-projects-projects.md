@@ -33,5 +33,5 @@ original: swc
   I'd like to say "thank you" to everyone who helped Software Carpentry get from where it was to where it is.
   We taught more than 4000 people,
   and we're on track to reach even more in 2015.
-  It's been a privilege to work with so many talented, dedicated people&mdash;best wishes for the new year.
+  It's been a privilege to work with so many talented, dedicated people–best wishes for the new year.
 </p>

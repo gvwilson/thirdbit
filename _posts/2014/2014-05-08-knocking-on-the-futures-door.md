@@ -46,7 +46,7 @@ original: swc
   and <code>pandoc</code> can be installed and used directly
   to translate Markdown to other formats as well.
   Together,
-  those tools get us most of what we want&mdash;most, but not all.
+  those tools get us most of what we want–most, but not all.
 </p>
 <p>
   For example,
@@ -123,8 +123,8 @@ A storage area where a [version control](#version-control) system...
   We know how to fix these problems,
   and all the others I haven't bothered to enumerate,
   but <em>we shouldn't have to</em>.
-  Nothing we're doing is particularly strange&mdash;we're hardly the first people
-  in science to want to create a glossary&mdash;but we now have to spend several hours (at least)
+  Nothing we're doing is particularly strange–we're hardly the first people
+  in science to want to create a glossary–but we now have to spend several hours (at least)
   to do something that "ought" to work out of the box.
 </p>
 <p>

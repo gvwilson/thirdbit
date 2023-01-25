@@ -15,5 +15,5 @@ year: 2017
   that are easy or productive to use.... The human and computer parts
   of programming languages have developed in radical asymmetry.
   <br/>
-  &mdash; Newell and Card, "The Prospects for Psychological Science in Human-Computer Interaction" (1985)
+  – Newell and Card, "The Prospects for Psychological Science in Human-Computer Interaction" (1985)
 </p>

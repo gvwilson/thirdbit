@@ -29,8 +29,8 @@ and <a href="http://dynamicecology.wordpress.com/2014/04/30/stereotype-threat-an
 <p>Don't say "just", as in, "Oh, it's easy, you just..."
 The things we teach are intrinsically hard,
 and far too much software makes doing them even harder.
-Talking down to users&mdash;in particular,
-implying that it's their fault for not already understanding this&mdash;isn't just rude.
+Talking down to users–in particular,
+implying that it's their fault for not already understanding this–isn't just rude.
 It also undercuts their confidence and motivation,
 which in turn impedes learning.</p>
 

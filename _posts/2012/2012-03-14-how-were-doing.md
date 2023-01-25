@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: How We're Doing
 ---
-<p>The first online session for our Indiana University students will run tomorrow afternoon (assuming we can get web conferencing to work&mdash;why is this still so hard in 2012?). Meanwhile, our other workshops are filling up quickly:</p>
+<p>The first online session for our Indiana University students will run tomorrow afternoon (assuming we can get web conferencing to work–why is this still so hard in 2012?). Meanwhile, our other workshops are filling up quickly:</p>
 <table>
 <tbody>
 <tr>

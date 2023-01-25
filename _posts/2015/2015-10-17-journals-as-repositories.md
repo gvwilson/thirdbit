@@ -8,7 +8,7 @@ original: swc
   I had a really good conversation yesterday with Cath Brooksbank and Sarah Morgan,
   who do training at EMBL-EBI in Hinxton.
   During the conversation we touched on <a href="http://www.coursesource.org/">CourseSource</a>,
-  a peer-reviewed journal in which people can publish undergraduate biology lessons&mdash;not
+  a peer-reviewed journal in which people can publish undergraduate biology lessons–not
   studies of the lesson's effectiveness,
   but the lessons themselves.
 </p>

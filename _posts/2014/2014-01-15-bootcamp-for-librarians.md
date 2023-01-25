@@ -35,7 +35,7 @@ original: swc
   </ul>
   <p>
     ...The 3am realization is that many, many "introduction" to programming materials start at the 1&rarr;10 transition.
-    But learners start at the 0&rarr;1 transition&mdash;and a 10-line program has the approachability of Everest at that point.
+    But learners start at the 0&rarr;1 transition–and a 10-line program has the approachability of Everest at that point.
   </p>
 </blockquote>
 <p>
@@ -43,8 +43,8 @@ original: swc
   The question is,
   how do we act on it?
   In particular,
-  how can we translate the model we've developed for Software Carpentry&mdash;volunteer instructors,
+  how can we translate the model we've developed for Software Carpentry–volunteer instructors,
   two-day workshops,
-  and authentic tasks&mdash;into something that
+  and authentic tasks–into something that
   will help librarians get from 0 to 1 to 10?
 </p>

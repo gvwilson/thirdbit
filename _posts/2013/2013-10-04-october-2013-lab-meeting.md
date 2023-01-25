@@ -109,7 +109,7 @@ original: swc
   <dt>Jobs</dt>
   <dd>
     <ul>
-      <li>Aron Ahmadia's group at the US Army Engineer Research and Development Center is looking for hydrologists in particular, and computational scientists in general&mdash;please contact him for details</li>
+      <li>Aron Ahmadia's group at the US Army Engineer Research and Development Center is looking for hydrologists in particular, and computational scientists in general–please contact him for details</li>
       <li>And please post to the discussion list when you have job openings or are looking for a position</li>
     </ul>
   </dd>

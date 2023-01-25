@@ -23,5 +23,5 @@ original: swc
 <p>
   If you have something you'd like to share,
   or if you'd like to write a post on this blog,
-  please <a href="mailto:{{site.author.email}}">get in touch</a>&mdash;we'd enjoy hearing from you.
+  please <a href="mailto:{{site.author.email}}">get in touch</a>–we'd enjoy hearing from you.
 </p>

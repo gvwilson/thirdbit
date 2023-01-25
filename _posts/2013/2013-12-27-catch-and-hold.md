@@ -21,7 +21,7 @@ original: swc
   he cited John Dewey:
 </p>
 <blockquote>
-  ...interest operates by a process of "catch" and "hold"&mdash;first
+  ...interest operates by a process of "catch" and "hold"–first
   the individual's interest must be captured,
   and then it must be maintained.
 </blockquote>

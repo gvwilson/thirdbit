@@ -25,7 +25,7 @@ original: swc
       because that's what the people around you use.
       Similarly,
       if a community of scientists are using [X] and condition #1 is satisfied,
-      we'll teach our fundamental ideas&mdash;task automation, modular programming, version control, and structured data&mdash;using [X],
+      we'll teach our fundamental ideas–task automation, modular programming, version control, and structured data–using [X],
       because those ideas are what really matter.
     </p>
   </li>

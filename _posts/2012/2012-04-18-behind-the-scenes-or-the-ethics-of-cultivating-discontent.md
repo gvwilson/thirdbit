@@ -7,7 +7,7 @@ title: Behind the Scenes (or, the Ethics of Cultivating Discontent)
 <p>A lot goes on behind the scenes here at software-carpentry.org:</p>
 <ol>
 <li><em>The site itself</em> is WordPress with a partly-customized theme. We use the blog for topics like this and pages (over a hundred of them) for lecture topics. We used to use Trac to manage work items, but nobody kept it up-to-date; these days, we use a WordPress to-do list plugin for the same purpose, and with as little result.</li>
-<li><em>Our videos</em> are hosted on YouTube&mdash;we used to store them locally, but performance improved a lot when we offloaded.</li>
+<li><em>Our videos</em> are hosted on YouTube–we used to store them locally, but performance improved a lot when we offloaded.</li>
 <li>We manage our <em>mailing lists</em> and <em>version control repositories</em> through the Dreamhost control panel, which actually delegates mailing list management to Mailman.</li>
 <li>The <em>calendar</em> and <em>map</em> are hosted by Google.</li>
 <li>We do <em>event registration</em> through EventBrite.</li>

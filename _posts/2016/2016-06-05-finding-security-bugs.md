@@ -21,7 +21,7 @@ original: nwit
     user-provided input is a mapping from application types to the
     types of the catalog; the rest of the process is entirely
     automatic.  In an evaluation on the 50 most watched Ruby on Rails
-    applications on Github, SPACE reported 33 possible bugs&mdash;23
+    applications on Github, SPACE reported 33 possible bugs–23
     previously unknown security bugs, and 10 false positives.
   </em>
 </blockquote>

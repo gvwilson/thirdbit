@@ -11,7 +11,7 @@ original: swc
     that results from reading what other people say should be done...
   </p>
   <p>
-    &mdash; Stephen Corey, 1951
+    – Stephen Corey, 1951
   </p>
 </blockquote>
 <p>
@@ -75,7 +75,7 @@ original: swc
     promoted to interested parties by a staff developer or a
     researcher, via mechanisms such as papers, books, websites and
     workshops. This is the trajectory that is often assumed for
-    educational research&mdash;that "dissemination" to practitioners
+    educational research–that "dissemination" to practitioners
     occurs simply by virtue of publication in a research
     venue. However, <strong>evidence from empirical studies suggests
     that transfer of practice and knowledge to practitioners is rarely
@@ -87,7 +87,7 @@ original: swc
   <p>
     <strong>Teachers change their practices, adopting (transferring)
     ideas and materials from direct, personal contact with other
-    practitioners as and when they need</strong>&mdash;often in very
+    practitioners as and when they need</strong>–often in very
     small, partial, pieces ("piecemeal accretion") or by virtue of
     having experienced it in another institution and, with a change of
     employment, importing it to a new context ("charismatic
@@ -127,8 +127,8 @@ original: swc
     research. <strong>'Plagiarism' is about public attribution of the
     source of ideas, a basic requirement of research-based activity
     but one that is more-or-less unknown in teaching.</strong> It
-    suggests that it is not important&mdash;to [C], to the colleagues
-    within his institution, or to his disciplinary peers&mdash;to
+    suggests that it is not important–to [C], to the colleagues
+    within his institution, or to his disciplinary peers–to
     acknowledge sources of teaching knowledge in the same way as in
     research. This would also imply that <strong>there is no incentive
     or reward for giving such acknowledgement, and that there are no
@@ -310,7 +310,7 @@ original: swc
   <dd>
     <p>
       We only have a small number of modules, so it's easy to find
-      what you want&mdash;once you've found the site, of course.
+      what you want–once you've found the site, of course.
     </p>
   </dd>
   <dt>
@@ -348,7 +348,7 @@ original: swc
 </p>
 <p>
   Later still,
-  "There was little distaste&mdash;indeed, some enthusiasm&mdash;for the re-use of pedagogic materials."
+  "There was little distaste–indeed, some enthusiasm–for the re-use of pedagogic materials."
   That's hardly a ringing endorsement...
 </p>
 <p>

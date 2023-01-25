@@ -21,6 +21,6 @@ title: "Interview: Jim Graham of Scimatic"
 </ul>
 <p><em>Tell us a bit about what software your group develops.</em></p>
 <p>We build products for scientists. Traditionally we've worked on contract, and our client decides how they want to distribute the software. In addition, we are developing our own product that we will sell directly to scientific customers.</p>
-<p><em>How do you hope the course will help them&mdash;that is, what big ideas and what specific skills do you what students to learn from it?</em></p>
-<p>I hope that scientists realise that almost every project they work on will require some type of software, and that they will need to know how it works. After that, I hope they learn to write reusable, compartmentalized software stored in version control system that they can access six months after their paper is published :) My experience has been that every piece of software that I thought was a "one-off" gets reused&mdash;best to write it as well as possible.</p>
+<p><em>How do you hope the course will help them–that is, what big ideas and what specific skills do you what students to learn from it?</em></p>
+<p>I hope that scientists realise that almost every project they work on will require some type of software, and that they will need to know how it works. After that, I hope they learn to write reusable, compartmentalized software stored in version control system that they can access six months after their paper is published :) My experience has been that every piece of software that I thought was a "one-off" gets reused–best to write it as well as possible.</p>
 <p>I hope they also get a sense of how large and complicated software projects can be, and who to call for help if they need it.</p>

@@ -120,7 +120,7 @@ original: swc
   </dd>
   <dt>Do mentors and groups have to be physically co-located?</dt>
   <dd>
-    No&mdash;in fact,
+    No–in fact,
     we expect that most mentors <em>won't</em> be in the same place as the groups they're working with,
     but will instead interact via Skype, email, and the like.
   </dd>

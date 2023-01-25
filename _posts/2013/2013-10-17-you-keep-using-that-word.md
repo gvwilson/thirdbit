@@ -221,7 +221,7 @@ original: swc
   too,
   because as Feynman said,
   "What I cannot create, I do not understand."
-  Training isn't the only requirement&mdash;we need community builders and facilitators
-  to bring people together for the dialog that the training makes possible&mdash;but
+  Training isn't the only requirement–we need community builders and facilitators
+  to bring people together for the dialog that the training makes possible–but
   it sadly still seems to be the one that's talked about least.
 </p>

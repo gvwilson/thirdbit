@@ -15,7 +15,7 @@ original: swc
 </p>
 <p>
   To apply, please send email to <a href="mailto:{{site.author.email}}">{{site.author.email}}</a> by July 31, 2015
-  with &quot;Co-Executive Director&quot; in the subject line, and include:
+  with "Co-Executive Director" in the subject line, and include:
 </p>
 <ul>
   <li>

@@ -26,7 +26,7 @@ original: swc
 <pre>Daisie Huang and Ivan Gonzalez (eds): "Software Carpentry: Version Control with Git."
 Version 5.3, May 2015, 10.5281/zenodo.23544.</pre>
 <p>
-  We can then add all of the people who contributed as&mdash;well, that's the first pair of problems:
+  We can then add all of the people who contributed as–well, that's the first pair of problems:
 </p>
 <ol>
   <li>
@@ -110,7 +110,7 @@ Version 5.3, May 2015, 10.5281/zenodo.23544.</pre>
   the underlying problem is that what we're doing is kind of new:
   if it wasn't,
   there would (probably) already be a BibTeX citation template we could pick up and use.
-  Even the idea of version numbers for citable artifacts is still being sorted out&mdash;quoting
+  Even the idea of version numbers for citable artifacts is still being sorted out–quoting
   Elizabeth again,
   "Looks like [Zenodo is] pulling the version number out of github and placing it within the &lt;title&gt; string value.
   Hacky, but not an incorrect way of accomplishing the task.
@@ -147,7 +147,7 @@ Version 5.3, May 2015, 10.5281/zenodo.23544.</pre>
   </li>
 </ol>
 <p>
-  Please add your answers as comments on this blog post&mdash;we'll all learn something,
+  Please add your answers as comments on this blog post–we'll all learn something,
   and it'll all feed into the lesson we're planning on
   how to write, publish, and review scientific papers in the early 21st Century.
 </p>

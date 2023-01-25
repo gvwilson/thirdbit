@@ -96,7 +96,7 @@ original: swc
 <li><p>All expenditures except those covered by Rule 7e below must be approved in advance by the Steering Committee, or by a sub-committee appointed by it.</p></li>
 <li><p>The Executive Director may spend up to US$2000 per month on items whose individual cost is no greater than US$500 each without the prior approval of the Steering Committee, but must report all such expenditures to the Steering Committee in the month in which they occur.</p></li>
 </ol></li>
-<li><p>The work of the Software Carpentry Foundation is done by core staff (those employed or contracted directly by the SCF), by staff working for Partners, Affiliates, and Sponsors (jointly referred to as &quot;member organizations&quot;), and by volunteers.</p>
+<li><p>The work of the Software Carpentry Foundation is done by core staff (those employed or contracted directly by the SCF), by staff working for Partners, Affiliates, and Sponsors (jointly referred to as "member organizations"), and by volunteers.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Staff employed or contracted by NumFOCUS on behalf of the Software Carpenry Foundation are primarily responsible for coordinating curriculum development, training instructors, outreach, coordinating fundraising, and other stewardship activities.</p></li>
 <li><p>Member organization staff are primarily responsible for activities such as arranging (and sometimes delivering) workshops.</p></li>

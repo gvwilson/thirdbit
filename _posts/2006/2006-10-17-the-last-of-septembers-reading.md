@@ -3,7 +3,7 @@ title: "The Last of September's Reading"
 date: 2006-10-17 09:34:28
 year: 2006
 ---
-In the years leading up to the First World War, French military doctrine held that the &eacute;lan of their troops---their superior fighting spirit---was guaranteed to win the day.  Never mind the machine guns; what mattered most was courage.
+In the years leading up to the First World War, French military doctrine held that the élan of their troops---their superior fighting spirit---was guaranteed to win the day.  Never mind the machine guns; what mattered most was courage.
 
 We all know what happened next.
 

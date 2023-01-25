@@ -1,5 +1,5 @@
 ---
-title: "Russian Version of &quot;Beautiful Code&quot;"
+title: "Russian Version of Beautiful Code"
 date: 2009-03-15 12:23:24
 year: 2009
 ---

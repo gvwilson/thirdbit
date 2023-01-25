@@ -8,7 +8,7 @@ original: swc
 <ul>
   <li>what else we should ask (please give us the actual question, rather than simply, "something about such-and-such")</li>
   <li>what we could take out</li>
-  <li>how intimidating you think this might be to people who aren't confident in their skills&mdash;we'd really like to <em>not</em> frighten away the people who need us most</li>
+  <li>how intimidating you think this might be to people who aren't confident in their skills–we'd really like to <em>not</em> frighten away the people who need us most</li>
 </ul>
 
 <p>1. Career stage:</p>

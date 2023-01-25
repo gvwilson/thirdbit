@@ -11,7 +11,7 @@ title: What Success Looks Like Five Years Out
 <li><a href="#impact">We know that what we're doing is helping.</a></li>
 <li><a href="#busfactor">We have a double-digit bus factor.</a></li>
 </ol>
-<p id="volume"><strong>We are helping thousands of people every year.</strong> Right now, we change the lives of a few dozen each year&mdash;certainly no more than a hundred. In order to scale up, we need:</p>
+<p id="volume"><strong>We are helping thousands of people every year.</strong> Right now, we change the lives of a few dozen each year–certainly no more than a hundred. In order to scale up, we need:</p>
 <ol>
 <li>dozens of people running <a href="http://hackerwithin.org">Hacker Within</a>-style workshops in labs and at universities, and</li>
 <li>dozens more contributing content (particularly exercises), answering questions, offering one-to-one support [<a href="#2">2</a>], etc.</li>

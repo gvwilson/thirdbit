@@ -183,6 +183,6 @@ original: swc
   proof-read one section,
   and file some issues.
   Or better yet,
-  send us a pull request that fixes something&mdash;anything at all&mdash;so that
+  send us a pull request that fixes something–anything at all–so that
   we can hit the ground running in 2015.
 </p>

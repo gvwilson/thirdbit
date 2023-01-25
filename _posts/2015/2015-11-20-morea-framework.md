@@ -15,8 +15,8 @@ original: swc
   which are the five main elements the framework supports.
   As you can see from the project <a href="http://morea-framework.github.io/gallery.html">gallery</a>,
   it's much more structured than our lessons.
-  It also requires more tooling&mdash;Morea Framework sites are built using custom Jekyll plugins,
-  and the source relies much more heavily on include files than our template&mdash;and
+  It also requires more tooling–Morea Framework sites are built using custom Jekyll plugins,
+  and the source relies much more heavily on include files than our template–and
   it's geared very strongly toward traditional semester-long courses.
 </p>
 <p>

@@ -21,7 +21,7 @@ year: 2011
 	<li>LLVM: Chris Lattner</li>
 	<li>Mercurial: Dirkjan Ochtman</li>
 	<li>NoSQL: Adam Marcus</li>
-	<li>Packaging: Tarek Ziad&eacute;</li>
+	<li>Packaging: Tarek Ziadé</li>
 	<li>Selenium: Simon Stewart</li>
 	<li>Sendmail: Eric Allman</li>
 	<li>Snowflock: Andres Lagar Cavilla and Roy Bryant</li>

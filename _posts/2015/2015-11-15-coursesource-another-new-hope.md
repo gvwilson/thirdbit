@@ -35,7 +35,7 @@ original: swc
   <li>
     <p>
       Pre-publication or post-publication,
-      open or anonymous&mdash;none of that matters as much as
+      open or anonymous–none of that matters as much as
       having peer review take place at all.
       (I'm particularly excited by the idea of having both educators and domain experts review lessons.)
     </p>
@@ -51,7 +51,7 @@ original: swc
 <p>
   We're planning to publish
   updates to our lessons some time in 2016.
-  I don't think <a href="http://coursesource.org">CourseSource</a> will be the right venue&mdash;we're
+  I don't think <a href="http://coursesource.org">CourseSource</a> will be the right venue–we're
   not specific to biology,
-  and not aimed at undergraduates&mdash;but it would be great to get them up to their standards.
+  and not aimed at undergraduates–but it would be great to get them up to their standards.
 </p>

@@ -1,5 +1,5 @@
 ---
-title: "Michael Feathers on &quot;Making Software&quot;"
+title: "Michael Feathers on 'Making Software'"
 date: 2010-11-22 16:18:04
 year: 2010
 ---

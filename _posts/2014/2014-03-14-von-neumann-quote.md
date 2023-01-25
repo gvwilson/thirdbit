@@ -36,7 +36,7 @@ original: swc
   there is no harm in starting early.
 </p>
 <p>
-  &mdash; John von Neumann, in a letter to Marston Morse, April 23, 1952
+  – John von Neumann, in a letter to Marston Morse, April 23, 1952
 </p>
 <p>
   From <a href="https://twitter.com/openscience/status/433288591327113216">a tweet by Chris Boshuizen</a>.

@@ -41,14 +41,14 @@ original: swc
 <p>
   Pay will also be negotiated,
   and will be very competitive with equivalent academic and industrial positions and commensurate with experience.
-  There is no fixed geographic requirement for this job&mdash;it can be done anywhere with reliable Internet access&mdash;but
+  There is no fixed geographic requirement for this job–it can be done anywhere with reliable Internet access–but
   it will require some travel (about half a dozen trips per year).
 </p>
 <p>
   The full description of the Co-Executive Director position is in
   this blog post.
   To apply, please send email to <a href="mailto:{{site.author.email}}">{{site.author.email}}</a> by July 31, 2015
-  with &quot;Co-Executive Director&quot; in the subject line, and include:
+  with "Co-Executive Director" in the subject line, and include:
 </p>
 <ul>
   <li>

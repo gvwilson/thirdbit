@@ -23,7 +23,7 @@ but its input looks like this:
 
 <img title="small-IMG_0094" src="{{'/files/2012/09/small-IMG_0094.jpg' | relative_url}}" alt="" width="384" height="512" />
 
-Whoops: a North American plug with a round ground pin won't fit. My old Mac adapter fit&mdash;it didn't have the ground pin, just two flat power pins that folded down into the brick. That's why I thought this would work, but no, I <em>upgraded</em> my power adapter, and it broke backward compatibility.
+Whoops: a North American plug with a round ground pin won't fit. My old Mac adapter fit–it didn't have the ground pin, just two flat power pins that folded down into the brick. That's why I thought this would work, but no, I <em>upgraded</em> my power adapter, and it broke backward compatibility.
 
 Luckily, the shop at Heathrow Airport sells gadgets that have UK output pins:
 

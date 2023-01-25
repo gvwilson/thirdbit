@@ -14,7 +14,7 @@ original: swc
   though,
   I realize that I've been trying to do this the wrong way.
   My training as an engineer taught me that
-  only controlled, quantitative experiments were "real" science&mdash;that
+  only controlled, quantitative experiments were "real" science–that
   as Ernest Rutherford said,
   it's either physics or stamp collecting.
   I now understand that there are other rigorous ways to generate actionable insights,
@@ -88,9 +88,9 @@ original: swc
   "All science is either physics or butterfly collecting."
   Those of us indoctrinated in quantitative methods have also been indoctrinated to look down on their qualitative kin,
   but the fact is,
-  the greatest scientific theory of all time&mdash;evolution by natural selection&mdash;didn't come out of
+  the greatest scientific theory of all time–evolution by natural selection–didn't come out of
   double-blind controlled trials.
-  It came out of butterfly collecting&mdash;that,
+  It came out of butterfly collecting–that,
   and careful thinking about why those butterflies were different from each other.
 </p>
 <p>

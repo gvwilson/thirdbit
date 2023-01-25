@@ -21,7 +21,7 @@ def test_table():
 def run_it(R1, R2, expected):
     assert overlap(R1, R2) == expected
 </pre>
-<p>which is simple enough if students already understand generators and function application, but hell to explain if they don't&mdash;and they won't.</p></blockquote>
+<p>which is simple enough if students already understand generators and function application, but hell to explain if they don't–and they won't.</p></blockquote>
 <p>After some back and forth, <a href="http://jacobian.org/">Jacob Kaplan-Moss</a> (of <a href="https://www.djangoproject.com/">Django</a> fame) came up with this:</p>
 <pre>def tabletest(table):
     def decorator(func):

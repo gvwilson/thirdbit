@@ -107,7 +107,7 @@ original: swc
       Instructors should be required to teach our standard lesson on a topic
       at least a couple of times
       before replacing its content with material of their own.
-      Minor adjustments to fit particular learners and personal teaching styles are always OK&mdash;the
+      Minor adjustments to fit particular learners and personal teaching styles are always OK–the
       whole point of teaching live instead of using recorded video is to allow this.
       So is adding extra material for particular audiences,
       provided the core material hasn't been rushed through,
@@ -132,7 +132,7 @@ original: swc
   debriefings
   that Sheldon McKay and Rayna Harris are running will hopefully help us capture more of our experiences
   in shareable ways.
-  I'd be grateful for feedback on whether these ideas are (a) good and (b) workable&mdash;please
+  I'd be grateful for feedback on whether these ideas are (a) good and (b) workable–please
   add them as comments on this blog post,
   and I'll summarize next week.
 </p>

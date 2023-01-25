@@ -1,5 +1,5 @@
 ---
-title: "&quot;Daddy, What's Wrong?&quot;"
+title: "Daddy, What's Wrong?"
 date: 2011-06-12 15:38:06
 year: 2011
 ---

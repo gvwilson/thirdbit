@@ -31,27 +31,27 @@ A common way to do this is to list the skills and levels:
   </tr>
   <tr>
     <th>Functions</th>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
   </tr>
   <tr>
     <th>Filter/Map</th>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
   </tr>
   <tr>
     <th>Immutability</th>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
-    <td>[&nbsp;]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
   </tr>
 </table>
 

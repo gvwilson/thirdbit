@@ -13,7 +13,7 @@ year: 2016
 <p>
   In my better world,
   language designers worry about package management as much as they do about type systems.
-  Or maybe more&mdash;no, definitely more.
+  Or maybe more–no, definitely more.
 </p>
 <p>
   In my better world,
@@ -59,7 +59,7 @@ year: 2016
 </p>
 <p>
   In my better world,
-  everything uses a USB connector&mdash;including my iPhone.
+  everything uses a USB connector–including my iPhone.
 </p>
 <p>
   In my better world,

@@ -45,7 +45,7 @@ year: 2015
   most of us manipulate the change graph in a small number of stereotyped ways,
   just as most FORTRAN and assembly language programmers used GOTO to build things
   that are recognizable as nested loops and conditionals.
-  That makes me wonder when version control will have its structured revolution&mdash;when
+  That makes me wonder when version control will have its structured revolution–when
   <a href="http://nvie.com/posts/a-successful-git-branching-model/">today's best practices</a>
   will be enforced rather than encouraged.
   When it happens,

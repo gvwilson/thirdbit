@@ -1,5 +1,5 @@
 ---
-title: "&quot;The Architecture of Open Source Applications&quot; is Now Available"
+title: "The Architecture of Open Source Applications is Now Available"
 date: 2011-05-23 19:57:28
 year: 2011
 ---

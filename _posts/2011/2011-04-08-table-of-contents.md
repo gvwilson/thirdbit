@@ -3,7 +3,7 @@ title: "Table of Contents"
 date: 2011-04-08 16:18:03
 year: 2011
 ---
-If all goes well, <em>The Architecture of Open Source Applications</em> will be available for purchase by the beginning of May. As a teaser, there's a table of contents below the fold&mdash;we think it's going to be a great book, and hope you'll think so too.
+If all goes well, <em>The Architecture of Open Source Applications</em> will be available for purchase by the beginning of May. As a teaser, there's a table of contents below the fold–we think it's going to be a great book, and hope you'll think so too.
 
 <ul>
 	<li>Amy Brown &amp; Greg Wilson: <em>Introduction</em> (15)</li>
@@ -412,7 +412,7 @@ If all goes well, <em>The Architecture of Open Source Applications</em> will be 
 	<li>References (223)</li>
 </ul>
 </li>
-	<li>Tarek Ziad&eacute;: <em>Python Packaging</em> (225)
+	<li>Tarek Ziadé: <em>Python Packaging</em> (225)
 <ul>
 	<li>Introduction (225)</li>
 	<li>The Burden of the Python Developer (226)</li>
@@ -569,7 +569,7 @@ If all goes well, <em>The Architecture of Open Source Applications</em> will be 
 	<li>Conclusions (306)</li>
 </ul>
 </li>
-	<li>Roy Bryant &amp; Andr&eacute;s Lagar Cavilla: <em>Snowflock</em> (307)
+	<li>Roy Bryant &amp; Andrés Lagar Cavilla: <em>Snowflock</em> (307)
 <ul>
 	<li>Introducing Snowflock (307)</li>
 	<li>VM Cloning (308)</li>

@@ -5,7 +5,7 @@ original: swc
 title: What Better Looks Like
 ---
 <p style="text-align: center;">Paradise is exactly like where you are right now... only much, much better.<br />
-<em>&mdash; Laurie Anderson</em></p>
+<em>– Laurie Anderson</em></p>
 <p>It's hard to make things better if you don't know what "better" looks like, so in the wake of some email responses to last week's post on how to contribute, here are some thoughts on what we'd like Software Carpentry to look like when it's finished (or as finished as something like this ever is).</p>
 <p>First, <strong>this site</strong> will offer short tutorials that are directly relevant to scientists and engineers who want to get more done with computers in less time and with less pain.  Each of those tutorials will be available in several formats, including recorded video, plain HTML, and downloadable slides.  Topics will be both practical (e.g., common Unix shell commands) and foundational (e.g., how hash tables work); the latter will be included to help people understand, connect, and generalize the former.</p>
 <p>Second, this material will be used in <strong>lots of courses</strong>: half-day conference tutorials on single topics, week-long bootcamps, single-semester classroom courses, peer-to-peer study groups, and of course self-directed online study.  And we'd like to see <strong>lots of instructors</strong>: grad students teaching helping other grad students work through it, corporate trainers repackaging it and selling on-site delivery, professors combining some of our material with their own notes on bioinformatics or combustion dynamics, and so on.</p>

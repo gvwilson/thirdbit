@@ -65,9 +65,9 @@ original: swc
 </p>
 <p>
   Superficially,
-  Webmaker and Software Carpentry teach different skills&mdash;Webmaker
+  Webmaker and Software Carpentry teach different skills–Webmaker
   focuses on front-end technologies like HTML5 and CSS,
-  while Software Carpentry's focus is the back-end tools needed to move data around and analyze it&mdash;but
+  while Software Carpentry's focus is the back-end tools needed to move data around and analyze it–but
   under the hood,
   what both really teach is
   <a href="http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/">how to think like the web</a>.

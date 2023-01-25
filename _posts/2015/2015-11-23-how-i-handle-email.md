@@ -66,7 +66,7 @@ year: 2015
     <p>
       Don't be afraid to let important-but-not-urgent email pile up,
       but allocate an afternoon each week for clearing it.  Again, do
-      this offline&mdash;give yourself space to think medium-sized
+      this offline–give yourself space to think medium-sized
       joined-up thoughts.
     </p>
   </li>

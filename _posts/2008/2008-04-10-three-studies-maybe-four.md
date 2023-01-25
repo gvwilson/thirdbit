@@ -14,7 +14,7 @@ I wasn't surprised when I realized that the authors hadn't done the other half o
 <table>
 <tr>
 <td align="center">time to write parallel code after writing serial code</td>
-<td valign="center">&nbsp;</td>
+<td valign="center"> </td>
 <td align="center">time to write serial code from scratch</td>
 </tr>
 <tr>
@@ -24,7 +24,7 @@ I wasn't surprised when I realized that the authors hadn't done the other half o
 </tr>
 <tr>
 <td align="center">time to write MATLAB from scratch</td>
-<td valign="center">&nbsp;</td>
+<td valign="center"> </td>
 <td align="center">time to write serial code having written MATLAB</td>
 </tr>
 </table>

@@ -8,7 +8,7 @@ year: 2008
 <li>Automated Protein Crystallography (Prof. Igor Jurisica, UHN Research Associate Christian A. Cumbaa)</li>
 <li>Searching the Sky (Prof. Sam Roweis, Graduate Student Dustin Lang)</li>
 <li>ShapeShop (Prof. Karan Singh, Prof. Ravin Balakrishnan, Graduate Student Ryan Schmidt)</li>
-<li>Snowflock: Virtual Machine Framework for Parallel and Data-Intensive Computing (Prof. Eyal de Lara, Prof. Michael Brudno, Graduate Students H. Andr&eacute;s Lagar Cavilla and Joe Whitney)</li>
+<li>Snowflock: Virtual Machine Framework for Parallel and Data-Intensive Computing (Prof. Eyal de Lara, Prof. Michael Brudno, Graduate Students H. Andrés Lagar Cavilla and Joe Whitney)</li>
 <li>Rethinking Access Control with Social Networks (Prof. Yashar Ganjali, Prof. Stefan Saroiu, Graduate Student Amin Tootoonchian)</li>
 <li>A Content Delivery System for Bluetooth (Prof. Stefan Saroiu, Graduate Student Tim Smith)</li>
 <li>Technology to Support Cognition and Combat Memory Impairments (Prof. Ron Baecker, FIS Graduate Student Karen Louise Smith, Political Science Undergraduate Masashi C. Nishihata)</li>

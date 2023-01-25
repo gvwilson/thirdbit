@@ -386,8 +386,8 @@ favorite: true
 <div>
   <div align="center">
     <img src="{{ '/talks/img/swc-1998.gif' | relative_url }}" alt="Logo 1998" height="75" />
-    &nbsp;
-    &nbsp;
+     
+     
     <img src="{{ '/talks/img/swc-2004.gif' | relative_url }}" alt="Logo 2004" height="75" />
     <br/>
     <img src="{{ '/talks/img/swc-2007.jpg' | relative_url }}" alt="Logo 2007" height="75" />
@@ -410,13 +410,13 @@ favorite: true
 <div>
   <div align="center">
     <img src="{{ '/talks/img/blue-and-sentimental.jpg' | relative_url }}" alt="Blue and Sentimental" width="30%"/>
-    &nbsp;
-    &nbsp;
+     
+     
     <img src="{{ '/talks/img/easy-living.jpg' | relative_url }}" alt="Easy Living" width="30%"/>
     <br/>
     <img src="{{ '/talks/img/heavy-soul.jpg' | relative_url }}" alt="Heavy Soul" width="30%"/>
-    &nbsp;
-    &nbsp;
+     
+     
     <img src="{{ '/talks/img/soul-samba.jpg' | relative_url }}" alt="Soul Samba" width="30%"/>
   </div>
   <blockquote>
@@ -592,7 +592,7 @@ favorite: true
     </h4>
   </div>
   <div align="right">
-    <h4>&mdash; Carl Sagan</h4>
+    <h4>– Carl Sagan</h4>
   </div>
   <blockquote>
     <p>
@@ -616,9 +616,9 @@ favorite: true
 <div>
   <div align="center">
     <img src="{{ '/talks/img/bury-the-chains.jpg' | relative_url }}" width="30%" />
-    &nbsp;
+     
     <img src="{{ '/talks/img/sisters.jpg' | relative_url }}" width="30%" />
-    &nbsp;
+     
     <img src="{{ '/talks/img/victory.jpg' | relative_url }}" width="30%" />
   </div>
   <div align="center">
@@ -627,7 +627,7 @@ favorite: true
     </h4>
   </div>
   <div align="right">
-    &mdash; Bruce Cockburn
+    – Bruce Cockburn
   </div>
   <blockquote>
     <p>
@@ -735,7 +735,7 @@ favorite: true
     <p>
       <em>Remember, you still have a lot of good times in front of you.</em>
       <br/>
-      &mdash; Jeff Wilson
+      – Jeff Wilson
     </p>
     <br/>
     <h2>Thank you.</h2>

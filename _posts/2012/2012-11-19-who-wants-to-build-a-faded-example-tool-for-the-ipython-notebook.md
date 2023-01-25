@@ -43,4 +43,4 @@ original: swc
 </table>
 <p>The column on the left is read-only. Whenever the user clicks the "reset" button, the code with blanks is copied over to the right column. Whenever the user clicks "run", the code is re-run, and the actual output is compared to the expected output (and if it's textual, differences are colorized to draw the eye).</p>
 
-<p>I <em>think</em> this is "just" a bit of Javascript&mdash;anyone want to take a crack at it and let me know?</p>
+<p>I <em>think</em> this is "just" a bit of Javascript–anyone want to take a crack at it and let me know?</p>

@@ -8,7 +8,7 @@ original: nwit
 <p>
   I noted earlier this week that the ACM was making papers from this year's
   <a href="https://icer.hosting.acm.org/">International Computing Education Research</a> conference
-  freely available&mdash;but only for two weeks,
+  freely available–but only for two weeks,
   which isn't what anyone else means by "open access"
   (and is frankly ridiculous).
   I'm therefore grateful to <a href="http://twistedsquare.com/">Neil Brown</a> for pointing out

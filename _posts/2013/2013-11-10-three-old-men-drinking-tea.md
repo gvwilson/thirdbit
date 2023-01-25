@@ -22,7 +22,7 @@ year: 2013
   I think about those three old men a lot when I'm working with other programmers.
   Some are perpetually grumpy because things are perpetually broken
   (and yes, I count myself among their number).
-  Others can always find some new meme or tool to be pleased about&mdash;so pleased
+  Others can always find some new meme or tool to be pleased about–so pleased
   that they insist on always using the latest hotness for everything,
   even when stuff that's old enough to be properly tested and documented
   would do the job equally well.

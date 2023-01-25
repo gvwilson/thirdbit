@@ -8,7 +8,7 @@ original: swc
   Most musicians can play along with a twelve-bar blues
   once they know what the key and tempo are.
   Many kinds of scientific work are equally well structured:
-  the results aren't predictable&mdash;it wouldn't be research if they were&mdash;but
+  the results aren't predictable–it wouldn't be research if they were–but
   the equipment setup, sample preparation, note-taking, statistics, and write-up
   are (mostly) structured in ways that other scientists are familiar with.
   This lets them pick up each other's projects more quickly;
@@ -16,8 +16,8 @@ original: swc
   because they don't have to spend time thinking about the things that aren't.
 </p>
 <p>
-  Open science&mdash;by which I mean all the new ways of doing science
-  that the web has inspired&mdash;isn't there yet.
+  Open science–by which I mean all the new ways of doing science
+  that the web has inspired–isn't there yet.
   Many people have tools and techniques that work well for them,
   but every setup is one-of-a-kind,
   and everyone has had to assemble the pieces for themselves.
@@ -40,7 +40,7 @@ original: swc
   the things that were specific to it,
   and other competent developers could join in (more) easily.
   What's more,
-  Rails' predictable structure and workflow made it easier for newcomers to adopt&mdash;certainly
+  Rails' predictable structure and workflow made it easier for newcomers to adopt–certainly
   easier than contemporary competitors,
   which all-too-often required novices to make key decisions
   before they had the knowledge or experience to do so well.
@@ -77,7 +77,7 @@ original: swc
   <li>
     <em>Everything automatically accessible on the web, for the long term.</em>
     As soon as I create a project,
-    other scientists should be able to query my data&mdash;not just download it,
+    other scientists should be able to query my data–not just download it,
     but query it.
     <a href="http://en.wikipedia.org/wiki/Open_Data_Protocol">OData</a>
     and
@@ -88,8 +88,8 @@ original: swc
     Everything else should automatically be accessible too:
     every paper, figure, or table should have a DOI and be searchable and fetchable.
     And note that "accessible" doesn't just mean "the bits are available":
-    without correct documentation of formats and semantics&mdash;which most scientists
-    never quite get around to writing by hand&mdash;data rusts
+    without correct documentation of formats and semantics–which most scientists
+    never quite get around to writing by hand–data rusts
     almost as quickly as code.
   </li>
   <li>
@@ -125,14 +125,14 @@ original: swc
     ideologically incompatible acquisition
     can have wide-reaching impact.
     We know how to distribute information so that it can survive
-    the disappearance of its initial host&mdash;BitTorrent is just one example.
+    the disappearance of its initial host–BitTorrent is just one example.
     I hope that whatever else "Science on Rails" is,
     it will be robustly federated from the ground up.
   </li>
 </ol>
 <p>
   What else would you add to this list?
-  What would you want to see in a framework for 4&times;8 projects
+  What would you want to see in a framework for 4×8 projects
   (i.e., ones where four people work together for eight months to produce a result)?
   What pieces of the solution are already out there,
   waiting to be integrated?

@@ -13,8 +13,8 @@ original: swc
 </p>
 <p>
   There were a bunch of reasons for using Pandoc instead of Jekyll,
-  but it is now clear that the simplicity of only committing Markdown&mdash;i.e.,
-  of using GitHub pages the way they're meant to be used&mdash;is more important.
+  but it is now clear that the simplicity of only committing Markdown–i.e.,
+  of using GitHub pages the way they're meant to be used–is more important.
   We have therefore created a prototype of a Jekyll-based template.
   The most important changes are:
 </p>

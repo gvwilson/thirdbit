@@ -1,5 +1,5 @@
 ---
-title: "Fogel's &quot;Producing Open Source Software&quot;"
+title: "Fogel's Producing Open Source Software"
 date: 2005-11-24 14:15:42
 year: 2005
 ---

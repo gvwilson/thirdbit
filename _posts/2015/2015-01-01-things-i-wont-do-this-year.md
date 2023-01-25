@@ -71,7 +71,7 @@ year: 2015
   </dt>
   <dd>
     <p>
-      Or the drums, or maybe piano&mdash;I haven't played piano in over thirty years,
+      Or the drums, or maybe piano–I haven't played piano in over thirty years,
       but listening to my daughter learn it has made me wish I still could.
     </p>
   </dd>
@@ -87,7 +87,7 @@ year: 2015
     <p>
       I care a lot about <a href="https://software-carpentry.org">Software Carpentry</a>,
       but I've been running without a salary since the end of October,
-      and that has to end&mdash;soon.
+      and that has to end–soon.
     </p>
   </dd>
   <dt>
@@ -109,7 +109,7 @@ year: 2015
   </dt>
   <dd>
     <p>
-      2014 was a difficult year&mdash;my exit from Mozilla was a lot bumpier than I'd hoped,
+      2014 was a difficult year–my exit from Mozilla was a lot bumpier than I'd hoped,
       and I simply didn't make time or have energy to exercise.
       That's not a good thing given the history of heart disease in my family,
       so swimming or biking two or three times a week isn't really optional any more.

@@ -149,7 +149,7 @@ original: swc
       It's the examples that illustrate ideas particularly well,
       how long lessons take,
       the instructors' collective understanding of what's likely to go wrong in those lessons and how to fix it,
-      and so on&mdash;in short,
+      and so on–in short,
       the collective wisdom of a specific teaching community.
     </p>
     <p>
@@ -267,9 +267,9 @@ original: swc
       and positive openness
       (a sincere effort to make everyone feel welcome and help them take part).
       A code of conduct isn't
-      the only way to achieve the latter&mdash;Hacker School has
+      the only way to achieve the latter–Hacker School has
       their <a href="https://www.hackerschool.com/manual">User's Manual</a>,
-      and Ascend has its <a href="https://github.com/mozilla/ascendproject/blob/gh-pages/course_materials/policies/_posts/2014-09-08-class-agreements.md">class agreement</a>&mdash;but
+      and Ascend has its <a href="https://github.com/mozilla/ascendproject/blob/gh-pages/course_materials/policies/_posts/2014-09-08-class-agreements.md">class agreement</a>–but
       there has to be something in place
       if you truly want all kinds of learners.
     </p>

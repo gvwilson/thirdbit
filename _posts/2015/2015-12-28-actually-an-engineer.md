@@ -65,7 +65,7 @@ year: 2015
   What ties these together is the belief that if we start with,
   "I don't know, but I can find out",
   we can make our world better.
-  That&mdash;the use of the scientific method to improve the universe instead of merely understanding it&mdash;is
+  That–the use of the scientific method to improve the universe instead of merely understanding it–is
   as good a definition of engineering as I know.
   Among all the thoughts prompted by this
   <a href="{{'/2015/09/22/dad/' | relative_url}}">difficult</a>

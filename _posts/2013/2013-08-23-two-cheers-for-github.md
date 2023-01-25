@@ -35,7 +35,7 @@ original: swc
   to display to you.
 </p>
 <p>
-  The key thing here&mdash;the thing that fuelled Facebook's explosive growth&mdash;is
+  The key thing here–the thing that fuelled Facebook's explosive growth–is
   that Facebook doesn't have to write, debug, and maintain the Scrabble program.
   They didn't have to create ZooVille, either,
   or the appointment calendar app my saxophone teacher used to use,
@@ -59,7 +59,7 @@ original: swc
   could wrap those up as a plugin
   so that people could browser for hotspots in their R code
   as they were doing code reviews.
-  Imagine&mdash;
+  Imagine–
 </p>
 <p>
   What's that?

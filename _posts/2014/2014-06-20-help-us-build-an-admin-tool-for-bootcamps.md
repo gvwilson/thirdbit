@@ -13,11 +13,11 @@ original: swc
   a developer at Mozilla,
   put together a simple browser-on-the-desktop app
   to help administrators find instructors based on geography and skills.
-  We'd like many other features&mdash;in particular,
-  bulk upload of attendance lists from bootcamps&mdash;so if you would like to help us out,
+  We'd like many other features–in particular,
+  bulk upload of attendance lists from bootcamps–so if you would like to help us out,
   please clone this repository
   and send us fixes and additions.
 </p>
 <p>
-  Many thanks to Atul for getting us started&mdash;we're looking forward to <em>not</em> grepping for instructors any more :-).
+  Many thanks to Atul for getting us started–we're looking forward to <em>not</em> grepping for instructors any more :-).
 </p>

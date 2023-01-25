@@ -1,5 +1,5 @@
 ---
-title: "&quot;...But Nobody To Know What It Is&quot;"
+title: "'…But Nobody To Know What It Is'"
 date: 2008-05-03 06:50:53
 year: 2008
 ---

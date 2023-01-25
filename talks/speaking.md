@@ -92,7 +92,7 @@ may also be helpful.*
 
 ### Ticket to full event
 
-- As [Tatiana says][tatiana], you wouldn't think it would be necessary to spell this out...
+- As [Tatiana says][tatiana], you wouldn't think it would be necessary to spell this out…
 
 ## Logistics
 

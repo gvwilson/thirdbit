@@ -10,7 +10,7 @@ original: swc
   David LeBauer,
   Fran&ccedil;ois Michonneau,
   Sarah Mount,
-  Timoth&eacute;e Poisot,
+  Timothée Poisot,
   Kara Woo,
   Naupaka Zimmerman,
   and

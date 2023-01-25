@@ -1,5 +1,5 @@
 ---
-title: "Udell on Beautiful Code (and &quot;narrating the work&quot;)"
+title: "Udell on Beautiful Code (and 'narrating the work')"
 date: 2007-07-30 08:52:33
 year: 2007
 ---

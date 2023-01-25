@@ -10,6 +10,6 @@ original: swc
   $21 million in grants to fourteen investigators in the emerging field of data-driven discovery.
   Among the recipients are Titus Brown and Ethan White,
   who have both been key contributors to Software Carpentry.
-  Congratulations to them and to the other award winners&mdash;we look forward to working with them
+  Congratulations to them and to the other award winners–we look forward to working with them
   in the years to come.
 </p>

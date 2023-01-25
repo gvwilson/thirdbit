@@ -37,7 +37,7 @@ year: 2014
   their specialty doesn't fit any of our categories,
   or that the categories themselves don't make sense.
   I agree with the complaint,
-  and would be happy to use some sort of validated standard taxonomy&mdash;except
+  and would be happy to use some sort of validated standard taxonomy–except
   none seems to exist.
   Journals and professional societies all have classification schemes,
   but they tend to be very fish-eyed

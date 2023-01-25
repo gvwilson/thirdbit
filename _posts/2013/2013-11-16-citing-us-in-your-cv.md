@@ -30,5 +30,5 @@ original: swc
   All of these look good to us,
   and we're always happy to write letters of reference for people who've helped us by teaching,
   coding,
-  or writing lesson materials&mdash;please <a href="mailto:{{site.author.email}}">email us</a> if we can help.
+  or writing lesson materials–please <a href="mailto:{{site.author.email}}">email us</a> if we can help.
 </p>

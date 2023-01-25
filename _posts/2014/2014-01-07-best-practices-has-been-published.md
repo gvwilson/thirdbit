@@ -81,5 +81,5 @@ original: swc
   Mark Plumbley,
   Ben Waugh,
   Ethan White,
-  and Paul Wilson&mdash;it was a pleasure writing with you.
+  and Paul Wilson–it was a pleasure writing with you.
 </p>

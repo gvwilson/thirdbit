@@ -7,7 +7,7 @@ original: swc
 <p>
   I feel like there should be a Software Carpentry badge for drawing one of these for someone for the first time.
   <br/>
-  &mdash; Amy Brown on <a href="https://twitter.com/amyrbrown/status/410480413808009216">Twitter</a>
+  – Amy Brown on <a href="https://twitter.com/amyrbrown/status/410480413808009216">Twitter</a>
 </p>
 <p>
   <img src="{{'/files/2013/12/how-github-works.jpg' | relative_url}}" alt="How GitHub Works" />

@@ -7,7 +7,7 @@ original: swc
 <p>
   You probably haven't seen the 1998 movie <a href="http://www.imdb.com/title/tt0120738/"><em>Lost in Space</em></a>,
   or if you have,
-  you've suppressed the memory&mdash;it was awful.
+  you've suppressed the memory–it was awful.
   But I do know one guy who enjoyed it.
   His name was Joe,
   and he had worked on the software used to create its special effects.
@@ -39,7 +39,7 @@ original: swc
   and what novices find easy or hard.
 </p>
 <p>
-  It feels in places like two conversations have been interleaved&mdash;like
+  It feels in places like two conversations have been interleaved–like
   some people are looking at the effects
   and others are thinking about character development.
   Given our mission,

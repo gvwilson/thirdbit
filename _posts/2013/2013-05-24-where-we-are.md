@@ -182,8 +182,8 @@ John Cook posted <a href="http://blog.codekills.net/">this</a> to his widely-rea
     how to create security holes...
   </li>
   <li>
-    We need to persuade the powers that be&mdash;funding agencies,
-    departmental chairs, etc.&mdash;that this stuff deserves institutional backing.
+    We need to persuade the powers that be–funding agencies,
+    departmental chairs, etc.–that this stuff deserves institutional backing.
     Many believe it's important;
     what's hard is persuading them that it's <em>more</em> important than
     things that are already in the curriculum,
@@ -206,5 +206,5 @@ John Cook posted <a href="http://blog.codekills.net/">this</a> to his widely-rea
   Before then,
   though,
   we will have some exciting news to announce,
-  so please keep an eye on this blog&mdash;we think you'll like what you see.
+  so please keep an eye on this blog–we think you'll like what you see.
 </p>

@@ -1,5 +1,5 @@
 ---
-title: "Schneier's Review of &quot;Access Denied&quot;"
+title: "Schneier's Review of 'Access Denied'"
 date: 2008-04-07 09:25:15
 year: 2008
 ---

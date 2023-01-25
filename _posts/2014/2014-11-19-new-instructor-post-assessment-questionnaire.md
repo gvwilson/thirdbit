@@ -12,7 +12,7 @@ original: swc
   and how it's going.
   The latest draft can be viewed <a href="http://goo.gl/forms/nwV8yZl3sb">here</a>,
   and is included below.
-  We'd be grateful for one last round of feedback&mdash;in particular,
+  We'd be grateful for one last round of feedback–in particular,
   we're concerned about (a) the overall length
   and (b) how closely the headings are tied to our current curriculum.
   Please let us know what you think in comments on this post.

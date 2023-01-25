@@ -54,7 +54,7 @@ favorite: true
   I did this to myself.
   When I left Mozilla last summer I expected things would be difficult,
   but as a result of me trusting the wrong people,
-  it went even worse than I'd feared&mdash;so much so that
+  it went even worse than I'd feared–so much so that
   I wound up working without pay in November and December,
   and not long after found out that a major funder had blacklisted me because I was "difficult".
   Things were so bad at one point that I decided I'd better polish my rusty programming skills,
@@ -106,7 +106,7 @@ favorite: true
   and it was every bit as unhealthy.
   And of course when email withdrawal made me twitchy I started making more mistakes,
   which meant more things went wrong,
-  which made me feel even more that I had to get online and sort it all out&mdash;all of it,
+  which made me feel even more that I had to get online and sort it all out–all of it,
   whether it was important or not,
   and my family paid the price.
 </p>

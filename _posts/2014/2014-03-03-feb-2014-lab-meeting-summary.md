@@ -18,7 +18,7 @@ original: swc
   </li>
   <li><strong>Communications</strong>
     <ul>
-      <li>Several people have said that they find it hard to keep track of upcoming bootcamps&mdash;in particular, that they sometimes hear about a bootcamp they could have volunteered at only after it's over.</li>
+      <li>Several people have said that they find it hard to keep track of upcoming bootcamps–in particular, that they sometimes hear about a bootcamp they could have volunteered at only after it's over.</li>
       <li>We will start including a list of all upcoming bootcamps in the weekly summaries of Software Carpentry activity on the Mozilla Science Lab blog and on our own blog as well.</li>
       <li>We also recommend using <code>#swcSITE</code> as a Twitter hashtag during bootcamps (e.g., <code>#swcUBC</code>).</li>
     </ul>
@@ -55,7 +55,7 @@ original: swc
   </li>
   <li><strong>PyCon 2014</strong>
     <ul>
-      <li>We still have lots of spaces in our bootcamp on April 14-15 in Montreal&mdash;please help get the word out to your friends and colleagues.</li>
+      <li>We still have lots of spaces in our bootcamp on April 14-15 in Montreal–please help get the word out to your friends and colleagues.</li>
       <li>We will be taking Software Carpentry folks out for dinner during the conference: stay tuned for details.</li>
       <li>And we'll be at SciPy in Austin in July: again, please stay tuned for details.</li>
     </ul>

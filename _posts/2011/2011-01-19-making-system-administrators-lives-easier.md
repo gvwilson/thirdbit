@@ -4,7 +4,7 @@ year: 2011
 original: swc
 title: Making System Administrators' Lives Easier
 ---
-<p>Google's Thomas Limoncelli (author of <a href="http://www.amazon.com/Management-System-Administrators-Thomas-Limoncelli/dp/0596007833"><em>Time Management for System Administrators</em></a>) has an article in <a href="http://queue.acm.org"><em>ACM Queue</em></a> titled "<a href="http://queue.acm.org/detail.cfm?id=1921361">A Plea to Software Vendors from Sysadmins&mdash;10 Do's and Don'ts</a>". His list is:</p>
+<p>Google's Thomas Limoncelli (author of <a href="http://www.amazon.com/Management-System-Administrators-Thomas-Limoncelli/dp/0596007833"><em>Time Management for System Administrators</em></a>) has an article in <a href="http://queue.acm.org"><em>ACM Queue</em></a> titled "<a href="http://queue.acm.org/detail.cfm?id=1921361">A Plea to Software Vendors from Sysadmins–10 Do's and Don'ts</a>". His list is:</p>
 <ol>
 <li>Do have a "silent install" option.</li>
 <li>Don't make the administrative interface a GUI.</li>

@@ -146,7 +146,7 @@ evidence-based software engineering</td>
 <p>Coming back to content, this plans means that we'll leave out a lot of useful things:</p>
 <ol>
 <li>Spreadsheets: lots of scientists use spreadsheets badly, but while we'd like to show them how to do so well, the only one they actually use, Excel, isn't open source or cross platform, and it's much harder to build programs around spreadsheets than around databases.</li>
-<li>Make: is very hard to motivate unless people are working with compiled languages&mdash;we've tried showing people how to build data pipelines using Make, but it's too clumsy to be compelling. Plus, Make's syntax makes a hard problem worse...</li>
+<li>Make: is very hard to motivate unless people are working with compiled languages–we've tried showing people how to build data pipelines using Make, but it's too clumsy to be compelling. Plus, Make's syntax makes a hard problem worse...</li>
 <li>Systems programming: knowing how to walk directory trees and/or run sub-processes is useful, but we think people can pick these up on their own once they've mastered the core.</li>
 <li>Matrix programming: really important to some people, irrelevant to others, and the people it's important to will probably have seen the ideas in something like MATLAB before we get them.</li>
 <li>Multimedia programming (images, audio, and video): people can learn basic image manipulation on their own; audio and video are harder, mostly due to a lack of documentation, but they aren't important enough to enough people to belong in our core.</li>

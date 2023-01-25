@@ -18,7 +18,7 @@ original: swc
   This course covers some of the simple but powerful skills that all scientists should know in a world of increasingly complex analyses.
   It is based on the book <em>Practical Computing for Biologists</em>, from Sinauer Associates, written by the instructors.
   This is not strictly a bioinformatics or programming course, although the lessons are applicable to molecular data.
-  The skills are applicable to ecology, neurobiology, zoology &mdash;
+  The skills are applicable to ecology, neurobiology, zoology –
   any subdiscipline where gathering and analyzing moderate to large data sets are required.
   The specific sections include working with text files,
   command-line operations,
@@ -33,6 +33,6 @@ original: swc
   "This would have save me hours just last week,"
   or "I wish I knew about this when I was in grad school!"
   The target audience for the course is anyone with data: grad students, post-docs, technicians, and faculty.
-  There are no hard pre-requisites, but participants should bring their own computer &mdash;
+  There are no hard pre-requisites, but participants should bring their own computer –
   preferably one that they use in their daily work.
 </p>

@@ -1,5 +1,5 @@
 ---
-title: "What &quot;Community&quot; Actually Means"
+title: "What 'Community' Actually Means"
 date: 2008-01-12 18:03:32
 year: 2008
 ---

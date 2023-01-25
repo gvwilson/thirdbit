@@ -1,5 +1,5 @@
 ---
-title: "Jim Waldo: &quot;On System Design&quot;"
+title: "Jim Waldo: 'On System Design'"
 date: 2006-10-30 17:51:01
 year: 2006
 ---

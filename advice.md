@@ -148,7 +148,7 @@ and on the experiences of friends and colleagues there and at other companies.
     Can you make a presentation as part of some other event (rather than organizing a gathering of your own)?
     Can you get someone with a higher profile to mention what you're doing and point people your way?
     Can you post notices in the lunchroom? The elevator? The washrooms? Local restaurants?
-    Some people will do things for t-shirts and stickers that they won't do for money...
+    Some people will do things for t-shirts and stickers that they won't do for money…
     And always share a single point of contact that someone actually checks (frequently).
 
 8)  Collect data but tell stories.
@@ -182,7 +182,7 @@ Data scientists often have to bridge the divide between academic research and
 commercial practice.  The ten simple rules listed below may help mitigate the
 frustration you encounter as you try to o this.
 
-### If you are a researcher in academia...
+### If you are a researcher in academia…
 
 1)  Remember that companies work in weeks, not seasons.
 :   Academic semesters are rooted in the seasons of an agricultural era, but
@@ -230,7 +230,7 @@ frustration you encounter as you try to o this.
     Kafkaesque production pipelines and interminable delays is to have them watch
     Gilliam's *Brazil*.
 
-### If you are a practitioner in industry...
+### If you are a practitioner in industry…
 
 6)  Remember that universities work in seasons, not weeks.
 :   The timescale mis-match described in Rule #1 is due in part to the fact that
@@ -271,7 +271,7 @@ frustration you encounter as you try to o this.
     found that regular doses of a new drug seems to slow tumor growth in lab rats,
     do not embarrass them by claiming that they have discovered a cure for cancer.
 
-### If you are either...
+### If you are either…
 
 10) Apologize in advance for the state of your data.
 :   The final rule applies equally to both researchers and practitioners. Files'
@@ -427,11 +427,11 @@ See *[Teaching Tech Together][t3]* for a much longer discussion.
 
 1.  Be kind: all else is details.
 
-1.  Remember that you are not your learners...
+1.  Remember that you are not your learners…
 
-1.  ...that most people would rather fail than change...
+1.  …that most people would rather fail than change…
 
-1.  ...and that ninety percent of magic consists of knowing one extra thing.
+1.  …and that ninety percent of magic consists of knowing one extra thing.
 
 1.  Never teach alone.
 
@@ -439,11 +439,11 @@ See *[Teaching Tech Together][t3]* for a much longer discussion.
 
 1.  Make every mistake a lesson.
 
-1.  Remember that no lesson survives first contact with learners...
+1.  Remember that no lesson survives first contact with learners…
 
-1.  ...that every lesson is too short from the teacher's point of view and too long from the learner's...
+1.  …that every lesson is too short from the teacher's point of view and too long from the learner's…
 
-1.  ...and that nobody will be more excited about the lesson than you are.
+1.  …and that nobody will be more excited about the lesson than you are.
 
 ## Supervising Undergraduate Software Projects
 

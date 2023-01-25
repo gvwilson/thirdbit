@@ -91,10 +91,10 @@ original: swc
 <p>
   We've never done this for Software Carpentry,
   primarily because we've never found someone willing to back the necessary study.
-  It wouldn't take a lot&mdash;two dozen subjects for two days each,
+  It wouldn't take a lot–two dozen subjects for two days each,
   an equal amount of time to categorize and re-categorize the observations,
   plus setup and travel,
-  works out to about six months of full-time effort&mdash;but
+  works out to about six months of full-time effort–but
   time and again,
   people have thought they think they can skip this step
   and magically land on the right result anyway.
@@ -143,7 +143,7 @@ original: swc
     (Basically,
     they either take testing to heart or leave it on the shelf completely.)
     My current hypothesis is that
-    the kind of unit testing done in commercial software&mdash;the kind I've been teaching&mdash;isn't
+    the kind of unit testing done in commercial software–the kind I've been teaching–isn't
     appropriate to most small-scale scientific coding,
     but I need to talk to a lot more people to firm this up
     and figure out what to do about it.

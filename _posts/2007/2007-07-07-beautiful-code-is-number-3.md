@@ -1,5 +1,5 @@
 ---
-title: "&quot;Beautiful Code&quot; Is Number 3"
+title: "Beautiful Code Is Number 3"
 date: 2007-07-07 07:05:21
 year: 2007
 ---

@@ -16,7 +16,7 @@ original: swc
   <a href="http://ess.q-review.qmul.ac.uk:8080/ess/echo/presentation/c663b08c-96d3-42ec-bbd0-8f2dadb71a0f">learning how to learn</a>;
   and Ariel Rokem and Shreyas Cholia talked about their experiences teaching in New Zealand in
   <a href="https://cc.callinfo.com/play?id=7vd31u">a recent Mozilla community call</a>.
-  (You need to enter a name&mdash;any will do&mdash;on the launch page for the recording,
+  (You need to enter a name–any will do–on the launch page for the recording,
   and then scroll ahead manually to 00:04:54 to hear them
   because the Flash player won't let me hyperlink directly to a particular time mark.
   The irony of both hasn't escaped us...)

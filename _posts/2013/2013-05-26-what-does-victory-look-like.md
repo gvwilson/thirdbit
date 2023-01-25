@@ -10,14 +10,14 @@ original: swc
   open reviews,
   citeable data,
   new ways to measure contributions,
-  automatically tracking the provenance of every calculation&mdash;each
+  automatically tracking the provenance of every calculation–each
   has emerged from its chrysalis and is just waiting for its wings to dry
   so that it can take flight.
 </p>
 <p>
   Our job is to give scientists the skills they need to nurture these ideas.
   For the last post in this series,
-  I'd therefore like to talk about what victory will look like&mdash;i.e.,
+  I'd therefore like to talk about what victory will look like–i.e.,
   how scientists' lives will be different
   if and when the things we teach become as routine as doing statistics.
   My vision is simple:
@@ -78,7 +78,7 @@ original: swc
 <p>
   And yes,
   it's often hard to test scientific code,
-  and it's also often not even appropriate&mdash;just think of
+  and it's also often not even appropriate–just think of
   the twenty lines of R that turn a bunch of CSV files into a line graph.
   But that brings us to the third of our "other things",
   which includes things like structured program design
@@ -108,7 +108,7 @@ original: swc
 </p>
 <ol>
   <li>It's all just data.</li>
-  <li>Data doesn't mean anything on its own&mdash;it has to be interpreted.</li>
+  <li>Data doesn't mean anything on its own–it has to be interpreted.</li>
   <li>Programming is about creating and composing abstractions.</li>
   <li>Models for computers, views for people.</li>
   <li>Paranoia makes us productive.</li>

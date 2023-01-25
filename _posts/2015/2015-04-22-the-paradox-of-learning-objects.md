@@ -32,29 +32,29 @@ original: swc
   <p>
     The Reusability Paradox typically leads designers of learning objects to attempt to "strike a balance" between effectiveness and reusability.
     This generally results in materials that are neither particularly effective NOR particularly reusable across contexts.
-    No one wants to trade efficacy for reusability (or for lower cost, or for anything else &mdash;
+    No one wants to trade efficacy for reusability (or for lower cost, or for anything else –
     as the recent Babson survey <a href="http://opencontent.org/blog/archives/3619">showed</a>,
     faculty want proven efficacy more than anything else).
     And yet we do this all the time without really realizing it.
     Instead of targeting a specific audience and a specific context,
     almost all teaching materials adopt their own version of Wikipedia's
     <a href="http://en.wikipedia.org/wiki/Wikipedia:Neutral_point_of_view">Neutral Point of View</a>.
-    Educational materials &mdash; and learning objects specifically &mdash; try to be just generic enough so as to not be offensive to anyone.
+    Educational materials – and learning objects specifically – try to be just generic enough so as to not be offensive to anyone.
     They lack what Giant Robot Dinosaur calls
     a <a href="http://avc.com/2011/09/minimum-viable-personality/">Minimum Viable Personality</a>.
   </p>
   <p>
     For example,
     take teaching materials about the Ruby programming language.
-    Here are the first three results that come up for me after searching for Ruby tutorials &mdash;
+    Here are the first three results that come up for me after searching for Ruby tutorials –
     <a href="https://www.ruby-lang.org/en/documentation/quickstart/">Ruby in 20 Minutes</a>,
     <a href="http://rubylearning.com/satishtalim/first_ruby_program.html">My First Ruby Program</a>,
     and <a href="http://www.tutorialspoint.com/ruby/ruby_quick_guide.htm">Ruby Quick Reference Guide</a>.
     They're each so bland and generic as to be almost indistinguishable from each other.
     Contrast these resources with <a href="http://mislav.uniqpath.com/poignant-guide/book/chapter-4.html">Why's Poignant Guide to Ruby</a>.
     You can actually distinguish this resource from the others.
-    It was obviously written with a specific audience in mind &mdash; and they love it.
-    But the internal context created in Why's Poignant Guide &mdash; the cartoon foxes, Blix the cat, etc. &mdash;
+    It was obviously written with a specific audience in mind – and they love it.
+    But the internal context created in Why's Poignant Guide – the cartoon foxes, Blix the cat, etc. –
     are SIMULTANEOUSLY what makes it awesome for a specific audience and what prevents it from being reused more broadly.
   </p>
 </blockquote>
@@ -76,7 +76,7 @@ original: swc
 <p>
   Respectfully,
   I think this is simplistic.
-  Learning someone else's material well enough to revise and remix it takes time&mdash;so much time,
+  Learning someone else's material well enough to revise and remix it takes time–so much time,
   in many cases,
   that it's more efficient for any particular teacher to create their own lesson.
 </p>

@@ -4,11 +4,11 @@ date: 2013-09-15 12:00:00
 year: 2013
 ---
 <p>
-  I submitted this proposal to PyCon 2014&mdash;win or lose, I hope to see you all there.
+  I submitted this proposal to PyCon 2014–win or lose, I hope to see you all there.
 </p>
 <table class="table table-striped">
   <tr>
-    <td>Submitted&nbsp;by:</td>
+    <td>Submitted by:</td>
     <td>Greg Wilson</td>
   </tr>
   <tr>
@@ -16,7 +16,7 @@ year: 2013
     <td>Education </td>
   </tr>
   <tr>
-    <td>Python&nbsp;Level:</td>
+    <td>Python Level:</td>
     <td>Novice </td>
   </tr>
   <tr>

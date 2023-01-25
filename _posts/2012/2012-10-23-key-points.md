@@ -36,7 +36,7 @@ original: swc
         <li><code>mkdir <em>path</em></code> creates a new directory.</li>
         <li><code>cp <em>old</em> <em>new</em></code> copies a file.</li>
         <li><code>mv <em>old</em> <em>new</em></code> moves (renames) a file or directory.</li>
-        <li><code>nano</code> is a very simple text editor&mdash;please use something else for real work.</li>
+        <li><code>nano</code> is a very simple text editor–please use something else for real work.</li>
         <li><code>rm <em>path</em></code> removes (deletes) a file.</li>
         <li><code>rmdir <em>path</em></code> removes (deletes) an empty directory.</li>
 </ul>

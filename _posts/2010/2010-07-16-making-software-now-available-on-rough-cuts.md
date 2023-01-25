@@ -1,5 +1,5 @@
 ---
-title: "&quot;Making Software&quot; Now Available on Rough Cuts"
+title: "Making Software Now Available on Rough Cuts"
 date: 2010-07-16 16:30:05
 year: 2010
 ---

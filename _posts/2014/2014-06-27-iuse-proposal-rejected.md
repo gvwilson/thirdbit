@@ -243,8 +243,8 @@ original: swc
     Structured Programming: this module teaches learners introductory
     Python or R. Learners will be able to write short scripts and work
     in IPython Notebook, RStudio, or similar environments. This module
-    will also teach key ideas&mdash;iteration, conditional statements,
-    and modularity&mdash;that are essential for computational
+    will also teach key ideas–iteration, conditional statements,
+    and modularity–that are essential for computational
     competence.
   </li>
   <li>
@@ -806,8 +806,8 @@ original: swc
     connect them with 21st Century innovations in how science is done
     are flying blind: there is effectively no feedback from long-term
     impact to instructional action. By creating and validating such a
-    feedback loop&mdash;i.e., by showing scientists how to apply
-    science to their teaching&mdash;this project will demonstrate how
+    feedback loop–i.e., by showing scientists how to apply
+    science to their teaching–this project will demonstrate how
     STEM education can be continuously improved.
   </li>
   <li>

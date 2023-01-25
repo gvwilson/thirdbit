@@ -1,5 +1,5 @@
 ---
-title: "&quot;Beautiful Code&quot; Nominated for Jolt Award"
+title: "Beautiful Code Nominated for Jolt Award"
 date: 2007-12-20 06:51:44
 year: 2007
 ---

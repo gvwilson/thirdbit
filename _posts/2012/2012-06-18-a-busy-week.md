@@ -42,4 +42,4 @@ title: A Busy Week (And Schwag!)
 </tbody>
 </table>
 <p>In amongst all of this, we're revising a paper on recommend practices for scientific computing, summarizing our assessment of the impact our workshops have had, filling in a few more blanks in our instructors' guide, and talking to four sites about running workshops in the fall.</p>
-<p>We also now have t-shirts, coffee mugs, stickers, and other schwag&mdash;please check out our store and send us pictures of you showing your Software Carpentry pride :-)</p>
+<p>We also now have t-shirts, coffee mugs, stickers, and other schwag–please check out our store and send us pictures of you showing your Software Carpentry pride :-)</p>

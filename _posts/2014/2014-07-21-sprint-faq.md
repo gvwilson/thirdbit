@@ -16,7 +16,7 @@ original: swc
   <dd>
     July 22 and 23, 2014.
     Each site will be open during normal business hours
-    (roughly 9:00 am to 5:00 pm local time&mdash;we'll post exact times a week before the sprint starts).
+    (roughly 9:00 am to 5:00 pm local time–we'll post exact times a week before the sprint starts).
     We do <em>not</em> want people to work round the clock:
     work done at 3:00 am usually needs to be undone at 10:00 am.
   </dd>
@@ -45,7 +45,7 @@ original: swc
 
   <dt><em>Do I have to be at one of the <a href="#sites">listed sites</a>?</em></dt>
   <dd>
-    Not at all&mdash;many people will be available to help out and answer questions online.
+    Not at all–many people will be available to help out and answer questions online.
     But if you <em>can</em> get to one of the listed sites,
     it would be a chance to make some new friends.
   </dd>
@@ -88,7 +88,7 @@ original: swc
   <dd>
     <ol>
       <li>Add yourself to <a href="https://etherpad.mozilla.org/sciencelab-2014summersprint-sites">the Etherpad</a>.</li>
-      <li>Decide which project you'd like to work on.  (We recommend that people focus on just one&mdash;two days goes by very quickly.)</li>
+      <li>Decide which project you'd like to work on.  (We recommend that people focus on just one–two days goes by very quickly.)</li>
       <li>Have a look at the project's open issues and pull requests to find something to start working on.</li>
     </ol>
   </dd>
@@ -169,7 +169,7 @@ original: swc
       <tr>
 	<td>Krak&oacute;w (PL): Klemens Noga</td>
 	<td>Ljubljana (SI): Jure Triglav</td>
-	<td>Paris (FR): Tarek Ziad&eacute;</td>
+	<td>Paris (FR): Tarek Ziadé</td>
       </tr>
       <tr>
 	<td>London (UK): Sarah Allen</td>
@@ -229,5 +229,5 @@ original: swc
 </dl>
 
 <p>
-  We'll be talking about the sprint at this week's Mozilla Science Lab community call&mdash;we hope to see you there.
+  We'll be talking about the sprint at this week's Mozilla Science Lab community call–we hope to see you there.
 </p>

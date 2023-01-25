@@ -6,7 +6,7 @@ original: swc
 ---
 <p>As noted in the minutes from our meeting on Monday, one of the many things we want to improve about our workshops is the attendance rate. While we get near-complete turnout for some, we have 50% no-shows for others, which is disappointing for instructors, and unfair to people left on the waiting list.</p>
 
-<p>One idea is to charge $20 or so to help people decide if they're serious about taking part or not. However, we've been told in the past that as soon as we start charging, some universities will start to charge <em>us</em> for space, network access, and so on. I agree with their reasons&mdash;it would be chaos if random people could use their facilities for profit and not give any back to the university&mdash;but in some cases, what they'd charge us would far exceed what we'd get from learners.</p>
+<p>One idea is to charge $20 or so to help people decide if they're serious about taking part or not. However, we've been told in the past that as soon as we start charging, some universities will start to charge <em>us</em> for space, network access, and so on. I agree with their reasons–it would be chaos if random people could use their facilities for profit and not give any back to the university–but in some cases, what they'd charge us would far exceed what we'd get from learners.</p>
 
 <p>Here's one data point:</p>
 <blockquote>Even with the proceeds going to charity it seems we would have to pay [the university's] "associate rate". For the room we used in the last workshop, which was quite crowded with 40 students + helpers, this would be &pound;165 per day, so about &pound;8 per attendee for two days.</blockquote>

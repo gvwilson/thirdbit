@@ -20,12 +20,12 @@ original: swc
   their colleagues in Europe will come online;
   they'll hand off to people in North and South America,
   who will in turn hand off to the Western Pacific, and around we'll go again.
-  Groups will keep normal hours&mdash;no all-nighters, please&mdash;but by the time we wrap up,
+  Groups will keep normal hours–no all-nighters, please–but by the time we wrap up,
   we'll have been working for 30 hours straight.
 </p>
 <p><strong>What We'll Be Doing</strong></p>
 <p>
-  Anything related to teaching and doing open science is welcome to join&mdash;the only requirements are that
+  Anything related to teaching and doing open science is welcome to join–the only requirements are that
   there be something concrete to start with
   (because experience shows that starting with a blank screen is a good way to spend two days going in circles),
   and that someone volunteer to coordinate the work.

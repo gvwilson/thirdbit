@@ -12,7 +12,7 @@ original: swc
   and 
   <a href="https://pypi.python.org/pypi/nbdiff">PyPI</a>.
   NBDiff was created by a team of students at
-  <a href="http://www.concordia.ca/">Concordia University</a> in Montr&eacute;al;
+  <a href="http://www.concordia.ca/">Concordia University</a> in Montréal;
   our thanks and congratulations to Shurouq Abusalah,
   Tavish Armstrong,
   Marwa Malti,

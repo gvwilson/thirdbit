@@ -16,5 +16,5 @@ original: swc
   We will return to our respective projects on Monday morning in a more efficient and collaborative way.
   Thank you Software Carpentry.
   <br/>
-  &mdash; James Manning
+  – James Manning
 </blockquote>

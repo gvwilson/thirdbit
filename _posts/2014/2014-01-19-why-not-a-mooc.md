@@ -42,7 +42,7 @@ original: swc
   </li>
 </ol>
 <p>
-  The web will revolutionize education some day&mdash;how could it not?
+  The web will revolutionize education some day–how could it not?
   We're keen to see how this space evolves,
   as there are definite opportunities in online, distributed learning,
   but while online education and MOOCs are still working out the kinks,

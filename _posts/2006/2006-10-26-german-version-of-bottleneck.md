@@ -1,5 +1,5 @@
 ---
-title: "German Version of &quot;Bottleneck&quot;"
+title: "German Version of 'Bottleneck'"
 date: 2006-10-26 10:06:39
 year: 2006
 ---

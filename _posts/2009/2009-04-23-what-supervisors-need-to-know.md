@@ -14,5 +14,5 @@ title: What Supervisors Need To Know
 <li><em>How to manage collaboration between students, data archives, etc?</em></li>
 <li><em>How to make sense of and build upon work done by previous students?</em></li>
 </ul>
-<p><em>On a more personal note&mdash;I would enjoy my supervisor having a clearer idea of what I do.</em></p>
+<p><em>On a more personal note–I would enjoy my supervisor having a clearer idea of what I do.</em></p>
 <p>It's an interesting list, and quite different from a grad student's. What else do you think people directing computational research, rather than doing it themselves, need to know?</p>

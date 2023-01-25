@@ -109,7 +109,7 @@ preq: [http://github.com/user/repo/tree/commitid, http://github.com/anotheruser/
   The terms defined in the glossary could be used as a specification of what this lesson talks about
   in place of keywords in <code>index.md</code>,
   but it's redundant to have both.
-  The reference guide is similarly redundant&mdash;we can point people at any number of online references written by other people&mdash;but
+  The reference guide is similarly redundant–we can point people at any number of online references written by other people–but
   we do need something,
   since learners tell us after almost every workshop that they want a cheat sheet of some kind.
 </p>

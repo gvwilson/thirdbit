@@ -9,12 +9,12 @@ What is often forgotten is how brave he was,
 both in what he was willing to say and in how self-critical he was willing to be.
 A prime example started with this exchange with the president he loathed in February 1972:
 
-> Whatever else might be said about Nixon&mdash;and there is still serious doubt in my mind
-> that he could pass for Human&mdash;he is a goddamn stone fanatic on every facet of pro football.
+> Whatever else might be said about Nixon–and there is still serious doubt in my mind
+> that he could pass for Human–he is a goddamn stone fanatic on every facet of pro football.
 > At one point in our conversation,
 > when I was feeling a bit pressed for leverage,
-> I mentioned a down & out pass&mdash;in the waning moments of the 1967 Super Bowl mismatch
-> between Green Bay and Oakland&mdash;to an obscure, second-string Oakland receiver named Bill Miller
+> I mentioned a down & out pass–in the waning moments of the 1967 Super Bowl mismatch
+> between Green Bay and Oakland–to an obscure, second-string Oakland receiver named Bill Miller
 > that had stuck in my mind because of it's pin-point style & precision.
 > He hesitated for a moment,
 > lost in thought,

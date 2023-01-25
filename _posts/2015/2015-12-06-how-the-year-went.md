@@ -15,7 +15,7 @@ year: 2015
   </li>
   <li>
     Turn the instructor training course into something other people can read and understand:
-    huh&mdash;it actually happened (kind of).
+    huh–it actually happened (kind of).
   </li>
   <li>
     Finish any of the fiction I've been working on:
@@ -57,7 +57,7 @@ year: 2015
   <li>
     Revise <a href="http://sensibleadventures.com/works-in-progress/madica/"><em>Madica</em></a>:
     nope.
-    I feel bad about this&mdash;I really wanted to get it ready by Christmas.
+    I feel bad about this–I really wanted to get it ready by Christmas.
   </li>
   <li>
     Move to England:

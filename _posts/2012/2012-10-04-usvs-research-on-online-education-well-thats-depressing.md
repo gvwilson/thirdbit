@@ -1,5 +1,5 @@
 ---
-title: "USV's &quot;Research&quot; on Online Education: Well, That's Depressing"
+title: "USV's 'Research' on Online Education: Well, That's Depressing"
 date: 2012-10-04 13:39:32
 year: 2012
 ---

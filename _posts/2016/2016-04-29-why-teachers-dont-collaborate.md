@@ -151,7 +151,7 @@ year: 2016
       <em>
 	This kind of "not yet" argument is also unfalsifiable
 	(like claims by members of many millenarian movements,
-	for whom the apocalypse is definitely coming&mdash;yup,
+	for whom the apocalypse is definitely coming–yup,
 	absolutely, any day now).
       </em>
     </p>

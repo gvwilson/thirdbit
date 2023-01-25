@@ -87,7 +87,7 @@ original: swc
   <p>
     The teachers described lessons they gave and things students said,
     but they did not <em>see</em> the practices.
-    When it came to observing actual lessons&dash;watching each other teach&mdash;they simply had no opportunity...
+    When it came to observing actual lessons&dash;watching each other teach–they simply had no opportunity...
     They had, he realized, no <em>jugyokenkyu</em>.
     Translated literally as "lesson study",
     <em>jugyokenkyu</em> is a bucket of practices that Japanese teachers use to hone their craft,
@@ -124,8 +124,8 @@ original: swc
     the one you planned and the four you did not...
     and you had to do it right under your master teacher's nose.
     Afterward,
-    everyone&mdash;the teacher, the college students,
-    and sometimes even another outside observer&mdash;would
+    everyone–the teacher, the college students,
+    and sometimes even another outside observer–would
     sit around a formal table to talk about what they saw.
   </p>
   <p>

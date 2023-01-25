@@ -33,7 +33,7 @@ title: Comparing Software Carpentry to CS Principles
 <li><strong>The student can use programming as a creative tool</strong>: ditto.</li>
 <li><strong>The student can describe the combination of abstractions used to represent data</strong>: this is the realization of our "it's all just data" big idea, so yes.</li>
 <li><strong>The student can explain how binary sequences are used to represent digital data</strong>: I think this is just a particular instance of #5 above.</li>
-<li><strong>The student can develop an abstraction</strong>: we fold this into #1&mdash;in order to develop artifacts (programs), Software Carpentry learners are going to have to develop and understand abstractions.</li>
+<li><strong>The student can develop an abstraction</strong>: we fold this into #1–in order to develop artifacts (programs), Software Carpentry learners are going to have to develop and understand abstractions.</li>
 <li><strong>The student can use multiple levels of abstraction in computation</strong>: as above.</li>
 <li><strong>The student can use models and simulations to raise and answer questions</strong>: this is a big goal of our course.</li>
 <li><strong>The student can use computers to process information to gain insight and knowledge</strong>: again, this is a big goal of our course.</li>
@@ -50,17 +50,17 @@ title: Comparing Software Carpentry to CS Principles
 <li>explain how some problems cannot be solved using any algorithm.</li>
 </ul>
 We have explicitly <em>not</em> included this in Software Carpentry, as our experience has been that there's nothing substantive we can teach in the hour or two we'd be able to devote to it that would actually make a difference. Given more time, though...</li>
-<li><strong>The student can evaluate algorithms analytically and empirically</strong>: I agree it's important, but it's not really our focus&mdash;we are definitely <em>not</em> trying to cram an entire CS degree into a short course.</li>
+<li><strong>The student can evaluate algorithms analytically and empirically</strong>: I agree it's important, but it's not really our focus–we are definitely <em>not</em> trying to cram an entire CS degree into a short course.</li>
 <li><strong>The student can explain how programs implement algorithms</strong>, e.g., explain how instructions are processed: this should be in Software Carpentry, but isn't right now.</li>
 <li><strong>The student can use abstraction to manage complexity in programs</strong>: again, I think learners have to do this to build the artifacts we ask them to build.</li>
 <li><strong>The student can evaluate a program for correctness</strong>: we should do more of this.</li>
 <li><strong>The student can develop a correct program</strong>: I hope so.</li>
-<li><strong>The student can employ appropriate mathematical and logical concepts in programming</strong>: not really&mdash;we don't touch on things like pre- and post-conditions, invariants, and the like because we're teaching the craft of programming rather than the science of computing.</li>
+<li><strong>The student can employ appropriate mathematical and logical concepts in programming</strong>: not really–we don't touch on things like pre- and post-conditions, invariants, and the like because we're teaching the craft of programming rather than the science of computing.</li>
 <li><strong>The student can explain the abstractions in the Internet and how the Internet functions</strong>: not currently part of our core, because we don't think we can teach people enough about web programming in a short course to let them do anything except create security holes. I'd be very happy to be persuaded otherwise...</li>
 <li><strong>The student can explain characteristics of the Internet and the systems built on it</strong>: as above.</li>
 <li><strong>The student can analyze how characteristics of the Internet and systems built on it influence their use</strong>: as above.</li>
 <li><strong>The student can connect the concern of cybersecurity with the Internet and systems built on it</strong>: as above.</li>
-<li><strong>The student can analyze how computing affects communication, interaction, and cognition</strong>: out of scope&mdash;though I hope we're preparing learners to hear what people like <a href="http://cameronneylon.net/">Cameron Neylon</a>, <a href="http://michaelnielsen.org/blog/michael-a-nielsen/">Michael Nielsen</a>, and <a href="http://blog.jonudell.net/">Jon Udell</a> are saying about this.</li>
+<li><strong>The student can analyze how computing affects communication, interaction, and cognition</strong>: out of scope–though I hope we're preparing learners to hear what people like <a href="http://cameronneylon.net/">Cameron Neylon</a>, <a href="http://michaelnielsen.org/blog/michael-a-nielsen/">Michael Nielsen</a>, and <a href="http://blog.jonudell.net/">Jon Udell</a> are saying about this.</li>
 <li><strong>The student can connect computing with innovations in other fields</strong>: not us.</li>
 <li><strong>The student can analyze the beneficial and harmful effects of computing</strong>: as above.</li>
 <li><strong>The student can connect computing within economic, social, and cultural contexts</strong>: as above.</li>

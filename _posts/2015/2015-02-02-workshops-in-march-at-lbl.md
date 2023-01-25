@@ -36,7 +36,7 @@ original: swc
   and how to write simple dynamic web applications.
   Participants must have previous programming experience in Python;
   prior experience writing HTML is useful but not essential.
-  The course is open to staff at LBL&mdash;space is limited,
+  The course is open to staff at LBL–space is limited,
   so please register early at <a href="http://go.lbl.gov/sc-web-prog-mar13">http://go.lbl.gov/sc-web-prog-mar13</a>.
 </p>
 <p>

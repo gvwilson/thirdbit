@@ -6,11 +6,11 @@ original: swc
 ---
 <p>
   Last week,
-  we ran our first bootcamp in Brazil&mdash;many thanks to Raniere Silva
+  we ran our first bootcamp in Brazil–many thanks to Raniere Silva
   for <a href="http://blog.rgaiacs.com/2014/05/14/furg.html">this writeup</a>
   about what worked and what didn't.
   We'll visit several other new countries over the next three months,
-  as well as running a bunch of other events&mdash;we'll post again
+  as well as running a bunch of other events–we'll post again
   as registration opens up for these:
 </p>
 <table class="table table-striped bootcamps">
@@ -46,7 +46,7 @@ original: swc
 </tr>
 <tr>
   <td class="link"><a href="http://ptone.github.io/2014-06-16-claremont/">Claremont Colleges</a></td>
-  <td>Los&nbsp;Angeles</td>
+  <td>Los Angeles</td>
   <td class="date">Jun 16-17, 2014</td>
 </tr>
 <tr>
@@ -81,7 +81,7 @@ original: swc
 </tr>
 <tr>
   <td class="link"><a href="http://mollygibson.github.io/2014-08-11-wustl/">Washington University School of Medicine</a></td>
-  <td>St.&nbsp;Louis</td>
+  <td>St. Louis</td>
   <td class="date">Aug 11-12, 2014</td>
 </tr>
 <tr>

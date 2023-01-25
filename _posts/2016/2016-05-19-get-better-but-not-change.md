@@ -8,7 +8,7 @@ year: 2016
     The tragedy of the Hapsburgs was that they wanted things to get better,
     but couldn't bear the thought that anything might actually change.
     <br/>
-    &mdash; <a href="http://www.amazon.com/Thunder-Twilight-Vienna-1913-1914/dp/0306823268/">Frederic Morton</a>
+    – <a href="http://www.amazon.com/Thunder-Twilight-Vienna-1913-1914/dp/0306823268/">Frederic Morton</a>
   </em>
 </blockquote>
 <p>

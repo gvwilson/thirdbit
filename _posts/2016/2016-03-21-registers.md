@@ -48,7 +48,7 @@ year: 2016
   I wonder to what extent this mis-match fosters and nurtures
   <a href="http://web.stanford.edu/~roypea/RoyPDF%20folder/A28_Pea_86.pdf">Roy Pea's "superbug"</a>:
   the belief that the computer is like an intelligent human trying to discern our intentions.
-  And I wonder what a genuinely casual programming language would look like&mdash;my
+  And I wonder what a genuinely casual programming language would look like–my
   first thougth is a horrible mash-up of every bad auto-complete tool I've ever been subjected to,
   but surely there has to be something better.
 </p>

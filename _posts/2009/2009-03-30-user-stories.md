@@ -4,7 +4,7 @@ year: 2009
 original: swc
 title: User Stories
 ---
-<p>One of the tricks I teach my undergraduates is to create fictional personas to describe the intended users of a system&mdash;or in this case, a course.  Here are three of the "people" I've had in mind while developing Software Carpentry to date; my goal is to update these stories to better reflect how scientists work today.</p>
+<p>One of the tricks I teach my undergraduates is to create fictional personas to describe the intended users of a system–or in this case, a course.  Here are three of the "people" I've had in mind while developing Software Carpentry to date; my goal is to update these stories to better reflect how scientists work today.</p>
 <p><strong>Bhargan Basepair</strong></p>
 <p>Bhargan Basepair received a B.Sc. in biochemistry five years ago.  He has been working since then for Genes'R'Us, a biotech firm with labs in four countries.  He did a Java programming course as a freshman, and a bioinformatics course using Perl as a senior.</p>
 <p>Bhargan and his colleagues are developing fuzzy pattern-matching algorithms for finding similarities between DNA records in standard databases.  To help other Genes'R'Us researchers, and to test his group's heuristics, Bhargan runs an overnight sequence query service. Researchers email sequences in a variety of formats (in-line, attachments, URLs to pages behind the company firewall, etc.). Bhargan saves them in files called <code>search/a.in</code>, <code>search/b.in</code>, and so on, then edits them to add query directives.  He is very conscientious, and almost never accidentally overwrites one query with another.</p>

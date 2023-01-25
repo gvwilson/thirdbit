@@ -1,5 +1,5 @@
 ---
-title: "Expressing Temporal &quot;Type&quot; Information in Programs"
+title: "Expressing Temporal 'Type' Information in Programs"
 date: 2006-11-11 15:50:21
 year: 2006
 ---

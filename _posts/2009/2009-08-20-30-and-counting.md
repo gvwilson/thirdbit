@@ -18,7 +18,7 @@ and we're hoping for more in the next couple of weeks from:
 	<li>University of Calgary</li>
 	<li>University of Saskatchewan</li>
 	<li>Carleton University</li>
-	<li>Universit&eacute; Laval</li>
+	<li>Université Laval</li>
 	<li>Memorial University</li>
 </ul>
 The list of projects has grown as well:

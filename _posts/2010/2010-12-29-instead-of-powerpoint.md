@@ -17,7 +17,7 @@ When I'm presenting in person, I budget roughly three minutes per slide.  I don'
 
 <img title="ppt-side-reveal" src="{{'/files/2010/12/ppt-side-reveal-300x148.png' | relative_url}}" alt="" width="300" height="148" />
 
-When I first started creating screencasts back in May, I quickly realized that my "static slide for three minutes" style didn't work: unless something was changing on screen every 15 seconds or so, viewers' attention would wander.  I experimented with using progressive reveal in PowerPoint, but discovered three shortcomings.  First, there is no easy way to sync my scripts (written in the notes portion of the slide) with the reveal of particular elements.  Second, when slides are exported to PNG or PDF, the progression is lost&mdash;everything comes out together.  Third, there's no way for an element to span several slides: PowerPoint insists on a strict slide/object hierarchy.
+When I first started creating screencasts back in May, I quickly realized that my "static slide for three minutes" style didn't work: unless something was changing on screen every 15 seconds or so, viewers' attention would wander.  I experimented with using progressive reveal in PowerPoint, but discovered three shortcomings.  First, there is no easy way to sync my scripts (written in the notes portion of the slide) with the reveal of particular elements.  Second, when slides are exported to PNG or PDF, the progression is lost–everything comes out together.  Third, there's no way for an element to span several slides: PowerPoint insists on a strict slide/object hierarchy.
 
 The third point is the key to what I want instead.  I want to be able to create "slides" like this:
 

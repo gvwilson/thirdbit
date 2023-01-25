@@ -166,4 +166,4 @@ title: Progress Of A Sort
 </tr>
 </tbody>
 </table>
-<p>167,673 words might seem like a lot, but based on past experience, I think I'm about halfway to a readable book&mdash;editing is always as much work as writing stuff in the first place.</p>
+<p>167,673 words might seem like a lot, but based on past experience, I think I'm about halfway to a readable book–editing is always as much work as writing stuff in the first place.</p>

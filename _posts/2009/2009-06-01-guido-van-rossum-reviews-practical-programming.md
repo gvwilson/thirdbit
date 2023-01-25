@@ -1,5 +1,5 @@
 ---
-title: "Guido van Rossum reviews &quot;Practical Programming&quot;"
+title: "Guido van Rossum reviews 'Practical Programming'"
 date: 2009-06-01 05:59:26
 year: 2009
 ---

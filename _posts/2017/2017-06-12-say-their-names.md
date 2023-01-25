@@ -5,7 +5,7 @@ year: 2017
 ---
 
 <table>
-  <tr><td>Edward Sotomayor Jr.</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Stanley Almodovar III</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Luis Omar Ocasio-Capo</td></tr>
+  <tr><td>Edward Sotomayor Jr.</td><td>    </td><td>Stanley Almodovar III</td><td>    </td><td>Luis Omar Ocasio-Capo</td></tr>
   <tr><td>Juan Ramon Guerroro</td><td></td><td>Eric Ivan Ortiz-Rivera</td><td></td><td>Peter O. Gonzalez-Cruz</td></tr>
   <tr><td>Luis S. Vielma</td><td></td><td>Kimberly Morris</td><td></td><td>Eddie Jamoldroy Justice</td></tr>
   <tr><td>Darryl Roman Burt II</td><td></td><td>Deonka Deidra Drayton</td><td></td><td>Alejandro Barrios Martinez</td></tr>

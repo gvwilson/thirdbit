@@ -79,7 +79,7 @@ year: 2016
   How about enforcing a delay (the second of Megan's points):
   if the system bounced any replies posted in less than 10 minutes,
   would that enforced cooling off lead to more reasonable, and more participatory, discussion?
-  Somebody must have tried this in real life&mdash;pointers would be very welcome.
+  Somebody must have tried this in real life–pointers would be very welcome.
 </p>
 <p id="1">
   [1] To view these,

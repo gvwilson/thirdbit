@@ -8,6 +8,6 @@ original: swc
   Katy Huff has written <a href="http://sciencereview.berkeley.edu/wise-athena-swifter-hermes/">an article</a>
   for the Berkeley Science Review
   about our recent bootcamp for women in science and engineering in California.
-  It's a good summary of what Software Carpentry is all about as well&mdash;please
+  It's a good summary of what Software Carpentry is all about as well–please
   check it out.
 </p>

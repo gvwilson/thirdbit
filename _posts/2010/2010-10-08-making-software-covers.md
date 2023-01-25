@@ -1,5 +1,5 @@
 ---
-title: "&quot;Making Software&quot; Covers"
+title: "'Making Software' Covers"
 date: 2010-10-08 00:24:18
 year: 2010
 ---

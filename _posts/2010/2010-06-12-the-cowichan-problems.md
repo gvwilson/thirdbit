@@ -20,7 +20,7 @@ title: The Cowichan Problems
 <tr>
 <td>t<sub>p</sub></td>
 <td>=</td>
-<td>&sigma;t<sub>1</sub> + (1 &mdash; &sigma;)t<sub>1</sub>/p</td>
+<td>&sigma;t<sub>1</sub> + (1 – &sigma;)t<sub>1</sub>/p</td>
 </tr>
 </tbody>
 </table>
@@ -35,12 +35,12 @@ title: The Cowichan Problems
 <tr>
 <td></td>
 <td>=</td>
-<td>t<sub>1</sub>/(&sigma;t<sub>1</sub> + (1 &mdash; &sigma;)t<sub>1</sub>/p)</td>
+<td>t<sub>1</sub>/(&sigma;t<sub>1</sub> + (1 – &sigma;)t<sub>1</sub>/p)</td>
 </tr>
 <tr>
 <td></td>
 <td>=</td>
-<td>1/(&sigma; + (1 &mdash; &sigma;)/p)</td>
+<td>1/(&sigma; + (1 – &sigma;)/p)</td>
 </tr>
 </tbody>
 </table>
@@ -51,7 +51,7 @@ title: The Cowichan Problems
 <tr>
 <td>T<sub>p</sub></td>
 <td>=</td>
-<td>&sigma;T<sub>1</sub> + (1 &mdash; &sigma;)T<sub>1</sub>/p + D</td>
+<td>&sigma;T<sub>1</sub> + (1 – &sigma;)T<sub>1</sub>/p + D</td>
 </tr>
 </tbody>
 </table>
@@ -73,7 +73,7 @@ title: The Cowichan Problems
 </ul>
 <p>The aim of this problem suite is to capture enough information about <em>D</em> to allow competing parallel programming systems to be ranked and compared.</p>
 <h3>Previous Work</h3>
-<p>Two comparative efforts in parallel programming are [<a href="#bib-babb">Babb 1988</a>] and [<a href="#bib-salishan">Feo 1992</a>]. The first presented implementations of a simple numerical quadrature program in more than a dozen different parallel languages used on mid-1980s hardware. The second presented implementations of the Salishan Problems&mdash;Hamming number generation, isomer enumeration, skyline matrix reduction, and a simple discrete event simulator&mdash;in C*, Occam, Ada, and several dataflow and functional languages. Both books conveyed the flavor of the languages they describe, but neither compared languages or problem implementations directly.</p>
+<p>Two comparative efforts in parallel programming are [<a href="#bib-babb">Babb 1988</a>] and [<a href="#bib-salishan">Feo 1992</a>]. The first presented implementations of a simple numerical quadrature program in more than a dozen different parallel languages used on mid-1980s hardware. The second presented implementations of the Salishan Problems–Hamming number generation, isomer enumeration, skyline matrix reduction, and a simple discrete event simulator–in C*, Occam, Ada, and several dataflow and functional languages. Both books conveyed the flavor of the languages they describe, but neither compared languages or problem implementations directly.</p>
 <p>More recently, Lutz has explored quantitative comparison of the relative productivity of different programming languages [<a href="#bib-prechelt-languages">Prechelt 2000</a>, <a href="#bib-prechelt-web">Prechelt 2009</a>]. Our aim is to support replication of his work for parallel programming.</p>
 <h2><a name="method"></a>Methodology</h2>
 <p>Our aim is to assess and compare the usability of parallel programming systems. Here, we discuss issues related to choosing the problems that make up our benchmark suite, how to assess particular implementations, and other purposes which implementations of these might serve. Recognizing that our problems are extremely simple, we refer to them as "toys".</p>
@@ -82,11 +82,11 @@ title: The Cowichan Problems
 <ul>
 <li>Each toy should require no more than an hour to write and test in a well-supported sequential language. We feel that making individual problems more complicated will only discourage uptake.</li>
 <li>Correctness must be easy to verify. Toys whose output is easily visualized are therefore preferred, as are toys whose results are insensitive to floating-point effects.</li>
-<li>Speedup must similarly be easy to measure&mdash;while machine performance is not our focus, we are generally uninterested in parallel implementations that are slower than the sequential originals.</li>
+<li>Speedup must similarly be easy to measure–while machine performance is not our focus, we are generally uninterested in parallel implementations that are slower than the sequential originals.</li>
 <li>At least some toys should not be "infinitely scalable". Many real-world applications are not, and this suite should reflect such limitations.</li>
 <li>At least some toys should require I/O, since this important aspect of real-world programming is often neglected by PPS designers.</li>
 <li>There should be some overlap in the toys' implementations, so that implementors can demonstrate how well their chosen systems take advantage of opportunities for code re-use.</li>
-<li>Together, the toys in the suite must exercise the parallel clich&eacute;s discussed in the appendices. In particular,</li>
+<li>Together, the toys in the suite must exercise the parallel clichés discussed in the appendices. In particular,</li>
 <li>Toys should be specified by inputs and outputs rather than algorithmically, i.e., "sort N integers" rather than "parallelize quicksort", so that implementors can choose algorithms that are "natural" for their systems. Implementations that parallelize a grossly inefficient sequential algorithm should be criticized for doing so.</li>
 </ul>
 <h3>Software Engineering Issues</h3>
@@ -96,7 +96,7 @@ title: The Cowichan Problems
 <h3>Sizing</h3>
 <p>One crucial aspect of the specification of toys is the way in which the sizes of problems are determined. In a <em>frozen</em> model, the actual size of each problem and/or the number of processors available is compiled into each toy. A fully <em>fluid</em> implementation, by contrast, allows these sizes to be specified at run-time. If a system does not support fully-fluid implementations, it must at least use an intermediate model (which might be called <em>slushy</em>), in which the maximum size of individual problems is specified during compilation, but the actual size of a problem is only determined when the toy begins to execute.</p>
 <h3>Assessing Usability</h3>
-<p>One way to compare the usability of parallel programming systems would be to measure the performance achieved by an "average" programmer as a function of time on each toy. By analogy with Hockney's <em>n<sub>1/2</sub></em> measure [<a href="#bib-hockney">Hockney 1991</a>], we could in principle find the value of <em>p<sub>1/2</sub></em>&mdash;the programming time required to achieve half of a machine's peak performance for a particular combination of programming system and problem type.  (Note that if performance was measured as a fraction of the figures quoted by manufacturers for their machines, it is unlikely that the halfway mark would ever be reached.) However, the number of implementors required is much greater than the number we can reasonably expect.</p>
+<p>One way to compare the usability of parallel programming systems would be to measure the performance achieved by an "average" programmer as a function of time on each toy. By analogy with Hockney's <em>n<sub>1/2</sub></em> measure [<a href="#bib-hockney">Hockney 1991</a>], we could in principle find the value of <em>p<sub>1/2</sub></em>–the programming time required to achieve half of a machine's peak performance for a particular combination of programming system and problem type.  (Note that if performance was measured as a fraction of the figures quoted by manufacturers for their machines, it is unlikely that the halfway mark would ever be reached.) However, the number of implementors required is much greater than the number we can reasonably expect.</p>
 <p>Alternatively, we could use code metrics to compare implementations of various toys. This is also dubious, both because [<a href="#bib-el-emam">El Emam 2001</a>] has shown that most metrics do little more than measure lines of code, and because of the difficulty of comparing metric values between languages.</p>
 <p>The best we can hope for now is therefore qualitative consensus, e.g., to interview implementors about their experiences and ask other programmers who are familiar with the base languages used to read and comment on the parallel versions of the toys. We will also compare the length of code in parallel and sequential implementations, though we realize that this can exaggerate the impact of parallelization.</p>
 <h3>Other Uses for Implementations</h3>
@@ -112,7 +112,7 @@ title: The Cowichan Problems
 <li>A vector of <code>L</code> <code>(m,x,y)</code> points is created using the integer matrix <code>I</code> and the Boolean matrix <code>B</code>.</li>
 <li>A series of convex hulls (<code>hull</code>) are obtained from the points produced above.</li>
 <li>The coordinates of the points from the previous step are normalized (<code>norm</code>).</li>
-<li>An <code>L&times;L</code> matrix <code>A</code> and an <code>L</code>-vector <code>V</code> are created using the normalized point locations from the previous step (<code>outer<code>).</code></code></li>
+<li>An <code>L×L</code> matrix <code>A</code> and an <code>L</code>-vector <code>V</code> are created using the normalized point locations from the previous step (<code>outer<code>).</code></code></li>
 <li>The matrix equation <code>AX=V</code> is solved using Gaussian elimination (<code>gauss</code>) and successive over-relaxation (<code>sor</code>) to generate two solution vectors <code>X<sub>gauss</sub></code> and <code>X<sub>sor</sub></code>. These two toys should execute concurrently if possible.</li>
 <li>The checking vectors <code>V<sub>gauss</sub>=AX<sub>gauss</sub></code> and <code>V<sub>sor</sub>=AX<sub>sor</sub></code> are calculated (<code>product</code>). These two toys should execute concurrently if possible.</li>
 <li>The norm-1 distance between <code>V<sub>gauss</sub></code> and <code>V<sub>sor</sub></code> is calculated (<code>vecdiff</code>). This measures the agreement between the solutions found by the two methods.</li>
@@ -140,7 +140,7 @@ title: The Cowichan Problems
 <li><code>ordered</code>: the vector of output points (a permutation of the input).</li>
 </ul>
 <h3><code>invperc</code>: Invasion Percolation</h3>
-<p>Invasion percolation models the displacement of one fluid (such as oil) by another (such as water) in fractured rock. In two dimensions, this can be simulated by generating an <em>N&times;N</em> grid of random numbers in the range <em>[1..R]</em>, and then marking the center cell of the grid as filled. In each iteration, one examines the four orthogonal neighbors of all filled cells, chooses the one with the lowest value (i.e., the one with the least resistance to filling), and fills it in.</p>
+<p>Invasion percolation models the displacement of one fluid (such as oil) by another (such as water) in fractured rock. In two dimensions, this can be simulated by generating an <em>N×N</em> grid of random numbers in the range <em>[1..R]</em>, and then marking the center cell of the grid as filled. In each iteration, one examines the four orthogonal neighbors of all filled cells, chooses the one with the lowest value (i.e., the one with the least resistance to filling), and fills it in.</p>
 <p>Filling begins at the central cell of the matrix (rounding down for even-sized axes). The simulation continues until some fixed percentage of cells have been filled, or until some other condition (such as the presence of trapped regions) is achieved. The fractal structure of the filled and unfilled regions is then examined to determine how much oil could be recovered.</p>
 <p>The na&iuml;ve way to implement this is to repeatedly scan the array. A much faster technique is to maintain a priority queue of unfilled cells which are neighbors of filled cells. This latter technique is similar to the list-based methods used in some cellular automaton programs, and is very difficult to parallelize effectively.</p>
 <p><strong>Inputs</strong></p>
@@ -170,7 +170,7 @@ title: The Cowichan Problems
 <tr>
 <td>x'</td>
 <td>=</td>
-<td>x<sup>2</sup> &mdash; y<sup>2</sup> + y<sub>0</sub></td>
+<td>x<sup>2</sup> – y<sup>2</sup> + y<sub>0</sub></td>
 </tr>
 <tr>
 <td>y'</td>
@@ -191,13 +191,13 @@ title: The Cowichan Problems
 <li><code>matrix</code>: an integer matrix containing the iteration count at each point in the region.</li>
 </ul>
 <h3><code>norm</code>: Point Location Normalization</h3>
-<p>This module normalizes point coordinates so that all points lie within the unit square [0..1]&times;[0..1]. If <em>x<sub>min</sub></em> and <em>x<sub>max</sub></em> are the minimum and maximum <em>x</em> coordinate values in the input vector, then the normalization equation is</p>
+<p>This module normalizes point coordinates so that all points lie within the unit square [0..1]×[0..1]. If <em>x<sub>min</sub></em> and <em>x<sub>max</sub></em> are the minimum and maximum <em>x</em> coordinate values in the input vector, then the normalization equation is</p>
 <table>
 <tbody>
 <tr>
 <td>x<sub>i</sub>'</td>
 <td>=</td>
-<td>(x<sub>i</sub> &mdash; x<sub>min</sub>)/(x<sub>max</sub> &mdash; x<sub>min</sub>)</td>
+<td>(x<sub>i</sub> – x<sub>min</sub>)/(x<sub>max</sub> – x<sub>min</sub>)</td>
 </tr>
 </tbody>
 </table>
@@ -211,7 +211,7 @@ title: The Cowichan Problems
 <li><code>points</code>: a vector of normalized point locations.</li>
 </ul>
 <h3><code>outer</code>: Outer Product</h3>
-<p>This module turns a vector containing point positions into a dense, symmetric, diagonally dominant <em>N&times;N</em> matrix by calculating the distances between each pair of points. It also constructs a real vector whose values are the distance of each point from the origin.  Each matrix element <em>M<sub>i,j</sub></em> such that <em>i &ne; j</em> is given the value <em>d<sub>i,j</sub></em>, the Euclidean distance between point <em>i</em> and point <em>j</em>. The diagonal values <em>M<sub>i,i</sub></em> are then set to <em>N</em> times the maximum off-diagonal value to ensure that the matrix is diagonally dominant. The value of the vector element <em>v<sub>i</sub></em> is set to the distance of point <em>i</em> from the origin, which is given by <em>&radic;(x<sub>i</sub><sup>2</sup> + y<sub>i</sub><sup>2</sup>)</em>.</p>
+<p>This module turns a vector containing point positions into a dense, symmetric, diagonally dominant <em>N×N</em> matrix by calculating the distances between each pair of points. It also constructs a real vector whose values are the distance of each point from the origin.  Each matrix element <em>M<sub>i,j</sub></em> such that <em>i &ne; j</em> is given the value <em>d<sub>i,j</sub></em>, the Euclidean distance between point <em>i</em> and point <em>j</em>. The diagonal values <em>M<sub>i,i</sub></em> are then set to <em>N</em> times the maximum off-diagonal value to ensure that the matrix is diagonally dominant. The value of the vector element <em>v<sub>i</sub></em> is set to the distance of point <em>i</em> from the origin, which is given by <em>&radic;(x<sub>i</sub><sup>2</sup> + y<sub>i</sub><sup>2</sup>)</em>.</p>
 <p><strong>Inputs</strong></p>
 <ul>
 <li><code>points</code>: a vector of <em>(x,y)</em> points, where <em>x</em> and <em>y</em> are the point's position.</li>

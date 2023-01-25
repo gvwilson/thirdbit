@@ -13,7 +13,7 @@ year: 2015
   was neutralized by the system and converted into an instrument of consolidation.
 </p>
 <p>
-  &mdash; Seymour Papert, <em>The Children's Machine</em>
+  – Seymour Papert, <em>The Children's Machine</em>
 </p>
 <p>
   quoted in Audrey Watters, <a href="http://hackeducation.com/2015/04/10/mindstorms/">Lego Mindstorms: A History of Educational Robots</a>

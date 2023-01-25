@@ -135,6 +135,6 @@ original: swc
   please fill in the survey.
   And if you can give us half an hour,
   we'd be grateful for help sorting and summarizing the comments we've had on our Python lessons
-  in debriefing sessions&mdash;please get in touch
+  in debriefing sessions–please get in touch
   if you can spare some time.
 </p>

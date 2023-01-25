@@ -79,7 +79,7 @@ archives:
     "The fox knows how to do many things; the hedgehog knows how to do one thing well."
     If we concentrate on a handful of tasks with lots of reinforcement
     (as Bennet Fauber stressed),
-    learners will leave knowing how to do a few things well&mdash;but only a few.
+    learners will leave knowing how to do a few things well–but only a few.
     A broad overview of the full landscape of tools and techniques
     may give them a better understanding of how things fit together,
     but may also just confuse them,
@@ -220,8 +220,8 @@ archives:
   </li>
 </ol>
 <p>
-  We've come a long way since our first workshop at Los Alamos sixteen years ago&mdash;if
-  all goes well, we'll reach our ten thousandth learner some time in the next twelve months&mdash;but
+  We've come a long way since our first workshop at Los Alamos sixteen years ago–if
+  all goes well, we'll reach our ten thousandth learner some time in the next twelve months–but
   we've still got a lot to learn.
   We'd welcome your suggestions about what to try next.
 </p>

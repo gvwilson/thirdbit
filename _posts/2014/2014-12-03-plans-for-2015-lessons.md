@@ -32,9 +32,9 @@ original: swc
   you can now see what the result will look like.
   Our novice lesson on SQL now lives in this repository,
   and you can view its rendered form in this GitHub pages site.
-  There's still a lot to do&mdash;the learning objectives need to be cleaned up,
+  There's still a lot to do–the learning objectives need to be cleaned up,
   the challenges all need meaningful names,
-  and there's clearly lots of scope for improving the lesson's appearance&mdash;but
+  and there's clearly lots of scope for improving the lesson's appearance–but
   the pieces are there.
 </p>
 <p>
@@ -63,7 +63,7 @@ original: swc
     If you'd like to help finish the "bibliography in a spreadsheet" lesson,
     please file an issue,
     send a pull request,
-    or just send an email&mdash;like our other lessons,
+    or just send an email–like our other lessons,
     it will need a maintainer.
   </em>
 </p>

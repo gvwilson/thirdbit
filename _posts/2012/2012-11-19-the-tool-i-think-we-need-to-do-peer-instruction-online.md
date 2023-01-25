@@ -14,7 +14,7 @@ original: swc
         <li>Instructor presents correct answer.</li>
         <li>Learners discuss again (so that those who understood can clear up the misconceptions of those who didn't).</li>
 </ol>
-<p>Chris Lee, at UCLA, has built a tool called <a href="http://people.mbi.ucla.edu/leec/docs/socraticqs/tutorial.html">Socraticqs</a> to implement this model using a little web app running on the instructor's laptop (which they connect to over WiFi). I'd like to go one step further and try to do this over the web&mdash;after all, it <em>is</em> supposed to be a medium for collaboration. Here's what I'm imagining:</p>
+<p>Chris Lee, at UCLA, has built a tool called <a href="http://people.mbi.ucla.edu/leec/docs/socraticqs/tutorial.html">Socraticqs</a> to implement this model using a little web app running on the instructor's laptop (which they connect to over WiFi). I'd like to go one step further and try to do this over the web–after all, it <em>is</em> supposed to be a medium for collaboration. Here's what I'm imagining:</p>
 <ol>
         <li>Instructor broadcasts to learners via screen sharing, synchronized slides, or some kind of in-browser co-piloting like <a href="http://vimeo.com/36754286">Towtruck</a>.</li>
         <li>Learners vote on multiple-choice question over the web.</li>

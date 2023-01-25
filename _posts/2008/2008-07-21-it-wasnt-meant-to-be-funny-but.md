@@ -9,7 +9,7 @@ From the OSCON'08 schedule:
 
 People, whether other geeks or "normal" people, we're bad at them. They're such an important part of our lives and jobs and the point of all the technology we love so much. Misunderstandings between people can be the root cause of so many vast, deep, frustrating, and expensive mistakes. Yet we put so little effort into understanding them, or learning how to work with people.
 
-You can learn how to deal with people, and you can even learn to enjoy it. This tutorial gathers together some of the best speakers on "people topics" and teaches you&mdash;the programmer, the sysadmin, the <span class="caps">DBA</span>, the geek&mdash;how better to deal with people.
+You can learn how to deal with people, and you can even learn to enjoy it. This tutorial gathers together some of the best speakers on "people topics" and teaches you–the programmer, the sysadmin, the <span class="caps">DBA</span>, the geek–how better to deal with people.
 
 ...
 

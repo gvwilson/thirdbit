@@ -10,7 +10,7 @@ Twenty years on, most Canadians instantly recognize the name of their murderer. 
 <td valign="top">
 <ul>
 	<li>Geneviève Bergeron</li>
-	<li>H&eacute;lène Colgan</li>
+	<li>Hélène Colgan</li>
 	<li>Nathalie Croteau</li>
 	<li>Barbara Daigneault</li>
 	<li>Anne-Marie Edward</li>

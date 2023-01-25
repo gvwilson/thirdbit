@@ -24,7 +24,7 @@ original: swc
     whereas the 6 instructors all came from programmer culture.
     Not only did the students need to learn new technical skills,
     but they also had to get accustomed to the ways of programmer culture.
-    And some instructors&mdash;who had been living firmly in that culture for decades&mdash;had a hard time relating to the students,
+    And some instructors–who had been living firmly in that culture for decades–had a hard time relating to the students,
     despite their most sincere efforts.
   </p>
   <p>
@@ -135,7 +135,7 @@ original: swc
 <p>
   For once in my life,
   I was an optimist.
-  You still can't embed a diagram directly in the source code of your program&mdash;the
+  You still can't embed a diagram directly in the source code of your program–the
   closest you can get is something like an image in an IPython Notebook,
   but there's no semantic connection between the two,
   You certainly can't embed a spreadsheet in a Python source file,
@@ -202,7 +202,7 @@ original: swc
     to the detriment of both.
     As far as I'm concerned,
     improving the usability of programming systems by creating and assessing richer views
-    isn't just the most interesting topic in programming language research these days&mdash;it's
+    isn't just the most interesting topic in programming language research these days–it's
     the only one that matters.
   </li>
   <li id="7">

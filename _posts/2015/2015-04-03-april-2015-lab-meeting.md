@@ -21,12 +21,12 @@ original: swc
   </li>
   <li>
     We have created a <a href="https://www.linkedin.com/grp/home?gid=8279689">LinkedIn group</a>
-    for Software Carpentry and Data Carpentry instructors &mdash;
+    for Software Carpentry and Data Carpentry instructors –
     if you're a LinkedIn user, you're welcome to join.
     Leigh Sheneman and Lynne Williams have volunteered to moderate the group.
   </li>
   <li>
-    Peter van Heusden and Gabriel Devenyi have volunteered to help with system administration &mdash;
+    Peter van Heusden and Gabriel Devenyi have volunteered to help with system administration –
     our thanks to Jon Pipitone and David Rio for all their help over the past couple of years.
   </li>
   <li>
@@ -68,7 +68,7 @@ original: swc
 <li>Tiffany Timbers (Simon Fraser University, Burnaby, BC, Canada)</li>
 <li>Luiz Irber (Michigan State University, East Lansing, MI, USA)</li>
 <li>Jonah Duckles (University of Oklahoma, Norman, OK, USA)</li>
-<li>Timoth&eacute;e Poisot (universit&eacute; de Montr&eacute;al)</li>
+<li>Timothée Poisot (université de Montréal)</li>
 <li>Raniere Silva</li>
 <li>Noam Ross (UC Davis)</li>
 <li>Amy Brown (unaffiliated, Toronto)</li>
@@ -93,7 +93,7 @@ original: swc
 <li>Camille Avestruz (Yale University)</li>
 <li>Abigail Cabunoc Mayes (Mozilla Science Lab)</li>
 <li>Mark Wilber (University of California, Santa Barbara)</li>
-<li>Isabelle Laforest-L. (Universit&eacute; du Qu&eacute;bec a Montr&eacute;al)</li>
+<li>Isabelle Laforest-L. (Université du Québec a Montréal)</li>
 <li>Aleksandra Pawlik (SSI, University of Manchester)</li>
 <li>Laurent Gatto (University of Cambridge, UK)</li>
 <li>Sue McClatchy (The Jackson Laboratory)</li>
@@ -203,7 +203,7 @@ original: swc
 <li>Pauline: Q: What works for convincing orgs that its' worthwhile to bring groups in from the outside?
 <ul>
 <li>Aleksandra: One option is to offer to train up internal instructors. First couple of workshops can help with this training and fill the gap in the meantime.</li>
-<li>Offloading administrative work -- university wants host to do all administration to &quot;save&quot; the cost of the SWC administration fee.</li>
+<li>Offloading administrative work -- university wants host to do all administration to "save" the cost of the SWC administration fee.</li>
 <li>Path to affiliate status (better where its easier to have a budget item rather than ad-hoc)</li>
 <li>Several thousand hours are invested in our lessons (but this only sways a few people)</li>
 <li>Workshops are always over-subscribed</li>

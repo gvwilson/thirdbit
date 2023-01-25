@@ -9,7 +9,7 @@ year: 2016
   In one,
   a poorly-phrased but probably sincere question provoked a harsher-than-necessary response,
   which in turn provoked foul language,
-  which in turn&mdash;but you can probably guess what happened next.
+  which in turn–but you can probably guess what happened next.
   In the other,
   a poor choice of words by someone whose intentions were clearly good
   provoked an unforgiving backlash,
@@ -46,5 +46,5 @@ year: 2016
   And that's never been the source of our progress.
   That's how we cheat ourselves of progress.
   <br/>
-  &mdash; <a href="https://www.whitehouse.gov/the-press-office/2016/05/07/remarks-president-howard-university-commencement-ceremony">Barack Obama</a>
+  – <a href="https://www.whitehouse.gov/the-press-office/2016/05/07/remarks-president-howard-university-commencement-ceremony">Barack Obama</a>
 </blockquote>

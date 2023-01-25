@@ -28,7 +28,7 @@ original: swc
 </blockquote>
 <p>
   In other words (and this is my paraphrase, not Phil's)
-  what matters most in teaching is the act itself&mdash;the verb.
+  what matters most in teaching is the act itself–the verb.
   Lessons, lesson plans, exercises, and the like are "just" the nouns,
   and focusing on them is like focusing on the teacup rather than the tea.
   This is more or less the point of Elizabeth Green's

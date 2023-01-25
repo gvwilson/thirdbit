@@ -61,7 +61,7 @@ original: swc
   we're also creating teaching materials using open source practices,
   which few people do.
   Even programmers who use version control daily don't have many sets of collaborative,
-  code-reviewed lessons&mdash;certainly not using
+  code-reviewed lessons–certainly not using
   tools as young as the IPython Notebook.
 </p>
 <p>
@@ -170,8 +170,8 @@ original: swc
   </tr>
 </table>
 <p>
-  Our goal is to be ready for the rest of 2014&mdash;not least PyCon in April&mdash;by mid-January.
-  We really want you to join the discussion, write stuff, review stuff, etc.&mdash;we have
+  Our goal is to be ready for the rest of 2014–not least PyCon in April–by mid-January.
+  We really want you to join the discussion, write stuff, review stuff, etc.–we have
   great momentum right now,
   and I hope that having a plan for the next couple of months will fuel that.
 </p>

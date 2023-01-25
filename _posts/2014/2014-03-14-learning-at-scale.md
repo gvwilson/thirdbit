@@ -34,7 +34,7 @@ favorite: true
 </p>
 <p>
   If that wasn't ironic enough,
-  all the presentations&mdash;even the ones about flipped classrooms&mdash;were
+  all the presentations–even the ones about flipped classrooms–were
   a sage on the stage talking over a slide deck
   telling us what was in the paper most of us had already skimmed.
   This had exactly the effect you'd predict:

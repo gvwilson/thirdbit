@@ -22,4 +22,4 @@ but I realize these are more "R" than "D".  If NSERC hadn't turned down every ap
 
 Organizational technologies are interesting too: I'm a bit of a software development process geek, and I'd enjoy helping a development team go from 3 to 13 on the <a href="http://www.joelonsoftware.com/articles/fog0000000043.html">Joel Test</a> (13 instead of 12 because I think that "Do you use a debugger?" ought to be on the list).
 
-So: close to home, good team, personally rewarding and technically sweet&mdash;it sounds a lot like most other people's lists.  I'll compromise where I need to (work remotely, for example, and I'm very flexible on salary for the right job), but I know I'm still asking for a lot.  I'll let you know how it turns out.
+So: close to home, good team, personally rewarding and technically sweet–it sounds a lot like most other people's lists.  I'll compromise where I need to (work remotely, for example, and I'm very flexible on salary for the right job), but I know I'm still asking for a lot.  I'll let you know how it turns out.

@@ -58,7 +58,7 @@ original: swc
 <p>
   We'll talk about all of this at
   the Dec 4 lab meeting
-  (which takes place at 10:00 and again at 19:00, both times Eastern &mdash; see
+  (which takes place at 10:00 and again at 19:00, both times Eastern – see
   this Etherpad for connection details).
   Hope to see you there...
 </p>

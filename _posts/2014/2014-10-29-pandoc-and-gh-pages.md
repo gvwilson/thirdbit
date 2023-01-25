@@ -102,10 +102,10 @@ original: swc
   (though I'd be grateful if others could tell me it doesn't).
   The only usability hiccup I can see is that
   authors will have to remember to commit the generated files:
-  my usual workflow of <code>git&nbsp;add&nbsp;-A</code>
-  followed by <code>git&nbsp;commit&nbsp;-m</code>
+  my usual workflow of <code>git add -A</code>
+  followed by <code>git commit -m</code>
   only adds files in or below the current working directory,
-  so I would have to <code>cd&nbsp;..</code> up from <code>src</code>
+  so I would have to <code>cd ..</code> up from <code>src</code>
   to the root directory of their local copy of the repo first.
 </p>
 <p>
@@ -113,8 +113,8 @@ original: swc
   to keep the source files in the root directory of the <code>master</code> branch,
   and have the lesson maintainer merge changes into the <code>src</code> directory of the <code>gh-pages</code> branch
   and do the build.
-  This frees authors from having to install the build tools&mdash;only
-  the maintainers need that&mdash;but on balance,
+  This frees authors from having to install the build tools–only
+  the maintainers need that–but on balance,
   I think most people will want to preview before uploading,
   so the savings will be mostly theoretical.
 </p>

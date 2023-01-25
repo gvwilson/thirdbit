@@ -14,7 +14,7 @@ but the morning sky overhead is exactly the same pearly gray as her breast feath
 She cocks her head to watch a young woman in impeccable middle-class camouflage hurry by below,
 her steps shortened only slightly for the benefit of the two children beside her.*
 
-*The pigeon fluffs her plumage. It won't be long now...*
+*The pigeon fluffs her plumage. It won't be long now…*
 
 "Oh look! The cathedral!"
 the boy in the sensible tweed suit says excitedly.

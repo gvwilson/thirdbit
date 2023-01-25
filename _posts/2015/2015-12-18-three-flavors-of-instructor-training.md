@@ -115,7 +115,7 @@ original: swc
   (we think they may have been roped in by friends to get numbers up for applications),
   but on the other hand,
   all but a couple of the people who started the two-day version finished it.
-  There wasn't much inter-group discussion&mdash;sessions tended to be hub-and-spoke with the trainer as the hub&mdash;but
+  There wasn't much inter-group discussion–sessions tended to be hub-and-spoke with the trainer as the hub–but
   there seemed to be plenty of conversation within each group.
   The biggest drawback of the two-day version was that instructors couldn't give the same quality of feedback on exercises
   as in either the live version or the multi-week version:

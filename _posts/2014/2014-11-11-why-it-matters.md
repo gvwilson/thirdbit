@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   Sometimes I forget that it isn't obvious
-  why scientists ought to learn to program&mdash;or why anyone else ought to.
+  why scientists ought to learn to program–or why anyone else ought to.
   Being more productive,
   getting a better job...
   Those are all good reasons,
@@ -69,6 +69,6 @@ original: swc
 <p>
   And you see the title over the box, on the right?
   It says "Universal Building Sets".
-  <em>That's</em> what we're teaching&mdash;that,
+  <em>That's</em> what we're teaching–that,
   and the freedom they bring.
 </p>

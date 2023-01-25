@@ -1,5 +1,5 @@
 ---
-title: "File Under &quot;Really Not Getting It&quot;"
+title: "File Under 'Really Not Getting It'"
 date: 2008-05-16 13:45:59
 year: 2008
 ---

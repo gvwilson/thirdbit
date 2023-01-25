@@ -18,6 +18,6 @@ title: What We Teach in Two Days
 <li>We're most productive when we're not being interrupted (or interrupting ourselves), so use tools that support an interactive do-and-see flow.</li>
 <li>People are fallible, so make defense in depth a habit (i.e., check your data, figure out how to test things before you write them, run regression tests, etc.).</li>
 </ol>
-<p>So that's what we do. I think it works well&mdash;I'd enjoy hearing everyone else's thoughts.</p>
+<p>So that's what we do. I think it works well–I'd enjoy hearing everyone else's thoughts.</p>
 <p>[1] If learners already use a plain-text editor, we enocurage them to keep using that; otherwise, we show them Nano, not because anyone should actually use it for programming, but because it's so simple that we don't really have to explain anything more than "control-X to exit".</p>
 <p>[2] Unless Dreamhost has screwed up creation of a temporary Subversion repository for students to use, in which case some last-minute juggling is required.</p>

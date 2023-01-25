@@ -17,7 +17,7 @@ year: 2016
   but they were a lot more coordinated than I was,
   and (demonstrably) a lot less worried about making themselves look ridiculous<sup><a href="#1">1</a></sup>.
   I had the same feeling twenty years later when I first started playing jazz.
-  My teacher said, quite sincerely, "Just play something&mdash;anything,"
+  My teacher said, quite sincerely, "Just play something–anything,"
   and was genuinely puzzled when I said, "But I don't know what to do."
 </p>
 <p>

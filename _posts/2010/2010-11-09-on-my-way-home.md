@@ -3,7 +3,7 @@ title: "On My Way Home"
 date: 2010-11-09 08:00:30
 year: 2010
 ---
-I'm on my way home after two and a half weeks on the road. I have missed Sadie and Maddie more each day&mdash;Skype video calls are a lot better than just phoning, but that's like saying that starving to death is better than dying of thirst. But the trip was worthwhile: I met lots of interesting people, and have many ideas to follow up on once I'm home.
+I'm on my way home after two and a half weeks on the road. I have missed Sadie and Maddie more each day–Skype video calls are a lot better than just phoning, but that's like saying that starving to death is better than dying of thirst. But the trip was worthwhile: I met lots of interesting people, and have many ideas to follow up on once I'm home.
 
 So, with seven weeks to go 'til the end of another year, here are my goals:
 <ol>

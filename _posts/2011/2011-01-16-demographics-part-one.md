@@ -20,7 +20,7 @@ title: Demographics (part one)
 <li>Department of Microbiology and Molecular Genetics, Michigan State University</li>
 <li>Department of Molecular Medicine and Haematology, University of the Witwatersrand</li>
 <li>Department of Physics, Yale University</li>
-<li>Department of Physiology, University of Wisconsin &mdash; Madison</li>
+<li>Department of Physiology, University of Wisconsin – Madison</li>
 <li>Department of Process Engineering, University of Stellenbosch, South Africa</li>
 <li>FTW Telecommunications Research Center, Vienna, Austria</li>
 <li>Faculty of Science, University of Ontario Institute of Technology</li>
@@ -52,7 +52,7 @@ title: Demographics (part one)
 <li>Stem Cell Bioengineering Lab, University of Toronto</li>
 <li>US Census Bureau</li>
 <li>United Nations Department of Economic and Social Affairs</li>
-<li>Universit of North Carolina &mdash; Chapel Hill</li>
+<li>Universit of North Carolina – Chapel Hill</li>
 <li>University of British Columbia</li>
 <li>University of California Berkeley</li>
 <li>University of California Los Angeles</li>

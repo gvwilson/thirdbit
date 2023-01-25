@@ -44,4 +44,4 @@ title: Space at Upcoming Events
 </tr>
 </tbody>
 </table>
-<p>If you'd like to join us, there's still plenty of space&mdash;and if you have friends who could use some training in basic software skills, please point them our way.</p>
+<p>If you'd like to join us, there's still plenty of space–and if you have friends who could use some training in basic software skills, please point them our way.</p>

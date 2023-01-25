@@ -24,7 +24,7 @@ original: swc
     and one for the Version 3 notes.
     (We split material between repositories
     because we didn't want people to have to download the earlier versions
-    in order to write a blog post&mdash;they're fairly large.
+    in order to write a blog post–they're fairly large.
     In practice,
     though,
     the web site compiler doesn't work if you don't have everything at hand.)
@@ -70,7 +70,7 @@ original: swc
     they host mailing lists on a different set of servers
     than the ones used for web sites and shell access,
     so we can't write scripts to synchronize mailing lists with our database.
-    This is another reason to move to another hosting service&hellip;
+    This is another reason to move to another hosting service…
   </li>
   <li>
     And speaking of databases,

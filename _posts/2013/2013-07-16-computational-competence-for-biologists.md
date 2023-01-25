@@ -38,8 +38,8 @@ original: swc
   <li>Reproducibility of results</li>
   <li>Knowing how to test results</li>
   <li>Managing errors</li>
-  <li>Posting to places like GitHub, BitBucket, and Figshare&mdash;the concept was more important than brand&mdash;to make work sustainable even when students move on</li>
-  <li>Database management&mdash;not just how to write queries, but also how to create a sensible schema</li>
+  <li>Posting to places like GitHub, BitBucket, and Figshare–the concept was more important than brand–to make work sustainable even when students move on</li>
+  <li>Database management–not just how to write queries, but also how to create a sensible schema</li>
 </ol>
 <p>
   If this is what computationally skilled biologists think their peers need to know,

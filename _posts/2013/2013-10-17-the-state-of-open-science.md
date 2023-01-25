@@ -87,7 +87,7 @@ original: swc
   <tr>
     <th>Area</th>
     <th>Open Web</th>
-    <th>&nbsp;</th>
+    <th> </th>
     <th>Open Science</th>
   </tr>
   <tr>
@@ -167,7 +167,7 @@ original: swc
     <td bgcolor="#FF4444">
       Lots on the desktop,
       but the mobile and tablet markets are really dominated by Safari
-      and related products&mdash;Fennec (the mobile version of Firefox)
+      and related products–Fennec (the mobile version of Firefox)
       has only a tiny share of the market.
       More importantly,
       perhaps,
@@ -202,7 +202,7 @@ original: swc
     </td>
     <td></td>
     <td bgcolor="#FFFF44">
-      The business of science&mdash;things like paper reviews&mdash;is now conducted almost entirely through the web,
+      The business of science–things like paper reviews–is now conducted almost entirely through the web,
       but most of the software and services used are black boxes controlled by a small number of players.
     </td>
   </tr>

@@ -33,7 +33,7 @@ original: swc
       <a href="https://medium.com/backchannel/the-strange-appeal-of-watching-coders-code-5c677b2c34ec">coding live online</a>
       so that people can see what they do and hear how they think.
       (My favorite is <a href="http://mikeconley.ca/blog/2015/10/04/the-joy-of-coding-eps-23-29/">Mike Conley hacking on Firefox</a>.)
-      I would really like to see some Carpentry instructors livecast some data analysis and coding sessions&mdash;volunteers?
+      I would really like to see some Carpentry instructors livecast some data analysis and coding sessions–volunteers?
     </p>
   </li>
   <li>

@@ -1,5 +1,5 @@
 ---
-title: "&quot;I Would Never Have Believed...&quot;"
+title: "'I Would Never Have Believed…'"
 date: 2008-04-28 08:37:48
 year: 2008
 ---

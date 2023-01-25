@@ -141,7 +141,7 @@ original: swc
   we'd have to charge a bit less than $40 per person.
   The problem is,
   we often can't do this:
-  if we charge for training&mdash;even a refundable deposit&mdash;then
+  if we charge for training–even a refundable deposit–then
   some institutions will charge us for use of their space,
   and only charging those who don't have such a rule seems unfair.
   An alternative is to ask for sponsorship on top of instructors' costs,

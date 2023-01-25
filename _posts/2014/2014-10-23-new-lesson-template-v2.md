@@ -27,7 +27,7 @@ original: swc
   <li>
     The template needs to be much simpler.  As Andromeda Yelton said,
     "It just looks to me like a minefield of ways to get things
-    wrong&mdash;things that have <em>nothing to do with
+    wrong–things that have <em>nothing to do with
     pedagogy</em>..."
   </li>
   <li>
@@ -72,7 +72,7 @@ original: swc
   </li>
 </ol>
 <p>
-  With all that in mind, here's another cut at the template&mdash;as
+  With all that in mind, here's another cut at the template–as
   before, we'd be grateful for comments.  Note that this post mingles
   description of "what" with explanation of "why"; the final guide for
   people building lessons will disentangle them to make the former
@@ -84,7 +84,7 @@ original: swc
   for people who'd like to see what the template would look like in
   practice.  There's still work to do (see below), but it's a great
   start.  Thanks to Trevor, the other Trevor, Erik with a 'k', Molly,
-  Emily, Karin, R&eacute;mi, and Andromeda for their feedback.
+  Emily, Karin, Rémi, and Andromeda for their feedback.
 </p>
 <h2>To Do</h2>
 <ul>

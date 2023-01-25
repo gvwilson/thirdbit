@@ -8,8 +8,8 @@ original: swc
   When I teach scientists programming,
   I frequently cite empirical studies in software engineering
   to back up my claims about various tools and practices making people more productive.
-  No good, short survey of those papers exists&mdash;writing one
-  has been on my to-do list for several years&mdash;but
+  No good, short survey of those papers exists–writing one
+  has been on my to-do list for several years–but
   I hope the pointers below will be a useful substitute.
 </p>
 <p>

@@ -21,5 +21,5 @@ original: swc
   recycling one of these would be a great way to do it
   (whether you're the original author or not).
   Please see our lessons page
-  for the URLs of our GitHub repos&mdash;we look forward to your pull requests.
+  for the URLs of our GitHub repos–we look forward to your pull requests.
 </p>

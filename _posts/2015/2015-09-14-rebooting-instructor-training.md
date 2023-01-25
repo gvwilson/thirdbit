@@ -30,7 +30,7 @@ original: swc
   over the next few days
   to invite them to take part.
   I apologize right now for not being able to offer everyone a place right away,
-  but if this reboot goes well&mdash;and I think it will&mdash;we
+  but if this reboot goes well–and I think it will–we
   should be able to start clearing the rest of our backlog soon.
 </p>
 <p>This proposal addresses three issues related to instructor training, and will result in a written description of our instructor training pipeline and a written curriculum for instructor training.</p>

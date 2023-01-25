@@ -21,7 +21,7 @@ original: swc
   If you're a developer, have an eye for design or both we'd love to see you. 
 </p>
 <p>
-  If you're not in the UK, you can join in from anywhere in the world&mdash;just <a href="http://bit.ly/19YYwxU">sign up</a>.
+  If you're not in the UK, you can join in from anywhere in the world–just <a href="http://bit.ly/19YYwxU">sign up</a>.
   And if you want any more information about the project,
   email us at <a href="mailto:oabutton@gmail.com">oabutton@gmail.com</a>
   or <a href="http://oabutton.wordpress.com/">read more about the project</a>.

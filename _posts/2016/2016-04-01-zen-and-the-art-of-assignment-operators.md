@@ -8,7 +8,7 @@ year: 2016
   For months afterward,
   I just <em>had</em> to tell everyone I knew about Quality-with-a-capital-Q
   and all the other big ideas I had just met.
-  It must have been pretty tedious&mdash;looking back,
+  It must have been pretty tedious–looking back,
   I'm kind of surprised I made it to 20 without someone strangling me.
 </p>
 <p>

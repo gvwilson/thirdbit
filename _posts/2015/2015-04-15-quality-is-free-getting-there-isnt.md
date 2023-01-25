@@ -40,7 +40,7 @@ original: swc
   But this can be fixed.
   Teaching people how to write readable code is a first step,
   and that's always been part of Software Carpentry's mission.
-  Showing them what code reviews look like&mdash;e.g., doing one live in front of the class&mdash;hasn't been part of our workshops,
+  Showing them what code reviews look like–e.g., doing one live in front of the class–hasn't been part of our workshops,
   but it could be.
   And if major journals are going to start asking (or, one day, requiring) code reviews as part of the publication process,
   then teaching scientists how to do them has to move up our list of priorities.

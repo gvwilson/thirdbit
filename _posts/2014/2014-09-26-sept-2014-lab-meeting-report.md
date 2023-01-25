@@ -32,7 +32,7 @@ original: swc
       <li>R: John Blischak and Denis Haine</li>
       <li>Mercurial: Doug Latornell</li>
       <li>MATLAB: Ashwin Srinath and Isabell Kiral-Kornek</li>
-      <li>Build system: Raniere Silva and R&eacute;mi Emonet</li>
+      <li>Build system: Raniere Silva and Rémi Emonet</li>
       <li>Windows installer: W. Trevor King and Ethan White</li>
     </ul>
   </li>
@@ -46,8 +46,8 @@ original: swc
       (e.g., the <code>novice/python</code> lesson will be in a small repository of its own);
       we're working out a detailed proposal,
       and hope to have it up early next week.
-      Trevor King, Trevor Bekolay, R&eacute; Emonet, and Erik Bray have volunteered to help
-      with the Git magic that will be needed to do this without losing history&mdash;more help
+      Trevor King, Trevor Bekolay, Ré Emonet, and Erik Bray have volunteered to help
+      with the Git magic that will be needed to do this without losing history–more help
       will be very welcome when the time comes,
       particularly from people who <em>aren't</em> Git experts,
       and can therefore tell us whether what we're doing is usable.
@@ -97,7 +97,7 @@ original: swc
         </li>
         <li>
           <p>
-            We'll have &quot;in-service days&quot; a couple of times a year
+            We'll have "in-service days" a couple of times a year
             in which people who have been teaching for a while
             can find out what changes have been made to our lessons recently.
           </p>
@@ -148,7 +148,7 @@ original: swc
   </li>
 </ol>
 <p>
-  Many thanks to everyone who took part in these meetings&mdash;we have a lot of work in front of us,
+  Many thanks to everyone who took part in these meetings–we have a lot of work in front of us,
   but a good crew to do it.
 </p>
 <div class="row">
@@ -168,7 +168,7 @@ original: swc
       <li>Kirill Palamartchouk (Newcastle University, UK) Sorry, unable to type today</li>
       <li>Raniere Silva (University of Campinas, Brazil)</li>
       <li>Gabriel Devenyi (McGill University)</li>
-      <li>R&eacute;mi Emonet (University of Saint &EACUTE;tienne, FR)</li>
+      <li>Rémi Emonet (University of Saint &EACUTE;tienne, FR)</li>
       <li>Bill Mills (Mozilla Science Lab / Vancouver)</li>
       <li>Trevor (Olympia)</li>
       <li>Pauline Barmby (Western U, London Canada)</li>
@@ -181,7 +181,7 @@ original: swc
       <li>Greg Wilson (Software Carpentry / Toronto)</li>
       <li>Kristjan Onu (Gagest / Montreal)</li>
       <li>John Blischak (University of Chicago)</li>
-      <li>Denis Haine (Universit&eacute; de Montr&eacute;al)</li>
+      <li>Denis Haine (Université de Montréal)</li>
       <li>Nichole Bennett (University of Texas/Okinawa Institute of Science and Technology)</li>
       <li>Abigail Cabunoc (Mozilla Science Lab / Toronto)</li>
       <li>Ethan White (Utah State Univ/Univ of Florida)</li>

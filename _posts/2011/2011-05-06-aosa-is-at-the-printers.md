@@ -3,9 +3,9 @@ title: "AOSA Is At The Printer's"
 date: 2011-05-06 19:15:30
 year: 2011
 ---
-<a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a> is now at the printer's&mdash;we're going to give the first copy a final going-over, then make it available for purchase (hopefully within two weeks). I'm very pleased with how it looks, and very grateful to Amy Brown, the contributors, and the reviewers for all their hard work.
+<a href="http://aosabook.org"><em>The Architecture of Open Source Applications</em></a> is now at the printer's–we're going to give the first copy a final going-over, then make it available for purchase (hopefully within two weeks). I'm very pleased with how it looks, and very grateful to Amy Brown, the contributors, and the reviewers for all their hard work.
 
-One note, though: if and when you buy it, <em>please</em> buy it directly from Lulu.com, rather than through Amazon or another outlet&mdash;it makes an enormous difference to how much money we raise for charity:
+One note, though: if and when you buy it, <em>please</em> buy it directly from Lulu.com, rather than through Amazon or another outlet–it makes an enormous difference to how much money we raise for charity:
 <table>
 <tbody>
 <tr>

@@ -62,7 +62,7 @@ original: swc
   There was a lot to announce:
 </p>
 <ul>
-  <li>We're switching web hosting services over the next couple of days&mdash;we'll try to minimize disruption, and apologize in advance for any outages.</li>
+  <li>We're switching web hosting services over the next couple of days–we'll try to minimize disruption, and apologize in advance for any outages.</li>
   <li>We have some new instructors to welcome.</li>
   <li>
     We have pulled together a lot of the lesson material
@@ -166,6 +166,6 @@ original: swc
   though,
   I'd like to thank everyone who joined us for yesterday's meeting,
   and everyone else who has helped bring Software Carpentry so far in the past twelve months.
-  Our next lab meeting is tentatively scheduled for Thurdsay, September 26&mdash;I
+  Our next lab meeting is tentatively scheduled for Thurdsay, September 26–I
   hope to see you all then.
 </p>

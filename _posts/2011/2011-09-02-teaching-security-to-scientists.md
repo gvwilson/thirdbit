@@ -54,7 +54,7 @@ title: Teaching Security to Scientists
 <li>"put this USB into your computer" (computer may run it automatically)</li>
 <li>"open this text file in your editor" almost certainly <em>can't</em>infect your machine
 <ul>
-<li>unless there's a bug in the text editor &mdash; see below on stack smashing</li>
+<li>unless there's a bug in the text editor – see below on stack smashing</li>
 <li>so keep patches up to date</li>
 </ul>
 </li>
@@ -72,7 +72,7 @@ title: Teaching Security to Scientists
 <li>many more programs (services) running on your computer these days than you realize
 <ul>
 <li>all of which can be attacked, even if you don't click on anything</li>
-<li>send them data to trick them into doing things &mdash; see below on stack smashing (again)</li>
+<li>send them data to trick them into doing things – see below on stack smashing (again)</li>
 <li>'ps' command or equivalent shows what they are (there are lots)</li>
 <li>port scanning (what command to use?) shows how many are listening for data</li>
 <li>what a firewall does</li>

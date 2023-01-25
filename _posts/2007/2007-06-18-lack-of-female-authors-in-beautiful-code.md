@@ -1,5 +1,5 @@
 ---
-title: "Lack of Female Authors in &quot;Beautiful Code&quot;"
+title: "Lack of Female Authors in Beautiful Code"
 date: 2007-06-18 08:48:30
 year: 2007
 ---

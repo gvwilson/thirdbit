@@ -46,7 +46,7 @@ original: swc
   220 of you have run more than 270 two-day workshops for over 8300 learners in 21 countries.
   As my seven-year-old would say,
   that's literally wow.
-  You have more than earned the right to decide what happens next&mdash;what
+  You have more than earned the right to decide what happens next–what
   Software Carpentry is, what it does, and how it gets there.
   I'm very proud to have worked with you all,
   and I look forward to finding out what you will choose to do next.

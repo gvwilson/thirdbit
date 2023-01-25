@@ -34,7 +34,7 @@ original: swc
 </p>
 <p>
   The workshop in <a href="http://uiuc-cse.github.io/2015-01-29-uiuc/">Illinois</a>
-  was slightly smaller&mdash;about 30 people.
+  was slightly smaller–about 30 people.
   Most were aerospace, chemical, and materials engineers,
   with a few biologists and geologists along to liven things up.
   As one of the instructors described in

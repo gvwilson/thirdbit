@@ -39,7 +39,7 @@ some of the [most](http://www.amazon.com/Working-Effectively-Legacy-Michael-Feat
 books I know about making software *right*
 are good precisely because they makes this explicit.
 Offhand,
-I can't think of any good books about managing subtlety&mdash;about
+I can't think of any good books about managing subtlety–about
 picking the right calculation to perform
 rather than handling badly-formatted input data
 and corner cases in control flow.

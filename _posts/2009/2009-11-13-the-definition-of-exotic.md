@@ -1,5 +1,5 @@
 ---
-title: "The Definition of &quot;Exotic&quot;"
+title: "The Definition of 'Exotic'"
 date: 2009-11-13 10:25:44
 year: 2009
 ---

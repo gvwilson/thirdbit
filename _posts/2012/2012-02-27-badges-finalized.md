@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Badges (Finalized)
 ---
-<p>We have finalized our first set of <a href="http://openbadges.org/">Software Carpentry badges</a>&mdash;with luck, we'll list the first set of recipients later this week.</p>
+<p>We have finalized our first set of <a href="http://openbadges.org/">Software Carpentry badges</a>–with luck, we'll list the first set of recipients later this week.</p>
 <table>
 <tbody>
 <tr>

@@ -14,5 +14,5 @@ original: swc
   we would welcome feedback from other instructors who have tried it
   or similar things.
   And if you have tricks of your own that you'd like to share,
-  please let us know&mdash;we'd be happy to feature them here.
+  please let us know–we'd be happy to feature them here.
 </p>

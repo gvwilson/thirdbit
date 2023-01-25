@@ -48,5 +48,5 @@ original: swc
   It's hypocritical of us to ask for that and then ignore research
   that might require <em>us</em> to change <em>our</em> minds.
   If scientists really want people to act on what they are discovering,
-  I think they&mdash;we&mdash;need to lead by example.
+  I think they–we–need to lead by example.
 </p>

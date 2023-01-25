@@ -30,7 +30,7 @@ year: 2014
 <p>
   There's another way in which the ACM and IEEE remind me of my brief first-hand experience with communism.
   In the absence of frequent, brutal crackdowns,
-  every command-and-control economy produces a gray market &mdash;
+  every command-and-control economy produces a gray market –
   a place where people can do business as if they were living in a free-market society.
   Officialdom may turn a blind eye to it,
   or even sanction it under names like "special economic zone",

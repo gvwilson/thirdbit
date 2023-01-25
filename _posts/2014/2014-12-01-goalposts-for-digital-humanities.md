@@ -90,7 +90,7 @@ original: swc
   </ol>
   <p>
     I would then like to build out to more sophisticated material
-    &mdash; I agree that overcoming fear of the command-line and being
+    – I agree that overcoming fear of the command-line and being
     able to navigate a file structure and move files around is
     important.  I'm also definitely with you on web-scraping...
     Key-words in context and topic modelling are great things to be

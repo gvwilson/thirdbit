@@ -45,5 +45,5 @@ original: swc
   What we want to do is add and edit new data.
   If you'd like to help,
   please fork the project
-  and send us pull requests&mdash;we'd be grateful for your help.
+  and send us pull requests–we'd be grateful for your help.
 </p>

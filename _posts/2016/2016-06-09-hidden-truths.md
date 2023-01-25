@@ -72,6 +72,6 @@ original: nwit
   Best of all,
   their tool is <a href="http://www.opal-project.de/tools/bugpicker/">available for download</a>
   under a BSD license.
-  Most developers probably won't have encountered the science behind it in their training&mdash;abstract
-  interpretation is a fairly advanced topic&mdash;but they'll appreciate the usefulness of the end product.
+  Most developers probably won't have encountered the science behind it in their training–abstract
+  interpretation is a fairly advanced topic–but they'll appreciate the usefulness of the end product.
 </p>

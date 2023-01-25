@@ -1,5 +1,5 @@
 ---
-title: "Why &quot;Do Not Track&quot; Matters"
+title: "Why 'Do Not Track' Matters"
 date: 2012-02-29 20:15:54
 year: 2012
 ---

@@ -29,7 +29,7 @@ summary.dat : left.dat right.dat
 
 summary.dat : left.dat right.dat
         ${SUMMARIZE} left.dat right.dat &gt; summary.dat</pre>
-<p>We would then put two files in version control&mdash;one for Linux:</p>
+<p>We would then put two files in version control–one for Linux:</p>
 <pre># settings-linux.mk
 SUMMARIZE=summarize</pre>
 <p>and one for Mac OS X:</p>

@@ -57,7 +57,7 @@ year: 2015
   if they're ever resolved at all.
 </p>
 <p>
-  I think there's a happy medium&mdash;not too many rules, not too few&mdash;but
+  I think there's a happy medium–not too many rules, not too few–but
   as in the world of <em>The Dispossessed</em>,
   "mere rules" only work when enacted by sincere, open-minded people.
   When Software Carpentry's first elected Steering Committee takes the helm four weeks from now,

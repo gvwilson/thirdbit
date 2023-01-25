@@ -26,5 +26,5 @@ title: Setting Up a New Windows Machine
 <li><a href="http://www.videolan.org/vlc/">VLC</a> (for viewing video files)</li>
 <li><a href="http://www.yworks.com/en/products_yed_about.html">yED</a> (for creating and editing simple bubble-and-arrow diagrams)</li>
 </ul>
-<p>What's missing (so far) are the science-specific tools that I'll be adding as needed for particular topics&mdash;I'll blog about those as I install them. What's <em>interesting</em> is how many of these tools are free (as in beer) and open (as in modifiable): I'll be blogging soon about the distinction, and why I think both are important to science, as well.</p>
+<p>What's missing (so far) are the science-specific tools that I'll be adding as needed for particular topics–I'll blog about those as I install them. What's <em>interesting</em> is how many of these tools are free (as in beer) and open (as in modifiable): I'll be blogging soon about the distinction, and why I think both are important to science, as well.</p>
 <div id="_mcePaste" style="overflow: hidden; position: absolute; left: -10000px; top: 2px; width: 1px; height: 1px;">CYGWIN=binmode ntsec tty</div>

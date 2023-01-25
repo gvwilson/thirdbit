@@ -18,7 +18,7 @@ original: swc
   <li>Extras: <a href="http://statkclee.github.io/xwmooc-sc/novice/extras/">http://statkclee.github.io/xwmooc-sc/novice/extras/</a></li>
 </ol>
 <p>
-  It's a remarkable and encouraging achievement&mdash;congratulations and thanks
+  It's a remarkable and encouraging achievement–congratulations and thanks
   to the team that did the work:
 </p>
 <ul>

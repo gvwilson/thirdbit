@@ -150,4 +150,4 @@ original: swc
   </tr>
 </table>
 
-<p>We'd love to add even more pins to our map, especially in countries we haven't visited yet.  If you'd like to help make that happen, please get in touch.  And many thanks once again to everyone who has hosted a bootcamp, taught one, shown up to help, or come to learn&mdash;installation headaches be damned, we're making a difference :-)</p>
+<p>We'd love to add even more pins to our map, especially in countries we haven't visited yet.  If you'd like to help make that happen, please get in touch.  And many thanks once again to everyone who has hosted a bootcamp, taught one, shown up to help, or come to learn–installation headaches be damned, we're making a difference :-)</p>

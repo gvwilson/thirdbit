@@ -10,7 +10,7 @@ title: The Real Hard Work
 <ul>
 <li>"We're not teaching computer scientists." A lot of research has looked at graphic designers, disadvantaged grade-school kids, and people from many other walks of life.</li>
 <li>"We're not teaching computer science, we're teaching programming." So are a lot of researchers. (Ironically, that's one of the reasons their work tends not to be valued by "real" computer scientists.)</li>
-<li>"The web changes everything!" No it doesn't&mdash;it doesn't change the way brains learn. And anyway, how do you know what it's changed if you don't know what was there before?</li>
+<li>"The web changes everything!" No it doesn't–it doesn't change the way brains learn. And anyway, how do you know what it's changed if you don't know what was there before?</li>
 <li>"But today's schools/teachers/whatever are broken!" That's a gross exaggeration, but even if it wasn't, shouldn't a doctor learn something about an ailment before trying to cure it?</li>
 <li>"We're too busy." This argument is partly valid: you can't evaluate other people's experience until you have some experience of your own. But looking back at my own projects, I've always kept hacking long past the point when I should have paused for a while to find out what other people had done.</li>
 </ul>

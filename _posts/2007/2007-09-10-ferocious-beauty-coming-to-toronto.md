@@ -1,5 +1,5 @@
 ---
-title: "&quot;Ferocious Beauty&quot; Coming to Toronto"
+title: "'Ferocious Beauty' Coming to Toronto"
 date: 2007-09-10 08:53:54
 year: 2007
 ---

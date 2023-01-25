@@ -53,7 +53,7 @@ original: swc
 	We will merge the lessons on scikit-learn, Python string formatting, common Python error messages, and setting up SSH keys for GitHub.
       </li>
       <li>
-	We won't include the lesson on tmux&mdash;people felt it was too specialized&mdash;and will ask that the lesson on text data mining in the shell be re-worked.
+	We won't include the lesson on tmux–people felt it was too specialized–and will ask that the lesson on text data mining in the shell be re-worked.
       </li>
     </ul>
   </li>

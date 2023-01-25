@@ -1,5 +1,5 @@
 ---
-title: "Jonathan Edwards' &quot;Mea Culpa&quot;"
+title: "Jonathan Edwards' Mea Culpa"
 date: 2010-05-29 11:07:19
 year: 2010
 ---

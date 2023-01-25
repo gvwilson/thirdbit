@@ -22,7 +22,7 @@ original: swc
   <li>Author records audio her favorite desktop tool while clicking "next" in the notebook to insert time marks into metadata.</li>
   <li>Author saves audio and inserts URL into notebook.</li>
   <li>Time passes.</li>
-  <li>Audience opens notebook in browser (either a local or web copy&mdash;the audio file may be local or web as well).</li>
+  <li>Audience opens notebook in browser (either a local or web copy–the audio file may be local or web as well).</li>
   <li>Audience presses "Play".</li>
   <li>Notebook incrementally reconstructs itself in sync with voiceover.</li>
   <li>Audience can use "Rewind", "Fast Forward", "Pause", "Go To Cell" (jumps the audio) or "Go To Time" (jumps the notebook) at will.</li>

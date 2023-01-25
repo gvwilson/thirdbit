@@ -28,7 +28,7 @@ Robbie struggled to sit up.
 "That's a spoiler.
 We don't know how old the map is yet, do we?"
 
-"Um..."
+"Um…"
 George flipped back a few pages and nodded.
 "Okay, good catch.
 That'll be easy to fix---it's just a bit of pencil work.
@@ -49,7 +49,7 @@ He gestured at the tablet lying in his lap like a patient old cat.
 "I want to try a couple more fixes to the congestion algorithm.
 The simulations still say traffic could get blocked up
 unless there's at least two dozen satellites in the network,
-and with the budget cuts..."
+and with the budget cuts…"
 
 "Sure.
 I'm supposed to get home soon anyway,"
@@ -112,7 +112,7 @@ Seems to be himself."
 The nurse nodded and stood.
 "Good.
 He said they've moved the launch date back again.
-It is..."
+It is…"
 She hesitated.
 
 George's jaw tightened.
@@ -181,7 +181,7 @@ George nodded.
 "Seemed to be.
 We went through the pages I did yesterday.
 It's nice that he's taking an interest.
-I just wish..."
+I just wish…"
 She closed her eyes and waited for the tears to come again.
 
 The next morning was cold and damp.
@@ -276,7 +276,7 @@ The nurse was waiting at the bottom of the stairs.
 George thrust her hands into her pockets.
 "Thanks.
 Have you ever seen---I mean,
-have any of your other patients ever...?"
+have any of your other patients ever…?"
 
 The nurse shook her head,
 fingering the green-gray stone that hung on a silver chain around her neck.
@@ -340,7 +340,7 @@ How often does it happen?"
 George confessed reluctantly.
 Another patient silence stretched and broke.
 "I know you must be retired by now,
-but I was wondering if you could..."
+but I was wondering if you could…"
 She shrugged again,
 unsure what she was really asking for
 beyond a grownup to tell her that everything was going to be all right.
@@ -507,7 +507,7 @@ Most of them are human,
 but some are,
 you know,
 alien humans,
-and some are just...aliens."
+and some are just…aliens."
 He looked into a distance that wasn't there in the room.
 "I think we're all going somewhere.
 A caravan, maybe, or a pilgrimage."
@@ -603,7 +603,7 @@ and picked up the stale one.
 "Is Robbie okay?"
 
 "Yeah.
-I mean, he's still dying, but..."
+I mean, he's still dying, but…"
 George sighed.
 "I did something I shouldn't have."
 She picked up a red pencil and started to doodle blunt five-pointed stars
@@ -629,7 +629,7 @@ just as she always did.
 She squeezed her shoulders a little less gently than before.
 "If you're that upset,
 just go and see him.
-I'll finish the laundry, and when you get home..."
+I'll finish the laundry, and when you get home…"
 
 "Mm hm?"
 
@@ -728,7 +728,7 @@ A plastic scoop-backed chair so featureless it looked like a drawing.
 A single square light panel set into the ceiling.
 A small window with a view of a brown brick wall.
 Nothing she could use as a weapon,
-nothing she could hurt himself with.
+nothing she could hurt herself with.
 For one fleeting moment she wondered if it was some kind of VR game,
 but the faint smell of antiseptic and despair
 washed away the last effects of whatever drug she had been given.
@@ -756,7 +756,7 @@ and finally Doctor Biczo.
 She struggled,
 but the two men were stronger than her and had clearly had lots of practice
 holding people still.
-The nurse swabbed her arm and stuck a needle in her arm
+The nurse swabbed her arm and stuck a needle in it
 without once looking at her face.
 She shouted and swore,
 knowing it wouldn't do any good,
@@ -812,7 +812,7 @@ George's hands bunched into fists as a thought struck her.
 "Did you do this to Mom?
 When she was sick?"
 
-The look on Doctor Biczo's face gave him his answer.
+The look on Doctor Biczo's face gave her his answer.
 "You shitbag,"
 George said coldly.
 "Why?"
@@ -834,7 +834,7 @@ her mouth working.
 Robbie said,
 slipping his shoulder under George's arm.
 
-"What the hell...?"
+"What the hell…?"
 George managed to ask.
 
 "Later,"
@@ -960,7 +960,7 @@ almost made George giggle.
 Whoever or whatever this was in her brother's body clearly didn't like mysteries.
 "So if it's my work you're interested in,
 not his,
-why...?"
+why…?"
 She gestured helplessly.
 
 Robbie cleared his throat.
@@ -1013,17 +1013,17 @@ Robbie spoke first.
 The Yith are so much smarter than we are,
 but they just can't get their heads around computers."
 
-She opened her tablet and dragged a document onto the screen.
+He opened his tablet and dragged a document onto the screen.
 "When Biczo comes back,
 show him this.
 Tell him there's more in a dead drop account.
-If he ever bothers you and Suyin..."
+If he ever bothers you and Suyin…"
 
 "You can tell him yourself,"
 George said,
 already knowing it wasn't going to be true.
 
-"George..."
+"George…"
 Her brother shook her head.
 "It's okay.
 I got to see things I never dreamed of.
@@ -1038,7 +1038,7 @@ We're going to destroy everything.
 How can that be fine?"
 
 Robbie's breath whistled slightly as he breathed.
-"I met someone when I was...you know.
+"I met someone when I was…you know.
 He's an Australian physicist named Kingston-Brown.
 Lives in Antarctica about five hundred years from now.
 They're sending self-replicating machines out to the asteroids to make solar shields
@@ -1059,7 +1059,7 @@ I kinda like the idea of them not knowing things."
 
 Suyin found them there an hour later.
 Robbie's labored breathing was finally silent.
-George sat beside her,
+George sat beside him,
 a sketch of two children playing poker at a kitchen table
 taking shape in her notebook.
 

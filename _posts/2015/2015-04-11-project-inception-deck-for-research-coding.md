@@ -48,7 +48,7 @@ original: swc
 </ol>
 <p>
   It's a good process,
-  but some steps need to be translated to use it for research coding projects&mdash;for example,
+  but some steps need to be translated to use it for research coding projects–for example,
   I think step #3 should be to design the project's first poster,
   and "see if someone has already built what you need" ought to be on the list as well.
   What would you change or replace, and why?

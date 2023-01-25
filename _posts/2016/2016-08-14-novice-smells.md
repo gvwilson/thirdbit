@@ -43,7 +43,7 @@ original: nwit
 <p>
   I'm a big fan of block-based programming languages,
   and an even bigger fan of testing whether things that everyone knows are actually true.
-  This paper was therefore a double pleasure&mdash;triple if you count
+  This paper was therefore a double pleasure–triple if you count
   the care with which the different effects of long methods and code duplication were teased apart.
   If the authors made their raw data available,
   this would be an excellent paper for students to work through

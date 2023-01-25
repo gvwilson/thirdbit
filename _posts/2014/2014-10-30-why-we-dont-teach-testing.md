@@ -26,7 +26,7 @@ original: swc
   though,
   I should make three things clear.
   First,
-  I believe very strongly that testing is a key software development practice&mdash;so much so that
+  I believe very strongly that testing is a key software development practice–so much so that
   I'm very reluctant to use any library that doesn't come with a suite of tests.
   Second,
   I believe that scientific software is just as testable as any other kind of software,
@@ -79,9 +79,9 @@ original: swc
 </p>
 <p>
   My answer was,
-  "I don't know&mdash;you're the scientist."
+  "I don't know–you're the scientist."
   Their response was,
-  "Well, I don't know either&mdash;you're the computer scientist."
+  "Well, I don't know either–you're the computer scientist."
   Books
   <a href="http://www.amazon.com/Writing-Scientific-Software-Guide-Style/dp/0521675952/">like</a>
   <a href="http://www.amazon.com/Accuracy-Reliability-Scientific-Computing-Environments/dp/0898715849/">these</a>
@@ -89,7 +89,7 @@ original: swc
   Their advice boils down to,
   "Think carefully about your numerical methods,"
   but that's like telling a graphic designer to think carefully about the user:
-  a fair response is, "Thanks&mdash;now can you please tell me <em>what</em> to think?"
+  a fair response is, "Thanks–now can you please tell me <em>what</em> to think?"
 </p>
 <p>
   What I've realized from talking with people
@@ -133,7 +133,7 @@ original: swc
   <p>
     If you notice there,
     and also in the earlier lesson on the simpler linear model,
-    we introduce grid-convergence analysis&mdash;a
+    we introduce grid-convergence analysis–a
     methodical way of executing code verification in numerical computing.
     This is not common:
     hardly any beginner course in numerical methods will cover observed order of convergence in this way.
@@ -213,7 +213,7 @@ original: swc
 </p>
 <p>
   <em>
-    My thanks to Lorena Barba, Matt Davis, Justin Kitzes, Ariel Rokem, Fernando P&eacute;rez
+    My thanks to Lorena Barba, Matt Davis, Justin Kitzes, Ariel Rokem, Fernando Pérez
     for feedback on an earlier draft of this post.
   </em>
 </p>

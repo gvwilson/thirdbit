@@ -20,7 +20,7 @@ original: swc
   <li>The data hand-off problem is as important as the data processing problem.</li>
 </ul>
 <p>
-  The stories themselves are listed below&mdash;we'd like to hear what resonates and what's missing.
+  The stories themselves are listed below–we'd like to hear what resonates and what's missing.
 </p>
 <hr/>
 <p><strong><em>Reginald and Nelle</em></strong></p>
@@ -211,7 +211,7 @@ original: swc
 </p>
 <ol>
   <li>
-    Relational database technology, i.e., SQL&mdash;perhaps authored with the help of a GUI.
+    Relational database technology, i.e., SQL–perhaps authored with the help of a GUI.
     Each of the data processing, integration, and aggregation steps performed in Excel,
     as well as automated format conversion for importing data into ODV,
     is represented as one SQL query deriving a new dataset from prior data.
@@ -317,7 +317,7 @@ original: swc
 </ol>
 <p>Computational algorithms needed:</p>
 <ul>
-  <li>database schema for all labs&mdash;to relate all produced data</li>
+  <li>database schema for all labs–to relate all produced data</li>
   <li>use existing pipelines to generate sequence data</li>
   <li>sequence data shared, compiled, and version controlled among the labs;</li>
   <li>scan sequence data against existing database - focused chunk of InterPro - families and functional domains/motifs - identify motif that would be an active site for a lipase</li>

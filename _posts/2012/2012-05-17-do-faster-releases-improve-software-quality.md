@@ -12,4 +12,4 @@ original: nwit
 	<li>The Firefox rapid release model fixes bugs faster than using the traditional model, but fixes proportionally less bugs.</li>
 	<li>With a rapid release model, users adopt new versions faster compared to the traditional release model.</li>
 </ol>
-<p>#3 is good news; #2 is (mostly) good, but #1 is a puzzle for which the authors don't have an explanation&mdash;at least, not yet. We'd welcome suggestions about why it might be.</p>
+<p>#3 is good news; #2 is (mostly) good, but #1 is a puzzle for which the authors don't have an explanation–at least, not yet. We'd welcome suggestions about why it might be.</p>

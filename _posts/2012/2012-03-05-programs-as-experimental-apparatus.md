@@ -10,9 +10,9 @@ title: Programs as Experimental Apparatus
 <li>what threshold to use.</li>
 </ol>
 <p>To answer the first question, most images encode the red, green, and blue values of pixels separately, so we can add up the absolute values of the differences between those color values:</p>
-<p><em>d<sub>1</sub> = abs(R &mdash; r) + abs(G &mdash; g) + abs(B &mdash; b)</em></p>
+<p><em>d<sub>1</sub> = abs(R – r) + abs(G – g) + abs(B – b)</em></p>
 <p>We could equally well add the color values for each pixel to get a total, then look at the differences between those:</p>
-<p><em>d<sub>2</sub> = abs((R + G + B) &mdash; (r + g + b))</em></p>
+<p><em>d<sub>2</sub> = abs((R + G + B) – (r + g + b))</em></p>
 <p>Does it matter which we choose? And either way, how big a difference should count as different? Since we're scientists, we can answer these questions experimentally. Here's a Python program that reads in an image, scales it down to half its original size, scales it back up, then calculates both difference measures. Its output is a histogram of how many pixels differ by how much according to the two measures, and how different the measures are from each other:</p>
 <pre>import sys
 from PIL import Image
@@ -192,7 +192,7 @@ for i in range(len(overall)):
 </tr>
 </tbody>
 </table>
-<p>The good news is that there isn't much difference between the counts for the two measures. However, it's hard to get a sense of what else is in this data. Time to visualize&mdash;let's plot the percentage of pixels that difference according to <em>d<sub>1</sub></em>.
+<p>The good news is that there isn't much difference between the counts for the two measures. However, it's hard to get a sense of what else is in this data. Time to visualize–let's plot the percentage of pixels that difference according to <em>d<sub>1</sub></em>.
 The result isn't surprising: if our upsize-downsize algorithm didn't lose any information, we'd expect no differences at all. Since rescaling is lossy, though, we see that a lot of pixels differ by small values, and only a few by large values.</p>
 <p>But there's something else in our data that could easily be missed. Look at the first dozen entries in the table above; do you see a pattern? Let's plot the scores for multiples of three separately from the scores for differences that aren't even multiples of three.</p>
 <p>If we do the same thing for the whole data set, we get another image.</p>

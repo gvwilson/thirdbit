@@ -1,5 +1,5 @@
 ---
-title: "&quot;My daughter cannot speak without this app.&quot;"
+title: "'My daughter cannot speak without this app.'"
 date: 2012-06-12 21:05:09
 year: 2012
 ---

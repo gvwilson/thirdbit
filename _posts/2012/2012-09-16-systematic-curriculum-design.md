@@ -70,7 +70,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Functions and Libraries</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -105,7 +105,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Quality</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -115,7 +115,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Development</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -150,7 +150,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Version Control</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -190,7 +190,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Quality</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -220,12 +220,12 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top">How can I tell if I've processed it correctly?</td>
 <td valign="top">The Shell</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Version Control</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -235,7 +235,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Functions and Libraries</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -270,7 +270,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Sets and Dictionaries</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -280,7 +280,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Web Programming</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"><strong>Question</strong></td>
@@ -290,32 +290,32 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top">How can I find and fix bugs when I haven't?</td>
 <td valign="top">The Shell</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Version Control</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Basic Programming</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Functions and Libraries</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Databases</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Number Crunching</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -335,7 +335,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Sets and Dictionaries</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -345,7 +345,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Web Programming</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"><strong>Question</strong></td>
@@ -355,7 +355,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top">How can I keep track of what I've done?</td>
 <td valign="top">The Shell</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -400,7 +400,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Number Crunching</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -415,12 +415,12 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Sets and Dictionaries</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Development</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -435,7 +435,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top">How can I find and use other people's work?</td>
 <td valign="top">The Shell</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -445,7 +445,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Basic Programming</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -455,27 +455,27 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Databases</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Number Crunching</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Quality</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Sets and Dictionaries</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Development</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -495,7 +495,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top">How can other people find and use mine?</td>
 <td valign="top">The Shell</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -505,7 +505,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Basic Programming</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -520,22 +520,22 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Number Crunching</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Quality</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Sets and Dictionaries</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
 <td valign="top">Development</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -565,7 +565,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Version Control</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -580,7 +580,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Databases</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -615,7 +615,7 @@ title: Systematic Curriculum Design
 <tr>
 <td valign="top"></td>
 <td valign="top">Web Programming</td>
-<td valign="top">&mdash;</td>
+<td valign="top">–</td>
 </tr>
 </tbody>
 </table>

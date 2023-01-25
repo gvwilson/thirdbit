@@ -19,8 +19,8 @@ original: swc
   If you aren't in one of those cities,
   but are willing to help organize in your area,
   please add yourself to this Etherpad.
-  We'll hash out the what and how at the next lab meeting&mdash;it's a community event,
-  so we'd like the community to choose what to sprint on&mdash;but
+  We'll hash out the what and how at the next lab meeting–it's a community event,
+  so we'd like the community to choose what to sprint on–but
   please get the date in your calendar:
   it just wouldn't be a party without you.
 </p>

@@ -48,6 +48,6 @@ Here's an experiment you can do at home: for just one day, keep track of how man
 </tr>
 </tbody>
 </table>
-I admit my metrics are a imprecise&mdash;I didn't use eyetracking to determine how many tweets I actually paid attention to, for example&mdash;but the numbers are still sobering.
+I admit my metrics are a imprecise–I didn't use eyetracking to determine how many tweets I actually paid attention to, for example–but the numbers are still sobering.
 
 <em>[1] Mozilla uses Yammer internally instead of Facebook. I haven't logged into the latter in almost two years.</em>

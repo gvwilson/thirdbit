@@ -16,7 +16,7 @@ original: swc
 <pre>&gt;&gt;&gt; x? # gets help for the string referred to by x --- cool!</pre>
 <p>The information itself isn't very helpful for novices, but she was pleased it was there. Now what about this?</p>
 <pre>&gt;&gt;&gt; 'abc'?</pre>
-<p>Uh oh&mdash;it tells her "Object `` not found." Given that we've been using:</p>
+<p>Uh oh–it tells her "Object `` not found." Given that we've been using:</p>
 <pre>&gt;&gt;&gt; name = 'Perry'
 &gt;&gt;&gt; len(name)</pre>
 <p>and:</p>
@@ -31,7 +31,7 @@ original: swc
 <pre>&gt;&gt;&gt; %%edit x = 5</pre>
 <p>and got a traceback starting with the error message:</p>
 <pre>WARNING: Argument given (x = 5) can't be found as a variable or as a filename.</pre>
-<p>Er, what? We then assigned 5 to x and tried the '%%edit x = 5' line again&mdash;same traceback. Hm. What if we try:</p>
+<p>Er, what? We then assigned 5 to x and tried the '%%edit x = 5' line again–same traceback. Hm. What if we try:</p>
 <pre>&gt;&gt;&gt; %edit</pre>
 <p>all by itself, quit from Vim, and then try:</p>
 <pre>&gt;&gt;&gt; %edit x = 5</pre>
@@ -49,7 +49,7 @@ original: swc
 
 <p>But then she tried this:</p>
 <pre>&gt;&gt;&gt; !cd ..</pre>
-<p>to get back to her home directory from the 'tmp' directory she changed into earlier. It looks like it worked, but '!ls' shows that it hasn't. I understand what's going on&mdash;the 'cd' happened in a sub-shell that's immediately discarded, rather than in the interpreter&mdash;but she's completely confused at this point.</p>
+<p>to get back to her home directory from the 'tmp' directory she changed into earlier. It looks like it worked, but '!ls' shows that it hasn't. I understand what's going on–the 'cd' happened in a sub-shell that's immediately discarded, rather than in the interpreter–but she's completely confused at this point.</p>
 
 <p>None of this is intended as a criticism of IPython: in the hands of someone who has mastered the underlying concepts, it's a great power tool, and I'm not going to switch back to the generic Python interpreter any time soon. But as a novice, this grad student doesn't have a clear mental model of how the operating system, the shell, and the Python interpreter relate to each other, so anything that moves back and forth between levels leaves her bewildered. Explaining things categorically therefore doesn't work (yet), because she doesn't have the categories. Equally, more documentation isn't a solution, because looking something up (i.e., adding information to existing concepts) and forming or internalizing concepts are different cognitive processes.</p>
 

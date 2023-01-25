@@ -40,12 +40,12 @@ Greg
   I don't want it to be a collection of clever ways to introduce learners to recursion,
   because thinks like that don't transfer to other lessons;
   instead,
-  I want examples of lessons that are beautifully structured&mdash;that have well-written objectives,
+  I want examples of lessons that are beautifully structured–that have well-written objectives,
   exercises that relate directly to those objectives,
   instructor's notes that actually help with the teaching,
   and all the other wheels that we're now reinventing for <a href="https://software-carpentry.org">Sotware Carpentry</a>.
   Most of all,
-  I want their creators' commentary and feedback on it from other experienced teachers&mdash;the discussion of "why"
+  I want their creators' commentary and feedback on it from other experienced teachers–the discussion of "why"
   that has made the <a href="http://aosabook.org"><em>Architecture of Open Source Applications</em></a> series
   so much fun.
 </p>

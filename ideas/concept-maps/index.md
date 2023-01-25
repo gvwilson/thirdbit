@@ -301,7 +301,7 @@ Greg Wilson
 -   **Why SVG?**
     Because vector diagrams rescale much more smoothly than raster images.
 
--   **Why not use color? Or more shapes? Or...?**
+-   **Why not use color? Or more shapes? Or…?**
     The simpler these diagrams are,
     the easier they will be to maintain.
     Simple diagrams also display better on smaller or older devices.

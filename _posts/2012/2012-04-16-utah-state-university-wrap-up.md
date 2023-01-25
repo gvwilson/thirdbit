@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Utah State University Wrap-Up
 ---
-<p>Our bootcamp at Utah State University finished earlier today&mdash;many thanks once again to Ethan White and his friends for hosting us.  Here's what the students thought:</p>
+<p>Our bootcamp at Utah State University finished earlier today–many thanks once again to Ethan White and his friends for hosting us.  Here's what the students thought:</p>
 <table>
 <tr>
 <td>

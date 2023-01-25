@@ -4,14 +4,14 @@ date: 2013-03-01 09:00:00
 year: 2013
 original: swc
 ---
-<p>Our two-day bootcamps are working well, but that doesn't mean they're the best&mdash;or only&mdash;way to teach basic computing skills to scientists.  We've been kicking around other ideas recently, and we'd welcome your input as well.</p>
+<p>Our two-day bootcamps are working well, but that doesn't mean they're the best–or only–way to teach basic computing skills to scientists.  We've been kicking around other ideas recently, and we'd welcome your input as well.</p>
 <p><strong>Become part of a regular university course.</strong></p>
 <ul>
   <li>Use the first few days of a course to teach Software Carpentry stuff, and the rest to teach "computational methods in [XYZ]".</li>
   <li>Counter-argument: SWC doesn't really fit a traditional lecture format, but can fit with in-class projects and discussions, follow-me tutorials, etc.</li>
   <li>And any course that includes SWC will have to be a fairly special and overly interactive course.</li>
 </ul>
-<p>We <em>have</em> experimented at Columbia with running a two-day bootcamp at the start of a regular course, followed by 2 hours/week for the remainder of the semester&mdash;we should be able to report back on how well it works by April or May.</p>
+<p>We <em>have</em> experimented at Columbia with running a two-day bootcamp at the start of a regular course, followed by 2 hours/week for the remainder of the semester–we should be able to report back on how well it works by April or May.</p>
 <p><strong>Offer a two-week residential course.</strong></p>
 <ul>
   <li>Some people think a week or two of full time work is enough time to turn a neophyte into a skilled practitioner.</li>

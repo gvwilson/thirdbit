@@ -12,7 +12,7 @@ year: 2011
   "Yes, you should." Most people don't respond, but the handful who do
   have all said, "I didn't mean <em>you</em>, I
   meant <em>someone</em>." To which I've been tempted to reply, "I
-  agree&mdash;please mail her/him and let me know what s/he says."
+  agree–please mail her/him and let me know what s/he says."
   I've never actually sent that, though; I figure anyone who doesn't
   get the point of the first message won't get it if it's made a
   second time.

@@ -37,7 +37,7 @@ title: By The Numbers
 </tr>
 <tr>
 <td>Editing, diagrams, etc.</td>
-<td style="text-align: right;">&times;2</td>
+<td style="text-align: right;">×2</td>
 </tr>
 <tr>
 <td>Total days</td>

@@ -124,7 +124,7 @@ original: swc
 <p><strong>Attendees (First Round)</strong></p>
 <ul>
 <li>Raniere Silva (University of Campinas, S&atilde;o Paulo, Brazil</li>
-<li>R&eacute;mi Emonet (University of Saint &Eacute;tienne, France)</li>
+<li>Rémi Emonet (University of Saint &Eacute;tienne, France)</li>
 <li>Jonah Duckles (University of Oklahoma, Norman, Oklahoma @jduckles)</li>
 <li>Brian Northan</li>
 <li>Pauline Barmby, (Western U, London Canada, @PBarmby)</li>
@@ -211,7 +211,7 @@ original: swc
 <li>Votes: +1 +1 +1+1+1+1+1+1+1+000+1+1+1+10+1</li>
 <li>Volunteers:
 <ul>
-<li>R&eacute;mi: I could help if needed (and if it is just integration) - I could do something, it is not perfect from a style point of view but it seem to work (see the issue)</li>
+<li>Rémi: I could help if needed (and if it is just integration) - I could do something, it is not perfect from a style point of view but it seem to work (see the issue)</li>
 <li>Matt Davis</li>
 </ul></li>
 </ul></li>

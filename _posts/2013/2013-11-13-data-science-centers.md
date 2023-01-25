@@ -41,5 +41,5 @@ original: swc
   or about running a bootcamp where you are.
 </p>
 <p>
-  Congratulations to everyone involved in the proposal&mdash;we look forward to wonderful things.
+  Congratulations to everyone involved in the proposal–we look forward to wonderful things.
 </p>

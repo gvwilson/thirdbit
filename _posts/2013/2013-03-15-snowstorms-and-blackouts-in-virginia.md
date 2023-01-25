@@ -9,4 +9,4 @@ According to Steve Crouch,
 33 researchers spent two days learning some useful computing skills from Steve,
 Carlos Anderson,
 and Ben Morris.
-Many thanks to Stephen Turner for hosting it&mdash;we hope to be back soon.</p>
+Many thanks to Stephen Turner for hosting it–we hope to be back soon.</p>

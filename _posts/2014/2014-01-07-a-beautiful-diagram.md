@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   Michael Nygard's <a href="http://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213/"><cite>Release It!</cite></a>
-  is one of my favorite books about the practical side of computing&mdash;I gave it five stars when it first came out,
+  is one of my favorite books about the practical side of computing–I gave it five stars when it first came out,
   and while it's too advanced for most of the scientists we want to teach,
   there's something from it that I'd like to share:
   the diagram titled "Interaction of Patterns and Antipatterns" from page 43:

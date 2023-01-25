@@ -1,5 +1,5 @@
 ---
-title: "&quot;The World Wide Web wasn't publishable&quot;"
+title: "The World Wide Web wasn't publishable"
 date: 2009-10-21 16:59:17
 year: 2009
 ---

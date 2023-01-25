@@ -5,7 +5,7 @@ original: swc
 title: "Summer Course: Analyzing Next-Generation Sequencing Data"
 ---
 <p>Analyzing Next-Generation Sequencing Data</p>
-<p>May 31 &mdash; June 11th, 2010<br />
+<p>May 31 – June 11th, 2010<br />
 <a href="http://www.kbs.msu.edu/">Kellogg Biological Station</a>, Michigan State University<br />
 CSE 891 s431 / MMG 890 s433, 2 cr</p>
 <p><a href="http://bioinformatics.msu.edu/ngs-summer-course-2010">http://bioinformatics.msu.edu/ngs-summer-course-2010</a></p>

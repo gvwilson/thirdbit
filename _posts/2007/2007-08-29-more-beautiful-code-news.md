@@ -1,5 +1,5 @@
 ---
-title: "More &quot;Beautiful Code&quot; News"
+title: "More Beautiful Code News"
 date: 2007-08-29 08:11:35
 year: 2007
 ---

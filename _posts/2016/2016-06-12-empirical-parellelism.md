@@ -354,7 +354,7 @@ original: nwit
 </ul>
 <p>
   It's easy to say this means we need better
-  documentation&mdash;better, but wrong.  Just as you can't refactor
+  documentation–better, but wrong.  Just as you can't refactor
   your way to better security, you can't document your way to better
   usability.  Knowing what people use, how they use it, and how
   they <em>mis</em>-use it could and should inform the design of the

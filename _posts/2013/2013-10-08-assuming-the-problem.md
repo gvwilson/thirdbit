@@ -7,20 +7,20 @@ year: 2013
   Gizmodo ran a piece recently titled
   <a href="http://gizmodo.com/what-happens-when-cities-fall-apart-1440820493">What Happens When Cities Fall Apart?</a>
   about the work of David Kilcullen,
-  an Australian military theorist who believes that many future conflicts will take place in lawless urban areas&mdash;what
+  an Australian military theorist who believes that many future conflicts will take place in lawless urban areas–what
   he calls "feral cities".
   For me,
   this was the most important, and most saddening, passage in the article:
 </p>
 <blockquote><em>
-  ...if cities&mdash;particularly in the world's coastal, developing regions&mdash;are such a hotbed for future aggression...then
+  ...if cities–particularly in the world's coastal, developing regions–are such a hotbed for future aggression...then
   how can we develop a new understanding of the city that would help us to...design away this growing problem?
   How can both civil infrastructure and urban governance be made more resilient to become defenses against collapse?
 </em></blockquote>
 <p>
   Personally,
   I think the real solution is to prevent collapse in the first place
-  by engineering a more equitable society&mdash;one in which
+  by engineering a more equitable society–one in which
   people feel they are respected,
   have a stake,
   and are able to succeed.

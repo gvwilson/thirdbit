@@ -14,5 +14,5 @@ original: swc
   upon reading the second,
   is how far we still have to go to make all of this <em>normal</em>.
   As William Gibson said,
-  "The future is already here&mdash;it's just not very evenly distributed."
+  "The future is already here–it's just not very evenly distributed."
 </p>

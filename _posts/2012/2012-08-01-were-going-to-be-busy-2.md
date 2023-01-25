@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: We're Going to Be Busy
 ---
-<p>We're going to be busy&mdash;and these are just the ones we have confirmed.</p>
+<p>We're going to be busy–and these are just the ones we have confirmed.</p>
 <table>
 <tbody>
 <tr>

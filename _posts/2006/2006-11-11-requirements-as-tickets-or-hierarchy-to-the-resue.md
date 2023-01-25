@@ -17,31 +17,31 @@ We're still thinking about the first (tag-directed proximitization in an unstruc
 <td colspan="3"><strong>Tagging System</strong></td>
 </tr>
 <tr>
-<td>&nbsp;</td>
+<td> </td>
 <td colspan="2">281: In-place editing</td>
 </tr>
 <tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td>407: Keyword completion</td>
 </tr>
 <tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td>399: Explicit "submit"</td>
 </tr>
 <tr>
-<td>&nbsp;</td>
+<td> </td>
 <td colspan="2">117: Colorization</td>
 </tr>
 <tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td>145: Red-purple-blue spectrum</td>
 </tr>
 <tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td>214: Must be legible when printed B&W</td>
 </tr>
 </table>

@@ -10,4 +10,4 @@ title: "An Easy Place to Start: Systems Programming"
 <li>working with archives (tar, zip, etc.)</li>
 <li>run other programs (the subprocess module in all its fearsome glory)</li>
 </ul>
-<p>A typical use case is writing a Python script to run a compiled legacy application a few hundred times for slightly different parameter values, putting each run's output in a separate directory that's created on the fly, and so on.  If you're interested, please get in touch &mdash; it's easier than you think.</p>
+<p>A typical use case is writing a Python script to run a compiled legacy application a few hundred times for slightly different parameter values, putting each run's output in a separate directory that's created on the fly, and so on.  If you're interested, please get in touch – it's easier than you think.</p>

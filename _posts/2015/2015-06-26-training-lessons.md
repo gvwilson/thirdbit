@@ -43,14 +43,14 @@ original: swc
   <dd>
     <p>
       Again,
-      I'm judging by end-of-course feedback&mdash;it hasn't been long enough
+      I'm judging by end-of-course feedback–it hasn't been long enough
       for us to measure follow-through.
       I think that having people co-located is the key:
       we haven't tried it,
       but I'm certain that having everyone teleconference for two days will be a lot less enjoyable.
       (It will probably also suffer from a lot more technical issues.)
       It also makes a big difference if at least one person at each site has been through a workshop
-      as a learner, helper, or instructor&mdash;so much so that
+      as a learner, helper, or instructor–so much so that
       we may make this a requirement in future.
     </p>
     <p>
@@ -115,7 +115,7 @@ original: swc
       will help.)
     </p>
     <p>
-      We also need to do a better job&mdash;a <em>much</em> better job&mdash;of engaging instructors
+      We also need to do a better job–a <em>much</em> better job–of engaging instructors
       once they have qualified.
       More than half of the people who have completed training in the last year have yet to teach for us.
       I don't think that's indifference on their part,

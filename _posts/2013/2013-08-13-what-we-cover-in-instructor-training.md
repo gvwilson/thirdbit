@@ -56,7 +56,7 @@ original: swc
   than intimate familiarity with our lessons on regular expressions.
 </p>
 <p>
-  The next round of training&mdash;our seventh&mdash;will start in early October.
+  The next round of training–our seventh–will start in early October.
   If you would like to take part,
   please send us email
   and we'll add you to the contact list.

@@ -89,9 +89,9 @@ env DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib/ \
   I've been programming for over thirty years,
   and I didn't know that the magic word I needed was <code>DYLD_LIBRARY_PATH</code>.
   What I <em>do</em> know is that
-  every attempt I've seen to sprint for the finish line&mdash;to teach
+  every attempt I've seen to sprint for the finish line–to teach
   the skills people want to do
-  before teaching the basic concepts those skills depend on&mdash;has produced more frustration than enlightenment.
+  before teaching the basic concepts those skills depend on–has produced more frustration than enlightenment.
   In the end,
   it turns out that my high school music teacher was right:
   if you want to play a solo,

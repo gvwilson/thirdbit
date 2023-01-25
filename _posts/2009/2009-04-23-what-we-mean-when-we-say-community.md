@@ -1,5 +1,5 @@
 ---
-title: "What We Mean When We Say &quot;Community&quot;"
+title: "What We Mean When We Say 'Community'"
 date: 2009-04-23 13:10:47
 year: 2009
 ---

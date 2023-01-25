@@ -17,7 +17,7 @@ year: 2014
   <li>
     <em>We were putting them in impossible situations.</em>
     Having two bosses is hell;
-    having five is&mdash;well, it's actually quite normal for students
+    having five is–well, it's actually quite normal for students
     who are taking that many courses
     from faculty who don't consult with each other on workload and deadlines.
     As a result,
@@ -27,8 +27,8 @@ year: 2014
   </li>
   <li>
     <em>Process can't be taught: it has to be mentored.</em>
-    Facts&mdash;nouns&mdash;are relatively easy to teach through lectures.
-    Processes&mdash;verbs&mdash;aren't nearly as amenable to description:
+    Facts–nouns–are relatively easy to teach through lectures.
+    Processes–verbs–aren't nearly as amenable to description:
     in my experience,
     the only way to convey them is by example,
     working side by side,
@@ -42,11 +42,11 @@ year: 2014
     (ironically, just as I was leaving academia),
     none of them actually describe the architectures of real applications.
     Similarly,
-    while there are books on measuring and tuning performance&mdash;a
-    core engineering activity if ever there was one&mdash;that
+    while there are books on measuring and tuning performance–a
+    core engineering activity if ever there was one–that
     material is almost never discussed in courses called "software engineering".
-    And when it comes to measuring software development&mdash;not just
-    talking about it, but <em>measuring</em> it&mdash;textbooks
+    And when it comes to measuring software development–not just
+    talking about it, but <em>measuring</em> it–textbooks
     simply haven't kept pace with the changes I've seen at major conferences
     like <a href="http://www.icse-conferences.org/">ICSE</a>,
     where papers on new tools now routinely report

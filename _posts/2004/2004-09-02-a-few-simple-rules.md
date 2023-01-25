@@ -27,7 +27,7 @@ will be run:</p>
 
   <tr>
     <td align="right" valign="top">1.</td>
-    <td>&nbsp;&nbsp;</td>
+    <td>  </td>
     <td valign="top">
       <b>Everything important is versioned.</b>
       Source code, web pages... anything and everything that you need
@@ -38,7 +38,7 @@ will be run:</p>
 
   <tr>
     <td align="right" valign="top">2.</td>
-    <td>&nbsp;&nbsp;</td>
+    <td>  </td>
     <td valign="top">
       <b>Everyone uses Eclipse.</b>
       And Ant.  And JUnit.  And all the
@@ -50,7 +50,7 @@ will be run:</p>
 
   <tr>
     <td align="right" valign="top">3.</td>
-    <td>&nbsp;&nbsp;</td>
+    <td>  </td>
     <td valign="top">
       <b>The build is automated.</b>
       And all tests are re-run by default every time the project is
@@ -60,7 +60,7 @@ will be run:</p>
 
   <tr>
     <td align="right" valign="top">4.</td>
-    <td>&nbsp;&nbsp;</td>
+    <td>  </td>
     <td valign="top">
       <b>Anything that isn't done immediately goes into the issue
       tracker.</b>
@@ -72,7 +72,7 @@ will be run:</p>
 
   <tr>
     <td align="right" valign="top">5.</td>
-    <td>&nbsp;&nbsp;</td>
+    <td>  </td>
     <td valign="top">
       <b>Everyone writes tests,</b>
       preferably <em>before</em> they write the code itself.
@@ -85,7 +85,7 @@ will be run:</p>
 
   <tr>
     <td align="right" valign="top">6.</td>
-    <td>&nbsp;&nbsp;</td>
+    <td>  </td>
     <td valign="top">
       <b>Everyone fixes bugs.</b>
       Code is done when it's all typed in; code is done when it
@@ -100,7 +100,7 @@ will be run:</p>
 
   <tr>
     <td align="right" valign="top">7.</td>
-    <td>&nbsp;&nbsp;</td>
+    <td>  </td>
     <td valign="top">
       <b>Every large piece of work is sanity checked <em>before</em>
       code is written.</b>
@@ -115,7 +115,7 @@ will be run:</p>
 
   <tr>
     <td align="right" valign="top">8.</td>
-    <td>&nbsp;&nbsp;</td>
+    <td>  </td>
     <td valign="top">
       <b>Every meeting start with an agenda, and ends with minutes and
       an action list.</b>
@@ -128,7 +128,7 @@ will be run:</p>
 
   <tr>
     <td align="right" valign="top">9.</td>
-    <td>&nbsp;&nbsp;</td>
+    <td>  </td>
     <td valign="top">
       <b>Have fun.</b>
       This is the most important rule of all.  ("Floggings will

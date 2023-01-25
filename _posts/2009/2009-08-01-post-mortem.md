@@ -38,7 +38,7 @@ title: Post-Mortem
 <h2>Changes</h2>
 <ul>
 <li>More on object-oriented programming.</li>
-<li>More feedback on the students' solutions to the exercises&mdash;they didn't get the equivalent of grading.</li>
+<li>More feedback on the students' solutions to the exercises–they didn't get the equivalent of grading.</li>
 <li>Put the exercises up before the class, so that students know what the lecture's going to be leading them to.</li>
 </ul>
-<p>It's been a good three weeks&mdash;I enjoyed getting to know the students, and look forward to seeing what they do with what they've learned.</p>
+<p>It's been a good three weeks–I enjoyed getting to know the students, and look forward to seeing what they do with what they've learned.</p>

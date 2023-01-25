@@ -81,7 +81,7 @@ original: swc
       <li><a href="http://blog.kreuvf.de/">Steven Koenig</a> (CSS is so 2006/7 ;))</li>
       <li>Katy Huff: <a href="http://ucb-rdn.github.io/">1</a> <a href="http://katyhuff.github.io/">2</a> , <a href="http://katyhuff.github.io/cyder/">3</a> (not proud, really, just interested in feedback!!!)</li>
       <li><a href="http://stephenturner.us/">Stephen Turner</a> (bootstrap hackjob hosted on gh-pages)</li>
-      <li><a href="http://home.heeere.com">R&eacute;mi Emonet</a> (not so worth :) )</li>
+      <li><a href="http://home.heeere.com">Rémi Emonet</a> (not so worth :) )</li>
       <li><a href="http://www.physics.uwo.ca/~pbarmby/">Pauline Barmby</a></li>
       <li><a href="http://luispedro.org">Luis Pedro Coelho</a></li>
       <li><a href="http://www.juliagustavsen.com/">Julia Gustavsen</a> (still working on it...needs research interests)</li>

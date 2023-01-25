@@ -48,7 +48,7 @@ title: Formatting Revisited
     ...as above...
   &lt;/section&gt;
 &lt;/section&gt;</pre>
-<p>Diagrams and images will be stored in external files and <code>href</code>'d in&mdash;I've played with putting the SVG directly in the document, but in practice, people are going to use different tools to edit the two anyway. I'd like to use inclusions for code fragments, so that they don't have to be duplicated in the slide and book sections, but there's no standard way to do text inclusion in HTML (which is odd when you think about it, given that other media are usually included by reference instead of by value).</p>
+<p>Diagrams and images will be stored in external files and <code>href</code>'d in–I've played with putting the SVG directly in the document, but in practice, people are going to use different tools to edit the two anyway. I'd like to use inclusions for code fragments, so that they don't have to be duplicated in the slide and book sections, but there's no standard way to do text inclusion in HTML (which is odd when you think about it, given that other media are usually included by reference instead of by value).</p>
 <p>The advantages of this format that I see are:</p>
 <ol>
 <li>Anyone can edit it without special tools.</li>

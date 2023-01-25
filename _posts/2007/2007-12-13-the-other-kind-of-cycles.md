@@ -1,5 +1,5 @@
 ---
-title: "The Other Kind of &quot;Cycles&quot;"
+title: "The Other Kind of 'Cycles'"
 date: 2007-12-13 10:57:30
 year: 2007
 ---

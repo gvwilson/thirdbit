@@ -6,7 +6,7 @@ original: swc
 ---
 <p><em>Update: it's clear from comments that I explained myself 
 poorly in this post. We don't ever teach by starting with a big example 
-like the one below&mdash;we start with basic arithmetic, then assignment, then
+like the one below–we start with basic arithmetic, then assignment, then
  lists and loops, and so on. (See our Python lectures
  for details.) What I was trying to show was that by the time we reach a
  realistic example, students have to interleave those concepts in a very
@@ -334,7 +334,7 @@ have <code>this.that</code>, <code>sys.argv</code>, and <code>__name__</code> in
 can finally do something they might find useful. Getting through all 
 that takes four hours, i.e., if we start at 9:00, we're finished by 2:00
  (assuming we take a break for lunch). That's might not sound bad, 
-considering how mature our learners are. But look at the striping&mdash;look 
+considering how mature our learners are. But look at the striping–look 
 how long it takes to assemble enough pieces for learners to completely 
 understand any of this program's natural chunks. Over and over again, we
  have to say, "Trust us, this will prove useful later," and that kind of

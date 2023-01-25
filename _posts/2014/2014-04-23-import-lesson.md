@@ -12,8 +12,8 @@ original: swc
   she has now published <a href="http://lorenabarba.com/blog/announcing-aeropython/">AeroPython</a>,
   which teaches the use of potential flow for aerodynamic analysis via the panel method.
   You don't have to know what that is
-  to appreciate the beauty of what she has built&mdash;I certainly don't,
-  at least not yet&mdash;but I'd like to explore something that
+  to appreciate the beauty of what she has built–I certainly don't,
+  at least not yet–but I'd like to explore something that
   <em>isn't</em> in those notebooks.
   Before doing that,
   though,
@@ -72,7 +72,7 @@ original: swc
   With software,
   they can recompile their program or re-run its unit tests
   and see whether things still work.
-  There's no equivalent for lessons&mdash;no easy way to find out
+  There's no equivalent for lessons–no easy way to find out
   whether dependencies that used to resolve are still there.
 </p>
 <p>

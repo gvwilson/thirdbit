@@ -40,7 +40,7 @@ original: swc
 </p>
 <p>
   Two dozen of us went through this exercise last week at a workshop on what to teach biologists about computing.
-  The first step was to put together a "driver's license" exam&mdash;something that would tell you fairly quickly
+  The first step was to put together a "driver's license" exam–something that would tell you fairly quickly
   whether the author of the paper you were about to review was computationally competent.
   I posted the groups' responses a couple of days ago.
   As a follow-on, we did before-and-after user stories:

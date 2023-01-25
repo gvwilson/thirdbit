@@ -21,15 +21,15 @@ but the horizontal has an extra category called "interaction":
   <th></th>
 </tr>
 <tr>
-  <td style="border: 1px solid black;">&nbsp;</td>
-  <td style="border: 1px solid black;">&nbsp;</td>
-  <td style="border: 1px solid black;">&nbsp;</td>
+  <td style="border: 1px solid black;"> </td>
+  <td style="border: 1px solid black;"> </td>
+  <td style="border: 1px solid black;"> </td>
   <th style="border: 1px solid black;">Positive</th>
 </tr>
 <tr>
-  <td style="border: 1px solid black;">&nbsp;</td>
-  <td style="border: 1px solid black;">&nbsp;</td>
-  <td style="border: 1px solid black;">&nbsp;</td>
+  <td style="border: 1px solid black;"> </td>
+  <td style="border: 1px solid black;"> </td>
+  <td style="border: 1px solid black;"> </td>
   <th style="border: 1px solid black;">Negative</th>
 </tr>
 </table>

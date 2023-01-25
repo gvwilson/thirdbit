@@ -33,8 +33,8 @@ original: swc
   Aleksandra Pawlik from the <a href="http://software.ac.uk/">Software Sustainability Institute</a>,
   Warren Code from the <a href="http://sclt.science.ubc.ca/">UBC Science Centre for Learning and Teaching</a>,
   and I will give these trainees the same lessons and exercises as participants in the live course.
-  There will be a bit more structure&mdash;the first day will mostly be
-  about generic pedagogy, while the second will cover Software Carpentry-specific things&mdash;
+  There will be a bit more structure–the first day will mostly be
+  about generic pedagogy, while the second will cover Software Carpentry-specific things–
   and they will then do the same graduation exercise as our online trainees
   (i.e., submit a change to one of our lessons and teach online for five minutes).
 </p>
@@ -49,5 +49,5 @@ original: swc
   instead of having an extended course going all the time.
   (I think we'll still need the extended course to reach people
   who can't get together in groups for intensive courses.)
-  We should know in four weeks&mdash;we'll let you know when we do.
+  We should know in four weeks–we'll let you know when we do.
 </p>

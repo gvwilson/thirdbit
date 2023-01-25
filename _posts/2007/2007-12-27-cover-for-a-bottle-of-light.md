@@ -1,5 +1,5 @@
 ---
-title: "Cover for &quot;A Bottle of Light&quot;"
+title: "Cover for 'A Bottle of Light'"
 date: 2007-12-27 08:18:43
 year: 2007
 ---

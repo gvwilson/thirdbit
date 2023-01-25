@@ -58,4 +58,4 @@ title: Feedback from the University of British Columbia
 </tr>
 </tbody>
 </table>
-<p>That's my last road trip until mid-July&mdash;it's good to have ended this round on a high note. My thanks again to Ian Mitchell, Adina Chuang Howe, and everyone else who helped or attended.</p>
+<p>That's my last road trip until mid-July–it's good to have ended this round on a high note. My thanks again to Ian Mitchell, Adina Chuang Howe, and everyone else who helped or attended.</p>

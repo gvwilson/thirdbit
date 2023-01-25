@@ -62,11 +62,11 @@ original: swc
 <blockquote>
 <p>The program increases participants' computational understanding, as measured by more than a two-fold (130%) improvement in test scores after the workshop. The program also enhances their habits and routines, and leads them to adopt tools and techniques that are considered standard practice in the software industry. As a result, participants express extremely high levels of satisfaction with their involvement in Software Carpentry (85% learned what they hoped to learn; 95% would recommend the workshop to others).</p>
 </blockquote>
-<p>Despite these generally positive results, many researchers still find it hard to apply what we teach to their own work, and several of our experiments&mdash;most notably our attempts to teach online&mdash;have been failures.</p>
+<p>Despite these generally positive results, many researchers still find it hard to apply what we teach to their own work, and several of our experiments–most notably our attempts to teach online–have been failures.</p>
 <h2 id="from-red-to-green">2. From Red to Green</h2>
 <p>Some historical context will help explain where and why we have succeeded and failed.</p>
 <h3 id="version-1-red-light">Version 1: Red Light</h3>
-<p>In 1995-96, the author organized a series of articles in <em>IEEE Computational Science &amp; Engineering</em> titled, "What Should Computer Scientists Teach to Physical Scientists and Engineers?" (<a href="#Wilson1996">Wilson1996</a>). The articles grew out of the frustration he had working with scientists who wanted to run before they could walk&mdash;i.e., to parallelize complex programs that weren't broken down into self-contained functions, that didn't have any automated tests, and that weren't under version control (<a href="#Wilson2006a">Wilson2006a</a>).</p>
+<p>In 1995-96, the author organized a series of articles in <em>IEEE Computational Science &amp; Engineering</em> titled, "What Should Computer Scientists Teach to Physical Scientists and Engineers?" (<a href="#Wilson1996">Wilson1996</a>). The articles grew out of the frustration he had working with scientists who wanted to run before they could walk–i.e., to parallelize complex programs that weren't broken down into self-contained functions, that didn't have any automated tests, and that weren't under version control (<a href="#Wilson2006a">Wilson2006a</a>).</p>
 <p>In response, John Reynders (then director of the Advanced Computing Laboratory at Los Alamos National Laboratory) invited the author and Brent Gorda (now at Intel) to teach a week-long course on these topics to LANL staff. The course ran for the first time in July 1998, and was repeated nine times over the next four years. It eventually wound down as the principals moved on to other projects, but several valuable lessons were learned:</p>
 <ol style="list-style-type: decimal">
 <li>Intensive week-long courses are easy to schedule (particularly if instructors are traveling) but by the end of the second day, attendees brains are full and learning drops off significantly.</li>
@@ -118,27 +118,27 @@ original: swc
 <p>So what does a typical bootcamp look like?</p>
 <table>
   <tr>
-    <td valign="top"><em>Day&nbsp;1&nbsp;a.m.</em>:</td>
+    <td valign="top"><em>Day 1 a.m.</em>:</td>
     <td valign="top">Introduction to Unix shell. We show participants a dozen basic commands, but the real aim is to introduce them to the ideas of combining single-purpose tools (via pipes and filters) to achieve desired effects, and to getting the computer to repeat things (via command completion, history, and loops) so that people don't have to.</td>
   </tr>
   <tr>
-    <td valign="top"><em>Day&nbsp;1&nbsp;p.m.</em>:</td>
+    <td valign="top"><em>Day 1 p.m.</em>:</td>
     <td valign="top">Version control. We begin by emphasizing how it's a better way to collaborate than FTP or Dropbox, but end by showing them how it's essential for making computational research reproducible.</td>
   </tr>
   <tr>
-    <td valign="top"><em>Day&nbsp;1&nbsp;p.m.</em>:</td>
+    <td valign="top"><em>Day 1 p.m.</em>:</td>
     <td valign="top">If time permits, we close with a relatively light introduction to something that is self-contained and relatively undemanding, such as the basics of regular expressions.</td>
   </tr>
   <tr>
-    <td valign="top"><em>Day&nbsp;2&nbsp;a.m.</em>:</td>
+    <td valign="top"><em>Day 2 a.m.</em>:</td>
     <td valign="top">An introduction to Python (or sometimes R). The real goal is to show them when, why, and how to grow programs incrementally as a set of comprehensible, reusable functions.</td>
   </tr>
   <tr>
-    <td valign="top"><em>Day&nbsp;2&nbsp;p.m.</em>:</td>
+    <td valign="top"><em>Day 2 p.m.</em>:</td>
     <td valign="top">Testing. We introduce the idea of tests as a way to specify what a program is supposed to do, then show participants how to build and run unit tests to ensure that they're making progress rather than just making changes.</td>
   </tr>
   <tr>
-    <td valign="top"><em>Day&nbsp;2&nbsp;p.m.</em>:</td>
+    <td valign="top"><em>Day 2 p.m.</em>:</td>
     <td valign="top">A "beyond mere programming" topic, such as number crunching using NumPy, or an introduction to databases and SQL.</td>
   </tr>
 </table>
@@ -229,7 +229,7 @@ original: swc
 <p>What we've done so far is collect verbal feedback at the end of every bootcamp (mostly by asking attendees what went well and what didn't) and administer surveys immediately before and afterwards. Neither has been done systematically, though, which limits the insight we can actually glean. We are taking steps to address that, but the larger question of what impact we're having on scientists' productivity still needs to be addressed.</p>
 <blockquote>
 <p><em>Meeting Our Own Standards</em></p>
-<p>One of the reasons we need to do long-term follow-up is to find out for our own benefit whether we're teaching the right things the right way. As just one example, some of us believe that Subversion is significantly easier for novices to understand than Git because there are fewer places data can reside and fewer steps in its normal workflow. Others believe just as strongly that there is no difference, or that Git is actually easier to learn. While learnability isn't the only concern&mdash;the large social network centered around GitHub is a factor as well&mdash;we would obviously be able to make better decisions if we had more quantitative data to base them on.</p>
+<p>One of the reasons we need to do long-term follow-up is to find out for our own benefit whether we're teaching the right things the right way. As just one example, some of us believe that Subversion is significantly easier for novices to understand than Git because there are fewer places data can reside and fewer steps in its normal workflow. Others believe just as strongly that there is no difference, or that Git is actually easier to learn. While learnability isn't the only concern–the large social network centered around GitHub is a factor as well–we would obviously be able to make better decisions if we had more quantitative data to base them on.</p>
 </blockquote>
 <h3 id="is-it-supposed-to-hurt-this-much">"Is It Supposed to Hurt This Much?"</h3>
 <p>Fourth, getting software installed is often harder than using it. This is a hard enough problem for experienced users, but almost by definition our audience is <em>inexperienced</em>, and our learners don't (yet) know about system paths, environment variables, the half-dozen places configuration files can lurk on a modern system, and so on. Combine that with two version of Mac OS X, three of Windows, and two oddball Linux installations, and it's almost inevitable that every time we introduce a new tool, it won't work as expected (or at all) for at least one person in the room. Detailed documentation has not proven effective: some learners won't read it (despite repeated prompting), and no matter how detailed it is, it will be incomprehensible to some, and lacking for others.</p>
@@ -243,12 +243,12 @@ original: swc
 <p>Sixth on our list is the tension between teaching the "what" and the "how" of programming. When we teach a scripting language like Python, we have to spend time up front on syntax, which leaves us only limited time for the development practices that we really want to focus on, but which are hard to grasp in the abstract. By comparison, version control and databases are straightforward: what you see is what you do is what you get.</p>
 <p>We also don't as good a job as we would like teaching testing. The mechanics of unit testing with an xUnit-style framework are straightforward, and it's easy to come up with representative test cases for things like reformatting data files, but what should we tell scientists about testing the numerical parts of their applications? Once we've covered floating-point roundoff and the need to use "almost equal" instead of "exactly equal", our learners quite reasonably ask, "What should I use as a tolerance for my computation?" Saying, "One part in a million, just because," isn't satisfying...</p>
 <h3 id="standardization-vs.-customization">Standardization vs. Customization</h3>
-<p>Both of the previous points tie into the challenge of standardizing curriculum across a large group of volunteer instructors with very different backgrounds and interests. What we <em>actually</em> teach varies more widely than the content of most university courses with prescribed curricula. We think this is a strength&mdash;one of the reasons we recruit instructors from among scientists is so that they can customize content and delivery for local needs&mdash;but we need to be more systematic about varying on purpose rather than by accident.</p>
+<p>Both of the previous points tie into the challenge of standardizing curriculum across a large group of volunteer instructors with very different backgrounds and interests. What we <em>actually</em> teach varies more widely than the content of most university courses with prescribed curricula. We think this is a strength–one of the reasons we recruit instructors from among scientists is so that they can customize content and delivery for local needs–but we need to be more systematic about varying on purpose rather than by accident.</p>
 <h3 id="watching-vs.-doing">Watching vs. Doing</h3>
 <p>Finally, we try to make our teaching as interactive as possible, but we still don't give learners hands-on exercises as frequently as we should. We also don't give them as diverse a range of exercises as we should, and those that we do give are often at the wrong level. This is partly due to a lack of time, but disorganization on our part is also a contributing factor.</p>
 <p>There is also a constant tension between having students do realistic exercises drawn from actual scientific workflows, and giving them tasks that are small and decoupled, so that failures are less likely and don't have knock-on effects when they occur. This is exacerbated by the diversity of learners in the typical bootcamp, though we hope that will diminish as we organize and recruit along disciplinary lines instead of geographically.</p>
 <h2 id="conclusions">7. Conclusions</h2>
-<p>To paraphrase William Gibson, the future is already here&mdash;it's just that the skills needed to implement it aren't evenly distributed. A small number of scientists can easily build an application that scours the web for recently-published data, launch a cloud computing node to compare it to home-grown data sets, and push the result to a GitHub account; others are still struggling to free their data from Excel and figure out which of the nine backup versions of their paper is the one they sent for publication.</p>
+<p>To paraphrase William Gibson, the future is already here–it's just that the skills needed to implement it aren't evenly distributed. A small number of scientists can easily build an application that scours the web for recently-published data, launch a cloud computing node to compare it to home-grown data sets, and push the result to a GitHub account; others are still struggling to free their data from Excel and figure out which of the nine backup versions of their paper is the one they sent for publication.</p>
 <p>The fact is, it's hard for scientists to do the cool things their colleagues are excited about without basic computing skills, and impossible for them to know what other new things are possible. Our ambition is to change that: not just to make scientists more productive today, but to allow them to be part of the changes that are transforming science in front of our eyes. If you would like to help, we'd like to hear from you.</p>
 <h2 id="bibliography">Bibliography</h2>
 <ol>

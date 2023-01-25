@@ -41,7 +41,7 @@ original: swc
         <li>Struggling to switch between languages</li>
         <li>Bit more practice with coding</li>
         <li>Python in Cygwin sucks</li>
-        <li>"You should only work eight hours a day" &mdash; yeah, right</li>
+        <li>"You should only work eight hours a day" – yeah, right</li>
         <li>Not enough on databases</li>
         <li>Couldn't see the screen</li>
         <li>Discovering R isn't as good as I thought it was</li>

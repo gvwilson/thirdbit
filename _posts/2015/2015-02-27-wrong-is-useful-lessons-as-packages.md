@@ -7,7 +7,7 @@ original: swc
 <blockquote>
   "What would Greg do? [pause] OK, now that we've ruled that out..."
   <br/>
-  &mdash; overheard
+  – overheard
 </blockquote>
 <p>
   I wrote a post last July
@@ -28,7 +28,7 @@ original: swc
   and <a href="https://khinsen.wordpress.com/2013/08/14/platforms-for-reproducible-research/">later</a>
   about why he decided to go a different route.
   W. Trevor King has <a href="http://blog.tremily.us/posts/Package_management/">written</a> about it as well,
-  while R&eacute;mi Emonet and Raniere Silva built
+  while Rémi Emonet and Raniere Silva built
   <a href="https://github.com/twitwi/lesson-manager">a small prototype</a> last summer.
 </p>
 <p>

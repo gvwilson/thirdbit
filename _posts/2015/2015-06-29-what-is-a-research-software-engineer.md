@@ -23,7 +23,7 @@ original: swc
 <blockquote>
   <p>
     Research institutions need individuals with a new professional
-    designation&mdash;the <em>research software engineer</em>. These
+    designation–the <em>research software engineer</em>. These
     individuals combine a professional attitude to the exercise of
     software engineering with a deep understanding of research
     topics. They lead the design and construction of increasingly

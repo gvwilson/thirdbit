@@ -7,14 +7,14 @@ From http://basieproject.org:
 <blockquote>We have decided to wind down the Basie project and put our effort into <a href="http://pinaxproject.com">Pinax</a>, a collection of reusable <a href="http://djangoproject.com">Django</a> components designed to simplify the construction of social networking sites.  We made this decision because many of the things we want in Basie are actually common to groupware of all kinds, not just software project management tools, and because students working on the project will have a better learning experience if they are embedded in an active non-academic open source community.
 
 Our first contribution to <a href="http://pinaxproject.com">Pinax</a> is a repository browser component with back-ends for Subversion and Mercurial. We are now working on a mailing list component, which we hope to release in December 2010.</blockquote>
-DrProject and Basie were a lot of fun, but now that I've left U of T, they're simply not sustainable.  I'm grateful to everyone who supported the project: the <a href="http://www.utoronto.ca">University of Toronto</a>, the <a href="http://www.jonahgroup.com">Jonah Group</a>, <a href="http://www.ideeinc.com">Id&eacute;e</a>, <a href="http://www.rypple.com">Rypple</a>, <a href="http://www.rogers.com">Rogers Communications</a>, <a href="http://www.fmginc.com/">First Media Group</a>,  <a href="http://www.redhat.com">Red Hat</a>,  <a href="http://www.tucowsinc.com">TUCOWS</a>,  <a href="http://www.yahoo.com">Yahoo!</a>,  and <a href="http://code.google.com/soc">Google Summer of Code</a>.  Thanks even more to everyone who turned that support into working code:
+DrProject and Basie were a lot of fun, but now that I've left U of T, they're simply not sustainable.  I'm grateful to everyone who supported the project: the <a href="http://www.utoronto.ca">University of Toronto</a>, the <a href="http://www.jonahgroup.com">Jonah Group</a>, <a href="http://www.ideeinc.com">Idée</a>, <a href="http://www.rypple.com">Rypple</a>, <a href="http://www.rogers.com">Rogers Communications</a>, <a href="http://www.fmginc.com/">First Media Group</a>,  <a href="http://www.redhat.com">Red Hat</a>,  <a href="http://www.tucowsinc.com">TUCOWS</a>,  <a href="http://www.yahoo.com">Yahoo!</a>,  and <a href="http://code.google.com/soc">Google Summer of Code</a>.  Thanks even more to everyone who turned that support into working code:
 <ul>
 	<li>Botond Ballo (University of Toronto)</li>
 	<li>Jeff Balogh (University of Central Florida / Mozilla)</li>
 	<li>Liz Blankenship (University of Michigan)</li>
 	<li>Chad Cogar (University of Toronto)</li>
 	<li>David Cooper (University of Toronto)</li>
-	<li>François Fournier (Universit&eacute; Laval)</li>
+	<li>François Fournier (Université Laval)</li>
 	<li>Heather Grant (University of Alberta)</li>
 	<li>Russell Haering (Oregon State University)</li>
 	<li>Eran Henig (University of Toronto)</li>
@@ -34,7 +34,7 @@ DrProject and Basie were a lot of fun, but now that I've left U of T, they're si
 	<li>Andrew Schurman (Simon Fraser University)</li>
 	<li>Dan Servos (Lakehead University)</li>
 	<li>Florian Shkurti (University of Toronto)</li>
-	<li>Guillaume Simard (Universit&eacute; Laval)</li>
+	<li>Guillaume Simard (Université Laval)</li>
 	<li>Noam Sutskever (high school, Toronto)</li>
 	<li>Tony Targonski (University of Waterloo)</li>
 	<li>Edward Tate (Simon Fraser University)</li>

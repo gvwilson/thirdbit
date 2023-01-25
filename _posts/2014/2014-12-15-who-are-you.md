@@ -30,7 +30,7 @@ original: swc
 $ sqlite3 swc.db < swc-db-2014-12-14.sql
 </pre>
 <p>
-  You can then ask lots of questions&mdash;some examples are included below.
+  You can then ask lots of questions–some examples are included below.
   If you'd like a little end-of-year procrastination,
   what else can you find in this data that's interesting?
 </p>

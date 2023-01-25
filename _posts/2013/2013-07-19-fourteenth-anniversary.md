@@ -11,7 +11,7 @@ original: swc
   A lot of the tools we work with have changed since then,
   but the central message remains the same:
   when it comes to science,
-  the opposite of "open" isn't "closed" &mdash; it's "broken".
+  the opposite of "open" isn't "closed" – it's "broken".
 </p>
 <p>
   <img src="{{'/files/2013/07/brookhaven-open-source-open-science-1999.jpg' | relative_url}}" alt="Open Source/Open Science poster" />

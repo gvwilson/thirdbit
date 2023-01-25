@@ -7,5 +7,5 @@ year: 2015
 <p>
 "It is often said that before you die you life passes before your eyes.  It is in fact true.  It's called living."
 <br/>
-&mdash; Terry Pratchett
+– Terry Pratchett
 </p>

@@ -4,7 +4,7 @@ date: 2012-11-17 09:00:00
 year: 2012
 original: swc
 ---
-<p>We're planning to launch an update to this web site in the next few days, and as part of that, we're revisiting some of our content. For example, we'd like to shorten and update our recommended reading list&mdash;the current short list is below, and we'd welcome suggestions for additions. However, if you'd like to put something in, please suggest something to take out (so that the list doesn't become a Sunday stew).</p>
+<p>We're planning to launch an update to this web site in the next few days, and as part of that, we're revisiting some of our content. For example, we'd like to shorten and update our recommended reading list–the current short list is below, and we'd welcome suggestions for additions. However, if you'd like to put something in, please suggest something to take out (so that the list doesn't become a Sunday stew).</p>
 
 <ol>
         <li>Jennifer Campbell, Paul Gries, Jason Montojo, and Greg Wilson: <a href="http://www.amazon.com/gp/product/1934356271/"><cite>Practical Programming: An Introduction to Computer Science Using Python</cite></a>. Pragmatic Bookshelf, 1934356271, 2009. An introduction to programming using Python that includes material on building GUIs, working with databases, and a few other useful things.</li>

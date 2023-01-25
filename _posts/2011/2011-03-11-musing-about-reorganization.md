@@ -5,7 +5,7 @@ original: swc
 title: Musing About Reorganization
 ---
 <p>I'm increasingly unhappy with the organization of this course.  On the off chance that funding materializes and we're able to undertake a major redesign, I'd like to explain why and ask for your input.</p>
-<p>Right now, our lectures are broken into topics along lines a computer scientist would instantly recognize: basic programming, regular expressions, databases, and so on.  That is <em>not</em> how members of our intended audience see things when they first come to us&mdash;if it was, they probably wouldn't need this course.  They start with problems like:</p>
+<p>Right now, our lectures are broken into topics along lines a computer scientist would instantly recognize: basic programming, regular expressions, databases, and so on.  That is <em>not</em> how members of our intended audience see things when they first come to us–if it was, they probably wouldn't need this course.  They start with problems like:</p>
 <ol id="list">
 <li>How do I read this data file?</li>
 <li>How can I share my program with other people?</li>
@@ -62,4 +62,4 @@ title: Musing About Reorganization
 <li>figure out when each principle can be pointed out.</li>
 </ol>
 <p>The tricky bit is that when we say "representative problems", most people think in terms of traditional disciplinary boundaries and offer us one fluid flow problem, one gene sequencing problem, and so on.  Our notion of representative is different: we're thinking of things like reformatting data files, improving performance, sharing or testing code, and so on.</p>
-<p>That's why we need your help.  Have another look at the <a href="#list">list</a> at the top of this post.  What should we add?  What problems are <em>you</em> wrestling with, and what have you needed to know to solve them?  "How do I use the shell?" is the wrong kind of answer&mdash;we want to know what problem you think the shell is the solution to, and why.</p>
+<p>That's why we need your help.  Have another look at the <a href="#list">list</a> at the top of this post.  What should we add?  What problems are <em>you</em> wrestling with, and what have you needed to know to solve them?  "How do I use the shell?" is the wrong kind of answer–we want to know what problem you think the shell is the solution to, and why.</p>

@@ -54,5 +54,5 @@ original: swc
   using package managers for lessons
   (see this post from Raniere Silva for more information).
   Our thanks to everyone who took part,
-  and to everyone who helped organize and run the event&mdash;we look forward to working with you all again soon.
+  and to everyone who helped organize and run the event–we look forward to working with you all again soon.
 </p>
