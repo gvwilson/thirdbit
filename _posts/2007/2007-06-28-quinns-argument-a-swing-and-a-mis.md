@@ -7,26 +7,26 @@ year: 2007
 
 Making sound arguments is not like playing sports.  In sports, everyone remembers the hero, the amazing play, <em>the</em> unbelievable shot.  It doesn't matter how many times you miss, it's the one you make that counts.  That's why everyone remembers Michael Jordan as a "clutch" player even though in a 1997 commercial he admits to missing more potential game-winning shots than he makes.  The same phenomenon explains how <a href="http://www.youtube.com/watch?v=pxWnDGoAc0g">this one amazing play</a> made the name Masahiro Araki known to baseball fans around the world.
 
-Sports fans have selective memories and are very forgiving --- one spectacular, mind-blowing feat erases the memory of dozens of errors and bad decisions.
+Sports fans have selective memories and are very forgiving—one spectacular, mind-blowing feat erases the memory of dozens of errors and bad decisions.
 
 When it comes to making arguments though, it's the other way around.  One weak, poorly formulated argument cuts at your credibility and casts a cloud of suspicion over dozens of strong, reasonable ones. It might not be fair, but that's the way it is.
 
 Michael J. Quinn's "Ethics for the Information Age" is a popular book on ethical issues relating to computer technology.  It's widely used and well-respected, but my own experience with the book was ruined by what I think is an exceptionally weak argument.
 
-The topic is software patents, and the conclusion is consistent with the feeling of many programmers --- that software patents are bad.  The book claims to be appropriate for a "computers and society" course and I'd guess that programmers make up a majority of the book's readers.  Many of them will agree with the conclusion and may therefore read the argument less critically than they should.  I'm here to point out some of the problems with the argument.  By criticizing Quinn's argument I'm not arguing in favour of the opposite conclusion.  This distinction --- one that Quinn unfortunately doesn't make --- is important enough to warrant an example:
+The topic is software patents, and the conclusion is consistent with the feeling of many programmers—that software patents are bad.  The book claims to be appropriate for a "computers and society" course and I'd guess that programmers make up a majority of the book's readers.  Many of them will agree with the conclusion and may therefore read the argument less critically than they should.  I'm here to point out some of the problems with the argument.  By criticizing Quinn's argument I'm not arguing in favour of the opposite conclusion.  This distinction—one that Quinn unfortunately doesn't make—is important enough to warrant an example:
 <blockquote>John: "Some people must like cookies.  I hate cookies and no two people are exactly alike, so some people must like cookies."
 
 Mary: "That doesn't make sense.  Even if everyone hates cookies, that doesn't mean that any two people are exactly alike.  People can differ in other ways."</blockquote>
 John's argument is foolish.  Although Mary points that out, she is not claiming that everyone hates cookies (that would also be foolish).
 
-Back to Quinn's argument.  Section 4.9, "Morality of Intellectual Property Protection for Software" starts "...we are considering whether as a society we ought to give the producers of software the right to prevent others from copying the software they produce.  In other words, should we give copyright and/or patent protection to software?"  The way in which Quinn asks this question (and the location --- the last sentence of the introductory paragraph) leads the reader to believe that the section will provide an answer. Instead, this is what Quinn does:
+Back to Quinn's argument.  Section 4.9, "Morality of Intellectual Property Protection for Software" starts "...we are considering whether as a society we ought to give the producers of software the right to prevent others from copying the software they produce.  In other words, should we give copyright and/or patent protection to software?"  The way in which Quinn asks this question (and the location—the last sentence of the introductory paragraph) leads the reader to believe that the section will provide an answer. Instead, this is what Quinn does:
 <ol>
 	<li>Criticizes two <em>specific</em>arguments in favour of intellectual property (IP) protection.</li>
 	<li>Concludes that arguments (in general) in favour of IP protection are not strong.</li>
 </ol>
 There are two problems here.  The first is that showing that two specific arguments are weak is not the same as showing every argument in favour if IP protection is weak.  The second problem is subtler. The structure of the section makes readers expect an answer to the question "should we give copyright and/or patent protection to software?"  So when Quinn concludes, "the arguments for granting intellectual property protection for software are not strong," readers must assume that the answer to the question is "no."  This is as if Quinn concluded "the arguments <em>against</em>granting intellectual property protection are <em>strong</em>."  Combined, these problems are equivalent to Mary concluding that since John's argument is weak, everyone must hate cookies.
 
-And the situation gets worse --- Quinn's critique of the second argument in favour of IP protection leaves much to be desired.  He calls the argument "a <em>consequentialist</em> argument why copying software is bad."  Here it is:
+And the situation gets worse—Quinn's critique of the second argument in favour of IP protection leaves much to be desired.  He calls the argument "a <em>consequentialist</em> argument why copying software is bad."  Here it is:
 <ol>
 	<li>Copying software results in reduced sales.</li>
 	<li>Reduced software sales result in a decline in the software industry.</li>

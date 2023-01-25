@@ -25,7 +25,7 @@ This page would show a user all the tickets and timeline entries for all of the 
 
 <strong>3. Status Dashboard</strong>
 
-This is Maria's work from last summer --- one form is a graphical display of what's in the timeline view for a single project, a second is a graphical display of the user-oriented page (#2), and a third (aimed at instructors) summarizes the status of all the projects in the system, so that problems can be spotted early.
+This is Maria's work from last summer—one form is a graphical display of what's in the timeline view for a single project, a second is a graphical display of the user-oriented page (#2), and a third (aimed at instructors) summarizes the status of all the projects in the system, so that problems can be spotted early.
 
 <strong>4. Manual RSS Feeds</strong>
 
@@ -49,4 +49,4 @@ A del.icio.us-style bookmarking system would allow students working on parallel 
 
 <strong>9. Calendaring</strong>
 
-Finding times to meet, and keeping track of due dates, is one of the most tedious parts of student team projects.  A simple calendaring system that would let students mark off when they're available, and when assignments are due, would be useful --- I question, though, how much they'd actually use it.
+Finding times to meet, and keeping track of due dates, is one of the most tedious parts of student team projects.  A simple calendaring system that would let students mark off when they're available, and when assignments are due, would be useful—I question, though, how much they'd actually use it.

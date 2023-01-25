@@ -17,7 +17,7 @@ Another day, another reason to regret buying a Mac.  Here are the stats so far:
 	<li>Time on the phone with the AppleCare representative: 28 minutes</li>
 	<li>Number of reboot+diagnostics run: 3</li>
 	<li>Number of hardware problems found by the diagnostics: 0</li>
-	<li>Number of times I was asked if I was <em>sure</em> I hadn't installed any hardware myself (i.e., voided my AppleCare plan, so that it wouldn't be their problem): 4 (maybe 5 --- I interrupted her mid-sentence the fifth time)</li>
+	<li>Number of times I was asked if I was <em>sure</em> I hadn't installed any hardware myself (i.e., voided my AppleCare plan, so that it wouldn't be their problem): 4 (maybe 5—I interrupted her mid-sentence the fifth time)</li>
 	<li>Refund Apple will give me at this point if I give them back the computer: 0%.</li>
 	<li>Time I'll be without my computer if I send it in for Apple to look at: 6-8 weeks.  (No, they won't loan me a replacement while I'm waiting.)</li>
 	<li>Apple's advice at this point: re-install the operating system and "see if that fixes anything".</li>

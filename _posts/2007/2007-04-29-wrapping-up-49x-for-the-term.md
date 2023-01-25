@@ -15,4 +15,4 @@ Another term, another <a href="https://stanley.cs.toronto.edu/reports/reports.ht
 </ul>
 It was a very productive term; my only regret is that I was too busy to get t-shirts printed or arrange the usual end-of-term dinner. Maybe now that marks are in...
 
-Best wishes, and best of luck, to everyone who took part --- I look forward to hearing all about your future adventures.
+Best wishes, and best of luck, to everyone who took part—I look forward to hearing all about your future adventures.

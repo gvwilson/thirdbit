@@ -1,5 +1,5 @@
 ---
-title: "Iron Triangles Are Great --- Everyone Should Have One"
+title: "Iron Triangles Are Great—Everyone Should Have One"
 date: 2011-12-02 15:19:02
 year: 2011
 ---

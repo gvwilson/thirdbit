@@ -9,11 +9,11 @@ original: swc
 
 <p>The first thing the tutorial mentions is tab completion, which she's used in other tools, so she tried that:</p>
 <pre>&gt;&gt;&gt; x = 'hello'
-&gt;&gt;&gt; x.&lt;TAB&gt; # shows methods of the string --- cool!</pre>
+&gt;&gt;&gt; x.&lt;TAB&gt; # shows methods of the string—cool!</pre>
 <p>Does it work directly with strings?</p>
-<pre>&gt;&gt;&gt; 'abc'.&lt;TAB&gt; # shows --- what?</pre>
+<pre>&gt;&gt;&gt; 'abc'.&lt;TAB&gt; # shows—what?</pre>
 <p>It took me a moment to figure out it was showing us all the files in the current working directory whose names begin with a '.' character. Since these files are normally hidden, I don't think the grad student had ever seen them; I also don't think she'd have figured out what they were on her own.</p>
-<pre>&gt;&gt;&gt; x? # gets help for the string referred to by x --- cool!</pre>
+<pre>&gt;&gt;&gt; x? # gets help for the string referred to by x—cool!</pre>
 <p>The information itself isn't very helpful for novices, but she was pleased it was there. Now what about this?</p>
 <pre>&gt;&gt;&gt; 'abc'?</pre>
 <p>Uh oh–it tells her "Object `` not found." Given that we've been using:</p>

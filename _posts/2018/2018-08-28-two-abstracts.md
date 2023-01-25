@@ -46,8 +46,8 @@ The final summary is:
 > Scratch are a more effective way to introduce kids to programming than
 > traditional text-based tools.  What's more, the gains in performance are
 > largest among female students and students from underrepresented minorities.
-> People are starting to notice --- for example, the new AP Computer Science
-> Principles exam asks students questions using both blocks and text --- so if
+> People are starting to notice—for example, the new AP Computer Science
+> Principles exam asks students questions using both blocks and text—so if
 > you are teaching programming at the K-12 level, start your learners with
 > blocks.
 

@@ -3,7 +3,7 @@ title: "In the Home Stretch"
 date: 2010-12-30 11:33:27
 year: 2010
 ---
-A quick update on <em>The Architecture of Open Source Applications</em> --- we have chapters in one state or another, or firm promises, for:
+A quick update on <em>The Architecture of Open Source Applications</em>—we have chapters in one state or another, or firm promises, for:
 <ol>
 	<li>Asterisk</li>
 	<li>Audacity</li>

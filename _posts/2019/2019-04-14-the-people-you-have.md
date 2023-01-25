@@ -5,7 +5,7 @@ title: "The People You Have"
 ---
 
 > Too often, the defenders of free markets forget that what we really want is free men. <br/>
-> --- Michael Crawford
+>—Michael Crawford
 
 Someone once said to my dad, "Nothing great was ever created by a committee,"
 to which my dad replied, "Except the King James Bible and the US Constitution."

@@ -5,7 +5,7 @@ year: 2008
 ---
 <a href="http://www.ddj.com"><em>Dr. Dobb's Journal</em></a> has <a href="http://www.ddj.com/blog/portal/archives/2008/03/jolt_award_winn.html">announced</a> the winners of the 18th annual Jolt Product Excellence and Productivity Awards at the <a href="http://www.sdexpo.com/">SD West 2008 </a>conference. The <a href="http://www.joltawards.com/">Jolt Awards</a> recognize those products, books, and websites that have "jolted" the industry in past year. Winners are selected by a panel of judges consisting of industry insiders, columnists, and technology leaders. This year's winners are:
 <ul>
-	<li>General Books: <a href="http://beautifulcode.oreillynet.com/"><cite>Beautiful Code</cite></a>, edited by Andy Oram and Greg Wilson (O'Reilly Media) --- w00t! (<a href="http://beautifulcode.oreillynet.com/2008/03/beautiful_code_wins_jolt_award.php">Announcement</a> is finally up on the Beautiful Code site.)</li>
+	<li>General Books: <a href="http://beautifulcode.oreillynet.com/"><cite>Beautiful Code</cite></a>, edited by Andy Oram and Greg Wilson (O'Reilly Media)—w00t! (<a href="http://beautifulcode.oreillynet.com/2008/03/beautiful_code_wins_jolt_award.php">Announcement</a> is finally up on the Beautiful Code site.)</li>
 	<li>Technical Books: <cite>Continuous Integration: Improving Software Quality and Reducing Risk</cite> by Paul Duvall, Steve Matyas, Andrew Glover (Addison-Wesley Professional)</li>
 	<li>Change and Configuration Management: FishEye (Atlassian)</li>
 	<li>Collaboration Tools: Code Collaborator (Smart Bear)</li>

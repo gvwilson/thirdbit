@@ -9,7 +9,7 @@ Fact #1: the two biggest causes of software failure are requirements failure and
 
 Fact #2: the only way to get and check requirements, and to make sure that the Fred and Jane's code will play nicely together, is in live discussion.  (I'm sorry, but email just doesn't cut it.)  That means (drum roll) have meetings.
 
-Fact #3: most people are really bad at meetings --- they don't have an agenda going in, they don't take minutes, they waffle on or wander off into irrelevancies, they repeat what others have said or recite banalities simply so that they'll have said something, they hold side conversations (which pretty much guarantees that the meeting will be a waste of time), and so on.
+Fact #3: most people are really bad at meetings—they don't have an agenda going in, they don't take minutes, they waffle on or wander off into irrelevancies, they repeat what others have said or recite banalities simply so that they'll have said something, they hold side conversations (which pretty much guarantees that the meeting will be a waste of time), and so on.
 
 Conclusion: people create bad software because they're bad at meetings.
 

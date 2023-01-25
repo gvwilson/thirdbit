@@ -15,4 +15,4 @@ Option #3: all tags for integer-keyed items in one table, while those for string
 
 Option #4: add a unique integer ID to every item that is currently string-keyed, and use [project, component_name, integer_id, tag] for the tags table. It's doable, but saying that the keys for string-keyed tables now have two parts (the string and the integer) messes up the integrity constraints a bit.
 
-For the moment, Apple is going with option #2, i.e., stringifying integer keys and hoping for the best.  I'd be interested to hear what other people think --- is there a more elegant way out of this?
+For the moment, Apple is going with option #2, i.e., stringifying integer keys and hoping for the best.  I'd be interested to hear what other people think—is there a more elegant way out of this?

@@ -17,7 +17,7 @@ The Software Carpentry course currently contains the following lectures:
 	<li>Sets, Dictionaries, and Complexity</li>
 	<li>Debugging</li>
 	<li>Object-Oriented Programming (2 lectures)</li>
-	<li>Unit Testing (unittest --- should switch this to nose)</li>
+	<li>Unit Testing (unittest—should switch this to nose)</li>
 	<li>Regular Expressions</li>
 	<li>Binary Data</li>
 	<li>XML</li>

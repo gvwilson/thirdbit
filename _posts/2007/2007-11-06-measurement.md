@@ -15,4 +15,4 @@ And this morning, <a href="http://agiletesting.blogspot.com/">Grig Gheorghiu</a>
 
 <img alt="Home Page Loading Time" id="image1210" src="{{'/files/2007/11/homepagetime.png' | relative_url}}" />
 
-There's a ton of information in here --- it's particularly nice to actually <em>see</em> the concurrency.  No idea why it takes longer to load the OLM logo than it does to load the map of past 49X students (yes, it's repeatable), but at least now I know that I have something to figure out.
+There's a ton of information in here—it's particularly nice to actually <em>see</em> the concurrency.  No idea why it takes longer to load the OLM logo than it does to load the map of past 49X students (yes, it's repeatable), but at least now I know that I have something to figure out.

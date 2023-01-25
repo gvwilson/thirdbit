@@ -3,7 +3,7 @@ title: "Google Summer of Code: Participating Organizations"
 date: 2007-03-26 09:27:31
 year: 2007
 ---
-As I was paging through the <a href="http://code.google.com/soc/">Google Summer of Code</a> site this morning, I realized that I recognized less than half of the participating organizations.  Ten minutes and twenty-five lines of Python later, I had all their descriptions in a single page for easier printing. (Note: it was only this easy because Google's websters had taken the time to put in clearly-labelled div's --- thanks, Google.) So, here they all are --- hope it's useful.
+As I was paging through the <a href="http://code.google.com/soc/">Google Summer of Code</a> site this morning, I realized that I recognized less than half of the participating organizations.  Ten minutes and twenty-five lines of Python later, I had all their descriptions in a single page for easier printing. (Note: it was only this easy because Google's websters had taken the time to put in clearly-labelled div's—thanks, Google.) So, here they all are—hope it's useful.
 
 <h2>AbiSource</h2>
 The AbiSource community consists of a highly skilled group of people interested in, as our tagline states, bringing Word Processing to Everyone. We do this for example by making our software, AbiWord being our flagship product, available on as many (operating) systems as possible, and adapting it for use on the One Laptop Per Child system.
@@ -92,7 +92,7 @@ If you are interested in LinuxBIOS and want to help, you don't need lowlevel or 
 <h2>Creative Commons</h2>
 Creative Commons provides free tools that let authors, scientists, artists, and educators easily mark their creative work with the freedoms they want it to carry. You can use CC to change your copyright terms from 'All Rights Reserved' to 'Some Rights Reserved.'
 
-We're a nonprofit organization. Everything we do --- including the software we create --- is free.
+We're a nonprofit organization. Everything we do—including the software we create—is free.
 <h2>Crystal Space</h2>
 Crystal Space is a portable Open Source 3D Engine that runs on GNU/Linux, Windows, and MacOS/X. Our organization is responsible for maintaining this C++ code base and developing new features. Note that we're not technically a formal organization but just a collection of motivated individuals.
 <h2>Daisy CMS</h2>
@@ -411,7 +411,7 @@ The Apache Software Foundation provides support for the Apache community of open
 <h2>The Codehaus</h2>
 The Codehaus is an open-source project repository with a strong emphasis on Java, focussed on quality components that meet real world needs. We believe in open source as a pragmatic approach to software development, and all our projects are business-friendly in terms of licensing.
 <h2>The Electronic Frontier Foundation</h2>
-The Electronic Frontier Foundation (EFF), founded in 1990, works in the public interest to protect fundamental civil liberties in the digital age. The Internet and other communication technologies can herald the most liberating era of human history --- or the most regulated and controlled.  The EFF works to defend our basic rights to free speech, privacy and free and open communications, and advocates for sane policies on digital copyright, software patents and electronic voting. EFF is a membership supported organization with 27 full-time staff.
+The Electronic Frontier Foundation (EFF), founded in 1990, works in the public interest to protect fundamental civil liberties in the digital age. The Internet and other communication technologies can herald the most liberating era of human history—or the most regulated and controlled.  The EFF works to defend our basic rights to free speech, privacy and free and open communications, and advocates for sane policies on digital copyright, software patents and electronic voting. EFF is a membership supported organization with 27 full-time staff.
 
 We are working closely with The Tor Project (tor.eff.org), a free-software project to build an anonymity toolkit used by individuals, companies, governments, and law enforcement around the world. The Tor network has grown since its start in 2002 to several hundred thousand active users pushing almost 1Gbps of traffic on average. Tor has two full-time developers, plus several dozen other volunteers who help out on a daily basis.  .....  This proposal is a combined submission from EFF and Tor.
 <h2>The Fedora Project</h2>

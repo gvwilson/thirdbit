@@ -1,5 +1,5 @@
 ---
-title: "Don't Ask, Don't Tell --- Really"
+title: "Don't Ask, Don't Tell—Really"
 date: 2010-03-11 10:26:26
 year: 2010
 ---

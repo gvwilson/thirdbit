@@ -3,7 +3,7 @@ title: "Winter Grad Course Evaluation"
 date: 2008-08-12 13:49:34
 year: 2008
 ---
-I finally got a summary of graduate students feedback on the consulting course I ran this past winter.  It was pretty good overall---on a scale of 1-5, the responses were:
+I finally got a summary of graduate students feedback on the consulting course I ran this past winter.  It was pretty good overall—on a scale of 1-5, the responses were:
 <table>
 <tr>
 <td>How much background is required to successfully complete this course?</td>
@@ -124,7 +124,7 @@ Advice to people who are considering the course in the future:
 	<li>This course is very good for undergraduate students. It will enhance their coding skills and give them a good opportunity to find a job (by linking them to people in industry). If you are a graduate student and your thesis involves building an application, it's a very good chance to pass a course as you are doing so.</li>
 	<li>Great course. You will learn a lot, but make sure you make realistic estimates of how long everything will take, otherwise it will be too much work.</li>
 </ul>
-General Comments --- Good
+General Comments—Good
 <ul>
 	<li>Provides great insight into large project development.</li>
 	<li>Lecturer was outstanding!</li>
@@ -133,8 +133,8 @@ General Comments --- Good
 	<li>Learn a lot; things you won't learn in any other course.</li>
 	<li>Hands-on learning and real-world experience.</li>
 </ul>
-General Comments --- Bad
+General Comments—Bad
 <ul>
 	<li>Very code intensive, not very appropriate for grad students if the project is irrelevant to their research.</li>
 </ul>
-I'm now looking for project ideas for students in the fall --- if you're interested, please drop me a line.
+I'm now looking for project ideas for students in the fall—if you're interested, please drop me a line.

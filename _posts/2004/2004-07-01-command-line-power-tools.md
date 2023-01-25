@@ -3,7 +3,7 @@ title: "Command-Line Power Tools"
 date: 2004-07-01 11:18:48
 year: 2004
 ---
-<p>Harald Koch just pointed me at <a href="http://xmlstar.sourceforge.net/">XMLStarlet</a>, a command-line toolset for manipulating XML.  This isn't the first beast of its ilk --- Sean McGrath built similar tools several years ago in Python, for example --- but it seems to be more mature than others.</p>
+<p>Harald Koch just pointed me at <a href="http://xmlstar.sourceforge.net/">XMLStarlet</a>, a command-line toolset for manipulating XML.  This isn't the first beast of its ilk—Sean McGrath built similar tools several years ago in Python, for example—but it seems to be more mature than others.</p>
 
 <p>Clicking through the documentation, I'm struck yet again by the disconnect between programming's two approaches to handling "odd jobs".  The first is the Unix command-line filter model; the second, scripting.  The second is more powerful, primarily because it gives programmers access to richer data structures, and a wider set of control constructs.  (I talk about this more in this article on extensible programming systems.)</p>
 

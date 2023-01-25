@@ -71,7 +71,7 @@ to `http://woe.com/css/pretty.css`.
 But wait:
 if the GitHub repository's URL is `http://github.com/gloom/despair`.
 its website is published at `http://gloom.github.io/despair`.
-The last part of that URL --- `despair` --- *isn't* part of the domain name,
+The last part of that URL—`despair`—*isn't* part of the domain name,
 so the browser cuts it out when following absolute references.
 
 For example,
@@ -346,7 +346,7 @@ which overrides the default set in `_config.yml`.
 Once we've done that,
 our pages, layouts, and included HTML fragments can all use `{% raw %}{{page.root}}{% endraw %}/this/that`
 to refer to whatever they want.
-It's not ideal --- we'll have to explain it to people who've used Jekyll before,
+It's not ideal—we'll have to explain it to people who've used Jekyll before,
 and if we ever create deeper directory hierarchies,
 it will quickly become as complicated as the alternatives we've discarded ---
 but it's good enough for now.

@@ -3,7 +3,7 @@ title: "Setting Up Yet Again"
 date: 2006-11-10 16:26:24
 year: 2006
 ---
-I now have a Windows PC on my desktop --- using the Mac laptop as my main computer was making my back and neck ache.  Here's what I've installed so far (in order):
+I now have a Windows PC on my desktop—using the Mac laptop as my main computer was making my back and neck ache.  Here's what I've installed so far (in order):
 <ul>
 	<li>Firefox</li>
 	<li>Thunderbird</li>

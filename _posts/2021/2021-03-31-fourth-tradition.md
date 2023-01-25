@@ -7,7 +7,7 @@ year: 2021
 > "Once the rockets are up, who cares where they come down? <br/>
 > That's not my department!" says Wernher von Braun
 >
-> --- Tom Lehrer
+>—Tom Lehrer
 
 [Tedre2008](https://doi.org/10.1080/08993400802332332) describes three
 traditions that have shaped how we think about computing: the mathematical,
@@ -26,4 +26,4 @@ von Braun" mentality.
 
 > If you never ask, "Who's responsible for this?" the answer can't ever be, "You."
 >
-> --- a colleague of mine, many years ago
+>—a colleague of mine, many years ago

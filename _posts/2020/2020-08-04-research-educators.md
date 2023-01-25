@@ -6,7 +6,7 @@ year: 2020
 
 > Good heavens! For more than 40 years I have been speaking prose without knowing it.
 >
-> --- Moliere
+>—Moliere
 
 I think I finally know what I've been trying to do for the last ten (fifteen, twenty-two…) years,
 but in order for it to make sense,

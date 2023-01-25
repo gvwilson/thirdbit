@@ -3,7 +3,7 @@ title: "Making Software Now Available on Rough Cuts"
 date: 2010-07-16 16:30:05
 year: 2010
 ---
-<a href="http://my.safaribooksonline.com/9780596808310"><em>Making Software</em></a> (the collection on empirical software engineering that I helped edit) is now available on Safari Rough Cuts --- chapters include:
+<a href="http://my.safaribooksonline.com/9780596808310"><em>Making Software</em></a> (the collection on empirical software engineering that I helped edit) is now available on Safari Rough Cuts—chapters include:
 <ol>
 	<li>A Communal Workshop or Doors that Close?</li>
 	<li>Learning through Application: The Maturing of the Quality Improvement Paradigm in the SEL</li>

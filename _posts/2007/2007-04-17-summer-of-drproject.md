@@ -7,14 +7,14 @@ As noted previously, we have quite a team working for us this summer, four of wh
 <ol>
 	<li>General bug fixes.  and small extensions (no shortage of <a href="https://www.drproject.org/DrProject/query">work</a> here). Useful, but not particularly exciting for the students.</li>
 	<li>Integrate the <a href="https://www.drproject.org/dashboard">dashboard display</a> that Ali and Adam built this term to show stats on project size, tickets filed/closed over time, etc.  This is a must-have, but it's not a full summer.</li>
-	<li>Add a continuous integration (build 'n' smoke) subsystem (using Xen, Qemu, or some other virtualization layer for security) --- would be a *very* nice feature to have, but it's not 100% essential.</li>
+	<li>Add a continuous integration (build 'n' smoke) subsystem (using Xen, Qemu, or some other virtualization layer for security)—would be a *very* nice feature to have, but it's not 100% essential.</li>
 	<li>Add continuous documentation (i.e., rebuild a project's JavaDoc/PyDoc/whatever every time there's a check-in, and integrate the results seamlessly into the project's wiki).  Again, it'd be nice to have, but continuous integration is more important.</li>
 	<li>Add a chat relay that understands wiki syntax, and archives all conversations for later searching.  There's genuine novelty here, and I've been convinced by students that at least some of them would use it, but I have no idea how challenging it is.</li>
-	<li>Sort out authentication --- we want self-registration and admin-approved registration; problem is, we need to make sure that Subversion is authenticating against exactly the same identities, and when we tried it last summer, it proved much harder than we'd expected.</li>
+	<li>Sort out authentication—we want self-registration and admin-approved registration; problem is, we need to make sure that Subversion is authenticating against exactly the same identities, and when we tried it last summer, it proved much harder than we'd expected.</li>
 	<li>Internationalization, so that someone can easily produce a French language version (federal funding agencies would smile upon us more readily).  The long-overdue <a href="https://www.drproject.org/DrProject/ticket/278">Unicode audit</a> would be a first step.</li>
 	<li>Wiki extensions, including hierarchical page names and "personal" pages that aren't associated with particular projects.</li>
-	<li>Make DrProject a lot easier to install --- very useful, but this one is probably best left to the folks at <a href="http://www.engcorp.com">Engenuity</a>.</li>
-	<li>Convert to TurboGears, Pylons, or one of the other standard frameworks --- tempting in theory, but I'm not sure how much value there would be in practice, and again, I'm not sure that undergrads have enough background to take it on.</li>
+	<li>Make DrProject a lot easier to install—very useful, but this one is probably best left to the folks at <a href="http://www.engcorp.com">Engenuity</a>.</li>
+	<li>Convert to TurboGears, Pylons, or one of the other standard frameworks—tempting in theory, but I'm not sure how much value there would be in practice, and again, I'm not sure that undergrads have enough background to take it on.</li>
 </ol>
 Votes?  Others?
 

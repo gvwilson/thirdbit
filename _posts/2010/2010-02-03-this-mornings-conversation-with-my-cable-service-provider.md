@@ -23,6 +23,6 @@ My side of the conversation this morning went like this. (I would have recorded 
 	<li>So we can put the TV in a different place.</li>
 	<li>Yes, in the same room.</li>
 	<li>Yes, I understand there will be a charge for the service.  But it will be a one-time service charge, right?</li>
-	<li>No, I --- ma'am, I didn't ask what our current service charges are, I just want to confirm that there's just a one-time service charge for moving the cable outlet.</li>
+	<li>No, I—ma'am, I didn't ask what our current service charges are, I just want to confirm that there's just a one-time service charge for moving the cable outlet.</li>
 	<li>OK, if you can just send the technician, I'll explain it to them.</li>
 </ul>

@@ -213,4 +213,4 @@ but SQLite rejects that.  I've tried several variations without success; if anyo
 <td>0</td>
 </tr>
 </table>
-Whoops --- 'Darwin' should have a location ID of '1', not '0'.  What's going on?
+Whoops—'Darwin' should have a location ID of '1', not '0'.  What's going on?

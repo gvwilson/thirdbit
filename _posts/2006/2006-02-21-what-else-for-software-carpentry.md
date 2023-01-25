@@ -42,6 +42,6 @@ What do you think the other three should cover (keeping in mind that this is sup
 	<li>something else (not entirely sure what)</li>
 </ul>
 </li>
-	<li>Something else entirely --- suggestions would be very welcome.</li>
+	<li>Something else entirely—suggestions would be very welcome.</li>
 </ol>
 Please let me know what you think.

@@ -6,7 +6,7 @@ year: 2006
 The second edition of <a href="http://www.google.com">Google</a>'s Summer of Code is winding down, so I figured it'd be a good time to post my (unsolicited ;-)) thoughts on what they should do next time around.  Here are my starting points:
 <ol>
 	<li>The world will be a better place if everyone studying software engineering at college or university has an opportunity to get involved in a real open source project.</li>
-	<li>It's no good to say, "If they want to volunteer, there's nothing stopping them," because the rational economic decision for an undergrad is to invest time in things that will earn them grades --- the network benefits of involvement in open source are too fuzzy.</li>
+	<li>It's no good to say, "If they want to volunteer, there's nothing stopping them," because the rational economic decision for an undergrad is to invest time in things that will earn them grades—the network benefits of involvement in open source are too fuzzy.</li>
 	<li>Google can't afford to give $5000 to 20,000 students a year.  Even if they could, the open source community couldn't handle 20,000 newbies every September.</li>
 </ol>
 The solution is to give students course credit for their work on open source projects, but of course, it's not that simple.  First, there has to be a quality filter: someone, somehow, has to filter out those students who would be a net drain, or open source projects will (sensibly) choose not to play.  Second, someone has to evaluate the students; at most universities, this can only be done by people who have some official standing.

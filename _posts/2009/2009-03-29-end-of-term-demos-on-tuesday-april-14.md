@@ -26,6 +26,6 @@ The students in this term's combined CSC494/CSC2125 consulting course will be do
 	<li>Integrating Speech-to-Text with Mozilla's Ubiquity Engine</li>
 	<li>Persistent Query Matching for Publication Notification</li>
 </ul>
-Everyone is welcome to attend --- hope to see you there.
+Everyone is welcome to attend—hope to see you there.
 
 Note: the GSU is at <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=16+Bancroft+Avenue,+Toronto,+Ontario&amp;sll=43.660545,-79.396391&amp;sspn=0.041851,0.077162&amp;ie=UTF8&amp;z=16&amp;iwloc=addr">16 Bancroft Ave</a>.

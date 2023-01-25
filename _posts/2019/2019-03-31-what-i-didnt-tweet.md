@@ -17,7 +17,7 @@ title: "What I Didn't Tweet in March"
     billionaires getting rules rewritten to make themselves richer at everyone else's expense.
 
 -   "The true purpose of unpaid internships is to turn private wealth into professional credentials."
-    --- Sarah Kendzior.
+   —Sarah Kendzior.
     (I hope that one day there will be a movement to ask companies to sign a public pledge
     requiring candidates to scrub all unpaid internships from their CVs
     when applying for jobs.)

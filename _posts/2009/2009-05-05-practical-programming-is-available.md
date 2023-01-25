@@ -3,7 +3,7 @@ title: "'Practical Programming' Is Available"
 date: 2009-05-05 11:32:57
 year: 2009
 ---
-Our new book, <em>Practical Programming</em>, is now available from <a href="http://www.pragprog.com/titles/gwpy/practical-programming">Pragmatic</a> (the publisher) and <a href="http://oreilly.com/catalog/9781934356272/">O'Reilly</a>, as well as on <a href="http://www.amazon.com/Practical-Programming-Introduction-Computer-Science/dp/1934356271">Amazon.com</a> --- yay! Topics include:
+Our new book, <em>Practical Programming</em>, is now available from <a href="http://www.pragprog.com/titles/gwpy/practical-programming">Pragmatic</a> (the publisher) and <a href="http://oreilly.com/catalog/9781934356272/">O'Reilly</a>, as well as on <a href="http://www.amazon.com/Practical-Programming-Introduction-Computer-Science/dp/1934356271">Amazon.com</a>—yay! Topics include:
 <ul>
 	<li>Basic programming from arithmetic to loops and conditionals</li>
 	<li>Using functions and modules to organize programs</li>

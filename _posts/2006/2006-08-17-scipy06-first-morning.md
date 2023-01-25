@@ -97,15 +97,15 @@ year: 2006
 </li>
 	<li>Drop default implementations of comparison operators
 <ul>
-	<li><, <=, etc., currently compare by address --- will raise TypeError</li>
+	<li><, <=, etc., currently compare by address—will raise TypeError</li>
 	<li>== and != should remain (useful)</li>
 </ul>
 </li>
-	<li>Generic and overloaded functions (see his blog --- running out of time)</li>
+	<li>Generic and overloaded functions (see his blog—running out of time)</li>
 	<li>Python sprints coming up (Aug 21-24)</li>
 	<li>Q&A
 <ul>
-	<li>Py3K team is smaller than Perl6 --- GvR optimistic that people will get the work done</li>
+	<li>Py3K team is smaller than Perl6—GvR optimistic that people will get the work done</li>
 	<li>Taking advantage of multicore?
 <ul>
 	<li>GvR not a big fan of threads</li>
@@ -116,7 +116,7 @@ year: 2006
 </li>
 	<li>Will C-Python API change much?
 <ul>
-	<li>Yup --- just like the language</li>
+	<li>Yup—just like the language</li>
 </ul>
 </li>
 	<li>PyPy/type inference?
@@ -129,9 +129,9 @@ year: 2006
 </ul>
 <strong>Travis Oliphant on the State of NumPy</strong>
 <ul>
-	<li>Chair thanked him for everything he's done to fix numerical Python --- standing ovation (well deserved)</li>
+	<li>Chair thanked him for everything he's done to fix numerical Python—standing ovation (well deserved)</li>
 	<li>NumPy 1.0 rc1 will be out in a few weeks</li>
-	<li>Walked through design --- tradeoffs between flexibility, portability, and performance very well thought through</li>
+	<li>Walked through design—tradeoffs between flexibility, portability, and performance very well thought through</li>
 	<li>One part I enjoyed was the way he flipped back and forth between PowerPoint and the interpreter
 <ul>
 	<li>Clear that for him, Python is a tool for thinking with</li>
@@ -156,5 +156,5 @@ year: 2006
 	<li>Has been running in various incarnations for almost ten years</li>
 </ul>
 </li>
-	<li>Good discussion of architectural issues --- perfect example of the kind of researcher I'd like Software Carpentry to produce</li>
+	<li>Good discussion of architectural issues—perfect example of the kind of researcher I'd like Software Carpentry to produce</li>
 </ul>

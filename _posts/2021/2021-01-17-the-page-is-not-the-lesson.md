@@ -6,7 +6,7 @@ year: 2021
 
 > *The finger pointing at the moon is not the moon.*
 >
-> --- variously attributed
+>—variously attributed
 
 I [tweeted yesterday](https://twitter.com/gvwilson/status/1350419811080269824)
 about using static website generator templates for lessons:

@@ -13,7 +13,7 @@ My students and I a few hours on Monday and Tuesday (Nov 2-3) at City Hall showi
 	<li>Greenbelt Marketplace: connecting mid-sized farms in the Greenbelt to individual and institutional customers (Michael Gorecki, Jory Graham, Frank Li, and Mohit Jain)</li>
 	<li>XTagg: managing conversations in Twitter (Tyler Lu, Kevin Regan, Jasper Snoek, and Danny Tarlow)</li>
 </ul>
-Feedback on the whole event is starting to appear --- see for example:
+Feedback on the whole event is starting to appear—see for example:
 <ul>
 	<li><a href="http://webrebrand.blogspot.com/2009/11/too-many-cooks-and-not-enough-kitchens.html">Too many cooks and not enough kitchens</a></li>
 	<li><a href="http://torontoist.com/2009/11/toronto_exposes_its_data.php">Toronto Exposes Its Data</a></li>

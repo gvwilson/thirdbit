@@ -3,7 +3,7 @@ title: "Cross-Country Undergrad Projects This Fall"
 date: 2010-06-22 07:51:16
 year: 2010
 ---
-In 2009-2010, almost 90 students from over a dozen universities across the country earned a course credit by working in teams on a variety of open source projects. Thanks to our friends at <a href="http://www.google.com">Google</a>, <a href="http://www.oreilly.com">O'Reilly</a>, and <a href="http://cacsaic.org/">CACS</a>, the program is going to run again this fall and winter --- see <a href="http://ucosp.ca/news/2010/06/ucosp-is-expanding/">this announcement</a> for details, and the <a href="http://ucosp.ca">new web site</a> for more information.
+In 2009-2010, almost 90 students from over a dozen universities across the country earned a course credit by working in teams on a variety of open source projects. Thanks to our friends at <a href="http://www.google.com">Google</a>, <a href="http://www.oreilly.com">O'Reilly</a>, and <a href="http://cacsaic.org/">CACS</a>, the program is going to run again this fall and winter—see <a href="http://ucosp.ca/news/2010/06/ucosp-is-expanding/">this announcement</a> for details, and the <a href="http://ucosp.ca">new web site</a> for more information.
 
 So, if you are:
 <ul>

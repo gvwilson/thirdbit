@@ -13,7 +13,7 @@ Following links from the latest <a href="http://www.subtextual.org/">Subtext</a>
 </ul>
 </blockquote>
 
-That's great --- but #4 should have been:
+That's great—but #4 should have been:
 
 <blockquote>
 <ul>

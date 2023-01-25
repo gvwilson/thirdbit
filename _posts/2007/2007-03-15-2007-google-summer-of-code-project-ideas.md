@@ -10,5 +10,5 @@ to pick the projects.
 
 <em>Update: deadline for student applications has been extended to Monday, March 26, 5:00 pm Pacific time. I'd like to see more U of T students in the program; if you'd like to apply, please <a href="http://code.google.com/soc/student_step1.html">sign up</a> <strong>now</strong> and find a project.</em>
 
-<em>Further update: I've been contacted by students from Montenegro, the US, and Sri Lanka so far about the DrProject ticketing system, and two students are interested in doing Eclipse integration work (with OLM and DrProject respectively). Another student has proposed adding instant messaging to DrProject, which is a topic near to my heart.  Two days to go 'til proposals close --- if you're interested, please get one in ASAP.
+<em>Further update: I've been contacted by students from Montenegro, the US, and Sri Lanka so far about the DrProject ticketing system, and two students are interested in doing Eclipse integration work (with OLM and DrProject respectively). Another student has proposed adding instant messaging to DrProject, which is a topic near to my heart.  Two days to go 'til proposals close—if you're interested, please get one in ASAP.
 </em>

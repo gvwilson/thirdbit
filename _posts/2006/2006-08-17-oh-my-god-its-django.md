@@ -34,7 +34,7 @@ year: 2006
 <strong>Prabhu Ramachandran: 3D Visualization</strong>
 <ul>
 	<li>Author of MayaVi, a better (more Pythonic) wrapper for <a href="http://www.vtk.org">VTK</a></li>
-	<li>Impressive --- hides as much of the guff in complex 3D scientific visualization as it can</li>
+	<li>Impressive—hides as much of the guff in complex 3D scientific visualization as it can</li>
 </ul>
 <strong>Andrew Straw: Realtime Computing with Python</strong>
 <ul>
@@ -72,7 +72,7 @@ year: 2006
 	<li>Michel Sanner: The Current State of Vision
 <ul>
 	<li>Update on a visual builder for image processing pipelines</li>
-	<li>Very cool --- but lots of overlap (it seems) with MayaVi</li>
+	<li>Very cool—but lots of overlap (it seems) with MayaVi</li>
 </ul>
 </li>
 	<li>Peter Wang: Quick Overview of Chaco
@@ -108,7 +108,7 @@ year: 2006
 </ul>
 <strong>Greg Wilson: Software Carpentry</strong>
 <ul>
-	<li>Last talk of the day --- some locals had already headed home, but there were about 70 people present</li>
+	<li>Last talk of the day—some locals had already headed home, but there were about 70 people present</li>
 	<li>Went well, but no one's offering to teach the course at their institution this fall</li>
 	<li>Slides available online</li>
 </ul>

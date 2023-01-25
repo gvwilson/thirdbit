@@ -19,4 +19,4 @@ A couple of students have asked, so here's my reading list:
 	<li><a href="http://www.joelonsoftware.com/rss.xml">Joel Spolsky</a>, <a href="http://blog.jonudell.net/feed/">Jon Udell</a>, and <a href="http://www.schneier.com/blog/index.rdf">Bruce Schneier</a>: the first is more often amusing than deep, the second reminds me of of John McPhee's essays, and the third is frankly scary.</li>
 	<li><a href="http://www.xkcd.com/rss.xml">XKCD</a>: the ironic person's Dilbert.</li>
 </ul>
-You can also check out my recommended reading list (slightly out of date --- see my <a href="http://www.librarything.com/catalog/gvwilson">LibraryThing</a> page for a more complete list, mostly sans review).
+You can also check out my recommended reading list (slightly out of date—see my <a href="http://www.librarything.com/catalog/gvwilson">LibraryThing</a> page for a more complete list, mostly sans review).
