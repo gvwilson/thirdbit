@@ -4,11 +4,11 @@ date: 2023-01-25
 year: 2023
 ---
 
-To explain how JavaScript and other programming languages work,
+To explain how languages like JavaScript actually work,
 [Chapter 19][sdxjs_vm] of [*Software Design by Example*][sdxjs]
-builds a simulator of a very simple processor with a little bit of memory
+builds a very simple virtual machine (VM)
 and shows how to turn a low-level programming language into instructions for it.
-The virtual machine has three parts:
+The VM has three parts:
 
 1.  An instruction pointer that holds the memory address of the next instruction to execute.
 
@@ -31,14 +31,18 @@ I really wish I'd had enough [spoons][spoons] to build
 an interactive visualization of this VM.
 Since I didn't,
 I suggest you check out the game [Human Resource Machine][hmr].
+And if you want to know (a lot) more about this level in the tower of computing,
+Bob Nystrom's [*Crafting Interpreters*][crafting] is free to read online
+and one of the most beautifully crafted books on computing I've ever seen.
 
 <figure id="virtual-machine-architecture" align="center">
   <img src="{{'/sdxjs/virtual-machine/architecture.svg' | relative_url}}" alt="Virtual machine architecture"/>
-  <figcaption">Figure 19.1: Architecture of the virtual machine.</figcaption>
+  <figcaption>Figure 19.1: Architecture of the virtual machine.</figcaption>
 </figure>
 
 > Terms defined: Application Binary Interface, assembler, assembly code, bitwise operation, disassembler, instruction pointer, instruction set, label (address in memory), op code, register, virtual machine, word (of memory).
 
+[crafting]: https://craftinginterpreters.com/
 [hmr]: https://tomorrowcorporation.com/humanresourcemachine
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxjs_vm]: {{'/sdxjs/virtual-machine/' | relative_url}}
