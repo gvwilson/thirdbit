@@ -16,7 +16,7 @@ they're simply telling the truth when [they say](https://mdprogram.mcmaster.ca/)
 
 So [what makes it special?](https://mdprogram.mcmaster.ca/mcmaster-md-program/overview):
 
-- [Problem-based learning](https://mdprogram.mcmaster.ca/mcmaster-md-program/overview/pbl---problem-based-learning)
+- [Problem-based learning](https://mdprogram.mcmaster.ca/mcmaster-md-program/overview/pbl—problem-based-learning)
   in small groups with well-defined learning objectives
   to help students identify their own learning needs.
 - [Early patient interaction](https://mdprogram.mcmaster.ca/mcmaster-md-program/overview/early-patient-interaction),

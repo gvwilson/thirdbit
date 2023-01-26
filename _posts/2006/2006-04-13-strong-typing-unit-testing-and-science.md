@@ -7,8 +7,8 @@ year: 2006
 analysis &amp; design that spends several pages discussing
 strongly-typed vs. freely-typed languages (using Java and Ruby as
 examples).  The author asserts that unit testing does for FTLs what
-static type-checking does for STLs.  I've heard this claim before---in
-fact, I may even have made it myself once or twice---but the more I
+static type-checking does for STLs.  I've heard this claim before—in
+fact, I may even have made it myself once or twice—but the more I
 think about it, the more problematic it seems.</p>
 
 <p>The argument is that programmers don't actually make type errors

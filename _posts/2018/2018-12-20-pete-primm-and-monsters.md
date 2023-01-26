@@ -71,7 +71,7 @@ on the Learning Design Grid site has links to other pattern sites,
 but again,
 work seems to have ground to a halt.
 I'm sure there's got to be more out there,
-and I'd be very grateful for pointers---please
+and I'd be very grateful for pointers—please
 [email me](mailto:gvwilson@third-bit.com) if you have any.
 (I apologize for not enabling comments here:
 following my criticism of Shopify's continued support for white nationalist sites,

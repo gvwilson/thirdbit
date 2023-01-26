@@ -15,7 +15,7 @@ after dithering for a few days
 I decided to put my reservations aside and get on with it.
 That's when I discovered that the first page of each test
 required me to enter my name,
-my email address---and choose my gender,
+my email address—and choose my gender,
 with "Male" and "Female" being the only options.
 
 At this point my reservations broke out of the basement I'd locked them in
@@ -49,9 +49,9 @@ was more concerned with appearances than with eliminating bias,
 so I withdrew my application.
 
 I'm very privileged in being able to turn down jobs I don't want.
-You might not be able to do that---you
+You might not be able to do that—you
 might have to set aside your queasiness and do the tests
-even though your gut tells you their flaws are dangerous---but
+even though your gut tells you their flaws are dangerous—but
 I want you to know that your instincts are right.
 And if you *are* able to say "no" when you're in a situation like this,
 please do so,

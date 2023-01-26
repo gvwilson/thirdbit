@@ -9,7 +9,7 @@ The problem is that different things inside DrProject are keyed in different way
 
 So how should tags be stored? Option #1 is to have a separate tag table for each component table, i.e., a TICKET_TAGS table containing [project, ticket_number, tag], a WIKIPAGE_TAGS table containing [project, page_name, tag], and so on. That's simple to write, but not extensible: every time a new tagged component is added, DrProject needs to be told to search its tag table.
 
-Option #2: put all the tags in a single table [component_name, project, component_key, tag]. Search is now easy---but what's the type of component_key, integer or string? We can stringify integer keys, but that makes it clumsier to look up tags for integer-keyed components, and if we ever have a component with a multi-part primary key, we'll be in a real mess.
+Option #2: put all the tags in a single table [component_name, project, component_key, tag]. Search is now easy—but what's the type of component_key, integer or string? We can stringify integer keys, but that makes it clumsier to look up tags for integer-keyed components, and if we ever have a component with a multi-part primary key, we'll be in a real mess.
 
 Option #3: all tags for integer-keyed items in one table, while those for string-keyed items go in another.  Again, it'll work, but the SQL to find all items with a particular tag isn't pretty.
 

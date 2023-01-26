@@ -35,7 +35,7 @@ title: "Things I Didn't Tweet This Month"
 
 -   `git push origin hamster` over and over again...
 
--   The ACM is making the last fifty years of SIGCSE proceedings freely available---for one month.
+-   The ACM is making the last fifty years of SIGCSE proceedings freely available—for one month.
 
 -   I almost reactivated my Twitter account to +1 this tweet by Dave Beazley.
 

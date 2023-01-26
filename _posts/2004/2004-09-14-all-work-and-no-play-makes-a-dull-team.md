@@ -29,7 +29,7 @@ year: 2004
 
 <p>Each and every one of these activities contributed to making the team work.  It will be interesting to see how the Pyre teams this term find their own ways to become a Real Team.  My advice? [<a href="#4">4</a>]  Find excuses to hang around each other after hours.  Your code will benefit, the project will benefit, and -- most importantly -- you'll be happier while working on it, and maybe make some new good friends.  We did.</p>
 
-<p>---</p>
+<p>—</p>
 
 <p>[<a name="1">1</a>] Slightly more important than even code comments. (But slightly less important than coffee.)</p>
 

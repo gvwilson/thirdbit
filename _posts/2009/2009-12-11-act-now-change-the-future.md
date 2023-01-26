@@ -9,4 +9,4 @@ year: 2009
 
 (via Toronto's <a href="http://twitpic.com/t1sdg">Mayor David Miller</a>)
 
-Question: does it still count as science fiction if it's actually happening? We're <em>engineering the planet</em>, and <em>we're doing it by accident</em>---how Larry Niven is that?
+Question: does it still count as science fiction if it's actually happening? We're <em>engineering the planet</em>, and <em>we're doing it by accident</em>—how Larry Niven is that?

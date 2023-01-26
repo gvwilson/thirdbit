@@ -10,11 +10,11 @@ and I think I'm a little less confused about a few things than I used to be:
 1.  I know how to test "normal" software (like e-commerce websites or database drivers):
     set up some input values, run the code, and then check that it produces the expected result.
 
-2.  This methodology is irrelevant to many data scientists because they don't know what result to expect---if they did,
+2.  This methodology is irrelevant to many data scientists because they don't know what result to expect—if they did,
     they would already have published and moved on.
 
 3.  I say "many" rather than "all"
-    because some data scientists---those who work as [research software engineers](https://researchsoftware.org/)---write
+    because some data scientists—those who work as [research software engineers](https://researchsoftware.org/)—write
     libraries for general use and should have lots of tests.
     I think the difference is building products for repeated use
     versus combining those products and their own code to get one specific result.
@@ -35,8 +35,8 @@ there are more important things to teach to novice data scientists than unit tes
 What I think we *should* teach is defensive programming:
 the checks that data scientists do while they're doing analyses
 should be recorded in their code as assertions.
-This will help reusability---it's amazing how often a one-off analysis
-winds up being used many times---but the real goal is comprehensibility.
+This will help reusability—it's amazing how often a one-off analysis
+winds up being used many times—but the real goal is comprehensibility.
 If I can get your code and data,
 run the former on the latter,
 and get the same result that you did,

@@ -16,7 +16,7 @@ a headline character in a *telenovela* gets one read-through before being put in
 Talking to Garrett Grolemund today,
 I realized that's the situation most teachers are in.
 We don't have time to practice dozens of times before getting on stage.
-We don't have time---or rather, our institutions don't give us time---to
+We don't have time—or rather, our institutions don't give us time—to
 workshop our materials and try out a few variations in front of small audiences
 before giving our real performance.
 And unlike a Broadway production,

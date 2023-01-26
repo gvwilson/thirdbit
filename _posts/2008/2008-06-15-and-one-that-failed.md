@@ -7,7 +7,7 @@ To round out the series, this proposal went in last year, but was rejected.  I w
 
 <strong>Overview</strong>
 
-The goal of my research is to improve the uptake of modern software development tools and practices by making them more appealing and effective. I am primarily focused on integrating Web 2.0 collaboration tools into the development lifecycle in order to make good practices more appealing to junior developers (including students), but believe that answers and solutions will be applicable in other areas and to other groups. If this research is successful, developers will be better prepared to participate in both open and closed source development projects---particularly distributed ones---earlier in their careers.
+The goal of my research is to improve the uptake of modern software development tools and practices by making them more appealing and effective. I am primarily focused on integrating Web 2.0 collaboration tools into the development lifecycle in order to make good practices more appealing to junior developers (including students), but believe that answers and solutions will be applicable in other areas and to other groups. If this research is successful, developers will be better prepared to participate in both open and closed source development projects—particularly distributed ones—earlier in their careers.
 
 The primary vehicle for my research is DrProject, a software project management portal similar to Google Code that has been tailored for classroom use. The research described below will use it as a platform to study how Web 2.0 collaboration tools can be integrated into the software engineering process. The amount requested to support this work is US$77,725.00 (CDN$82,000).
 

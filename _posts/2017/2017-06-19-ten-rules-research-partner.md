@@ -109,7 +109,7 @@ researchers out of their comfort zone.)</p>
 <h3>8. Do the background reading.</h3>
 
 <p>H.L. Mencken wrote, "There is always a well-known solution to every
-human problem---neat, plausible, and wrong."  Your problem is almost
+human problem—neat, plausible, and wrong."  Your problem is almost
 certainly one of those, and is almost certainly more complex than you
 first realize.  While an earlier rule told researchers to sacrifice
 detail for clarity, this rule asks practitioners to make an effort to
@@ -143,5 +143,5 @@ worse.</p>
 <p>An old proverb says, "If you want to go fast, go alone.  If you
 want to go far, go together."  Researchers and practitioners can each
 do great things on their own, but both are better able to solve big
-problems---problems that really matter---if they find ways to work
+problems—problems that really matter—if they find ways to work
 together.</p>

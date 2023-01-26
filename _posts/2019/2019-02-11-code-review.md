@@ -20,8 +20,8 @@ but feedback on course assignments is usually private
 and usually focuses on the statistics rather than the code.
 
 In order to put together a tutorial on code review for aspiring data scientists,
-I would be grateful for pointers to publicly-available examples of short programs in R or Python---say,
-20 to 100 lines of code---that include the kinds of redundancies, workarounds, blind alleys, and outright mistakes that novices frequently make.
+I would be grateful for pointers to publicly-available examples of short programs in R or Python—say,
+20 to 100 lines of code—that include the kinds of redundancies, workarounds, blind alleys, and outright mistakes that novices frequently make.
 RMarkdown files, Jupyter notebooks, or plain old scripts are all very welcome,
 and if you can share any feedback you have already received,
 that would be wonderful too.

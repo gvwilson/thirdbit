@@ -31,7 +31,7 @@ original: swc
   <img src="{{'/files/2016/02/instructor-training-correlations.png' | relative_url}}" alt="Correlations in Instructor Training" />
 </p>
 <p>
-  There are lots of other ways to analyze this data---if you can find any interesting correlations,
+  There are lots of other ways to analyze this data—if you can find any interesting correlations,
   please post as comments below.
 </p>
 <hr/>

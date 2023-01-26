@@ -34,7 +34,7 @@ yet another round of discussion on the undergraduate bulletin board about why
 there were so few women in CS.  "Studies show that they're just less good at
 math," "they just prefer to do other things," and similar comments appeared with
 wearying predictability. I recognized some of the posters' names from my class
-list, and thought this might be a good way to help them---OK, who am I kidding?
+list, and thought this might be a good way to help them—OK, who am I kidding?
 I was pissed off, but I knew that preaching at them wouldn't do any good, so I
 decided to make them as uncomfortable as they were making their female classmates.
 

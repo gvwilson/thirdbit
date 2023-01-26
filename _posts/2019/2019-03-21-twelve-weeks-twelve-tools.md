@@ -34,7 +34,7 @@ My list would be:
     (In my experience, most people only use a fraction of their editor's power.)
 1.  A smart backup tool that stores compressed files indexed by hashes
     (which is the core of how [Git](https://git-scm.com/) works).
-1.  An HTTP server---basically a stripped-down [Express](https://expressjs.org/).
+1.  An HTTP server—basically a stripped-down [Express](https://expressjs.org/).
 1.  A text-only web browser like [Lynx](https://lynx.invisible-island.net/)
     to help them understand how a DOM tree in memory becomes positioned text on a screen.
     (It wouldn't handle CSS, but it *would* do simple tables.)

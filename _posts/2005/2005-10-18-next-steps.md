@@ -3,7 +3,7 @@ title: "Next Steps"
 date: 2005-10-18 16:49:28
 year: 2005
 ---
-<p>I'm now officially back on the job market---I've enjoyed my year of
+<p>I'm now officially back on the job market—I've enjoyed my year of
 gainful unemployment, but for a bunch of reasons, it's time to line up
 a steady income.  I'm interested in anything that looks fresh (fresher
 than porting 100K lines of C++ to 64-bit architectures and debugging
@@ -41,7 +41,7 @@ routinely, we could start introducing new elements, or modifying
 existing ones, to explore new ideas.  The other motivation, of course,
 was to expose students to the kind of groupware that real software
 teams use to coordinate their work.  Bug tracking that integrates with
-version control that integrates with the wiki and the email list---it
+version control that integrates with the wiki and the email list—it
 should all be part of everyone's undergrad experience.  If some
 enlightened being chose to support it, I think it could have a real
 impact on undergraduate software engineering education.</p>
@@ -49,7 +49,7 @@ impact on undergraduate software engineering education.</p>
 <p>My other long-running interest is transferring skills and knowledge
 from gearheads to scientists and engineers.  Some time in the mid-90s,
 I realized that the real bottleneck in computational science isn't a
-lack of CPU power---it's the fact that most scientsts have never been
+lack of CPU power—it's the fact that most scientsts have never been
 shown how to program.  They get a first-year course in C, and (maybe)
 another course in numerical methods, and then they're expected to
 discover or invent everything else on their own.</p>
@@ -74,7 +74,7 @@ really like to find a way to scale that up, and get the word out to
 students who <em>aren't</em> already involved in open source.  In
 particular, I'd like to try to get the <a href="http://www.acm.org">ACM</a> and <a href="http://www.ieee.org">IEEE</a> involved in recruiting and
 match-making, and find ways to get students course credit for working
-on real open source projects.  <a href="http://www.google.com">Google</a> doesn't seem interested---if
+on real open source projects.  <a href="http://www.google.com">Google</a> doesn't seem interested—if
 someone else is, I'm easy to find ;-)</p>
 
 <p>Finally, there are the blue-sky options: extensible

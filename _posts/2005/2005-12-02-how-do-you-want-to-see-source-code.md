@@ -149,6 +149,6 @@ My questions are:
 <ol>
 	<li>Is there a better way to do this?</li>
 	<li>If not, is there a tool out there (presumably written in JavaScript) that'll do this?</li>
-	<li>If so, what happens in the print version?  I'd rather not display the same lines of code several times---some kind of callout or highlighting would be best---but I want to be able to do everything from a single source representation.</li>
+	<li>If so, what happens in the print version?  I'd rather not display the same lines of code several times—some kind of callout or highlighting would be best—but I want to be able to do everything from a single source representation.</li>
 </ol>
 Answers <a href="mailto:gvwilson@cs.utoronto.ca">to me</a>, please; best response wins an all-expenses-paid trip to the nearest Tim Horton's.

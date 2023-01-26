@@ -15,7 +15,7 @@ from floods, bandits, wild animals, and other calamities.
 But then I remembered a discussion I had with my daughter several years ago,
 and what I now can't get out of my mind is a quarter-baked plan for a game called *Save the Humans*.
 It's set in a zoo.
-The robots have risen (or zombies are attacking---take your pick),
+The robots have risen (or zombies are attacking—take your pick),
 and it's up to the zoo animals to save the visitors who are now running around in a panic.
 
 Each kind of animal has its own special power.

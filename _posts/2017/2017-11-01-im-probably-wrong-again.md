@@ -14,9 +14,9 @@ while R was "just" a statistical tool that people had started using for other th
 
 The workshop's host called me out for saying this,
 and was right to do so.
-Programmers sneer at one another's languages---Python at R,
+Programmers sneer at one another's languages—Python at R,
 Ruby at Perl,
-Lisp at everyone and everyone at Visual Basic---and they're all wrong to do so.
+Lisp at everyone and everyone at Visual Basic—and they're all wrong to do so.
 [Some languages are easier for novices to learn than others][stefik],
 but once you have reflection and garbage collection,
 there's precious little evidence that the other differences matter.

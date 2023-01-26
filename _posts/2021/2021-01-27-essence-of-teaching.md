@@ -60,8 +60,8 @@ once again he motivates every new idea,
 no matter how small,
 with a question someone might want answered.
 
-It's not a perfect book---it could use more diagrams, for example,
-and I find the language overly formal in some places---but it's a very good one,
+It's not a perfect book—it could use more diagrams, for example,
+and I find the language overly formal in some places—but it's a very good one,
 and the closest thing I've seen in the wild
 to Carroll's [minimal manual](http://teachtogether.tech/en/index.html#s:architecture-load) approach to lesson design.
 It isn't the right approach for every situation,
@@ -104,5 +104,5 @@ but I don't know of a mainstream language whose creators asked instructional des
 while there was still a chance to build one.
 You can't add security or usability to a tool after it's shipped;
 equally,
-I don't think you can add learnability---we just have to do our best
+I don't think you can add learnability—we just have to do our best
 to find as gentle a path up the hill as we can.

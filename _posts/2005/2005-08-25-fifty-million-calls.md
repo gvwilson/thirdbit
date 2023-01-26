@@ -4,8 +4,8 @@ date: 2005-08-25 11:19:11
 year: 2005
 ---
 "House" and "CSI" (the original) are two of my favorite TV shows.
-Partly, it's the characters---Hugh Laurie and Marg Helgenberger are
-both brilliant---but I also enjoy watching smart people debugging.
+Partly, it's the characters—Hugh Laurie and Marg Helgenberger are
+both brilliant—but I also enjoy watching smart people debugging.
 Sure, they're dealing with diseases and crime scenes, but deep down
 it's all the same: something's wrong, and you have to figure out
 what.
@@ -28,7 +28,7 @@ projects, but <em>only</em> their projects, while giving TAs and
 lecturers access to everything.
 
 We got it sorted out eventually, but then we ran into another
-problem: our application was really, really slow---it was taking 10
+problem: our application was really, really slow—it was taking 10
 seconds or more to service each CGI request.  There was no way we
 could put it into production as it was.
 
@@ -175,7 +175,7 @@ though, we were running our tests with some .pyc's deleted, but others
 still present, which is why we were still getting those 29 million
 calls to <code>_PyUnicodeUCS2_IsLinebreak</code>.  Once we got that
 cleaned up, the number of calls dropped to zero, and the run time went
-from over 10 seconds per hit to 2 or less---well within our comfort
+from over 10 seconds per hit to 2 or less—well within our comfort
 zone.
 
 OK, we'd fixed our problem, but we still didn't really understand
@@ -200,7 +200,7 @@ In addition, it also performs splitlines on a single line, just to
 strip any trailing line breaks.
 The net effect is that, for a file with N lines, IsLineBreak is invoked
 up to N*N/2 times per character (at least for the last character).</blockquote>
-Yup---the reader was invoking
+Yup—the reader was invoking
 <code>_PyUnicodeUCS2_IsLinebreak</code> N<sup>2</sup> times.  Square
 root of fifty million is... carry the three... about seven thousand,
 which happens to be about the number of lines of code we were
@@ -212,7 +212,7 @@ me hasn't been the proposals themselves, but rather the fact that the
 first thing Walter and Martin did was write little test programs and
 profile them to find out how fast things would actually run.  To put
 it another way, good programmers like Walter and Martin automatically
-apply the scientific method to problems---they design and run
+apply the scientific method to problems—they design and run
 experiments, collect data, and <em>then</em> formulate a hypothesis
 (a.k.a. a bug fix).  It's cool to be able to watch this in action, and
 even cooler to have code that runs fast enough to be called

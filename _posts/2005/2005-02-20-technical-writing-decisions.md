@@ -29,7 +29,7 @@ and won't be able to figure it out from point-form notes</li>
 <li>programs
   <ul>
   <li>The lecture notes and text will need to be able to refer to
-  specific sections, either by callout (O'Reilly style---cleaner look,
+  specific sections, either by callout (O'Reilly style—cleaner look,
   harder to engineer) or by line number</li>
 </ul>
 <li>sample data files</li>

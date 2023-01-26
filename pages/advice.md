@@ -258,7 +258,7 @@ frustration you encounter as you try to o this.
 
 8)  Do the background reading.
 :   H.L. Mencken once wrote that, "There is always a well-known solution to every
-    human problem---neat, plausible, and wrong." Your problem is almost certainly
+    human problem—neat, plausible, and wrong." Your problem is almost certainly
     one of those, and is almost certainly more complex than you first realize. While
     Rule #4 tells researchers to sacrifice detail for clarity, this rule asks
     practitioners to make an effort to grasp at least some of that detail so that
@@ -286,7 +286,7 @@ An old proverb says, "If you want to go fast, go alone; if you want to go far,
 go together."  In my experience, this is wrong: going alone is good for a fast
 start, but after that, both speed and distance come from having partners.
 Researchers and practitioners can each do great things on their own, but both
-are better able to solve big problems---problems that really matter---if they
+are better able to solve big problems—problems that really matter—if they
 find ways to work together.
 
 ## Talking People Into Things

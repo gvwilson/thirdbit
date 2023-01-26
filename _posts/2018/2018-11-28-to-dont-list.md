@@ -9,7 +9,7 @@ For years I kept mine in a hardcover lab notebook,
 copying items forward at the start of each day until they were done or I had given up on them.
 
 After [my last crash]({{'/2015/11/09/daddy-why-dont-you-ever-laugh/' | relative_url}}),
-I started keeping a to-don't list as well---a list of things
+I started keeping a to-don't list as well—a list of things
 that I'm not going to work on because there isn't time to do everything.
 The first few lines look like this:
 

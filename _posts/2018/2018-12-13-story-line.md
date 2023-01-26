@@ -20,9 +20,9 @@ So what would the equivalent be for building lessons?
 What would it look like if a few dozen people
 (like, I dunno, some [Carpentries instructors](https://carpentries.org/instructors/))
 each took a turn adding one page to an ever-growing lesson.
-They would each be able to see all the previous work---I imagine
+They would each be able to see all the previous work—I imagine
 the project would have a blog feed,
-so contributors and interested parties would get a daily update on what had been added---but
+so contributors and interested parties would get a daily update on what had been added—but
 when their turn came,
 each person would be free to decide what needed explaining next.
 
@@ -30,7 +30,7 @@ I think it would be a lot of fun,
 but my tastes are somewhat eccentric.
 If you'd be interested,
 or can think of a variation that would make this more fun or more productive,
-please [give me a shout](mailto:gvwilson@third-bit.com)---I'd be happy to coordinate.
+please [give me a shout](mailto:gvwilson@third-bit.com)—I'd be happy to coordinate.
 (I apologize for not allowing discussion here:
 following my criticism of Shopify's continued support for white nationalist sites,
 it seemed best to disable comments on this blog until the trolls turned their attention elsewhere.)

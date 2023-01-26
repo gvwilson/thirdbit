@@ -10,7 +10,7 @@ They all had GitHub accounts already,
 and a couple of them had read *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*,
 but only one had any formal training as a programmer
 (a 12-week bootcamp four years ago).
-Here's what we did in order---I'd be grateful for suggestions about what we missed
+Here's what we did in order—I'd be grateful for suggestions about what we missed
 or what you would reprioritize.
 
 <div class="tightlist" markdown="1">

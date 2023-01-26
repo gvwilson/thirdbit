@@ -9,7 +9,7 @@ for the first time in a decade.
 It's been good to catch up with friends,
 but this fly-by has confirmed several things for me:
 
-1.  I did the right thing leaving academia---I don't have the patience or diligence
+1.  I did the right thing leaving academia—I don't have the patience or diligence
     to be a good researcher.
 
 2.  Most software engineering research has the same effect on programmers
@@ -42,7 +42,7 @@ and if we teach students how to use the scientific method to separate fact from 
 a lot of the fads, half-truths, and outright bullshit floating around the murky pond of industry
 might finally settle to the bottom.
 
-A course like this would have to include some statistics---say,
+A course like this would have to include some statistics—say,
 up to the level of the [AP Stats exam](https://apcentral.collegeboard.org/courses/ap-statistics/course)
 in the US.
 It would also include a bit of programming to implement analyses,
@@ -61,7 +61,7 @@ I would want students to be able to answer questions like these:
     -   This can be answered with some API calls or via [GHTorrent](http://ghtorrent.org/),
         but right away we have to decide whether we mean "original repositories"
         or "all repositories including forks",
-        and whether we're including repositories that haven't been touched in---hm, how long?
+        and whether we're including repositories that haven't been touched in—hm, how long?
 -   How many people contribute to the average project?
     -   It isn't feasible to examine every project,
         and they're constantly changing,
@@ -82,7 +82,7 @@ I would want students to be able to answer questions like these:
         how do we interpet the results correctly,
         especially without making errors about what the results are actually saying?
 -   Are long functions or methods buggier than short ones?
-    -   It would be surprising if they weren't---what we're probably actually asking is,
+    -   It would be surprising if they weren't—what we're probably actually asking is,
         "Are longer pieces of code buggier *per line* (or per statement) than short ones?"
     -   To answer that,
         we need to figure out how to attribute bugs to lines of source,

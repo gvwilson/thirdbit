@@ -18,7 +18,7 @@ I blogged a couple of weeks ago about this term's consulting projects.  Here are
 	<li>Phillipa Gill and Lee Zamparo are investigating better spam filtering techniques for <a href="http://www.messagelabs.com">MessageLabs</a>.</li>
 	<li>Ziad Hatahet and Vivek Lakshmanan are looking at the feasibility of moving <a href="http://www.tucowsinc.com">TUCOWS</a> mail hosting service to NFS v4.</li>
 	<li>Mohammad Jalali and Rory Tulk are seeing whether we can automatically generate REST APIs from ORM metadata.  (This one might be renegotiated, since there's been more prior work than I'd realized.)</li>
-	<li>Zachary Kincaid might be implementing a domain-specific scripting language---details to follow.</li>
+	<li>Zachary Kincaid might be implementing a domain-specific scripting language—details to follow.</li>
 	<li>Matthew Ansell is building wizards for <a href="http://www.mirarco.com">Mirarco</a>.</li>
 	<li>Michalis Famelis is helping <a href="http://stereologic.com/">StereoLogic</a> build tools to reverse engineer business processes.</li>
 	<li>Nick Shim and (probably) Olga Irzak are putting <a href="http://www.clearcanvas.ca">ClearCanvas</a>'s medical imaging software on a Microsoft Surface.</li>

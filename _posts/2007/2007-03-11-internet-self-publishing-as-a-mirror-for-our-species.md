@@ -14,7 +14,7 @@ I gave a short talk on non-academic publishing to grad students in the <a href="
 </a></li>
 	<li><a href="http://www.lulu.com/content/99523">The Didymus Contingency</a> (scientist invents time travel, goes back to watch the Crucifixion)<a href="http://www.lulu.com/content/99523" /></li>
 <a href="http://www.lulu.com/content/99523"> </a><a href="http://www.lulu.com/content/99523"> 	</a>
-	<li><a href="http://www.lulu.com/content/54918">Day by Day Armageddon</a> (the undead rise---again)<a href="http://www.lulu.com/content/54918">
+	<li><a href="http://www.lulu.com/content/54918">Day by Day Armageddon</a> (the undead rise—again)<a href="http://www.lulu.com/content/54918">
 </a></li>
 	<li><a href="http://www.lulu.com/content/106612">Finding the "CAN" in Cancer</a></li>
 	<li><a href="http://www.lulu.com/content/82300">The Microsoft Office Web Components Black Book with .NET</a></li>

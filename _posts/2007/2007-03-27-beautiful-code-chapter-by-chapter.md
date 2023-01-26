@@ -3,7 +3,7 @@ title: "Beautiful Code: Chapter by Chapter"
 date: 2007-03-27 13:09:58
 year: 2007
 ---
-<a href="http://www.oreilly.com/catalog/9780596510046/"><em>Beautiful Code</em></a> now has a cover, and I can share the chapter summaries (below the cut). I'm very excited---hope to have hardcopy in a month or so.
+<a href="http://www.oreilly.com/catalog/9780596510046/"><em>Beautiful Code</em></a> now has a cover, and I can share the chapter summaries (below the cut). I'm very excited—hope to have hardcopy in a month or so.
 
 Chapter 1, <cite>A Regular Expression Matcher</cite>, by Brian Kernighan, shows how deep insight into a language and a problem can lead to a concise and elegant solution.
 

@@ -3,7 +3,7 @@ title: "What I'd Like To Do Next"
 date: 2009-03-22 19:57:13
 year: 2009
 ---
-I've been thinking about what I'd like to do when I leave U of T, and I think I can use what I enjoy most about my present job---mentoring students---to make some company more attractive to talented Canadian Computer Science grads, while at the same time improving CS education in this country.  Here's my pitch.
+I've been thinking about what I'd like to do when I leave U of T, and I think I can use what I enjoy most about my present job—mentoring students—to make some company more attractive to talented Canadian Computer Science grads, while at the same time improving CS education in this country.  Here's my pitch.
 <blockquote><em></em>
 
 <em>Most schools have a third or fourth year "Intro to Software Engineering" course where students work in teams on an extended project that's meant to teach them real-world development skills.  In my experience, these courses aren't particularly effective because:</em>

@@ -95,7 +95,7 @@ a few things struck me:
    they're engaging,
    there's little redundancy,
    they present tabular data as tables
-   (which programming languages could have started doing thirty years ago---but
+   (which programming languages could have started doing thirty years ago—but
    that's a rant I'll save for some other time),
    they make system status very visible,
    support edit-order freedom,
@@ -146,6 +146,6 @@ that identifies five principles for selecting a programming language for learner
 1. Be generative and productive
 1. Test, don't trust
 
----   
+—   
 
 Michael Kölling and Fraser McKay: "Heuristic Evaluation for Novice Programming Systems". *ACM Transactions on Computing Education*, 16(3), June 2016, 10.1145/2872521.

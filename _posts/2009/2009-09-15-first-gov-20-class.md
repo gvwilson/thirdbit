@@ -16,4 +16,4 @@ The first class in my Government 2.0 consulting course was held yesterday in a s
 	<li><a href="http://visiblegovernment.ca/">Visiblegovernment.ca</a></li>
 	<li><a href="http://delicious.com/tag/opendata">delicious.com/tag/opendata</a></li>
 </ul>
-If you know of more, please add them in comments---the students would be grateful for your help.
+If you know of more, please add them in comments—the students would be grateful for your help.

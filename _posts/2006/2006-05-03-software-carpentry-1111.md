@@ -3,7 +3,7 @@ title: "Software Carpentry 1111"
 date: 2006-05-03 11:37:06
 year: 2006
 ---
-Revision 1111 of Software Carpentry just went into the repository.  All the images are now there (thanks, Nick), along with code fragments and exercises (not as many as I'd like, but enough to get people started).  Printed, it comes to 346 pages, but don't do this at home---the supposedly-transparent PNGs are still solid black when printed.
+Revision 1111 of Software Carpentry just went into the repository.  All the images are now there (thanks, Nick), along with code fragments and exercises (not as many as I'd like, but enough to get people started).  Printed, it comes to 346 pages, but don't do this at home—the supposedly-transparent PNGs are still solid black when printed.
 
 Things I'd like to do (or would like volunteers to contribute in the usual open source way) include:
 <ul>

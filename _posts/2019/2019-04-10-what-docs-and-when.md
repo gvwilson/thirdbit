@@ -117,7 +117,7 @@ i.e., what's being delivered from how it's being delivered:
     a *book* is another,
     and a *discussion* is a third.
 -   A *cheatsheet* is a one-page reference guide that opens with an introduction
-    and includes a bit of cookbook material as well---it's mostly a reminder of things the reader has probably already seen
+    and includes a bit of cookbook material as well—it's mostly a reminder of things the reader has probably already seen
     with a few other useful bits thrown in.
 -   An *explanation* can be either a tutorial that isn't accompanied by any exercises
     ("here's how callbacks work in JavaScript")

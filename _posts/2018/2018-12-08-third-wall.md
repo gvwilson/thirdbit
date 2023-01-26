@@ -9,7 +9,7 @@ What he meant was that when you're painting a room,
 the first wall goes well because you're excited about getting started,
 and the second wall's OK because you've found your rhythm,
 and the last well isn't bad because the end is in sight,
-but the third wall---that's the hard one.
+but the third wall—that's the hard one.
 You're tired,
 you're bored,
 and you still have a lot to do.
@@ -32,4 +32,4 @@ I'd rather do dishes and laundry and watch inane YouTube videos than look at any
 But as Bernd Heinrich said, the will to succeed means nothing without the will to prepare.
 So I'm off to the land of [Antarctic fairies and ninja cats and tiny robot dinosaurs](http://sensibleadventures.com/madica/),
 just as soon as I finish writing this procrastinatory blog post and making another cup of tea.
-Speaking of which, we're almost out of tea---maybe I should go and buy some more...
+Speaking of which, we're almost out of tea—maybe I should go and buy some more...

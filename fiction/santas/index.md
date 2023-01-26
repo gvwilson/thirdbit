@@ -29,7 +29,7 @@ it isn't really home any more.*
 *There's one kiss and quite a few explosions.
 The footnotes are there to lighten things up;
 if you need a someone to hold your hand during the scary bits,
-tough luck---I'm just a book, and we don't have hands.*
+tough luck—I'm just a book, and we don't have hands.*
 
 </section>
 
@@ -80,13 +80,13 @@ They tried to talk to their friends about it
 without actually explaining the problem.
 That… didn't go well.
 Finner's parents were the only elf and santa in town.
-There were others nearby---aunts and uncles
+There were others nearby—aunts and uncles
 and second cousins twice removed
 and even a few who'd married into the trade
 and done quite well for themselves
 despite what Finner's great-grandmother never actually said out loud at family gatherings<sup>
 She was a hundred and twenty two years old,
-and could not say things so loudly that no one else could hear themselves think.</sup>---but
+and could not say things so loudly that no one else could hear themselves think.</sup>—but
 none of children Finner went to school with or played Hide and Stay Hidden with
 could ever really understand how much hard work went into making that one day special every year.
 
@@ -104,25 +104,25 @@ They would have to ask their great-grandmother for advice.
 Gran-Granna Tumbly spent most of her time napping or having long philosophical conversations
 with her peg-legged cat and her one-eyed parrot,
 but there were stories about her.
-She had been a santa---one of the greats.
+She had been a santa—one of the greats.
 She had once delivered a chocolate orange cake to a trio of scientists in a submarine
 *without using a submarine herself*,
 and then delivered a baby on the way home.<sup>
 "Delivered" in the conventional sense of helping someone give birth
 rather than the postal sense used for packages.
 The santas and elves in this world didn't make cunning replicas of human infants
-and replace them in the dead of night while their parents were sleeping---but
+and replace them in the dead of night while their parents were sleeping—but
 we're not at that part of the story yet…
 </sup>
 Everyone was a little bit afraid of her,
 except for the unfortunate few who had felt the full force of her disapproving glare:
 they were a *lot* afraid.
-But if you had a problem---a *real* problem,
+But if you had a problem—a *real* problem,
 not just a lost sock or a broken heart<sup>Gran-Granna Tumbly
 did once make an exception for someone whose heart was broken
 because they had lost a very special sock
 and there was a very real chance of the world ending as a result,
-but that story is also best told some other time.</sup>---you could
+but that story is also best told some other time.</sup>—you could
 always knock on her door.
 
 Finner waited until Tuesday afternoon before going to see her.
@@ -162,12 +162,12 @@ If you don't mind waiting a moment…?"
 Finner turned around slowly.
 The stone cat had turned its head toward them,
 but was clearly still keeping one eye on the empty bird bath.
-"I---sure," they said lamely,
+"I—sure," they said lamely,
 then added, "Thank you,"
 because a stone statue of a cat is still in some sense a cat,
 and one of the first lessons a santa is taught is
 to always be polite to cats.<sup>And watchmakers,
-but that's also---you know what?
+but that's also—you know what?
 There are going to be so many of those that from now on,
 if it really is a story for another time,
 we'll just not mention it.</sup>
@@ -223,7 +223,7 @@ of children, grandchildren, great-grandchildren, neighbors, friends, enemies<sup
 had dates and locations written on them in neat, smug lettering.</sup>,
 and the grateful, if somewhat perplexed, crew of a submarine: check.
 
-And there was a teapot---*the* teapot,
+And there was a teapot—*the* teapot,
 the one people spoke about in hushed voices.
 It didn't look special,
 but it was never empty and its contents were never cold.
@@ -246,7 +246,7 @@ Finner said,
 not knowing what else to say.
 What *were* they going to say?
 "Nothing feels right," was awfully vague,
-and, "What should I do with my life?" seemed awfully---
+and, "What should I do with my life?" seemed awfully—
 
 "The thing about being old," Gran-Granna said without any preamble,
 "Is that people think it makes you wise."
@@ -286,13 +286,13 @@ that's hard."
 Finner turned their teacup around in their hands.
 "So what happened to them?"
 
-Gran-Granna smiled.<sup>It wasn't a particularly comforting smile---not yet.</sup>
+Gran-Granna smiled.<sup>It wasn't a particularly comforting smile—not yet.</sup>
 "They ran off and joined the opera.
 Last I heard,
 they were singing six shows a week with not an empty seat in the house."
 She sipped her tea.
 "They way I look at it,
-they *did* become a santa---one of the year-round kind.
+they *did* become a santa—one of the year-round kind.
 They're giving people music night after night,
 and that's a wonderful gift."
 
@@ -300,7 +300,7 @@ She sighed.
 "But they don't see it that way,
 and I don't know if they ever will.
 Doesn't matter how hard people applaud
-or how many times they're called back for encores---deep in their heart,
+or how many times they're called back for encores—deep in their heart,
 they'll always think of themselves as 'not at santa'."
 
 "Which brings us to you," she continued,
@@ -326,8 +326,8 @@ it was time for bed and their teeth weren't going to brush themselves.
 angry at the tears that they were absolutely *not* going to cry.
 "I like making toys and spatulas and, and socks and everything,
 I really do,
-but---I dunno.
-And deliveries are---everyone else seems excited and it's like I'm just watching myself do it,
+but—I dunno.
+And deliveries are—everyone else seems excited and it's like I'm just watching myself do it,
 you know?
 Like this is someone else's life and I've just put it on like a sweater
 except it doesn't quite fit
@@ -348,7 +348,7 @@ On the whole, they preferred geography.</sup>
 Gran-Granna picked up her cane and struggled to her feet.
 "Never you mind," she said curtly.
 "It's late and your folks will be wondering where you are.
-You best be---"
+You best be—"
 
 *THUMP!* "Ow, get off me!" a female voice said peevishly.
 
@@ -368,7 +368,7 @@ a second voice bellowed from above.
 Finner practically heard someone putting their hand over someone else's mouth.
 
 They gestured toward the front door.
-"I should---" they started.
+"I should—" they started.
 
 A door opened upstairs.
 Heavy boots thumped on the carpeted floor
@@ -383,17 +383,17 @@ To Finner's complete surprise the santa starting crying.
 It's really, really awful this time."
 
 Gran-Granna Tumbly wriggled out of the beard and the hug.
-"Let me guess---did your llamas eat your favorite hat again?"
+"Let me guess—did your llamas eat your favorite hat again?"
 
 "The llamas are gone,"
 said a second santa,
 who had come silently down the stairs behind the first one.
 She was no taller than Finner,
 but lean where the first santa was brawny,
-and her uniform---Finner did a double take.
+and her uniform—Finner did a double take.
 Her hood and sack were red and white,
 but the rest seemed to be changing color to match the carpet on the stairs.
-And---was that an ax strapped to the first santa's back?
+And—was that an ax strapped to the first santa's back?
 A really big ax that looked like it was designed for chopping the heads off trolls
 rather than turning logs into kindling?
 
@@ -510,7 +510,7 @@ and goes directly to the bit in the back of the brain
 that evolved to keep a million generations of ancestors
 out of large predators' stomachs.
 
-"Holy---" someone in the front yard started to say but never managed to finish.
+"Holy—" someone in the front yard started to say but never managed to finish.
 The other attacker simply screamed, briefly.
 There was a moment of stunned silence,
 and then the shooting started.
@@ -533,7 +533,7 @@ but never found the courage to ask.</sup>
 The front door burst open.
 The stone cat charged through the room
 and into the foam still left on the stairs.
-It was bigger than it had been before---much bigger---but
+It was bigger than it had been before—much bigger—but
 Finner didn't have time to think about that
 because the big santa had picked them up like a sack of laundry
 and taken two enormous strides across the room
@@ -550,19 +550,19 @@ It was bright.
 In fact,
 it was daytime,
 when a moment ago it had been dark and evening.
-And there was sand---lots of sand.
-And---
+And there was sand—lots of sand.
+And—
 
 "That looks like a pyramid,"
 a small part of Finner's brain<sup>Not the part that evolved
-to keep them out of predators---pyramids weren't really its concern.</sup> told the rest of them.
+to keep them out of predators—pyramids weren't really its concern.</sup> told the rest of them.
 
 The second santa got to her feet and brushed sand off her uniform,
 which had already started to turn a sandy-beige color.
 "Where are we?" she asked.
 
 It took Finner a moment to realize she was asking them.
-"I---I don't know."
+"I—I don't know."
 It was hot, they realized.
 Much too hot for the coat they had on.
 And where was Gran-Granna?
@@ -576,12 +576,12 @@ but before they could,
 a voice behind them moaned,
 "Greeeeeeetings…"
 
-They spun around and found themselves face-to-face with---they weren't quite sure what.
+They spun around and found themselves face-to-face with—they weren't quite sure what.
 It was tall and withered
 and wrapped in tattered bandages
 made from the rags of what might once have been a santa's uniform.
 Its eyes didn't quite line up,
-and---was that a *bone* of the end of one of its arms
+and—was that a *bone* of the end of one of its arms
 where there really ought to be a hand?<sup>Even a mechanical hand.
 Finner knew a santa who had started wearing one after
 an unfortunate encounter with a a poorly-trained guard goose,
@@ -667,7 +667,7 @@ they didn't come through that way."
 She glanced at the santa with the ax.
 "They took his llamas.
 And smashed his carriage.
-And---"
+And—"
 
 The burly santa put a gentle hand on her shoulder.
 "And the elves got away," he said.
@@ -723,9 +723,9 @@ We're trying to save the worlds."
 
 ## Episode 4: In Which Some Introductions are Made and Some Explanations Finally Given
 
-Zombies and mummies are similar in many ways---the shambling gait,
+Zombies and mummies are similar in many ways—the shambling gait,
 the moaning,
-and of course the whole "undead" thing---but
+and of course the whole "undead" thing—but
 there are important differences as well.
 First,
 mummies are generally royalty,
@@ -867,7 +867,7 @@ she added.
 "She's a tough old bird."
 
 "Tough as they come," the burly santa agreed, nodding.
-"Why, there was this time---"
+"Why, there was this time—"
 
 "Why do you keep calling her that?"
 Finner interrupted angrily.
@@ -986,7 +986,7 @@ whose brilliant green beams left glassy scorches on the sand.
 
 "Impossible,"
 Santa Hotep wheezed angrily.
-"They can't---"
+"They can't—"
 
 "They have,"
 Santa Hood snapped.
@@ -998,7 +998,7 @@ It shambled off,
 moaning under its breath.<sup>Even though it wasn't actually breathing.</sup>
 
 The chamber was larger than Finner had realized,
-and there were more statues than---
+and there were more statues than—
 They froze as one of the statues turned its head.
 "Automated defenses,"
 Santa Hood said without breaking stride.
@@ -1024,7 +1024,7 @@ but lit by the same flickering torches.
 you…"
 The mummy waved them ahead.
 Santa Greenwood squeezed through the opening,
-muttering under his breath.<sup>He *was* actually breathing---rather noisily,
+muttering under his breath.<sup>He *was* actually breathing—rather noisily,
 in fact.</sup>
 Finner followed with Santa Hood on their heels.
 
@@ -1272,7 +1272,7 @@ rather appreciated having some time to itself,
 what with the first few minutes of its inflated existence
 being so full of new experiences.
 Then it sank,
-which only goes to show---something.</sup>
+which only goes to show—something.</sup>
 
 Finner clambered up the rope ladder and on to the deck.
 Given recent events,
@@ -1305,13 +1305,13 @@ in their hands.
 
 "This is Santa Hood,"
 Santa Greenwood said reluctantly.
-"And Figleaf---they're Miss Tumbly's."
+"And Figleaf—they're Miss Tumbly's."
 
 "It's Finner," Finner corrected automatically,
 No-one noticed.
 
 Santa Greenwood sighed heavily and gestured at Captain Clausbeard.
-"Folks---this is my dad."
+"Folks—this is my dad."
 
 </section>
 

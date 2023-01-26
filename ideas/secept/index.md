@@ -67,7 +67,7 @@ What tools will be used for practical examples?
 :   We will use the scientific Python stack, primarily because the average programmer is more likely to have encountered Python than R, Julia, or other data science languages.
 
 Will these lessons cover qualitative methods as well as quantitative ones?
-:   They should---learners should be aware of the unique insights that qualitative methods can produce---but it will depend on whether compelling exercises can be created.
+:   They should—learners should be aware of the unique insights that qualitative methods can produce—but it will depend on whether compelling exercises can be created.
 
 Do you think people will actually read it?
 :   Yes: something that bills itself as "data science for software engineers using software engineering examples" is going to strike a lot of chords, as will "here's what we actually know about building better software faster".

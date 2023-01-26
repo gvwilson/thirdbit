@@ -19,10 +19,10 @@ and then tell me what process you come up with.)
 1.  Spend a few hours brainstorming the overall structure of the curriculum.
     I like [concept maps][concept-maps] for this,
     but what's important is coming up with a rough decomposition of material into lessons.
-    The details will change once you start work---probably more than you think---but
+    The details will change once you start work—probably more than you think—but
     this decomposition allows team members to work in parallel.
 
-2.  Pick an editor---the human kind, not the Emacs-or-Word kind.
+2.  Pick an editor—the human kind, not the Emacs-or-Word kind.
     Their job is to keep the big picture in mind
     and check everyone's rough first draft for gaps, overlaps, and inconsistencies.
     This is the point at which lessons are moved and/or refactored;
@@ -44,8 +44,8 @@ and then tell me what process you come up with.)
 
 4.  Authors should also describe the lessons' [formative assessments](http://teachtogether.tech/en/index.html#s:models)
     at this point.
-    I *don't* recommend completing them---writing auto-grading code is a lot of work
-    that might need to be redone several times as material moves around---but
+    I *don't* recommend completing them—writing auto-grading code is a lot of work
+    that might need to be redone several times as material moves around—but
     a sentence or three outlining a multiple-choice question,
     fill-in-the-blanks coding exercise,
     or [Parsons Problem](http://teachtogether.tech/en/index.html#s:architecture-load)

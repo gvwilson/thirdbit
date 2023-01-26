@@ -10,7 +10,7 @@ then plugged the drive into my computer,
 the files would be there.
 A finished version of the YA novel I've been working on sporadically,
 the tech books I'm either [struggling with]({{'/2021/05/17/two-books/' | relative_url}})
-or just [wishing for]({{'/ideas/#what-i-would-write-if-i-was-smarter-than-i-am' | relative_url}})---they
+or just [wishing for]({{'/ideas/#what-i-would-write-if-i-was-smarter-than-i-am' | relative_url}})—they
 would just *be* there,
 fully formed and ready to share with the world,
 along with the complete source code of the [extensible programming tools](https://queue.acm.org/detail.cfm?id=1039534)

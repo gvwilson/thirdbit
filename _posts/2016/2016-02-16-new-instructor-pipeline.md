@@ -38,7 +38,7 @@ In brief:
     we'll trust that you'll master others as needed.)
 
 A dozen experienced instructors have run discussion sessions so far,
-and feedback has been very positive---everyone (both leaders and trainees)
+and feedback has been very positive—everyone (both leaders and trainees)
 have found the sessions really useful.
 What's more,
 trainers other than myself are now running the final demonstration lessons

@@ -35,14 +35,14 @@ is drawn from [the Carpentries' instructor training program](https://carpentries
 The few original thoughts I've had,
 like this classification of programming exercises
 and various lists of ten simple rules,
-haven't been particularly deep---I've written most of them early in the morning
+haven't been particularly deep—I've written most of them early in the morning
 to help myself wake up,
 and I think that shows.
 And yeah,
-there have been a few distractions---resigning from Shopify,
+there have been a few distractions—resigning from Shopify,
 being fired by DataCamp (for poor performance, in case you were wondering),
 my brother's death,
-joining RStudio---but
+joining RStudio—but
 I think that if I want to create something worthwhile in 2019,
 I need to stop thinking as if I was intellectual impoverished.
 If you'd like to converse 280 words at a time,

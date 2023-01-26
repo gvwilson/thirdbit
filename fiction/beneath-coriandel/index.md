@@ -17,10 +17,10 @@ fiction: true
 ## Then: Ishad's Onions
 
 "Once upon a time there was a young man." That's how stories usually start, but
-it's never the truth---not really.  That young man must have had parents---why
+it's never the truth—not really.  That young man must have had parents—why
 not start with how they met? Or how the village he grew up in was founded? And
 the crafty old magician who gave him three wishes because he saved her from
-pirates---how'd she wind up in a little boat all on her own out in the middle of
+pirates—how'd she wind up in a little boat all on her own out in the middle of
 the ocean? And what about the pirates? They must have had families and
 childhoods and wishes and all.  Hell, the hero's boots probably have a story too
 if you only knew how to ask them.
@@ -28,7 +28,7 @@ if you only knew how to ask them.
 So I guess that's why we say, "Once upon a time." It's like the first dab of
 paint on a wall, or the onion you chop up and fry when you're making a flat-pan
 stew.  It isn't necessarily the most important part of what you eventually wind
-up with---it's just what you started with, because you have to start somewhere.
+up with—it's just what you started with, because you have to start somewhere.
 
 My first onion is the siege of Armaq.  Coriandel and Ossisswe promised us all
 pensions when we signed up, but gratitude's a vaporous thing.  Ten years after
@@ -36,15 +36,15 @@ Armaq surrendered, you could stand at the Ordinary Gate of the emir's palace in
 Coriandel from dawn to dusk wearing a veteran's collar and have nothing more
 than pity for dinner at the end of the day.
 
-So I found other employment, or it found me.  It was exciting stuff---I got to
-see the world, and save a few bits of it---but was all very much pay-as-you-go.
+So I found other employment, or it found me.  It was exciting stuff—I got to
+see the world, and save a few bits of it—but was all very much pay-as-you-go.
 The third time I had to quit lodgings by the back door because someone
 remembered my face with something other than kindness, I decided to shuck it in
 and look for something better.
 
 What I found was a saddle for my backside to polish driving cattle from Darp
 down to Coriandel.  It was restful at first.  Bandits, lions, an occasional
-gargoyle---they seemed like a fair price for fresh tortillas every morning, a
+gargoyle—they seemed like a fair price for fresh tortillas every morning, a
 night watch every other night, and nobody trying to open my throat.
 
 But then that stupid calf went and wandered off.  There's this stretch of ground
@@ -81,12 +81,12 @@ much as I'd have liked, and then it was get your tent pegged and the fence up,
 I'm not paying you to sit and gaffle.
 
 Which is how I wound up in Coriandel sucking the stump of a broken tooth at the
-end of another long ride.  I should have been happy---the city was still
+end of another long ride.  I should have been happy—the city was still
 celebrating the new emir's coronation, and I had a fresh string of silver in my
 pocket.  On the other hand, getting the stump of that tooth pulled was going to
 eat half of what I'd just earned, and then where would I be?  Right back where
 I'd started.  Three months of hard work and I was right back where I'd puking
-well started---again.
+well started—again.
 
 So that's my first onion.  My second is the caravaneer deciding that I couldn't
 keep the horse I'd been riding.  She wasn't anything special, but she had a
@@ -98,8 +98,8 @@ But not this time.  "The horse?" said the caravaneer, smiling like something out
 of the kind of dream a sand miser would put in a young man's head.  "She and he
 are never speak about the horse.  But here, she is generous.  He may have this."
 And she points at a nag that even a Thindi wouldn't have ridden.  No idea where
-she found it---it sure as both hells hadn't come down from the Black Grass with
-us---but one of her nephews had already put my saddle on it, and three more of
+she found it—it sure as both hells hadn't come down from the Black Grass with
+us—but one of her nephews had already put my saddle on it, and three more of
 them had just casually drifted over to stand nearby in case I made a fuss.
 
 I didn't live through the siege of Armaq by being stupid about odds.  I smiled
@@ -108,7 +108,7 @@ turned around to go and find a doctress for my tooth and a bottle of something
 I'd regret for afterward.
 
 And there they were, not thirty strides away, the most beautiful horses you've
-ever seen.  Twin mares---twins, mind you---and a stallion being led into a
+ever seen.  Twin mares—twins, mind you—and a stallion being led into a
 little paddock hard by the guard post at the Market Gate.  Take my eyes if I'm
 lying, they looked like something the Pilots might have made, proud-necked and
 high-stepping and all three of them with white ribbons braided into their manes.
@@ -117,14 +117,14 @@ Some of the folk around me were staring at them like kids staring at a bowl of
 sweet ice, and I'm not ashamed to say my jaw dropped too.  The two Brown Grass
 Darpani who'd joined up with us a month back got down on their knees and pressed
 their foreheads into the dirt to give them a full honor.  The shoulders they
-had---the horses, I mean, not the Darpani---and the way they walked…  I hadn't
+had—the horses, I mean, not the Darpani—and the way they walked…  I hadn't
 seen their equal since the emir of Armaq rode out to be hanged.
 
 I joined the crowd gathering at the paddock fence and nodded to the two Darpani
 as they dusted off their knees.  They were wearing the same clothes they'd worn
-the whole trip---leather vests with lace-up sides, wool trousers that came
+the whole trip—leather vests with lace-up sides, wool trousers that came
 halfway up to their ribs, and heavy sandals.  They were brothers, maybe, or
-cousins, or something we don't have a word for---you can't beat the Darpani when
+cousins, or something we don't have a word for—you can't beat the Darpani when
 it comes to making family complicated.  We'd gotten to know each other the way
 you do when there's no one else to talk to except your horse, and they'd been
 steady in a couple of tricky spots.
@@ -132,8 +132,8 @@ steady in a couple of tricky spots.
 The taller one looked over at the nag I'd been given, then back at me.  I
 shrugged *what can you do?* "More worried now about getting this tooth done," I
 mumbled around my swollen jaw.  "You two have plans?"  Turned out they
-didn't---probably didn't even know how to *make* plans somewhere that had
-buildings taller than a man on horseback---so I told them where I'd be and how
+didn't—probably didn't even know how to *make* plans somewhere that had
+buildings taller than a man on horseback—so I told them where I'd be and how
 to get there without getting lost and left them to admire their new-found loves.
 
 It was a hot day, with just a couple of runaway clouds in a baking blue sky.  A
@@ -156,7 +156,7 @@ smoke and fresh turds and a whiff of patchouli off the Darpani, it stank.
 The strangest part was being among buildings again.  They're all brick in
 Coriandel, painted white to keep off the heat.  It's as blinding as a salt pan
 when the sun's high, and the only way to tell one house from the next is the
-doors---a red fish with a human head on one, a hand in the middle of a spider
+doors—a red fish with a human head on one, a hand in the middle of a spider
 web on the next.  Their roof tiles are different colors too.  You can't see it
 from the street, but from up on Palace Hill they spell out, "May Fate Smile Upon
 Coriandel The Jewl Of The Karaband." No one I've ever met knows why it's
@@ -184,7 +184,7 @@ the old soldier who ran the place came to ask them what they wanted, they both
 looked at me.  "Give 'em some goat kebabs," I said around my swollen jaw, the
 poppy, and a mouthful of rice.  "On my count."
 
-They exchanged glances.  The taller one was Cup---Cup Rainbow Reaching.  I never
+They exchanged glances.  The taller one was Cup—Cup Rainbow Reaching.  I never
 knew the full name of the other one's name, but he called himself Strap.  "They
 have money," he said proudly.
 
@@ -194,14 +194,14 @@ bought and slid it across to him.  "Wash away the dust."
 And so we got to talking, and just like that, my onions were stewed.  Sure, some
 of it was the drink and the poppy, but some part of me had decided that if I was
 going to get kicked in the head, it might as well be for something better than a
-pauper's pyre.  Never did find out what their reasons were---I'd have said high
+pauper's pyre.  Never did find out what their reasons were—I'd have said high
 spirits for most young men, but they had the look soldiers get when they've lost
 so many friends that they've lost themselves as well.  Never did find out what
-their story was---wish that I had.
+their story was—wish that I had.
 
 Whatever it was, by the time the bottle was done we had decided to ride those
 horses.  Those white ribbons in their manes meant no one ever had, and it's
-powerful luck to be the first one up on a horse like that---the kind of luck
+powerful luck to be the first one up on a horse like that—the kind of luck
 that the Darpani and I both felt we could use right then.
 
 So we ate and talked and drank until the sun went down, then sat and listened
@@ -230,7 +230,7 @@ minding their own business with one eye on the sun and the other on the paddock
 where four horses stood together beneath a plain yellow awning.
 
 Four, not three.  The newcomer was heavy around the shoulders, with a nasty scar
-on his rump, and definitely not gelded---no white ribbons for this one.  I
+on his rump, and definitely not gelded—no white ribbons for this one.  I
 hunkered down on my haunches beside the Darpani and raised my eyebrows.
 
 Cup pursed his lips.  "A war mount," he said quietly, as sure about the horse as
@@ -249,7 +249,7 @@ shoulder and went off to find the caravaneer.
 Caravaneers have twice as many rules as anyone I've ever met.  Some of them make
 sense, like letting the cattle get a smell of you before deciding whether to
 take you on.  And not letting Hett travel with you more than three days at a
-time---well, everyone knows they're cursed.
+time—well, everyone knows they're cursed.
 
 But they all have different notions about what to do with you when your hire was
 done.  Some don't mind you hanging about for a bit, especially if you did well
@@ -258,13 +258,13 @@ way as soon as possible, on the principle that the hardest thief to guard
 against is the one who built your fence.
 
 This one scowled a bit when I asked if I could sleep alongside that night, but
-then her husband came at her with yet another question---he couldn't tie his own
+then her husband came at her with yet another question—he couldn't tie his own
 bootlaces without asking her whether it was left over right or right over
-left---so she just waved me away.  I set my roll far enough away from the
+left—so she just waved me away.  I set my roll far enough away from the
 Darpani that it wouldn't look like we were together and closed my eyes.  My jaw
 was still throbbing, and I felt squeamish from the blood I'd swallowed and the
 gargoyle piss I'd been drinking, but it only took me a few minutes to slip under
-the waves.  I've always been a good sleeper---I could probably snore my way
+the waves.  I've always been a good sleeper—I could probably snore my way
 through the Pilots' Return.
 
 Strap woke me by pinching my toe.  I'd laid my poncho loose over myself for a
@@ -290,7 +290,7 @@ I was about to haul myself over the fence when the warhorse ambled over.  He was
 a big fellow, gray with a black sock and a black dapple on his neck.
 
 "Sh," Cup hushed softly beside me.  "Sh, sh, sh.  Nothing to claw at you here,
-friend to the world.  Nothing to claw at you here." I kept my mouth shut---you'd
+friend to the world.  Nothing to claw at you here." I kept my mouth shut—you'd
 have to be three kinds of fool to get in the way when a Darpani is dealing with
 a horse.
 
@@ -299,9 +299,9 @@ friend, companion.  No lions, no fire, nothing to claw at you here.  Sh, sh,
 sh."
 
 The gray nodded his head, then whinnied and ambled back to the center of the
-paddock.  Cup and Strap and I exchanged grins.  We slipped over the fence---
+paddock.  Cup and Strap and I exchanged grins.  We slipped over the fence—
 
----and the warhorse bellowed, "Guards! Guards!" and just like that, my onions
+—and the warhorse bellowed, "Guards! Guards!" and just like that, my onions
 were well and truly stewed.
 
 </section>
@@ -311,13 +311,13 @@ were well and truly stewed.
 ## Then: Sweet in the Corral
 
 *La*, they were well and truly stewed.  Their lookout made to bolt, but the
-guards---the real ones on the roof---were on their feet in an instant, their
+guards—the real ones on the roof—were on their feet in an instant, their
 bows raised.  The Karabandi, Ishad, dropped not his knife until they put an
 arrow in the ground at his feet.  I smiled at him, though I do not know if he
-recognized it for such---most humans are not as good at understanding the
+recognized it for such—most humans are not as good at understanding the
 expressions of animals as they think.
 
-My name is Sweet.  It is not a horse name---horses do not give themselves names.
+My name is Sweet.  It is not a horse name—horses do not give themselves names.
 Cats do, the Gifted ones, or so they say.  Of course, cats say all manner of
 things.  I do not trust them, especially not the big ones.  I find them to be
 shifty.
@@ -338,13 +338,13 @@ I had bitten half-way through the rope before she managed to set a hobble around
 my ankles.  I tried to bite her then, but she just laughed and danced away.
 
 Finger and her cousins sold the other horses they caught, but she kept me for
-herself---for my good looks, she told me afterward, though I am no more handsome
+herself—for my good looks, she told me afterward, though I am no more handsome
 than I should be.  She thought I might have a little charger in my blood,
 perhaps from a cavalry remount who had wandered off during some war or other.
 
 She knew that I was special right away because I learned so quickly.  A week
 after she first set a saddle on me, she could steer me with her knees.  Two days
-after that, I knew all of her whistles---kneel, back up, stand.  The truth was
+after that, I knew all of her whistles—kneel, back up, stand.  The truth was
 that I liked learning, that I had been starving for it without knowing what I
 craved, and there she was, teaching me and best of all *talking* to me.
 
@@ -353,7 +353,7 @@ but I do remember the first time I talked back.  She had been trying to get me
 to jump over a fire.  I did not want to, so I said, "No."  That was what you
 said when you did not want something, was it not? Finger was so surprised that
 she almost swallowed her tongue.  Then she threw her arms around my neck and
-began to cry.  I was so upset by this---already so in love with her---that I
+began to cry.  I was so upset by this—already so in love with her—that I
 began to cry as well.
 
 After she wiped her eyes she took me to her ride chief.  She tried for an hour
@@ -386,13 +386,13 @@ ocean," she would say.  "Waves on the ocean before we die."  With her gone, I
 could think of no purpose except to go and see them for her.
 
 A week later, when the ride chief her nephew took salt and service with a
-caravan to Coriandel, I took a lick as well.  As a scout, not as a mount---no
+caravan to Coriandel, I took a lick as well.  As a scout, not as a mount—no
 one but Finger had ever been astride me, and if I had stayed with the band, I
 doubt I would ever have borne another rider.
 
 But as soon as we were on the trail, I noticed a skinny Karabandi eyeing me.  He
-did not stare---you do not stare at a Darpani unless you want a fight, and horse
-or not, I was Darpani---but every time I looked over I caught him looking back.
+did not stare—you do not stare at a Darpani unless you want a fight, and horse
+or not, I was Darpani—but every time I looked over I caught him looking back.
 By the second evening out it was making my withers itch, so I asked him if I was
 growing feathers.  He laughed, apologized, said no, he was sorry, he was just
 trying to find a polite way to ask me a question.  "Is it a question, or a
@@ -401,7 +401,7 @@ it an odd-stride trirain."
 
 That shut him up.  The Darpani love nothing so much as poetry.  That is grass
 and water to us, air and rain and the smell of honey.  Stirrup rhymes and
-sondelays, half-lampoons and dirges---we know more ways to make words dance than
+sondelays, half-lampoons and dirges—we know more ways to make words dance than
 the rest of Cherne put together.  Of all those ways, trirains are the hardest to
 get right, and odd-stride trirains will tie you up like knotgrass.
 
@@ -450,13 +450,13 @@ bag of pistachios.
 
 One of the messages we carried took us to Armaq, where we got caught up in the
 siege.  Oro slept beside me every night for weeks with sword in hand.  He used
-it too, and more than once---people grew desperate toward the end, and Gifted or
+it too, and more than once—people grew desperate toward the end, and Gifted or
 not, I would have been a meal.
 
 We managed to escape before Armaq fell, thanks to an agent of Lady Kembe.  We
 saved the life of the agent, sort of, and somehow thereby wound up doing the
 errands of Lady Kembe.  The work was mostly quieter than stories would have you
-believe---help someone out a bit here, keep an eye on someone there---but what
+believe—help someone out a bit here, keep an eye on someone there—but what
 was not quiet was bloody.  Oro lost a couple of toes, I had a bite taken out of
 my rump, and we both nearly had our souls stolen a couple of times.
 
@@ -468,7 +468,7 @@ studious, and made beautiful things, each according to your nature," she said.
 take the burden after me."
 
 Well, I had never heard him speak like he spoke to her that afternoon.  It was
-not fair---there was so much he still wanted to do! Why could one of his sibs or
+not fair—there was so much he still wanted to do! Why could one of his sibs or
 cousins not do it? Why not their uncle? He loved juristry! And on and on like he
 was a child rather than a road-worn hand-in-the-shadow for the most powerful
 magician in the world.
@@ -478,11 +478,11 @@ was any chance of him doing otherwise.  "Duty," she said, and that was that.  It
 is a hard word to hear, even harder when someone says it to you as if you need
 reminding.
 
-But his aunt relented a little and gave him---us---one more year of freedom.  We
+But his aunt relented a little and gave him—us—one more year of freedom.  We
 did so much in that year that I began to wonder if he was trying to get killed
 just to spite her.  We hunted statues in Praczedt, drank moonlight on Year-Again
 Eve in the royal palace in Gandan…  About the only place we did not go was the
-Flying Mountain, and that was only because he took pity on me---horses are not
+Flying Mountain, and that was only because he took pity on me—horses are not
 overly fond of heights.
 
 And yes, I finally got to see the ocean.  Wave after wave, with the gulls
@@ -535,7 +535,7 @@ streets to impress a girl he had not yet even spoken to was gone.
 
 He nodded and gestured at a lanky man standing nearby.  "My Master of Stables
 tells me that I am sending three horses to Ossisswe as a gift.  Two mares and a
-stallion, I believe---it would please me if you would accompany them, and
+stallion, I believe—it would please me if you would accompany them, and
 congratulate my cousin on his wedding."
 
 Exile.  The new emir was setting aside the disreputable companion of the old
@@ -553,7 +553,7 @@ saying.  "My life to serve you," I repeated.
 I did not really think about the mares until I met them the next day.  Then I
 could think about nothing else.  They were beautiful.  No, they were
 *wonderful*.  You would not understand.  You can only see them through human
-eyes.  The way they moved, the way their necks arched---they were not just a
+eyes.  The way they moved, the way their necks arched—they were not just a
 gift to the emir his cousin.  They were a gift to *me*.
 
 The Master of Stables introduced me to them in the riding ring behind the
@@ -568,11 +568,11 @@ they had been in the city more than a day or two, but they still had road dust
 in their hair.  The Darpani looked clanless, probably on the run from a slave
 judgment.
 
-The Karabandi moved like a big cat.  He did not sneak around---he just drifted
+The Karabandi moved like a big cat.  He did not sneak around—he just drifted
 like a piece of wood minding its own business in the middle of a stream.  I
 could almost smell the trouble boiling off him, so I had a quiet word with the
 Master of Stables.  Putting a couple of half-wits in uniform as decoys was one
-of Oro his old tricks---it tickled me to use it.
+of Oro his old tricks—it tickled me to use it.
 
 And sure enough, not long past moonrise, the Karabandi his snoring suddenly
 stopped.  A couple of minutes later there was a bit of grunting as the Darpani
@@ -587,7 +587,7 @@ middle of the paddock, just in case they got any ideas with those knives of
 theirs, then shouted for help.
 
 I waited until the real guards had the three of them on their knees before
-coming over to taunt them.  Finger taught me how to taunt---it is practically
+coming over to taunt them.  Finger taught me how to taunt—it is practically
 another kind of poetry up on the grass.  "He asks," I said to the first Darpani
 genially, "Who now claws at who?"
 
@@ -600,7 +600,7 @@ laughed.
 do about it?"
 
 The guards took them away to the palace.  I did not bother to ask what would
-happen next---they had tried to steal from the emir, and Oro was never by nature
+happen next—they had tried to steal from the emir, and Oro was never by nature
 a forgiving man.  I went back to my post in the middle of the paddock and waited
 for sunrise.
 
@@ -691,7 +691,7 @@ any more."
 you say.  An irregular attached to the Sadine Free Company.  Along with my
 companion-in-wandering, whom I believe you met last night."
 
-"The Sadines? But they were---"
+"The Sadines? But they were—"
 
 "Fighting for the Armaqi.  Yes, I know.  My mother was not pleased by my
 choice."
@@ -761,7 +761,7 @@ yourself one of my ministers."
 any good either, I admit that, but let us earn it out."
 
 "Healing the worthy wounded seems a fair way to me to earn it out, as you put
-it" the emir observed.  "In fact, two of my mother's---of *my* guards could use
+it" the emir observed.  "In fact, two of my mother's—of *my* guards could use
 your assistance even now."
 
 "Ah." The Karabandi nodded wisely.  "The two the bonescuttle carved up?"
@@ -780,12 +780,12 @@ The emir steepled his fingers again.  "Are you proposing that I send you and
 your companions to destroy this creature, and then set you free?"
 
 The Karabandi shook his head vigorously.  "I haven't proposed anything, Your
-Grace.  But since you mention it---"
+Grace.  But since you mention it—"
 
 The emir brought the palm of his hand down flat on his desk.  Wisely, oh just
 that once wisely, the Karabandi darkened his mouth.  "This is not a fairy tale,"
 the emir said quietly.  "This is a judgment.  I would be within the law to have
-you quartered---count yourself lucky that I will only have you flensed.  If I
+you quartered—count yourself lucky that I will only have you flensed.  If I
 were to set you to slaying this creature, I would have to set a dozen of my men
 to watching you to make sure you did not flee.  I hope you will agree, they
 would be better set to chasing it themselves."
@@ -805,7 +805,7 @@ He scribbled on our piece of paper, beckoning to one of the guards with his
 other hand as he did so.  "I will therefore amend your sentence.  In accordance
 with Coriandel's ancient law and the prerogatives of my station, I command that
 you be sent down into the Tombs, to receive there whatever Fate has chosen for
-you.  Uh uh---let me finish, Ordinary Ishad of the Third Regiment.  My Master of
+you.  Uh uh—let me finish, Ordinary Ishad of the Third Regiment.  My Master of
 Arms shall give you what weapons and provisions he deems appropriate, and my
 Master of Thieves will share with you what knowledge she has of the beneath.  If
 you kill the bonescuttle, your debt to the city will be paid.  If not…" He
@@ -813,7 +813,7 @@ shrugged.  "Perhaps the creature will leave my people be for a day or two if it
 has you three to gnaw on."
 
 "Underground!?" the Karabandi protested.  "Your Grace, these two are
-grasslanders! You can't send them underground---they'll go mad!"
+grasslanders! You can't send them underground—they'll go mad!"
 
 Perhaps it was a ploy, to impress the emir that he would think first of his
 companions at such a time.  Perhaps it was *innetené*, a moment that reveals a
@@ -837,7 +837,7 @@ stew meat if you try to go through it."
 
 The guards untied our bonds, pushed us inside, and slammed the barred door
 closed behind us.  My mother's-side cousin and I immediately fell upon the
-Karabandi.  "Wait! What are you---oy, get off me!"
+Karabandi.  "Wait! What are you—oy, get off me!"
 
 In the time it took the guards to unlock the door again I split the Karabandi's
 lip and got a black eye in return.  They pulled us off him and chained us to the
@@ -963,7 +963,7 @@ you mean, you didn't kill it?"
 He rubs his nose against his shoulder.  "Gone deaf, lad? I said, I didn't kill
 it.  The Darpani fellow did.  And be careful with that damned lantern!"
 
-"I'm being careful! But---what about all your stories? How could you---saints on
+"I'm being careful! But—what about all your stories? How could you—saints on
 stilts, old man, how could you lie to everyone all these years?"
 
 "Hang on, hang on.  Lying, now, that's a cruel word." He nods as if agreeing
@@ -996,7 +996,7 @@ helmet, waved a shinbone around for a sword…"
 My hands tighten on the haft of the spear that lies across my knees next to the
 lantern.  It won't be much use if the things that are supposed to live in the
 water below us wake up, but having it ready eases the itch from my oath a
-little---just enough that I only want to scratch the inside of my skull instead
+little—just enough that I only want to scratch the inside of my skull instead
 of gouging out my eyes with my fingernails.
 
 The worst part is, I should have seen this coming.  He's been pulling this
@@ -1054,7 +1054,7 @@ skull.  "So how did he kill it?"  I ask.  "The Darpani, I mean."
 
 Ishad shrugs.  "Put a spear in its neck, I think.  Not that they really have
 necks, but the plates don't quite overlap on the underside.  I figure that's
-your best bet---get it to lunge at you, then go up and underneath.  Better odds
+your best bet—get it to lunge at you, then go up and underneath.  Better odds
 than going up against its claws with a sword."  He sounds like he's trying to
 convince himself as much as me.
 
@@ -1064,7 +1064,7 @@ punishment under Coriandi law.  Hells, people sometimes ask to be flensed
 instead, thinking it'll be cleaner and faster.  Me, I'm a volunteer…
 
 Which reminds me…  I slip my hand under my leathers and pull out the letter I
-wrote that morning.  "Here---can you give this to Sehdie?"
+wrote that morning.  "Here—can you give this to Sehdie?"
 
 Ishad snorts.  "Don't be daft.  Give it to her yourself."
 
@@ -1101,7 +1101,7 @@ moment, deep underground, I understand how he'll feel when that time comes.
 And then the walls curve away and we're in a cavern as big as the *umram* and I
 see the Moonrise Stairs.  They climb straight out of the water, ten strides
 broad at the bottom, narrowing as they rise so that the top step is barely wide
-enough to stand on with both feet.  Nothing holds them in place---they just
+enough to stand on with both feet.  Nothing holds them in place—they just
 *are*.
 
 The boat bumps to a halt against a submerged step.  Looking over the side, I see
@@ -1120,7 +1120,7 @@ spear, then my sword and pack, and then stand unsteadily.
 
 "I've *got* it," I mutter.  There aren't more than a couple of dozen people in
 Coriandel who could beat me in a fair fight on level ground, but I've never been
-in a boat before---you can ride barges on the canal for a copper bezel or two on
+in a boat before—you can ride barges on the canal for a copper bezel or two on
 holidays and drink yourself silly, but I've never bothered.  The damn thing
 twitches from side to side each time I take a step like a horse trying to shy
 away a fly.  It seems like a very fragile way to get from one place to another.
@@ -1135,7 +1135,7 @@ He nods as he hands me my spear.  "Must be."
 
 He nods again.  "You should." He punches my chest lightly.  "You keep your wits
 handy in there, all right? Remember, I got through it, and I'm not half as smart
-as you.  Just---"
+as you.  Just—"
 
 "I'll be all right," I say brusquely.
 
@@ -1143,7 +1143,7 @@ He nods.  "I know you will." He raises his palms to me in a formal salute.  "May
 your death be too distracted by more pressing business to notice you."
 
 "Thanks." I cinch my belt a little tighter.  "I'll see you tomorrow." I start up
-the stairs without waiting for an answer.  It's almost moonrise---the walls
+the stairs without waiting for an answer.  It's almost moonrise—the walls
 around us are starting to glow a faint blue-white, just like Kerrem said they
 would.  The door at the top of the stairs will open the instant the moon clears
 the horizon, then close behind me when its trailing edge does the same.  I don't
@@ -1186,11 +1186,11 @@ drawing.  The only things that seem real are the spear in my hand and the scuff
 of my boots on the steps.
 
 Fifty steps, then thirty, then ten.  I stop one stair below the top.  The wall
-in front of me is solid rock---
+in front of me is solid rock—
 
----and then suddenly it's a simple empty rectangle between before and after.
-Stairs identical to the ones I just climbed lead down into the Tombs---the
-actual Tombs---on the other side.  The bonescuttle is waiting for me.  I swallow
+—and then suddenly it's a simple empty rectangle between before and after.
+Stairs identical to the ones I just climbed lead down into the Tombs—the
+actual Tombs—on the other side.  The bonescuttle is waiting for me.  I swallow
 and go looking for it.
 
 </section>
@@ -1221,7 +1221,7 @@ to pull it just so he could show us where it had scratched him.  "I was only
 playing," he would say.  "But the cat didn't know that," I would tell him.  His
 answer was always, "Well, it should have."
 
-It should have.  And later, other children should have---should have wanted to
+It should have.  And later, other children should have—should have wanted to
 play *kabbadi* instead of tag, should have wanted him to be the hawk for hawk
 and hares, should have, should have, should have.  He was always angry, always
 hurt, always wondering why everyone else kept getting it wrong.
@@ -1275,7 +1275,7 @@ spring post for a gulper sack.  I sighed, put my knife and the bamboo on my
 workbench, and headed inside to find out what he'd gotten himself into this
 time.
 
-Meshash had him on a stool.  His nose was still bleeding---there were drips on
+Meshash had him on a stool.  His nose was still bleeding—there were drips on
 his shirt and the floor.  "I' aw' righd," he protested, but she wouldn't be
 pushed away.
 
@@ -1301,7 +1301,7 @@ him, had been making jokes.
 
 "'Boud radcadgers," he said sullenly.  They had taken a few lessons from Ishad a
 year or two back, and remembered Vurt.  When they saw him trying on plated
-gloves in the market, they had---
+gloves in the market, they had—
 
 "Plated gloves? You mean for fencing?"
 
@@ -1315,7 +1315,7 @@ handle them.
 
 "They jusd would'd stob," he said, and my mind went back to my last-ever day of
 school.  They just wouldn't stop either.  D'you kiss them? Betcha do.  Your
-girlfriend's a rat, isn't she, rat boy? I would have quit even without that---I
+girlfriend's a rat, isn't she, rat boy? I would have quit even without that—I
 could count money well enough, and sign my name, and anyway, with my father gone
 into the desert the year before with the scribbles, my mother needed me working.
 
@@ -1401,7 +1401,7 @@ and headed off to work.
 
 My first stop was the bakery down the end of the street.  I had four traps under
 their floor, and six more in the rafters where the baker hung sacks of flour and
-bread.  I didn't bother to string my fowling bow as I was checking them---the
+bread.  I didn't bother to string my fowling bow as I was checking them—the
 baker's cat wasn't Gifted, but she would have had her back up if there was
 anything skulking about.
 
@@ -1420,7 +1420,7 @@ they use for curing.
 I strung the fowling bow and loaded a quarrel with lady's molt and arsenic paste
 smeared on their barbs.  I had three traps here, two whirligigs in the corners
 and a gulper sack on the wall with a bit of melon rind as bait.  The gulper was
-empty.  So was the first whirligig, but the second one---
+empty.  So was the first whirligig, but the second one—
 
 "Well, hello there," I said softly to the raccoon chewing at the trap's wicker
 bars.  He was no more than a yearling, black and sandy gray with a white flash
@@ -1433,7 +1433,7 @@ chest.  The two raccoons wrestling with it had been hiding under one of the
 piles of skins.  Pilots alone know how they cocked it.
 
 I let out a slow breath.  The quarrel in their bow wasn't big enough to kill me,
-but---I thought about the lady's molt on my own quarrel and let out another slow
+but—I thought about the lady's molt on my own quarrel and let out another slow
 breath.
 
 "Oh, don't mind us," one of them said in a burr-edged northern accent.  "Just
@@ -1459,8 +1459,8 @@ out of the city, he took a cudgel to her to teach her some manners.
 
 Well, that very night, the raccoons left one of his own cross-splice traps in
 the night jar under his bed.  He lived, but he never walked the same way
-afterward.  The emir's guards didn't do more than take his name---His Grace
-doesn't care much for slavers---but word got around pretty quickly that anyone
+afterward.  The emir's guards didn't do more than take his name—His Grace
+doesn't care much for slavers—but word got around pretty quickly that anyone
 who hurt one of the Gifted had better watch themselves.
 
 All of that flashed through my mind as I put my arms back up in the air.  But…
@@ -1526,7 +1526,7 @@ I didn't realize at first that it was the sign for which I had been waiting so
 long, though I did of course know right away that I would have to do *something*
 about it.  I mean, truly, a rat catcher?  Persons of quality don't even *know*
 rat catchers.  They certainly don't have liaisons with them.  Gardeners perhaps,
-or guardsmen---they can be quite dashing in their uniforms.  But a *rat
+or guardsmen—they can be quite dashing in their uniforms.  But a *rat
 catcher*?  Even if I hadn't had plans for my niece, I certainly wouldn't let her
 disgrace herself and our family in such a manner as *that*.
 
@@ -1541,15 +1541,15 @@ and breeding are *never* old-fashioned."
 And then just to show her that I *did* love her, despite her flightiness, I went
 to her father and told him *quite firmly* that she needed a new outfit for the
 picnic season.  He almost choked on his pomegranate when the seamstress's
-accounting arrived, but no matter---Sehdie looked splendid, straight-backed and
+accounting arrived, but no matter—Sehdie looked splendid, straight-backed and
 long-necked with stars in her eyes like the sequins on her sleeves.  Just a few
-sequins, of course---nothing reveals a lack of quality like gaudiness---but oh,
+sequins, of course—nothing reveals a lack of quality like gaudiness—but oh,
 how all those "fashionable" girls seethed at the attention she got after that.
 Young men and women lined up three at a time to recite poetry to her.  Not that
-I let them, of course---it would have gone to her head.
+I let them, of course—it would have gone to her head.
 
 They lined up for my sister in her day, and not just in threes.  My cherished
-Awbé---always the sweetest-smelling flower in the garden, but always (dare I say
+Awbé—always the sweetest-smelling flower in the garden, but always (dare I say
 it?) just a *teensy* bit flirtatious.  Not me, though.  I was the sensible one,
 my cherished sister's shadow and conscience.  *I* was the one who kept track of
 all the stories her suitors told her so that I could reveal their mistruths and
@@ -1560,7 +1560,7 @@ garden on Palace Hill looking down on the city as the sun set, well, one can't
 complain.
 
 I thought it would last forever.  I thought we would be *together* forever, but
-suddenly one day my beloved sister was betrothed to---well.  He was a good
+suddenly one day my beloved sister was betrothed to—well.  He was a good
 listener, or so Awbé said, and who am I to judge the heart of another?
 
 But to salt loss with insult, my mother announced that I was to be my sister's
@@ -1579,8 +1579,8 @@ her like a good sister should, and I was happy, *truly* happy.
 
 Then Sehdie was born and Awbé…Awbé forgot all about me.  "New mothers are
 always like that," the housekeeper told me, huffing and muttering when I pointed
-out that her wisdom had *not* been sought.  It would have passed---I'm sure of
-it---but Awbé had her accident and all of a sudden I was truly, *horribly*
+out that her wisdom had *not* been sought.  It would have passed—I'm sure of
+it—but Awbé had her accident and all of a sudden I was truly, *horribly*
 alone.  I wept day after day, just like my baby niece, but without a housekeeper
 to comfort me.  It was weeks before I could face the world, and *years* before
 the saints gave me reason to hope once again.
@@ -1589,7 +1589,7 @@ It wasn't by the grace of the saints that I found out about the rat catcher,
 though.  I allowed Sehdie to have friends visit once a week so that she could
 practice her Bantangui and dance steps.  I gave them time to settle in, then
 slipped into the little storage cupboard next to her room to listen to what they
-were saying.  It was not spying---I will not have it said that I was so poorly
+were saying.  It was not spying—I will not have it said that I was so poorly
 bred as to *spy*.  But not everyone in the Hundred Houses had been raised by a
 firm hand, and with her mother gone, it was my responsibility to make sure she
 didn't stray.
@@ -1600,13 +1600,13 @@ those too-bright foreign silks she favored.  "He was like a wild stallion!
 Tessor never had a chance!"
 
 Tessor? I frowned.  Tessor Pennetanda é Pue had been one of her many suitors
-that season---a bit dissolute, but from a very respectable family.  He fought in
+that season—a bit dissolute, but from a very respectable family.  He fought in
 the *umram* from time to time, or so I had heard.  But whatever would Sehdie
 have been doing there? She was supposed to be at her music lesson, not watching
 bravos beat each other with sticks.
 
-"Yes, he was wonderful, wasn't he?" I heard Sehdie flop down on her chaise---her
-mother's chaise, as I still thought of it---and made a mental note to catch her
+"Yes, he was wonderful, wasn't he?" I heard Sehdie flop down on her chaise—her
+mother's chaise, as I still thought of it—and made a mental note to catch her
 doing it at some point so that I could correct her.
 
 "Do you want to go and see him again tomorrow?" Cathé asked, undoubtedly
@@ -1683,8 +1683,8 @@ in *my* day."
 telling me once about a picnic you and your sister enjoyed with a couple of
 bravos of your own."
 
-I blushed.  "Well, that was---" And then her words collided with each other in
-my head and I gasped aloud.  Could it---could this be it?  Could it *finally* be
+I blushed.  "Well, that was—" And then her words collided with each other in
+my head and I gasped aloud.  Could it—could this be it?  Could it *finally* be
 *time*?
 
 "Cherished, are you all right?" Shau Sheu asked, leaning forward to place her
@@ -1700,7 +1700,7 @@ will tell."
 
 Time will tell.  She had been saying that for years.  She had warned me at the
 start that her special kind of magic would be slow, but I hadn't realized it
-would be *this* slow, and---well.  Even a woman of quality can become impatient.
+would be *this* slow, and—well.  Even a woman of quality can become impatient.
 
 Her housekeeper arrived at just that moment with a small bowl of sugared
 almonds.  She was Bantangui as well, older than Shau Sheu, with the shaved head
@@ -1721,7 +1721,7 @@ Shau Sheu pursed her lips.  "Is anything said of his family?"
 The housekeeper ducked her head again.  "I believe his father is a rat catcher,
 honored."
 
-A rat catcher? Sehdie was---a *rat catcher*? "Thank you," I said, my voice was
+A rat catcher? Sehdie was—a *rat catcher*? "Thank you," I said, my voice was
 colder than perhaps it should have been.  The housekeeper ducked her head a
 third time and removed herself.
 
@@ -1738,7 +1738,7 @@ shadows at the side of the street, beating down on the parasol he held over my
 head with all the vigor of a washerwoman beating stains out of cotton.  When I
 was young, it would have been considered vulgar for a woman of my station to
 walk rather than ride in a sedan chair.  The emira-that-was set a fashion for
-it, though, and I myself have always found it invigorating---it gives one time
+it, though, and I myself have always found it invigorating—it gives one time
 to think.
 
 I certainly thought about many things during the walk home from Shau Sheu's.  As
@@ -1754,7 +1754,7 @@ We continued briskly through the city streets, me with my arms tucked into my
 sleeves, Rojyar a pace behind me, the parasol bobbing slightly over my head.
 Merchants nodded to me as they passed, mindful I suppose of future business, and
 a beggar called to us from his perch above the door of an alms house.  He hopped
-down nimbly enough when Rojyar held up a copper bezel---proof again that most of
+down nimbly enough when Rojyar held up a copper bezel—proof again that most of
 them could find employment if they really wanted to.  But our emir permits them
 to ply their trade, and I suppose it's better than having them forming mobs and
 burning down honest people's homes as I have heard they do elsewhere.
@@ -1779,7 +1779,7 @@ onto a particularly uncomfortable wooden seat and tried *not* to speculate about
 who might have sat on its thin cotton cushions before me.
 
 We waited in silence for the next match to begin.  After a few moments, the man
-seated behind me---a complete stranger---cleared his throat and leaned forward.
+seated behind me—a complete stranger—cleared his throat and leaned forward.
 "Your pardon, honored mistress, but might one request that a parasol be
 withdrawn, the better to aid the view of others present?"
 
@@ -1807,7 +1807,7 @@ A few in the common seats cheered when he was announced.  He was young, not
 tall, bare-armed and confident in the blazing sun.  Handsome too, I suppose, if
 one likes them dark and swaggering, and I could see the chip on his shoulder
 from where I was sitting.  I could also see how an impressionable girl Sehdie's
-age might be taken by him, but---truly, I thought I had done better with her.  I
+age might be taken by him, but—truly, I thought I had done better with her.  I
 truly did.
 
 His opponent that day was new to Coriandel's *umram*.  A village bravo, I
@@ -1823,7 +1823,7 @@ senior clerk's junior houseman, cheering the bout as keenly as his three
 charges.
 
 "Is something wrong, honored mistress?" Rojyar asked.  I must have been grinding
-my teeth---a disgraceful habit, I know, but from time to time, one forgets
+my teeth—a disgraceful habit, I know, but from time to time, one forgets
 oneself.
 
 "On the right, half-way up, where the blue-and-green pennant hangs.  Is that one
@@ -1836,11 +1836,11 @@ Rojyar sucked air in through his teeth.  "He is seen," he muttered.
 "Of course, honored mistress." Words would indeed be spoken.  And ears would
 burn, and by tomorrow, a certain junior houseman would find himself in search of
 new employment.  He was supposed to escort them to their lessons and then home.
-This---*this* was outrageous!
+This—*this* was outrageous!
 
 A cheer went up as Vurt scored his third and final touch.  He bowed to the
 judge, then turned and bowed to my Sehdie.  Not to the common benches together,
-and not to her companions---I will not use the word "friend" for anyone who
+and not to her companions—I will not use the word "friend" for anyone who
 would let her embarrass herself in public in such a manner.  No, he bowed to
 *her*, to Sehdie, and she raised her hand and waved back to him.
 
@@ -1922,7 +1922,7 @@ help.
 Beyond the stone garden there's another gate, and then the undercity proper.  If
 the saints love me, I'll find the bonescuttle there.  All I have to do is kill
 it, retrace my steps, get past whatever is in the pool these days, and I'll be
-free of my oath.  And then---
+free of my oath.  And then—
 
 I shake my head and tell the faint, frightened squeaks coming from my pack to
 shush.  I have plenty to worry about before I get to "and then".
@@ -1945,7 +1945,7 @@ central garden in memory of Sehdie's mother.  He did me the courtesy of standing
 when his housekeeper showed me in, but didn't offer me anything to drink.  I
 introduced myself, Vurt Meshash é Onnemeno art' Ishad, Vurt of Meshash the
 mother, Onnemeno the father, apprenticed to Ishad but not indentured, and
-then---
+then—
 
 "You and my daughter? Pfah!" He's taller than me, heavy-set, with just a fringe
 of wiry white hair above his ears.  Looking at accounts all his life has given
@@ -1966,7 +1966,7 @@ different sack of rats.  Her father's eyes narrowed.  "Reason?  What reason?"
 
 My pulse raced, but I kept my voice steady.  "I have spoken with your daughter,
 honored sir.  About my feelings for her.  And she has spoken to me about hers.
-I believe that---"
+I believe that—"
 
 "Feelings? Pfah! My daughter doesn't have feelings.  Or if she does, she's far
 too sensible to speak of them." He took a little bell from the table beside his
@@ -1981,7 +1981,7 @@ Out of the corner of my eye I saw his houseman step into the courtyard from
 whatever discreet corner he'd been lurking in.  Rojyar, that was his name.  I
 was sure I could best him, despite the heavy baton in his hand, but then her
 father could have me called on for assault.  Calmly, calmly…  "I have spoken
-with your daughter, and---"
+with your daughter, and—"
 
 "That may be, but you will not do so again.  Am I understood?" He laughed
 angrily.  "You! What are you to her? Eh? And what kind of life would you share
@@ -2015,7 +2015,7 @@ of that way.
 "And what paths are these?" asked Sehdie's aunt from on high.  "Will you bring
 her the jewels of the Sad Prince? Or become a magician and conjure up what you
 cannot afford to buy honestly? No, wait, a thought, a thought.  This underbeast
-that lately does plague the city---will you slay it to win the emir's favor,
+that lately does plague the city—will you slay it to win the emir's favor,
 like that braggart master of yours once did?"
 
 "If needs be," I replied angrily, not thinking to wonder why someone like her
@@ -2030,13 +2030,13 @@ swear, I will slay the bonescuttle and see your daughter free."
 
 "What? No, no!" Sehdie's father pulled a white cotton handkerchief from his
 sleeve, hoping I think to stop the bleeding, but he was too late.  One drop,
-two, a third---it was done.  All of a sudden I tasted copper in my mouth.  A
+two, a third—it was done.  All of a sudden I tasted copper in my mouth.  A
 chill stiffened my spine as a sudden urge to be elsewhere took hold of me.
 There was something I needed to do…
 
 I raised my hand and spread my fingers, thinking, *Saints, what have I done
 now?* The wound had already healed and scarred.  The oath had taken.  One in a
-thousand, once in a lifetime---everyone gave different odds, but everyone knew
+thousand, once in a lifetime—everyone gave different odds, but everyone knew
 the sign.
 
 Sehdie's aunt's gasped, then giggled like a little girl.  Clapping her hands
@@ -2046,7 +2046,7 @@ behind her.
 Sehdie's father glared at me.  "How dare you?" he spat, tossing the handkerchief
 to the ground petulantly.  "How dare you swear a blood oath in my house? I am a
 respectable man, and there are laws about such things! Do you hear me? There
-are---oh, to the Moon with you!  Rojyar, summon my jurist.  'I will slay this
+are—oh, to the Moon with you!  Rojyar, summon my jurist.  'I will slay this
 creature, and see your daughter free.' Those were his words, were they not? His
 exact words?"
 
@@ -2070,7 +2070,7 @@ blindfolded."
 
 He glared at me, just as Sehdie's father had.  I sometimes think there is a
 secret school that trains old men to look and sound like that.  Their scowls,
-their grunts of disapproval---they're too much alike for it to just be chance.
+their grunts of disapproval—they're too much alike for it to just be chance.
 
 We were sitting in his rear courtyard.  It was long and narrow, a brick-floored
 rectangle barely wide enough for our two stools and the side table where he kept
@@ -2098,7 +2098,7 @@ more before it got so bad that they couldn't sit still."  His frown deepened.
 "Never heard of one coming on as quickly as this."
 
 "Give it a rest," I snapped.  "I can't afford a magician good enough to take
-this off me.  And even if I could, what would I say to Sehdie?  I can't---"
+this off me.  And even if I could, what would I say to Sehdie?  I can't—"
 
 "Damn Sehdie!" he exploded.  The jar of salve jumped as he thumped the table.
 "And damn you for an idiot, swearing an idiot oath like that.  This is your soul
@@ -2112,13 +2112,13 @@ wearily, at me or maybe at himself.  "Go on, go home, get some food in you.
 I'll think on this.  Gaaah…"
 
 I got up reluctantly.  Getting food meant telling my mother, and I really didn't
-want to do that.  I had too, though---she would hear about it soon enough if I
+want to do that.  I had too, though—she would hear about it soon enough if I
 didn't, and I wanted to make sure she didn't get some version that had me off to
 fight the dragon.  A blood oath for love? The houseman might keep his mouth
 shut, but the rest of the staff would have been watching too, which meant the
 tale was probably halfway to Ossisswe before I reached Ishad's.
 
-I told Kerrem first.  I had to---he needed his shirt back, and I had to explain
+I told Kerrem first.  I had to—he needed his shirt back, and I had to explain
 why there was blood on his kerchief.  His first thought was to turn it into a
 ballad.  Sehdie's father would be the villain, of course, a cruel monster who
 kept his daughter locked away with the rest of his treasure.  In fact, by all
@@ -2136,7 +2136,7 @@ every time they forget to roll an 'R', she puts a little tick beside their
 name."
 
 I left all of that out when I told my mother what I'd done.  She didn't
-cry---she wasn't the crying kind.  But the look on her face…  I'm the
+cry—she wasn't the crying kind.  But the look on her face…  I'm the
 youngest, born years after my brother and my sisters.  "Late for Luck," they
 say, but I had disappointed her so many times.  Slipping out my window at night
 to watch Ishad teach city guardsmen how to fight dirty, when my sister had been
@@ -2145,7 +2145,7 @@ into fights whenever someone made a joke about rat catchers, when my brother was
 as peaceful as an old donkey.  She didn't know why I was so restless, any more
 than I did.  And now this.
 
-She shook her head.  "I wish---" She stopped herself before saying it, just like
+She shook her head.  "I wish—" She stopped herself before saying it, just like
 she always did.  *I wish your father was here.*
 
 "I'm sorry," I said for the dozenth time.  He would have yelled at me just like
@@ -2160,14 +2160,14 @@ The cut on my hand was a faint smooth line by morning.  I had secretly hoped
 that it would somehow vanish overnight, then been ashamed of my cowardice.  A
 few mouthfuls of cold couscous with a fried egg didn't improve my mood.  Neither
 did a workout in Ishad's yard.  Sword and spear, footwork exercises, fifty times
-up the rope that hung against his wall---it usually calmed me down, but it
+up the rope that hung against his wall—it usually calmed me down, but it
 seemed that nothing could make the itch in the back of my head go away.
 
 A few of his paying students sparred with me after I finished my warmup.  I
 fenced with them furiously, one on one or one against two, while Ishad shouted
 himself hoarse.  "Pick up your feet! Yes, those feet, the big flat ones at the
 ends of your legs! And follow through, damn it!  No, no, from the same side,
-backhand, or he'll---gaaah."
+backhand, or he'll—gaaah."
 
 Kerrem showed up as the last of them were sponging the sweat out of their
 armpits.  "It's fate," he said, trying to find a bright side as always.
@@ -2179,16 +2179,16 @@ the first sign of trembling.
 
 "I'm serious." He stood, wincing as his knee cracked.  "What if the whole point
 of Ishad's life was to make you ready for this? I mean, him killing a
-bonescuttle, you being born right next door, and now another bonescuttle---it
+bonescuttle, you being born right next door, and now another bonescuttle—it
 can't be a coincidence."
 
-"You're right---it's not.  It's idiocy." Ishad was back.  He had his breastplate
+"You're right—it's not.  It's idiocy." Ishad was back.  He had his breastplate
 on, and was sweating freely in the morning heat.  "Let's see if we can seat a
 bit of it out of you."  We practiced for an hour before the sun drove us indoors
 to eat and rest.  That was when Ishad started teaching me all those stupid
 combinations.
 
-But he was right---time *was* wasting.  I felt it with every breath.  Kerrem
+But he was right—time *was* wasting.  I felt it with every breath.  Kerrem
 said his whole family had argued it around and around when they got word, and
 had agreed that had to see the oath through or my soul would wander unbound
 until some dark thing ate it or some kind-hearted magician laid it to rest.
@@ -2199,7 +2199,7 @@ shaped like a scorpion but armored like a tortoise, with claws as big as my two
 hands put together.  Its barbed tail and the lower parts of its legs were
 fleshless, just dry tendon over naked bone.
 
-And it was smart---not Gifted smart, but smart enough to drag its prey back to
+And it was smart—not Gifted smart, but smart enough to drag its prey back to
 the Tombs instead of picking them apart where it caught them.  The first few
 times goats disappeared, people probably assumed it was just an unlicensed thief
 or someone hungry enough to risk the wrath of the guild.
@@ -2265,7 +2265,7 @@ And they used words like "scoundrel" in everyday conversation.  When Vurt's
 parents talked, on the other hand, they just talked, or at least they did when
 his father was still alive.  Did you finish plugging the hole in the baker's
 storeroom wall?  Did the coffee merchant come to see you about the poison we
-laid down last week? She thinks it must be stale---there are rat droppings all
+laid down last week? She thinks it must be stale—there are rat droppings all
 around it.  How much longer do you think it will be until we can afford to
 repaint the rear courtyard?
 
@@ -2334,7 +2334,7 @@ throat.  "*Nais*!" Ishad called sharply.  Up came the staffs, mine last.
 
 Teshwe snapped his staff sideways.  Mine flew from my hands to clatter on the
 courtyard bricks.  "Pick it up," Ishad said sternly.  "And don't drop it again.
-Remember, empty hands---"
+Remember, empty hands—"
 
 "Full grave!" the other boys said in unison.  I picked up my staff, my cheeks
 burning, and raised it again.  *Crack! Clatter…* Teshwe bared his teeth.
@@ -2367,7 +2367,7 @@ Two weeks later, Teshwe was gone and Vurt and I were best friends.  Ishad took
 all kinds in his courtyard, but none with a brand on their cheek, and Teshwe had
 been caught lifting a pair of candlesticks from a coralsmith's.
 
-I stopped going to lessons after a year, but not Vurt.  He had a gift---anyone
+I stopped going to lessons after a year, but not Vurt.  He had a gift—anyone
 could see that.  He paid for his lessons by helping Ishad with the younger
 students, the eight-year-olds for whom lessons were more an organized game than
 anything else.  When he wasn't doing that, he fenced with boys two and three
@@ -2438,8 +2438,8 @@ are idiots? Eh? Can you tell me that? Is it the helmet?"
 "I think it's the sash," Mirtan says.  "Can't take a man in a sash seriously."
 He points the tip of his sword at me.  "On your knees."
 
-"But---but I've done nothing wrong!" I gabble.  The bottles gurgle again
-slightly as my arms shake.  "I just---"
+"But—but I've done nothing wrong!" I gabble.  The bottles gurgle again
+slightly as my arms shake.  "I just—"
 
 "You just thought you could walk up here, a total stranger to us both, and we'd
 say oh, thank you, what nice wine that it, how kind of you to think of us, down
@@ -2464,7 +2464,7 @@ much of a pension when the captain finds out we were taken this easily," he says
 sourly.
 
 Ishad nods sympathetically.  "Sorry about that.  Now, put yours hands back here,
-would you? Ah, where's that cord? Lad, do you have the---right.  Arms crossed,
+would you? Ah, where's that cord? Lad, do you have the—right.  Arms crossed,
 please.  No, no, at the wrists, don't be clever."
 
 The guard does as he's told.  Vurt ties the first guard's wrists together, then
@@ -2507,7 +2507,7 @@ into the city.
 
 I waited until the next day to tell Shau Sheu.  It is one thing to to hope that
 your plans will bear fruit.  It is quite another to hold that fruit in your hand
-and wonder if you dare peel it, and---I needed to be sure.  After so long, I
+and wonder if you dare peel it, and—I needed to be sure.  After so long, I
 needed to be sure.
 
 I also didn't want to provide her other ladies with any cause for gossip.  They
@@ -2521,7 +2521,7 @@ on it.  I hadn't allowed myself to think about Ishad for, oh, for years.  That
 night it all came flooding back: the excitement, the confusion, the anger, and
 yes, the shame.  He had made a fool of me, or rather, I had made a fool of
 myself.  To see him like that, and to see my niece making eyes at his young
-protégé---I doubt I closed my eyes for more than a few moments all night.
+protégé—I doubt I closed my eyes for more than a few moments all night.
 
 I didn't let the household staff see any of this, of course.  They gossip too,
 horribly, I'm sure of it.  Instead, I waited until precisely my usual hour the
@@ -2538,14 +2538,14 @@ housekeeper brought us coffee in tiny blue-and-white thimbles on a beaten silver
 tray.
 
 I waited until she had removed herself before speaking.  Then the words tumbled
-out of me as if I were a flighty teenager.  "I saw him---them.  In the *umram*.
-Yesterday.  Sehdie and the boy, Vurt, and---and Ishad.  Ishad was there.  He's
+out of me as if I were a flighty teenager.  "I saw him—them.  In the *umram*.
+Yesterday.  Sehdie and the boy, Vurt, and—and Ishad.  Ishad was there.  He's
 the boy's teacher."
 
 Shau Sheu's eyes widened.  "Really? Are you sure?"
 
-I nodded.  "After the fight.  He didn't see me.  Oh, cherished, do you think---
-Is this---"
+I nodded.  "After the fight.  He didn't see me.  Oh, cherished, do you think—
+Is this—"
 
 "Hush, cherished, hush." She stood and came over to put her hand on my shoulder.
 I clutched it as if I were drowning, biting my other hand to hold back the tears
@@ -2555,7 +2555,7 @@ I never let anyone see, not even her.  I had been waiting *so long*…
 all right.  Everything.  This is a good sign, a wonderful sign.  It means we're
 getting closer."
 
-"Are you---" I stopped to steady my voice.  "Are you sure?"
+"Are you—" I stopped to steady my voice.  "Are you sure?"
 
 "Of course.  Oh, Eleñima, cherished Eleñima, hush." She sat down beside me on
 the chaise and put her arm around my shoulder.
@@ -2575,9 +2575,9 @@ I wiped my eyes.  "I am.  Oh, cherished, I am.  I just…" I let out a shaky
 breath, which turned into something like a laugh.  "I just wasn't expecting it
 to happen *now*."
 
-"Well, what do they say---Fate is what happens when you're making other plans?"
-She squeezed my shoulders once more---she was surprisingly strong for such a
-tiny woman---then went back to her own chaise.  "Now, tell me everything."
+"Well, what do they say—Fate is what happens when you're making other plans?"
+She squeezed my shoulders once more—she was surprisingly strong for such a
+tiny woman—then went back to her own chaise.  "Now, tell me everything."
 
 She sipped her coffee as I recounted what I had seen the day before.  Ishad was
 older, of course, and bald now, but he still looked as strong as a bull.  And
@@ -2587,10 +2587,10 @@ walk away without a second thought.
 
 We sat in silence after I finished.  A line of silver-bright clouds drifted past
 overhead on their way to Ossisswe or somewhere even deeper in the desert.  I had
-never been to Ossisswe---I had never gone *anywhere*.  But now…  If the
+never been to Ossisswe—I had never gone *anywhere*.  But now…  If the
 special magic Shau Sheu had started working for me all those years ago really
 was blossoming, maybe I finally would travel.  Maybe I would finally have
-adventures, and love, and---and *everything*.
+adventures, and love, and—and *everything*.
 
 "Oomph." Shau Sheu bent in her chair to touch her toes, then straightened up and
 picked up her empty coffee thimble.  "So what do you think we should do next?"
@@ -2603,8 +2603,8 @@ some ideas, but the most important thing now is what *you* think should happen.
 Here, close your eyes for a moment.  Now breathe slowly.  Remember your
 exercises.  Slowly, calmly…  That's right.  That's right.  Calmly…  Listen
 to my voice.  There is nothing but my voice.  Now, bring Sehdie into your mind.
-You can see her face---she looks just like you did.  You can hear her
-speak---she sounds just like you did.  You are practically the same person.  You
+You can see her face—she looks just like you did.  You can hear her
+speak—she sounds just like you did.  You are practically the same person.  You
 will *become* the same person.  Can you imagine it?"
 
 I could.  Of course I could.  I had been practicing for years.  It was my part
@@ -2618,7 +2618,7 @@ do you remember?"
 
 "The picnic," I said dreamily.  *Where he raised my hopes just to dash them,* I
 didn't add.  Awbé had told me that the man she was seeing had a friend, a rogue
-who was famous that season for having ventured into the undercity and slain a---
+who was famous that season for having ventured into the undercity and slain a—
 
 My eyes snapped open.  My hand flew to my mouth.  "What is it?" Shau Sheu asked.
 
@@ -2629,7 +2629,7 @@ Tombs just like he did."
 
 "Yes!" Shau Sheu was wonderful, but sometimes it fell to me to see the
 connections between things and the best way forward.  "Yes, I'm sure.  That's
-what he has to do.  Except---except he must fail where Ishad succeeded."
+what he has to do.  Except—except he must fail where Ishad succeeded."
 
 Even as I said it, I *knew* it was the truth.  Where Ishad had succeeded, his
 prize student had to fail.  That was what we needed to complete the spell.
@@ -2767,12 +2767,12 @@ one's name, which is called Saddle Stone Gasping."
 The little Darpani madman bobbed his head in a grotesque imitation of proper
 deference, grinning.  He was missing his front teeth, whether as the price of a
 spell or from falling drunk off a horse I'm sure I couldn't say.  "This needs a
-magician," I said tightly.  "Not some--- some---"
+magician," I said tightly.  "Not some— some—"
 
 "This one will do what you want done," he interrupted in surprisingly coherent
 Coriandi.  "But we begin.  The moon scratches at the horizon."
 
-There was nothing for it.  I would have to trust my fortune to this---this
+There was nothing for it.  I would have to trust my fortune to this—this
 *person*.  Shau Sheu obviously thought he was competent, but still…  The first
 thing Darpani magicians trade for power is their sanity.  I read that in a novel
 when I was a girl, and I'm sure the author wouldn't have written it if it
@@ -2820,7 +2820,7 @@ touched his palms to his forehead to seal it, then stood with a popping of knees
 and handed the wrist guard back to me.
 
 "To be done," he whispered.  Shau Sheu told me later that was his spell's
-price---he would never again be able to raise his voice.  It seemed a small loss
+price—he would never again be able to raise his voice.  It seemed a small loss
 to me.  "It calls the *iyemnelili* from underneath."
 
 Shau Sheu bowed to him.  "To thank the one who has done this."
@@ -2854,7 +2854,7 @@ that dry, dusty village they called "the jewel of the Karaband" and return to
 the sea, I would prepare a tutorial on the subject.  "Equanimity in the Face of
 Tedium", by An Agent.
 
-The Fleet would never use it, of course.  Poison, disguise, black magic---those
+The Fleet would never use it, of course.  Poison, disguise, black magic—those
 are exciting.  Those are reasons to become a spy.  Boredom?  How many young
 Bantangui would join the Fleet of Ghosts for the promise of boredom?
 
@@ -2891,10 +2891,10 @@ let me sink her, just this one."  Oë would have done it gladly.  I have never,
 not among crew-caste Bantangui or even Thindi royalty, seen anyone be as cutting
 to a servant as *that woman*.
 
-But no, I had been trained too well.  Do only what is necessary---that was one
+But no, I had been trained too well.  Do only what is necessary—that was one
 of the first lessons our teachers beat into us, along with loyalty, patience,
 and the importance of dying in silence.  The Four Paramount Virtues of a
-Spy---even now, I could probably recite the whole tutorial from memory.
+Spy—even now, I could probably recite the whole tutorial from memory.
 Coriandel had welcomed me, to all eyes just a poor woman of noble birth fleeing
 an arranged marriage to a man thrice my age, but that didn't mean the emir's
 spies were not watching me.  I had to be cautious.
@@ -2909,7 +2909,7 @@ exactly how many horses Coriandel hoped to bring down from Darp in the coming
 season…  It would be a rich catch for the admirals.  But how to get her to
 give it to us?
 
-In the end, it was Oë who came up with a plan.  Some of it was the wine---Oë and
+In the end, it was Oë who came up with a plan.  Some of it was the wine—Oë and
 I didn't indulge when we were working, but what kind of pirates would we be if
 we never indulged at all?  We ate and talked and drank and made love until the
 moon grew weary and slid behind the horizon, then lay in each other's arms and
@@ -2924,8 +2924,8 @@ and let me listen to her grumbling for a while."
 I kissed her.  "You are a treasure, but no, she is too sensible of her station.
 She would never talk to a mere servant."
 
-Oë punched me lightly for that.  Like me, she was crew caste---the admirals
-would never trust a cargo caste with their secrets---and while she played the
+Oë punched me lightly for that.  Like me, she was crew caste—the admirals
+would never trust a cargo caste with their secrets—and while she played the
 role of servant dutifully, she did not like to be reminded of it.
 
 I kissed her again to show that I meant no insult.  "But if you could find a way
@@ -2961,7 +2961,7 @@ sighed.  "Perhaps I should have studied to be a magician."
 Right on cue, Oë entered with the coffee service.  "What strange fate that you
 should say that," I said.  "Because I did."
 
-"You---oh, no, no sugar in mine.  I have mentioned that, I believe?"  Eleñima
+"You—oh, no, no sugar in mine.  I have mentioned that, I believe?"  Eleñima
 waved Oë away.  She ducked her head and withdrew, no doubt to re-check the
 supply of poisons she kept in a satchel she had stolen for me from a beggar boy
 in the marketplace.
@@ -2978,11 +2978,11 @@ I coughed.  "It's…  Well, it's not considered quite proper, and of course I
 couldn't tell anyone when I came here.  I would be in ever so much trouble if
 people found out.  Even back home…"  I looked away from her as if ashamed.
 "It's why I fled.  Not the marriage.  My family has passed this secret knowledge
-down through generations, and when the admirals caught wind of it---well."  I
+down through generations, and when the admirals caught wind of it—well."  I
 spread my palms as if to say, here I am.
 
 "Oh, cherished, that's *awful*," she gasped.  "I would never have thought…  I
-mean, I would never have guessed that you---"
+mean, I would never have guessed that you—"
 
 "Exactly," I said warmly.  "You would never have guessed, and neither would
 anyone else, and I trust you to keep it a secret.  You will, won't you?
@@ -3004,13 +3004,13 @@ possible."
 I spun her a story.  It made no sense at all, and anyone who knew even the least
 thing about how magic actually worked would have laughed until they cried, but
 she didn't realize I was feeding her fish guts instead of caviar.  It all hinged
-on her niece Sehdie.  If she grew up exactly as Eleñima had---the same clothes,
-the same lessons, everything as it had been---then when the moment came…  I
+on her niece Sehdie.  If she grew up exactly as Eleñima had—the same clothes,
+the same lessons, everything as it had been—then when the moment came…  I
 spread my hands.  "Poof.  She will become you.  You will become her.  Her
 possibilities will be your possibilities."
 
 My nonsense was as gentle as a wave caressing a beach, and that was all it took.
-The fact that it made absolutely no sense didn't matter---she was hooked.
+The fact that it made absolutely no sense didn't matter—she was hooked.
 
 Dear, *cherished* Shau, she said.  Tears welled up in her eyes.  I clucked and
 handed her a linen napkin, trying not to let her fingers touch mine for fear I
@@ -3034,10 +3034,10 @@ disowned me.  And of course I can expect nothing from the man I was to marry."
 
 I shrugged.  "Not everyone can afford to be as generous as you are, my dear.
 But I dare not refuse anyone entry in case it should cost me the custom of
-others."  Which was true enough---for all her faults, she was never late
+others."  Which was true enough—for all her faults, she was never late
 settling her bill.
 
-"Well, I don't have much---" she started.
+"Well, I don't have much—" she started.
 
 "Sh, sh." I took a chance and patted her hand.  "I couldn't possibly ask you for
 more money.  I wouldn't take it if you offered.  But…  Well, I have an
@@ -3046,7 +3046,7 @@ could get him word now and again about, oh, I don't know, changes in
 regulations, which way disputes were likely to be settled, that sort of thing…
 I wouldn't feel at all badly about taking *his* money."
 
-And so it was done.  At first she just brought me scraps---a month-old summary
+And so it was done.  At first she just brought me scraps—a month-old summary
 of a judgment that had already been made public, a note from one minister to
 another complaining about the cost of maintaining the garrison at Dry Weeping, a
 plea for reinstatement of a customs exemption from a Gifted bullock who had
@@ -3057,7 +3057,7 @@ Over time I gradually grew more demanding.  Oh, how much better the rear
 courtyard would look if only I could afford silver tassels for the curtains in
 those windows.  And wouldn't our get-togethers be so much more civilized with a
 little music? Something quiet, something refined, like the emira listens to.  Of
-course, these things cost money, and---oh, he does? Mm…  Yes, I do know
+course, these things cost money, and—oh, he does? Mm…  Yes, I do know
 someone who would be interested, though of course how anyone can actually be
 interested in soldiers' boots is beyond me.  We had a salacious giggle at that,
 and the next day, Oë spent two hours copying out the entire resupply inventory
@@ -3077,8 +3077,8 @@ shaven-headed clerks somewhere in the Admiralty's coral labyrinth) was another
 arrow fletched and set aside for the coming battle.
 
 And then Eleñima's niece (for whom I had developed no small measure of sympathy)
-fell in love with an *umram* duelist.  Eleñima was convinced---completely,
-irrevocably convinced---that this was a Sign with a shouted 'S'.  Our
+fell in love with an *umram* duelist.  Eleñima was convinced—completely,
+irrevocably convinced—that this was a Sign with a shouted 'S'.  Our
 ridiculous, impossible spell must be working!
 
 I tried to calm her down, but she was not to be calmed, not this time.  I had no
@@ -3092,7 +3092,7 @@ forth the monster Eleñima desired.  The first occasion was a small commemoratio
 for a woman who had died the year before.  Her family and friends ate and drank
 and told stories about her, laughing as her youngest son imitated the way she
 had fumbled with her shawl when she was upset.  There were a few tears, but only
-a few---she had passed peacefully after a full life, and that is always
+a few—she had passed peacefully after a full life, and that is always
 something to be treasured.
 
 The second occasion was one of my usual gatherings, women of a certain age with
@@ -3148,8 +3148,8 @@ The other room was even smaller.  A narrow futon on slats took up half of it.  A
 stool and a knee-high wall chest took most of what is left.  The window was just
 a slit, too high to see through, too narrow for even a Gifted monkey to squeeze
 through.  I was just like the cabin I had been given on my uncle's barge when I
-turned fourteen.  A cabin of my own---I had been so excited.  It didn't have a
-door, of course---young women aren't allowed doors---but it meant I was special,
+turned fourteen.  A cabin of my own—I had been so excited.  It didn't have a
+door, of course—young women aren't allowed doors—but it meant I was special,
 and destined for better things than mending sails and tending chickens.
 
 I was there, reading and daydreaming about those simpler days, when Oë brought
@@ -3159,7 +3159,7 @@ was sent to bring his master for questioning."
 
 I stared at the page in front of me.  A blood oath? For a moment I wondered if
 there might be something to the lie I had been telling Eleñima all these years.
-Could all of her wishing actually---no.  I shook my head.  Oë and I had cooked
+Could all of her wishing actually—no.  I shook my head.  Oë and I had cooked
 up the nonsense notion of a "slow spell" ourselves.  This was just coincidence.
 
 Still, no matter what happened next, Eleñima would expect a miracle.  When she
@@ -3191,8 +3191,8 @@ thing.  "It's his oath, Meshash.  His blood."
 
 "But it's your blood too," she said hopelessly.  And there it was, the one thing
 we never spoke of, the thing neither of us had mentioned since that night she
-told me that she was staying with Onnemeno.  We weren't sure---a magician could
-have told us, if we'd wanted to hire one---but the timing was right, and he had
+told me that she was staying with Onnemeno.  We weren't sure—a magician could
+have told us, if we'd wanted to hire one—but the timing was right, and he had
 my shoulders and my speed.  Might have had my nose too, if it hadn't been for
 that beating he took when he was thirteen.
 
@@ -3243,7 +3243,7 @@ I dipped my head.  "M'lady."
 "I han see an old swallow a-chase a young'un ye'erday.  I wondered if that
 maight be you, my hain Swallow come back a me." She pronounced 'wondered' with
 three syllables, 'won-der-ed', and for some reason, I had always been "Swallow"
-to her.  It could have been worse---I met a merchanteer with three ships under
+to her.  It could have been worse—I met a merchanteer with three ships under
 his rod and warehouses in Gandan and Nyengmo who had worked for her most of his
 life.  What she called *him* would start a fight in polite company.
 
@@ -3372,7 +3372,7 @@ I rubbed my eyes.  "Boots, m'lady?"
 "Aye."  She yawned suddenly.  "The first person as mentions boots to you, y'take
 theirs an' wear them when y' boy goes underneath.  That's as best I can do."
 
-"But---I'm sorry, m'lady, I don't understand."
+"But—I'm sorry, m'lady, I don't understand."
 
 "Y' din't come t' me for understandin'," she snapped.  "Y' came t' me fra help,
 and that's m' help.  First person as mentions boots, an' y' wear 'em into the
@@ -3413,7 +3413,7 @@ my weapons for length, poked around to make sure I didn't have any bows hidden
 away, sniffed around in my kitchen and bedroom, even took a quick tour of my
 roof.  They didn't spot the loose tiles, though, or find either of the bags I
 kept packed and ready against unexpectedly finding it necessary to be elsewhere.
-Ruuda, say, or some little cloudherd village in the Brumosos---somewhere
+Ruuda, say, or some little cloudherd village in the Brumosos—somewhere
 Coriandi law didn't reach and Coriandi guardsmen wouldn't bother traveling to.
 
 By the time they were done I had washed my face properly, eaten some olives and
@@ -3459,9 +3459,9 @@ straight up my nose.  I resisted the urge to pick it.
 I shrugged.  "Guess we've both been busy."
 
 "Guess so." She sighed.  "His Grace would like to know what you were doing this
-morning.  And please---" She held up a finger.  "Please, don't say 'sleeping'."
+morning.  And please—" She held up a finger.  "Please, don't say 'sleeping'."
 
-"Well, I'm sorry if I woke His Grace.  Didn't realize he---"
+"Well, I'm sorry if I woke His Grace.  Didn't realize he—"
 
 "No," Captain Leis said sharply.  "No, no, no.  You know perfectly well what I
 mean.  If this had actually come to His Grace's personal attention, we wouldn't
@@ -3473,11 +3473,11 @@ willing to pay its price.  Among other things, it makes its wearer a good judge
 of character.  There are no sloppy, easily-bribed guard captains in this city.
 Mean, yes, if whoever sits on the throne wants mean, but never soft and *never*
 stupid.  Given the caravan raids, of course Leis would have a magician working
-for her---at least one, probably more.  I should have known they would sniff out
+for her—at least one, probably more.  I should have known they would sniff out
 my chat with Lady Kembe.  The only question was, could they tell what it was
 they smelled?
 
-"Student of mine swore an oath yesterday, a blood oath.  I was trying to---"
+"Student of mine swore an oath yesterday, a blood oath.  I was trying to—"
 
 "A juristed oath?"
 
@@ -3485,7 +3485,7 @@ I shook my head reluctantly.  "No.  Spur of the moment."
 
 "A *blood* oath?"
 
-"Yeah.  There's this girl, and---"
+"Yeah.  There's this girl, and—"
 
 "His Grace takes a dim view of wild oaths, Armsmaster.  And I don't mean, those
 of us who serve him take a dim view.  He dislikes them personally.  They
@@ -3596,7 +3596,7 @@ My bargain was to give over traveling.  And I step outside these walls, the
 years I have hidden from will come down on me.  My heart will shrivel like a
 prune, the flesh will fall from my bones, and I will thank that you not think
 about my bowels, though some of my esteemed colleagues would pay gold and
-diamonds to see it happen---strictly of professional interest, or such would
+diamonds to see it happen—strictly of professional interest, or such would
 they say.
 
 Those waiting years were perched outside my window that night as I sat in my
@@ -3625,7 +3625,7 @@ desk, having been a-shelf in my basement moments before.
 I paged through it to remind myself of Ishad and his interrupted story.  He had
 carried half a dozen tasks for me in as many years, but emptied his pockets as
 quickly as I filled them.  I had no note of how he came to Coriandel, but
-somehow he tangled himself up in a scheme to steal some horses of Oro---no, Emir
+somehow he tangled himself up in a scheme to steal some horses of Oro—no, Emir
 Oro, I must need remember that.  He sent Ishad into the Tombs with two Darpani.
 He emerged of the morning bearing the head of the bonescuttle and a lock of
 hair.
@@ -3646,7 +3646,7 @@ tell me who.  My finger went *pat patta pat* as I stirred possibilities in my
 mind.  I hummed under my breath, a song from my youth called *Ngelema Basuwo*,
 "the evil stepmother".  Each verse added another deed to the list of her crimes.
 She made a hat out of my cat, *pat patta pat*.  She cooked my ears in garlic,
-*pat patta pat*.  She---
+*pat patta pat*.  She—
 
 I stilled my fingers.  Why that song? Earlier, before that I spoke with Swallow,
 I had been humming one as my housekeeper sang when sweeping.  Why a different
@@ -3663,7 +3663,7 @@ from them.
 
 I felt it again then, that feather-light touch of certainty that meant I was on
 the right track.  Was this something to do with the Ruudians? No.  With the sea?
-With hiding? With wives? With---truly?  I snorted.  This was a story of evil
+With hiding? With wives? With—truly?  I snorted.  This was a story of evil
 stepmothers, or partly, and oh, would the balladeers not rejoice should they
 learn of it.
 
@@ -3673,7 +3673,7 @@ tribe, though only scholars and I remembered such now.  The Emrulu killed the
 greater part of us and sold into slavery the rest so they could grow coffee on
 our land.  It was still a new thing in the north at such years, the black gold
 for which would be given far more than cassava or rice.  Their spies had come
-first among us to find our weaknesses, then---
+first among us to find our weaknesses, then—
 
 Spies.  That was part of it too.  I snorted again and shook my head.  Spies and
 evil stepmothers? What nonsense was this that Ishad had brought to me? I needed
@@ -3707,7 +3707,7 @@ a hundredth currant bun, or so they say.
 The spell I was using was subtlety next to them.  It told me nothing directly.
 Instead, it twinged me with certainty whenever I stumbled over a piece of
 whatever puzzle ailed me, leaving to me to make of them a whole.  The price was
-very reasonable---if I wanted a knot to stay tied, I had a housekeeper, did I
+very reasonable—if I wanted a knot to stay tied, I had a housekeeper, did I
 not?  And it was fun, in a way, the game of weaving together threads from a
 thousand stories to make a garment.
 
@@ -3769,7 +3769,7 @@ never again to be mastered, and in return was given direction that meant nothing
 to me and less to Ishad when I woke him to instruct him in it.
 
 Boots.  The first person to speak of such to him, he was to take theirs and wear
-them into the underearth.  I had not any idea why---that knowing would have cost
+them into the underearth.  I had not any idea why—that knowing would have cost
 me far more than the simple instruction, and every old magician must by needs
 not be greedy, or they will neither be old.
 
@@ -3788,7 +3788,7 @@ mother hen.  "Some baklava would help warm me, though."
 I loved the early hours of the day.  They made everything fresh, full of hope
 and possibility.  My two apprentices would be stirring soon, Thomas and the
 silversmith girl.  I yawned.  The silversmith girl did progress as she should,
-but Thomas was now a problem.  Smart, ambitious, impatient---I doubted he would
+but Thomas was now a problem.  Smart, ambitious, impatient—I doubted he would
 see twenty, despite his talent.  He was of the sort to make a bad bargain, to
 take on too many spells too quickly and discover that one with another meant
 that food could never pass his lips or some such thing.  He would trust his own
@@ -3824,7 +3824,7 @@ could take in a little bit of the world I kept trying to save.
 I sighed, closed the shutters, and went to the cabinet opposite the window and
 opened the drawer marked "Wave".  A poem inscribed on a scrap of leather lay
 inside, along with a few other odds and ends of his.  The drawer had been for
-Tulip before him, and---whose before that? I could not remember.  It would be
+Tulip before him, and—whose before that? I could not remember.  It would be
 scribed somewhere, but no matter, no matter.
 
 I sat down at my desk and set the bracelet in front of me.  One long, slow
@@ -3908,14 +3908,14 @@ scratched.  Maybe he should try gardening instead.  Oh, no, wait, then there
 would be thistles and thorns.
 
 "The easiest fights to win are the ones you don't have," Ishad told me, time and
-time again.  Besides, they were older than me---fifteen or sixteen---and there
+time again.  Besides, they were older than me—fifteen or sixteen—and there
 were two of them.  I picked up my satchel and walked away, but they followed me.
 
 Looking back, I guess they were just bored.  Or maybe they couldn't afford the
 things they wanted either, and pushing someone around was a way to take their
 minds off it for a while.  Whatever the reason, they kept pace a few strides
 behind me, still cracking jokes.  If I was that afraid of rats, I must sleep
-with a night light.  Or with my mother.  Yeah, that was it---I probably still
+with a night light.  Or with my mother.  Yeah, that was it—I probably still
 slept with my mother.  Hey, maybe that's what the gloves were for…
 
 I asked Ishad afterward if he'd ever actually walked away from any fights.
@@ -3929,7 +3929,7 @@ plums as he came around the corner.
 He dropped like a sack of beans.  I grabbed the second boy's collar, spun
 around, and threw him over my shoulder.  "How's that for catching rats?"  I
 shouted, almost giddy that the throw had worked.  I kicked his ribs.  "Hey?
-How's that for---"
+How's that for—"
 
 A hand grabbed my shoulder and dragged me off him.  I had just a glimpse of the
 first boy's face before his forehead crunched into my nose.  I staggered back,
@@ -3956,7 +3956,7 @@ alley.  As soon as they started to run, I slumped against the wall.
 
 "Yes, I'b awrighd.  Thags." I slid down the wall until I was sitting with my
 legs straight out in front of me.  I was getting blood on my shirt.  Couldn't do
-that---it would stain.  I did the three buttons at its collar and pulled it off
+that—it would stain.  I did the three buttons at its collar and pulled it off
 over my head.  A spatter of blood landed on my chest and slid down toward my
 navel.  Another joined it.
 
@@ -3964,10 +3964,10 @@ navel.  Another joined it.
 The two women were gone.  So was my weeping stupid satchel.
 
 It took a moment for that to register.  My satchel was gone.  The book Kerrem
-had loaned me the month before was in it.  So was my rat catching gear---my
+had loaned me the month before was in it.  So was my rat catching gear—my
 traps, my poisons, the guaranteed odorless cotton thread my mother had given me
 for my birthday, everything.  I struggled to my feet and looked down the alley.
-It wasn't there.  Of course it wasn't---it had been right there, where I'd
+It wasn't there.  Of course it wasn't—it had been right there, where I'd
 dropped it, right next to where the two women had been standing.
 
 I covered my bloody face with my hand and poked my head out of the alley.
@@ -4043,8 +4043,8 @@ excited about.  He wasn't tall, and his hair wasn't down to his shoulders like
 Tessor's.  But when he stalked over to his starting board I thought, "Oh, my."
 He moved like a cat dancer, up on the balls of his feet.
 
-Then someone in the crowd yelled something vulgar.  He looked up---straight at
-us, or so it seemed---and grinned, and oh my again.
+Then someone in the crowd yelled something vulgar.  He looked up—straight at
+us, or so it seemed—and grinned, and oh my again.
 
 The fight was over almost before it started.  The judge clapped his hands three
 times.  On the third clap, Vurt lunged forward and spun his spear around like a
@@ -4076,8 +4076,8 @@ and hurried away.
 
 I picked my way past people fanning themselves as they ate dried figs and
 reminisced about bouts they had seen years before I was born.  One or two people
-winked at me knowingly---we were hardly the only girls there wearing
-beards---but I ignored them.
+winked at me knowingly—we were hardly the only girls there wearing
+beards—but I ignored them.
 
 Kerrem the man was still the boy I remembered.  Taller, yes, and the defiant
 little hairs on his upper lip had found the confidence to become a neatly
@@ -4252,7 +4252,7 @@ palms.  "I'm sure we'll see each other again soon."
 But we didn't, not for a whole week.  Cathé was furious with me for keeping us
 there so late, although nothing happened because of it.  She was jealous too,
 really jealous instead of jealous-proud.  When we go to picnics, boys talk to
-her to ask about me.  It's not my fault---I certainly don't encourage them---but
+her to ask about me.  It's not my fault—I certainly don't encourage them—but
 I understand why it hurts her feelings.  This must have been ten times worse
 than that.
 
@@ -4269,15 +4269,15 @@ the long pauses we looked down at our feet, each of us intensely aware of how
 close the other was.
 
 As he stood he whispered, "Answer at your window tonight." My window?  What in
-the Pilots' names was he thinking? He couldn't come to my window! He could--- He
-might--- He was a rogue!  A prize fighter!  If my aunt found out, she would---
+the Pilots' names was he thinking? He couldn't come to my window! He could— He
+might— He was a rogue!  A prize fighter!  If my aunt found out, she would—
 Actually, I had no idea what she would do, but I was sure it would be horrible.
 
 "Boy!"  I jumped at the shout.  It was his teacher.  Kerrem had pointed him out
 to me the second time I came to the *umram*, not that I could have missed him.
 He bellowed and cursed from the moment one of his students stepped onto the
 floor.  "Pick up your feet, lad! Yes, those feet, yours, they're not that heavy!
-Oh, for the love of---you're embarrassing me again! Do you hear? You're
+Oh, for the love of—you're embarrassing me again! Do you hear? You're
 embarrassing me!" People laughed at him as much as with him, but he didn't seem
 to care as long as his students won more than they lost.
 
@@ -4286,7 +4286,7 @@ actually stopped in the middle of the fight as if to yell something back.  It
 was a trick, of course, and oh, the crowd laughed when his opponent fell for it.
 
 "Answer at your window."  What do you wear for your first after-hours suitor?  I
-couldn't dress up---my aunt watched me like a hawk, so I daren't do anything out
+couldn't dress up—my aunt watched me like a hawk, so I daren't do anything out
 of the ordinary.  And besides, dressing *up* wasn't the point, was it?
 
 In the end, I put on the simple sleeveless shift that I wore in the steam baths
@@ -4356,7 +4356,7 @@ say that you thought you heard something."
 gotten me.  She's probably never going to want to see me again."
 
 "That's not the flowers' fault.  Or mine.  And anyway, you're being
-melodramatic.  Just tell her---"
+melodramatic.  Just tell her—"
 
 "I know what to tell her, all right? I thought I heard something.  I'm sure that
 will make her think I'm very brave."
@@ -4438,7 +4438,7 @@ tomorrow."
 
 "All right, look, I'm sorry.  I'm sorry I told you to tell her you'd come by her
 window tonight, and I'm sorry I told you to take her flowers, and I'm sorry I
-didn't tell you to say something sweet to her instead of just---"
+didn't tell you to say something sweet to her instead of just—"
 
 "If you say 'running away' I'll thump you, I swear."
 
@@ -4450,7 +4450,7 @@ makes you such an expert on women?"
 "I have two brothers, three sisters, and more cousins than a camel has fleas.
 Half of them write poetry, and between them the rest can probably recite every
 tragic soliloquy written in the last two hundred years.  I've seen them in love,
-out of love, next door to love, puking up their guts in love's outhouse---you
+out of love, next door to love, puking up their guts in love's outhouse—you
 name it, I've seen it."
 
 "But you've never been in love yourself, have you? Have you? Ah, there, you see?
@@ -4514,7 +4514,7 @@ Salt Later's nephews.  He was the one who broke his neck, remember? The first
 time I was in a three-on-three?"
 
 "Oh.  Well, that just proves my point, doesn't it? You didn't owe him anything.
-Hells, you hardly even knew him---you just drew the same team on the odds.  But
+Hells, you hardly even knew him—you just drew the same team on the odds.  But
 you went out of your way every day for three weeks to make sure nobody would
 bully his nephews.  *That's* what people remember."
 
@@ -4664,7 +4664,7 @@ of his."
 "To be fools to come," my mother's-side cousin muttered.
 
 The Karabandi clapped him on the shoulder.  "Come on, lad, it was just a joke.
-There's easier ways for him to---"
+There's easier ways for him to—"
 
 "Not the emir.  Someone and his companions." My mother's-side cousin's cheeks
 were wet.  "To be lost, when we die down here."
@@ -4712,7 +4712,7 @@ I had never been among trees so large in my life.  I felt like a frog looking up
 at sharp-billed wading cranes.  But I was not afraid, not as long as I had my
 father's hand to hold.  Birds I did not know scolded us from the branches.
 Squirrels' claws scratched on bark.  Something scurried away from us, changed
-course, cut across the narrow path we were following---a cat, I think, black and
+course, cut across the narrow path we were following—a cat, I think, black and
 brown, with a short, thick tail.
 
 "Here," my father finally said.  The trees around us were strange to me.  Their
@@ -4742,7 +4742,7 @@ stars.
 
 My father put his arm around my shoulders.  "Wait," he breathed.
 
-I waited.  There---a glowing cluster of fruit bobbed up and down as a bat
+I waited.  There—a glowing cluster of fruit bobbed up and down as a bat
 settled on the branch from which it hung.  More bats arrived.  I could not see
 them, but I heard their squeaking and the flapping of their wings.  They perched
 among the lights above us.  One by one the little stars disappeared, devoured by
@@ -4809,7 +4809,7 @@ apparition vanished.
 "Gaaah," the Karabandi growled disgustedly, straightening out of his fighting
 crouch and rolling his head from side to side to work a kink out of his neck.
 "Should have known.  They set seemings on us at Armaq, wyrms and undead and
-what-not, all just---"
+what-not, all just—"
 
 My mother's-side cousin screamed a battle cry as the real *iyemnelili* lunged at
 us from behind a tree.  It swung its bone club at his head.  He ducked under the
@@ -4886,7 +4886,7 @@ The morning finally came when my Minister of Propriety begged an audience to go
 over preparations for arranging a meeting to discuss how best assemble a
 committee that would decide on the process to be used to determine who would be
 in charge of arranging celebration of yet another anniversary of my ascension to
-the throne.  My mind wandered as he spoke---or fled, rather, as it was wont to
+the throne.  My mind wandered as he spoke—or fled, rather, as it was wont to
 do whenever I subject to the drone of that singularly joyless man.  How could it
 be seventeen years? What had I been doing all that time?
 
@@ -4960,14 +4960,14 @@ yellow cast that meant quality and expense.  Recharged, they would shine through
 the night in my kitchens and privies and yes, my dungeons too.
 
 And then the gate.  The blessed, welcome gate.  Its guards ignored me.  I paused
-a moment to take a deep breath---freedom!---before shouldering my way through
+a moment to take a deep breath—freedom!—before shouldering my way through
 the stream of people walking past the palace.  Two old women compared notes on
 the shortcomings of a third who wasn't present.  A carpenter's apprentice
 laughed at a silk mender's jest, his eyes and thoughts clearly on what lay
 beneath her slightly-too-well-fitted shift.  An old man with a tightly-strapped
 sheaf of veneer stopped to catch his breath and shake a stone from his sandal.
-A woman with a baby in a sling at her waist---his daughter, perhaps, or perhaps
-even his granddaughter---paused to wait for him.  The air was not yet hot, but
+A woman with a baby in a sling at her waist—his daughter, perhaps, or perhaps
+even his granddaughter—paused to wait for him.  The air was not yet hot, but
 the early sun already made the white-painted walls on either side of the street
 almost too brilliant to look at.
 
@@ -5110,7 +5110,7 @@ their homes and shops every week for the next year,* I added mentally.  The
 royal collar approved.
 
 The boy seemed a little taken aback at my curse.  "They didn't actually do
-anything," he said defensively.  "They were just---"
+anything," he said defensively.  "They were just—"
 
 "They were just winding themselves up to it." I gestured at the practice sword
 he still held.  "Which is why you came back."
@@ -5165,8 +5165,8 @@ tell that the white blaze on my forehead and the sock on my rear left leg
 weren't real.
 
 Buckle had touched up the dye job every few days on the road.  I didn't for a
-moment think that we would run into Oro---emirs aren't in the habit of wandering
-the kinds of side streets and back alleys that we frequented---but some of his
+moment think that we would run into Oro—emirs aren't in the habit of wandering
+the kinds of side streets and back alleys that we frequented—but some of his
 rumormongers might have recognized me if I had come to Coriandel as myself.  I
 didn't want that.  I didn't want him to have to talk to me just because I was
 there.  He could find me easily enough if he ever wanted to.
@@ -5205,7 +5205,7 @@ I nodded.  "*Sra*." I had always been "Wave" to her.  I had no idea why.
 "Well enough, *sra*." One of our little caravan's guards had knifed another over
 a girl who didn't like either of them.  A self-proclaimed saint from Ruuda had
 sleepwalked into a sand miser's pit, taking whatever mad inventions he might
-have conceived with him.  Not bad, overall---I'd certainly had worse journeys.
+have conceived with him.  Not bad, overall—I'd certainly had worse journeys.
 
 "And you are now how far from Coriandel?"
 
@@ -5285,7 +5285,7 @@ the city.
 
 The sun was almost directly over us by the time we reached Trampling Square.
 "Tie me up here," I muttered to Buckle.  "Not too tight.  I'll need a stall for
-the night.  And a blanket---one without fleas this time."
+the night.  And a blanket—one without fleas this time."
 
 Buckle looped my reins over a hitching post that was still just barely in
 shadow.  To the casual eye I would look tied, but if I shook my head the right
@@ -5305,8 +5305,8 @@ chattering to her.  Time to amble.
 
 I shook my head to make my reins fall free and backed away from the hitching
 post.  The trio stopped at a sweetcake shop, so narrow that the proprietor could
-barely fit his shoulders through his own window.  I kept my head down---if you
-don't make eye contact, humans won't notice you---and came up behind them.
+barely fit his shoulders through his own window.  I kept my head down—if you
+don't make eye contact, humans won't notice you—and came up behind them.
 
 "But we'll be late again!" the larger girl on the left protested.
 
@@ -5416,7 +5416,7 @@ disappointed.
 
 "You will die sleeping," she said to the second.  He bowed his head as well.
 His death might come to him like an old friend at the end of a long life, or on
-the blade of a cut-throat's knife in a raid---there was no way to know.
+the blade of a cut-throat's knife in a raid—there was no way to know.
 
 "And you." She spoke to me last.  "You will die reaching."
 
@@ -5477,7 +5477,7 @@ Karabandi lowered his blades.
 
 My mother's-side cousin picked up his lantern.  "To try somewhere else?"
 
-"I suppose.  Maybe it---behind you!"
+"I suppose.  Maybe it—behind you!"
 
 The *iyemnelili* lunged out of the shadows, chittering and snapping its claws.
 It was shaped like a scorpion but as large as a mule, low against the ground
@@ -5502,7 +5502,7 @@ I fell on it with a scream.  My full weight was behind my thrust, but my spear
 only scored the hard shell on its back.  As it slipped off I ran straight into
 the creature.  I tumbled headlong over it onto the stones.  For just one
 heartbeat my face was a hand's width from it.  Its breath was as foul as a
-week-old corpse, but its eyes were human---whatever else the rest of it was, its
+week-old corpse, but its eyes were human—whatever else the rest of it was, its
 eyes were human.  I screamed again and rolled away.  Its jaws clacked shut where
 my nose had been.
 
@@ -5646,7 +5646,7 @@ and I could mend the little tear in Onne's good shirt just as easily on the roof
 as I could in our rear courtyard…
 
 At first I sat with my legs in the ladder well, just listening, but then I told
-myself I was being foolish---I could have listened just as well from downstairs
+myself I was being foolish—I could have listened just as well from downstairs
 and been more comfortable while doing it.
 
 Ishad spotted me as soon as I stood up.  "Good morning!" He raised his practice
@@ -5706,12 +5706,12 @@ watch over him tonight and bring him home safe to me.
 Damn magicians.  Damn them to rot forgotten for a thousand harrowing years.  Oh
 yes, Lady Kembe was very helpful, very helpful indeed.  Steal a pair of boots
 for no apparent reason from an ex-lover who just happens to be a captain in the
-emir's guard---yes, m'lady, that's very helpful, no reason needed.  Climbing
+emir's guard—yes, m'lady, that's very helpful, no reason needed.  Climbing
 walls and skulking on rooftops in the middle of the night is just what my old
 back needs to loosen it up, thank you very much for the opportunity.  Oh, and
-for the distraction---being chased by that bloody Gifted falcon the guard has
+for the distraction—being chased by that bloody Gifted falcon the guard has
 working for them these days certainly took my mind off the likelihood of being
-eaten alive by a giant leech or---
+eaten alive by a giant leech or—
 
 Gaaah.  And oh, she says, I forgot to mention, there's another way to reach the
 Moonset Door, a secret way known only to those whose souls are attuned to the
@@ -5728,13 +5728,13 @@ the darkness.  It's peaceful, even when something goes *gloop* a dozen strides
 away.  I don't really expect to see sunlight again.  I hate the thought.  I
 always hate it, the idea of never drinking a glass of cider on my roof at sunset
 again or never kissing another woman.  No more music, no more curried apricots,
-no more---hells, no more feeling sorry for myself.  That's probably what I'll
+no more—hells, no more feeling sorry for myself.  That's probably what I'll
 miss most if this goes shitways.
 
 Lady Kembe's "secret way" is a bunch of handholds in the wall.  Each one looks
 on its own to be just another timeworn crack in the rock, but if someone has
 told you the secret, you can see how they're placed within reach of each
-other---just barely, but I've done worse.  I shoulder my pack, hang my lantern
+other—just barely, but I've done worse.  I shoulder my pack, hang my lantern
 on my belt, and start climbing.
 
 Up, up again, then across.  What I thought was a shadow on the wall turns out to
@@ -5749,7 +5749,7 @@ damn me for an old man, my arms are shaking.  *Gloop*.  "Sorry to disappoint
 you," I mutter to whatever is in the water below me.
 
 The ledge disappears two strides in front of me, just where the cleft narrows.
-There are no more handholds---that would be too easy---so it's time for some
+There are no more handholds—that would be too easy—so it's time for some
 back-and-brace work.
 
 I shrug my pack off my right shoulder so that it hangs from the crook of my left
@@ -5760,7 +5760,7 @@ all.
 
 By the time the ledge narrows to nothing, the soles of my old boots are pressed
 against the rock like hungry piglets against their mother's belly.  Right foot,
-left foot---plant each one against the rock, then wriggle my shoulders along a
+left foot—plant each one against the rock, then wriggle my shoulders along a
 handspan or two and start again.  Saints painting pictures, but it's hard work.
 
 And then I drop my damned pack.  When the ledge reappears I get my boots back
@@ -5795,13 +5795,13 @@ zigzag back and forth across it into the darkness.  I sit up and pick a scrap of
 dinner from between my teeth.  I could start straight down, but what's the rush?
 Vurt is going to be a while.  I take my lucky whetstone out of my pocket and run
 it along the length of my sword.  *Sssshink.* The blade doesn't need a fresh
-edge---I saw to it just a few hours ago---but my nerves do.  *Sssshink.
+edge—I saw to it just a few hours ago—but my nerves do.  *Sssshink.
 Sssshink.* It's a comforting sound.
 
 I'd give just about anything to be at home, or even in a comfortable cell, but
 as I heard a man in Praczedt say just before he was hanged, you can't uncook an
 egg.  I never found out if that was just a saying, or whether he had actually
-been condemned for doing something culinary.  It was possible---a week after I
+been condemned for doing something culinary.  It was possible—a week after I
 left, the count ordered his chef's right hand cut off for putting cilantro in an
 omelet.
 
@@ -5836,7 +5836,7 @@ asked a favor of someone I used to know.  If that's not enough…"  I shrugged.
 We both know that sometimes nothing is.
 
 You'd think we were both teenagers, the way we act around each other.  She has
-lines around her eyes and her mouth now, but she's still---gaaah.  She's still
+lines around her eyes and her mouth now, but she's still—gaaah.  She's still
 Meshash.  She could have run away with me, but her other children needed her,
 and she truly did love her husband.  He's gone now, but we're who we are, two
 people who had never done anything more than be awkward around each other.
@@ -5858,14 +5858,14 @@ you ask me."
 Palace Mount a few months after I came out of the Tombs.  One of the fellows I
 met in the *umram* introduced us, Peter or Piotr, one of those unmusical
 northern names.  He and I fought a couple of times, then became friends.  He
-fell for a silk merchant's daughter---Awmay?  Awbé?  Something like that.  She
+fell for a silk merchant's daughter—Awmay?  Awbé?  Something like that.  She
 was already betrothed, but he didn't mind if she didn't, and she had a sister.
 "Almost as pretty as she is," he promised.
 
-It was awful.  The one Petr---that was his name, Petr---the one he had his eye
-on had a sharp tongue but meant nothing by it.  The sister, though---nothing was
+It was awful.  The one Petr—that was his name, Petr—the one he had his eye
+on had a sharp tongue but meant nothing by it.  The sister, though—nothing was
 good enough for her, nothing and no one, certainly not all the "odds and sorts
-setting up shop in Coriandel these days".  Hah---I remembered her saying that,
+setting up shop in Coriandel these days".  Hah—I remembered her saying that,
 and the look on her face when I told her that I was thinking of setting up a
 shop myself.
 
@@ -5909,7 +5909,7 @@ idea how it manages to speak with a mouth like that, but it does.
 "Somewhat," an answering voice whispers from below.
 
 "Oh dear.  How unpleasant." The one in front of me scuttles up the wall.  I
-can't hear the other one, but if this one can climb, then---
+can't hear the other one, but if this one can climb, then—
 
 I leap aside.  The one I cut ripples up onto the stairs where I was standing a
 heartbeat ago.  Its teeth clatter.  "I missed," it whispers.
@@ -5949,9 +5949,9 @@ Feet scuttle on stone above me.  I roll over with a groan and stand on my left
 leg.  The pain in my right ankle makes me want to puke.  The tree is just a few
 steps higher up the steps.  If I can get that far, maybe I can lean against it.
 If they can't get behind me, and they're dumb enough to come at me one at a
-time---who am I kidding?  I'm still a dead man.
+time—who am I kidding?  I'm still a dead man.
 
-There are bones under the tree---ribs, shins, a skull, all picked clean.
+There are bones under the tree—ribs, shins, a skull, all picked clean.
 There's a spear too, a hunting spear with a barbed head.
 
 "Is it disturbing my toys?" a voice whispers.
@@ -5964,7 +5964,7 @@ Darpani was carrying the last time I was down this way.
 
 I hook my lantern onto my belt and bend over awkwardly.  "It is touching my
 toys!" a whispering voice protests.  *Damn right,* I think.  I pick up the skull
-and hefted its weight.  It's him---it's Cup.  Don't ask me how I know, I just
+and hefted its weight.  It's him—it's Cup.  Don't ask me how I know, I just
 do.  The last time I saw him was down at the water's edge, and he wasn't going
 anywhere from there.
 
@@ -5998,7 +5998,7 @@ always, pick it up, reverse it, and bury it in the creature's back.
 The thing twists and snaps a little, but that's just its legs not knowing that
 it's dead yet.  And then everything is still and dark, completely dark.  My
 lantern is gone, my pack is gone, my ankle is broken or near enough, and my
-sword---I need my sword.
+sword—I need my sword.
 
 I hop over to where the first creature ought to be, but damn me if it isn't
 gone.  The sword's weight must have rolled it over the side.  With a little bit
@@ -6013,7 +6013,7 @@ my weeping stupid sword, but there beside me is Cup's skull.
 
 I pick it up.  "Well," I say, "Here we are again." I feel light-headed, the way
 you do just before exhaustion turns your bones to lead.  "Oh, before I forget, I
-burned that lock of hair you gave me---the one from your cousin.  Wish I'd taken
+burned that lock of hair you gave me—the one from your cousin.  Wish I'd taken
 one of yours.  I'm sorry about that."
 
 There's strength in blood and bone.  Or maybe he was waiting for me.  I don't
@@ -6035,8 +6035,8 @@ No, I did not hear thrashing or shouting, and there is no tang of blood in the
 water, just dyed cotton, glass, and spices.
 
 Ah, but what is this? Footsteps? No one has come down *those* stairs in a very
-long time.  Two legs, and boots.  He---or she? No, from the stride it is a he.
-And he smells familiar.  I remember him---he has been here before.  I hate
+long time.  Two legs, and boots.  He—or she? No, from the stride it is a he.
+And he smells familiar.  I remember him—he has been here before.  I hate
 remembering.  It is an enemy of patience, and I must be patient.
 
 The scavenger nearly deals with him.  I hear its halves chattering to each other
@@ -6077,7 +6077,7 @@ to turn away from it.
 us guiding him.  No one ever does.  We are ever so slightly heavier when he
 chooses a wrong turn, ever so slightly lighter when he takes the right one, and
 when he pauses to catch his breath, we place his feet just so, just so.  He does
-not always go where we want---they never do---but raindrops can wear away
+not always go where we want—they never do—but raindrops can wear away
 mountains.
 
 We cannot remember why we want to *clump clump clump clump* through the dark old
@@ -6107,7 +6107,7 @@ Then the voices started.  Ishad and Kerrem warned me they would talk about
 everything I regretted doing, but they didn't.  Instead, they told me all the
 things I regretted *not* doing, things I had barely even admitted to myself.
 After two dozen steps my guts were knotted and I was sweating like I was back in
-the *umram*, grappling hand-to-hand with---
+the *umram*, grappling hand-to-hand with—
 
 I pushed the thought down and kept going.  Saints and all their pain, what must
 it have been like hundreds of years ago, when the magic on the bridge was fresh?
@@ -6124,13 +6124,13 @@ sheets that sway gently as I pass.
 
 The tunnel that leads to the Tombs is on the far side of the garden.  Ishad
 warned me to stay close to the wall and away from the well in the center, but
-then I realize that the cobwebs aren't just swaying---they're reaching for me.
+then I realize that the cobwebs aren't just swaying—they're reaching for me.
 The only way to avoid them is to skirt as close to the well as I can and hope
 I'm not being herded.
 
 The well mouth is made of irregular, tightly-fitted stones, and reaches half-way
 up my thighs.  I set my lantern on it and lean over for a look.  I don't know
-what I hope to see---it's as black as one of Kerrem's ink pots---but something
+what I hope to see—it's as black as one of Kerrem's ink pots—but something
 stirs the cobwebs behind me as I straighten up.
 
 My sword is on my hip, but my spear is already in my right hand.  I pick up my
@@ -6144,7 +6144,7 @@ and head for the exit.  Steady pace, steady breathing…  Ishad has more sayings
 than a camel has fleas, but "give 'em nothing" is one worth listening to.
 
 The prickling on the nape of my neck grows stronger.  Something, or someone, is
-approaching.  Left, right---I whirl around and go down on one knee, sweeping my
+approaching.  Left, right—I whirl around and go down on one knee, sweeping my
 spear up and across in an infantry parry with the lantern out to the side for
 balance.
 
@@ -6165,7 +6165,7 @@ my father told me.
 "Behind everything," he said.
 
 I set the lantern down on the lip of the well but keep my spear pinned against
-my body with one elbow.  Empty hands, full grave---that's another of Ishad's
+my body with one elbow.  Empty hands, full grave—that's another of Ishad's
 sayings.  I jam my fingers into my ears.  "Show yourself!" I say again.  I have
 to be deaf to this world if I want to hear the next.
 
@@ -6214,7 +6214,7 @@ something silver that has dripped and run like hot wax.  Maybe it's supposed to
 be art.  Sehdie or Kerrem would know.
 
 I slip through the gate and into the mausoleum.  The walls are plain white
-stone---white for purity, white for death.  The floor is tiled in black and
+stone—white for purity, white for death.  The floor is tiled in black and
 white, and the ceiling is too high for my lantern's light to reach.  When I
 glance back, I see that something with clawed feet gouged furrows into the stone
 around the gate yesterday or a thousand years ago.  They're deep gouges, and
@@ -6286,7 +6286,7 @@ Go, please."
 
 She pulled her robe even tighter around her shoulders.  "There's a picnic.  My
 aunt arranged it.  I tried to make excuses, but she is set on it.  But the day
-after---I might be able to get away then.  I'll go to Cathé's after lessons.
+after—I might be able to get away then.  I'll go to Cathé's after lessons.
 Look for me there."
 
 "After lessons, then." I pushed my fingers through the grille.
@@ -6314,7 +6314,7 @@ I went back to her window, too.  I tapped on her shutter as loudly as I dared,
 more loudly than I should have, but there was no answer.  So I pulled myself
 back up onto the roof beam and crept away like a defeated army.
 
-I went to see her father two days later, and then---gaaah.  I heft my spear.  I
+I went to see her father two days later, and then—gaaah.  I heft my spear.  I
 understand spears a lot better than I do people.  I'll worry about Sehdie when
 the morning comes.  About Sehdie and about what the voices said on the bridge.
 I'll worry about it all in the morning because if I worry about it now I won't
@@ -6456,9 +6456,9 @@ days.  Sehdie in tears, holding hands with *another* boy.  My, my…
 He squeezed my hand again and started to let go.  I held onto him.  We sat there
 while the judge argued with the bull, very still, like children once again.
 
-"Do you remember---"
+"Do you remember—"
 
-"I suppose I ought to---" We laughed.  "You first," I said.
+"I suppose I ought to—" We laughed.  "You first," I said.
 
 "No, please.  Ladies first."
 
@@ -6483,7 +6483,7 @@ ago.  When my mother was teaching you the abracadabra.  Remember? I used to come
 and read stories to her class, and you used to look at me like, like, like I was
 already a bookster instead of just a boy tripping over his own sandals." He
 shrugged.  "It's not very good.  Pretty bad, as a matter of fact.  Awful.  Just
-awful.  Here, you don't want to---"
+awful.  Here, you don't want to—"
 
 "Don't you dare!" I pulled away before he could snatch it out of my hand.
 Saints, now I really was going to cry.  I wiped my cheek with the back of my
@@ -6521,12 +6521,12 @@ just realize what they have already thought.  It was like that for me and
 Sehdie.  We never planned to fall in love.  We certainly never planned to run
 away together.  It was just a game to pass the time while we sat through Vurt's
 bouts in the *umram*.  How would she get away from her aunt? How would we
-travel? Where would we most like to go? Not Ruuda---it was far too cold.  Not
-Darp---neither of us knew how to ride.  And definitely not Ini Bantang or Barra
+travel? Where would we most like to go? Not Ruuda—it was far too cold.  Not
+Darp—neither of us knew how to ride.  And definitely not Ini Bantang or Barra
 Bantang.  Even playing make believe, we knew that we'd be taken as slaves the
 day we arrived.
 
-But Gandan---Gandan would be nice.  Apple blossoms in the spring, leaves that
+But Gandan—Gandan would be nice.  Apple blossoms in the spring, leaves that
 changed color in the fall, ships on the river, the flying mountain bringing
 treasure from the south every year, and right in the middle of it all, the
 world's biggest library, shelf after shelf of books just waiting to be read.
@@ -6536,7 +6536,7 @@ sweets, and our little game would fall to pieces like a cheap carnival mask.
 Sehdie's father was one of the emir's senior clerks.  He didn't splash his money
 around like some in the Hundred Houses, but a runaway daughter?  He would hire
 every bravo and rogue within a hundred gallops to track us down and bring her
-back---her horrible aunt would see to it.
+back—her horrible aunt would see to it.
 
 The horse turned all of that upside down.  It was a baking hot afternoon.  I was
 supposed to be rewriting an apprenticeship agreement for a toy maker, but in the
@@ -6549,15 +6549,15 @@ front of me.
 
 I gave him a startled look.  "Um, yes, yes, I'm Kerrem.  Pleased to make your
 acquaintance." I tucked the books under my arm and raised my palms to him.  Most
-Darpani can't read---the more poetic among them say that words trapped are words
-slaughtered---but they still need contracts written and letters sent.
+Darpani can't read—the more poetic among them say that words trapped are words
+slaughtered—but they still need contracts written and letters sent.
 
 He pressed his palms against mine politely.  "Someone has been searching for
 you."  He took my arm and steered me out of the way of passersby.  "Someone is
 able to spare a few heartbeats for a discreet conversation?"
 
 "Um, well, I would like to, certainly, but I'm supposed to be meeting a friend.
-It's a rather important matter, and I don't want to---"
+It's a rather important matter, and I don't want to—"
 
 He squeezed my arm, not gently.  "This is a rather important matter too," he
 said softly, his Black Grass accent gone.  "Seeing as how it's the rest of your
@@ -6566,7 +6566,7 @@ life we'll be talking about."
 My first thought was *he's a thief*, but what thief in his right mind (or even
 out of it) would risk his neck for the few pennies a worn-at-the-elbows young
 bookster might have in his purse?  My second thought was, *he's a scandal
-monger---someone has found out about Sehdie and Vurt and wants to buy the story
+monger—someone has found out about Sehdie and Vurt and wants to buy the story
 from me.* I tried to shake him off indignantly, but he squeezed my arm again so
 hard that I yelped.  "I work for someone I would rather not name," he said
 softly.  "Your friend's oath has been brought to her attention.  She would like
@@ -6584,12 +6584,12 @@ setting curious flies a-buzz.  "Keep an eye out," he ordered the Darpani.  "And
 you, stop staring.  It gives me a headache.  You've already given me one today."
 
 "My apologies, honored sir, for whatever it is I have done, or unknowingly, not
-done, that has---"
+done, that has—"
 
 "Be quiet." He sighed.  "Humans…  So, here's how the grass falls." He told his
 story quickly.  There was a cloud leaving for Gandan tomorrow night.  Lady Kembe
 wanted Sehdie on it, but Sehdie wouldn't go without me.  My mind got the hiccups
-right then.  She wouldn't go without me.  She wouldn't---
+right then.  She wouldn't go without me.  She wouldn't—
 
 "Are you listening?" the horse asked abruptly.
 
@@ -6598,7 +6598,7 @@ Gandan.  Together.  "I don't know what to say."
 
 "Then say yes," he said sourly.  "That will let us both get out of this heat."
 
-"But what does---I mean, my service to Lady Kembe, but how can I possibly---"
+"But what does—I mean, my service to Lady Kembe, but how can I possibly—"
 
 "You can't.  It's the girl she's interested in." The Darpani muttered something
 too low for me to catch.  The horse pawed the ground.  "All right, there is
@@ -6619,7 +6619,7 @@ Folding little paper birds and leaving them on windowsills."
 "No throats, I promise." The horse eyed me.  "What do you say?"
 
 What did I say? What could I say? "Sure.  Yes.  I mean, yes, absolutely, I would
-be honored to---"
+be honored to—"
 
 "Good." The horse explained what Lady Kembe wanted from me.  Lady Kembe.  From
 me.
@@ -6633,7 +6633,7 @@ you.  This is…" I spread my hands.  "Thank you."
 the square.  I had seen it before, of course.  The emir's companion during his
 wandering days, et cetera, et cetera.
 
-I hesitated.  "Honored sir---forgive me, but you look familiar.  Are you from
+I hesitated.  "Honored sir—forgive me, but you look familiar.  Are you from
 here?"
 
 "No.  Definitely not." He stood a moment to let the Darpani mount, then turned
@@ -6659,7 +6659,7 @@ of saying that he loves her, I suppose.
 
 I make just one stop, at Aziz the bookseller's.  Running off with my best
 friend's girl is one thing, but running off with someone's books is quite
-another.  "Now remember---" I start.
+another.  "Now remember—" I start.
 
 "I never saw you," he says.  We studied together, back when he wanted to grow up
 to be a magician.  "And I have no idea where you've gone, or what you were
@@ -6670,7 +6670,7 @@ I raise my palms to him.  "I'll write."
 He raises his back.  "I'll read."
 
 My next stop is at Ishad's.  I have to force myself not to glance around as I
-fumble with the lock on his front gate.  Across, down, down again, and in---no,
+fumble with the lock on his front gate.  Across, down, down again, and in—no,
 no, it's across, down, across again, and in.  The worn brass cylinder comes
 apart in my hands.  I drop the pieces in my pocket, leaving the gate slightly
 ajar behind me.
@@ -6729,7 +6729,7 @@ drunken, murderous Darpani and a half-deaf Ruudian mercenary who will mis-hear
 my attempts at polite conversation and think I've insulted his grandmother.
 Come morning, there wouldn't be enough left of me to feed a skinny hog.  It
 could be days before my remains are identified.  My family will be beside
-themselves, and poor Sehdie will---
+themselves, and poor Sehdie will—
 
 A cupboard door bangs closed on the other side of the shutter.  Still muttering,
 Sehdie's aunt leaves the room.  I sag and let my breath out with a whoosh.  Juan
@@ -6763,7 +6763,7 @@ Poets don't write much about waiting.  "Day after day she stood at the window,
 waiting for his return.  She relived every moment they had spent together, every
 word, every kiss." Gaaah.  That's from Fenrick's *Love Immortal Forever*, which
 I would never admit in public to having read.  What else did the heroine think
-about while she stood at that window?  There must have been something---I simply
+about while she stood at that window?  There must have been something—I simply
 don't believe anyone could stand in a draft for a year and a day without
 thinking of, I don't know, lunch.  Or all the things that could go wrong.
 
@@ -6774,7 +6774,7 @@ sit in the corner and do needlework all evening.  Or she could simply decide not
 to come.  "Yes," my note said, "Yes, yes, until my lungs are empty, yes," but
 what if she doesn't feel the same way? What if, despite everything we have said
 to each other, I am nothing more than a friend to her? I have only the word of a
-horse---a horse!---to the contrary.  She might not actually want to escape.  She
+horse—a horse!—to the contrary.  She might not actually want to escape.  She
 might want to be a potted plant for the rest of her life, carefully tended,
 immaculate, a beautiful decoration for some well-appointed courtyard.
 
@@ -6834,7 +6834,7 @@ like that."
 She looks down at her black and silver dress and matching sandals.  "What's
 wrong with how I look?"
 
-"Nothing, nothing," I say hastily.  "It's just---people will notice.  Especially
+"Nothing, nothing," I say hastily.  "It's just—people will notice.  Especially
 this time of night." *And make assumptions,* I don't add aloud.
 
 "Oh.  I'm sorry.  It's the plainest I have."
@@ -6842,7 +6842,7 @@ this time of night." *And make assumptions,* I don't add aloud.
 If there's one thing stables have plenty of, even ones in neighborhoods like
 this, it's dirt.  She stands there grimly as I rub handfuls onto the hem of her
 dress to hide its silver highlights.  With her sleeves pulled up, and my spare
-vest on, and her hair back under a rag, she looks like---she looks beautiful.
+vest on, and her hair back under a rag, she looks like—she looks beautiful.
 "Ready?" I ask.
 
 "Almost." She leans forward and kisses me.  "There.  Now we can go."
@@ -6861,10 +6861,10 @@ almost hear bleating.  But if I do that, I'll probably wind up dead.
 
 I run my forefinger up and down the flat of my blade.  The metal is solid and
 reassuring.  My spear lies across my pack, ready to be snatched up.  It's like
-waiting for the referee to call my name in the *umram*, except---
+waiting for the referee to call my name in the *umram*, except—
 
 The back of my neck prickles.  I stand silently, picking up the lantern but
-leaving it shuttered.  Something is there---I can feel it.  I hold my breath,
+leaving it shuttered.  Something is there—I can feel it.  I hold my breath,
 sword ready, listening for the click of claws on stone.  There's nothing but the
 rats.
 
@@ -6921,7 +6921,7 @@ scuttles away.
 
 My chest heaves.  Where in the *hells* is my sword? Stupid, stupid, stupid,
 losing it.  No one has ever disarmed me in the *umram*, no one.  I can't even
-remember which way the bonescuttle threw it.  Empty hands, full grave---if this
+remember which way the bonescuttle threw it.  Empty hands, full grave—if this
 is the best I can do, I deserve to lose my head.
 
 The ghost is still standing by the plinth I was sitting on, beckoning to me
@@ -6930,13 +6930,13 @@ urgently.  I put my hands over my ears.  "My thanks, honored sir," I whisper.
 "…to follow…" It's no more a sound than the stirring in the darkness before
 I unshuttered my lantern was a vision.  "…to finish…"
 
-"Yes, honored sir, I will.  Just---give me a heartbeat, all right?" I take my
+"Yes, honored sir, I will.  Just—give me a heartbeat, all right?" I take my
 hands from my ears.  I have to get a weapon.
 
 My sword is lying against a low, curved wall.  My spear is next to it.  I
 sheathe the first and heft the second.  Its reach will serve me better than a
 sword's edge, not that either is going to do me much good now.  The rats were my
-one clever idea---well, Ishad's more than mine.  With them gone---
+one clever idea—well, Ishad's more than mine.  With them gone—
 
 The back of my neck prickles again.  I whip my spear around.  It swishes through
 the ghost's head, making eddies in the chalk dust.  It's fainter than it as.
@@ -6994,10 +6994,10 @@ of spun silver.  I shivered.  These people should have burned their dead instead
 of hanging on to them as a miser hangs on to worn-out boots.
 
 I eyed the carved vines.  They seemed fragile, but the *iyemnelili* might still
-have been able to climb them.  I saw no other way onto the roof---the false
-windows were too shallow for handholds---so I put my foot on the lowest vine and
+have been able to climb them.  I saw no other way onto the roof—the false
+windows were too shallow for handholds—so I put my foot on the lowest vine and
 tested it with my weight.  It held for a moment, then broke with a sharp crack.
-I would not get to the roof that way.  I would have to---
+I would not get to the roof that way.  I would have to—
 
 *Plink plink.  Plink plink.* I glanced down.  The carved spider was plucking its
 web with one leg, *plink plink*, like a fiddler plucking her top string.
@@ -7024,7 +7024,7 @@ then slid through with my back against one side.
 
 The rear courtyard was filled with statues of men and women in strange costumes.
 They stood in twos and fours with tall cups in their hands as if conversing with
-one another.  All of them had houses instead of heads---this house, the house I
+one another.  All of them had houses instead of heads—this house, the house I
 was in.  The models rested on their shoulders with the front arch for a mouth
 and the upstairs windows for eyes.
 
@@ -7091,7 +7091,7 @@ sword.
 *Thwack.  Thwack.* He dropped the *iyemnelili*'s head into the sack that hung
 from his belt.  "Right," he muttered.  "Now for the hard part."
 
-I wanted to shake my head, but even that was too much.  My leg hurt---oh, it
+I wanted to shake my head, but even that was too much.  My leg hurt—oh, it
 hurt, like I had never imagined anything could hurt.  I wanted to crawl away
 from that hurt, to hide, to wriggle out of my body and leave it behind.  I
 ground my teeth.  I would whimper if I tried to speak, but the name of my name
@@ -7154,7 +7154,7 @@ I shook my head weakly.  "Cannot…"
 He shook me.  "Yes you can.  Cup.  Cup! You can do it, I know you can.  But you
 have to do it yourself.  I can't carry you for this bit."
 
-He was an idiot.  My death had found me---there was no need for him to whistle
+He was an idiot.  My death had found me—there was no need for him to whistle
 for his.  I tried again.  "Cannot…  blood…  in the water.  Smell…  Draw
 them…"
 
@@ -7254,10 +7254,10 @@ I have my palms up to greet him.  I bring them back slowly to cover my ears, but
 all I hear is the hollow sound you always hear when you do that.  After a moment
 I lower them to my sides.  "Well," I say, "Fancy meeting you here." I used to
 talk to my opponents in the *umram* that way, and in real fights as well.  Calm
-and conversational---it doesn't need to make sense as long as it puts them off
+and conversational—it doesn't need to make sense as long as it puts them off
 their guard and gives me time to think.  Found myself telling a man in Chaghan
 about running three-legged races with my brother one time.  I hope he enjoyed
-the story---it was the last one he ever heard.
+the story—it was the last one he ever heard.
 
 I can't see Cup.  Only the chill tells me he's here.  "Don't know if you were
 paying attention or not, but there's a lad gone down a while back chasing a
@@ -7267,7 +7267,7 @@ be welcome to come with me."  I hesitate.  "Or you could go and have a lookout,
 see if he's all right.  I'd appreciate it, if you're not too busy."
 
 Just like that the chill vanishes.  I cover my ears again for a couple of
-heartbeats, but still don't hear anything.  Oh well---he'll be back if he wants
+heartbeats, but still don't hear anything.  Oh well—he'll be back if he wants
 to.  I tuck his skull into my shirt and start down the steps once more using his
 old spear for a crutch.
 
@@ -7278,7 +7278,7 @@ hundred and thirty steps, so I stop counting.
 I find a few more bones on the stones beside the pool at the bottom of the
 steps.  They don't look human.  The creatures I killed must have thought Cup's
 remains tasted special.  Or maybe his ghost nudged them somehow, trying to get
-his bones up to the light.  Ghosts do that, or so I've been told---a puff of
+his bones up to the light.  Ghosts do that, or so I've been told—a puff of
 breath, a featherweight push, things so small that you're never even sure
 they're real.
 
@@ -7373,7 +7373,7 @@ It probably won't be much use against the thing in the water, but it's all I
 have.
 
 I massage my ankle as best I can.  It'll start swelling as soon as I take the
-boot off.  They're good boots, all things considered---out of fashion and worn
+boot off.  They're good boots, all things considered—out of fashion and worn
 down, but still holding together.
 
 I spit onto the ground beside me.  Vurt's as much of a son as I'll ever have.
@@ -7416,7 +7416,7 @@ back.  "Yes," the horse told me without preamble.  "Now who is he and where do
 we find him?"
 
 A day and a half later, I leaned on the upstairs railing (one last little act of
-rebellion---proper young ladies never lean on anything) and said goodbye to the
+rebellion—proper young ladies never lean on anything) and said goodbye to the
 only home I had ever known.  It was a modest house compared to those on Palace
 Mount, but still too large for three.  A brass stand in the center of the front
 courtyard held a fist-sized chunk of dayglass.  The sunlight it had trapped
@@ -7459,7 +7459,7 @@ said.  "For odds and ends." It only took me a minute to stuff the things I
 wanted to keep into it.  Two changes of underclothing, the second-plainest dress
 I had (I would travel in the plainest, and hope no one looked too closely at how
 well made it was), a comb, some jewelry, and the rag dog I had slept with every
-night until I was ten.  That was mine---not even my aunt had dared take it away
+night until I was ten.  That was mine—not even my aunt had dared take it away
 from me.
 
 So here I sit, waiting.  And wondering what life will be like with Kerrem, and
@@ -7510,7 +7510,7 @@ trio of clouds drift lazily above us.  The moon is a tarnished lozenge high
 above them.  Cuyver claims it was unblemished silver before the Pilots destroyed
 themselves, although Pleiemente says that was a myth.  Lady Kembe probably
 knows.  I wonder if I'll be able to ask her some day.  The leather tube tied to
-the side of Kerrem's pack might hold answers as well as adventure.  I---we will
+the side of Kerrem's pack might hold answers as well as adventure.  I—we will
 just have to find out.
 
 As we cross the Bridge of Unmartyred Saints, Kerrem points to a three-story
@@ -7519,7 +7519,7 @@ is just behind it."
 
 The building looks worn, even in the twilight.  So do the ones on either side of
 it, and the ones on either side of them.  So does the bridge we are standing
-on---the whitewash has come off half the bricks in the side walls, and the
+on—the whitewash has come off half the bricks in the side walls, and the
 cattle droppings at our feet have been there for a while.
 
 Suddenly I hear shouting and laughter.  Three children run across the school's
@@ -7527,7 +7527,7 @@ roof and leap over the narrow alley to the next building.  I gasped.  My hand
 flies to my mouth.
 
 Kerrem smiles reassuringly.  "Hawk and hares.  I used to play when I was their
-age.  Don't worry---it's an easy jump."
+age.  Don't worry—it's an easy jump."
 
 "Will you miss it?" I ask, wondering, *How could they do that? How could they
 just…jump?*
@@ -7637,7 +7637,7 @@ sword, and I can't get my spear.  Stupid, stupid, stupid…  I'm almost set to
 charge it anyway when I remember another memory.  The vines at the front
 entrance…  I turn and run.
 
-It chitters and comes after me.  Five steps, six, seven---I spin around,
+It chitters and comes after me.  Five steps, six, seven—I spin around,
 throwing my sword as I turn, and fall backward through the arch.  I hit the
 ground with a thud just as my sword crashes into the vines.
 
@@ -7650,7 +7650,7 @@ everything further back has been cut to cat meat.  Gray-green muck spreads
 around the wreckage.  One claw twitches, and then it's actually, finally dead.
 
 I swallow back bile and touch the back of my head.  My oath still itches, but it
-feels different now.  I'm not supposed to be here.  I'm supposed to---damnation
+feels different now.  I'm not supposed to be here.  I'm supposed to—damnation
 and rotten figs, can't it give me even a moment's rest? I draw my knife and hack
 through the bonescuttle's neck in frustration.
 
@@ -7679,24 +7679,24 @@ courtyard.  I don't love her.  I never have.  I just don't know how to tell
 anyone who I *do* love, because oh, won't they have a laugh then?  *Umram*
 bravos are like soldiers: three quarters of us prefer our own kind, and most of
 the rest can swing their sword with either hand, as Ishad says.  Me and a
-beautiful, dumb hunk like Tessor---me and *anyone*---they'll tease me for a
+beautiful, dumb hunk like Tessor—me and *anyone*—they'll tease me for a
 week.
 
 I'm weeping again by the time I stepped off the bridge.  What am I going to do?
 When the rat catcher's boy slays a monster, he *has* to get the girl.  Everyone
 knows that's how the story ends.  Sand and silver, what will people think of
 Sehdie if I walk away from her after doing this?  It'll ruin her.  And what
-if---what if Tessor laughs at me?  What if all he sees, still, is a rat catcher?
+if—what if Tessor laughs at me?  What if all he sees, still, is a rat catcher?
 
 For a moment I imagine staying down there, letting my lantern flicker out and
 waiting for something to come out of the dark and solve my problems for me.
-It's strange---facing the bonescuttle frightened me less than telling a
+It's strange—facing the bonescuttle frightened me less than telling a
 beautiful woman that I don't love her.  And saints, what will Kerrem say? "You
 *have* to love her, Vurt! Look at all the stanzas I've already written!"
 
 For some reason, that thought brings me back to my senses.  I know I can
 disappoint Kerrem.  Maybe once I do that I can disappoint Sehdie as well, and
-then figure out how to tell my mother and Ishad, and then---I push the thought
+then figure out how to tell my mother and Ishad, and then—I push the thought
 of Tessor away.  No point thinking about any of that now.  I have to go swimming
 first.
 
@@ -7707,8 +7707,8 @@ first.
 ## Now: Patience Is Rewarded
 
 The man *finally* reaches the bottom of the stairs.  He rests for a few moments,
-studying the bones I've left beside the pool---it really only takes a few little
-touches to make somewhere feel like home---but does not come close enough to the
+studying the bones I've left beside the pool—it really only takes a few little
+touches to make somewhere feel like home—but does not come close enough to the
 water for me to reach him.  Patience, patience…
 
 The cold chill of the dead man's echo hangs about him briefly, then vanishes.
@@ -7717,7 +7717,7 @@ out of my mind.
 
 A school of tiny transparent crayfish flash past me.  Something has disturbed
 the water upstream from my pool.  *Splash.* Someone is in the water.  And there
-is blood---well, ichor, really, the dark green kind that leaves a musty
+is blood—well, ichor, really, the dark green kind that leaves a musty
 aftertaste.  He is bringing a trophy with him.  I will my limbs to be still.
 This will be *much* tastier than that acrid little scavenger…
 
@@ -7737,13 +7737,13 @@ newborn.  I gather my limbs together.
 His head breaks the surface.  I surge forward, jaws open wide, and scream as
 something stabs me.
 
-Something *stabs* me.  Something stabs *me*! A spear---the man who came down the
-stairs has thrown himself into the water and driven a spear---a *spear*---into
+Something *stabs* me.  Something stabs *me*! A spear—the man who came down the
+stairs has thrown himself into the water and driven a spear—a *spear*—into
 *me*!
 
 Both men are swimming for the edge of the pool.  I will not let them get away!
 The younger one is already out of the water.  As he reaches for the older, I
-stretch and wrap a tentacle around his booted foot and---
+stretch and wrap a tentacle around his booted foot and—
 
 And freeze with shock.  No, it can't be.  It *can't* be, not after all these
 long dark patient centuries.  My love? Is it really *you*?
@@ -7756,7 +7756,7 @@ long dark patient centuries.  My love? Is it really *you*?
 
 What? Who? Who is that? Who are we? No, who am *I*, I I I me me me I am me I am
 *me* I remember now I am not a pair of boots that is just a shape a form a
-container I am *me* and I am home and---oh, my love, is that you?  After so
+container I am *me* and I am home and—oh, my love, is that you?  After so
 long, is that you?  It is!  It *is*!  I am *home*.
 
 </section>
@@ -7768,10 +7768,10 @@ long, is that you?  It is!  It *is*!  I am *home*.
 Sehdie was only two when Awbé left me.  It was one blow too many.  First that
 rogue Ishad, with his smoldering looks and sweet words to snare an innocent
 girl's heart, just so he could laugh about it afterward.  Then our parents let
-her marry that dreary man and sent me with her like a---like a *servant*, or a
+her marry that dreary man and sent me with her like a—like a *servant*, or a
 fine carpet.
 
-And then---oh, it hurts even to think it, even after all these years.  Awbé
+And then—oh, it hurts even to think it, even after all these years.  Awbé
 betrayed me.  "We need a proper nursemaid for Sehdie," she said.  "Someone
 experienced."
 
@@ -7793,7 +7793,7 @@ it would be best if you left that up to me.  If you…  If you left.  We don't
 want to stand in the way of you making a life for yourself any longer."
 
 At first I didn't understand.  We?  Did she mean she and her husband?
-And---leave? "Stand in the way of…  Awbé, what are you saying?"
+And—leave? "Stand in the way of…  Awbé, what are you saying?"
 
 She took a deep breath.  "I mean we think it's time you spread your wings.  But
 you'll always be welcome here, any time you want to visit."
@@ -7801,7 +7801,7 @@ you'll always be welcome here, any time you want to visit."
 "Awbé…  Cherished, surely you don't mean…?" I laughed uneasily.
 
 Her mouth set stubbornly.  "We've decided, Eleñima.  *I've* decided.  There's a
-sharing house next to the Collar's Rest that would be perfect for you, and---"
+sharing house next to the Collar's Rest that would be perfect for you, and—"
 
 "Stop!" I clapped my hands over my ears.  "Stop stop stop stop stop!" I thought
 I was going to be sick.  Awbé was still talking, but I couldn't hear her.  I
@@ -7839,7 +7839,7 @@ most of the ladies who attended her little gatherings.  "It will take years,
 though.  You have to be prepared for that."
 
 I sighed.  "What are a few years?" I asked rhetorically.  And then I giggled
-like a little girl.  It was rather funny---after all, the whole point was "a few
+like a little girl.  It was rather funny—after all, the whole point was "a few
 years", wasn't it? A few years that I could live over, live *differently*.  And,
 well, Sehdie was going to leave me some day anyway, wasn't she?  Everyone did.
 
@@ -7848,7 +7848,7 @@ dressed.  I sent her to the strictest elocutionist in Coriandel, and never let a
 slumped shoulder pass without reminding her how important good posture was.  I
 allowed her a few friends, but never more than two or three, and I was careful
 to steer her toward ones who wouldn't be…difficult.  That moaner Cathé, for
-example---she was about as rebellious as a melon rind.
+example—she was about as rebellious as a melon rind.
 
 And so we settled into a routine, Shau Sheu and I.  She became my refuge, the
 one place in a cold world where I knew I could find warmth.  The scraps of paper
@@ -7862,12 +7862,12 @@ effect.
 
 When that boy Vurt came on stage I thought, "At last!" I had grown so used to
 waiting that I had almost forgotten what I was waiting for.  Shau Sheu seemed
-doubtful, but I knew---oh, I knew.  He was one of Ishad's students, wasn't he? A
+doubtful, but I knew—oh, I knew.  He was one of Ishad's students, wasn't he? A
 duelist, no doubt just as callous with young women's hearts as his master.  What
 could it mean except that my time had finally come?
 
 And then it all fell to pieces.  I woke up and Sehdie was gone.  She was gone.
-She had left me.  After all I had---
+She had left me.  After all I had—
 
 "She must have gone through the window," Rojyar says, pointing at the open
 shutters.
@@ -7876,7 +7876,7 @@ shutters.
 of my eyes.  Her room is as tidy as ever, but she is gone.  Along with her
 jewelry, I suddenly notice.  The inlaid ebony box that our mother gave Awbé
 instead of me isn't by her bed.  For just one moment I feel a pang of hope.
-Perhaps she has been abducted.  A robbery gone wrong, or---
+Perhaps she has been abducted.  A robbery gone wrong, or—
 
 "There's a note," Rojyar says.  He kneels with a grunt and tugs it out from
 under my sandal.  "It's addressed to the honored sir."
@@ -7900,7 +7900,7 @@ him.  Idiot.  Doesn't he understand?
 verbena.  "It's all been for nothing!" I have reached the bottom of the stairs,
 but I am not finished.  Oh no, not at all.  I grab a branch of her favorite
 dwarf pine and pulled it over, heedless of the sharp needles pricking my skin.
-And those palms---I have never liked those palms.  They drip sticky sap on the
+And those palms—I have never liked those palms.  They drip sticky sap on the
 flagstones every fall, and the housekeeper *never* cleans it properly.
 
 Strong hands take hold of me.  "Honored mistress, please, stop.  Stop, stop,
@@ -7914,7 +7914,7 @@ When he finally releases me I spin around and slap him across the face.
 you hear? You are dismissed immediately.  Go! Right now!  You can send someone
 for your things later!"
 
-"But mistress---"
+"But mistress—"
 
 "Go!" I shout.  "Get out! Get out! And take her with you!" I point at the
 housekeeper.
@@ -7930,8 +7930,8 @@ Then I giggle.  I don't have a housekeeper any more.
 The drum at the front gate thuds for my attention.  I straighten my morning robe
 and go to see who it is.  Rojyar is there with three city guards wearing
 blue-and-black sashes.  "Praise Chance," I say.  I unlatch the gate.  "Did he
-tell you? My niece, Sehdie.  She---last night.  Or this morning, early.  She---I
-thought there might have been a burglary, but she left a note, and---"
+tell you? My niece, Sehdie.  She—last night.  Or this morning, early.  She—I
+thought there might have been a burglary, but she left a note, and—"
 
 "Honored mistress.  Honored mistress!" The guard in front of the door pats the
 air with her hands to quiet me.  "Please.  This man tells us there has been a
@@ -7964,7 +7964,7 @@ He blinks.  "Um, honored mistress?"
 animal noises in my house."
 
 He grins insolently.  "Er, not actually in the house, honored mistress.  But I
-promise, if you let us in, I won't---"
+promise, if you let us in, I won't—"
 
 The guard who spoke first cuts him off with a gesture.  "Honored mistress, I'm
 afraid I'm going to have to insist.  Could you please step aside? Please?"
@@ -7983,7 +7983,7 @@ help," the female guard soothes.  I feel so humiliated.  How could it all go so
 wrong?
 
 Rojyar had followed the guardsmen into the courtyard.  I stop struggling and
-smile at him as brightly as I can.  "Rojyar.  Rojyar, I'm---" Oh, it is so
+smile at him as brightly as I can.  "Rojyar.  Rojyar, I'm—" Oh, it is so
 *hard* to say, but what else can I do? "I'm sorry.  For hitting you.  But never
 mind that now.  I need you to go to Shau Sheu's.  Go and fetch her immediately,
 do you understand? Tell her the spell must have gone wrong.  Tell her about
@@ -8087,7 +8087,7 @@ Darpani here in the city will probably start taking knives to each other.  Will
 I authorize extra guard patrols east of Charcoal Square, and pre-emptive arrests
 of likely ringleaders?  I initial the top and bottom of the page to show I have
 read it all the way through, scribbled "yes" and "yes", and add it to the pile
-marked "Urgent".  The label was my great-grandfather's joke---it is the only
+marked "Urgent".  The label was my great-grandfather's joke—it is the only
 pile on the desk.
 
 The second page tells me that the Ruudian pike-and-bow mercenaries I hired last
@@ -8100,10 +8100,10 @@ year, or the year after.
 The third summary is from the Ministry of Rumors.  I sit back with a thimble of
 cold coffee in my hand.  A handful of the Ruudian mercenaries can be persuaded
 to break their oaths and stay in Coriandel, if I want.  It's tempting, but
-no---I might want to hire the whole company back again some day, and their
+no—I might want to hire the whole company back again some day, and their
 captain is unlikely to feel kindly toward someone who steals his troops.  Mm,
 and the Admiral Ascendant of Ini Bantang is discussing marriage with the son
-of---I didn't care.  I scan the rest of the page.  Gandan, Lhabde, the minor
+of—I didn't care.  I scan the rest of the page.  Gandan, Lhabde, the minor
 northern kingdoms…  Ossisswe and the other cities to the south and west…  It
 is as if a dozen different plays are being performed on the same stage at once.
 
@@ -8121,14 +8121,14 @@ bookster, and the loss appears to have driven her slightly mad.  When arrested,
 she mentioned a spell going wrong, but she has refused to talk to anyone since.
 My minister (who seemed less troubled by the loss of his daughter than his
 sister-by-marriage) disclaims any knowledge of magic being worked in his
-household, but---yes.  He's the one who had a wild oath sworn in his courtyard a
+household, but—yes.  He's the one who had a wild oath sworn in his courtyard a
 few days ago by the duelist who snuck into the Tombs last night.
 
 I scowl.  I don't like the idea of wild magic in my city.  I especially don't
 like it so close to one of my clerks, and I *especially* don't like
 coincidences.
 
-The royal collar mutters in my ear.  Something, something from years ago---it
+The royal collar mutters in my ear.  Something, something from years ago—it
 remembers, even if no one else in Coriandel does.  I glance at the report again.
 The woman's name is Eleñima.  I put my hand on the red string that hangs near my
 desk and pull it three times.  Somewhere below me, a drum thumps.  I set the
@@ -8141,7 +8141,7 @@ Must be twenty years ago."
 "Your Grace," the page says.  The door closes.  I go back to my aqueduct.
 
 The page brings me the report an hour and three thimbles of coffee later.  Ah
-ha---that is why the collar remembers.  A Bantangui saloneer named Shau Sheu
+ha—that is why the collar remembers.  A Bantangui saloneer named Shau Sheu
 arrived in Coriandel just a few months after I took the throne.  Rumors
 investigated her when Eleñima's brother-by-marriage was promoted, but found
 nothing suspicious.
@@ -8174,7 +8174,7 @@ trained monkeys too, and that it's almost impossible not to love a high-spirited
 colt.  I wept then, as I wept when I sent Sweet away.  There are days when I
 would give anything to be astride him again, up in the Brown Grass or on a trail
 through the Brumosos, but magic doesn't work like that.  He would die on his way
-to me, or I would fall down a flight of stairs, or---no.  Every spell has a
+to me, or I would fall down a flight of stairs, or—no.  Every spell has a
 price, and every price must be paid.
 
 An hour in the riding yard.  Ten minutes to bathe and tie my thinning hair back.
@@ -8189,7 +8189,7 @@ ever found that necessary.
 
 I needn't even have doused the lights.  Eleñima is already terrified by the time
 they bring her to me.  Does she think I am going to behead her right then and
-there?  "Oh, mercy, mercy!" she cries.  She actually falls to her knees---I
+there?  "Oh, mercy, mercy!" she cries.  She actually falls to her knees—I
 always felt uncomfortable when people do that.
 
 I slouch with my elbow on one arm of the throne and my chin in my hand.  "Do you
@@ -8227,7 +8227,7 @@ Bantangui have been reading over my Minister of Supply's shoulder for that
 long…
 
 I stand.  "Take her away," I order crisply.  "My ministers to me in fifteen
-minutes.  And coffee---lots of coffee."
+minutes.  And coffee—lots of coffee."
 
 Pages hurry away in all directions.  "And uncover the damn lights! It's too
 weeping dark in here." I start pacing.  If the woman wasn't mad, we could dip
@@ -8266,7 +8266,7 @@ Door.  Instead, they carried them up to the tree that had birthed them.  I would
 have wept with frustration if I had eyes.
 
 And then the Karabandi returned.  His companion's blood oath was a sour
-sparkling itch, and the spell on his boots was---it was not a spell.  I did not
+sparkling itch, and the spell on his boots was—it was not a spell.  I did not
 know what it was, but I became clearer, stronger, as if a long fever had broken.
 For the first time in years, I dare to hope.
 
@@ -8295,9 +8295,9 @@ the thing rising behind his friend.  It screams.
 
 The young man scrambles out of the water.  The Karabandi splashes back to the
 edge.  The thing in the pool screams again and stretches out a tentacle and
-grabbed hold of his boot---
+grabbed hold of his boot—
 
----and there is a flash like the first edge of the sun coming over the horizon
+—and there is a flash like the first edge of the sun coming over the horizon
 at dawn and the scent of young grass brushed its fingers across the hairs on my
 arms and whatever was in the boots wakes up and sings, it *sings*, love and
 remembrance and joy so much joy I am a leaf and it is a storm it is home home
@@ -8309,7 +8309,7 @@ know is that the creature in the pool has paused for a moment.
 Soft blue-white light gleams behind them.  The Moonrise Door is opening.
 
 The young man curses and drags the Karabandi up onto to stone.  The Karabandi
-curses back---his companion and his broken ankle and the darkness and the Pilots
+curses back—his companion and his broken ankle and the darkness and the Pilots
 themselves.  The young man pull him to his feet.  "I've got you," he says,
 slinging his pack over one shoulder and putting the Karabandi's arm around his
 neck.
@@ -8358,21 +8358,21 @@ Ishad hobbled away between two guardsmen to get his ankle splinted.  The
 magician put her hand on my chest.  "Better?" she asked.
 
 I nodded.  The itch was gone.  That felt like something I ought to celebrate,
-but I was bone-tired and sopping wet, and---saints, what the hell was I going to
+but I was bone-tired and sopping wet, and—saints, what the hell was I going to
 tell Sehdie?  And what in the doubled hells with hot sauce was I going to say to
 Tessor?
 
-I raised my palms.  "Yes, thank you.  I am honored that---"
+I raised my palms.  "Yes, thank you.  I am honored that—"
 
 She took her hand from my chest.  "Save your honor, boy, that's someone else's
 job.  He's safe." The last was directed to the guardsman standing at my elbow.
 He nodded.
 
-"What's going to---" I started, but she was already walking away.
+"What's going to—" I started, but she was already walking away.
 
 "Come on," the guardsman said.  "Captain's going to want to talk to you."
 
-"Wait! I have to tell my mother.  And---and my girl."
+"Wait! I have to tell my mother.  And—and my girl."
 
 "Nope," he said sympathetically.  "Right now, the only thing you have to do is
 come with me, because the captain wants to talk to you."
@@ -8451,7 +8451,7 @@ poison."
 their bodies with all honors.  We'll make a gift of them for the ambassador."
 
 "Your Grace." Soft steps receded.  What had that all been about? Nothing to do
-with me, whatever it was.  Madwomen and Bantangui taking poison---that was
+with me, whatever it was.  Madwomen and Bantangui taking poison—that was
 someone else's story.
 
 The emir sat brooding on his throne.  One tiddle tum tum, two tiddle tum tum…
@@ -8479,7 +8479,7 @@ Grace."
 
 I bowed and followed the guards out of the audience chamber.  It must have been
 in one of Ishad's stories, or in one of the books Kerrem read to me when we were
-young.  Whatever---it too was probably someone else's story.
+young.  Whatever—it too was probably someone else's story.
 
 The guards showed me to the courtyard.  I took a deep breath.  I'd made it.  I
 really had.  Grinning, I tossed the bag into the air and caught it.  The knot

@@ -19,7 +19,7 @@ Suppose your web application has to keep track of fruit flies.  Each fruit fly h
 <td>Find out what flies exist</td>
 <td>/api/fly</td>
 <td>GET</td>
-<td>---</td>
+<td>—</td>
 <td>200</td>
 <td>{id, id, ...}</td>
 </tr>
@@ -27,7 +27,7 @@ Suppose your web application has to keep track of fruit flies.  Each fruit fly h
 <td>Get a fly's record</td>
 <td>/api/fly/id</td>
 <td>GET</td>
-<td>---</td>
+<td>—</td>
 <td>200</td>
 <td>{id, name, genome}</td>
 </tr>
@@ -51,12 +51,12 @@ Suppose your web application has to keep track of fruit flies.  Each fruit fly h
 <td>Delete a fly's record</td>
 <td>/api/fly/id</td>
 <td>DELETE</td>
-<td>---</td>
+<td>—</td>
 <td>200</td>
 <td>{id}</td>
 </tr>
 </table>
-I've left out error cases because they aren't relevant to my question---at least, I don't think they are.
+I've left out error cases because they aren't relevant to my question—at least, I don't think they are.
 
 But now suppose that you want to do batch operations, i.e., that you want to create, read, update, or delete hundreds or thousands of flies at once.  Your client (which may be a desktop application or something else that isn't a browser) can POST data for lots of flies at once, but you do <em>not</em> want to handle the set of values like this:
 <pre>
@@ -71,7 +71,7 @@ for chunk_of_data in HTTP_Request:
     end_database_transaction
 
 return result</pre>
-The first reason you don't want to do this is that it's not atomic: if anything goes wrong partway through, you could have five hundred flies updated, and five hundred not.  The second reason is that the <code>process</code> function is actually very slow: if you call it five hundred times, there's a real risk of taking so long that the web server will time out the request.  (Note: in reality, a lot more is going on inside <code>process</code> than just a few SQL queries---files are being opened, parsed, and closed, log entries are being created, etc., so "get a faster web server" is <em>not</em> a valid solution.)
+The first reason you don't want to do this is that it's not atomic: if anything goes wrong partway through, you could have five hundred flies updated, and five hundred not.  The second reason is that the <code>process</code> function is actually very slow: if you call it five hundred times, there's a real risk of taking so long that the web server will time out the request.  (Note: in reality, a lot more is going on inside <code>process</code> than just a few SQL queries—files are being opened, parsed, and closed, log entries are being created, etc., so "get a faster web server" is <em>not</em> a valid solution.)
 
 The solution I've come up with is to make batch operations fundamental to the REST API, and to define the single-fly operations in terms of them.  This leads to API entries like this:
 <table padding="3" border="1">

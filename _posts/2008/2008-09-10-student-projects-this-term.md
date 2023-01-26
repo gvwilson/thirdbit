@@ -3,7 +3,7 @@ title: "Student Projects This Term"
 date: 2008-09-10 19:33:34
 year: 2008
 ---
-The students in my CSC491 capstone course picked their projects today---here are the students (S) and mentors (M) for the term:
+The students in my CSC491 capstone course picked their projects today—here are the students (S) and mentors (M) for the term:
 <ul>
 	<li>Porting the Online Marking tool (OLM) to Ruby On Rails: Mike Conley (S), Geofrey Flores (S), Prof. Karen Reid (M)</li>
 	<li>Benchmarking the Usability of Scientific Workflow Tools: Fan Dong (S), Prof. Ryan Lilien (M), Prof. Stephen Strother (M)</li>

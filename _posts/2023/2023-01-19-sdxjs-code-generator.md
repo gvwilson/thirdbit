@@ -23,7 +23,7 @@ because the source code as written is very different from
 the data structure that represents it in memory.
 The greatest strength of languages like [Scheme][scheme] is that
 these two representations are much more closely aligned,
-which makes this kind of metaprogramming much easier---once you get over the hurdle
+which makes this kind of metaprogramming much easier—once you get over the hurdle
 of typing in parse trees.
 As [noted yesterday][sdxjs_checker],
 the overwhelming majority of programmers still prefer not to do this
@@ -31,8 +31,8 @@ sixty years after Lisp syntax was invented and despite decades of use in educati
 I [used to believe][extensible] that programmers would one day switch from
 punchcard-compatible programming tools to ones that separated models from views,
 but I no longer expect to see that in my lifetime.
-It's a shame---experiments like [the Glamorous Toolkit][glamorous]
-make programming with lines of text look as antiquated as chiseling hieroglyphics onto stone tablets---but
+It's a shame—experiments like [the Glamorous Toolkit][glamorous]
+make programming with lines of text look as antiquated as chiseling hieroglyphics onto stone tablets—but
 even with this self-imposed clumsiness,
 I still believe that [beautiful is possible][bicycle].
 

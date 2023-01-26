@@ -19,7 +19,7 @@ Our students all seem to be making progress:
 	<li>Jeff Balogh has posted a demo of his <a href="http://dojotoolkit.org/2008/06/17/whats-going-dnd-form-editor-land">Dojo drag-and-drop form editor</a>. Feedback welcome.</li>
 	<li>And over at Undamped, Charlotte has <a href="http://undamped.blogspot.com/2008/06/optimization.html">learned the value of version control</a>.</li>
 </ul>
-Everyone has been discovering that coding isn't the real challenge---getting other people's software built, installed, configured, and playing nicely is much harder. Everyone also had a good time at lunch on Thursday June 5th—I'm grateful to Professors <a href="http://www.cs.toronto.edu/~kyros/">Kyros Kutulakos</a> and <a href="http://www.cs.toronto.edu/~hector/">Hector Levesque</a> for coming to represent the department, and to the following friends from industry for coming along to talk about life outside academia:
+Everyone has been discovering that coding isn't the real challenge—getting other people's software built, installed, configured, and playing nicely is much harder. Everyone also had a good time at lunch on Thursday June 5th—I'm grateful to Professors <a href="http://www.cs.toronto.edu/~kyros/">Kyros Kutulakos</a> and <a href="http://www.cs.toronto.edu/~hector/">Hector Levesque</a> for coming to represent the department, and to the following friends from industry for coming along to talk about life outside academia:
 <ul>
 	<li>Roy Pereira, Colin Smillie, and Pierre Lafayette from <a href="http://refreshpartners.com">Refresh Partners</a></li>
 	<li>Ben Newton from <a href="http://www.rogers.com">Rogers</a></li>

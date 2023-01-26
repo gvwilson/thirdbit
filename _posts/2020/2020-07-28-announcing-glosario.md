@@ -125,7 +125,7 @@ There are lots of way to contribute:
     but its articles are explanations, not definitions.
     (This is why we don't support diagrams in glossary entries.)
 
--   **YAML is hard for people to edit---why not use something else for the glossary file?**
+-   **YAML is hard for people to edit—why not use something else for the glossary file?**
     Because other formats are just as hard to edit (e.g., JSON)
     or make one-to-many relationships hard to express (e.g., CSV).
 

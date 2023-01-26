@@ -28,6 +28,6 @@ I don't know what to teach someone in that situation about teaching.
 Cognitive load theory, formative assessment, and everything else [I normally cover](http://teachtogether.tech)
 is probably useful,
 in the same way that what doctors are taught about physiology is probably useful to a paramedic,
-but I'm pretty sure that other things ought to take precedence---I just don't know what.
+but I'm pretty sure that other things ought to take precedence—I just don't know what.
 If anyone knows of literature on this kind of teaching,
 I'd be very grateful for pointers.

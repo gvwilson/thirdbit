@@ -45,7 +45,7 @@ original: swc
     I have been working to switch our Department over to literate programming techniques
     and have had some modest success here.
     However,
-    our office is small and often we find it beneficial to share our work and collaborate with other offices ---
+    our office is small and often we find it beneficial to share our work and collaborate with other offices —
     but the confidential nature of the data puts it on ice. 
   </p>
   <p>

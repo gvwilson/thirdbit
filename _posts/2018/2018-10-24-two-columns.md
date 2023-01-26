@@ -14,21 +14,21 @@ all in step,
 It's proving frustrating,
 because what I find I really want to do is this:
 
-    +----------------------------------+
+    +———————————-+
     |            diagram               |
-    +---------------+------------------+
+    +—————+——————+
     | - point       | Paragraph saying |
     | - point       | the same things  |
     |   - sub-point | in sentences.    |
-    +---------------+------------------+
+    +—————+——————+
     | ```js                            |
     | ...code...                       |
     | ```                              |
-    +----------------------------------+
+    +———————————-+
     | - point       | Paragraph saying |
     | - point       | the same things  |
     |   - sub-point | in sentences.    |
-    +---------------+------------------+
+    +—————+——————+
 
 I.e.,
 I want to see the point-form notes and the paragraphs of text side by side *while I'm editing*,

@@ -7,9 +7,9 @@ year: 2021
 Back in 2014,
 I worked with Mike Jackson, James Hetherington, and Andrew Turner
 to develop a skills assessment for people who wanted to use the DiRAC supercomputing facility.
-It never really caught on---it's politically impossible to tell professors
+It never really caught on—it's politically impossible to tell professors
 who have already paid for machine time
-that their grad students don't know enough about software development to use it efficiently---but
+that their grad students don't know enough about software development to use it efficiently—but
 I'm publishing it here in the hope that it will spur others to share
 what people ought to know and how we can tell if they know it.
 

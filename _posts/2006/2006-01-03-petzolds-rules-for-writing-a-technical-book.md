@@ -13,4 +13,4 @@ year: 2006
 <li><a href="http://www.charlespetzold.com/blog/2005/12/300822.html">Get the reader involved.</a></li>
 </ol>
 
-<p>#4 is the only one I'd quibble with---I think how the code was written is as important as its final state---but it's all still excellent advice.</p>
+<p>#4 is the only one I'd quibble with—I think how the code was written is as important as its final state—but it's all still excellent advice.</p>

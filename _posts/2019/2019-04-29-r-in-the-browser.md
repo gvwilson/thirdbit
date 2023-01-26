@@ -8,7 +8,7 @@ Mozilla has just earmarked $25,000 of funding for a research project aimed at ge
 The project is RQ5 in [this list](https://mozilla-research.forms.fm/mozilla-research-grants-2019h1/forms/6510),
 and is to be conducted by someone at an academic institution or research focused non-profit.
 The deadline for applications is Friday, May 31,
-and they would like to spread the word as widely as possible---if you're interested or know someone who might be,
+and they would like to spread the word as widely as possible—if you're interested or know someone who might be,
 please pass it along.
 For more information,
 you can reach out to bcolloran at mozilla dot com via email or via https://gitter.im/iodide-project/iodide.

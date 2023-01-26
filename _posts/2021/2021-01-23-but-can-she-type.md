@@ -17,7 +17,7 @@ I think about it every time I stub my mind on questions like:
 -   I've used CTAN (the Comprehensive TeX Archive Network),
     CPAN (for Perl),
     CRAN (for R),
-    and PyPI (Python's equivalent---the letter 'P' was already taken).
+    and PyPI (Python's equivalent—the letter 'P' was already taken).
     Why isn't there a Comprehensive Learning Archive Network (CLAN)?
     I recognize that [the Reusability Paradox](http://opencontent.org/docs/paradox.html)
     would make the lessons in CLAN less immediately useful than the libraries in CRAN,
@@ -36,7 +36,7 @@ people have recognized that education is at least as important as innovation.
 Somewhere out there,
 communicating and inspiring is considered just as valuable as
 filling in another square millimeter in the great coloring book we live in.
-Somewhere out there---but not here.
+Somewhere out there—but not here.
 
 <div align="center">
 <img src="{{ '/files/2021/twilight-zone.jpg' | relative_url }}" alt="Twilight Zone logo" />

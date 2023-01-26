@@ -77,7 +77,7 @@ front of the room what state the class is in.
 ## 3. Use a visibly fair mechanism to distribute your attention evenly.
 
 Teachers naturally focus their attention on learners who are making eye
-contact and asking lots of questions---in other words, on extroverts.
+contact and asking lots of questions—in other words, on extroverts.
 This creates two feedback loops: the extroverts ask even more questions
 because they're getting attention, while other students stop trying to
 engage because they're not. To ensure the teacher's attention is fairly
@@ -111,7 +111,7 @@ teachers make mistakes shows learners that it's all right to make
 mistakes of their own. If the teacher isn't embarrassed about making and
 talking about mistakes, learners will be more comfortable doing so too.
 
-## 5. Follow your learners---twice.
+## 5. Follow your learners—twice.
 
 A slide deck is like taking a journey by train: the ride may be smooth,
 but the route can't be changed on the fly. Live coding, on the other

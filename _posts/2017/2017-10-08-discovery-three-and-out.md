@@ -10,7 +10,7 @@ a Star Trek series we could watch together for the first time as a family.
 But that dream died halfway through the third episode,
 bludgeoned to death by one poorly-lit shot after another of eviscerated corpses.
 Torn flesh,
-protruding ribs---this isn't what I want my 10-year-old to see right before bedtime.
+protruding ribs—this isn't what I want my 10-year-old to see right before bedtime.
 
 Whoever you are,
 I want you to know that I'm really disappointed in you.

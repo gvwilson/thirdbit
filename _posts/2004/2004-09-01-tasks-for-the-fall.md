@@ -8,7 +8,7 @@ year: 2004
 <p>Bug tracking system: we need to build a simple issue tracking system (like
 Neon's) that
 integrates with Subversion, the rest of Hippo's user interface, and the
-server-side scripting framework.  UI, database work, testing---this has
+server-side scripting framework.  UI, database work, testing—this has
 it all.  3 people needed; one slot spoken for.</p>
 
 <p>Server-side scripting: one of the big differences between Hippo and other

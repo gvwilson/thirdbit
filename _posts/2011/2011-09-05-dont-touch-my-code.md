@@ -92,7 +92,7 @@ All correlations are statistically significant except for that of Ownership and 
 </tr>
 </tbody>
 </table>
-<p>("Total" stands for the total number of contributors, "Major" and "Minor" for the number of major and minor contributors, respectively, and "Ownership" for the proportion of ownership of the contributor with the highest proportion of ownership---how much a single person owns that piece of code.)</p>
+<p>("Total" stands for the total number of contributors, "Major" and "Minor" for the number of major and minor contributors, respectively, and "Ownership" for the proportion of ownership of the contributor with the highest proportion of ownership—how much a single person owns that piece of code.)</p>
 <p>There's a lot of information in that table, and I won't try to squeeze it all into this blog post, but as a taste, it allows them to conclude that:</p>
 <blockquote><em>The results indicated that pre- and post-release defects in had strong relationships with Minor, Total, and Ownership. In fact, Minor had a higher correlation with both pre- and post-release defects in Vista and pre-release defects in Windows 7 than any other metric that Microsoft collects!. Post-release failures for Windows 7 present a difficulty for analysis as at the time of this analysis many binaries had no post-release failures reported. Thus the correlation values between metrics and and post-release failures are noticeably lower than the other failure categories...</em></blockquote>
 <p>Later, after teasing apart the contributions of major and minor contributors, and the effects of dependencies between components, they conclude that:</p>

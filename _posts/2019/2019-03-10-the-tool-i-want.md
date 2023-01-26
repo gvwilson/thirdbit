@@ -80,7 +80,7 @@ but I'm still not satisfied:
     You can create these by switching to another tool,
     drawing what you want,
     and linking to that image file,
-    but that's a pretty awkward workflow---awkward enough that
+    but that's a pretty awkward workflow—awkward enough that
     most people either create fewer diagrams than cognitive science tells us we should
     or create their presentations with slideshow tools like Keynote and PowerPoint
     that put drawing and writing on a more equal footing.
@@ -100,7 +100,7 @@ but I'm still not satisfied:
     I won't repeat that rant now,
     but bloody hell, folks,
     it's 2019!
-    Surely we can---sorry,
+    Surely we can—sorry,
     sorry,
     you're right,
     I said I wouldn't.

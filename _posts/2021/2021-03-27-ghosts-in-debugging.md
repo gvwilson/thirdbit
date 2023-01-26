@@ -82,7 +82,7 @@ and about what she calls "ghost knowledge":
 the implicit knowledge that nobody in your field ever writes down.
 Her focus is data science,
 but what she says applies to debugging as well.
-I believe that indiviual practitioners know a lot that *could* be taught explicitly---they
+I believe that indiviual practitioners know a lot that *could* be taught explicitly—they
 just don't write it down.
 More specifically, I hypothesize that:
 

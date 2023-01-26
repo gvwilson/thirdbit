@@ -15,7 +15,7 @@ year: 2004
     universities were about doing research and creating new
     knowledge. Now that I'm in my forties, though, I've realized that
     what we're really doing here is teaching you how to take over the
-    world---because whether you like it or not, you're going to have
+    world—because whether you like it or not, you're going to have
     to one day.
   </p>
   <p>
@@ -55,7 +55,7 @@ year: 2004
   she <a href="http://www.canuck.com/famous5/html/history.html">wasn't
   legally a person</a> in Canada. Fifty years ago, most of the world's
   people suffered under totalitarian rule; in the year I was born,
-  judges could---and did---order electroshock therapy to "cure"
+  judges could—and did—order electroshock therapy to "cure"
   homosexuals. Yes, there's still a lot wrong with the world, but look
   at how many more choices you have than your grandparents did. Look
   at how many more things you can know, and be, and enjoy. And most
@@ -73,7 +73,7 @@ year: 2004
   shouldn't be allowed to drive a shopping cart, we're putting our
   weight behind one vision of what the world should be rather than
   another. We don't think about this bigger picture most of the
-  time---we'd be paralyzed if we did. But the last century and a half
+  time—we'd be paralyzed if we did. But the last century and a half
   shows that once enough people make "doing the right thing" a habit,
   the big picture more or less takes care of itself.
 </p>
@@ -100,7 +100,7 @@ year: 2004
   I'm taking on twenty students next term. Every line of code you
   write changes the world in some small way. Every deadline you meet,
   every security hole you don't plug, every user need you satisfy,
-  every disability you don't accommodate---each one makes tomorrow
+  every disability you don't accommodate—each one makes tomorrow
   different from today.
 </p>
 <p>

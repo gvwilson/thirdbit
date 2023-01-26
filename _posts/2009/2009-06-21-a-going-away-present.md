@@ -3,7 +3,7 @@ title: "A Going-Away Present"
 date: 2009-06-21 18:08:28
 year: 2009
 ---
-<a href="http://phyllers.wordpress.com/">Phyliss Lee</a> finished working with us this past Friday---she's leaving next week for a year-long internship in Japan.  To speed her on her way, the other summer students each contributed one tune to a mixed CD. If you're wondering what hip young nerds listen to these days, here they all are:
+<a href="http://phyllers.wordpress.com/">Phyliss Lee</a> finished working with us this past Friday—she's leaving next week for a year-long internship in Japan.  To speed her on her way, the other summer students each contributed one tune to a mixed CD. If you're wondering what hip young nerds listen to these days, here they all are:
 <ul>
 	<li>Queen: <em>Don't Stop Me Now</em></li>
 	<li>Coldplay: <em>In My Place</em></li>

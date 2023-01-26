@@ -40,7 +40,7 @@ but what happens when we're trying to teach or learn programming?
 In particular,
 what happens when we're trying to explain the design of even a small program step by step?
 
-I tried to draw an example for this blog post but couldn't---not in two dimensions.
+I tried to draw an example for this blog post but couldn't—not in two dimensions.
 The problem is the need for a third kind of connection
 that links changes to physical elements and execution paths.
 It's just barely readable for a single small change:

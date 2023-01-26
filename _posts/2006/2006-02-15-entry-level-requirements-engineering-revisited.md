@@ -22,7 +22,7 @@ There are lots of commercial tools in this space, including:
 </ul>
 but most of them are just glorified to-do list managers.  Some integrate with Microsoft Office tools, so that users can edit requirements documents in Word or Excel, while others integrate with CASE tools, but for the most part, they all assume that someone, somewhere, is going to type in a whole bunch of itemized, organized, point-form requirements, and then update them regularly as the project progresses.
 
-Which, in my experience, just doesn't happen---at least, not in the domains I'm most interested in:
+Which, in my experience, just doesn't happen—at least, not in the domains I'm most interested in:
 <div align="center">
 <table>
 <tr>
