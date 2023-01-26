@@ -35,6 +35,10 @@ drafts:
 
 ## ----
 
+## links: check links in published site
+links:
+	linkchecker -F text https://third-bit.com > LINKS.txt
+
 ## clean: clean up stray files
 clean:
 	@find . -name '*~' -exec rm {} \;

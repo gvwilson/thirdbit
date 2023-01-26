@@ -220,68 +220,68 @@ Monica Alonso,
 
 ### Dates and Times
 
-<a href="inspirations/datetime-silvia-canelon.png"><img src="inspirations/datetime-silvia-canelon.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/datetime-silvia-canelon.png' | relative_url}}"><img src="inspirations/datetime-silvia-canelon.png" width="600" /></a>
 
 Silvia Canelón
 
 ### HTTP
 
-<a href="inspirations/http.png"><img src="inspirations/http-greg-wilson.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/http.png' | relative_url}}"><img src="inspirations/http-greg-wilson.png" width="600" /></a>
 
 Greg Wilson
 
 ### Map
 
-<a href="inspirations/map-lefkios-paikousis.png"><img src="inspirations/map-lefkios-paikousis.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/map-lefkios-paikousis.png' | relative_url}}"><img src="inspirations/map-lefkios-paikousis.png" width="600" /></a>
 
 Lefkios Paikousis
 
 ### Missing Values
 
-<a href="inspirations/missing-values-roman-popat.png"><img src="inspirations/missing-values-roman-popat.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/missing-values-roman-popat.png' | relative_url}}"><img src="inspirations/missing-values-roman-popat.png" width="600" /></a>
 
 Roman Popat
 
 ### Text Analysis
 
-<a href="inspirations/text-analysis-ahmad-husain-abdullah.png"><img src="inspirations/text-analysis-ahmad-husain-abdullah.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/text-analysis-ahmad-husain-abdullah.png' | relative_url}}"><img src="inspirations/text-analysis-ahmad-husain-abdullah.png" width="600" /></a>
 
 Ahmad Husain Abdullah
 
 ### Visualization
 
-<a href="inspirations/visualization-corrado-lanera.png"><img src="inspirations/visualization-corrado-lanera.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/visualization-corrado-lanera.png' | relative_url}}"><img src="inspirations/visualization-corrado-lanera.png" width="600" /></a>
 
 Corrado Lanera
 
 ### RStudio Products
 
-<a href="inspirations/rstudio-products-carl-howe.png"><img src="inspirations/rstudio-products-carl-howe.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/rstudio-products-carl-howe.png' | relative_url}}"><img src="inspirations/rstudio-products-carl-howe.png" width="600" /></a>
 
 Carl Howe
 
 ### Administering RStudio Server Pro
 
-<a href="inspirations/administering-rstudio-server-pro-andrie-de-vries.png"><img src="inspirations/administering-rstudio-server-pro-andrie-de-vries.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/administering-rstudio-server-pro-andrie-de-vries.png' | relative_url}}"><img src="inspirations/administering-rstudio-server-pro-andrie-de-vries.png" width="600" /></a>
 
 Andrie de Vries
 
 ### RStudio Server Pro Configurations (simple and complex)
 
-<a href="inspirations/rsp-connect-simple-andrie-de-vries.png"><img src="inspirations/rsp-connect-simple-andrie-de-vries.png" width="600" /></a>
-<a href="inspirations/rsp-connect-complex-andrie-de-vries.png"><img src="inspirations/rsp-connect-complex-andrie-de-vries.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/rsp-connect-simple-andrie-de-vries.png' | relative_url}}"><img src="inspirations/rsp-connect-simple-andrie-de-vries.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/rsp-connect-complex-andrie-de-vries.png' | relative_url}}"><img src="inspirations/rsp-connect-complex-andrie-de-vries.png" width="600" /></a>
 
 Andrie de Vries
 
 ### Setting Up RStudio Server Pro
 
-<a href="inspirations/rsp-setup-andrie-de-vries.png"><img src="inspirations/rsp-setup-andrie-de-vries.png" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/rsp-setup-andrie-de-vries.png' | relative_url}}"><img src="inspirations/rsp-setup-andrie-de-vries.png" width="600" /></a>
 
 Andrie de Vries
 
 ### Programs
 
-<a href="inspirations/programs.svg"><img src="inspirations/programs.svg" width="600" /></a>
+<a href="{{'/ideas/concept-maps/inspirations/programs.svg' | relative_url}}"><img src="inspirations/programs.svg" width="600" /></a>
 
 Greg Wilson
 
@@ -309,8 +309,7 @@ Greg Wilson
 -   **Why not use [Graphviz](https://graphviz.org/),
     [DiagrammeR](https://rich-iannone.github.io/DiagrammeR/),
     or some other tool that compiles text into diagrams?**
-    1.  As [these graphviz-generated files](./dot/README.md) show,
-        it's hard to get their automatic layout algorithms
+    1.  It's hard to get their automatic layout algorithms
         to do as good a job as a person can do.
     2.  They have a much steeper learning curve,
         which means fewer people will be able to contribute.
