@@ -1,10 +1,10 @@
 ---
-title: "Debugger"
+title: "Software Design by Example 20: Debugger"
 date: 2023-01-26
 year: 2023
 ---
 
-The [final chapter][sdxjs_debugger] of [*Software Design by Example*][sdxjs]
+The [penultimate chapter][sdxjs_debugger] of [*Software Design by Example*][sdxjs]
 explores one of the question that sparked this book:
 how does an interactive breakpointing debugger work?
 The first time I saw one in action I was completely baffled.
@@ -23,16 +23,16 @@ I'm pleased that I was able to answer my younger self's questions.
 However,
 I'm still annoyed by the way debuggers are mostly left out of the curriculum.
 Of the forty-odd students I interviewed for software engineering intern positions last year,
-fewer than a dozen knew how to set a breakpoint in the IDE of their choice.
+fewer than a dozen knew how to set a breakpoint in an IDE.
 Andreas Zeller's [*The Debugging Book*][debugging_book] has [a very informative chapter][debugging_chapter],
 and I recommend the whole book to every working programmer,
 but I'll believe our profession is serious about building code that works
 when every undergraduate computer science program has a full-semester course
-on how to find and fix bugs and on the tools that can help.
+on how to use tools to find and fix bugs.
 
 <figure id="debugger-test-interact" align="center">
   <img src="{{'/sdxjs/debugger/test-interact.svg' | relative_url}}" alt="Testing interactive application"/>
-  <figcaption">Figure 20.2: Replacing input and output to test interactive applications.</figcaption>
+  <figcaption>Figure 20.2: Replacing input and output to test interactive applications.</figcaption>
 </figure>
 
 > Terms defined: breakpoint, source map, tab completion, watchpoint.
