@@ -36,21 +36,25 @@ I'm always happy to do a guest lecture in exchange for feedback…
 Finally,
 I've spent 40 years building things out of bits.
 None of my code was ever widely used,
-but I'm still quite proud of some of it.
+but I'm quite proud of how well some of it was made.
 I hope that one day we'll have a vocabulary for talking about that—about
 [what it means for software to be "beautiful"][bicycle].
 Until then:
 
 <div align="center">
-  Start where you are
-  <br/>
-  Use what you have
-  <br/>
-  Help who you can
+  <p>
+    Start where you are
+    <br/>
+    Use what you have
+    <br/>
+    Help who you can
+  </p>
 </div>
 
 <div align="center">
-  <img src="{{'/files/bib/sdxjs-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" />
+  <a href="{{'/sdxjs/' | relative_url}}">
+    <img src="{{'/sdxjs/sdxjs-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" />
+  </a>
 </div>
 
 [bicycle]: {{'/2017/12/17/consider-the-bicycle/' | relative_url}}

@@ -1,5 +1,5 @@
 ---
-title: "Ten Simple Rules"
+title: "Advice"
 layout: page
 permalink: "/advice/"
 ---
@@ -62,7 +62,7 @@ and on the experiences of friends and colleagues there and at other companies.
 
 5)  Speak directly to all the issues rather than omitting or ignoring things you'd rather not discuss.
 :   Your honesty is your greatest asset,
-    and it's hypocritical to criticize your opponents for spin or selective reporting if you're doing it too,
+    and it's hypocritical to criticize your opponents for spin or selective reporting if you're doing it too.
 
 6)  Don't sign any agreement that might prevent you from speaking about moral or legal concerns,
 :   or make sure the agreement explicitly excludes your concerns before signing it.
