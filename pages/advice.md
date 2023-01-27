@@ -447,7 +447,8 @@ See *[Teaching Tech Together][t3]* for a much longer discussion.
 
 ## Supervising Undergraduate Software Projects
 
-See *[Building Software Together][bst]* for a much longer discussion.
+These tips are based on the dozens of projects I supervised at the University of Toronto
+between 2000 and 2010.
 
 1.  Insist that they adopt a code of conduct for team members.
     Tell them how to report violations and how reports will be handled.

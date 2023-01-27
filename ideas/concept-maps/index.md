@@ -224,12 +224,6 @@ Monica Alonso,
 
 Silvia Canelón
 
-### HTTP
-
-<a href="{{'/ideas/concept-maps/inspirations/http.png' | relative_url}}"><img src="inspirations/http-greg-wilson.png" width="600" /></a>
-
-Greg Wilson
-
 ### Map
 
 <a href="{{'/ideas/concept-maps/inspirations/map-lefkios-paikousis.png' | relative_url}}"><img src="inspirations/map-lefkios-paikousis.png" width="600" /></a>
