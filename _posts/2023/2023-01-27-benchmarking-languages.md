@@ -1,6 +1,6 @@
 ---
 title: "Benchmarking Languages"
-date: 2023-01-30
+date: 2023-01-27
 year: 2023
 ---
 
@@ -19,10 +19,10 @@ since no real application ever achieves more than 10-20% of the performance that
 I no longer believe that measuring time-to-solution is the right approach,
 but I still think that we can learn a lot from comparing implementations of common problems in different languages.
 The [Cowichan Problems][cowichan] that I proposed for measuring *p<sub>½</sub>* aren't right
-for comparing the general-purpose languages vying to be the next Python,
+for comparing the general-purpose languages vying to be the next [Python][python],
 but I think we'd all learn a lot
 if people implemented a few of the examples from [*Software Design by Example*][sdxjs]
-in Rust, Zig, Nim, Elixir, F#, Scala, and what-not.
+in [Rust][rust], [Zig][zig], [Nim][nim], [Haskell][haskell], [Elixir][elixir], [F#][fsharp], [Scala][scala], and what-not.
 My choices would be:
 
 -   a text editor that supported undo and redo (something on the scale of [nano][nano] or [ted][ted])
@@ -31,24 +31,39 @@ My choices would be:
 -   a [style checker][sdxjs_style]
 -   a [web server][aosa_server]
 
-I've chosen these five because between them they touch on
-most of the core design ideas I use when I'm programming,
+Between them,
+these five examples touch on
+most of the core design ideas I used when programming,
 such as actions as objects (the editor),
 hashing (the file backup tool),
-graph manipulation (the build manager),
-recursion and introspection (the style checker),
+dependency  management (the build manager),
+introspection (the style checker),
 and asynchronous I/O (the web server).
-Putting it another way,
+They are also a nearly-complete minimal development stack—only "nearly" because
+I felt the ideas in a unit testing framework overlapped enough with those in a style checker
+that the set only needed one or the other.
+
 I think these problems are different enough from each other
 that each one's implementation would highlight something about the language
 that would otherwise not be seen.
+If you're teaching a software design class with an interesting new language
+and want to give these to your students as assignments,
+please let me know how it goes.
 
 [aosa_server]: https://aosabook.org/en/500L/a-simple-web-server.html
 [cowichan]: {{'/2010/06/12/the-cowichan-problems/' | relative_url}}
+[elixir]: https://elixir-lang.org/
+[fsharp]: https://fsharp.org/
+[haskell]: https://www.haskell.org/
 [nano]: https://www.nano-editor.org/
+[nim]: https://nim-lang.org/
+[python]: https://www.python.org/
+[rust]: https://www.rust-lang.org/
+[scala]: https://scala-lang.org/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxjs_backup]: {{'/sdxjs/file-backup/' | relative_url}}
 [sdxjs_build]: {{'/sdxjs/build-manager/' | relative_url}}
 [sdxjs_style]: {{'/sdxjs/style-checker/' | relative_url}}
 [sdxjs_test]: {{'/sdxjs/unit-test/' | relative_url}}
 [ted]: https://github.com/cesquivias/ted
+[zig]: https://ziglang.org/
