@@ -43,7 +43,7 @@ I'm not necessarily talking about statistical significance when I talk about cor
 Years ago I helped analyze a study of the spread of drug-resistant tuberculosis in Ontario hospitals.
 Thanks to a bit of sloppy SQL,
 I accidentally dropped all the records for everyone who didn't have a home address.
-It turns out that if you don't include homeless people in a study like this it affects the answer...
+It turns out that if you don't include homeless people in a study like this it affects the answer…
 Someone else caught the mistake less than an hour before we were going to submit the paper,
 but I still wonder how many other non-obvious mistakes I've published.
 The code didn't crash,

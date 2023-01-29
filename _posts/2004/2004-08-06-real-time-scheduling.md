@@ -11,4 +11,4 @@ year: 2004
 
 <p>So, let me ask my question again: who's building rapid-fire interactive scheduling and tracking tools using collaborative editing?  Anyone?  Anyone at all?</p>
 
-<p>[<a name="1"></a>1] Like <a href="http://games.sierra.com/games/homeworld/hw/">Homeworld</a>, the best real-time strategy game ever built—socks, but the sequels were disappointing...</p>
+<p>[<a name="1"></a>1] Like <a href="http://games.sierra.com/games/homeworld/hw/">Homeworld</a>, the best real-time strategy game ever built—socks, but the sequels were disappointing…</p>

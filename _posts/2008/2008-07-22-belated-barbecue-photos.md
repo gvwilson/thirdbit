@@ -23,7 +23,7 @@ Or we could use recursion!
 
 <img src="{{'/files/2008/07/img_2188.jpg' | relative_url}}" alt="Mmm…" />
 
-Mmm...
+Mmm…
 
 <img src="{{'/files/2008/07/img_2216.jpg' | relative_url}}" alt="Dancing, Dancing!" />
 

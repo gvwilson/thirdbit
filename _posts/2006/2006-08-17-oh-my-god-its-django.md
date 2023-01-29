@@ -104,7 +104,7 @@ year: 2006
   <li>A database to link diverse annotation sources</li>
 </ul>
 </li>
-  <li>I didn't know that genes have version numbers... ;-)</li>
+  <li>I didn't know that genes have version numbers… ;-)</li>
 </ul>
 <strong>Greg Wilson: Software Carpentry</strong>
 <ul>

@@ -102,5 +102,5 @@ year: 2015
   </li>
 </ul>
 <p>
-  I'll let you know how it goes...
+  I'll let you know how it goes…
 </p>

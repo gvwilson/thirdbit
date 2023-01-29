@@ -22,7 +22,7 @@ in that people draw on knowledge of the whole plan rather than blindly following
 
 Later,
 they say that,
-"...actors following a protocol have their own 'trajectories',
+"…actors following a protocol have their own 'trajectories',
 that is,
 their own goals and priorities;
 they stray from the protocol to various extents, in various ways, for a variety of reasons."
@@ -38,7 +38,7 @@ they make a comparison to a particular piece of software many readers will be fa
 > but it is meant pragmatically to be used primarily as
 > a resource for copy/paste creation of a new program to do a similar task.
 
-The authors' main contribution is to "...analyze peer-reviewed protocols published in *Cold Spring Harbor Protocols*.
+The authors' main contribution is to "…analyze peer-reviewed protocols published in *Cold Spring Harbor Protocols*.
 Unlike personal or internal protocols,
 these represent programs written for people unknown to the author(s) of the program."
 Each step is classified according to *kind* (physical, cognitive, measuring, etc.),

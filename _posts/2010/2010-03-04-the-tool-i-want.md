@@ -9,7 +9,7 @@ What I'd like instead is a Javascript widget I can embed in a web page that will
 
 <img title="browser-ide" src="{{'/files/2010/03/browser-ide.png' | relative_url}}" alt="browser-ide" width="393" height="173" />
 
-(You can see why I'm not allowed to design user interfaces...) "Step Forward" and "Step Backward" don't actually execute code; instead, they replay a previously-recorded execution sequence and its textual output.  Whoever created that sequence can add explanatory notes (like the bubble shown) that appear and disappear as execution proceeds.
+(You can see why I'm not allowed to design user interfaces…) "Step Forward" and "Step Backward" don't actually execute code; instead, they replay a previously-recorded execution sequence and its textual output.  Whoever created that sequence can add explanatory notes (like the bubble shown) that appear and disappear as execution proceeds.
 
 Three things are needed to make this happen:
 <ol>

@@ -139,7 +139,7 @@ You can't run regression tests on a lesson,
 so there's no easy way to tell if my changes have broken
 something that you wrote.
 <em>
-But Wikipedia...
+But Wikipedia…
 </em>
 </li>
 </ul>

@@ -8,7 +8,7 @@ The medical program at McMaster University is one of the best in Canada.
 While everyone likes to toot their own horn,
 they're simply telling the truth when [they say](https://mdprogram.mcmaster.ca/):
 
-> ...a group of innovative educators developed an undergraduate medical program
+> …a group of innovative educators developed an undergraduate medical program
 > that stirred controversy and defied convention by emphasizing self-directed
 > learning. McMaster created a revolution in health care training with the
 > establishment of a medical school that pioneered a problem-based learning

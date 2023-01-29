@@ -12,4 +12,4 @@ original: swc
   <li>requires people to add no more than a couple of function calls to their code</li>
 </ol>
 <p>then I think we could actually get people to adopt it.</p>
-<p><em>Later: In reply to some early feedback, I think provenance needs to be stored in the files themselves, rather than beside the data, so that it's easier to move from place to place.  I've been wrong before, though... :-)</em></p>
+<p><em>Later: In reply to some early feedback, I think provenance needs to be stored in the files themselves, rather than beside the data, so that it's easier to move from place to place.  I've been wrong before, though… :-)</em></p>

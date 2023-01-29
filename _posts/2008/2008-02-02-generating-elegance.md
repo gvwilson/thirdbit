@@ -48,9 +48,9 @@ which gives:
 <td>1</td>
 </tr>
 <tr>
-<td>...</td>
-<td>...</td>
-<td>...</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </table>
 Using <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> and <a href="http://elixir.ematia.de/trac/wiki">Elixir</a>, this schema is:

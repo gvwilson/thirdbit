@@ -13,7 +13,7 @@ when they ruled after a few weeks
 that I wasn't ever allowed to work on the user interface again.
 These diagrams are very much works in progress,
 but I think they're starting to come together.
-Feedback is always welcome...
+Feedback is always welcome…
 
 <div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
   <p><img src="{{'/files/2019/03/00-introduction.svg' | relative_url}}" width="90%" /></p>

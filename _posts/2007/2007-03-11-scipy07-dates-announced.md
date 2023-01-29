@@ -14,4 +14,4 @@ According to <a href="http://www.scipy.org/">www.scipy.org</a>, The SciPy 2007 C
   <li>A lecture on professional ethics and responsibilities</li>
   <li>And stuff on requirements, traceability, data lineage, and, oh, what else do <em>you</em> want?</li>
 </ul>
-If you're interested, please let me know...
+If you're interested, please let me know…

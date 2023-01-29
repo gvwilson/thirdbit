@@ -60,8 +60,8 @@ the programming and data crunching skills they need to work more
 efficiently.  I think it's going pretty well, and I'd welcome a chance
 to polish and extend it.  (The report Jon Udell
 wrote for the original Software Carpentry project several years ago is
-just one indication of how much more could be done here...)  The
-problem, of course, is finding someone to fund it...</p>
+just one indication of how much more could be done here…)  The
+problem, of course, is finding someone to fund it…</p>
 
 <p>And then there's undergraduate teaching.  Over the past three
 years, I've supervised final-year projects for 60 students, who have

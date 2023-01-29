@@ -4,7 +4,7 @@ date: 2010-07-30 12:22:37
 year: 2010
 ---
 A couple of days ago, Steve Yegge posted a <a href="http://steve-yegge.blogspot.com/2010/07/wikileaks-to-leak-5000-open-source-java.html">sort-of funny piece</a> to his blog about Wikileaks leaking the source code of 5000 open source Java projects by making all modifiers 'public' and all classes and members non-'final'.  One mock-quote in it was:
-<blockquote>If people could keep using the older, more convenient APIs I made for them, then why...would they use my newer, ridiculously complicated ones? It boggles the imagination.</blockquote>
+<blockquote>If people could keep using the older, more convenient APIs I made for them, then why…would they use my newer, ridiculously complicated ones? It boggles the imagination.</blockquote>
 In response, a friend of mine who works for a major bank said that he just had to explain to a new Java programmer why:
 <ol>
   <li>In Java, you have to use <code>java.util.Date</code> and <code>java.util.Calendar</code> and <code>java.sql.Date</code></li>

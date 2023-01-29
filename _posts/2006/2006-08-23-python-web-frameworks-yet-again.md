@@ -12,4 +12,4 @@ In response to comments and emails over the last few days saying, "I don't know 
 
 This is <em>not</em> about <a href="http://www.python.org">Python</a> vs. <a href="http://www.ruby-lang.org">Ruby</a>: it's about our obligation as developers to give maximum value to our customers.  As long as Pythoneers' efforts are divided between [pick a random number] different frameworks, none of them will be as mature or reliable as <a href="http://www.rubyonrails.org/">Rails</a>, which means that developers using Python will be taking longer to accomplish less.  Competition hasn't led to any of "our" frameworks surpassing <a href="http://www.rubyonrails.org/">Rails</a> to date; there's no reason to believe that will change, so picking one and making it competitive is, in my opinion, the only defensible course of action.
 
-Now, back to marking...
+Now, back to marking…

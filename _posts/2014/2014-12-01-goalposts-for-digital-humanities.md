@@ -37,7 +37,7 @@ original: swc
 </p>
 <blockquote>
   <p>
-    My thought when I suggested the Zotero task...was...a stab at the
+    My thought when I suggested the Zotero task…was…a stab at the
     sort of question to ask someone at the beginning of the discussion
     to work out their level and where their needs are, like the tests
     that language schools give you to work out which class to put you
@@ -47,7 +47,7 @@ original: swc
   </p>
   <p>
     I've been talking with the library here at UniMelb about doing an
-    introductory 'data literacy' module... Greg says he thinks that
+    introductory 'data literacy' module… Greg says he thinks that
     term isn't helpful as it can mean anything, but I mean really
     helping humanities researchers (and I'm thinking old-fashioned
     historians here, because that's what I am) to make the leap to
@@ -92,7 +92,7 @@ original: swc
     I would then like to build out to more sophisticated material
     – I agree that overcoming fear of the command-line and being
     able to navigate a file structure and move files around is
-    important.  I'm also definitely with you on web-scraping...
+    important.  I'm also definitely with you on web-scraping…
     Key-words in context and topic modelling are great things to be
     able to do. And everyone loved making graphs when I trailed the
     NLTK materials, so definitely include some basic visualisation.

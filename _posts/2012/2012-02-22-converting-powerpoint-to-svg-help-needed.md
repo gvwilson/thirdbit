@@ -12,7 +12,7 @@ year: 2012
   <li>Exporting the main text in the slides (the bullet points) is straightforward, though a fair bit of manual touch-up will be needed to reformat it.</li>
   <li>Ditto for the code samples (which don't show up with the main text, since they're in separate text objects).</li>
 </ul>
-And then there are the diagrams... Roughly a third of the slides have diagrams of some kind, which makes about 1500 in all. That's too many to redraw, and anyway, I shouldn't have to: they're stored in PowerPoint in some kind of vector format, so I should be able to "export as SVG" or the moral equivalent thereof.
+And then there are the diagrams… Roughly a third of the slides have diagrams of some kind, which makes about 1500 in all. That's too many to redraw, and anyway, I shouldn't have to: they're stored in PowerPoint in some kind of vector format, so I should be able to "export as SVG" or the moral equivalent thereof.
 
 But "should" and "can" aren't the same thing. I can save my PowerPoint in a lot of different raster image formats, but not in a vector format like SVG. However, I <em>can</em> select elements of a diagram, copy them, and then paste them into a vector drawing tool like <a href="http://inkscape.org/">Inkscape</a>, which indicates that something in Windows understands how to do the required format conversion.
 
@@ -23,7 +23,7 @@ Doing that 1500 times would be very tedious, though. What I really want is a way
   <li><a href="http://www.davisor.com/transformations/ppt-to-svg-java.html">Davisor Publishor</a> doesn't even export all the graphics.</li>
   <li><a href="http://www.docx4java.org/trac/docx4j">docx4j</a>'s pptx4j sounds like it ought to do the job, but (a) it's a library, not a tool, so some Java would have to be written to create an actual converter, and (b) it's not clear that it <em>does</em> actually do the job.</li>
 </ul>
-Please tell me I missed something...
+Please tell me I missed something…
 
 <em>Later: in response to a suggestion, I downloaded a Windows clipboard viewer and copied a diagram out of PowerPoint. The display looked like this (click the image for full-sized):</em>
 

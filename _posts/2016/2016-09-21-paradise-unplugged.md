@@ -63,7 +63,7 @@ original: nwit
   "fear of negative feedback" didn't quite make this list,
   but would have been the next one added if the authors weren't quite so strict about their statistical cutoffs.
   The authors are careful to say,
-  "...we are not suggesting that only females are affected by these barriers,
+  "…we are not suggesting that only females are affected by these barriers,
   or that these barriers are primarily due to gender,
   but rather that five barriers were seen as significantly more problematic by females than by males."
 </p>

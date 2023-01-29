@@ -30,5 +30,5 @@ I've highlighted the "-arch i386" line to show that yes, Qt knows I'm on a 32-bi
 
 *sigh*
 
-<em>Later: <a href="http://old.nabble.com/PyQt4,-Qt-on-osx-SnowLeopard-td26394590.html">this page</a> helped, but not enough: I've got PyQT 4.7.6 installed (at least, "make / make install" in PyQt-mac-gpl-4.7.6 ran to completion), and "python setup.py install" in the spyder-1.1.5 directory worked, but when I try to run spyder from the command line (/usr/local/bin/spyder), it tells me that it can't find PyQT version 4.4. Don't think I'm going to be introducing my students to it any time soon...
+<em>Later: <a href="http://old.nabble.com/PyQt4,-Qt-on-osx-SnowLeopard-td26394590.html">this page</a> helped, but not enough: I've got PyQT 4.7.6 installed (at least, "make / make install" in PyQt-mac-gpl-4.7.6 ran to completion), and "python setup.py install" in the spyder-1.1.5 directory worked, but when I try to run spyder from the command line (/usr/local/bin/spyder), it tells me that it can't find PyQT version 4.4. Don't think I'm going to be introducing my students to it any time soon…
 </em>

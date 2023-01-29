@@ -38,13 +38,13 @@ $ exit^M
 Script done on Mon Jul 30 11:21:42 2012</pre>
 <p>The <code>^M</code> and <code>^H^[[K</code> text is a literal transcript of what happens when the Enter and Backspace keys are pressed. In theory, this can be replayed to show people later exactly how something was done, keystroke by keystroke. All we need is timing, and <code>script</code> can deliver that:</p>
 <pre>Options:
-    ...     ...
+    …       …
     -t      Output timing data to standard error. This data contains two
             fields, separated by a space. The first field indicates how much
             time elapsed since the previous output. The second field indicates
             how many characters were output this time. This information can be
             used to replay typescripts with realistic typing and output delays.</pre>
-<p>So in theory, if we redirect <code>script</code>'s standard error to a file, we can use it to replay text at the correct speed. But if we actually do that, any error messages produced by the commands we're typing wind up in that file as well, instead of in our log file. That's a problem...</p>
+<p>So in theory, if we redirect <code>script</code>'s standard error to a file, we can use it to replay text at the correct speed. But if we actually do that, any error messages produced by the commands we're typing wind up in that file as well, instead of in our log file. That's a problem…</p>
 <p>There's another problem too. <code>script</code> is designed to capture line printer sessions, not interactive cursor-based work. Its <code>man</code> page even warns about this:</p>
 <pre>Certain interactive commands, such as vi(1), create garbage in the typescript
 file.  Script works best with commands that do not manipulate the screen, the

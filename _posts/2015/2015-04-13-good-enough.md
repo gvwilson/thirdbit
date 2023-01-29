@@ -18,7 +18,7 @@ original: swc
     From reading Twitter about open science,
     you'd get the impression that if you don't use the latest tools and your pipeline isn't perfect,
     and you can't just type 'make' and have the full paper spit back at you from the command line,
-    then you aren't doing it right...
+    then you aren't doing it right…
     Not true, and that's a really alienating message.
   </p>
 </blockquote>

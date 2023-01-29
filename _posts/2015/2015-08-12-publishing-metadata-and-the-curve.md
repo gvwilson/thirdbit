@@ -77,8 +77,8 @@ Version 5.3, May 2015, 10.5281/zenodo.23544.</pre>
 </p>
 <blockquote>
   <p>
-    ...the problem is that
-    data citation formats are still being sorted out and there is no single formula that is the "one true way" to make them...
+    …the problem is that
+    data citation formats are still being sorted out and there is no single formula that is the "one true way" to make them…
     The problem that you're encountering,
     that Creators cannot be tagged with types like Contributors,
     is a problem within every schema I've encountered.
@@ -86,7 +86,7 @@ Version 5.3, May 2015, 10.5281/zenodo.23544.</pre>
     and therefore any system built with DataCite as a backend will have this limitation.
   </p>
   <p>
-    ...
+    …
   </p>
   <p>
     In the end,
@@ -163,6 +163,6 @@ Version 5.3, May 2015, 10.5281/zenodo.23544.</pre>
     so we may revisit listing them all as authors (alphabetically by surname),
     rather than listing "Software Carpentry Foundation" as the author,
     and then having the standard citation list only the editors (as above).
-    But we still need to figure out how to jam that citation into things like BibTeX...
+    But we still need to figure out how to jam that citation into things like BibTeX…
   </p>
 </blockquote>

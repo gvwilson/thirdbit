@@ -6,8 +6,8 @@ year: 2010
 The April 2010 issue of <a href="http://cacm.acm.org/"><em>Communications of the ACM</em></a> has an article by Keith Wright titled "Capstone programming Courses Considered Harmful". Dr. Wright teaches business intelligence courses at the University of Houston-Downtown, and once you get past the three and a half columns of autobiography that he opens with, his thesis is:
 <ol>
   <li>Enrolment in CS programs is down. OK, no problem so far.</li>
-  <li>"...a lucrative United States career as a generalist professional programmer [is] a thing of the past" because the jobs are being offshored. Hm... OK, it's not that clear-cut, but I'm still on side.</li>
-  <li>Further, there has been a "...dramatic decline in demand for U.S. programmers over the period from 1974 to 2004." Uh, what? Oh, there's a footnote (pg. 126): "Demand for database, ERP, and ecommerce servers skills are on the rise." I'm confused: does he think that making Oracle, SAP, and WebSphere behave doesn't count as programming? And even if that's true, demand for programmers has <em>declined</em> from 1974 to 2004? Crap.</li>
+  <li>"…a lucrative United States career as a generalist professional programmer [is] a thing of the past" because the jobs are being offshored. Hm… OK, it's not that clear-cut, but I'm still on side.</li>
+  <li>Further, there has been a "…dramatic decline in demand for U.S. programmers over the period from 1974 to 2004." Uh, what? Oh, there's a footnote (pg. 126): "Demand for database, ERP, and ecommerce servers skills are on the rise." I'm confused: does he think that making Oracle, SAP, and WebSphere behave doesn't count as programming? And even if that's true, demand for programmers has <em>declined</em> from 1974 to 2004? Crap.</li>
   <li>"When designing computing curriculums, it is useful to first consider the capstone courses." Not the way I'd do it, but OK.</li>
   <li>I need to break the next paragraph down line by line:
 <ul>
@@ -16,12 +16,12 @@ The April 2010 issue of <a href="http://cacm.acm.org/"><em>Communications of the
   <li>"Furthermore, real projects are usually too difficult for college seniors." Crap. There are projects of all shapes and sizes out there, from porting Django to Python 3 down to tweaking the web site for a local community group.</li>
   <li>"Other capstone computing courses have students working individually on imaginary projects, giving them a chance to build something they own." OK.</li>
   <li>"Unfortunately, this may give students a poor understanding of the real world." Well, sure, if it's done badly, and the same can be said of any coursework.</li>
-  <li>"Finally, we do students a disservice if capstone courses give them the impression they are likely to become professional programmers." Ah, now we come to it...</li>
+  <li>"Finally, we do students a disservice if capstone courses give them the impression they are likely to become professional programmers." Ah, now we come to it…</li>
 </ul>
 </li>
 </ol>
 That last point is, I think, the hinge of the whole article. Wright thinks that most CS graduates are going to go off and do things that aren't programming (like, you know, building web applications 'n' stuff), and that having them do a big programming project in their final year is therefore misleading. His solution?
-<blockquote>I believe part of the answer lies in industry best practices like those captured in the IT Infrastructure Library (ITIL) and the corresponding international standard—ISO 20000. So I suggest...that capstone programming projects be replaced with the following internships:
+<blockquote>I believe part of the answer lies in industry best practices like those captured in the IT Infrastructure Library (ITIL) and the corresponding international standard—ISO 20000. So I suggest…that capstone programming projects be replaced with the following internships:
 <ul>
   <li>Service desk (first-line customer support).</li>
   <li>Change management.</li>

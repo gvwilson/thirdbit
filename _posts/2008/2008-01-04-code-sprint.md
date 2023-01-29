@@ -19,7 +19,7 @@ It's now 10:29 EST, and the room is fuller:
 
 12:10: still no sign of Ian, but I just checked code into DrProject for the first time in more than a year.
 
-14:15: Ian has showed up, Pardis has her VMs, Martin has a new Ubuntu, Blake has a password, Ian has showed up, and tickets are being closed.  Opened, too, thanks to Adam and his new crew, but we will not speak of that yet...
+14:15: Ian has showed up, Pardis has her VMs, Martin has a new Ubuntu, Blake has a password, Ian has showed up, and tickets are being closed.  Opened, too, thanks to Adam and his new crew, but we will not speak of that yet…
 
 16:30: winding down—the major tickets for OLM have been closed, a double handful for DrProject are gone as well (but Yi Qing, Luke, and Adam have found more), and we have a reservation for Chinese food at 6:00.  It's been fun; looking forward to tomorrow.
 

@@ -8,7 +8,7 @@ jupyter: http://jupyter.org/
 ---
 <p>
   <em>
-    "Bliss was it in that dawn to be alive..."
+    "Bliss was it in that dawn to be alive…"
     <br>
     – Wordsworth
   </em>
@@ -23,13 +23,13 @@ jupyter: http://jupyter.org/
   <p>
     [Science]'s present problems can be explained partly by the
     transformation from the 'little science' of the past to the 'big
-    science' or 'industrialised science' of the present...
+    science' or 'industrialised science' of the present…
   </p>
   <p>
     There are two familiar qualitative aspects of the steady
     quantitative growth of the scientific enterprise. The first is the
     loss of '<a href="{{page.gemeinschaft}}">Gemeinschaft</a>', where
-    all communities...have become so large that personal acquaintance
+    all communities…have become so large that personal acquaintance
     no longer dominates in the professional relationships. The old
     informal systems of rewards and sanctions are no longer
     effective. Under the new 'Gesellschaft' conditions, such intimate
@@ -40,27 +40,27 @@ jupyter: http://jupyter.org/
     increased capital-intensity of science, so that the typical
     context of discovery is no longer the scientist with his [sic]
     test-tube, but a large lab with division of labour on an
-    industrial scale...
+    industrial scale…
   </p>
   <p>
     Just as this new system was becoming dominant, by a cruel accident
     of fate a third element has intruded: stasis. The social subsystem
     of science whereby it reproduces itself, namely the training and
     certification of postgraduates, depends on the possibility of
-    recruitment of at least a significant minority... [W]hen...that
+    recruitment of at least a significant minority… [W]hen…that
     prospect vanishes, recruitment stalls, and the existing corps of
     researchers is squeezed, many pathologies inevitably ensue. The
     obvious one is the proletarianisation of research work. Recruits
     (and teachers) face the prospect of a lifetime sequence of
-    short-term jobs on contracts...Maintaining the lofty ideals of
+    short-term jobs on contracts…Maintaining the lofty ideals of
     independence and integrity becomes increasingly difficult.
   </p>
 </blockquote>
 <p>
-  "...all communities...have become so large that personal
-  acquaintance no longer dominates..."  "...the typical context of
+  "…all communities…have become so large that personal
+  acquaintance no longer dominates…"  "…the typical context of
   discovery is no longer the scientist with his [sic] test-tube, but
-  a...division of labour on an industrial scale..."  Maybe that's what
+  a…division of labour on an industrial scale…"  Maybe that's what
   we're really rebelling against: not the lack of reproducibility, or
   our inability to re-use our colleagues' data, but the loss of
   community.  Maybe the fact that the same people show up over and
@@ -108,6 +108,6 @@ jupyter: http://jupyter.org/
     one, and asked whether I thought they had the same freedom I did
     to build something new, and whether I thought they could look left
     and look right and recognize themselves in the faces they saw.
-    The honest answers are "no" and "no"...
+    The honest answers are "no" and "no"…
   </em>
 </p>

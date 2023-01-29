@@ -1,5 +1,5 @@
 ---
-title: "Next... Design by Contract?  (Please)"
+title: "Next… Design by Contract?  (Please)"
 date: 2006-06-27 18:13:16
 year: 2006
 ---

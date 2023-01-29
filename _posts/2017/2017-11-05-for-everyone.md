@@ -18,7 +18,7 @@ science has slowly started to acknowledge how deeply unfair it is
 to women, people of color, and many others,
 and I'd like to think that Software Carpentry has been on the right side of this fight.
 
-But...
+But…
 
 The [Carnegie Classification of Institutions of Higher Education][carnegie]
 divides PhD-granting universities in the US into three categories

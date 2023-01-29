@@ -58,4 +58,4 @@ And now for the bad news.  We haven't implemented all of this yet—in particula
   <li>Gerard Meszaros: <a href="http://xunitpatterns.com/">XUnit Testing Patterns</a>.</li>
   <li>Gary Pollice: <a href="http://www-128.ibm.com/developerworks/rational/library/oct06/pollice/index.html">Using mock objects for complex unit tests</a>.</li>
 </ul>
-<hr /><em>Later: Titus Brown posted a short <a href="http://ivory.idyll.org/blog/nov-06/making-in-process-xmlrpc-calls.html">note</a> on bypassing the server when testing apps running on <a href="http://wsgi.org/wsgi">WSGI</a>.  I'd really like to try this out...</em>
+<hr /><em>Later: Titus Brown posted a short <a href="http://ivory.idyll.org/blog/nov-06/making-in-process-xmlrpc-calls.html">note</a> on bypassing the server when testing apps running on <a href="http://wsgi.org/wsgi">WSGI</a>.  I'd really like to try this out…</em>

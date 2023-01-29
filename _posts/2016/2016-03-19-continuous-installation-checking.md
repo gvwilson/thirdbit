@@ -10,9 +10,9 @@ year: 2016
 </p>
 <ul>
   <li>Everyone: please start doing installation-driven development. Not test-driven, not feature-driven: installation-driven.</li>
-  <li>Best possible use of AI: a program that simulates a naive user trying to install your software. "Reads" docs, follows steps...</li>
-  <li>...gets lost, makes mistakes... we could feed traces from actual install attempts into a Markov chain generator, then couple it to...</li>
-  <li>...Travis-CI or something like that so that "user can install" becomes part of the pre-commit check and the world's a better place</li>
+  <li>Best possible use of AI: a program that simulates a naive user trying to install your software. "Reads" docs, follows steps…</li>
+  <li>…gets lost, makes mistakes… we could feed traces from actual install attempts into a Markov chain generator, then couple it to…</li>
+  <li>…Travis-CI or something like that so that "user can install" becomes part of the pre-commit check and the world's a better place</li>
 </ul>
 <p>
   But I'm serious.

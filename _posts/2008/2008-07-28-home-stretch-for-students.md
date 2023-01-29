@@ -3,7 +3,7 @@ title: "Home Stretch for Students"
 date: 2008-07-28 08:21:34
 year: 2008
 ---
-Coming down to the wire...
+Coming down to the wire…
 <ul>
   <li>Dan Servos has <a href="http://hackerdan.com/moodle/grade-distribution/">another Moodle visualization</a> working. Anyone want to give me some money so I can hire this guy?</li>
   <li>Qiyu Zhu is producing useful error reports and new screens for creating users and projects. Shiny.</li>

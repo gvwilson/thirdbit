@@ -83,7 +83,7 @@ but:
     you really do want meaningful short labels.
     You particularly want them when you're generating a printable PDF,
     because hyperlinking text like "this figure" doesn't work on paper.
-    (And yes, print still matters...)
+    (And yes, print still matters…)
 
 -   And speaking of exercises,
     their implicit semantics is at least as rich as that of blog posts:

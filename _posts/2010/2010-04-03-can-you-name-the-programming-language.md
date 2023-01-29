@@ -11,4 +11,4 @@ What's really interesting is which ones people recognize, and which they don't:
 
 <img title="scores" src="{{'/files/2010/04/scores.png' | relative_url}}" alt="scores" width="651" height="385" />
 
-Want to know which languages they are? You'll have to do the quiz yourself... :-)
+Want to know which languages they are? You'll have to do the quiz yourself… :-)

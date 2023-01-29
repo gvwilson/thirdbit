@@ -26,7 +26,7 @@ title: Formatting Revisited
     keywords, notes to instructors, etc.
   &lt;/section&gt;
 
-  &lt;audio src="..." /&gt;
+  &lt;audio src="…" /&gt;
 
   &lt;section class="concept"&gt;
 
@@ -45,7 +45,7 @@ title: Formatting Revisited
   &lt;/section&gt;
 
   &lt;section class="concept"&gt;
-    ...as above...
+    …as above…
   &lt;/section&gt;
 &lt;/section&gt;</pre>
 <p>Diagrams and images will be stored in external files and <code>href</code>'d in–I've played with putting the SVG directly in the document, but in practice, people are going to use different tools to edit the two anyway. I'd like to use inclusions for code fragments, so that they don't have to be duplicated in the slide and book sections, but there's no standard way to do text inclusion in HTML (which is odd when you think about it, given that other media are usually included by reference instead of by value).</p>

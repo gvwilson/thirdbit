@@ -14,4 +14,4 @@ I know this is supposed to be a technical blog, but having just re-read three of
   <li><a href="http://www.amazon.com/Night-Watch-Terry-Pratchett/dp/0413774449"><em>Night Watch</em></a></li>
   <li><a href="http://www.amazon.com/Feet-Clay-Discworld-Terry-Pratchett/dp/0552153257"><em>Feet of Clay</em></a></li>
 </ul>
-and, of course, <a href="http://www.amazon.com/Wheres-My-Cow-Terry-Pratchett/dp/0060872675"><em>Where's My Cow?</em></a>, which is Madeleine favorite book too.  (Well, it's the one shes happiest to chew on...)  Recommended.
+and, of course, <a href="http://www.amazon.com/Wheres-My-Cow-Terry-Pratchett/dp/0060872675"><em>Where's My Cow?</em></a>, which is Madeleine favorite book too.  (Well, it's the one shes happiest to chew on…)  Recommended.

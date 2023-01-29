@@ -28,7 +28,7 @@ it's what they *don't* have that depresses me:
     just like cooking sites give at least a passing nod to nutritional science.
 
 2.  All of their options for sharing knowledge would be instantly recognizable to someone from the early 1990s.
-    (Slack is just IRC is just the old Unix `talk` utility...)
+    (Slack is just IRC is just the old Unix `talk` utility…)
     There are [dozens of other ways for people to share knowledge](https://www.wiley.com/en-ca/The+Discussion+Book:+50+Great+Ways+to+Get+People+Talking-p-9781119049715),
     and [dozens of effective teaching techniques](https://teachtogether.tech/en/index.html#s:classroom-sticky-notes)
     that could be implemented online but never have been.

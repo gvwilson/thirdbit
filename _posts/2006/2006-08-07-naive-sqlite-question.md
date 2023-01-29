@@ -35,10 +35,10 @@ But I still don't know very much, which is why I'm asking for help. I've inherit
 <td>Cambridge University</td>
 </tr>
 <tr>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </table>
 There's a lot of redundancy in the "Affiliation" entries (only about 1200 different values, out of more than 7000 records).  I'd therefore like to split the table in two:
@@ -71,10 +71,10 @@ There's a lot of redundancy in the "Affiliation" entries (only about 1200 differ
 <td>0</td>
 </tr>
 <tr>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </table>
 and:
@@ -95,8 +95,8 @@ and:
 <td>US Navy</td>
 </tr>
 <tr>
-<td>...</td>
-<td>...</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </table>
 Here's what I've done so far:

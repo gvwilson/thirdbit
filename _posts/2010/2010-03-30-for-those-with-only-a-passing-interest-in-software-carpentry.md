@@ -1,5 +1,5 @@
 ---
-title: "For Those With Only a Passing Interest in Software Carpentry..."
+title: "For Those With Only a Passing Interest in Software Carpentry…"
 date: 2010-03-30 19:41:18
 year: 2010
 ---
@@ -11,5 +11,5 @@ Now that Software Carpentry Version 4 is a go, I've moved most blogging about sc
   <li>Some more thoughts on instructional design. (These two posts are mostly actually pleas for help.)</li>
   <li>The announcement that the course bibliography is online.</li>
   <li>A discussion of what's missing from that bibliography.</li>
-  <li>My analysis of the pros and cons of various formats for the course material. Much to my own surprise, LaTeX is the frontrunner...</li>
+  <li>My analysis of the pros and cons of various formats for the course material. Much to my own surprise, LaTeX is the frontrunner…</li>
 </ol>

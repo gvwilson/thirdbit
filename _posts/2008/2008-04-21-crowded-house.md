@@ -26,4 +26,4 @@ Oh, and we mustn't forget the graduate students:
   <li>Jeremy Handcock is building tools to visualize software project histories (clustered and otherwise).</li>
   <li>Carolyn  MacLeod will be studying how novices use modeling tools like SPIN and Alloy to see if there are systematic patterns in the mistakes they make.</li>
 </ul>
-Me? I'm getting married (twice), helping Jennifer, Paul, and Jason finish off a CS1-in-Python textbook, and trying to find some funding. It promises to be a busy sixteen weeks...
+Me? I'm getting married (twice), helping Jennifer, Paul, and Jason finish off a CS1-in-Python textbook, and trying to find some funding. It promises to be a busy sixteen weeks…

@@ -46,25 +46,25 @@ original: swc
     Some American teachers called their pattern "I, We, You":
     After checking homework,
     teachers announced the day's topic,
-    demonstrating a new procedure (I)...
-    Then they led the class in trying out a sample problem together (We)...
+    demonstrating a new procedure (I)…
+    Then they led the class in trying out a sample problem together (We)…
     Finally,
     they let students work through similar problems on their own,
-    usually by silently making their way through a worksheet (You)...
+    usually by silently making their way through a worksheet (You)…
   </p>
   <p>
     The Japanese teachers, meanwhile,
     turned "I, We, You" inside out.
     You might call their version "You, Y'all, We."
     They began not with an introduction,
-    but a single problem that students spent ten or twenty minutes working through alone (You)...
+    but a single problem that students spent ten or twenty minutes working through alone (You)…
     While the students worked,
     the teacher wove through the students' desks,
     studying what they came up with and taking notes to remember who had which idea.
     Sometimes the teacher then deployed the students to discuss the problem in small groups (Y'all).
     Next,
     the teacher brought them back to the whole group,
-    asking students to present their different ideas for how to solve the problem on the chalkboard...
+    asking students to present their different ideas for how to solve the problem on the chalkboard…
     Finally,
     the teacher led a discussion,
     guiding students to a shared conclusion (We).
@@ -87,18 +87,18 @@ original: swc
   <p>
     The teachers described lessons they gave and things students said,
     but they did not <em>see</em> the practices.
-    When it came to observing actual lessons&dash;watching each other teach–they simply had no opportunity...
+    When it came to observing actual lessons&dash;watching each other teach–they simply had no opportunity…
     They had, he realized, no <em>jugyokenkyu</em>.
     Translated literally as "lesson study",
     <em>jugyokenkyu</em> is a bucket of practices that Japanese teachers use to hone their craft,
     from observing each other at work
     to discussing the lesson afterward
     to studying curriculum materials with colleagues.
-    The practice is so pervasive in Japanese schools that it is...effectively invisible.
+    The practice is so pervasive in Japanese schools that it is…effectively invisible.
   </p>
   <p>
     And here lay the answer to [Akihiko's] puzzle.
-    Of course the American teachers' work fell short of the model set by their best thinkers...
+    Of course the American teachers' work fell short of the model set by their best thinkers…
     Without <em>jugyokenkyu</em>,
     his own classes would have been equally drab.
     Without <em>jugyokenkyu</em>, how could you even teach?
@@ -114,14 +114,14 @@ original: swc
     they had to effectively replace him,
     installing themselves in his classroom first as observers and then,
     by the third week,
-    as a wobbly...approximation of the teacher himself.
+    as a wobbly…approximation of the teacher himself.
     It worked like a kind of teaching relay.
     Each trainee took a subject,
-    planning five days' worth of lessons...
+    planning five days' worth of lessons…
     [and then] each took a day.
     To pass the baton,
     you had to teach a day's lesson in every single subject:
-    the one you planned and the four you did not...
+    the one you planned and the four you did not…
     and you had to do it right under your master teacher's nose.
     Afterward,
     everyone–the teacher, the college students,
@@ -129,7 +129,7 @@ original: swc
     sit around a formal table to talk about what they saw.
   </p>
   <p>
-    [Trainees] stayed in...class until the students left at 3:00 pm,
+    [Trainees] stayed in…class until the students left at 3:00 pm,
     and they didn't leave the school until they'd finished discussing the day's events,
     usually around eight o'clock.
     They talked about what [the master teacher] had done,
@@ -137,30 +137,30 @@ original: swc
     what they wrote in their notes;
     the ideas they came up with, right and wrong;
     the architecture of the group discussion.
-    The rest of the night was devoted to planning...
+    The rest of the night was devoted to planning…
   </p>
   <p>
-    ...By the time he arrived in [the US],
-    [Akihiko had] become...famous...
+    …By the time he arrived in [the US],
+    [Akihiko had] become…famous…
     giving public lessons that attracted hundreds,
     and,
     in one case,
     an audience of a thousand.
-    He had a seemingly magical effect on children...
+    He had a seemingly magical effect on children…
     But Akihiko knew he was no virtuoso.
-    "It is not only me," he always said...  "<em>Many</em> people."
+    "It is not only me," he always said…  "<em>Many</em> people."
     After all,
-    it was his mentor...who had taught him the new approach to teaching...
+    it was his mentor…who had taught him the new approach to teaching…
     And [he] had crafted the approach along with the other math teachers in [his ward] and beyond.
     Together,
-    the group met regularly to discuss their plans for teaching...
+    the group met regularly to discuss their plans for teaching…
     [At] the end of a discussion,
     they'd invite each other to their classrooms to study the results.
     In retrospect,
     this was the most important lesson:
     not how to give a lesson,
     but how to study teaching,
-    using the cycle of <em>jugyokenkyu</em> to put...work under a microscope and improve it.
+    using the cycle of <em>jugyokenkyu</em> to put…work under a microscope and improve it.
   </p>
 </blockquote>
 <p>
@@ -272,7 +272,7 @@ original: swc
   As a fringe benefit,
   this would also let us build up a "best of" archive.
   I don't think learners would be able to stitch together a complete bootcamp by watching these,
-  but I'd be happy to be proved wrong...
+  but I'd be happy to be proved wrong…
 </p>
 <p>
   Discussion sessions and video recordings will take time,

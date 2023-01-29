@@ -33,7 +33,7 @@ year: 2008
 
 1815: It has started to rain. Jennifer and I will collect Michele and then find something to eat.
 
-1930: Freckled lemonade... mmm...
+1930: Freckled lemonade… mmm…
 
 2010: It takes two minutes and ten seconds to sing all four verses of "Personal Penguin" to my daughter over the phone. Time for bed.
 

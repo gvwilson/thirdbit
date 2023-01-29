@@ -21,7 +21,7 @@ year: 2004
 
 <p>So why aren't debuggers built this way?  When I something as complex as <a href="http://www.hibernate.org">Hibernate</a>, why can't I also create a debugging plugin to help <a href="http://www.eclipse.org">Eclipse</a> show me what <a href="http://www.hibernate.org">Hibernate</a> is doing?  There are no intrinsic technical obstacles [<a href="#2">2</a>]; as far as I can see, the only reason it isn't supported is that, well, no-one else supports it either.  It is a purely accidental horizon, and the sooner it's eliminated, the more productive we will all be [<a href="#3">3</a>].</p>
 
-<p>Now, if you'll excuse me, I have some <a href="http://www.hibernate.org">Hibernate</a> source code to step through...</p>
+<p>Now, if you'll excuse me, I have some <a href="http://www.hibernate.org">Hibernate</a> source code to step through…</p>
 
 <p>[<a name="1">1</a>] See also Joel Spolsky's article on <a href="http://www.joelonsoftware.com/articles/LeakyAbstractions.html">leaky abstractions</a>.</p>
 

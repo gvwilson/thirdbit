@@ -3,7 +3,7 @@ title: "First Sightings"
 date: 2007-06-26 19:25:18
 year: 2007
 ---
-Andy Oram sent me email this morning to say that <a href="http://www.oreilly.com/catalog/9780596510046/"><em>Beautiful Code</em></a> has now been printed, and that copies are on their way to contributors.  Coincidentally, <a href="http://davidcrow.ca/">David Crow</a> dropped by this afternoon to chat, and mentioned that he'd seen a copy at <a href="http://wiki.oreillynet.com/foocamp07/index.cgi">FooCamp</a> on the weekend.  I look forward to hearing what you all think of it...
+Andy Oram sent me email this morning to say that <a href="http://www.oreilly.com/catalog/9780596510046/"><em>Beautiful Code</em></a> has now been printed, and that copies are on their way to contributors.  Coincidentally, <a href="http://davidcrow.ca/">David Crow</a> dropped by this afternoon to chat, and mentioned that he'd seen a copy at <a href="http://wiki.oreillynet.com/foocamp07/index.cgi">FooCamp</a> on the weekend.  I look forward to hearing what you all think of it…
 
 A few other sightings:
 <ul>

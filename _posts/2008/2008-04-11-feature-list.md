@@ -14,7 +14,7 @@ I skipped an important step in my previous post: I wasn't explicit about the fea
 </li>
   <li>Issue tracking (a.k.a. "ticketing"), or some other kind of to-do list.
 <ul>
-  <li>...with a query interface that lets users filter and sort.
+  <li>…with a query interface that lets users filter and sort.
 <ul>
   <li>Bonus marks if F&amp;S settings can be saved and shared, so that users can set up things like "all the high-priority items assigned to me that are due within a week".</li>
 </ul>
@@ -37,7 +37,7 @@ I skipped an important step in my previous post: I wasn't explicit about the fea
   <li>Cross-component search.</li>
   <li>A plugin or extension system.
 <ul>
-  <li>DrProject's needs a major overhaul...</li>
+  <li>DrProject's needs a major overhaul…</li>
 </ul>
 </li>
   <li>Some kind of over-the-web API (REST, SOAP, or RPC doesn't matter, just so long as it allows remote scripting, automation, and integration).</li>
@@ -61,7 +61,7 @@ I skipped an important step in my previous post: I wasn't explicit about the fea
 </li>
   <li>Test case management.
 <ul>
-  <li>Actually, most don't bother to do this separately (<a href="http://www.rallydevelopment.com/test_defect_management.jsp">Rally</a> being a notable exception).  I'm still trying to figure out why nobody has integrated with <a href="http://fitnesse.org/">FitNesse</a> yet...</li>
+  <li>Actually, most don't bother to do this separately (<a href="http://www.rallydevelopment.com/test_defect_management.jsp">Rally</a> being a notable exception).  I'm still trying to figure out why nobody has integrated with <a href="http://fitnesse.org/">FitNesse</a> yet…</li>
 </ul>
 </li>
   <li>Requirements management.

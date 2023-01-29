@@ -16,7 +16,7 @@ and at what else people use when teaching.
 Here are a few things I've done that I can't easily do with either R Markdown or Jupyter Notebooks:
 
 1.  *Placeholders.*
-    I often want to present the skeleton of a class with `...` markers for methods,
+    I often want to present the skeleton of a class with `…` markers for methods,
     then present those methods one by one with discussion interleaved.
     Knuth's original vision of literate programming supported this,
     but today's notebooks don't.

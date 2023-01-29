@@ -19,7 +19,7 @@ The topic is software patents, and the conclusion is consistent with the feeling
 Mary: "That doesn't make sense.  Even if everyone hates cookies, that doesn't mean that any two people are exactly alike.  People can differ in other ways."</blockquote>
 John's argument is foolish.  Although Mary points that out, she is not claiming that everyone hates cookies (that would also be foolish).
 
-Back to Quinn's argument.  Section 4.9, "Morality of Intellectual Property Protection for Software" starts "...we are considering whether as a society we ought to give the producers of software the right to prevent others from copying the software they produce.  In other words, should we give copyright and/or patent protection to software?"  The way in which Quinn asks this question (and the location—the last sentence of the introductory paragraph) leads the reader to believe that the section will provide an answer. Instead, this is what Quinn does:
+Back to Quinn's argument.  Section 4.9, "Morality of Intellectual Property Protection for Software" starts "…we are considering whether as a society we ought to give the producers of software the right to prevent others from copying the software they produce.  In other words, should we give copyright and/or patent protection to software?"  The way in which Quinn asks this question (and the location—the last sentence of the introductory paragraph) leads the reader to believe that the section will provide an answer. Instead, this is what Quinn does:
 <ol>
   <li>Criticizes two <em>specific</em>arguments in favour of intellectual property (IP) protection.</li>
   <li>Concludes that arguments (in general) in favour of IP protection are not strong.</li>

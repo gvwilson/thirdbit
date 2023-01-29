@@ -9,4 +9,4 @@ I'll be teaching a shortened version of the Software Carpentry course at the <a 
   <li>January 23-27: ditto.</li>
   <li>February 6-10: two lectures and practical per day, with a short final exam on Friday afternoon.</li>
 </ul>
-I've got a <em>lot</em> to do between now and then...
+I've got a <em>lot</em> to do between now and then…

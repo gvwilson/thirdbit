@@ -31,4 +31,4 @@ The cheapest kind of social graph is just a count of how many people in the room
 <td>95</td>
 </tr>
 </tbody></table>
-45 I know vs. 95 I don't: I've got some work to do...
+45 I know vs. 95 I don't: I've got some work to do…

@@ -54,7 +54,7 @@ title: Introducing Programming a Different Way
 <ul>
 <li>Cynical answer: "anything that might contain bugs"</li>
 <li>Classic answer: "Instructions for a computer"</li>
-<li>Our answer adds: "...that a human being can understand"
+<li>Our answer adds: "…that a human being can understand"
 <ul>
 <li>Takes a lot of work to turn the things we write into instructions a computer can execute</li>
 </ul>
@@ -234,7 +234,7 @@ data[1] = 2 * data[1]
 data[2] = 2 * data[2]
 print "doubled data is:", data
 <span style="color: darkred; background-color: lightyellow;">doubled data is [2, 8, 4]</span></pre>
-<p>Clearly doesn't scale...</p>
+<p>Clearly doesn't scale…</p>
 <p>Need to get all the indices for a list of length N</p>
 <hr />
 <p>The <code>range</code> function produces a list of numbers from 0..N-1</p>
@@ -245,7 +245,7 @@ print "doubled data is:", data
 <p>You will almost never be the first person to need something</p>
 <ul>
 <li>It's probably in the language, or in a library</li>
-<li>Hard part is finding it...</li>
+<li>Hard part is finding it…</li>
 </ul>
 <pre># Double the values in a list in place
 data = [1, 4, 2, 3, 3, 4, 3, 4, 1]

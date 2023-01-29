@@ -4,7 +4,7 @@ year: 2011
 original: swc
 title: Demographics (part one)
 ---
-<p>As near as we can tell, here's where this term's students are from. It's quite a mix...</p>
+<p>As near as we can tell, here's where this term's students are from. It's quite a mix…</p>
 <ul>
 <li>BEACON Center for the Study of Evolution in Action, Michigan State University</li>
 <li>Biostatistics Division, University of Toronto</li>

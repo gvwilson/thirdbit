@@ -10,4 +10,4 @@ Coming back to the badge meme from earlier this week, John Cook's new <a href="h
   <li>I have tested this code and was able to reproduce the results from the paper</li>
   <li>I have tested this code and was unable to reproduce the results from the paper</li>
 </ol>
-It's a good start...
+It's a good start…

@@ -7,4 +7,4 @@ Argon (our re-worked <a href="http://projects.edgewall.com/trac">Trac</a>) is no
 
 On the bright side, we seem to be over the last of the many ownership/permission hurdles that have bedevilled us for the past two weeks, and Keir Mierle says that email is finally working too.  Greg Lapouchnian has been doing a lot of testing, finding problems of various sizes, and filing some very professional bug reports; hopefully, the other 49X alumni who volunteered to help will be able to kick in this week as well.
 
-Twenty person-days left to get this one baked and on the table...
+Twenty person-days left to get this one baked and on the table…

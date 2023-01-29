@@ -9,7 +9,7 @@ So, with seven weeks to go 'til the end of another year, here are my goals:
 <ol>
   <li>Spend lots of time with family.</li>
   <li>Help <a href="http://mikeconley.ca/blog/">Mike Conley</a> and <a href="http://zuzelvp47uoft.wordpress.com/">Zuzel Vera</a> finish their Master's degrees on time.</li>
-  <li>The gym, the gym, the gym...</li>
+  <li>The gym, the gym, the gym…</li>
   <li>Prepare three more lectures for <a href="http://www.software-carpentry.org/">Software Carpentry</a>, and start chasing more funding (the current money runs out in April; it's clear we'll need until August to get everything done).</li>
   <li>Revitalize the online run of the course, and organize another one to start in January.</li>
   <li>Wrap up work on my dad's book.</li>

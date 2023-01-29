@@ -58,7 +58,7 @@ year: 2010
   <li>change the license on Basie (which rankles because I don't think I should have to close off options on someone else's say-so).</li>
 </ol>
 
-<p>George Orwell argued that the real purpose of censorship is to make people worry about what writing something troublesome might cost them, so that they never actually write anything that would have to be censored.  Every time someone puts the GPL on something, they are forcing other developers to make the same kind of decision: accept someone else's idea of what "free" means, or run the risk of not being able to use their "free" software without a whole lot of trouble [<a href="#2">2</a>].  Having to make that choices rankles too...</p>
+<p>George Orwell argued that the real purpose of censorship is to make people worry about what writing something troublesome might cost them, so that they never actually write anything that would have to be censored.  Every time someone puts the GPL on something, they are forcing other developers to make the same kind of decision: accept someone else's idea of what "free" means, or run the risk of not being able to use their "free" software without a whole lot of trouble [<a href="#2">2</a>].  Having to make that choices rankles too…</p>
 
 <p>[<a name="1">1</a>] Having watched dozens of bandwagons roll by, I'm not interested in a technology unless it's still hot two years after first hitting my radar.  Students have been telling me since at least 2008 that it's time to put Subversion in the closet and start using Git or Mercurial; I'd still be happier if there was a clear leader, so that I knew which horse to back, but I'll accept now that DVCS's aren't going to subside into nicheness like Java applets, XSLT, and cowboy rap bands.</p>
 

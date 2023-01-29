@@ -15,7 +15,7 @@ executive branch will follow the law.
 rights activities), on the ineffectiveness of torture:</p>
 
 <blockquote><em>
-...why would democratically elected leaders of the United
+…why would democratically elected leaders of the United
 States ever want to legalize what a succession of Russian monarchs
 strove to abolish?
 </em></blockquote>

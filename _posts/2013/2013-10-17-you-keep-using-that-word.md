@@ -75,7 +75,7 @@ original: swc
   Unsurprisingly, they found that:
 </p>
 <blockquote><em>
-  ...the vast number of principal investigators and researchers in the
+  …the vast number of principal investigators and researchers in the
   scientific domain lack the training, expertise, awareness, time,
   and, in some cases, inclination or aptitude to become functionally
   proficient in these areas crucial to sustainability.
@@ -110,7 +110,7 @@ original: swc
   and the difficulties those classes encountered:
 </p>
 <blockquote><em>
-  ...an instructor goes through features one by one, and
+  …an instructor goes through features one by one, and
   the students reproduce the results. The class has one- and two-day
   versions and has been very well received. The classes taught at
   computing centers appear to have a correlation to tool
@@ -150,7 +150,7 @@ original: swc
   which has clearly colored their view of the world:
 </p>
 <blockquote><em>
-  ...the standard of software engineering in science must be improved,
+  …the standard of software engineering in science must be improved,
   and sustainable software ecosystems with meaningful credit must be
   realized. This is not simply limited to teaching scientists to write
   code; if sustainable software projects are to be established in
@@ -169,33 +169,33 @@ original: swc
 <blockquote><em>
   Successfully
   optimizing software to reduce or eliminate barriers to reuse takes
-  training in the science of software engineering...which even more
+  training in the science of software engineering…which even more
   experienced researcher-developers often do not have. Those that do
   are not rewarded for it by the academic incentive structure, which
   by and large provides little recognition for effort devoted to
   engineering improvements unless it is immediately evident how such
   effort enables new science. Correspondingly, among many domain
   scientists, awareness of software engineering benefits and
-  appreciation for its cost are low....
+  appreciation for its cost are low…
 </em></blockquote>
 <p>
   and propose concrete solutions.
-  One is, "...changing the reward structure to better recognize the
+  One is, "…changing the reward structure to better recognize the
   immediate and near-term benefits of well-engineered software",
   which isn't going to happen any time soon.
   The other:
 </p>
 <blockquote><em>
-  ...is reducing the costs to science [by] creating an
+  …is reducing the costs to science [by] creating an
   effective infrastructure for scientists for securing software
   engineering services [from] a non-profit center-of-excellence
-  model...
+  model…
   <br>
   The center would pool the small and otherwise disparate fractions of
   software engineering effort. It would recruit personnel with deep
   training in software engineering and knowledge across a scientific
   discipline sufficient to collaborate effectively with scientists
-  across a domain...
+  across a domain…
 </em></blockquote>
 <p>
   I believe that scientists and programmers can only collaborate effectively

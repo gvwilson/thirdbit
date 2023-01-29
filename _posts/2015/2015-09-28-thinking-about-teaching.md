@@ -125,7 +125,7 @@ original: swc
   The biggest lesson in all of this is that
   being able to pool our experiences is
   the second-greatest benefit of teaching in the large.
-  (The greatest is having someone who can genuinely sympathize when something has gone wrong...)
+  (The greatest is having someone who can genuinely sympathize when something has gone wrong…)
   It would take even our most active instructors several years to learn this much about our lessons;
   comparing notes can help us all improve faster.
 </p>

@@ -15,6 +15,6 @@ As many people have pointed out, the greatest and most common weakness in Silico
 </div>
 If my answer is January had been "more than zero", the people who signed up for my P2PU course would probably have gotten a lot more good out of it. And if the techies who want to revolutionize education by internetting it could say "more than zero", I think society would get more good out of them.
 
-[1] I did the first six weeks of an online course about online courses through Ryerson University back in 2010. It was awful: there was no discussion on the bulletin boards, I got A's on the first four assignments by turning the instructor's point-form notes into sentences, and so on. I'm now lurking on a MOOC that George Siemens is running, but–well, see the comment in the main post about day-to-day life vs. good intentions... :-(
+[1] I did the first six weeks of an online course about online courses through Ryerson University back in 2010. It was awful: there was no discussion on the bulletin boards, I got A's on the first four assignments by turning the instructor's point-form notes into sentences, and so on. I'm now lurking on a MOOC that George Siemens is running, but–well, see the comment in the main post about day-to-day life vs. good intentions… :-(
 
 [2] See also Kanyi Maqubela's "<a href="http://www.theatlantic.com/technology/archive/2012/03/the-reason-silicon-valley-hasnt-built-a-good-health-app/254229/">The Reason Silicon Valley Hasn't Built a Good Health App</a>".

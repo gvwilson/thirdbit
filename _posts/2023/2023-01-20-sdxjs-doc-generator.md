@@ -24,7 +24,7 @@ I wish our languages would allow us to write things like:
 
 ```
 const name = (args) => {
-    ...do things...
+    …do things…
 }
 with documentation {
     Lorem ipsum dolor sit amet,
@@ -35,7 +35,7 @@ with documentation {
 ```
 
 where the names of parameters and other functions are automatically cross-linked
-and `[[...]]` or some similar syntax creates an external link and so on.
+and `[[…]]` or some similar syntax creates an external link and so on.
 [doctest][doctest]-style tests could be put in another block,
 and I'm sure people would find other uses for this as well.
 In a better world than this…

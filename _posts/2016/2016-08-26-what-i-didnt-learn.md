@@ -11,7 +11,7 @@ which describes itself this way:
 <blockquote>
 For the longest time I would remain silent when discussions with
 my peers would veer toward theoretical topics like P vs. NP,
-Lambda Calculus or bubble sort vs. merge sort...  I decided to
+Lambda Calculus or bubble sort vs. merge sort…  I decided to
 change all of this a year ago. I sat down and looked up all of the
 topics that a typical CS degree covers and then I dove in. Half
 way through, I decided to write a book about what I was learning.

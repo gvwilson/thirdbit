@@ -7,7 +7,7 @@ Step 1: install the <a href="https://addons.mozilla.org/en-US/firefox/addon/coll
 
 Step 2: let it run for a while.
 
-Step 3: look at all the red circles, which show sites that are known to be trackers. Betcha didn't know all those sites were being sent information about you...
+Step 3: look at all the red circles, which show sites that are known to be trackers. Betcha didn't know all those sites were being sent information about you…
 
 Step 4: turn on "<a href="http://donottrack.us/">Do Not Track</a>".
 

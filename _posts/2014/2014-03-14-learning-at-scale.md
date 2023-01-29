@@ -16,8 +16,8 @@ favorite: true
 <blockquote>
   This conference is intended to promote scientific exchange of interdisciplinary research
   at the intersection of the learning sciences and computer science.
-  Inspired by the emergence of Massive Open Online Courses (MOOCs)...this conference was created by ACM
-  as a...key focal point for the review and presentation of...research
+  Inspired by the emergence of Massive Open Online Courses (MOOCs)…this conference was created by ACM
+  as a…key focal point for the review and presentation of…research
   on how learning and teaching can change and improve when done at scale.
 </blockquote>
 <p>

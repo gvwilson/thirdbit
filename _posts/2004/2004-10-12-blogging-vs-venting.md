@@ -9,7 +9,7 @@ year: 2004
 
 <ol>
 
-<li>Just accept that getting your first Java web app to run is a full-term venture, and try to find room in the curriculum for _two_ courses (one introducing the tools, the second putting them into the proper software engineering context).  The problem with this is that the curriculum is pretty crowded already...</li>
+<li>Just accept that getting your first Java web app to run is a full-term venture, and try to find room in the curriculum for _two_ courses (one introducing the tools, the second putting them into the proper software engineering context).  The problem with this is that the curriculum is pretty crowded already…</li>
 
 <li>Hand students a working self-contained starting point (but then when things go wrong, they won't know where to start debugging);</li>
 

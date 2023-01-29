@@ -1,5 +1,5 @@
 ---
-title: "And the Winner Is..."
+title: "And the Winner Is…"
 date: 2010-06-24 07:58:09
 year: 2010
 ---

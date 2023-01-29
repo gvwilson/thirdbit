@@ -5,7 +5,7 @@ year: 2012
 original: swc
 ---
 
-<p>My daughter is five and a half years old, and some time in the last couple of weeks, she made a small cognitive breakthrough. It used to be that if I asked her, "What's five plus three?", she would carefully count five fingers, then count three, then go back and count them all together to get eight. She doesn't do that any more; instead, she holds up five fingers, then counts, "Six... seven... eight!" to get the answer. It may sound like a small thing, but it's not: the idea that five is always five, even if you didn't count it this time around, is such a big one that we forget it ever had to be learned.</p>
+<p>My daughter is five and a half years old, and some time in the last couple of weeks, she made a small cognitive breakthrough. It used to be that if I asked her, "What's five plus three?", she would carefully count five fingers, then count three, then go back and count them all together to get eight. She doesn't do that any more; instead, she holds up five fingers, then counts, "Six… seven… eight!" to get the answer. It may sound like a small thing, but it's not: the idea that five is always five, even if you didn't count it this time around, is such a big one that we forget it ever had to be learned.</p>
 
 <p>A lot of my time these days goes into trying to count from five in online learning. While an ignorance of prior art might be considered an asset in Silicon Valley, I have enough failures and harder-than-it-should-have-beens behind me to make me want to build on what people have done before rather than reinvent things, even if the latter is more fun. What kinds of distance learning have worked in the past? How many of those ideas still work online? What new ideas work? What <em>doesn't</em> work, and why not? And how do we know? I don't believe for a moment that all the answers I want are already out there, but I'd have to be pretty arrogant to believe that <em>none</em> of them are, or that it'd be faster for me to rediscover things than read about them.</p>
 
@@ -34,7 +34,7 @@ original: swc
         <li>SG: Isn't Stackoverflow a low feature version of that?</li>
         <li style="background-color: #ffe0ff;">GW: The "low feature" adjective is the killer: novices don't understand what's going wrong well enough to summarize enough relevant detail to permit diagnosis–Catch-22</li>
         <li style="background-color: #ffe0ff;">GW: There are obviously exceptions (novices <em>do</em> post answerable questions on SO) but I think it's a much more stringent filter than people who've passed through it realize</li>
-        <li>SG: Yeah... seems like adding the hookup would be a lot of help: it's what we do at work but with skype. First we use the low feature texting like we are now.</li>
+        <li>SG: Yeah… seems like adding the hookup would be a lot of help: it's what we do at work but with skype. First we use the low feature texting like we are now.</li>
         <li style="background-color: #ffe0ff;">GW: Do people screenshare with skype? Has anyone done an analysis of what they actually show each other, and how much accidental/sideways knowledge transfer is taking place (i.e., how often person X notices something that person Y didn't explicitly communicate, but which turns out to be relevant?)</li>
         <li>SG: My employees are spread out all over the place; we use either Skype or Google hangout constantly.</li>
         <li>SG: For actually teaching courses I have seen it used and abused: as far back as the mid-nineties we used CU See ME.</li>
@@ -63,7 +63,7 @@ original: swc
         <li style="background-color: #ffe0ff;">GW: So maybe it's a difference between helping them with their program, and helping them with their programming.</li>
         <li>SG: But when we talk sync and async we're talking human to human. Both can be done async.</li>
         <li>SG: The problem is the ability to easily share asnychonus activities: think Google Docs but for programming.</li>
-        <li style="background-color: #ffe0ff;">GW: hm...</li>
+        <li style="background-color: #ffe0ff;">GW: hm…</li>
 </ul>
 <p>All right: if someone with (literally) ten times as much experience as me tell me I'm off track, I ought to listen carefully and think a little more, even if it means discarding what seemed to me to be a very promising idea. Another alternative is to try to find a really cheap way to cobble together some low-fidelity experiments to get a better feeling for how this would work in practice–the equivalent of a napkin sketch in UI design. If you have insights to share, please share 'em.</p>
 

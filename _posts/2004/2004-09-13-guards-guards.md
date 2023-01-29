@@ -3,7 +3,7 @@ title: "Guards! Guards!"
 date: 2004-09-13 21:32:40
 year: 2004
 ---
-<p>I'm a big fan of <a href="http://www.terrypratchetbooks.com">Terry Pratchet</a>.  How can you <em>not</em> be a fan of someone who dedicates a book to "the Palace Guard, the City Guard, or the Patrol... Whatever the name, their purpose...is identical: to rush into the room, attack the hero one at a time, and be slaughtered..."</p>
+<p>I'm a big fan of <a href="http://www.terrypratchetbooks.com">Terry Pratchet</a>.  How can you <em>not</em> be a fan of someone who dedicates a book to "the Palace Guard, the City Guard, or the Patrol… Whatever the name, their purpose…is identical: to rush into the room, attack the hero one at a time, and be slaughtered…"</p>
 
 <p><a href="http://www.eclipse.org/">Eclipse</a> and <a href="http://subversion.tigris.org">Subversion</a> made me feel like one of those poor guys today.  Here's what happened:</p>
 
@@ -46,12 +46,12 @@ $ svn status
 
 <p>Now, if I could track down <a href="http://www.eclipse.org">Eclipse</a>'s developers, they would probably either say, "It's not our fault—<a href="http://subversion.tigris.org">Subversion</a> didn't even exist when we started work," or, "Yeah, yeah, we know, our bad, sorry," but I wouldn't accept either.  I <em>might</em> forgive them if <a href="http://www.eclipse.org">Eclipse</a> popped up a dialog saying, "Hey, you have some files here that I don't know anything about, do you mind if I crush them?", but it doesn't even do that.  Trampling on files and directories that aren't yours is just plain rude; anyone who has been programming for more than a few months ought to know better.</p>
 
-<p>The fix is simple: don't add the <code>bin</code> directory to the repository [<a href="#3">3</a>]. But let's do some math.  Assume there are 10,000 <a href="http://subversion.tigris.org">Subversion</a> users out there.  Assume that a quarter of them are using <a href="http://www.eclipse.org">Eclipse</a>, and that one in ten of those make the same mistake I did (adding the compile output directory to the repository).  If each one of them wastes two hours figuring this out (half the time it took us), that's 500 hours, or twelve and a half working weeks.  You can write a <em>lot</em> of software in twelve and a half weeks...</p>
+<p>The fix is simple: don't add the <code>bin</code> directory to the repository [<a href="#3">3</a>]. But let's do some math.  Assume there are 10,000 <a href="http://subversion.tigris.org">Subversion</a> users out there.  Assume that a quarter of them are using <a href="http://www.eclipse.org">Eclipse</a>, and that one in ten of those make the same mistake I did (adding the compile output directory to the repository).  If each one of them wastes two hours figuring this out (half the time it took us), that's 500 hours, or twelve and a half working weeks.  You can write a <em>lot</em> of software in twelve and a half weeks…</p>
 
 <p>Which is what we have to do, now that <a href="http://www.eclipse.org">Eclipse</a> isn't getting in the way.  Onward!</p>
 
 <p>[<a name="1">1</a>] David James, Michelle Levesque, and Greg Wilson.</p>
 
-<p>[<a name="2">2</a>] <a href="http://www.eclipse.org">Eclipse</a> <em>doesn't</em> do this to <code>CVS</code> sub-directories, presumably because its developers use CVS themselves, and fixed the problem the first time it came up.  Favoritism, that's what that is...</p>
+<p>[<a name="2">2</a>] <a href="http://www.eclipse.org">Eclipse</a> <em>doesn't</em> do this to <code>CVS</code> sub-directories, presumably because its developers use CVS themselves, and fixed the problem the first time it came up.  Favoritism, that's what that is…</p>
 
 <p>[<a name="3">3</a>] We tried using <a href="http://www.eclipse.org">Eclipse</a>'s inclusin/exclusion filters to prevent it from overwriting the <code>bin/.svn</code> sub-directory, but couldn't get that to work.</p>

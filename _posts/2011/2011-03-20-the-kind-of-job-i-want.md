@@ -18,7 +18,7 @@ Number three on my list is working on something that will make the world a bette
   <li>anything in the <a href="http://onschallenge.wikispaces.com/">open notebook science</a> space</li>
   <li>next-generation tools for teaching programming (<a href="http://uuhistle.org/">UUhistle</a> is neat)</li>
 </ul>
-but I realize these are more "R" than "D".  If NSERC hadn't turned down every application I sent them while I was a professor, I'd probably be two years into one of these by now, but "what if" doesn't pay the bills...
+but I realize these are more "R" than "D".  If NSERC hadn't turned down every application I sent them while I was a professor, I'd probably be two years into one of these by now, but "what if" doesn't pay the bills…
 
 Organizational technologies are interesting too: I'm a bit of a software development process geek, and I'd enjoy helping a development team go from 3 to 13 on the <a href="http://www.joelonsoftware.com/articles/fog0000000043.html">Joel Test</a> (13 instead of 12 because I think that "Do you use a debugger?" ought to be on the list).
 

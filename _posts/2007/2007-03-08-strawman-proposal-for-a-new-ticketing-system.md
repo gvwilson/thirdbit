@@ -27,11 +27,11 @@ So, here's a ticketing system that grows to be just as big and complex as its us
 </ol>
 Open questions:
 <ol>
-  <li>Would this, in principle, solve the problem we're trying to solve? If not, none of the other questions below is worth answering...</li>
+  <li>Would this, in principle, solve the problem we're trying to solve? If not, none of the other questions below is worth answering…</li>
   <li>What happens to tickets that already exist when a new field is added?  Are users required to specify a default for previous tickets? If so, does that default apply to future tickets?  Do we have to go back and fill in existing tickets?  Or is every field nullable?</li>
   <li>Can users <em>delete</em> fields?  If so, does this really delete the field from all tickets?  Or just hide it (i.e., make it invisible), so that old data in the database remains consistent?</li>
-  <li>How is this stuff laid out?  Are fields show in the order in which they were created?  Can users specify where fields should go?  Do we embed some sort of graphic design AI in DrProject?  (I'm guessing not...)  Or can we AJAX up a drag-around interface?</li>
-  <li>What schema do we create to support this?  I started doodling one last night; I'm not frightened by its multiple layers of indirection (I am, after all, a reformed C programmer), but I <em>am</em> bothered by the fact that ticket operations would require Python-level loops, i.e., they couldn't be written in SQL alone.  (My schema puts all the string-valued fields in one table, all the date-valued fields in another, and so on.  The alternative is to give each record N columns, one for each data type, and only use one of those; the code around this doesn't look any prettier...)</li>
+  <li>How is this stuff laid out?  Are fields show in the order in which they were created?  Can users specify where fields should go?  Do we embed some sort of graphic design AI in DrProject?  (I'm guessing not…)  Or can we AJAX up a drag-around interface?</li>
+  <li>What schema do we create to support this?  I started doodling one last night; I'm not frightened by its multiple layers of indirection (I am, after all, a reformed C programmer), but I <em>am</em> bothered by the fact that ticket operations would require Python-level loops, i.e., they couldn't be written in SQL alone.  (My schema puts all the string-valued fields in one table, all the date-valued fields in another, and so on.  The alternative is to give each record N columns, one for each data type, and only use one of those; the code around this doesn't look any prettier…)</li>
 </ol>
 See also:
 <ul>

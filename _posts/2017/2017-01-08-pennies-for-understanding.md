@@ -12,7 +12,7 @@ year: 2017
   expect that half the effort would be on the computer side,
   understanding how to translate the languages into executable form,
   and half on the human side, understanding how to design languages
-  that are easy or productive to use.... The human and computer parts
+  that are easy or productive to use…. The human and computer parts
   of programming languages have developed in radical asymmetry.
   <br>
   – Newell and Card, "The Prospects for Psychological Science in Human-Computer Interaction" (1985)

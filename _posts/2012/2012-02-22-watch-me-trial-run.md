@@ -5,11 +5,11 @@ original: swc
 title: "Watch Me: Trial Run"
 ---
 <p>A dozen people have come forward since I asked last week for volunteers to make short screencasts showing how they program. I just sent them a sample problem to work on to test things out (see below the fold); the videos they create won't be made public, but I hope it gives readers an idea of the scale of problems we're going to be looking at. If you have suggestions for interesting problems of a similar size, please add them as comments on this post.</p>
-<p>Hello, and thank you once again for volunteering to help Software Carpentry by recording a screencast to show people how you program. To test out your system, I'd like you to record yourself solving the problem described below using any tool or tools you like, on whatever kind of computer you prefer. Use whatever recording tool you like (a demo version of Camtasia, QuickTime, xvidcap, ...), and save in whatever video format is easiest. Please:</p>
+<p>Hello, and thank you once again for volunteering to help Software Carpentry by recording a screencast to show people how you program. To test out your system, I'd like you to record yourself solving the problem described below using any tool or tools you like, on whatever kind of computer you prefer. Use whatever recording tool you like (a demo version of Camtasia, QuickTime, xvidcap, …), and save in whatever video format is easiest. Please:</p>
 <ul>
 <li>do use a headset mike if you have one, but if you don't, please don't worry about it for now–this is just a test</li>
 <li>do use full-screen recording–the real videos will have to be constrained (probably to 800×600 or 1024×768), but for now, let's keep it simple</li>
-<li>do talk a lot while you're coding–stream of consciousness like "OK, so let's open up the editor again and try swapping those values in the other order..." is what we're after</li>
+<li>do talk a lot while you're coding–stream of consciousness like "OK, so let's open up the editor again and try swapping those values in the other order…" is what we're after</li>
 <li>don't worry about editing your video to cut out "ums" and "errs", typing mistakes, and so on–we'll do that for you in the real screencasts, and again, this is just a test</li>
 </ul>
 <hr />

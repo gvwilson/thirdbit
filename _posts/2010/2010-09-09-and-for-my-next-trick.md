@@ -2,7 +2,7 @@
 date: 2010-09-09 09:00:00
 year: 2010
 original: swc
-title: And For My Next Trick...
+title: And For My Next Trick…
 ---
 <p>One of the things people have voted right up to the top of our poll is reproducible research. The phrase means different things to different people, but part of it <em>must</em> be accurately tracking the provenance of every bit of data a scientist touches: where it came from, what was done to it, what was done to the results, and so on.  Once I've done the next episode of the Make lecture (on macros), I'd like to spend 10 minutes showing people how to do some of this by:</p>
 <ul>

@@ -80,7 +80,7 @@ This diagram refers to the following kinds of material:
     and a lot of people learn from them,
     but only once they know enough to ask a meaningful question and recognize a useful answer.
 9.  The transition from competent to expert is where instructors stop teaching fixed rules to be applied in predictable situations
-    and start saying, "It depends..."
+    and start saying, "It depends…"
     A lot of material at this level takes the form of introspective essays,
     like King's *On Writing* or Kael's *The Age of Movies*,
     in which the author implicitly says,

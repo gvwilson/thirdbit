@@ -174,5 +174,5 @@ original: swc
   <li>"Interactive Visualization", which rehashes the larger "Graphics and Visualization" knowledge area; and</li>
   <li>"Data, Information, and Knowledge", which does the same for the "Information Management" knowledge area.</li>
 </ul>
-<p>It's very revealing that version control, testing tools, and modular program design <em>aren't</em> included. The standard's authors would probably say that's because they're covered elsewhere, but the same is true of processing, visualization, and data management, all of which get special mention.  It seems we have our work cut out for us...</p>
+<p>It's very revealing that version control, testing tools, and modular program design <em>aren't</em> included. The standard's authors would probably say that's because they're covered elsewhere, but the same is true of processing, visualization, and data management, all of which get special mention.  It seems we have our work cut out for us…</p>
 

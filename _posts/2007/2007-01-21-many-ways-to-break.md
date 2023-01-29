@@ -15,4 +15,4 @@ sudo -u csc407 drproject-admin /home/courses/csc407/drp project create g0llum
 
 The result?  The files in the repository were owned by root, which meant that Apache couldn't read them.  Once the files were owned by the csc407 dummy user, everything worked fine.
 
-Update: and it appears that after this happens, the .svn_access file that controls who can get at particular repositories isn't updated any longer, and no error message is generated.  I have some patching to do...
+Update: and it appears that after this happens, the .svn_access file that controls who can get at particular repositories isn't updated any longer, and no error message is generated.  I have some patching to do…

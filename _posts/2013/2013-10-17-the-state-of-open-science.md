@@ -210,14 +210,14 @@ original: swc
     <td><strong>Trust</strong></td>
     <td bgcolor="#FF4444">
       "Internet &amp; Social Media" was 25th out of 25 industries in a survey of who people trust,
-      below banks and even airlines...
+      below banks and even airlines…
     </td>
     <td></td>
     <td bgcolor="#FFFF44">
       Mostly scientists trust their peers' work,
       as evidenced by the fact that they don't require one another to share data and code
       as part of the peer review process.
-      That isn't necessarily a good thing...
+      That isn't necessarily a good thing…
     </td>
   </tr>
 </table>

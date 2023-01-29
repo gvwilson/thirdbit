@@ -1,5 +1,5 @@
 ---
-title: "And I Thought *I* Worried a Lot..."
+title: "And I Thought *I* Worried a Lot…"
 date: 2006-10-22 10:13:10
 year: 2006
 ---

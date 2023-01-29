@@ -29,7 +29,7 @@ Let's start with user profiles.  Most web-based systems start off by managing th
 <ol>
   <li>People have a hard time remembering dozens of different account names and passwords, so they either forget them (which adds to the user support burden), or re-use them (which means that when one system is compromised, others can be broken as well).</li>
   <li>The more places user information is stored, the harder it is to keep everything up to date.  In our department, for example, we have to keep track of over a thousand students as they add and drop courses, change degree programs, and so on.  Keeping track of all that is hard; keeping track of it twice would be a nightmare.</li>
-  <li>Managing passwords and other credentials requires a lot of tricky code.  On one of the systems I used to administer, user passwords had to be at least eight characters long, with at least two non-alphabetic characters.  They couldn't contain dictionary words or use simple spe11ing trix, had to be changed every three months, and couldn't be recycled within a year.  This is <em>not</em> code you want to have to write twice...</li>
+  <li>Managing passwords and other credentials requires a lot of tricky code.  On one of the systems I used to administer, user passwords had to be at least eight characters long, with at least two non-alphabetic characters.  They couldn't contain dictionary words or use simple spe11ing trix, had to be changed every three months, and couldn't be recycled within a year.  This is <em>not</em> code you want to have to write twice…</li>
 </ol>
 For all these reasons, DrProject doesn't manage accounts itself.  Instead, it passes the credentials users give it (such as IDs and passwords) to an external program called <code>validate</code>. Here in Toronto, that program checks those credentials against the host Linux system's password file (Figure 1).  At Queen's, on the other hand, those credentials are checked against the university-wide Kerberos system.
 
@@ -39,7 +39,7 @@ Time for a quick FAQ:
 
 The standard way to do this is with <em>cookies</em>.  A cookie is a short piece of text that can be passed back and forth in the headers of HTTP requests and responses.  If a CGI program puts a cookie in the header of an HTTP response, then the client can send it back with the next request.  The technical term for this is a <em>nonce</em>; like half of a torn playing card, someone can use it to <em>re</em>-establish their identity at some future point.
 
-Back in the bad old days, programmers sometimes used real data as cookies: for example, I remember a system (I actually wrote it *cough*) that used the user ID as the cookie value.  Of course, this mean that anyone who knew how to create an HTTP request could impersonate anyone else.  Using a sequence of numbers, such as 1000, 1001, 1002, ... doesn't help: an attacker can still:
+Back in the bad old days, programmers sometimes used real data as cookies: for example, I remember a system (I actually wrote it *cough*) that used the user ID as the cookie value.  Of course, this mean that anyone who knew how to create an HTTP request could impersonate anyone else.  Using a sequence of numbers, such as 1000, 1001, 1002, … doesn't help: an attacker can still:
 <ul>
   <li>log in;</li>
   <li>look at her cookie value;</li>

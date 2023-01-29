@@ -16,7 +16,7 @@ original: swc
   some of my takeaways are:
 </p>
 <ul>
-  <li>Pretty much everyone's starting point is Excel...</li>
+  <li>Pretty much everyone's starting point is Excel…</li>
   <li>The data hand-off problem is as important as the data processing problem.</li>
 </ul>
 <p>
@@ -157,7 +157,7 @@ original: swc
   <li>start with pen and paper, transcribe to Excel spreadsheets</li>
   <li>import external databases (tables) as Excel spreadsheets</li>
   <li>integrate data from different tables, usually by sorting both spreadsheets on column, manually copy and paste matches into a new spreadsheet</li>
-  <li>plot a vs b, or a/b, ...</li>
+  <li>plot a vs b, or a/b, …</li>
   <li>find an interesting plot</li>
   <li>export integrated data to Ocean Data View (manually connecting columns to science variables)</li>
   <li>export integrated data to R</li>
@@ -260,7 +260,7 @@ original: swc
 </ol>
 <p>Example tasks Sam needs to do:</p>
 <ol>
-  <li>Experimental design (what happens in data driven science), controls, pre-processing (if genomes: assembly), post-processing...(e.g so many mappers, so many tools which one, which one???)</li>
+  <li>Experimental design (what happens in data driven science), controls, pre-processing (if genomes: assembly), post-processing… (e.g so many mappers, so many tools which one, which one???)</li>
   <li>Resource management (CPU, storage needs, backup, compression options, etc)</li>
   <li>Manipulation of the retrieved sequences;</li>
   <li>Analysis of sequences by retrieving the conserved regions and identifying SNPs;</li>

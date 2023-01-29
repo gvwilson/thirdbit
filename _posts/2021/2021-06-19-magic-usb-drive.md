@@ -30,4 +30,4 @@ But the birds sound happy
 and the rain has stopped long enough that I can get in a good bike ride.
 I may not dream about things like that,
 but I enjoy them.
-Time to start my day...
+Time to start my day…

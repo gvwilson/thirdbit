@@ -12,7 +12,7 @@ Fast forward to 2006, when I was asked to teach a course at the <a href="http://
   <li>Gosh, good architecture is really important, isn't it?</li>
   <li>So here's some fuzz about high-level design principles.</li>
   <li>And N kinds of diagrams you can use to describe architectures.</li>
-  <li>Um...that's it.</li>
+  <li>Um…that's it.</li>
   <li>Oh, wait, we should include some examples.  Wel, here's pipe-and-filter–not an actual pipe-and-filter system, of course, just, you know, pipe-and-filter in general.  And client/server, and model-view-controller, and (optionally) peer-to-peer, though again, not really truly actual existing systems.</li>
 </ul>
 Yes, I'm exaggerating a bit–Gorton's <a href="http://www.amazon.com/Essential-Software-Architecture-Ian-Gorton/dp/3642066844/"><cite>Essential Software Architecture</cite></a> and Reekie &amp; McAdam's <a href="http://www.amazon.com/Software-Architecture-Primer-John-Reekie/dp/0646458418/"><cite>A Software Architecture Primer</cite></a> were both useful exceptions–but there really was a mile of clear blue water between what was in the books, and what students actually wanted and needed to know.  That's why I organized <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><cite>Beautiful Code</cite></a>: I wanted examples of good design that I could put in front of students, and more importantly, some informed discussion of why those designs were good.

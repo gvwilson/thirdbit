@@ -13,7 +13,7 @@ original: swc
     Of the 189 papers originally identified,
     43 are included in the literature review.
     These 43 papers contain 33 different
-    claims about 12 software engineering practices...
+    claims about 12 software engineering practices…
     The claims that received the most support were:
     "The effectiveness of the testing practices currently used by scientic software developers is limited"
     and "Version control software is necessary for research groups with more than one developer."

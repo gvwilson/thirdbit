@@ -29,7 +29,7 @@ original: swc
 <li><p>Add a page showing what all available styles look like.</p></li>
 <li><p>Add more pointers to the FAQ so that lesson maintainers know where to accumulate wisdom.</p></li>
 <li><p>Use Inconsolata instead of Courier New for code.</p></li>
-<li><p>Add something to code blocks to say what language they're in. (We use styles to control rendering, but nothing appears in the final HTML to say, "Hey, I'm a Bash script...")</p></li>
+<li><p>Add something to code blocks to say what language they're in. (We use styles to control rendering, but nothing appears in the final HTML to say, "Hey, I'm a Bash script…")</p></li>
 <li><p>Add more checks for broken links to validator (do these on the generated HTML, not the Markdown).</p></li>
 <li><p>Validator should show snippets and line numbers to give context for errors.</p></li>
 <li><p>Add <code>make update</code> to update from template, and have it produce a change log.</p></li>

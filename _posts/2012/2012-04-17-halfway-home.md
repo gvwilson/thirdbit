@@ -25,9 +25,9 @@ title: Halfway Home
 <p id="scale"><em>3. Our methods scale.</em></p>
 <p>By "our methods", I mean:</p>
 <ol>
-<li>short on-site bootcamps...</li>
-<li>...followed by a few weeks of hour-long online tutorials...</li>
-<li>...and the assessment methods discussed <a href="#proof">above</a>.</li>
+<li>short on-site bootcamps…</li>
+<li>…followed by a few weeks of hour-long online tutorials…</li>
+<li>…and the assessment methods discussed <a href="#proof">above</a>.</li>
 </ol>
 <p>By "scale", I mean:</p>
 <ul>

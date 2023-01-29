@@ -13,7 +13,7 @@ I now have a Windows PC on my desktop—using the Mac laptop as my main computer
   <li>MWSnap (for screen captures)</li>
   <li>Eclipse (for Java, and as a memory stress tester ;-))</li>
   <li>Wing  (for Python)</li>
-  <li>Emacs (I know, I know...)</li>
+  <li>Emacs (I know, I know…)</li>
   <li>A printer drive</li>
   <li>Putty</li>
   <li>SQLite</li>

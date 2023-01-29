@@ -1,5 +1,5 @@
 ---
-title: "A Database And..."
+title: "A Database And…"
 date: 2009-12-11 06:43:12
 year: 2009
 ---

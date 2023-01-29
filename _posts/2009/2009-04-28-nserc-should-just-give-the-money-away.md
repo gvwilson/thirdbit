@@ -3,7 +3,7 @@ title: "NSERC Should Just Give the Money Away"
 date: 2009-04-28 06:52:41
 year: 2009
 ---
-<p><em>Not that I'm bitter or anything, but...</em></p>
+<p><em>Not that I'm bitter or anything, but…</em></p>
 <blockquote>
   <p><a href="http://www.informaworld.com/smpp/content~db=all?content=10.1080/08989620802689821">Cost of the NSERC Science Grant Peer Review System Exceeds the Cost of Giving Every Qualified Researcher a Baseline Grant</a></p>
   <p>Richard Gordon (Department of Radiology, University of Manitoba) and Bryan J. Poulin (Faculty of Business Administration, Lakehead University)</p>
@@ -14,11 +14,11 @@ year: 2009
   <p>It would be more convincing if the second author was not from Lakehead which would do very well from getting rid of refereeing!</p>
 </blockquote>
 <p>
-  When asked, though, both of those senior faculty admitted that they hadn't actually read the paper...
+  When asked, though, both of those senior faculty admitted that they hadn't actually read the paper…
 </p>
 <hr/>
 <p>
-  Second update: the (junior) prof who thought they had cooked their numbers sent the detailed analysis included below, which I think is more useful (and fairer) than dismissing the paper unread because of where the authors are from...
+  Second update: the (junior) prof who thought they had cooked their numbers sent the detailed analysis included below, which I think is more useful (and fairer) than dismissing the paper unread because of where the authors are from…
 </p>
 <p>
 <em>Look at table 3. The only lines which make a difference there are the time spent by the faculty members & students writing the grants, and the administrative cost of NSERC. For the former, they provide no support for the number of hours PIs or trainees spend on writing the grant -- I think the number 120 should be much lower. I spent ~3 weeks writing my NSERC, but this was while doing several other things in parallel, so the number is at least twice too big in my case, and it was my first experience writing a grant—I think I can do a decent job in about 40 hours now. The additional 2 weeks of work on each grant by students/postdocs I think is really unsubstantiated. Almost all PIs write the grants on their own; if they ask a student for something it is a figure that the student can also use in their paper.</em>

@@ -31,7 +31,7 @@ year: 2016
   but if they keep telling me off once I've acknowledged my mistake,
   I reserve the right to believe that they're not actually trying to make the world a better place,
   but are instead trying to prove their zealotry.
-  And <em>that</em> I feel justified in ignoring...
+  And <em>that</em> I feel justified in ignoring…
 </p>
 <blockquote>
   You can be completely right, and you still are going to have to engage folks who disagree with you.

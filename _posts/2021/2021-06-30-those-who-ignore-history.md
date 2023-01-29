@@ -26,7 +26,7 @@ PF: Hi, I'm a programmer. I just founded an online education company. What do yo
 
 TE: Hi, I'm a teacher. I know how to select and arrange learning materials in ways that are appealing, informative, and effective.
 
-PF: Huh. That seems simpler to me than programming...
+PF: Huh. That seems simpler to me than programming…
 
 ## 2021
 

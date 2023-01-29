@@ -18,4 +18,4 @@ title: Top Ten Why Nots
 <li><strong>You don't speak about your project at conferences at meetups.</strong> We could do more; the question is where?</li>
 <li><strong>You didn't submit it to the Changelog</strong>, which apparently is this week's hot "what's on in open source" blog. *shrug*</li>
 </ol>
-<p>All in all, #1 seems like the only major gap. If we fixed this–if we wrote a "how to contribute" guide–how many of you would be interested in creating short screencasts for us? It would help your peers, and look shiny on your CV too...</p>
+<p>All in all, #1 seems like the only major gap. If we fixed this–if we wrote a "how to contribute" guide–how many of you would be interested in creating short screencasts for us? It would help your peers, and look shiny on your CV too…</p>

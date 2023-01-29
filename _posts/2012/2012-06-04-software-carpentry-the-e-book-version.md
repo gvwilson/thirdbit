@@ -13,7 +13,7 @@ title: "Software Carpentry: The E-Book Version?"
 <li>Finally, the glue that holds the whole thing together is the excellent <a href="http://sphinx.pocoo.org/">Sphinx</a> publishing system.  This really turned out to be the key as Sphinx lets you create new directives to use in writing.   I was able to add directives to Sphinx to make it really easy to include the interactive features without getting in the way of the writing.</li>
 </ul>
 </blockquote>
-<p>To get a feel for what it can do, try working through <a href="http://thinkcspy.appspot.com/build/helloturtle.html">the turtle graphics chapter</a>. It's pretty impressive...</p>
+<p>To get a feel for what it can do, try working through <a href="http://thinkcspy.appspot.com/build/helloturtle.html">the turtle graphics chapter</a>. It's pretty impressive…</p>
 <p>My questions are:</p>
 <ol>
 <li>Given a choice between a traditional (static) book, either printed or electronic, and something like this, which would you prefer us to build?</li>

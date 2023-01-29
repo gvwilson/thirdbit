@@ -34,7 +34,7 @@ The Software Carpentry course currently contains the following lectures:
 </ol>
 Between now and Christmas, I want to tidy them up, duplicate the examples in MATLAB, and add some of the content I wrote for "CSC301: Introduction to Software Engineering".  Since I won't have time to do everything, I'd like your help prioritizing.  Which of the following topics do you think is most important to add?  And what have I forgotten entirely?
 <ul>
-  <li>Lifecycle: should I split the existing "Development Process" lecture into two, and cover agile methods (focusing on Scrum) and sturdy methods (i.e., longer release cycles, more up-front planning, legacy code). Neither exactly fits scientists' "exploratory programming" paradigm, but they're all we've got...</li>
+  <li>Lifecycle: should I split the existing "Development Process" lecture into two, and cover agile methods (focusing on Scrum) and sturdy methods (i.e., longer release cycles, more up-front planning, legacy code). Neither exactly fits scientists' "exploratory programming" paradigm, but they're all we've got…</li>
   <li>Quality: this would expand the "Programming Style" lecture with material from Spinellis's <a href="http://www.amazon.com/Code-Reading-Perspective-Effective-Development/dp/0201799405"><cite>Code Reading</cite></a> and <a href="http://www.amazon.com/Code-Quality-Perspective-Effective-Development/dp/0321166078"><cite>Code Quality</cite></a> to describe what makes good software good.</li>
   <li>Deployment
 <ul>

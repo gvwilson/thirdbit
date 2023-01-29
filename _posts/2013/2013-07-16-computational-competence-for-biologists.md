@@ -63,7 +63,7 @@ original: swc
   <li>Here is a set of 400 files with data (text files), they should only contain digits. Check if there are really digits only.</li>
   <li>Format this messy dataset in a standard data format (of your choice: JSON, xml, csv, SQL)</li>
   <li>Can you write a script that will not change the original dataset (we have both the original/raw data as well as the processed data)?</li>
-  <li>Here's a messy dataset and a lookup table....</li>
+  <li>Here's a messy dataset and a lookup table…</li>
 </ul>
 <p>Testing</p>
 <ul>

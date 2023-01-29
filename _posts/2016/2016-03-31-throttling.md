@@ -15,11 +15,11 @@ year: 2016
 </p>
 <blockquote>
   <p>
-    ...a few voices...are so loud and frequent that
+    …a few voices…are so loud and frequent that
     this mailing list feels like a soapbox far more often than a discussion forum.
   </p>
   <p>
-    ...
+    …
   </p>
   <p>
     Consider the following: I'm a new librarian about to hit my 3rd work-anniversary.

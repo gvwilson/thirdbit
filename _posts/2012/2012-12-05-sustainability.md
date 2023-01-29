@@ -11,6 +11,6 @@ original: swc
   <li>Demonstrate <em>career value to instructors</em>, so that people can keep teaching for us even when they're crunched by other commitments.<br><strong>Status</strong>: we're adding testimonials all the time, and hope to have some bigger stories by the middle of 2013.</li>
   <li><em>Assess our impact</em> in ways scientists will find credible.<br><strong>Status</strong>: we're currently exploring ways to do this, and would like to hear from anyone who'd like to help.</li>
   <li>Lobby funding agencies and journals to <em>ask hard questions about software</em> (or about software development processes).  In the long term, we need to convert twenty percent of scientists to our way of thinking, but we can accelerate that by focusing on the <em>right</em> twenty percent.<br><strong>Status</strong>: we haven't started this yet.</li>
-  <li>Get scientists to <em>include training in budgets and schedules</em>.<br><strong>Status</strong>: this is the longest shot of all, because it depends on funding agencies being amenable to the idea.  In practice, it may have to wait until we reach our 20% target...</li>
+  <li>Get scientists to <em>include training in budgets and schedules</em>.<br><strong>Status</strong>: this is the longest shot of all, because it depends on funding agencies being amenable to the idea.  In practice, it may have to wait until we reach our 20% target…</li>
 </ol>
 <p>If you can think of other things we can do to ensure Software Carpentry's long-term viability, we'd like to hear from you.</p>

@@ -28,5 +28,5 @@ original: nwit
   while there is much (much) less research into installation and package management
   than there is practical wrangling.
   If someone has a grad student looking for a project,
-  I'd be happy to chat...
+  I'd be happy to chat…
 </p>

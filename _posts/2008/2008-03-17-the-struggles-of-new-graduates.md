@@ -53,7 +53,7 @@ Beliefs of new developers:
 <td valign="top">Delusion</td>
 <td valign="top">
 <ol>
-  <li>It compiles, therefore it works. If it has bugs...well, that's what testers are for.</li>
+  <li>It compiles, therefore it works. If it has bugs…well, that's what testers are for.</li>
   <li>I know when I get stuck.</li>
 </ol>
 </td>
@@ -68,4 +68,4 @@ Beliefs of new developers:
 </td>
 </tr>
 </table>
-I think this is really valuable work; it'd be great to see it repeated with new grad students...
+I think this is really valuable work; it'd be great to see it repeated with new grad students…

@@ -23,7 +23,7 @@ title: "What I Didn't Tweet in March"
 
 -   [This](https://flourish.studio/2019/02/07/audio-talkie-visualisation-data-stories/)
     is *so* close to Browsercast.
-    We'll get there some day...
+    We'll get there some day…
 
 -   I really want someone to make earbuds that clip onto the arms of my glasses
     so I don't have to jam them in my ears to keep them in place.

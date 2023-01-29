@@ -44,7 +44,7 @@ year: 2013
 </p>
 <blockquote>
   <em>
-    ...if you and your colleagues don't convincingly make the case to the public
+    …if you and your colleagues don't convincingly make the case to the public
     that your discipline should be funded,
     well then it won't be.
   </em>

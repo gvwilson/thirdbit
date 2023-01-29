@@ -26,7 +26,7 @@ In more detail, this is the problem I'm trying to solve:
 4.  But every modern language has a way to create and distribute software and related files,
     such as packages in R, eggs or wheels in Python, or gems in Ruby,
     so a third option is for the instructor to create a package for learners to install.
-    (A lesson package would just have a higher documentation-to-code ratio than usual...)
+    (A lesson package would just have a higher documentation-to-code ratio than usual…)
 
 5.  Distributing exercises as packages appeals because it would leverage existing tools
     to handle dependencies.

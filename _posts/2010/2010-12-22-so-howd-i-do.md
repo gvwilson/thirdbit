@@ -16,4 +16,4 @@ Back in November 9 I laid out my goals for the remainder of the year. Let's see 
   <li>Finish one of the children's books I've got on the go: complete fail.</li>
   <li>Wrap up the undergrad projects I'm supervising: check</li>
 </ol>
-Total: 8/14 (since some bullets are actually several things). Here's hoping for a higher score in 2011...
+Total: 8/14 (since some bullets are actually several things). Here's hoping for a higher score in 2011…

@@ -10,7 +10,7 @@ which in turn reminded me of this Twitter thread:
 
 - "Hello, my name is David. I would fail to write bubble sort on a whiteboard. I look code up on the internet all the time. I don't do riddles." - [David Heinemeier Hansson](https://twitter.com/dhh/status/834146806594433025)
 - "Hi, I'm Simon. I helped create Django and I've never created a Django management command without copying and pasting one that already exists." - [Simon Willison](https://twitter.com/simonw/status/835975770740670464)
-- ...several others...
+- …several others…
 - ""Hi. I'm Estelle. I've been developing websites since 1998. As a woman in tech I don't announce my code shortcomings for fear of consequences." - [Estelle Weyl](https://twitter.com/estellevw/status/836228371361091584)
 
 Increasingly, I think that the real obstacle to more openness in scientific research

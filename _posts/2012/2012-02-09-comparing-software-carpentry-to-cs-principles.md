@@ -49,14 +49,14 @@ title: Comparing Software Carpentry to CS Principles
 <li>explain why heuristic approaches are necessary to solve some problems in a reasonable time; and</li>
 <li>explain how some problems cannot be solved using any algorithm.</li>
 </ul>
-We have explicitly <em>not</em> included this in Software Carpentry, as our experience has been that there's nothing substantive we can teach in the hour or two we'd be able to devote to it that would actually make a difference. Given more time, though...</li>
+We have explicitly <em>not</em> included this in Software Carpentry, as our experience has been that there's nothing substantive we can teach in the hour or two we'd be able to devote to it that would actually make a difference. Given more time, though…</li>
 <li><strong>The student can evaluate algorithms analytically and empirically</strong>: I agree it's important, but it's not really our focus–we are definitely <em>not</em> trying to cram an entire CS degree into a short course.</li>
 <li><strong>The student can explain how programs implement algorithms</strong>, e.g., explain how instructions are processed: this should be in Software Carpentry, but isn't right now.</li>
 <li><strong>The student can use abstraction to manage complexity in programs</strong>: again, I think learners have to do this to build the artifacts we ask them to build.</li>
 <li><strong>The student can evaluate a program for correctness</strong>: we should do more of this.</li>
 <li><strong>The student can develop a correct program</strong>: I hope so.</li>
 <li><strong>The student can employ appropriate mathematical and logical concepts in programming</strong>: not really–we don't touch on things like pre- and post-conditions, invariants, and the like because we're teaching the craft of programming rather than the science of computing.</li>
-<li><strong>The student can explain the abstractions in the Internet and how the Internet functions</strong>: not currently part of our core, because we don't think we can teach people enough about web programming in a short course to let them do anything except create security holes. I'd be very happy to be persuaded otherwise...</li>
+<li><strong>The student can explain the abstractions in the Internet and how the Internet functions</strong>: not currently part of our core, because we don't think we can teach people enough about web programming in a short course to let them do anything except create security holes. I'd be very happy to be persuaded otherwise…</li>
 <li><strong>The student can explain characteristics of the Internet and the systems built on it</strong>: as above.</li>
 <li><strong>The student can analyze how characteristics of the Internet and systems built on it influence their use</strong>: as above.</li>
 <li><strong>The student can connect the concern of cybersecurity with the Internet and systems built on it</strong>: as above.</li>

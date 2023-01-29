@@ -26,4 +26,4 @@ Here's his summary of the overall changes:
 
 To paraphrase George Orwell,
 "He who controls the data controls the future."
-There are dark times ahead...
+There are dark times ahead…

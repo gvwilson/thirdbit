@@ -273,8 +273,8 @@ typeof(add_a_b)
 <pre class="r"><code>eval(add_a_b, my_data)
 #&gt; [1] 11 22</code></pre>
 <p>Still not convinced? Have a look at this function:</p>
-<pre class="r"><code>run_many_checks &lt;- function(data, ...) {
-  conditions &lt;- list(...)
+<pre class="r"><code>run_many_checks &lt;- function(data, …) {
+  conditions &lt;- list(…)
   checks &lt;- vector(&quot;list&quot;, length(conditions))
   for (i in seq_along(conditions)) {
     checks[[i]] &lt;- eval(conditions[[i]], data)
@@ -289,8 +289,8 @@ typeof(add_a_b)
 #&gt; [[2]]
 #&gt; [1] TRUE TRUE</code></pre>
 <p>We can take it one step further and simply report whether the checks passed or not:</p>
-<pre class="r"><code>run_all_checks &lt;- function(data, ...) {
-  conditions &lt;- list(...)
+<pre class="r"><code>run_all_checks &lt;- function(data, …) {
+  conditions &lt;- list(…)
   checks &lt;- vector(&quot;logical&quot;, length(conditions))
   for (i in seq_along(conditions)) {
     checks[[i]] &lt;- all(eval(conditions[[i]], data))
@@ -303,11 +303,11 @@ run_all_checks(my_data, expr(0 &lt; a), expr(a &lt; b))
 <p>Just to make sure it's actually working, we'll try something that ought to fail:</p>
 <pre class="r"><code>run_all_checks(my_data, expr(b &lt; 0))
 #&gt; [1] FALSE</code></pre>
-<p>This is cool, but typing <code>expr(...)</code> over and over is kind of clumsy. It also seems superfluous, since we know that arguments aren't evaluated before they're passed into functions. Can we get rid of this and write something that does this?</p>
+<p>This is cool, but typing <code>expr(…)</code> over and over is kind of clumsy. It also seems superfluous, since we know that arguments aren't evaluated before they're passed into functions. Can we get rid of this and write something that does this?</p>
 <pre class="r"><code>check_all(my_data, 0 &lt; a, a &lt; b)</code></pre>
 <p>The answer is going to be "yes", but it's going to take a bit of work.</p>
 <blockquote>
-<p><strong>Square Brackets... Why'd It Have to Be Square Brackets?</strong></p>
+<p><strong>Square Brackets… Why'd It Have to Be Square Brackets?</strong></p>
 <p>Before we go there, a word (or code snippet) of warning. The first version of <code>run_many_checks</code> essentially did this:</p>
 <pre class="r"><code>conditions &lt;- list(expr(a + b))
 eval(conditions[1], my_data)
@@ -409,8 +409,8 @@ check_using_bangbang(both_hands, left &lt; right)
 <li>Use <code>enquo</code> to enquote every argument that contains an unevaluated expression.</li>
 <li>Use <code>!!</code> when passing each of those arguments into a tidyverse function.</li>
 </ol>
-<pre class="r"><code>check_all &lt;- function(data, ...) {
-  tests &lt;- enquos(...)
+<pre class="r"><code>check_all &lt;- function(data, …) {
+  tests &lt;- enquos(…)
   result &lt;- TRUE
   for (t in tests) {
     result &lt;- result &amp;&amp; (data %&gt;% transmute(result = !!t) %&gt;% pull(result) %&gt;% all())

@@ -13,6 +13,6 @@ Another term, another <a href="https://stanley.cs.toronto.edu/reports/reports.ht
   <li>David Chen and Winson Chung fixed a lot of bugs in the CPython version of <a href="http://www.cc.gatech.edu/gvu/people/Faculty/Mark.Guzdial.html">Mark Guzdial</a>'s multimedia Python library, while Mikhail Temkine cleaned up some in <a href="http://www.vpython.org">VPython</a>.</li>
   <li>Maria Khomenko and Andrey Petrov implemented new kinds of file locking in <a href="http://www.sqlite.org">SQLite</a>.</li>
 </ul>
-It was a very productive term; my only regret is that I was too busy to get t-shirts printed or arrange the usual end-of-term dinner. Maybe now that marks are in...
+It was a very productive term; my only regret is that I was too busy to get t-shirts printed or arrange the usual end-of-term dinner. Maybe now that marks are in…
 
 Best wishes, and best of luck, to everyone who took part—I look forward to hearing all about your future adventures.

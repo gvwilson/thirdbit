@@ -62,7 +62,7 @@ original: swc
 	    </ul>
       </li>
       <li>We'll use Mozilla offices where we have them, and ask people to find/use other space where we don't</li>
-      <li>Lesson content, extended examples, tools, related open science projects...</li>
+      <li>Lesson content, extended examples, tools, related open science projects…</li>
       <li>Details soon</li>
     </ul>
   </li>

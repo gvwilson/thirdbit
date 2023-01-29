@@ -12,7 +12,7 @@ year: 2008
   <li>Check the output of the "svn up" script to see if there's anything I should worry about.</li>
   <li>Log in to this blog to approve or delete comments.</li>
   <li>Check Google Reader to see what the rest of the world is doing.</li>
-  <li>Log in to Facebook to check on my Scrabulous games.  (It's a drug...)</li>
+  <li>Log in to Facebook to check on my Scrabulous games.  (It's a drug…)</li>
   <li>Go through my "action" folder from the top; if possible, deal with one holdover issue before tackling any of today's.  (This morning, for example, I booked a flight to Quebec City.)</li>
   <li>Make up a sticky-note-sized list of things I need to do today (some taken from the "action" folder, some not).</li>
 </ol>

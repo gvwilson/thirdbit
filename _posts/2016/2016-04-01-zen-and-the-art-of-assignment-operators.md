@@ -34,7 +34,7 @@ year: 2016
   not from what that thinking produces.
   As a friend once said,
   some people have to be libertarians for a while
-  in order to have something to grow out of...
+  in order to have something to grow out of…
 </p>
 <p>
   Some recent discussions on the Software Carpentry mailing list reminded me of all of this.
@@ -65,5 +65,5 @@ year: 2016
 </p>
 <p>
   Now if you'll excuse me,
-  I need to go and enthuse about peer instruction in an education mailing list...
+  I need to go and enthuse about peer instruction in an education mailing list…
 </p>

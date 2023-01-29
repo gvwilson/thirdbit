@@ -17,4 +17,4 @@ As reported earlier, the Computing Community Consortium asked people to submit "
   <li>Mapping &amp; navigation</li>
   <li>Recommendation systems</li>
 </ul>
-Still nothing from software engineering, though...
+Still nothing from software engineering, though…

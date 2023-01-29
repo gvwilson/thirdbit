@@ -9,7 +9,7 @@ I keep telling my students not to over-commit themselves.  It's a shame I don't 
 <ol>
   <li>Learning how to create effective online course material: there's lots of handwaving out there about wikis in the classroom, but nothing substantive about instructional design for mature learners using present-day internet technologies.</li>
   <li>Assessment. We don't know how to measure the productivity of programmers, or the productivity of scientists; trying to gauge this course's impact on the productivity of scientific programmers will therefore be something of a challenge. (One of the reasons I left industry for academia in 2006 was to figure out how to do this, but my attempts to find research funding all failed.)</li>
-  <li>Mechanics. <a href="http://www.site5.com">Site5</a> only allows one shell account per domain, which makes it difficult to open up the project's Subversion repository to other contributors. And I'll have to choose a format for the lecture notes: LaTeX, plain HTML, S5, one of the many wiki formats... And figure out a better way to create and manage images and video. And pick a bibliography format. And...</li>
+  <li>Mechanics. <a href="http://www.site5.com">Site5</a> only allows one shell account per domain, which makes it difficult to open up the project's Subversion repository to other contributors. And I'll have to choose a format for the lecture notes: LaTeX, plain HTML, S5, one of the many wiki formats… And figure out a better way to create and manage images and video. And pick a bibliography format. And…</li>
 </ol>
 A <a href="http://web.cs.toronto.edu/program/grad/mscac.htm"><strong>professional Master's degree</strong></a> in Computer Science at the University of Toronto to complement the department's existing research Master's.  The program consists of five regular graduate courses, a course each on business skills and professional communication, and an eight-month industrial internship in which students have to show that they can translate theory into practice.  We are now accepting <a href="https://gradapps.cs.toronto.edu/~mscac10/apply">applications</a> for September 2010 entry, so if you'd like to learn leading-edge ideas from some of the best researchers in the world, please check it out.
 
@@ -35,6 +35,6 @@ Projects I'm <em>not</em> working on:
 
 <strong>Two novels</strong> and half a dozen short stories. I enjoy writing fiction, but it feels like an indulgence, and I keep pushing it aside to do "serious" stuff. I'm sure that when I'm seventy I'll regret having done that, so I hope to spend one hour a day writing fiction once I start full-time on Software Carpentry.
 
-<strong>Jazz:</strong> I haven't touched my sax since this time last year—it may be vanity, but I'd rather not play at all than play badly.  Maybe when my daughter's a little older...
+<strong>Jazz:</strong> I haven't touched my sax since this time last year—it may be vanity, but I'd rather not play at all than play badly.  Maybe when my daughter's a little older…
 
-<strong>Exercise:</strong> yeah... exercise. Maybe I'll get my bike back on the road this week...
+<strong>Exercise:</strong> yeah… exercise. Maybe I'll get my bike back on the road this week…

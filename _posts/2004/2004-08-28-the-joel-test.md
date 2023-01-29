@@ -73,7 +73,7 @@ student teams hosted on Pyre do?</p>
     an open plan office (without a window); the Memview team worked
     on their own machines at home most of the time, so I'm guessing
     their environment included a lot of heavy metal music.  (I dunno,
-    they just look like those kind of guys...) </td>
+    they just look like those kind of guys…) </td>
   </tr>
 
   <tr>
@@ -107,4 +107,4 @@ student teams hosted on Pyre do?</p>
 
 <p>So, that leaves Helium with 6/12, and
 Memview with 5/12.
-Let's see how much better we can do this fall...</p>
+Let's see how much better we can do this fall…</p>

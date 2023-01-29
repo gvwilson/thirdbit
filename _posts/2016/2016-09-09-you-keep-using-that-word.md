@@ -1,5 +1,5 @@
 ---
-title: "You Keep Using That Word..."
+title: "You Keep Using That Word…"
 date: 2016-09-09 01:02:03
 year: 2016
 original: nwit
@@ -12,7 +12,7 @@ original: nwit
   International Computing Education Research conference from the ACM's site.
 </p>
 <p>
-  ...until I read that "<a href="https://twitter.com/guzdial/status/774073549002674176">#ICER2016 papers are open access <em>for next two weeks</em></a>"
+  …until I read that "<a href="https://twitter.com/guzdial/status/774073549002674176">#ICER2016 papers are open access <em>for next two weeks</em></a>"
   (emphasis added).
   If that's true,
   it's a real shame:

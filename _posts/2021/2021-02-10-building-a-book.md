@@ -47,7 +47,7 @@ do the things I want:
 1.  **Automatic regeneration of output.**
     This is the greatest strength of computational notebooks
     and one of the major deficiencies of LaTeX and site generation tools like Jekyll.
-    I have Makefiles... Lots of Makefiles...
+    I have Makefiles… Lots of Makefiles…
 
 1.  **Support for multiple languages.**
     [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}})

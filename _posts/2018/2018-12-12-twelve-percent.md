@@ -251,7 +251,7 @@ Our delivery mechanisms for getting lessons to learners are:
 ## Proposal
 
 Our proposed solution requires authors to create one extra text file.
-Just as every RSS feed has a metadata file called `feed.xml` (or `feed.rss`, or `atom.xml`—ah, standards...),
+Just as every RSS feed has a metadata file called `feed.xml` (or `feed.rss`, or `atom.xml`—ah, standards…),
 every lesson must have a Markdown file called `lesson.md` in its root directory.
 
 > Why Markdown rather than YAML?
@@ -479,7 +479,7 @@ Note that we archive past `lesson.md` files, but not the actual lesson content.
 1. The "Requirements" field in `lesson.md` is designed to specify packages and tools
    but not things like "access to a yottabyte of temporary storage".
 1. We'll need to provide "export to XYZ" to make incorporation into various LMSes easy.
-1. Is it too geeky to suggest adding a `<link type="application/lesson+yaml".../>` header to lessons' home pages?
+1. Is it too geeky to suggest adding a `<link type="application/lesson+yaml"…/>` header to lessons' home pages?
    It is? OK.
 
 ## Next Steps

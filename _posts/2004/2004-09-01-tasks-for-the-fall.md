@@ -25,7 +25,7 @@ expect profs to know a little about it.)  2 people needed; both slots
 open.</p>
 
 <p>Email system: the Helium team made a good start on an email management
-system, but lots more need to be done.  Spam filtering, threading... it's
+system, but lots more need to be done.  Spam filtering, threading… it's
 a long list.  3 people needed, all slots open.</p>
 
 <p>Testing frameworks: this team will *not* be responsible for testing Hippo
@@ -34,7 +34,7 @@ will integrate and customize some open source testing tools, like HtmlUnit
 and HttpUnit, so that everyone else can test the user interfaces they're
 building.  I expect that some of the work this team does will be folded
 back into the official releases of those tools, so if you're looking for
-an extra line on your resume...  2 people needed, both slots open.</p>
+an extra line on your resume…  2 people needed, both slots open.</p>
 
 <p>Server-side subversion: David James is already at work cleaning up the
 Java interface to Subversion, so that we can make it do what we need it to

@@ -5,7 +5,7 @@ year: 2005
 ---
 Following links from the latest <a href="http://www.subtextual.org/">Subtext</a> demo, I came to Martin Fowler's article <a href="http://www.martinfowler.com/articles/languageWorkbench.html">"Language Workbenches: The Killer-App for Domain Specific Languages?"</a>.  It's well written and thought provoking, like everything else Martin writes, but I think there's one glaring oversight. Two thirds of the way through, he says:
 
-<blockquote>...there are three main parts to defining a new DSL [Domain Specific Language]:
+<blockquote>…there are three main parts to defining a new DSL [Domain Specific Language]:
 <ul>
   <li>Define the abstract syntax, that is the <strong>schema</strong> of the abstract representation.</li>
   <li>Define an <strong>editor</strong> to let people manipulate the abstract representation through a project.</li>

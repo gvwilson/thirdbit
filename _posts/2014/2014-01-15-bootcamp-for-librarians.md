@@ -12,8 +12,8 @@ original: swc
 </p>
 <blockquote>
   <p>
-    I believe...that the kinds of problems you are engaged with
-    fundamentally change with every order of magnitude of the size of program you write...:
+    I believe…that the kinds of problems you are engaged with
+    fundamentally change with every order of magnitude of the size of program you write…:
   </p>
   <ul>
     <li>
@@ -34,7 +34,7 @@ original: swc
     </li>
   </ul>
   <p>
-    ...The 3am realization is that many, many "introduction" to programming materials start at the 1&rarr;10 transition.
+    …The 3am realization is that many, many "introduction" to programming materials start at the 1&rarr;10 transition.
     But learners start at the 0&rarr;1 transition–and a 10-line program has the approachability of Everest at that point.
   </p>
 </blockquote>

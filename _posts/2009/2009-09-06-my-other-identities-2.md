@@ -16,7 +16,7 @@ year: 2009
   <li><a href="http://ucosp.wordpress.com/2009/08/26/thirty-nine/">Thirty Nine!</a></li>
   <li><a href="http://ucosp.wordpress.com/2009/08/28/200/">Two Readings For ElmCity</a></li>
   <li><a href="http://ucosp.wordpress.com/2009/09/02/markus-and-basie-this-fall/">MarkUs and Basie This Fall</a></li>
-  <li><a href="http://ucosp.wordpress.com/2009/09/02/coast-to-coast-to-coast/">Coast to Coast... To Coast</a></li>
+  <li><a href="http://ucosp.wordpress.com/2009/09/02/coast-to-coast-to-coast/">Coast to Coast… To Coast</a></li>
   <li><a href="http://ucosp.wordpress.com/2009/09/03/testing-rails/">Testing Rails</a></li>
   <li><a href="http://ucosp.wordpress.com/2009/09/03/feature-branches/">Feature Branches</a></li>
   <li><a href="http://ucosp.wordpress.com/2009/09/03/welcome-aboard/">Welcome Aboard</a></li>

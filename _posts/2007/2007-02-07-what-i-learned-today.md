@@ -7,7 +7,7 @@ I discovered two things today.  The first was that most grad students don't know
 
 The second thing I learned is that my professional organization doesn't know from information architecture.  I can forgive the awards' site's use of table-based layout—after all, I'm using it in this posting ;-).  But would it really have been that hard to format the pages for the individual winners consistently, so that the little script I used to grab authors and titles didn't have to be rewritten four times to handle all the egregiously-different cases?  I also suspect that the pages were all built by hand, rather than being constructed from a database—the use of a URL in place of a thesis title in one case certainly suggests that.
 
-Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
+Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy…
 <table cellpadding="3">
 <tr>
 <td>2005</td>
@@ -29,7 +29,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=3275857&srt=all&aw=146&ao=DOCDISRT">Ramesh Johari: Efficiency Loss in Market Mechanisms for Resource Allocation</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=1451802&srt=all&aw=146&ao=DOCDISRT">Emmett Witchel: Mondriaan Memory Protection</a></td>
 </tr>
 <tr>
@@ -44,7 +44,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=6597716&srt=all&aw=146&ao=DOCDISRT">Dina Katabi: Decoupling Congestion Control</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=8538828&srt=all&aw=146&ao=DOCDISRT">Subhash Khot: New Techniques for Probabilistically Checkable Proofs and Inapproximability Results</a></td>
 </tr>
 <tr>
@@ -59,7 +59,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=9404379&srt=all&aw=146&ao=DOCDISRT">Robert C. Miller: Lightweight Structure in Text</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=5035798&srt=all&aw=146&ao=DOCDISRT">Tim Roughgarden: Selfish Routing</a></td>
 </tr>
 <tr>
@@ -74,7 +74,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=1221561&srt=all&aw=146&ao=DOCDISRT">Robert O'Callahan: Generalized Aliasing as a Basis for Program Analysis Tools</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=4973493&srt=all&aw=146&ao=DOCDISRT">David Wagner: Static Analysis and Computer Security</a></td>
 </tr>
 <tr>
@@ -89,7 +89,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=6090895&srt=all&aw=146&ao=DOCDISRT">William Chan: Symbolic Model Checking for Large Software Specifications</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=0439664&srt=all&aw=146&ao=DOCDISRT">Michael Ernst D.: Dynamically Discovering Likely Program</a></td>
 </tr>
 <tr>
@@ -158,7 +158,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=2549714&srt=all&aw=146&ao=DOCDISRT">James J. Kistler: Disconnected Operation in a Distributed File System</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=3368949&srt=all&aw=146&ao=DOCDISRT">Pandu Nayak: Automated Modeling of Physical Systems</a></td>
 </tr>
 <tr>
@@ -184,7 +184,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=5551563&srt=all&aw=146&ao=DOCDISRT">Garth Gibson: Redundant Disk Arrays: Reliable, Parallel Secondary Storage</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=2549057&srt=all&aw=146&ao=DOCDISRT">Carsten Lund: The Power of Interaction</a></td>
 </tr>
 <tr>
@@ -218,7 +218,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=8456062&srt=all&aw=146&ao=DOCDISRT">Joe Killian: Uses of Randomness in Algorithms and Protocols</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=8726735&srt=all&aw=146&ao=DOCDISRT">Michael Kearns J.: The Computational Complexity of Machine Learning</a></td>
 </tr>
 <tr>
@@ -233,7 +233,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=3629668&srt=all&aw=146&ao=DOCDISRT">Anne Condon: Computational Models of Games</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=3829098&srt=all&aw=146&ao=DOCDISRT">David Dill: Trace Theory for Automatic Hierarchical Verification of Speed-Independent Circuits</a></td>
 </tr>
 <tr>
@@ -248,7 +248,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=2746110&srt=all&aw=146&ao=DOCDISRT">Marc H. Brown: Algorithm Animation</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=4423211&srt=all&aw=146&ao=DOCDISRT">Leslie Greengard: The Rapid Evaluation of Potential Fields in Particle Systems</a></td>
 </tr>
 <tr>
@@ -267,7 +267,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=7337103&srt=all&aw=146&ao=DOCDISRT">Carl Ebeling: All the Right Moves: A VLSI Architecture for Chess</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=9867937&srt=all&aw=146&ao=DOCDISRT">David Ungar: The Design and Evaluation of a High-Performance Smalltalk System</a></td>
 </tr>
 <tr>
@@ -297,11 +297,11 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=8502149&srt=all&aw=146&ao=DOCDISRT">Carl E. Bach: Extended Riemann Hypothesis</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=2052808&srt=all&aw=146&ao=DOCDISRT">Henry Baird: Model-Based Image Matching Using Location</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=4970565&srt=all&aw=146&ao=DOCDISRT">James Korein: A Geometric Investigation of Reach</a></td>
 </tr>
 <tr>
@@ -316,7 +316,7 @@ Anyway, here they are: the best theses in Computer Science since 1978.  Enjoy...
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=1302091&srt=all&aw=146&ao=DOCDISRT">Ellen Hildreth: The Measurement of Visual Motion</a></td>
 </tr>
 <tr>
-<td>...</td>
+<td>…</td>
 <td><a href="http://awards.acm.org/doctoral%5Fdissertation/citation.cfm?id=2193976&srt=all&aw=146&ao=DOCDISRT">Steven Johnson: Synthesis of Digital Systems from Recursion Equations</a></td>
 </tr>
 <tr>

@@ -1,5 +1,5 @@
 ---
-title: "If You're Going to Teach an Undergrad Intro to Software Engineering..."
+title: "If You're Going to Teach an Undergrad Intro to Software Engineering…"
 date: 2011-06-12 01:36:07
 year: 2011
 ---
@@ -18,6 +18,6 @@ I feel a bit uncomfortable listing two books I've worked, but my conscience goes
 
 Later: someone asked why the Gang of Four <a href="http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/"><em>Design Patterns</em></a> book isn't on this list. The answer is:
 <ul>
-  <li>Undergrads don't seem to connect with it–I had much better luck using material Freeman and Freeman's <a href="http://www.amazon.com/First-Design-Patterns-Elisabeth-Freeman/dp/0596007124/"><em>Head First Design Patterns</em></a> (but not the book itself–most of my students found its format as offputting as I did). My favorite DP book is Olsen's <a href="http://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452/"><em>Design Patterns in Ruby</em></a>, which I blogged about a couple of years ago, but since most of my students don't speak Ruby, I haven't actually taught with it.  Now, if Russ ever does a Python version...</li>
-  <li>Software design and software engineering are obviously related, but they're not the same thing.  In my mind, software engineering is <em>how</em> we produce software, while software design is what software looks like when it's built.  Both are important, but trying to cram both into a single course is a disservice to both.  (Of course, that's an argument for not including AOSA in this list either...)</li>
+  <li>Undergrads don't seem to connect with it–I had much better luck using material Freeman and Freeman's <a href="http://www.amazon.com/First-Design-Patterns-Elisabeth-Freeman/dp/0596007124/"><em>Head First Design Patterns</em></a> (but not the book itself–most of my students found its format as offputting as I did). My favorite DP book is Olsen's <a href="http://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452/"><em>Design Patterns in Ruby</em></a>, which I blogged about a couple of years ago, but since most of my students don't speak Ruby, I haven't actually taught with it.  Now, if Russ ever does a Python version…</li>
+  <li>Software design and software engineering are obviously related, but they're not the same thing.  In my mind, software engineering is <em>how</em> we produce software, while software design is what software looks like when it's built.  Both are important, but trying to cram both into a single course is a disservice to both.  (Of course, that's an argument for not including AOSA in this list either…)</li>
 </ul>

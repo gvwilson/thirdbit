@@ -3,7 +3,7 @@ title: "DrProject Internals: Tickets Again"
 date: 2006-11-05 10:40:02
 year: 2006
 ---
-So that's tickets taken care of, right?  If only...  Versioning is far from being the only thorny issue in building a ticketing system.  To understand some of the others, it helps to know a little about how DrProject evolved from <a href="http://trac.edgewall.org">Trac</a>.
+So that's tickets taken care of, right?  If only…  Versioning is far from being the only thorny issue in building a ticketing system.  To understand some of the others, it helps to know a little about how DrProject evolved from <a href="http://trac.edgewall.org">Trac</a>.
 
 When we first started using <a href="http://trac.edgewall.org">Trac</a> in January 2005, each installation of the software managed one, and only one, project: a single ticket database, a single set of wiki pages, and (most importantly) a single Subversion repository.  Each installation needed its own stanza in Apache's configuration file, and users had to be added to each installation separately (Figure 1).
 
@@ -34,7 +34,7 @@ Here's another instance of the same problem.  How do you identify tickets?  Ever
 <td>summary</td>
 <td>author</td>
 <td>creationtime</td>
-<td>...</td>
+<td>…</td>
 </tr>
 </table>
 But what if you want to store multiple projects in a single database?  You can't use a separate table for each project (well, you could, but it would be a lousy design for reasons that I hope are obvious).  What about this:
@@ -45,7 +45,7 @@ But what if you want to store multiple projects in a single database?  You can't
 <td>summary</td>
 <td>author</td>
 <td>creationtime</td>
-<td>...</td>
+<td>…</td>
 </tr>
 </table>
 Seems like it would work: to get a project's tickets, just add <code>WHERE project=whatever</code> to the <code>SELECT</code> statement.  Once again, though, we have a sequentiality problem: if people are filing tickets in different projects over the same period of time, a particular project's ticket IDs will seem to have gaps.

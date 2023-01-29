@@ -12,7 +12,7 @@ year: 2015
   and further that:
 </p>
 <blockquote>
-   ...the sorry reality of the bazaar Raymond praised in his book [is] a pile of old festering hacks,
+   …the sorry reality of the bazaar Raymond praised in his book [is] a pile of old festering hacks,
    endlessly copied and pasted by a clueless generation of IT "professionals"
    who wouldn't recognize sound IT architecture if you hit them over the head with it.
 </blockquote>

@@ -49,7 +49,7 @@ Rule 10: "Follow up on both success and failure" – I feel like right now we ar
 
 Maybe it would be helpful to explicitly ask people whether they want to keep contributing after their first PR is merged, and if they say yes then follow up with them later? Of course this would have to be opt-in because we don't want to harass people, but I feel like there is probably some percentage of contributors who would genuinely want to follow-up and would appreciate the option to ask for one.
 
-We could also like, offer people one of those "how was your experience?" surveys, like seemingly every business does now...
+We could also like, offer people one of those "how was your experience?" surveys, like seemingly every business does now…
 
 <em>
 If you don't want to wait for the paper to appear on PLoS,

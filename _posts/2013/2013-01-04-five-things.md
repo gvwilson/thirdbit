@@ -16,7 +16,7 @@ year: 2013
 <ol>
   <li>Catch up with <a href="https://software-carpentry.org">Software Carpentry</a> email.</li>
   <li>Take my Australian visitors out for dinner (this will be a lot easier than #1).</li>
-  <li>Write my daughter a "science fairies" story. (If I had more time, it'd be a story about a robot fairy princess pirate dinosaur ninja from outer space who plays guitar, but I gotta be realistic here...)</li>
+  <li>Write my daughter a "science fairies" story. (If I had more time, it'd be a story about a robot fairy princess pirate dinosaur ninja from outer space who plays guitar, but I gotta be realistic here…)</li>
   <li>Put together a five-minute talk explaining why a tool to merge PowerPoint slide decks is a key enabler of a better-than-MOOCs future for education.</li>
   <li>Finish reading <em><a href="http://www.amazon.com/Last-Policeman-Novel-Ben-Winters/dp/1594745765/">The Last Policeman</a></em>.</li>
 </ol>

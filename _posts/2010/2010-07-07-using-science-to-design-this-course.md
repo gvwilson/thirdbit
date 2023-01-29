@@ -14,7 +14,7 @@ title: Using Science to Design This Course
 <p>[<a name="ES09">ES09</a>] Albrecht Ehlert and Carsten Schulte: "<a href="http://doi.acm.org/10.1145/1584322.1584326">Empirical Comparison of Objects-First and Objects-Later</a>". <em>ICER'09</em>, 2009.</p>
 <p>[<a name="BS10">BS10</a>] Jens Bennedsen and Carsten Schulte: "<a href="http://doi.acm.org/10.1145/1789934.1789938">BlueJ Visual Debugger for Learning the Execution of Object-Oriented Programs</a>". <em>ACM Trans. Computing Education</em>, 10(2)/8, June 2010.</p>
 <p><strong>Footnotes</strong></p>
-<p>[<a name="1">1</a>] Academic (adj.): ...not expected to produce an immediate or  practical result.</p>
-<p>[<a name="2">2</a>] Did I really just use the word "mode"? Br...</p>
+<p>[<a name="1">1</a>] Academic (adj.): …not expected to produce an immediate or  practical result.</p>
+<p>[<a name="2">2</a>] Did I really just use the word "mode"? Br…</p>
 <p>[<a name="3">3</a>] If you're interested, a good place to start is the <a href="http://www.cwsei.ubc.ca/">CWSEI</a> site, or again, <a href="http://computinged.wordpress.com/">Mark Guzdial's blog</a>.</p>
 <p>[<a name="4">4</a>] Ernst and Singh's <a href="http://www.amazon.com/Trick-Treatment-Undeniable-Alternative-Medicine/dp/0393337782"><em>Trick or Treatment</em></a> is a great book about evidence-based thinking in medicine; I'd happily buy half a dozen copies of something similar about education to give to friends and family.</p>

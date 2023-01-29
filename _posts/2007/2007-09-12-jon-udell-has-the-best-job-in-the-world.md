@@ -9,4 +9,4 @@ Just look at the evidence:
   <li><a href="http://blog.jonudell.net/2007/08/13/podscreenmathslidesketchcasting/">Sketchcasting</a>: recording a whiteboard session with voiceover.</li>
   <li>Thoughts on the <a href="http://blog.jonudell.net/2007/08/13/transmission-of-tacit-knowledge-teaching-what-we-dont-know-that-we-know/">transmission of tacit knowledge</a>.</li>
 </ul>
-And then of course there's <a href="http://services.alphaworks.ibm.com/coscripter/browse/about">CoScripter</a>, which I found through his blog, and now have to internalize.  Ars increasingly longa, vita ever more brevis...
+And then of course there's <a href="http://services.alphaworks.ibm.com/coscripter/browse/about">CoScripter</a>, which I found through his blog, and now have to internalize.  Ars increasingly longa, vita ever more brevis…

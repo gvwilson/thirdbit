@@ -14,4 +14,4 @@ In fact, I think you're <em>more</em> likely to create a bad presentation if you
 
 So the next time someone tells you to ditch your bullet points because a few carefully-chosen images will convey your ideas more effectively, please say, "Yes, but carefully chosen <em>words</em> will be more effective still, and more accessible to the visually disabled, and there will be less fluff for me to hide behind if the ideas I'm trying to convey are shallow or contradictory."
 
-Now, back to recording...
+Now, back to recording…

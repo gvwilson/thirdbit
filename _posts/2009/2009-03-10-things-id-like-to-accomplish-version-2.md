@@ -13,5 +13,5 @@ year: 2009
   <li>Submit a proposal for a professional master's program: mostly done (which is good, since noon Friday is a hard cutoff).</li>
   <li>Finish rebuilding DrProject on top of <a href="http://www.djangoproject.com">Django</a>: some progress this term (including a very fun code sprint), and I'll have three students working on it this summer.</li>
   <li>Rewrite Software Carpentry.  No progress (which is unfortunate, since I'm hoping to re-run the course this summer in Toronto).</li>
-  <li>Figure out what to do next: this wasn't on the last list, but it should have been.  I'm open to suggestions...</li>
+  <li>Figure out what to do next: this wasn't on the last list, but it should have been.  I'm open to suggestions…</li>
 </ol>

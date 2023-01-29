@@ -22,7 +22,7 @@ because what I find I really want to do is this:
     |   - sub-point | in sentences.    |
     +—————+——————+
     | ```js                            |
-    | ...code...                       |
+    | …code…                       |
     | ```                              |
     +———————————-+
     | - point       | Paragraph saying |

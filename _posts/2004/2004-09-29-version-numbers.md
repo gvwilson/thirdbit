@@ -3,7 +3,7 @@ title: "Version Numbers"
 date: 2004-09-29 16:19:33
 year: 2004
 ---
-Since I was asked... Most projects I've worked on have used something
+Since I was asked… Most projects I've worked on have used something
 like the following scheme to identify releases.  A version number like "6.2.3.1407" means:
 <ul>
   <li>major version 6</li>

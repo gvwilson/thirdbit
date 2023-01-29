@@ -13,4 +13,4 @@ Week 11, and most of the projects for next term have been lined up.  Here's the 
   <li>Debbie Winter and Rick Valenzano are going to study game theory and evolution under the direction of <a href="http://www.cs.toronto.edu/~gfb/">Gary Baumgartner</a>.</li>
   <li><a href="https://www.drproject.org/TreeViz/wiki/MuhammadAli">Muhammad Ali</a> will build the information visualization half of a status dashboard for DrProject.</li>
 </ul>
-15 students, 7 projects (8 if you count Igor Foox's field trials of <a href="https://www.drproject.org/utest">UTest</a>, and 9 if you count ongoing enhancements of DrProject).  I'm looking forward to it...
+15 students, 7 projects (8 if you count Igor Foox's field trials of <a href="https://www.drproject.org/utest">UTest</a>, and 9 if you count ongoing enhancements of DrProject).  I'm looking forward to it…

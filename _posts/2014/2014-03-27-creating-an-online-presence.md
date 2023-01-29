@@ -27,7 +27,7 @@ original: swc
       <li>But should update at every important milestone (e.g., changing position, publishing really important paper)</li>
     </ul>
   </li>
-  <li>A PDF form of CV is important for forwarding around... doesn't need to be completely up to date, google scholar can keep that, but important milestones.</li>
+  <li>A PDF form of CV is important for forwarding around… doesn't need to be completely up to date, google scholar can keep that, but important milestones.</li>
   <li>Presentation about automatically maintaining presence: <a href="http://www.slideshare.net/c.titus.brown/2014-beacontoolsforscience">http://www.slideshare.net/c.titus.brown/2014-beacontoolsforscience</a></li>
   <li>More generally, for social media: <a href="http://www.slideshare.net/c.titus.brown/2013-beaconcongresssocialmedia">this presentation</a>
   </li>
@@ -84,9 +84,9 @@ original: swc
       <li><a href="http://home.heeere.com">Rémi Emonet</a> (not so worth :) )</li>
       <li><a href="http://www.physics.uwo.ca/~pbarmby/">Pauline Barmby</a></li>
       <li><a href="http://luispedro.org">Luis Pedro Coelho</a></li>
-      <li><a href="http://www.juliagustavsen.com/">Julia Gustavsen</a> (still working on it...needs research interests)</li>
+      <li><a href="http://www.juliagustavsen.com/">Julia Gustavsen</a> (still working on it…needs research interests)</li>
       <li><a href="http://ryanw.public.iastate.edu">Ryan Williams</a></li>
-      <li><a href="http://t00ky.github.io/">Fan Yang</a> (really new...)</li>
+      <li><a href="http://t00ky.github.io/">Fan Yang</a> (really new…)</li>
       <li><a href="http://annaschneider.org/">Anna Schneider</a> (a little out of date, using stacey)</li>
       <li><a href="http://penandpants.com/">Matt Davis</a> (on wordpress.com)</li>
       <li><a href="http://flxlex.flavors.me/">Lex Nederbragt</a> (landing page)</li>

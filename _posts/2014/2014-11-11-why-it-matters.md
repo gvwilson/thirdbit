@@ -8,7 +8,7 @@ original: swc
   Sometimes I forget that it isn't obvious
   why scientists ought to learn to program–or why anyone else ought to.
   Being more productive,
-  getting a better job...
+  getting a better job…
   Those are all good reasons,
   but as <a href="http://worrydream.com/MeanwhileAtCodeOrg/">Bret Victor points out</a>,
   if we focus on those,
@@ -21,9 +21,9 @@ original: swc
 </p>
 <blockquote>
   <em>
-    We in the West have arranged our institutions to prevent the concentration of political power...
+    We in the West have arranged our institutions to prevent the concentration of political power…
     But we have failed utterly to prevent the concentration of economic power,
-    or take account of how such concentration damages the conditions under which full human flourishing becomes possible...
+    or take account of how such concentration damages the conditions under which full human flourishing becomes possible…
     Too often,
     the defenders of free markets forget that what we really want is free men.
   </em>

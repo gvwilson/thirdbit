@@ -4,7 +4,7 @@ date: 2011-10-24 19:24:59
 year: 2011
 ---
 I just sent the following to <a href="mailto:adjudication@guinnessworldrecords.com">adjudication@guinnessworldrecords.com</a>; please add your voice.
-Damn birthers are everywhere these days...
+Damn birthers are everywhere these days…
 
 <hr />
 

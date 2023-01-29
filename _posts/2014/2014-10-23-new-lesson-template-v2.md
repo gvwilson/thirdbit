@@ -28,7 +28,7 @@ original: swc
     The template needs to be much simpler.  As Andromeda Yelton said,
     "It just looks to me like a minefield of ways to get things
     wrong–things that have <em>nothing to do with
-    pedagogy</em>..."
+    pedagogy</em>…"
   </li>
   <li>
     There needs to be a validator that authors can run locally before
@@ -429,7 +429,7 @@ and possibly including:
 ---
 layout: reference
 ---
-...commands and examples...
+…commands and examples…
 
 ## Glossary
 

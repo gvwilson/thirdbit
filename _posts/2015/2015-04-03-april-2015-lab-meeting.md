@@ -183,7 +183,7 @@ original: swc
 <li>Peter van Heusden &lt;pvh@sanbi.ac.za&gt;</li>
 <li>Gabriel Devenyi &lt;gdevenyi@gmail.com&gt;</li>
 </ul></li>
-<li>Noam Ross is working on a few improvements for the R lesson like: where learners can get help after the workshop, how they can solve their own problem, ... Started a repo, <a href="https://github.com/noamross/zero-dependency-problems" class="uri">https://github.com/noamross/zero-dependency-problems</a>, where he is gathering examples from various fora and workshops of the types of things that typical students run into. Interested in contributions from people -- directly from student questions -- also for feedback on lessons, in terms of what material has already been covered, minimal reproducible examples. A question is how much this should be independent material versus being exercises/materials incorporated into Novice Lessons. Short term hope: people contribute example of questions/problems. Where do beginners hit a wall? How beginners should ask the questions? Everything is R: would be nice to have Python, Shell, SQL, ... as well. Some of the material might end up being good examples/exercises.
+<li>Noam Ross is working on a few improvements for the R lesson like: where learners can get help after the workshop, how they can solve their own problem, … Started a repo, <a href="https://github.com/noamross/zero-dependency-problems" class="uri">https://github.com/noamross/zero-dependency-problems</a>, where he is gathering examples from various fora and workshops of the types of things that typical students run into. Interested in contributions from people -- directly from student questions -- also for feedback on lessons, in terms of what material has already been covered, minimal reproducible examples. A question is how much this should be independent material versus being exercises/materials incorporated into Novice Lessons. Short term hope: people contribute example of questions/problems. Where do beginners hit a wall? How beginners should ask the questions? Everything is R: would be nice to have Python, Shell, SQL, … as well. Some of the material might end up being good examples/exercises.
 <ul>
 <li>Greg: SWC and Data Carpentry exists also to have these non-technical questions answered.</li>
 </ul></li>
@@ -211,7 +211,7 @@ original: swc
 </ul></li>
 <li>Lesson sprint for summer:
 <ul>
-<li>Potential co-organizers (invite leaders and participants, ...)
+<li>Potential co-organizers (invite leaders and participants, …)
 <ul>
 <li>Neal Davis</li>
 <li>Tiffany Timbers (maybe)</li>

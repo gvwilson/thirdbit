@@ -47,5 +47,5 @@ If JOSP isn't to your liking, you may prefer one of these:
 <blockquote>"The familiar dot '.' symbol from Internet addresses is used in this
 book to terminate sentences."</blockquote>
 along with a side view of a dialog, and (my favorite) the Visual Basic 5.0 splash screen on page 40, which looks suspiciously like a memory access violation message box.  Yes, the book eventually runs out of steam, but it's still very funny, and let's face it, where else are you going to read something like:
-<blockquote>"...you form windows using forms.  A form is a window that you form. At first forms are unformed.  You must form your forms using the form designer (formerly the former).  In the form former, an unformed form forms a uniform formation of dots..."</blockquote>
+<blockquote>"…you form windows using forms.  A form is a window that you form. At first forms are unformed.  You must form your forms using the form designer (formerly the former).  In the form former, an unformed form forms a uniform formation of dots…"</blockquote>
 </dd> </dl>

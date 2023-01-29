@@ -9,6 +9,6 @@ Colleagues from several Canadian universities are joining with me this fall to s
 
 A key part of this course will be bringing the students together for a three-day code sprint at the end of September. As we found out in February, this pays off in all sorts of ways. Several companies and organizations have now pledged financial support to cover travel and accommodation expenses; I'll post the list (and my thanks) as soon as the paperwork is in place.  I'll also post the list of participating universities, along with contact information.
 
-It's going to be an exciting fall...
+It's going to be an exciting fall…
 
 [1] These cross-Canada projects are separate from the consulting course I described last week, in which graduate and undergraduate students from U of T will do projects using the City of Toronto's data.

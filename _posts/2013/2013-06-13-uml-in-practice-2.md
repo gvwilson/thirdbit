@@ -79,5 +79,5 @@ original: nwit
 </tbody>
 </table>
 <p>But there is much more in this paper than merely statistics. One of Petre's many insightful comments is:</p>
-<blockquote><em>Responses concerning UML use tend to be polarized, between design use and implementation use... Despite the notional accommodation of the whole process, informants tend to use UML either in early design, or in implementation, rarely both (even when informants' roles include the whole process).</em></blockquote>
+<blockquote><em>Responses concerning UML use tend to be polarized, between design use and implementation use… Despite the notional accommodation of the whole process, informants tend to use UML either in early design, or in implementation, rarely both (even when informants' roles include the whole process).</em></blockquote>
 <p>There are two ways to react to this work. The first is to read it as an indictment: after 20 years, UML is still mostly not used and not valued. The second, and more hopeful, is as a concrete step toward improving it. Parts of UML <em>are</em> used; the more we learn about which ones, where, why, and how, the better our chances of building something better.</p>

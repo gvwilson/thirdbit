@@ -23,9 +23,9 @@ but this fly-by has confirmed several things for me:
     [the gulf between researchers and practitioners]({{'/2012/12/06/two-solitudes-illustrated/' | relative_url}}),
     which hasn't narrowed noticeably since Vancouver in 2009.
     [Our effort to foster dialog](http://neverworkintheory.org/) failed,
-    but...
+    but…
 
-3.  ...I am more convinced than ever that the standard third-year introduction to software engineering
+3.  …I am more convinced than ever that the standard third-year introduction to software engineering
     based on [textbooks](https://www.mheducation.com/highered/product/software-engineering-practitioner-s-approach-pressman-maxim/M9780078022128.html)
     [like these](https://www.pearson.com/us/higher-education/product/Sommerville-Software-Engineering-9th-Edition/9780137035151.html)
     should be replaced by one that teaches undergraduates how to get, clean, analyze, and understand

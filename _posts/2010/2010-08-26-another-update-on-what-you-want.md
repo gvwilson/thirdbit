@@ -4,7 +4,7 @@ year: 2010
 original: swc
 title: Another Update on What You Want
 ---
-<p>Responses have slowed, so here are the final scores for the topics we're including (or thinking about including) in this course. It looks like the Unix shell just might go back in...</p>
+<p>Responses have slowed, so here are the final scores for the topics we're including (or thinking about including) in this course. It looks like the Unix shell just might go back in…</p>
 <table>
 <tbody>
 <tr>

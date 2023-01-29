@@ -1,5 +1,5 @@
 ---
-title: "I'd Really Like To Draw A Picture..."
+title: "I'd Really Like To Draw A Picture…"
 date: 2008-08-02 20:27:26
 year: 2008
 ---

@@ -14,6 +14,6 @@ Via Mike Gunderloy, an <a href="http://afreshcup.com/2009/05/04/announcing-rails
   <li><em>Reach out to individuals and groups who are underrepresented in the community.</em></li>
   <li><em>Collaborate with other groups with similar goals.</em></li>
 </ul>
-<em>...the key message of RailsBridge is simple, and goes beyond any one project: the Rails community is the product of everyone who participates, and it can be a positive force for good in the world. We think there are enough Rails developers who feel this way that the somewhat negative image of Rails that is current in some parts of the web can be revised—not by claiming that we're welcoming, but by actually acting that way.</em>
+<em>…the key message of RailsBridge is simple, and goes beyond any one project: the Rails community is the product of everyone who participates, and it can be a positive force for good in the world. We think there are enough Rails developers who feel this way that the somewhat negative image of Rails that is current in some parts of the web can be revised—not by claiming that we're welcoming, but by actually acting that way.</em>
 
 Three cheers, and best of luck.

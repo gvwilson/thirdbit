@@ -25,13 +25,13 @@ year: 2004
 
 &lt;target name="compile" depends="codegen"&gt;
     <b>&lt;mkdir dir="${class}"/&gt;</b>
-    &lt;javac srcdir="${gen}" destdir="${class}" ...&gt; /&gt;
-    &lt;javac srcdir="${src}" destdir="${class}" ...&gt; /&gt;
+    &lt;javac srcdir="${gen}" destdir="${class}" …&gt; /&gt;
+    &lt;javac srcdir="${src}" destdir="${class}" …&gt; /&gt;
 &lt;/target&gt;
 
 &lt;target name="schema" depends="compile"&gt;
     <b>&lt;mkdir dir="${data}"/&gt;</b>
-    &lt;schemaexport ... /&gt;
+    &lt;schemaexport … /&gt;
 &lt;/target&gt;
 </pre></blockquote>
 
@@ -52,12 +52,12 @@ year: 2004
 &lt;/target&gt;
 
 &lt;target name="compile" depends="codegen"&gt;
-    &lt;javac srcdir="${gen}" destdir="${class}" ...&gt; /&gt;
-    &lt;javac srcdir="${src}" destdir="${class}" ...&gt; /&gt;
+    &lt;javac srcdir="${gen}" destdir="${class}" …&gt; /&gt;
+    &lt;javac srcdir="${src}" destdir="${class}" …&gt; /&gt;
 &lt;/target&gt;
 
 &lt;target name="schema" depends="compile"&gt;
-    &lt;schemaexport ... /&gt;
+    &lt;schemaexport … /&gt;
 &lt;/target&gt;
 </pre></blockquote>
 
@@ -72,7 +72,7 @@ year: 2004
 
     &lt;mkdir dir="${data}"/&gt;
 
-    &lt;schemaexport .../&gt;
+    &lt;schemaexport …/&gt;
 
 &lt;/target&gt;
 </pre></blockquote>
@@ -80,14 +80,14 @@ year: 2004
 <p>and that works too.  <a href="http://www.ericburke.com/blog/2004/10/solution-to-gregs-hibernate-problem.html">His explanation</a> says:</p>
 
 <blockquote>
-I suspect the taskdef is resolving the classpath at the instant Ant parses the taskdef tag. Since one of the required .class files has not been generated yet, the SchemaExportTask does not find the necessary files...
+I suspect the taskdef is resolving the classpath at the instant Ant parses the taskdef tag. Since one of the required .class files has not been generated yet, the SchemaExportTask does not find the necessary files…
 While you could blame Ant, I think it's more likely that the SchemaExportTask should probably be modified to accept a classpath of its own. This would make the task more flexible since you wouldn't have to worry about where you define it.
 </blockquote>
 
 <p>He then goes on to say:</p>
 
 <blockquote>
-I hope someone finds this useful. [Yes, Eric, very; thank you, and thanks to William, too.]  There is still a very steep barrier to entry for tools like Hibernate, various AOP frameworks, etc... The barrier is figuring out all of the initial configuration options and getting your build process to flow. These things are overwhelming when you are first getting started.
+I hope someone finds this useful. [Yes, Eric, very; thank you, and thanks to William, too.]  There is still a very steep barrier to entry for tools like Hibernate, various AOP frameworks, etc… The barrier is figuring out all of the initial configuration options and getting your build process to flow. These things are overwhelming when you are first getting started.
 </blockquote>
 
-<p>Amen, Eric.  Eleven of <a href="http://www.cs.utoronto.ca">my department</a>'s brightest undergraduates have been banging their heads against Eclipse, Ant, JUnit, Tomcat, Hibernate, Tapestry, and Checkstyle for more than four weeks now.  They're smart, they work very hard, and they really want to master this stuff, but the learning "curve" they face is more like a vertical wall.  If the open source community wants colleges and universities to include modern tools and frameworks in the curriculum, they're going to have to do a better job fixing the "last 10%" of problems that so often gobble up all the hours students are supposed to spend learning...</p>
+<p>Amen, Eric.  Eleven of <a href="http://www.cs.utoronto.ca">my department</a>'s brightest undergraduates have been banging their heads against Eclipse, Ant, JUnit, Tomcat, Hibernate, Tapestry, and Checkstyle for more than four weeks now.  They're smart, they work very hard, and they really want to master this stuff, but the learning "curve" they face is more like a vertical wall.  If the open source community wants colleges and universities to include modern tools and frameworks in the curriculum, they're going to have to do a better job fixing the "last 10%" of problems that so often gobble up all the hours students are supposed to spend learning…</p>

@@ -3,7 +3,7 @@ title: "Agility and Romanticism"
 date: 2006-06-19 21:33:08
 year: 2006
 ---
-According to Wikipedia, <a href="http://en.wikipedia.org/wiki/Romanticism">Romanticism</a> was "...a secular and intellectual movement in the history of ideas that originated in late 18th century Western Europe. It...was in part inspired by a revolt against aristocratic social and political norms of the previous period, as well as a reaction against the rationalization of nature by the <a href="http://en.wikipedia.org/wiki/The_Age_of_Enlightenment">Enlightenment</a>...It stressed strong emotion..., legitimized the individual imagination as a critical authority..., and overturned some previous social conventions."
+According to Wikipedia, <a href="http://en.wikipedia.org/wiki/Romanticism">Romanticism</a> was "…a secular and intellectual movement in the history of ideas that originated in late 18th century Western Europe. It…was in part inspired by a revolt against aristocratic social and political norms of the previous period, as well as a reaction against the rationalization of nature by the <a href="http://en.wikipedia.org/wiki/The_Age_of_Enlightenment">Enlightenment</a>…It stressed strong emotion…, legitimized the individual imagination as a critical authority…, and overturned some previous social conventions."
 
 That's one view, anyway. Another is that Romanticism was not so much a reaction against the Enlightenment as a counter-strike by those who couldn't keep up with it. Before the birth of quantitative experimental science, people could organize their world-view based on whatever patterns or similarities struck their fancy; anyone could have an opinion on the nature of motion or the origin of lightning.
 

@@ -34,4 +34,4 @@ especially ones as vague as this,
 but I think it could be fun,
 and I'd like to see more games where you're trying to save people instead of slaughter them.
 Now if you'll excuse me,
-I think someone is setting up a round of *Pandemic*...
+I think someone is setting up a round of *Pandemic*…

@@ -58,10 +58,10 @@ original: swc
     <ul>
       <li>We currently have the Version 4 material (video tutorials done in 2010-11) and a link to the older Version 3 material (HTML pages written in 2006-07)</li>
       <li>The new material in the 'bc' repo <em>isn't</em> on the main web site (in part because it's still under development)</li>
-      <li>Most people agree that text is better than video for most learning situations...</li>
-      <li>...and when we look at server logs, it seems that most people who use the site watch a little bit of a few videos, but mostly read or search through our text...</li>
-      <li>...but the videos do impress people, and are useful to people using flipped classrooms...</li>
-      <li>...but are very expensive to maintain (in fact, there hasn't been any real maintenance in two years)</li>
+      <li>Most people agree that text is better than video for most learning situations…</li>
+      <li>…and when we look at server logs, it seems that most people who use the site watch a little bit of a few videos, but mostly read or search through our text…</li>
+      <li>…but the videos do impress people, and are useful to people using flipped classrooms…</li>
+      <li>…but are very expensive to maintain (in fact, there hasn't been any real maintenance in two years)</li>
       <li>Karin Lagesen suggested that we have a few very polished lessons with videos on the web site as advertising, then link to the rendered versions of the stuff in the 'bc' repo (<em>not</em> to the repo itself, which would scare newcomers)</li>
       <li>A related suggestion is to have short (one minute?) video intros to lessons, but keep the bulk of the material in text</li>
       <li>Another suggestion is to use extracts from videos recorded at conferences and bootcamps of people presenting this material (e.g., Katy Huff and Matt Davis's lessons at SciPy)

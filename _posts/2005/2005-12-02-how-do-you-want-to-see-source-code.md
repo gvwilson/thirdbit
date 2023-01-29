@@ -52,7 +52,7 @@ becoming this:
 <td><code>  result = {}</code></td>
 </tr>
 <tr>
-<td><code>  <em>...invert d into result...</em></code></td>
+<td><code>  <em>…invert d into result…</em></code></td>
 </tr>
 <tr>
 <td><code>  <font color="blue">return</font> result</code></td>

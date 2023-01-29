@@ -8,7 +8,7 @@ original: swc
   <p>
     I hesitate to say so,
     but I believe that we pedagogues tend to exaggerate greatly the amount of change in educational practice
-    that results from reading what other people say should be done...
+    that results from reading what other people say should be done…
   </p>
   <p>
     – Stephen Corey, 1951
@@ -99,17 +99,17 @@ original: swc
 </blockquote>
 <blockquote>
   <p>
-    Survey results...support the conjecture that knowledge transfer
+    Survey results…support the conjecture that knowledge transfer
     rarely happens top-down, from researcher to practitioner. When
     asked "What published material do you read with regard to your
     teaching?", seven participants mention reading technical
     publications related to disciplinary knowledge, five mention
     textbooks, five mention CS Ed practitioner conference
-    proceedings... Only one... (a CS Ed researcher) ...mentioned
+    proceedings… Only one… (a CS Ed researcher) …mentioned
     reading the CS Education research literature; and none mentioned
     reading research in the learning sciences, in the behavioural or
     social sciences, or disciplinary education research in cognate
-    disciplines...
+    disciplines…
   </p>
 </blockquote>
 <p>
@@ -122,7 +122,7 @@ original: swc
   <p>
     [C]'s acknowledgement of this cycle of adoption and adaptation
     comes with the slightly shamefaced 'there's nothing like
-    plagiarism, eh?' This...symbolises one of the fundamental features
+    plagiarism, eh?' This…symbolises one of the fundamental features
     that differentiate the activities of teaching and
     research. <strong>'Plagiarism' is about public attribution of the
     source of ideas, a basic requirement of research-based activity
@@ -179,7 +179,7 @@ original: swc
 </p>
 <blockquote>
   <p>
-    ...there is little evidence that enhanced efforts at dissemination
+    …there is little evidence that enhanced efforts at dissemination
     are working. A report to the National Research Council in 2008
     found that "NSF- and association-funded reforms at the classroom
     level, however well intentioned, have not led to the hoped for
@@ -194,7 +194,7 @@ original: swc
 </blockquote>
 <blockquote>
   <p>
-    ...there were notable differences in response dependent on how
+    …there were notable differences in response dependent on how
     long the contributor had been teaching, and on the time a
     contributor had been at their current institution. In both cases
     the longer the time, the more the response moved from the change
@@ -213,19 +213,19 @@ original: swc
 </blockquote>
 <blockquote>
   <p>
-    ...a least populated category was 'external imposition'...
+    …a least populated category was 'external imposition'…
   </p>
 <p>
-  In just over half of the stories...the instructor apparently
+  In just over half of the stories…the instructor apparently
   formulated the details of their pedagogical change on their own,
-  without consulting peers or other resources... This...is perhaps not
-  surprising given that 'change in response to students' was...the
+  without consulting peers or other resources… This…is perhaps not
+  surprising given that 'change in response to students' was…the
   most common catalyst category.
 </p>
 </blockquote>
 <blockquote>
   <p>
-    ...[some] stories described changes resulting from chance
+    …[some] stories described changes resulting from chance
     encounters with educators who shared or demonstrated details of
     their teaching practice. The authors of these stories had not
     intended to change their practice until they were exposed to a new
@@ -234,13 +234,13 @@ original: swc
 </blockquote>
 <blockquote>
   <p>
-    A larger group of change stories...involved <em>primed
+    A larger group of change stories…involved <em>primed
     serendipity</em>, where <strong>the author encountered
     unanticipated information but while putting themselves in
     situations where they could reasonably expect to
     learn <em>something</em> about teaching practices</strong>
     (e.g. attending a conference or workshop, or browsing a journal
-    issue)...Over 90% of the stories described changes that were
+    issue)…Over 90% of the stories described changes that were
     either created without drawing on outside sources, or were
     informed by personal interactions with other educators.
   </p>
@@ -299,7 +299,7 @@ original: swc
     <p>
       Our community is defined as "people who use our lessons", which
       helps with recognition.  That said, we should probably add all
-      the contributors' names to each lesson's home page...
+      the contributors' names to each lesson's home page…
     </p>
   </dd>
   <dt>
@@ -349,7 +349,7 @@ original: swc
 <p>
   Later still,
   "There was little distaste–indeed, some enthusiasm–for the re-use of pedagogic materials."
-  That's hardly a ringing endorsement...
+  That's hardly a ringing endorsement…
 </p>
 <p>
   Finally,
@@ -358,18 +358,18 @@ original: swc
 <ol>
   <li>
     <p>
-      ...the users of the Nifty repository do not appear to want
+      …the users of the Nifty repository do not appear to want
       library-type resources. They do not feel the need for
       catalogues, they are content with the current methods of
       searching, but would like the metadata associated with each
-      resources extended...
+      resources extended…
     </p>
   </li>
   <li>
     <p>
-      ...they are not looking for a one-stop-shop with a comprehensive
+      …they are not looking for a one-stop-shop with a comprehensive
       set of resources and the heavyweight 'authority' of editorial
-      constraints... Nor are they especially interested in the
+      constraints… Nor are they especially interested in the
       comprehensiveness of the content of the resources as they
       recognise that they will have to adapt anything to local
       context.

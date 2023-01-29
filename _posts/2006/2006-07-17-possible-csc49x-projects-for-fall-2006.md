@@ -15,4 +15,4 @@ All very tentative, but here are some of the options:
   <li>Add some features to <a href="http://queens.db.toronto.edu/project/blogs">BlogScope</a> to integrate with other data sources, and do some of the AI and pattern matching more efficiently.</li>
   <li>Sort out the mess that is date/time representation in Python's database interface libraries.</li>
 </ul>
-If you're at <a href="http://www.cs.utoronto.ca">U of T</a>, have at least two 300-level courses in CS, and a good GPA (3.0 or higher), I'd like to hear from you...
+If you're at <a href="http://www.cs.utoronto.ca">U of T</a>, have at least two 300-level courses in CS, and a good GPA (3.0 or higher), I'd like to hear from you…

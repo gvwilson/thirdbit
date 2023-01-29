@@ -8,7 +8,7 @@ year: 2020
 
 Oh yeah. It's beautiful. I wish I could program like that.
 
-*Well, I'm sure that if you practice...*
+*Well, I'm sure that if you practice…*
 
 No, I mean I wish I could write programs in two columns with explanation on the left and the code itself on the right.
 
@@ -20,7 +20,7 @@ Sorry, no, I mean I want to _write_ programs that way—like, actually write the
 
 Yeah, I know. But why not?
 
-*...because that's not how it works? The source code for a program is just lines of text, right?
+*…because that's not how it works? The source code for a program is just lines of text, right?
 And when editors do a split-pane view, they're just showing two different portions of the same linear text.*
 
 I get that, but if I put a two-cell table into a Word document I can do actual side-by-side editing.
@@ -43,13 +43,13 @@ I don't want to have to pre-process or post-process or side-process stuff—it'l
 What about the [Jupyter Notebook](https://jupyter.org/)?
 It stores everything in cells—can't we modify it to show prose and code cells side by side?
 
-*...*
+*…*
 
 And if we're going to do that,
 and if prose cells can contain angle-bracket markup,
 can't we embed editable SVG diagrams in the left-hand column as well?
 
-*I knew you were going to go there...*
+*I knew you were going to go there…*
 
 Yeah, OK, it's a bit of an obsession,
 but every programming textbook I have uses diagrams to illustrate data structures or dataflow
@@ -68,7 +68,7 @@ Here I am using an interpreted language for programming
 because immediacy reduces cognitive load and makes me more productive,
 but when I want to _explain_ code,
 I'm back to a compile-link-run cycle.
-It just feels...backward.
+It just feels…backward.
 
 *What are you talking about?
 Software is the most innovative industry in history—we're creating the future!*

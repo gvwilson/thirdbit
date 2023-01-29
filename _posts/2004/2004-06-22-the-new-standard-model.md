@@ -103,7 +103,7 @@ Java code, you must either translate <a href="http://www.jython.org/">Jython</a>
 a Java List in the first place—in which case, you lose much of the
 ease-of-use that makes scripting languages attractive in the first
 place.  On the other hand, while <a href="http://groovy.codehaus.org/">Groovy</a> uses native Java types,
-it doesn't actually work at the moment...
+it doesn't actually work at the moment…
 
 [<a name="5"></a>5] 85%, according to one large textbook publisher;
 I've heard others quote 90% or more.

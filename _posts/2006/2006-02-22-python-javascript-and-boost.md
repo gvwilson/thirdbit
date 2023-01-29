@@ -21,7 +21,7 @@ through.
 <p>Brendan's response was:</p>
 
 <blockquote><em>
-...for Mozilla, XPIDL and XPCOM (<a href="http://www.mozilla.org/scriptable/">http://www.mozilla.org/scriptable/</a>)
+…for Mozilla, XPIDL and XPCOM (<a href="http://www.mozilla.org/scriptable/">http://www.mozilla.org/scriptable/</a>)
 are the way to interface to "plugins" (generally construed)
 implemented in other languages, not just C++ but also Python (a C
 XPCOM binding could be done, and one was started, but there hasn't

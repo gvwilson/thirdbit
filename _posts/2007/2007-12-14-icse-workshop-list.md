@@ -3,7 +3,7 @@ title: "ICSE Workshop List"
 date: 2007-12-14 12:12:44
 year: 2007
 ---
-The list of workshops for next year's <cite>International Conference on Software Engineering</cite> (<a href="http://icse08.upb.de/">ICSE'08</a>) has been announced.  The titles alone provide a lot of insight into what academic software engineering is interested in these days.  They also show just how misleading it is to talk about "academic software engineering" as if it was one community, with one set of interests...
+The list of workshops for next year's <cite>International Conference on Software Engineering</cite> (<a href="http://icse08.upb.de/">ICSE'08</a>) has been announced.  The titles alone provide a lot of insight into what academic software engineering is interested in these days.  They also show just how misleading it is to talk about "academic software engineering" as if it was one community, with one set of interests…
 <ul>
   <li><a href="http://conway.isri.cmu.edu/~mcataldo/STC-2008.html">Socio-Technical Congruence</a></li>
   <li><a href="http://web.mac.com/jon_hall/IWAAPF08/IWAAPF08.html">Advances and Applications of Problem Frames</a></li>

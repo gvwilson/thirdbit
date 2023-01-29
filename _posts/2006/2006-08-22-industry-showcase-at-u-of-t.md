@@ -13,4 +13,4 @@ The <a href="http://www.cs.utoronto.ca">Department of Computer Science</a> at th
   <li><a href="http://www.radiantcore.com">Radiant Core</a></li>
   <li><a href="http://www.sidefx.com">SideFX</a></li>
 </ul>
-And of course, we'll be heading to a pub afterward... ;-)
+And of course, we'll be heading to a pub afterward… ;-)

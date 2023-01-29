@@ -23,7 +23,7 @@ year: 2008
   <li>Websites and Developer Networks: O'Reilly Radar (O'Reilly Media)</li>
   <li>Jolt Hall of Fame Winner: VMware Workstation</li>
 </ul>
-My thanks again to everyone who contributed to the book (especially Andy O.)  I think <a href="http://www.oreilly.com/news/frank_0701.html">Frank</a> would have been proud of us...
+My thanks again to everyone who contributed to the book (especially Andy O.)  I think <a href="http://www.oreilly.com/news/frank_0701.html">Frank</a> would have been proud of us…
 
 And here's a picture of Andy Oram accepting the award from Amber Ankerholz while Robert X. Cringely looks on:
 

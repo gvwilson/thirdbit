@@ -4,7 +4,7 @@ year: 2011
 original: swc
 title: Demographics (part two)
 ---
-<p>Here are summaries (slightly edited) of what people taking the course do.  There's quite a range...</p>
+<p>Here are summaries (slightly edited) of what people taking the course do.  There's quite a range…</p>
 <ul>
 <li>Stem cell biology, high-throughput screening, high-content analysis.</li>
 <li>My research aims to improve the resolution of ultrasonic images created during ultrasonic inspections of thin metal sheets and metal welds though the use of digital signal processing algorithms.</li>
@@ -29,7 +29,7 @@ title: Demographics (part two)
 <li>Working on a Brownian dynamics simulation of secreted protein mass transport from adherent mouse embryonic stem cell (mESC) culture with perfusion of laminar flow; culturing mESCs for self-renewal or differentiation induces the secretion of many different signalling proteins.</li>
 <li>I'm working with a database of location and health information for 20,000 diabetes patients in California and trying to evaluate how/if their health condition is related to their neighborhood environments. I work with GIS to characterize their access to healthy and unhealthy food resources, parks, public transportation, and other environmental factors as the data becomes available.</li>
 <li>Applied Statistics with focus on Statistical Genetics.</li>
-<li>Numerical simulation of an impacting drop on to a solid surface with an open cavity which has a wide range of application such as optimizing the production cost of water repellent fabrics, predicting the quality of arc welding, improving printing quality... Long story short, application of CFD in simulation of multiphase fluids processes.</li>
+<li>Numerical simulation of an impacting drop on to a solid surface with an open cavity which has a wide range of application such as optimizing the production cost of water repellent fabrics, predicting the quality of arc welding, improving printing quality… Long story short, application of CFD in simulation of multiphase fluids processes.</li>
 <li>The physics for blood flight in blood pattern analysis. Ultimately we're trying to create a program that can recognize blood stains and draw the path of their flight back to their source.</li>
 <li>Attention and working memory. Currently attempting to program a useful field of view task, and an experiment that tests memory for facial features.</li>
 <li>I study stem cell bioengineering, but try to bring a computational twist into things. So I'm working on models of cell proliferations and differentiation, and starting to look at some optimization methods to help with the engineering aspects of many projects within the lab.</li>

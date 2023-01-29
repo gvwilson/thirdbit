@@ -13,4 +13,4 @@ year: 2005
 <li>and Javascript binding everything together.</li>
 </ul>
 
-<p>I wondered several years ago whether Javascript was going to stealth its way past Perl, Python, Tcl, Ruby, and all the other "heavyweight" scripting languages.  Still don't see any technical reason it couldn't, and would any of us really be surprised if it built up enough momentum in the browser to colonise other application areas as well?  Who knows—maybe <a href="http://weblog.infoworld.com/udell/2004/09/29.html">E4X</a> will be the seed from which the extensible programming systems I've been dreaming of grow...</p>
+<p>I wondered several years ago whether Javascript was going to stealth its way past Perl, Python, Tcl, Ruby, and all the other "heavyweight" scripting languages.  Still don't see any technical reason it couldn't, and would any of us really be surprised if it built up enough momentum in the browser to colonise other application areas as well?  Who knows—maybe <a href="http://weblog.infoworld.com/udell/2004/09/29.html">E4X</a> will be the seed from which the extensible programming systems I've been dreaming of grow…</p>

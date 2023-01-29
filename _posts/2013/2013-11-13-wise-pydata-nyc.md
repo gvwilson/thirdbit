@@ -14,5 +14,5 @@ original: swc
   in conjunction with <a href="http://pydata.org/nyc2013">PyData NYC</a>.
   Judging from <a href="http://jvns.ca/blog/2013/11/12/women-in-technology-workshop-at-pydata-nyc/">Julia Evans' writeup</a>,
   it was a great success.
-  We look forward to seeing some of their alumni in our classes some day...
+  We look forward to seeing some of their alumni in our classes some day…
 </p>

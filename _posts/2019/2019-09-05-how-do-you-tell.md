@@ -82,7 +82,7 @@ def f(start=datetime.datetime.now()):
 
 f() # prints 2019-09-05 15:47:20.976051
 f() # also prints 2019-09-05 15:47:20.976051
-f() # and again...
+f() # and again…
 ```
 
 Possible causes are:

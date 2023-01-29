@@ -4,7 +4,7 @@ date: 2010-09-05 14:19:21
 year: 2010
 ---
 <p>
-  If you were never a board game geek, this post isn't for you. Move on, move on, nothing to read here...
+  If you were never a board game geek, this post isn't for you. Move on, move on, nothing to read here…
 </p>
 
 <p>
@@ -20,7 +20,7 @@ year: 2010
 </p>
 
 <p>
-  It wouldn't actually work, though: wild ice is far too rough to skate on. But imagine a world where nanotech ran wild a hundred million years ago and converted the entire surface to diamond. Tectonic activity since then has broken the sheet up into dozens of ocean-sized plates, each as smooth as glass, with habitable regions of "normal" land between them. Colony ship crashes, technology collapses, blah blah blah, and voila: a world where soldiers on rollerblades hitch rides behind sailing ships running on wheels two stories tall. I've always wondered how Nelson would have fared against Napoleon himself...
+  It wouldn't actually work, though: wild ice is far too rough to skate on. But imagine a world where nanotech ran wild a hundred million years ago and converted the entire surface to diamond. Tectonic activity since then has broken the sheet up into dozens of ocean-sized plates, each as smooth as glass, with habitable regions of "normal" land between them. Colony ship crashes, technology collapses, blah blah blah, and voila: a world where soldiers on rollerblades hitch rides behind sailing ships running on wheels two stories tall. I've always wondered how Nelson would have fared against Napoleon himself…
 </p>
 
 <p>
@@ -48,7 +48,7 @@ year: 2010
 </p>
 
 <p>
-  Second, this "steampunk in space" setting (similar to that used in the role-playing game <a href="http://www.space1889.org/"><em>Space:1889</em></a>) doesn't have electronics, so there are no guided missiles, which I think would also make real space battles very short affairs. The actual movement rules could be borrowed from <a href="http://www.fatmessiahgames.com/fmg/hv/index.html"><em>Hard Vacuum</em></a> (which are simple and sort of physically-based), and of course, there'd be at least one scenario where the ancient Martian ship woke up...
+  Second, this "steampunk in space" setting (similar to that used in the role-playing game <a href="http://www.space1889.org/"><em>Space:1889</em></a>) doesn't have electronics, so there are no guided missiles, which I think would also make real space battles very short affairs. The actual movement rules could be borrowed from <a href="http://www.fatmessiahgames.com/fmg/hv/index.html"><em>Hard Vacuum</em></a> (which are simple and sort of physically-based), and of course, there'd be at least one scenario where the ancient Martian ship woke up…
 </p>
 
 <p>
@@ -76,5 +76,5 @@ year: 2010
 </p>
 
 <p>
-  There: now that I've written them down, perhaps they'll leave me alone...
+  There: now that I've written them down, perhaps they'll leave me alone…
 </p>

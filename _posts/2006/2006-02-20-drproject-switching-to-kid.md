@@ -47,6 +47,6 @@ print "Processing time: %d, Rendering time: %d" % (process_time, timing.milli())
 </blockquote>
 which results in: <em>Processing time: 0, Rendering time: 1759</em>
 
-This performance is almost shockingly poor.  The problem appears to be a side-effect of guaranteeing the template is well-formed XML: when you remove the <code>XML(...)</code> fragment from the template, and just display<code> x</code>, the rendering time drops to 129 milliseconds.
+This performance is almost shockingly poor.  The problem appears to be a side-effect of guaranteeing the template is well-formed XML: when you remove the <code>XML(…)</code> fragment from the template, and just display<code> x</code>, the rendering time drops to 129 milliseconds.
 
 There has recently been some talk on the Kid mailing list calling for an option to disable the "well-formed XML" check when embedding XML into a template.  Hopefully for DrProject, this change gets pushed into Kid very soon. In the meantime, if you have experienced similar performance issues with Kid and have found a workaround, please email me.

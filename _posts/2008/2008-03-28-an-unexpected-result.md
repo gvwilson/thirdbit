@@ -13,4 +13,4 @@ This term, the students in my third-year software engineering course have been w
   <li>Porridge has bought Eggs.</li>
   <li>Waffles has bought Pancakes.</li>
 </ul>
-I was surprised, as I'd been expecting there to be a clear winner.  I'll be reviewing (and grading) the reviews over the next few days; it'll be interesting to see whether groups got different answers because they're using different criteria, or because... um... hm, I don't have another hypothesis just yet.
+I was surprised, as I'd been expecting there to be a clear winner.  I'll be reviewing (and grading) the reviews over the next few days; it'll be interesting to see whether groups got different answers because they're using different criteria, or because… um… hm, I don't have another hypothesis just yet.

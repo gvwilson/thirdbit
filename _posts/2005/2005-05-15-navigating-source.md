@@ -33,7 +33,7 @@ The notation <code>var:header_logo.link</code> tells ClearSilver to look in the 
 </blockquote>
 The first set of hits, from <code>db_default.py</code>, are from the code that builds up a tuple of tuples called <code>default_config</code>:
 <blockquote>
-<pre>default_config = (('trac', 'htdocs_location', '/trac/'), ... ('header_logo', 'link', 'http://trac.edgewall.com/'), ('header_logo', 'src', 'trac_banner.png'), ('header_logo', 'alt', 'Trac'), ('header_logo', 'width', '236'), ('header_logo', 'height', '73'), ... )</pre>
+<pre>default_config = (('trac', 'htdocs_location', '/trac/'), … ('header_logo', 'link', 'http://trac.edgewall.com/'), ('header_logo', 'src', 'trac_banner.png'), ('header_logo', 'alt', 'Trac'), ('header_logo', 'width', '236'), ('header_logo', 'height', '73'), … )</pre>
 </blockquote>
 Make a note of that, then look in <code>chrome.py</code> at the second set of hits, which come from the following block of code:
 <blockquote>
@@ -43,13 +43,13 @@ OK, <code>chrome.py</code> is looking in the configuration object that Trac crea
 
 Step 4: grepping for <code>default_config</code> gets two hits in <code>env.py</code>:
 <blockquote>
-<pre>def insert_default_data(self): ... for section,name,value in db_default.default_config: self.config.set(section, name, value) self.config.save()</pre>
+<pre>def insert_default_data(self): … for section,name,value in db_default.default_config: self.config.set(section, name, value) self.config.save()</pre>
 </blockquote>
 and:
 <blockquote>
 <pre>def load_config(self): self.config = Configuration(os.path.join(self.path, 'conf', 'trac.ini')) for section,name,value in db_default.default_config: self.config.setdefault(section, name, value)</pre>
 </blockquote>
-Ah ha!  The configuration object initializes itself by reading from <code>trac.ini</code>.  All we have to do now is find that...
+Ah ha!  The configuration object initializes itself by reading from <code>trac.ini</code>.  All we have to do now is find that…
 
 Step 5: Our Trac is run by Apache 2 on Debian Linux, which keeps configuration information under the <code>/etc/apache2/conf.d</code> directory.  Sure enough, there's a <code>trac</code> file in <code>conf.d</code>, which contains the following lines:
 <blockquote>

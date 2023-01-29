@@ -5,7 +5,7 @@ year: 2015
 original: swc
 ---
 <blockquote>
-  "What would Greg do? [pause] OK, now that we've ruled that out..."
+  "What would Greg do? [pause] OK, now that we've ruled that out…"
   <br>
   – overheard
 </blockquote>

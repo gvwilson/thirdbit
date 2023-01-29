@@ -10,7 +10,7 @@ Last night's <a href="http://barcamp.org/TorCampDemoCamp6">DemoCamp 6</a> was a 
   <li><a href="http://www.thewehners.net/joshua/">Joshua Wehner</a> showed off a <a href="http://www.rubyonrails.org">Rails</a> application for coordinating conference attendance.</li>
   <li><a href="http://honeybrown.ca/">Anand Agarawala</a> (also from <a href="http://www.cs.utoronto.ca">U of T</a>) closed the session with <a href="http://honeybrown.ca/Pubs/BumpTop.html">BumpTop</a>, which applies the Unreal Tournament physics engine to the desktop.</li>
 </ul>
-They were all very cool, and once again made me feel that at some point, without really noticing, I became one of those "Fortran on a VAX is all you need" dinosaurs I remember from my first couple of jobs in the 1980s... ;-)
+They were all very cool, and once again made me feel that at some point, without really noticing, I became one of those "Fortran on a VAX is all you need" dinosaurs I remember from my first couple of jobs in the 1980s… ;-)
 
 <hr />Other reviews:
 <ul>

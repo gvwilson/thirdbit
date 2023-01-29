@@ -62,7 +62,7 @@ original: swc
   so they don't think to look for that information
   when it's their turn to update their department's courses.
   As for funding agencies,
-  good luck getting them to care about anything related to training...
+  good luck getting them to care about anything related to training…
 </p>
 <p>
   So here's how we should design the curriculum for
@@ -102,7 +102,7 @@ original: swc
   some of these people would describe themselves as data scientists,
   and could explain at length why basing decisions on personal experience
   and "it's obvious to me"
-  is a bad idea...)
+  is a bad idea…)
 </p>
 <p>
   What we've done as a substitute is much less rigorous,

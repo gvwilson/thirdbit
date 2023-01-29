@@ -11,4 +11,4 @@ Which brings us to this year's stats for Software Carpentry:
 
 Looking at visits (upper right), things aren't too bad.  Looking at pages, files, and hits (on the left), it's clear the web is losing interest.  And looking at the total downloads (bottom right), I'm just confused: we didn't do any major surgery on the site, or retire any heavyweight content, so I don't understand why traffic weight would be cut by two thirds.
 
-So that's another of my New Year's resolutions for 2009  that will be a repeat of one made in 2008: give the site a makeover. If you have 50-100 hours of quality time to donate to help, please let me know...
+So that's another of my New Year's resolutions for 2009  that will be a repeat of one made in 2008: give the site a makeover. If you have 50-100 hours of quality time to donate to help, please let me know…

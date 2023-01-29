@@ -29,17 +29,17 @@ title: "Things I Didn't Tweet This Month"
     This shouldn't need to be said,
     but unfortunately this post never gets old.
 
--   LaaaaaaTeeeeeeXxxxxx...
+-   LaaaaaaTeeeeeeXxxxxx…
 
 -   I could really use a guide to pronouncing accented characters in various languages.
 
--   `git push origin hamster` over and over again...
+-   `git push origin hamster` over and over again…
 
 -   The ACM is making the last fifty years of SIGCSE proceedings freely available—for one month.
 
 -   I almost reactivated my Twitter account to +1 this tweet by Dave Beazley.
 
--   Faaaaaactoooorrrssss...
+-   Faaaaaactoooorrrssss…
 
 -   It has been 0 days since our last kitchen incident.
 

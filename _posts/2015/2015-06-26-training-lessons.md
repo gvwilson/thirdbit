@@ -158,7 +158,7 @@ original: swc
       we charge $20-50 per person for our workshops primarily because it cuts the no-show rate
       from 25-30% down to 5-10%.
       In that light,
-      a similar threshold for instructor training doesn't seem unreasonable...
+      a similar threshold for instructor training doesn't seem unreasonable…
     </p>
   </dd>
 </dl>

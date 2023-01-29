@@ -16,7 +16,7 @@ original: swc
   "It's the only way to tackle today's big questions" is a popular answer to the first question,
   while "We need to know if we can trust it" is a common response to the second,
   but I think both miss the point.
-  Open source, open science, open access, open data... they're just enablers.
+  Open source, open science, open access, open data… they're just enablers.
   The <em>real</em> prize is massive, open collaboration.
   It's meeting people you would otherwise never have met
   who can extend your work in ways you never thought of

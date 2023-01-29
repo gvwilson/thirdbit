@@ -58,7 +58,7 @@ It would also be useful to integrate
 <a href="https://github.com/agiliq/notebooks/blob/master/sql-equivalents.ipynb">this comparison of SQL and Pandas</a>
 into our lessons.
 (Of course,
-we'd have to integrate Pandas first...)
+we'd have to integrate Pandas first…)
 There's also this <a href="http://mathesaurus.sourceforge.net/r-numpy.html">NumPy for R</a> guide,
 <a href="http://sebastianraschka.com/Articles/2014_matrix_cheatsheet_table.html">this matrix cheatsheet</a>,
 and I'm sure we can find others.
@@ -78,10 +78,10 @@ of the problems with manually-entered data.
 I think our learners would also like a couple of hours on image processing
 (the Version 4 lesson on multimedia
 is woefully out of date,
-and was never particularly well organized)...
+and was never particularly well organized)…
 </li>
 <li>
-...but most of all I want a lesson on
+…but most of all I want a lesson on
 how to write and publish in the early 21st Century.
 Word or LibreOffice?
 Version control can't handle them.

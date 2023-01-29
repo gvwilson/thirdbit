@@ -1,5 +1,5 @@
 ---
-title: "It Wasn't *Meant* To Be Funny, But..."
+title: "It Wasn't *Meant* To Be Funny, But…"
 date: 2008-07-21 18:48:35
 year: 2008
 ---
@@ -11,7 +11,7 @@ People, whether other geeks or "normal" people, we're bad at them. They're such 
 
 You can learn how to deal with people, and you can even learn to enjoy it. This tutorial gathers together some of the best speakers on "people topics" and teaches you–the programmer, the sysadmin, the <span class="caps">DBA</span>, the geek–how better to deal with people.
 
-...
+…
 
 <strong><em>People planning to attend this session also want to see:</em></strong>
 <ul>

@@ -12,4 +12,4 @@ As part of writing <a href="http://www.amazon.com/Practical-Programming-Scientif
 </ul>
 What would you add?
 
-<em>Later: should have been more specific—if you'd like to suggest an addition, please provide the year and a Twitter-sized description of the event / invention / product / publication / discovery.  "OOP should be on your list!" or "Everyone should read XYZ!" aren't history...</em>
+<em>Later: should have been more specific—if you'd like to suggest an addition, please provide the year and a Twitter-sized description of the event / invention / product / publication / discovery.  "OOP should be on your list!" or "Everyone should read XYZ!" aren't history…</em>

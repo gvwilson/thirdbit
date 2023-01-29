@@ -24,4 +24,4 @@ title: Frustration (continued)
 <li>Create one SVG (or HTML5 canvas element) per slide. The upside is free-form positioning; the downside is that both are painful to work with, which discourages creativity and collaboration.</li>
 </ol>
 <p>What I mean by "painful to work with" is that a lot of careful manual editing would be needed to do things like add elements incrementally in sync with a transcript. The result would also be largely unintelligible to search engines, and good luck copying and pasting it.</p>
-<p>Back to the drawing board...</p>
+<p>Back to the drawing board…</p>

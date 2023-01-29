@@ -4,7 +4,7 @@ year: 2011
 original: swc
 title: How to Cite Software Carpentry
 ---
-<p>If you are citing Software Carpentry in papers or technical reports, the web site and the 2006 article in <cite>Computing in Science &amp; Engineering</cite> are probably best; the other articles below provide other background that might also be useful. I hope to update the 2006 article some time this year, but a lot of other things are ahead of it in queue...</p>
+<p>If you are citing Software Carpentry in papers or technical reports, the web site and the 2006 article in <cite>Computing in Science &amp; Engineering</cite> are probably best; the other articles below provide other background that might also be useful. I hope to update the 2006 article some time this year, but a lot of other things are ahead of it in queue…</p>
 <pre>@article{wilson-bottleneck,
     author =  {Gregory V. Wilson},
     title =   {Where's the Real Bottleneck in Scientific Computing?},
@@ -25,7 +25,7 @@ title: How to Cite Software Carpentry
 
 @article{wilson-learn-history,
     author =  {Greg Wilson},
-    title =   {Those Who Will Not Learn From History...},
+    title =   {Those Who Will Not Learn From History…},
     journal = {Computing in Science \&amp; Engineering},
     month =   {May--June},
     year =    {2008},

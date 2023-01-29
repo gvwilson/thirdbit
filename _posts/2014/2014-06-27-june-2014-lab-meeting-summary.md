@@ -158,7 +158,7 @@ original: swc
 <ul>
 <li>Lessons in Python and R on creating packages?
 <ul>
-<li>This is OS X commands lack features...</li>
+<li>This is OS X commands lack features…</li>
 <li>Volunteers:
 <ul>
 <li>I'm happy to give a look at the R packaging lesson (Fran&ccedil;ois Michonneau)</li>
@@ -172,7 +172,7 @@ original: swc
 </ul></li>
 <li>Switch to Python 3?
 <ul>
-<li>Is it fully science-supporting? (numpy, scipy....)
+<li>Is it fully science-supporting? (numpy, scipy…)
 <ul>
 <li>Those ones, yes.</li>
 </ul></li>

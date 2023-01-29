@@ -11,4 +11,4 @@ title: Cast Your Votes
 <li>handling XML, or</li>
 <li>object-oriented programming.</li>
 </ol>
-<p>(Web programming isn't on the list because it will take more time than we have.) If you have a preference, please cast your vote in a comment on this post...</p>
+<p>(Web programming isn't on the list because it will take more time than we have.) If you have a preference, please cast your vote in a comment on this post…</p>

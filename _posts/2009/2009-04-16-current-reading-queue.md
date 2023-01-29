@@ -3,7 +3,7 @@ title: "Current Reading Queue"
 date: 2009-04-16 17:57:11
 year: 2009
 ---
-This time two years ago, most of them would have been computing books; now, they're a minority. Still looking for a readable, grounded, fast-paced guide to instructional design...
+This time two years ago, most of them would have been computing books; now, they're a minority. Still looking for a readable, grounded, fast-paced guide to instructional design…
 <ul>
   <li><span style="text-decoration: line-through;"><a href="http://www.amazon.com/Siege-Vienna-Great-Between-Crescent/dp/1933648635"><em>The Siege of Vienna</em></a></span></li>
   <li><span style="text-decoration: line-through;"><a href="http://www.amazon.com/My-Word-Plagiarism-College-Culture/dp/0801447631"><em>My Word! Plagiarism and College Culture</em></a></span></li>

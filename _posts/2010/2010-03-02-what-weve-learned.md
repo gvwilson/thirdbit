@@ -5,7 +5,7 @@ year: 2010
 ---
 My talk at <a href="http://us.pycon.org/2010">PyCon 2010</a> was titled "What We've Learned From Building Basie (and lots of other software using student labor over the course of eight years)".  The <a href="http://www.slideshare.net/gvwilson/what-weve-learned-from-building-basie-3241279">slides</a> are up on Slideshare, and there's <a href="http://blip.tv/file/3260995">video</a> of the talk itself on blip.tv, but I thought readers of this blog might be interested in a summary.
 
-My starting point is Joel Spolsky's <a href="http://joelonsoftware.com/items/2009/10/26.html">comment</a> that, "...student projects, while laudatory, frequently fail to deliver anything useful."  Respectfully, I beg to differ: About a quarter of the student projects I've helped supervise since 2002 have delivered software that clients actually used, and the rest have produced something even more useful: experience.  (And when I say "about a quarter", I'm talking about a quarter of 368 people from 35 countries of origin working on 136 projects.)
+My starting point is Joel Spolsky's <a href="http://joelonsoftware.com/items/2009/10/26.html">comment</a> that, "…student projects, while laudatory, frequently fail to deliver anything useful."  Respectfully, I beg to differ: About a quarter of the student projects I've helped supervise since 2002 have delivered software that clients actually used, and the rest have produced something even more useful: experience.  (And when I say "about a quarter", I'm talking about a quarter of 368 people from 35 countries of origin working on 136 projects.)
 
 To make a long story short, undergraduate students <em>can</em> build great software if:
 

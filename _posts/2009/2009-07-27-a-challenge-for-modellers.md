@@ -11,7 +11,7 @@ This is definitely <em>not</em> the case in other fields that rely on graphical 
 
 So here's an empirical test: draw UML diagrams representing various design patterns, but <em>don't label them</em>, and see how many people can tell which are which. Or analyze the natural language description of the design pattern and see how much of the information needed to understand how the pattern works is <em>not</em> present in the diagram. Yes, you can get some of that by adding a sequence diagram as well, but I'll bet that even the combination still needs to be explained in order to be comprehended.
 
-And while we're on the subject: has anyone ever designed a programming language by starting with a catalog of design patterns and asking, "What do I need in order to make expressing these simple and obvious?"  If so, I'd be grateful for a pointer...
+And while we're on the subject: has anyone ever designed a programming language by starting with a catalog of design patterns and asking, "What do I need in order to make expressing these simple and obvious?"  If so, I'd be grateful for a pointer…
 
 [1] There are several reasons Olsen's book is so good:
 <ol>

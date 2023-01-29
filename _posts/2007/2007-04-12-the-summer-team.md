@@ -13,4 +13,4 @@ Thanks to a generous donation from <a href="http://www.nitido.com">Nitido</a>, <
 
 <strong>Pardis Beikzadeh</strong>, who is also being supported by the <a href="http://www.utoronto.ca">university</a>, will work on <a href="http://www.cs.toronto.edu/~gvwilson#utest">UTest</a>, a reverse test oracle that allows students to run unit tests against instructors' sample solutions to exercises, without actually seeing those solutions.  This project is still in its early stages, but we're pretty excited about the possibilities.
 
-It promises to be quite a summer...
+It promises to be quite a summer…

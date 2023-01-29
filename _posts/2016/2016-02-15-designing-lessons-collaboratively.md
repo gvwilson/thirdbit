@@ -77,7 +77,7 @@ but there were still lots of comments:
     It really deserves more air time—as Bartosz Telenczuk observes,
     "students leaving the course without basic familiarity of NumPy
     will not be able to understand ~60% (my rough guess) of scientific Python applications."
-    The problem once again is what to cut to make room...
+    The problem once again is what to cut to make room…
 
 The biggest message for me in this wasn't the specific feedback, though.
 It was the way that two dozen people who are familiar with our current content and teaching methods,

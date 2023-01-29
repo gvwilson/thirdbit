@@ -43,4 +43,4 @@ Thankfully, there are lots of interesting books coming out in the next few month
   <li><a href="http://www.informit.com/store/product.aspx?isbn=0321604199"><em>Refactoring: Ruby Edition</em></a></li>
   <li><a href="http://www.informit.com/store/product.aspx?isbn=013136443X"><em>Winning the Hardware-Software Game: Using Game Theory to Optimize the Pace of New Technology Adoption</em></a></li>
 </ul>
-(Ironically, I now have to be much more careful which technical books I gamble on: since I'm no longer <a href="http://www.ddj.com"><em>DDJ</em></a>'s book review editor, and don't have any research money to spend on books, I have to buy them myself.  How barbaric... :-)
+(Ironically, I now have to be much more careful which technical books I gamble on: since I'm no longer <a href="http://www.ddj.com"><em>DDJ</em></a>'s book review editor, and don't have any research money to spend on books, I have to buy them myself.  How barbaric… :-)

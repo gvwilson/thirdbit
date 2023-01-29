@@ -1,5 +1,5 @@
 ---
-title: "All I Want for Christmas..."
+title: "All I Want for Christmas…"
 date: 2009-08-07 08:33:35
 year: 2009
 ---

@@ -13,7 +13,7 @@ original: swc
   <li>Learn to manipulate files</li>
   <li>Shortcuts!</li>
   <li>Learn a programming language</li>
-  <li>Become addicted to print statements (I'd actually say "...to a debugger", but never mind)</li>
+  <li>Become addicted to print statements (I'd actually say "…to a debugger", but never mind)</li>
   <li>Do something relevant</li>
   <li>Start automating</li>
 </ol>

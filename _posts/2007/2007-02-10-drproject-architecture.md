@@ -3,7 +3,7 @@ title: "DrProject Architecture"
 date: 2007-02-10 14:55:37
 year: 2007
 ---
-I posted a picture of DrProject's database schema a while ago.  Last week, I found myself drawing its architecture on the blackboard in class, so I figured I should post that too.  (It would have been up two hours ago, but my Mac died again...)
+I posted a picture of DrProject's database schema a while ago.  Last week, I found myself drawing its architecture on the blackboard in class, so I figured I should post that too.  (It would have been up two hours ago, but my Mac died again…)
 
 <img alt="architecture1.png" id="image833" src="{{'/files/2007/02/architecture1.png' | relative_url}}" />
 Here are the key elements:
@@ -17,7 +17,7 @@ Here are the key elements:
   <li>The "service check" is another small program that polls all of the DrProject installations on a machine every few minutes to make sure they're still up, and sends the admins email if they're not.  We've always had occasional lockups, but they've been growing more common as load on the server increases; the folks at <a href="http://www.engcorp.com">Engenuity</a> are looking into this right now.</li>
   <li>A program called validate, which checks user IDs and passwords against a password file.  We took user management out of the PostreSQL database so that we could piggyback on top of the departmental lab's user provisioning system; since we don't want a process running as www-data (the dummy user set up for Apache) to have access to password information, we use an external program that runs under setuid.</li>
   <li>The password file that validate checks, which is stitched together periodically from (a) the server's own password file, (b) a subset of the user information from the departmental lab's password file, and (c) a mock password file for external users who don't have shell accounts, but who need access to projects.</li>
-  <li>DrProject's own configuration files.  I say "files" because each installation of DrProject has its own configuration (although they all share code).  Again, we'll fix this by the time 2.0 comes out...</li>
+  <li>DrProject's own configuration files.  I say "files" because each installation of DrProject has its own configuration (although they all share code).  Again, we'll fix this by the time 2.0 comes out…</li>
 </ul>
 (I left out the Apache and Postfix configuration files, both of which have to be edited as well as part of an installation.)
 

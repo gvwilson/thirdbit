@@ -97,5 +97,5 @@ workshops:
   but persist in committing these same sins themselves.
 </p>
 <p>
-  And this is why we cannot have nice things...
+  And this is why we cannot have nice things…
 </p>

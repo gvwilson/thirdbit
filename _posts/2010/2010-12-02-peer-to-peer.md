@@ -11,5 +11,5 @@ title: Peer to Peer
 <li>Relevance: grad students in geology are more likely to know what other geology grad students need and will understand than we are.</li>
 <li>Sustainability: right now, Software Carpentry has a <a href="http://en.wikipedia.org/wiki/Bus_factor">bus factor</a> of 1.  The more course participants help each other, the more likely it is that this project will survive its founder being <span style="text-decoration: line-through;">hit by a bus</span> <span style="text-decoration: line-through;">abducted by aliens</span> having to get a real job.</li>
 </ol>
-<p>What could we have done this time around to encourage more peer-to-peer discussion?  What could we do next time?  Please add your thoughts as comments...</p>
+<p>What could we have done this time around to encourage more peer-to-peer discussion?  What could we do next time?  Please add your thoughts as comments…</p>
 

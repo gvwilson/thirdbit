@@ -42,7 +42,7 @@ ital = re("''")
 bold = re("'''")
 boldital = re("'''''")
 under = re("__")
-...
+…
 rules = [
 (h1, (HEADING, H1)),
 (h2, (HEADING, H2)),
@@ -51,7 +51,7 @@ rules = [
 (bold, (STYLE, BOLD)),
 (boldital, (STYLE, BOLDITALIC)),
 (under, (STYLE, UNDERLINE)),
-...
+…
 ]</pre>
 The entire parser came in at 459 lines of Python, including blank lines and comments.  We were pretty pleased—until we noticed that DrProject had slowed down a <em>lot</em> after we introduced it.  An undergraduate student named Billy Chun looked into the problem over the summer, and discovered that <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python/Plex/">Plex</a> was re-generating the parser every time it was called.  More specifically, <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python/Plex/">Plex</a> was spending 1.9 seconds translating a nondeterministic finite state automaton (NFA) into its deterministic equivalent (a DFA) each time DrProject rendered a wiki page.
 
@@ -69,6 +69,6 @@ What about decoupling the wiki processor from the database?  If the wiki process
 
 That sounded sensible—until we started thinking about wiki macros.  A macro is a piece of Python code that generates HTML.  If <code>copyright.py</code> is saved in the right directory, for example, and contains a function called <code>copyright()</code> that returns the string <code>"Copyright © 2006 University of Toronto"</code> then putting <code>[[copyright()]]</code> in a wiki page will insert the copyright notice.  <a href="http://trac.edgewall.com">Trac</a>'s <a href="http://trac.edgewall.org/wiki/MacroBazaar">Macro Bazaar</a> lists dozens of macros for navigation, inclusion, charts, and much else.
 
-How is the standalone wiki processor supposed to handle macros? Loading the Python code that implements a particular macro isn't (much of) a problem; the problem is that there's no way of knowing what data a particular macro is going to want.  Something that displays the last time a wiki page was edited, for example, is going to need access to an actualy DrProject database. (Either that, or we create a mock object that has all the features of such a database, which seems a little silly...)
+How is the standalone wiki processor supposed to handle macros? Loading the Python code that implements a particular macro isn't (much of) a problem; the problem is that there's no way of knowing what data a particular macro is going to want.  Something that displays the last time a wiki page was edited, for example, is going to need access to an actualy DrProject database. (Either that, or we create a mock object that has all the features of such a database, which seems a little silly…)
 
 In the end, we punted: after working on the standalone wiki processor for more than a week, Apple and David had learned enough about DrProject's internals to start fixing bugs and implementing new features, so we put set the standalone wiki processor aside.  I'd like to return to it some day, though; being able to batch process wiki pages and tickets (particularly for printing) is still an attractive idea.

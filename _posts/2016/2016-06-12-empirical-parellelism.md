@@ -342,7 +342,7 @@ original: nwit
     it by accident. Unexperienced developers just create threads and
     distribute their work to them. In larger projects comments and
     class naming suggests that they are aware of the master-worker
-    pattern and implement it on purpose..."
+    pattern and implement it on purpose…"
   </li>
   <li>
     "Prime examples of bad pratice are the synchronized() and lock()
@@ -361,5 +361,5 @@ original: nwit
   next generation of parallel programming tools.  And if that's too
   optimistic, we can at least hope that it will give the builders of
   the next generation of program checking tools a larger list of
-  things to look for...
+  things to look for…
 </p>

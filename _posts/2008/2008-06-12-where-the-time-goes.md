@@ -18,4 +18,4 @@ OK, so what <em>am</em> I doing if I'm not coding?
   <li>Research: half a day per week, tops. I'm including everything from design discussions for DrProject to writing "real" academic papers in this category.</li>
   <li>Socializing with colleagues: half an hour to an hour a day. Coffee-room discussions are where most small issues around teaching and organizational matters seem to get hashed out.</li>
 </ol>
-As you can see, there's not a lot of room in their to learn <a href="http://www.dojotoolkit.org">Dojo</a>...
+As you can see, there's not a lot of room in their to learn <a href="http://www.dojotoolkit.org">Dojo</a>…

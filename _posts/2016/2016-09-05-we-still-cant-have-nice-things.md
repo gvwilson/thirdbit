@@ -89,9 +89,9 @@ One way to solve this is to use full URLs for resources instead of absolute path
 For example,
 instead of loading `/css/pretty.css`,
 our web page could explicitly refer to `http://gloom.github.io/despair/css/pretty.css`.
-That's easy...
+That's easy…
 
-...except we want to share page templates between many different websites,
+…except we want to share page templates between many different websites,
 each of which has a different base URL.
 More specifically,
 we want to have a single HTML file (let's call it `_layouts/page.html`)

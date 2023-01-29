@@ -17,7 +17,7 @@ year: 2014
   run a reviewing sprint on <em><a href="https://github.com/aosabook/500lines">500 Lines or Less</a></em>,
   the fourth volume in <em><a href="http://aosabook.org/en/index.html">The Architecture of Open Source Applications</a></em>,
   then forget to mention him by name in a lightning talk about the project.
-  (Sorry, man...)
+  (Sorry, man…)
 </p>
 <p>
   Monday: teach <a href="http://lukasblakk.com/learn-to-teach-programming/">a one-day version</a>

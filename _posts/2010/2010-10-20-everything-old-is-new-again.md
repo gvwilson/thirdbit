@@ -9,4 +9,4 @@ add  R2, R3
 mov  @R2, R2                   # load hash table cell
 lda  #WIDTH, R3
 add  R2, R3</pre>
-and then later told it was a Bad Thing, and that comments ought to go inline. Feels kind of hipster-retro to see two-column come back into style...
+and then later told it was a Bad Thing, and that comments ought to go inline. Feels kind of hipster-retro to see two-column come back into style…

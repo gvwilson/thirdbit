@@ -160,7 +160,7 @@ Running inside the interpreter fails during loading:
 > const {P} = require('./a')
 undefined
 > (node:1756) Warning: Accessing non-existent property 'R' of module exports inside circular dependency
-(Use `node --trace-warnings ...` to show where the warning was created)
+(Use `node --trace-warnings …` to show where the warning was created)
 > P()
 P
 Q

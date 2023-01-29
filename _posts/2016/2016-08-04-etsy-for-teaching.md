@@ -8,7 +8,7 @@ year: 2016
   in the same open, ad hoc way they write Wikipedia and build open source software.
   Turns out I may have been using the wrong analogy.
   <a href="https://www.teacherspayteachers.com/">Teachers Pay Teachers</a> is
-  "... the first and largest open marketplace where teachers share, sell, and buy original educational resources",
+  "… the first and largest open marketplace where teachers share, sell, and buy original educational resources",
   i.e., it's Etsy for teaching rather than Wikipedia.
   Their site says they have earned $200 million for their teacher-authors since their founding,
   and have two million "resources" available,

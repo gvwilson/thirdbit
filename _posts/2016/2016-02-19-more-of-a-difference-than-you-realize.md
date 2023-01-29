@@ -8,7 +8,7 @@ We received this after an online instructor training workshop earlier this week,
 which reminded me that small differences for some people
 can be large ones for others:
 
-> Thanks for a great workshop the last two days...
+> Thanks for a great workshop the last two days…
 > I wanted to share a separate positive comment that I should have included on the Etherpad:
 > I'm profoundly/severely hard-of-hearing in both ears,
 > and depend quite a bit on lip-reading when listening to people.

@@ -241,16 +241,16 @@ and should be tracked and shared just like code and data.
 On the other hand,
 as Stephen Turner said:
 
-> ...try to explain the notion of compiling a document to an overworked physician you collaborate with.
+> …try to explain the notion of compiling a document to an overworked physician you collaborate with.
 > Oh, but before that, you have to explain the difference between plain text and word processing.
 > And text editors.
 > And Markdown/LaTeX compilers.
 > And BiBTeX.
 > And Git.
 > And GitHub. Etc.
-> Meanwhile he/she is getting paged from the OR...
+> Meanwhile he/she is getting paged from the OR…
 >
-> ...as much as we want to convince ourselves otherwise,
+> …as much as we want to convince ourselves otherwise,
 > when you have to collaborate with those outside the scientific computing bubble,
 > the barrier to collaborating on papers in this framework is simply too high to overcome.
 > Good intentions aside,

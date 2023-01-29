@@ -1,5 +1,5 @@
 ---
-title: "Perforce: For beginners only..."
+title: "Perforce: For beginners only…"
 date: 2006-06-23 15:22:32
 year: 2006
 ---
@@ -21,4 +21,4 @@ in the background, Perforce is constantly poking you in the back whenever you wa
 
 The real issue boils down to Power Users vs Beginners.  Perforce holds your hand and puts in restrictive measures to ensure you don't break things.  This is great for beginners, but quickly becomes annoying and frustrating for experienced users.
 
-What about the other features of Perforce?  Surely they must justify the 800$ per head price tag?  Maybe, but as a developer, I'm focused on the edit-resolve-commit cycle for 95% of my time.  Get out of the way and let me work.  Now who broke that build...
+What about the other features of Perforce?  Surely they must justify the 800$ per head price tag?  Maybe, but as a developer, I'm focused on the edit-resolve-commit cycle for 95% of my time.  Get out of the way and let me work.  Now who broke that build…

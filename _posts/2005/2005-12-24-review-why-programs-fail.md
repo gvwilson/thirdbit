@@ -3,9 +3,9 @@ title: "Review: Why Programs Fail"
 date: 2005-12-24 08:54:27
 year: 2005
 ---
-2005 was an excellent year for books.  Not only were there a lot of good ones, some covered topics that hadn't been covered before (at least, not well or recently). Fogel's Producing Open Source Software, Doar's Practical Development Environments, Feathers' Working Effectively with Legacy Code, Thompson and Chase's Software Vulnerability Guide...
+2005 was an excellent year for books.  Not only were there a lot of good ones, some covered topics that hadn't been covered before (at least, not well or recently). Fogel's Producing Open Source Software, Doar's Practical Development Environments, Feathers' Working Effectively with Legacy Code, Thompson and Chase's Software Vulnerability Guide…
 
-...and now Zeller's Why Programs Fail.  Zeller is the creator of DDD (http://www.gnu.org/software/ddd/), a graphical front end for the GNU debugger that uses box-and-arrow displays and charts (among other things) to show what programs are doing.  Now a professor at Saarland University in Germany, Zeller is still building and studying new tools to help developers figure out what's going wrong in their programs, where, and why.
+…and now Zeller's Why Programs Fail.  Zeller is the creator of DDD (http://www.gnu.org/software/ddd/), a graphical front end for the GNU debugger that uses box-and-arrow displays and charts (among other things) to show what programs are doing.  Now a professor at Saarland University in Germany, Zeller is still building and studying new tools to help developers figure out what's going wrong in their programs, where, and why.
 
 This well-written, copiously-illustrated book is, in many ways, a status report from the front lines.  After setting the scene in Chapter 1, Zeller dives straight into the first debugging tool every developer should: a bug tracker.  He explains what good bug reports ought to contain, and how to manage them as their numbers grow.
 

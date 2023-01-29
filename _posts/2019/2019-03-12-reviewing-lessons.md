@@ -54,4 +54,4 @@ At the time I thought it was because the file formats we were using made PRs dif
 but now I'm wondering whether the real reason was that
 I was asking people to review a song by reading the sheet music
 instead of listening to it.
-I'd be grateful for your thoughts...
+I'd be grateful for your thoughts…

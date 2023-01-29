@@ -22,4 +22,4 @@ Oh, and if you have names written in multiple languages? You sort the languages 
   <li>Augusta Ada Byron King, Lady Lovelace</li>
   <li>Major General Stanley</li>
 </ul>
-<em>Later: the indefatigable <a href="http://adam.goucher.ca/">Adam Goucher</a> pointed me at <a href="http://www.loc.gov/catdir/pcc/naco/">NACO</a>, who decide such things. Real world data is guilty of a lot more than Perl...</em>
+<em>Later: the indefatigable <a href="http://adam.goucher.ca/">Adam Goucher</a> pointed me at <a href="http://www.loc.gov/catdir/pcc/naco/">NACO</a>, who decide such things. Real world data is guilty of a lot more than Perl…</em>

@@ -29,7 +29,7 @@ Some of the feedback included:
 *   On-line with local help worked very well.
 *   Mixed mode worked well for the first section because the material was easier, might have been more difficult for second half.
 *   Easy to follow, well written exercises.
-*   I thought remote instructor was great...having local instructors was a big part of that though.
+*   I thought remote instructor was great…having local instructors was a big part of that though.
 *   Plotting super helpful.
 *   Etherpad being read-only may have helped, so people didn’t mess it up.
 *   Cool, dense content, helpers are very knowledgeable.

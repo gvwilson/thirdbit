@@ -15,7 +15,7 @@ Now suppose we want to keep track of who edited each page, when, and why—in sh
 Timestamp: 2014-07-03 15:43:06
 Comment: Updated boot page for IDIAC to describe new quantum array.
 
-= The IDIAC 900 = The IDIAC 900 uses a 1.4 petabit quantum array for...</pre>
+= The IDIAC 900 = The IDIAC 900 uses a 1.4 petabit quantum array for…</pre>
 </blockquote>
 This would be easy to implement: we just teach our CGI program to insert the header when the page is edited, and strip it off before formatting the page for output, and we're done.
 
@@ -39,4 +39,4 @@ Life's not actually that simple, though.  SQL is supposed to be a standard, but 
 
 I think there are two reasons why most wikis haven't gone that route.  The first is performance: in order to format a wiki page, the CGI needs to know the names of every other page in the system (so that it can tell which CamelCaseWords to turn into links, and which to mark as "not yet written").  If you've already established a connection to a database, <code>SELECT PageName FROM Wiki</code> is probably cheaper than calling <code>opendir</code>, reading a list of directory contents, and filtering out things that aren't pages.  I don't actually have any data on this, though; if anyone has pointers to any, please let me know.
 
-The second, and more important, reason that most wikis use a database is inertia.  The four horsemen of the web applicationalypse are browser, server, CGI, and database.  If you're used to building e-commerce and social networking sites in <a href="http://www.php.net">PHP</a>, <a href="http://asp.net">ASP.NET</a>, or <a href="http://www.rubyonrails.org">RubyOnRails</a>, storing text in a database comes naturally; using a version control system feels like adding complexity.  Of course, as soon as you decide you need to reconcile conflicts between concurrent edits, the cost of re-implementing what version control does best quickly outweighs anything you saved by not integrating SVN or P4 into your system...
+The second, and more important, reason that most wikis use a database is inertia.  The four horsemen of the web applicationalypse are browser, server, CGI, and database.  If you're used to building e-commerce and social networking sites in <a href="http://www.php.net">PHP</a>, <a href="http://asp.net">ASP.NET</a>, or <a href="http://www.rubyonrails.org">RubyOnRails</a>, storing text in a database comes naturally; using a version control system feels like adding complexity.  Of course, as soon as you decide you need to reconcile conflicts between concurrent edits, the cost of re-implementing what version control does best quickly outweighs anything you saved by not integrating SVN or P4 into your system…

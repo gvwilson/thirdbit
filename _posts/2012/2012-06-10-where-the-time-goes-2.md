@@ -64,7 +64,7 @@ Here's a typical day:
 </tr>
 <tr>
 <td>1:00</td>
-<td>Edit the next edition of <cite>And Then...</cite></td>
+<td>Edit the next edition of <cite>And Then…</cite></td>
 </tr>
 <tr>
 <td>0:15</td>

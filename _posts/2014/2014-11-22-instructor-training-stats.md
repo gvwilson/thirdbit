@@ -38,7 +38,7 @@ or the current online round:
 
 Note that half of those who drop out do so in the first four weeks.
 Note also that some people have been "in progress" for months,
-but even a few of those do eventually complete...
+but even a few of those do eventually complete…
 
 89 people who got their instructor badge after Sept 1, 2013 have taught for us,
 out of 126 who have been badged in that time.

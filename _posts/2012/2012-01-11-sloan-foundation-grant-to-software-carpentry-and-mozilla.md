@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: Sloan Foundation Grant to Software Carpentry and Mozilla
 ---
-<p>We are very pleased to announce that the <a href="http://www.sloan.org/">Sloan Foundation</a> has generously agreed to fund six months of work by Software Carpentry and the <a href="http://www.mozilla.org/foundation/">Mozilla Foundation</a>. The proposal we submitted, which outlines what we're going to try to do, is included below–it's a lot of work, but we're very excited to have the opportunity to move Software Carpentry forward. Details are below the fold...</p>
+<p>We are very pleased to announce that the <a href="http://www.sloan.org/">Sloan Foundation</a> has generously agreed to fund six months of work by Software Carpentry and the <a href="http://www.mozilla.org/foundation/">Mozilla Foundation</a>. The proposal we submitted, which outlines what we're going to try to do, is included below–it's a lot of work, but we're very excited to have the opportunity to move Software Carpentry forward. Details are below the fold…</p>
 <p style="text-align: center;"><em><strong>Teaching Scientists to Think Like the Web:<br />
 Accelerating Scientific Discovery Through the Effective Use of Technology</strong></em></p>
 <p><strong>1. What is the main issue, problem or subject and why is it important?</strong></p>

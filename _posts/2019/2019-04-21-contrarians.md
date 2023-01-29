@@ -36,10 +36,10 @@ you need to be the one who knows that race is a socially-constructed concept wit
 and how [standardized tests are slanted to produce the results that the powerful are comfortable with][testing].
 If you're in a room full of progressives,
 though,
-your need for attention compels you to be the one saying, "Well, actually..."
+your need for attention compels you to be the one saying, "Well, actually…"
 and then (regretfully—always regretfully) explaining that yes,
 some truths might be unpopular and difficult to face,
-but...
+but…
 You're the mirror image of Hoffer's [true believer][true-believer]:
 instead of needing a cause to believe in,
 you need something to *disbelieve*,
@@ -49,7 +49,7 @@ I'm starting to see this in some discussions of #MeToo and accountability and in
 I don't know if most people really *believe* we're doing badly,
 but the majority now *say* that we are,
 which means that the only way some smarter-thans can assuage their insecurity
-is to say, "Well, actually..."
+is to say, "Well, actually…"
 and then [take the devil's side][devil].
 I honestly don't know how many are actually misogynists
 and how many are just sad and lonely and still looking for the praise they got from their teachers for being clever.

@@ -23,7 +23,7 @@ favorite: true
       You've all heard both of my jokes,
       and many of you tell my stories better than I do—or at least, more factually.
       I could talk about the history of Software Carpentry,
-      and how we got to where we are today...
+      and how we got to where we are today…
     </p>
   </blockquote>
 </div>
@@ -36,7 +36,7 @@ favorite: true
   </div>
   <blockquote>
     <p>
-      ...but I wrote up my part of that a couple of years ago...
+      …but I wrote up my part of that a couple of years ago…
     </p>
   </blockquote>
 </div>
@@ -49,8 +49,8 @@ favorite: true
   </div>
   <blockquote>
     <p>
-      ...and what's happened since is someone else's story to tell.
-      I could talk about the Carpentries' plans for the future...
+      …and what's happened since is someone else's story to tell.
+      I could talk about the Carpentries' plans for the future…
     </p>
   </blockquote>
 </div>
@@ -63,7 +63,7 @@ favorite: true
   </div>
   <blockquote>
     <p>
-      ...but most of you don't have a high enough security clearance for that.
+      …but most of you don't have a high enough security clearance for that.
     </p>
     <p>
       After rambling and ranting and arguing and teaching to you and with you for so many years,
@@ -363,7 +363,7 @@ favorite: true
       live coding is just teaching by demonstration,
       and cats do that with their kittens.
       And yeah,
-      I do occasionally pick up something new...
+      I do occasionally pick up something new…
     </p>
   </blockquote>
 </div>
@@ -396,7 +396,7 @@ favorite: true
   </div>
   <blockquote>
     <p>
-      ...but for years I measured myself
+      …but for years I measured myself
       by how much academically-digestible novelty I produced
       and found myself wanting.
       It wasn't until I got over that
@@ -486,7 +486,7 @@ favorite: true
       The curriculum would be familiar to all of you—novice versus competent versus expert,
       seven plus or minus two,
       motivation and demotivation,
-      recording yourself in groups of three...
+      recording yourself in groups of three…
     </p>
   </blockquote>
 </div>
@@ -519,7 +519,7 @@ favorite: true
   </div>
   <blockquote>
     <p>
-      ...but I've mixed in some material on how to learn effectively and that's gone over really well.
+      …but I've mixed in some material on how to learn effectively and that's gone over really well.
       It's been a lot of fun,
       and I'm more convinced than ever that the Carpentries' biggest long-term impact
       won't be what we teach people about programming,

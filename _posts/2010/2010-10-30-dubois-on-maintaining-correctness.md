@@ -20,4 +20,4 @@ title: Dubois on Maintaining Correctness
 <li><em>Release management.</em> A disciplined approach to release management gives most users a stable experience.</li>
 <li><em>Bug tracking.</em> Simple open-source tools can help make sure issues don't get lost.</li>
 </ul>
-<p>It's only six pages long, including a couple of ads that you can skip: please, like I said, give it a read. (And note to self: I really need to turn this into a lecture...)</p>
+<p>It's only six pages long, including a couple of ads that you can skip: please, like I said, give it a read. (And note to self: I really need to turn this into a lecture…)</p>

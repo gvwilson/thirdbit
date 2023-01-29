@@ -24,7 +24,7 @@ Things I hadn't planned to do that were worth doing:
 Things that I did that I really shouldn't have wasted time on:
 <ol>
   <li>A cold.</li>
-  <li><a href="http://www.quakelive.com">Quake Live</a> ("Rail gun naaaation, oh yeah, rail gun nation...")</li>
+  <li><a href="http://www.quakelive.com">Quake Live</a> ("Rail gun naaaation, oh yeah, rail gun nation…")</li>
   <li><a href="http://www.twitter.com">Twitter</a>.</li>
 </ol>
-Here's hoping next week will be more productive...
+Here's hoping next week will be more productive…

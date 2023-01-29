@@ -29,7 +29,7 @@ year: 2014
   The car broken down on the way home,
   so what would usually be a three and a half hour journey was closer to six,
   but it wasn't until we came over the hill and saw the tops of Toronto's skyscrapers that I thought,
-  "I have to finish writing that summary.  And archive everything from the code review study.  And..."
+  "I have to finish writing that summary.  And archive everything from the code review study.  And…"
 </p>
 <p>
   They really didn't feel like my thoughts.

@@ -308,7 +308,7 @@ original: swc
 
     ## Another Sub-heading
 
-    As above...
+    As above…
 
     > ## Key Points {.keypoints}
     >
@@ -326,7 +326,7 @@ original: swc
       (because it's the only thing that Jekyll supports).
     </li>
     <li>
-      Rather than using &lt;div class="whatever"&gt;...&lt;/div&gt; to mark sections,
+      Rather than using &lt;div class="whatever"&gt;…&lt;/div&gt; to mark sections,
       this uses blockquotes whose headings have specific classes:
       the sections we need to mark are relatively small,
       and CSS will take care of displaying these the way we want.

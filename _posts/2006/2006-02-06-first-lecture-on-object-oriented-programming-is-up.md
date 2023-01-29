@@ -5,4 +5,4 @@ year: 2006
 ---
 I've split the lecture on object-oriented programming in two; the first one is now on the web (without diagrams).  This ties with the rewrite of the style lecture for "most changes since the fall", so comments and corrections would be very welcome.
 
-Eleven days 'til the AAAS workshop...
+Eleven days 'til the AAAS workshop…

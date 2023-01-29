@@ -83,8 +83,8 @@ to edit and diff)
 </li>
 <li>HTML
   <ul>
-  <li>Can view exactly what I'm writing...</li>
-  <li>...except I don't want to: included code, point form vs. prose,
+  <li>Can view exactly what I'm writing…</li>
+  <li>…except I don't want to: included code, point form vs. prose,
   etc.</li>
   <li>Can CSS take care of some of the display/view problems?</li>
   </ul>

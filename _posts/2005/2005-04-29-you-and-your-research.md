@@ -20,7 +20,7 @@ ambiguity" and "Great researchers know how to sell an idea" was one
 that particularly struck me:
 <blockquote><em>
 If you do not work on an important problem, it's unlikely you'll do
-important work...  Great scientists have thought through, in a careful
+important work…  Great scientists have thought through, in a careful
 way, a number of important problems in their field, and they keep an
 eye on wondering how to attack them.  Let me warn you, 'important
 problem' must be phrased carefully.  The three outstanding problems in
@@ -29,7 +29,7 @@ Labs.  By important I mean guaranteed a Nobel Prize and any sum of
 money you want to mention.  We didn't work on (1) time travel, (2)
 teleportation, and (3) antigravity.  They are not important problems
 because we do not have an attack.  It's not the consequences that
-makes a problem ipmortant, it is that you have a reasonable attack...
+makes a problem ipmortant, it is that you have a reasonable attack…
 When I say that most scientists don't work on important problems, I
 mean it in that sense.  The average scientist, so far as I can make
 out, spends almost all of his time working on problems which he

@@ -44,7 +44,7 @@ original: nwit
   <li>
     Programming language designers needlessly make programming
     languages harder to learn by not doing basic usability testing.
-    For example, "...the three most common words for looping in
+    For example, "…the three most common words for looping in
     computer science, for, while, and foreach, were rated as the three
     most unintuitive choices by non-programmers."
   </li>

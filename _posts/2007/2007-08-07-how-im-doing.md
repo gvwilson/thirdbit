@@ -11,7 +11,7 @@ I wasn't happy with the two courses I taught this past winter—too many distrac
   <li>Material was presented too slow/fast: 2.0</li>
   <li>Material was too broad/specialized: 2.9</li>
   <li>Workload was too light/heavy: 2.9</li>
-  <li>How well organized was the lecturer: 4.0 (no idea whose class they were in...)</li>
+  <li>How well organized was the lecturer: 4.0 (no idea whose class they were in…)</li>
   <li>How satisfied: 4.5</li>
   <li>Overall rating: 4.2</li>
 </ul>
