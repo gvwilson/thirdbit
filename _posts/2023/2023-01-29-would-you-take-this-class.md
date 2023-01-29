@@ -14,6 +14,8 @@ so I'd like to know who'd be interested in
 an hour-a-week online class that taught participants
 how to build a dozen applications from the list below in Python:
 
+<div class="row">
+<div class="col-6" markdown="1">
 -   a testing framework
 -   an interpreter
 -   a versioned file backup system
@@ -23,6 +25,8 @@ how to build a dozen applications from the list below in Python:
 -   a binary storage framework
 -   a build manager
 -   a static site generator
+</div>
+<div class="col-6" markdown="1">
 -   a page layout engine
 -   a text editor
 -   a web server
@@ -32,6 +36,8 @@ how to build a dozen applications from the list below in Python:
 -   a style checker
 -   a virtual machine
 -   a debugger
+</div>
+</div>
 
 The cost would be a donation equivalent to a day's pay
 to a mutually-agreed charity.
