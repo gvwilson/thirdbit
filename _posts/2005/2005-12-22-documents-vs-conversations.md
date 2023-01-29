@@ -11,13 +11,13 @@ What happens if we think about requirements <em>conversations</em> instead?  Wha
 
 Many successful open source groups already work this way.  Their "specs" are mailing list threads, and the comment streams attached to feature requests and bug reports.  It ought to be chaotic, but as <a href="http://producingoss.com">Karl Fogel</a> describes in his recent excellent book <a href="http://www.amazon.com/gp/product/0596007590">Producing Open Source Software</a> (reviewed here), in practice it is often very efficient.
 
-So, what would a conversation-centric requirements management tool look like?  My first guess would be a search engine that paid close attention to chronological order, reply-to headers, and the like.  I'd want it to detect, highlight, and stitch together relevant subsections of composite items---e.g., to notice that only the middle third of the message Alan sent last march was about authentication.  The goal would be to allow a developer to put her cursor over a method or test case, right click, and bring up a list of links to the things she needed to read to understand what the code was (supposed to be) doing [<a href="#2">2</a>].  I'd also want to be able to drive the tool in the other direction, and ask, "Which bits of this project depend on what was said on this topic before last week's mailstorm?"
+So, what would a conversation-centric requirements management tool look like?  My first guess would be a search engine that paid close attention to chronological order, reply-to headers, and the like.  I'd want it to detect, highlight, and stitch together relevant subsections of composite items—e.g., to notice that only the middle third of the message Alan sent last march was about authentication.  The goal would be to allow a developer to put her cursor over a method or test case, right click, and bring up a list of links to the things she needed to read to understand what the code was (supposed to be) doing [<a href="#2">2</a>].  I'd also want to be able to drive the tool in the other direction, and ask, "Which bits of this project depend on what was said on this topic before last week's mailstorm?"
 
 Automating this completely, with no extra human input, is a non-starter, as it would require software that understood natural language.  A more realistic tool could combine AI techniques [<a href="#3">3</a>], human tagging, sheep entrails, or anything else. The key requirements are:
 <ol>
-	<li>The extra effort required from stakeholders must be small.</li>
-	<li>The payoff must be immediately obvious.</li>
-	<li>It must mine conversations in the form they actually take, including email, bug reports, wiki pages, code comments, test case names, and so on.</li>
+  <li>The extra effort required from stakeholders must be small.</li>
+  <li>The payoff must be immediately obvious.</li>
+  <li>It must mine conversations in the form they actually take, including email, bug reports, wiki pages, code comments, test case names, and so on.</li>
 </ol>
 Any takers?
 

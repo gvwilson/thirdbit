@@ -3,7 +3,7 @@ title: "Database of Empirical Software Engineering Publications"
 date: 2009-04-15 08:09:30
 year: 2009
 ---
-SEED (the Software Engineering Evidence Database), is at <a href="http://www.evidencebasedse.com/">http://www.evidencebasedse.com</a>.  I found it via Janzen and Ryoo's paper "Engaging the net generation with evidence-based software engineering through a community-driven web database", <em>Journal of Systems and Software</em>, 82 (2009), pp. 563-70, DOI:10.1016/j.jss.2008.12.047.  The site contains paragraph-sized summaries of over 200 empirical software engineering studies, indexed by them.  There's no rating/ranking system, but lots of useful detail---a <a href="http://www.evidencebasedse.com/?q=node/114">typical entry</a> is included below to give you a flavor.  According to the paper, contributions are actively sought...
+SEED (the Software Engineering Evidence Database), is at <a href="http://www.evidencebasedse.com/">http://www.evidencebasedse.com</a>.  I found it via Janzen and Ryoo's paper "Engaging the net generation with evidence-based software engineering through a community-driven web database", <em>Journal of Systems and Software</em>, 82 (2009), pp. 563-70, DOI:10.1016/j.jss.2008.12.047.  The site contains paragraph-sized summaries of over 200 empirical software engineering studies, indexed by them.  There's no rating/ranking system, but lots of useful detail—a <a href="http://www.evidencebasedse.com/?q=node/114">typical entry</a> is included below to give you a flavor.  According to the paper, contributions are actively sought...
 
 <hr />An Exploratory Longitudinal Case Study of Agile Methods in a Small Software
 

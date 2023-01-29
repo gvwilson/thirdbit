@@ -56,7 +56,7 @@ the tool responsible for mapping transactions to arcs and nodes would complain.
 Similarly,
 I'm willing to bet that there are a lot of legacy microservices out there
 that aren't actually being used any longer,
-but that no-one feels qualified to delete---this would help find them.
+but that no-one feels qualified to delete—this would help find them.
 
 I'm also wondering what an equivalent notation for data analysis would be.
 There are a ton of GUI tools around for creating executable dataflow diagrams,

@@ -13,7 +13,7 @@ year: 2004
 
 <li>A <em>scripting interface</em>.  We can't require instructors to create hundreds of user accounts, and hundreds of projects, by hand.  Instead, we're hoping to provide a <a href="http://www.jython.org">Jython</a> library that instructors and administrators can use to work directly with Helium's data model.  (The alternative would be to expose the database tables, but that would bypass all the constraints that the model layer enforces.)</li>
 
-<li><em>Testing infrastructure</em>.  Helium's lower layers are exercised by a unit test suite---in fact, there's currently more testing code than application code.  The next step is to adapt <a href="http://httpunit.sf.net">HttpUnit</a>, <a href="http://htmlunit.sf.net">HtmlUnit</a>, or something similar to do end-to-end testing on the whole application.</li>
+<li><em>Testing infrastructure</em>.  Helium's lower layers are exercised by a unit test suite—in fact, there's currently more testing code than application code.  The next step is to adapt <a href="http://httpunit.sf.net">HttpUnit</a>, <a href="http://htmlunit.sf.net">HtmlUnit</a>, or something similar to do end-to-end testing on the whole application.</li>
 
 <li>A <em>progress monitoring framework</em>.  Helium's home page displays a status light (green if all tests are passing, red if there are failures) and a graph showing the growth of the source and test code over time.  Displays like these will help students and instructors see how their projects are doing.</li>
 

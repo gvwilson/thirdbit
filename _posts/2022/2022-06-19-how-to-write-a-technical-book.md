@@ -15,8 +15,8 @@ Here's what I've learned along the way:
     Instead,
     start blogging regularly:
     one article a week, each about a thousand words long.
-    You don't have to write them in the order you think they'll eventually go into the book---in
-    fact, one of the reasons to blog is to get a better idea of what you want to say---but
+    You don't have to write them in the order you think they'll eventually go into the book—in
+    fact, one of the reasons to blog is to get a better idea of what you want to say—but
     you should try to stitch them together in multi-part sequences
     that can each eventually become a chapter.
 

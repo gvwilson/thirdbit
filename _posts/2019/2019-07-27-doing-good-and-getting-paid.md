@@ -150,6 +150,6 @@ here are some of the paths different people have taken.
 
 These are my tips:
 I'd be grateful for readers' corrections and additions
-[by email](mailto:gvwilson@third-bit.com).
+[by email](mailto:{{site.author.email}}).
 (Sadly,
 I've had to disable comments on this site because of some ugly trolling.)

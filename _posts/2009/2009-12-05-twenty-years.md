@@ -9,24 +9,24 @@ Twenty years on, most Canadians instantly recognize the name of their murderer. 
 <tr>
 <td valign="top">
 <ul>
-	<li>Geneviève Bergeron</li>
-	<li>Hélène Colgan</li>
-	<li>Nathalie Croteau</li>
-	<li>Barbara Daigneault</li>
-	<li>Anne-Marie Edward</li>
-	<li>Maud Haviernick</li>
-	<li>Maryse Laganière</li>
+  <li>Geneviève Bergeron</li>
+  <li>Hélène Colgan</li>
+  <li>Nathalie Croteau</li>
+  <li>Barbara Daigneault</li>
+  <li>Anne-Marie Edward</li>
+  <li>Maud Haviernick</li>
+  <li>Maryse Laganière</li>
 </ul>
 </td>
 <td valign="top">
 <ul>
-	<li>Maryse Leclair</li>
-	<li>Anne-Marie Lemay</li>
-	<li>Sonia Pelletier</li>
-	<li>Michèle Richard</li>
-	<li>Annie St-Arneault</li>
-	<li>Annie Turcotte</li>
-	<li>Barbara Klucznik-Widajewicz</li>
+  <li>Maryse Leclair</li>
+  <li>Anne-Marie Lemay</li>
+  <li>Sonia Pelletier</li>
+  <li>Michèle Richard</li>
+  <li>Annie St-Arneault</li>
+  <li>Annie Turcotte</li>
+  <li>Barbara Klucznik-Widajewicz</li>
 </ul>
 </td>
 </tr>

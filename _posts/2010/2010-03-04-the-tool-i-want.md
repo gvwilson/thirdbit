@@ -13,8 +13,8 @@ What I'd like instead is a Javascript widget I can embed in a web page that will
 
 Three things are needed to make this happen:
 <ol>
-	<li>A desktop tool for recording and annotating the execution of small programs.</li>
-	<li>A data format for storing those recordings and annotation.</li>
-	<li>A Javascript widget for playing them back in the browser.</li>
+  <li>A desktop tool for recording and annotating the execution of small programs.</li>
+  <li>A data format for storing those recordings and annotation.</li>
+  <li>A Javascript widget for playing them back in the browser.</li>
 </ol>
 Ideally, this combination would also handle interactive interpreter sessions, in which the program appears as you go along, and output is interleaved with input.  If you know of something that already does this, I'd welcome a pointer; if you don't, and are looking for a really cool course project, please give me a shout.

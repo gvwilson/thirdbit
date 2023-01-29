@@ -20,7 +20,7 @@ so I'd like to try to get some more organized thoughts down before I'm distracte
 
    - Numbering chapters, sections, and subsections consecutively across files (e.g., across chapters).
    - Numbering figures, tables, examples, exercises, and everything else an author might want.
-     (No matter what counters you provide, people are going to need another one---for example,
+     (No matter what counters you provide, people are going to need another one—for example,
      did you notice that "theorems" wasn't in the previous sentence's list?)
    - *Not* requiring document names in cross-references,
      because content often moves between files.
@@ -56,7 +56,7 @@ One thing yesterday's Twitter exchange helped me realize is that
 I think user-level in-tool extensibility is a must-have.
 For all its quirks,
 most people can build the customizations they want for LaTeX *in the tool itself*.
-If you want to extend Pandoc you have to write in---well,
+If you want to extend Pandoc you have to write in—well,
 you get to pick,
 which means that someone else who wants to use your extension has to install that language's toolchain.
 (Have fun.)

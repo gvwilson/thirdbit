@@ -24,7 +24,7 @@ and their new governess is certain in the same way that water is wet.
 
 The girl herself is no longer as certain of anything as she was a few days ago.
 She very clearly remembers stepping into a chalk drawing and taking part in a carousel horse race,
-and there was a tea party where---
+and there was a tea party where—
 
 But no.
 At eight years old she knows that people don't float into the air,
@@ -54,7 +54,7 @@ sure as boys of all ages are that being able to do something is the same as havi
 
 The girl's breath catches in her throat as a memory surfaces like a fish in a murky pond.
 Last night,
-after the governess sang them to sleep---did Father come into their room?
+after the governess sang them to sleep—did Father come into their room?
 Did he wake her brother and press the coin into his hand and tell him to keep it safe for the morrow?
 It must have been a dream,
 she decides.
@@ -95,7 +95,7 @@ the boy says excitedly.
 his sister replies loftily.
 
 The governess smiles.
-She remembers how excited he was---how excited she was,
+She remembers how excited he was—how excited she was,
 and how hard she tried to hide it.
 It was nothing compared to what she feels today,
 though.
@@ -118,7 +118,7 @@ She cannot tell her brother
 (so young, so human)
 that in a few minutes an ancient evil will offer him a bargain.
 Wealth and power,
-an empire spanning the globe---he can buy all that with a single coin,
+an empire spanning the globe—he can buy all that with a single coin,
 just like Father and so many others before him.
 A single coin to seal the deal,
 then toys set aside and afternoons of make-believe foregone because big boys don't do that.
@@ -178,7 +178,7 @@ She can see their parched souls in a way her younger self could not,
 and she aches to pour what little light she has left into them.
 But her younger self would definitely see that,
 and she must not distract her.
-As much as she loved---loves---her little brother,
+As much as she loved—loves—her little brother,
 there is more at stake here than one child's soul.
 When he gets to the bank he must want to keep his tuppence more than anything in the world.
 

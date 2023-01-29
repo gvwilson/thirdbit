@@ -5,123 +5,123 @@ year: 2006
 ---
 <strong>Guido van Rossum's Keynote</strong>
 <ul>
-	<li>Python 2.5 coming Real Soon (Sept 12)</li>
-	<li>Python 3000 is a brand-new revision of the language
+  <li>Python 2.5 coming Real Soon (Sept 12)</li>
+  <li>Python 3000 is a brand-new revision of the language
 <ul>
-	<li>Name chosen as a dig at Windows 2000, and so that it couldn't possibly be late</li>
+  <li>Name chosen as a dig at Windows 2000, and so that it couldn't possibly be late</li>
 </ul>
 </li>
-	<li>Fix design bugs dating from 1990-91 + get rid of deprecated features</li>
-	<li>First time Guido has allowed himself to be backward incompatible</li>
-	<li>Need process, but don't want to become C++ or the next Perl 6</li>
-	<li>Alpha early 2007, final a year later (early 2008)</li>
-	<li>Cares a <em>lot</em> about bringing users with him
+  <li>Fix design bugs dating from 1990-91 + get rid of deprecated features</li>
+  <li>First time Guido has allowed himself to be backward incompatible</li>
+  <li>Need process, but don't want to become C++ or the next Perl 6</li>
+  <li>Alpha early 2007, final a year later (early 2008)</li>
+  <li>Cares a <em>lot</em> about bringing users with him
 <ul>
-	<li>Will go as far as 2.9 (run out of digits)</li>
+  <li>Will go as far as 2.9 (run out of digits)</li>
 </ul>
 </li>
-	<li>Changes:
+  <li>Changes:
 <ul>
-	<li>New keywords allowed</li>
-	<li>dict.keys(), range(), zip() won't return lists</li>
-	<li>All strings Unicode; mutable 'bytes' data type</li>
-	<li>Binary file I/O redesign</li>
-	<li>Drop <> as an alias for !=</li>
-	<li>Etc.</li>
+  <li>New keywords allowed</li>
+  <li>dict.keys(), range(), zip() won't return lists</li>
+  <li>All strings Unicode; mutable 'bytes' data type</li>
+  <li>Binary file I/O redesign</li>
+  <li>Drop <> as an alias for !=</li>
+  <li>Etc.</li>
 </ul>
 </li>
-	<li>See PEP 3099 for things that won't happen (e.g., programmable syntax)</li>
-	<li>Can't do perfect mechanical translation (dynamic languages)
+  <li>See PEP 3099 for things that won't happen (e.g., programmable syntax)</li>
+  <li>Can't do perfect mechanical translation (dynamic languages)
 <ul>
-	<li>Use pychecker-like tool to handle 80% of cases</li>
-	<li>Create instrumented Python 2.x that warns about "doomed" constructs</li>
+  <li>Use pychecker-like tool to handle 80% of cases</li>
+  <li>Create instrumented Python 2.x that warns about "doomed" constructs</li>
 </ul>
 </li>
-	<li>See <a href="http://www.python.org/dev/peps/pep-3100/">PEP 3100</a> for the laundry list</li>
-	<li>Small points
+  <li>See <a href="http://www.python.org/dev/peps/pep-3100/">PEP 3100</a> for the laundry list</li>
+  <li>Small points
 <ul>
-	<li>Kill classic classes</li>
-	<li>Exceptions must derive from BaseException</li>
-	<li>int/int will return a float</li>
-	<li>Remove last differences between int and long</li>
-	<li>Absolute import by default</li>
-	<li>Kill sys.exc_type and friends</li>
-	<li>Kill dict.has_key, file.xreadlines()</li>
-	<li>Kill apply(), input(), buffer(), coerce()</li>
-	<li>Kill ancient library modules; more stdlib cleanup</li>
-	<li>exec becomes a funciton again</li>
-	<li>Kill `x` in favor of repr(x)</li>
-	<li>Change except clause syntax to exception E1, E2, E3 as err
+  <li>Kill classic classes</li>
+  <li>Exceptions must derive from BaseException</li>
+  <li>int/int will return a float</li>
+  <li>Remove last differences between int and long</li>
+  <li>Absolute import by default</li>
+  <li>Kill sys.exc_type and friends</li>
+  <li>Kill dict.has_key, file.xreadlines()</li>
+  <li>Kill apply(), input(), buffer(), coerce()</li>
+  <li>Kill ancient library modules; more stdlib cleanup</li>
+  <li>exec becomes a funciton again</li>
+  <li>Kill `x` in favor of repr(x)</li>
+  <li>Change except clause syntax to exception E1, E2, E3 as err
 <ul>
-	<li>Means "as" becomes a keyword</li>
+  <li>Means "as" becomes a keyword</li>
 </ul>
 </li>
-	<li>[f(x) for x in S] becoms sugar for list(f(x) for x in S)
+  <li>[f(x) for x in S] becoms sugar for list(f(x) for x in S)
 <ul>
-	<li>General trend in Python away from lists toward more abstract structures</li>
+  <li>General trend in Python away from lists toward more abstract structures</li>
 </ul>
 </li>
-	<li>Kill raise E, arg in favor of raise E(arg)</li>
-	<li>zip becomes izip</li>
+  <li>Kill raise E, arg in favor of raise E(arg)</li>
+  <li>zip becomes izip</li>
 </ul>
 </li>
-	<li>lambda lives!</li>
-	<li>String types reform (bytes and str instead of str and unicode)
+  <li>lambda lives!</li>
+  <li>String types reform (bytes and str instead of str and unicode)
 <ul>
-	<li>All data s either ibnary or text (conversions happen at I/O time)</li>
-	<li>Different APIs for binary and text streams</li>
+  <li>All data s either ibnary or text (conversions happen at I/O time)</li>
+  <li>Different APIs for binary and text streams</li>
 </ul>
 </li>
-	<li>New standard I/O stack
+  <li>New standard I/O stack
 <ul>
-	<li>C stdio has too many problems</li>
-	<li>Borrow from Java streams API (bleah)</li>
+  <li>C stdio has too many problems</li>
+  <li>Borrow from Java streams API (bleah)</li>
 </ul>
 </li>
-	<li>Print becomes a function (boo)
+  <li>Print becomes a function (boo)
 <ul>
-	<li>See mailing list thread for justification</li>
-	<li><em>But I think that putting the output file at the end in print(x, y, file=z) is going to trip people up</em></li>
+  <li>See mailing list thread for justification</li>
+  <li><em>But I think that putting the output file at the end in print(x, y, file=z) is going to trip people up</em></li>
 </ul>
 </li>
-	<li>Dict views instead of lists
+  <li>Dict views instead of lists
 <ul>
-	<li>dict.keys() and dict.items() return a set view</li>
-	<li>dict.views() will return a bag (multiset) view</li>
-	<li>Can delete from (but not add to) a view
+  <li>dict.keys() and dict.items() return a set view</li>
+  <li>dict.views() will return a bag (multiset) view</li>
+  <li>Can delete from (but not add to) a view
 <ul>
-	<li>Modifies the dict accordingly</li>
+  <li>Modifies the dict accordingly</li>
 </ul>
 </li>
 </ul>
 </li>
-	<li>Drop default implementations of comparison operators
+  <li>Drop default implementations of comparison operators
 <ul>
-	<li><, <=, etc., currently compare by address—will raise TypeError</li>
-	<li>== and != should remain (useful)</li>
+  <li><, <=, etc., currently compare by address—will raise TypeError</li>
+  <li>== and != should remain (useful)</li>
 </ul>
 </li>
-	<li>Generic and overloaded functions (see his blog—running out of time)</li>
-	<li>Python sprints coming up (Aug 21-24)</li>
-	<li>Q&A
+  <li>Generic and overloaded functions (see his blog—running out of time)</li>
+  <li>Python sprints coming up (Aug 21-24)</li>
+  <li>Q&A
 <ul>
-	<li>Py3K team is smaller than Perl6—GvR optimistic that people will get the work done</li>
-	<li>Taking advantage of multicore?
+  <li>Py3K team is smaller than Perl6—GvR optimistic that people will get the work done</li>
+  <li>Taking advantage of multicore?
 <ul>
-	<li>GvR not a big fan of threads</li>
-	<li>Prefers loose coupling (one process per core)</li>
-	<li>Last attempt to get rid of the GIL slowed Python down by 2X</li>
-	<li>But neither Jython nor IronPython have a GIL</li>
+  <li>GvR not a big fan of threads</li>
+  <li>Prefers loose coupling (one process per core)</li>
+  <li>Last attempt to get rid of the GIL slowed Python down by 2X</li>
+  <li>But neither Jython nor IronPython have a GIL</li>
 </ul>
 </li>
-	<li>Will C-Python API change much?
+  <li>Will C-Python API change much?
 <ul>
-	<li>Yup—just like the language</li>
+  <li>Yup—just like the language</li>
 </ul>
 </li>
-	<li>PyPy/type inference?
+  <li>PyPy/type inference?
 <ul>
-	<li>Python 4.0 or a sibling language</li>
+  <li>Python 4.0 or a sibling language</li>
 </ul>
 </li>
 </ul>
@@ -129,32 +129,32 @@ year: 2006
 </ul>
 <strong>Travis Oliphant on the State of NumPy</strong>
 <ul>
-	<li>Chair thanked him for everything he's done to fix numerical Python—standing ovation (well deserved)</li>
-	<li>NumPy 1.0 rc1 will be out in a few weeks</li>
-	<li>Walked through design—tradeoffs between flexibility, portability, and performance very well thought through</li>
-	<li>One part I enjoyed was the way he flipped back and forth between PowerPoint and the interpreter
+  <li>Chair thanked him for everything he's done to fix numerical Python—standing ovation (well deserved)</li>
+  <li>NumPy 1.0 rc1 will be out in a few weeks</li>
+  <li>Walked through design—tradeoffs between flexibility, portability, and performance very well thought through</li>
+  <li>One part I enjoyed was the way he flipped back and forth between PowerPoint and the interpreter
 <ul>
-	<li>Clear that for him, Python is a tool for thinking with</li>
+  <li>Clear that for him, Python is a tool for thinking with</li>
 </ul>
 </li>
-	<li>Showed off weave, an Enthought tool for embedding C in Python for array programming</li>
-	<li>Also shows off Pyrex (another tool for the same purpose)</li>
+  <li>Showed off weave, an Enthought tool for embedding C in Python for array programming</li>
+  <li>Also shows off Pyrex (another tool for the same purpose)</li>
 </ul>
 <strong>Fernando Perez: Python for Modern Scientific Algorithm Development</strong>
 <ul>
-	<li>"Why is Python more than 'free MATLAB'?"
+  <li>"Why is Python more than 'free MATLAB'?"
 <ul>
-	<li>Power of built-in datatypes, higher-level programming, etc.</li>
+  <li>Power of built-in datatypes, higher-level programming, etc.</li>
 </ul>
 </li>
 </ul>
 <strong>Michael Aivazis: "Building a Distributed Component Framework"</strong>
 <ul>
-	<li>Described a medium-sized framework called pyre
+  <li>Described a medium-sized framework called pyre
 <ul>
-	<li>1200 classes, 75K lines of Python, 30K lines of C++</li>
-	<li>Has been running in various incarnations for almost ten years</li>
+  <li>1200 classes, 75K lines of Python, 30K lines of C++</li>
+  <li>Has been running in various incarnations for almost ten years</li>
 </ul>
 </li>
-	<li>Good discussion of architectural issues—perfect example of the kind of researcher I'd like Software Carpentry to produce</li>
+  <li>Good discussion of architectural issues—perfect example of the kind of researcher I'd like Software Carpentry to produce</li>
 </ul>

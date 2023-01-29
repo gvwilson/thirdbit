@@ -11,7 +11,7 @@ He said,
 "I try not to be.
 If you get a really good present for Christmas,
 but someone else gets a better one,
-you shouldn't say hey, theirs is better---you should be grateful for the present you got."
+you shouldn't say hey, theirs is better—you should be grateful for the present you got."
 
 He was always a better man than me,
 so as this year draws to a close,

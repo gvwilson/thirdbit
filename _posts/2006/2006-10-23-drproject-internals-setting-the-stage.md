@@ -9,7 +9,7 @@ Let's start with a simple wiki that consists of nothing more than a bunch of pag
 
 <img id="image685" alt="Figure 1" src="{{'/files/2006/10/fig0101.png' | relative_url}}" />
 
-Now suppose we want to keep track of who edited each page, when, and why---in short, we want to keep some <em>meta-data</em> about each page.  One option would be to store a header in each file of the form:
+Now suppose we want to keep track of who edited each page, when, and why—in short, we want to keep some <em>meta-data</em> about each page.  One option would be to store a header in each file of the form:
 <blockquote>
 <pre>Author: Grace Hopper
 Timestamp: 2014-07-03 15:43:06

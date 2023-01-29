@@ -137,8 +137,7 @@ and the page appears without any styling.
 ## It gets worse.
 
 There's another problem here.
-We don't want our pages to have URLs that start with `gloom.github.io` ---
-we want them to start with `optimism.org`,
+We don't want our pages to have URLs that start with `gloom.github.io`—we want them to start with `optimism.org`,
 because that's the name of *our* website.
 GitHub lets us do this using something called a CNAME.
 In brief,
@@ -182,7 +181,7 @@ and it will all just work and we can go home.
 But suppose we want to do some more work on the subway ride home.
 We make a change to a page,
 run Jekyll to convert the page to HTML,
-open it in the browser---and the CSS doesn't load,
+open it in the browser—and the CSS doesn't load,
 because *we're offline*.
 
 This isn't a big problem for people who are creating workshop websites
@@ -224,7 +223,7 @@ then:
 
 Yay!
 We're done!
-We can---
+We can—
 
 Wait.
 What about offline work?
@@ -272,8 +271,7 @@ When we want to preview locally,
 we pass Jekyll extra parameters to tell it to read this configuration file,
 and all the URLs are then correct for a local build.
 
-This works ---
-until someone just runs `jekyll serve` on the command line
+This works—until someone just runs `jekyll serve` on the command line
 as they would normally do
 (and as all the online documentation tells them to).
 Boom:
@@ -348,8 +346,7 @@ our pages, layouts, and included HTML fragments can all use `{% raw %}{{page.roo
 to refer to whatever they want.
 It's not ideal—we'll have to explain it to people who've used Jekyll before,
 and if we ever create deeper directory hierarchies,
-it will quickly become as complicated as the alternatives we've discarded ---
-but it's good enough for now.
+it will quickly become as complicated as the alternatives we've discarded—but it's good enough for now.
 
 ## How this got into production.
 
@@ -372,8 +369,7 @@ Hacks like turning `http` into `https` *always* break,
 and if one of my GSoC students had tried to put something like this into production,
 I would have told them to think again.
 
-The real lesson from this episode is that we still can't have nice things ---
-or rather,
+The real lesson from this episode is that we still can't have nice things—or rather,
 we can't have them all at once.
 GitHub Pages are a great way for people to build simple little web sites.
 Templating tools like Jekyll are great too,

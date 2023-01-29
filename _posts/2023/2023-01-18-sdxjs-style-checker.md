@@ -48,6 +48,6 @@ Looking over [*Software Design by Example*][sdxjs] now,
 I'm not sure it introduces challenges in the order that readers will be ready for;
 I'm going to have to think hard about this for the Python edition.
 
-[email]: mailto:gvwilson@third-bit.com
+[email]: mailto:{{site.author.email}}
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxjs_checker]: {{'/sdxjs/style-checker/' | relative_url}}

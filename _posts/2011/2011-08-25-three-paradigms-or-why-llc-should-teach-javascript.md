@@ -5,9 +5,9 @@ year: 2011
 ---
 Mark Guzdial recently posted another <a href="http://computinged.wordpress.com/2011/08/23/why-we-ought-to-teach-java-computing-education-and-social-practice/">thought-provoking piece</a> on computing education that has some direct implications for a project here in Toronto called <a href="http://ladieslearningcode.tumblr.com/">Ladies Learning Code</a> (and for other projects <a href="https://software-carpentry.org">Software Carpentry</a>). In his post, Mark summarizes a 1996 paper by Greeno, Collins, and Resnick that summarizes three views of education:
 <ol>
-	<li>Behaviorist: education is a matter of stimulus and response.</li>
-	<li>Cognitive: education is about building and applying knowledge structures.</li>
-	<li>Situated: education is about making people more successful members of a community of practice.</li>
+  <li>Behaviorist: education is a matter of stimulus and response.</li>
+  <li>Cognitive: education is about building and applying knowledge structures.</li>
+  <li>Situated: education is about making people more successful members of a community of practice.</li>
 </ol>
 All three views are valid: they all provoke useful questions, make testable predictions, and so on. #2 (which is associated with people like Piaget) is probably the dominant paradigm today, but Mark's point is that #3 is equally important. Real-world problems are rarely solved by hermits working in complete isolation; instead, we go through apprenticeships, share sub-problems with colleagues, and hang out on Stack Overflow.
 

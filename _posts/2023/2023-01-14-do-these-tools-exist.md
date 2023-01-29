@@ -56,4 +56,4 @@ I'd be grateful if you would [reach out][email].
 [third-dimension]: {{'/2022/12/14/teaching-in-the-third-dimension/' | relative_url}}
 [explain-code]: {{'/2022/12/28/ways-to-explain-code/' | relative_url}}
 [sdxjs]: {{'/sdxjs/' | relative_url}}
-[email]: mailto:gvwilson@third-bit.com
+[email]: mailto:{{site.author.email}}

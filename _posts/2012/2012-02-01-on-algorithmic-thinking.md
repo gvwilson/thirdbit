@@ -15,12 +15,12 @@ I'm all in favor of that. But I'm not sure that Davidson and I mean the same thi
 <td valign="top"><img title="algorithmic-thinking-cathy-davidson-004" src="{{'/files/2012/02/algorithmic-thinking-cathy-davidson-004-300x225.jpg' | relative_url}}" alt="" width="300" height="225" /></td>
 <td valign="top">
 <ol>
-	<li>procedural thinking</li>
-	<li>webcraft/webmaking</li>
-	<li>forking</li>
-	<li>participation</li>
-	<li>diversity</li>
-	<li>future partisans for the open web</li>
+  <li>procedural thinking</li>
+  <li>webcraft/webmaking</li>
+  <li>forking</li>
+  <li>participation</li>
+  <li>diversity</li>
+  <li>future partisans for the open web</li>
 </ol>
 </td>
 </tr>
@@ -33,12 +33,12 @@ What I mean by "algorithmic thinking" is, I think, closer to what Michelle Leves
 She went on to say:
 <blockquote>Computational thinking enables you to bend computation to your needs...to:
 <ul>
-	<li>understand which aspects of a problem are amenable to computation,</li>
-	<li>evaluate the match between computational tools and techniques and a problem,</li>
-	<li>understand the limitations and power of computational tools and techniques,</li>
-	<li>apply or adapt a computational tool or technique to a new use,</li>
-	<li>recognize an opportunity to use computation in a new way, and</li>
-	<li>apply computational strategies such divide and conquer in any domain.</li>
+  <li>understand which aspects of a problem are amenable to computation,</li>
+  <li>evaluate the match between computational tools and techniques and a problem,</li>
+  <li>understand the limitations and power of computational tools and techniques,</li>
+  <li>apply or adapt a computational tool or technique to a new use,</li>
+  <li>recognize an opportunity to use computation in a new way, and</li>
+  <li>apply computational strategies such divide and conquer in any domain.</li>
 </ul>
 </blockquote>
 That's a much narrower definition, but I think it's also more useful. CollaboRation or paRticipation would make a great "zero'th R", but they're very opposite of "algorithmic". They are, fundamentally, about the exercise of judgment in situations where right answers <em>can't</em> be calculated by following a formula–in short, about the things that still distinguish us from machines.

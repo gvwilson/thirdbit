@@ -43,95 +43,95 @@ original: swc
   <tr>
     <td width="33%">
       How can I choose what tool to use?
-      <br/>
+      <br>
       How can I get help/fix this?
-      <br/>
+      <br>
       How can I get started?
-      <br/>
+      <br>
       How can I work in a team?
-      <br/>
+      <br>
       How can I make my software more useful?
-      <br/>
+      <br>
       How can I get my software to do more?
-      <br/>
+      <br>
       How can I make my work reproducible?
-      <br/>
+      <br>
       How can I get the right answer?
-      <br/>
+      <br>
       How can I understand the project I've inherited?
     </td>
     <td width="34%">
       Automate tasks and analyses.
-      <br/>
+      <br>
       Avoid duplication.
-      <br/>
+      <br>
       Be welcoming.
-      <br/>
+      <br>
       Choose the right visualization.
-      <br/>
+      <br>
       Program defensively.
-      <br/>
+      <br>
       Document intention not implementation.
-      <br/>
+      <br>
       Use the experimental method.
-      <br/>
+      <br>
       Modularize software.
-      <br/>
+      <br>
       Normalize data.
-      <br/>
+      <br>
       Be open by default.
-      <br/>
+      <br>
       Organize projects consistently.
-      <br/>
+      <br>
       Do pre-commit reviews.
-      <br/>
+      <br>
       Publish software and data.
-      <br/>
+      <br>
       Reduce, re-use, recycle.
-      <br/>
+      <br>
       Create re-runnable tests.
-      <br/>
+      <br>
       Search the web.
-      <br/>
+      <br>
       Store raw data as it arrived.
-      <br/>
+      <br>
       Tune programs.
-      <br/>
+      <br>
       Understand data formats.
-      <br/>
+      <br>
       Understand error messages.
-      <br/>
+      <br>
       Understand how programs run.
-      <br/>
+      <br>
       Use checklists and to-do lists.
-      <br/>
+      <br>
       Use configuration files.
-      <br/>
+      <br>
       Use more hardware.
-      <br/>
+      <br>
       Use version control.
     </td>
     <td width="33%">
       Collaboration
-      <br/>
+      <br>
       Data Management
-      <br/>
+      <br>
       Make
-      <br/>
+      <br>
       Managing Software
-      <br/>
+      <br>
       Performance
-      <br/>
+      <br>
       Programming
-      <br/>
+      <br>
       Authoring and Publishing
-      <br/>
+      <br>
       Quality Assurance
-      <br/>
+      <br>
       Unix Shell
-      <br/>
+      <br>
       Version Control
-      <br/>
+      <br>
       Visualization
     </td>
   </tr>

@@ -6,7 +6,7 @@ favorite: true
 ---
 
 In the beginning was the finger, and paint, and the wall of the cave.
-Whoever painted the first pictures this way could create whatever they wanted---the medium
+Whoever painted the first pictures this way could create whatever they wanted—the medium
 allowed them to create anything they could imagine.
 So did pens and paper:
 pictures and text could be arranged on the page
@@ -87,7 +87,7 @@ These worlds collided after the invention of the laser printer in the 1970s,
 and that tension was only magnified by high-resolution computer screens in the 1980s
 and the World Wide Web in the 1990s.
 On the one hand,
-most people simply want to write---to put these words here and those words there,
+most people simply want to write—to put these words here and those words there,
 or make some of them green and others italic.
 WYSIWIG (what you see is what you get) editors like MacWrite and Microsoft Word fill this need,
 but documents produced this way have two shortcomings:

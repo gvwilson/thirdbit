@@ -5,13 +5,13 @@ year: 2008
 ---
 It's now 10:29 EST, and the room is fuller:
 <ul>
-	<li>Dave Wolever, Jeff Balogh, Dave Cooper, Luke Petrolekas, Blake Winton, and Adam Goucher are working on DrProject</li>
-	<li>Martin Williams, Florian Shkurti, and Tony Yiu are working on OLM</li>
-	<li>Yi Qing Sim is proofreading</li>
-	<li>Pardis Beikzadeh is working on UTest</li>
-	<li>David Chang is working on Flex (no sign of Ian "it's too eaaaarrrllly" Chan yet)</li>
-	<li>Alan "Flaps" Rosenthal is doing tech support</li>
-	<li>I'm fetching milk for coffee, and making sure the donuts get eaten</li>
+  <li>Dave Wolever, Jeff Balogh, Dave Cooper, Luke Petrolekas, Blake Winton, and Adam Goucher are working on DrProject</li>
+  <li>Martin Williams, Florian Shkurti, and Tony Yiu are working on OLM</li>
+  <li>Yi Qing Sim is proofreading</li>
+  <li>Pardis Beikzadeh is working on UTest</li>
+  <li>David Chang is working on Flex (no sign of Ian "it's too eaaaarrrllly" Chan yet)</li>
+  <li>Alan "Flaps" Rosenthal is doing tech support</li>
+  <li>I'm fetching milk for coffee, and making sure the donuts get eaten</li>
 </ul>
 11:00: helps if all the tests are running <em>before</em> you start to merge.
 

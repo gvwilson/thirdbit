@@ -5,10 +5,10 @@ year: 2006
 ---
 Pursuant<sup>1</sup> to last week's post on making tickets simpler to work with in DrProject, I'm now wondering whether the real problem isn't the number of fields, but the fact that the only way to file a ticket is through a web browser.  If you're grinding away in <a href="http://www.eclipse.org">Eclipse</a> (or Notepad) and want to add a note to your project, you have to:
 <ol>
-	<li>Click on "Favorites"</li>
-	<li>Click on the link to your project</li>
-	<li>Enter your user ID and password (since your previous session has almost certainly timed out)</li>
-	<li>Click on "New Ticket"</li>
+  <li>Click on "Favorites"</li>
+  <li>Click on the link to your project</li>
+  <li>Enter your user ID and password (since your previous session has almost certainly timed out)</li>
+  <li>Click on "New Ticket"</li>
 </ol>
 and <em>then</em> jot down whatever it was you wanted to jot down.  Of course, by this point you've lost your original train of thought...
 

@@ -5,9 +5,9 @@ year: 2010
 ---
 On March 24, a post appeared on the Code Anthem blog titled "<a href="http://codeanthem.com/blog/index.php/2010/03/should-you-judge-a-developer-by-their-open-source-contributions/">Don't Judge a Developer by Open Source</a>". Since it starts by saying that the authors are big fans of 37Signals, I skipped over it (I'm not), but when links to it started appearing elsewhere, I went back to have a read. The post's thesis is that judging developers by looking at their open source contributions is a bad idea. I've been doing that for several years (and telling my students that they should contribute to open projects in order to get noticed), so I expected to disagree with the post, but that's proving hard. In order, the author's points are:
 <ol>
-	<li>It's an arbitrary distinction.</li>
-	<li>There are smarter ways to spend your time.</li>
-	<li>Requiring open source contributions is sexist.</li>
+  <li>It's an arbitrary distinction.</li>
+  <li>There are smarter ways to spend your time.</li>
+  <li>Requiring open source contributions is sexist.</li>
 </ol>
 The first is moot, and the second is arguable, but the third hits home. Open source is overwhelmingly male: depending on how you count, only 1-2% of OS developers are women, compared to 12-15% in the industry as a whole [1]. That means that if OS is your selection pool, in the long run you're going to drive the proportion of women in programming <em>down</em>.
 

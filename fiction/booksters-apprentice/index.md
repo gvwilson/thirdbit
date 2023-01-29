@@ -5,7 +5,7 @@ title: "The Bookster's Apprentice"
 
 <div align="center">
   <p>
-    <em>For Madeleine,<br/>who is taking me on the greatest journey of my life.</em>
+    <em>For Madeleine,<br>who is taking me on the greatest journey of my life.</em>
   </p>
 </div>
 

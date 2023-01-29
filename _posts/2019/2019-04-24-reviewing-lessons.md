@@ -8,8 +8,8 @@ favorite: true
 If you do a degree in English literature,
 you spend most of your time reading and critiquing other people's work
 rather than writing new material yourself.
-I don't know what the balance of reading and doings proofs is in Mathematics---I suspect
-it's somewhere near 50/50---but if you do a degree in Computer Science,
+I don't know what the balance of reading and doings proofs is in Mathematics—I suspect
+it's somewhere near 50/50—but if you do a degree in Computer Science,
 you spend far more time writing software than you do reading it critically.
 
 But what of education?
@@ -31,13 +31,13 @@ But it's equally important to set out some tentative rules at the start,
 because you can't choose examples unless you have some idea what they're examples of.
 
 What follows is my first attempt at defining those rules.
-It doesn't cover spelling and grammar or the logical flow of the lesson---I will try
-to work up a separate checkable list for that---but I think it's more useful than
+It doesn't cover spelling and grammar or the logical flow of the lesson—I will try
+to work up a separate checkable list for that—but I think it's more useful than
 [my earlier post]({{'/2019/04/20/questions-for-learning-commons/' | relative_url}}).
 I hope that people who are sharing lessons freely available online will find it useful,
 and I'd be very grateful for feedback.
 (I have once again had to disable comments on this blog,
-so please [send me ideas by email](mailto:gvwilson@third-bit.com).)
+so please [send me ideas by email](mailto:{{site.author.email}}).)
 
 1.  **Is the lesson inclusive?**
     I put this last in [the Quick Tips paper][10-lesson],

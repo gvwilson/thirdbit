@@ -45,7 +45,7 @@ but I wanted [*SDXJS*]({{'/sdxjs/' | relative_url}}) to be better
 because I want computer science and the tech industry to be better.
 
 Because here's the thing:
-you're not reading this because I program---you're reading this because I write.
+you're not reading this because I program—you're reading this because I write.
 Thanks to a few lucky accidents
 (like [my father]({{'/2015/09/22/dad/' | relative_url}}) being a high school English teacher)
 I can put words together better and faster than most people.
@@ -68,7 +68,7 @@ if you're not a straight white or Asian male
 then you already have to do a lot of extra work to get ahead in tech.
 Doing even more work on the off chance that it will lead to something else
 is a bad investment,
-and being asked to do extra work without pay---again---is just wearying.
+and being asked to do extra work without pay—again—is just wearying.
 
 I'm pleased with the book itself:
 there are still some formatting glitches,
@@ -77,8 +77,8 @@ and I still don't think I've explained JavaScript promises well,
 but it's not bad for a first release.
 If I could wind the clock back to 2018, though,
 I wouldn't have started it.
-Designing things well matters to me---thinking and talking about it
-reminds me of [my brother]({{'/2018/03/20/goodbye-jeff/' | relative_url}})---but
+Designing things well matters to me—thinking and talking about it
+reminds me of [my brother]({{'/2018/03/20/goodbye-jeff/' | relative_url}})—but
 fixing our broken industry matters more.
 I still hope to see it adopted in courses,
 and I still think a second volume with contributions from people

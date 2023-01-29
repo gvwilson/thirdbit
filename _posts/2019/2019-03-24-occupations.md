@@ -5,7 +5,7 @@ title: "Occupations"
 ---
 
 There are some threads right now on Twitter and on various forums I belong to
-about life after grad school---more specifically,
+about life after grad school—more specifically,
 about how little support grad students are given to figure out
 what they could or should do if they're part of the 80% who *won't* wind up in academia.
 It all came to a head when someone messaged me privately to say,

@@ -3,7 +3,7 @@ title: "The Last of September's Reading"
 date: 2006-10-17 09:34:28
 year: 2006
 ---
-In the years leading up to the First World War, French military doctrine held that the élan of their troops---their superior fighting spirit---was guaranteed to win the day.  Never mind the machine guns; what mattered most was courage.
+In the years leading up to the First World War, French military doctrine held that the élan of their troops—their superior fighting spirit—was guaranteed to win the day.  Never mind the machine guns; what mattered most was courage.
 
 We all know what happened next.
 
@@ -11,7 +11,7 @@ I was reminded of this history lesson a few weeks ago when two books landed in m
 <blockquote>Getting Real is about skipping all the stuff that <em>represents</em> real (charts, graphs, boxes, arrows, schematics, wireframes, etc.) and <em>actually building the real thing</em>.</blockquote>
 Here's another:
 <blockquote>There's nothing more toxic to productivity than a meeting... They usually convey an abysmally small amount of information per minute...often contain at least one moron that inevitably gets his turn to waste everyone's time with nonsense...[and] frequently have agendas so vague nobody is really sure what they are about.</blockquote>
-This is what Steve Yegge, in his blog post "<a href="http://steve-yegge.blogspot.com/2006/09/good-agile-bad-agile_27.html">Good Agile, Bad Agile</a>", calls "snake oil".  Do schematics and wireframes actually get in the way of building the real thing?  That depends on how complicated your "real thing" is, and (crucially) how willing your customer is to pay you to rewrite---sorry, refactor---your code a jillion times.  And meetings are no more likely to be toxic than code is to be unreadable: in both cases, what makes the difference is discipline and professionalism.
+This is what Steve Yegge, in his blog post "<a href="http://steve-yegge.blogspot.com/2006/09/good-agile-bad-agile_27.html">Good Agile, Bad Agile</a>", calls "snake oil".  Do schematics and wireframes actually get in the way of building the real thing?  That depends on how complicated your "real thing" is, and (crucially) how willing your customer is to pay you to rewrite—sorry, refactor—your code a jillion times.  And meetings are no more likely to be toxic than code is to be unreadable: in both cases, what makes the difference is discipline and professionalism.
 
 My real objection to <cite>Getting Real</cite> isn't that it's an infomercial (again borrowing Yegge's terminology).  My real objection is that the authors don't back up their claims with evidence. Anecdotes, yes, but if anecdotes were proof, then eating a raw onion before each playoff game would be enough to guarantee your team the trophy.  A few people are actually doing rigorous, empirical studies of how effective agile practices are; unfortunately, this book's approach is to shout, "Over the top!"
 

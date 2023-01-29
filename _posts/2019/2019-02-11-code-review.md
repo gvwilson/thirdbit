@@ -32,4 +32,4 @@ I realize it's uncomfortable to invite the whole world to watch you stumble,
 even anonymously,
 so everyone's identity will be kept confidential.
 If you're able to help,
-please [get in touch](mailto:gvwilson@third-bit.com).
+please [get in touch](mailto:{{site.author.email}}).

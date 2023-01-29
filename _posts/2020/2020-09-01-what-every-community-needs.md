@@ -17,7 +17,7 @@ Here are a few other things that would help programming communities:
 
 -   [concept maps][concept-maps]: or other remixable illustrations of key ideas.
 
-Please [let me know](mailto:gvwilson@third-bit.com) what else is on your list:
+Please [let me know](mailto:{{site.author.email}}) what else is on your list:
 I'm always grateful for pointers.
 
 [concept-maps]: {{'/ideas/concept-maps/' | relative_url}}

@@ -21,7 +21,7 @@ year: 2005
 
 <li>Several dozen students have submitted articles about their <a href="http://code.google.com/summerofcode.html">Google Summer of Code</a> projects to the series I organized for <a href="http://www.ddj.com">Doctor Dobb's Journal</a>.  The first ones should appear in next month's issue.  I'm floored by how cool some of them are, and by how today's undergraduates take globalization as a matter of course.  Those of you still ranting about the evils of offshoring, take note: the next generation simply doesn't care.</li>
 
-<li>And speaking of <a href="http://www.ddj.com">DDJ</a>, the magazine has run two more opinion pieces I wrote (yes, I get paid for having opinions---why else would I have so many?).  The first explains <a href="http://www.ddj.com/documents/s=9776/ddj1126538834462/">why JavaScript may be the dominant scripting language of 2010</a>; the other, <a href="http://www.ddj.com/documents/s=9776/ddj1124918714742/">why XML configuration files are the Achilles' heel of Java, C#, and other sturdy languages</a>.</li>
+<li>And speaking of <a href="http://www.ddj.com">DDJ</a>, the magazine has run two more opinion pieces I wrote (yes, I get paid for having opinions—why else would I have so many?).  The first explains <a href="http://www.ddj.com/documents/s=9776/ddj1126538834462/">why JavaScript may be the dominant scripting language of 2010</a>; the other, <a href="http://www.ddj.com/documents/s=9776/ddj1124918714742/">why XML configuration files are the Achilles' heel of Java, C#, and other sturdy languages</a>.</li>
 
 </ol>
 
@@ -32,9 +32,9 @@ We analyze software reuse from the perspective of information theory
 and Kolmogorov complexity, assessing our ability to "compress"
 programs by expressing them in terms of software components reused
 from libraries. A common theme in the software reuse literature is
-that if we can only get the right environment in place---the right
+that if we can only get the right environment in place—the right
 tools, the right generalizations, economic incentives, a "culture of
-reuse"---then reuse of software will soar, with consequent
+reuse"—then reuse of software will soar, with consequent
 improvements in productivity and software quality. The analysis
 developed in this paper paints a different picture: the extent to
 which software reuse can occur is an intrinsic property of a problem

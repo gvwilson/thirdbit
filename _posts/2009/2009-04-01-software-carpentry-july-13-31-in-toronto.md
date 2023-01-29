@@ -3,7 +3,7 @@ title: "Software Carpentry: July 13-31 in Toronto"
 date: 2009-04-01 14:56:05
 year: 2009
 ---
-Thanks to a grant from <a href="http://mitacs.ca">MITACS</a>, the <a href="http://www.utoronto.ca">University of Toronto</a> will offer the Software Carpentry course as a condensed three-week boot camp this summer from July 13-31, 2009.  This course is an accelerated introduction to software development aimed at graduate students in science and engineering; its goal is to give them the tools and skills they need to use computers more effectively in their research.  16 spaces are available to students registered in full-time graduate programs in Canada; the fee for the course is $500, but grants of up to $1500 for students from outside the Greater Toronto Area are available to help offset travel and accommodation costs.  If you wish to attend the course, or would like more information on content, schedule, prerequisites, eligibility, or other details, please contact <a href="http://www.cs.toronto.edu/~gvwison">Greg Wilson</a> by email at <a href="mailto:gvwilson@cs.toronto.edu">gvwilson@cs.toronto.edu</a>.  Please also subscribe to the new Software Carpentry blog at <a href="http://softwarecarpentry.wordpress.com/">http://softwarecarpentry.wordpress.com/</a> for updates.
+Thanks to a grant from <a href="http://mitacs.ca">MITACS</a>, the <a href="http://www.utoronto.ca">University of Toronto</a> will offer the Software Carpentry course as a condensed three-week boot camp this summer from July 13-31, 2009.  This course is an accelerated introduction to software development aimed at graduate students in science and engineering; its goal is to give them the tools and skills they need to use computers more effectively in their research.  16 spaces are available to students registered in full-time graduate programs in Canada; the fee for the course is $500, but grants of up to $1500 for students from outside the Greater Toronto Area are available to help offset travel and accommodation costs.  If you wish to attend the course, or would like more information on content, schedule, prerequisites, eligibility, or other details, please contact <a href="http://www.cs.toronto.edu/~gvwison">Greg Wilson</a> by email at <a href="mailto:{{site.author.email}}">{{site.author.email}}</a>.  Please also subscribe to the new Software Carpentry blog at <a href="http://softwarecarpentry.wordpress.com/">http://softwarecarpentry.wordpress.com/</a> for updates.
 
 <strong>Overview</strong>
 
@@ -15,20 +15,20 @@ Software Carpentry is an intensive introduction to basic software development pr
 <tr>
 <td valign="top">
 <ul>
-	<li>Using the Unix Shell</li>
-	<li>Version Control</li>
-	<li>Automated Builds</li>
-	<li>Basic Scripting with Python</li>
-	<li>Testing and Quality Assurance</li>
+  <li>Using the Unix Shell</li>
+  <li>Version Control</li>
+  <li>Automated Builds</li>
+  <li>Basic Scripting with Python</li>
+  <li>Testing and Quality Assurance</li>
 </ul>
 </td>
 <td valign="top">
 <ul>
-	<li>Systematic Debugging</li>
-	<li>Object-Oriented Design</li>
-	<li>Data Crunching with Regular Expressions, XML, and SQL</li>
-	<li>Basic Web Programming and Security</li>
-	<li>Agile Software Development Process</li>
+  <li>Systematic Debugging</li>
+  <li>Object-Oriented Design</li>
+  <li>Data Crunching with Regular Expressions, XML, and SQL</li>
+  <li>Basic Web Programming and Security</li>
+  <li>Agile Software Development Process</li>
 </ul>
 </td>
 </tr>

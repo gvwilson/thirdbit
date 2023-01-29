@@ -7,5 +7,5 @@ Florian and Adam opened the place up; Jeff and I were here 10 minutes later; Ton
 
 See also:
 <ul>
-	<li>Blake Winton's <a href="http://weblog.latte.ca/blake/tech/drproject/codeSprint">observations on the sprint</a> (yes, the wiki parser is one of the ugliest pieces of code we have)</li>
+  <li>Blake Winton's <a href="http://weblog.latte.ca/blake/tech/drproject/codeSprint">observations on the sprint</a> (yes, the wiki parser is one of the ugliest pieces of code we have)</li>
 </ul>

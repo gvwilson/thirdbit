@@ -21,7 +21,7 @@ do the things I want:
     LaTeX (plus BibTeX) turns `\cite{Able,Baker}` into `[Able 2000, Baker 2011]`
     and generates a bibliography.
     Bookdown and Jupyter Book do this too,
-    but Jekyll doesn't know what citations are---without plugins,
+    but Jekyll doesn't know what citations are—without plugins,
     I have to write something like `[[Able 2000](../bib/#Able), [Baker 2011](../bib/#Baker)]`
     and then filter my bibliography myself.
 
@@ -38,7 +38,7 @@ do the things I want:
     The problem is,
     that's almost never what I want when I write a book.
     Instead,
-    what I usually want is a fragment of that code---a couple of methods out of a class,
+    what I usually want is a fragment of that code—a couple of methods out of a class,
     for example,
     or the first and last few lines of output with vertical ellipses between them.
     Purist literate programming systems support this via transclusion,
@@ -75,7 +75,7 @@ do the things I want:
     not only has "the FORTRAN of scientific publishing" become increasingly brittle over the years
     as packages pile on packages pile on packages,
     but it's grown harder to persuade people that its arcane syntax is justified.
-    Markdown hurts less---until you need notations for numbered cross-references,
+    Markdown hurts less—until you need notations for numbered cross-references,
     citations, glossary entries, partial code inclusions, and so on.
 
 1.  **Diff and merge.**
@@ -100,8 +100,8 @@ do the things I want:
 1.  **HTML and PDF.**
     This is the point of it all: something people can read online
     and something that can be printed and bound.
-    They don't need to look like one another---fonts that work well on the web
-    may not be the best choice on paper---but all of the indexing and cross-referencing *must* be consistent.
+    They don't need to look like one another—fonts that work well on the web
+    may not be the best choice on paper—but all of the indexing and cross-referencing *must* be consistent.
     They must also come from a single source so that updates are automatically consistent as well,
     and that's a problem:
     forced page breaks and "put it here" directives are always needed for print,

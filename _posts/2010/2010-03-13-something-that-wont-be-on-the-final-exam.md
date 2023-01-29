@@ -3,7 +3,7 @@ title: "Something That Won't Be On The Final Exam"
 date: 2010-03-13 15:09:27
 year: 2010
 ---
-The final exam for my CSC302 software engineering course was due this week, and I thought I had come up with a good--and fair---question to put on it. Four out of four of the other instructors I spoke to, however, didn't like it, so I left it out. I'd be very interested in hearing from present and former students (and other teachers) what they think.
+The final exam for my CSC302 software engineering course was due this week, and I thought I had come up with a good--and fair—question to put on it. Four out of four of the other instructors I spoke to, however, didn't like it, so I left it out. I'd be very interested in hearing from present and former students (and other teachers) what they think.
 
 This term, I organized the CSC302 students into six teams of about ten people each, and put each team to work on an open source project. Most of the marks in the course are given to the team as a whole, so I wanted a way to assess individual contributions. Having students evaluate their peers would be easy, and in theory would reward people who've done more, and penalize people who've done less. However, peer evaluation is notoriously vulnerable to gaming and social pressure.
 

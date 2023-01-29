@@ -10,9 +10,9 @@ Yesterday I [tweeted](https://twitter.com/gvwilson/status/1429834765616680972):
 > I think what our field desperately needs is "Social Science for Data Scientists".
 > I don't know enough to write it, but I'll pre-order a bunch of copies...
 
-Someone replied, "...what you're asking for is a textbook - those exist."
+Someone replied, "...what you're asking for is a textbook—those exist."
 With respect, I disagree.
-Most people---including most working programmers---won't read a textbook unless they absolutely have to.
+Most people—including most working programmers—won't read a textbook unless they absolutely have to.
 Saying that we can fix this problem by writing (or pointing at) a textbook
 is like saying that abstinence programs are the solution to teen pregnancy:
 it allows you to claim you've solved the problem

@@ -85,5 +85,5 @@ since people's idea of what constitutes "good faith" varies widely,
 "consensus-based" means governance by the self-confident, stubborn, and well-connected,
 which marginalizes a lot of people.
 [Martha's Rules]({{'/2019/06/13/marthas-rules/' | relative_url}}) and other procedures
-for putting proposals forward and voting on them aren't perfect---democracy never is---but
+for putting proposals forward and voting on them aren't perfect—democracy never is—but
 they're better.

@@ -9,7 +9,7 @@ jupyter: http://jupyter.org/
 <p>
   <em>
     "Bliss was it in that dawn to be alive..."
-    <br/>
+    <br>
     – Wordsworth
   </em>
 </p>

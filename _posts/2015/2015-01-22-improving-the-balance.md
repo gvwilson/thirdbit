@@ -37,5 +37,5 @@ original: swc
   We started work on material for this last fall,
   but didn't complete it.
   If you have time to help move it forward,
-  please <a href="mailto:gvwilson@software-carpentry.org">get in touch</a>.
+  please <a href="mailto:{{site.author.email}}">get in touch</a>.
 </p>

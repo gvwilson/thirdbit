@@ -55,6 +55,6 @@ This is a skewed representation of what Version 3 will contain,
 since topics that are already adequately covered are under-represented in the new citations.
 I'm still looking for more material on free-range teaching (e.g., bootcamps and weekend workshops);
 as always,
-please [mail me](mailto:gvwilson@third-bit.com?subject=How%20to%20Teach%20Programming)
+please [mail me](mailto:{{site.author.email}})
 your thoughts and suggestions.
 

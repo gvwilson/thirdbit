@@ -15,5 +15,5 @@ You can learn how to deal with people, and you can even learn to enjoy it. This 
 
 <strong><em>People planning to attend this session also want to see:</em></strong>
 <ul>
-	<li><strong><a href="http://en.oreilly.com/oscon2008/public/schedule/detail/2440">Programming Vim</a></strong></li>
+  <li><strong><a href="http://en.oreilly.com/oscon2008/public/schedule/detail/2440">Programming Vim</a></strong></li>
 </ul>

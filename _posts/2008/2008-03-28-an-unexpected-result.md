@@ -7,10 +7,10 @@ This term, the students in my third-year software engineering course have been w
 
 <a href="http://www.cs.toronto.edu/~dw/">Dave Wortman</a> has been doing this "review and buy" exercise for a couple of decades. This time, the result is almost a perfect permutation:
 <ul>
-	<li>Cereal and Pancakes have bought Waffles.</li>
-	<li>Eggs has bought Fruitbar.</li>
-	<li>Fruitbar has bought Cereal.</li>
-	<li>Porridge has bought Eggs.</li>
-	<li>Waffles has bought Pancakes.</li>
+  <li>Cereal and Pancakes have bought Waffles.</li>
+  <li>Eggs has bought Fruitbar.</li>
+  <li>Fruitbar has bought Cereal.</li>
+  <li>Porridge has bought Eggs.</li>
+  <li>Waffles has bought Pancakes.</li>
 </ul>
 I was surprised, as I'd been expecting there to be a clear winner.  I'll be reviewing (and grading) the reviews over the next few days; it'll be interesting to see whether groups got different answers because they're using different criteria, or because... um... hm, I don't have another hypothesis just yet.

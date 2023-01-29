@@ -114,7 +114,7 @@ Note that this still doesn't describe pre-requisite knowledge: in my experience,
 authors' lists are always incomplete, and I believe it will be more accurate to
 scrape the content for use of terms defined in selected glossaries (and in other
 registered lessons).  And yes, it's still too long: what can we cut?
-[Feedback](mailto:gvwilson@third-bit.com) is always appreciated.
+[Feedback](mailto:{{site.author.email}}) is always appreciated.
 
 1.  `title`: short title of lesson [text].
     1.  *abstract*: a single-paragraph summary [long text].

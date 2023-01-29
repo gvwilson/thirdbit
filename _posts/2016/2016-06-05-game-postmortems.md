@@ -68,12 +68,12 @@ original: nwit
 </p>
 <p align="center">
   <img src="{{site.url}}/files/2016/06/what-went-right.png" alt="What Went Right" />
-  <br/>
+  <br>
   <strong>What Went Right</strong>
 </p>
 <p align="center">
   <img src="{{site.url}}/files/2016/06/what-went-wrong.png" alt="What Went Wrong" />
-  <br/>
+  <br>
   <strong>What Went Wrong</strong>
 </p>
 <p>

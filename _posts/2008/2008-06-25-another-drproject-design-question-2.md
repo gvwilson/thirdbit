@@ -7,7 +7,7 @@ We've hit another "what should it do?" question in DrProject, and I'd welcome op
 
 However, almost everyone wants to add "just one more field" to this design. Sometimes it's a person responsible; other times it's priority, due date, a larger text area for a detailed description of the problem, or attachments. The new ticketing system will therefore allow the developers in a project to change the ticket schema <em>for that project</em> using a drag-and-drop form editor.
 
-(Not that it matters right now, but we're not just building this to support teams' chosen workflows. It will also give us a way to find out what those workflows actually are---if we deploy DrProject, wait a few months, then look at what people have chosen to record, it should give us some insight into how they're thinking about their work.)
+(Not that it matters right now, but we're not just building this to support teams' chosen workflows. It will also give us a way to find out what those workflows actually are—if we deploy DrProject, wait a few months, then look at what people have chosen to record, it should give us some insight into how they're thinking about their work.)
 
 Now here's the problem. DrProject currently offers two "personal" views called "All Projects" and "All Tickets". The first shows a merge of the event logs from all the projects the user belongs to; the second shows all the tickets assigned to the user from across all the same projects. The question is, what should we show for "All Tickets" if every project's ticketing schema can be different? To make this more concrete, imagine that project Telepathy's schema has grown to:
 
@@ -19,8 +19,8 @@ while project Antigravity's schema has grown to:
 
 Options we can see are:
 <ol>
-	<li>Only show the common fields. (Unlike user-added fields, the four basic fields can never be deleted from a project's ticket schema, so we know they'll always be there.)</li>
-	<li>Show the union of all the columns. This is awkward for all the obvious reasons: it'll be very wide, many tickets will have blanks in many columns, enumerations with the same name but different values will be a pain, etc.</li>
-	<li>Have one table for each project, but put all the tables on the same HTML page. A basic version is easy to implement, but sorting and filtering would be difficult.</li>
+  <li>Only show the common fields. (Unlike user-added fields, the four basic fields can never be deleted from a project's ticket schema, so we know they'll always be there.)</li>
+  <li>Show the union of all the columns. This is awkward for all the obvious reasons: it'll be very wide, many tickets will have blanks in many columns, enumerations with the same name but different values will be a pain, etc.</li>
+  <li>Have one table for each project, but put all the tables on the same HTML page. A basic version is easy to implement, but sorting and filtering would be difficult.</li>
 </ol>
 Anyone have strong preferences? Can anyone see anything better? The ticket for this problem is #1506,  and as I said, input would be welcome.

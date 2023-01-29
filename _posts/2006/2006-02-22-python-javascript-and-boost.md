@@ -43,9 +43,9 @@ browser sides of the fence.
 that Javascript could be the dominant scripting language five years
 from now: it's sexy, it's (relatively) simple, and it's one of the two
 languages every programmer has to learn (the other being C).  An easy
-way to wrap and call legacy C/C++ code---one that handles C++ objects
+way to wrap and call legacy C/C++ code—one that handles C++ objects
 and templates, rather than requiring programmers to pretend they're
-C functions---would be a big step toward this.  <a href="http://www.boost.org/libs/python/doc/index.html">Boost.Python</a>
+C functions—would be a big step toward this.  <a href="http://www.boost.org/libs/python/doc/index.html">Boost.Python</a>
 is the closest thing I've seen yet to a usable solution; if anyone out
 there wants to be rich, famous, and popular, Boost.Javascript is just
 begging to be created.</p>

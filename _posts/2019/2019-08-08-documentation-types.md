@@ -6,7 +6,7 @@ year: 2019
 
 *This post is an update on [an earlier one]({{'/2019/04/16/what-docs-when/' | relative_url}})
 that slims down the set of documentation types.
-[Feedback](mailto:gvwilson@third-bit.com?subject=documentation types) is very welcome.*
+[Feedback](mailto:{{site.author.email}}) is very welcome.*
 
 Our starting point is a three-stage model of cognitive development:
 

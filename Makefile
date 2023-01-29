@@ -35,6 +35,23 @@ drafts:
 
 ## ----
 
+## validate: check the generated HTML
+validate:
+	@html5validator --root _site \
+	--ignore \
+	'An "img" element must have an "alt" attribute' \
+	'Attribute "align" not allowed' \
+	'Attribute "label" not allowed on element "span"' \
+	'The "align" attribute' \
+	'The "bgcolor" attribute' \
+	'The "border" attribute' \
+	'The "cellpadding" attribute' \
+	'The "font" element' \
+	'The "strike" element is obsolete.' \
+	'The "tt" element is obsolete.' \
+	'The "valign" attribute' \
+	'The "valign" attribute'
+
 ## links: check links in published site
 links:
 	linkchecker -F text https://third-bit.com > LINKS.txt

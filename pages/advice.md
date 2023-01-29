@@ -199,7 +199,7 @@ frustration you encounter as you try to o this.
     information freely available on the Internet, any paywall or login barrier put
     between you and your hoped-for audience will send a large number of people
     elsewhere.
-    <br/>
+    <br>
     More importantly, these barriers send a clear signal that you do not care if
     practitioners read your work or not: as one colleague observed rather sourly,
     it's the equivalent of inviting people to your house for dinner and then
@@ -209,7 +209,7 @@ frustration you encounter as you try to o this.
 :   The goal for practitioners is not to understand the world, but to change it. "We
     know X" is much less useful to them than "we can do Y". When presenting your
     findings, you should therefore focus on how someone might act on it.
-    <br/>
+    <br>
     One way to do this is to add slides titled, "What Difference Does It Make?" at
     strategic points in your presentations. If you can't think of what to write
     next, you may want to rethink what you're focused on.
@@ -239,7 +239,7 @@ frustration you encounter as you try to o this.
     several courses at once (which effectively means that they answer to several
     bosses who don't communicate with each other). Later, they are responsible for
     teaching, writing grant proposals, and administrative duties.
-    <br/>
+    <br>
     Collectively, this mean that their "work week" is only a few hours long, and
     that they will often appear to move at a snail's pace. Be as sympathetic as you
     can: they are even less happy with the situation than you are.

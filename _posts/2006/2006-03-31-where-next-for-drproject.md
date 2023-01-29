@@ -3,17 +3,17 @@ title: "Where Next for DrProject?"
 date: 2006-03-31 08:42:47
 year: 2006
 ---
-It's time to start thinking about what to add to DrProject this summer. Please <a href="mailto:gvwilson@cs.utoronto.ca?subject=drproject-vote">vote</a> for any <em>two</em> of the following; I'll collate and re-post.
+It's time to start thinking about what to add to DrProject this summer. Please <a href="mailto:{{site.author.email}}?subject=drproject-vote">vote</a> for any <em>two</em> of the following; I'll collate and re-post.
 <ol>
-	<li>web-based administration interface</li>
-	<li>user-oriented pages</li>
-	<li>status dashboard</li>
-	<li>manual RSS feeds</li>
-	<li>continuous integration</li>
-	<li>pluggable authentication</li>
-	<li>web services</li>
-	<li>shared bookmarks</li>
-	<li>calendaring</li>
+  <li>web-based administration interface</li>
+  <li>user-oriented pages</li>
+  <li>status dashboard</li>
+  <li>manual RSS feeds</li>
+  <li>continuous integration</li>
+  <li>pluggable authentication</li>
+  <li>web services</li>
+  <li>shared bookmarks</li>
+  <li>calendaring</li>
 </ol>
 <strong>1. Web-Based Administration Interface</strong>
 

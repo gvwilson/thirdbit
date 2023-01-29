@@ -53,5 +53,5 @@ would be able to steer clear of companies whose behavior they might not want to 
 
 There are undoubtedly ethical and legal considerations here that I haven't thought of.
 If you can spot the flaws,
-I'd enjoy hearing from you [by email](mailto:gvwilson@third-bit.com)
+I'd enjoy hearing from you [by email](mailto:{{site.author.email}})
 or in the comments on this post.

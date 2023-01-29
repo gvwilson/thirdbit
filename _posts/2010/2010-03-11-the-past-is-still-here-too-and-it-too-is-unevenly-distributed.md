@@ -7,4 +7,4 @@ If I want to request a book at the University of Toronto Library, all I have to 
 
 The "<a href="http://qntm.org/gay">Y2Gay</a>" post is similar: millions of printed forms, and thousands of databases, assume that marriage involves one male and one female, not two of either. (I have this picture in my head of government IT staff sitting down to a Monday morning planning meeting back in 2006 to hear their boss say, "OK, I know this wasn't in plan, but...")
 
-So, the next time you're wondering why open government/open data is taking so long---why "they" don't "just" make everything public---spare a thought for the poor, overworked database admin in the basement who has to turn good intentions into SQL.
+So, the next time you're wondering why open government/open data is taking so long—why "they" don't "just" make everything public—spare a thought for the poor, overworked database admin in the basement who has to turn good intentions into SQL.

@@ -5,7 +5,7 @@ year: 2005
 ---
 <p>When I was twelve, I spent $3.95 on a book that promised to teach
 me how to do magic tricks that would astound my friends.  I didn't
-make it past the second chapter ("No way---I have to
+make it past the second chapter ("No way—I have to
 <em>practice</em>!?"), but I still remember the way the word
 "misdirection" was set in bold face every time it appeared.  The key
 to making a trick work, the book said, was to get the audience to
@@ -15,7 +15,7 @@ over.</p>
 
 <p>A similar effect seems to have played a key role in the success of
 some of today's biggest software technologies.  Unix, DOS, Perl, the
-web---they all just kind of grew while the grownups were worrying
+web—they all just kind of grew while the grownups were worrying
 about something else, until one day, everyone turned around and said,
 "Hey, this is huge!"</p>
 

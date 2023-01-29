@@ -10,7 +10,7 @@ fill in an appendix on cognitive load,
 and then revise all 52,000 words,
 but [the first draft]({{'/sdxjs/' | relative_url}}) is done.
 Feedback would be greatly appreciated:
-you can [mail me](mailto:gvwilson@third-bit.com)
+you can [mail me](mailto:{{site.author.email}})
 or file issues in [the book's GitHub repository](https://github.com/software-tools-in-javascript/stjs/).
 
 <table>

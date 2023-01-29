@@ -11,9 +11,9 @@ But here I am, almost 49, and I've come to realize that compromise isn't just th
 
 This is why I find myself off in a corner in many of the discussions about teaching programming to the masses. Like many of the people who are trying to do this outside traditional classroom settings, I believe that:
 <ol>
-	<li>knowing how the web works is as important today as knowing how contracts or electoral democracy work;</li>
-	<li>our educational system, and the models of learning it assumes, are all badly broken; and</li>
-	<li>if properly used, the web can help us fix or replace them.</li>
+  <li>knowing how the web works is as important today as knowing how contracts or electoral democracy work;</li>
+  <li>our educational system, and the models of learning it assumes, are all badly broken; and</li>
+  <li>if properly used, the web can help us fix or replace them.</li>
 </ol>
 However, I think these things are independent of one another. More specifically, I think that we can <em>and should</em> try to work with–not just co-opt, but work with and learn from–teachers who are inside today's system, even though we think that system is part of the problem. They have the hands-on experience that most of us don't; if we're willing to listen, they can tell us which of our seemingly-plausible ideas are going to fail when transferred to the 85% of learners who aren't ultra-curious hard-working self-starters.
 

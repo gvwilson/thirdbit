@@ -5,17 +5,17 @@ year: 2006
 ---
 I've updated my roster of project students (appears below the divide): 116 students, of whom 28 have done two projects. I still need to update my map, though, and I don't have birthplaces for the following people:
 <ul>
-	<li>Lillian Angel</li>
-	<li>Daniel Charles</li>
-	<li>Jim Clarke</li>
-	<li>Victor Glazer</li>
-	<li>John Greene</li>
-	<li>Robert Liu</li>
-	<li>Jason Nolan</li>
-	<li>Andrey Petrov</li>
-	<li>David Scannell</li>
-	<li>Jane Shen</li>
-	<li>Thuan Ta</li>
+  <li>Lillian Angel</li>
+  <li>Daniel Charles</li>
+  <li>Jim Clarke</li>
+  <li>Victor Glazer</li>
+  <li>John Greene</li>
+  <li>Robert Liu</li>
+  <li>Jason Nolan</li>
+  <li>Andrey Petrov</li>
+  <li>David Scannell</li>
+  <li>Jane Shen</li>
+  <li>Thuan Ta</li>
 </ul>
 Details would be welcome...
 <table border="1">

@@ -11,8 +11,8 @@ year: 2012
 
 <p>The Audrey Test has also led to some interesting questions. The two I was asked recently are:</p>
 <ol>
-	<li>How much does one need to know before one solves a problem?</li>
-	<li>How much of the status quo is deeply embedded within the theories of learning and academia?</li>
+  <li>How much does one need to know before one solves a problem?</li>
+  <li>How much of the status quo is deeply embedded within the theories of learning and academia?</li>
 </ol>
 <p>My answer to the first is, "A lot more than I did two years ago (or even three months ago)." For example, watch <a href="http://www.youtube.com/watch?v=3bZOdZ8qBOk">this interview with John Sweller</a>. I don't agree with everything he says, but my disagreement is based on gut instinct, i.e., on a poorly-examined mental model based on (probably inaccurate) recollections of personal experience. He knows more about how learning actually works than I do; that doesn't mean he's right, but if I don't take some time to learn what he and the constructivists he's criticizing are arguing about, the odds are that I'll repeat mistakes they made and moved past twenty years ago. Yes, there's a tradeoff between learning the past and building the future–there are only so many hours in a life–but if I could send email back in time to May 2010, I'd tell myself to spend an hour a day, every day, learning from others</p>
 
@@ -20,10 +20,10 @@ year: 2012
 
 <p>I don't know what the answer to #2 is. But here's what I currently think:</p>
 <ol>
-	<li>Technology has changed every aspect of our lives (see Cat Valente's thought-provoking "<a href="http://www.antipope.org/charlie/blog-static/2012/02/life-with-and-without-animated.html">Life With and Without Animated Ducks: The Future Is Gender Distributed</a>" for commentary on this in a related context).</li>
-	<li>But that doesn't mean that technology changes everything, every time.</li>
-	<li>So if someone dismisses previous work in education <em>without knowing what it was</em>, they're probably doing so to give themselves an excuse not to do their homework.</li>
-	<li>Which means they're probably going to frame questions naively, reinvent a lot of wheels, and waste a lot of time. That will undoubtedly keep them busy, but that's definitely <em>not</em> the same thing as being productive.</li>
+  <li>Technology has changed every aspect of our lives (see Cat Valente's thought-provoking "<a href="http://www.antipope.org/charlie/blog-static/2012/02/life-with-and-without-animated.html">Life With and Without Animated Ducks: The Future Is Gender Distributed</a>" for commentary on this in a related context).</li>
+  <li>But that doesn't mean that technology changes everything, every time.</li>
+  <li>So if someone dismisses previous work in education <em>without knowing what it was</em>, they're probably doing so to give themselves an excuse not to do their homework.</li>
+  <li>Which means they're probably going to frame questions naively, reinvent a lot of wheels, and waste a lot of time. That will undoubtedly keep them busy, but that's definitely <em>not</em> the same thing as being productive.</li>
 </ol>
 <p>To boil it down: if someone came to you and said, "I've never looked at the source code for Django, Rails, Struts, Zend, or any other web application framework, but I don't need to, because this new language I'm using is so different from everything that's come before that they're all obsolete," you'd admit that there was a chance they were right, but would you bet on it? Particularly if they'd never talked to anyone with, you know, actual real-world web application programming experience? I don't think it would matter how smart or hard-working or charistmatic or well-funded they were–I think you'd put your money elsewhere. So why is education different?</p>
 

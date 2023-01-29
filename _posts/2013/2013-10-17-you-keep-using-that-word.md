@@ -190,7 +190,7 @@ original: swc
   effective infrastructure for scientists for securing software
   engineering services [from] a non-profit center-of-excellence
   model...
-  <br/>
+  <br>
   The center would pool the small and otherwise disparate fractions of
   software engineering effort. It would recruit personnel with deep
   training in software engineering and knowledge across a scientific

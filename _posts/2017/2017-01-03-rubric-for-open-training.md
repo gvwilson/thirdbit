@@ -25,7 +25,7 @@ people must:
 3.  Help teach a Software Carpentry, Data Carpentry, or Library Carpentry
     workshop within 12 months of the course.
 
-----
+---
 
 *   Personal (given) name: [____________________]
 

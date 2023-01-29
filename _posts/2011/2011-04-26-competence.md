@@ -24,11 +24,11 @@ year: 2011
 <tbody>
 <tr>
 <td width="10%"><strong>Topic</strong></td>
-<td width="15%"><strong>Level 1<br/>(Novice)</strong></td>
-<td width="15%"><strong>Level 2<br/>(Advanced Beginner)</strong></td>
-<td width="15%"><strong>Level 3<br/>(Competent)</strong></td>
-<td width="15%"><strong>Level 4<br/>(Proficient)</strong></td>
-<td width="15%"><strong>Level 5<br/>(Expert)</strong></td>
+<td width="15%"><strong>Level 1<br>(Novice)</strong></td>
+<td width="15%"><strong>Level 2<br>(Advanced Beginner)</strong></td>
+<td width="15%"><strong>Level 3<br>(Competent)</strong></td>
+<td width="15%"><strong>Level 4<br>(Proficient)</strong></td>
+<td width="15%"><strong>Level 5<br>(Expert)</strong></td>
 </tr>
 <tr>
 <td valign="top">Description</td>
@@ -48,31 +48,31 @@ year: 2011
 </tr>
 <tr>
 <td valign="top">Control Flow</td>
-<td valign="top">for<br/>while<br/>if</td>
+<td valign="top">for<br>while<br>if</td>
 <td valign="top">raise/except</td>
-<td valign="top">overriding methods<br/>first-class functions</td>
+<td valign="top">overriding methods<br>first-class functions</td>
 <td valign="top">recursion</td>
-<td valign="top">closures<br/>decorators</td>
+<td valign="top">closures<br>decorators</td>
 </tr>
 <tr>
 <td valign="top">Modularization</td>
 <td valign="top">function</td>
 <td valign="top">libraries (import)</td>
-<td valign="top">first-class functions<br/>classes</td>
-<td valign="top">dynamic import<br/>introspection</td>
+<td valign="top">first-class functions<br>classes</td>
+<td valign="top">dynamic import<br>introspection</td>
 <td valign="top">cross-language programming</td>
 </tr>
 <tr>
 <td valign="top">Patterns</td>
 <td valign="top">what's a pattern?</td>
-<td valign="top">forall<br/>case<br/>sentinel<br/>most valuable<br/>flag</td>
-<td valign="top">reduce<br/>filter</td>
-<td valign="top">factory vs. prototype<br/>template method<br/>visitor</td>
-<td valign="top">composite<br/>command<br/>strategy<br/>proxy<br/>decorator</td>
+<td valign="top">forall<br>case<br>sentinel<br>most valuable<br>flag</td>
+<td valign="top">reduce<br>filter</td>
+<td valign="top">factory vs. prototype<br>template method<br>visitor</td>
+<td valign="top">composite<br>command<br>strategy<br>proxy<br>decorator</td>
 </tr>
 <tr>
 <td valign="top">Text</td>
-<td valign="top">readline<br/>substring<br/>escape characters<br/>tokenization using split</td>
+<td valign="top">readline<br>substring<br>escape characters<br>tokenization using split</td>
 <td valign="top">wildcard regular expressions</td>
 <td valign="top">character encoding (Unicode)</td>
 <td valign="top">–</td>
@@ -83,29 +83,29 @@ year: 2011
 <td valign="top">select
 where</td>
 <td valign="top">aggregation</td>
-<td valign="top">join<br/>foreign keys<br/>one-to-one<br/>one-to-many</td>
-<td valign="top">many-to-many<br/>NULL<br/>transactions</td><br/>
-<td valign="top">triggers<br/>stored procedures</td>
+<td valign="top">join<br>foreign keys<br>one-to-one<br>one-to-many</td>
+<td valign="top">many-to-many<br>NULL<br>transactions</td><br>
+<td valign="top">triggers<br>stored procedures</td>
 </tr>
 <tr>
 <td valign="top">Data Management</td>
 <td valign="top">shared drive</td>
-<td valign="top">version control<br/>structured vs. unstructured data<br/>compression</td>
-<td valign="top">dirty/missing data<br/>metadata (format specifiers, provenance)<br/>discipline-scale databases</td>
+<td valign="top">version control<br>structured vs. unstructured data<br>compression</td>
+<td valign="top">dirty/missing data<br>metadata (format specifiers, provenance)<br>discipline-scale databases</td>
 <td valign="top">–</td>
 <td valign="top">ontologies</td>
 </tr>
 <tr>
 <td valign="top">Design</td>
 <td valign="top">functions for code re-use</td>
-<td valign="top">entities and relationships<br/>encapsulation<br/>interface vs. implementation</td>
-<td valign="top">polymorphism<br/>inheritance<br/>Open/Closed Principle</td>
-<td valign="top">Liskov Substitution Principle<br/>frameworks<br/>OO design patterns</td>
+<td valign="top">entities and relationships<br>encapsulation<br>interface vs. implementation</td>
+<td valign="top">polymorphism<br>inheritance<br>Open/Closed Principle</td>
+<td valign="top">Liskov Substitution Principle<br>frameworks<br>OO design patterns</td>
 <td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top">Version Control</td>
-<td valign="top">checkout<br/>update<br/>commit</td>
+<td valign="top">checkout<br>update<br>commit</td>
 <td valign="top">merge</td>
 <td valign="top">rollback</td>
 <td valign="top">branch management</td>
@@ -116,7 +116,7 @@ where</td>
 <td valign="top">"javac *.java"</td>
 <td valign="top">"make program"</td>
 <td valign="top">patterns and rules</td>
-<td valign="top">macros<br/>conditional builds</td>
+<td valign="top">macros<br>conditional builds</td>
 <td valign="top">continuous integration</td>
 </tr>
 <tr>
@@ -130,23 +130,23 @@ where</td>
 <tr>
 <td valign="top">Coordination</td>
 <td valign="top">email</td>
-<td valign="top">mailing list<br/>shared spreadsheet<br/>project blog</td>
-<td valign="top">bug tracker<br/>IRC/chat (archived)</td>
+<td valign="top">mailing list<br>shared spreadsheet<br>project blog</td>
+<td valign="top">bug tracker<br>IRC/chat (archived)</td>
 <td valign="top">–</td>
 <td valign="top">–</td>
 </tr>
 <tr>
 <td valign="top">Testing</td>
 <td valign="top">hand-run tests (interactive or scripted)</td>
-<td valign="top">unit tests using a framework<br/>"make test"<br/>debugger</td>
+<td valign="top">unit tests using a framework<br>"make test"<br>debugger</td>
 <td valign="top">boundary case analysis</td>
-<td valign="top">static analysis<br/>coverage</td>
+<td valign="top">static analysis<br>coverage</td>
 <td valign="top">stubs/mock objects</td>
 </tr>
 <tr>
 <td valign="top">Packaging and Deployment</td>
 <td valign="top">tar and email</td>
-<td valign="top">version control labels<br/>"make tarball"</td>
+<td valign="top">version control labels<br>"make tarball"</td>
 <td valign="top">installation scripts</td>
 <td valign="top">RPMs, Eggs, autoconf</td>
 <td valign="top">–</td>
@@ -154,18 +154,18 @@ where</td>
 <tr>
 <td valign="top">Web Programming</td>
 <td valign="top">download files by clicking on them</td>
-<td valign="top">wget<br/>url.open.read</td>
-<td valign="top">the HTTP protocol<br/>public/private key pairs</td>
+<td valign="top">wget<br>url.open.read</td>
+<td valign="top">the HTTP protocol<br>public/private key pairs</td>
 <td valign="top">CGI to serve static content</td>
-<td valign="top">partial failure<br/>service composition</td>
+<td valign="top">partial failure<br>service composition</td>
 </tr>
 <tr>
 <td valign="top">Performance Engineering</td>
 <td valign="top">timing</td>
-<td valign="top">profiling<br/>big-O<br/>algorithms vs. tweaks<br/>Amdahl's Law</td>
-<td valign="top">memory hierarchy<br/>task farming</td>
-<td valign="top">processor pipeline<br/>data parallelism</td>
-<td valign="top">threading<br/>message passing</td>
+<td valign="top">profiling<br>big-O<br>algorithms vs. tweaks<br>Amdahl's Law</td>
+<td valign="top">memory hierarchy<br>task farming</td>
+<td valign="top">processor pipeline<br>data parallelism</td>
+<td valign="top">threading<br>message passing</td>
 </tr>
 </tbody>
 </table>

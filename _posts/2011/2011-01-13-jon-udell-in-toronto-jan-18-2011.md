@@ -11,20 +11,20 @@ John H. Daniels Faculty of Architecture, Landscape, and Design, University of To
 230 College Street, Room 103</p>
 Do you publish community calendar events? You are invited to:
 <ul>
-	<li>Realize that event data published in a structured format, unlike data published as HTML or PDF, can be routed through pub/sub syndication networks.</li>
-	<li>Make public calendars available in the appropriate structured format: iCalendar (RFC 5545), the venerable Internet standard supported by all major calendar applications and services.</li>
-	<li>Recognize that iCalendar is the RSS of calendars. It can enable a calendar-sphere in which, as in the blogosphere, everyone can publish their own feeds and also subscribe to feeds from other people or from network services.</li>
-	<li>Help build the data web by owning the parts of it for which we ourselves are the authoritative sources.</li>
+  <li>Realize that event data published in a structured format, unlike data published as HTML or PDF, can be routed through pub/sub syndication networks.</li>
+  <li>Make public calendars available in the appropriate structured format: iCalendar (RFC 5545), the venerable Internet standard supported by all major calendar applications and services.</li>
+  <li>Recognize that iCalendar is the RSS of calendars. It can enable a calendar-sphere in which, as in the blogosphere, everyone can publish their own feeds and also subscribe to feeds from other people or from network services.</li>
+  <li>Help build the data web by owning the parts of it for which we ourselves are the authoritative sources.</li>
 </ul>
 The elmcity project delivers enabling technical infrastructure for this new approach to the community calendar. The project's calendar syndication service is free; it runs open source code on the Microsoft Azure platform; it provides all of its syndicated data in open formats.
 
 The real challenge isn't technical, though, it's conceptual. Most people don't know how they could (or why they should) be the authoritative publishers of their own data. Missing concepts include:
 <ul>
-	<li>The pub/sub communication pattern</li>
-	<li>Indirection ("pass-by-reference" vs "pass-by-value")</li>
-	<li>Structured versus unstructured data</li>
-	<li>Data provenance</li>
-	<li>Service composition</li>
+  <li>The pub/sub communication pattern</li>
+  <li>Indirection ("pass-by-reference" vs "pass-by-value")</li>
+  <li>Structured versus unstructured data</li>
+  <li>Data provenance</li>
+  <li>Service composition</li>
 </ul>
 Along with reading, writing, and arithmetic, these Fourth R principles will empower an informed and engaged 21st-century citizenry. As Jeannette Wing argues in her computational thinking manifesto, computer and information scientists are no longer the only ones who need to understand and apply these principles. Now we all do.  Drawing from the experience of the elmcity case study, this talk will explore what these Fourth R principles are, why they're hard for most people to understand, how we can teach them, and why we should.
 

@@ -11,7 +11,7 @@ you can read the source at <https://github.com/gvwilson/10-lesson>
 and submit issues or pull requests.
 If you prefer PDFs and email,
 you can [download the current rough draft]({{'/files/2018/09/10-rules-lessons-2018-09-12.pdf' | relative_url}})
-and [send me comments](mailto:gvwilson@third-bit.com).
+and [send me comments](mailto:{{site.author.email}}).
 
 1.  Use learner personas to define your audience.
 2.  Encourage effective learning strategies

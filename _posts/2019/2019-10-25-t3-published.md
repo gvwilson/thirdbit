@@ -111,11 +111,11 @@ Any mistakes that remain are mine.
 
 <blockquote>
   <p align="center">
-    For my mother, Doris Wilson,<br/>
+    For my mother, Doris Wilson,<br>
     who taught hundreds of children to read and to believe in themselves.
   </p>
   <p align="center">
-    And for my brother Jeff, who did not live to see it finished.<br/>
+    And for my brother Jeff, who did not live to see it finished.<br>
     "Remember, you still have a lot of good times in front of you."
   </p>
   <p align="center">

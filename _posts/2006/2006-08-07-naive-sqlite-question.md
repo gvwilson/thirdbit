@@ -101,8 +101,8 @@ and:
 </table>
 Here's what I've done so far:
 <ol>
-	<li>Used "select distinct" to pull the institution names out of the   "Person" table and stuff them into "Institutions" with an   auto-incremented integer ID.</li>
-	<li>Added an integer-valued "AffilId" column to "Person".</li>
+  <li>Used "select distinct" to pull the institution names out of the   "Person" table and stuff them into "Institutions" with an   auto-incremented integer ID.</li>
+  <li>Added an integer-valued "AffilId" column to "Person".</li>
 </ol>
 The next step is to put the right institution ID values into the "AffilId" column (they're currently all zeroes), and then delete the no-longer-needed "Affiliation" column.  I thought the first half of this would look something like:
 <pre>update People set AffilId = (</pre>

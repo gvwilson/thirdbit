@@ -15,6 +15,6 @@ and my daughter, celebrating as only a three-year-old can:
 
 <img title="Maddie Celebrates" src="{{'/files/2010/04/maddie.png' | relative_url}}" alt="Maddie Celebrates" width="400" height="320" />
 
-Thank you: Abayomi, Ainsley, Alecia, Amy, Andrew, Aran, Blaaaaaake, Brent, Catherine, Cordelia, both Davids, Delphine, Diane, Dominique, Ellen, Florian, GregL, Clumsy Igor, Irving, Isaac, both James, Jason, Jennifer, Jessica, Jon, Jonathan, Jorge, Justin, Karen, Kristin, Laura, Laurie, Lila, Lilian with one L, Lillian with two L's, Luis, Madeleine, Maria, Matthew, Michelle, Mike, Miles, Misa, Pat, Rory, Sadie, Sana, Sean, Sukhmeet, Tom, Val, Veronica, Victoria, William, Zuzel, and everyone else who couldn't be there---thank you all.
+Thank you: Abayomi, Ainsley, Alecia, Amy, Andrew, Aran, Blaaaaaake, Brent, Catherine, Cordelia, both Davids, Delphine, Diane, Dominique, Ellen, Florian, GregL, Clumsy Igor, Irving, Isaac, both James, Jason, Jennifer, Jessica, Jon, Jonathan, Jorge, Justin, Karen, Kristin, Laura, Laurie, Lila, Lilian with one L, Lillian with two L's, Luis, Madeleine, Maria, Matthew, Michelle, Mike, Miles, Misa, Pat, Rory, Sadie, Sana, Sean, Sukhmeet, Tom, Val, Veronica, Victoria, William, Zuzel, and everyone else who couldn't be there—thank you all.
 
 <em>Later: so it turns out there's <a href="http://www.youtube.com/watch?v=4nRr3WORFhc">video</a> as well...</em>

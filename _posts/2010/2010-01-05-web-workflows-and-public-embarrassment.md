@@ -5,14 +5,14 @@ year: 2010
 ---
 As I've mentioned before, I'm one of the organizers of a set of <a href="http://ucosp.wordpress.com/">undergraduate cross-country open source capstone projects</a>, in which students from <a href="http://ucosp.wordpress.com/2009-fall/">several</a> <a href="http://ucosp.wordpress.com/winter-2010/">universities</a> work together in distributed teams for a term for course credit. Here's what I presently have to do for each student:
 <ol>
-	<li>Ask her to create a WordPress ID and send it to me (along with the email address it's registered to).</li>
-	<li>Add her as an author on the <a href="http://ucosp.wordpress.com">UCOSP blog</a>. (This has to be done by email address, rather than by user ID.)</li>
-	<li>Invite her to join our <a href="http://groups.google.com/group/ucosp">Google Group</a>. About 10-15% of invitations are eaten by spam filters and/or trip over a registration problem that seems to be related to GMail cookies.</li>
-	<li>Update the <a href="http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=100156001803519969567.00047bf69ca81288680da&amp;z=3">Google Map</a> showing where everyone's from.</li>
-	<li>Update the spreadsheet I use to keep track of her personal information. (Before you ask, no, this can't be a Google Doc because of privacy concerns.)</li>
-	<li>Update the <a href="http://ucosp.wordpress.com/winter-2010/">HTML table</a> showing the cross-product of schools and projects.</li>
-	<li>Once she post a short bio to the UCOSP blog, link her name to that.</li>
-	<li>Introduce her to her project's mentor by email.</li>
+  <li>Ask her to create a WordPress ID and send it to me (along with the email address it's registered to).</li>
+  <li>Add her as an author on the <a href="http://ucosp.wordpress.com">UCOSP blog</a>. (This has to be done by email address, rather than by user ID.)</li>
+  <li>Invite her to join our <a href="http://groups.google.com/group/ucosp">Google Group</a>. About 10-15% of invitations are eaten by spam filters and/or trip over a registration problem that seems to be related to GMail cookies.</li>
+  <li>Update the <a href="http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=100156001803519969567.00047bf69ca81288680da&amp;z=3">Google Map</a> showing where everyone's from.</li>
+  <li>Update the spreadsheet I use to keep track of her personal information. (Before you ask, no, this can't be a Google Doc because of privacy concerns.)</li>
+  <li>Update the <a href="http://ucosp.wordpress.com/winter-2010/">HTML table</a> showing the cross-product of schools and projects.</li>
+  <li>Once she post a short bio to the UCOSP blog, link her name to that.</li>
+  <li>Introduce her to her project's mentor by email.</li>
 </ol>
 Time per student: 5-10 minutes, if nothing goes wrong, and if I don't forget any steps and have to backtrack. (The worst case is if I update the spreadsheet on one machine, forget to check it in, update it with another students' info on another, <em>do</em> check it in, and then have to merge. Bleah.)
 

@@ -7,14 +7,14 @@ I have a major grant application and (hopefully final) revisions to my next chil
 
 What's more immediately interesting to me is two of their papers (free, but registration required).  The first, "Python Technical Computing End-User Study", was prepared by Fletcher Spaght, Inc.; based on 604 responses to a survey, it concludes that:
 <ul>
-	<li>significantly increased performance of Python codes would cause large or revolutionary improvements to 35% of technical users (8% would experience revolutionary benefits from 10X performance boost);</li>
-	<li>most (52%) organizations using Python for technical applications consider their codes to be important to accomplishing their mission;</li>
-	<li>technical Python program run times are long (31% typically over 1 hour);</li>
-	<li>Python data sets are large (41% GBs or larger) for technical applications;</li>
-	<li>large amounts of time are spent optimizing codes to run them productively on desktop workstations;</li>
-	<li>in organizations using Python, tools such as C (91%), MATLAB (49%),and Fortran (32%) are also widely used for developing technical applications;</li>
-	<li>Most (63%) organizations surveyed are interested in running Python on HPC resources and at least 65% of Python technical users have access to such systems; and</li>
-	<li>half o survey respondents have ported their technicalPython codes [doesn't say to what], but only 17% do so with any frequency.</li>
+  <li>significantly increased performance of Python codes would cause large or revolutionary improvements to 35% of technical users (8% would experience revolutionary benefits from 10X performance boost);</li>
+  <li>most (52%) organizations using Python for technical applications consider their codes to be important to accomplishing their mission;</li>
+  <li>technical Python program run times are long (31% typically over 1 hour);</li>
+  <li>Python data sets are large (41% GBs or larger) for technical applications;</li>
+  <li>large amounts of time are spent optimizing codes to run them productively on desktop workstations;</li>
+  <li>in organizations using Python, tools such as C (91%), MATLAB (49%),and Fortran (32%) are also widely used for developing technical applications;</li>
+  <li>Most (63%) organizations surveyed are interested in running Python on HPC resources and at least 65% of Python technical users have access to such systems; and</li>
+  <li>half o survey respondents have ported their technicalPython codes [doesn't say to what], but only 17% do so with any frequency.</li>
 </ul>
 Some of the details in the paper are interesting too.  36% use Python for test & measurement, 29% for communications [presumably communications applications, rather than inter-application communication and coordination, but this is not clear], and 24% each for signal/image processing and physical design.  33% describe their use of Python as "glue language", while 42% use the numerical libraries, and 24% use external libraries.  91% of users also use C/C++, 49% use MATLAB, 32% use Fortran, and 22% each use Mathematica and R.
 

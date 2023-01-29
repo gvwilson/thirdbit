@@ -36,8 +36,8 @@ but I think they're all worth looking at if you're writing about code.
 -   Johnson's *[GUI Bloopers](https://www.amazon.com/GUI-Bloopers-2-0-Interactive-Technologies/dp/0123706432/)*
     doesn't go from simple to complex,
     but from clumsy to elegant.
-    Each small section (2--4 pages) analyzes a flaw in a specific user interface---the font selection
-    dialog in Microsoft Word, for example---and then describes how it could be improved.
+    Each small section (2--4 pages) analyzes a flaw in a specific user interface—the font selection
+    dialog in Microsoft Word, for example—and then describes how it could be improved.
     This is much more effective than any direct exposition of high-level rules like "make use of negative space",
     since it allows the reader to build and test a mental model grounded in specifics.
     (In my experience, expounding on general rules is usually ineffective,
@@ -48,7 +48,7 @@ but I think they're all worth looking at if you're writing about code.
 -   Kerievsky's *[Refactoring to Patterns](https://www.amazon.com/Refactoring-Patterns-Joshua-Kerievsky/dp/0321213351/)*
     is explicit where *GUI Bloopers* is implicit.
     In it,
-    the author takes two big ideas---design patterns and refactoring---and shows how they are complements of one another.
+    the author takes two big ideas—design patterns and refactoring—and shows how they are complements of one another.
     Design patterns are the resting states of software;
     refactorings are how to move software from one of those states to another.
     It's one of the few examples I know of effective big-picture exposition.

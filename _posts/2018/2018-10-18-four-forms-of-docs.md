@@ -15,13 +15,13 @@ that divides software documentation into four categories:
   </tr>
   <tr>
     <th>Practical steps</th>
-    <td>Tutorial<br/>(learning-oriented)</td>
-    <td>How-to Guide<br/>(problem-oriented)</td>
+    <td>Tutorial<br>(learning-oriented)</td>
+    <td>How-to Guide<br>(problem-oriented)</td>
   </tr>
   <tr>
     <th>Theoretical knowledge</th>
-    <td>Explanation<br/>(understanding-oriented)</td>
-    <td>Reference<br/>(information-oriented)</td>
+    <td>Explanation<br>(understanding-oriented)</td>
+    <td>Reference<br>(information-oriented)</td>
   </tr>
 </table>
 
@@ -36,12 +36,12 @@ What I have so far is:
     <th>Trying to accomplish specific task</th>
   </tr>
   <tr>
-    <th>Tentative mental model<br/>(novice)</th>
+    <th>Tentative mental model<br>(novice)</th>
     <td>Tutorial</td>
     <td>How-to Guide</td>
   </tr>
   <tr>
-    <th>Working mental model<br/>(competent practitioner)</th>
+    <th>Working mental model<br>(competent practitioner)</th>
     <td>Explanation</td>
     <td>Reference</td>
   </tr>

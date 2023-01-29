@@ -58,7 +58,7 @@ place...???</p>
 <p>Hm: <a href="http://www.python.org/doc/2.4.1/lib/multiple-destinations.html">http://www.python.org/doc/2.4.1/lib/multiple-destinations.html</a>
 suggests that what I ought to do is create a new handler object,
 configure it, and stick it back into the logging framework.  This
-seems clumsy---which might explain why nobody I know ever uses the
+seems clumsy—which might explain why nobody I know ever uses the
 logging library.  I hope someone can tell me that there's an easier
 way...</p>
 
@@ -128,6 +128,6 @@ INFO:a.b:from a.b
 WARNING:a.b:from a.b
 </pre>
 
-<p>Bah---I think that structured logging is essential to good software
+<p>Bah—I think that structured logging is essential to good software
 development, but I'd be embarrassed putting this in front of students
 and saying, "It's supposed to work this way."</p>

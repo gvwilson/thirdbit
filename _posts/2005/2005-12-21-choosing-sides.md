@@ -32,5 +32,5 @@ whitewash job we were given this year.</p>
 <p>Then they came for the Jews, and I didn't speak up because I wasn't a Jew.</p>
 <p>Then they came for the trade unionists, and I didn't speak up because I wasn't a trade unionist.</p>
 <p>Then they came for the Catholics, and I didn't speak up because I was a Protestant.</p>
-<p>Then they came for me---and by that time no one was left to speak up.</p>
+<p>Then they came for me—and by that time no one was left to speak up.</p>
 </em></blockquote>

@@ -65,4 +65,4 @@ though I admit that could be due to practice effects rather than the method I'm 
 As a next step,
 I'd like to know if anyone has ever studied the impact that lesson design documentation has on lesson uptake and adaption.
 If you know of anything along these lines,
-[I'd be grateful for an email](mailto:gvwilson@third-bit.com).
+[I'd be grateful for an email](mailto:{{site.author.email}}).

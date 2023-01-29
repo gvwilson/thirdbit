@@ -29,7 +29,7 @@ year: 2008
 
 1800: Still in line.
 
-1810: Registered---but yup, the guy keying in the data from the paper form I had to fill out forgot to key in that I wanted a printed copy of the proceedings to read. Not getting back in line for it.
+1810: Registered—but yup, the guy keying in the data from the paper form I had to fill out forgot to key in that I wanted a printed copy of the proceedings to read. Not getting back in line for it.
 
 1815: It has started to rain. Jennifer and I will collect Michele and then find something to eat.
 

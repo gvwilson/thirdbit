@@ -13,11 +13,11 @@ And here's this month on the Third Bit blog:
 
 In order, the spikes are:
 <ul>
-	<li>Interviewing at Google (until recently my most-favorite-ever posting)</li>
-	<li>the first post about <em>Beautiful Code</em></li>
-	<li>the updated chapter list for <em>Beautiful Code<em></li>
-	<li>the list of organizations participating in Google Summer of Code</li>
-	<li>my daughter's birth announcement</li>
+  <li>Interviewing at Google (until recently my most-favorite-ever posting)</li>
+  <li>the first post about <em>Beautiful Code</em></li>
+  <li>the updated chapter list for <em>Beautiful Code<em></li>
+  <li>the list of organizations participating in Google Summer of Code</li>
+  <li>my daughter's birth announcement</li>
 </ul>
 Google Analytics (the source of the information on this blog) also provides geographic information; I know it's not 100% accurate, since it's not showing visitors from continental Africa or Mexico, but it's still pretty cool:
 <img alt="Third Bit Geography" id="image894" src="{{'/files/2007/04/thirdbit_geog.png' | relative_url}}" />

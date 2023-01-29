@@ -9,29 +9,29 @@ year: 2006
 
 <strong>Friday</strong>: the Annual Meeting of the AAAS isn't really a scientific conference—it's a place for science advocates to gather and plot, stirred together with an extended series of press cuddles dolled up as seminars.  (This is <em>not</em> a criticism: if the cosmetics industry, fast food vendors, and the military-industrial complex are smart enough to plot and cuddle, scientists should be too.)  Some of the talks (particularly the medical ones) are Mojave-dry, but others are pretty cool:
 <ul>
-	<li>"The Demography of Black Holes" (with pictures!)</li>
-	<li>"In Search of Genes that Influence Language" (without, but still interesting)</li>
-	<li>"New Approaches to Paleontological Investigation" (use a CT scan of a fossil to drive a 3D lithography machine, and you can photocopy dinosaur bones at sub-millimeter resolution—oh, and check out <a href="http://www.digimorph.org">www.digimorph.org</a>)</li>
+  <li>"The Demography of Black Holes" (with pictures!)</li>
+  <li>"In Search of Genes that Influence Language" (without, but still interesting)</li>
+  <li>"New Approaches to Paleontological Investigation" (use a CT scan of a fossil to drive a 3D lithography machine, and you can photocopy dinosaur bones at sub-millimeter resolution—oh, and check out <a href="http://www.digimorph.org">www.digimorph.org</a>)</li>
 </ul>
 <strong>Friday noon</strong>: <a href="http://osl.iu.edu/~lums/">Andy Lumsdaine</a> and <a href="http://www.osl.iu.edu/~pgottsch/">Peter Gottschling</a> arrive from Indiana University for our workshop on Essential Software Development Skills for Research Scientists.  We covered the usual topics:
 <ul>
-	<li>Computational scientists don't pay as much attention to quality and reproducibility as experimental scientists (in fact, many of them don't pay <em>any</em> attention to these issues).</li>
-	<li>Most scientific programmers are woefully inefficient compared to their industrial counterparts, largely because no one has ever taught them basic software engineering skills.</li>
-	<li>A handful of tools and techniques can reliably improve scientific programmers' productivity by 20-25%: version control, test-driven development, continuous integration, issue tracking, use of a debugger, enforcing style, traceability, and behind them all, automation.</li>
-	<li>There are many personal and institutional obstacles (ranging from "I have a degree in physics, so programming must be easy" to "journals and tenure committees don't care, so I can't afford to").</li>
-	<li>We either fix this ourselves, proactively, or someone else will legislate bad rules in the wake of a very public disaster.</li>
+  <li>Computational scientists don't pay as much attention to quality and reproducibility as experimental scientists (in fact, many of them don't pay <em>any</em> attention to these issues).</li>
+  <li>Most scientific programmers are woefully inefficient compared to their industrial counterparts, largely because no one has ever taught them basic software engineering skills.</li>
+  <li>A handful of tools and techniques can reliably improve scientific programmers' productivity by 20-25%: version control, test-driven development, continuous integration, issue tracking, use of a debugger, enforcing style, traceability, and behind them all, automation.</li>
+  <li>There are many personal and institutional obstacles (ranging from "I have a degree in physics, so programming must be easy" to "journals and tenure committees don't care, so I can't afford to").</li>
+  <li>We either fix this ourselves, proactively, or someone else will legislate bad rules in the wake of a very public disaster.</li>
 </ul>
 Randy Heiland's picture shows the three of us on stage; there weren't as many lab managers or funding directors as I'd hoped for, but lots of good questions and discussion.
 
 <strong>Friday evening</strong>: a recap of the 2005 <a href="http://www.improb.com/ig/ig-pastwinners.html#ig2005">Ig Nobel Prize</a> awards for science that cannot, or should not, be repeated, including:
 <ul>
-	<li>Physics: John Mainstone and the late Thomas Parnell, for patiently conducting an experiment that began in the year 1927, in which a glob of congealed black tar has been slowly, slowly dripping through a funnel, at a rate of approximately one drop every nine years.</li>
-	<li>Medicine: Gregg A. Miller, for inventing Neuticles—artificial replacement testicles for dogs, which are available in three sizes, and three degrees of firmness.</li>
-	<li>Literature: the Internet entrepreneurs of Nigeria, for creating and then using e-mail to distribute a bold series of short stories, thus introducing millions of readers to a cast of rich characters, including General Sani Abacha, Mrs. Mariam Sanni Abacha, Barrister Jon A Mbeki Esq., and others.</li>
-	<li>Peace: Claire Rind and Peter Simmons, for electrically monitoring the activity of a brain cell in a locust while that locust was watching selected highlights from the movie Star Wars.</li>
-	<li>Economics: Gauri Nanda, for inventing an alarm clock that runs away and hides, repeatedly, thus ensuring that people DO get out of bed, and thus theoretically adding many productive hours to the workday.</li>
-	<li>Biology: Benjamin Smith and others, for painstakingly smelling and cataloging the peculiar odors produced by 131 different species of frogs when the frogs were feeling stressed.</li>
-	<li>Fluid Dynamics: Victor Benno Meyer-Rochow and Jozsef Gal, for using basic principles of physics to calculate the pressure that builds up inside a penguin, as detailed in their report "Pressures Produced When Penguins Pooh—Calculations on Avian Defaecation."</li>
+  <li>Physics: John Mainstone and the late Thomas Parnell, for patiently conducting an experiment that began in the year 1927, in which a glob of congealed black tar has been slowly, slowly dripping through a funnel, at a rate of approximately one drop every nine years.</li>
+  <li>Medicine: Gregg A. Miller, for inventing Neuticles—artificial replacement testicles for dogs, which are available in three sizes, and three degrees of firmness.</li>
+  <li>Literature: the Internet entrepreneurs of Nigeria, for creating and then using e-mail to distribute a bold series of short stories, thus introducing millions of readers to a cast of rich characters, including General Sani Abacha, Mrs. Mariam Sanni Abacha, Barrister Jon A Mbeki Esq., and others.</li>
+  <li>Peace: Claire Rind and Peter Simmons, for electrically monitoring the activity of a brain cell in a locust while that locust was watching selected highlights from the movie Star Wars.</li>
+  <li>Economics: Gauri Nanda, for inventing an alarm clock that runs away and hides, repeatedly, thus ensuring that people DO get out of bed, and thus theoretically adding many productive hours to the workday.</li>
+  <li>Biology: Benjamin Smith and others, for painstakingly smelling and cataloging the peculiar odors produced by 131 different species of frogs when the frogs were feeling stressed.</li>
+  <li>Fluid Dynamics: Victor Benno Meyer-Rochow and Jozsef Gal, for using basic principles of physics to calculate the pressure that builds up inside a penguin, as detailed in their report "Pressures Produced When Penguins Pooh—Calculations on Avian Defaecation."</li>
 </ul>
 <strong>Saturday</strong>: I smorgasboarded the seminars.  The best was <a href="http://lab.privacy.cs.cmu.edu/people/sweeney/">Latanya Sweeney</a>'s talk about information privacy—she was kind enough to chat with me for 45 minutes afterward about undergraduate curriculum reform, and the obstacles to it (did you know there isn't an undergrad course on software engineering at CMU?).  The worst was an unrelated seminar on "Information Security in Public Databases".  Aaron Emigh, of Radix Labs, did a great job of explaining the issues.  Kevin Fu, of UMass, was also engaging, but Mike Szydlo (RSA) gave us a technical sales talk that I'm sure went over the heads of most of the audience.
 

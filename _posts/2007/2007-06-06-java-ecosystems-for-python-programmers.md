@@ -15,7 +15,7 @@ I've spoken to a few Java hackers and here's what I've come up with so far (than
 <table>
 <tr>
 <td>Version control</td>
-<td>Subversion (included for completeness---I already use version control)</td>
+<td>Subversion (included for completeness—I already use version control)</td>
 </tr>
 <tr>
 <td>IDE</td>

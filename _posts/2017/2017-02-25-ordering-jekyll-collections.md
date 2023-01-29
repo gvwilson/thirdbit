@@ -74,5 +74,5 @@ must be submitted as a PR against the [Jekyll repository](https://github.com/jek
 on GitHub, and must include enough unit tests to satisfy Jekyll's maintainers.
 The PR does *not* have to be merged in order to qualify (since that is
 out of the author's control).  If you are interested, please
-[email me](mailto:gvwilson@third-bit.com) a few sentences describing how
+[email me](mailto:{{site.author.email}}) a few sentences describing how
 you would deal with missing collection items.

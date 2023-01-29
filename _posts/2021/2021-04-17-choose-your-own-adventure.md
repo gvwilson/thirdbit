@@ -30,4 +30,4 @@ I can imagine a boatload of studies someone could do with a tool like this.
 I can also imagine something similar for teaching people how to build sophisticated SQL queries
 or tidyverse pipelines step by step.
 If you know of something like this, or are working on it,
-I'd [enjoy hearing from you](mailto:gvwilson@third-bit.com).
+I'd [enjoy hearing from you](mailto:{{site.author.email}}).

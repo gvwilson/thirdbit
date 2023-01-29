@@ -13,16 +13,16 @@ It's still a lot harder than it should be to add pictures to web pages. I know, 
 <tr>
 <td>
 <ol>
-	<li>click on the drawing palette</li>
-	<li>draw</li>
+  <li>click on the drawing palette</li>
+  <li>draw</li>
 </ol>
 </td>
 <td>
 <ol>
-	<li>fire up a separate drawing application</li>
-	<li>create the image</li>
-	<li>upload it</li>
-	<li>add an &lt;img&gt; tag to link to it</li>
+  <li>fire up a separate drawing application</li>
+  <li>create the image</li>
+  <li>upload it</li>
+  <li>add an &lt;img&gt; tag to link to it</li>
 </ol>
 </td>
 </tr>
@@ -37,16 +37,16 @@ Not too bad so far, but what happens when someone wants to update the image?
 <tr>
 <td>
 <ol>
-	<li>click on the picture</li>
-	<li>draw</li>
+  <li>click on the picture</li>
+  <li>draw</li>
 </ol>
 </td>
 <td>
 <ol>
-	<li>download the image</li>
-	<li>fire up a separate drawing application</li>
-	<li>update the image</li>
-	<li>upload it again</li>
+  <li>download the image</li>
+  <li>fire up a separate drawing application</li>
+  <li>update the image</li>
+  <li>upload it again</li>
 </ol>
 </td>
 </tr>

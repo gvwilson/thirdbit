@@ -13,34 +13,34 @@ But back to the build system... What I have is a set of XML files marked up with
 
 The build system consists of the following tools:
 <ol>
-	<li>A 500-line Makefile in the root directory that drives everything else.  Roughly half of those lines are comments (which can be extracted and formatted as a wiki page to create on-line documentation).  This Makefile includes another file called <code>config.mk</code>, in which users must specify the lectures they want to include in the course.</li>
-	<li>A Python script called <code>linkages.py</code> that scans the source files and builds a data structure that records such things as the order of lectures, where glossary terms are defined, the two-part numerical IDs of figures and tables, and so on. <code>linkages.py</code> writes this data structure directly to a file called <code>tmp/linkages.tmp.py</code>, which other tools then import.  Persisting the data structure directly saved me from having to mess around with parsers or serializers.  The clever bit (ahem) is that I only write it out if (a) the file doesn't already exist, or (b) the contents have changed.  That way, if I change a source file in a way that doesn't affect cross-linkages, Make doesn't do a lot of unnecessary rebuilding.</li>
-	<li>Once the linkages file is up to date, <code>preprocess.py</code> kicks in.  This script creates copies of the source files under the <code>tmp/</code> directory (preserving the directory structure), and adds information to those copies to make XSLT's job easier.  Among other things, it:
+  <li>A 500-line Makefile in the root directory that drives everything else.  Roughly half of those lines are comments (which can be extracted and formatted as a wiki page to create on-line documentation).  This Makefile includes another file called <code>config.mk</code>, in which users must specify the lectures they want to include in the course.</li>
+  <li>A Python script called <code>linkages.py</code> that scans the source files and builds a data structure that records such things as the order of lectures, where glossary terms are defined, the two-part numerical IDs of figures and tables, and so on. <code>linkages.py</code> writes this data structure directly to a file called <code>tmp/linkages.tmp.py</code>, which other tools then import.  Persisting the data structure directly saved me from having to mess around with parsers or serializers.  The clever bit (ahem) is that I only write it out if (a) the file doesn't already exist, or (b) the contents have changed.  That way, if I change a source file in a way that doesn't affect cross-linkages, Make doesn't do a lot of unnecessary rebuilding.</li>
+  <li>Once the linkages file is up to date, <code>preprocess.py</code> kicks in.  This script creates copies of the source files under the <code>tmp/</code> directory (preserving the directory structure), and adds information to those copies to make XSLT's job easier.  Among other things, it:
 <ul>
-	<li>adds a unique file ID, and the path to the root of the build, to the lecture's root element;</li>
-	<li>copies content from table files into the lectures;</li>
-	<li>adds citation information to bibliography references;</li>
-	<li>does multi-column layout of length tables;</li>
-	<li>inserts figure and table counter values (the "4.2" in "Figure 4.2");</li>
-	<li>fills in cross-references between source files;</li>
-	<li>replaces the <code>&lt;lecturelist/&gt;</code> element with a point-form list of links to lectures;</li>
-	<li>fills in the <code>&lt;figlist&gt;</code> and <code>&lt;tbllist&gt;</code> tags with lists of figures and tables respectively;</li>
-	<li>links terms in the glossary back to their first uses;</li>
-	<li>inserts included program source files;</li>
-	<li>links to external references;</li>
-	<li>adds "previous" and "next" linkage information to lectures;</li>
-	<li>generates a syllabus; and</li>
-	<li>adds tracing information, such as file version numbers and the time the files were processed.</li>
+  <li>adds a unique file ID, and the path to the root of the build, to the lecture's root element;</li>
+  <li>copies content from table files into the lectures;</li>
+  <li>adds citation information to bibliography references;</li>
+  <li>does multi-column layout of length tables;</li>
+  <li>inserts figure and table counter values (the "4.2" in "Figure 4.2");</li>
+  <li>fills in cross-references between source files;</li>
+  <li>replaces the <code>&lt;lecturelist/&gt;</code> element with a point-form list of links to lectures;</li>
+  <li>fills in the <code>&lt;figlist&gt;</code> and <code>&lt;tbllist&gt;</code> tags with lists of figures and tables respectively;</li>
+  <li>links terms in the glossary back to their first uses;</li>
+  <li>inserts included program source files;</li>
+  <li>links to external references;</li>
+  <li>adds "previous" and "next" linkage information to lectures;</li>
+  <li>generates a syllabus; and</li>
+  <li>adds tracing information, such as file version numbers and the time the files were processed.</li>
 </ul>
 Each stage ought to be a filter of its own, and in fact I wrote them all that way to begin with.  However, launching fifteen or more copies of the Python interpreter for each source file made the build rather slow; doing the piping internally reduced the time per source file from eight or nine seconds to less than a second.</li>
-	<li><code>util/individual.xsl</code> is an XSL script that translates the filled-in XML lecture file into HTML.  This script handles the outer skeleton directly, handing specific tasks like the bibliography and special lists to other XSL files that it includes.</li>
-	<li>A Python script called <code>util/unify.py</code> and an XSL script called <code>util/unified.xsl</code> work together to create a single-page version of the whole course.  <code>unify.py</code> stitches the filled-in lecture files together; <code>unified.xsl</code> then applies the same transformations as <code>individual.xsl</code>, but formats hyperlinks differently (since they're all in-file).</li>
-	<li>I use another Python script called <code>validate.py</code> to check the internal consistency of the source files.  Do any of them contain tabs or unprintable characters?  Do all the required images, source files, and tables exist?  I run this before checking in changes; it catches something about one time in five.</li>
-	<li>And then there are the minor tools:
+  <li><code>util/individual.xsl</code> is an XSL script that translates the filled-in XML lecture file into HTML.  This script handles the outer skeleton directly, handing specific tasks like the bibliography and special lists to other XSL files that it includes.</li>
+  <li>A Python script called <code>util/unify.py</code> and an XSL script called <code>util/unified.xsl</code> work together to create a single-page version of the whole course.  <code>unify.py</code> stitches the filled-in lecture files together; <code>unified.xsl</code> then applies the same transformations as <code>individual.xsl</code>, but formats hyperlinks differently (since they're all in-file).</li>
+  <li>I use another Python script called <code>validate.py</code> to check the internal consistency of the source files.  Do any of them contain tabs or unprintable characters?  Do all the required images, source files, and tables exist?  I run this before checking in changes; it catches something about one time in five.</li>
+  <li>And then there are the minor tools:
 <ul>
-	<li><code>util/fixentities.py</code> replaces character entities with character codes (to work around a problem with Expat);</li>
-	<li><code>util/wiki.py</code> extracts specially-formatted comments from Makefiles and XSL files, and docstrings from Python, to create wiki documentation pages; and</li>
-	<li><code>util/revdtd.py</code> reverse engineers the actual DTD of either the source files, their filled-in counterparts, or the generated HTML files.</li>
+  <li><code>util/fixentities.py</code> replaces character entities with character codes (to work around a problem with Expat);</li>
+  <li><code>util/wiki.py</code> extracts specially-formatted comments from Makefiles and XSL files, and docstrings from Python, to create wiki documentation pages; and</li>
+  <li><code>util/revdtd.py</code> reverse engineers the actual DTD of either the source files, their filled-in counterparts, or the generated HTML files.</li>
 </ul>
 </li>
 </ol>

@@ -1,5 +1,5 @@
 ---
-title: "Getting the Science Right---Or At Least, Less Wrong"
+title: "Getting the Science Right—Or At Least, Less Wrong"
 date: 2008-11-20 17:03:22
 year: 2008
 ---

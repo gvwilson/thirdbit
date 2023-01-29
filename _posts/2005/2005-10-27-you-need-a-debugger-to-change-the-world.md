@@ -7,9 +7,9 @@ Following links from the latest <a href="http://www.subtextual.org/">Subtext</a>
 
 <blockquote>...there are three main parts to defining a new DSL [Domain Specific Language]:
 <ul>
-	<li>Define the abstract syntax, that is the <strong>schema</strong> of the abstract representation.</li>
-	<li>Define an <strong>editor</strong> to let people manipulate the abstract representation through a project.</li>
-	<li>Define a <strong>generator</strong>.  This describes how to translate the abstract representation into an executable representation.  In practice the generator defines the semantics of the DSL.</li>
+  <li>Define the abstract syntax, that is the <strong>schema</strong> of the abstract representation.</li>
+  <li>Define an <strong>editor</strong> to let people manipulate the abstract representation through a project.</li>
+  <li>Define a <strong>generator</strong>.  This describes how to translate the abstract representation into an executable representation.  In practice the generator defines the semantics of the DSL.</li>
 </ul>
 </blockquote>
 
@@ -17,7 +17,7 @@ That's great—but #4 should have been:
 
 <blockquote>
 <ul>
-	<li>Create an <strong>inspector</strong> that allows people to debug their DSL's behavior in its own terms.</li>
+  <li>Create an <strong>inspector</strong> that allows people to debug their DSL's behavior in its own terms.</li>
 </ul>
 </blockquote>
 

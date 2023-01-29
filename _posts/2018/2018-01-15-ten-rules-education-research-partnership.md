@@ -112,7 +112,7 @@ year: 2018
 
 <p>
   H.L. Mencken wrote, "There is always a well-known solution to every
-  human problem---neat, plausible, and wrong."  Your problem is almost
+  human problem—neat, plausible, and wrong."  Your problem is almost
   certainly one of those, and is almost certainly more complex than
   you first realize.  While researchers should sacrifice detail for
   clarity, you should make an effort to grasp at least some of that

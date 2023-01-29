@@ -9,9 +9,9 @@ original: nwit
 <p>I used to tell my students that a paper's abstract should be a summary, not a movie trailer. When I read, "We find that... measures of ownership... have a relationship with both pre-release faults and post-release failures," my reaction is, "What kind of relationship?" And when a paper's authors say, "We... identify reasons that low-expertise developers make changes to components," I want to grab my red pen and scribble, "Summarize them here!"</p>
 <p>Fortunately, this paper's abstract is the only thing about it that I don't like. Over the course of its 11 pages, its authors explore three related questions:</p>
 <ol>
-	<li>Are higher levels of ownership associated with less defects?</li>
-	<li>Is there a negative effect when a software entity is developed by many people with low ownership?</li>
-	<li>Are these effects related to the development process used?</li>
+  <li>Are higher levels of ownership associated with less defects?</li>
+  <li>Is there a negative effect when a software entity is developed by many people with low ownership?</li>
+  <li>Are these effects related to the development process used?</li>
 </ol>
 <p>They start by defining their units of measurement (a compiled binary such as a .dll or .exe), what they mean by major and minor contributors, and how they measure ownership. After grinding their data (they have <em>lots</em> of data), they come up with Table 1:</p>
 <table border="1">
@@ -101,8 +101,8 @@ All correlations are statistically significant except for that of Ownership and 
 <blockquote><em>After controlling for known software quality factors, binaries with more minor contributors had more pre- and post-release failures in both versions of Windows.</em></blockquote>
 <p>They then recommend that:</p>
 <ol>
-	<li>Changes made by minor contributors should be reviewed with more scrutiny.</li>
-	<li>Potential minor contributors should communicate desired changes to developers experienced with the respective binary.</li>
-	<li>Components with low ownership should be given priority by QA resources.</li>
+  <li>Changes made by minor contributors should be reviewed with more scrutiny.</li>
+  <li>Potential minor contributors should communicate desired changes to developers experienced with the respective binary.</li>
+  <li>Components with low ownership should be given priority by QA resources.</li>
 </ol>
 <p>Even if you can't apply their results directly to your own projects, they show that it is possible to analyze the impact of different software manufacturing practices methodically and quantitatively. The next time someone suggests that your team start doing X, Y, or Z, ask them if they have this kind of data to back up their recommendation. If they don't, you might consider giving them a copy of this paper...</p>

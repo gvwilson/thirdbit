@@ -4,8 +4,8 @@ year: 2019
 title: "Contrarians"
 ---
 
-> Q: How many TED speakers does it take to screw in a lightbulb? <br/>
-> A: It's a really obscure number---you won't have heard of it.
+> Q: How many TED speakers does it take to screw in a lightbulb? <br>
+> A: It's a really obscure number—you won't have heard of it.
 
 A few years ago,
 one of the smartest people I know told me that we shouldn't worry about climate change.
@@ -37,7 +37,7 @@ and how [standardized tests are slanted to produce the results that the powerful
 If you're in a room full of progressives,
 though,
 your need for attention compels you to be the one saying, "Well, actually..."
-and then (regretfully---always regretfully) explaining that yes,
+and then (regretfully—always regretfully) explaining that yes,
 some truths might be unpopular and difficult to face,
 but...
 You're the mirror image of Hoffer's [true believer][true-believer]:

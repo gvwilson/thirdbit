@@ -30,7 +30,7 @@ and its abstract reads:
 > that is not feasible due to financial or technical constraints,
 > alternatives should be offered.
 
-Its findings are that the tools they use---that *we* use---may be a
+Its findings are that the tools they use—that *we* use—may be a
 significant barrier to contribution: "Initial comments in the open
 conversation made it clear that the choice of venue (Github) was a
 gender-barrier, as Github is associated with male geek coding

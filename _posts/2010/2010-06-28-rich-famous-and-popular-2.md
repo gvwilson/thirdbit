@@ -5,9 +5,9 @@ year: 2010
 ---
 Would you like to be rich, famous, and popular?  Do you have mad computer vision skillz, and/or a Level 29 Jedi Ninja rating in embedded devices?  You do?  Excellent: drop what you're doing and figure out
 <ol>
-	<li>how to laminate a bunch of CCD sensors onto the panels of a regulation soccer ball,</li>
-	<li>how to transmit their images in near-real time to a nearby base station, and</li>
-	<li>how to interpolate those images to create a reasonable picture.</li>
+  <li>how to laminate a bunch of CCD sensors onto the panels of a regulation soccer ball,</li>
+  <li>how to transmit their images in near-real time to a nearby base station, and</li>
+  <li>how to interpolate those images to create a reasonable picture.</li>
 </ol>
 What you'll have when you're done is a ball's-eye view of a soccer game. A view of the striker's incoming boot—meh. But the look on the keeper's face as he makes the save? Or misses it?
 

@@ -4,9 +4,9 @@ year: 2019
 title: "A Veteran of a Thousand Language Wars"
 ---
 
-> You see me now a veteran of a thousand psychic wars<br/>
-> I've been living on the edge so long, where the winds of limbo roar…<br/>
-> — Blue Oyster Cult
+> You see me now a veteran of a thousand psychic wars<br>
+> I've been living on the edge so long, where the winds of limbo roar…<br>
+> —Blue Oyster Cult
 
 There's been some more discussion on the interwebs about base R versus tidyverse.
 As someone who once had strong beliefs about Fortran 90 versus FORTRAN 77
@@ -18,7 +18,7 @@ Do you think that people who've never programmed before
 can reach a certain level of statistical proficiency more quickly with the tidyverse than with base R?
 Great:
 show me the assessments you will use to determine if they've reached that level
-and tell me the threshold at which you would say, "Gosh---OK, I guess I ought to change my mind."
+and tell me the threshold at which you would say, "Gosh—OK, I guess I ought to change my mind."
 Or if [you believe](https://github.com/matloff/TidyverseSkeptic)
 that R users who learned the tidyverse first will,
 "…be biased against non-Tidyverse job seekers,

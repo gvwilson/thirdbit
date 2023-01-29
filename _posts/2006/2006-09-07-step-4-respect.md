@@ -11,7 +11,7 @@ A couple of days later I got a call back from a woman who said she had volunteer
 
 The rest of the conversation was short and uncomfortable.  The next day, I had an email from a different guy saying that he'd be working with me.  I was embarrassed at having put my foot in my mouth, but it was a long time before I thought to wonder how <em>she</em> had felt.
 
-I'm telling this story because I think it's a good way to introduce the single most important working practice for any software development team: respect.  If you and your teammates don't respect one another, it won't matter what IDE you're using, what programming language you've chosen, how carefully you take minutes during your meetings, or how accurate your schedule estimates are---by all measures except your final grade, you will fail.
+I'm telling this story because I think it's a good way to introduce the single most important working practice for any software development team: respect.  If you and your teammates don't respect one another, it won't matter what IDE you're using, what programming language you've chosen, how carefully you take minutes during your meetings, or how accurate your schedule estimates are—by all measures except your final grade, you will fail.
 
 People can be disrespectful on many levels.  The most obvious is simple rudeness, which in student teams usually takes the form of interrupting people.  I've been in meetings in which no one could get more than a sentence and a half out before someone would cut them off. The signal people send when they do that is that they think their teammates are less intelligent than they are.  In fact, the reverse is usually true: if someone isn't smart enough to realize that letting his teammates finish their thoughts is productive as well as polite, he's probably just not smart, period.
 
@@ -37,9 +37,9 @@ One last story. The first time I taught CSC207, I had my students write a couple
 
 Respect.
 <ul>
-	<li>Part 1</li>
-	<li>Part 2</li>
-	<li>Part 3</li>
+  <li>Part 1</li>
+  <li>Part 2</li>
+  <li>Part 3</li>
 </ul>
 <em>Later: Sutha Kamal of <a href="http://www.ambientvector.com">Ambient Vector</a> has written <a href="http://suthakamal.blogspot.com/2006/09/is-it-my-turn-to-rant.html">a post</a> inspired by a conversation we had last week, which includes a pointer to <a href="http://www.hyperbio.net/fric_frac/2006/09/i_dont_need_you.html">this one</a> by Leila Boujnane of <a href="http://www.ideeinc.com">Idee</a>.</em>
 

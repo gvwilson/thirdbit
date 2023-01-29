@@ -44,9 +44,9 @@ Until then:
 <div align="center">
   <p>
     Start where you are
-    <br/>
+    <br>
     Use what you have
-    <br/>
+    <br>
     Help who you can
   </p>
 </div>

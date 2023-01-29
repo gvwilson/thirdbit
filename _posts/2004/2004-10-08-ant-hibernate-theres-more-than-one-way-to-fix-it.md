@@ -3,7 +3,7 @@ title: "Ant + Hibernate: There's More Than One Way to Fix It"
 date: 2004-10-08 10:26:33
 year: 2004
 ---
-<p>I don't know who William Lopez is---I've never met the man, and before yesterday at 19:40 EST, I'd never heard of him.  But then a mail message landed in my inbox saying, "I think I've solved your Ant + Hibernate problem."  He included his solution in a ZIP file; it took me all of five minutes to download it, edit a couple of settings for my machine (library files in different places), and convince myself that yes, it did work.  It took another ten minutes to figure out which of his changes was the crucial one, and guess what: it's an Ant bug.</p>
+<p>I don't know who William Lopez is—I've never met the man, and before yesterday at 19:40 EST, I'd never heard of him.  But then a mail message landed in my inbox saying, "I think I've solved your Ant + Hibernate problem."  He included his solution in a ZIP file; it took me all of five minutes to download it, edit a couple of settings for my machine (library files in different places), and convince myself that yes, it did work.  It took another ten minutes to figure out which of his changes was the crucial one, and guess what: it's an Ant bug.</p>
 
 <p>Or maybe not, because three hours later, Eric Burke added a comment to the original posting.  His solution was to rearrange some of the Hibernate-specific stuff in the build file.  So who's fault is it really, Ant's or Hibernate's?  Let's take a look.</p>
 
@@ -61,7 +61,7 @@ year: 2004
 &lt;/target&gt;
 </pre></blockquote>
 
-<p>So it has to be an Ant problem---except that Eric Burke <a href="http://www.ericburke.com/blog/2004/10/solution-to-gregs-hibernate-problem.html">fixed the problem</a> by moving the schema export <code>taskdef</code> <em>inside</em> the schema export target, like this:</p>
+<p>So it has to be an Ant problem—except that Eric Burke <a href="http://www.ericburke.com/blog/2004/10/solution-to-gregs-hibernate-problem.html">fixed the problem</a> by moving the schema export <code>taskdef</code> <em>inside</em> the schema export target, like this:</p>
 
 <blockquote><pre>
 &lt;target name="schema" depends="compile"&gt;

@@ -9,7 +9,7 @@ year: 2021
 </div>
 
 Most people programming today have never punched a card,
-but all programming editors still treat code as lines of text---in other words,
+but all programming editors still treat code as lines of text—in other words,
 as if it still might have to fit onto punchcards.
 As I've been <strike>saying</strike> ranting [for a while now](https://queue.acm.org/detail.cfm?id=1039534),
 this is holding us back in ways we can barely recognize.

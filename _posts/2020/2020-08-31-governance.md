@@ -16,8 +16,8 @@ and what social norms they're required to adhere to if they want to contribute t
 But how can they find out who decides what the project is going to do next,
 or who gets a say in deciding that?
 Large organizations like the [Python Software Foundation](https://www.python.org/psf/)
-[typically have bylaws](https://arxiv.org/abs/2005.10063)---as registered non-profits,
-they're legally required to---but
+[typically have bylaws](https://arxiv.org/abs/2005.10063)—as registered non-profits,
+they're legally required to—but
 [most smaller organizations don't explain any of this](https://opensource.com/open-organization/18/4/new-governance-model-research).
 They may have a `CONTRIBUTING.md` file,
 but that usually describes how to set up a build environment and how to file bug reports,
@@ -44,7 +44,7 @@ This is why I'm convinced that every open project should have a file in its root
 that explains:
 
 1.  Who gets a say in which decisions
-    (where "gets a say" means "must approve" or "can veto"---promises of consultation
+    (where "gets a say" means "must approve" or "can veto"—promises of consultation
     are a social nicety without such guarantees).
 2.  How to get a decision made.
 3.  How to find out what decisions have been made.

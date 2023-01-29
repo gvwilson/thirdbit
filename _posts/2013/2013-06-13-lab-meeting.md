@@ -143,7 +143,7 @@ original: swc
       <li>
         Complete our online training
         (which includes teaching at least once with a more experienced instructor),
-        <br/>
+        <br>
         <em>or</em>
       </li>
       <li>

@@ -13,8 +13,8 @@ but looking through it reminded me that "awesome" means "extremely impressive *o
 Most programmers are never going to tackle it,
 any more than they would tackle Smith, Marx, Keynes, or Tversky & Kahneman in the original.
 
-I think that if we want Silicon Valley to change---if we want
-software developers to be aware of the broader impact of their work and care about it---we
+I think that if we want Silicon Valley to change—if we want
+software developers to be aware of the broader impact of their work and care about it—we
 need something like *Freakonomics*, but for good.
 We need something that is accessible to people with technical skills,
 but who have no background in social science,

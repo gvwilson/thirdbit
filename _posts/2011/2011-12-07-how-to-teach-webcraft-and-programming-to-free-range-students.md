@@ -13,10 +13,10 @@ I will be running a <a href="http://p2pu.org">P2PU</a> course starting in Januar
 
 Right now, people all over the world are learning how to write programs and create web sites, but or every one who is doing it in a classroom there are a dozen free-range learners. This group will focus on how we, as mentors, can best help them. Topics will include:
 <ul>
-	<li>What does research tell us about how people learn?</li>
-	<li>Why are the demographics of programming so unbalanced?</li>
-	<li>What best practices in instructional design are relevant to free-range learners?</li>
-	<li>What skills do people need in order to bake their own web?</li>
-	<li>How are grassroots groups trying to teach these things now?</li>
-	<li>What's working and what isn't?</li>
+  <li>What does research tell us about how people learn?</li>
+  <li>Why are the demographics of programming so unbalanced?</li>
+  <li>What best practices in instructional design are relevant to free-range learners?</li>
+  <li>What skills do people need in order to bake their own web?</li>
+  <li>How are grassroots groups trying to teach these things now?</li>
+  <li>What's working and what isn't?</li>
 </ul>

@@ -16,7 +16,7 @@ but as [I said on April 5]({{'/2019/04/05/the-worst-behavior/' | relative_url}})
 DataCamp's stated reason for firing me was poor performance,
 and I accept that I accomplished less in late 2017 and early 2018 than usual.
 
-I don't think there's any point talking about constantly shifting priorities and a lack of technical support---they're just a fact of life
+I don't think there's any point talking about constantly shifting priorities and a lack of technical support—they're just a fact of life
 in immature companies (and many mature ones too).
 What I will say is that my managers told me repeatedly to take whatever time I needed to deal with
 [my brother's illness and death](http://third-bit.com/2018/03/20/goodbye-jeff/).

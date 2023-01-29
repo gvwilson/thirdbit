@@ -60,7 +60,7 @@ and which other kinds are useful across multiple stages:
     (An essay is primarily about viewpoint, with cases as support,
     where a case study is mostly about the particular instance
     with the author's viewpoint as the added value.)
-    <br/>
+    <br>
     We don't have nearly enough examples of this in computing,
     though Stroustrup's *[Design and Evolution of C++](https://www.amazon.com/Design-Evolution-C-Bjarne-Stroustrup/dp/0201543303/)*,
     Johnson's *[GUI Bloopers](https://www.amazon.com/GUI-Bloopers-2-0-Interactive-Technologies/dp/0123706432/)*,

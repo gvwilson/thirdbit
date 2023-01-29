@@ -14,7 +14,7 @@ year: 2007
   in the lab, and how nanotechnology could let us build elevators into
   orbit. Nowhere does he mention the millions of people who die every
   year in developing countries from starvation, war, and preventable
-  diseases.  Human rights?  Bah---science is about more toys for the
+  diseases.  Human rights?  Bah—science is about more toys for the
   haves.  It's about putting a handful of well-fed representatives of
   the industrialized world on Mars to do things that robots can do at
   a twentieth of the cost, not about stopping HIV/AIDS from destroying

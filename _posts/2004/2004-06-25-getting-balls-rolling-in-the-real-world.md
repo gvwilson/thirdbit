@@ -5,7 +5,7 @@ year: 2004
 ---
 <p>Many books describe how to get a project rolling.  Unfortunately, none of their descriptions match anything I've ever seen in the real world.  For example, Rosenberg and Scott's <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0201432897">Use Case Driven Object Modeling with UML</a> tells readers to write use cases (actor X does Y to achieve result Z), then extract system features from them. At the other end of the spectrum, Extreme Programming advocates pretty much the same approach; all that differs is how much you do in one go.</p>
 
-<p>But how can you write use cases unless you know what the system is going to include?  We intended to start Helium by writing use cases, but quickly ran into sand.  Do we need a use case for "user joins user group"?  Well, that depends: does our system have user groups?  What about "administrator removes user from user group"---are there administrators? Mailing lists? Permissions?</p>
+<p>But how can you write use cases unless you know what the system is going to include?  We intended to start Helium by writing use cases, but quickly ran into sand.  Do we need a use case for "user joins user group"?  Well, that depends: does our system have user groups?  What about "administrator removes user from user group"—are there administrators? Mailing lists? Permissions?</p>
 
 <p>What we actually wound up doing was stepping back and developing a conceptual model that specified Helium's major entities. It was frustrating, since we couldn't decide what to include until we knew what the system had to be able to do, but couldn't specify what the system could do until we knew what it contained.</p>
 

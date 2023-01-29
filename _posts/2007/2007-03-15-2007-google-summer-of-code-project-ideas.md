@@ -3,7 +3,7 @@ title: "2007 Google Summer of Code Project Ideas"
 date: 2007-03-15 20:24:26
 year: 2007
 ---
-The list of mentoring organizations for this year's Google Summer of Code is now <a href="http://code.google.com/soc/">up</a>. We're putting forward <a href="https://www.drproject.org/DrProject/wiki/DrProjectSoC2007">two proposals</a> for DrProject, and one for the <a href="https://www.drproject.org/olm">Online Marking Tool</a>. If you're interested, please read <a href="http://groups.google.com/group/google-summer-of-code-announce/web/guide-to-the-gsoc-web-app-for-student-applicants">Google's student guide</a>, then <a href="mailto:gvwilson@cs.toronto.edu">contact me</a>.
+The list of mentoring organizations for this year's Google Summer of Code is now <a href="http://code.google.com/soc/">up</a>. We're putting forward <a href="https://www.drproject.org/DrProject/wiki/DrProjectSoC2007">two proposals</a> for DrProject, and one for the <a href="https://www.drproject.org/olm">Online Marking Tool</a>. If you're interested, please read <a href="http://groups.google.com/group/google-summer-of-code-announce/web/guide-to-the-gsoc-web-app-for-student-applicants">Google's student guide</a>, then <a href="mailto:{{site.author.email}}">contact me</a>.
 
 Note: student applications close on March 24th, and organizations have until April 9th
 to pick the projects.

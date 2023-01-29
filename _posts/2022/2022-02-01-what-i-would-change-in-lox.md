@@ -15,7 +15,7 @@ I don't have time to make all the changes I'd like to Lox,
 but I hope that writing them down and explaining why will spark ideas in someone else:
 
 1.  *Add array and hash values* so that `x = [1, 2, 3]` and `y = {"a": 1, "b": 2}` work.
-    I'd like to add sets as well---I think they're under-rated and under-used---but
+    I'd like to add sets as well—I think they're under-rated and under-used—but
     I'm trying to budget complexity.
 
 2.  *Add modules* and some kind of import mechanism

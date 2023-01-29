@@ -17,9 +17,9 @@ I'd like a lot of people to imitate Neal Ford's <cite>The Productive Programmer<
 
 Kent Beck's <cite>Implementation Patterns</cite> draws on an equal depth of experience, but focuses more on the ideas that go into the code.  The author says in the introduction that it's meant to sit between the Gang of Four's classic <cite>Design Patterns</cite> and a Java language manual.  I think he does himself a disservice: what he's actually done is catalog the mental building blocks people use to write sequential imperative software.  The chapter on "Methods", for example, includes a few paragraphs on each of 23 micro-patterns, including:
 <ul>
-	<li>Composed Method—Compose methods out of calls to other methods.</li>
-	<li>Intention-Revealing Name—Name methods after what they are intended to do.</li>
-	<li>Conversion Constructor—For most conversions, provide a method on the ocnverted object's class that takes the source object as a parameter.</li>
+  <li>Composed Method—Compose methods out of calls to other methods.</li>
+  <li>Intention-Revealing Name—Name methods after what they are intended to do.</li>
+  <li>Conversion Constructor—For most conversions, provide a method on the ocnverted object's class that takes the source object as a parameter.</li>
 </ul>
 It's tempting to say, "Well, everyone knows <em>that</em>," but of course everyone doesn't, and even if they did, categorizing and naming the obvious often reveals a lot that isn't.  As I read the book, I thought about how cool it would be if the status bar in Eclipse could tell me which of these micro-patterns I was using in real time as I typed.  It would be a great teaching tool, and would keep a lot of corner-cutting programmers (myself included) honest.
 
@@ -55,19 +55,19 @@ And that's all—fifteen books, read over five months, and reviewed in as many d
 
 <hr />
 <ol>
-	<li>Dean Allemang and James Hendler: <a href="http://www.amazon.com/Semantic-Web-Working-Ontologist-Effective/dp/0123735564"><cite>Semantic Web for the Working Ontologist</cite></a>.  Morgan Kaufmann, 0123735564, 2008, 352 pages.</li>
-	<li>Cameron Adams, James Edwards, Christian Heilmann, Michael Mahemoff, Ara Pehlivanian, Dan Webb, and Simon Willison: <a href="http://www.amazon.com/Art-Science-JavaScript-Cameron-Adams/dp/0980285844"><cite>The Art &amp; Science of JavaScript</cite></a>.  SitePoint, 2007, 0980285844, 300 pages.</li>
-	<li>Kent Beck: <a href="http://www.amazon.com/Implementation-Patterns-Addison-Wesley-Signature-Kent/dp/0321413091"><cite>Implementation Patterns</cite></a>.  Addison-Wesley, 2007, 0321413091, 176 pages.</li>
-	<li>James Bennett: <a href="http://www.amazon.com/Practical-Django-Projects-Pratical/dp/1590599969"><cite>Practical Django Projects</cite></a>.  Apress, 2008, 1590599969, 256 pages.</li>
-	<li>Rick Copeland: <a href="http://www.amazon.com/Essential-SQLAlchemy-Rick-Copeland/dp/0596516142"><cite>Essential SQLAlchemy</cite></a>.  O'Reilly, 2008, 0596516142, 230 pages.</li>
-	<li>Douglas Crockford: <a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742"><cite>JavaScript: The Good Parts</cite></a>.  O'Reilly, 2008, 0596517742, 170 pages.</li>
-	<li>Neal Ford: <a href="http://www.amazon.com/Productive-Programmer-Theory-Practice-OReilly/dp/0596519788"><cite>The Productive Programmer</cite></a>.  O'Reilly, 2008, 0596519788, 222 pages.</li>
-	<li>Rawld Gill, Craig Riecke, and Alex Russell: <a href="http://www.amazon.com/Mastering-Dojo-JavaScript-Experiences-Programmers/dp/1934356115"><cite>Mastering Dojo</cite></a>.  Pragmatic Bookshelf, 2008, 1934356115, 568 pages.</li>
-	<li>Jason Kinser: <a href="http://www.amazon.com/Python-Bioinformatics-Bartlett-Biomedical-Informatics/dp/0763751863"><cite>Python for Bioinformatics</cite></a>.  Jones &amp; Bartlett, 2008, 0763751863, 417 pages.</li>
-	<li>Arul Kumaravel, Jon White, Maixin Li, Scott Happell, Guohui Xie, and Krishna C. Vutukuri: <a href="http://www.amazon.com/Professional-Windows-PowerShell-Programming-Providers/dp/0470173939"><cite>Professional Windows PowerShell Programming</cite></a>. Wrox, 2008, 0470173939, 336 pages.</li>
-	<li>Van Lindberg: <a href="http://www.amazon.com/Intellectual-Property-Open-Source-Protecting/dp/0596517963"><cite>Intellectual Property and Open Source</cite></a>.  O'Reilly, 2008, 0596517963, 390 pages.</li>
-	<li>Robert C. Martin: <a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882"><cite>Clean Code: A Handbook of Agile Software Craftsmanship</cite></a>.  Prentice Hall PTR, 2008, 0132350882, 464 pages.</li>
-	<li>Charles Petzold: <a href="http://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055"><cite>The Annotated Turing</cite></a>.  Wiley, 2008, 0470229055, 384 pages.</li>
-	<li>Jeff Younker: <a href="http://www.amazon.com/Foundations-Python-Development-Experts-Source/dp/1590599810"><cite>Foundations of Agile Python Development</cite></a>.  Apress, 2008, 1590599810, 416 pages.</li>
-	<li>Tarek Ziadé: <a href="http://www.amazon.com/Expert-Python-Programming-Tarek-Ziadé/dp/184719494X"><cite>Expert Python Programming</cite></a>.  Packt Publishing, 2008, 184719494X, 372 pages.</li>
+  <li>Dean Allemang and James Hendler: <a href="http://www.amazon.com/Semantic-Web-Working-Ontologist-Effective/dp/0123735564"><cite>Semantic Web for the Working Ontologist</cite></a>.  Morgan Kaufmann, 0123735564, 2008, 352 pages.</li>
+  <li>Cameron Adams, James Edwards, Christian Heilmann, Michael Mahemoff, Ara Pehlivanian, Dan Webb, and Simon Willison: <a href="http://www.amazon.com/Art-Science-JavaScript-Cameron-Adams/dp/0980285844"><cite>The Art &amp; Science of JavaScript</cite></a>.  SitePoint, 2007, 0980285844, 300 pages.</li>
+  <li>Kent Beck: <a href="http://www.amazon.com/Implementation-Patterns-Addison-Wesley-Signature-Kent/dp/0321413091"><cite>Implementation Patterns</cite></a>.  Addison-Wesley, 2007, 0321413091, 176 pages.</li>
+  <li>James Bennett: <a href="http://www.amazon.com/Practical-Django-Projects-Pratical/dp/1590599969"><cite>Practical Django Projects</cite></a>.  Apress, 2008, 1590599969, 256 pages.</li>
+  <li>Rick Copeland: <a href="http://www.amazon.com/Essential-SQLAlchemy-Rick-Copeland/dp/0596516142"><cite>Essential SQLAlchemy</cite></a>.  O'Reilly, 2008, 0596516142, 230 pages.</li>
+  <li>Douglas Crockford: <a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742"><cite>JavaScript: The Good Parts</cite></a>.  O'Reilly, 2008, 0596517742, 170 pages.</li>
+  <li>Neal Ford: <a href="http://www.amazon.com/Productive-Programmer-Theory-Practice-OReilly/dp/0596519788"><cite>The Productive Programmer</cite></a>.  O'Reilly, 2008, 0596519788, 222 pages.</li>
+  <li>Rawld Gill, Craig Riecke, and Alex Russell: <a href="http://www.amazon.com/Mastering-Dojo-JavaScript-Experiences-Programmers/dp/1934356115"><cite>Mastering Dojo</cite></a>.  Pragmatic Bookshelf, 2008, 1934356115, 568 pages.</li>
+  <li>Jason Kinser: <a href="http://www.amazon.com/Python-Bioinformatics-Bartlett-Biomedical-Informatics/dp/0763751863"><cite>Python for Bioinformatics</cite></a>.  Jones &amp; Bartlett, 2008, 0763751863, 417 pages.</li>
+  <li>Arul Kumaravel, Jon White, Maixin Li, Scott Happell, Guohui Xie, and Krishna C. Vutukuri: <a href="http://www.amazon.com/Professional-Windows-PowerShell-Programming-Providers/dp/0470173939"><cite>Professional Windows PowerShell Programming</cite></a>. Wrox, 2008, 0470173939, 336 pages.</li>
+  <li>Van Lindberg: <a href="http://www.amazon.com/Intellectual-Property-Open-Source-Protecting/dp/0596517963"><cite>Intellectual Property and Open Source</cite></a>.  O'Reilly, 2008, 0596517963, 390 pages.</li>
+  <li>Robert C. Martin: <a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882"><cite>Clean Code: A Handbook of Agile Software Craftsmanship</cite></a>.  Prentice Hall PTR, 2008, 0132350882, 464 pages.</li>
+  <li>Charles Petzold: <a href="http://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055"><cite>The Annotated Turing</cite></a>.  Wiley, 2008, 0470229055, 384 pages.</li>
+  <li>Jeff Younker: <a href="http://www.amazon.com/Foundations-Python-Development-Experts-Source/dp/1590599810"><cite>Foundations of Agile Python Development</cite></a>.  Apress, 2008, 1590599810, 416 pages.</li>
+  <li>Tarek Ziadé: <a href="http://www.amazon.com/Expert-Python-Programming-Tarek-Ziadé/dp/184719494X"><cite>Expert Python Programming</cite></a>.  Packt Publishing, 2008, 184719494X, 372 pages.</li>
 </ol>

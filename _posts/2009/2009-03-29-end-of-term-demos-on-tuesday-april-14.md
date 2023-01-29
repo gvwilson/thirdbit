@@ -5,26 +5,26 @@ year: 2009
 ---
 The students in this term's combined CSC494/CSC2125 consulting course will be doing their end-of-term demos in the <a href="http://gsu.utoronto.ca/pubcafe.html">Graduate Student Union</a> at the University of Toronto between 1:30 and 3:00 pm on Tuesday, April 14. Projects include:
 <ul>
-	<li>A Cost-Effectiveness Study of NFS v4</li>
-	<li>A Fluid Flow Simulator on GPUs</li>
-	<li>A Plugin Generation Wizard for a Mining Visualization Application</li>
-	<li>A Python Portability Layer for Version Control Systems</li>
-	<li>Anatomically Accurate Rendering</li>
-	<li>Assessing the Usability of Parallel Programming Systems</li>
-	<li>Automatic Generation of REST APIs from ORM Metadata</li>
-	<li>Benchmarking the Usability of Scientific Workflow Software</li>
-	<li>Book and Friend Recommendations for an Online Retailer</li>
-	<li>Computer Games for Studying Spatial Awareness</li>
-	<li>Computer Vision Algorithms on GPUs</li>
-	<li>Goal Modeling of Reproducible Research</li>
-	<li>Improving Matching in the Tesseract OCR Package</li>
-	<li>Improving Spam Filtering Through Network Analysis</li>
-	<li>Improving Spatial Modeling in a Land Use/Traffic Simulation</li>
-	<li>Improving a Realtime Traffic Visualization System</li>
-	<li>Improving the Safety Features of a Scripting Language for Handhelds</li>
-	<li>Integratin a Reverse Engineering Tool for Business Process Modeling</li>
-	<li>Integrating Speech-to-Text with Mozilla's Ubiquity Engine</li>
-	<li>Persistent Query Matching for Publication Notification</li>
+  <li>A Cost-Effectiveness Study of NFS v4</li>
+  <li>A Fluid Flow Simulator on GPUs</li>
+  <li>A Plugin Generation Wizard for a Mining Visualization Application</li>
+  <li>A Python Portability Layer for Version Control Systems</li>
+  <li>Anatomically Accurate Rendering</li>
+  <li>Assessing the Usability of Parallel Programming Systems</li>
+  <li>Automatic Generation of REST APIs from ORM Metadata</li>
+  <li>Benchmarking the Usability of Scientific Workflow Software</li>
+  <li>Book and Friend Recommendations for an Online Retailer</li>
+  <li>Computer Games for Studying Spatial Awareness</li>
+  <li>Computer Vision Algorithms on GPUs</li>
+  <li>Goal Modeling of Reproducible Research</li>
+  <li>Improving Matching in the Tesseract OCR Package</li>
+  <li>Improving Spam Filtering Through Network Analysis</li>
+  <li>Improving Spatial Modeling in a Land Use/Traffic Simulation</li>
+  <li>Improving a Realtime Traffic Visualization System</li>
+  <li>Improving the Safety Features of a Scripting Language for Handhelds</li>
+  <li>Integratin a Reverse Engineering Tool for Business Process Modeling</li>
+  <li>Integrating Speech-to-Text with Mozilla's Ubiquity Engine</li>
+  <li>Persistent Query Matching for Publication Notification</li>
 </ul>
 Everyone is welcome to attend—hope to see you there.
 

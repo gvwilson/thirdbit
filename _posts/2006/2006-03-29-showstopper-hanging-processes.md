@@ -13,10 +13,10 @@ As these processes build up, eventually the number of active postgres connection
 
 I have been unable to find a sequence of steps to reproduce the frozen processes, but I've been able to run a few short tests when it has occurred:
 <ul>
-	<li>When the process hangs, it is due to a long timeline query (ie, 30+ days back)</li>
-	<li>You can access other sections of DrProject when the timeline is locking up (ie, the Wiki)</li>
-	<li>The DrProject log for the hanging request cuts off while the timeline is gathering events for the Ticket system.  Note that there are 5 subsystems that the timeline gathers events for, and the Ticket system is the last of these.</li>
-	<li>Multiple requests for the same URL will cause the process to hang at the same point during collection!</li>
+  <li>When the process hangs, it is due to a long timeline query (ie, 30+ days back)</li>
+  <li>You can access other sections of DrProject when the timeline is locking up (ie, the Wiki)</li>
+  <li>The DrProject log for the hanging request cuts off while the timeline is gathering events for the Ticket system.  Note that there are 5 subsystems that the timeline gathers events for, and the Ticket system is the last of these.</li>
+  <li>Multiple requests for the same URL will cause the process to hang at the same point during collection!</li>
 </ul>
 After some time, DrProject will stop locking up for these timeline requests and the service returns to normal, albeit with a number of hung processes/connections on the server.
 
@@ -36,4 +36,4 @@ My working theory is that during a long timeline request, these uncollectable Po
 
 My next step will be attaching GDB to one of the frozen processes to see exactly what is going on.  As I've never done this before, it should be a good learning experience ;)
 
---- Sean Dawson
+— Sean Dawson

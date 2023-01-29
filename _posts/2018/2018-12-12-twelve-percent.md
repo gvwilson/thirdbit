@@ -26,8 +26,8 @@ when in practice it seems that most instructors want to sample and remix.
 
 I've therefore been working on a plan that tries to do less,
 but which I hope will thereby accomplish more.
-This is still very much a work in progress---I'd be very grateful for feedback,
-which you can [send by email](mailto:gvwilson@third-bit.com).
+This is still very much a work in progress—I'd be very grateful for feedback,
+which you can [send by email](mailto:{{site.author.email}}).
 
 ## Goals
 
@@ -159,7 +159,7 @@ nobody seems to have defined a lightweight format for course descriptions.
 Our delivery mechanisms for getting lessons to learners are:
 
 1. Everything on the web:
-   instructors don't deliver anything to learners---learners come to a web site and work there.
+   instructors don't deliver anything to learners—learners come to a web site and work there.
    Most MOOCs and online coding schools use this model,
    but (a) it begs the question of how instructors get materials into the virtual environments used by the learners
    and (b) it makes authentic work more difficult.
@@ -251,7 +251,7 @@ Our delivery mechanisms for getting lessons to learners are:
 ## Proposal
 
 Our proposed solution requires authors to create one extra text file.
-Just as every RSS feed has a metadata file called `feed.xml` (or `feed.rss`, or `atom.xml`---ah, standards...),
+Just as every RSS feed has a metadata file called `feed.xml` (or `feed.rss`, or `atom.xml`—ah, standards...),
 every lesson must have a Markdown file called `lesson.md` in its root directory.
 
 > Why Markdown rather than YAML?

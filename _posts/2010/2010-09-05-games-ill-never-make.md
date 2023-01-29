@@ -8,7 +8,7 @@ year: 2010
 </p>
 
 <p>
-  I <a href="http://www.amazon.com/Chill-Elizabeth-Bear/dp/0553591088/">bought</a> <a href="http://www.amazon.com/Lord-Changing-Winds-Griffin-Trilogy/dp/0316072788/">three</a> <a href="http://www.amazon.com/This-Will-Change-Everything-Future/dp/0061899674/">books</a> for the long weekend, but they're all disappointing. We have some shows to watch on the PVR, but I'm not in the mood for that either. What I really want is a good game---something that 2-4 people can play in an hour or so, something with enough strategic depth to permit ambushes (I <em>love</em> setting an ambush). I'd settle for <em>Risk</em>, but the <a href="http://www.kongregate.com/games/Abalore/world-rebellion-ii">server is down</a>, so I find myself thinking once again about the lunch-hour wargames I enjoyed so much in my teens. For years, I've toyed with the idea of creating one myself; I've accepted that I never will (too many other things are more important), but maybe these ideas will inspire someone else to create them for me. If they do---if there's ever some cardboard for me to buy, or a <a href="http://www.vassalengine.org/">VASSAL</a> module for me to download---please give me a shout.
+  I <a href="http://www.amazon.com/Chill-Elizabeth-Bear/dp/0553591088/">bought</a> <a href="http://www.amazon.com/Lord-Changing-Winds-Griffin-Trilogy/dp/0316072788/">three</a> <a href="http://www.amazon.com/This-Will-Change-Everything-Future/dp/0061899674/">books</a> for the long weekend, but they're all disappointing. We have some shows to watch on the PVR, but I'm not in the mood for that either. What I really want is a good game—something that 2-4 people can play in an hour or so, something with enough strategic depth to permit ambushes (I <em>love</em> setting an ambush). I'd settle for <em>Risk</em>, but the <a href="http://www.kongregate.com/games/Abalore/world-rebellion-ii">server is down</a>, so I find myself thinking once again about the lunch-hour wargames I enjoyed so much in my teens. For years, I've toyed with the idea of creating one myself; I've accepted that I never will (too many other things are more important), but maybe these ideas will inspire someone else to create them for me. If they do—if there's ever some cardboard for me to buy, or a <a href="http://www.vassalengine.org/">VASSAL</a> module for me to download—please give me a shout.
 </p>
 
 <p>
@@ -28,11 +28,11 @@ year: 2010
 </p>
 
 <p>
-  This game could have any of a dozen back stories: interplanetary mining corporations, cut-throat Renaissance mercantile families, or various branches of the mob duking it out somewhere in the post-war Caribbean---anything that would justify the game mechanics. Each player starts with some money, and a small force of loyal troops. The winner is whoever sends the most money home to his or her bosses.
+  This game could have any of a dozen back stories: interplanetary mining corporations, cut-throat Renaissance mercantile families, or various branches of the mob duking it out somewhere in the post-war Caribbean—anything that would justify the game mechanics. Each player starts with some money, and a small force of loyal troops. The winner is whoever sends the most money home to his or her bosses.
 </p>
 
 <p>
-  The wrinkle is that each turn, some mercenaries come on the market.  Some turns, it's just a handful of foot soldiers, but other turns, it's larger units with their own transport and weapons. Players have to bid against each other, auction-style, to hire the troops for a certain number of turns. Whoever wins has less money to send home---but more power to extort revenue and/or defend their takings against other players.  And of course, when a contract is up, and their troops go back on the market, there's every chance that they'll be exactly where their previous employer <em>doesn't</em> want them.
+  The wrinkle is that each turn, some mercenaries come on the market.  Some turns, it's just a handful of foot soldiers, but other turns, it's larger units with their own transport and weapons. Players have to bid against each other, auction-style, to hire the troops for a certain number of turns. Whoever wins has less money to send home—but more power to extort revenue and/or defend their takings against other players.  And of course, when a contract is up, and their troops go back on the market, there's every chance that they'll be exactly where their previous employer <em>doesn't</em> want them.
 </p>
 
 <p>
@@ -56,7 +56,7 @@ year: 2010
 </p>
 
 <p>
-  Floating islands are a staple of both fantasy and science fiction, but the only game I've ever seen that used the idea was Metagaming's <a href="http://www.boardgamegeek.com/boardgame/3673/hot-spot"><em>Hot Spot</em></a>. Unlike the boiling-rock world of that game, this one would use something like Polynesia as a setting. Some people live on volcanic islands, where they farm and mine. Others---the nomads of this world---live on mile-wide patches of sargasso-like weed, a kind of woody floating coral. Every few years, the ocean currents sweep some of those floating islands through the fixed ones, which is an opportunity for raiding in both directions.
+  Floating islands are a staple of both fantasy and science fiction, but the only game I've ever seen that used the idea was Metagaming's <a href="http://www.boardgamegeek.com/boardgame/3673/hot-spot"><em>Hot Spot</em></a>. Unlike the boiling-rock world of that game, this one would use something like Polynesia as a setting. Some people live on volcanic islands, where they farm and mine. Others—the nomads of this world—live on mile-wide patches of sargasso-like weed, a kind of woody floating coral. Every few years, the ocean currents sweep some of those floating islands through the fixed ones, which is an opportunity for raiding in both directions.
 </p>
 
 <p>
@@ -72,7 +72,7 @@ year: 2010
 </p>
 
 <p>
-  And that's what makes the game interesting, because the attacking player can pick a small force and a small goal (outlaw bikers raiding for food), a large force and a large goal (an invading army from the People's Republic of Latter-Day Saints south of the border, and the capture of Penticton), or a small feinting force from the Republic and the goal of drawing reserves away from Kelowna, where the main attack (off board) is about to fall. The defender doesn't know which it is; the attacker has to write it down before the game starts, but after that, it's all about bluffing---just like it is in a real war.
+  And that's what makes the game interesting, because the attacking player can pick a small force and a small goal (outlaw bikers raiding for food), a large force and a large goal (an invading army from the People's Republic of Latter-Day Saints south of the border, and the capture of Penticton), or a small feinting force from the Republic and the goal of drawing reserves away from Kelowna, where the main attack (off board) is about to fall. The defender doesn't know which it is; the attacker has to write it down before the game starts, but after that, it's all about bluffing—just like it is in a real war.
 </p>
 
 <p>

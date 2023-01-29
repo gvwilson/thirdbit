@@ -13,14 +13,14 @@ image, hoping to create a new standard to supplant today's.
 For the developers of my generation, the Standard Model of
 programming took shape in the early 1980s.  It consisted of:
 <ul>
-	<li>C (which has mutated [<a href="#1">1</a>] into C++);</li>
-	<li>a character-oriented editor like Vi or Emacs;</li>
-	<li>Make for automating the complexities of rebuilding code;</li>
-	<li>the standard [<a href="#2">2</a>] Unix command-line tools like
+  <li>C (which has mutated [<a href="#1">1</a>] into C++);</li>
+  <li>a character-oriented editor like Vi or Emacs;</li>
+  <li>Make for automating the complexities of rebuilding code;</li>
+  <li>the standard [<a href="#2">2</a>] Unix command-line tools like
 <code>cat</code> and <code>grep</code>;</li>
-	<li>CVS for version control;</li>
-	<li>character streams as a data exchange format; and</li>
-	<li>"power tools" like Yacc and Awk for more complex tasks.</li>
+  <li>CVS for version control;</li>
+  <li>character streams as a data exchange format; and</li>
+  <li>"power tools" like Yacc and Awk for more complex tasks.</li>
 </ul>
 By the late 1980s, Microsoft had developed an alternative.  It was
 also based on C, but presented developers with an IDE instead of a
@@ -31,20 +31,20 @@ and COM was how programmers glued components together.
 Microsoft's offerings were well engineered (more so than most Open
 Source advocates would like to admit). However, many programmers
 disliked the complexity of Microsoft's offerings, and its business
-model---so much so that they were willing to adopt a new language
-instead.  The result has been a New Standard Model---a morally
+model—so much so that they were willing to adopt a new language
+instead.  The result has been a New Standard Model—a morally
 respectable replacement for the venerable Unix toolset.  As evidenced
 by a slew of recent books [<a href="#3">3</a>], this environment consists
 of:
 <ul>
-	<li>Java</li>
-	<li><a href="http://www.eclipse.org">Eclipse</a> and its many plugins</li>
-	<li><a href="http://ant.apache.org">Ant</a> (for building) and
+  <li>Java</li>
+  <li><a href="http://www.eclipse.org">Eclipse</a> and its many plugins</li>
+  <li><a href="http://ant.apache.org">Ant</a> (for building) and
 <a href="http://www.junit.org">JUnit</a> (for testing);</li>
-	<li>XML as a data exchange format;</li>
-	<li>some form of scripting language [<a href="#4">4</a>];</li>
-	<li>reflection, and technologies built on top of it like JavaBeans, for managing components; and</li>
-	<li>a web presence for everything (e.g. a project dashboard, a searchable mailing list archive, and so on
+  <li>XML as a data exchange format;</li>
+  <li>some form of scripting language [<a href="#4">4</a>];</li>
+  <li>reflection, and technologies built on top of it like JavaBeans, for managing components; and</li>
+  <li>a web presence for everything (e.g. a project dashboard, a searchable mailing list archive, and so on
 ).</li>
 </ul>
 One of the most interesting things about the New Standard Model is
@@ -87,7 +87,7 @@ Pike's <a href="http://www.amazon.com/exec/obidos/tg/detail/-/013937681X">The
 Unix Programming Environment</a>, rather than those defined by
 some after-the-fact standards committee trying to produce a facade of
 unity by kitchen-sinking every feature any of them had ever
-shoe-horned into their clumsy, crippled implementations of---sorry,
+shoe-horned into their clumsy, crippled implementations of—sorry,
 sorry, got carried away there.
 
 [<a name="3"></a>3] See <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0596003870">Java
@@ -100,7 +100,7 @@ the impedance mis-match between the semantics of their native data
 structures, and Java's.  For example, if you want to create a list in
 <a href="http://www.jython.org/">Jython</a>, and pass it into some
 Java code, you must either translate <a href="http://www.jython.org/">Jython</a>'s type to a Java List, or use
-a Java List in the first place---in which case, you lose much of the
+a Java List in the first place—in which case, you lose much of the
 ease-of-use that makes scripting languages attractive in the first
 place.  On the other hand, while <a href="http://groovy.codehaus.org/">Groovy</a> uses native Java types,
 it doesn't actually work at the moment...

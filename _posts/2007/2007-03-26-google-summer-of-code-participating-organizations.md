@@ -40,10 +40,10 @@ We are a fairly small group of hackers working on making desktop search 'Just Wo
 <h2>Blender Foundation</h2>
 The Blender Foundation is an independent organisation (a Dutch 'stichting'), acting as a non-profit public benefit corporation, with the following goals:
 <ul>
-	<li>To establish services for active users and developers of Blender</li>
-	<li>To maintain and improve the current Blender product via a public accessible source code system under the GNU GPL license</li>
-	<li>To establish funding or revenue mechanisms that serve the foundation's goals and cover the foundation's expenses</li>
-	<li>To give the worldwide Internet community access to 3D technology in general, with Blender as a core</li>
+  <li>To establish services for active users and developers of Blender</li>
+  <li>To maintain and improve the current Blender product via a public accessible source code system under the GNU GPL license</li>
+  <li>To establish funding or revenue mechanisms that serve the foundation's goals and cover the foundation's expenses</li>
+  <li>To give the worldwide Internet community access to 3D technology in general, with Blender as a core</li>
 </ul>
 <h2>Boost C++</h2>
 Boost provides free peer-reviewed portable C++ source libraries.
@@ -60,15 +60,15 @@ Casetta Projet aims to build a collection of free software to manage data of the
 
 Casetta Projet meets three needs:
 <ol>
-	<li>a transfer tool to receive and send data from/to a calculator.</li>
-	<li>a format converter to let Casetta manage all formats used in proprietary softwares under Windows.</li>
-	<li>a graphical user interface to provide for users a simple way to manage their data, and for developers a good development environment.</li>
+  <li>a transfer tool to receive and send data from/to a calculator.</li>
+  <li>a format converter to let Casetta manage all formats used in proprietary softwares under Windows.</li>
+  <li>a graphical user interface to provide for users a simple way to manage their data, and for developers a good development environment.</li>
 </ol>
 Casetta Project is divided into three sub-project, written in Python:
 <ol>
-	<li>casetta: a python module to manage the data, format conversion and transfers.</li>
-	<li>casetta_cli: a command line interface (can be useful for mass conversion).</li>
-	<li>casetta_gtk: a GUI, written in GTK+2, to provide an easy interface to edit various data type or for format conversion.</li>
+  <li>casetta: a python module to manage the data, format conversion and transfers.</li>
+  <li>casetta_cli: a command line interface (can be useful for mass conversion).</li>
+  <li>casetta_gtk: a GUI, written in GTK+2, to provide an easy interface to edit various data type or for format conversion.</li>
 </ol>
 Another goal of Casetta project is to write documentation about several proprietary file formats of calculator, to help everyone to work in this domain.
 <h2>Center for the Study of Complex Systems (CSCS), University of Michigan</h2>
@@ -104,10 +104,10 @@ The Debian Project is an organisation of volunteers who devote their time and ef
 <h2>Detached Solutions</h2>
 Detached Solutions is a group that serves as an umbrella for a number of different math and calculator related projects on handheld platforms.  We specialize in projects coded for the TI series graphing calculators, but have branched out to other areas as well.  We're interested in proposals to extend our current software, as well as new ideas.  Among the open source projects we host are:
 <ol>
-	<li>Graph3 - A 3D graphing program.  This program was extended in GSoc 2006 to provide support for differential equation graphing.</li>
-	<li>usb8x - A USB host controller driver for the TI-84 Plus.  It allows the calculator to connect to peripheral devices, such as mice, keyboards, hard drives, etc.</li>
-	<li>MirageOS - A popular shell/file manager for the TI-83 Plus and TI-84 Plus.  It was originally closed source but has recently been released under the GPL.</li>
-	<li>Cabamap - A fast, arbitrary precision integer calculation library.</li>
+  <li>Graph3 - A 3D graphing program.  This program was extended in GSoc 2006 to provide support for differential equation graphing.</li>
+  <li>usb8x - A USB host controller driver for the TI-84 Plus.  It allows the calculator to connect to peripheral devices, such as mice, keyboards, hard drives, etc.</li>
+  <li>MirageOS - A popular shell/file manager for the TI-83 Plus and TI-84 Plus.  It was originally closed source but has recently been released under the GPL.</li>
+  <li>Cabamap - A fast, arbitrary precision integer calculation library.</li>
 </ol>
 <h2>Django (Lawrence-Journal World)</h2>
 World Online is the online division of the Lawrence Journal-World. We originally developed Django as an internal project, and we now support and sponsor Django as an open source project.
@@ -216,9 +216,9 @@ At IEM, compositions students are trained in musical acoustics, sound synthesis,
 <h2>ikiwiki</h2>
 The ikiwiki project aims to develop a general-purpose wiki engine, with particular emphasis on personal wikis, project wikis, blogs, and collaborative software development.  We provide several features unique or uncommon amongst wikis:
 <ol>
-	<li>Rather than inventing yet another simplistic, linear revision control system, ikiwiki uses a standard version control system such as Subversion or Git.  You can edit a wiki by committing to your repository, as well as through a traditional web interface.  This makes ikiwiki ideal for collaborative software development; just keep your wiki in version control next to your software.  You can also take advantage of the features of these systems; for instance, you can keep a local branch of your wiki via Git.</li>
-	<li>You can turn any set of pages into an inline news feed, complete with RSS and Atom support.  You can run your weblog on ikiwiki (and many people do), run a Planet-like aggregator for external feeds, or keep a TODO and bug list with tags for completed items.</li>
-	<li>ikiwiki provides a wiki compiler, designed to transform your wiki content into a set of static pages.  You can then serve these pages as static content.  ikiwiki will not fall over during a Slashdotting, because page views don't require the ikiwiki CGI; as long as Apache can keep up, your site will survive.  Furthermore, you can choose whether you want to run the ikiwiki CGI for web edits or only handle commits to the underlying version control system; you can even run ikiwiki privately and just manually copy the content to another server.  So if you want to put a wiki up on a server without installing any software on that server, try ikiwiki.</li>
+  <li>Rather than inventing yet another simplistic, linear revision control system, ikiwiki uses a standard version control system such as Subversion or Git.  You can edit a wiki by committing to your repository, as well as through a traditional web interface.  This makes ikiwiki ideal for collaborative software development; just keep your wiki in version control next to your software.  You can also take advantage of the features of these systems; for instance, you can keep a local branch of your wiki via Git.</li>
+  <li>You can turn any set of pages into an inline news feed, complete with RSS and Atom support.  You can run your weblog on ikiwiki (and many people do), run a Planet-like aggregator for external feeds, or keep a TODO and bug list with tags for completed items.</li>
+  <li>ikiwiki provides a wiki compiler, designed to transform your wiki content into a set of static pages.  You can then serve these pages as static content.  ikiwiki will not fall over during a Slashdotting, because page views don't require the ikiwiki CGI; as long as Apache can keep up, your site will survive.  Furthermore, you can choose whether you want to run the ikiwiki CGI for web edits or only handle commits to the underlying version control system; you can even run ikiwiki privately and just manually copy the content to another server.  So if you want to put a wiki up on a server without installing any software on that server, try ikiwiki.</li>
 </ol>
 <h2>Inkscape</h2>
 We are a friendly group of volunteers who create and maintain a vector graphics drawing program that is well loved by both artists and non-artists.  It is used for producing logos, icons, posters, web site designs, and general art.  It's been used for everything from desktop backgrounds to ad layouts for Indy cars, to a detective's crime scene diagram, to designs etched into iBooks.  We've got a very active community that loves experimentation and supporting developers with new ideas.
@@ -285,11 +285,11 @@ We produce the free and open source Nmap Security Scanner, which will be celebra
 <h2>OGRE</h2>
 We're an open source interactive 3D rendering engine for use in games, simulations, interactive art, museum exhibits, scientific visualisation, and plenty of other things. We've been running for around 6 years now and have gathered a large community around us in that time. You can see our ideas page at http://www.ogre3d.org/wiki/index.php/HelpRequested .
 <h2>One Laptop Per Child</h2>
-One Laptop per Child (OLPC) is a new, non-profit association dedicated to research to develop a $100 laptop---a technology that could revolutionize how we educate the world's children. This initiative was first announced by Nicholas Negroponte at the World Economic Forum at Davos, Switzerland in January 2005.
+One Laptop per Child (OLPC) is a new, non-profit association dedicated to research to develop a $100 laptop—a technology that could revolutionize how we educate the world's children. This initiative was first announced by Nicholas Negroponte at the World Economic Forum at Davos, Switzerland in January 2005.
 
 Our goal: to provide children around the world with new opportunities to explore, experiment, and express themselves.
 
-Please note that the $100 laptops---not yet in production---will not be available for sale. The laptops will only be distributed to schools directly through large government initiatives.
+Please note that the $100 laptops—not yet in production—will not be available for sale. The laptops will only be distributed to schools directly through large government initiatives.
 
 Note that most of the work OLPC needs done needs to be done as part of other existing projects, though there will be some OLPC specific opportunities as well.  We expect work done in various projects should conform to the licensing policies of that project; work on OLPC specific projects will likely be GPL/LGPL/MIT, depending on precise circumstances, to be determined at the time.
 <h2>Open Security Foundation (OSVDB)</h2>
@@ -383,18 +383,18 @@ The Subversion project develops the Subversion version control system, which end
 <h2>Swarm Development Group</h2>
 The Swarm Development Group (SDG) was founded in September 1999 as a private, not-for-profit organization to support the development of the Swarm Simulation System (Swarm) and the interests of the group members. The purposes of the SDG are to:
 <ol>
-	<li>advance the state-of-the-art in multi agent based simulation through the continued advancement of the Swarm Simulation System and support of the Swarm user community</li>
-	<li>promote the free interchange of multi agent based simulations among computing specialists and the public</li>
-	<li>develop and maintain the integrity and competence of individuals engaged in the practice of agent based simulation.</li>
+  <li>advance the state-of-the-art in multi agent based simulation through the continued advancement of the Swarm Simulation System and support of the Swarm user community</li>
+  <li>promote the free interchange of multi agent based simulations among computing specialists and the public</li>
+  <li>develop and maintain the integrity and competence of individuals engaged in the practice of agent based simulation.</li>
 </ol>
 Agent-based models (ABMs) are an exciting new approach for learning about and simulating complex systems, and its use is growing rapidly in science and business. As opposed to traditional modeling techniques that represent systems via differential equations for system state, ABMs represent systems as a collection of digital individuals that each have unique characteristics, interact with each other and their environment, and exhibit adaptive behavior.
 
 Swarm is a platform for ABMs that includes: a conceptual framework for designing, describing, and conducting experiments on ABMs; software implementing that framework and providing many handy tools; and a community of users and developers that share ideas, software, and experience. Swarm was the first of several agent-based modeling platforms that are widely used by scientists and students studying complexity in many fields of science. Swarm was originally developed in the mid-1990s by Chris Langton at the Santa Fe Institute and has an active, international user community. Swarm software is a library of Objective-C classes; users code their models in Objective-C, Java, or C++.
 <h2>Swathanthra Malayalam Computing</h2>
 Swathanthra Malayalam Computing aims to
-	<li>provide Malayalam support for Free Software Operating Systems and Applications</li>
-	<li>develop fonts and other applications for Malayalam computing like optical character recognition , text to speech conversion and English-to-Malayalam/Malayalam-to-English natural language translation</li>
-	<li>localization of of desktop environments like GNOME, KDE ... and applications like Open Office and Firefox.</li>
+  <li>provide Malayalam support for Free Software Operating Systems and Applications</li>
+  <li>develop fonts and other applications for Malayalam computing like optical character recognition , text to speech conversion and English-to-Malayalam/Malayalam-to-English natural language translation</li>
+  <li>localization of of desktop environments like GNOME, KDE ... and applications like Open Office and Firefox.</li>
 To summarize, enable anyone who want to use a computer, but only know Malayalam, to use a computer in Malayalam, ie to remove the language barrier to computing.
 
 Note: 'Swathanthra' in Malayalam means Free/Libre

@@ -7,4 +7,4 @@ There is an idealized view of academic research in which that research takes gre
 
 Those believe this will also clap for Tinkerbell.
 
---- Jim Waldo, "On System Design", <em>OOPSLA'06</em>
+— Jim Waldo, "On System Design", <em>OOPSLA'06</em>

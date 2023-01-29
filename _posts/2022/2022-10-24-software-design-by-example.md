@@ -36,7 +36,7 @@ and we ought to share them.
 
 I've also now started on a Python version;
 the topics and some key ideas are listed below,
-and I'd be [grateful for feedback][email] on what else you'd like to see included.
+and I'd be [grateful for feedback](mailto:{{site.author.email}}) on what else you'd like to see included.
 
 <table>
   <tr>
@@ -125,6 +125,5 @@ and I'd be [grateful for feedback][email] on what else you'd like to see include
   </tr>
 </table>
 
-[email]: mailto:gvwilson@third-bit.com
 [sdxjs-book]: https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-JavaScript/Wilson/p/book/9781032330235
 [sdxjs-online]: https://third-bit.com/sdxjs/

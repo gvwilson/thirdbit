@@ -13,10 +13,10 @@ Number three on my list is working on something that will make the world a bette
 
 "Cool technology" is the last thing on my list, but only because the others are more important.  At 48, I can feel myself slowing down, but Haskell on GPUs in the cloud to drive touch-screen interfaces for personal robots still lights up my inner geek.  I'd jump at things like:
 <ul>
-	<li>developer tools for extensible programming languages (<a href="http://www.jetbrains.com/mps/">JetBrains MPS</a> and Intentional Software's <a href="http://msdn.microsoft.com/en-us/data/dd727740.aspx">ghostware</a> being two examples)</li>
-	<li>a <a href="https://software-carpentry.org/2010/11/ratios-and-rework/">21st Century presentation tool</a> that would put creating and maintaining web-based content within reach of the average overworked instructor</li>
-	<li>anything in the <a href="http://onschallenge.wikispaces.com/">open notebook science</a> space</li>
-	<li>next-generation tools for teaching programming (<a href="http://uuhistle.org/">UUhistle</a> is neat)</li>
+  <li>developer tools for extensible programming languages (<a href="http://www.jetbrains.com/mps/">JetBrains MPS</a> and Intentional Software's <a href="http://msdn.microsoft.com/en-us/data/dd727740.aspx">ghostware</a> being two examples)</li>
+  <li>a <a href="https://software-carpentry.org/2010/11/ratios-and-rework/">21st Century presentation tool</a> that would put creating and maintaining web-based content within reach of the average overworked instructor</li>
+  <li>anything in the <a href="http://onschallenge.wikispaces.com/">open notebook science</a> space</li>
+  <li>next-generation tools for teaching programming (<a href="http://uuhistle.org/">UUhistle</a> is neat)</li>
 </ul>
 but I realize these are more "R" than "D".  If NSERC hadn't turned down every application I sent them while I was a professor, I'd probably be two years into one of these by now, but "what if" doesn't pay the bills...
 

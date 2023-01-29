@@ -14,6 +14,6 @@ year: 2017
   and half on the human side, understanding how to design languages
   that are easy or productive to use.... The human and computer parts
   of programming languages have developed in radical asymmetry.
-  <br/>
+  <br>
   – Newell and Card, "The Prospects for Psychological Science in Human-Computer Interaction" (1985)
 </p>

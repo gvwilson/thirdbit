@@ -3,7 +3,7 @@ title: "Filters, Performance, and Priorities"
 date: 2004-08-18 16:57:22
 year: 2004
 ---
-<p>Where has the summer gone?  We've written a lot of software (and documentation), but there's still a lot to do before Helium (er, sorry, Hippo---we're renaming it, for reasons that are too silly to go into) is ready to deploy.</p>
+<p>Where has the summer gone?  We've written a lot of software (and documentation), but there's still a lot to do before Helium (er, sorry, Hippo—we're renaming it, for reasons that are too silly to go into) is ready to deploy.</p>
 
 <p>Eleven undergraduates from the <a href="http://www.cs.utoronto.ca">Department of Computer Science</a> at the <a href="http://www.utoronto.ca">University of Toronto</a> will be carrying on with the project this fall.  Between now and September 9, we have to decide what we want them to work on.  In order to do that, we have to resolve some technical issues that we've been deferring.</p>
 

@@ -5,15 +5,15 @@ year: 2008
 ---
 There was a moment on Friday that sums up why I like to teach.  As part of preparing for <a href="http://us.pycon.org/2008/about/">PyCon'08</a>, <a href="http://blog.codekills.net/">David Wolever</a> is tidying up DrProject's database schema.  One task is to rationalize the handling of enumerations such as ticket states: at present, these are variously represented as:
 <ul>
-	<li>string columns in the database;</li>
-	<li>integer columns that index into tables that store the corresponding human-readable string; and</li>
-	<li>integer columns that are translated into strings in the code.</li>
+  <li>string columns in the database;</li>
+  <li>integer columns that index into tables that store the corresponding human-readable string; and</li>
+  <li>integer columns that are translated into strings in the code.</li>
 </ul>
 The cleaned-up version is to have one table that stores all enumerated values:
 <ul>
-	<li>whatfor (string): name of enumeration</li>
-	<li>name (string): name of enumeration elements</li>
-	<li>value (string): integer value of that element (for sorting and cross-referencing)</li>
+  <li>whatfor (string): name of enumeration</li>
+  <li>name (string): name of enumeration elements</li>
+  <li>value (string): integer value of that element (for sorting and cross-referencing)</li>
 </ul>
 which gives:
 <table border="1">

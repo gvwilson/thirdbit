@@ -12,17 +12,17 @@ I also want to talk about the material in an article by Paul Dubois in the May/J
 Paul then outlines a strategy based on <em>defense in depth</em> which has the following layers:
 
 <ul>
-	<li>a protocol for source control;</li>
-	<li>use of language-specific safety tools;</li>
-	<li>design by contract;</li>
-	<li>verification;</li>
-	<li>reusing reliable components;</li>
-	<li>automating testing;</li>
-	<li>unit testing (which requires automation to be effective);</li>
-	<li>to-main testing policy (i.e., code must be tested before being integrated from a branch into the main line);</li>
-	<li>regression testing;</li>
-	<li>release management; and</li>
-	<li>bug tracking.</li>
+  <li>a protocol for source control;</li>
+  <li>use of language-specific safety tools;</li>
+  <li>design by contract;</li>
+  <li>verification;</li>
+  <li>reusing reliable components;</li>
+  <li>automating testing;</li>
+  <li>unit testing (which requires automation to be effective);</li>
+  <li>to-main testing policy (i.e., code must be tested before being integrated from a branch into the main line);</li>
+  <li>regression testing;</li>
+  <li>release management; and</li>
+  <li>bug tracking.</li>
 </ul>
 
 This immediately struck me as an excellent way to organize and motivate several important parts of the course.  It also points out some holes that I'll need to fill.  Oh, to have more hours, and more hands...

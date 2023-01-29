@@ -16,8 +16,8 @@ and:
 > it's normal and valued for grad students in software engineering to write
 > detailed, theoretically-well-founded compare-and-contrast analyses of those design spaces.
 
-I'm not going to attempt the latter here---doing it properly
-would take several months of research and careful thought---but
+I'm not going to attempt the latter here—doing it properly
+would take several months of research and careful thought—but
 after trying and failing for years to build a usable framework for lessons using [Jekyll](https://jekyllrb.com/),
 I hope a sketch of how I think about static site generators
 and what I'd want from a lesson generator might be useful.
@@ -156,7 +156,7 @@ Stroustrup's *[Design and Evolution of C++](https://www.stroustrup.com/dne.html)
 Ierusalimschy et al's "[Implemenation of Lua 5.0](https://www.lua.org/doc/sblp2005.pdf)",
 and Cooks [Gitlet](http://gitlet.maryrosecook.com/)
 are proof that discussion of this kind is both possible and valuable at several levels;
-(Go ahead: spend half an hour with [this page](http://gitlet.maryrosecook.com/docs/gitlet.html)---you
+(Go ahead: spend half an hour with [this page](http://gitlet.maryrosecook.com/docs/gitlet.html)—you
 can thank me later.)
 If I really had any influence on software engineering education,
 every undergrad would read a couple of dozens essays like this in a third-year course

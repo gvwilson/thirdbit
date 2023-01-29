@@ -7,9 +7,9 @@ Courtesy of David Scannell, here's a quick rundown of how to create a new table 
 
 Suppose I want to create a table called <code>Demo</code> with three fields:
 <ul>
-	<li><code>Named</code>: string</li>
-	<li><code>ID</code>: integer (primary key)</li>
-	<li><code>TicketID</code>: Integer (foreign key)</li>
+  <li><code>Named</code>: string</li>
+  <li><code>ID</code>: integer (primary key)</li>
+  <li><code>TicketID</code>: Integer (foreign key)</li>
 </ul>
 We'll assume that all work is being done in a <code>drproject/demo</code> directory, that you have <code>__init__.py</code> set up, and you have modified <code>setup.py</code> file to recognize the new package.
 <h2>Step 1: Create the Model</h2>

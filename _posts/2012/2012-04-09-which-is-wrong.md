@@ -4,7 +4,7 @@ date: 2012-04-09 16:20:31
 year: 2012
 ---
 <blockquote>For every complex problem, there is a solution that is simple, neat, and wrong.
-<br/>
+<br>
 – H.L. Mencken</blockquote>
 <p>Over at <em>The Atlantic</em>, Philip Howard is trying to convince us that <a href="http://m.theatlantic.com/national/print/2012/04/to-fix-americas-education-bureaucracy-we-need-to-destroy-it/255173/">America's education problem has a simple cause and a simple solution</a>:</p>
 <blockquote>America's schools are being crushed under decades of legislative and union mandates. They can never succeed until we cast off the bureaucracy and unleash individual inspiration and willpower... Successful teaching and good school cultures don't have a formula, but they have a necessary condition: teachers and principals must feel free to act on their best instincts.</blockquote>

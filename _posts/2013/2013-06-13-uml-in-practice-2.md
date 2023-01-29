@@ -37,17 +37,17 @@ original: nwit
 </table>
 <p>Among the reasons given for not using it were:</p>
 <ul>
-	<li>Lack of context: UML deals with architecture, rather than with the whole system.</li>
-	<li>The overheads of understanding the notation.</li>
-	<li>Issues of synchronization and consistency.</li>
+  <li>Lack of context: UML deals with architecture, rather than with the whole system.</li>
+  <li>The overheads of understanding the notation.</li>
+  <li>Issues of synchronization and consistency.</li>
 </ul>
 <p>Perhaps the most interesting category is the second: those people who selectively use some elements of UML, but not the whole notation. Some of the partial uses identified were:</p>
 <ul>
-	<li>UML as a 'thought tool'</li>
-	<li>communicating with stakeholders</li>
-	<li>collaborative dialogs</li>
-	<li>adaptation (i.e., using a homegrown variant of the "real" notation), and</li>
-	<li>selective traction (i.e., using it just as long as is useful, then moving on)</li>
+  <li>UML as a 'thought tool'</li>
+  <li>communicating with stakeholders</li>
+  <li>collaborative dialogs</li>
+  <li>adaptation (i.e., using a homegrown variant of the "real" notation), and</li>
+  <li>selective traction (i.e., using it just as long as is useful, then moving on)</li>
 </ul>
 <p>while the parts used were:</p>
 <table>

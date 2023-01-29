@@ -15,6 +15,6 @@ original: swc
   think about what we are doing, and join forces with our neighbors,
   We will return to our respective projects on Monday morning in a more efficient and collaborative way.
   Thank you Software Carpentry.
-  <br/>
+  <br>
   – James Manning
 </blockquote>

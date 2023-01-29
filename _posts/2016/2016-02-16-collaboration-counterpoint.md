@@ -8,7 +8,7 @@ Discussion of our proposed lesson on
 on modern scientific authoring
 is an instructive counterpoint to our previous post
 extolling the virtues of collaborative lesson development.
-The aim of the lesson is to show researchers how to write and publish in the early 21st Century---or more honestly,
+The aim of the lesson is to show researchers how to write and publish in the early 21st Century—or more honestly,
 to persuade them to stop mailing each other copies of Microsoft Word files
 and start using something else.
 After a long-winded opening (which I'll cut substantially),

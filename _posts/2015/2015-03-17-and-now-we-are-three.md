@@ -64,6 +64,6 @@ original: swc
   but definitely does with the second.
   If you're interested in taking a run at either of these,
   or at some other topic,
-  please <a href="mailto:gvwilson@software-carpentry.org">get in touch</a>:
+  please <a href="mailto:{{site.author.email}}">get in touch</a>:
   I'll group interested parties together and get a new lesson repository rolling.
 </p>

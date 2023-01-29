@@ -51,7 +51,7 @@ and I'm pretty pleased with our setup:
 
 5.  *Google Slides for slides.*
     Google Slides lets me do everything I do in PowerPoint or Keynote
-    (which isn't to say it does everything they do---like most people,
+    (which isn't to say it does everything they do—like most people,
     I only use a small fraction of what desktop productivity software provides.)
     More importantly,
     Google Slides seems to be the best option for collaborating on graphics-rich slides:
@@ -74,7 +74,7 @@ and I'm pretty pleased with our setup:
     Pear Deck also allows you to embed formative assessments like multiple choice questions in your slides,
     and collects and displays viewers' responses in real time.
     However,
-    presenting from Firefox was problematic---I had to restart in Chrome---and one viewer using IE
+    presenting from Firefox was problematic—I had to restart in Chrome—and one viewer using IE
     occasionally had to advance slides manually
     (although again, once he switched to Chrome it all started to work again).
 

@@ -10,7 +10,7 @@ The four skills I needed most when I was managing people have all turned out to 
     It doesn't come up often, but [knowing how makes you more likely to do it when you should](https://hbr.org/2020/05/why-sexual-harassment-programs-backfire).
 
 2.  How to run a meeting.
-    Agenda before, minutes after, manage speaking time---none of it is magic,
+    Agenda before, minutes after, manage speaking time—none of it is magic,
     but without it, everything else is harder than it needs to be.
 
 3.  How to write a two-page memo making the case for doing something

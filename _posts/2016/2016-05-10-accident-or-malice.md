@@ -45,6 +45,6 @@ year: 2016
   and a downward spiral of more injustice and more anger and more despair.
   And that's never been the source of our progress.
   That's how we cheat ourselves of progress.
-  <br/>
+  <br>
   – <a href="https://www.whitehouse.gov/the-press-office/2016/05/07/remarks-president-howard-university-commencement-ceremony">Barack Obama</a>
 </blockquote>

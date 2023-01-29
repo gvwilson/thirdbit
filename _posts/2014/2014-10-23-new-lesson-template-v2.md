@@ -103,7 +103,7 @@ original: swc
   </li>
   <li>
     Trevor Bekolay writes:
-    <br/>
+    <br>
     I took a stab at implementing a minimal motivation slides.
     Unfortunately this isn't very clean right now; I just included the
     &lt;section&gt; and &lt;script&gt; tags in the Markdown, which I know

@@ -5,20 +5,20 @@ year: 2006
 ---
 Try googling for <a href="http://www.google.ca/search?q=%22open+source%22+%22requirements+engineering%22">"open source" "requirements engineering"</a> or <a href="http://www.google.ca/search?q=%22open+source%22+%22requirements+management">"open source" "requirements management"</a>.  Lots of links, but nothing that leads to a mature (or even adolescent) open source requirements engineering tool that would help me keep track of:
 <ol>
-	<li>what I'm supposed to be building;</li>
-	<li>where that requirement came from (i.e., who I have to talk to if I want to change it, or to get more information);</li>
-	<li>whether the requirement has actually been implemented; and</li>
-	<li>whether that implementation has actually been tested.</li>
+  <li>what I'm supposed to be building;</li>
+  <li>where that requirement came from (i.e., who I have to talk to if I want to change it, or to get more information);</li>
+  <li>whether the requirement has actually been implemented; and</li>
+  <li>whether that implementation has actually been tested.</li>
 </ol>
 There are lots of commercial tools in this space, including:
 <ul>
-	<li><a href="http://www.speedev.com/online-demos.asp">SpeeDEV</a></li>
-	<li><a href="http://www.telelogic.com/corp/products/doors/">DOORS</a></li>
-	<li><a href="http://www.gatherspace.com/">GatherSpace</a></li>
-	<li><a href="http://www.objectiver.com/">Objectiver</a></li>
-	<li><a href="http://www.igatech.com/rdt/">Igatech's RDT</a></li>
-	<li><a href="http://www.serena.com/Products/rtm/home.asp">Serena RTM</a></li>
-	<li><a href="http://users.reqtify.tni-software.com/">Reqtify</a></li>
+  <li><a href="http://www.speedev.com/online-demos.asp">SpeeDEV</a></li>
+  <li><a href="http://www.telelogic.com/corp/products/doors/">DOORS</a></li>
+  <li><a href="http://www.gatherspace.com/">GatherSpace</a></li>
+  <li><a href="http://www.objectiver.com/">Objectiver</a></li>
+  <li><a href="http://www.igatech.com/rdt/">Igatech's RDT</a></li>
+  <li><a href="http://www.serena.com/Products/rtm/home.asp">Serena RTM</a></li>
+  <li><a href="http://users.reqtify.tni-software.com/">Reqtify</a></li>
 </ul>
 but most of them are just glorified to-do list managers.  Some integrate with Microsoft Office tools, so that users can edit requirements documents in Word or Excel, while others integrate with CASE tools, but for the most part, they all assume that someone, somewhere, is going to type in a whole bunch of itemized, organized, point-form requirements, and then update them regularly as the project progresses.
 

@@ -19,41 +19,41 @@ original: swc
   <tr>
     <td valign="top">
       <ul>
-	<li>Greg Wilson (Toronto)</li>
-	<li>Azalee Bostroem (Baltimore)</li>
-	<li>Justin Ely (Baltimore)</li>
-	<li>Molly Gibson (St. Louis, MO)</li>
-	<li>Ted Kirkpatrick (Vancouver)</li>
-	<li>Rohit Mehta (University of Connecticut)</li>
-	<li>Paul Wilson (U. Wisconsin)</li>
-	<li>Jeramia Ory (Wilkes-Barre, PA)</li>
-	<li>Jory Schossau (Michigan State U)</li>
-	<li>Lex Nederbragt (Oslo, Norway)</li>
-	<li>Lynne Williams (Vancouver)</li>
-	<li>Ross Dickson (Dalhousie U.)</li>
-	<li>Amy Brown (Toronto)</li>
-	<li>Aleksandra Pawlik (SSI)</li>
-	<li>Alexis Pyrkosz (Michigan State U)</li>
-	<li>R David Murray (Amherst, MA)</li>
-	<li>Neal Davis (UIUC)</li>
-	<li>Aron Ahmadia (Army Corps of Engineers)</li>
-	<li>Neil Chue Hong (SSI)</li>
-	<li>Dave Lane (Catalyst IT, NZ)</li>
+  <li>Greg Wilson (Toronto)</li>
+  <li>Azalee Bostroem (Baltimore)</li>
+  <li>Justin Ely (Baltimore)</li>
+  <li>Molly Gibson (St. Louis, MO)</li>
+  <li>Ted Kirkpatrick (Vancouver)</li>
+  <li>Rohit Mehta (University of Connecticut)</li>
+  <li>Paul Wilson (U. Wisconsin)</li>
+  <li>Jeramia Ory (Wilkes-Barre, PA)</li>
+  <li>Jory Schossau (Michigan State U)</li>
+  <li>Lex Nederbragt (Oslo, Norway)</li>
+  <li>Lynne Williams (Vancouver)</li>
+  <li>Ross Dickson (Dalhousie U.)</li>
+  <li>Amy Brown (Toronto)</li>
+  <li>Aleksandra Pawlik (SSI)</li>
+  <li>Alexis Pyrkosz (Michigan State U)</li>
+  <li>R David Murray (Amherst, MA)</li>
+  <li>Neal Davis (UIUC)</li>
+  <li>Aron Ahmadia (Army Corps of Engineers)</li>
+  <li>Neil Chue Hong (SSI)</li>
+  <li>Dave Lane (Catalyst IT, NZ)</li>
       </ul>
     </td>
     <td valign="top">
       <ul>
-	<li>Greg Wilson (Toronto)</li>
-	<li>Preston Holmes (Santa Barbara)</li>
-	<li>Amanda Whitlock (Chapel Hill, NC)</li>
-	<li>Emily Davenport (Chicago, IL)</li>
-	<li>Ian Mitchell (Vancouver, Canada)</li>
-	<li>Damien Irving (Melbourne, Australia)</li>
-	<li>John Blischak (Chicago)</li>
-	<li>Jory Schossau (Michigan State U)</li>
-	<li>Philipp Bayer (Brisbane, Australia)</li>
-	<li>Promita Bose (Atlanta GA, USA)</li>
-	<li>Luke Lee (Houston, TX, USA)</li>
+  <li>Greg Wilson (Toronto)</li>
+  <li>Preston Holmes (Santa Barbara)</li>
+  <li>Amanda Whitlock (Chapel Hill, NC)</li>
+  <li>Emily Davenport (Chicago, IL)</li>
+  <li>Ian Mitchell (Vancouver, Canada)</li>
+  <li>Damien Irving (Melbourne, Australia)</li>
+  <li>John Blischak (Chicago)</li>
+  <li>Jory Schossau (Michigan State U)</li>
+  <li>Philipp Bayer (Brisbane, Australia)</li>
+  <li>Promita Bose (Atlanta GA, USA)</li>
+  <li>Luke Lee (Houston, TX, USA)</li>
       </ul>
     </td>
   </tr>

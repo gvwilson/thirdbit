@@ -13,39 +13,39 @@ original: swc
 <div class="row">
   <div class="col-sm-3">
     <img src="{{'/files/people/davis_m.jpg' | relative_url}}" alt="Matt Davis" />
-    <br/>
+    <br>
     Matt Davis
   </div>
   <div class="col-sm-3">
     <img src="{{'/files/people/chuang-howe_a.jpg' | relative_url}}" alt="Adina Howe" />
-    <br/>
+    <br>
     Adina Howe
   </div>
   <div class="col-sm-3">
     <img src="{{'/files/people/huff_k.png' | relative_url}}" alt="Katy Huff" />
-    <br/>
+    <br>
     Katy Huff
   </div>
   <div class="col-sm-3">
     <img src="{{'/files/people/lagesen_k.jpg' | relative_url}}" alt="Karin Lagesen" />
-    <br/>
+    <br>
     Karin Lagesen
   </div>
 </div>
 <div class="row">
   <div class="col-sm-3">
     <img src="{{'/files/people/pawlik_a.jpg' | relative_url}}" alt="Aleksandra Pawlik" />
-    <br/>
+    <br>
     Aleksandra Pawlik
   </div>
   <div class="col-sm-3">
     <img src="{{'/files/people/silva_raniere.jpg' | relative_url}}" alt="Raniere Silva" />
-    <br/>
+    <br>
     Raniere Silva
   </div>
   <div class="col-sm-3">
     <img src="{{'/files/people/williams_jason.jpg' | relative_url}}" alt="Jason Williams" />
-    <br/>
+    <br>
     Jason Williams
   </div>
   <div class="col-sm-3">

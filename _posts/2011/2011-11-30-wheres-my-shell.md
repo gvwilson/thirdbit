@@ -13,4 +13,4 @@ So what would a shell-like tool for in-browser programming look like? Well, I th
 
 And hey, it would give us a chance to choose command names that are more mnemonic than 'ls' and 'mv'... :-)
 
-[1] And the times I did were my own fault, because one of the components in my pipe was a program I'd written myself, which didn't fork properly, and---never mind, it's not important.
+[1] And the times I did were my own fault, because one of the components in my pipe was a program I'd written myself, which didn't fork properly, and—never mind, it's not important.

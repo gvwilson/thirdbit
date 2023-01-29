@@ -74,7 +74,7 @@ but there were still lots of comments:
 *   **NumPy** was the heart and soul of scientific Python for many years,
     but this lesson will only mention it in passing,
     devoting its attention to Pandas instead.
-    It really deserves more air time---as Bartosz Telenczuk observes,
+    It really deserves more air time—as Bartosz Telenczuk observes,
     "students leaving the course without basic familiarity of NumPy
     will not be able to understand ~60% (my rough guess) of scientific Python applications."
     The problem once again is what to cut to make room...

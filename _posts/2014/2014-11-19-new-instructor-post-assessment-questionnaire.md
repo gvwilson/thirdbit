@@ -26,19 +26,19 @@ original: swc
   <li>How many instructors were there?</li>
   <li>How many helpers were there?</li>
   <li>What fraction of the attendees were complete beginners (no coding/command line experience at all)
-    <br/>
+    <br>
     None | 1/4 | 1/2 | 3/4 | All
   </li>
   <li>What fraction of the attendees were novices (doing copy-and-paste coding without really understanding it)
-    <br/>
+    <br>
     None | 1/4 | 1/2 | 3/4 | All
   </li>
   <li>What fraction of the attendees were intermediate (already using the shell and writing multi-page programs)
-    <br/>
+    <br>
     None | 1/4 | 1/2 | 3/4 | All
   </li>
   <li>Did the students use the SWC Windows Installer?
-    <br/>
+    <br>
     Yes | No | I was not aware there was one | Other
   </li>
   <li>Any comments about the SWC Windows Installer? (optional)</li>

@@ -14,7 +14,7 @@ I received an unexpected email message yesterday:
 >
 > Congratulations! Thank you for your outstanding contributions to software engineering!
 >
-> Marija Mikic, ACM SIGSOFT Awards Chair <br/>
+> Marija Mikic, ACM SIGSOFT Awards Chair <br>
 > Thomas Zimmermann, ACM SIGSOFT Chair
 
 I'm honored to have been chosen.

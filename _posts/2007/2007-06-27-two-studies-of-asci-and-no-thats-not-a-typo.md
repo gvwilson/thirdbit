@@ -7,8 +7,8 @@ After spending ten years helping scientists write programs for massively-paralle
 
 That's why I was so pleased to come across these two papers:
 <ol>
-	<li>Post and Kendall: "Software Project Management and Quality Engineering Practices for Complex, Coupled Multiphysics, Massively Parallel Computational Simulations: Lessons Learned from ASCI". <cite>Intl. Journal of High Performance Computing Applications</cite>, 18(4), Winter 2004, pp. 399-416.</li>
-	<li>Carver, Kendall, Squires, and Post: "Software Development Environments for Scientific and Engineering Software: A Series of Case Studies".  <cite>Proc. ICSE 2007</cite>, May 2007, pp. 550-59, 0-7695-2828-7.</li>
+  <li>Post and Kendall: "Software Project Management and Quality Engineering Practices for Complex, Coupled Multiphysics, Massively Parallel Computational Simulations: Lessons Learned from ASCI". <cite>Intl. Journal of High Performance Computing Applications</cite>, 18(4), Winter 2004, pp. 399-416.</li>
+  <li>Carver, Kendall, Squires, and Post: "Software Development Environments for Scientific and Engineering Software: A Series of Case Studies".  <cite>Proc. ICSE 2007</cite>, May 2007, pp. 550-59, 0-7695-2828-7.</li>
 </ol>
 "ASCI" is the Accelerated Strategic Computing Initiative.  Launched in the mid-1990s, its mission was to produce a new generation of software for the US nuclear weapons program.  These are big pieces of code: millions of lines, with lifespans measured in decades, doing some of the most complicated math ever devised by human beings. Hundreds of millions of dollars have been spent, and thousands of programmer-years, so it's worth asking, "How's it going?  And what could be done better?"
 

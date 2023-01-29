@@ -21,7 +21,7 @@ student teams hosted on Pyre do?</p>
     <td valign="top">2. Can you make a build in one step?</td>
     <td valign="top">The Helium team was pretty
     close; the only thing that stood in the way was setting up the
-    database.  Other teams vary---getting this right will probably be
+    database.  Other teams vary—getting this right will probably be
     worth a mark or two this term.</td>
   </tr>
 
@@ -58,7 +58,7 @@ student teams hosted on Pyre do?</p>
 
   <tr>
     <td valign="top">7. Do you have a spec?</td>
-    <td valign="top">Low marks here---we <em>did</em> for Helium, but it fell
+    <td valign="top">Low marks here—we <em>did</em> for Helium, but it fell
     out of date while work was under way.  It's being updated now so
     that the incoming students will know what they're supposed to
     build.  The Memview team wrote a

@@ -3,7 +3,7 @@ title: "DrProject Internals: I Wasn't Quite Done With Tickets"
 date: 2006-11-06 12:31:23
 year: 2006
 ---
-OK, we're not quite done with tickets yet---at least, not with the issues that tickets raise.
+OK, we're not quite done with tickets yet—at least, not with the issues that tickets raise.
 
 The first one is email notification.  In Trac and many other systems, you can specify that you want to receive email every time a ticket that you filed is updated.  This is a lot handier than logging in every once in a while and asking the system to display all the tickets you created that have been modified in the last, um, six days? Ten?  When did I last log in, anyway?
 
@@ -23,7 +23,7 @@ The last [sic] part of the ticketing system we'd like to revisit is the set of a
 
 This is working well, but doesn't capture one important use case. The more users a project has, the more likely it is that someone will file a ticket that duplicates one filed earlier.  At present, we rely on users to write something like "Duplicates #456" when the reject redundant tickets; all three of the companies that are thinking about adopting DrProject internally would like something a little more structured, so that they can (for example) search for tickets that were duplicates.
 
-The reason we haven't done this is that it complicates our representation of ticket states.  Right now, states are taken from an enumeration with three values; if we want to add "duplicate" as a fourth state, we have to add another field to keep track of which ticket (or tickets) this one is a duplicate of---fields that wouldn't be meaningful in other states.  Irregularities like this are bad news for maintenance and testing; we won't add "duplicate" until we can think of a way to avoid this one.
+The reason we haven't done this is that it complicates our representation of ticket states.  Right now, states are taken from an enumeration with three values; if we want to add "duplicate" as a fourth state, we have to add another field to keep track of which ticket (or tickets) this one is a duplicate of—fields that wouldn't be meaningful in other states.  Irregularities like this are bad news for maintenance and testing; we won't add "duplicate" until we can think of a way to avoid this one.
 
 Of course, suggestions are always welcome...
 

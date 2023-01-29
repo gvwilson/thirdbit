@@ -14,11 +14,11 @@ Yes, that's right: he had checked out our source code and read through enough to
 <link>tags to load the Javascript, that we hadn't made a layer for the widgets we were requiring, and that we hadn't taken advantage of the Dojo build system's ability to roll up just the widgets we needed into one bundle to reduce the number of requests.
 Kevin replied a few hours later as well, but by that time Jeff was able to post the following timings:
 <ul>
-	<li>Only dojo.js: 35 requests, 1 sec</li>
-	<li>dojo.js + dijit.js: 17 requests, 0.62 sec</li>
-	<li>dojo.js + dijit-all.js: 35 requests, 1.3 sec</li>
-	<li>dojo.js + drproject.js: 4 requests, 0.35 sec</li>
+  <li>Only dojo.js: 35 requests, 1 sec</li>
+  <li>dojo.js + dijit.js: 17 requests, 0.62 sec</li>
+  <li>dojo.js + dijit-all.js: 35 requests, 1.3 sec</li>
+  <li>dojo.js + drproject.js: 4 requests, 0.35 sec</li>
 </ul>
-Not bad at all.  No idea how long it would have taken to get there without help, but I'm very, very glad that we didn't have to find out---that there was a community out there of people who believed that helping us with no immediate prospect of reward was just the right thing to do.
+Not bad at all.  No idea how long it would have taken to get there without help, but I'm very, very glad that we didn't have to find out—that there was a community out there of people who believed that helping us with no immediate prospect of reward was just the right thing to do.
 
-So thanks, guys---the next beer's on us.
+So thanks, guys—the next beer's on us.

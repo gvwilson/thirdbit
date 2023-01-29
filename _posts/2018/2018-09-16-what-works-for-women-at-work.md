@@ -26,7 +26,7 @@ quoted below:
 
 3.  The *Maternal Wall* consists of both *descriptive bias*,
     in the form of strong negative competence and commitment assumptions triggered by motherhood,
-    and *presctive bias*---disapproval on the grounds that mothers should be at home or working fewer hours.
+    and *presctive bias*—disapproval on the grounds that mothers should be at home or working fewer hours.
     Women with children are routinely pushed to the margins of the professional world.
 
 4.  The *Tug of War* occurs as each women tries to navigate her own path between assimilating into masculine traditions and resisting them.

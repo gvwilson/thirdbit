@@ -34,4 +34,4 @@ As someone who wants shorter lines at office hours for everyone,
 every time,
 I believe in collective action.
 I think [this kind of training]({{'/2019/01/10/leadership-training-for-open-science/' | relative_url}}) would be a start;
-I'd [welcome your thoughts](mailto:gvwilson@third-bit.com).
+I'd [welcome your thoughts](mailto:{{site.author.email}}).
