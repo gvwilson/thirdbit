@@ -9,6 +9,13 @@ and to ask [who'd be interested in taking an online class based on its Python su
 The list below links to each post in the series,
 and to the terms defined in each of the book's content chapters.
 
+My next goal is to prepare an hour-long talk summarizing what I learned from writing this book.
+It will cover some of the same material as ["Software Design for Data Scientists"][sd4ds] and [this paper][paper],
+but will focus more on how to teach design and what junior programmers are ready to learn.
+If you or your team would like to listen to me ramble,
+I'd be very happy to deliver it online in exchange for a small donation to a mutually-agreed charity—please [reach out](mailto:{{site.author.email}})
+if you're interested.
+
 1.  [Introduction]({{'/2023/01/01/sdxjs-introduction/' | relative_url}})
 
 1.  [Systems Programming]({{'/2023/01/02/sdxjs-systems-programming/' | relative_url}}): anonymous function, asynchronous, Boolean, callback function, cognitive load, command-line argument, console, current working directory, destructuring assignment, edge case, filename extension, filesystem, filter, globbing, idiomatic, log message, path (in filesystem), protocol, scope, single-threaded, string interpolation.
@@ -54,4 +61,6 @@ and to the terms defined in each of the book's content chapters.
 1.  [Would You Take This Class?][class]
 
 [class]: {{'/2023/01/29/would-you-take-this-class/' | relative_url}}
+[paper]: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009809
+[sd4ds]: {{'/talks/sd4ds/#1' | relative_url}}
 [sdxjs]: {{'/sdxjs/' | relative_url}}
