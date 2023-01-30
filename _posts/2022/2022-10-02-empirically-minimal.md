@@ -78,5 +78,5 @@ I think it would be analogous to the way that chip designers work:
 look at what operations programs execute most often
 in order to figure out what to optimize.
 If you're interested,
-please [give me a shout](mailto:gvwilson@third-bit.com):
+please [give me a shout](mailto:{{site.author.email}}):
 this is something I'd be happy to make time for.

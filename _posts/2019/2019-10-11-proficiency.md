@@ -63,5 +63,5 @@ and how many minutes they lose every hour because doing those things by hand dis
 whatever they're really trying to accomplish.
 As always,
 if you're a grad student with time on your hands,
-I'm [easy to reach](mailto:gvwilson@third-bit.com)
+I'm [easy to reach](mailto:{{site.author.email}})
 and would enjoy chatting…

@@ -5,12 +5,12 @@ year: 2010
 ---
 I'm very pleased to announce that I've just signed a contract with <a href="http://pragprog.com">Pragmatic</a> to edit a book on the architecture of open source applications.  Our goal is to describe the architectures of some moderately complicated pieces of software, both because they're interesting in their own right, and to show readers how experienced software designers see the world.  Contributors will explain:
 <ul>
-	<li>What are the major elements of the application?</li>
-	<li>How do they interact?</li>
-	<li>Why?</li>
-	<li>What alternatives did you consider and discard?</li>
-	<li>What tradeoffs did you make?</li>
-	<li>Why?</li>
+  <li>What are the major elements of the application?</li>
+  <li>How do they interact?</li>
+  <li>Why?</li>
+  <li>What alternatives did you consider and discard?</li>
+  <li>What tradeoffs did you make?</li>
+  <li>Why?</li>
 </ul>
 The current list of contributors and topics is included below; I'm very excited to be working on this, not least because all of the author royalties will be donated to <a href="http://www.amnesty.org">Amnesty International</a>.
 <table border="0">

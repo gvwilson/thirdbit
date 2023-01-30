@@ -47,7 +47,7 @@ and which other kinds are useful across multiple stages:
 4.  The transition from competent to expert (i.e., from conscious competence to unconscious competence)
     is where instructors stop teaching fixed rules to be applied in predictable situations
     and start saying,
-    "It depends..." and where individualized critique of students' work takes over from grading against a rubric.
+    "It depends…" and where individualized critique of students' work takes over from grading against a rubric.
     A lot of material at this level takes the form of introspective *essays*,
     like King's *[On Writing](https://www.amazon.com/Writing-Memoir-Craft-Stephen-King/dp/1439193630/)*
     or Kael's *[The Age of Movies](https://www.amazon.com/Age-Movies-Selected-Writings-Publication/dp/1598535080/)*,
@@ -60,7 +60,7 @@ and which other kinds are useful across multiple stages:
     (An essay is primarily about viewpoint, with cases as support,
     where a case study is mostly about the particular instance
     with the author's viewpoint as the added value.)
-    <br/>
+    <br>
     We don't have nearly enough examples of this in computing,
     though Stroustrup's *[Design and Evolution of C++](https://www.amazon.com/Design-Evolution-C-Bjarne-Stroustrup/dp/0201543303/)*,
     Johnson's *[GUI Bloopers](https://www.amazon.com/GUI-Bloopers-2-0-Interactive-Technologies/dp/0123706432/)*,

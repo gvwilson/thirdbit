@@ -10,4 +10,4 @@ title: Demos Reinforce Errors, and Confusion is Good
 <li>Students like teachers who clarify things, but students who are confused are actually more likely to learn and understand.</li>
 <li>Students' self-reported understanding of a topic has no relation to their actual understanding of it (which highlights once again the fact that self-assessment is useless).</li>
 </ol>
-<p>There are obvious implications for this course...</p>
+<p>There are obvious implications for this course…</p>

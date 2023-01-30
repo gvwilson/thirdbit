@@ -4,7 +4,7 @@ year: 2019
 title: "The People You Have"
 ---
 
-> Too often, the defenders of free markets forget that what we really want is free men. <br/>
+> Too often, the defenders of free markets forget that what we really want is free men. <br>
 >—Michael Crawford
 
 Someone once said to my dad, "Nothing great was ever created by a committee,"
@@ -77,4 +77,4 @@ a place where imperfect people with too little time and too few resources to do 
 > Brown's *[Building Powerful Community Organizations](https://www.ipgbook.com/building-powerful-community-organizations-products-9780977151806.php)*,
 > which is the most practical guide I know to grassroots organization.
 > If you would like to take part in another such group this summer,
-> please [let me know](mailto:gvwilson@third-bit.com).
+> please [let me know](mailto:{{site.author.email}}).

@@ -313,7 +313,7 @@ original: swc
       to respect learners' cultural norms
       (swearing, for example, is almost unnoticed now by some people, but still quite offensive to others),
       and not to belittle the difficulties learners face by saying things like,
-      "Oh, that's easy, you just..."
+      "Oh, that's easy, you just…"
     </p>
     <p>
       Software Carpentry's score: 1.

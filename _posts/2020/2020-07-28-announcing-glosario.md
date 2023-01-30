@@ -96,7 +96,7 @@ She runs a tool provided with `glosario` that:
 
 1.  Reads the R Markdown file.
 1.  Extracts the terms under the `glossary/defines` key.
-1.  Searches the body of the document for calls to `gdef(...)`.
+1.  Searches the body of the document for calls to `gdef(…)`.
 1.  Checks that every term listed in `glossary/defines` is referenced in the document body,
     and that every term referenced in the document body is mentioned in `glossary/defines`.
 

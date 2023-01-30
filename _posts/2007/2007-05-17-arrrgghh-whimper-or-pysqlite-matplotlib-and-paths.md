@@ -8,8 +8,8 @@ Muhammad Ali and Adam Foster prototyped a dashboard display for DrProject as a t
 In order to make it work, DrProject has to load <a href="http://matplotlib.sourceforge.net/">Matplotlib</a>  and  <a href="http://initd.org/tracker/pysqlite">PySqlite</a> (the Python wrappers for <a href="http://www.sqlite.org">SQLite</a>) at the same time. After a day of wrestling with versions, packages, LD_LIBRARY_PATH, and other junk, Ali can get it to load one or the other, but never both.  The symptoms are described here:
 
 <ul>
-	<li>message to SQLite list</li>
-	<li>message to Matplotlib list</li>
+  <li>message to SQLite list</li>
+  <li>message to Matplotlib list</li>
 </ul>
 
 Basically, if LD_LIBRARY_PATH is left empty, Matplotlib will load, but PySqlite won't. If LD_LIBRARY_PATH is set to /usr/local/lib (where the sqlite .so file is located), PySqlite is  happy, but Matplotlib fails to load.  If the directory containing the .so's that Matplotlib needs are added to LD_LIBRARY_PATH, well, you can read Ali's message, but it's still broken.

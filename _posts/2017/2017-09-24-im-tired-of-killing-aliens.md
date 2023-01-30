@@ -11,7 +11,7 @@ with the quick fun of <a href="{{'/2009/10/17/lunchbox-games/' | relative_url}}"
 
 I'm now halfway through the second planet,
 and while I'll probably play through to the end,
-it feels kind of...flat.
+it feels kind of…flat.
 One reason is that the missions so far have been more-or-less linear slugfests:
 go here,
 shoot everything,
@@ -20,7 +20,7 @@ A deeper reason, though, is that I'm tired of killing aliens,
 even ones that have been made to look like slimy bugs or sinister robots
 so that we'll know it's OK to blast them.
 
-What I'd like instead is a game where my job is to *rescue* people---or animals,
+What I'd like instead is a game where my job is to *rescue* people—or animals,
 or art treasures,
 or anything else.
 I can imagine a game where each family of levels has you dealing with a flood,

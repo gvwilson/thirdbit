@@ -43,7 +43,7 @@ original: swc
         <li>cheap!</li>
         <li>seeing how programmers think</li>
         <li>realizing how much room for growth I have</li>
-        <li>scared in the first ten minutes...</li>
+        <li>scared in the first ten minutes…</li>
         <li>the material is free</li>
         <li>peer instruction</li>
       </ul>
@@ -81,7 +81,7 @@ original: swc
         <li>more on plotting</li>
         <li>lighting in the room is uneven</li>
         <li>more about linking Python to other things</li>
-        <li>...after first ten minutes, it was OK</li>
+        <li>…after first ten minutes, it was OK</li>
       </ul>
     </td>
   </tr>

@@ -6,7 +6,7 @@ favorite: true
 ---
 
 In the beginning was the finger, and paint, and the wall of the cave.
-Whoever painted the first pictures this way could create whatever they wanted---the medium
+Whoever painted the first pictures this way could create whatever they wanted—the medium
 allowed them to create anything they could imagine.
 So did pens and paper:
 pictures and text could be arranged on the page
@@ -87,7 +87,7 @@ These worlds collided after the invention of the laser printer in the 1970s,
 and that tension was only magnified by high-resolution computer screens in the 1980s
 and the World Wide Web in the 1990s.
 On the one hand,
-most people simply want to write---to put these words here and those words there,
+most people simply want to write—to put these words here and those words there,
 or make some of them green and others italic.
 WYSIWIG (what you see is what you get) editors like MacWrite and Microsoft Word fill this need,
 but documents produced this way have two shortcomings:
@@ -241,16 +241,16 @@ and should be tracked and shared just like code and data.
 On the other hand,
 as Stephen Turner said:
 
-> ...try to explain the notion of compiling a document to an overworked physician you collaborate with.
+> …try to explain the notion of compiling a document to an overworked physician you collaborate with.
 > Oh, but before that, you have to explain the difference between plain text and word processing.
 > And text editors.
 > And Markdown/LaTeX compilers.
 > And BiBTeX.
 > And Git.
 > And GitHub. Etc.
-> Meanwhile he/she is getting paged from the OR...
+> Meanwhile he/she is getting paged from the OR…
 >
-> ...as much as we want to convince ourselves otherwise,
+> …as much as we want to convince ourselves otherwise,
 > when you have to collaborate with those outside the scientific computing bubble,
 > the barrier to collaborating on papers in this framework is simply too high to overcome.
 > Good intentions aside,

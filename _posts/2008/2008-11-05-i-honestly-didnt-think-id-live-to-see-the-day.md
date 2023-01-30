@@ -5,7 +5,7 @@ year: 2008
 ---
 <img src="{{'/files/2008/11/mlk.jpg' | relative_url}}" alt="Dr. Martin Luther King, Jr." />
 
-When the architects of our republic wrote the magnificent words of the Constitution and the Declaration of Independence, they were signing a promissory note to which every American was to fall heir.  This note was a promise that all men would be guaranteed the unalienable rights of life, liberty, and the pursuit of happiness... I have a dream that one day this nation will rise up and live out the true meaning of its creed---"We hold these these truths to be self evident, that all men are created equal."... I have a dream that my four little children will one day live in a  nation where they will not be judged by the color of their skin but by the content of their character...
+When the architects of our republic wrote the magnificent words of the Constitution and the Declaration of Independence, they were signing a promissory note to which every American was to fall heir.  This note was a promise that all men would be guaranteed the unalienable rights of life, liberty, and the pursuit of happiness… I have a dream that one day this nation will rise up and live out the true meaning of its creed—"We hold these these truths to be self evident, that all men are created equal."… I have a dream that my four little children will one day live in a  nation where they will not be judged by the color of their skin but by the content of their character…
 
 <img src="{{'/files/2008/11/obama.jpg' | relative_url}}" alt="Barack Obama" />
 

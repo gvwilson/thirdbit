@@ -20,16 +20,16 @@ to give readers a roadmap for what's coming next:
 
 ```python
 class Grid:
-    ...constants...
+    …constants…
 
     def __init__(self, size):
-        ...set up...
+        …set up…
 
     def fill(self, value):
-        ...fill entire grid with value...
+        …fill entire grid with value…
 
     def adjacent(self, x, y):
-        ...return neighbors of (x, y)...
+        …return neighbors of (x, y)…
 ```
 
 They then want to fill in those markers one at a time
@@ -71,8 +71,8 @@ but the former confuses novices ("Wait, you're deriving a class from itself?")
 and the latter doesn't support forward markers in the original definition
 to show where the later code is going to go.
 
-This issue may seem pretty esoteric---after all,
-most programmers don't write books---but it highlights two larger points.
+This issue may seem pretty esoteric—after all,
+most programmers don't write books—but it highlights two larger points.
 The first is that most programmers *do* have to explain the work at some point,
 and there's precious little in-language support for doing that.
 The second point is that languages don't have any other support for incremental exposition either.

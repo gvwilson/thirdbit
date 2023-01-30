@@ -16,7 +16,7 @@ original: swc
   On top of yet more reports of universities turning a blind eye to sexual harassment for years,
   a <a href="https://peerj.com/preprints/1733/">new paper</a> of gender bias in open source
   shows that,
-  "...women's contributions tend to be accepted more often than men's.
+  "…women's contributions tend to be accepted more often than men's.
   However, when a woman's gender is identifiable, they are rejected more often."
   This comes on top of earlier studies
   (like <a href="http://www.win.tue.nl/~bvasiles/papers/socinfo12.pdf">this one</a>)

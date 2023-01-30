@@ -213,7 +213,7 @@ original: swc
 <dd>Working alongside an instructor with more experience is a great way to learn more about the tools, as well as about teaching.
 </dd>
 <dt><em>It's fun.</em></dt>
-<dd>Our instructors get to work with smart people who actually want to be in the room, and don't have to mark anything afterward. It's a refreshing change from teaching undergraduate calculus...
+<dd>Our instructors get to work with smart people who actually want to be in the room, and don't have to mark anything afterward. It's a refreshing change from teaching undergraduate calculus…
 </dd>
 </dl>
 <h2 id="todo">6. TODO</h2>
@@ -238,10 +238,10 @@ original: swc
 <p>And while it may seem like a trivial thing, editing text is always harder than we expect. We don't want to encourage people to use naive editors like Notepad, and the two most popular legacy editors on Unix (Vi and Emacs) are both usability nightmares. We now recommend a collection of open and almost-open GUI editors, but it remains a stumbling block.</p>
 </blockquote>
 <h3 id="teaching-on-the-web">Teaching on the Web</h3>
-<p>Challenge #5 is to move more of our teaching and follow-up online. We have tried several approaches, from MOOC-style online-only offerings to webcast tutorials and one-to-one online office hours via VoIP and desktop sharing. In all cases, turnout has been mediocre at the start and dropped off rapidly. The fact that this is true of most high-profile MOOCs as well is little comfort...</p>
+<p>Challenge #5 is to move more of our teaching and follow-up online. We have tried several approaches, from MOOC-style online-only offerings to webcast tutorials and one-to-one online office hours via VoIP and desktop sharing. In all cases, turnout has been mediocre at the start and dropped off rapidly. The fact that this is true of most high-profile MOOCs as well is little comfort…</p>
 <h3 id="what-vs.-how">What vs. How</h3>
 <p>Sixth on our list is the tension between teaching the "what" and the "how" of programming. When we teach a scripting language like Python, we have to spend time up front on syntax, which leaves us only limited time for the development practices that we really want to focus on, but which are hard to grasp in the abstract. By comparison, version control and databases are straightforward: what you see is what you do is what you get.</p>
-<p>We also don't as good a job as we would like teaching testing. The mechanics of unit testing with an xUnit-style framework are straightforward, and it's easy to come up with representative test cases for things like reformatting data files, but what should we tell scientists about testing the numerical parts of their applications? Once we've covered floating-point roundoff and the need to use "almost equal" instead of "exactly equal", our learners quite reasonably ask, "What should I use as a tolerance for my computation?" Saying, "One part in a million, just because," isn't satisfying...</p>
+<p>We also don't as good a job as we would like teaching testing. The mechanics of unit testing with an xUnit-style framework are straightforward, and it's easy to come up with representative test cases for things like reformatting data files, but what should we tell scientists about testing the numerical parts of their applications? Once we've covered floating-point roundoff and the need to use "almost equal" instead of "exactly equal", our learners quite reasonably ask, "What should I use as a tolerance for my computation?" Saying, "One part in a million, just because," isn't satisfying…</p>
 <h3 id="standardization-vs.-customization">Standardization vs. Customization</h3>
 <p>Both of the previous points tie into the challenge of standardizing curriculum across a large group of volunteer instructors with very different backgrounds and interests. What we <em>actually</em> teach varies more widely than the content of most university courses with prescribed curricula. We think this is a strength–one of the reasons we recruit instructors from among scientists is so that they can customize content and delivery for local needs–but we need to be more systematic about varying on purpose rather than by accident.</p>
 <h3 id="watching-vs.-doing">Watching vs. Doing</h3>

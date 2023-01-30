@@ -7,7 +7,7 @@ year: 2018
 I am planning a major revision of
 *How to Teach Programming (and Other Things)*,
 and would be very grateful for feedback on its design:
-please [mail me](mailto:gvwilson@third-bit.com)
+please [mail me](mailto:{{site.author.email}})
 your thoughts and suggestions.
 Note that this design follows the five-step backward design process
 laid out in the book itself.

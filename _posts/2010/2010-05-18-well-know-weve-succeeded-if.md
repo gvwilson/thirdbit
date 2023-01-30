@@ -2,7 +2,7 @@
 date: 2010-05-18 09:00:00
 year: 2010
 original: swc
-title: We'll Know We've Succeeded If...
+title: We'll Know We've Succeeded If…
 ---
 <p>We will know the students taking this course have learned something if:</p>
 <ol>

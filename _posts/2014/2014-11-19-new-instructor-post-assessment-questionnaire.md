@@ -26,19 +26,19 @@ original: swc
   <li>How many instructors were there?</li>
   <li>How many helpers were there?</li>
   <li>What fraction of the attendees were complete beginners (no coding/command line experience at all)
-    <br/>
+    <br>
     None | 1/4 | 1/2 | 3/4 | All
   </li>
   <li>What fraction of the attendees were novices (doing copy-and-paste coding without really understanding it)
-    <br/>
+    <br>
     None | 1/4 | 1/2 | 3/4 | All
   </li>
   <li>What fraction of the attendees were intermediate (already using the shell and writing multi-page programs)
-    <br/>
+    <br>
     None | 1/4 | 1/2 | 3/4 | All
   </li>
   <li>Did the students use the SWC Windows Installer?
-    <br/>
+    <br>
     Yes | No | I was not aware there was one | Other
   </li>
   <li>Any comments about the SWC Windows Installer? (optional)</li>
@@ -76,49 +76,49 @@ Other
 	  <li>How many minutes did this lesson take?</li>
 	</ul>
       </li>
-      <li>creating things (...as above...)</li>
-      <li>pipes and filters (...as above...)</li>
-      <li>pipes and filters (...as above...)</li>
-      <li>scripting (...as above...)</li>
-      <li>finding things (...as above...)</li>
-      <li>other (...as above...)</li>
+      <li>creating things (…as above…)</li>
+      <li>pipes and filters (…as above…)</li>
+      <li>pipes and filters (…as above…)</li>
+      <li>scripting (…as above…)</li>
+      <li>finding things (…as above…)</li>
+      <li>other (…as above…)</li>
     </ul>
   </li>
   <li>Python
     <ul>
-      <li>variables and assignment (...as above...)</li>
-      <li>functions (...as above...)</li>
-      <li>loops (...as above...)</li>
-      <li>conditionals (...as above...)</li>
-      <li>NumPy (...as above...)</li>
-      <li>Pandas (...as above...)</li>
-      <li>defensive programming (...as above...)</li>
-      <li>the command line (...as above...)</li>
-      <li>other (...as above...)</li>
+      <li>variables and assignment (…as above…)</li>
+      <li>functions (…as above…)</li>
+      <li>loops (…as above…)</li>
+      <li>conditionals (…as above…)</li>
+      <li>NumPy (…as above…)</li>
+      <li>Pandas (…as above…)</li>
+      <li>defensive programming (…as above…)</li>
+      <li>the command line (…as above…)</li>
+      <li>other (…as above…)</li>
     </ul>
   </li>
   <li>Git
     <ul>
-      <li>recording history (...as above...)</li>
-      <li>push and pull (...as above...)</li>
-      <li>merging conflicts (...as above...)</li>
-      <li>branching (...as above...)</li>
-      <li>licensing and open source (...as above...)</li>
-      <li>other (...as above...)</li>
+      <li>recording history (…as above…)</li>
+      <li>push and pull (…as above…)</li>
+      <li>merging conflicts (…as above…)</li>
+      <li>branching (…as above…)</li>
+      <li>licensing and open source (…as above…)</li>
+      <li>other (…as above…)</li>
     </ul>
   </li>
   <li>SQL
     <ul>
-      <li>selecting (...as above...)</li>
-      <li>sorting and removing duplicates (...as above...)</li>
-      <li>filtering (...as above...)</li>
-      <li>calculating new values (...as above...)</li>
-      <li>nulls (...as above...)</li>
-      <li>aggregation (...as above...)</li>
-      <li>join (...as above...)</li>
-      <li>updating and deleting (...as above...)</li>
-      <li>using in programs (...as above...)</li>
-      <li>other (...as above...)</li>
+      <li>selecting (…as above…)</li>
+      <li>sorting and removing duplicates (…as above…)</li>
+      <li>filtering (…as above…)</li>
+      <li>calculating new values (…as above…)</li>
+      <li>nulls (…as above…)</li>
+      <li>aggregation (…as above…)</li>
+      <li>join (…as above…)</li>
+      <li>updating and deleting (…as above…)</li>
+      <li>using in programs (…as above…)</li>
+      <li>other (…as above…)</li>
     </ul>
   </li>
   <li>

@@ -53,7 +53,7 @@ original: nwit
   "<a href="http://www.twistedsquare.com/Educators.pdf">Investigating
   Novice Programming Mistakes: Educator Beliefs vs Student Data</a>",
   ICER'14, http://dx.doi.org/10.1145/2632320.2632343).  Their main
-  finding: "...educators formed only a weak consensus about which
+  finding: "…educators formed only a weak consensus about which
   mistakes are most frequent, that their rankings bore only a moderate
   correspondence to the students in the Blackbox data, and that
   educators' experience had no effect on this level of agreement."  It

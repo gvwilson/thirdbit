@@ -8,9 +8,9 @@ I've been thinking about what I'd like to do when I leave U of T, and I think I 
 
 <em>Most schools have a third or fourth year "Intro to Software Engineering" course where students work in teams on an extended project that's meant to teach them real-world development skills.  In my experience, these courses aren't particularly effective because:</em>
 <ul>
-	<li><em>the content is usually the traditional (ritual-intensive) stuff found in textbooks, which bears only a passing resemblance to the way good teams actually get things done,</em></li>
-	<li><em>many of the important aspects of modern software development, such as working in distributed teams, are absent completely, and</em></li>
-	<li><em>the faculty teaching them usually don't have much real-world experience themselves.</em></li>
+  <li><em>the content is usually the traditional (ritual-intensive) stuff found in textbooks, which bears only a passing resemblance to the way good teams actually get things done,</em></li>
+  <li><em>many of the important aspects of modern software development, such as working in distributed teams, are absent completely, and</em></li>
+  <li><em>the faculty teaching them usually don't have much real-world experience themselves.</em></li>
 </ul>
 <em>I propose talking half a dozen schools across Canada into running their courses in tandem, so that each team has members from three or four schools.  I'm well positioned to do this: I've been running project courses at U of T since 2002, and I'm prototyping the "tandem" idea this term with students from Waterloo, Lakehead, Alberta, and Havana on my team.</em>
 

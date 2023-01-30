@@ -56,7 +56,7 @@ so here are ten others that I hope will help people in the moment as they delive
     everything you know about designing an intuitive interface applies directly to design of teaching materials.
 
 6.  **Use a visibly fair mechanism to distribute your attention evenly.**
-    Teachers naturally focus their attention on learners who are making eye contact and asking lots of questions---in other words,
+    Teachers naturally focus their attention on learners who are making eye contact and asking lots of questions—in other words,
     on the extroverts in the room.
     This creates two feedback loops:
     the extroverts ask even more questions because they're getting attention,
@@ -107,6 +107,6 @@ so here are ten others that I hope will help people in the moment as they delive
     and your back will be grateful tomorrow that you wore comfortable shoes today.
 
 These are my top ten practical tips for teaching programming.
-I'd enjoy hearing about yours---I've had to disable comments on this blog,
-but if you [email me](mailto:gvwilson@third-bit.com),
+I'd enjoy hearing about yours—I've had to disable comments on this blog,
+but if you [email me](mailto:{{site.author.email}}),
 I'd be happy to add them and give you credit.

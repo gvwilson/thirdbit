@@ -27,4 +27,4 @@ that another chunk further down relies on.
 I suspect this means that code chunks are going to acquire some kind of modularization
 equivalent to parameters and return values.
 If you want to work at the intersection of HCI and language design,
-there would be worse places to start than this...
+there would be worse places to start than this…

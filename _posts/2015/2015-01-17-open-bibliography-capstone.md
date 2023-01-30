@@ -83,9 +83,9 @@ original: swc
 </p>
 <blockquote>
     Scientists won't submit, publish, and download papers.
-    <br/>
+    <br>
     They will fork and merge projects
-    <br/>
+    <br>
     <em>that everyone has equal access to.</em>
 </blockquote>
 <p>

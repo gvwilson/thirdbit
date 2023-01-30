@@ -19,7 +19,7 @@ the authors say:
 >
 > Studies evaluating the actual learning benefit of the use of a specific system are rare.
 > This is not for lack of interest or realisation of the usefulness of such studies,
-> but because they are difficult to conduct with a high degree of scientific reliability...
+> but because they are difficult to conduct with a high degree of scientific reliability…
 > Running two groups (experiment group and control group)
 > in parallel is usually difficult to resource:
 > the teacher almost doubles the workload and has to avoid bias.

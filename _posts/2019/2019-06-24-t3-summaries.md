@@ -42,7 +42,7 @@ to find and correct gaps and misconceptions in their understanding.
 
 ## Expertise and Memory
 
-Experts don't just know more than competent practitioners---their mental models
+Experts don't just know more than competent practitioners—their mental models
 are also much more densely connected,
 so that they can often go from a problem to its solution in a single step
 (which sometimes leads to *expert blind spot*).
@@ -145,7 +145,7 @@ Those we recommend include
 (4) assessing learners' prior knowledge,
 (5) planning for mixed abilities,
 (6) pair programming,
-(7) take notes---together if possible,
+(7) take notes—together if possible,
 (8) using sticky notes to keep track of learners' status and distribute attention fairly,
 (9) never starting with a blank page, and 
 (10) investing in setting up the learners' environments.
@@ -211,8 +211,8 @@ or whether it would be better to join and support an existing organization.
 If a new one is to be created,
 its leaders must think about *recruitment*, *onboarding*, *retention*, and *retirement*,
 all of which are well-studied problems.
-Leaders must also think about *governance*---in particular,
-about *decision-making processes*---and
+Leaders must also think about *governance*—in particular,
+about *decision-making processes*—and
 about whether they eventually want a *service board* or a *governance board*.
 
 ## Outreach

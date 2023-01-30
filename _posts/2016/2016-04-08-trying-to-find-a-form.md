@@ -40,17 +40,17 @@ year: 2016
   Questions to Answers
 </h2>
 <table border="1">
-<tr><th rowspan="2"></th><th align="center" colspan="9">How can I...</th></tr>
+<tr><th rowspan="2"></th><th align="center" colspan="9">How can I…</th></tr>
 <tr>
-<th align="center">...avoid losing work?</th>
-<th align="center">...find and use other people's data?</th>
-<th align="center">...find and use other people's software?</th>
-<th align="center">...be more productive?</th>
-<th align="center">...make it easy for people to collaborate with me?</th>
-<th align="center">...make it easy for people to find and use my data?</th>
-<th align="center">...make it easy for programs to use my data?</th>
-<th align="center">...make it easy for people to find and use my software?</th>
-<th align="center">...tell if my results are correct?</th>
+<th align="center">…avoid losing work?</th>
+<th align="center">…find and use other people's data?</th>
+<th align="center">…find and use other people's software?</th>
+<th align="center">…be more productive?</th>
+<th align="center">…make it easy for people to collaborate with me?</th>
+<th align="center">…make it easy for people to find and use my data?</th>
+<th align="center">…make it easy for programs to use my data?</th>
+<th align="center">…make it easy for people to find and use my software?</th>
+<th align="center">…tell if my results are correct?</th>
 </tr>
 <tr><th align="center">Put everything created by people into version control.</th>
 <td align="center" bgcolor="green">X</td>

@@ -20,7 +20,7 @@ original: swc
           <li>Good teachers</li>
           <li>Good supply of paper/book references</li>
           <li>Useful simple bash scripts for analyzing text files</li>
-          <li>Snacks: mmm...</li>
+          <li>Snacks: mmm…</li>
           <li>New plotting tools to replace Matlab</li>
           <li>Shell tools interesting</li>
           <li>Importance of version control</li>

@@ -55,4 +55,4 @@ Inspirations:
 
 Note: I recognize the irony (or hypocrisy) of praising inclusivity
 and then citing authors who are 80% male and 100% white.
-I'm reading as fast as I can...
+I'm reading as fast as I can…

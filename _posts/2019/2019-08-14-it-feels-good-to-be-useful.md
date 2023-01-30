@@ -37,7 +37,7 @@ Rule 6: "Develop forms of legitimate peripheral participation" – we're doing a
 
 Rule 7: "Make it easy for newcomers to get started" – pretty much covered this in my comments on Rule 1.
 
-Rule 8: "Use opportunities for in-person interaction---with care" – we haven't been great about this so far. There have been the BoF sessions at PyCon and sprints, but they haven't been super organized. Partly this is just because of scale (we're not at a point where we could organize our own meetups!) and my limits, which are sort of unavoidable. But it would be great to do more here. The mentored sprints at PyCon this year were amazing, because the organizers did such a good job of getting things organized. Maybe as the project grows, we should look out for folks who are good at that kind of organizing and try to suck them in? That might be something to add to the "how to contribute" docs for those who aren't ready to dive into super technical details of kernel APIs and coroutine schedulers.
+Rule 8: "Use opportunities for in-person interaction—with care" – we haven't been great about this so far. There have been the BoF sessions at PyCon and sprints, but they haven't been super organized. Partly this is just because of scale (we're not at a point where we could organize our own meetups!) and my limits, which are sort of unavoidable. But it would be great to do more here. The mentored sprints at PyCon this year were amazing, because the organizers did such a good job of getting things organized. Maybe as the project grows, we should look out for folks who are good at that kind of organizing and try to suck them in? That might be something to add to the "how to contribute" docs for those who aren't ready to dive into super technical details of kernel APIs and coroutine schedulers.
 
 Rule 9: "Acknowledge all contributions" – There's definitely more we could do here. Some ideas:
 
@@ -49,7 +49,7 @@ Rule 10: "Follow up on both success and failure" – I feel like right now we ar
 
 Maybe it would be helpful to explicitly ask people whether they want to keep contributing after their first PR is merged, and if they say yes then follow up with them later? Of course this would have to be opt-in because we don't want to harass people, but I feel like there is probably some percentage of contributors who would genuinely want to follow-up and would appreciate the option to ask for one.
 
-We could also like, offer people one of those "how was your experience?" surveys, like seemingly every business does now...
+We could also like, offer people one of those "how was your experience?" surveys, like seemingly every business does now…
 
 <em>
 If you don't want to wait for the paper to appear on PLoS,

@@ -1,5 +1,5 @@
 ---
-title: "And Speaking of Community..."
+title: "And Speaking of Community…"
 date: 2008-01-12 18:11:03
 year: 2008
 ---

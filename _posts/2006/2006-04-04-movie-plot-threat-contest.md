@@ -13,4 +13,4 @@ year: 2006
 <li>Terrorists might equip rabbits with explosive-laden backpacks, with detonators attached to their heart-rate monitors</li>
 </ul>
 
-<p>(If you're wondering what to get me for Christmas, the last one sounds cool...)</p>
+<p>(If you're wondering what to get me for Christmas, the last one sounds cool…)</p>

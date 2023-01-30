@@ -45,7 +45,7 @@ year: 2015
       but it took 15 months.
       Realistically,
       I'll do well in 2015 to revise that and get it <a href="http://sensibleadventures.com">published</a>.
-      The other fiction I've had on the back burner for the last few years will just have to wait...
+      The other fiction I've had on the back burner for the last few years will just have to wait…
     </p>
   </dd>
   <dt>

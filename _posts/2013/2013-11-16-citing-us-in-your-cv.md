@@ -18,10 +18,10 @@ original: swc
     <blockquote>
       Software Carpentry Instructor Developer, February 2012 &ndash; present
       <ul>
-	<li>Teach Python, shell, Git, and software engineering skills to scientists and engineers at bootcamps and in online sessions.</li>
-	<li>Develop new instructional content.</li>
-	<li>Layout and design of software-carpentry.org website.</li>
-	<li>Mentoring and administration for Software Carpentry GitHub repositories.</li>
+  <li>Teach Python, shell, Git, and software engineering skills to scientists and engineers at bootcamps and in online sessions.</li>
+  <li>Develop new instructional content.</li>
+  <li>Layout and design of software-carpentry.org website.</li>
+  <li>Mentoring and administration for Software Carpentry GitHub repositories.</li>
       </ul>
     </blockquote>
   </li>

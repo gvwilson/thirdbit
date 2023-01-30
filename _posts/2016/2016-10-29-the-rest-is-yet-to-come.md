@@ -17,7 +17,7 @@ and shut down discussion a couple of times when I had no authority to do so.
 I have another workshop this week.
 I'd like to do better,
 so I'm going to give myself two sets of three sticky notes each day.
-(Sticky notes are the duct tape of teaching...)
+(Sticky notes are the duct tape of teaching…)
 Each time I stray from the schedule,
 I'll take down one from the first set;
 each time I tell a story,

@@ -193,7 +193,7 @@ original: swc
       <li>In the topic directory, e.g., under novice/r ?</li>
       <li>In a separate directory, e.g., under extras ?</li>
       <li>Vote: put it under topic (clear majority)</li>
-      <li>Stephen Turner: can't make call, but seems to me extra lesson should go in topic, e.g., novice/r/extras/ggplot2--etc..., otherwise /extras could get pretty cluttered</li>
+      <li>Stephen Turner: can't make call, but seems to me extra lesson should go in topic, e.g., novice/r/extras/ggplot2--etc…, otherwise /extras could get pretty cluttered</li>
       <li>Evening voting: +1+1+1+1+100+1+10+1+1 in favor of putting stuff under</li>
       <li>And a related decision, where to put materials that teach Git using RStudio?</li>
       <li>Vote: put it under R (clear majority)</li>
@@ -356,7 +356,7 @@ original: swc
   <li>Neil Chue Hong: I'd like to raise the issue that we should revisit the issue of improving and streamlining our tooling and processes for administrating Software Carpentry across the world [unfortunately I can't join the call, but I hope that Aleksandra can]</li>
   <li>As Software Carpentry grows, we will need to get more people contributing to the administrative effort to support the growth +1</li>
   <li>The current administration process requires the use of five separate pieces of infrastructure and some parts are not easy for people without a software development background+1</li>
-  <li>It also doesn't necessarily scale well (*empirical evidence required*) &lt;- trust me, this is an understatement...+1</li>
+  <li>It also doesn't necessarily scale well (*empirical evidence required*) &lt;- trust me, this is an understatement…+1</li>
   <li>Whilst we have very good guides for hosts, instructors and helpers, we don't yet for administrators</li>
   <li>Proposal:
     <ul>

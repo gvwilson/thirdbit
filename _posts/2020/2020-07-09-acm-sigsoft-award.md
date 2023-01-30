@@ -78,9 +78,9 @@ others? (Yes.) Does test-driven development actually produce better code faster?
 like these by collecting and analyzing data, and we should too. Conferences like
 [*Mining Software Repositories*](http://www.msrconf.org/) have made a lot of raw
 material available and produced some fascinating results for students to
-replicate (or refute). Such a course would be culturally defensible---no one
+replicate (or refute). Such a course would be culturally defensible—no one
 ever got fired for saying that computer science students should learn more
-math---and from a self-interested point of view, graduates of such a course
+math—and from a self-interested point of view, graduates of such a course
 would be better prepared for grad school.
 
 At the same time, there are several things we should stop doing, one of
@@ -111,7 +111,7 @@ be better prepared for what comes next than most of us were.
 
 Changing an established curriculum is hard, but we owe it to our students, and
 the two courses I've described above would be fun to create. If you'd like to
-help do so, please mail me at <gvwilson@third-bit.com>.
+help do so, please [mail me]({{site.author.email}}).
 
 My thanks once again to SIGSOFT for this award; I hope you and yours are safe
 and well.

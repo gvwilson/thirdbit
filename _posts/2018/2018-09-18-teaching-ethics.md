@@ -12,9 +12,9 @@ I later [tweeted](https://twitter.com/gvwilson/status/1041436262924804096):
 
 > I think ethics courses in software engineering are mostly duds because the
 > issues are too abstract for undergrads.  It's easy to say, "I wouldn't steal"
-> or "I'd blow the whistle" when you're not actually in that situation...
+> or "I'd blow the whistle" when you're not actually in that situation…
 > I think a course analyzing all the ways in which people with privilege
-> mistreat those without...would hit many attendees a lot harder and therefore
+> mistreat those without…would hit many attendees a lot harder and therefore
 > have a lot more impact.
 
 People replied suggesting that it would be interesting to have students design a

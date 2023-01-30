@@ -13,7 +13,7 @@ For [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}}
 2.  Start writing point-form notes for each chapter.
     -   Topics map to chapters about 2:1.
     -   Leave FIXME markers where figures are needed but don't draw them yet.
-    -   Write notes and code for 3-4 hours/week over 12 months (on average---it's very bursty).
+    -   Write notes and code for 3-4 hours/week over 12 months (on average—it's very bursty).
 
 3.  Write all example code while drafting the chapter.
     -   Do a lot of rearranging at this stage, e.g., introduce sub-topic X as part of main topic Y.
@@ -29,7 +29,7 @@ For [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}}
     -   The finished prose is anywhere from 140% to 250% the length of the original notes.
 
 6.  Draw the diagrams.
-    -   About 90% of the intended diagrams survive; I don't think I added any at this stage, but I should have---I hate drawing diagrams.
+    -   About 90% of the intended diagrams survive; I don't think I added any at this stage, but I should have—I hate drawing diagrams.
     -   One entire chapter was cut at this point because the examples didn't work and the content didn't really fit anyway.
 
 At this point I have 385 printed pages.

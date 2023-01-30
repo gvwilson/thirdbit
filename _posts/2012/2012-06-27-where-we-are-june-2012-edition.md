@@ -11,7 +11,7 @@ title: Where We Are (June 2012 edition)
 <ul>
 <li>We have delivered 12 workshops to 376 learners in 4 countries (curriculum)</li>
 <li>Numbers will be 18 workshops, 520 learners, and 5 countries by the end of July</li>
-<li>Have actually lost count of the number of online tutorials we've run...</li>
+<li>Have actually lost count of the number of online tutorials we've run…</li>
 </ul>
 </li>
 <li>What we're doing is helping

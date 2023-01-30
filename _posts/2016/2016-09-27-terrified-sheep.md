@@ -10,11 +10,11 @@ the historian [Alice Dreger](https://aeon.co/users/alice-dreger) says,
 She goes on to say:
 
 > Why should professors who receive tenure get a special kind of lifetime job security?
-> ...[Because] tenure, in fact, does something very important:
+> …[Because] tenure, in fact, does something very important:
 > it frees up researchers and adult educators to try out new, unprofitable, and challenging ideas.
 >
-> ...universities in which the majority of the faculty feel unsafe in terms of job security
-> become places where no one feels safe to do anything that might risk upsetting someone...
+> …universities in which the majority of the faculty feel unsafe in terms of job security
+> become places where no one feels safe to do anything that might risk upsetting someone…
 > And that’s a recipe for generally useless research as well as impoverished teaching.
 
 To which I can only reply,

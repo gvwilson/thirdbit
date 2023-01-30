@@ -24,7 +24,7 @@ original: swc
     Each stage takes one second to run; what's its overall performance?
     As Roger Hockney pointed out in the 1980s, that question isn't well formed.
     What we really need to ask is, how does its performance change [with] the size of its input?
-    It takes 3 seconds to process one piece of data, 4 to process two...and so on.
+    It takes 3 seconds to process one piece of data, 4 to process two…and so on.
     Inverting those numbers, its rate is 1/3 result per second for one piece of data, 1/2 result/sec for two, etc.:
   </p>
   <p>
@@ -34,13 +34,13 @@ original: swc
     Any pipeline's curve can be characterized by <em>r<sub>&infin;</sub></em>,
     which is its performance on an infinitely large data set,
     and <em>n<sub>1/2</sub></em>,
-    which is how much data we have to provide to get half of that theoretical peak performance...
+    which is how much data we have to provide to get half of that theoretical peak performance…
   </p>
   <p>
-    ...twenty (!) years ago,
+    …twenty (!) years ago,
     I <a href="http://www.amazon.com/Practical-Programming-Scientific-Engineering-Computation/dp/0262231867/">said</a>
-    that the more interesting measure...was actually <em>p<sub>1/2</sub></em>,
-    which is how many programming hours it takes to reach half of a machine's theoretical peak performance...
+    that the more interesting measure…was actually <em>p<sub>1/2</sub></em>,
+    which is how many programming hours it takes to reach half of a machine's theoretical peak performance…
     [Software Carpentry]'s goal is to increase researchers' <em>r<sub>&infin;</sub></em>,
     i.e., to help them produce new science faster.
     Our <em>challenge</em> is to minimize <em>p<sub>1/2</sub></em> so that researchers see benefits early.

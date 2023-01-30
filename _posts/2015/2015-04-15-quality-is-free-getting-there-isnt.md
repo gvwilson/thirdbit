@@ -10,7 +10,7 @@ original: swc
   <a href="http://www.nature.com/news/rule-rewrite-aims-to-clean-up-scientific-software-1.17323">recently announced</a> that,
   "Its peer reviewers will now be asked to assess the availability of documentation and algorithms used in computational analyses,
   not just the description of the work.
-  The journal is also exploring whether peer reviewers can test complex code..."
+  The journal is also exploring whether peer reviewers can test complex code…"
   That's a welcome step in theory,
   but I worry about how it will play out in practice.
   Scientists already complain about how much time they spend reviewing papers:

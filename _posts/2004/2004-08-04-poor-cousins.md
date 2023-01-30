@@ -43,7 +43,7 @@ example, if a student is a member of the group "csc207Students", and
 "csc207Students" is an observer of "/csc207", then the student is an
 observer of "/csc207".</p>
 
-<p>Seems pretty simple---at least, it <em>seemed</em> pretty simple to
+<p>Seems pretty simple—at least, it <em>seemed</em> pretty simple to
 us.  However, inheritance means that a user U can have several
 different candidate relationships with a project P.  For example, U
 can be an explicit observer of P, but also be a member of a group G,

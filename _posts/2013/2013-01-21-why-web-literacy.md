@@ -6,11 +6,11 @@ year: 2013
 <p>Last week, Mark Surman (director of the Mozilla Foundation) posted an article titled, "<a href="http://commonspace.wordpress.com/2013/01/16/explaining-why/">I need help explaining 'why?'</a>" In it, he roughed out a five liner to explain why Mozilla cares so much about web literacy:</p>
 <blockquote>
 <ol>
-	<li><em>Our goal: help 100Ms more people become makers who understand and tap the full power of the web.</em></li>
-	<li><em>Why? <strong>The web has fueled massive creativity, productivity and wealth.</strong> We want this to continue.</em></li>
-	<li><em><strong> When the web was young: people looked under the hood, figured out how it worked and made things.</strong></em></li>
-	<li><em>This <strong>'just figure it out and make it' is harder to come by today</strong>. The hood is harder to open. Learning as you go is not so easy.</em></li>
-	<li><em>Mozilla want to turn this upside down. We want to make it easy easy to open again, to learn how things work and to tap the full power of the web.</em></li>
+  <li><em>Our goal: help 100Ms more people become makers who understand and tap the full power of the web.</em></li>
+  <li><em>Why? <strong>The web has fueled massive creativity, productivity and wealth.</strong> We want this to continue.</em></li>
+  <li><em><strong> When the web was young: people looked under the hood, figured out how it worked and made things.</strong></em></li>
+  <li><em>This <strong>'just figure it out and make it' is harder to come by today</strong>. The hood is harder to open. Learning as you go is not so easy.</em></li>
+  <li><em>Mozilla want to turn this upside down. We want to make it easy easy to open again, to learn how things work and to tap the full power of the web.</em></li>
 </ol>
 </blockquote>
 <p>I've been trying ever since to find a quotation from one of the civil rights leaders of the 1950s (I thought it was <a href="http://en.wikipedia.org/wiki/Septima_Poinsette_Clark">Septima Clarke</a>), who said, "We're not going to change the world by teaching these people how to read–we're going to change it by teaching them how to <em>write</em>."  What I found instead was something from Matthew Crawford's thought-provoking (and sometimes infuriating) <em><a href="http://www.amazon.com/Shop-Class-Soulcraft-Inquiry-Value/dp/0143117467/">Shop Class as Soulcraft</a></em>:</p>

@@ -33,5 +33,5 @@ original: swc
   And an equal pleasure to welcome a twelfth,
   Mitchell Stanton-Cook,
   who was left off the original list because of an off-by-one error in a script.
-  Oh, the irony...
+  Oh, the irony…
 </p>

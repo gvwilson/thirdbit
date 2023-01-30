@@ -5,9 +5,9 @@ year: 2011
 ---
 When Buddhists want to remind themselves that scripture is a guide, not a goal, they say, "The finger pointing at the moon is not the moon." I think we need a similar metaphor to explain what testing is really about to junior developers. When I say, "Don't check in code until all the tests pass," I do <em>not</em> mean:
 <ul>
-	<li>comment out test cases that are failing, then check in, or</li>
-	<li>take failing assertions out of your methods, then check in, or</li>
-	<li>throw away features whose tests are failing, then check in.</li>
+  <li>comment out test cases that are failing, then check in, or</li>
+  <li>take failing assertions out of your methods, then check in, or</li>
+  <li>throw away features whose tests are failing, then check in.</li>
 </ul>
 The purpose of testing is not to get all tests to pass. The purpose of testing is <em>to tell you what state your software is in</em>, and your goal should always be to gather as much useful information as you can (as economically as you can, but that's a topic for another post).  If you don't have any automated tests, then all you really know about the software comes from the interactive testing you've done since you last made a change. No other knowledge is reliable, not even the things you tried out 30 seconds before you made those changes.
 

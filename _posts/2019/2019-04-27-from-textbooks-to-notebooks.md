@@ -16,7 +16,7 @@ and at what else people use when teaching.
 Here are a few things I've done that I can't easily do with either R Markdown or Jupyter Notebooks:
 
 1.  *Placeholders.*
-    I often want to present the skeleton of a class with `...` markers for methods,
+    I often want to present the skeleton of a class with `…` markers for methods,
     then present those methods one by one with discussion interleaved.
     Knuth's original vision of literate programming supported this,
     but today's notebooks don't.
@@ -36,7 +36,7 @@ Here are a few things I've done that I can't easily do with either R Markdown or
     but seriously:
     how long are we going to communicating with our multimedia supercomputers via punch cards?
     Good teaching materials use a wide variety of graphics,
-    everyone else's tools allow drawings to be created and previewed in situ---let's have some of that in our notebooks.
+    everyone else's tools allow drawings to be created and previewed in situ—let's have some of that in our notebooks.
 
 4.  *Highlighting*.
     I can highlight <span style="background-color: #ffff33">this text</span> with three clicks in a WYSIWYG editor,
@@ -45,7 +45,7 @@ Here are a few things I've done that I can't easily do with either R Markdown or
     circling parts of the program and adding callouts *while leaving it runnable* is even worse,
     but these are things that good textbooks frequently do.
 
-But I'm not asking for these features---not yet.
+But I'm not asking for these features—not yet.
 What I want now is for some enterprising graduate student to go through
 a couple of  dozen highly-rated programming textbooks
 and compile a list of how frequently different kinds of things are used.
@@ -54,7 +54,7 @@ I noticed that they were used over and over again in algorithms books
 but weren't a first-class citizen of any major programming language.
 Such a list could also help us compare notebooks and steer their future development.
 If you're interested in taking this on,
-please give me a shout---I'd welcome a chance to talk.
+please give me a shout—I'd welcome a chance to talk.
 
 *By the way,
 I think we ought to start calling computational notebooks "knuths"

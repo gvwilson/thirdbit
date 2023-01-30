@@ -25,4 +25,4 @@ best case,
 we'll perform a lesson two or three times in one week for different sections of a course,
 then set it aside for months until we teach that course again.
 
-I'm still thinking about what this implies for [re-using lessons]({{'/2016/04/29/why-teachers-dont-collaborate/' | relative_url}})...
+I'm still thinking about what this implies for [re-using lessons]({{'/2016/04/29/why-teachers-dont-collaborate/' | relative_url}})…

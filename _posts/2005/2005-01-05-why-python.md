@@ -3,7 +3,7 @@ title: "Why Python?"
 date: 2005-01-05 17:37:57
 year: 2005
 ---
-<p>A couple of students have ask why we're using <a href="http://www.python.org">Python</a> instead of <a href="http://www.perl.org">Perl</a> in this term's projects.  After all, <a href="http://www.perl.org">Perl</a> is more popular---there are more books about it, and a lot more libraries for it as well.</p>
+<p>A couple of students have ask why we're using <a href="http://www.python.org">Python</a> instead of <a href="http://www.perl.org">Perl</a> in this term's projects.  After all, <a href="http://www.perl.org">Perl</a> is more popular—there are more books about it, and a lot more libraries for it as well.</p>
 
 <p>The answer is that Brent Gorda and I used <a href="http://www.perl.org">Perl</a> to teach classes at <a href="http://www.lanl.gov">Los Alamos National Laboratory</a> for two years.  When we switched to <a href="http://www.python.org">Python</a>, we found that it only took two days to cover material that had previously taken three.  What's more, students retained more: they were more likely to remember what they'd learned after the class was over, and (crucially) more likely to keep using <a href="http://www.python.org">Python</a>.</p>
 

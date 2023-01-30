@@ -15,7 +15,7 @@ I don't have time to make all the changes I'd like to Lox,
 but I hope that writing them down and explaining why will spark ideas in someone else:
 
 1.  *Add array and hash values* so that `x = [1, 2, 3]` and `y = {"a": 1, "b": 2}` work.
-    I'd like to add sets as well---I think they're under-rated and under-used---but
+    I'd like to add sets as well—I think they're under-rated and under-used—but
     I'm trying to budget complexity.
 
 2.  *Add modules* and some kind of import mechanism
@@ -39,7 +39,7 @@ but I hope that writing them down and explaining why will spark ideas in someone
     and I'd like to make it as frictionless to use (and teach) as possible.
 
 6.  *Add fibers* or some other lightweight concurrency mechanism
-    (but *not* JS-style callbacks or promises, because brr...).
+    (but *not* JS-style callbacks or promises, because brr…).
     Lox's predecessor [Wren](https://wren.io/) provides fibers for co-operative multitasking;
     combined with [`libuv`](http://libuv.org/) it would allow lessons on asynchronous I/O,
     which I believe is as important to learn now as `stdio`-based pipes were for my generation.
@@ -62,4 +62,4 @@ because boy howdy is that powerful once you have it.)
 My guess is that there's about 100 hours of work on the bullet list
 and another 100 for the runtime hooks and debugger,
 but I think the result would be a very nice little teaching language.
-If only the days were longer...
+If only the days were longer…

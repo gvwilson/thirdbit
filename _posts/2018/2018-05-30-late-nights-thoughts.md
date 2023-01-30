@@ -7,9 +7,9 @@ favorite: true
 
 <div>
   <div align="center">
-    <h2>Late Night Thoughts<br/>on Listening to Ike Quebec</h2>
-    <br/>
-    <br/>
+    <h2>Late Night Thoughts<br>on Listening to Ike Quebec</h2>
+    <br>
+    <br>
     <p><a href="http://third-bit.com">Greg Wilson</a></p>
     <p>May 2018</p>
   </div>
@@ -21,9 +21,9 @@ favorite: true
       I almost didn't come to this conference.
       When the invitation arrived, I looked at it and thought, "What the hell do I have left to say?"
       You've all heard both of my jokes,
-      and many of you tell my stories better than I do---or at least, more factually.
+      and many of you tell my stories better than I do—or at least, more factually.
       I could talk about the history of Software Carpentry,
-      and how we got to where we are today...
+      and how we got to where we are today…
     </p>
   </blockquote>
 </div>
@@ -36,7 +36,7 @@ favorite: true
   </div>
   <blockquote>
     <p>
-      ...but I wrote up my part of that a couple of years ago...
+      …but I wrote up my part of that a couple of years ago…
     </p>
   </blockquote>
 </div>
@@ -49,8 +49,8 @@ favorite: true
   </div>
   <blockquote>
     <p>
-      ...and what's happened since is someone else's story to tell.
-      I could talk about the Carpentries' plans for the future...
+      …and what's happened since is someone else's story to tell.
+      I could talk about the Carpentries' plans for the future…
     </p>
   </blockquote>
 </div>
@@ -63,7 +63,7 @@ favorite: true
   </div>
   <blockquote>
     <p>
-      ...but most of you don't have a high enough security clearance for that.
+      …but most of you don't have a high enough security clearance for that.
     </p>
     <p>
       After rambling and ranting and arguing and teaching to you and with you for so many years,
@@ -141,7 +141,7 @@ favorite: true
 <div>
   <div class="center">
     <img src="{{ '/talks/img/lanl-1998-07.jpg' | relative_url }}" width="50%" />
-    <br/>
+    <br>
     <img src="{{ '/talks/img/lanl-1998-09.jpg' | relative_url }}" width="50%" />
   </div>
   <blockquote>
@@ -162,7 +162,7 @@ favorite: true
 <div>
   <div>
     <h3>1. Be sure you mean it.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/hawaii.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
@@ -179,7 +179,7 @@ favorite: true
 <div>
   <div>
     <h3>2. Do it when others think it's time.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/krakow.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
@@ -196,7 +196,7 @@ favorite: true
 <div>
   <div>
     <h3>3. Tell people what, when, and why.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/mauritius.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
@@ -212,7 +212,7 @@ favorite: true
 <div>
   <div>
     <h3>4. Don't pick a successor by yourself.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/new-zealand.jpg' | relative_url }}" width="70%" />
   </div>
   <blockquote>
@@ -228,7 +228,7 @@ favorite: true
 <div>
   <div>
     <h3>5. Train them before you go.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/oklahoma.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
@@ -247,7 +247,7 @@ favorite: true
 <div>
   <div>
     <h3>6. When you leave, leave.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/room3.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
@@ -264,7 +264,7 @@ favorite: true
 <div>
   <div>
     <h3>7. Have some fun before you go.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/idigbio.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
@@ -280,7 +280,7 @@ favorite: true
 <div>
   <div>
     <h3>8. Reflect on what you learned.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/learners3.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
@@ -299,12 +299,12 @@ favorite: true
 <div>
   <div>
     <h3>9. Remember the good things too.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/opencon-es.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
-      Many people are uncomfortable being praised---so uncomfortable,
+      Many people are uncomfortable being praised—so uncomfortable,
       in fact,
       that English doesn't actually have an antonym for "mistake".
       Thank the people who made what you did successful,
@@ -319,7 +319,7 @@ favorite: true
 <div>
   <div>
     <h3>10. Do something next.</h3>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/father-and-child.png' | relative_url }}" width="60%" />
   </div>
   <blockquote>
@@ -335,7 +335,7 @@ favorite: true
       but this last one is the one I've been kicking myself for the most.
       The reason I got it wrong is that I fell back into some bad old patterns of thought.
       You see,
-      academia doesn't care if something is useful---it cares if something is <em>new</em>.
+      academia doesn't care if something is useful—it cares if something is <em>new</em>.
       Like a lot of you,
       I internalized that in grad school without ever really questioning it.
       It's been years since I thought of myself as an academic,
@@ -359,11 +359,11 @@ favorite: true
       Some of the tools I teach are almost as old as me,
       and compared to some of you,
       I'm as old as dirt.
-      The teaching practices that we use aren't new either---I mean,
+      The teaching practices that we use aren't new either—I mean,
       live coding is just teaching by demonstration,
       and cats do that with their kittens.
       And yeah,
-      I do occasionally pick up something new...
+      I do occasionally pick up something new…
     </p>
   </blockquote>
 </div>
@@ -389,14 +389,14 @@ favorite: true
      
      
     <img src="{{ '/talks/img/swc-2004.gif' | relative_url }}" alt="Logo 2004" height="75" />
-    <br/>
+    <br>
     <img src="{{ '/talks/img/swc-2007.jpg' | relative_url }}" alt="Logo 2007" height="75" />
-    <br/>
+    <br>
     <img src="{{ '/talks/img/swc-2010.png' | relative_url }}" alt="Logo 2010" height="75" />
   </div>
   <blockquote>
     <p>
-      ...but for years I measured myself
+      …but for years I measured myself
       by how much academically-digestible novelty I produced
       and found myself wanting.
       It wasn't until I got over that
@@ -413,7 +413,7 @@ favorite: true
      
      
     <img src="{{ '/talks/img/easy-living.jpg' | relative_url }}" alt="Easy Living" width="30%"/>
-    <br/>
+    <br>
     <img src="{{ '/talks/img/heavy-soul.jpg' | relative_url }}" alt="Heavy Soul" width="30%"/>
      
      
@@ -422,7 +422,7 @@ favorite: true
   <blockquote>
     <p>
       Which brings us to Ike Quebec.
-      He was a jazz musician---tenor sax.
+      He was a jazz musician—tenor sax.
       He had a few hits in the 40s,
       but between a drug problem and changes in musical taste,
       he didn't record much in the 50s.
@@ -435,7 +435,7 @@ favorite: true
       and they are still on every single electronic device with a headphone jack that I own.
     </p>
     <p>
-      Ike Quebec had this big, round, beautiful sound---it's like a hug from an old friend---but he wasn't an innovator.
+      Ike Quebec had this big, round, beautiful sound—it's like a hug from an old friend—but he wasn't an innovator.
       He never did anything melodically, harmonically, or rhythmically that other people hadn't done before,
       and because of that,
       he's not considered one of the greats.
@@ -483,10 +483,10 @@ favorite: true
       for the staff from the Toronto Public Library,
       a couple of local companies,
       and people who volunteer with grassroots get-into-coding groups.
-      The curriculum would be familiar to all of you---novice versus competent versus expert,
+      The curriculum would be familiar to all of you—novice versus competent versus expert,
       seven plus or minus two,
       motivation and demotivation,
-      recording yourself in groups of three...
+      recording yourself in groups of three…
     </p>
   </blockquote>
 </div>
@@ -519,7 +519,7 @@ favorite: true
   </div>
   <blockquote>
     <p>
-      ...but I've mixed in some material on how to learn effectively and that's gone over really well.
+      …but I've mixed in some material on how to learn effectively and that's gone over really well.
       It's been a lot of fun,
       and I'm more convinced than ever that the Carpentries' biggest long-term impact
       won't be what we teach people about programming,
@@ -537,14 +537,14 @@ favorite: true
   <blockquote>
     <p>
       I'm now talking to several groups that teach people how to be safe online,
-      and I'm hoping that our methods---particularly the way we co-develop curriculum---will be useful to them,
+      and I'm hoping that our methods—particularly the way we co-develop curriculum—will be useful to them,
       because right now,
       to be honest,
       I think that what they're doing is more important than version control.
       I don't have to tell you that the world and the internet are a lot scarier than they were two years ago.
       Just like a few basic coding skills can make you a more productive researcher,
-      a few basic security practices---the digital equivalent of washing your hands before you eat
-      or using a condom or keeping your shots up to date---can help you protect yourself from stalkers and trolls.
+      a few basic security practices—the digital equivalent of washing your hands before you eat
+      or using a condom or keeping your shots up to date—can help you protect yourself from stalkers and trolls.
     </p>
   </blockquote>
 </div>
@@ -586,9 +586,9 @@ favorite: true
 <div>
   <div align="center">
     <img src="{{ '/talks/img/carl-sagan.jpg' | relative_url }}" alt="Carl Sagan" width="40%" />
-    <br/>
+    <br>
     <h4>
-      <em>If you wish to make<br/>an apple pie from scratch,<br/>you must first invent the universe.</em>
+      <em>If you wish to make<br>an apple pie from scratch,<br>you must first invent the universe.</em>
     </h4>
   </div>
   <div align="right">
@@ -623,7 +623,7 @@ favorite: true
   </div>
   <div align="center">
     <h4>
-      <em>Nothing worth having<br/>comes without some kind of fight.</em>
+      <em>Nothing worth having<br>comes without some kind of fight.</em>
     </h4>
   </div>
   <div align="right">
@@ -654,12 +654,12 @@ favorite: true
     <p>
       I've been a pretty vocal critic of the modern university system,
       but I still think it's one of the crown jewels of human civilization.
-      There are people though--more of them every day---who would tear it all down
+      There are people though--more of them every day—who would tear it all down
       because silencing the messenger is easier than dealing with climate change
       or because they believe that anything that can be commoditized should be.
       We've been losing ground against them for the last few years.
-      If we don't fight back---if we don't organize and collaborate
-      and admit to ourselves that there are sides here and we need to pick one---then
+      If we don't fight back—if we don't organize and collaborate
+      and admit to ourselves that there are sides here and we need to pick one—then
       whether or not someone uses version control will be the least of our problems.
     </p>
   </blockquote>
@@ -694,7 +694,7 @@ favorite: true
     <p>
       If you're interested in going down this road,
       here are three papers that I've found really useful.
-      I'm still learning---I hope I'll <em>always</em> be learning---so
+      I'm still learning—I hope I'll <em>always</em> be learning—so
       I may change my mind about all of this,
       but it feels right.
     </p>
@@ -734,10 +734,10 @@ favorite: true
   <div align="center">
     <p>
       <em>Remember, you still have a lot of good times in front of you.</em>
-      <br/>
+      <br>
       – Jeff Wilson
     </p>
-    <br/>
+    <br>
     <h2>Thank you.</h2>
   </div>
   <blockquote>

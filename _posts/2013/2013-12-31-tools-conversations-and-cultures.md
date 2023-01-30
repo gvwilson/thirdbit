@@ -75,14 +75,14 @@ original: swc
     a vastly different culture than the one you inhabit,
     and that programmer culture just seems weird to them.
   </p>
-  <p>...</p>
+  <p>…</p>
   <p>
     You need to gently introduce students to why these tools will eventually make them more productive in the long run,
     even though there is a steep learning curve at the outset.
     Start slow,
     be supportive along the way,
     and don't disparage the GUI-based tools that they are accustomed to using,
-    no matter how limited you think those tools are...
+    no matter how limited you think those tools are…
   </p>
 </blockquote>
 <p>
@@ -125,7 +125,7 @@ original: swc
 </p>
 <blockquote>
   <p>
-    We could still be writing and viewing programs a byte at a time in 2010...
+    We could still be writing and viewing programs a byte at a time in 2010…
     But do you really believe that will happen?
     Do you really believe that ours will be the only documents that aren't marked up,
     that can't contain heterogeneous content,
@@ -207,7 +207,7 @@ original: swc
   </li>
   <li id="7">
     Hell,
-    most version control systems <em>still</em> can't diff and merge HTML in a meaningful way...
+    most version control systems <em>still</em> can't diff and merge HTML in a meaningful way…
   </li>
   <li id="8">
     It will probably come first from a vendor that already controls an entire toolchain

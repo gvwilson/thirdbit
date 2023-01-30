@@ -26,7 +26,7 @@ and <a href="http://dynamicecology.wordpress.com/2014/04/30/stereotype-threat-an
 
 <h3 id="avoid-using-the-j-word">Avoid Using the 'J' Word</h3>
 
-<p>Don't say "just", as in, "Oh, it's easy, you just..."
+<p>Don't say "just", as in, "Oh, it's easy, you just…"
 The things we teach are intrinsically hard,
 and far too much software makes doing them even harder.
 Talking down to users–in particular,

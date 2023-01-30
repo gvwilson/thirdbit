@@ -7,14 +7,14 @@ In case you were wondering, <a href="http://aosabook.org"><em>The Architecture o
 
 In related news, translations are now under way in:
 <ul>
-	<li>Chinese (both Simplified and Traditional)</li>
-	<li>French</li>
-	<li>Japanese</li>
-	<li>Korean</li>
-	<li>Portuguese (both European and Brazilian)</li>
-	<li>Russian</li>
-	<li>Spanish</li>
-	<li>Ukrainian</li>
+  <li>Chinese (both Simplified and Traditional)</li>
+  <li>French</li>
+  <li>Japanese</li>
+  <li>Korean</li>
+  <li>Portuguese (both European and Brazilian)</li>
+  <li>Russian</li>
+  <li>Spanish</li>
+  <li>Ukrainian</li>
 </ul>
 and we have the following chapters lined up for Volume 2:
 <table>

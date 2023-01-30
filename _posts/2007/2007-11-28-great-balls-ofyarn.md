@@ -1,5 +1,5 @@
 ---
-title: "Great Balls Of...Yarn"
+title: "Great Balls Of…Yarn"
 date: 2007-11-28 23:27:57
 year: 2007
 ---

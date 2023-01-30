@@ -49,7 +49,7 @@ original: nwit
   iterative test-last (ITL) development.
 </p>
 <p>
-  ...which still surprises me seven years after Turhan et al's
+  …which still surprises me seven years after Turhan et al's
   meta-analysis in
   <a href="https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><em>Making
   Software</em></a>.  reported the same result.  I don't program very

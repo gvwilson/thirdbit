@@ -68,7 +68,7 @@ which I put in <code>show.py</code>.  Here's the corresponding template, which I
 I run the application:
 <pre>$ python show.py
  * Running on http://127.0.0.1:5000/
- * Restarting with reloader...</pre>
+ * Restarting with reloader…</pre>
 and then point my browser at <code>http://127.0.0.1:5000/show/</code> (note the trailing slash).  As expected, Firebug tells me there has been one GET request, with no parameters.
 
 I then tick off the first of the checkboxes and click "Submit".  According to Firebug, this causes a POST with "item=0" as the submitted data (good), which immediately redirects (code 301) to a GET to the same URL, but <em>without</em> any of the posted data.  Now, according to the section on "Unique URLs / Redirection Behaviour" in the <a href="http://flask.pocoo.org/docs/quickstart/#routing">Flask documentation</a>, if the URL specified in <code>app.route</code> has a trailing '/', then accessing the URL <em>without</em> the trailing slash automatically redirects to the URL <em>with</em> the trailing slash.  But I'm submitting a URL <em>with</em> a trailing slash, so there shouldn't be a redirect, and even if there is, why is the posted data being thrown away?

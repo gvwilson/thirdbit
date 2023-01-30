@@ -55,5 +55,5 @@ if you'd like to chat,
 please [drop me a line](mailto:gvwilson@third-bit.com).
 
 CV (<a href="{{ '/cv/gvwilson.pdf' | relative_url }}">PDF</a>, <a href="{{ '/cv/' | relative_url }}">HTML</a>)
-<br/>
+<br>
 <a href="{{ '/bib/' | relative_url }}">Bibliography</a>

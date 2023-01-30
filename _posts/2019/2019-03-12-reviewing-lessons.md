@@ -21,7 +21,7 @@ unless those slides are basically slabs of point-form notes
 The difference,
 we concluded,
 is reading a paper or some code is a faithful simulation of how that material is meant to be consumed.
-People read papers---that's why they exist---and computers read and execute code,
+People read papers—that's why they exist—and computers read and execute code,
 so reading and (mentally) executing it is an accurate re-creation of how it's meant to be used.
 
 But slides aren't meant to be read:
@@ -54,4 +54,4 @@ At the time I thought it was because the file formats we were using made PRs dif
 but now I'm wondering whether the real reason was that
 I was asking people to review a song by reading the sheet music
 instead of listening to it.
-I'd be grateful for your thoughts...
+I'd be grateful for your thoughts…

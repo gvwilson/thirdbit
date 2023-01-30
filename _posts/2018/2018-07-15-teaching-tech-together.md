@@ -75,11 +75,11 @@ conduct.
 <div align="center">
   <p>
     This book is dedicated to my mother, Doris Wilson,
-    <br/>
+    <br>
     who taught hundreds of children to read and to believe in themselves,
-    <br/>
+    <br>
     and to my brother Jeff, who did not live to see it finished.
-    <br/>
+    <br>
     "Remember, you still have a lot of good times in front of you."
   </p>
 </div>
@@ -90,7 +90,7 @@ conduct.
 </p>
 <p>
   Paperback Sales to Date.
-  <br/>
+  <br>
   (If you bought a copy and your country isn't marked, please let me know.)
 </p>
 </div>

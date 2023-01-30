@@ -4,7 +4,7 @@ year: 2010
 original: swc
 title: A Gentle Introduction
 ---
-<p>Via several routes, I've been pointed at MIT Open CourseWare's "<a href="http://topicfire.com/share/MIT-OpenCourseWare-A-Gentle-Introduction-to-Programming-Using-Python-14881254.html">A Gentle Introduction to Programming Using Python</a>", as taught by Sarina Canelake in January 2010. An hour of lecture a day for 10 days (two weeks), plus two hours of lab per day, it is... "a gentle introduction to programming using Python for highly motivated  students with little or no prior experience in programming computers". The pace is brisk:</p>
+<p>Via several routes, I've been pointed at MIT Open CourseWare's "<a href="http://topicfire.com/share/MIT-OpenCourseWare-A-Gentle-Introduction-to-Programming-Using-Python-14881254.html">A Gentle Introduction to Programming Using Python</a>", as taught by Sarina Canelake in January 2010. An hour of lecture a day for 10 days (two weeks), plus two hours of lab per day, it is… "a gentle introduction to programming using Python for highly motivated  students with little or no prior experience in programming computers". The pace is brisk:</p>
 <table>
 <tbody>
 <tr>

@@ -76,9 +76,9 @@ infant_hiv %>%
 I know I can do this with comments,
 but this would encourage authors to explain specific steps more precisely.
 The next step would be to come up with a (restricted, checkable) vocabulary
-like that used in [Gherkin](https://cucumber.io/docs/gherkin/reference/)...
+like that used in [Gherkin](https://cucumber.io/docs/gherkin/reference/)…
 
-...or something equally nebulous.
+…or something equally nebulous.
 I'm not a data scientist,
 so I don't know exactly what would be most useful in practice,
 but as I help a colleague figure out why Booleans are showing up as strings,

@@ -25,4 +25,4 @@ year: 2012
 
 <p>T: Hi, I'm a teacher. I know how to select and arrange learning materials in ways that are appealing, informative, and effective.</p>
 
-<p>P: Huh. That seems simpler to me than programming...</p>
+<p>P: Huh. That seems simpler to me than programming…</p>

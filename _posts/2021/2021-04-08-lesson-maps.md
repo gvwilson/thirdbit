@@ -57,4 +57,4 @@ we'd be able to see which parts of the text needed to change.
 It's quarter-baked if that,
 but the idea won't leave me alone.
 As always,
-I'd be grateful for [feedback](mailto:gvwilson@third-bit.com) or for pointers to similar work.
+I'd be grateful for [feedback](mailto:{{site.author.email}}) or for pointers to similar work.

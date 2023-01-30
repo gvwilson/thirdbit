@@ -40,7 +40,7 @@ original: swc
   <li>
     <p>
       Plans for mentorship and assessment,
-      which are two of the things that elected members of our Steering Committee will be asked to take on...
+      which are two of the things that elected members of our Steering Committee will be asked to take on…
     </p>
   </li>
   <li>
@@ -60,5 +60,5 @@ original: swc
   the Dec 4 lab meeting
   (which takes place at 10:00 and again at 19:00, both times Eastern – see
   this Etherpad for connection details).
-  Hope to see you there...
+  Hope to see you there…
 </p>

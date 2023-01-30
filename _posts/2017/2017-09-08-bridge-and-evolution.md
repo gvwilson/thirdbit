@@ -47,6 +47,6 @@ please [give them a shout](mailto:hello@bridgeschool.io).
 
 <div align="center">
   <a href="http://bridgeschool.io/"><img alt="Bridge School" src="{{'/files/2017/09/bridge-logo.svg' | relative_url}}" style="max-width:50%; height:auto;"/></a>
-  <br/>
+  <br>
   <a href="http://static.torontopubliclibrary.ca/da/images/LC/pictures-r-5970.jpg"><img alt="Mechanics Institute Toronto" src="{{'/files/2017/09/mechanics-institute.jpg' | relative_url}}" style="max-width:50%; height:auto;"/></a>
 </div>

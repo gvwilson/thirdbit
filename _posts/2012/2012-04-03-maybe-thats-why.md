@@ -7,9 +7,9 @@ I have a lot of respect for <a href="http://heatherpayne.ca">Heather Payne</a> (
 <blockquote><em>I find it pretty interesting to note that most of our Lead Instructors and Mentors are in a teaching role for the first time ever when they join us at a Ladies Learning Code workshop. And no one on the Ladies Learning Code team has a background in education. The funny thing about that is that it might be why what we're doing works.</em></blockquote>
 Respectfully, no. What LLC is doing works as well as it does because:
 <ol>
-	<li>It has attracted a really talented bunch of inventive, open-minded, hard-working people.</li>
-	<li>It's one day or one week, not four years.</li>
-	<li>Everyone in the room really wants to be there.</li>
+  <li>It has attracted a really talented bunch of inventive, open-minded, hard-working people.</li>
+  <li>It's one day or one week, not four years.</li>
+  <li>Everyone in the room really wants to be there.</li>
 </ol>
 The first explains itself, so let's look at the other two. A night out or a weekend away is very different from being married; similarly, one jam-packed day of new, new, new is a whole 'nother thing than a four-year university program that's trying to cover all the bases, including the ones learners don't think need to be covered. (They're often right, but not as often as they think.) The kind of energy and engagement I see in workshops (of all kinds, for all ages and backgrounds) simply doesn't last for months or years.
 

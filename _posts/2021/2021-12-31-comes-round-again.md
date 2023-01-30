@@ -31,7 +31,7 @@ Another year over; what have I learned?
 - I went through a bunch of job interviews.
   Some companies, like [Automattic](https://artiss.blog/2019/03/the-automattic-hiring-process/),
   do a great job of explaining the process and trying to make it fair.
-  Others---well,
+  Others—well,
   [here's what happened with Canonical]({{'/2021/09/13/iq-and-personality-tests/' | relative_url}}).
 
 - I spent six months with [Metabase](https://www.metabase.com/)

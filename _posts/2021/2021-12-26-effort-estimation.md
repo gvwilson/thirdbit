@@ -45,7 +45,7 @@ what I'd want to take a second run at a book on software tools
 since I've already done most of the required thinking).
 400 hours is pretty much all of my hobby time for 2022,
 and there are other things I want to do more,
-so reluctantly---very reluctantly---I'm probably going to have to shelve this one.
+so reluctantly—very reluctantly—I'm probably going to have to shelve this one.
 
 Which is a shame,
 because (a) I've been enjoying writing low-level code again,

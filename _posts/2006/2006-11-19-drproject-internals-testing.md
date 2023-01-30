@@ -13,9 +13,9 @@ But testing web applications is harder than testing classical command-line appli
 
 This causes three problems; in increasing order, they are:
 <ol>
-	<li>Unit testing libraries like <a href="http://www.junit.org">JUnit</a> (and its clones in other   languages) aren't built to handle this: as the word "library"   implies, they're made up of code that's meant to be called   <em>within</em> a process.  Despite the ubiquity of multi-process   applications, most debuggers and testing libraries cannot track   "calls" <em>between</em> processes.</li>
-	<li>Configuring a test environment is a pain: you have to set up a   database server and Subversion repository, clear the browser's   cache, make sure the right stanzas are in your Apache configuration   file, and so on.</li>
-	<li>Running tests is slow.  In order to ensure that tests are   independent, you have to create an entirely new fixture for each   test.  This means reinitializing the database, erasing and   re-creating the contents of the Subversion repository, and so on,   which can take several seconds <em>per test</em>.  That translates   into an hour or more for a thousand tests, which means that   developers won't run them routinely while they're coding, and might   not even run them before checking changes in.</li>
+  <li>Unit testing libraries like <a href="http://www.junit.org">JUnit</a> (and its clones in other   languages) aren't built to handle this: as the word "library"   implies, they're made up of code that's meant to be called   <em>within</em> a process.  Despite the ubiquity of multi-process   applications, most debuggers and testing libraries cannot track   "calls" <em>between</em> processes.</li>
+  <li>Configuring a test environment is a pain: you have to set up a   database server and Subversion repository, clear the browser's   cache, make sure the right stanzas are in your Apache configuration   file, and so on.</li>
+  <li>Running tests is slow.  In order to ensure that tests are   independent, you have to create an entirely new fixture for each   test.  This means reinitializing the database, erasing and   re-creating the contents of the Subversion repository, and so on,   which can take several seconds <em>per test</em>.  That translates   into an hour or more for a thousand tests, which means that   developers won't run them routinely while they're coding, and might   not even run them before checking changes in.</li>
 </ol>
 The first step in fixing this is to get rid of the browser and web server.  One way to do this (shown in Figure 2) is to replace the browser with a Python script that generates HTTP requests as multi-line strings and passes them to a "fake CGI" library via a normal method call.  After invoking our actual program, the fake CGI library passes the text of an HTTP response back to our script, which then checks that the right values are present (about which more in a moment).  The "fake CGI" library's job is to emulate the environment the web app under test would see if it was being invoked as a CGI by Apache: environment variables are set, standard input and output are replaced by string I/O objects, and so on, so that the web app has no (easy) way of knowing that it's being invoked via function call, rather than being forked.
 
@@ -53,9 +53,9 @@ And now for the bad news.  We haven't implemented all of this yet—in particula
 
 <hr />[1] Assuming we're generating well-formed HTML, which of course we should be.See also:
 <ul>
-	<li>Steve Freeman, Nat Pryce, Tim Mackinnon, and Joe Walnes: <a href="http://www.jmock.org/oopsla2004.pdf">Mock Roles, Not Objects</a>.</li>
-	<li>The <a href="http://httpunit.sourceforge.net/">HttpUnit</a> site.</li>
-	<li>Gerard Meszaros: <a href="http://xunitpatterns.com/">XUnit Testing Patterns</a>.</li>
-	<li>Gary Pollice: <a href="http://www-128.ibm.com/developerworks/rational/library/oct06/pollice/index.html">Using mock objects for complex unit tests</a>.</li>
+  <li>Steve Freeman, Nat Pryce, Tim Mackinnon, and Joe Walnes: <a href="http://www.jmock.org/oopsla2004.pdf">Mock Roles, Not Objects</a>.</li>
+  <li>The <a href="http://httpunit.sourceforge.net/">HttpUnit</a> site.</li>
+  <li>Gerard Meszaros: <a href="http://xunitpatterns.com/">XUnit Testing Patterns</a>.</li>
+  <li>Gary Pollice: <a href="http://www-128.ibm.com/developerworks/rational/library/oct06/pollice/index.html">Using mock objects for complex unit tests</a>.</li>
 </ul>
-<hr /><em>Later: Titus Brown posted a short <a href="http://ivory.idyll.org/blog/nov-06/making-in-process-xmlrpc-calls.html">note</a> on bypassing the server when testing apps running on <a href="http://wsgi.org/wsgi">WSGI</a>.  I'd really like to try this out...</em>
+<hr /><em>Later: Titus Brown posted a short <a href="http://ivory.idyll.org/blog/nov-06/making-in-process-xmlrpc-calls.html">note</a> on bypassing the server when testing apps running on <a href="http://wsgi.org/wsgi">WSGI</a>.  I'd really like to try this out…</em>

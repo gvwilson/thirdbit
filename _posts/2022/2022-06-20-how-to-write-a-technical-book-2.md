@@ -12,7 +12,7 @@ here are a few more tips for anyone thinking about writing a technical book.
     Go through your two favorite technical books and make notes about
     what their authors have done well.
     Doing this will give you some ideas for your own book,
-    but it will also help you become more conscious of your writing---in musical terms,
+    but it will also help you become more conscious of your writing—in musical terms,
     help you learn how to listen to yourself while you're playing.
     I learned a lot by reading Brian Kernighan and Jon Udell,
     but your tastes may vary.
@@ -55,7 +55,7 @@ here are a few more tips for anyone thinking about writing a technical book.
     so do that.
 
 7.  **Check your facts.**
-    It doesn't matter how well you know your chosen subject---something
+    It doesn't matter how well you know your chosen subject—something
     will have changed since the last time you looked.
     And even if it hasn't,
     it will in the year or more it takes you to write your book.

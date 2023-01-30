@@ -116,25 +116,25 @@ I finally got a summary of graduate students feedback on the consulting course I
 </table>
 Advice to people who are considering the course in the future:
 <ul>
-	<li>If there's a project you're interested in or something you want to learn, this is a great way to spend time doing it and getting a course credit at the same time.</li>
-	<li>Great course. Find a good project and give 'er.</li>
-	<li>This course is what you make of it. You can mold the course in order to get out more of what you are interested in. I found this freedom great!</li>
-	<li>Lots of projects to choose from.</li>
-	<li>Good if you want some public speaking experience.</li>
-	<li>This course is very good for undergraduate students. It will enhance their coding skills and give them a good opportunity to find a job (by linking them to people in industry). If you are a graduate student and your thesis involves building an application, it's a very good chance to pass a course as you are doing so.</li>
-	<li>Great course. You will learn a lot, but make sure you make realistic estimates of how long everything will take, otherwise it will be too much work.</li>
+  <li>If there's a project you're interested in or something you want to learn, this is a great way to spend time doing it and getting a course credit at the same time.</li>
+  <li>Great course. Find a good project and give 'er.</li>
+  <li>This course is what you make of it. You can mold the course in order to get out more of what you are interested in. I found this freedom great!</li>
+  <li>Lots of projects to choose from.</li>
+  <li>Good if you want some public speaking experience.</li>
+  <li>This course is very good for undergraduate students. It will enhance their coding skills and give them a good opportunity to find a job (by linking them to people in industry). If you are a graduate student and your thesis involves building an application, it's a very good chance to pass a course as you are doing so.</li>
+  <li>Great course. You will learn a lot, but make sure you make realistic estimates of how long everything will take, otherwise it will be too much work.</li>
 </ul>
 General Comments—Good
 <ul>
-	<li>Provides great insight into large project development.</li>
-	<li>Lecturer was outstanding!</li>
-	<li>Interesting discussions.</li>
-	<li>You can do many different things (develop applications) in this course.</li>
-	<li>Learn a lot; things you won't learn in any other course.</li>
-	<li>Hands-on learning and real-world experience.</li>
+  <li>Provides great insight into large project development.</li>
+  <li>Lecturer was outstanding!</li>
+  <li>Interesting discussions.</li>
+  <li>You can do many different things (develop applications) in this course.</li>
+  <li>Learn a lot; things you won't learn in any other course.</li>
+  <li>Hands-on learning and real-world experience.</li>
 </ul>
 General Comments—Bad
 <ul>
-	<li>Very code intensive, not very appropriate for grad students if the project is irrelevant to their research.</li>
+  <li>Very code intensive, not very appropriate for grad students if the project is irrelevant to their research.</li>
 </ul>
 I'm now looking for project ideas for students in the fall—if you're interested, please drop me a line.

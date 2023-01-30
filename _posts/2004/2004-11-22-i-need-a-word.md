@@ -1,5 +1,5 @@
 ---
-title: "I Need a Word..."
+title: "I Need a Word…"
 date: 2004-11-22 14:00:47
 year: 2004
 ---

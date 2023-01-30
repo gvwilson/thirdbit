@@ -8,5 +8,5 @@ Apparently we're becoming less creative. Well, Americans are, anyway, according 
 The good news, training can help:
 <blockquote>The good news is that creativity training that aligns with the new  science works surprisingly well. The University of Oklahoma, the  University of Georgia, and Taiwan's National Chengchi University each  independently conducted a large-scale analysis of such programs. All  three teams of scholars concluded that creativity training can have a  strong effect.</blockquote>
 There's even better news for science fiction geeks like yours truly:
-<blockquote>In middle childhood, kids sometimes create paracosms---fantasies of entire  alternative worlds. Kids revisit their paracosms repeatedly, sometimes  for months, and even create languages spoken there. This type of play  peaks at age 9 or 10, and it's a very strong sign of future creativity.</blockquote>
+<blockquote>In middle childhood, kids sometimes create paracosms—fantasies of entire  alternative worlds. Kids revisit their paracosms repeatedly, sometimes  for months, and even create languages spoken there. This type of play  peaks at age 9 or 10, and it's a very strong sign of future creativity.</blockquote>
 I have this picture in my head of a stern parent saying, "Nope: no ice cream 'til you watch your <em>Star Trek</em>." :-)

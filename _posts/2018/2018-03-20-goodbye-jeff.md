@@ -33,5 +33,5 @@ but I'm going to miss you so much.
 <img src="{{ '/files/2018/03/jeff.png' | relative_url }}" alt="Jeff Wilson" height="380" />
 <img src="{{ '/files/2018/03/jeff-obituary.jpg' | relative_url }}" alt="Jeff Wilson" height="380" />
 
-[Jeff Wilson](http://www.inmemoriamts.ca/notices/Jeffrey-Wilson)<br/>
+[Jeff Wilson](http://www.inmemoriamts.ca/notices/Jeffrey-Wilson)<br>
 November 18, 1965 - March 20, 2018

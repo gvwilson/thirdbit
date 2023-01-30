@@ -16,4 +16,4 @@ For more information please contact:
 
 Zuzel Vera Pacheco
 zuzelvp@cs.toronto.edu</blockquote>
-If you can help, please give her a shout---we could all learn something cool.
+If you can help, please give her a shout—we could all learn something cool.

@@ -26,7 +26,7 @@ In more detail, this is the problem I'm trying to solve:
 4.  But every modern language has a way to create and distribute software and related files,
     such as packages in R, eggs or wheels in Python, or gems in Ruby,
     so a third option is for the instructor to create a package for learners to install.
-    (A lesson package would just have a higher documentation-to-code ratio than usual...)
+    (A lesson package would just have a higher documentation-to-code ratio than usual…)
 
 5.  Distributing exercises as packages appeals because it would leverage existing tools
     to handle dependencies.
@@ -84,7 +84,7 @@ A few related points:
     there doesn't yet seem to be a widely-used YAML or Markdown layout for describing courses or exercises.
     (Again, SCORM is LMS-facing, not learner-facing.)
 
-I'm probably over-thinking this---I tend to do that---but `install.packages("stats454-ex3")` really appeals to me:
+I'm probably over-thinking this—I tend to do that—but `install.packages("stats454-ex3")` really appeals to me:
 it uses existing infrastructure to share things,
 and it gives learners practice in managing their machine the way we want them to.
 And as a growing number of people adopt semi-formal standards for the structure of their GitHub repositories
@@ -95,7 +95,7 @@ it doesn't seem crazy to hope for `INSTRUCTIONS.md` or the like
 with a few keywords in a YAML header
 to make lessons and exercises easier to find, share, and do.
 If this already exists and I'm just looking in the wrong place,
-please [let me know](mailto:gvwilson@third-bit.com).
+please [let me know](mailto:{{site.author.email}}).
 
 *Note: I apologize for asking for feedback via email,
 but I've had to close comments on this blog because of trolls.*

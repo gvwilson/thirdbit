@@ -14,7 +14,7 @@ an incident of sexual assault that took place at the company in 2017.
 They euphemistically refer to it as "unwanted physical contact",
 and the rest of their post is written in the same vein.
 (Apparently the investigation was conducted by "a third party not involved in DataCamp’s day-to-day business",
-which begs the question what kind of involvement they *did* have...)
+which begs the question what kind of involvement they *did* have…)
 <https://twitter.com/dataandme/status/1113939480300355584> has a de-euphemized version,
 while <https://twitter.com/no_reply/status/1113923302915837958> and other threads offer analysis.
 

@@ -29,7 +29,7 @@ original: swc
   It would be very cool if they also allowed people to save work in online version control repositories
   such as GitHub.
   Someone who <em>isn't</em> comfortable with version control
-  could simply select "Save..." to push their changes,
+  could simply select "Save…" to push their changes,
   while someone who's already mastered pull requests and merging could interact that way,
   so that once again,
   the system could help people transition gradually from one mode to the other.

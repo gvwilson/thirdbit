@@ -19,5 +19,5 @@ original: swc
   (You need to enter a name–any will do–on the launch page for the recording,
   and then scroll ahead manually to 00:04:54 to hear them
   because the Flash player won't let me hyperlink directly to a particular time mark.
-  The irony of both hasn't escaped us...)
+  The irony of both hasn't escaped us…)
 </p>

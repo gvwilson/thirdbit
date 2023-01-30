@@ -54,4 +54,4 @@ I wish the people who hire them knew it too
 and gave them the time to practice
 so that they could do something great in just one take.
 
-Shake it up baby...
+Shake it up baby…

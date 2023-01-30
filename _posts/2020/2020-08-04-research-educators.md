@@ -38,5 +38,5 @@ without being trained for it.
 and offshoots like [RStudio's instructor training program](https://education.rstudio.com/trainers/)
 are to research educators what the Carpentries' workshops are to research software engineering.
 Call it the first step,
-or the bare minimum it's reasonable to expect everyone to know---either way,
+or the bare minimum it's reasonable to expect everyone to know—either way,
 they're meant to be starting points rather than goalposts.

@@ -9,7 +9,7 @@ I was recently reminded of a thought-provoking but often-overlooked essay by Pet
 called "Programming as Theory Building"
 ([scan here](http://pages.cs.wisc.edu/~remzi/Naur.pdf), [plain text here](http://www.dc.uba.ar/materias/plp/cursos/material/programmingAsTheoryBuilding)).
 He suggests that,
-"...programming properly should be regarded as an activity by which the programmers form or achieve a certain kind of insight,
+"…programming properly should be regarded as an activity by which the programmers form or achieve a certain kind of insight,
 a theory,
 of the matters at hand.
 This suggestion is in contrast to what appears to be a more common notion,

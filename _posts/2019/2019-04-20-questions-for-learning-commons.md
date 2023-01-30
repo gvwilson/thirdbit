@@ -15,7 +15,7 @@ A centralized platform is also a single point of failure,
 socially as well as technically:
 "too big to fail" often means "too big to leave",
 and as my brother used to say,
-if you can't afford to walk away, you're not negotiating---you're begging.
+if you can't afford to walk away, you're not negotiating—you're begging.
 
 I therefore believe the best way forward is to foster a commons:
 a set of resources accessible to all members of a community which in turn manages those resources.

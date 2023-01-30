@@ -125,7 +125,7 @@ original: swc
   "If you want to return values from the middle of a function,
   what you really have is two functions,"
   but on the other hand,
-  maybe I'm just looking for analogies...)
+  maybe I'm just looking for analogies…)
 </p>
 <p>
   Overall,

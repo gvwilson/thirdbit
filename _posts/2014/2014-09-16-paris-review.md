@@ -14,5 +14,5 @@ year: 2014
   Chandra's own book
   <a href="http://www.amazon.com/Geek-Sublime-The-Beauty-Code/dp/1555976859/"><em>Geek Sublime</em></a>
   has mixed reviews on Amazon,
-  but is now on my reading list...
+  but is now on my reading list…
 </p>

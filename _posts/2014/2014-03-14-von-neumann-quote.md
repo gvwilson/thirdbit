@@ -26,7 +26,7 @@ original: swc
 </p>
 <p>
   I think, nevertheless,
-  that if a competent mathematician...is interested in working on this problem,
+  that if a competent mathematician…is interested in working on this problem,
   he ought to be encouraged.
   The task may turn out to be a thankless one,
   but it is always possible that

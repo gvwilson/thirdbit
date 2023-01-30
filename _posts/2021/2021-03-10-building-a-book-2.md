@@ -98,7 +98,7 @@ and my other book projects does right now.
         - antlr:
           - https://www.antlr.org/
           - ANTLR
-        ...
+        …
     ```
     To get around [this bug](https://stackoverflow.com/questions/66320774/how-to-pre-define-links-in-jekyll-config-yml-using-kramdown-links-def-options),
     though,
@@ -112,7 +112,7 @@ and my other book projects does right now.
         "acorn": ["https://github.com/acornjs/acorn", "acorn.js"],
         "alloy": ["https://alloytools.org/", "Alloy"],
         "antlr": ["https://www.antlr.org/", "ANTLR"],
-        ...
+        …
       }
     ```
     I can then write `{% raw %}[Acorn][acorn]{% endraw %}` everywhere in my pages,

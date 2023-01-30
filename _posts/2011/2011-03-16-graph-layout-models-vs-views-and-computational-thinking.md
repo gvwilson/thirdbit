@@ -48,17 +48,17 @@ title: Graph Layout, Models vs. Views, and Computational Thinking
   q_automation [label="How can I automate this task?"];
   q_avoid_bugs [label="How can avoid creating bugs in my programs?"];
   q_code_reuse [label="How can I make my code easier to reuse?"];
-  ...more of these...
+  …more of these…
 
   a_algorithm_data_structure [label="Use the right algorithms and data structures"];
   a_binary_data [label="Manipulate data at the bit level"];
   a_build_tool [label="Use a build tool"];
-  ...more of these...
+  …more of these…
 
   q_automation -- a_build_tool;
   q_speedup -- a_parallelize;
   q_team_programming -- a_code_review;
-  ...more of these...
+  …more of these…
 }</pre>
 <p>So far so good: nodes and edges occupy a single line each, so differences will be easy to see.  And if I'm brave, and speak a little C, I can put C preprocessor commands in my file to make it look like this:</p>
 <pre>/*
@@ -70,17 +70,17 @@ strict graph Course {
   QUESTION(q_automation, "How can I automate this task?");
   QUESTION(q_avoid_bugs, "How can avoid creating bugs in my programs?");
   QUESTION(q_code_reuse, "How can I make my code easier to reuse?");
-  ...more of these..
+  …more of these..
 
   ANSWER(a_algorithm_data_structure, "Use the right algorithms and data structures");
   ANSWER(a_binary_data, "Manipulate data at the bit level");
   ANSWER(a_build_tool, "Use a build tool");
-  ...more of these...
+  …more of these…
 
   QA(q_automation, a_build_tool);
   QA(q_speedup, a_parallelize);
   QA(q_team_programming, a_code_review);
-  ...more of these...
+  …more of these…
 }</pre>
 <p>Why would I do this?  Well, I'm eventually going to add two more kinds of nodes: concepts (like "metadata") and specific lecture topics (like "regular expressions").  I may want to show all four kinds in a single graph, but I will probably also want to show just the answers and lecture topics, or just the questions and concepts, and so on.  With an interactive tool like Gephi, I'd have to hide some nodes, then rearrange the ones that were still visible (and then put them back when I un-hid the hidden nodes).  If I'm compiling, on the other hand, I can undefine the macros for the nodes and links I'm not interested in on the command line when I run the C preprocessor, and then feed the output to GraphViz for layout.</p>
 <p>The key idea here is the separation between <em>model</em> and <em>view</em>.  The model is the stuff: in this case, the nodes in the graph and the edges connecting them.  The view is how that model is presented to a human being, such as a static image (almost impossible to edit meaningfully, but easy to understand), or a dynamic rendering in a tool like Gephi (easy to edit, and also easy to understand).  The textual representation is actually just another view: it isn't the model any more than what's on screen in the Gephi GUI.  We often think of the textual representation as being the model because it's what we store, and what other tools that are more obviously view-ish take as input.</p>

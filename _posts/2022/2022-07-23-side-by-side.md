@@ -19,8 +19,8 @@ but I'm glad they're all together.
 
 <blockquote markdown="1">
 Comes a day, last kiss
-<br/>
+<br>
 Comes a day, last breath
-<br/>
+<br>
 Comes a day—and then another
 </blockquote>

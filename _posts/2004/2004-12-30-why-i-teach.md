@@ -87,12 +87,12 @@ year: 2004
     In a peaceful age I might have written ornate or merely
     descriptive books, and might have remained almost unaware of my
     political loyalties. As it is I have been forced into becoming a
-    sort of pamphleteer... Every line of serious work that I have
+    sort of pamphleteer… Every line of serious work that I have
     written since 1936 has been written, directly or indirectly,
-    against totalitarianism... It seems to me nonsense, in a period
+    against totalitarianism… It seems to me nonsense, in a period
     like our own, to think that one can avoid writing of such
     subjects. Everyone writes of them in one guise or another. It is
-    simply a question of which side one takes...
+    simply a question of which side one takes…
   </p>
 </blockquote>
 <p>

@@ -82,7 +82,7 @@ original: swc
     <ul>
       <li><em>How are donations going?</em>
 	<ul>
-	  <li>A few people have reported that finding money is a struggle bureaucratically, but that's true for instructor travel costs as well.  (We still have to handle each case individually: every university, funding agency, and country has its own rules...)</li>
+	  <li>A few people have reported that finding money is a struggle bureaucratically, but that's true for instructor travel costs as well.  (We still have to handle each case individually: every university, funding agency, and country has its own rules…)</li>
 	  <li>We're working with our Mozilla colleagues to make the process clearer and appreciate your patience and input. If you have suggestions, please contact us directly.</li>
 	</ul>
       </li>

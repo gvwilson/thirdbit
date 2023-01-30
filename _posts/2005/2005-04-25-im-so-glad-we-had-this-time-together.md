@@ -1,5 +1,5 @@
 ---
-title: "I'm So Glad We Had This Time Together..."
+title: "I'm So Glad We Had This Time Together…"
 date: 2005-04-25 10:42:14
 year: 2005
 ---

@@ -11,6 +11,6 @@ Would it be possible to create a centralized campus for decentralized learning i
 
 I think it makes sense from the town's point of view: students would be arriving just as tourists left, and leaving as tourists arrived, so it would even out the town merchants' cash flow. It might not appeal to students who crave the bright lights of the big city, but I think there are plenty of others who'd leap at the chance to be a five minute walk from boating, canoeing, hiking, and the rest of the great outdoors. (And of course you could set up a physical campus for virtual courses in a big city, too, it would just cost more, and you'd have a harder time getting the host city to think you were really important.)
 
-So: is anyone already doing this? If so, I'd welcome pointers...
+So: is anyone already doing this? If so, I'd welcome pointers…
 
 [1] I actually think that invigilation–i.e., exam supervision–is the key to this whole plan. Once online learning really matters, we're going to see cheat-for-hire services appear ("Give me $50 and your login ID, I'll write the calculus exam for you."). Learning providers who want to maintain the value of their degrees or badges will need ways to prevent fraud, so there'll be a need for people like notary publics (notaries public?) to provide such assurances.

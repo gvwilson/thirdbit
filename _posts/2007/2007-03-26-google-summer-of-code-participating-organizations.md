@@ -40,10 +40,10 @@ We are a fairly small group of hackers working on making desktop search 'Just Wo
 <h2>Blender Foundation</h2>
 The Blender Foundation is an independent organisation (a Dutch 'stichting'), acting as a non-profit public benefit corporation, with the following goals:
 <ul>
-	<li>To establish services for active users and developers of Blender</li>
-	<li>To maintain and improve the current Blender product via a public accessible source code system under the GNU GPL license</li>
-	<li>To establish funding or revenue mechanisms that serve the foundation's goals and cover the foundation's expenses</li>
-	<li>To give the worldwide Internet community access to 3D technology in general, with Blender as a core</li>
+  <li>To establish services for active users and developers of Blender</li>
+  <li>To maintain and improve the current Blender product via a public accessible source code system under the GNU GPL license</li>
+  <li>To establish funding or revenue mechanisms that serve the foundation's goals and cover the foundation's expenses</li>
+  <li>To give the worldwide Internet community access to 3D technology in general, with Blender as a core</li>
 </ul>
 <h2>Boost C++</h2>
 Boost provides free peer-reviewed portable C++ source libraries.
@@ -60,15 +60,15 @@ Casetta Projet aims to build a collection of free software to manage data of the
 
 Casetta Projet meets three needs:
 <ol>
-	<li>a transfer tool to receive and send data from/to a calculator.</li>
-	<li>a format converter to let Casetta manage all formats used in proprietary softwares under Windows.</li>
-	<li>a graphical user interface to provide for users a simple way to manage their data, and for developers a good development environment.</li>
+  <li>a transfer tool to receive and send data from/to a calculator.</li>
+  <li>a format converter to let Casetta manage all formats used in proprietary softwares under Windows.</li>
+  <li>a graphical user interface to provide for users a simple way to manage their data, and for developers a good development environment.</li>
 </ol>
 Casetta Project is divided into three sub-project, written in Python:
 <ol>
-	<li>casetta: a python module to manage the data, format conversion and transfers.</li>
-	<li>casetta_cli: a command line interface (can be useful for mass conversion).</li>
-	<li>casetta_gtk: a GUI, written in GTK+2, to provide an easy interface to edit various data type or for format conversion.</li>
+  <li>casetta: a python module to manage the data, format conversion and transfers.</li>
+  <li>casetta_cli: a command line interface (can be useful for mass conversion).</li>
+  <li>casetta_gtk: a GUI, written in GTK+2, to provide an easy interface to edit various data type or for format conversion.</li>
 </ol>
 Another goal of Casetta project is to write documentation about several proprietary file formats of calculator, to help everyone to work in this domain.
 <h2>Center for the Study of Complex Systems (CSCS), University of Michigan</h2>
@@ -104,10 +104,10 @@ The Debian Project is an organisation of volunteers who devote their time and ef
 <h2>Detached Solutions</h2>
 Detached Solutions is a group that serves as an umbrella for a number of different math and calculator related projects on handheld platforms.  We specialize in projects coded for the TI series graphing calculators, but have branched out to other areas as well.  We're interested in proposals to extend our current software, as well as new ideas.  Among the open source projects we host are:
 <ol>
-	<li>Graph3 - A 3D graphing program.  This program was extended in GSoc 2006 to provide support for differential equation graphing.</li>
-	<li>usb8x - A USB host controller driver for the TI-84 Plus.  It allows the calculator to connect to peripheral devices, such as mice, keyboards, hard drives, etc.</li>
-	<li>MirageOS - A popular shell/file manager for the TI-83 Plus and TI-84 Plus.  It was originally closed source but has recently been released under the GPL.</li>
-	<li>Cabamap - A fast, arbitrary precision integer calculation library.</li>
+  <li>Graph3 - A 3D graphing program.  This program was extended in GSoc 2006 to provide support for differential equation graphing.</li>
+  <li>usb8x - A USB host controller driver for the TI-84 Plus.  It allows the calculator to connect to peripheral devices, such as mice, keyboards, hard drives, etc.</li>
+  <li>MirageOS - A popular shell/file manager for the TI-83 Plus and TI-84 Plus.  It was originally closed source but has recently been released under the GPL.</li>
+  <li>Cabamap - A fast, arbitrary precision integer calculation library.</li>
 </ol>
 <h2>Django (Lawrence-Journal World)</h2>
 World Online is the online division of the Lawrence Journal-World. We originally developed Django as an internal project, and we now support and sponsor Django as an open source project.
@@ -118,7 +118,7 @@ Dojo is an Open Source DHTML toolkit written in JavaScript. It aims to solve som
 
 In addition to the Dojo Toolkit, the OpenRecord (http://www.openrecord.org) and Cometd (http://www.cometd.org) projects are part of the Dojo Foundation.
 
-We have set up a summer of code blog discussing the various projects and what else is going on... check it out at http://dojotoolkit.org/support/soc
+We have set up a summer of code blog discussing the various projects and what else is going on… check it out at http://dojotoolkit.org/support/soc
 <h2>Drupal</h2>
 Drupal is a web content management system and web application framework. It is also a vibrant, growing, and fun community of programmers, activists and communicators. The core Drupal software is the poster child for Web 2.0, community driven web site software. The highly extensible architecture supports well over a thousand sub-projects in the form of contributed modules and themes.
 <h2>DSpace</h2>
@@ -216,9 +216,9 @@ At IEM, compositions students are trained in musical acoustics, sound synthesis,
 <h2>ikiwiki</h2>
 The ikiwiki project aims to develop a general-purpose wiki engine, with particular emphasis on personal wikis, project wikis, blogs, and collaborative software development.  We provide several features unique or uncommon amongst wikis:
 <ol>
-	<li>Rather than inventing yet another simplistic, linear revision control system, ikiwiki uses a standard version control system such as Subversion or Git.  You can edit a wiki by committing to your repository, as well as through a traditional web interface.  This makes ikiwiki ideal for collaborative software development; just keep your wiki in version control next to your software.  You can also take advantage of the features of these systems; for instance, you can keep a local branch of your wiki via Git.</li>
-	<li>You can turn any set of pages into an inline news feed, complete with RSS and Atom support.  You can run your weblog on ikiwiki (and many people do), run a Planet-like aggregator for external feeds, or keep a TODO and bug list with tags for completed items.</li>
-	<li>ikiwiki provides a wiki compiler, designed to transform your wiki content into a set of static pages.  You can then serve these pages as static content.  ikiwiki will not fall over during a Slashdotting, because page views don't require the ikiwiki CGI; as long as Apache can keep up, your site will survive.  Furthermore, you can choose whether you want to run the ikiwiki CGI for web edits or only handle commits to the underlying version control system; you can even run ikiwiki privately and just manually copy the content to another server.  So if you want to put a wiki up on a server without installing any software on that server, try ikiwiki.</li>
+  <li>Rather than inventing yet another simplistic, linear revision control system, ikiwiki uses a standard version control system such as Subversion or Git.  You can edit a wiki by committing to your repository, as well as through a traditional web interface.  This makes ikiwiki ideal for collaborative software development; just keep your wiki in version control next to your software.  You can also take advantage of the features of these systems; for instance, you can keep a local branch of your wiki via Git.</li>
+  <li>You can turn any set of pages into an inline news feed, complete with RSS and Atom support.  You can run your weblog on ikiwiki (and many people do), run a Planet-like aggregator for external feeds, or keep a TODO and bug list with tags for completed items.</li>
+  <li>ikiwiki provides a wiki compiler, designed to transform your wiki content into a set of static pages.  You can then serve these pages as static content.  ikiwiki will not fall over during a Slashdotting, because page views don't require the ikiwiki CGI; as long as Apache can keep up, your site will survive.  Furthermore, you can choose whether you want to run the ikiwiki CGI for web edits or only handle commits to the underlying version control system; you can even run ikiwiki privately and just manually copy the content to another server.  So if you want to put a wiki up on a server without installing any software on that server, try ikiwiki.</li>
 </ol>
 <h2>Inkscape</h2>
 We are a friendly group of volunteers who create and maintain a vector graphics drawing program that is well loved by both artists and non-artists.  It is used for producing logos, icons, posters, web site designs, and general art.  It's been used for everything from desktop backgrounds to ad layouts for Indy cars, to a detective's crime scene diagram, to designs etched into iBooks.  We've got a very active community that loves experimentation and supporting developers with new ideas.
@@ -247,7 +247,7 @@ MacPorts is a port package for Mac OS X. We have about 3800 active ports, many o
 
 MacPorts is the one of the primary means by which open source software is compiled for and installed onto Mac OS X, and is thus a primary interface between Mac OS and the rest of the open source world.
 <h2>maemo</h2>
-Maemo provides an open source development platform for Nokia Internet Tablets and other Linux-based devices. It is build from components widely used in open desktop and mobile/embedded systems: the Linux kernel, Xserver, DBus, GTK+, Gstreamer, Telepathy, GnomeVFS... We develop the Hildon Application Framework in order to integrate functionality and user interface to the maemo platform. We also provide a Software Development Kit containing the tools needed to create and port applications, replicating the Internet Tablet environment in a PC.
+Maemo provides an open source development platform for Nokia Internet Tablets and other Linux-based devices. It is build from components widely used in open desktop and mobile/embedded systems: the Linux kernel, Xserver, DBus, GTK+, Gstreamer, Telepathy, GnomeVFS… We develop the Hildon Application Framework in order to integrate functionality and user interface to the maemo platform. We also provide a Software Development Kit containing the tools needed to create and port applications, replicating the Internet Tablet environment in a PC.
 <h2>MetaBrainz Foundation</h2>
 The MetaBrainz Foundation is a 501(c)3 non-profit which operates the MusicBrainz Project. MusicBrainz is essentially Wikipedia for music: We are attempting to create a comprehensive user contributed music encyclopedia. We would like to catalog all music from all ages, all corners of the world and all ethnic groups. All of our data is freely downloadable and in the Public Domain and Creative Commons licenses.
 <h2>Mixxx</h2>
@@ -285,11 +285,11 @@ We produce the free and open source Nmap Security Scanner, which will be celebra
 <h2>OGRE</h2>
 We're an open source interactive 3D rendering engine for use in games, simulations, interactive art, museum exhibits, scientific visualisation, and plenty of other things. We've been running for around 6 years now and have gathered a large community around us in that time. You can see our ideas page at http://www.ogre3d.org/wiki/index.php/HelpRequested .
 <h2>One Laptop Per Child</h2>
-One Laptop per Child (OLPC) is a new, non-profit association dedicated to research to develop a $100 laptop---a technology that could revolutionize how we educate the world's children. This initiative was first announced by Nicholas Negroponte at the World Economic Forum at Davos, Switzerland in January 2005.
+One Laptop per Child (OLPC) is a new, non-profit association dedicated to research to develop a $100 laptop—a technology that could revolutionize how we educate the world's children. This initiative was first announced by Nicholas Negroponte at the World Economic Forum at Davos, Switzerland in January 2005.
 
 Our goal: to provide children around the world with new opportunities to explore, experiment, and express themselves.
 
-Please note that the $100 laptops---not yet in production---will not be available for sale. The laptops will only be distributed to schools directly through large government initiatives.
+Please note that the $100 laptops—not yet in production—will not be available for sale. The laptops will only be distributed to schools directly through large government initiatives.
 
 Note that most of the work OLPC needs done needs to be done as part of other existing projects, though there will be some OLPC specific opportunities as well.  We expect work done in various projects should conform to the licensing policies of that project; work on OLPC specific projects will likely be GPL/LGPL/MIT, depending on precise circumstances, to be determined at the time.
 <h2>Open Security Foundation (OSVDB)</h2>
@@ -303,7 +303,7 @@ OpenICC is a group of individuals interested in color management and working on 
 <h2>OpenMoko</h2>
 OpenMoko is the world's first integrated open source mobile communications platform.
 <h2>OpenMRS</h2>
-Our world continues to be ravaged by a pandemic of epic proportions, as over 40 million people are infected with or dying from HIV/AIDS -- most (up to 95%) are in developing countries.  Prevention and treatment of HIV/AIDS on this scale requires efficient information management, which is critical as HIV/AIDS care must increasingly be entrusted to less skilled providers.  Whether for lack of time, developers, or money, most HIV/AIDS programs in developing countries manage their information with simple spreadsheets or small, poorly designed databases...if anything at all.  To help them, we need to find a way not only to improve management tools, but also to reduce unnecessary, duplicative efforts.
+Our world continues to be ravaged by a pandemic of epic proportions, as over 40 million people are infected with or dying from HIV/AIDS -- most (up to 95%) are in developing countries.  Prevention and treatment of HIV/AIDS on this scale requires efficient information management, which is critical as HIV/AIDS care must increasingly be entrusted to less skilled providers.  Whether for lack of time, developers, or money, most HIV/AIDS programs in developing countries manage their information with simple spreadsheets or small, poorly designed databases…if anything at all.  To help them, we need to find a way not only to improve management tools, but also to reduce unnecessary, duplicative efforts.
 
 As a response to these challenges, OpenMRS formed in 2004 as a open source medical record system framework for developing countries -- a tide which rises all ships. OpenMRS is a multi-institution, nonprofit collaborative led by Regenstrief Institute, Inc. (http://regenstrief.org), a world-renowned leader in medical informatics research, and Partners In Health (http://pih.org), a Boston-based philanthropic organization with a focus on improving the lives of underprivileged people worldwide through health care service and advocacy.  These teams nurture a growing worldwide network of individuals and organizations all focused on creating medical record systems and a corresponding implementation network to allow system development self reliance within resource constrained environments. To date, OpenMRS has been implemented in several African countries, including South Africa, Kenya, Rwanda, Lesotho, Uganda, and Tanzania. This work is supported in part by organizations such as the World Health Organization (WHO), the Centers for Disease Control (CDC), the Rockefeller Foundation, and the President's Emergency Plan for AIDS Relief (PEPFAR).
 <h2>OpenOffice.org</h2>
@@ -359,7 +359,7 @@ Scribus brings award-winning professional page layout to Linux/Unix, MacOSX, OS/
 <h2>ScummVM</h2>
 The ScummVM project allows users to run a variety of classical graphical point-and-click adventure games including Monkey Island, Simon the Sorcerer, Space Quest, and many more. To this end, ScummVM features a complete reimplementation of each supported game engine (Virtual Machine - VM). The number of engines is constantly growing thanks to a very agile and diversified development team.
 
-Portability is one of our main concerns, and hence, ScummVM has been ported to numerous platforms: desktop environments (Windows, Mac OS X, Linux, *BSD, Solaris, ...), game consoles (Nintendo DS, PlayStation 2, PlayStation Portable, ...), smart phones and PDAs (WinCE, PalmOS or Symbian based), and others (like BeOS, AmigaOS or OS/2).
+Portability is one of our main concerns, and hence, ScummVM has been ported to numerous platforms: desktop environments (Windows, Mac OS X, Linux, *BSD, Solaris, …), game consoles (Nintendo DS, PlayStation 2, PlayStation Portable, …), smart phones and PDAs (WinCE, PalmOS or Symbian based), and others (like BeOS, AmigaOS or OS/2).
 <h2>SilverStripe CMS &amp; Framework</h2>
 SilverStripe is a PHP5/MySQL-based product that is both a content management system (ala Joomla!, Drupal etc) combined with a rich extendable framework for building websites and web-applications (ala Ruby On Rails, CakePHP). While SilverStripe shares all the buzzwords like MVC, AJAX, Web Standards, we realise how difficult it is to build and maintain complex websites.  We are passionate about improving this and differentiate ourselves by putting the user first (important for open source!) and using contemporary technology (e.g. we consciously don't support PHP4 because making it PHP5+ allows us to do elegant object oriented code as found with RoR).
 
@@ -383,18 +383,18 @@ The Subversion project develops the Subversion version control system, which end
 <h2>Swarm Development Group</h2>
 The Swarm Development Group (SDG) was founded in September 1999 as a private, not-for-profit organization to support the development of the Swarm Simulation System (Swarm) and the interests of the group members. The purposes of the SDG are to:
 <ol>
-	<li>advance the state-of-the-art in multi agent based simulation through the continued advancement of the Swarm Simulation System and support of the Swarm user community</li>
-	<li>promote the free interchange of multi agent based simulations among computing specialists and the public</li>
-	<li>develop and maintain the integrity and competence of individuals engaged in the practice of agent based simulation.</li>
+  <li>advance the state-of-the-art in multi agent based simulation through the continued advancement of the Swarm Simulation System and support of the Swarm user community</li>
+  <li>promote the free interchange of multi agent based simulations among computing specialists and the public</li>
+  <li>develop and maintain the integrity and competence of individuals engaged in the practice of agent based simulation.</li>
 </ol>
 Agent-based models (ABMs) are an exciting new approach for learning about and simulating complex systems, and its use is growing rapidly in science and business. As opposed to traditional modeling techniques that represent systems via differential equations for system state, ABMs represent systems as a collection of digital individuals that each have unique characteristics, interact with each other and their environment, and exhibit adaptive behavior.
 
 Swarm is a platform for ABMs that includes: a conceptual framework for designing, describing, and conducting experiments on ABMs; software implementing that framework and providing many handy tools; and a community of users and developers that share ideas, software, and experience. Swarm was the first of several agent-based modeling platforms that are widely used by scientists and students studying complexity in many fields of science. Swarm was originally developed in the mid-1990s by Chris Langton at the Santa Fe Institute and has an active, international user community. Swarm software is a library of Objective-C classes; users code their models in Objective-C, Java, or C++.
 <h2>Swathanthra Malayalam Computing</h2>
 Swathanthra Malayalam Computing aims to
-	<li>provide Malayalam support for Free Software Operating Systems and Applications</li>
-	<li>develop fonts and other applications for Malayalam computing like optical character recognition , text to speech conversion and English-to-Malayalam/Malayalam-to-English natural language translation</li>
-	<li>localization of of desktop environments like GNOME, KDE ... and applications like Open Office and Firefox.</li>
+  <li>provide Malayalam support for Free Software Operating Systems and Applications</li>
+  <li>develop fonts and other applications for Malayalam computing like optical character recognition , text to speech conversion and English-to-Malayalam/Malayalam-to-English natural language translation</li>
+  <li>localization of of desktop environments like GNOME, KDE … and applications like Open Office and Firefox.</li>
 To summarize, enable anyone who want to use a computer, but only know Malayalam, to use a computer in Malayalam, ie to remove the language barrier to computing.
 
 Note: 'Swathanthra' in Malayalam means Free/Libre
@@ -413,7 +413,7 @@ The Codehaus is an open-source project repository with a strong emphasis on Java
 <h2>The Electronic Frontier Foundation</h2>
 The Electronic Frontier Foundation (EFF), founded in 1990, works in the public interest to protect fundamental civil liberties in the digital age. The Internet and other communication technologies can herald the most liberating era of human history—or the most regulated and controlled.  The EFF works to defend our basic rights to free speech, privacy and free and open communications, and advocates for sane policies on digital copyright, software patents and electronic voting. EFF is a membership supported organization with 27 full-time staff.
 
-We are working closely with The Tor Project (tor.eff.org), a free-software project to build an anonymity toolkit used by individuals, companies, governments, and law enforcement around the world. The Tor network has grown since its start in 2002 to several hundred thousand active users pushing almost 1Gbps of traffic on average. Tor has two full-time developers, plus several dozen other volunteers who help out on a daily basis.  .....  This proposal is a combined submission from EFF and Tor.
+We are working closely with The Tor Project (tor.eff.org), a free-software project to build an anonymity toolkit used by individuals, companies, governments, and law enforcement around the world. The Tor network has grown since its start in 2002 to several hundred thousand active users pushing almost 1Gbps of traffic on average. Tor has two full-time developers, plus several dozen other volunteers who help out on a daily basis.  …..  This proposal is a combined submission from EFF and Tor.
 <h2>The Fedora Project</h2>
 The Fedora Project produces the Fedora Linux distribution, a distribution of Free and Open Source software.  The project is sponsored by Red Hat and driven by the community.
 <h2>The Free Software Initiative of Japan</h2>
@@ -429,7 +429,7 @@ The gEDA Suite is used by students and hobbyists, as well as by professional eng
 
 As for formal organization, we are not incorporated as a 503(c), nor do we have any other sort of legal structure.  However, the main developers (about 10 people) maintain regular e-mail contact, the developer e-mail list handles several dozen e-mails per day, and the major developers telephone each other regularly.  Therefore, we feel confident that we have the required organizational depth to provide support for a Google SoC student.
 <h2>The GGI Project</h2>
-The GGI project is a volunteer organization developing portable lowlevel graphics solution frameworks. It provides various libraries, of which the two most fundamental are LibGII (for input-handling) and LibGGI (for graphical output).  We want to allow any program using GGI to run on any platform or any backend that can act as a display, requiring at most a recompile. Currently supported plateforms are Linux, Windows (MSYS/MingW, Cygwin), Darwin/MacOSX, FreeBSD, OpenBSD, NetBSD, Solaris. In addition to native display systems (DirectX, Quartz, X etc...), GGI offers a set of additonal backends that can be multiplexed (file, memory, vnc, ...).  Our work is used in lots of noncommercial and commercial projects (see http://www.ggi-project.org/links.html for a short list).
+The GGI project is a volunteer organization developing portable lowlevel graphics solution frameworks. It provides various libraries, of which the two most fundamental are LibGII (for input-handling) and LibGGI (for graphical output).  We want to allow any program using GGI to run on any platform or any backend that can act as a display, requiring at most a recompile. Currently supported plateforms are Linux, Windows (MSYS/MingW, Cygwin), Darwin/MacOSX, FreeBSD, OpenBSD, NetBSD, Solaris. In addition to native display systems (DirectX, Quartz, X etc…), GGI offers a set of additonal backends that can be multiplexed (file, memory, vnc, …).  Our work is used in lots of noncommercial and commercial projects (see http://www.ggi-project.org/links.html for a short list).
 <h2>The Space Telescope Science Institute</h2>
 The Space Telescope Science Institute (STScI) is the science operations center for the Hubble Space Telescope (HST; in orbit since 1990) and for the James Webb Space Telescope (JWST; scheduled to be launched in 2013). STScI is located on the Johns Hopkins University Homewood campus in Baltimore, Maryland and was established in 1981 as a community-based science center that is operated for NASA by the Association of Universities for Research in Astronomy (AURA). Today, in addition to performing continuing science operations of HST and preparing for scientific exploration with JWST, STScI manages and operates the Multi-mission Archive at Space Telescope (MAST), the Data Management Center for the Kepler mission and a number of other activities benefiting from its expertise in and infrastructure for supporting the operations of space-based astronomical observatories. The staff at STScI consists of scientists (mostly astronomers and astrophysicists), software engineers, data management and telescope operations personnel, education and public outreach experts, and administrative and business support personnel. There are approximately 100 Ph.D. scientists working at STScI, 15 of which are ESA staff who are on assignment to the HST project. The total STScI staff consists of about 350 people.
 

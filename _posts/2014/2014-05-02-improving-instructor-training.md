@@ -163,5 +163,5 @@ original: swc
   <li>I found the remote teaching a bit hard to follow and think it could have been connected to how/why webcast versus screencast</li>
   <li>Felt the discussion about how to do screencasts/remote lectures got muddled. Content vs. medium vs. performance</li>
   <li>Greg interrupting the guest speaker - more so than Warren. I get that it's a nervous tick but it seemed disproportionate based on gender overall.</li>
-  <li>Greg, please reduce the "hands up who..." technique especially as in "Hands up who breathes?" (everyone reluctantly puts a hand up). Feels like hammering an obvious point home unnecessarily.</li>
+  <li>Greg, please reduce the "hands up who…" technique especially as in "Hands up who breathes?" (everyone reluctantly puts a hand up). Feels like hammering an obvious point home unnecessarily.</li>
 </ul>

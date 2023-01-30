@@ -2,7 +2,7 @@
 date: 2010-10-30 11:00:00
 year: 2010
 original: swc
-title: Would You Prefer...
+title: Would You Prefer…
 ---
 <p>Here are three instructional videos that I enjoyed watching:</p>
 <ul>

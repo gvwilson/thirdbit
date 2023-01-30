@@ -8,28 +8,28 @@ title: Re-doing the Three-Minute Pitch
 <p>Opening slide: large logo, the title "Computing Skills for Scientists and Engineers", and a small block at the bottom with the date and license.</p>
 <p>Our mission is</p>
 <ul>
-<li>to help scientists and engineers be more productive...</li>
-<li>...by teaching them basic computing skills</li>
+<li>to help scientists and engineers be more productive…</li>
+<li>…by teaching them basic computing skills</li>
 </ul>
 <p>The problem is</p>
 <ul>
-<li>that scientists and engineers spend 40% or more of their time wrestling with software...</li>
-<li>...but more than 95% are largely self-taught...</li>
-<li>...so they spend hours doing what should take minutes...</li>
-<li>...reinvent a <em>lot</em> of wheels...</li>
-<li>...and still don't know whether their results are reliable or not</li>
+<li>that scientists and engineers spend 40% or more of their time wrestling with software…</li>
+<li>…but more than 95% are largely self-taught…</li>
+<li>…so they spend hours doing what should take minutes…</li>
+<li>…reinvent a <em>lot</em> of wheels…</li>
+<li>…and still don't know whether their results are reliable or not</li>
 </ul>
 <p>Our solution</p>
 <ul>
-<li>combines short, intensive workshops...</li>
-<li>...with self-paced online instruction...</li>
+<li>combines short, intensive workshops…</li>
+<li>…with self-paced online instruction…</li>
 </ul>
 <p>The benefit is</p>
 <ul>
 <li>more confidence that computational results are correct</li>
-<li>and <em>significant increases in productivity</em>...</li>
-<li>...a day a week is common...</li>
-<li>...and 10X isn't rare</li>
+<li>and <em>significant increases in productivity</em>…</li>
+<li>…a day a week is common…</li>
+<li>…and 10X isn't rare</li>
 </ul>
 <p>Our workshops cover</p>
 <ul>
@@ -43,8 +43,8 @@ title: Re-doing the Three-Minute Pitch
 </ul>
 <p>Our online instruction</p>
 <ul>
-<li>goes into these topics in more detail...</li>
-<li>...and continues with:</li>
+<li>goes into these topics in more detail…</li>
+<li>…and continues with:</li>
 <li>program design and construction</li>
 <li>matrix programming</li>
 <li>using spreadsheets in a disciplined way</li>
@@ -53,9 +53,9 @@ title: Re-doing the Three-Minute Pitch
 </ul>
 <p>Our content is</p>
 <ul>
-<li>all available online...</li>
-<li>...under a Creative Commons license...</li>
-<li>...so you are free to re-use and re-mix it</li>
+<li>all available online…</li>
+<li>…under a Creative Commons license…</li>
+<li>…so you are free to re-use and re-mix it</li>
 </ul>
 <p>Our work is supported by</p>
 <ul>
@@ -82,13 +82,13 @@ title: Re-doing the Three-Minute Pitch
 </ul>
 <p>We also depend on contributions from people like you, who</p>
 <ul>
-<li>give us feedback...</li>
-<li>...create lessons and exercises...</li>
-<li>...and organize and deliver workshops</li>
+<li>give us feedback…</li>
+<li>…create lessons and exercises…</li>
+<li>…and organize and deliver workshops</li>
 </ul>
 <p>For more information, to get involved, or for help organizing a workshop, please</p>
 <ul>
-<li>visit us online...</li>
-<li>...follow us on Twitter...</li>
-<li>...or email us.</li>
+<li>visit us online…</li>
+<li>…follow us on Twitter…</li>
+<li>…or email us.</li>
 </ul>

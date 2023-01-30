@@ -80,7 +80,7 @@ original: swc
     and <a href="http://neverworkintheory.org/2014/01/29/stefik-siebert-syntax.html">recently published</a>
     a larger study using three different investigative techniques
     that bears out the results of the original paper.
-    (I'm hoping to get them to repeat their study for Python, Perl, R, and MATLAB some time this year...)
+    (I'm hoping to get them to repeat their study for Python, Perl, R, and MATLAB some time this year…)
   </li>
   <li>
     <a href="http://neverworkintheory.org/2011/12/02/the-fcs1-a-language-independent-assessment-of-cs1-knowledge.html">The FCS1: A Language Independent Assessment of CS1 Knowledge</a>:

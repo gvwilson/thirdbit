@@ -9,9 +9,9 @@ His government
 [scrapped the long-form national census](http://www.theglobeandmail.com/news/politics/cities-footing-the-bill-for-data-gap-after-long-form-census-scrapped/article22695286/),
 [threw out entire libraries' worth of scientific data](https://thetyee.ca/News/2013/12/23/Canadian-Science-Libraries/),
 and did everything else it could to make informed debate about key policy issues impossible.
-It's an effective tactic---if the facts are on your opponent's side,
+It's an effective tactic—if the facts are on your opponent's side,
 get rid of them,
-so that the debate becomes your word against theirs---but
+so that the debate becomes your word against theirs—but
 the long-term damage to both science and the country is immense.
 
 Earlier this week,

@@ -28,7 +28,7 @@ original: swc
     The template needs to be much simpler.  As Andromeda Yelton said,
     "It just looks to me like a minefield of ways to get things
     wrong–things that have <em>nothing to do with
-    pedagogy</em>..."
+    pedagogy</em>…"
   </li>
   <li>
     There needs to be a validator that authors can run locally before
@@ -103,7 +103,7 @@ original: swc
   </li>
   <li>
     Trevor Bekolay writes:
-    <br/>
+    <br>
     I took a stab at implementing a minimal motivation slides.
     Unfortunately this isn't very clean right now; I just included the
     &lt;section&gt; and &lt;script&gt; tags in the Markdown, which I know
@@ -429,7 +429,7 @@ and possibly including:
 ---
 layout: reference
 ---
-...commands and examples...
+…commands and examples…
 
 ## Glossary
 

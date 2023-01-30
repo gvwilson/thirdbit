@@ -21,7 +21,7 @@ year: 2015
   If you know of something,
   please give it a try and let me know how it does:
   the raw bibliography data is in <a href="https://software-carpentry.org/bib/software-carpentry.bib">this BibTeX file</a>,
-  and I'm <a href="mailto:gvwilson@third-bit.com">easy to reach</a>.
+  and I'm <a href="mailto:{{site.author.email}}">easy to reach</a>.
 </p>
 <p>
   <strong>Problem #2</strong>
@@ -52,7 +52,7 @@ year: 2015
   Printed copies of the award winners are apparently archived in Washington DC,
   but that's not much help.
   If you know how I could do this,
-  I really am <a href="mailto:gvwilson@third-bit.com">easy to reach</a>.
+  I really am <a href="mailto:{{site.author.email}}">easy to reach</a>.
 </p>
 <p id="1">
   [1] Note that I'm talking here about computer science as a research area,

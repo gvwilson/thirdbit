@@ -20,7 +20,7 @@ ambiguity" and "Great researchers know how to sell an idea" was one
 that particularly struck me:
 <blockquote><em>
 If you do not work on an important problem, it's unlikely you'll do
-important work...  Great scientists have thought through, in a careful
+important work…  Great scientists have thought through, in a careful
 way, a number of important problems in their field, and they keep an
 eye on wondering how to attack them.  Let me warn you, 'important
 problem' must be phrased carefully.  The three outstanding problems in
@@ -29,7 +29,7 @@ Labs.  By important I mean guaranteed a Nobel Prize and any sum of
 money you want to mention.  We didn't work on (1) time travel, (2)
 teleportation, and (3) antigravity.  They are not important problems
 because we do not have an attack.  It's not the consequences that
-makes a problem ipmortant, it is that you have a reasonable attack...
+makes a problem ipmortant, it is that you have a reasonable attack…
 When I say that most scientists don't work on important problems, I
 mean it in that sense.  The average scientist, so far as I can make
 out, spends almost all of his time working on problems which he
@@ -55,25 +55,25 @@ seem to have any, I felt I should go and do something else.
 Ten years and several micro-careers later, I think I've finally
 figured out a way to find big ideas (and important problems):
 <ol>
-	<li>Look at how people (especially people in their teens and twenties)
+  <li>Look at how people (especially people in their teens and twenties)
 are actually using computers.</li>
-	<li>Draw up a list of things that software developers find
+  <li>Draw up a list of things that software developers find
 frustrating, time-consuming, or error-prone.</li>
-	<li>See if anything from the first list can be used to solve problems
+  <li>See if anything from the first list can be used to solve problems
 in the second.</li>
 </ol>
 For example, a growing number of students are using <a href="http://www.codingmonkeys.de/subethaedit/">SubEthaEdit</a> to <a href="http://www.insanecats.com/cgi-bin/single.py?month=apr05&msg=26">take
 notes collaboratively</a> during lectures.  Questions:
 <ol>
-	<li>How do editing patterns compare with those of multi-author
+  <li>How do editing patterns compare with those of multi-author
 wikis?  Classroom notes are taken in real time, by people who are
 more likely to have direct contact; will we see the same <a href="http://opensource.mit.edu/papers/viegaswattenbergdave.pdf">patterns
 of collaboration and competition that researchers have found at </a><a href="http://www.wikipedia.org">Wikipedia</a> and elsewhere?</li>
-	<li>Are notes taken this way more useful to students?  To
+  <li>Are notes taken this way more useful to students?  To
 instructors (as feedback on what students are actually getting out
 of lectures)?  Either way, how can we enhance or customize
 collaborative editors to improve the student experience?</li>
-	<li>What other tasks can collaborative note-taking be applied to?
+  <li>What other tasks can collaborative note-taking be applied to?
 <a href="http://www.cs.utoronto.ca/~sme">Steve Easterbrook</a>
 suggested using it in requirements analysis sessions, so that
 customers could see the analyst's impression of what they'd said
@@ -103,11 +103,11 @@ pieces of code "A" and "B"; can you use heuristic search to turn "A"
 into "B" using only well-defined refactorings?  If so, I can think of
 several applications:
 <ol>
-	<li>When a student hands in an assignment, run the tool in order to
+  <li>When a student hands in an assignment, run the tool in order to
 provide marking assistance: "Class XYZ ought to be split, and method
 M made abstract, in order to conform with the instructor's
 solution."</li>
-	<li>When looking at two snapshots from a version control repository,
+  <li>When looking at two snapshots from a version control repository,
 see if you can reverse engineer a sequence of refactorings to
 account for the changes, in the spirit of Parnas and Clements'
 famous paper <a href="http://objectz.com/columnists/parnas&clements/09152003.asp">"A
@@ -128,19 +128,19 @@ find any correlation between the way students used CVS
 repositories in a second-year course, and the grades they were given.
 So:
 <ol>
-	<li>What's the correspondence between student use of the web portal,
+  <li>What's the correspondence between student use of the web portal,
 and how students actually program?</li>
-	<li>What are the differences between the way students use
+  <li>What are the differences between the way students use
 collaborative tools, and the way professional programmers
 (particularly those working on open source projects) use them?
 Should we try to close that gap?  If so, how?</li>
 </ol>
 Last but not least are three accelerating trends:
 <ul>
-	<li>giving programmers more ways to express abstraction in
+  <li>giving programmers more ways to express abstraction in
 programs;</li>
-	<li>building applications as extensible frameworks; and</li>
-	<li>using XML-based markup, rather than arbitrary text formats, to
+  <li>building applications as extensible frameworks; and</li>
+  <li>using XML-based markup, rather than arbitrary text formats, to
 store data.</li>
 </ul>
 I believe the logical endpoint of this convergence is extensible
@@ -148,7 +148,7 @@ programming systems, in which "programs" are mixed-media
 representations of application code, meta-code for tools such as
 compilers and debuggers, and meta-data such as class diagrams and
 pictures of the dev team.  Pretty much everyone else is already
-there---just take a look at what's into Word documents, CAD diagrams,
+there—just take a look at what's into Word documents, CAD diagrams,
 or the web site of your favorite band.  Sooner or later, programmers
 are going to join the future too, which opens up a host of research
 problems.

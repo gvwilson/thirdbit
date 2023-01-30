@@ -20,4 +20,4 @@ whether a human being exhibits *interesting* behavior:
     classify the person as "uninteresting".
 
 I'm pretty sure that [some prominent people](https://en.wikipedia.org/wiki/Donald_Trump)
-would fail to pass this test...
+would fail to pass this test…

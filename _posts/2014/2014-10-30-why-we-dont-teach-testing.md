@@ -15,7 +15,7 @@ original: swc
   though,
   when she posted <a href="http://nbviewer.ipython.org/github/numerical-mooc/numerical-mooc/blob/master/lessons/03_wave/03_03_aBetterModel.ipynb">this notebook</a>,
   I tweeted,
-  "Beautiful... but where are the unit tests?"
+  "Beautiful… but where are the unit tests?"
   In the wake of
   <a href="https://twitter.com/lorenaabarba/status/527149484942585856">the discussion that followed</a>,
   I'd like to explain why we no longer require people to teach testing as part of the Software Carpentry core,
@@ -108,7 +108,7 @@ original: swc
   (As the joke goes,
   particle physicists worry about significant digits in the mantissa,
   while astronomers worry about significant digits in the exponent,
-  and economists are happy if they can get the sign right...)
+  and economists are happy if they can get the sign right…)
 </p>
 <p>
   The second problem is the breathtaking diversity of scientific code.
@@ -128,7 +128,7 @@ original: swc
 <blockquote>
   <p>
     You reference in your post our lesson on
-    <a href="http://nbviewer.ipython.org/github/numerical-mooc/numerical-mooc/blob/master/lessons/01_phugoid/01_03_PhugoidFullModel.ipynb">the full (nonlinear) phugoid model</a>...
+    <a href="http://nbviewer.ipython.org/github/numerical-mooc/numerical-mooc/blob/master/lessons/01_phugoid/01_03_PhugoidFullModel.ipynb">the full (nonlinear) phugoid model</a>…
   </p>
   <p>
     If you notice there,

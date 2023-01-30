@@ -5,13 +5,13 @@ year: 2004
 ---
 <p>We held the post-mortem
 for Helium this
-morning.  Lots of things went wrong, but many more went right---it was
+morning.  Lots of things went wrong, but many more went right—it was
 a fun, productive summer.</p>
 
 <p>Lots of things contributed to the fun, but much of the productivity
 can be attributed to one thing: everyone learned to use modern tools,
 and adopted good working practices.  Many projects stumble or fail
-because programmers aren't willing to do this---far too many, young as
+because programmers aren't willing to do this—far too many, young as
 well as old, still insist on using Vim, Emacs, and other legacy tools.
 This doesn't just make <em>them</em> less productive; it also
 handicaps the rest of the team, since it prevents people learning from
@@ -30,7 +30,7 @@ will be run:</p>
     <td>  </td>
     <td valign="top">
       <b>Everything important is versioned.</b>
-      Source code, web pages... anything and everything that you need
+      Source code, web pages… anything and everything that you need
       to build, install, or debug the project goes into the Subversion
       repository.
     </td>
@@ -91,7 +91,7 @@ will be run:</p>
       Code is done when it's all typed in; code is done when it
       works, and "working" means "working for everyone, everywhere,
       every time".  (Yes, this means that most software is never
-      done...)  When your tests turn up bugs, file 'em and fix 'em
+      done…)  When your tests turn up bugs, file 'em and fix 'em
       before implementing more features.  Experience shows that this
       will make your work faster, since you won't constantly be
       doubling back to shore up the foundations.
@@ -109,7 +109,7 @@ will be run:</p>
       email conversations?  Grab a teammate and a whiteboard, and
       explain what you're about to do, or send email to the list,
       or fire up IM.  Anything, just as long as someone else gets
-      a chance to tell you when you should switch back to decaf...
+      a chance to tell you when you should switch back to decaf…
     </td>
   </tr>
 
@@ -132,11 +132,11 @@ will be run:</p>
     <td valign="top">
       <b>Have fun.</b>
       This is the most important rule of all.  ("Floggings will
-      continue until morale improves...")  Your project isn't just
-      about marks---it's about learning new things, making new
+      continue until morale improves…")  Your project isn't just
+      about marks—it's about learning new things, making new
       friends, and building something you can be proud of.  Most of
       the students who've done projects in the past have had a lot
-      of fun---we hope you will too.
+      of fun—we hope you will too.
     </td>
   </tr>
 

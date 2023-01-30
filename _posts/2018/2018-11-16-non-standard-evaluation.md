@@ -241,7 +241,7 @@ tree &lt;- parse(text = combined)</code></pre>
 <p>but what kind of thing is it?</p>
 <pre class="r"><code>typeof(my_expr)
 #&gt; [1] &quot;symbol&quot;</code></pre>
-<p>A symbol is a kind of expression. It is not a string (though strings can be converted to symbols and symbols to strings) nor is it a value---not yet. If we try to get the value it refers to, R displays an error message:</p>
+<p>A symbol is a kind of expression. It is not a string (though strings can be converted to symbols and symbols to strings) nor is it a value—not yet. If we try to get the value it refers to, R displays an error message:</p>
 <pre class="r"><code>eval(my_expr)
 #&gt; Error in eval(my_expr): object 'a' not found</code></pre>
 <p>We haven't created a variable called <code>my_expr</code>, so R cannot evaluate an expression that asks for it.</p>
@@ -264,7 +264,7 @@ my_data
 <p>and then ask R to evaluate our expression in the <strong>context</strong> of that tibble:</p>
 <pre class="r"><code>eval(my_expr, my_data)
 #&gt; [1] 1 2</code></pre>
-<p>When we do this, <code>eval</code> looks for definitions of variables in the data structure we've given it---in this case, in the tibble <code>my_data</code>. Since that tibble has a column called <code>a</code>, <code>eval(my_expr, my_data)</code> gives us that column.</p>
+<p>When we do this, <code>eval</code> looks for definitions of variables in the data structure we've given it—in this case, in the tibble <code>my_data</code>. Since that tibble has a column called <code>a</code>, <code>eval(my_expr, my_data)</code> gives us that column.</p>
 <p>This may not seem life-changing yet, but being able to pass expressions around and evaluate them in various contexts allows us to seem very clever indeed. For example, let's create another expression:</p>
 <pre class="r"><code>add_a_b &lt;- expr(a + b)
 typeof(add_a_b)
@@ -273,8 +273,8 @@ typeof(add_a_b)
 <pre class="r"><code>eval(add_a_b, my_data)
 #&gt; [1] 11 22</code></pre>
 <p>Still not convinced? Have a look at this function:</p>
-<pre class="r"><code>run_many_checks &lt;- function(data, ...) {
-  conditions &lt;- list(...)
+<pre class="r"><code>run_many_checks &lt;- function(data, …) {
+  conditions &lt;- list(…)
   checks &lt;- vector(&quot;list&quot;, length(conditions))
   for (i in seq_along(conditions)) {
     checks[[i]] &lt;- eval(conditions[[i]], data)
@@ -289,8 +289,8 @@ typeof(add_a_b)
 #&gt; [[2]]
 #&gt; [1] TRUE TRUE</code></pre>
 <p>We can take it one step further and simply report whether the checks passed or not:</p>
-<pre class="r"><code>run_all_checks &lt;- function(data, ...) {
-  conditions &lt;- list(...)
+<pre class="r"><code>run_all_checks &lt;- function(data, …) {
+  conditions &lt;- list(…)
   checks &lt;- vector(&quot;logical&quot;, length(conditions))
   for (i in seq_along(conditions)) {
     checks[[i]] &lt;- all(eval(conditions[[i]], data))
@@ -303,17 +303,17 @@ run_all_checks(my_data, expr(0 &lt; a), expr(a &lt; b))
 <p>Just to make sure it's actually working, we'll try something that ought to fail:</p>
 <pre class="r"><code>run_all_checks(my_data, expr(b &lt; 0))
 #&gt; [1] FALSE</code></pre>
-<p>This is cool, but typing <code>expr(...)</code> over and over is kind of clumsy. It also seems superfluous, since we know that arguments aren't evaluated before they're passed into functions. Can we get rid of this and write something that does this?</p>
+<p>This is cool, but typing <code>expr(…)</code> over and over is kind of clumsy. It also seems superfluous, since we know that arguments aren't evaluated before they're passed into functions. Can we get rid of this and write something that does this?</p>
 <pre class="r"><code>check_all(my_data, 0 &lt; a, a &lt; b)</code></pre>
 <p>The answer is going to be "yes", but it's going to take a bit of work.</p>
 <blockquote>
-<p><strong>Square Brackets... Why'd It Have to Be Square Brackets?</strong></p>
+<p><strong>Square Brackets… Why'd It Have to Be Square Brackets?</strong></p>
 <p>Before we go there, a word (or code snippet) of warning. The first version of <code>run_many_checks</code> essentially did this:</p>
 <pre class="r"><code>conditions &lt;- list(expr(a + b))
 eval(conditions[1], my_data)
 #&gt; [[1]]
 #&gt; a + b</code></pre>
-<p>What I did wrong was use <code>[</code> instead of <code>[[</code>, which meant that <code>conditions[1]</code> was not an expression---it wa a list containing a single expression:</p>
+<p>What I did wrong was use <code>[</code> instead of <code>[[</code>, which meant that <code>conditions[1]</code> was not an expression—it wa a list containing a single expression:</p>
 <pre class="r"><code>conditions[1]
 #&gt; [[1]]
 #&gt; a + b</code></pre>
@@ -343,7 +343,7 @@ both_hands
 <p>When we try it, it fails:</p>
 <pre class="r"><code>check_naive(both_hands, left != right)
 #&gt; Error in eval(test, data): object 'left' not found</code></pre>
-<p>This makes sense: by the time we get to the <code>eval</code> call, <code>test</code> refers to a promise that represents the value of <code>left != right</code> in the global environment. Promises are not expressions---each promise contains an expression, but it also contains an environment and a copy of the expression's value (if it has ever been calculated). As a result, when R sees the call to <code>eval</code> inside <code>check_naive</code> it automatically tries to resolve the promise that contains <code>left != right</code>, and fails because there are no variables with those names in the global environment.</p>
+<p>This makes sense: by the time we get to the <code>eval</code> call, <code>test</code> refers to a promise that represents the value of <code>left != right</code> in the global environment. Promises are not expressions—each promise contains an expression, but it also contains an environment and a copy of the expression's value (if it has ever been calculated). As a result, when R sees the call to <code>eval</code> inside <code>check_naive</code> it automatically tries to resolve the promise that contains <code>left != right</code>, and fails because there are no variables with those names in the global environment.</p>
 <p>So how can we get the expression out of the promise without triggering evaluation? One way is to use a function called <code>substitute</code>:</p>
 <pre class="r"><code>check_using_substitute &lt;- function(data, test) {
   subst_test &lt;- substitute(test)
@@ -390,7 +390,7 @@ check_without_quoting_test(both_hands, left &lt; right)
 }
 check_without_quoting_test(both_hands, left &lt; right)
 #&gt; Error in mutate_impl(.data, dots): Column `result` is of unsupported type quoted call</code></pre>
-<p>Damn---we thought this one had a chance. The problem is that when we say <code>result = x_test</code>, what actually gets passed into <code>transmute</code> is a promise containing an expression. Somehow, we need to prevent R from doing that promise wrapping.</p>
+<p>Damn—we thought this one had a chance. The problem is that when we say <code>result = x_test</code>, what actually gets passed into <code>transmute</code> is a promise containing an expression. Somehow, we need to prevent R from doing that promise wrapping.</p>
 <p>This brings us to <code>enquo</code>'s partner <code>!!</code>, which we can use to splice the expression in a quosure into a function call. <code>!!</code> is pronounced "bang bang" or "oh hell", depending on how your day is going. It only works in contexts like function calls where R is automatically quoting things for us, but if we use it then, it does exactly what we want:</p>
 <pre class="r"><code>check_using_bangbang &lt;- function(data, test) {
   q_test &lt;- enquo(test)
@@ -409,8 +409,8 @@ check_using_bangbang(both_hands, left &lt; right)
 <li>Use <code>enquo</code> to enquote every argument that contains an unevaluated expression.</li>
 <li>Use <code>!!</code> when passing each of those arguments into a tidyverse function.</li>
 </ol>
-<pre class="r"><code>check_all &lt;- function(data, ...) {
-  tests &lt;- enquos(...)
+<pre class="r"><code>check_all &lt;- function(data, …) {
+  tests &lt;- enquos(…)
   result &lt;- TRUE
   for (t in tests) {
     result &lt;- result &amp;&amp; (data %&gt;% transmute(result = !!t) %&gt;% pull(result) %&gt;% all())
@@ -423,7 +423,7 @@ check_all(both_hands, 0 &lt; left, left &lt; right)
 <p>And just to make sure that it fails when it's supposed to:</p>
 <pre class="r"><code>check_all(both_hands, left &gt; right)
 #&gt; [1] FALSE</code></pre>
-<p>Backing up a bit, <code>!!</code> works because <a href="https://tidyeval.tidyverse.org/getting-up-to-speed.html#whats-special-about-quoting-functions">there are two broad categories of functions in R</a>: <strong>evaluating functions</strong> and <strong>quoting functions</strong>. Evaluating functions take arguments as values---they're what most of us are used to working with. Quoting functions, on the other hand, aren't passed the values of expressions, but the expressions themselves. When we write <code>both_hands$left</code>, the <code>$</code> function is being passed <code>both_hands</code> and the quoted expression <code>left</code>. This is why we can't use variables as field names with <code>$</code>:</p>
+<p>Backing up a bit, <code>!!</code> works because <a href="https://tidyeval.tidyverse.org/getting-up-to-speed.html#whats-special-about-quoting-functions">there are two broad categories of functions in R</a>: <strong>evaluating functions</strong> and <strong>quoting functions</strong>. Evaluating functions take arguments as values—they're what most of us are used to working with. Quoting functions, on the other hand, aren't passed the values of expressions, but the expressions themselves. When we write <code>both_hands$left</code>, the <code>$</code> function is being passed <code>both_hands</code> and the quoted expression <code>left</code>. This is why we can't use variables as field names with <code>$</code>:</p>
 <pre class="r"><code>the_string_left &lt;- &quot;left&quot;
 both_hands$the_string_left
 #&gt; Warning: Unknown or uninitialised column: 'the_string_left'.
@@ -443,7 +443,7 @@ both_hands$the_string_left
 <h2>Summary</h2>
 <p>I think delayed evaluation and quoting seem confusing for two reasons:</p>
 <ol style="list-style-type: decimal">
-<li>It exposes machinery that most programmers have never had to deal with before (and might not even have known existed). It's rather like learning to drive an automatic transmission and then switching to a manual one---all of a sudden you have to worry about a gear shift and a clutch.</li>
+<li>It exposes machinery that most programmers have never had to deal with before (and might not even have known existed). It's rather like learning to drive an automatic transmission and then switching to a manual one—all of a sudden you have to worry about a gear shift and a clutch.</li>
 <li>R's built-in tools don't behave as consistently as they could, and the functions provided by the tidverse as alternatives use variations on a small number of names: <code>quo</code>, <code>quote</code>, and <code>enquo</code> might all appear on the same page. That said, we aren't quite at the point of writing, "The probability density function describing the density of dense matter in interstellar space is everywhere dense."</li>
 </ol>
-<p>Thank you for reading---if you spot any technical errors, can suggest improvements, or have questions, please get in touch.</p>
+<p>Thank you for reading—if you spot any technical errors, can suggest improvements, or have questions, please get in touch.</p>

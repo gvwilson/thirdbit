@@ -23,9 +23,9 @@ original: swc
 	    <th colspan="4" align="center">Open Web</th>
 	  </tr>
 	  <tr>
-	    <td align="center" bgcolor="#FF4444">User Choice<br/>&amp; Control</td>
-	    <td align="center" bgcolor="#44FF44">Social<br/>Activity</td>
-	    <td align="center" bgcolor="#FF4444">Economic<br/>Activity</td>
+	    <td align="center" bgcolor="#FF4444">User Choice<br>&amp; Control</td>
+	    <td align="center" bgcolor="#44FF44">Social<br>Activity</td>
+	    <td align="center" bgcolor="#FF4444">Economic<br>Activity</td>
 	    <td rowspan="6" valign="middle" align="center" bgcolor="#FF4444">Trust</td>
 	  </tr>
 	  <tr>
@@ -51,9 +51,9 @@ original: swc
 	    <th colspan="4" align="center">Open Science</th>
 	  </tr>
 	  <tr>
-	    <td align="center" bgcolor="#FFFF44">User Choice<br/>&amp; Control</td>
-	    <td align="center" bgcolor="#44FF44">Social<br/>Activity</td>
-	    <td align="center" bgcolor="#FFFF44">Economic<br/>Activity</td>
+	    <td align="center" bgcolor="#FFFF44">User Choice<br>&amp; Control</td>
+	    <td align="center" bgcolor="#44FF44">Social<br>Activity</td>
+	    <td align="center" bgcolor="#FFFF44">Economic<br>Activity</td>
 	    <td rowspan="6" valign="middle" align="center" bgcolor="#FFFF44">Trust</td>
 	  </tr>
 	  <tr>
@@ -123,7 +123,7 @@ original: swc
     <td bgcolor="#44FF44">
       Governments are trying hard to control who can see what,
       but we are still largely free to read, see, and say what we want.
-      <br/>
+      <br>
       (Note: in discussion, Jensen said that this one probably ought to be yellow
       to reflect the resurgence of walled gardens and DRM.)
     </td>
@@ -145,7 +145,7 @@ original: swc
     </td>
   </tr>
   <tr>
-    <td><strong>Diversity of<br/>Services</strong></td>
+    <td><strong>Diversity of<br>Services</strong></td>
     <td bgcolor="#FFFF44">
       Diversity diminishes as you go up the stack.
       For example,
@@ -163,7 +163,7 @@ original: swc
     </td>
   </tr>
   <tr>
-    <td><strong>User Choice<br/>&amp; Control</strong></td>
+    <td><strong>User Choice<br>&amp; Control</strong></td>
     <td bgcolor="#FF4444">
       Lots on the desktop,
       but the mobile and tablet markets are really dominated by Safari
@@ -181,7 +181,7 @@ original: swc
     </td>
   </tr>
   <tr>
-    <td><strong>Social<br/>Activity</strong></td>
+    <td><strong>Social<br>Activity</strong></td>
     <td bgcolor="#44FF44">
       On the one hand,
       Facebook is 83% of online social time.
@@ -194,7 +194,7 @@ original: swc
     </td>
   </tr>
   <tr>
-    <td><strong>Economic<br/>Activity</strong></td>
+    <td><strong>Economic<br>Activity</strong></td>
     <td bgcolor="#FF4444">
       E-commerce dominates,
       but next in line is advertising,
@@ -210,14 +210,14 @@ original: swc
     <td><strong>Trust</strong></td>
     <td bgcolor="#FF4444">
       "Internet &amp; Social Media" was 25th out of 25 industries in a survey of who people trust,
-      below banks and even airlines...
+      below banks and even airlines…
     </td>
     <td></td>
     <td bgcolor="#FFFF44">
       Mostly scientists trust their peers' work,
       as evidenced by the fact that they don't require one another to share data and code
       as part of the peer review process.
-      That isn't necessarily a good thing...
+      That isn't necessarily a good thing…
     </td>
   </tr>
 </table>

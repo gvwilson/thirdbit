@@ -105,14 +105,14 @@ print weight_kg
   link to glossary entries like this:
 </p>
 <blockquote><pre>
-...tell Git to make it a [repository](../../gloss.html#repository), which is...
+…tell Git to make it a [repository](../../gloss.html#repository), which is…
 </pre></blockquote>
 <p>
   which refers to an anchor in <code>gloss.md</code> that looks like this:
 </p>
 <blockquote><pre>
 **repository**: <a name="repository"></a>
-A storage area where a [version control](#version-control) system...
+A storage area where a [version control](#version-control) system…
 </pre></blockquote>
 <p>
   These links are retained correctly in the generated HTML,

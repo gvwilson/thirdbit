@@ -20,20 +20,20 @@ must-read: his observations on hiring programmers, measuring how well a dev team
 
 </dd> <dt>Joe Walnes, Ara Abrahamian, Mike Cannon-Brookes, and Pat Lightbody: <a href="http://www.amazon.com/exec/obidos/ASIN/0471463620">Java Open Source Programming</a>.</dt> <dd>For my generation, the Standard Model of programming was C, Emacs, Make, Unix command-line tools like cat and grep, CVS, and character streams.  Now, twenty-five years later, a replacement has taken shape.  Its main elements are:
 <ul>
-	<li>Java;</li>
-	<li>Eclipse and its many plugins;</li>
-	<li>Ant (for building), JUnit (for testing), and Subversion (for version control);</li>
-	<li>reflection for making systems extensible; and</li>
-	<li>XML as a universal storage format.</li>
+  <li>Java;</li>
+  <li>Eclipse and its many plugins;</li>
+  <li>Ant (for building), JUnit (for testing), and Subversion (for version control);</li>
+  <li>reflection for making systems extensible; and</li>
+  <li>XML as a universal storage format.</li>
 </ul>
 JOSP covers these topics, and many more; it also shows how they all fit together. Want to know how an experienced developer figures out how to manage object lifecycles and dependencies?  That's Chapter 14.  Look and feel?  See Chapter 17, and so on.  Best of all, the authors put as much emphasis on testing as developers know in their hearts they ought to.
 
 If JOSP isn't to your liking, you may prefer one of these:
 <ul>
-	<li>Eric Burke and Brian Coyner: <a href="http://www.amazon.com/exec/obidos/ASIN/0596003870">Java Extreme Programming Cookbook</a>.</li>
-	<li>Richard Hightower and Nicholas Lesieck: <a href="http://www.amazon.com/exec/obidos/ASIN/047120708X">Java Tools for Extreme Programming</a>.</li>
-	<li>Michael Nash: <a href="http://www.amazon.com/exec/obidos/ASIN/1932394192">Explorer's Guide to Open Source Java Tools</a>.</li>
-	<li>Richard Hightower et al: <a href="http://www.amazon.com/exec/obidos/ASIN/0764556177">Professional Java Tools for Extreme Programming</a>.</li>
+  <li>Eric Burke and Brian Coyner: <a href="http://www.amazon.com/exec/obidos/ASIN/0596003870">Java Extreme Programming Cookbook</a>.</li>
+  <li>Richard Hightower and Nicholas Lesieck: <a href="http://www.amazon.com/exec/obidos/ASIN/047120708X">Java Tools for Extreme Programming</a>.</li>
+  <li>Michael Nash: <a href="http://www.amazon.com/exec/obidos/ASIN/1932394192">Explorer's Guide to Open Source Java Tools</a>.</li>
+  <li>Richard Hightower et al: <a href="http://www.amazon.com/exec/obidos/ASIN/0764556177">Professional Java Tools for Extreme Programming</a>.</li>
 </ul>
 </dd> <dt>Mark Grand: <a href="http://www.amazon.com/exec/obidos/ASIN/0471227293">Patterns in Java</a> (2nd ed).</dt> <dd>I flip-flop back and forth between this book, and Cooper's <a href="http://www.amazon.com/exec/obidos/ASIN/0201485397">Java Design Patterns</a>.  Both cover the core patterns from the Gang of Four's classic <a href="http://www.amazon.com/exec/obidos/ASIN/0201633612">Design Patterns</a>, but with examples in Java, and at a level that mere mortals can understand.  There's also Metsker's <a href="http://www.amazon.com/exec/obidos/ASIN/0201743973">Design Patterns Java Workbook</a>, and (more recently) Kerievsky's <a href="http://www.amazon.com/exec/obidos/ASIN/0321213351">Refactoring to Patterns</a>, and several others, each with its own slant.  In the final analysis, it doesn't really matter which one you pick up, as long as you make Visitor, Facade, Singleton, Factory, and their friends all become part of how you think about solving complex programming problems.
 
@@ -47,5 +47,5 @@ If JOSP isn't to your liking, you may prefer one of these:
 <blockquote>"The familiar dot '.' symbol from Internet addresses is used in this
 book to terminate sentences."</blockquote>
 along with a side view of a dialog, and (my favorite) the Visual Basic 5.0 splash screen on page 40, which looks suspiciously like a memory access violation message box.  Yes, the book eventually runs out of steam, but it's still very funny, and let's face it, where else are you going to read something like:
-<blockquote>"...you form windows using forms.  A form is a window that you form. At first forms are unformed.  You must form your forms using the form designer (formerly the former).  In the form former, an unformed form forms a uniform formation of dots..."</blockquote>
+<blockquote>"…you form windows using forms.  A form is a window that you form. At first forms are unformed.  You must form your forms using the form designer (formerly the former).  In the form former, an unformed form forms a uniform formation of dots…"</blockquote>
 </dd> </dl>

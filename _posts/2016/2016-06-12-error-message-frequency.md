@@ -86,7 +86,7 @@ original: nwit
 <blockquote>
   Can this [relationship] be plausible: is the total number of
   possible errors infinite? We will accept this as a reasonable
-  hypothesis...
+  hypothesis…
 </blockquote>
 <p>
   to which I can only say, "Amen."

@@ -22,7 +22,7 @@ it allows them to blame subordinates for not speaking out
 of bosses who say "I want to hear what you think" but really don't).
 Second,
 it satisfies tech bros' need to talk about something other than sexual harassment,
-racial discrimination, and pay inequity---in other words,
+racial discrimination, and pay inequity—in other words,
 their need to talk about things that sound important
 but won't make them uncomfortable
 or undermine the system that they hope will make them rich.
@@ -41,7 +41,7 @@ one of the men said,
 "Are you saying the book is sexist?"
 When she said yes,
 he replied,
-"But it can't be---the author is a woman."
+"But it can't be—the author is a woman."
 
 <p><img src="{{ '/files/2018/11/radical-candor.png' | relative_url }}" alt="Radical Candor" /></p>
 
@@ -72,7 +72,7 @@ or continuing to say, "But free speech!" after people are killed in
 [Quebec City](https://en.wikipedia.org/wiki/Quebec_City_mosque_shooting),
 and [Pittsburgh](https://en.wikipedia.org/wiki/Pittsburgh_synagogue_shooting)
 is cynical rather than immature,
-but springs from the same desire to avoid growing up---the same deep fear of real, meaningful change.
+but springs from the same desire to avoid growing up—the same deep fear of real, meaningful change.
 
 <em>
 Footnote:

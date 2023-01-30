@@ -9,11 +9,11 @@ My complaint wasn't a new one, of course.  Over the years, lots of people have p
 
 Fast forward to 2006, when I was asked to teach a course at the <a href="http://www.utoronto.ca">University of Toronto</a> called "CSC407: Software Architecture".  It had been created by a professor who, like me, had come to the department after many years in industry (and who, like I would later, gave up on academia after a few years and went back to the real world).  I taught the course three times, then told the department to cancel it because the raw material needed to teach it properly simply didn't exist.  I must have reviewed a dozen textbooks with "Software Architecture" in their titles, but they all seemed to follow the same pattern:
 <ul>
-	<li>Gosh, good architecture is really important, isn't it?</li>
-	<li>So here's some fuzz about high-level design principles.</li>
-	<li>And N kinds of diagrams you can use to describe architectures.</li>
-	<li>Um...that's it.</li>
-	<li>Oh, wait, we should include some examples.  Wel, here's pipe-and-filter–not an actual pipe-and-filter system, of course, just, you know, pipe-and-filter in general.  And client/server, and model-view-controller, and (optionally) peer-to-peer, though again, not really truly actual existing systems.</li>
+  <li>Gosh, good architecture is really important, isn't it?</li>
+  <li>So here's some fuzz about high-level design principles.</li>
+  <li>And N kinds of diagrams you can use to describe architectures.</li>
+  <li>Um…that's it.</li>
+  <li>Oh, wait, we should include some examples.  Wel, here's pipe-and-filter–not an actual pipe-and-filter system, of course, just, you know, pipe-and-filter in general.  And client/server, and model-view-controller, and (optionally) peer-to-peer, though again, not really truly actual existing systems.</li>
 </ul>
 Yes, I'm exaggerating a bit–Gorton's <a href="http://www.amazon.com/Essential-Software-Architecture-Ian-Gorton/dp/3642066844/"><cite>Essential Software Architecture</cite></a> and Reekie &amp; McAdam's <a href="http://www.amazon.com/Software-Architecture-Primer-John-Reekie/dp/0646458418/"><cite>A Software Architecture Primer</cite></a> were both useful exceptions–but there really was a mile of clear blue water between what was in the books, and what students actually wanted and needed to know.  That's why I organized <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><cite>Beautiful Code</cite></a>: I wanted examples of good design that I could put in front of students, and more importantly, some informed discussion of why those designs were good.
 
@@ -23,4 +23,4 @@ Fast forward another few weeks.  Having googled my fingers to nubbins finding em
 
 I now realize, though, that <a href="http://aosabook.org"><cite>The Architecture of Open Source Applications</cite></a> should be the start of something, not its culmination.  There are a lot of other interesting software systems out there crying out to be described, and a lot of people who would benefit from reading those descriptions.  Some of those systems are pretty crufty (yes, GDB, I'm looking at you), but that doesn't mean they should be ignored. Every lurking horror in your favorite program was put there for a reason that made sense to someone once upon a time.  We might do things differently today, but if we don't analyze, critique, and learn from what came before, we will almost certainly do no better.
 
-So: if you would like to make the world a better place while doing something of lasting value, and if you know enough about the innards of some reasonably well known, reasonably complicated open source application, please <a href="mailto:aosa@aosabook.org">get in touch</a>–we'd be happy to welcome you aboard.
+So: if you would like to make the world a better place while doing something of lasting value, and if you know enough about the innards of some reasonably well known, reasonably complicated open source application, please <a href="mailto:{{site.author.email}}">get in touch</a>–we'd be happy to welcome you aboard.

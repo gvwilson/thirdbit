@@ -21,7 +21,7 @@ here's what I've done in the three weeks since I left Metabase:
   (because tenosynovitis in my right hand meant I had to give up guitar).
 
 - Revised a middle-grade novel titled [*Maddy Roo*]({{'/fiction/maddy-roo/' | relative_url}})
-  (furries versus robots with a bit of family drama)---if you'd like to give it a read,
+  (furries versus robots with a bit of family drama)—if you'd like to give it a read,
   I'd be grateful for feedback.
 
 - Started co-authoring a paper on how to make scientific publications more accessible.

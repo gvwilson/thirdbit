@@ -11,7 +11,7 @@ Which makes <a href="http://radar.oreilly.com/archives/2006/02/web_development_2
 
 <strong>Sampling and testing</strong>, i.e., randomly show a small fraction of your visitors the new interface, and see how they use it, before releasing it generally.  I don't think we'll ever be able to do this in the classroom: the code of ethics prevents us from varying the conditions under which students work solely to collect data without first getting informed consent, and experience elsewhere is that less than 10% of students will bother to fill in the appropriate form.  We <em>might</em> be able to do this with non-course projects, like DrProject itself.
 
-<strong>Build your own API</strong>: of course.  <a href="http://www.cmlenz.net">Chris Lenz</a> remounted DrProject on <a href="http://www.python.org/peps/pep-0333.html">WSGI</a> in January, so building a SOAP API (or similar) should be straightforward.  I'd love to see a DrProject-friendly <a href="http://www.eclipse.org">Eclipse</a> plugin...
+<strong>Build your own API</strong>: of course.  <a href="http://www.cmlenz.net">Chris Lenz</a> remounted DrProject on <a href="http://www.python.org/peps/pep-0333.html">WSGI</a> in January, so building a SOAP API (or similar) should be straightforward.  I'd love to see a DrProject-friendly <a href="http://www.eclipse.org">Eclipse</a> plugin…
 
 <strong>Ship timestamps, not versions</strong>: no.  Once we open up the Subversion repository, people can grab whatever they want, whenever they want.  We'll still do old-fashioned releases—it wouldn't be fair to students who are using it in courses to push anything that hadn't been thoroughly tested.
 
@@ -25,4 +25,4 @@ So, what's next?  More testing infrastructure is at the top of my list: I'm part
 
 And then?  We'd like to figure out what the simplest useful requirements management and traceability tool looks like; we'd like to add some sort of continuous integration (that can handle builds in several languages, <em>without</em> requiring students to do a lot of configuration), and progress charts that let students see how they're doing compared to the rest of the class (a la <a href="http://www.cs.ualberta.ca/~stroulia/JRefleX/">JRefleX</a>) would be cool as well.
 
-But first we have to get the 1.0 release out the door...
+But first we have to get the 1.0 release out the door…

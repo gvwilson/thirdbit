@@ -35,10 +35,10 @@ But I still don't know very much, which is why I'm asking for help. I've inherit
 <td>Cambridge University</td>
 </tr>
 <tr>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </table>
 There's a lot of redundancy in the "Affiliation" entries (only about 1200 different values, out of more than 7000 records).  I'd therefore like to split the table in two:
@@ -71,10 +71,10 @@ There's a lot of redundancy in the "Affiliation" entries (only about 1200 differ
 <td>0</td>
 </tr>
 <tr>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </table>
 and:
@@ -95,14 +95,14 @@ and:
 <td>US Navy</td>
 </tr>
 <tr>
-<td>...</td>
-<td>...</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </table>
 Here's what I've done so far:
 <ol>
-	<li>Used "select distinct" to pull the institution names out of the   "Person" table and stuff them into "Institutions" with an   auto-incremented integer ID.</li>
-	<li>Added an integer-valued "AffilId" column to "Person".</li>
+  <li>Used "select distinct" to pull the institution names out of the   "Person" table and stuff them into "Institutions" with an   auto-incremented integer ID.</li>
+  <li>Added an integer-valued "AffilId" column to "Person".</li>
 </ol>
 The next step is to put the right institution ID values into the "AffilId" column (they're currently all zeroes), and then delete the no-longer-needed "Affiliation" column.  I thought the first half of this would look something like:
 <pre>update People set AffilId = (</pre>

@@ -4,7 +4,7 @@ date: 2021-03-30
 year: 2021
 ---
 
-> "Once the rockets are up, who cares where they come down? <br/>
+> "Once the rockets are up, who cares where they come down? <br>
 > That's not my department!" says Wernher von Braun
 >
 >—Tom Lehrer

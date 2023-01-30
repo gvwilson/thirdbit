@@ -33,7 +33,7 @@ The notation <code>var:header_logo.link</code> tells ClearSilver to look in the 
 </blockquote>
 The first set of hits, from <code>db_default.py</code>, are from the code that builds up a tuple of tuples called <code>default_config</code>:
 <blockquote>
-<pre>default_config = (('trac', 'htdocs_location', '/trac/'), ... ('header_logo', 'link', 'http://trac.edgewall.com/'), ('header_logo', 'src', 'trac_banner.png'), ('header_logo', 'alt', 'Trac'), ('header_logo', 'width', '236'), ('header_logo', 'height', '73'), ... )</pre>
+<pre>default_config = (('trac', 'htdocs_location', '/trac/'), … ('header_logo', 'link', 'http://trac.edgewall.com/'), ('header_logo', 'src', 'trac_banner.png'), ('header_logo', 'alt', 'Trac'), ('header_logo', 'width', '236'), ('header_logo', 'height', '73'), … )</pre>
 </blockquote>
 Make a note of that, then look in <code>chrome.py</code> at the second set of hits, which come from the following block of code:
 <blockquote>
@@ -43,13 +43,13 @@ OK, <code>chrome.py</code> is looking in the configuration object that Trac crea
 
 Step 4: grepping for <code>default_config</code> gets two hits in <code>env.py</code>:
 <blockquote>
-<pre>def insert_default_data(self): ... for section,name,value in db_default.default_config: self.config.set(section, name, value) self.config.save()</pre>
+<pre>def insert_default_data(self): … for section,name,value in db_default.default_config: self.config.set(section, name, value) self.config.save()</pre>
 </blockquote>
 and:
 <blockquote>
 <pre>def load_config(self): self.config = Configuration(os.path.join(self.path, 'conf', 'trac.ini')) for section,name,value in db_default.default_config: self.config.setdefault(section, name, value)</pre>
 </blockquote>
-Ah ha!  The configuration object initializes itself by reading from <code>trac.ini</code>.  All we have to do now is find that...
+Ah ha!  The configuration object initializes itself by reading from <code>trac.ini</code>.  All we have to do now is find that…
 
 Step 5: Our Trac is run by Apache 2 on Debian Linux, which keeps configuration information under the <code>/etc/apache2/conf.d</code> directory.  Sure enough, there's a <code>trac</code> file in <code>conf.d</code>, which contains the following lines:
 <blockquote>
@@ -57,6 +57,6 @@ Step 5: Our Trac is run by Apache 2 on Debian Linux, which keeps configuration i
 </blockquote>
 Remember looking at the HTML source in Step 1?  The image path specified there was <code>/trac-static/trac_banner.png</code>, so only the first stanza matters right now.  It specifies that <code>/trac-static</code> is translated into <code>/usr/share/trac/htdocs</code>, and sure enough, that directory contains the PNG images for the two logos.  It also contains a <code>trac.ico</code> file, which produces the little pawprint logo next to Trac URLs in the browser and in Favorites links.
 
-And that's that---the artwork still needs to be done, but at least I know where to put files for testing.
+And that's that—the artwork still needs to be done, but at least I know where to put files for testing.
 
-Now, you'll probably never need to find Trac logo files on your computer, but every time you start work with a new code base, you'll need to find your way around.  If there isn't a comprehensive, up-to-date map of the code (and there never is), the first thing to do is to find a landmark, like the <code>div</code> element I picked in Step 1.  Work backward from that: who touches it?  Where does <em>that</em> code get its inputs?  Keep notes---I had half a page of them by the time I was done---so that when you hit a roadblock, you can back up and try another path.  Anything you already know about the application's architecture will help steer you in the right direction, so make sure you understand its processing cycle.  And above all, don't panic, and don't be afraid to ask for help.
+Now, you'll probably never need to find Trac logo files on your computer, but every time you start work with a new code base, you'll need to find your way around.  If there isn't a comprehensive, up-to-date map of the code (and there never is), the first thing to do is to find a landmark, like the <code>div</code> element I picked in Step 1.  Work backward from that: who touches it?  Where does <em>that</em> code get its inputs?  Keep notes—I had half a page of them by the time I was done—so that when you hit a roadblock, you can back up and try another path.  Anything you already know about the application's architecture will help steer you in the right direction, so make sure you understand its processing cycle.  And above all, don't panic, and don't be afraid to ask for help.

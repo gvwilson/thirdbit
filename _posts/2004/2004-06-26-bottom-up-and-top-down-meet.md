@@ -9,7 +9,7 @@ The screenshots started as doodles on the whiteboard. These doodles were soon co
 
 But then I started finding it tiresome to create a similar top and sidebar for every page, so I wrote a quick hacky Python script to generate these automatically. But as the pages developed in complexity, simply generating a common top and sidebar wasn't enough: I needed more control over the pages. So I started writing some Python classes to represent projects that the mock user belonged to, so that I could just tweak the class objects in order to make site-wide changes easily.
 
-Anyway, to make a long story short, this week I've found my hacky scripts inadequate again. What I really need are some User objects, and Project objects, and Membership objects, and Message objects and Conversations, and...well...basically exactly what we've been designing to represent the backend of Helium. I finally hit a point where I needed the backend to drive the frontend: and what I needed matched exactly with what we'd designed to build.
+Anyway, to make a long story short, this week I've found my hacky scripts inadequate again. What I really need are some User objects, and Project objects, and Membership objects, and Message objects and Conversations, and…well…basically exactly what we've been designing to represent the backend of Helium. I finally hit a point where I needed the backend to drive the frontend: and what I needed matched exactly with what we'd designed to build.
 
 To me, this is cool. Means we're doing <em>something</em> right, at least.
 

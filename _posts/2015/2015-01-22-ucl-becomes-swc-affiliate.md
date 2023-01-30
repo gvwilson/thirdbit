@@ -16,7 +16,7 @@ original: swc
 <p>
   <strong>
     <a href="http://www.ucl.ac.uk/isd/news/isd-news/research-it/software-carpentry-affiliation-jan15">UCL Affiliates with Software Carpentry Foundation</a>
-    <br/>
+    <br>
     21 January 2015
   </strong>
 </p>

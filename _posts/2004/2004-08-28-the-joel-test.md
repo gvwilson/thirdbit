@@ -21,7 +21,7 @@ student teams hosted on Pyre do?</p>
     <td valign="top">2. Can you make a build in one step?</td>
     <td valign="top">The Helium team was pretty
     close; the only thing that stood in the way was setting up the
-    database.  Other teams vary---getting this right will probably be
+    database.  Other teams vary—getting this right will probably be
     worth a mark or two this term.</td>
   </tr>
 
@@ -58,7 +58,7 @@ student teams hosted on Pyre do?</p>
 
   <tr>
     <td valign="top">7. Do you have a spec?</td>
-    <td valign="top">Low marks here---we <em>did</em> for Helium, but it fell
+    <td valign="top">Low marks here—we <em>did</em> for Helium, but it fell
     out of date while work was under way.  It's being updated now so
     that the incoming students will know what they're supposed to
     build.  The Memview team wrote a
@@ -73,7 +73,7 @@ student teams hosted on Pyre do?</p>
     an open plan office (without a window); the Memview team worked
     on their own machines at home most of the time, so I'm guessing
     their environment included a lot of heavy metal music.  (I dunno,
-    they just look like those kind of guys...) </td>
+    they just look like those kind of guys…) </td>
   </tr>
 
   <tr>
@@ -107,4 +107,4 @@ student teams hosted on Pyre do?</p>
 
 <p>So, that leaves Helium with 6/12, and
 Memview with 5/12.
-Let's see how much better we can do this fall...</p>
+Let's see how much better we can do this fall…</p>

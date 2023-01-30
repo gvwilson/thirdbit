@@ -16,15 +16,15 @@ original: swc
 <table class="table table-striped">
   <tr><th></th><th>Not At All</th><th>Novices</th><th>Intermediates</th></tr>
   <tr><th>Python</th><td>4</td><td>27</td><td>51</td></tr>
-  <tr><th>...NumPy/SciPy</th><td>16</td><td>34</td><td>32</td></tr>
-  <tr><th>...Packaging</th><td>44</td><td>20</td><td>18</td></tr>
-  <tr><th>...OOP</th><td>16</td><td>31</td><td>35</td></tr>
-  <tr><th>...Data Visualization</th><td>18</td><td>37</td><td>27</td></tr>
-  <tr><th>...Testing</th><td>16</td><td>40</td><td>26</td></tr>
+  <tr><th>…NumPy/SciPy</th><td>16</td><td>34</td><td>32</td></tr>
+  <tr><th>…Packaging</th><td>44</td><td>20</td><td>18</td></tr>
+  <tr><th>…OOP</th><td>16</td><td>31</td><td>35</td></tr>
+  <tr><th>…Data Visualization</th><td>18</td><td>37</td><td>27</td></tr>
+  <tr><th>…Testing</th><td>16</td><td>40</td><td>26</td></tr>
   <tr><th>R</th><td>50</td><td>18</td><td>14</td></tr>
-  <tr><th>...Data Visualization</th><td>54</td><td>13</td><td>15</td></tr>
-  <tr><th>...plyr</th><td>66</td><td>8</td><td>8</td></tr>
-  <tr><th>...Packaging</th><td>68</td><td>6</td><td>8</td></tr>
+  <tr><th>…Data Visualization</th><td>54</td><td>13</td><td>15</td></tr>
+  <tr><th>…plyr</th><td>66</td><td>8</td><td>8</td></tr>
+  <tr><th>…Packaging</th><td>68</td><td>6</td><td>8</td></tr>
   <tr><th>Unix Shell</th><td>1</td><td>23</td><td>58</td></tr>
   <tr><th>Git/GitHub</th><td>4</td><td>32</td><td>46</td></tr>
   <tr><th>Mercurial</th><td>57</td><td>13</td><td>12</td></tr>

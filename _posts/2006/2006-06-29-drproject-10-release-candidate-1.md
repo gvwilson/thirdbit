@@ -5,9 +5,9 @@ year: 2006
 ---
 We are very pleased to announce that DrProject 1.0  RC1 is now  available:
 <ul>
-	<li>As a tarball</li>
-	<li>Via Subversion</li>
-	<li>Questions and feedback</li>
+  <li>As a tarball</li>
+  <li>Via Subversion</li>
+  <li>Questions and feedback</li>
 </ul>
 Thanks to everyone who got us this far—we look forward to your feedback.
 

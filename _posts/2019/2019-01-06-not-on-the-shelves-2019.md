@@ -15,7 +15,7 @@ what gaps exist in the literature that I could usefully fill.
 
 I still believe that a good book can change the world;
 If you'd like to help with any of the ideas below or take one on yourself,
-please [let me know](mailto:gvwilson@third-bit.com).
+please [let me know](mailto:{{site.author.email}}).
 
 ## Still Magic: A Guide for Research Software Engineers
 
@@ -23,7 +23,7 @@ This book is a hands-on introduction to practical computing tools and skills
 aimed at people who have mastered the material in
 [Software Carpentry](http://software-carpentry.org)'s workshops
 and are now working as [research software engineers](https://researchsoftware.org/).
-The core topics---data management, structured programming, task automation, and version control---are introduced
+The core topics—data management, structured programming, task automation, and version control—are introduced
 through hands-on tutorials,
 then elaborated with further lessons on using the web to share data,
 cleaning data,

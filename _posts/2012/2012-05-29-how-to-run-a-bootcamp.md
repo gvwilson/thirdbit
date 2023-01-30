@@ -8,14 +8,14 @@ title: How to Run a Bootcamp
 <p><strong>Assumptions</strong></p>
 <ul>
 <li>bootcamp is 2-3 days long</li>
-<li>For 20-50 learners...</li>
-<li>...who are typically grad students in science and engineering</li>
+<li>For 20-50 learners…</li>
+<li>…who are typically grad students in science and engineering</li>
 <li>There is 10:1 ratio of helpers to learners (or better)</li>
 </ul>
 <p><strong>Goals</strong></p>
 <ul>
-<li>Learners leave with a basic set of skills...</li>
-<li>...and a big-picture view of how to apply them</li>
+<li>Learners leave with a basic set of skills…</li>
+<li>…and a big-picture view of how to apply them</li>
 <li>A handful of learners/helpers are ready to run workshops on their own</li>
 <li>We have feedback on how to improve content/format</li>
 </ul>
@@ -43,8 +43,8 @@ title: How to Run a Bootcamp
 <li>Mid-term breaks (reading weeks) have <em>not</em> worked well: very high no-show rate</li>
 <li>Can also schedule bootcamps right before/right after major conferences
 <ul>
-<li>Usually means extra accommodation expenses for participants...</li>
-<li>...but can be easier to teach when all learners are from the same community</li>
+<li>Usually means extra accommodation expenses for participants…</li>
+<li>…but can be easier to teach when all learners are from the same community</li>
 </ul>
 </li>
 </ul>
@@ -62,8 +62,8 @@ title: How to Run a Bootcamp
 </li>
 <li>Recruit helpers locally
 <ul>
-<li>Typically grad students who already know this stuff...</li>
-<li>...who might be thinking about becoming instructors themselves</li>
+<li>Typically grad students who already know this stuff…</li>
+<li>…who might be thinking about becoming instructors themselves</li>
 </ul>
 </li>
 <li><strong>Remember:</strong>one person can't talk eight hours straight for two or three days
@@ -89,8 +89,8 @@ title: How to Run a Bootcamp
 <li>Create a page with bootcamp details
 <ul>
 <li>Usually separate from the registration page (to give more control over content and style)</li>
-<li>We're happy to host this...</li>
-<li>...or to link to your page if you'd rather host it yourself</li>
+<li>We're happy to host this…</li>
+<li>…or to link to your page if you'd rather host it yourself</li>
 </ul>
 </li>
 <li>Tweet and blog about the event</li>
@@ -106,8 +106,8 @@ title: How to Run a Bootcamp
 <ul>
 <li>Decide whether to provide coffee/snacks at breaks and/or lunch
 <ul>
-<li>Typically budget $5 per person per snack, $12-15 per person for lunch...</li>
-<li>...which adds up quickly</li>
+<li>Typically budget $5 per person per snack, $12-15 per person for lunch…</li>
+<li>…which adds up quickly</li>
 </ul>
 </li>
 <li><strong>Note:</strong>remember to take dietary restrictions into account

@@ -62,7 +62,7 @@ original: swc
 	    </ul>
       </li>
       <li>We'll use Mozilla offices where we have them, and ask people to find/use other space where we don't</li>
-      <li>Lesson content, extended examples, tools, related open science projects...</li>
+      <li>Lesson content, extended examples, tools, related open science projects…</li>
       <li>Details soon</li>
     </ul>
   </li>
@@ -81,7 +81,7 @@ original: swc
 	    <li>starting with Excel and beyond Excel</li>
 	      <li>R</li>
 	        <li>SQL</li>
-		  <li>sharing data, using web resources<br/></li>
+		  <li>sharing data, using web resources</li>
 		  </ul>
       </li>
       <li>At NESCent May 8-9 for the first bootcamp being taught by Hilmar Lapp (NESCent), Ethan White (awesome), Karen Cranston (NESCent) and Tracy Teal (BEACON)</li>
@@ -99,7 +99,7 @@ original: swc
       <li>Bootcamp at HHMI's Janelia Farm Research Campus in May/June needs instructors</li>
       <li>Bootcamps for bioinformaticians in Toronto and Vancouver need helpers - May 12-13</li>
       <li>1st Bootcamp in Brazil at University of Rio Grande (<a href="http://r-gaia-cs.github.io/2014-05-12-furg/">http://r-gaia-cs.github.io/2014-05-12-furg/</a> ) if you know someone that can help please send a email to raniere@ime.unicamp.br</li>
-      <li>Upcoming bootcamps that don't need anything! \o/ GWU, Bergen (today), Cold Spring Harbor Lab, SciLifeLab in Stockholm, and more!<br/></li>
+      <li>Upcoming bootcamps that don't need anything! \o/ GWU, Bergen (today), Cold Spring Harbor Lab, SciLifeLab in Stockholm, and more!</li>
 </ul>
   </li>
   <li>Instructor Training (Greg W.)
@@ -156,7 +156,7 @@ original: swc
   <li>Overall Thoughts
     <ul>
       <li>3 /23 thought the expectations / advertising of the workshop was wrong.</li>
-      <li>18 /23 explicitly expressed positive experience.<br/></li>
+      <li>18 /23 explicitly expressed positive experience.</li>
     </ul>
   </li>
 </ul>

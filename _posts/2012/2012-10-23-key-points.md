@@ -216,7 +216,7 @@ original: swc
 </ul>
 <h3>Lists</h3>
 <ul>
-        <li>Use <code>[<em>value</em>, <em>value</em>, ...]</code> to create a list of values.</li>
+        <li>Use <code>[<em>value</em>, <em>value</em>, …]</code> to create a list of values.</li>
         <li><code>for</code> loops process the elements of a list, in order.</li>
         <li><code>len(<em>list</em>)</code> returns the length of a list.</li>
         <li><code>[]</code> is an empty list with no values.</li>
@@ -229,7 +229,7 @@ original: swc
         <li>The index of the first element of a list is 0; the index of the last element is <code>len(<em>list</em>)-1</code>.</li>
         <li>Negative indices count backward from the end of the list, so <code><em>list</em>[-1]</code> is the last element.</li>
         <li>Trying to access an element with an out-of-bounds index is an error.</li>
-        <li><code>range(<em>number</em>)</code> produces the list of numbers <code>[0, 1, ..., <em>number</em>-1]</code>.</li>
+        <li><code>range(<em>number</em>)</code> produces the list of numbers <code>[0, 1, …, <em>number</em>-1]</code>.</li>
         <li><code>range(len(<em>list</em>))</code> produces the list of legal indices for <code><em>list</em></code>.</li>
 </ul>
 <h3>Checking and Smoothing Data</h3>
@@ -241,7 +241,7 @@ original: swc
 <ul>
         <li>Use nested loops to do things for combinations of things.</li>
         <li>Make the range of the inner loop depend on the state of the outer loop to automatically adjust how much data is processed.</li>
-        <li>Use <code>min(...)</code> and <code>max(...)</code> to find the minimum and maximum of any number of values.</li>
+        <li>Use <code>min(…)</code> and <code>max(…)</code> to find the minimum and maximum of any number of values.</li>
 </ul>
 <h3>Nesting Lists</h3>
 <ul>
@@ -258,9 +258,9 @@ original: swc
 <h2>Functions and Libraries</h2>
 <h3>How Functions Work</h3>
 <ul>
-        <li>Define a function using <code>def <em>name</em>(...)</code></li>
+        <li>Define a function using <code>def <em>name</em>(…)</code></li>
         <li>The body of a function must be indented.</li>
-        <li>Use <code><em>name</em>(...)</code> to call a function.</li>
+        <li>Use <code><em>name</em>(…)</code> to call a function.</li>
         <li>Use <code>return</code> to return a value from a function.</li>
         <li>The values passed into a function are assigned to its parameters in left-to-right order.</li>
         <li>Function calls are recorded on a call stack.</li>
@@ -397,11 +397,11 @@ original: swc
 </ul>
 <h3>Creating and Modifying Tables</h3>
 <ul>
-        <li>Use <code>CREATE TABlE <em>name</em>(...)</code> to create a table.</li>
+        <li>Use <code>CREATE TABlE <em>name</em>(…)</code> to create a table.</li>
         <li>Use <code>DROP TABLE <em>name</em></code> to erase a table.</li>
         <li>Specify field names and types when creating tables.</li>
         <li>Specify <code>PRIMARY KEY</code>, <code>NOT NULL</code>, and other constraints when creating tables.</li>
-        <li>Use <code>INSERT INTO <em>table</em> VALUES(...)</code> to add records to a table.</li>
+        <li>Use <code>INSERT INTO <em>table</em> VALUES(…)</code> to add records to a table.</li>
         <li>Use <code>DELETE FROM <em>table</em> WHERE <em>test</em></code> to erase records from a table.</li>
         <li>Maintain referential integrity when creating or deleting information.</li>
 </ul>
@@ -540,7 +540,7 @@ original: swc
 <h3>Sets</h3>
 <ul>
         <li>Use sets to store distinct unique values.</li>
-        <li>Create sets using <code>set()</code> or <code>{<em>v1</em>, <em>v2</em>, ...}</code>.</li>
+        <li>Create sets using <code>set()</code> or <code>{<em>v1</em>, <em>v2</em>, …}</code>.</li>
         <li>Sets are mutable, i.e., they can be updated in place like lists.</li>
         <li>A loop over a set produces each element once, in arbitrary order.</li>
         <li>Use sets to find unique things.</li>
@@ -554,7 +554,7 @@ original: swc
 <h3>Dictionaries</h3>
 <ul>
         <li>Use dictionaries to store key-value pairs with distinct keys.</li>
-        <li>Create dictionaries using <code>{<em>k1</em>:<em>v1</em>, <em>k2</em>:<em>v2</em>, ...}</code></li>
+        <li>Create dictionaries using <code>{<em>k1</em>:<em>v1</em>, <em>k2</em>:<em>v2</em>, …}</code></li>
         <li>Dictionaries are mutable, i.e., they can be updated in place.</li>
         <li>Dictionary keys must be immutable, but values can be anything.</li>
         <li>Use tuples to store multi-part keys in dictionaries.</li>

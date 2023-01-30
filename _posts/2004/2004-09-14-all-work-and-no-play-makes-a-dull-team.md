@@ -18,7 +18,7 @@ year: 2004
   <li>Hippo T-shirts</li>
   <li>Tuesday lunches</li>
   <li>Defiling the mascot</li>
-  <li>Our very own coffee maker (mmmmm...)</li>
+  <li>Our very own coffee maker (mmmmm…)</li>
   <li>Trips to 7-11</li>
   <li>Penny tossing</li>
   <li>Office pranks</li>
@@ -37,4 +37,4 @@ year: 2004
 
 <p>[<a name="3">3</a>] HippoHippoHippo (to the tune of BadgerBadgerBadger), 'enry the 8th, I shot the sherif, etc.</p>
 
-<p>[<a name="4">4</a>] ...which I'm sure you were all holding your breath to hear ;-)</p>
+<p>[<a name="4">4</a>] …which I'm sure you were all holding your breath to hear ;-)</p>

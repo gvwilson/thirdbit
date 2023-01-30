@@ -16,15 +16,14 @@ title: "What I Didn't Tweet in March"
 -   [This](https://www.nytimes.com/2019/03/26/business/economy/gig-economy-lobbying.html) is what the "free market" looks like up close:
     billionaires getting rules rewritten to make themselves richer at everyone else's expense.
 
--   "The true purpose of unpaid internships is to turn private wealth into professional credentials."
-   —Sarah Kendzior.
+-   "The true purpose of unpaid internships is to turn private wealth into professional credentials."—Sarah Kendzior.
     (I hope that one day there will be a movement to ask companies to sign a public pledge
     requiring candidates to scrub all unpaid internships from their CVs
     when applying for jobs.)
 
 -   [This](https://flourish.studio/2019/02/07/audio-talkie-visualisation-data-stories/)
     is *so* close to Browsercast.
-    We'll get there some day...
+    We'll get there some day…
 
 -   I really want someone to make earbuds that clip onto the arms of my glasses
     so I don't have to jam them in my ears to keep them in place.

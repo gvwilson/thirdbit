@@ -22,6 +22,6 @@ it doesn't matter how many interviews you conduct,
 how much software you write,
 or how much data you analyze:
 if you don't write words, you can't be listed as an author.
-It's trivial to get around this, of course---you can always have a contributor draft a few sentences
-that are then "revised" into shape---but it still rankles
+It's trivial to get around this, of course—you can always have a contributor draft a few sentences
+that are then "revised" into shape—but it still rankles
 that the blue-collar parts of computer science aren't respected enough to count for credit.

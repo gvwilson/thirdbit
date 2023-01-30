@@ -54,7 +54,7 @@ original: swc
     <p>
       Bror Saxberg: <a href="http://chronicle.com/article/Why-We-Need-Learning-Engineers/229391/">Why We Need Learning Engineers</a>.
       "Almost no one who is involved in creating learning materials or large-scale educational experiences
-      relies on the evidence from learning science...
+      relies on the evidence from learning science…
       We are missing a job category: Where are our talented, creative, user-centric 'learning engineers' &ndash;
       professionals who understand the research about learning,
       test it,
@@ -106,7 +106,7 @@ original: swc
       you can read <a href="http://www.sciencedirect.com/science/article/pii/S0272775714000417">another study</a>
       by Braga, Paccagnella, and Pellizzari that reaches the same conclusion.)
       Despite knowing this–the results aren't exactly new–universities
-      continue to use such surveys because...
+      continue to use such surveys because…
       well, that gets us back into a discussion of politics and learning,
       which is probably best saved for <a href="http://third-bit.com/">my personal blog</a>,
       because I'm not supposed to use profanity here.

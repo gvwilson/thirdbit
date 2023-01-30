@@ -19,12 +19,12 @@ parser = ET.XMLParser()
 parser.parser.UseForeignDTD(True)
 parser.entity.update(ENTITIES)
 
-text = '&lt;html&gt;&pi;...&sigma;&lt;/html&gt;'
+text = '&lt;html&gt;&pi;…&sigma;&lt;/html&gt;'
 original = cStringIO.StringIO(text)
 tree = ET.parse(original, parser=parser)
 print ET.tostring(tree.getroot())</pre>
 <p>The output from this program is:</p>
 <pre>&lt;html&gt;&amp;#960;&amp;#8230;&amp;#963;&lt;/html&gt;</pre>
 <p>which, when loaded into a browser, is displayed as:</p>
-<pre>&pi;...&sigma;</pre>
+<pre>&pi;…&sigma;</pre>
 <p>The problem is the breadth of knowledge someone has to have to put this together. My code is based on a response to <a href="http://stackoverflow.com/questions/7237466/python-elementtree-support-for-parsing-unknown-xml-entities">this question</a> on Stack Overflow, but along the way, I looked at, played with, and discarded four other non-solutions. It doesn't help that ElementTree's <code>UseForeignDTD</code> is undocumented, but that's not my real complaint: every XML library I've ever worked with in Java, C++, or Python had brick walls of its own just waiting for people to bang their heads against.  I suspect it's going to take us several painful iterations to design an instructional sequence that works, and I'm not looking forward to the pain.</p>

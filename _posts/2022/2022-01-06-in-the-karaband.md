@@ -33,4 +33,4 @@ but I really do need that amulet.
 We have a few minutes until the paralysis runs its course, though,
 and I've had a lot of practice listening in situations like these.
 I know it can be hard to begin, so repeat after me:
-once upon a time...
+once upon a time…

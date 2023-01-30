@@ -61,4 +61,4 @@ and then writing a detailed explanation of its parts.
 I also think it would help bridge the gap between research and practice,
 since it would help practitioners understand what researchers do and why.
 If you're interested in giving it a try,
-I'm [always happy to chat](mailto:gvwilson@third-bit.com).
+I'm [always happy to chat](mailto:{{site.author.email}}).

@@ -35,7 +35,7 @@ a harassment canary is something regularly published on a company's website that
 "There have been no reported incidents of assault, harassment, or discrimination in this company in the past 30 days."
 Since zero tolerance is a more achievable goal in the short term than zero incidence,
 it could be expanded to say,
-"...or if there have, those found responsible have been fired
+"…or if there have, those found responsible have been fired
 or have been penalized in the following ways,"
 along with a detailed list of steps taken
 (so that senior executives aren't let off with a slap on the wrist).
@@ -53,5 +53,5 @@ would be able to steer clear of companies whose behavior they might not want to 
 
 There are undoubtedly ethical and legal considerations here that I haven't thought of.
 If you can spot the flaws,
-I'd enjoy hearing from you [by email](mailto:gvwilson@third-bit.com)
+I'd enjoy hearing from you [by email](mailto:{{site.author.email}})
 or in the comments on this post.

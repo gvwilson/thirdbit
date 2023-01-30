@@ -3,7 +3,7 @@ layout: page
 title: Blog
 ---
 
-<div align="center">{% include archive-all.html %}</div>
+<div class="center">{% include archive-all.html %}</div>
 
 {% for post in paginator.posts %}
 <article class="post">
@@ -20,31 +20,17 @@ title: Blog
 <div class="row">
   <div class="col-2">
     {% if paginator.next_page %}
-    <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}">
-      &lArr;
-      <span class="pagination-text">older posts</span>
-    </a>
-    {% else %}
-    <span class="pagination-item">
-      &lArr;
-      <span class="pagination-text">older posts</span>
-    </span>
+      <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}">
+        &lArr; <span class="pagination-text">older posts</span>
+      </a>
     {% endif %}
   </div>
-
-  <div class="col-8">&nbsp;</div>
-
+  <div class="col-8"></div>
   <div class="col-2">
     {% if paginator.previous_page %}
-    <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}">
-      <span class="pagination-text">newer posts</span> 
-      &rArr;
-    </a>
-    {% else %}
-    <span class="pagination-item">
-      <span class="pagination-text">newer posts</span> 
-      &rArr;
-    </span>
+      <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}">
+        <span class="pagination-text">newer posts</span> &rArr;
+      </a>
     {% endif %}
   </div>
 </div>

@@ -66,15 +66,15 @@ original: swc
     research is released not through arXiv anymore,
     but on either personal or central sites where researchers add and update results.
     Each small but significant change will be summarised
-    in some sort of..."release note".
+    in some sort of…"release note".
     Authors also may use their blog to give an overview of recent changes.
     Discussions of the work will ensue through the release site comment section,
     or issues a la github,
     and perhaps another researcher who wants to add an analysis [will fork] the repo
-    and submit a pull request...
+    and submit a pull request…
     At certain points,
     researchers will want to write up a somewhat larger overview paper,
-    which actually may be submitted and published through the traditional journal...
+    which actually may be submitted and published through the traditional journal…
   </p>
 </blockquote>
 <p>
@@ -87,13 +87,13 @@ original: swc
     my experience to date is that I never really finish a research project,
     I just get sick of it.
     While you could always improve something,
-    at some point you just have to stop and move on to the next thing...
+    at some point you just have to stop and move on to the next thing…
     From a reader point-of-view:
     I already struggle to keep up with the literature in my field as it currently exists.
     It's not obvious where I would find the time to "check for updates" when I am referring to existing work.
     If my own current project might have dependencies on published work then I might do so,
     although again that delays getting my project done.
-    So I agree...
+    So I agree…
     there is a cost to incremental publishing,
     and I think it applies to both reader and writer.
   </p>

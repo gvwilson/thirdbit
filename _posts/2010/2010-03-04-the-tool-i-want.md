@@ -9,12 +9,12 @@ What I'd like instead is a Javascript widget I can embed in a web page that will
 
 <img title="browser-ide" src="{{'/files/2010/03/browser-ide.png' | relative_url}}" alt="browser-ide" width="393" height="173" />
 
-(You can see why I'm not allowed to design user interfaces...) "Step Forward" and "Step Backward" don't actually execute code; instead, they replay a previously-recorded execution sequence and its textual output.  Whoever created that sequence can add explanatory notes (like the bubble shown) that appear and disappear as execution proceeds.
+(You can see why I'm not allowed to design user interfaces…) "Step Forward" and "Step Backward" don't actually execute code; instead, they replay a previously-recorded execution sequence and its textual output.  Whoever created that sequence can add explanatory notes (like the bubble shown) that appear and disappear as execution proceeds.
 
 Three things are needed to make this happen:
 <ol>
-	<li>A desktop tool for recording and annotating the execution of small programs.</li>
-	<li>A data format for storing those recordings and annotation.</li>
-	<li>A Javascript widget for playing them back in the browser.</li>
+  <li>A desktop tool for recording and annotating the execution of small programs.</li>
+  <li>A data format for storing those recordings and annotation.</li>
+  <li>A Javascript widget for playing them back in the browser.</li>
 </ol>
 Ideally, this combination would also handle interactive interpreter sessions, in which the program appears as you go along, and output is interleaved with input.  If you know of something that already does this, I'd welcome a pointer; if you don't, and are looking for a really cool course project, please give me a shout.

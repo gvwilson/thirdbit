@@ -36,9 +36,13 @@ year: 2013
     <td>This talk will explain how Software Carpentry has grown to run over a hundred training events a year, what we've learned along the way, and how you can do it too. </td>
   </tr>
 </table>
+
 <p><strong>Abstract</strong></p>
+
 <p>Over the last 15 years, Software Carpentry has evolved from a week-long training course at the US national laboratories into a worldwide volunteer effort to raise standards in scientific computing. This talk explains what we have learned along the way the challenges we now face, and our plans for the future. </p>
+
 <p><strong>Outline</strong></p>
+
 <ol>
   <li>Overview</li>
   <li>From Red to Green (or, why our first four attempts failed)</li>
@@ -69,6 +73,8 @@ year: 2013
     </ol>
   <li>How You Can Help </li>
 </ol>
+
 <p><strong>Speaker Bio</strong></p>
+
 <p>Greg Wilson is the creator of Software Carpentry, a crash course in computing skills for scientists and engineers. He has worked for 25 years in high-performance computing, data visualization, computer security, and academia, and is the author or editor of several books on computing (including the 2008 Jolt Award winner "Beautiful Code") and two for children. Greg received a Ph.D. in Computer Science from the University of Edinburgh in 1993, and presently works for the Mozilla Foundation.</p>
 

@@ -7,8 +7,8 @@ We've been getting automated calls that start, "This is not a telemarketing call
 
 So what makes this a fail?
 <ol>
-	<li>Nothing in the automated message identified who the call was from.  If it had said "OES", we would have called back the first time.</li>
-	<li>The calling machine wouldn't hang up until it completed its message. Good thing I didn't need to make a 911 call while they were repeating the phone and reference numbers three times...</li>
-	<li>Customer service reps weren't able to send us our final bill or close our account; that's another department (even though that's what the automated call had been about, and their number was the one it gave us). They couldn't forward our call, either, but were able to give us the number. No prize for guessing that they were closed for the holiday.</li>
+  <li>Nothing in the automated message identified who the call was from.  If it had said "OES", we would have called back the first time.</li>
+  <li>The calling machine wouldn't hang up until it completed its message. Good thing I didn't need to make a 911 call while they were repeating the phone and reference numbers three times…</li>
+  <li>Customer service reps weren't able to send us our final bill or close our account; that's another department (even though that's what the automated call had been about, and their number was the one it gave us). They couldn't forward our call, either, but were able to give us the number. No prize for guessing that they were closed for the holiday.</li>
 </ol>
 Net result was therefore wasted time on both sides (and wasted money for them). *sigh* Why do big organizations make so many newbie mistakes?

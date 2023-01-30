@@ -1,5 +1,5 @@
 ---
-title: "Let's All Get Past..."
+title: "Let's All Get Past…"
 date: 2007-06-15 08:33:50
 year: 2007
 ---

@@ -7,4 +7,4 @@ year: 2008
 
 Congratulations once again to the whole Py3K team!
 
-[1] Very glad they added literals for sets, like {1, 2, "three"}; still disappointed that people still have to write the empty set as set() (because {} means "empty dictionary").  Maybe in 4.0... :-)
+[1] Very glad they added literals for sets, like {1, 2, "three"}; still disappointed that people still have to write the empty set as set() (because {} means "empty dictionary").  Maybe in 4.0… :-)

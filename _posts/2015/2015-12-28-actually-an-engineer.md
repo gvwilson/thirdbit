@@ -17,7 +17,7 @@ year: 2015
   <li>Titus Brown: I now believe wholeheartedly in iterative approach: small steps. But, more generally, when &gt; 5% of scientists <em>use the tools we have</em>, I will acknowledge need for new tools.</li>
   <li>David Soergel: I get it, but also better tools &rArr; more users!</li>
   <li>Titus Brown: you are (in my experience) largely mistaken, good sir.</li>
-  <li>David Soergel: Really? Git (&amp;GitHub) profoundly better than CVS&amp;Subversion; lots more scientists use it...</li>
+  <li>David Soergel: Really? Git (&amp;GitHub) profoundly better than CVS&amp;Subversion; lots more scientists use it…</li>
 </ul>
 <p>
   There are a lot of claims and assumptions in these ten tweets.

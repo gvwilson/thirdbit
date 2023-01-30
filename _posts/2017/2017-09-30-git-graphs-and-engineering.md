@@ -42,12 +42,12 @@ and I think we'd all be better off if we did it.
 and
 "<a href="https://spderosso.github.io/oopsla16.pdf">Purposes, Concepts, Misfits, and a Redesign of Git</a>".
 If anyone reading this has time, interest, and graph analysis expertise,
-please get in touch...*
+please get in touch…*
 
 *After reading some online discussion of this post,
 I'd like to clarify that:*
 
-1. *I'm not suggesting yet another set of aliases for Git: Pascal wasn't macros on top of Fortran, and I don't think a structured distributed VCS will be a layer on top of Git.  (I also believe that any such abstraction will leak early and leak often...)*
+1. *I'm not suggesting yet another set of aliases for Git: Pascal wasn't macros on top of Fortran, and I don't think a structured distributed VCS will be a layer on top of Git.  (I also believe that any such abstraction will leak early and leak often…)*
 
 2. *I agree that a lot of how people use Git isn't captured in commit logs, but that's what we have easiest access to.*
 

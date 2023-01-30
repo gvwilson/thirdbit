@@ -11,7 +11,7 @@ title: Behind the Scenes (or, the Ethics of Cultivating Discontent)
 <li>We manage our <em>mailing lists</em> and <em>version control repositories</em> through the Dreamhost control panel, which actually delegates mailing list management to Mailman.</li>
 <li>The <em>calendar</em> and <em>map</em> are hosted by Google.</li>
 <li>We do <em>event registration</em> through EventBrite.</li>
-<li>We currently use BlueJeans and Skype for <em>web conferencing</em>, but it's been plagued with both technical and social difficulties: people need to have the right Skype client for their OS, and there are the usual problems with unmuted microphones, unintelligible audio, feedback loops, and so on. Forget flying cars: I'll believe the future has arrived when we can make <em>this</em> work...</li>
+<li>We currently use BlueJeans and Skype for <em>web conferencing</em>, but it's been plagued with both technical and social difficulties: people need to have the right Skype client for their OS, and there are the usual problems with unmuted microphones, unintelligible audio, feedback loops, and so on. Forget flying cars: I'll believe the future has arrived when we can make <em>this</em> work…</li>
 </ol>
 <p>This analysis leaves me feeling a bit conflicted. When I think about what we should teach researchers about the web, I have three requirements:</p>
 <ol>

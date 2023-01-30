@@ -1,5 +1,5 @@
 ---
-title: "All I Want for Christmas is a Pull Request..."
+title: "All I Want for Christmas is a Pull Request…"
 date: 2014-12-18 06:00:00
 year: 2014
 original: swc
@@ -147,7 +147,7 @@ original: swc
   </li>
   <li>
     <p>
-      ...and a hundred and one other things,
+      …and a hundred and one other things,
       because lessons are like theses:
       they're never done,
       they're just delivered.

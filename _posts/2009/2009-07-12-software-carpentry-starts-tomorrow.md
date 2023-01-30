@@ -11,14 +11,14 @@ Most depressingly, almost none of the content has been updated. Doing this was #
 
 Things are going much better with Basie (the Django-based rewrite of DrProject that we're hoping will grow up to be a replacement for <a href="http://trac.edgewall.org">Trac</a>). Feature freeze happened two days ago, and while a couple of key components still need some real development work, almost everything else is more or less working. There are still seven weeks left in the summer, so barring outright disaster, we're on track to have a working system to use this fall.
 
-The other summer projects have been making good progress as well---if you'd like to know more, check out their blogs:
+The other summer projects have been making good progress as well—if you'd like to know more, check out their blogs:
 <ul>
-	<li><a href="http://individual.utoronto.ca/ainsley/atom.xml">Ainsley Lawson</a></li>
-	<li><a href="http://climatetooldev.blogspot.com/feeds/posts/default">Brent Mombourquette</a></li>
-	<li><a href="http://ilienert.wordpress.com/feed/">Ian Lienert</a></li>
-	<li><a href="http://abelian-grape.blogspot.com/feeds/posts/default">Maria Yancheva</a></li>
-	<li>The <a href="http://blog.markusproject.org/?feed=rss2">MarkUs Project</a></li>
-	<li><a href="http://samar-sabie.blogspot.com/feeds/posts/default">Samar Sabie</a></li>
-	<li><a href="http://sarahestrong.blogspot.com/feeds/posts/default">Sarah Strong</a></li>
+  <li><a href="http://individual.utoronto.ca/ainsley/atom.xml">Ainsley Lawson</a></li>
+  <li><a href="http://climatetooldev.blogspot.com/feeds/posts/default">Brent Mombourquette</a></li>
+  <li><a href="http://ilienert.wordpress.com/feed/">Ian Lienert</a></li>
+  <li><a href="http://abelian-grape.blogspot.com/feeds/posts/default">Maria Yancheva</a></li>
+  <li>The <a href="http://blog.markusproject.org/?feed=rss2">MarkUs Project</a></li>
+  <li><a href="http://samar-sabie.blogspot.com/feeds/posts/default">Samar Sabie</a></li>
+  <li><a href="http://sarahestrong.blogspot.com/feeds/posts/default">Sarah Strong</a></li>
 </ul>
-They all plan to do demos on the morning of Wednesday, July 28, and you'd all be welcome---stay tuned for details.
+They all plan to do demos on the morning of Wednesday, July 28, and you'd all be welcome—stay tuned for details.

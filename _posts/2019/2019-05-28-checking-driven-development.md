@@ -47,7 +47,7 @@ which is part of why knuths<sup><a href="#footnote-knuth">1</a></sup> are so pop
 but comments and paragraphs won't check that assumptions and invariants still hold
 when the person trying to reproduce the analysis starts fiddling around with it.
 And unlike comments,
-runnable assertions can't fall out of step with what the code is actually doing...
+runnable assertions can't fall out of step with what the code is actually doing…
 
 By analogy with [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development),
 we could call this process "checking-driven development".

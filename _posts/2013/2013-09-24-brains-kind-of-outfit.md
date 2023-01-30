@@ -1,5 +1,5 @@
 ---
-title: "To Tell You the Truth..."
+title: "To Tell You the Truth…"
 date: 2013-09-24 14:00:00
 year: 2013
 ---

@@ -136,7 +136,7 @@ John Cook posted <a href="http://blog.codekills.net/">this</a> to his widely-rea
   instructional design,
   and how these things apply to teaching programming.
   It's necessarily very shallow,
-  but it's still more than most university faculty ever get...
+  but it's still more than most university faculty ever get…
 </p>
 <p>
   Results have been very good:
@@ -158,7 +158,7 @@ John Cook posted <a href="http://blog.codekills.net/">this</a> to his widely-rea
     but only if you exclude the costs of
     1.5 people in the middle of things doing coordination.
     Since I'm the 1.0 of that 1.5,
-    I'd like to find a way to regularize that size of things...
+    I'd like to find a way to regularize that size of things…
   </li>
   <li>
     Learners come to us with a very wide range of prior knowledge and abilities,
@@ -179,7 +179,7 @@ John Cook posted <a href="http://blog.codekills.net/">this</a> to his widely-rea
     but they want tools and procedures.
     As for web programming,
     all we can show them in half a day is
-    how to create security holes...
+    how to create security holes…
   </li>
   <li>
     We need to persuade the powers that be–funding agencies,

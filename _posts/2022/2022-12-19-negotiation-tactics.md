@@ -14,7 +14,7 @@ classified as shown below:
   <img src="{{'/files/2022/negotiation-tactics.svg' | relative_url}}" alt="Negotiation Tactics classified as effective vs. ineffective and moral vs. scummy" />
 </div>
 
-If you have any to contribute, please [get in touch](mailto:gvwilson@third-bit.com).
+If you have any to contribute, please [get in touch](mailto:{{site.author.email}}).
 
 <table>
   <tr>

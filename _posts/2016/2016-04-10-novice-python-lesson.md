@@ -54,7 +54,7 @@ please:
     and the total time we have for the lesson and exercises is fixed,
     so if you want to add something,
     you must tell us how long you think it will take and what you would remove to make room.
-    ("We'll just add a bit of X to Y" is cheating...)
+    ("We'll just add a bit of X to Y" is cheating…)
 
 5.  Do a better job than I have of relating exercises back to the gapminder data set.
 

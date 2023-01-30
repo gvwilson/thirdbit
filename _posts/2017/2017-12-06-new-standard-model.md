@@ -14,7 +14,7 @@ A lot of things have changed:
 | Visualization | What's visualization?             | SVG            |
 | Glue          | Pipes                             | HTTP           |
 | Code          | C                                 | JavaScript     |
-| Testing       | Um...                             | xUnit/CI       |
+| Testing       | Um…                             | xUnit/CI       |
 | Sharing       | Tar files                         | HTTP           |
 | Answers       | man pages and Usenet              | Stack Overflow |
 

@@ -20,13 +20,13 @@ Unix commands I've used recently in order of descending frequency according to `
 - `bg` (see the note above about `fg`)
 - `rmdir`
 - `history`
-- `date` (I didn't see any new tools in your Mastodon list for wrangling dates?)
+- `date`
 - `mv`
 - `find`
 - `clean` (a script I wrote to delete junk files)
 - `cal`
 - `which`
-- `python` (misleading: I run this from inside `make` or inside Emacs)
+- `python` (misleadingly low count: I run this from inside `make` or inside Emacs)
 - `mkdir`
 - `less`
 - `conda`

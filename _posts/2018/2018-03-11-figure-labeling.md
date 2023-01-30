@@ -34,4 +34,4 @@ it would let people who aren't programmers create them:
 Anyone who can use a drawing tool capable of exporting SVG would just have to remember to include the `{% raw %}{{…}}{% endraw %}` delimiters
 (or whatever the tool author chooses to use).
 If you're interested in helping to build this,
-please [give me a shout](mailto:gvwilson@third-bit.com?subject=re:%20diagram%20labeling%20tool).
+please [give me a shout](mailto:{{site.author.email}}).

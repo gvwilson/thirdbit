@@ -19,168 +19,168 @@ Construx Software
 
 <hr />
 <ol>
-	<li>Software Requirements (6-8% questions)
+  <li>Software Requirements (6-8% questions)
 <ol>
-	<li>Software Requirements Fundamentals</li>
-	<li>Requirements Process</li>
-	<li>Requirements Elicitation</li>
-	<li>Requirements Analysis</li>
-	<li>Requirements Specification</li>
-	<li>Requirements Validation</li>
-	<li>Practical Considerations</li>
+  <li>Software Requirements Fundamentals</li>
+  <li>Requirements Process</li>
+  <li>Requirements Elicitation</li>
+  <li>Requirements Analysis</li>
+  <li>Requirements Specification</li>
+  <li>Requirements Validation</li>
+  <li>Practical Considerations</li>
 </ol>
 </li>
-	<li>Software Design (7-9% questions)
+  <li>Software Design (7-9% questions)
 <ol>
-	<li>Software Design Fundamentals</li>
-	<li>Key Issues in Software Design</li>
-	<li>Software Structure and Architecture</li>
-	<li>Human computer Interface Design</li>
-	<li>Software Design Quality Analysis and Evaluation</li>
-	<li>Software Design Notations</li>
-	<li>Software Design Strategies and Methods</li>
+  <li>Software Design Fundamentals</li>
+  <li>Key Issues in Software Design</li>
+  <li>Software Structure and Architecture</li>
+  <li>Human computer Interface Design</li>
+  <li>Software Design Quality Analysis and Evaluation</li>
+  <li>Software Design Notations</li>
+  <li>Software Design Strategies and Methods</li>
 </ol>
 </li>
-	<li>Software Construction (8-10% questions)
+  <li>Software Construction (8-10% questions)
 <ol>
-	<li>Software Construction Fundamentals</li>
-	<li>Managing Construction</li>
-	<li>Practical Considerations</li>
-	<li>Construction Tools</li>
-	<li>Construction Technologies</li>
-	<li>Product Documentation</li>
+  <li>Software Construction Fundamentals</li>
+  <li>Managing Construction</li>
+  <li>Practical Considerations</li>
+  <li>Construction Tools</li>
+  <li>Construction Technologies</li>
+  <li>Product Documentation</li>
 </ol>
 </li>
-	<li>Software Testing (6-8% questions)
+  <li>Software Testing (6-8% questions)
 <ol>
-	<li>Software Testing Fundamentals</li>
-	<li>Test Levels</li>
-	<li>Test Techniques</li>
-	<li>Human Computer User Interface Testing and Evaluation</li>
-	<li>Test-Related Measures</li>
-	<li>Test Process</li>
+  <li>Software Testing Fundamentals</li>
+  <li>Test Levels</li>
+  <li>Test Techniques</li>
+  <li>Human Computer User Interface Testing and Evaluation</li>
+  <li>Test-Related Measures</li>
+  <li>Test Process</li>
 </ol>
 </li>
-	<li>Software Maintenance (6-8% questions)
+  <li>Software Maintenance (6-8% questions)
 <ol>
-	<li>Software Maintenance Fundamentals</li>
-	<li>Key Issues in Software Maintenance</li>
-	<li>Maintenance Process</li>
-	<li>Techniques for Maintenance</li>
+  <li>Software Maintenance Fundamentals</li>
+  <li>Key Issues in Software Maintenance</li>
+  <li>Maintenance Process</li>
+  <li>Techniques for Maintenance</li>
 </ol>
 </li>
-	<li>Software Configuration Management (2-4% questions)
+  <li>Software Configuration Management (2-4% questions)
 <ol>
-	<li>Management of the SCM Process</li>
-	<li>Software Configuration Identification</li>
-	<li>Software Configuration Control</li>
-	<li>Software Configuration Status Accounting</li>
-	<li>Software Configuration Auditing</li>
-	<li>Software Release Management and Delivery</li>
-	<li>Software Configuration Management Tools</li>
+  <li>Management of the SCM Process</li>
+  <li>Software Configuration Identification</li>
+  <li>Software Configuration Control</li>
+  <li>Software Configuration Status Accounting</li>
+  <li>Software Configuration Auditing</li>
+  <li>Software Release Management and Delivery</li>
+  <li>Software Configuration Management Tools</li>
 </ol>
 </li>
-	<li>Software Engineering Management (2-4% questions)
+  <li>Software Engineering Management (2-4% questions)
 <ol>
-	<li>Initiation and Scope Definition</li>
-	<li>Software Project Planning</li>
-	<li>Software Project Enactment</li>
-	<li>Review and Evaluation</li>
-	<li>Closure</li>
-	<li>Software Engineering Measurement</li>
-	<li>Software Management Tools</li>
+  <li>Initiation and Scope Definition</li>
+  <li>Software Project Planning</li>
+  <li>Software Project Enactment</li>
+  <li>Review and Evaluation</li>
+  <li>Closure</li>
+  <li>Software Engineering Measurement</li>
+  <li>Software Management Tools</li>
 </ol>
 </li>
-	<li>Software Engineering Process (4-6% questions)
+  <li>Software Engineering Process (4-6% questions)
 <ol>
-	<li>Process Implementation and Change</li>
-	<li>Process Definition</li>
-	<li>Process Assessment</li>
-	<li>Measurement</li>
-	<li>Software Process Tools</li>
+  <li>Process Implementation and Change</li>
+  <li>Process Definition</li>
+  <li>Process Assessment</li>
+  <li>Measurement</li>
+  <li>Software Process Tools</li>
 </ol>
 </li>
-	<li>Software Engineering Methods (4-6% questions)
+  <li>Software Engineering Methods (4-6% questions)
 <ol>
-	<li>Modeling</li>
-	<li>Types of Models</li>
-	<li>Analysis</li>
-	<li>Development Methods</li>
+  <li>Modeling</li>
+  <li>Types of Models</li>
+  <li>Analysis</li>
+  <li>Development Methods</li>
 </ol>
 </li>
-	<li>Software Quality (4-6% questions)
+  <li>Software Quality (4-6% questions)
 <ol>
-	<li>Software Quality Fundamentals</li>
-	<li>Software Quality Management Processes</li>
-	<li>Software Quality Practical Considerations</li>
+  <li>Software Quality Fundamentals</li>
+  <li>Software Quality Management Processes</li>
+  <li>Software Quality Practical Considerations</li>
 </ol>
 </li>
-	<li>Software Engineering Professional Practice (5-7% questions)
+  <li>Software Engineering Professional Practice (5-7% questions)
 <ol>
-	<li>Professionalism</li>
-	<li>Codes of Ethics</li>
-	<li>Group Dynamics / Psychology</li>
-	<li>Communications Skills</li>
-	<li>Intellectual Property, Confidentiality, Security</li>
+  <li>Professionalism</li>
+  <li>Codes of Ethics</li>
+  <li>Group Dynamics / Psychology</li>
+  <li>Communications Skills</li>
+  <li>Intellectual Property, Confidentiality, Security</li>
 </ol>
 </li>
-	<li>Software Engineering Economics (3-5% questions)
+  <li>Software Engineering Economics (3-5% questions)
 <ol>
-	<li>Software Engineering Economy Fundamentals</li>
-	<li>For-profit Decision-making</li>
-	<li>Non For-profit Decision-making</li>
-	<li>Present Economy</li>
-	<li>Estimation, Risk, and Uncertainty</li>
-	<li>Multiple Attribute Decisions</li>
+  <li>Software Engineering Economy Fundamentals</li>
+  <li>For-profit Decision-making</li>
+  <li>Non For-profit Decision-making</li>
+  <li>Present Economy</li>
+  <li>Estimation, Risk, and Uncertainty</li>
+  <li>Multiple Attribute Decisions</li>
 </ol>
 </li>
-	<li>Computing Foundations (8-10% questions)
+  <li>Computing Foundations (8-10% questions)
 <ol>
-	<li>Programming Fundamentals</li>
-	<li>Algorithms, Data Structures/Representation (static & dynamic) and Complexity</li>
-	<li>Problem solving techniques</li>
-	<li>Abstraction -- use and support for (encapsulation, hierarchy, and so on)</li>
-	<li>Computer organization</li>
-	<li>Basic concept of a system</li>
-	<li>Basic user human factors (I/O, error messages, robustness)</li>
-	<li>Basic developer human factors (comments, structure, readability)</li>
-	<li>Operating system basics</li>
-	<li>Database Basics and Data Management</li>
-	<li>Network communication basics</li>
-	<li>Distributed and Parallel Computing</li>
-	<li>Concepts of programming languages</li>
-	<li>Debugging Tools and Techniques</li>
-	<li>Secure Coding</li>
+  <li>Programming Fundamentals</li>
+  <li>Algorithms, Data Structures/Representation (static & dynamic) and Complexity</li>
+  <li>Problem solving techniques</li>
+  <li>Abstraction -- use and support for (encapsulation, hierarchy, and so on)</li>
+  <li>Computer organization</li>
+  <li>Basic concept of a system</li>
+  <li>Basic user human factors (I/O, error messages, robustness)</li>
+  <li>Basic developer human factors (comments, structure, readability)</li>
+  <li>Operating system basics</li>
+  <li>Database Basics and Data Management</li>
+  <li>Network communication basics</li>
+  <li>Distributed and Parallel Computing</li>
+  <li>Concepts of programming languages</li>
+  <li>Debugging Tools and Techniques</li>
+  <li>Secure Coding</li>
 </ol>
 </li>
-	<li>Mathematical Foundations (8-10% questions)
+  <li>Mathematical Foundations (8-10% questions)
 <ol>
-	<li>Functions, Relations and Sets</li>
-	<li>Basic Logic (prepositional and predicate)</li>
-	<li>Proof Techniques (direct, contradiction, inductive)</li>
-	<li>Basic Counting</li>
-	<li>Graphs and Trees</li>
-	<li>Discrete Probability</li>
-	<li>Finite State Machines, regular expressions</li>
-	<li>Grammars</li>
-	<li>Numerical precision, accuracy, and errors</li>
-	<li>Number Theory</li>
-	<li>Algebraic Structures</li>
+  <li>Functions, Relations and Sets</li>
+  <li>Basic Logic (prepositional and predicate)</li>
+  <li>Proof Techniques (direct, contradiction, inductive)</li>
+  <li>Basic Counting</li>
+  <li>Graphs and Trees</li>
+  <li>Discrete Probability</li>
+  <li>Finite State Machines, regular expressions</li>
+  <li>Grammars</li>
+  <li>Numerical precision, accuracy, and errors</li>
+  <li>Number Theory</li>
+  <li>Algebraic Structures</li>
 </ol>
 </li>
-	<li>Engineering Foundations (8-10% questions)
+  <li>Engineering Foundations (8-10% questions)
 <ol>
-	<li>Empirical methods and experimental techniques (such as computer-related measuring techniques for CPU and memory usage)</li>
-	<li>Statistical analysis (including simple hypothesis testing, estimating, regression, and correlation)</li>
-	<li>Measurement</li>
-	<li>Systems development (security, safety, performance, effects of scaling, feature interaction, and so on)</li>
-	<li>Engineering design (problem formulation, alternative solutions, feasibility, and so on)</li>
-	<li>Theory of measurement (for example, criteria for valid measurement)</li>
-	<li>Simulation, Modeling and Conceptual Prototyping</li>
-	<li>GQM Paradigm</li>
-	<li>Standards (identify, evaluate, select and adapt)</li>
-	<li>Tool and platform selection</li>
-	<li>Root cause analysis</li>
+  <li>Empirical methods and experimental techniques (such as computer-related measuring techniques for CPU and memory usage)</li>
+  <li>Statistical analysis (including simple hypothesis testing, estimating, regression, and correlation)</li>
+  <li>Measurement</li>
+  <li>Systems development (security, safety, performance, effects of scaling, feature interaction, and so on)</li>
+  <li>Engineering design (problem formulation, alternative solutions, feasibility, and so on)</li>
+  <li>Theory of measurement (for example, criteria for valid measurement)</li>
+  <li>Simulation, Modeling and Conceptual Prototyping</li>
+  <li>GQM Paradigm</li>
+  <li>Standards (identify, evaluate, select and adapt)</li>
+  <li>Tool and platform selection</li>
+  <li>Root cause analysis</li>
 </ol>
 </li>
 </ol>

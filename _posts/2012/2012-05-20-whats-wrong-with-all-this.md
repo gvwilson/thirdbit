@@ -21,7 +21,7 @@ title: What's Wrong With All This?
 <li>A <em>course</em> is a slower-paced event, typically running for a few hours once a week for several weeks. Courses use our online material (or don't) just like workshops.</li>
 <li>A <em>tutorial</em> is an ad hoc real-time session with one tutor and several learners. Tutorials can be online or live.</li>
 <li>A <em>help session</em> is an ad hoc session between one tutor and one learner. Help sessions can be online or live.</li>
-<li>A <em>content jam</em> is a live get-together to create or update content. We haven't actually had one of these yet, but I'm hopeful...</li>
+<li>A <em>content jam</em> is a live get-together to create or update content. We haven't actually had one of these yet, but I'm hopeful…</li>
 </ul>
 <h2>What do we use to interact?</h2>
 <ul>
@@ -57,7 +57,7 @@ title: What's Wrong With All This?
 </ul>
 <h2>What's wrong with all this?</h2>
 <ul>
-<li><em>Speed</em> and <em>design</em>: the existing web site is slooooow, and no one would call the existing site beautiful...</li>
+<li><em>Speed</em> and <em>design</em>: the existing web site is slooooow, and no one would call the existing site beautiful…</li>
 <li><em>Identity</em>: scheduling is separate from registration is separate from the mailing lists and from repositories. Badging will only make that more complicated. <a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a> (formerly <a href="https://browserid.org/">BrowserID</a>, and not the same thing as <a href="http://openid.net/">OpenID</a>–are you confused yet?) isn't a complete solution: it handles authentication, but not authorization, and "who can do what?" is an authorization issue. <a href="http://oauth.net/">OAuth</a> is supposed to take care of the latter, but it it's a looong way from meeting our needs.</li>
 <li><em>Integration</em>: connecting our blog to Twitter would be easy–I just haven't bothered to set it up. But tweets should be archived on the web site (both the ones we make and mentions of us), the mailing list archives should be integrated into the site, and so on. Again, there's a lot more to this than just managing identities.</li>
 <li><em>Features</em>: I'd like a live table of registration stats (how many people have signed up for all upcoming events, and how many tickets remain) on the web site, but EventBrite doesn't have embeddable HTML for that. I'd also like a person-by-list table showing who's on which mailing list, and who has access to which repository, but Dreamhost and MailMan don't offer that. And I'd like the colors of map pins to change automatically once a workshop is over, but–you get the picture. All of these things can be fixed with the right glue code, but I have bigger <a href="http://en.wiktionary.org/wiki/yak_shaving">yaks to shave</a>.</li>

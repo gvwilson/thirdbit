@@ -14,50 +14,50 @@ original: swc
   <tr>
     <td>
       <ul>
-	<li>Joshua Ainsley</li>
-	<li>Camille Avestruz</li>
-	<li>Philipp Bayer</li>
-	<li>Nichole Bennett</li>
-	<li>Cliburn Chan</li>
-	<li>Emily Davenport</li>
-	<li>Neal Davis</li>
-	<li>Gabriel A. Devenyi</li>
+  <li>Joshua Ainsley</li>
+  <li>Camille Avestruz</li>
+  <li>Philipp Bayer</li>
+  <li>Nichole Bennett</li>
+  <li>Cliburn Chan</li>
+  <li>Emily Davenport</li>
+  <li>Neal Davis</li>
+  <li>Gabriel A. Devenyi</li>
       </ul>
     </td>
     <td>
       <ul>
-	<li>Jonah Duckles</li>
-	<li>Jordan Fish</li>
-	<li>Julian Garcia</li>
-	<li>Molly Gibson</li>
-	<li>Ivan Gonzalez</li>
-	<li>Joshua Herr</li>
-	<li>James Hetherington</li>
-	<li>Chris Holdgraf</li>
+  <li>Jonah Duckles</li>
+  <li>Jordan Fish</li>
+  <li>Julian Garcia</li>
+  <li>Molly Gibson</li>
+  <li>Ivan Gonzalez</li>
+  <li>Joshua Herr</li>
+  <li>James Hetherington</li>
+  <li>Chris Holdgraf</li>
       </ul>
     </td>
     <td>
       <ul>
-	<li>Damien Irving</li>
-	<li>Ted Kirkpatrick</li>
-	<li>Christina Koch</li>
-	<li>Igor Kozlov</li>
-	<li>Luke Lee</li>
-	<li>Matthew Lightman</li>
-	<li>Yuxi Luo</li>
-	<li>David Perez-Suarez</li>
+  <li>Damien Irving</li>
+  <li>Ted Kirkpatrick</li>
+  <li>Christina Koch</li>
+  <li>Igor Kozlov</li>
+  <li>Luke Lee</li>
+  <li>Matthew Lightman</li>
+  <li>Yuxi Luo</li>
+  <li>David Perez-Suarez</li>
       </ul>
     </td>
     <td>
       <ul>
-	<li>Bill Rowell</li>
-	<li>Martin Schilling</li>
-	<li>Raniere Silva</li>
-	<li>Rachel Slaybaugh</li>
-	<li>Shoaib Sufi</li>
-	<li>Gayathri Swaminathan</li>
-	<li>Amanda Whitlock</li>
-	<li>April Wright</li>
+  <li>Bill Rowell</li>
+  <li>Martin Schilling</li>
+  <li>Raniere Silva</li>
+  <li>Rachel Slaybaugh</li>
+  <li>Shoaib Sufi</li>
+  <li>Gayathri Swaminathan</li>
+  <li>Amanda Whitlock</li>
+  <li>April Wright</li>
       </ul>
     </td>
   </tr>

@@ -21,7 +21,7 @@ Suppose your web application has to keep track of fruit flies.  Each fruit fly h
 <td>GET</td>
 <td>—</td>
 <td>200</td>
-<td>{id, id, ...}</td>
+<td>{id, id, …}</td>
 </tr>
 <tr>
 <td>Get a fly's record</td>
@@ -87,7 +87,7 @@ The solution I've come up with is to make batch operations fundamental to the RE
 <td>Update flies' records</td>
 <td>/api/fly</td>
 <td>PUT</td>
-<td>{ {id_0, name_0, genome_0}, {id_1, name_1, genome_1}, ...}</td>
+<td>{ {id_0, name_0, genome_0}, {id_1, name_1, genome_1}, …}</td>
 <td>200</td>
 <td>number_of_updates</td>
 </tr>

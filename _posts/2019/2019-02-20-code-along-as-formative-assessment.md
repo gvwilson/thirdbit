@@ -5,7 +5,7 @@ title: "Is Code-Along Formative Assessment?"
 ---
 
 Wikipedia defines [formative assessment](https://en.wikipedia.org/wiki/Formative_assessment) as,
-"...a range of formal and informal assessment procedures conducted by teachers during the learning process in order to modify teaching and learning activities to improve student attainment."
+"…a range of formal and informal assessment procedures conducted by teachers during the learning process in order to modify teaching and learning activities to improve student attainment."
 I've been preaching its virtues for several years,
 and using this multiple-choice question as an example:
 

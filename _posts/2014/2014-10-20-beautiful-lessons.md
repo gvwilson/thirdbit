@@ -50,5 +50,5 @@ Greg
   so much fun.
 </p>
 <p>
-  I would also like a pony for Christmas...
+  I would also like a pony for Christmas…
 </p>

@@ -224,7 +224,7 @@ original: swc
     <li><code>index.md</code>: home page for lesson</li>
     <li><code>dd-slug.md</code>: topics (where 'dd' is a sequence number and 'slug' is a mnemonic, e.g., 03-functions.md)
       <ul>
-	<li>We'll discuss file formats (e.g., whether or not to use the IPython Notebook for the master copy of each lesson) in a separate thread.</li>
+  <li>We'll discuss file formats (e.g., whether or not to use the IPython Notebook for the master copy of each lesson) in a separate thread.</li>
       </ul>
     </li>
     <li><code>introduction.md</code>: slides for a 3-minute "why learn this?" presentation to give to learners at the start of a lesson</li>
@@ -234,9 +234,9 @@ original: swc
     <li><code>code/</code>: sub-directory containing all code samples, which are executed from the root directory</li>
     <li><code>data/</code>: sub-directory containing all data specific to this lesson
       <ul>
-	<li><code>index.md</code>: describes data sets</li>
-	<li><code>filename.xyz</code>: single-file dataset</li>
-	<li><code>folder/</code>: multi-file datasets are all in their own directories</li>
+  <li><code>index.md</code>: describes data sets</li>
+  <li><code>filename.xyz</code>: single-file dataset</li>
+  <li><code>folder/</code>: multi-file datasets are all in their own directories</li>
       </ul>
     </li>
     <li><code>img/</code>: images (including plots) used in lesson</li>
@@ -308,7 +308,7 @@ original: swc
 
     ## Another Sub-heading
 
-    As above...
+    As above…
 
     > ## Key Points {.keypoints}
     >
@@ -326,7 +326,7 @@ original: swc
       (because it's the only thing that Jekyll supports).
     </li>
     <li>
-      Rather than using &lt;div class="whatever"&gt;...&lt;/div&gt; to mark sections,
+      Rather than using &lt;div class="whatever"&gt;…&lt;/div&gt; to mark sections,
       this uses blockquotes whose headings have specific classes:
       the sections we need to mark are relatively small,
       and CSS will take care of displaying these the way we want.

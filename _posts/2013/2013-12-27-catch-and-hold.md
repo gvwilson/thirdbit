@@ -21,7 +21,7 @@ original: swc
   he cited John Dewey:
 </p>
 <blockquote>
-  ...interest operates by a process of "catch" and "hold"–first
+  …interest operates by a process of "catch" and "hold"–first
   the individual's interest must be captured,
   and then it must be maintained.
 </blockquote>
@@ -48,10 +48,10 @@ original: swc
   Guzdial said something else that I've been thinking about:
 </p>
 <blockquote>
-  We know more about how to retain students these days...consider
+  We know more about how to retain students these days…consider
   the <a href="http://computinged.wordpress.com/2013/08/05/success-in-introductory-programming-what-works/">UCSD results</a>
   and the <a href="http://computinged.wordpress.com/2013/08/09/in-remembrance-of-mediacomp-past-icer-2013-preview/">MediaComp results</a>.
-  But...we are particularly bad at catching the attention of women and minority students.
+  But…we are particularly bad at catching the attention of women and minority students.
   Our enrollment numbers are rising,
   but <a href="http://computinged.wordpress.com/2013/10/26/acm-ndc-report-confirms-growth-in-graduates-with-computing-skills/">the percentage of women and under-represented minorities is not</a>.
 </blockquote>

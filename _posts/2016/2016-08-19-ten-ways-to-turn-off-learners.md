@@ -34,7 +34,7 @@ comments would be very welcome.
    isn't going to motivate them.
 
 3. **Choose exciting technology.**
-   "There's this cool new language I've been meaning to try..."
+   "There's this cool new language I've been meaning to try…"
    should send the listener running:
    "new" usually means "rapidly changing" and "poorly documented",
    and while that may be fun for the 5-15% who like computing for its own sake,

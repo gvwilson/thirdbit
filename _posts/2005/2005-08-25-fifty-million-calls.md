@@ -1,5 +1,5 @@
 ---
-title: "Fifty... Million... Calls"
+title: "Fifty… Million… Calls"
 date: 2005-08-25 11:19:11
 year: 2005
 ---
@@ -143,7 +143,7 @@ That's right: for some reason, each time the CGI ran, it called the
 function that sees whether a character is a Unicode end-of-line marker
 50 million times.
 
-Hm... If we were parsing XML or some other data files, I could see
+Hm… If we were parsing XML or some other data files, I could see
 why we'd call <code>_PyUnicodeUCS2_IsLinebreak</code>, but this was
 happening as we were importing libraries.  Ah, but: each of the source
 files we inherited from Trac began with the line:
@@ -202,7 +202,7 @@ The net effect is that, for a file with N lines, IsLineBreak is invoked
 up to N*N/2 times per character (at least for the last character).</blockquote>
 Yup—the reader was invoking
 <code>_PyUnicodeUCS2_IsLinebreak</code> N<sup>2</sup> times.  Square
-root of fifty million is... carry the three... about seven thousand,
+root of fifty million is… carry the three… about seven thousand,
 which happens to be about the number of lines of code we were
 loading.
 

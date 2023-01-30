@@ -16,7 +16,7 @@ original: swc
   and we hope to do more like this soon.
 </p>
 <ul>
-  <li>Gerry Walden: <a href="http://altbibl.io/dst4l/software-carpentry-bootcamp-training-for-librarians-aug-23-24-2013/">Bootcamp...for Librarians!</a></li>
+  <li>Gerry Walden: <a href="http://altbibl.io/dst4l/software-carpentry-bootcamp-training-for-librarians-aug-23-24-2013/">Bootcamp…for Librarians!</a></li>
   <li>Philip Guo: <a href="http://www.pgbovine.net/teaching-librarians-programming.htm">Teaching Librarians Programming</a></li>
   <li>Matthew Rutley: <a href="http://ikigomu.com/?p=171">Teaching Python at Harvard with Software Carpentry</a></li>
 </ul>

@@ -12,10 +12,10 @@ original: swc
 </p>
 <blockquote>
   <p>
-    ...a high-level, high-performance dynamic programming language for technical computing,
+    …a high-level, high-performance dynamic programming language for technical computing,
     with syntax that is familiar to users of other technical computing environments.
     It provides a sophisticated compiler, distributed parallel execution, numerical accuracy,
-    and an extensive mathematical function library...
+    and an extensive mathematical function library…
   </p>
 </blockquote>
 <p>

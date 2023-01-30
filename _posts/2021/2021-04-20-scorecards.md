@@ -40,7 +40,7 @@ and recognition for all the work people do (not just the papers they publish).
 
 More importantly,
 I think it would encourage younger people to run for office.
-I've been telling myself for almost twenty-five years that we just need to be patient---that
+I've been telling myself for almost twenty-five years that we just need to be patient—that
 sooner or later the generation that's grown up believing in open will find themselves in positions of power
 and make the changes we need.
 I'm tired of waiting,

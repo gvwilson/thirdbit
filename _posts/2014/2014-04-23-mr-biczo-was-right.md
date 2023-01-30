@@ -60,7 +60,7 @@ env DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib/ \
   this particular variable and library in particular,
   the fact that the operating system's search for the latter
   can be controlled by the former,
-  the way Python libraries can depend on compiled C libraries...
+  the way Python libraries can depend on compiled C libraries…
   There's a lot going on here,
   and most people,
   even ones who've been through a bootcamp,
@@ -150,7 +150,7 @@ that's just going to work.</p>
   <dd>
 <p>VMs can help but sometimes they just make the problem "worse" because
  you will need specific versions of virtualization software, network 
-configured properly, ... since the VM was made to "Ubuntu X" and you are
+configured properly, … since the VM was made to "Ubuntu X" and you are
  using "Ubuntu Y".</p>
   </dd>
   <dt>Titus Brown:</dt>

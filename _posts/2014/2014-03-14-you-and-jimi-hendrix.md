@@ -67,7 +67,7 @@ original: swc
       but if nothing else if you can at least master a few chords you can play in a punk band and still rock."
     </li>
     <li>
-      "I see inspired instructors burning their laptops on stage at the end of the git lesson..."
+      "I see inspired instructors burning their laptops on stage at the end of the git lesson…"
     </li>
     <li>
       "I see fire marshals :-) How 'bout just inspired instructors typing behind their backs?"</li>

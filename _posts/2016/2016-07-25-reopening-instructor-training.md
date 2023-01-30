@@ -31,8 +31,7 @@ what excites you about teaching,
 and how Software and Data Carpentry can help in your community.
 We will notify applicants as spaces become available.
 If you have any questions,
-please mail
-[training@software-carpentry.org](mailto:training@software-carpentry.org).
+please mail us.
 
 If you would like to accelerate the process,
 check out our Partnership program.

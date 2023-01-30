@@ -1,5 +1,5 @@
 ---
-title: "Wise as Athena..."
+title: "Wise as Athena…"
 date: 2014-05-01 10:00:00
 year: 2014
 original: swc

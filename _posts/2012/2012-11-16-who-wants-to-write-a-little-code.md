@@ -10,20 +10,20 @@ original: swc
 <p>The problem is, libraries like <a href="http://www.pythonware.com/products/pil/">PIL</a> and <a href="http://scikit-image.org/">scikit-image</a> aren't novice-friendly or teaching-oriented. Again, drawing from Guzdial and Ericson's work (which my co-authors and I did in <em><a href="http://www.amazon.com/Practical-Programming-Introduction-Pragmatic-Programmers/dp/1934356271/">Practical Programming</a></em>), we want something like this:</p>
 <pre>&gt;&gt;&gt; from skimage import novice        <span style="color: darkred;"> # special submodule for beginners</span>
 &gt;&gt;&gt; picture = novice.open('kite.png') <span style="color: darkred;"> # create a picture object from a file</span>
-&gt;&gt;&gt; print picture.format <span style="color: darkred;"> # pictures know their format...</span>
+&gt;&gt;&gt; print picture.format <span style="color: darkred;"> # pictures know their format…</span>
 <span style="color: darkgreen;"><em>'png'</em></span>
-&gt;&gt;&gt; print picture.path                <span style="color: darkred;"> # ...and where they came from...</span>
+&gt;&gt;&gt; print picture.path                <span style="color: darkred;"> # …and where they came from…</span>
 <span style="color: darkgreen;"><em>'/Users/example/kite.png'</em></span>
-&gt;&gt;&gt; print picture.size                <span style="color: darkred;"> # ...and their size</span>
+&gt;&gt;&gt; print picture.size                <span style="color: darkred;"> # …and their size</span>
 <span style="color: darkgreen;"><em>(400, 500)</em></span>
 &gt;&gt;&gt; print picture.width               <span style="color: darkred;"> # 'width' and 'height' also exposed</span>
 <span style="color: darkgreen;"><em>400</em></span>
 &gt;&gt;&gt; picture.size = (200, 250)         <span style="color: darkred;"> # changing size automatically resizes</span>
 &gt;&gt;&gt; for pixel in picture:             <span style="color: darkred;"> # can iterate over pixels</span>
-...     if (pixel.red &gt; 0.5) and \    <span style="color: darkred;"> # pixels have RGB (values are 0.0-1.0)...</span>
-...         (pixel.x &lt; picture.width):   <span style="color: darkred;"># ...and know where they are</span>
-...         pixel.red /= 2               <span style="color: darkred;"># pixel is an alias into the picture</span>
-...
+…     if (pixel.red &gt; 0.5) and \    <span style="color: darkred;"> # pixels have RGB (values are 0.0-1.0)…</span>
+…         (pixel.x &lt; picture.width):   <span style="color: darkred;"># …and know where they are</span>
+…         pixel.red /= 2               <span style="color: darkred;"># pixel is an alias into the picture</span>
+…
 &gt;&gt;&gt; print picture.modified               <span style="color: darkred;"># pictures know if their pixels are dirty</span>
 <span style="color: darkgreen;"><em>True</em></span>
 &gt;&gt;&gt; print picture.path                   <span style="color: darkred;"># picture no longer corresponds to file</span>

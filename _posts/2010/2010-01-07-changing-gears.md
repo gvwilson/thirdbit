@@ -5,7 +5,7 @@ year: 2010
 ---
 As some of you already know, my contract with the University of Toronto runs out this spring, and I have decided not to seek renewal. I've learned a lot in this job, and had a chance to work with some great people, but it's time for new challenges.
 
-What I'd most like to do next is spend a year working full-time on the <a href="https://software-carpentry.org">Software Carpentry</a> course---of all the things I've done, it's the one that I think has the most potential to make scientists' lives better. My goal is to raise approximately CDN$25,000 from each of half a dozen sponsors so that I can reorganize and revamp the content, add screencasts and video lectures, and generally drag it into the 21st Century. An abbreviated proposal is included below the cut---if you or anyone you know would be interested in discussing possibilities, please give me a shout.
+What I'd most like to do next is spend a year working full-time on the <a href="https://software-carpentry.org">Software Carpentry</a> course—of all the things I've done, it's the one that I think has the most potential to make scientists' lives better. My goal is to raise approximately CDN$25,000 from each of half a dozen sponsors so that I can reorganize and revamp the content, add screencasts and video lectures, and generally drag it into the 21st Century. An abbreviated proposal is included below the cut—if you or anyone you know would be interested in discussing possibilities, please give me a shout.
 
 Computers are as important to modern science as telescopes and test tubes. From analyzing climate data to modeling the internals of cells, they allow scientists to study problems that are too big, too small, too fast, too slow, too expensive, or too dangerous to tackle in the lab.
 
@@ -19,19 +19,19 @@ Despite its popularity, some of the material is now out of date (and users' expe
 <tr>
 <td>
 <ul>
-	<li>Program design</li>
-	<li>Version control</li>
-	<li>Task automation</li>
-	<li>Agile development</li>
-	<li>Provenance and reproducibility</li>
+  <li>Program design</li>
+  <li>Version control</li>
+  <li>Task automation</li>
+  <li>Agile development</li>
+  <li>Provenance and reproducibility</li>
 </ul>
 </td>
 <td>
 <ul>
-	<li>Maintenance and integration</li>
-	<li>User interface construction</li>
-	<li>Testing and validation</li>
-	<li>Working with text, XML, binary,
+  <li>Maintenance and integration</li>
+  <li>User interface construction</li>
+  <li>Testing and validation</li>
+  <li>Working with text, XML, binary,
 and relational data</li>
 </ul>
 </td>
@@ -39,7 +39,7 @@ and relational data</li>
 </tbody></table>
 We expect the revised course will reach thousands of graduate students and working scientists, and will increase their productivity in direct and measurable ways. It will also prepare them to tackle the challenges of large-scale parallelism, cloud computing, and reproducible research.
 
-We are currently seeking contributions of $20-25K toward the $130K needed to realize this goal. By helping us, you will help current and future staff be more productive and associate yourself publicly with best practices. If you would like to help, please contact Greg Wilson at <a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a> or (416) 946 5236.
+We are currently seeking contributions of $20-25K toward the $130K needed to realize this goal. By helping us, you will help current and future staff be more productive and associate yourself publicly with best practices. If you would like to help, please contact Greg Wilson at <a href="mailto:{{site.author.email}}">{{site.author.email}}</a> or (416) 946 5236.
 
 Biography:
 
@@ -47,9 +47,9 @@ Greg Wilson holds a Ph.D. in Computer Science from the University of Edinburgh, 
 
 Links:
 <ol>
-	<li>The current course materials are at <a href="https://software-carpentry.org">https://software-carpentry.org</a>.</li>
-	<li><a href="http://www.mitacs.ca">http://www.mitacs.ca</a>.</li>
-	<li><a href="http://www.cybera.ca">http://www.cybera.ca</a>.</li>
-	<li><a href="http://softwarecarpentry.wordpress.com/a-fresh-start/">http://softwarecarpentry.wordpress.com/a-fresh-start/</a> describes the revised course, and <a href="http://softwarecarpentry.wordpress.com/user-profiles/">http://softwarecarpentry.wordpress.com/user-profiles/</a> describes its target audience.</li>
-	<li>In 2009, we conducted the largest survey ever done of how scientists actually use computers. The results are reported in http://third-bit.com/articles/how-scientists-use-computers-2009.pdf, a shorter and more readable version of which is at http://third-bit.com/articles/amsci-survey-2009.pdf. http://third-bit.com/articles/amsci-swc-2005.pdf and http://third-bit.com/articles/cise-will-not-learn-2008.pdf explain why scientists need to learn on these skills before tackling parallelism, cloud computing, and other leading-edge technologies.</li>
+  <li>The current course materials are at <a href="https://software-carpentry.org">https://software-carpentry.org</a>.</li>
+  <li><a href="http://www.mitacs.ca">http://www.mitacs.ca</a>.</li>
+  <li><a href="http://www.cybera.ca">http://www.cybera.ca</a>.</li>
+  <li><a href="http://softwarecarpentry.wordpress.com/a-fresh-start/">http://softwarecarpentry.wordpress.com/a-fresh-start/</a> describes the revised course, and <a href="http://softwarecarpentry.wordpress.com/user-profiles/">http://softwarecarpentry.wordpress.com/user-profiles/</a> describes its target audience.</li>
+  <li>In 2009, we conducted the largest survey ever done of how scientists actually use computers. The results are reported in http://third-bit.com/articles/how-scientists-use-computers-2009.pdf, a shorter and more readable version of which is at http://third-bit.com/articles/amsci-survey-2009.pdf. http://third-bit.com/articles/amsci-swc-2005.pdf and http://third-bit.com/articles/cise-will-not-learn-2008.pdf explain why scientists need to learn on these skills before tackling parallelism, cloud computing, and other leading-edge technologies.</li>
 </ol>

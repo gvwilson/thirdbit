@@ -33,7 +33,7 @@ favorite: true
   To explain why,
   I need to borrow an idea from evolutionary biology.
   According to Wikipedia,
-  "<a href="https://en.wikipedia.org/wiki/Exaptation">Exaptation</a>...describes
+  "<a href="https://en.wikipedia.org/wiki/Exaptation">Exaptation</a>…describes
   a shift in the function of a trait during evolution.
   For example,
   a trait can evolve because it served one particular function,

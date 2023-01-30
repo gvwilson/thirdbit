@@ -64,7 +64,7 @@ be grateful for improvements and corrections.
     where and why it stops working).  If you feel that this is a less productive
     use of your time than coding, think about how much time musicians spend
     listening to each other or how much artists look at each other's work.
-    <br/>
+    <br>
     In my experience, the best approach to learning your way around a new code
     base is to trace what happens during typical operation.  What functions or
     methods are called in what order as an HTTP request is processed?  What

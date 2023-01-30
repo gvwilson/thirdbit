@@ -52,12 +52,12 @@ So what have I learned in those 23 years?
 <h2>Rule 1: It's Not Thirteen Weeks, It's Three</h2>
 This was the hardest one for me to learn, and it's almost always the hardest to get across to both students and their clients.  University terms may be thirteen weeks long, but students are usually juggling five courses, and many have part-time jobs as well.  That means they can only put eight hours a week into their project without sacrificing grades somewhere else.  If you figure a full-time work week is 35 hours, that means students actually spend 8×13/35 = a bit less than three weeks working for you.  In that time, they have to:
 <ul>
-	<li>figure out what problem they're actually going to solve,</li>
-	<li>learn some new technologies,</li>
-	<li>digest the existing code base,</li>
-	<li>get to know their teammates,</li>
-	<li>build something, and</li>
-	<li>jump through whatever hoops are required for getting a grade, like writing a final report or some documentation that no-one will ever read.</li>
+  <li>figure out what problem they're actually going to solve,</li>
+  <li>learn some new technologies,</li>
+  <li>digest the existing code base,</li>
+  <li>get to know their teammates,</li>
+  <li>build something, and</li>
+  <li>jump through whatever hoops are required for getting a grade, like writing a final report or some documentation that no-one will ever read.</li>
 </ul>
 That's an awful lot to squeeze into three weeks: very few open source projects expect their <a href="http://code.google.com/soc/">GSoC</a> students to start checking things in after three weeks of full-time work, but students in school are expected to be <em>done</em> in that time.  Prof. <a href="http://www.cs.utoronto.ca/~reid">Karen Reid</a> says that she usually divides the term into three pieces:
 <blockquote>I find that I spend the first 3 weeks working hard to get the students up to speed and essentially demanding that they get something real done in the first 3 weeks.  In other words, my students are more successful if they push hard at the beginning. After that, they usually have a good idea of what they need to do for the remainder of the term and I can kind of let them set the pace.  Then I spend the last 3 weeks defining what it means to be done.</blockquote>
@@ -71,9 +71,9 @@ I've tried teaching these things in regular software engineering classes, but it
 
 So what goes into a rational student-oriented development process?
 <ol>
-	<li>A weekly status meeting (face-to-face if possible, online if not).  Whoever is running it (me for the first few, one student in turn thereafter) is responsible for drawing up an agenda and posting a summary afterward.  They're also responsible for checking that the previous week's to-do items were completed, and for keeping the meeting on track (politely, but firmly).  The first meeting each term usually runs 90 minutes or so; by the end of term, we can do them in 45 minutes or less.</li>
-	<li>Version control, ticketing, a blog, an archived mailing list, an IRC channel, and (most recently) <a href="http://www.reviewboard.org/">code review</a>–in short, the same infrastructure you'd use for a small open source project.  You'll note that "wiki" isn't on the list: we've set them up in the past, but no one has ever made much use of them.  You'll also note that five of these six items are about communication–all six, actually, if you think of version control as a way to share files.</li>
-	<li>Demos and presentations.  I emphasize this less when project teams are distributed across several universities, but if they're collocated, I expect every team to present or demo weekly or every couple of weeks.  I usually don't give grades for each presentation or demo except to cure procrastination.</li>
+  <li>A weekly status meeting (face-to-face if possible, online if not).  Whoever is running it (me for the first few, one student in turn thereafter) is responsible for drawing up an agenda and posting a summary afterward.  They're also responsible for checking that the previous week's to-do items were completed, and for keeping the meeting on track (politely, but firmly).  The first meeting each term usually runs 90 minutes or so; by the end of term, we can do them in 45 minutes or less.</li>
+  <li>Version control, ticketing, a blog, an archived mailing list, an IRC channel, and (most recently) <a href="http://www.reviewboard.org/">code review</a>–in short, the same infrastructure you'd use for a small open source project.  You'll note that "wiki" isn't on the list: we've set them up in the past, but no one has ever made much use of them.  You'll also note that five of these six items are about communication–all six, actually, if you think of version control as a way to share files.</li>
+  <li>Demos and presentations.  I emphasize this less when project teams are distributed across several universities, but if they're collocated, I expect every team to present or demo weekly or every couple of weeks.  I usually don't give grades for each presentation or demo except to cure procrastination.</li>
 </ol>
 And that's about it.  On some projects, I'll ask students to draw up a plan for the term at the end of their second or third week (i.e., once they've learned something about the problem–if they have to do it at the start of term, waterfall-style, all they can do is write some science fiction and hope I won't hold them to it).  On others, there's some formality around handing off their code to their client, such as submitting it as a patch, doing a presentation at the client site, or showing off their work to all comers at a local pub.
 
@@ -94,4 +94,4 @@ And finally, a metarule:
 <h2>Have Fun</h2>
 Students won't ever enjoy a project more than you do.  After all, they have to do all the hard work, like tracking down bugs, while you get to do the fun stuff like argue over what it's all supposed to do.  And if you're not having fun, they will quickly start to treat the project like just another course.  It's very hard to pull out of that downward spiral, so don't get into it: no matter what happens, grit your teeth and have some fun.  Go out for ice cream; borrow a projector and introduce them to <cite>Tron</cite>, <cite>WarGames</cite>, or <cite>Startup.com</cite>.  They'll remember that long after the course is over, too, and so will you.
 
-<em>Later: a <a href="http://www.futurity.org/society-culture/what-makes-us-happy-can-make-us-sad/">recent study</a> confirmed what most of us probably knew already: what makes people happiest (or saddest) are group events and achievements, not individual accomplishments.  Maybe that's why students enjoy team projects, and come away appreciating most what they learned about teamwork rather than technology...</em>
+<em>Later: a <a href="http://www.futurity.org/society-culture/what-makes-us-happy-can-make-us-sad/">recent study</a> confirmed what most of us probably knew already: what makes people happiest (or saddest) are group events and achievements, not individual accomplishments.  Maybe that's why students enjoy team projects, and come away appreciating most what they learned about teamwork rather than technology…</em>

@@ -39,7 +39,7 @@ original: swc
     <p>
       We will push back the release date for Version 5.4 of our lessons
       from mid-August to the end of November.
-      (The mid-August date was probably always unrealistic...)
+      (The mid-August date was probably always unrealistic…)
     </p>
   </li>
   <li>

@@ -17,7 +17,7 @@ they decide that a result seems right enough for them to move on to the next pro
 In my experience,
 only a handful make this decision consciously
 or have explicit criteria (e.g., unit tests that pass).
-Most just look at a result and think, "Good---now what's next?"
+Most just look at a result and think, "Good—now what's next?"
 
 I really want to know what their heuristics are.
 I really want to know how consistent they are from one data scientist to the next,
@@ -43,11 +43,11 @@ I'm not necessarily talking about statistical significance when I talk about cor
 Years ago I helped analyze a study of the spread of drug-resistant tuberculosis in Ontario hospitals.
 Thanks to a bit of sloppy SQL,
 I accidentally dropped all the records for everyone who didn't have a home address.
-It turns out that if you don't include homeless people in a study like this it affects the answer...
+It turns out that if you don't include homeless people in a study like this it affects the answer…
 Someone else caught the mistake less than an hour before we were going to submit the paper,
 but I still wonder how many other non-obvious mistakes I've published.
 The code didn't crash,
-the graphs weren't flat---nothing smelled off to me.
+the graphs weren't flat—nothing smelled off to me.
 I'm now a bit obsessive about checking for NULLs,
 but I still managed to create a histogram recently in which all zero scores had silently been dropped.
 Would a real data scientist have spotted that before sharing it with others?

@@ -21,7 +21,7 @@ through.
 <p>Brendan's response was:</p>
 
 <blockquote><em>
-...for Mozilla, XPIDL and XPCOM (<a href="http://www.mozilla.org/scriptable/">http://www.mozilla.org/scriptable/</a>)
+…for Mozilla, XPIDL and XPCOM (<a href="http://www.mozilla.org/scriptable/">http://www.mozilla.org/scriptable/</a>)
 are the way to interface to "plugins" (generally construed)
 implemented in other languages, not just C++ but also Python (a C
 XPCOM binding could be done, and one was started, but there hasn't
@@ -43,9 +43,9 @@ browser sides of the fence.
 that Javascript could be the dominant scripting language five years
 from now: it's sexy, it's (relatively) simple, and it's one of the two
 languages every programmer has to learn (the other being C).  An easy
-way to wrap and call legacy C/C++ code---one that handles C++ objects
+way to wrap and call legacy C/C++ code—one that handles C++ objects
 and templates, rather than requiring programmers to pretend they're
-C functions---would be a big step toward this.  <a href="http://www.boost.org/libs/python/doc/index.html">Boost.Python</a>
+C functions—would be a big step toward this.  <a href="http://www.boost.org/libs/python/doc/index.html">Boost.Python</a>
 is the closest thing I've seen yet to a usable solution; if anyone out
 there wants to be rich, famous, and popular, Boost.Javascript is just
 begging to be created.</p>

@@ -8,7 +8,7 @@ year: 2005
 
 <blockquote>
 <blockquote><em>
-...by posting Content on an AIM Product, you grant AOL, its parent, affiliates, subsidiaries, assigns, agents and licensees the irrevocable, perpetual, worldwide right to reproduce, display, perform, distribute, adapt and promote this Content in any medium. You waive any right to privacy. You waive any right to inspect or approve uses of the Content or to be compensated for any such uses.
+…by posting Content on an AIM Product, you grant AOL, its parent, affiliates, subsidiaries, assigns, agents and licensees the irrevocable, perpetual, worldwide right to reproduce, display, perform, distribute, adapt and promote this Content in any medium. You waive any right to privacy. You waive any right to inspect or approve uses of the Content or to be compensated for any such uses.
 </em></blockquote>
 
 So if AOL decide they wanted to post logs of your AOL AIM/iChat conversations, they could do so at any time.

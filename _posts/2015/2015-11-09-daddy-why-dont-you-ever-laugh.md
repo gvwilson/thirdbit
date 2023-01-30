@@ -15,7 +15,7 @@ favorite: true
 <blockquote>
   <p>
     You can't be emotionally all in on everything.
-    You can't make another 24 hours appear to be "present" for everything...
+    You can't make another 24 hours appear to be "present" for everything…
     I stole time and ran my emotional credit card like it was limitless.
     I stole time from my family, from work, from everything.
   </p>

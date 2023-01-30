@@ -18,4 +18,4 @@ desktop software company has decided to ignore
 what most scientists care about most. I'm equally disappointed that there was nothing at
 all in these slides about improving scientists' skills, especially
 since Microsoft has invested so heavily in improving its own
-processes. Oh well...
+processes. Oh well…

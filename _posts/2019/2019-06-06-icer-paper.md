@@ -70,4 +70,4 @@ the interests of people who do research and the interests of people who don't:
 (The imbalance in numbers is an artefact of how we did the analysis.)
 We will post a preprint as soon as we've addressed the reviewers' comments;
 if you are coming to Toronto for the conference,
-please give me a shout---I'd be happy to show you around my adopted home town.
+please give me a shout—I'd be happy to show you around my adopted home town.

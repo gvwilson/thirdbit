@@ -18,8 +18,8 @@ original: swc
   <p>
     I think the biggest hurdle,
     and most important teaching point,
-    is simply the idea of writing papers in plain text (regardless of the markup language)...
-    There are lots of advantages to plain text...but in the context of the bootcamp,
+    is simply the idea of writing papers in plain text (regardless of the markup language)…
+    There are lots of advantages to plain text…but in the context of the bootcamp,
     one of the biggest is that it provides a really good use case for version control..
   </p>
   <p>
@@ -44,7 +44,7 @@ original: swc
   </p>
   <p>
     On that basis it would be good in my view to touch on some background in literate programming to give people a bit of context
-    and then look at various authoring tools (knitr, IPyNB, Sweave, Dexy...others presumably)
+    and then look at various authoring tools (knitr, IPyNB, Sweave, Dexy…others presumably)
     alongside various code repositories and data repositories in that light.
     This would then provide a way of thinking about the available tools as a way of telling the story,
     which is different to how they are generally used in practice to manage code and records and actually do the work.
@@ -80,10 +80,10 @@ original: swc
 </p>
 <blockquote>
   <p>
-    ...the opening question asked about "publishing in a webby world",
+    …the opening question asked about "publishing in a webby world",
     while current publishers and practices are inherently non-webby.
     This creates a tension I think we never quite resolve.
-    We're stuck tackling the question of how to do "webby publishing in a non-webby world"...
+    We're stuck tackling the question of how to do "webby publishing in a non-webby world"…
   </p>
 </blockquote>
 <p>
@@ -148,14 +148,14 @@ original: swc
     All of us have an implicit framework into which our thinking about authoring and sharing papers fits.
     Many of us also have a similar,
     but perhaps not identical,
-    framework we use to think about code (and data, and... and...)
+    framework we use to think about code (and data, and… and…)
   </p>
   <p>
     The students don't.
   </p>
   <p>
     They're just at the point of trying to wrap their head around version control and the shell.
-    That means to my mind... that a combination of the practical and the abstract will help them understand
+    That means to my mind… that a combination of the practical and the abstract will help them understand
     both the software side better as well as allow them to come to their own conclusions about how that framework does or does not apply to authoring papers.
   </p>
   <p>
@@ -163,7 +163,7 @@ original: swc
     You've just learned about some ways of thinking about writing and using code and data that might help you work better.
     Authoring a paper is a different process.
     Here's why.
-    Maybe it doesn't need to be...or maybe it does.
+    Maybe it doesn't need to be…or maybe it does.
     What do you think?
     What will work for you?
     And do you now understand why version control is such a fantastic thing?

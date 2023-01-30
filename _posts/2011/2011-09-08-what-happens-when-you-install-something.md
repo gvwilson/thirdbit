@@ -16,5 +16,5 @@ title: What Happens When You Install Something?
 <li>and compare them to .exe-based installers on Windows and DMG-based installers on the Mac</li>
 <li>and to "build from source" on Linux and elsewhere</li>
 </ul>
-<p>I know that's a lot–probably three or four episodes of ten minutes each–but by the end, people should understand the kinds of things that can go wrong during an install, what version hell really is, and what they can do to make their own stuff more shareable.  I don't think we can get them as far as creating RPMs or Python eggs, but I'd be willing to be pleasantly surprised...<br />
+<p>I know that's a lot–probably three or four episodes of ten minutes each–but by the end, people should understand the kinds of things that can go wrong during an install, what version hell really is, and what they can do to make their own stuff more shareable.  I don't think we can get them as far as creating RPMs or Python eggs, but I'd be willing to be pleasantly surprised…<br />
 Thoughts?</p>

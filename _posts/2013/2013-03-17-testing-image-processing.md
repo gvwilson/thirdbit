@@ -70,7 +70,7 @@ original: swc
   <p>
     The problem is that floating-point round-off differences  can turn a floating-point value
     that should be a 0.5 or exactly equal to the threshold into a value that's a tiny bit below.
-    For testing, this means that the actual and expected images are exactly the same...except
+    For testing, this means that the actual and expected images are exactly the same…except
     for a small number of pixels that are off by one.
   </p>
   <p>
@@ -108,7 +108,7 @@ original: swc
     I'd say 1%.
   </p>
   <p>
-    Perhaps not a very satisfying answer...
+    Perhaps not a very satisfying answer…
   </p>
 </blockquote>
 <p>

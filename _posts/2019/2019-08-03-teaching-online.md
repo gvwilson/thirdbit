@@ -8,7 +8,7 @@ year: 2019
 > between what we call the real world and what they think of as simply the world
 > as the quaintest and most incomprehensible thing about us.
 >
-> — William Gibson
+> —William Gibson
 
 My last post promised one about [teaching online]({{'/2019/07/27/doing-good-and-getting-paid/' | relative_url}}),
 so here goes:

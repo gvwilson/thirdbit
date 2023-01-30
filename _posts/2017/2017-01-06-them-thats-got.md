@@ -40,7 +40,7 @@ year: 2017
   or hundreds of other schools?
   And yes,
   I realize that the meeting is for researchers who are
-  "...at the three Moore-Sloan Data Science Environments, members of DDD Investigators' labs, and affiliated with...our 'Practices' grants",
+  "…at the three Moore-Sloan Data Science Environments, members of DDD Investigators' labs, and affiliated with…our 'Practices' grants",
   but that just pushes the question back one level.
 </p>
 
@@ -68,7 +68,7 @@ year: 2017
   lack of access engenders lack of opportunity,
   which in turn leads to existing inequalities perpetuating themselves.
   As Billie Holiday said,
-  "Them that's got shall have // Them that's not shall lose..."
+  "Them that's got shall have // Them that's not shall lose…"
 </p>
 
 <p>

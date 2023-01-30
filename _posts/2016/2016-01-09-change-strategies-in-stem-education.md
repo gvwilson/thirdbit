@@ -65,45 +65,45 @@ The authors break this down by *aspect of system to be changed* and *intended ou
     <th align="center">Emergent</th>
   </tr>
   <tr>
-    <th rowspan="2">Aspect of System<br/>to be Changed</th>
+    <th rowspan="2">Aspect of System<br>to be Changed</th>
     <th>Individuals</th>
     <td>
       <strong>I. Disseminating: Curriculum &amp; Pedagogy</strong>
-      <br/>
+      <br>
       Change Agent Role: tell/teach individuals about new teaching conceptions and/or practices and encourage their use.
-      <br/>
+      <br>
       <em>Diffusion</em>
-      <br/>
+      <br>
       <em>Implementation</em>
     </td>
     <td>
       <strong>II. Developing: Reflective Teachers</strong>
-      <br/>
+      <br>
       Change Agent Role: encourage/support individuals to develop new teaching conceptions and/or practices.
-      <br/>
+      <br>
       <em>Scholarly Teaching</em>
-      <br/>
+      <br>
       <em>Faculty Learning Communities</em>
     </td>
   </tr>
   <tr>
-    <th>Environments<br/>and<br/>Structures</th>
+    <th>Environments<br>and<br>Structures</th>
     <td>
       <strong>III. Enacting: Policy</strong>
-      <br/>
+      <br>
       Change Agent Role: enact new environmental features that require/encourage new teaching conceptions and/or practices.
-      <br/>
+      <br>
       <em>Quality Assurance</em>
-      <br/>
+      <br>
       <em>Organizational Development</em>
     </td>
     <td>
       <strong>IV. Developing: Shared Vision</strong>
-      <br/>
+      <br>
       Change Agent Role: empower/support stakeholders to collectively develop new environmental features that encourage new teaching conceptions and/or practices.
-      <br/>
+      <br>
       <em>Learning Organizations</em>
-      <br/>
+      <br>
       <em>Complexity Leadership</em>
     </td>
   </tr>

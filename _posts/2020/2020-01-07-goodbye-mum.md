@@ -44,5 +44,5 @@ I'm going to miss you so much.
 
 <img src="{{ '/files/2020/01/grandma.jpg' | relative_url }}" alt="Grandma 2014" width="50%" />
 
-Doris Wilson <br/>
+Doris Wilson <br>
 July 22, 1927 - January 7, 2020

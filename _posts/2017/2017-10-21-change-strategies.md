@@ -21,23 +21,23 @@ year: 2017
     <th class="sideways">Individuals</th>
     <td>
       <strong>I. Disseminating: Curriculum &amp; Pedagogy</strong>
-      <br/>
+      <br>
       Change Agent Role:
       Tell/teach individuals about new teaching conceptions and/or practices
       and encourage their use.
-      <br/>
+      <br>
       <em>- Diffusion</em>
-      <br/>
+      <br>
       <em>- Implementation</em>
     </td>
     <td>
       <strong>II. Developing: Reflective Teachers</strong>
-      <br/>
+      <br>
       Change Agent Role:
       Encourage/support individuals to develop new teaching conceptions and/or practices.
-      <br/>
+      <br>
       <em>- Scholarly Teaching</em>
-      <br/>
+      <br>
       <em>- Faculty Learning Communities</em>
     </td>
   </tr>
@@ -46,23 +46,23 @@ year: 2017
     <th class="sideways">Environments and Structures</th>
     <td>
       <strong>III. Enacting: Policy</strong>
-      <br/>
+      <br>
       Change Agent Role:
       Enact new environment features that require/encourage new teaching conceptions and/or practices.
-      <br/>
+      <br>
       <em>- Quality Assurance</em>
-      <br/>
+      <br>
       <em>- Organizational Development</em>
     </td>
     <td>
       <strong>IV. Developing: Shared Vision</strong>
-      <br/>
+      <br>
       Change Agent Role:
       Empower/support stakeholders to collectively develop new environmental features
       that encourage new teaching conceptions and/or practices.
-      <br/>
+      <br>
       <em>- Learning Organizations</em>
-      <br/>
+      <br>
       <em>- Complexity Leadership</em>
     </td>
   </tr>

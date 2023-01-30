@@ -22,9 +22,9 @@ original: swc
     <p>
       What can you do to help?
       <ul>
-	<li>Say thanks to people for what they're doing.</li>
-	<li>Raise up and mentor others.</li>
-	<li>Persevere when trying something new. (Bonus points if you help someone out who doesn't look like you.)</li>
+  <li>Say thanks to people for what they're doing.</li>
+  <li>Raise up and mentor others.</li>
+  <li>Persevere when trying something new. (Bonus points if you help someone out who doesn't look like you.)</li>
       </ul>
     </p>
   </li>
@@ -32,9 +32,9 @@ original: swc
     <p>
       How can a new organization grow up to be the PSF?
       <ul>
-	<li>Don't rush it.  (In particular, don't put too much process in place too soon.)</li>
-	<li>Default to openness.</li>
-	<li>Build a culture of service.</li>
+  <li>Don't rush it.  (In particular, don't put too much process in place too soon.)</li>
+  <li>Default to openness.</li>
+  <li>Build a culture of service.</li>
       </ul>
     </p>
   </li>

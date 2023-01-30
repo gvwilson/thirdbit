@@ -88,8 +88,8 @@ title: Teaching Security to Scientists
 <li>access control (enforcement of rules)</li>
 <li>usability (can/will people actually understand and use the above)
 <ul>
-<li>digital signatures have been around for years...</li>
-<li>...and almost nobody uses them ("Why Johnny Can't Encrypt")</li>
+<li>digital signatures have been around for years…</li>
+<li>…and almost nobody uses them ("Why Johnny Can't Encrypt")</li>
 </ul>
 </li>
 </ul>
@@ -97,7 +97,7 @@ title: Teaching Security to Scientists
 <li>running example: WebDTR is a password-protected web interface to a database of drug trial results</li>
 <li>example: someone steals your laptop
 <ul>
-<li>you really should have encrypted the answers you downloaded and saved...</li>
+<li>you really should have encrypted the answers you downloaded and saved…</li>
 <li>but "password at reboot" isn't really much security (I haven't rebooted my machine in a month)</li>
 </ul>
 </li>

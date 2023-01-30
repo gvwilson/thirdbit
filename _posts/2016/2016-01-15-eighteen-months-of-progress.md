@@ -9,7 +9,7 @@ original: swc
 quoted one of our instructors as saying:
 
 > The most frustrating things for me are
-> 1) people are more willing to submit new material...that to improve existing material
+> 1) people are more willing to submit new material…that to improve existing material
 > or review another person's PR
 > and 2) instructors teaching bootcamps using other lesson material.
 > This experiment in collaborative lesson development is doomed to fail if

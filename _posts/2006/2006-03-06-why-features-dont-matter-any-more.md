@@ -18,4 +18,4 @@ year: 2006
 <li>Less is difficult, that's why less is more.</li>
 </ol>
 
-<p>They all make sense, but I wonder whether they'll last any longer than the old "new rules"... ;-)</p>
+<p>They all make sense, but I wonder whether they'll last any longer than the old "new rules"… ;-)</p>

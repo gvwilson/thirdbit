@@ -72,7 +72,7 @@ but again,
 work seems to have ground to a halt.
 I'm sure there's got to be more out there,
 and I'd be very grateful for pointers—please
-[email me](mailto:gvwilson@third-bit.com) if you have any.
+[email me](mailto:{{site.author.email}}) if you have any.
 (I apologize for not enabling comments here:
 following my criticism of Shopify's continued support for white nationalist sites,
 it seemed best to disable Disqus until the trolls turned their attention elsewhere.)

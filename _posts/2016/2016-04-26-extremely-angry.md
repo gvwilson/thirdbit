@@ -37,6 +37,6 @@ original: nwit
     the <a href="http://joss.theoj.org/">Journal of Open Source Software</a> has just launched.
     Like the <a href="http://openresearchsoftware.metajnl.com/">Journal of Open Research Software</a>,
     its mission is to give people a place and a way to get academic credit for the tools they build.
-    It would be great to see some software engineering research work appearing in both...
+    It would be great to see some software engineering research work appearing in both…
   </em>
 </p>

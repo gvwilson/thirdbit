@@ -30,11 +30,11 @@ and its abstract reads:
 > that is not feasible due to financial or technical constraints,
 > alternatives should be offered.
 
-Its findings are that the tools they use---that *we* use---may be a
+Its findings are that the tools they use—that *we* use—may be a
 significant barrier to contribution: "Initial comments in the open
 conversation made it clear that the choice of venue (Github) was a
 gender-barrier, as Github is associated with male geek coding
-culture."  On the other hand, "...both men and women were
+culture."  On the other hand, "…both men and women were
 overwhelmingly positive about open peer review (29 like, 6 neutral, 3
 dislike, 9 skipped - no gender difference), with the caveat that
 moderating by an editor who stepped in to prevent 'nastiness' was
@@ -76,7 +76,7 @@ more problematic by women than by men:
 Surprisingly, "fear of negative feedback" didn't quite make this list,
 but would have been the next one added if the authors weren't quite so
 strict about their statistical cutoffs.  The authors are careful to
-say, "...we are not suggesting that only females are affected by these
+say, "…we are not suggesting that only females are affected by these
 barriers, or that these barriers are primarily due to gender, but
 rather that five barriers were seen as significantly more problematic
 by females than by males."

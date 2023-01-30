@@ -33,6 +33,6 @@ My next workshop for staff at Toronto Public Library is in a week and a half,
 and I'm thinking of running one for all comers in Toronto in July if I can find space.
 If you're interested in taking part,
 or in having me run it for your group or your company,
-please [give me a shout](mailto:gvwilson@third-bit.com) -
+please [give me a shout](mailto:{{site.author.email}}) -
 I learn at lot from each one,
 and always enjoy doing it.

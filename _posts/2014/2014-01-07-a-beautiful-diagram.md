@@ -24,5 +24,5 @@ original: swc
   I'm not a visual thinker (my brothers and sister got those genes),
   and I was trying to do too much at once.
   If anyone out there would like to take a run at doing something like this for small portions of our course material,
-  please <a href="mailto:gvwilson@software-carpentry.org">get in touch</a>.
+  please <a href="mailto:{{site.author.email}}">get in touch</a>.
 </p>

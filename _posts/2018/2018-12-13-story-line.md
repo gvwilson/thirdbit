@@ -30,7 +30,7 @@ I think it would be a lot of fun,
 but my tastes are somewhat eccentric.
 If you'd be interested,
 or can think of a variation that would make this more fun or more productive,
-please [give me a shout](mailto:gvwilson@third-bit.com)—I'd be happy to coordinate.
+please [give me a shout](mailto:{{site.author.email}})—I'd be happy to coordinate.
 (I apologize for not allowing discussion here:
 following my criticism of Shopify's continued support for white nationalist sites,
 it seemed best to disable comments on this blog until the trolls turned their attention elsewhere.)

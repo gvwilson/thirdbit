@@ -121,7 +121,7 @@ year: 2016
     How can I get involved?
   </dt>
   <dd>
-    <a href="mailto:gvwilson@third-bit.com">Mail us</a> if you'd like to contribute.
+    <a href="mailto:{{site.author.email}}">Mail us</a> if you'd like to contribute.
     If you know what you want to write about, tell us;
     if you don't, we have lots of topics that need to be covered.
   </dd>

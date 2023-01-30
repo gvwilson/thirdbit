@@ -50,7 +50,7 @@ original: swc
   Proponents of the first argue that objects are both natural ("the world is made up of objects")
   and authentic ("real programmers build real programs using objects");
   advocates of the second point out that
-  "...writing even the smallest meaningful class requires approximately 15 basic concepts:
+  "…writing even the smallest meaningful class requires approximately 15 basic concepts:
   object, class, instantiation, constructor, method declaration, formal parameter, return type,
   variable, type of variable, value, integer, assignment, method invocation, actual parameter,
   returning a value"

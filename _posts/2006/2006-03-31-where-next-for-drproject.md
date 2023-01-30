@@ -3,17 +3,17 @@ title: "Where Next for DrProject?"
 date: 2006-03-31 08:42:47
 year: 2006
 ---
-It's time to start thinking about what to add to DrProject this summer. Please <a href="mailto:gvwilson@cs.utoronto.ca?subject=drproject-vote">vote</a> for any <em>two</em> of the following; I'll collate and re-post.
+It's time to start thinking about what to add to DrProject this summer. Please <a href="mailto:{{site.author.email}}?subject=drproject-vote">vote</a> for any <em>two</em> of the following; I'll collate and re-post.
 <ol>
-	<li>web-based administration interface</li>
-	<li>user-oriented pages</li>
-	<li>status dashboard</li>
-	<li>manual RSS feeds</li>
-	<li>continuous integration</li>
-	<li>pluggable authentication</li>
-	<li>web services</li>
-	<li>shared bookmarks</li>
-	<li>calendaring</li>
+  <li>web-based administration interface</li>
+  <li>user-oriented pages</li>
+  <li>status dashboard</li>
+  <li>manual RSS feeds</li>
+  <li>continuous integration</li>
+  <li>pluggable authentication</li>
+  <li>web services</li>
+  <li>shared bookmarks</li>
+  <li>calendaring</li>
 </ol>
 <strong>1. Web-Based Administration Interface</strong>
 
@@ -33,7 +33,7 @@ Right now, each project automatically generates an RSS feed of timeline items; t
 
 <strong>5. Continuous Integration</strong>
 
-CI is the practice of rebuilding the software, and rerunning the tests, every time someone checks something in.  It's hard to do in the general case (how many different ways to build, and report build status, can you think of?), but if we can handle simple Ant and Make cases, that's probably enough...?
+CI is the practice of rebuilding the software, and rerunning the tests, every time someone checks something in.  It's hard to do in the general case (how many different ways to build, and report build status, can you think of?), but if we can handle simple Ant and Make cases, that's probably enough…?
 
 <strong>6. Pluggable Authentication</strong>
 
@@ -41,11 +41,11 @@ We decided a year ago to make the underlying Linux system responsible for user p
 
 <strong>7. Web Services</strong>
 
-Providing either a REST or SOAP API to DrProject, so that it can be scripted remotely, should be relatively straightforward.  Throttling usage, so that students don't do silly things, will be more of a challenge...
+Providing either a REST or SOAP API to DrProject, so that it can be scripted remotely, should be relatively straightforward.  Throttling usage, so that students don't do silly things, will be more of a challenge…
 
 <strong>8. Shared Bookmarks</strong>
 
-A del.icio.us-style bookmarking system would allow students working on parallel projects to save useful links (pointers to relevant parts of the Java API, for example).  Dunno how much students would actually use it...
+A del.icio.us-style bookmarking system would allow students working on parallel projects to save useful links (pointers to relevant parts of the Java API, for example).  Dunno how much students would actually use it…
 
 <strong>9. Calendaring</strong>
 

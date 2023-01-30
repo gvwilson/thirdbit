@@ -65,7 +65,7 @@ but the answer in R is G-F because of lazy evaluation.
 
 If you have short questions that you use to probe or classify people's mental models of program execution,
 I'd enjoy hearing about them:
-please [give me a shout](mailto:gvwilson@third-bit.com).
+please [give me a shout](mailto:{{site.author.email}}).
 
 ---
 
@@ -82,7 +82,7 @@ def f(start=datetime.datetime.now()):
 
 f() # prints 2019-09-05 15:47:20.976051
 f() # also prints 2019-09-05 15:47:20.976051
-f() # and again...
+f() # and again…
 ```
 
 Possible causes are:

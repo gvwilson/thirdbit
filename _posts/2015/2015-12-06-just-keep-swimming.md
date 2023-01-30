@@ -13,7 +13,7 @@ favorite: true
   landed on my screen just a couple of hours later.
   In it,
   he goes through a list that Butler Lampson made in 1999
-  and points out that, "...every Yes from 1999 still Yes today,
+  and points out that, "…every Yes from 1999 still Yes today,
   seven of the Maybes and Nos were upgraded,
   and only one was downgraded."
 </p>
@@ -57,7 +57,7 @@ favorite: true
   </li>
   <li>
     I made three attempts to build an extensible programming system.
-    You didn't know that either...
+    You didn't know that either…
   </li>
   <li>
     Students worked on a fork of Trac called DrProject for five years.
@@ -78,7 +78,7 @@ favorite: true
     I didn't get a Shuttleworth Foundation fellowship.
   </li>
   <li>
-    I bet you haven't read <a href="http://sensibleadventures.com/and-then/">And Then...</a>
+    I bet you haven't read <a href="http://sensibleadventures.com/and-then/">And Then…</a>
     or <a href="http://sensibleadventures.com/still/"><em>Still</em></a>,
     and I haven't even finished <a href="http://sensibleadventures.com/madica/"><em>Madica</em></a>
     or <a href="http://sensibleadventures.com/beneath-coriandel/"><em>Beneath Coriandel</em></a>.
@@ -90,7 +90,7 @@ favorite: true
   </li>
 </ul>
 <p>
-  ...and those are just the ones I can remember on a rainy Sunday afternoon.
+  …and those are just the ones I can remember on a rainy Sunday afternoon.
 </p>
 <p>
   When I do in-person instructor training for Software Carpentry,

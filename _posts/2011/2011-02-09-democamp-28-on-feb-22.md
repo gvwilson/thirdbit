@@ -5,9 +5,9 @@ year: 2011
 ---
 DemoCamp Toronto # 28 is happening February 22, 2011 at Ryerson University.
 <ul>
-	<li>Event Details: <a href="http://wp.me/srS6B-dct28">http://wp.me/srS6B-dct28</a></li>
-	<li>Buy a Ticket: <a href="http://guestli.st/45021">http://guestli.st/45021</a></li>
-	<li>Apply to Demo:  <a href="http://bit.ly/dcapply">http://bit.ly/dcapply</a></li>
+  <li>Event Details: <a href="http://wp.me/srS6B-dct28">http://wp.me/srS6B-dct28</a></li>
+  <li>Buy a Ticket: <a href="http://guestli.st/45021">http://guestli.st/45021</a></li>
+  <li>Apply to Demo:  <a href="http://bit.ly/dcapply">http://bit.ly/dcapply</a></li>
 </ul>
 <strong>Keynote Speaker: Mark Ruddock (@MarkRuddock)</strong>
 
@@ -25,9 +25,9 @@ We're also looking for up to 5 startups or entrepreneurs to demo a new technolog
 
 DemoCamp is brought to you by:
 <ul>
-	<li>@StartupNorth (<a href="http://startupnorth.ca/">http://startupnorth.ca/</a>)</li>
-	<li>SIFE Ryerson (<a href="http://siferyerson.com/">http://siferyerson.com/</a>)</li>
-	<li>KPMG (<a href="http://kpmg.ca/">http://kpmg.ca/</a>)</li>
-	<li>OCE (<a href="http://oce-ontario.org/">http://oce-ontario.org/</a>)</li>
+  <li>@StartupNorth (<a href="http://startupnorth.ca/">http://startupnorth.ca/</a>)</li>
+  <li>SIFE Ryerson (<a href="http://siferyerson.com/">http://siferyerson.com/</a>)</li>
+  <li>KPMG (<a href="http://kpmg.ca/">http://kpmg.ca/</a>)</li>
+  <li>OCE (<a href="http://oce-ontario.org/">http://oce-ontario.org/</a>)</li>
 </ul>
 You should consider attending and connecting with other entrepreneurs, designers, developers and others.  Please <a href="http://democamp.forwardtomyfriend.com/r/tlsjjiur/69A1BF1E/yhdink/l">recommend DemoCamp to a friend</a>.

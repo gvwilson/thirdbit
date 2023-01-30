@@ -5,7 +5,7 @@ original: swc
 title: An Answer That Most Students Won't Understand
 ---
 <p>Two days ago, I asked how to generates tests from tables of fixtures using Nose:</p>
-<blockquote><p>...does Nose already have a tool for running through a table of fixtures and expected results?  My hand-rolled version is:</p>
+<blockquote><p>…does Nose already have a tool for running through a table of fixtures and expected results?  My hand-rolled version is:</p>
 <pre>Tests = (
     #  R1                 R2                  Expected
     ( ((0, 0), (0, 0)),   ((0, 0), (0, 0)),   None ),
@@ -40,12 +40,12 @@ def check_pair(left, right):
 </pre>
 <p>The outer function <code>tabletest</code> takes the table of fixtures as an argument, and produces a function of one argument. That argument is supposed to be the function that is being wrapped up by the decorator, so:</p>
 <pre>@tabletest(table)
-def check_pair(...):
-    ...
+def check_pair(…):
+    …
 </pre>
 <p>means:</p>
 <pre>decorator = tabletest(table)
-check_pair = ...what the 'def' creates...
+check_pair = …what the 'def' creates…
 check_pair = decorator(check_pair)
 </pre>
 <p>With me so far?  Now, what <code>decorator</code> does is take a function F as an argument, and create a new function F' that produces each combination of the original F with the entries in the table: in jargon, it creates a <em>generator</em> that <em>yields</em> F and the arguments that F should be applied to.</p>
