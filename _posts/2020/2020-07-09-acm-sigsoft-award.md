@@ -111,7 +111,7 @@ be better prepared for what comes next than most of us were.
 
 Changing an established curriculum is hard, but we owe it to our students, and
 the two courses I've described above would be fun to create. If you'd like to
-help do so, please [mail me]({{site.author.email}}).
+help do so, please [mail me](mailto:{{site.author.email}}).
 
 My thanks once again to SIGSOFT for this award; I hope you and yours are safe
 and well.
