@@ -59,4 +59,42 @@ Breaking that down:
 If you're interested, please [let me know](mailto:{{site.author.email}});
 if a dozen people are willing to commit, I think it would be a lot of fun.
 
+## Who Is This Class For?
+
+These three personas define this class's intended audience:
+
+-   Aïsha started writing Python in an undergrad geology course.
+    After spending three years creating ever-more-complex Jupyter notebooks
+    she wants to learn how to build packages that other people can use.
+    This material will fill in some gaps in Aïsha's programming knowledge
+    and teach her some common design patterns.
+
+-   Rupinder is a computer science undergrad.
+    He has learned a lot of theory,
+    and uses Git and unit testing tools in assignments,
+    but doesn't understand how they work.
+    This material will give Rupinder a better understanding of those tools
+    and of how to design new ones.
+
+-   Yim teaches courses on full-stack web development and software design.
+    They are happy with the former,
+    but frustrated that books about the latter are so abstract
+    and use examples that their students can't relate to.
+    This material will give Yim starting points for a wide variety of course assignments.
+
+Slicing another way, participants should be able to:
+
+-   Install Python and run Python programs from the command line.
+
+-   Write Python programs using loops, arrays, and functions,
+    and have some experience building or using classes.
+
+-   Create static web pages using HTML.
+
+-   Use Git to save and share files.
+    (It's OK not to know the 90% of its commands.)
+
+-   Explain what a tree is and process one recursively.
+    (This is the most complicated data structure and algorithm we *don't* explain.)
+
 [sdxjs]: {{'/sdxjs/' | relative_url}}
