@@ -3,41 +3,39 @@
   <head>
     <title>Software Engineering's Greatest Hits</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../../res/thirdbit.css">
     <link rel="stylesheet" href="../custom.css">
   </head>
   <body>
     <textarea id="source">
 
-<div align="center" style="padding-top: 2rem;">
+<div class="center padtop">
   <h1>Software Engineering's Greatest Hits</h1>
-  <p><strong>what we actually know about software development<br>and why we believe it's true</strong></p>
   <p><img src="../img/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
-  <h4>Greg Wilson</h4>
-  <p><small><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></small></p>
+  <p>Greg Wilson</p>
+  <p><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></p>
   <p><img src="../img/cc-by.svg" width="20%" alt="CC-BY" /></p>
 </div>
----
-<div class="split-title">
-  <h2>In the Beginning</h2>
-</div>
-  <div align="center">
-    <img src="ships.jpg" alt="Sailing ships"/>
-  </div>
 
-  - Seven Years' War (actually lasted nine years)
-  - British lost 1512 sailors to enemy action…
-  - …and almost 100,000 to scurvy
-</div>
 ---
-name: james-lind
-<div class="split-title">
-  <h2>Irony</h2>
-</div>
-<div class="flex-row">
-  <div class="flex-col" width="30%">
-    <img src="james-lind.jpg" alt="James Lind"/>
+
+## In the Beginning
+
+<img src="ships.jpg" alt="Sailing ships" class="center">
+
+- Seven Years' War (actually lasted nine years)
+- British lost 1512 sailors to enemy action…
+- …and almost 100,000 to scurvy
+
+---
+
+## Irony
+
+<div class="row">
+  <div class="col-6 center">
+    <img src="james-lind.jpg" alt="James Lind">
   </div>
-  <div class="flex-col">
+  <div class="col-6">
     <ul>
       <li>James Lind (1716–94)</li>
       <li>1747: first controlled medical experiment</li>
@@ -59,50 +57,33 @@ name: james-lind
   </div>
 </div>
 
----
-
-template: james-lind
-
 - Those given oranges survived
 - Admiralty ignored the result until 1794
----
-name: doctors
-<div class="split-title">
-  <h2>It Took a While</h2>
-</div>
 
-<img src="doctors.jpg" alt="Doctors" />
+---
+
+## It Took a While
+
+<img src="doctors.jpg" alt="Doctors" class="center">
 
 - 1950: Hill & Doll publish a case-control study comparing smokers with non-smokers
 - Found that smoking causes lung cancer…
----
-template: doctors
 - …and that many people would rather fail than change
----
-name: introduction
-<div class="split-title">
-  <h2>Is Software Engineering?</h2>
-</div>
 
-<p align="center">
-  <img src="../img/engineer-600.jpg" alt="Street Preacher" />
-</p>
+---
+
+## Is Software Engineering?
+
+<img src="./engineer-600.jpg" alt="Street Preacher" class="center">
 
 - "The use of the scientific method to design novel things"
----
-
-template: introduction
 - So… no
 
 ---
 
-<div class="split-title">
-  <h2>Chickens and Eggs</h2>
-</div>
+## Chickens and Eggs
 
-<p align="center">
-  <img src="../img/blind-leading-blind.png" alt="The blind leading the blind" />
-</p>
+<img src="../img/blind-leading-blind.png" alt="The blind leading the blind" class="center">
 
 - We know a lot about software and how it's built
 - But students aren't taught methods or results in school
@@ -110,42 +91,31 @@ template: introduction
 
 ---
 
-<div class="split-title">
-  <h2>We Can Do Better</h2>
-</div>
+## We Can Do Better
 
 - Steady growth of empirical studies over 30 years
 - Fueled in part by data from open source projects
 - Many studies are small, and not all are well done
 - But we can refute some myths and reveal new insights
 
-<div align="center">
-  <img src="../img/icse-2021.png" alt="ICSE 2021" width="80%" />
-</div>
+<img src="./icse-2021.png" alt="ICSE 2021" width="80%" class="center">
 
 ---
 
-name: stefik-1
+## Are Some Languages Better?
 
-<div class="split-title">
-  <h2>Are Some Languages Better Than Others?</h2>
-</div>
-
-<a href="#Stefik2013">Stefik</a>: "An Empirical Investigation into Programming Language Syntax"
+<a href="#Stefik2013">Stefik2013</a>: "An Empirical Investigation into Programming Language Syntax"
 
 - Measured how easily novices could read:
   - Perl
   - Quorum: the language their team is building
   - Randomo: syntax "designed" by rolling D&D dice
----
-
-template: stefik-1
 - Perl is as hard for novices to learn as a language with a randomly-designed syntax
+
 ---
 
-<div class="split-title">
-  <h2>Are Some Languages Better Than Others?</h2>
-</div>
+## Are Some Languages Better?
+
 - Second study
   - More subjects
   - Multiple assessment strategies
@@ -155,9 +125,7 @@ template: stefik-1
 
 ---
 
-<div class="split-title">
-  <h2>Nobody Knows Anything</h2>
-</div>
+## Nobody Knows Anything
 
 <a href="#Altadmri2016">Altadmri2016</a>: "37 Million Compilations: Investigating Novice Programming Mistakes in Large-Scale Student Data"
 
@@ -169,20 +137,13 @@ template: stefik-1
 
 ---
 
-name: altadmri-1
-
-<div class="split-title">
-  <h2>Nobody Knows Anything</h2>
-</div>
+## Nobody Knows Anything
 
 Most common actual errors are:
 
 - Mis-matched parentheses (*not* confusing `=` with `==`)
 - Invoking methods with the wrong arguments
 - Reaching end of non-`void` method without `return`
----
-
-template: altadmri-1
 
 The three that take the most time to fix are:
 
@@ -192,9 +153,7 @@ The three that take the most time to fix are:
 
 ---
 
-<div class="split-title">
-  <h2>Let's Talk About Test-Driven Development</h2>
-</div>
+## Test-Driven Development
 
 <a href="#Shull2010">Shull2010</a>: "How Effective is Test-Driven Development?"
 
@@ -209,57 +168,40 @@ The three that take the most time to fix are:
 
 ---
 
-name: fucci-1
-
-<div class="split-title">
-  <h2>Let's Talk About Test-Driven Development</h2>
-</div>
+## Test-Driven Development
 
 <a href="#Fucci2016">Fucci2016</a>: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach"
 
 - Replication study, 39 professionals, real projects
 - No significant difference between test-first and test-last development
----
-
-template: fucci-1
-name: fucci-2
 - "The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."
----
 
-template: fucci-2
 > I practice TDD…and it works great. We don't need to prove that it works anymore.
+
 ---
 
-name: metrics-1
-
-<div class="split-title">
-  <h2>Code Metrics</h2>
-</div>
+## Code Metrics
 
 - Lots of code metrics have been proposed
   - Halstead's measures
   - Cyclomatic complexity
   - Many object-oriented measures
----
-template: metrics-1
 - But nothing works better than counting lines of code
   - <a href="#ElEmam2001">ElEmam2001</a>: "Confounding Effects of Class Size on the Validity of Object-Oriented Metrics"
   - <a href="#Herraiz2010">Herraiz2010</a>: "Beyond Lines of Code: Do We Need More Complexity Metrics?"
+
 ---
 
-<div class="split-title">
-  <h2>Check Your Error Handling</h2>
-</div>
+## Check Your Error Handling
 
 <a href="#Yuan2014">Yuan2014</a>: "Simple Testing Can Prevent Most Critical Failures: An Analysis of Production Failures in Distributed Data-Intensive Systems"
 
 - 198 randomly selected, user-reported failures on Cassandra, Hadoop MapReduce, etc.
 - Majority of catastrophic failures could easily have been prevented by performing simple testing on error handling code
+
 ---
 
-<div class="split-title">
-  <h2>Check Your Error Handling</h2>
-</div>
+## Check Your Error Handling
 
 <a href="#Nakshatri2016">Nakshatri2016</a>: "Analysis of Exception Handling Patterns in Java Projects: An Empirical Study"
 
@@ -270,9 +212,7 @@ template: metrics-1
 
 ---
 
-<div class="split-title">
-  <h2>Open Source</h2>
-</div>
+## Open Source
 
 <a href="#Steinmacher2015">Steinmacher2015</a>: "Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects"
 
@@ -284,9 +224,7 @@ template: metrics-1
 
 ---
 
-<div class="split-title">
-  <h2>There Is No "Geek Gene"</h2>
-</div>
+## There Is No "Geek Gene"
 
 <a href="#Patitsas2016">Patitsas2016</a>: "Computer Science Grades Are Not Bimodal"
 
@@ -297,22 +235,16 @@ template: metrics-1
 
 ---
 
-<div class="split-title">
-  <h2>Productivity</h2>
-</div>
+## Productivity
 
 - <a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice
 - How long did it take?
 
-<div align="center">
-  <img src="productivity.svg" />
-</div>
+<img src="productivity.svg" class="center">
 
 ---
 
-<div class="split-title">
-  <h2>Productivity</h2>
-</div>
+## Productivity
 
 - Shortest and longest times were 0.6 and 63 hours
   - Ratio is 150X (!)
@@ -323,9 +255,7 @@ template: metrics-1
 
 ---
 
-<div class="split-title">
-  <h2>Productivity</h2>
-</div>
+## Productivity
 
 <a href="#Begel2014">Begel2014</a>: "Analyze This! 145 Questions for Data Scientists in Software Engineering"
 
@@ -341,13 +271,11 @@ class: sidebar
 ## Sidebar
 
 - My colleagues and I did a similar study of CS teachers and CS education researchers
-- No overlap between the top 5 questions selected by each group :-(
+- No overlap between the top five questions selected by each group
 
 ---
 
-<div class="split-title">
-  <h2>A Few Random Results</h2>
-</div>
+## A Few Random Results
 
 - Rapid releases can mean fixes take *longer* to get integrated (<a href="#DaCosta2017">DaCosta2017</a>)
 - Traditional release cycles prioritize integration of backlog issues
@@ -355,9 +283,7 @@ class: sidebar
 
 ---
 
-<div class="split-title">
-  <h2>A Few Random Results</h2>
-</div>
+## A Few Random Results
 
 - Teaching people design patterns makes them better programmers (<a href="#Tichy2010">Tichy2010</a>)
 - This is *not* obvious
@@ -366,9 +292,7 @@ class: sidebar
 
 ---
 
-<div class="split-title">
-  <h2>A Few Random Results</h2>
-</div>
+## A Few Random Results
 
 - Fuzz testing invented by accident in 1988 (<a href="#Miller2021">Miller2021</a>)
 - 25-33% of Unix utilities crashed when fuzzed
@@ -376,27 +300,23 @@ class: sidebar
 
 ---
 
-<div class="split-title">
-  <h2>A Few Random Results</h2>
-</div>
+## A Few Random Results
 
 - Original authors fix their own simple bugs much faster than other people (<a href="#Zhu2021">Zhu2021</a>)
 - But are more likely to fix or change other things at the same time
 
-<div class="flex-row">
-  <div class="flex-col">
-    <img src="bug-fix-time.png" alt="Bug fix time" />
+<div class="row">
+  <div class="col-6 center">
+    <img src="bug-fix-time.png" alt="Bug fix time">
   </div>
-  <div class="flex-col">
-    <img src="bug-fix-churn.png" alt="Bug fix churn" />
+  <div class="col-6 center">
+    <img src="bug-fix-churn.png" alt="Bug fix churn">
   </div>
 </div>
 
 ---
 
-<div class="split-title">
-  <h2>A Few Random Results</h2>
-</div>
+## A Few Random Results
 
 <a href="#Xu2015">Xu2015</a>: developers create a lot more configuration options than people use
 
@@ -409,9 +329,7 @@ class: sidebar
 
 ---
 
-<div class="split-title">
-  <h2>A Few Random Results</h2>
-</div>
+## A Few Random Results
 
 - Major benefit of pair programming is transfer of problem-specific knowledge (<a href="#Zieris2020">Zieris2020</a>)
 - Only 7% of hackathon projects have any activity after 6 months (<a href="#McIntosh2021">McIntosh2021</a>)
@@ -420,60 +338,40 @@ class: sidebar
 
 ---
 
-name: how-1
-
-<div class="split-title">
-  <h2>What Hasn't Worked?</h2>
-</div>
+## What Hasn't Worked?
 
 - People have tried explaining all of this before
 
-<table>
-  <td width="30%"><img src="../img/rapid-development.jpg" width="80%" /></td>
-  <td width="30%"><img src="../img/facts-fallacies.jpg" width="80%" /></td>
-  <td width="30%"><img src="../img/making-software.jpg" width="80%" /></td>
-</table>
----
-
-template: how-1
-
-<table>
-  <td width="60%" valign="top"><ul><li>In several different formats</li></ul></td>
-  <td valign="top"><img src="./nwit.png" width="80%" /></td>
-</table>
-
----
-name: proposal
-<div class="split-title">
-  <h2>What Might?</h2>
+<div class="row">
+  <div class="col-3"><img src="./rapid-development.jpg" width="70%"></div>
+  <div class="col-3"><img src="./facts-fallacies.jpg" width="70%"></div>
+  <div class="col-3"><img src="../img/making-software.jpg" width="70%"></div>
+  <div class="col-3"><img src="./nwit.png" width="70%"></div>
 </div>
+
+---
+
+## What Might?
 
 - Start with a little data science
   - Using software engineering datasets (because people learn best when examples are relevant)
   - And Python (because computer science students will probably already know it)
   - Academically defensible ("Look, math!")
   - And attractive to students
----
-
-template: proposal
 - Then replicate a few simple results
   - <a href="#Fucci2016">Fucci2016</a>, <a href="#Prechelt2000">Prechelt2000</a>, etc.
 - Then survey other results
-  - At this point, students will be able to understand and assess the claims
+- At this point, students will be able to understand and assess the claims
 
 ---
-name: assignment
-<div class="split-title">
-  <h2>When We're Done</h2>
-</div>
+
+## When We're Done
 
 Assignment #3
 
 > Given version control repositories for six software
 > projects, determine whether long functions are
 > more likely to be buggy than short ones.
----
-template: assignment
 
 - Requires tool use, model building, and statistics
 - Require students to *do* science
@@ -482,22 +380,19 @@ template: assignment
 
 ---
 
-<div class="split-title">
-  <h2>Conclusions</h2>
-</div>
+## Conclusions
 
-<div align="center">
-  <img src="../img/wikipedian_protester.png" />
-</div>
+<img src="./wikipedian_protester.png" class="center">
 
 - The world needs more of this
 - What are you waiting for?
 
 ---
 
-<div align="center">
-  <h2>Thank You</h2>
-  <p><img src="../img/gvwilson.png" width="40%"/></p>
+## Thank You
+
+<div class="center">
+  <p><img src="../img/gvwilson.png" width="40%"></p>
   <p><a href="http://third-bit.com">Greg Wilson</a></p>
   <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
   <p><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></p>
@@ -505,41 +400,41 @@ template: assignment
 
 ---
 
-<div class="split-title">
-  <h2>Bibliography</h2>
-</div>
+class: bibliography
 
-<p id="Altadmri2015" class="bibliography"><span class="bibliographykey">Altadmri2015</span>
+## Bibliography
+
+<p id="Altadmri2015">[Altadmri2015]
 Amjad Altadmri and Neil C.C. Brown:
 "<a href="https://doi.org/10.1145/2676723.2677258">37 Million Compilations</a>".
 <em>SIGCSE'15</em>, <a class="doi" href="https://doi.org/10.1145/2676723.2677258">10.1145/2676723.2677258</a>.
 </p>
 
-<p id="Begel2014" class="bibliography"><span class="bibliographykey">Begel2014</span>
+<p id="Begel2014">[Begel2014]
 Andrew Begel and Thomas Zimmermann:
 "<a href="https://doi.org/10.1145/2568225.2568233">Analyze this! 145 questions for data scientists in software engineering</a>".
 <em>ICSE'14</em>, <a class="doi" href="https://doi.org/10.1145/2568225.2568233">10.1145/2568225.2568233</a>.
 </p>
 
-<p id="DaCosta2017" class="bibliography"><span class="bibliographykey">DaCosta2017</span>
+<p id="DaCosta2017">[DaCosta2017]
 Daniel Alencar da Costa, Shane McIntosh, Christoph Treude, Uirá Kulesza, and Ahmed E. Hassan:
 "<a href="https://doi.org/10.1007/s10664-017-9548-7">The impact of rapid release cycles on the integration delay of fixed issues</a>".
 <em>Empirical Software Engineering</em>, 23(2), 2017, <a class="doi" href="https://doi.org/10.1007/s10664-017-9548-7">10.1007/s10664-017-9548-7</a>.
 </p>
 
-<p id="ElEmam2001" class="bibliography"><span class="bibliographykey">ElEmam2001</span>
+<p id="ElEmam2001">[ElEmam2001]
 Khaled El Emam, Saïda Benlarbi, Nishith Goel, and Shesh N. Rai:
 "The Confounding Effect of Class Size on the Validity of Object-Oriented Metrics".
 <em>Transactions on Software Engineering</em>, 27(7), 2001, <a class="doi" href="https://doi.org/10.1109/32.935855">10.1109/32.935855</a>.
 </p>
 
-<p id="Fucci2016" class="bibliography"><span class="bibliographykey">Fucci2016</span>
+<p id="Fucci2016">[Fucci2016]
 Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo:
 "<a href="https://doi.org/10.1145/2961111.2962592">An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach</a>".
 <em>ESEM'16</em>, <a class="doi" href="https://doi.org/10.1145/2961111.2962592">10.1145/2961111.2962592</a>.
 </p>
 
-<p id="Herraiz2010" class="bibliography"><span class="bibliographykey">Herraiz2010</span>
+<p id="Herraiz2010">[Herraiz2010]
 Israel Herraiz and Ahmed E. Hassan:
 "Beyond Lines of Code: Do We Need More Complexity Metrics?".
 In 
@@ -548,67 +443,73 @@ Andy Oram and Greg Wilson (eds.):
 O'Reilly, 2010, 0596808321.
 </p>
 
-<p id="McIntosh2021" class="bibliography"><span class="bibliographykey">McIntosh2021</span>
+---
+
+class: bibliography
+
+## Bibliography
+
+<p id="McIntosh2021">[McIntosh2021]
 Lukas McIntosh and Caroline D. Hardin:
 "<a href="https://doi.org/10.1145/3408877.3432435">Do Hackathon Projects Change the World? An Empirical Analysis of GitHub Repositories</a>".
 <em>SIGCSE'21</em>, <a class="doi" href="https://doi.org/10.1145/3408877.3432435">10.1145/3408877.3432435</a>.
 </p>
 
-<p id="Miller2020" class="bibliography"><span class="bibliographykey">Miller2020</span>
+<p id="Miller2020">[Miller2020]
 Barton Miller, Mengxiao Zhang, and Elisa Heymann:
 "<a href="https://doi.org/10.1109/tse.2020.3047766">The Relevance of Classic Fuzz Testing: Have We Solved This One?</a>".
 <em>IEEE Transactions on Software Engineering</em>, 2020, <a class="doi" href="https://doi.org/10.1109/tse.2020.3047766">10.1109/tse.2020.3047766</a>.
 </p>
 
----
-
-<div class="split-title">
-  <h2>Bibliography</h2>
-</div>
-
-<p id="Nakshatri2016" class="bibliography"><span class="bibliographykey">Nakshatri2016</span>
+<p id="Nakshatri2016">[Nakshatri2016]
 Suman Nakshatri, Maithri Hegde, and Sahithi Thandra:
 "<a href="https://doi.org/10.1145/2901739.2903499">Analysis of exception handling patterns in Java projects</a>".
 <em>Proceedings of the 13th International Conference on Mining Software Repositories</em>, <a class="doi" href="https://doi.org/10.1145/2901739.2903499">10.1145/2901739.2903499</a>.
 </p>
 
-<p id="Palomba2021" class="bibliography"><span class="bibliographykey">Palomba2021</span>
+<p id="Palomba2021">[Palomba2021]
 Fabio Palomba, Damian Andrew Tamburri, Francesca Arcelli Fontana, Rocco Oliveto, Andy Zaidman, and Alexander Serebrenik:
 "<a href="https://doi.org/10.1109/tse.2018.2883603">Beyond Technical Aspects: How Do Community Smells Influence the Intensity of Code Smells?</a>".
 <em>IEEE Transactions on Software Engineering</em>, 47(1), 2021, <a class="doi" href="https://doi.org/10.1109/tse.2018.2883603">10.1109/tse.2018.2883603</a>.
 </p>
 
-<p id="Patitsas2016" class="bibliography"><span class="bibliographykey">Patitsas2016</span>
+<p id="Patitsas2016">[Patitsas2016]
 Elizabeth Patitsas, Jesse Berlin, Michelle Craig, and Steve Easterbrook:
 "Evidence That Computer Science Grades Are Not Bimodal".
 <em>ICER'16</em>, <a class="doi" href="https://doi.org/10.1145/2960310.2960312">10.1145/2960310.2960312</a>.
 </p>
 
-<p id="Prechelt2000" class="bibliography"><span class="bibliographykey">Prechelt2000</span>
+<p id="Prechelt2000">[Prechelt2000]
 Lutz Prechelt:
 "An Empirical Comparison of Seven Programming Languages".
 <em>IEEE Computer</em>, 33(10), 2000, <a class="doi" href="https://doi.org/10.1109/2.876288">10.1109/2.876288</a>.
 </p>
 
-<p id="Shull2010" class="bibliography"><span class="bibliographykey">Shull2010</span>
+---
+
+class: bibliography
+
+## Bibliography
+
+<p id="Shull2010">[Shull2010]
 Forrest Shull, Grigori Melnik, Burak Turhan, Lucas Layman, Madeline Diep, and Hakan Erdogmus:
 "<a href="https://doi.org/10.1109/ms.2010.152">What Do We Know about Test-Driven Development?</a>".
 <em>IEEE Software</em>, 27(6), 2010, <a class="doi" href="https://doi.org/10.1109/ms.2010.152">10.1109/ms.2010.152</a>.
 </p>
 
-<p id="Stefik2013" class="bibliography"><span class="bibliographykey">Stefik2013</span>
+<p id="Stefik2013">[Stefik2013]
 Andreas Stefik and Susanna Siebert:
 "<a href="https://doi.org/10.1145/2534973">An Empirical Investigation into Programming Language Syntax</a>".
 <em>ACM Trans. Computing Education</em>, 13(4), 2013, <a class="doi" href="https://doi.org/10.1145/2534973">10.1145/2534973</a>.
 </p>
 
-<p id="Steinmacher2015" class="bibliography"><span class="bibliographykey">Steinmacher2015</span>
+<p id="Steinmacher2015">[Steinmacher2015]
 Igor Steinmacher, Tayana Conte, Marco Aurélio Gerosa, and David Redmiles:
 "Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects".
 <em>CSCW'15</em>, <a class="doi" href="https://doi.org/10.1145/2675133.2675215">10.1145/2675133.2675215</a>.
 </p>
 
-<p id="Tichy2010" class="bibliography"><span class="bibliographykey">Tichy2010</span>
+<p id="Tichy2010">[Tichy2010]
 Walter Tichy:
 "The Evidence for Design Patterns".
 In 
@@ -617,37 +518,37 @@ Andy Oram and Greg Wilson (eds.):
 O'Reilly, 2010, 0596808321.
 </p>
 
----
-
-<div class="split-title">
-  <h2>Bibliography</h2>
-</div>
-
-<p id="Wessel2020" class="bibliography"><span class="bibliographykey">Wessel2020</span>
+<p id="Wessel2020">[Wessel2020]
 Mairieli Wessel, Alexander Serebrenik, Igor Wiese, Igor Steinmacher, and Marco A. Gerosa:
 "<a href="https://doi.org/10.1109/icsme46990.2020.00011">Effects of Adopting Code Review Bots on Pull Requests to OSS Projects</a>".
 <em>ICSME'20</em>, <a class="doi" href="https://doi.org/10.1109/icsme46990.2020.00011">10.1109/icsme46990.2020.00011</a>.
 </p>
 
-<p id="Xu2015" class="bibliography"><span class="bibliographykey">Xu2015</span>
+<p id="Xu2015">[Xu2015]
 Tianyin Xu, Long Jin, Xuepeng Fan, Yuanyuan Zhou, Shankar Pasupathy, and Rukma Talwadker:
 "<a href="https://doi.org/10.1145/2786805.2786852">Hey,  you have given me too many knobs!: understanding and dealing with over-designed configuration in system software</a>".
 <em>Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering</em>, <a class="doi" href="https://doi.org/10.1145/2786805.2786852">10.1145/2786805.2786852</a>.
 </p>
 
-<p id="Yuan2014" class="bibliography"><span class="bibliographykey">Yuan2014</span>
+---
+
+class: bibliography
+
+## Bibliography
+
+<p id="Yuan2014">[Yuan2014]
 Ding Yuan, Yu Luo, Xin Zhuang, Guilherme Renna Rodrigues, Xu Zhao, Yongle Zhang, Pranay U. Jain, and Michael Stumm:
 "<a href="https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-yuan.pdf">Simple testing can prevent most critical failures: an analysis of production failures in distributed data-intensive systems</a>".
 <em>OSDI'14</em>, <a class="doi" href="https://doi.org/10.13140/2.1.2044.2889">10.13140/2.1.2044.2889</a>.
 </p>
 
-<p id="Zhu2021" class="bibliography"><span class="bibliographykey">Zhu2021</span>
+<p id="Zhu2021">[Zhu2021]
 Wenhan Zhu and Michael W. Godfrey:
 "<a href="https://doi.org/10.1109/msr52588.2021.00065">Mea culpa: How developers fix their own simple bugs differently from other developers</a>".
 <em>MSR'21</em>, <a class="doi" href="https://doi.org/10.1109/msr52588.2021.00065">10.1109/msr52588.2021.00065</a>.
 </p>
 
-<p id="Zieris2020" class="bibliography"><span class="bibliographykey">Zieris2020</span>
+<p id="Zieris2020">[Zieris2020]
 Franz Zieris and Lutz Prechelt:
 "Two Elements of Pair Programming Skill".
 <em>ICSE'20</em>.

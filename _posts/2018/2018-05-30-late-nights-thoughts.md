@@ -32,7 +32,7 @@ favorite: true
 
 <div>
   <div>
-    <img src="{{ '/talks/img/f1000-screenshot.png' | relative_url }}" alt="Screenshot of F1000 page for 'Software Carpenry - Lessons Learned' paper" width="60%"/>
+    <img src="{{ '/talks/late-night/f1000-screenshot.png' | relative_url }}" alt="Screenshot of F1000 page for 'Software Carpenry - Lessons Learned' paper" width="60%"/>
   </div>
   <blockquote>
     <p>
@@ -45,7 +45,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/carpentries-staff.jpg' | relative_url }}" alt="Carpentries Staff" width="60%"/>
+    <img src="{{ '/talks/late-night/carpentries-staff.jpg' | relative_url }}" alt="Carpentries Staff" width="60%"/>
   </div>
   <blockquote>
     <p>
@@ -59,7 +59,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/coup-detat.jpg' | relative_url }}" alt="Hydra logo" width="40%"/>
+    <img src="{{ '/talks/late-night/coup-detat.jpg' | relative_url }}" alt="Hydra logo" width="40%"/>
   </div>
   <blockquote>
     <p>
@@ -84,10 +84,10 @@ favorite: true
 <div>
   <div>
     <h2>To Do:</h2>
-    <h3>2018-12-17: write Carpentry talk.</h3>
-    <h3>2018-01-01: write Carpentry talk.</h3>
-    <h3>2018-02-01: write! Carpentry! talk!</h3>
-    <h3>2018-02-19: why is this so hard???</h3>
+    <p>2018-12-17: write Carpentry talk.</p>
+    <p>2018-01-01: write Carpentry talk.</p>
+    <p>2018-02-01: write! Carpentry! talk!</p>
+    <p>2018-02-19: why is this so hard???</p>
   </div>
   <blockquote>
     <p>
@@ -104,7 +104,7 @@ favorite: true
 
 <div>
   <div class="center">
-    <img src="{{ '/talks/img/end-of-the-day.jpg' | relative_url }}" alt="The End of the Day" width="40%" />
+    <img src="{{ '/talks/late-night/end-of-the-day.jpg' | relative_url }}" alt="The End of the Day" width="40%" />
   </div>
   <blockquote>
     <p>
@@ -126,7 +126,7 @@ favorite: true
 
 <div>
   <div class="center">
-    <img src="{{ '/talks/img/kitten2.jpg' | relative_url }}" alt="Kittens" width="60%" />
+    <img src="{{ '/talks/late-night/kitten2.jpg' | relative_url }}" alt="Kittens" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -140,9 +140,9 @@ favorite: true
 
 <div>
   <div class="center">
-    <img src="{{ '/talks/img/lanl-1998-07.jpg' | relative_url }}" width="50%" />
+    <img src="{{ '/talks/late-night/lanl-1998-07.jpg' | relative_url }}" width="50%" />
     <br>
-    <img src="{{ '/talks/img/lanl-1998-09.jpg' | relative_url }}" width="50%" />
+    <img src="{{ '/talks/late-night/lanl-1998-09.jpg' | relative_url }}" width="50%" />
   </div>
   <blockquote>
     <p>
@@ -163,7 +163,7 @@ favorite: true
   <div>
     <h3>1. Be sure you mean it.</h3>
     <br>
-    <img src="{{ '/talks/img/hawaii.jpg' | relative_url }}" width="60%" />
+    <img src="{{ '/talks/late-night/hawaii.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -180,7 +180,7 @@ favorite: true
   <div>
     <h3>2. Do it when others think it's time.</h3>
     <br>
-    <img src="{{ '/talks/img/krakow.jpg' | relative_url }}" width="60%" />
+    <img src="{{ '/talks/late-night/krakow.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -197,7 +197,7 @@ favorite: true
   <div>
     <h3>3. Tell people what, when, and why.</h3>
     <br>
-    <img src="{{ '/talks/img/mauritius.jpg' | relative_url }}" width="60%" />
+    <img src="{{ '/talks/late-night/mauritius.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -213,7 +213,7 @@ favorite: true
   <div>
     <h3>4. Don't pick a successor by yourself.</h3>
     <br>
-    <img src="{{ '/talks/img/new-zealand.jpg' | relative_url }}" width="70%" />
+    <img src="{{ '/talks/late-night/new-zealand.jpg' | relative_url }}" width="70%" />
   </div>
   <blockquote>
     <p>
@@ -229,7 +229,7 @@ favorite: true
   <div>
     <h3>5. Train them before you go.</h3>
     <br>
-    <img src="{{ '/talks/img/oklahoma.jpg' | relative_url }}" width="60%" />
+    <img src="{{ '/talks/late-night/oklahoma.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -248,7 +248,7 @@ favorite: true
   <div>
     <h3>6. When you leave, leave.</h3>
     <br>
-    <img src="{{ '/talks/img/room3.jpg' | relative_url }}" width="60%" />
+    <img src="{{ '/talks/late-night/room3.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -265,7 +265,7 @@ favorite: true
   <div>
     <h3>7. Have some fun before you go.</h3>
     <br>
-    <img src="{{ '/talks/img/idigbio.jpg' | relative_url }}" width="60%" />
+    <img src="{{ '/talks/late-night/idigbio.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -281,7 +281,7 @@ favorite: true
   <div>
     <h3>8. Reflect on what you learned.</h3>
     <br>
-    <img src="{{ '/talks/img/learners3.jpg' | relative_url }}" width="60%" />
+    <img src="{{ '/talks/late-night/learners3.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -300,7 +300,7 @@ favorite: true
   <div>
     <h3>9. Remember the good things too.</h3>
     <br>
-    <img src="{{ '/talks/img/opencon-es.jpg' | relative_url }}" width="60%" />
+    <img src="{{ '/talks/late-night/opencon-es.jpg' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -320,7 +320,7 @@ favorite: true
   <div>
     <h3>10. Do something next.</h3>
     <br>
-    <img src="{{ '/talks/img/father-and-child.png' | relative_url }}" width="60%" />
+    <img src="{{ '/talks/late-night/father-and-child.png' | relative_url }}" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -349,7 +349,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/unix-manual-1971.png' | relative_url }}" alt="Unix Manual cover page (1971)" width="60%" />
+    <img src="{{ '/talks/late-night/unix-manual-1971.png' | relative_url }}" alt="Unix Manual cover page (1971)" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -372,7 +372,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/this-is-git.png' | relative_url }}" alt="This is Git" width="60%" />
+    <img src="{{ '/talks/late-night/this-is-git.png' | relative_url }}" alt="This is Git" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -409,15 +409,15 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/blue-and-sentimental.jpg' | relative_url }}" alt="Blue and Sentimental" width="30%"/>
+    <img src="{{ '/talks/late-night/blue-and-sentimental.jpg' | relative_url }}" alt="Blue and Sentimental" width="30%"/>
      
      
-    <img src="{{ '/talks/img/easy-living.jpg' | relative_url }}" alt="Easy Living" width="30%"/>
+    <img src="{{ '/talks/late-night/easy-living.jpg' | relative_url }}" alt="Easy Living" width="30%"/>
     <br>
-    <img src="{{ '/talks/img/heavy-soul.jpg' | relative_url }}" alt="Heavy Soul" width="30%"/>
+    <img src="{{ '/talks/late-night/heavy-soul.jpg' | relative_url }}" alt="Heavy Soul" width="30%"/>
      
      
-    <img src="{{ '/talks/img/soul-samba.jpg' | relative_url }}" alt="Soul Samba" width="30%"/>
+    <img src="{{ '/talks/late-night/soul-samba.jpg' | relative_url }}" alt="Soul Samba" width="30%"/>
   </div>
   <blockquote>
     <p>
@@ -450,7 +450,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/mummy.jpg' | relative_url }}" alt="The Mummy" width="60%" />
+    <img src="{{ '/talks/late-night/mummy.jpg' | relative_url }}" alt="The Mummy" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -472,7 +472,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/rangle-workshop-2017.jpg' | relative_url }}" alt="Rangle Workshop" width="60%" />
+    <img src="{{ '/talks/late-night/rangle-workshop-2017.jpg' | relative_url }}" alt="Rangle Workshop" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -495,7 +495,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/learning-scientists.png' | relative_url }}" alt="Learning Scientists" width="30%" />
+    <img src="{{ '/talks/late-night/learning-scientists.png' | relative_url }}" alt="Learning Scientists" width="30%" />
   </div>
   <div>
     <table>
@@ -532,7 +532,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/smart-girl-privacy.jpg' | relative_url }}" alt="Smart Girl's Guide to Privacy" width="40%" />
+    <img src="{{ '/talks/late-night/smart-girl-privacy.jpg' | relative_url }}" alt="Smart Girl's Guide to Privacy" width="40%" />
   </div>
   <blockquote>
     <p>
@@ -553,7 +553,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/bpco.jpg' | relative_url }}" alt="Building Powerful Community Organizations" width="40%" />
+    <img src="{{ '/talks/late-night/bpco.jpg' | relative_url }}" alt="Building Powerful Community Organizations" width="40%" />
   </div>
   <blockquote>
     <p>
@@ -572,7 +572,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/this-is-vim.png' | relative_url }}" alt="This is Vim" width="60%" />
+    <img src="{{ '/talks/late-night/this-is-vim.png' | relative_url }}" alt="This is Vim" width="60%" />
   </div>
   <blockquote>
     <p>
@@ -585,7 +585,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/carl-sagan.jpg' | relative_url }}" alt="Carl Sagan" width="40%" />
+    <img src="{{ '/talks/late-night/carl-sagan.jpg' | relative_url }}" alt="Carl Sagan" width="40%" />
     <br>
     <h4>
       <em>If you wish to make<br>an apple pie from scratch,<br>you must first invent the universe.</em>
@@ -615,11 +615,11 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/bury-the-chains.jpg' | relative_url }}" width="30%" />
+    <img src="{{ '/talks/late-night/bury-the-chains.jpg' | relative_url }}" width="30%" />
      
-    <img src="{{ '/talks/img/sisters.jpg' | relative_url }}" width="30%" />
+    <img src="{{ '/talks/late-night/sisters.jpg' | relative_url }}" width="30%" />
      
-    <img src="{{ '/talks/img/victory.jpg' | relative_url }}" width="30%" />
+    <img src="{{ '/talks/late-night/victory.jpg' | relative_url }}" width="30%" />
   </div>
   <div align="center">
     <h4>
@@ -648,7 +648,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/lower-ed.jpg' | relative_url }}" alt="Lower Ed" width="40%" />
+    <img src="{{ '/talks/late-night/lower-ed.jpg' | relative_url }}" alt="Lower Ed" width="40%" />
   </div>
   <blockquote>
     <p>
@@ -669,7 +669,7 @@ favorite: true
 
 <div>
   <div align="center">
-    <img src="{{ '/talks/img/kitten.jpg' | relative_url }}" alt="Kitten" width="60%" />
+    <img src="{{ '/talks/late-night/kitten.jpg' | relative_url }}" alt="Kitten" width="60%" />
   </div>
   <blockquote>
     <p>
