@@ -1,340 +1,338 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Software Carpentry: Lessons Learned</title>
-    <link rel="stylesheet" href="../reveal/css/reveal.css">
-    <link rel="stylesheet" href="../reveal/css/theme/third.css">
-    <link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
-    <link rel="stylesheet" href="./custom.css">
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../custom.css">
   </head>
   <body>
-    <div class="reveal">
-      <header style="position: absolute; top: 50px; left: 100px; z-index: 500"></header>
-      <div class="slides">
+    <textarea id="source">
 
-	<!-- @ title page -->
-        <section style="text-align: center;">
-	  <h2>Software Carpentry:</h2>
-	  <h2><a href="https://f1000research.com/articles/3-62/v2">Lessons Learned</a></h2>
-	  <p>&nbsp;</p>
-	  <h3><a href="http://third-bit.com">Greg Wilson</a></h3>
-	  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-	  <p>&nbsp;</p>
-	  <div>
-	    <div class="left">
-	      <h4>October 2018</h4>
-	    </div>
-	    <div class="right">
-	      <img src="../img/cc-by.svg" alt="CC-BY logo" />
-	    </div>
-	  </div>
-	</section>
+<div align="center" style="padding-top: 2rem;">
+  <h1>Software Carpentry: <a href="https://f1000research.com/articles/3-62/v2">Lessons Learned</a></h1>
+  <p><img src="../img/codebender-logo.svg" alt="Third Bit logo" width="15%" /></p>
+  <h2>Greg Wilson</h2>
+  <p>
+    <a href="http://third-bit.com/talks/sdxjs/">http://third-bit.com/talks/lessons-learned/</a>
+  </p>
+  <p>
+    <img src="../img/cc-by.svg" width="20%" alt="CC-BY" />
+  </p>
+</div>
 
-	<section>
-	  <div align="center">
-	    <br>
-	    <br>
-	    <p>
-	      Years ago, I lost my temper while arguing with my brother, and said,
-	      "Jeff, I could teach you everything I know and you'd still be an idiot."
-	    </p>
-	    <br>
-	    <p>
-	      Please keep that in mind as you listen to what follows...
-	    </p>
-	  </div>
-	</section>
+---
 
-	<section>
-	  <p class="title">Every journey begins with a single itch</p>
-	  <p class="fragment">1991: I wish scientists wrote better software</p>
-	  <p class="fragment">1998: I wish someone would teach scientists how to program</p>
-	  <p class="fragment">2011: I wish someone would teach them how to teach well</p>
-	  <p class="fragment">2017: I wish people knew how to organize because I think we're in trouble here…</p>
-	</section>
+<div class="split-title"><h2>A Word of Caution</h2></div>
 
-	<section>
-	  <div align="center">
-	    <img src="../img/carpentries-logo.svg" alt="Carpentries logo" width="100%" />
-	    <p>"We teach foundational coding and data science skills to researchers worldwide."</p>
-	  </div>
-	</section>
+-  Years ago, I lost my temper while arguing with my brother, and said,
+   "Jeff, I could teach you everything I know and you'd still be an idiot."
 
-	<section>
-	  <div class="left">
-	    <img src="../img/swc-1998.gif" alt="1998" width="300" />
-	    <p>1998</p>
-	    <img src="../img/swc-2004.gif" alt="2004" width="300" />
-	    <p>2004</p>
-	    <img src="../img/swc-2007.jpg" alt="2007" width="300" />
-	    <p>2007</p>
-	  </div>
-	  <div class="right">
-	    <img src="../img/swc-2010.png" alt="2010" width="300" />
-	    <p>2010</p>
-	    <img src="../img/dc-2014.png" alt="2014" width="300" />
-	    <p>2014</p>
-	    <img src="../img/lc-2017.png" alt="2017" width="300" />
-	    <p>2017</p>
-	  </div>
-	</section>
+- Please keep that in mind as you listen to what follows
 
-	<section>
-	  <p class="title">Growth</p>
-	  <table class="table table-striped">
-	    <tr><th>Year</th><th>Workshops</th><th>Learners</th></tr>
-	    <tr><td align="right">2012</td><td align="right"> 38</td><td align="right">1378</td></tr>
-	    <tr><td align="right">2013</td><td align="right"> 93</td><td align="right">3212</td></tr>
-	    <tr><td align="right">2014</td><td align="right">139</td><td align="right">4742</td></tr>
-	    <tr><td align="right">2015</td><td align="right">274</td><td align="right">7755</td></tr>
-	    <tr><td align="right">2016</td><td align="right">345</td><td align="right">7133</td></tr>
-	    <tr><td align="right">2017</td><td align="right">338</td><td align="right">7248</td></tr>
-	    <tr><td align="right">2018</td><td align="right">436</td><td align="right">6329</td></tr>
-	  </table>
-	</section>
 
-	<section>
-	  <p class="title">Where We've Been</p>
-	  <div align="center">
-	    <img src="../img/workshops.png" alt="Map showing where workshops have been run" />
-	  </div>
-	</section>
+---
 
-	<section>
-	  <p class="title">Along the Way</p>
-	  <div align="center">
-	    <img src="../img/beautiful-code.jpg" style="height: 300px"/>
-	    <img src="../img/making-software.jpg" style="height: 300px"/>
-	    <img src="../img/aosa-1.jpg" style="height: 300px"/>
-	    <img src="../img/aosa-2.jpg" style="height: 300px"/>
-	  </div>
-	</section>
+<div class="split-title"><h2>Every journey begins with a single itch</h2></div>
 
-	<section>
-	  <p class="title">Lesson #1</p>
-	  <div align="center">
-	    <p><strong>Most scientists think of programming</strong></p>
-	    <p><strong>as a tax they have to pay to do science</strong></p>
-	  </div>
-	  <br>
-	  <div class="fragment" align="center">
-	    <p>And those who don't are <em>not</em> representative</p>
-	    <p>of the other 85%</p>
-	    <br>
-	    <p><a href="https://www.hanselman.com/blog/DarkMatterDevelopersTheUnseen99.aspx">Scott Hanselman: Dark Matter Developers</a></p>
-	  </div>
-	</section>
+- 1991: I wish scientists wrote better software
 
-	<section>
-	  <p class="title">Lesson #2</p>
-	  <div align="center">
-	    <p><strong>The curriculum is full</strong></p>
-	  </div>
-	  <br>
-	  <div class="fragment" align="center">
-	    <p>And even if it wasn't:</p>
-	    <p><img src="../img/blind-leading-blind.png" alt="Cartoon of the blind leading the blind" /></p>
-	</section>
+- 1998: I wish someone would teach scientists how to program
 
-	<section>
-	  <p class="title">Lesson #3</p>
-	  <div align="center">
-	    <p><strong>The future (of teaching) is already here,</strong></p>
-	    <p><strong>it's just not evenly distributed</strong></p>
-	    <div class="fragment">
-	      <img src="../img/how-learning-works.jpg" alt="Book: How Learning Works" style="height:300px" />
-	      <img src="../img/teach-like-a-champion.jpg" alt="Book: Teach Like a Champion" style="height:300px" />
-	      <img src="../img/huston.jpg" alt="Book: Teaching What You Don't Know" style="height:300px" />
-	      <img src="../img/babt.jpg" alt="Book: Building a Better Teacher" style="height:300px" />
-	    </div>
-	  </div>
-	</section>
+- 2011: I wish someone would teach them how to teach well
 
-	<section>
-	  <p class="title">Examples</p>
-	  <p class="fragment"><a href="http://tinyurl.com/guzdial-subgoals">Labelled subgoals improve performance</a></p>
-	  <p class="fragment"><a href="http://tinyurl.com/guzdial-peer-instruction">Peer instruction beats lecture</a></p>
-	  <p class="fragment"><a href="http://dl.acm.org/authorize.cfm?key=6833065">Media-first instruction increases retention</a></p>
-	  <p class="fragment"><a href="http://dl.acm.org/citation.cfm?id=2960312">Grades in computing classes are <em>not</em> bimodal</a></p>
-	  <div align="center" class="fragment">
-	    <p><a href="http://teachtogether.tech"><img src="../img/t3.png" width="200px"/></a></p>
-	  </div>
-	</section>
+- 2017: I wish people knew how to organize because I think we're in trouble here…
 
-	<section>
-	  <p class="title">Lesson #4</p>
-	  <div align="center">
-	    <p><strong>Most people would rather fail than change</strong></p>
-	    <p class="fragment">I.e., they would rather ignore evidence<br>than change their working practices or business plan</p>
-	    <div class="fragment">
-	      <img src="../img/global-warming-myth.jpg" alt="Magazine cover claiming global warming is a myth" />
-	      <p>Sound familiar?</p>
-	    </div>
-	  </div>
-	</section>
+---
 
-	<section>
-	  <p class="title">Lesson #5</p>
-	  <div align="center">
-	    <p><strong>Programmers can rationalize <em>anything</em></strong></p>
-	  </div>
-	  <div align="center">
-	    <div class="fragment">
-	      <img src="../img/git-merge.png" alt="Screenshot of a complicated Git merge" />
-	      <p>Git is as horrible as it is useful</p>
-	    </div>
-	    <p class="fragment">Stop blaming users for its shortcomings</p>
-	  </div>
-	</section>
+<div class="split-title"><h2>The Long and Winding Road</h2></div>
 
-	<section>
-	  <p class="title">Lesson #5</p>
-	  <div align="center">
-	    <p><strong>Programmers can rationalize <em>anything</em></strong></p>
-	    <div class="fragment">
-	      <p><img src="../img/spreadsheet.png" alt="Screenshot of a spreadsheet" /></p>
-	      <p>This is a good tool</p>
-	      <p class="fragment">Please stop sneering at scientists for using it</p>
-	    </div>
-	  </div>
-	</section>
+<div align="center">
+  <img src="../img/carpentries-logo.svg" alt="Carpentries logo" width="100%">
+  <p>"We teach foundational coding and data science skills to researchers worldwide."</p>
+</div>
 
-	<section>
-	  <p class="title">Lesson #6</p>
-	  <div align="center">
-	    <p><strong>Correctness isn't compelling</strong></p>
-	    <p class="fragment">Because the odds of being caught are vanishingly small</p>
-	    <p class="fragment">But people care a <em>lot</em> about productivity</p>
-	  </div>
-	</section>
+---
 
-	<section>
-	  <p class="title">Lesson #6</p>
-	  <div class="left">
-	    <p class="title">
-	      Bait…
-	    </p>
-	    <p>Unix shell</p>
-	    <p>Git / GitHub</p>
-	    <p>Python or R</p>
-	    <p>SQL</p>
-	    <p>Make</p>
-	  </div>
-	  <div class="fragment right">
-	    <p class="title">
-	      …And Switch
-	    </p>
-	    <p><em>automating tasks</em></p>
-	    <p><em>tracking and sharing</em></p>
-	    <p><em>modularization</em></p>
-	    <p><em>structured data</em></p>
-	    <p><em>reproducibility</em></p>
-	  </div>
-	</section>
+<div class="split-title"><h2>The Long and Winding Road</h2></div>
 
-	<section>
-	  <p class="title">Lesson #7</p>
-	  <div align="center">
-	    <p><strong>You're not alone.</strong></p>
-	    <p class="fragment">Single-author curriculum = unmet needs</p>
-	    <p class="fragment">Single source of funding = single point of failure</p>
-	    <p class="fragment">Recruit the willing</p>
-	    <p class="fragment">Train them</p>
-	    <p class="fragment">Reward them</p>
-	    <p class="fragment">Cede power to them</p>
-	  </div>
-	</section>
-
-	<section>
-	  <p class="title">Lesson #7</p>
-	  <div align="center">
-	  <table>
-	    <caption><strong>AP Student Numbers</strong></caption>
-	    <tr><th>Subject</th><th align="right">2012</th><th align="right">2017</th></tr>
-	    <tr><td>Calculus</td><td align="right">361,000</td><td align="right">316,000</td></tr>
-	    <tr><td>Statistics</td><td align="right">153,000</td><td align="right">215,000</td></tr>
-	    <tr><td>Computer Science</td><td align="right">26,100</td><td align="right">44,000</td></tr>
-	  </table>
-	  </div>
-	</section>
-
-	<section>
-	  <p class="title">Lesson #7</p>
-	  <div align="center">
-	    <p><img src="../img/nabt.png"/></p>
-	    <p>I think we're finally ready</p>
-	  </div>
-	</section>
-
-	<section>
-	  <p class="title">What Really Matters</p>
-	  <div class="left">
-	    <p>There's no point being able to crunch data<br>if there are questions<br>you're not allowed to ask…</p>
-	    <p class="fragment">…in being able to reproduce results<br>if nobody's listening…</p>
-	    <p class="fragment">…or in science being open<br>if some people aren't welcome</p>
-	  </div>
-	  <div class="right fragment">
-	    <p><img src="../img/building-powerful-community-organizations.jpg" /></p>
-	  </div>
-	</section>
-
-	<section>
-	  <div align="center">
-	    <img src="../img/dad.jpg" />
-	    &nbsp;&nbsp;&nbsp;&nbsp;
-	    <img src="../img/maddie.jpg" />
-	  </div>
-	  <div style="clear: both;" align="center">
-	    <p align="center">Thank you</p>
-	    <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-	    <p><strong><a href="http://third-bit.com/talks/lessons-learned/">http://third-bit.com/talks/lessons-learned/</a></strong></p>
-	  </div>
-	</section>
-
-	<section>
-	  <div align="center">
-	    <a href="https://www.amazon.com/Lower-Ed-Troubling-Profit-Colleges/dp/1620970600/"><img src="../img/lower-ed.jpg" style="height:200px"/></a>
-	    <a href="https://www.amazon.com/Bury-Chains-Prophets-Rebels-Empires/dp/0618619070/"><img src="../img/bury-the-chains.jpg" style="height:200px"/></a>
-	    <a href="https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/"><img src="../img/commoner.jpg" style="height:200px"/></a>
-	    <a href="https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/r"><img src="../img/discussion-book.jpg" style="height:200px"/></a>
-	    <a href="https://www.amazon.com/Owning-Earth-Transforming-History-Ownership/dp/1620402912/"><img src="../img/owning-the-earth.jpg" style="height:200px"/></a>
-	    <br>
-	    <a href="https://www.amazon.com/Fearless-Change-Patterns-Introducing-paperback/dp/0134395255/"><img src="../img/fearless-change.jpg" style="height:200px"/></a>
-	    <a href="https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496/"><img src="../img/lang.jpg" style="height:200px"/></a>
-	    <a href="https://www.amazon.com/Shop-Class-Soulcraft-Inquiry-Value/dp/0143117467/"><img src="../img/shop-class.jpg" style="height:200px"/></a>
-	    <a href="https://www.amazon.com/Spirit-Level-Equality-Societies-Stronger/dp/1608193411/"><img src="../img/spirit-level.jpg" style="height:200px"/></a>
-	    <a href="https://www.amazon.com/What-Works-Women-Work-Patterns/dp/1479814318/"><img src="../img/what-works-for-women.jpg" style="height:200px"/></a>
-	    <br>
-	    <strong><a href="http://third-bit.com/talks/lessons-learned/">http://third-bit.com/talks/lessons-learned/</a></strong>
-	  </div>
-	</section>
-
-      </div>
+<div class="flex-row">
+  <div class="flex-col">
+    <div align="center">
+      <img src="../img/swc-1998.gif" alt="1998" width="200px">
+      <p>1998</p>
     </div>
-    <script src="../reveal/lib/js/head.min.js"></script>
-    <script src="../reveal/js/reveal.js"></script>
+  </div>
+  <div class="flex-col">
+    <div align="center">
+      <img src="../img/swc-2010.png" alt="2010" width="200px">
+      <p>2010</p>
+    </div>
+  </div>
+</div>
+
+<div class="flex-row">
+  <div class="flex-col">
+    <div align="center">
+      <img src="../img/swc-2004.gif" alt="2004" width="200px">
+      <p>2004</p>
+    </div>
+  </div>
+  <div class="flex-col">
+    <div align="center">
+      <img src="../img/dc-2014.png" alt="2014" width="200px">
+      <p>2014</p>
+    </div>
+  </div>
+</div>
+
+<div class="flex-row">
+  <div class="flex-col">
+    <div align="center">
+      <img src="../img/swc-2007.jpg" alt="2007" width="200px">
+      <p>2007</p>
+    </div>
+  </div>
+  <div class="flex-col">
+    <div align="center">
+      <img src="../img/lc-2017.png" alt="2017" width="150px">
+      <p>2017</p>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="split-title"><h2>Growth</h2></div>
+
+<table>
+  <tr><th>Year</th><th>Workshops</th><th>Learners</th></tr>
+  <tr><td align="right">2012</td><td align="right"> 38</td><td align="right">1378</td></tr>
+  <tr><td align="right">2013</td><td align="right"> 93</td><td align="right">3212</td></tr>
+  <tr><td align="right">2014</td><td align="right">139</td><td align="right">4742</td></tr>
+  <tr><td align="right">2015</td><td align="right">274</td><td align="right">7755</td></tr>
+  <tr><td align="right">2016</td><td align="right">345</td><td align="right">7133</td></tr>
+  <tr><td align="right">2017</td><td align="right">338</td><td align="right">7248</td></tr>
+  <tr><td align="right">2018</td><td align="right">436</td><td align="right">6329</td></tr>
+</table>
+
+---
+
+<div class="split-title"><h2>Where We've Been</h2></div>
+
+<div align="center">
+  <img src="../img/workshops.png" alt="Map showing where workshops have been run" width="100%">
+</div>
+
+---
+
+<div class="split-title"><h2>Along the Way</h2></div>
+
+  <div align="center">
+    <img src="../img/beautiful-code.jpg" width="20%">
+    <img src="../img/making-software.jpg" width="20%">
+    <img src="../img/aosa-1.jpg" width="20%">
+    <img src="../img/aosa-2.jpg" width="20%">
+  </div>
+
+---
+
+<div class="split-title"><h2>Lesson #1</h2></div>
+
+- **Most scientists think of programming as a tax they have to pay to do science**
+
+- Those who don't are *not* representative of the other 90%
+
+<div align="center">
+  See <a href="https://www.hanselman.com/blog/DarkMatterDevelopersTheUnseen99.aspx">Scott Hanselman: Dark Matter Developers</a>
+</div>
+
+---
+
+<div class="split-title"><h2>Lesson #2</h2></div>
+
+- **The curriculum is full**
+
+- And even if it wasn't:
+
+<div align="center">
+  <img src="../img/blind-leading-blind.png" alt="Cartoon of the blind leading the blind">
+</div>
+
+---
+
+<div class="split-title"><h2>Lesson #3</h2></div>
+
+- **The future (of teaching) is already here**
+
+- It's just not evenly distributed
+
+<div align="center">
+  <img src="../img/how-learning-works.jpg" alt="Book: How Learning Works" width="20%">
+  <img src="../img/teach-like-a-champion.jpg" alt="Book: Teach Like a Champion" width="20%">
+  <img src="../img/huston.jpg" alt="Book: Teaching What You Don't Know" width="20%">
+  <img src="../img/babt.jpg" alt="Book: Building a Better Teacher" width="20%">
+</div>
+
+---
+
+<div class="split-title"><h2>Examples</h2></div>
+
+- <a href="http://tinyurl.com/guzdial-subgoals">Labelled subgoals improve performance</a>
+
+- <a href="http://tinyurl.com/guzdial-peer-instruction">Peer instruction beats lecture</a>
+
+- <a href="http://dl.acm.org/authorize.cfm?key=6833065">Media-first instruction increases retention</a>
+
+- <a href="http://dl.acm.org/citation.cfm?id=2960312">Grades in computing classes are <em>not</em> bimodal</a>
+
+<div align="center">
+  <a href="http://teachtogether.tech"><img src="../../files/bib/t3.jpg" width="25%"></a>
+</div>
+
+---
+
+<div class="split-title"><h2>Lesson #4</h2></div>
+
+- **Most people would rather fail than change**
+- I.e., they would rather ignore evidence than change their working practices or business plan
+
+<div align="center">
+  <img src="../img/global-warming-myth.jpg" alt="Magazine cover claiming global warming is a myth" />
+</div>
+
+---
+
+<div class="split-title"><h2>Lesson #5</h2></div>
+
+- **Programmers can rationalize _anything_**
+
+<div align="center">
+  <img src="../img/git-merge.png" alt="Screenshot of a complicated Git merge">
+</div>
+
+- Git is as horrible as it is useful
+
+- Stop blaming users for its shortcomings
+
+---
+
+<div class="split-title"><h2>Lesson #5</h2></div>
+
+- **Programmers can rationalize _anything_**
+
+<div align="center">
+  <img src="../img/spreadsheet.png" alt="Screenshot of a spreadsheet">
+</div>
+
+- This is a good tool
+
+- Please stop sneering at scientists for using it
+
+---
+
+<div class="split-title"><h2>Lesson #6</h2></div>
+
+- **Correctness isn't compelling**
+
+- Because the odds of being caught are vanishingly small
+
+- But people care a *lot* about productivity
+
+<div align="center">
+<table>
+  <tr><th>Bait…</th><th>…And Switch</th></tr>
+  <tr>
+    <td>
+    Unix shell<br>
+    Git / GitHub<br>
+    Python or R<br>
+    SQL<br>
+    Make
+    </td>
+    <td>
+    automating tasks<br>
+    tracking and sharing<br>
+    modularization<br>
+    structured data<br>
+    reproducibility
+    </td>
+  </tr>
+</table>
+</div>
+
+---
+
+<div class="split-title"><h2>Lesson #7</h2></div>
+
+- **You're not alone.**
+
+- Single-author curriculum = unmet needs
+
+- Single source of funding = single point of failure
+
+- So recruit the willing…
+
+- …train them…
+
+- …reward them…
+
+- …and cede power to them
+
+---
+
+<div class="split-title"><h2>Lesson #7</h2></div>
+
+<div align="center">
+<table>
+  <caption>AP Student Numbers</caption>
+  <tr><th>Subject</th><th align="right">2012</th><th align="right">2017</th></tr>
+  <tr><td>Calculus</td><td align="right">361,000</td><td align="right">316,000</td></tr>
+  <tr><td>Statistics</td><td align="right">153,000</td><td align="right">215,000</td></tr>
+  <tr><td>Computer Science</td><td align="right">26,100</td><td align="right">44,000</td></tr>
+</table>
+</div>
+
+---
+
+<div class="split-title"><h2>Lesson #7</h2></div>
+
+<div align="center">
+  <img src="../img/nabt.png" width="100%">
+</div>
+
+- I think we're finally ready
+
+---
+
+<div class="split-title"><h2>What Really Matters</h2></div>
+
+<div class="flex-row">
+  <div class="flex-col">
+    <p><img src="../img/building-powerful-community-organizations.jpg" /></p>
+  </div>
+  <div class="flex-col">
+    <p>There's no point being able to crunch data if there are questions you're not allowed to ask…</p>
+    <p class="fragment">…in being able to reproduce results if nobody's listening…</p>
+    <p class="fragment">…or in science being open if some people aren't welcome</p>
+  </div>
+</div>
+
+---
+
+<div class="split-title"><h2>Thank You</h2></div>
+
+<div align="center">
+  <img src="../img/dad.jpg" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../img/maddie.jpg" />
+</div>
+
+    </textarea>
+    <script src="../remark-latest.min.js">
+    </script>
     <script>
-      // More info on configuration at https://github.com/hakimel/reveal.js#configuration
-      // More info on dependencies at https://github.com/hakimel/reveal.js#dependencies
-      Reveal.initialize({
-        history: true,
-        center: false,
-        slideNumber: true,
-        dependencies: [
-          { src: '../reveal/plugin/markdown/marked.js' },
-          { src: '../reveal/plugin/markdown/markdown.js' },
-          { src: '../reveal/plugin/notes/notes.js', async: true },
-          { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        ]
+      var slideshow = remark.create({
+        highlightLines: true
       });
     </script>
   </body>
