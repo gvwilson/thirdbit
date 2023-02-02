@@ -12,39 +12,39 @@ original: swc
 </p>
 <div class="row">
   <div class="col-sm-3">
-    <img src="{{'/files/people/davis_m.jpg' | relative_url}}" alt="Matt Davis" />
+    <img src="{{'/files/swc/davis_m.jpg' | relative_url}}" alt="Matt Davis" />
     <br>
     Matt Davis
   </div>
   <div class="col-sm-3">
-    <img src="{{'/files/people/chuang-howe_a.jpg' | relative_url}}" alt="Adina Howe" />
+    <img src="{{'/files/swc/chuang-howe_a.jpg' | relative_url}}" alt="Adina Howe" />
     <br>
     Adina Howe
   </div>
   <div class="col-sm-3">
-    <img src="{{'/files/people/huff_k.png' | relative_url}}" alt="Katy Huff" />
+    <img src="{{'/files/swc/huff_k.png' | relative_url}}" alt="Katy Huff" />
     <br>
     Katy Huff
   </div>
   <div class="col-sm-3">
-    <img src="{{'/files/people/lagesen_k.jpg' | relative_url}}" alt="Karin Lagesen" />
+    <img src="{{'/files/swc/lagesen_k.jpg' | relative_url}}" alt="Karin Lagesen" />
     <br>
     Karin Lagesen
   </div>
 </div>
 <div class="row">
   <div class="col-sm-3">
-    <img src="{{'/files/people/pawlik_a.jpg' | relative_url}}" alt="Aleksandra Pawlik" />
+    <img src="{{'/files/swc/pawlik_a.jpg' | relative_url}}" alt="Aleksandra Pawlik" />
     <br>
     Aleksandra Pawlik
   </div>
   <div class="col-sm-3">
-    <img src="{{'/files/people/silva_raniere.jpg' | relative_url}}" alt="Raniere Silva" />
+    <img src="{{'/files/swc/silva_raniere.jpg' | relative_url}}" alt="Raniere Silva" />
     <br>
     Raniere Silva
   </div>
   <div class="col-sm-3">
-    <img src="{{'/files/people/williams_jason.jpg' | relative_url}}" alt="Jason Williams" />
+    <img src="{{'/files/swc/williams_jason.jpg' | relative_url}}" alt="Jason Williams" />
     <br>
     Jason Williams
   </div>
