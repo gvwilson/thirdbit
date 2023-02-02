@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{page.title}}</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{{'/res/thirdbit.css' | relative_url}}">
+    {% include head.html %}
     <link rel="stylesheet" href="{{'/res/slides.css' | relative_url}}">
   </head>
   <body>
     <textarea id="source">
-
 {{ content }}
-
     </textarea>
     <script src="{{'/res/remark-latest.min.js' | relative_url}}">
     </script>
