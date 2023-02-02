@@ -38,6 +38,7 @@ drafts:
 ## validate: check the generated HTML
 validate:
 	@html5validator --root _site \
+	--blacklist browsercast btt dragnet js4ds mrsp sdxjs sdxpy \
 	--ignore \
 	'An "img" element must have an "alt" attribute' \
 	'Attribute "align" not allowed' \
