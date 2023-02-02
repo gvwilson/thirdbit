@@ -12,11 +12,11 @@ year: 2013
   For me,
   this was the most important, and most saddening, passage in the article:
 </p>
-<blockquote><em>
+<blockquote>
   …if cities–particularly in the world's coastal, developing regions–are such a hotbed for future aggression…then
   how can we develop a new understanding of the city that would help us to…design away this growing problem?
   How can both civil infrastructure and urban governance be made more resilient to become defenses against collapse?
-</em></blockquote>
+</blockquote>
 <p>
   Personally,
   I think the real solution is to prevent collapse in the first place

@@ -18,7 +18,7 @@ want to make an impact.
 Among points like "Great researchers are comfortable with
 ambiguity" and "Great researchers know how to sell an idea" was one
 that particularly struck me:
-<blockquote><em>
+<blockquote>
 If you do not work on an important problem, it's unlikely you'll do
 important work…  Great scientists have thought through, in a careful
 way, a number of important problems in their field, and they keep an
@@ -35,15 +35,15 @@ mean it in that sense.  The average scientist, so far as I can make
 out, spends almost all of his time working on problems which he
 believes will not be important and he also doesn't believe that they
 will lead to important problems.
-</em></blockquote>
+</blockquote>
 and later:
-<blockquote><em>
+<blockquote>
 Many great scientists know many important problems.  They have
 something between 10 and 20 important problems for which they are
 looking for an attack.  And when they see a new idea come up, one
 hears them say, "Well that bears on this problem."  They drop all the
 other things and get after it.
-</em></blockquote>
+</blockquote>
 In 1995, after completing a Ph.D., doing post-docs in several
 countries, and writing a book on parallel programming, I decided that
 I wasn't cut out to be a researcher.  I was pretty sure that I could

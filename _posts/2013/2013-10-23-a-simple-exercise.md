@@ -9,7 +9,7 @@ year: 2013
   which I gave to two undergraduate software engineering classes
   that I taught at the University of Toronto:
 </p>
-<blockquote><em>
+<blockquote>
     According to Statistics Canada,
     about 6% of Canadians are from East Asian or South Asian backgrounds.
     However,
@@ -21,7 +21,7 @@ year: 2013
     are intrinsically less interested in or capable of programming than Asians.
     In the second,
     you are to argue that it <em>doesn't</em> prove this.
-</em></blockquote>
+</blockquote>
 <p>
   Some students said the exercise made them feel uncomfortable,
   and no one ever seriously claimed to believe the "more capable" position.

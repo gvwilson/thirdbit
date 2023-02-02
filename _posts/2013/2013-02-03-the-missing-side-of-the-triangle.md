@@ -7,12 +7,10 @@ original: swc
 
 <p>A few weeks ago, John Cook <a href="http://www.johndcook.com/blog/2012/01/01/moores-law-squared/">posted</a> the following:</p>
 
-<blockquote><em>
-<p>In a review of linear programming solvers from 1987 to 2002, Bob Bixby says that solvers benefited as much from algorithm improvements as from Moore's law.</p>
 <blockquote>
+<p>In a review of linear programming solvers from 1987 to 2002, Bob Bixby says that solvers benefited as much from algorithm improvements as from Moore's law.</p>
 <p>Three orders of magnitude in machine speed and three orders of magnitude in algorithmic speed add up to six orders of magnitude in solving power. A model that might have taken a year to solve 10 years ago can now solve in less than 30 seconds.</p>
 </blockquote>
-</em></blockquote>
 
 <p>A million-fold speedup is pretty impressive, but faster hardware and better algorithms are only two sides to the triangle.  The third is development time, and while I think it has improved since 1987, I also think the speedup is measured in single-digit multiples, not orders of magnitude.</p>
 

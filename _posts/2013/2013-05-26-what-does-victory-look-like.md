@@ -22,10 +22,10 @@ original: swc
   if and when the things we teach become as routine as doing statistics.
   My vision is simple:
 </p>
-<blockquote><em>
+<blockquote>
   Scientists won't submit, publish, and download papers.
   They will fork and merge projects.
-</em></blockquote>
+</blockquote>
 <p>
   The single most important thing we teach scientists is <strong>version control</strong>.
   We tell them it's for record-keeping,

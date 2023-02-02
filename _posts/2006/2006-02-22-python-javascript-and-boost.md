@@ -8,7 +8,7 @@ post</a> on incorporating a few ideas from Python into JS 2.0
 (specifically iterators, generators, and comprehensions, but that's
 beside the point for the moment).  I replied:</p>
 
-<blockquote><em>
+<blockquote>
 t would be tremendously helpful if JS2 could standardize plugin APIs
 in both C and C++ (and do the latter in a template-smart way). Having
 simple C APIs accelerated the growth of Python and Ruby tremendously,
@@ -16,11 +16,11 @@ and (I believe) is crucial to getting JS accepted as a "traditional"
 scripting and glue language. Standardizing "one way to do it" for C++
 (esp. templated C++) would avoid a lot of the grief P&amp;R have gone
 through.
-</em></blockquote>
+</blockquote>
 
 <p>Brendan's response was:</p>
 
-<blockquote><em>
+<blockquote>
 …for Mozilla, XPIDL and XPCOM (<a href="http://www.mozilla.org/scriptable/">http://www.mozilla.org/scriptable/</a>)
 are the way to interface to "plugins" (generally construed)
 implemented in other languages, not just C++ but also Python (a C
@@ -37,7 +37,7 @@ capable of pulling it off are motivated.
 Plugins loaded from the net are a different animal, requiring lots of
 trust as well as highly compatible, stable APIs on both plugin and
 browser sides of the fence.
-</em></blockquote>
+</blockquote>
 
 <p>I've argued <a href="http://www.ddj.com/documents/s=9776/ddj1126538834462/">elsewhere</a>
 that Javascript could be the dominant scripting language five years

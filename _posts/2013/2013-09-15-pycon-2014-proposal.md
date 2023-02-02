@@ -44,34 +44,35 @@ year: 2013
 <p><strong>Outline</strong></p>
 
 <ol>
-  <li>Overview</li>
-  <li>From Red to Green (or, why our first four attempts failed)</li>
-  <li>What We Do Now (what a bootcamp looks like, and why)</li>
-  <li>Small Things Add Up
-    <ol>
-      <li>live coding</li>
-      <li>open everything</li>
-      <li>use what we teach</li>
-      <li>meet the learners on their own ground</li>
-      <li>collaborative note-taking</li>
-      <li>sticky notes and minute cards</li>
-      <li>pair programming</li>
-      <li>keep experimenting</li>
-    </ol>
-  </li>
-  <li>Instructor Training</li>
-  <li>TODO
-    <ol>
-      <li>too slow and too fast</li>
-      <li>finances</li>
-      <li>long-term assessment</li>
-      <li>installation, installation, installation</li>
-      <li>teach on the web (and why not)</li>
-      <li>what vs. how</li>
-      <li>standardization vs. customization</li>
-      <li>watching vs. doing</li>
-    </ol>
-  <li>How You Can Help </li>
+ <li>Overview</li>
+ <li>From Red to Green (or, why our first four attempts failed)</li>
+ <li>What We Do Now (what a bootcamp looks like, and why)</li>
+ <li>Small Things Add Up
+  <ol>
+   <li>live coding</li>
+   <li>open everything</li>
+   <li>use what we teach</li>
+   <li>meet the learners on their own ground</li>
+   <li>collaborative note-taking</li>
+   <li>sticky notes and minute cards</li>
+   <li>pair programming</li>
+   <li>keep experimenting</li>
+  </ol>
+ </li>
+ <li>Instructor Training</li>
+ <li>TODO
+  <ol>
+   <li>too slow and too fast</li>
+   <li>finances</li>
+   <li>long-term assessment</li>
+   <li>installation, installation, installation</li>
+   <li>teach on the web (and why not)</li>
+   <li>what vs. how</li>
+   <li>standardization vs. customization</li>
+   <li>watching vs. doing</li>
+  </ol>
+ </li>
+ <li>How You Can Help</li>
 </ol>
 
 <p><strong>Speaker Bio</strong></p>

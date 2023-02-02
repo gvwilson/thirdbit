@@ -15,6 +15,6 @@ year: 2012
 <p>[cut to: an old lady from Sherlock's Homeless Network shuffling along the street past one of the assassins, then whirling around and stabbing him with a knitting needle.]</p>
 <p>[cut to: Mrs. Hudson introducing her "nephew" to the large bald assassin who was doing renos for her. As the LBA turns around, the nephew picks up a hammer from the toolbox and hefts it.]</p>
 <p>[cut back to: incredulous, furious face of Jim Moriarty]</p>
-<p>Sherlock: Oh, poor Jim. Poor, poor Jim. All this time, you thought <em>you</em> were playing a game with <em>me</em>. Well let me tell you something. Mycroft and I solved the final problem years ago. We figured out how to cure boredom. [leans forward] All this time, <em>you've</em> been <em>our</em> game.<em></em></p>
+<p>Sherlock: Oh, poor Jim. Poor, poor Jim. All this time, you thought <em>you</em> were playing a game with <em>me</em>. Well let me tell you something. Mycroft and I solved the final problem years ago. We figured out how to cure boredom. [leans forward] All this time, <em>you've</em> been <em>our</em> game.</p>
 <p>Moriarty: I don't believe you. I <em>don't believe you!</em></p>
 <p>[Sherlock, laughing, turns to go. Moriarty howls with rage, rushes forward, grabs him. The two hurtle over the edge of the building. Freeze frame. Fade out.]</p>

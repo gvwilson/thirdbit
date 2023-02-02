@@ -48,14 +48,14 @@ original: swc
   starts by framing discussion of sustainability in terms of risk,
   but then says:
 </p>
-<blockquote><em>
+<blockquote>
   Hedging against this risk has several aspects, all related to the
   development of the software itself. In some rough order of
   increasing complexity, these range from adoption and adherence of
   software development best practices, to peer-review of software, to
   formal training in software engineering and related fields for
   scientists.
-</em></blockquote>
+</blockquote>
 <p>
   Respectfully,
   I think this is wrong-headed.
@@ -74,22 +74,22 @@ original: swc
   then interviewed the leaders of a dozen projects.
   Unsurprisingly, they found that:
 </p>
-<blockquote><em>
+<blockquote>
   …the vast number of principal investigators and researchers in the
   scientific domain lack the training, expertise, awareness, time,
   and, in some cases, inclination or aptitude to become functionally
   proficient in these areas crucial to sustainability.
-</em></blockquote>
+</blockquote>
 <p>
   They go on to make some interesting proposals,
   including this one:
 </p>
-<blockquote><em>
+<blockquote>
   A small-business bootcamp designed around the tolerances and
   motivations of scientists and researchers should be developed to, at
   a minimum, provide an overview of these areas and proactively create
   an awareness of the key components required for sustainability.
-</em></blockquote>
+</blockquote>
 <p>
   They even advocate the creation of a software sustainability institute,
   presumably modeled on <a href="http://www.software.ac.uk/">the one that's been so successful in the UK</a>.
@@ -109,7 +109,7 @@ original: swc
   they describe both the training classes they have run
   and the difficulties those classes encountered:
 </p>
-<blockquote><em>
+<blockquote>
   …an instructor goes through features one by one, and
   the students reproduce the results. The class has one- and two-day
   versions and has been very well received. The classes taught at
@@ -119,11 +119,11 @@ original: swc
   for HPC tools. As a result, the class is taught less frequently and
   has generally only been taught at institutions who wish to provide
   training for their specific users.
-</em></blockquote>
+</blockquote>
 <p>
   Later, they say:
 </p>
-<blockquote><em>
+<blockquote>
   We have found that the developer team grows by existing developers
   hiring new developers at their own institution and training
   them. Often, the project spreads to new institutions from developer
@@ -132,7 +132,7 @@ original: swc
   fostering developer community, but we note that the goal is hard;
   learning how to develop a program that exceeds a million lines of
   code is difficult even with excellent documentation.
-</em></blockquote>
+</blockquote>
 <p>
   They're right:
   developing on top of such a large code base <em>is</em> hard.
@@ -149,7 +149,7 @@ original: swc
   Their visualization library was originally developed to support a textbook,
   which has clearly colored their view of the world:
 </p>
-<blockquote><em>
+<blockquote>
   …the standard of software engineering in science must be improved,
   and sustainable software ecosystems with meaningful credit must be
   realized. This is not simply limited to teaching scientists to write
@@ -159,14 +159,14 @@ original: swc
   realize robust foundations that can be extended through the use of
   code review, regression testing and proper citation and attribution
   of software used in research.
-</em></blockquote>
+</blockquote>
 <p>
   And then there is
   "<a href="http://dx.doi.org/10.6084/m9.figshare.791560">Software Engineering as Instrumentation for the Long Tail of Scientific Software</a>",
   by Huang and Lapp.
   They accurately diagnose the problem:
 </p>
-<blockquote><em>
+<blockquote>
   Successfully
   optimizing software to reduce or eliminate barriers to reuse takes
   training in the science of software engineering…which even more
@@ -177,7 +177,7 @@ original: swc
   effort enables new science. Correspondingly, among many domain
   scientists, awareness of software engineering benefits and
   appreciation for its cost are low…
-</em></blockquote>
+</blockquote>
 <p>
   and propose concrete solutions.
   One is, "…changing the reward structure to better recognize the
@@ -185,7 +185,7 @@ original: swc
   which isn't going to happen any time soon.
   The other:
 </p>
-<blockquote><em>
+<blockquote>
   …is reducing the costs to science [by] creating an
   effective infrastructure for scientists for securing software
   engineering services [from] a non-profit center-of-excellence
@@ -196,7 +196,7 @@ original: swc
   training in software engineering and knowledge across a scientific
   discipline sufficient to collaborate effectively with scientists
   across a domain…
-</em></blockquote>
+</blockquote>
 <p>
   I believe that scientists and programmers can only collaborate effectively
   if the programmers understands the science

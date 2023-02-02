@@ -38,7 +38,7 @@ original: swc
 <p>
   Here's how it could work two years from now:
 </p>
-<blockquote><em>
+<blockquote>
   <p>
     The Department of Redundancy Department at Euphoric State University
     has twenty-six new graduate students starting this September,
@@ -111,7 +111,7 @@ original: swc
     and adds a comment to the instructor's guide
     to suggest another way to motivate dictionaries in Python.
   </p>
-</em></blockquote>
+</blockquote>
 <p>
   This isn't the only way Software Carpentry could eventually work,
   but it looks like a good one to me.

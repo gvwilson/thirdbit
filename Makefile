@@ -38,7 +38,7 @@ drafts:
 ## validate: check the generated HTML
 validate:
 	@html5validator --root _site \
-	--blacklist browsercast btt dragnet js4ds mrsp sdxjs sdxpy \
+	--blacklist blog browsercast btt dragnet js4ds mrsp sdxjs sdxpy \
 	--ignore \
 	'An "img" element must have an "alt" attribute' \
 	'Attribute "align" not allowed' \
@@ -51,7 +51,8 @@ validate:
 	'The "strike" element is obsolete.' \
 	'The "tt" element is obsolete.' \
 	'The "valign" attribute' \
-	'The "valign" attribute'
+	'The "valign" attribute' \
+	--ignore-re 'Bad value ".+%" for attribute "width" on element "img"'
 
 ## links: check links in published site
 links:

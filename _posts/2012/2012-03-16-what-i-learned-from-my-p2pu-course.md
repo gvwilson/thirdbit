@@ -11,7 +11,7 @@ But online is different, and a lot of what I soaked up in those hours and years 
 
 As many people have pointed out, the greatest and most common weakness in Silicon Valley's approach to education is a thundering lack of relevant experience [2]. I'd therefore like to propose that the following question be #1 on the Audrey Test:
 <div align="center">
-<blockquote><em>How many online courses have you personally taken and completed?</em></blockquote>
+<blockquote>How many online courses have you personally taken and completed?</blockquote>
 </div>
 If my answer is January had been "more than zero", the people who signed up for my P2PU course would probably have gotten a lot more good out of it. And if the techies who want to revolutionize education by internetting it could say "more than zero", I think society would get more good out of them.
 
