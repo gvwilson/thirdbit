@@ -8,7 +8,7 @@ original: swc
   How long does it take to complete instructor training once the class itself is done?
   Two dozen people who recently qualified told us this:
 </p>
-<table class="table table-striped">
+<table class="centered">
 <tr><td><strong></strong></td><td><strong>Reading Lesson(s)</strong></td><td><strong>Writing Exercise</strong></td><td><strong>Discussion Session</strong></td><td><strong>Lesson Demo</strong></td><td><strong>Total</strong></td></tr>
 <tr><td></td><td>1.0</td><td>0.5</td><td>2.0</td><td>0.5</td><td>4.0</td></tr>
 <tr><td></td><td>5.0</td><td>1.0</td><td>2.0</td><td>1.0</td><td>9.0</td></tr>

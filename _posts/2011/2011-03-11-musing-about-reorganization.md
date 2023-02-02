@@ -15,7 +15,7 @@ title: Musing About Reorganization
 </ol>
 <p>Their answers cut across traditional CS divisions: re-using a legacy program, for example, may require basic programming, the shell, systems programming (such as subprocesses and I/O redirection), and some parsing.</p>
 <p>The traditional solution is to view this as a matrix, and order topics to get to problems as quickly as possible.  If the matrix is:</p>
-<table border="1">
+<table class="center">
 <tbody>
 <tr>
 <td colspan="2" rowspan="2"></td>

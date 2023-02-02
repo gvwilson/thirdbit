@@ -35,5 +35,5 @@ original: swc
   so that versions in various languages can stay in sync.
 </p>
 <p>
-  <img src="{{'/files/2014/11/korean-translators-with-names.jpg' | relative_url}}" alt="Korean Translators" />
+  <img src="{{'/files/2014/11/korean-translators-with-names.jpg' | relative_url}}" alt="Korean Translators" class="center">
 </p>

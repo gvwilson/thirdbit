@@ -4,12 +4,12 @@ title: All the Other Santas
 fiction: true
 ---
 
-<div style="align: center;">
+<div class="center">
   <p>
-    <img style="float: left;" src="./clausbeard.png" width="20%" />
-    <img style="float: left;" src="./robo-santa.png" width="20%" />
-    <img style="float: left;" src="./santasaurus.png" width="20%" />
-    <img style="float: left;" src="./zombie-claus.png" width="20%" />
+    <img src="./clausbeard.png" width="20%" />
+    <img src="./robo-santa.png" width="20%" />
+    <img src="./santasaurus.png" width="20%" />
+    <img src="./zombie-claus.png" width="20%" />
   </p>
 </div>
 

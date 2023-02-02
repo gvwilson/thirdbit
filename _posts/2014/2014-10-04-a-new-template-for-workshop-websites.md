@@ -13,20 +13,19 @@ original: swc
   we can, even if that means not doing things the "right"
   way.
 </p>
-<p><strong>Background</strong></p>
+
+<h2>Background</h2>
 <ol>
   <li>
-    <p>
-      If a repository has a branch called <code>gh-pages</code> (which
-      stands for "GitHub pages"), then GitHub uses the HTML
-      and Markdown files in that branch to create a website for the
-      repository. If the repository's URL
-      is <code>http://github.com/darwin/finches</code>, the URL for
-      the website is <code>http://darwin.github.io/finches</code>.
-  </p>
+    If a repository has a branch called <code>gh-pages</code> (which
+    stands for "GitHub pages"), then GitHub uses the HTML
+    and Markdown files in that branch to create a website for the
+    repository. If the repository's URL
+    is <code>http://github.com/darwin/finches</code>, the URL for
+    the website is <code>http://darwin.github.io/finches</code>.
   </li>
   <li>
-    <p>If an HTML or Markdown file has a header consisting of three
+    If an HTML or Markdown file has a header consisting of three
     dashes, some data about the page, and three more dashes:
 <pre>
 ---
@@ -35,16 +34,14 @@ key_2: value_2
 ---
 page contents
 </pre>
-    <p>
-      then GitHub doesn't just copy the file over verbatim. Instead,
-      it runs the file through a translator
-      called <a href="https://en.wikipedia.org/wiki/Jekyll_%28software%29">Jekyll</a>
-      that processes instructions embedded in the file to generate the
-      final HTML.
-    </p>
+    then GitHub doesn't just copy the file over verbatim. Instead,
+    it runs the file through a translator
+    called <a href="https://en.wikipedia.org/wiki/Jekyll_%28software%29">Jekyll</a>
+    that processes instructions embedded in the file to generate the
+    final HTML.
   </li>
   <li>
-    <p>One of these instructions is <code>{% raw %}{{variable}}{% endraw %}</code>. When
+    One of these instructions is <code>{% raw %}{{variable}}{% endraw %}</code>. When
     Jekyll sees this, it replaces the curly braces and the variable's
     name with the value of <code>variable</code>. This is used to
     insert things like contact email addresses into the
@@ -52,90 +49,75 @@ page contents
     referred to as <code>{% raw %}{{page.variable}}{% endraw %}</code>, rather than simply
     as <code>{% raw %}{{variable}}{% endraw %}</code>, because Jekyll can also get
     variables in other ways that we're not using.)
-  </p>
   </li>
   <li>
-    <p>
-      If a page like <code>index.html</code> has a variable
-      called <code>layout</code>, and that variable's value
-      is <code>standard.html</code>, Jekyll looks for a file
-      call <code>_layouts/standard.html</code> and uses it as a
-      template for laying out the page. This is used to give the pages
-      in a site a uniform appearance.
-  </p>
+    If a page like <code>index.html</code> has a variable
+    called <code>layout</code>, and that variable's value
+    is <code>standard.html</code>, Jekyll looks for a file
+    call <code>_layouts/standard.html</code> and uses it as a
+    template for laying out the page. This is used to give the pages
+    in a site a uniform appearance.
   </li>
 </ol>
-<p><strong>Setup</strong></p>
+
+<h2>Setup</h2>
 <p>
   Here's what you'll do to create a website for a workshop when we're
   done:
 </p>
 <ol>
   <li>
-    <p>
-      Download the latest version of a shell script
-      called <code>create_workshop.sh</code> from the Software
-      Carpentry website and run it like this:
-  </p>
+    Download the latest version of a shell script
+    called <code>create_workshop.sh</code> from the Software
+    Carpentry website and run it like this:
 <pre>
 $ bash create_workshop.sh github_user_name workshop_id
 </pre>
-    <p>
-      where <code>github_user_name</code> could
-      be <code>swcarpentry</code>, your GitHub ID, or whatever,
-      and <code>workshop_id</code> is something
-      like <code>2015-01-02-esu</code>. This will create a Git
-      repository beneath the current working directory and fill it
-      with starter files.
-    </p>
+    where <code>github_user_name</code> could
+    be <code>swcarpentry</code>, your GitHub ID, or whatever,
+    and <code>workshop_id</code> is something
+    like <code>2015-01-02-esu</code>. This will create a Git
+    repository beneath the current working directory and fill it
+    with starter files.
   </li>
   <li>
-    <p>Go into the newly-created directory
+    Go into the newly-created directory
     named <code>workshop_id</code>. This will be a GitHub repository
     on your machine with a single branch called <code>gh-pages</code>
     containing:
-    </p>
     <ul>
-      <li><code>README.md</code> : a brief description of Software Carpentry with a prominent link to the workshop's GitHub page.</li>
-      <li><code>Makefile</code>: contains commands for checking and building the website (see "Managing the Site" below).</li>
-      <li><code>index.html</code>: the workshop's home page.</li>
-      <li><code>bin/check.py</code>: a program to check the workshop's layout and the contents of its home page.</li>
-      <li><code>_layouts/workshop.html</code>: a page template for the site.</li>
+    <li><code>README.md</code> : a brief description of Software Carpentry with a prominent link to the workshop's GitHub page.</li>
+    <li><code>Makefile</code>: contains commands for checking and building the website (see "Managing the Site" below).</li>
+    <li><code>index.html</code>: the workshop's home page.</li>
+    <li><code>bin/check.py</code>: a program to check the workshop's layout and the contents of its home page.</li>
+    <li><code>_layouts/workshop.html</code>: a page template for the site.</li>
     </ul>
-    <p>
-      This repository will have a remote called <code>origin</code>
-      pointing at a newly-created
-      repository <code>github.com/github_user_name/workshop_id</code>. (We
-      could get rid of <code>_layouts/workshop.html</code>, and put
-      everything in <code>index.html</code>, but we want to make it
-      easy for instructors to add more pages to their website.)
-    </p>
+    This repository will have a remote called <code>origin</code>
+    pointing at a newly-created
+    repository <code>github.com/github_user_name/workshop_id</code>. (We
+    could get rid of <code>_layouts/workshop.html</code>, and put
+    everything in <code>index.html</code>, but we want to make it
+    easy for instructors to add more pages to their website.)
   </li>
   <li>
-    <p>
-      Edit the header in <code>index.html</code> to specify the
-      workshop's dates, instructors, EventBrite registration key,
-      topics, etc. (See "Required Variables" below.)
-    </p>
+    Edit the header in <code>index.html</code> to specify the
+    workshop's dates, instructors, EventBrite registration key,
+    topics, etc. (See "Required Variables" below.)
   </li>
   <li>
-    <p>Make sure that <code>index.html</code> contains links to the
+    Make sure that <code>index.html</code> contains links to the
     lessons being taught in the workshop (see "Linking to
     Lessons" below).
-    </p>
   </li>
   <li>
-    <p>Delete the installation instructions for software packages that
+    Delete the installation instructions for software packages that
     aren't being used in the workshop (see "Software Installation
     Instructions" below).
-    </p>
   </li>
   <li>
-    <p>
-      <code>git push origin gh-pages</code> to publish the workshop's
-      home page
-      at <code>http://github_user_name.github.io/workshop_id/</code>.
-    </p>
+    <code>git push origin gh-pages</code> to publish the workshop's
+    home page
+    at <code>http://github_user_name.github.io/workshop_id/</code>.
   </li>
 </ol>
 <p>
@@ -158,7 +140,8 @@ $ bash create_workshop.sh github_user_name workshop_id
     Lessons" below).
   </li>
 </ol>
-<p><strong>Required Variables</strong></p>
+
+<h2>Required Variables</h2>
 <p>
   <code>index.html</code>'s YAML header must define the following
   variables in order for the workshop website to show up properly on
@@ -231,7 +214,8 @@ $ bash create_workshop.sh github_user_name workshop_id
     isn't needed.
   </li>
 </ul>
-<p><strong>Software Installation Instructions</strong></p>
+
+<h2>Software Installation Instructions</h2>
 <p>
   We have tried managing software installation instructions three
   different ways in the last year. Several instructors found file
@@ -241,7 +225,8 @@ $ bash create_workshop.sh github_user_name workshop_id
   for everything, and website authors will delete the bits they don't
   need.
 </p>
-<p><strong>Customizing Lessons</strong></p>
+
+<h2>Customizing Lessons</h2>
 <p>
   The default <code>index.html</code> page contains links to our
   standard lessons, along with a paragraph outlining what's covered in
@@ -250,7 +235,8 @@ $ bash create_workshop.sh github_user_name workshop_id
   workshop, then insert links and descriptions for custom lessons of
   their own.
 </p>
-<p><strong>Managing the Site</strong></p>
+
+<h2>Managing the Site</h2>
 <p>
   To help people manage their workshop sites, <code>Makefile</code>
   will contain these targets:
@@ -296,7 +282,8 @@ $ bash create_workshop.sh github_user_name workshop_id
     website).
   </li>
 </ul>
-<p><strong>Localizing</strong></p>
+
+<h2>Localizing</h2>
 <p>
   The repository will also have a read-only Git remote
   called <code>source</code> pointing
@@ -306,7 +293,8 @@ $ bash create_workshop.sh github_user_name workshop_id
   from <code>source</code>. (<code>Makefile</code> will contain a
   target for this.)
 </p>
-<p><strong>Adding Content</strong></p>
+
+<h2>Adding Content</h2>
 <p>
   Instructors can add their own data files, code samples, and so on to
   the workshop's web site simply by adding those files to the Git repo
@@ -317,7 +305,8 @@ $ bash create_workshop.sh github_user_name workshop_id
   check the format of these pages as well as the format
   of <code>index.html</code>.
 </p>
-<p><strong>Customizing Lessons</strong></p>
+
+<h2>Customizing Lessons</h2>
 <p>
   If instructors want to present a modified version of a lesson, or
   add an entirely new lesson, they will:
@@ -351,7 +340,8 @@ $ bash create_workshop.sh github_user_name workshop_id
     the material).
   </li>
 </ol>
-<p><strong>Sending Fixes</strong></p>
+
+<h2>Sending Fixes</h2>
 <p>
   The one thing this scheme <em>doesn't</em> have is a link between
   the workshop's repository and the <code>workshop_source</code>
@@ -378,7 +368,8 @@ $ bash create_workshop.sh github_user_name workshop_id
   of teaching tips (just as we're using the <code>bc</code>
   repository's wiki right now).
 </p>
-<p><strong>Checklists</strong></p>
+
+<h2>Checklists</h2>
 <p>
   When <code>create_workshop.sh</code> creates the GitHub repository
   for the workshop, it will also create several issues in that

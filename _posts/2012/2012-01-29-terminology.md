@@ -34,4 +34,4 @@ title: Terminology
 Formative assessment is a kind of reinforcement; summative and evaluative are (usually) not.</li>
 </ul>
 <p>The diagram below shows these relationships. I've drawn most relationships as many-to-many, but in practice, we hope that most will actually be one-to-many, i.e., that concepts will fit neatly into topics, and topics into lessons. The one-to-one relationship between summative assessments and topics is also a bit misleading: what it's meant to imply is that any particular learner will eventually demonstrate mastery of some topic (e.g., Yeleina will show that she understands functions). This is the smallest "chunk" for which we'd contemplate awarding a badge, though as discussed earlier, we're going to start with something coarser-grained.</p>
-<p><img src="{{'/files/2012/01/syllabus.png' | relative_url}}" /></p>
+<p><img src="{{'/files/2012/01/syllabus.png' | relative_url}}" class="centered"></p>

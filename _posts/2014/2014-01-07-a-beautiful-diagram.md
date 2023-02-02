@@ -12,7 +12,7 @@ original: swc
   the diagram titled "Interaction of Patterns and Antipatterns" from page 43:
 </p>
 <p>
-  <img src="{{'/files/2014/01/release-it-pg-43.png' | relative_url}}" alt="Interaction of Patterns and Antipatterns (from Nygard)" />
+  <img src="{{'/files/2014/01/release-it-pg-43.png' | relative_url}}" alt="Interaction of Patterns and Antipatterns (from Nygard)" class="centered">
 </p>
 <p>
   This is the best <a href="http://en.wikipedia.org/wiki/Concept_map">concept map</a> I've ever seen.

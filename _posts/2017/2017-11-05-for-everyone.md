@@ -28,7 +28,7 @@ these were the stats on where Software Carpentry and Data Carpentry workshops ha
 as of August 2017
 broken down by institution type:
 
-<table class="table table-striped">
+<table class="centered">
 <tr><th>Category</th><th>Number of Institutions</th><th>Number of Workshops</th><th>Percentage</th></tr>
 <tr><td>R1</td><td>115</td><td>89</td><td>77.4%</td></tr>
 <tr><td>R2</td><td>107</td><td>15</td><td>14.0%</td></tr>

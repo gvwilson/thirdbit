@@ -19,20 +19,20 @@ Which is why I'm appealing for help.  DrProject's browser-based administration i
 </ol>
 Other tasks are similarly arduous. The screens in question are below the cut; if you have suggestions for redesign, I'd love to hear them.
 
-<img src="{{'/files/2008/02/add-users.png' | relative_url}}" alt="Add Users" />
+<img src="{{'/files/2008/02/add-users.png' | relative_url}}" alt="Add Users" class="centered">
 
 <hr />
 
-<img src="{{'/files/2008/02/list-users.png' | relative_url}}" alt="List Users" />
+<img src="{{'/files/2008/02/list-users.png' | relative_url}}" alt="List Users" class="centered">
 
 <hr />
 
-<img src="{{'/files/2008/02/create-projects.png' | relative_url}}" alt="Create Projects" />
+<img src="{{'/files/2008/02/create-projects.png' | relative_url}}" alt="Create Projects" class="centered">
 
 <hr />
 
-<img src="{{'/files/2008/02/project-list.png' | relative_url}}" alt="List Projects" />
+<img src="{{'/files/2008/02/project-list.png' | relative_url}}" alt="List Projects" class="centered">
 
 <hr />
 
-<img src="{{'/files/2008/02/instance-settings.png' | relative_url}}" alt="Instance Settings" />
+<img src="{{'/files/2008/02/instance-settings.png' | relative_url}}" alt="Instance Settings" class="centered">

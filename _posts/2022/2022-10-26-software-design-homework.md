@@ -21,7 +21,7 @@ tools like [Git LFS][git-lfs] and [DVC][dvc] allow users to
 store the actual file somewhere else (like a NAS or the cloud)
 and put a placeholder in the Git repository that points at the actual file.
 
-<img src="{{'/files/2022/dvc.svg' | relative_url}}" alt="Structure of DVC"/>
+<img src="{{'/files/2022/dvc.svg' | relative_url}}" alt="Structure of DVC class="centered">
 
 1.  The placeholder file is just a bit of JSON or YAML that contains
     the original file's name

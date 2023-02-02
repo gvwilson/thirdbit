@@ -14,11 +14,11 @@ original: swc
   I've reproduced it on the left,
   and summarized my view of how open science is doing by those same measures on the right:
 </p>
-<div align="center">
-  <table cellpadding="10">
+<div class="center">
+  <table>
     <tr>
       <td valign="top">
-	<table border="1" cellpadding="10">
+	<table>
 	  <tr>
 	    <th colspan="4" align="center">Open Web</th>
 	  </tr>
@@ -46,7 +46,7 @@ original: swc
 	</table>
       </td>
       <td valign="top">
-	<table border="1" cellpadding="10">
+	<table>
 	  <tr>
 	    <th colspan="4" align="center">Open Science</th>
 	  </tr>
@@ -83,7 +83,7 @@ original: swc
   (which are mostly opinion)
   from the bottom up:
 </p>
-<table class="table">
+<table>
   <tr>
     <th>Area</th>
     <th>Open Web</th>

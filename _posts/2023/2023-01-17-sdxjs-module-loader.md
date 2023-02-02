@@ -21,16 +21,16 @@ the excellent tutorial in Casciaro and Mammino's book
 [*Node.js Design Patterns*][node_patterns],
 which contains a lot of other useful information as well.
 
-<div class="flex-row">
-  <div class="flex-col">
-    <figure id="module-loader-iife-a" align="center">
-      <img src="{{'/sdxjs/module-loader/iife-a.svg' | relative_url}}" alt="Implementing modules with IIFEs (part 1)"/>
+<div class="row">
+  <div class="col-6">
+    <figure id="module-loader-iife-a" class="center">
+      <img src="{{'/sdxjs/module-loader/iife-a.svg' | relative_url}}" alt="Implementing modules with IIFEs (part 1)" class="centered">
       <figcaption>Figure 13.2: Using IIFEs to encapsulate modules and get their exports (part 1).</figcaption>
     </figure>
   </div>
-  <div class="flex-col">
-    <figure id="module-loader-iife-b" align="center">
-      <img src="{{'/sdxjs/module-loader/iife-b.svg' | relative_url}}" alt="Implementing modules with IIFEs (part 2)"/>
+  <div class="col-6">
+    <figure id="module-loader-iife-b" class="center">
+      <img src="{{'/sdxjs/module-loader/iife-b.svg' | relative_url}}" alt="Implementing modules with IIFEs (part 2)" class="centered">
       <figcaption>Figure 13.3: Using IIFEs to encapsulate modules and get their exports (part 2).</figcaption>
     </figure>
   </div>

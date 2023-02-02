@@ -6,7 +6,7 @@ year: 2013
 <p>
   I submitted this proposal to PyCon 2014–win or lose, I hope to see you all there.
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Submitted by:</td>
     <td>Greg Wilson</td>

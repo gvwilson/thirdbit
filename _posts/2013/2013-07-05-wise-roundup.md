@@ -13,6 +13,4 @@ original: swc
   <li>Terri Yu wrote about follow-on activities right after the bootcamp, then posted some <a href="http://terriyu.info/blog/posts/2013/06/swc-wise/">personal reflections</a> a few days later.</li>
 </ul>
 <p>Many thanks once again to everyone who worked so hard to pull it together, and to our sponsors for their support.  We look forward to doing it again soon.</p>
-<p>
-  <img src="{{'/files/2013/07/wise.jpg' | relative_url}}" alt="WiSE Bootcamp" />
-</p>
+<img src="{{'/files/2013/07/wise.jpg' | relative_url}}" alt="WiSE Bootcamp" class="centered">

@@ -4,7 +4,7 @@ date: 2009-10-23 09:22:50
 year: 2009
 ---
 It's still a lot harder than it should be to add pictures to web pages. I know, you think it's easy, but let's do a comparison:
-<table border="0">
+<table class="centered">
 <tbody>
 <tr>
 <td>Modern desktop WYSIWYG editor</td>
@@ -28,7 +28,7 @@ It's still a lot harder than it should be to add pictures to web pages. I know, 
 </tr>
 </tbody></table>
 Not too bad so far, but what happens when someone wants to update the image?
-<table border="0">
+<table class="center">
 <tbody>
 <tr>
 <td>Modern desktop WYSIWYG editor</td>
@@ -60,7 +60,7 @@ Bob --&gt; Alice: Authentication Response
 @enduml</pre>
 into a picture like:
 
-<img title="diagram" src="{{'/files/2009/10/diagram.png' | relative_url}}" alt="diagram" width="210" height="153" />
+<img src="{{'/files/2009/10/diagram.png' | relative_url}}" alt="diagram" width="210" height="153" class="centered">
 
 just as a wiki engine takes <code>//ohmigod!//</code> and turns it into <em>ohmigod!</em>. (Example taken from <a href="http://plantuml.sourceforge.net/">PlantUML</a>.)
 

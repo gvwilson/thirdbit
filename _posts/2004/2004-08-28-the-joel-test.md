@@ -10,7 +10,7 @@ everyone in the software industry either reads, or ought to) has a <a href="http
 test</a> to help you measure how well your team is doing.  How do the
 student teams hosted on Pyre do?</p>
 
-<table border="1">
+<table class="center">
 
   <tr>
     <td valign="top">1. Do you use source control?</td>

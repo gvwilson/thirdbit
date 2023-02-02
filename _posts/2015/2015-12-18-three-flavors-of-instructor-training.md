@@ -34,7 +34,7 @@ original: swc
   participants have said in the past that this is one of the big challenges.
   Nine groups took part in total:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <th>Team</th>
     <th>Location</th>

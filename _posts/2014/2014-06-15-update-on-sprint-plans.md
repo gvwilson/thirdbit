@@ -71,7 +71,7 @@ original: swc
   <li>Intermediate Software Carpentry lesson on using Make to manage data pipelines</li>
 </ul>
 <p><strong>Sites</strong></p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Auckland</td>
     <td>Melbourne</td>

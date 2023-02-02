@@ -4,15 +4,15 @@ date: 2017-12-06 03:30:00
 year: 2017
 ---
 <p>
-  <img src="{{'/files/2016/12/montreal.jpg' | relative_url}}" alt="The 14" />
+  <img src="{{'/files/2016/12/montreal.jpg' | relative_url}}" alt="The 14" class="centered">
 </p>
 <p>
   Jamais plus.
 </p>
-<table border="0">
+<table class="centered">
 <tbody>
 <tr>
-<td valign="top">
+<td>
 <ul>
   <li>Geneviève Bergeron</li>
   <li>Hélène Colgan</li>
@@ -23,7 +23,7 @@ year: 2017
   <li>Maryse Laganière</li>
 </ul>
 </td>
-<td valign="top">
+<td>
 <ul>
   <li>Maryse Leclair</li>
   <li>Anne-Marie Lemay</li>

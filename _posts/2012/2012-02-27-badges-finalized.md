@@ -8,19 +8,19 @@ title: Badges (Finalized)
 <table>
 <tbody>
 <tr>
-<td><img src="{{'/files/2012/02/Badge_CoreSkills.png' | relative_url}}" /></td>
+<td><img src="{{'/files/2012/02/Badge_CoreSkills.png' | relative_url}}" class="centered"></td>
 <td>for people who complete the core curriculum</td>
 </tr>
 <tr>
-<td><img src="{{'/files/2012/02/Badge_Instructor.png' | relative_url}}" /></td>
+<td><img src="{{'/files/2012/02/Badge_Instructor.png' | relative_url}}" class="centered"></td>
 <td>for helping to teach (either workshops or online)</td>
 </tr>
 <tr>
-<td><img src="{{'/files/2012/02/Badge_Organizer.png' | relative_url}}" /></td>
+<td><img src="{{'/files/2012/02/Badge_Organizer.png' | relative_url}}" class="centered"></td>
 <td>for organizing workshops</td>
 </tr>
 <tr>
-<td><img src="{{'/files/2012/02/Badge_Creator.png' | relative_url}}" /></td>
+<td><img src="{{'/files/2012/02/Badge_Creator.png' | relative_url}}" class="centered"></td>
 <td>for creating (or fixing) content</td>
 </tr>
 </tbody>

@@ -8,7 +8,7 @@ year: 2016
   most Canadians instantly recognize the name of their murderer.
   I'd rather remember <a href="http://en.wikipedia.org/wiki/%C3%89cole_Polytechnique_massacre">theirs</a>:
 </p>
-<table border="0">
+<table class="center">
 <tbody>
 <tr>
 <td valign="top">
@@ -36,7 +36,7 @@ year: 2016
 </tr>
 </tbody></table>
 <p>
-  <img src="{{'/files/2016/12/montreal.jpg' | relative_url}}" alt="The 14" />
+  <img src="{{'/files/2016/12/montreal.jpg' | relative_url}}" alt="The 14" class="centered">
 </p>
 <p>
   Qu'elles reposent en paix.

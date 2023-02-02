@@ -19,4 +19,4 @@ About the panelists:
 
 <em>Michael Nielsen</em> is a writer living just outside Toronto, Canada. He is currently working on a book about <cite>The Future of Science</cite>.  One of the pioneers of quantum computation, he coauthored the standard text on quantum computation that is the most highly cited physics publication of the last 25 years. He is the author of more than fifty scientific papers, including invited contributions to <cite>Nature</cite> and <cite>Scientific American</cite>.
 
-For more information visit Nature Network Toronto (<a href="http://network.nature.com/group/toronto">http://network.nature.com/group/toronto</a>), or contact Eva Amsen (eva.amsen@gmail.com) or Jen Dodd (jen@jendodd.com, 519 572 2275).
+For more information visit Nature Network Toronto (<a href="http://network.nature.com/group/toronto">http://network.nature.com/group/toronto</a>), or contact Eva Amsen or Jen Dodd.

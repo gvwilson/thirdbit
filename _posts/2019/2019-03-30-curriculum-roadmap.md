@@ -12,7 +12,7 @@ and now in [RStudio's instructor training and certification](https://blog.rstudi
 Along with a detailed description of content and activities,
 the paper includes this topic map showing how topics are connected:
 
-<img src="{{'/files/2019/03/sneks-roadmap.png' | relative_url}}" alt="PythonSneks Roadmap" width="100%" />
+<img src="{{'/files/2019/03/sneks-roadmap.png' | relative_url}}" alt="PythonSneks Roadmap" width="100%" class="centered">
 
 I'd love to see topic maps like this for more courses.
 They would be even more useful, though, if they were findable,

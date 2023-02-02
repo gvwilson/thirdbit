@@ -5,7 +5,7 @@ year: 2013
 original: swc
 ---
 <p>Of the 29 people who responded to a brief questionnaire before a recent bootcamp, we have:</p>
-<table class="table table-striped">
+<table class="centered">
   <tr><td align="right">18</td><td>graduate students</td></tr>
   <tr><td align="right">4</td><td>postdocs</td></tr>
   <tr><td align="right">4</td><td>staff</td></tr>
@@ -14,7 +14,7 @@ original: swc
   <tr><td align="right">1</td><td>special student</td></tr>
 </table>
 <p>They describe their current expertise as:</p>
-<table class="table table-striped">
+<table class="centered">
   <tr><td align="right">1</td><td>master</td></tr>
   <tr><td align="right">10</td><td>have written a few programs</td></tr>
   <tr><td align="right">17</td><td>have written a little code</td></tr>
@@ -23,28 +23,28 @@ original: swc
 <p>Here's how they thought they could do on some simple tasks:</p>
 <ol>
   <li>Write a short program to read a file containing columns of numbers separated by commas, average the non-negative values in the second and fifth columns, and print the results.
-    <table class="table table-striped">
+    <table class="centered">
       <tr><td align="right">11</td><td>could do it easily</td></tr>
       <tr><td align="right">15</td><td>could probably struggle through</td></tr>
       <tr><td align="right">3</td><td>wouldn't know where to start</td></tr>
     </table>
   </li>
   <li>In a directory with 1000 text files, create a list of all files that contain the word "Drosophila", and redirect the output to a file called <code>results.txt</code>.
-    <table class="table table-striped">
+    <table class="centered">
       <tr><td align="right">12</td><td>could do it easily</td></tr>
       <tr><td align="right">10</td><td>could struggle through</td></tr>
       <tr><td align="right">7</td><td>wouldn't know where to start</td></tr>
     </table>
   </li>
   <li>Check out a working copy of a project from version control, add a file called <code>paper.txt</code>, and commit the change.
-    <table class="table table-striped">
+    <table class="centered">
       <tr><td align="right">3</td><td>could do it easily</td></tr>
       <tr><td align="right">4</td><td>could struggle through</td></tr>
       <tr><td align="right">22</td><td>wouldn't know where to start</td></tr>
     </table>
   </li>
   <li>A tab-delimited file has two columns: the date, and the highest temperature on that day. Produce a graph showing the average highest temperature for each month.
-    <table class="table table-striped">
+    <table class="centered">
       <tr><td align="right">19</td><td>could do it easily</td></tr>
       <tr><td align="right">0</td><td>could struggle through</td></tr>
       <tr><td align="right">10</td><td>wouldn't know where to start</td></tr>

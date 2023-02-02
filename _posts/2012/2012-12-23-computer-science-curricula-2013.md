@@ -12,7 +12,7 @@ original: swc
 </ul>
 <p>The material is also divided into "knowledge areas".  Most, like "Algorithms and Complexity", are coherent and well-defined, but others, like "Platform-Based Development", are grab bags filled with odds and ends.  So how does our material stack up against these recommendations?  Overall, not badly:</p>
 
-<table border="1">
+<table class="center">
 
   <tr>
     <td>Algorithms and Complexity</td>

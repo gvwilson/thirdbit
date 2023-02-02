@@ -14,9 +14,7 @@ arises from a conflation of two distinct ideas;
 since quadrant diagrams are almost always a sign that someone's trying to sell you bullshit,
 here's mine:
 
-<div align="center">
-<img src="{{ '/files/2022/wes-montgomery.svg' | relative_url }}" alt="Four quadrants of coding" />
-</div>
+<img src="{{ '/files/2022/wes-montgomery.svg' | relative_url }}" alt="Four quadrants of coding" class="centered">
 
 The Beatles' version of "Twist and Shout" is harmonically, melodically, and rhythmically much simpler
 than Coltrane's 1967 recording of "My Favorite Things",

@@ -24,7 +24,7 @@ original: swc
     These include data import, export, and cleanup;
     expanded reporting capability;
     and patron-facing services such as improvements to catalog and LibGuide usability.
-    Most of the programs discussed are short&mash;under a hundred lines–so that
+    Most of the programs discussed are short—under a hundred lines–so that
     implementing or modifying them is within the reach of relatively novice programmers.
     Where possible, links to the code itself are provided.
     Several scripts are explained in depth.
@@ -40,7 +40,7 @@ original: swc
   I wish we had something like it for different scientific disciplines,
   and I hope to borrow a lot of ideas from it as we re-work our lessons in the coming months.
 </p>
-<table class="table table-striped">
+<table>
   <tr>
     <td><a href="http://journals.ala.org/ltr/article/view/5671">Chapter 1. Introduction</a></td>
     <td><a href="http://journals.ala.org/ltr/article/view/5671/7033">HTML</a></td>

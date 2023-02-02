@@ -168,7 +168,7 @@ original: swc
 <ul>
 <li>Looking for a volunteer to help manage this, please get in touch</li>
 <li>Leigh Sheneman volunteers to help</li>
-<li>Lynne Williams volunteers to help &lt;williams.lynne99@gmail.com&gt;</li>
+<li>Lynne Williams volunteers to help</li>
 <li>(Aleksandra: Leigh, let us know if you'd like support from one more person; basically, feel free to send a note on Discuss)</li>
 </ul></li>
 <li>Managing the flood of email
@@ -180,8 +180,8 @@ original: swc
 </ul></li>
 <li>Need a new sys admin volunteer
 <ul>
-<li>Peter van Heusden &lt;pvh@sanbi.ac.za&gt;</li>
-<li>Gabriel Devenyi &lt;gdevenyi@gmail.com&gt;</li>
+<li>Peter van Heusden</li>
+<li>Gabriel Devenyi</li>
 </ul></li>
 <li>Noam Ross is working on a few improvements for the R lesson like: where learners can get help after the workshop, how they can solve their own problem, … Started a repo, <a href="https://github.com/noamross/zero-dependency-problems" class="uri">https://github.com/noamross/zero-dependency-problems</a>, where he is gathering examples from various fora and workshops of the types of things that typical students run into. Interested in contributions from people -- directly from student questions -- also for feedback on lessons, in terms of what material has already been covered, minimal reproducible examples. A question is how much this should be independent material versus being exercises/materials incorporated into Novice Lessons. Short term hope: people contribute example of questions/problems. Where do beginners hit a wall? How beginners should ask the questions? Everything is R: would be nice to have Python, Shell, SQL, … as well. Some of the material might end up being good examples/exercises.
 <ul>

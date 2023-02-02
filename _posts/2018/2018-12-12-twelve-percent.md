@@ -492,7 +492,7 @@ to save the world.
 Everything that's still naive, confused, or just plain wrong is my responsibility;
 as noted at the start,
 I'd be very grateful for feedback,
-which you can [send by email](mailto:gvwilson@third-bit.com).
+which you can [send by email](mailto:{{site.author.email}}).
 (I apologize for not allowing discussion here:
 following my criticism of Shopify's continued support for white nationalist sites,
 it seemed best to disable comments on this blog until the trolls turned their attention elsewhere.)

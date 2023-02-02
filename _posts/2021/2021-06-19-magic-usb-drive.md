@@ -13,9 +13,9 @@ the tech books I'm either [struggling with]({{'/2021/05/17/two-books/' | relativ
 or just [wishing for]({{'/ideas/#what-i-would-write-if-i-was-smarter-than-i-am' | relative_url}})—they
 would just *be* there,
 fully formed and ready to share with the world,
-along with the complete source code of the [extensible programming tools](https://queue.acm.org/detail.cfm?id=1039534)
+along with the complete source code of the [programming tools](https://queue.acm.org/detail.cfm?id=1039534)
 I've wanted for the last 20 years
-and the albums [Ike Quebec]({{'/2018/05/30/late-nights-thoughts/' | relative_url}}) never recorded.
+and the albums [Ike Quebec]({{'/talks/late-night/' | relative_url}}) never recorded.
 
 Then the exuberance of the birds in our back yard woke me up
 and I had to return a world in which my hands hurt when I type

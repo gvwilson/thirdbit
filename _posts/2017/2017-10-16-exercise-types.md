@@ -219,7 +219,7 @@ of code with the output it produces".
 
 > Example: match each function's name with the operation it implements.
 >
-> <table class="table table-striped">
+> <table class="centered">
 > <tr><td>SGEMV</td><td>triangular banded matrix-vector multiply</td></tr>
 > <tr><td>STBMV</td><td>solve triangular matrix with multiple right-hand sides</td></tr>
 > <tr><td>STRSM</td><td>matrix-vector multiply</td></tr>
@@ -257,7 +257,7 @@ term to an example of that program element"), or many other things.
 > z = [x, y]
 > ```
 >
-> <img src="{{'/files/2017/10/label.svg' | relative_url}}" />
+> <img src="{{'/files/2017/10/label.svg' | relative_url}}" class="centered">
 
 ***Drawing diagrams*** of things like data structures is also
 straightforward to do on paper but very difficult to grade

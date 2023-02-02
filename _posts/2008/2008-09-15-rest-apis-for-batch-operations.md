@@ -6,7 +6,7 @@ year: 2008
 I have a question about the "right" way to design a REST API, and am hoping someone out there on the Interweb will point me in the right direction.  The short version of the question is, "How should batch operations be structured?"  The long version goes something like this:
 
 Suppose your web application has to keep track of fruit flies.  Each fruit fly has a unique (system-assigned) integer ID, a name (hey, even flies can be cuddly), and a genome (represented as a string of characters).  If you only had to work with one fly at a time, the API might look something like this (with the data values formatted as XML, JSON, or what have you):
-<table padding="3" border="1">
+<table>
 <tr>
 <td><strong>Operation</strong></td>
 <td><strong>URL</strong></td>
@@ -74,7 +74,7 @@ return result</pre>
 The first reason you don't want to do this is that it's not atomic: if anything goes wrong partway through, you could have five hundred flies updated, and five hundred not.  The second reason is that the <code>process</code> function is actually very slow: if you call it five hundred times, there's a real risk of taking so long that the web server will time out the request.  (Note: in reality, a lot more is going on inside <code>process</code> than just a few SQL queries—files are being opened, parsed, and closed, log entries are being created, etc., so "get a faster web server" is <em>not</em> a valid solution.)
 
 The solution I've come up with is to make batch operations fundamental to the REST API, and to define the single-fly operations in terms of them.  This leads to API entries like this:
-<table padding="3" border="1">
+<table>
 <tr>
 <td><strong>Operation</strong></td>
 <td><strong>URL</strong></td>

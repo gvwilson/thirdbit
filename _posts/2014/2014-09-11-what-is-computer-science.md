@@ -58,7 +58,7 @@ year: 2014
   and sorted specialties by frequency.
   The results puzzled me:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Algorithms &amp; Theory</td>
     <td>292</td>

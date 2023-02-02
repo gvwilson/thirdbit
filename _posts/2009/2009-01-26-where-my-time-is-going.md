@@ -4,7 +4,7 @@ date: 2009-01-26 09:56:13
 year: 2009
 ---
 An update on a previous post: here's where the last two weeks' worth of working time went.  I'm including time spent sorting out the house during working hours, but not the two hours a day I spend getting to and from work (much of which I spend reading technical material).
-<table border="0">
+<table class="center">
 <tbody>
 <tr>
 <td>Python book</td>

@@ -8,7 +8,7 @@ title: Software Carpentry in Toronto July 13-31 2009
 <p><strong>Overview</strong></p>
 <p>Many scientists and engineers spend much of their lives programming, but only a handful have ever been taught how to do this well. As a result, they spend their time wrestling with software, instead of doing research, but have no idea how reliable or efficient their programs are.</p>
 <p>Software Carpentry is an intensive introduction to basic software development practices for scientists and engineers that can reduce the time they spend programming by 20-25%. All of the material is open source: it may be used freely by anyone for educational or commercial purposes, and research groups in academia and industry are actively encouraged to adapt it to their needs.  Originally developed for <a href="http://www.lanl.gov">Los Alamos National Laboratory</a>, the course has been used at research labs and universities on four continents.  Topics include:</p>
-<table border="0">
+<table class="center">
 <tbody>
 <tr>
 <td valign="top">

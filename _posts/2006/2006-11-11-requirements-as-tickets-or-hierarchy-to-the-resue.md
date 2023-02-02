@@ -11,7 +11,9 @@ The second caveat is that the system must give stakeholders a way to organize th
 
 We're still thinking about the first (tag-directed proximitization in an unstructured graph plus link-drawing?), but we have an idea for the second.  Right now, most ticketing systems' standard display is a flat list sorted by ticket ID, filing date, priority, or something of that ilk (Figure 1).
 
-<img id="image717" alt="Figure 1" src="{{'/files/2006/11/tickets.png' | relative_url}}" />What if stakeholders had another view, in which they could organize tickets like this:
+<img alt="Figure 1" src="{{'/files/2006/11/tickets.png' | relative_url}}" class="centered">
+
+What if stakeholders had another view, in which they could organize tickets like this:
 <table>
 <tr>
 <td colspan="3"><strong>Tagging System</strong></td>

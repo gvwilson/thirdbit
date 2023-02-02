@@ -12,4 +12,4 @@ and has worked most recently at Embry-Riddle Aeronautical University in Florida,
 where her postdoctoral research focused on
 understanding factors that influence faculty adoption of evidence-based instructional practices.
 To learn more, please see the post on the Data Carpentry website
-or follow Kari as [@drkariljordan](https://twitter.com/drkariljordan) on Twitter.
+or follow Kari as @drkariljordan on Twitter.

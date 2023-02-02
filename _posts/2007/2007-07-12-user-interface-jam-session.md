@@ -14,6 +14,4 @@ So, if you:
 </ol>
 please get in touch—we'd welcome your help.
 
-<sup><a title="1" name="1"></a>1</sup><a title="1" name="1"></a> Because I'd like to be able to show students in future software engineering classes what a real UI design review looks like.
-
-<a title="1" name="1"></a>
+<p id="1">1) Because I'd like to be able to show students in future software engineering classes what a real UI design review looks like.</p>

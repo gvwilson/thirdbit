@@ -13,7 +13,7 @@ I'm very pleased to announce that I've just signed a contract with <a href="http
   <li>Why?</li>
 </ul>
 The current list of contributors and topics is included below; I'm very excited to be working on this, not least because all of the author royalties will be donated to <a href="http://www.amnesty.org">Amnesty International</a>.
-<table border="0">
+<table class="center">
 <tbody>
 <tr>
 <td>Asterisk</td>

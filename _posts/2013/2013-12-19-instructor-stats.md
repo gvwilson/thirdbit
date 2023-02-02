@@ -9,7 +9,7 @@ original: swc
   which makes this a good time to look at how well the program is doing.
   Here are stats on the first six rounds:
 </p>
-<table class="table table-striped">
+<table class="centered">
 <tr><th>Round</th><th>Enrolled</th><th>Completed</th></tr>
   <tr><td>1</td><td>20</td><td>11 (55%)</td></tr>
   <tr><td>2</td><td>25</td><td>11 (44%)</td></tr>

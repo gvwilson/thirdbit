@@ -20,7 +20,7 @@ original: swc
   [<a href="#footnote-2">2</a>]:
 </p>
 <p>
-  <img src="{{'/files/2013/05/how-experiments-work.png' | relative_url}}" alt="How Experiments Work" />
+  <img src="{{'/files/2013/05/how-experiments-work.png' | relative_url}}" alt="How Experiments Work" class="centered">
 </p>
 <p>
   A conversation with <a href="http://cameronneylon.net/">Cameron Neylon</a>

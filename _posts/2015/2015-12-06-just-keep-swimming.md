@@ -117,5 +117,5 @@ favorite: true
   and what your next step should be.
 </p>
 <p>
-  <img src="{{ '/files/2015/12/just-keep-swimming.jpg' | relative_url }}" alt="Just Keep Swimming" />
+  <img src="{{ '/files/2015/12/just-keep-swimming.jpg' | relative_url }}" alt="Just Keep Swimming" class="centered">
 </p>

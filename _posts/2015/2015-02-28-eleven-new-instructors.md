@@ -7,7 +7,7 @@ original: swc
 <p>
   It's a pleasure to welcome another eleven instructors to our team:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Ewan Barr</td>
     <td>Thomas Coudrat</td>

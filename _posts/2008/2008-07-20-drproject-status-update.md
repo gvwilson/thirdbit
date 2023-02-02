@@ -12,4 +12,4 @@ Along with the usual bug fixes, we are working on some new features:
   <li>Status charts.  Kosta has been working with <a href="http://www.aperte.org">Jeremy Handcock</a> to integrate a few simple charts to show projects' status.  We'll know by the end of July whether this will make it into the next release.</li>
   <li>A configurable ticketing system.  This is the most ambitious of our current projects; Nick Jamil <a href="http://drpnewt.wordpress.com/2008/07/17/newt-screencast-2/">posted a video</a> showing what it can do, and once Jeff Balogh finishes his Dojo-based drag-and-drop form editor, we'll put another one up.  This needs a lot of testing before we put it in a release, but Luke Petrolekas has already started, and if we don't make the end-of-August release, we ought to have it in your hands by Christmas.</li>
 </ol>
-As always, if you need help getting DrProject installed, please mail help@drproject.org—we'd be happy to help you out.
+As always, if you need help getting DrProject installed, please mail us—we'd be happy to help you out.

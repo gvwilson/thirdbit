@@ -16,16 +16,16 @@ and working on some guitar chords.
 If you're hiring,
 I'd enjoy hearing from you.
 
-<div align="center">
-<p><img src="{{ '/files/2021/rstudio-trainers.jpg' | relative_url }}" alt="RStudio trainers" width="100%" /></p>
-<p>239 certifications in 774 days</p>
-</div>
+<figure class="center">
+<img src="{{ '/files/2021/rstudio-trainers.jpg' | relative_url }}" alt="RStudio trainers" width="100%" class="centered">
+<figcaption>239 certifications in 774 days</figcaption>
+</figure>
 
-<div align="center">
-<p><img src="{{ '/files/2021/rstudio-trainers-by-date.svg' | relative_url }}" alt="RStudio trainers by date" width="80%" /></p>
-</div>
+<figure class="center">
+<img src="{{ '/files/2021/rstudio-trainers-by-date.svg' | relative_url }}" alt="RStudio trainers by date" width="80%" class="centered">
+</figure>
 
-<div align="center">
-<p><img src="{{ '/files/2021/last-day-at-rstudio.jpg' | relative_url }}" alt="Greg Wilson" width="60%" /></p>
-<p>I make unemployment look <em>good</em>.</p>
-</div>
+<figure class="center">
+<img src="{{ '/files/2021/last-day-at-rstudio.jpg' | relative_url }}" alt="Greg Wilson" width="60%" class="centered">
+<figcaption>I make unemployment look <em>good</em>.</figcaption>
+</figure>

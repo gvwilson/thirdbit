@@ -80,9 +80,7 @@ Another year over; what have I learned?
   - [Teaching in the Third Dimension]({{'/2022/12/14/teaching-in-the-third-dimension/' | relative_url}})
   - [Sessioncasting]({{'/2022/12/18/sessioncasting/' | relative_url}})
 
-<div align="center">
-  <img src="{{'/files/2022/jericho-club-view-2022-07.jpg' | relative_url}}" alt="Sunset in British Columbia" width="80%" />
-</div>
+<img src="{{'/files/2022/jericho-club-view-2022-07.jpg' | relative_url}}" alt="Sunset in British Columbia" width="80%" class="centered">
 
 [12-design]: https://doi.org/10.1371/journal.pcbi.1009809
 [dg]: https://www.deepgenomics.com/

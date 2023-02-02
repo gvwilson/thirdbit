@@ -43,7 +43,7 @@ When she said yes,
 he replied,
 "But it can't be—the author is a woman."
 
-<p><img src="{{ '/files/2018/11/radical-candor.png' | relative_url }}" alt="Radical Candor" /></p>
+<img src="{{ '/files/2018/11/radical-candor.png' | relative_url }}" alt="Radical Candor" class="centered">
 
 What ties this all together, I think, is a deep-seated fear of change:
 not the superficial kind,

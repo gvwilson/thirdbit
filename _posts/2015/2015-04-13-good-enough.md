@@ -31,9 +31,7 @@ original: swc
   even most above-average practitioners think that they're under-performing,
   which is pretty demoralizing:
 </p>
-<div align="center">
-  <img src="{{'/files/2015/04/impostor-gap.png' | relative_url}}" class="img-responsive" alt="The Impostor Gap" />
-</div>
+<p><img src="{{'/files/2015/04/impostor-gap.png' | relative_url}}" class="img-responsive" alt="The Impostor Gap" class="centered"></p>
 <p>
   I believe that
   the impostor gap between the actual distribution of people's knowledge

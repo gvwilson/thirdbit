@@ -14,6 +14,4 @@ Even if you don't want hard copy,
 please consider a donation:
 the last couple of years have been very hard on the people they're trying to help.
 
-<div align="center">
-  <img src="{{'/files/2022/sdxjs.jpg' | relative_url}}" alt="Greg Wilson holding first copy of 'Software Design by Example'" />
-</div>
+<img src="{{'/files/2022/sdxjs.jpg' | relative_url}}" alt="Greg Wilson holding first copy of 'Software Design by Example'" class="centered">

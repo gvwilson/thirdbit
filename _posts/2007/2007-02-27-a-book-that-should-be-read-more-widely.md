@@ -1,5 +1,5 @@
 ---
-title: "A Review of a Book That Should Be Read Much More Widely Than It Will Be"
+title: "A Book That Should Be Read More Widely"
 date: 2007-02-27 16:36:23
 year: 2007
 ---

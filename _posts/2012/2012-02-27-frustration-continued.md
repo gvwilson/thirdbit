@@ -5,16 +5,16 @@ original: swc
 title: Frustration (continued)
 ---
 <p>It's been a frustrating couple of days. To recap, I want to convert our material from PowerPoint to HTML5 to make it easier for people to fork and merge, to make things easier to re-style, because it's an open format, and so on. David Seifried has welded an HTML5 audio player to Caleb Troughton's deck.js to create a display tool, which I'm very pleased with, but the content is killing me. Seriously. Here are three slides taken from our first episode on the Unix shell:</p>
-<table border="1">
+<table class="center">
 <tbody>
 <tr>
-<td><img src="{{'/files/2012/02/shell-filedir-08.png' | relative_url}}" /></td>
+<td><img src="{{'/files/2012/02/shell-filedir-08.png' | relative_url}}" class="centered"></td>
 </tr>
 <tr>
-<td><img src="{{'/files/2012/02/shell-filedir-37.png' | relative_url}}" /></td>
+<td><img src="{{'/files/2012/02/shell-filedir-37.png' | relative_url}}" class="centered"></td>
 </tr>
 <tr>
-<td><img src="{{'/files/2012/02/shell-filedir-59.png' | relative_url}}" /></td>
+<td><img src="{{'/files/2012/02/shell-filedir-59.png' | relative_url}}" class="centered"></td>
 </tr>
 </tbody>
 </table>

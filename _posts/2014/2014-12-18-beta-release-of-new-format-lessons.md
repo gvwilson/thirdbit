@@ -17,7 +17,7 @@ original: swc
   The second step has taken longer than planned,
   but we now have all of the core novice lessons in repositories of their own:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <th>Repository</th>
     <th>Title/website</th>

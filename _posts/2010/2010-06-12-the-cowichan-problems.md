@@ -6,7 +6,7 @@ title: The Cowichan Problems
 ---
 Back in the 1990s, as the first wave of euphoria about parallel computing was topping out, I had a crazy idea: why don't we actually try to measure, or at least compare, the *usability* of different parallel programming systems? I left the field before taking the idea very far, but with talk about clouds and GPUs growing louder by the day, I think the idea is worth revisiting; the proposal that Bruce Irvin and I put together is below the cut, and I'd be interested in feedback.
 
-<hr/>
+<hr>
 
 *Most programmers believe that parallel programming is harder than sequential programming.  We are developing a suite of simple problems that can be used to assess the usability of different scientific programming languages (parallel or otherwise) that captures modularization and integration concerns usually ignored by performance-oriented benchmark suites.  This paper motivates and describes the suite.*
 
@@ -121,7 +121,7 @@ Our criteria for including toys are:
 
 The "single algorithm per program" model of many benchmarks is not representative of real programs, which often contain several qualitatively different phases or modules. A full implementation of this suite will therefore have two parts. In the first, each toy will be implemented as a stand-alone program. In the second, toys will be chained together as shown below. This will test the ease with which heterogeneous parallelism can be mixed within a single program. It will also show how well the system supports code re-use and information hiding, which are crucial to the development of large programs.
 
-<img title="dataflow" src="{{'/files/2010/06/dataflow.png' | relative_url}}" />
+<img alt="dataflow" src="{{'/files/2010/06/dataflow.png' | relative_url}}" class="centered">
 
 Where possible, chaining should execute toys concurrently. Some parallel programming systems impose extraneous constraints on programs, e.g., require all processes to participate in every barrier synchronization, or require the same executable to be loaded onto each processor. These constraints can limit the exploitation of potential concurrency. Permitting, but not requiring, concurrent execution of several toys should uncover such limitations.
 

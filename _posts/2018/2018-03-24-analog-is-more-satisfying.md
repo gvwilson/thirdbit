@@ -10,12 +10,12 @@ of *[How to Teach Programming (and Other Things)](https://teachtogether.tech/)*,
 and have found yet again that moving lines of text around in Emacs
 isn't nearly as satisfying as shuffling scraps of paper on a table.
 
-<img src="{{'/files/2018/03/sorted-notes.jpg' | relative_url}}" alt="Sorted Notes" width="100%" />
+<img src="{{'/files/2018/03/sorted-notes.jpg' | relative_url}}" alt="Sorted Notes" width="100%" class="centered">
 
 Categories in this not-very-scientific card sort of 206 new citations include:
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-6">
     <ul>
       <li>Agile teaching</li>
       <li>Assessment and grading (general)</li>
@@ -32,7 +32,7 @@ Categories in this not-very-scientific card sort of 206 new citations include:
       <li>Online teaching</li>
     </ul>
   </div>
-  <div class="col-md-6">
+  <div class="col-6">
     <ul>
       <li>PCK (exercises)</li>
       <li>PCK (student activity)</li>

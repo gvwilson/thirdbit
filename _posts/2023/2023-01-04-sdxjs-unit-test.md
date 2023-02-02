@@ -24,9 +24,7 @@ that I needed later.
 Backfilling like this is a normal part of [writing a technical book][11_techbook].
 You start by drawing a [concept map][concept_map] like this:
 
-<div align="center">
-  <img src="{{'/files/2023/backup_concept_map.svg' | relative_url}}" alt="File backup concept map" width="80%" />
-</div>
+<img src="{{'/files/2023/backup_concept_map.svg' | relative_url}}" alt="File backup concept map" width="80%" class="centered">
 
 but it is necessarily just a small subgraph of a much larger set of ideas and relationships.
 The box in the upper left labelled `unique name`
@@ -48,8 +46,8 @@ without going mad…
 
 > Terms defined: absolute error, actual result (of test), assertion, caching, defensive programming, design pattern, dynamic loading, error (in a test), exception handler, expected result (of test), exploratory programming, fail (a test), fixture, global variable, introspection, lifecycle, pass (a test), relative error, side effect, Singleton pattern, test runner, test subject, throw (exception), unit test.
 
-<figure id="unit-test-lifecycle" align="center">
-  <img src="{{'/sdxjs/unit-test/lifecycle.svg' | relative_url}}" alt="Unit testing lifecycle"/>
+<figure id="unit-test-lifecycle" class="center">
+  <img src="{{'/sdxjs/unit-test/lifecycle.svg' | relative_url}}" alt="Unit testing lifecycle" class="centered">
   <figcaption>Figure 4.3: Lifecycle of dynamically-discovered unit tests.</figcaption>
 </figure>
 

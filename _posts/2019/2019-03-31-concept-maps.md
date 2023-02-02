@@ -15,39 +15,39 @@ These diagrams are very much works in progress,
 but I think they're starting to come together.
 Feedback is always welcome…
 
-<div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
-  <p><img src="{{'/files/2019/03/00-introduction.svg' | relative_url}}" width="90%" /></p>
-  <p>Introduction</p>
-</div>
-<div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
-  <p><img src="{{'/files/2019/03/01-personas.svg' | relative_url}}" width="90%" /></p>
-  <p>Learner Personas</p>
-</div>
-<div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
-  <p><img src="{{'/files/2019/03/02-mental-models.svg' | relative_url}}" width="90%" /></p>
-  <p>Mental Models</p>
-</div>
-<div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
-  <p><img src="{{'/files/2019/03/03-assessment.svg' | relative_url}}" width="90%" /></p>
-  <p>Formative Assessment</p>
-</div>
-<div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
-  <p><img src="{{'/files/2019/03/04-cognitive-load.svg' | relative_url}}" width="90%" /></p>
-  <p>Cognitive Load</p>
-</div>
-<div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
-  <p><img src="{{'/files/2019/03/05-capacity.svg' | relative_url}}" width="90%" /></p>
-  <p>Seven Plus or Minus Two</p>
-</div>
-<div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
-  <p><img src="{{'/files/2019/03/06-learning.svg' | relative_url}}" width="90%" /></p>
-  <p>Learning Strategies</p>
-</div>
-<div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
-  <p><img src="{{'/files/2019/03/07-motivation.svg' | relative_url}}" width="90%" /></p>
-  <p>Motivation and Demotivation</p>
-</div>
-<div style="text-align: center; border-style: solid; border-width: 1px; margin: 3px;">
-  <p><img src="{{'/files/2019/03/08-performance.svg' | relative_url}}" width="90%" /></p>
-  <p>Teaching as a Performance Art</p>
-</div>
+<figure class="center">
+  <img src="{{'/files/2019/03/00-introduction.svg' | relative_url}}" width="90%" class="centered">
+  <figcaption>Introduction</figcaption>
+</figure>
+<figure class="center">
+  <img src="{{'/files/2019/03/01-personas.svg' | relative_url}}" width="90%" class="centered">
+  <figcaption>Learner Personas</figcaption>
+</figure>
+<figure class="center">
+  <img src="{{'/files/2019/03/02-mental-models.svg' | relative_url}}" width="90%" class="centered">
+  <figcaption>Mental Models</figcaption>
+</figure>
+<figure class="center">
+  <img src="{{'/files/2019/03/03-assessment.svg' | relative_url}}" width="90%" class="centered">
+  <figcaption>Formative Assessment</figcaption>
+</figure>
+<figure class="center">
+  <img src="{{'/files/2019/03/04-cognitive-load.svg' | relative_url}}" width="90%" class="centered">
+  <figcaption>Cognitive Load</figcaption>
+</figure>
+<figure class="center">
+  <img src="{{'/files/2019/03/05-capacity.svg' | relative_url}}" width="90%" class="centered">
+  <figcaption>Seven Plus or Minus Two</figcaption>
+</figure>
+<figure class="center">
+  <img src="{{'/files/2019/03/06-learning.svg' | relative_url}}" width="90%" class="centered">
+  <figcaption>Learning Strategies</figcaption>
+</figure>
+<figure class="center">
+  <img src="{{'/files/2019/03/07-motivation.svg' | relative_url}}" width="90%" class="centered">
+  <figcaption>Motivation and Demotivation</figcaption>
+</figure>
+<figure class="center">
+  <img src="{{'/files/2019/03/08-performance.svg' | relative_url}}" width="90%" class="centered">
+  <figcaption>Teaching as a Performance Art</figcaption>
+</figure>

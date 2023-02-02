@@ -7,8 +7,8 @@ One of the ways DrProject improves on <a href="http://trac.edgewall.org">Trac</a
 
 But nothing worth having comes without some kind of price. Suppose a portal administrator decides to delete a role—what should happen to people who actually have that role with respect to one or more projects? For example, if the MEMBERSHIP table looks like this:
 <table>
-<tr colspan="3">
-<td align="center">MEMBERSHIP</td>
+<tr>
+<td colspan="3" align="center">MEMBERSHIP</td>
 </tr>
 <tr>
 <td>USER</td>
@@ -52,12 +52,12 @@ We've decided to go with #4, and Liz Blankenship has mocked up a UI for it. Anin
 
 <strong>Step 1</strong>
 
-<img src="{{'/files/2008/06/step1.png' | relative_url}}" alt="Step 1" />
+<img src="{{'/files/2008/06/step1.png' | relative_url}}" alt="Step 1" class="centered">
 
 <strong>Step 2</strong>
 
-<img src="{{'/files/2008/06/step2.png' | relative_url}}" alt="Step 2" />
+<img src="{{'/files/2008/06/step2.png' | relative_url}}" alt="Step 2" class="centered">
 
 <strong>Step 3</strong>
 
-<img src="{{'/files/2008/06/step3.png' | relative_url}}" alt="Step 3" />
+<img src="{{'/files/2008/06/step3.png' | relative_url}}" alt="Step 3" class="centered">

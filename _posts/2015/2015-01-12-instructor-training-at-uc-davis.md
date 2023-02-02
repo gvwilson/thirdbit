@@ -63,7 +63,7 @@ original: swc
   I think that what we've learned from the live courses will improve their experience considerably.
 </p>
 <p>
-  <img src="{{'/files/2015/01/ttt-davis.jpg' | relative_url}}" alt="Instructor Training at UC Davis Jan 6-7, 2015" class="img-responsive"/>
+  <img src="{{'/files/2015/01/ttt-davis.jpg' | relative_url}}" alt="Instructor Training at UC Davis Jan 6-7, 2015" class="centered" class="centered">
 </p>
 <p>
   <em>
@@ -73,7 +73,7 @@ original: swc
     Thanks also to Olga Botvinnik for the photograph of our class.
   </em>
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Day 1</td>
     <td>the art of introducing yourself</td>

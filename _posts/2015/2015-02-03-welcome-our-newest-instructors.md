@@ -7,7 +7,7 @@ original: swc
 <p>
   It's a pleasure to welcome another eight instructors to our team:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Harriet Alexander</td>
     <td>Emmanouil-Ioannis Farsarakis</td>

@@ -7,7 +7,7 @@ original: swc
 <p>
   We are very pleased to welcome a new batch of instructors to our team:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Russell Alleen-Willems</td>
     <td>Catalina Anghel</td>

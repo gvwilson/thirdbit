@@ -7,6 +7,6 @@ year: 2008
 
 The next 'camp will probably be in September—look forward to seeing you all there.
 
-<img src="{{'/files/2008/07/dc18.jpg' | relative_url}}" alt="That's Me On the Right" />
+<img src="{{'/files/2008/07/dc18.jpg' | relative_url}}" alt="That's Me On the Right" class="centered">
 
 (Image from <a href="http://www.thomaspurves.com/">Thomas Purves</a>.)

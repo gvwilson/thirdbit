@@ -37,13 +37,7 @@ all of the book's material under the [Creative Commons - Attribution
 [downloaded for free]({{page.website}}), and printed versions can be
 [purchased at cost]({{page.purchase}}).
 
-<div align="center">
-<p>
-  <a title="Teaching Tech Together" href="{{page.website}}">
-    <img src="{{'/files/2018/07/t3-cover.png' | relative_url}}" alt="Teaching Tech Together" />
-  </a>
-</p>
-</div>
+<a href="{{page.website}}"><img src="{{'/files/2018/07/t3-cover.png' | relative_url}}" alt="Teaching Tech Together" class="centered"></a>
 
 *[Teaching Tech Together]({{page.website}})* is a community resource
 like [the Carpentries' lessons](https://carpentries.org/), Wikipedia,
@@ -72,7 +66,7 @@ conduct.
 > cover image, and to everyone who has used this material over the
 > years; any mistakes that remain are mine.
 
-<div align="center">
+<div class="center">
   <p>
     This book is dedicated to my mother, Doris Wilson,
     <br>
@@ -84,13 +78,11 @@ conduct.
   </p>
 </div>
 
-<div align="center">
-<p>
-  <img src="{{'/files/2018/07/t3-sales.svg' | relative_url}}" width="80%" alt="First Day Sales (map from https://simplemaps.com/resources/svg-world)" />
-</p>
-<p>
-  Paperback Sales to Date.
-  <br>
-  (If you bought a copy and your country isn't marked, please let me know.)
-</p>
-</div>
+<figure class="center">
+  <img src="{{'/files/2018/07/t3-sales.svg' | relative_url}}" width="80%" alt="First Day Sales (map from https://simplemaps.com/resources/svg-world)" class="centered">
+  <figcaption>
+    Paperback Sales to Date.
+    <br>
+    (If you bought a copy and your country isn't marked, please let me know.)
+  </figcaption>
+</figure>

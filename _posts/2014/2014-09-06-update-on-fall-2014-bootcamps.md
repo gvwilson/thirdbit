@@ -8,7 +8,7 @@ original: swc
   So it turns out we have more events coming up than
   I realized:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>University of Delaware</td>
     <td>bootcamp</td>

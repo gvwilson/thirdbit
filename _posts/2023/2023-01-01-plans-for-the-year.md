@@ -54,10 +54,10 @@ This year I'd like to set my sights a little lower
 and hit more of my targets.
 I'll let you know in twelve months how that went.
 
-<div align="center">
-  <img src="{{'/files/2023/greg-sax-first-performance.jpg' | relative_url}}" alt="Greg playing sax" />
-  <p>1997</p>
-</div>
+<figure class="center">
+  <img src="{{'/files/2023/greg-sax-first-performance.jpg' | relative_url}}" alt="Greg playing sax" class="centered">
+  <figcaption>1997</figcaption>
+</figure>
 
 [11_techbook]: https://github.com/gvwilson/11-techbook
 [acm_essay]: {{'/2020/07/09/acm-sigsoft-award/' | relative_url}}

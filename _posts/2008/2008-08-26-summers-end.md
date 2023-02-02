@@ -13,8 +13,9 @@ The last of our summer students finishes at the end of this week; here's a few l
   <li>Qiyu Zhu has posted a screencast of the new-and-improved administration interface.</li>
   <li>Jeff Balogh says "thanks for all the fish" to his <a href="http://dojotoolkit.org/2008/09/02/soc-wrapup-drag-drop-form-editor">drag-and-drop form editor</a>.</li>
 </ul>
+
 Thanks again, everyone—I really enjoyed working with you all.
 
-<img src="{{'/files/2008/08/panorama.jpg' | relative_url}}" alt="If You Ever Pass This Way…" />
+<img src="{{'/files/2008/08/panorama.jpg' | relative_url}}" alt="If You Ever Pass This Way…" class="centered">
 
 (photo courtesy of Qiyu Zhu)

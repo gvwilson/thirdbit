@@ -10,9 +10,7 @@ It's been out of print for years,
 but if you're writing lessons on technical topics,
 I think it's still worth getting, studying, and emulating.
 
-<div align="center">
-  <img src="{{ '/files/2021/essence-of-sql.jpg' | relative_url }}" alt="Essence of SQL cover" />
-</div>
+<img src="{{ '/files/2021/essence-of-sql.jpg' | relative_url }}" alt="Essence of SQL cover" class="centered">
 
 It's a small book:
 paperback-sized and only 119 pages long.

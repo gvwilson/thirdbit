@@ -8,7 +8,7 @@ I'd like to be able to do the following:
 
 Step 1: Create a simple SVG diagram, some of whose labels are marked with `{% raw %}{{…}}{% endraw %}` or something similar:
 
-<img src="{{'/files/2018/03/provinces-original.png' | relative_url}}" alt="Original diagram" width="500" />
+<img src="{{'/files/2018/03/provinces-original.png' | relative_url}}" alt="Original diagram" width="500" class="centered">
 
 Step 2: Include that diagram in a web page, giving it a special class.
 
@@ -20,7 +20,7 @@ Step 4: When the page loads, the JS looks for SVGs that have the magic class and
   (Any undelimited text is left where it was.)
 - Markers are put in the figure to show where the delimited text was.
 
-<img src="{{'/files/2018/03/provinces-unlabeled.png' | relative_url}}" alt="Labels on the side" width="600" />
+<img src="{{'/files/2018/03/provinces-unlabeled.png' | relative_url}}" alt="Labels on the side" width="600" class="centered">
 
 Step 5: The person viewing the page can now drag labels from the side and drop them on the markers to re-label the diagram.
 (If they change their mind about where a label should go, they can re-drag it as many times as they want.)

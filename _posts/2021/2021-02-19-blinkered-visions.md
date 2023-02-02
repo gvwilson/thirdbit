@@ -6,9 +6,7 @@ year: 2021
 
 I was looking for some books in storage yesterday and came across this:
 
-<div align="center">
-  <img src="{{ '/files/2021/2020-vision.jpg' | relative_url }}" alt="2020 Vision" />
-</div>
+<img src="{{ '/files/2021/2020-vision.jpg' | relative_url }}" alt="2020 Vision" class="centered">
 
 Published in 1974,
 it contains eight stories by some of the leading science fiction writers of its time:

@@ -34,7 +34,7 @@ By March 2021 I was far enough along to say:
 > but we're getting there…
 
 <div align="center">
-  <img src="{{'/files/2022/overthruster.jpg' | relative_url}}" alt="oscillation overthruster" width="40%" />
+  <img src="{{'/files/2022/overthruster.jpg' | relative_url}}" alt="oscillation overthruster" width="40%" class="centered">
 </div>
 
 But nothing's ever done.
@@ -48,9 +48,9 @@ but finally found time to come back to it in May and June.
 Having taken everything apart and put it back together,
 I now believe the easiest way forward is going to be to take the photozygometer out of this:
 
-<div align="center">
-  <img src="{{'/files/2022/laser.jpg' | relative_url}}" alt="laser" width="40%" />
-  <em>(not to scale)</em>
+<figure class="center">
+  <img src="{{'/files/2022/laser.jpg' | relative_url}}" alt="laser" width="40%" class="centered">
+  <figcaption(not to scale)</figcaption>
 </div>
 
 and use it to spallate a new diffraction grid.
@@ -60,7 +60,7 @@ so if you have with either a lithium chloride or lithium iodide photozygometer,
 I'd be grateful if you could give me a shout.
 
 <em>
-  <a href="https://twitter.com/gvwilson/status/1574737474500403201">Update</a>:
+  Update:
   lithium iodide is *not* fractionally stable above 300°C,
   which is where my thermocouple
   (and the beam collimator I spent a year collecting parts for)

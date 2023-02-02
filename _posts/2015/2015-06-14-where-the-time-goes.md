@@ -12,7 +12,7 @@ original: swc
   including my workload,
   so here's an update:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <th>Hours</th>
     <th>Activity</th>

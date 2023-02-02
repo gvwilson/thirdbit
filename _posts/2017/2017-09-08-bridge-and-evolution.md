@@ -43,10 +43,10 @@ Their [core team and volunteers](http://bridgeschool.io/about-us/)
 are doing what most tech companies only talk about,
 and evolving as fast as they can;
 if you want to work with them to make the world a better place,
-please [give them a shout](mailto:hello@bridgeschool.io).
+please give them a shout.
 
-<div align="center">
-  <a href="http://bridgeschool.io/"><img alt="Bridge School" src="{{'/files/2017/09/bridge-logo.svg' | relative_url}}" style="max-width:50%; height:auto;"/></a>
+<figure class="center">
+  <img alt="Bridge School" src="{{'/files/2017/09/bridge-logo.svg' | relative_url}}" class="centered">
   <br>
-  <a href="http://static.torontopubliclibrary.ca/da/images/LC/pictures-r-5970.jpg"><img alt="Mechanics Institute Toronto" src="{{'/files/2017/09/mechanics-institute.jpg' | relative_url}}" style="max-width:50%; height:auto;"/></a>
+  <img alt="Mechanics Institute Toronto" src="{{'/files/2017/09/mechanics-institute.jpg' | relative_url}}" class="centered">
 </div>

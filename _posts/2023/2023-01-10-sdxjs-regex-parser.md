@@ -39,8 +39,8 @@ Those languages embody the same general design ideas in very different ways,
 and I think I'd learn a lot from seeing how someone who thinks in those ways
 translates these ideas into working code.
 
-<figure id="regex-parser-mechanics" align="center">
-  <img src="{{'/sdxjs/regex-parser/mechanics.svg' | relative_url}}" alt="Mechanics of combining tokens"/>
+<figure id="regex-parser-mechanics" class="center">
+  <img src="{{'/sdxjs/regex-parser/mechanics.svg' | relative_url}}" alt="Mechanics of combining tokens" class="centered">
   <figcaption>Figure 8.2: Mechanics of combining tokens while parsing regular expressions.</figcaption>
 </figure>
 

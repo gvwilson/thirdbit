@@ -34,12 +34,12 @@ year: 2016
   Questions, Answers, Lessons, and Topics
 </h2>
 <p>
-  <img src="{{'/files/2016/04/design.svg' | relative_url}}" width="90%" />
+  <img src="{{'/files/2016/04/design.svg' | relative_url}}" width="90%" class="centered">
 </p>
 <h2 align="center">
   Questions to Answers
 </h2>
-<table border="1">
+<table class="center">
 <tr><th rowspan="2"></th><th align="center" colspan="9">How can I…</th></tr>
 <tr>
 <th align="center">…avoid losing work?</th>
@@ -782,7 +782,7 @@ year: 2016
 <h2 align="center">
   Answers to Lessons
 </h2>
-<table border="1">
+<table class="center">
 <tr><th rowspan="2"></th><th align="center" colspan="9">Lessons</th></tr>
 <tr>
 <th align="center">Cloud Computing</th>

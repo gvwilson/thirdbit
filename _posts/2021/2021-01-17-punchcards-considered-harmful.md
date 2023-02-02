@@ -4,9 +4,7 @@ date: 2021-01-17
 year: 2021
 ---
 
-<div align="center">
-  <img src="{{ '/files/2021/punchcard.jpg' | relative_url }}" alt="punchcard" />
-</div>
+<img src="{{ '/files/2021/punchcard.jpg' | relative_url }}" alt="punchcard" class="centered">
 
 Most people programming today have never punched a card,
 but all programming editors still treat code as lines of text—in other words,
@@ -50,7 +48,7 @@ rmd_files:
 
 people would read and edit something like this:
 
-<table class="slim">
+<table class="center">
 <tr>	<td> book_filename </td>	<td> "r4de" </td>		<td> </td>		<td> </td></tr>
 <tr>	<td> language </td>		<td> </td>			<td> </td>		<td> </td></tr>
 <tr>	<td>  </td>			<td> label </td>		<td> </td>		<td> </td></tr>

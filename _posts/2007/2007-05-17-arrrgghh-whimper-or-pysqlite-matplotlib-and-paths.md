@@ -1,5 +1,5 @@
 ---
-title: "Arrrgghh *whimper* (or, PySqlite, Matplotlib, and paths)"
+title: "Arrrgghh whimper (or, PySqlite, Matplotlib, and paths)"
 date: 2007-05-17 16:41:15
 year: 2007
 ---

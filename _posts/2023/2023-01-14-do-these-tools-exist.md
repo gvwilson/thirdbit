@@ -17,9 +17,7 @@ I'd like to know if there's already a tool
 that will take two text files as input
 and produce the sort of side-by-side diff that many version control GUIs display:
 
-<div align="center">
-  <img src="{{'files/2023/diff-lineup.svg' | relative_url}}" alt="side-by-side diff of text files" />
-</div>
+<img src="{{'files/2023/diff-lineup.svg' | relative_url}}" alt="side-by-side diff of text files" class="centered">
 
 The catch is that the result must still be text that can be copied and pasted
 (and that can be accessed by screen readers and other accessibility aids),
@@ -38,9 +36,7 @@ Similarly,
 along with [memory diagram snapshots][memory-diagram],
 I'd like a tool that illustrates the execution order of a small snippet of code:
 
-<div align="center">
-  <img src="{{'files/2023/sequence-of-steps.svg' | relative_url}}" alt="sequence of steps in code execution" />
-</div>
+<img src="{{'files/2023/sequence-of-steps.svg' | relative_url}}" alt="sequence of steps in code execution" class="centered">
 
 I can create all these diagrams by hand,
 but (a) it takes a lot of time

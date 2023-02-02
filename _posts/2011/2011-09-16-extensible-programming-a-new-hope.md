@@ -73,7 +73,7 @@ Actually, scrap that: what I want is to be able to embed a full-blown spreadshee
 <tbody>
 <tr>
 <td>
-<table border="1">
+<table class="center">
 <tbody>
 <tr>
 <td colspan="2"></td>

@@ -41,7 +41,7 @@ The difference is illustrated by these two cases:
     We sometimes say that their understanding is *brittle*:
     even small changes can shatter their ability to accomplish tasks because they don't have enough of a mental model to generalize or adapt.
 
-<img src="{{'/files/2019/04/doctypes.svg' | relative_url}}" width="100%" alt="Documentation Types" />
+<img src="{{'/files/2019/04/doctypes.svg' | relative_url}}" width="100%" alt="Documentation Types" class="centered">
 
 This diagram refers to the following kinds of material:
 

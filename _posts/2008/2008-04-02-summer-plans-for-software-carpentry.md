@@ -5,7 +5,7 @@ year: 2008
 ---
 The Software Carpentry site is still getting a lot of traffic, despite my neglect:
 
-<img src="{{'/files/2008/04/usage.png' | relative_url}}" alt="Site Usage" />
+<img src="{{'/files/2008/04/usage.png' | relative_url}}" alt="Site Usage" class="centered">
 
 This summer, I'd like to:
 <ol>

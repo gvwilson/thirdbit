@@ -5,7 +5,7 @@ year: 2012
 ---
 Maya is a little girl who faces <a href="http://niederfamily.blogspot.co.uk/2012/06/silencing-of-maya.html">some big challenges</a>:
 
-<img src="http://3.bp.blogspot.com/-aWEDmvsD6iU/T9aQLXSpMeI/AAAAAAAADd4/LuLf03LZOss/s1600/IMAG0569+(557x640).jpg" alt="" />
+<img src="http://3.bp.blogspot.com/-aWEDmvsD6iU/T9aQLXSpMeI/AAAAAAAADd4/LuLf03LZOss/s1600/IMAG0569+(557x640).jpg" class="centered">
 
 Now, Prentke Romich Company and Semantic Compaction Systems want to take away the software that let her say, "Daddy, I love you," for the very first time. It's all about patents, except it's not: it's about big companies abusing the patent system to smother smaller ones.
 

@@ -52,7 +52,8 @@ validate:
 	'The "tt" element is obsolete.' \
 	'The "valign" attribute' \
 	'The "valign" attribute' \
-	--ignore-re 'Bad value ".+%" for attribute "width" on element "img"'
+	'The "width" attribute on the "td" element is obsolete' \
+	--ignore-re 'Bad value ".+" for attribute "width" on element "img"'
 
 ## links: check links in published site
 links:

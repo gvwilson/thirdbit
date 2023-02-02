@@ -7,8 +7,8 @@ We got back from BC yesterday—good trip, though the weather was uncooperative.
 
 But of course, what you really go to Vancouver Island for is the scenery…
 
-<img alt="Waterfront" id="image1065" src="{{'/files/2007/07/water.jpg' | relative_url}}" />
+<img alt="Waterfront" src="{{'/files/2007/07/water.jpg' | relative_url}}" class="centered">
 
-<img alt="Gardens" id="image1064" src="{{'/files/2007/07/gardens.jpg' | relative_url}}" />
+<img alt="Gardens" src="{{'/files/2007/07/gardens.jpg' | relative_url}}" class="centered">
 
-<img alt="Family" id="image1063" src="{{'/files/2007/07/family.jpg' | relative_url}}" />
+<img alt="Family" src="{{'/files/2007/07/family.jpg' | relative_url}}" class="centered">

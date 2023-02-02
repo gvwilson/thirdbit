@@ -14,4 +14,4 @@ I wish there were diagrams to go with the explanations,
 but even without them,
 this is a solid teaching resource.
 
-<a href="https://nostarch.com/pythonflashcards"><img src="{{'/files/2019/04/python-flash-cards.png' | relative_url}}" alt="Python Flash Cards" /></a>
+<a href="https://nostarch.com/pythonflashcards"><img src="{{'/files/2019/04/python-flash-cards.png' | relative_url}}" alt="Python Flash Cards" class="centered"></a>

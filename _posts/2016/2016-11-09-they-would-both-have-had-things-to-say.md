@@ -9,5 +9,5 @@ year: 2016
   I wish they were here to say them.
 </p>
 <p>
-  <img src="{{'/files/2016/11/gravesites.jpg' | relative_url}}" alt="Gravesites" />
+  <img src="{{'/files/2016/11/gravesites.jpg' | relative_url}}" alt="Gravesites" class="centered">
 </p>

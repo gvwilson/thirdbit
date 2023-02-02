@@ -39,7 +39,7 @@ original: swc
 <p>
   Philip then enumerates some examples that will be familiar to most Software Carpentry instructors:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Typing "widgets" into Spotlight</td><td>vs.</td><td><code>find . -name '*.py' | xargs grep widgets</code></td>
   </tr>

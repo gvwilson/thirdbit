@@ -4,6 +4,4 @@ date: 2020-01-03 11:14:00
 year: 2020
 ---
 
-<div align="center">
-  <img src="{{ '/files/2020/01/tidying-vs-reality.png' | relative_url }}" alt="Tidying vs. Reality" />
-</div>
+<img src="{{ '/files/2020/01/tidying-vs-reality.png' | relative_url }}" alt="Tidying vs. Reality" class="centered">

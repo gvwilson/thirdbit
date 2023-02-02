@@ -5,6 +5,4 @@ year: 2012
 original: swc
 ---
 <p>Votes are in and tallied: here's what you'd like us to work on in 2013.</p>
-<p>
-  <img src="{{'/files/2012/12/what-to-work-on-in-2013.png' | relative_url}}" />
-</p>
+<img src="{{'/files/2012/12/what-to-work-on-in-2013.png' | relative_url}}" class="centered">

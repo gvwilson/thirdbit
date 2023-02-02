@@ -23,6 +23,6 @@ I left Toronto for Austin mid-day Wednesday, and got back at midnight last night
 </ul>
 And then there's this:
 
-<img src="http://imgs.xkcd.com/comics/security_holes.png" />
+<img src="http://imgs.xkcd.com/comics/security_holes.png" class="centered">
 
 Thanks again to <a href="http://www.beg.utexas.edu/staffinfo/fomels01.htm">Sergey Fomel</a> for inviting me down, and for introducing me to the <a href="http://lcavwww.epfl.ch/reproducible_research/">reproducible</a> <a href="http://www.bioconductor.org/whatisit">research</a> <a href="http://www.stat.washington.edu/jaw/jaw.research.reproducible.html">community</a>—I'm looking forward to many more discussions.

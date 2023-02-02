@@ -12,7 +12,7 @@ original: swc
   please fill in this form
   and we'll get the ball rolling.
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td class="link"><a href="http://r-gaia-cs.github.io/2014-09-04-ccsl/">Centro de Compet&ecirc;ncia em Software Livre</a></td>
     <td class="date">Set 04-05</td>

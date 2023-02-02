@@ -23,7 +23,7 @@ original: swc
   who frequently argue it's more efficient using diagrams like this:
 </p>
 <p>
-  <img src="http://upload.wikimedia.org/wikipedia/commons/1/1c/Agile-vs-iterative-flow.jpg" alt="Continuous Delivery" />
+  <img src="http://upload.wikimedia.org/wikipedia/commons/1/1c/Agile-vs-iterative-flow.jpg" alt="Continuous Delivery" class="centered">
 </p>
 <p>
   What's missing from this picture,

@@ -128,7 +128,7 @@ original: swc
   there are a lot of moving parts.
   Here are the steps involved in several common activities:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Write and publish a blog post.</td>
     <td>

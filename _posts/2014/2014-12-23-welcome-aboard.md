@@ -10,7 +10,7 @@ original: swc
   They join the 86 other people who received their badge this year;
   we look forward to seeing them all run workshops before 2015 is over.
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Matthew Aiello-Lammens</td>
     <td>James Allen</td>

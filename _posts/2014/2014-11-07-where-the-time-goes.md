@@ -29,7 +29,7 @@ original: swc
   To give you some idea of what goes on behind the scenes,
   here's what my week looks like:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <th>Hours</th>
     <th>Activity</th>

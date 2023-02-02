@@ -76,7 +76,7 @@ the sooner that vision will be realized.
 6.  One third of participants will be offered partial financial support
     and will not be charged registration.
 
-<table class="table table-striped">
+<table class="centered">
 <tr>
   <td><strong>Item</strong></td>
   <td align="right"><strong>Each</strong></td>

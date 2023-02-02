@@ -5,7 +5,7 @@ original: swc
 title: Concept Map
 ---
 <p>While re-designing the Software Carpentry course, I have realized that we rely over and over again on some underyling concepts that are hard to capture as lecture topics.  I think these concepts are the heart of any useful definition of "computational thinking".  The diagram below is a first attempt to capture what these concepts are and how they're related.  (The list below the diagram summarizes the relationships in textual form for easier reading.)  Suggestions for improvements would be very welcome…</p>
-<p><img src="{{'/files/2010/06/concept-map-300x237.png' | relative_url}}" /></p>
+<p><img src="{{'/files/2010/06/concept-map-300x237.png' | relative_url}}" class="centered"></p>
 <table>
 <tbody>
 <tr>

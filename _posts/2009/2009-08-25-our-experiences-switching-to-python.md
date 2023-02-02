@@ -20,7 +20,7 @@ We love most of Python, especially the clean, readable, minimal syntax.  However
   <li>Default values for parameters are created once.  Students (and some instructors) hate this.</li>
   <li>Simple classes are harder to teach than in Java.  Also, "self" confuses a large subset of the students.  Since dictionaries are so accessible they do whatever they can to avoid using and understanding classes.</li>
   <li>Global scope is hard to explain: it's actually module scope and not global, and in the three examples below there are different behaviours; the last example in particular really confuses students. They do all of these things naturally, so we can't prevent them getting confused.
-<table border="1" cellpadding="3">
+<table class="center">
 <tbody>
 <tr>
 <td valign="top">

@@ -11,4 +11,4 @@ We are very pleased to announce that DrProject 1.0  RC1 is now  available:
 </ul>
 Thanks to everyone who got us this far—we look forward to your feedback.
 
-<img id="image531" alt="krypton-release.png" src="{{'/files/2006/06/krypton-release.png' | relative_url}}" />
+<img src="{{'/files/2006/06/krypton-release.png' | relative_url}}" class="centered">

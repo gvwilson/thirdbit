@@ -10,7 +10,7 @@ original: swc
   has become an affiliate member of the Software Carpentry Foundation.
 </p>
 <p>
-  <img src="{{'/files/2015/02/nesi.png' | relative_url}}" alt="NeSI logo" />
+  <img src="{{'/files/2015/02/nesi.png' | relative_url}}" alt="NeSI logo" class="centered">
 </p>
 <p>
   Partnering with Software Carpentry continues NeSI's work

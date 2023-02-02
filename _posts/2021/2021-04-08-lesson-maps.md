@@ -10,18 +10,14 @@ that have been living rent-free in my head for a while,
 like adapting [use case maps]({{ '/2018/12/27/use-case-maps/' | relative-url }}) for lesson design.
 Here's a concept map for a `for` loop in a language like Python:
 
-<div align="center">
-<img src="{{ '/files/2021/lesson-map-1.svg' | relative_url }}" alt="Concept map for a 'for' loop" />
-</div>
+<img src="{{ '/files/2021/lesson-map-1.svg' | relative_url }}" alt="Concept map for a 'for' loop" class="centered">
 
 This shows *what* the lesson is going to cover,
 but doesn't explain *how*.
 The latter is inherently sequential,
 so let's trace the order in which ideas would be introduced:
 
-<div align="center">
-<img src="{{ '/files/2021/lesson-map-2.svg' | relative_url }}" alt="Lesson map for a 'for' loop" />
-</div>
+<img src="{{ '/files/2021/lesson-map-2.svg' | relative_url }}" alt="Lesson map for a 'for' loop" class="centered">
 
 The gray overlay shows that the lesson introduces the ideas in the following order:
 

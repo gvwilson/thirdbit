@@ -20,8 +20,8 @@ it does a great job of showing how one of the most important kinds of software e
 and I've learned a lot from [its chapter on page layout][browser_layout]
 that I hope will make the Python version of this chapter clearer.
 
-<figure id="layout-engine-layout" align="center">
-  <img src="{{'/sdxjs/layout-engine/layout.svg' | relative_url}}" alt="Laying out rows and columns"/>
+<figure id="layout-engine-layout" class="center">
+  <img src="{{'/sdxjs/layout-engine/layout.svg' | relative_url}}" alt="Laying out rows and columns" class="centered">
   <figcaption>Figure 11.3: Laying out rows and columns of fixed-size blocks.</figcaption>
 </figure>
 

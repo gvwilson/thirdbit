@@ -392,9 +392,11 @@ Agent-based models (ABMs) are an exciting new approach for learning about and si
 Swarm is a platform for ABMs that includes: a conceptual framework for designing, describing, and conducting experiments on ABMs; software implementing that framework and providing many handy tools; and a community of users and developers that share ideas, software, and experience. Swarm was the first of several agent-based modeling platforms that are widely used by scientists and students studying complexity in many fields of science. Swarm was originally developed in the mid-1990s by Chris Langton at the Santa Fe Institute and has an active, international user community. Swarm software is a library of Objective-C classes; users code their models in Objective-C, Java, or C++.
 <h2>Swathanthra Malayalam Computing</h2>
 Swathanthra Malayalam Computing aims to
+<ul>
   <li>provide Malayalam support for Free Software Operating Systems and Applications</li>
   <li>develop fonts and other applications for Malayalam computing like optical character recognition , text to speech conversion and English-to-Malayalam/Malayalam-to-English natural language translation</li>
   <li>localization of of desktop environments like GNOME, KDE … and applications like Open Office and Firefox.</li>
+</ul>
 To summarize, enable anyone who want to use a computer, but only know Malayalam, to use a computer in Malayalam, ie to remove the language barrier to computing.
 
 Note: 'Swathanthra' in Malayalam means Free/Libre

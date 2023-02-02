@@ -28,8 +28,8 @@ but by the time that was clear I had run out of steam.
 It's on the list for the Python version;
 I'll let you know in a few months whether my energy levels picked up or not.
 
-<figure id="build-manager-template-method" align="center">
-  <img src="{{'/sdxjs/build-manager/template-method.svg' | relative_url}}" alt="Template Method pattern"/>
+<figure id="build-manager-template-method" class="center">
+  <img src="{{'/sdxjs/build-manager/template-method.svg' | relative_url}}" alt="Template Method pattern" class="centered">
   <figcaption>Figure 10.3: The Template Method pattern in action.</figcaption>
 </figure>
 

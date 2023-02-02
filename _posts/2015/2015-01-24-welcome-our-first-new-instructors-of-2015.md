@@ -9,7 +9,7 @@ original: swc
   Many of this year's first group have already helped with workshops,
   and I hope to have a chance to teach with all of them before too long.
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Sophie Clayton</td>
     <td>Emmanouil-Ioannis Farsarakis</td>

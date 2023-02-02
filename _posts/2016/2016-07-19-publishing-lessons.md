@@ -110,7 +110,7 @@ original: swc
   </li>
 </ul>
 <h2>Contributors</h2>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Hakim Achterberg</td>
     <td>James Adams</td>

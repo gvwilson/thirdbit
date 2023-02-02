@@ -71,7 +71,7 @@ Right now,
 those boundaries are drawn by the privileged in ways that implicitly enshrine their privilege,
 but they could include this:
 
-<a href="{{'/files/2016/08/women-in-cs.jpg' | relative_url}}"><img src="{{'/files/2016/08/women-in-cs.jpg' | relative_url}}" alt="Declining Female Participation in Computing" width="400px" /></a>
+<img src="{{'/files/2016/08/women-in-cs.jpg' | relative_url}}" alt="Declining Female Participation in Computing" width="400px" class="centered">
 
 or the fact that "Massive Open Online Course" has effectively come to mean
 <a href="{{'/2014/03/14/learning-at-scale/' | relative_url}}">ubiquitous surveillance in the classroom</a>,

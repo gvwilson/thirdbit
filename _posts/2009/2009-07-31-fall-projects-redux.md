@@ -11,7 +11,7 @@ The second piece of news is about the cross-Canada undergraduate projects.  We n
   <li><a href="http://www.cpsc.ucalgary.ca">University of Calgary</a></li>
   <li><a href="http://www.sce.carleton.ca">Carleton University</a></li>
   <li><a href="http://encs.concordia.ca/">Concordia University</a></li>
-  <li><a href="http://www.polymtl.ca/gigl/">&EACUTE;cole Polytechnique de Montréal</a></li>
+  <li><a href="http://www.polymtl.ca/gigl/">École Polytechnique de Montréal</a></li>
   <li><a href="http://www.cs.mun.ca/">Memorial University</a></li>
   <li><a href="http://www.cs.queensu.ca/">Queen's University</a></li>
   <li><a href="http://www.usherbrooke.ca/informatique/">Université de Sherbrooke</a></li>

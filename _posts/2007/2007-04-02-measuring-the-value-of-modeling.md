@@ -34,7 +34,7 @@ That, I think, explains why the vast majority of developers don't use formal not
 
 Here's another way of looking at the same idea:
 
-<img id="image897" alt="Models" src="{{'/files/2007/04/models.png' | relative_url}}" />
+<img alt="Models" src="{{'/files/2007/04/models.png' | relative_url}}" class="centered">
 
 The single-brain side shows what normally happens: the developer takes part in a conversation (which may in fact mean "reads a hastily-composed email message from her boss with attachments summarizing disjointed conversations with clients who have conflicting needs"), translates that into a mental model of what is to be built, and then translates that mental model into code.  The double-brain shows what happens when models are used: the first developer translates the conversation into a mental model, and that mental model into UML (or whatever).  A second developer then creates her own mental model from that UML, which she then translates into code.
 

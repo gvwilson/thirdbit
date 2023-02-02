@@ -5,6 +5,6 @@ year: 2006
 ---
 Anders Sandberg's "<a href="http://www.aleph.se/andart/archives/2006/10/warning_signs_for_tomorrow.html">Warning Signs of Tomorrow</a>" is funny.  And frightening.:
 
-<img src="http://www.aleph.se/andart/archives/images/warning1.png" />
+<img src="http://www.aleph.se/andart/archives/images/warning1.png" class="centered">
 
-<img src="http://www.aleph.se/andart/archives/images/warning3.png" />
+<img src="http://www.aleph.se/andart/archives/images/warning3.png" class="centered">

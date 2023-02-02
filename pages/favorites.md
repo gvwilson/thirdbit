@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Favorites
+title: Favorite Posts
 permalink: "/favorites/"
 ---
 

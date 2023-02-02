@@ -9,4 +9,4 @@ original: swc
   So old that the only surviving copy of our original logo
   is an unanimated GIF:
 </p>
-<img src="{{'/files/2014/03/original-logo.gif' | relative_url}}" alt="Original Software Carpentry logo" />
+<img src="{{'/files/2014/03/original-logo.gif' | relative_url}}" alt="Original Software Carpentry logo" class="centered">

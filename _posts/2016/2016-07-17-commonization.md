@@ -11,7 +11,7 @@ year: 2016
   <tr>
     <td align="center" width="20%" valign="top">
       <a href="https://www.amazon.com/Think-Like-Commoner-Introduction-Commons/dp/0865717680/">
-	<img src="{{'/files/2016/07/think-like-a-commoner.jpg' | relative_url}}" alt="Think Like a Commoner" />
+	<img src="{{'/files/2016/07/think-like-a-commoner.jpg' | relative_url}}" alt="Think Like a Commoner" class="centered">
       </a>
     </td>
     <td valign="top">
@@ -30,7 +30,7 @@ year: 2016
   <tr>
     <td align="center" width="20%" valign="top">
       <a href="https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/">
-	<img src="{{'/files/2016/07/building-powerful-community-organizations.jpg' | relative_url}}" alt="Building Powerful Community Organizations" />
+	<img src="{{'/files/2016/07/building-powerful-community-organizations.jpg' | relative_url}}" alt="Building Powerful Community Organizations" class="centered">
       </a>
     </td>
     <td valign="top">

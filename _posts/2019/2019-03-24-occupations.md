@@ -25,8 +25,8 @@ The charts below show where my time has gone since 1980,
 and that you can have a fulfilling career moving back and forth between different roles and domains.
 I think it's about time university faculty focused on preparing their students for this kind of life.
 
-<img src="{{'/files/2019/03/occupations-yearly.png' | relative_url}}" width="100%" alt="Yearly Time" />
+<img src="{{'/files/2019/03/occupations-yearly.png' | relative_url}}" width="100%" alt="Yearly Time" class="centered">
 
-<img src="{{'/files/2019/03/occupations-sparklines.png' | relative_url}}" width="100%" alt="Relative Proportions" />
+<img src="{{'/files/2019/03/occupations-sparklines.png' | relative_url}}" width="100%" alt="Relative Proportions" class="centered">
 
 *[data]({{'/files/2019/03/occupations.csv' | relative_url}})*

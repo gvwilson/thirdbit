@@ -17,23 +17,17 @@ The boxes can represent files in a directory structure or a class inheritance hi
 what matters is that a programmer who wants to work with this code
 must build a mental model of what's where:
 
-<div align="center">
-  <img src="{{'/files/2022/physical_organization.svg' | relative_url}}" alt="physical structure of code in a lesson" />
-</div>
+<img src="{{'/files/2022/physical_organization.svg' | relative_url}}" alt="physical structure of code in a lesson" class="centered">
 
 They must also build a mental model of what runs in what order:
 
-<div align="center">
-  <img src="{{'/files/2022/execution_flow.svg' | relative_url}}" alt="flow of execution through code in a lesson" />
-</div>
+<img src="{{'/files/2022/execution_flow.svg' | relative_url}}" alt="flow of execution through code in a lesson" class="centered">
 
 If a programmer wants to add a feature or fix a bug,
 they need to have two models in their head at once
 along with the difference between them:
 
-<div align="center">
-  <img src="{{'/files/2022/single_change.svg' | relative_url}}" alt="mental model of a single change to a program" />
-</div>
+<img src="{{'/files/2022/single_change.svg' | relative_url}}" alt="mental model of a single change to a program" class="centered">
 
 Keeping that straight is more difficult than remembering either model on its own,
 but what happens when we're trying to teach or learn programming?
@@ -45,9 +39,7 @@ The problem is the need for a third kind of connection
 that links changes to physical elements and execution paths.
 It's just barely readable for a single small change:
 
-<div align="center">
-  <img src="{{'/files/2022/connecting_changes.svg' | relative_url}}" alt="connecting changes to program" />
-</div>
+<img src="{{'/files/2022/connecting_changes.svg' | relative_url}}" alt="connecting changes to program" class="centered">
 
 but some programs in [*Software Design by Example*][sdxjs] evolve ten or eleven times.
 If I draw those changes side by side with the change connectors on top of the diagrams,

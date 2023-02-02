@@ -30,8 +30,8 @@ but I'll believe our profession is serious about building code that works
 when every undergraduate computer science program has a full-semester course
 on how to use tools to find and fix bugs.
 
-<figure id="debugger-test-interact" align="center">
-  <img src="{{'/sdxjs/debugger/test-interact.svg' | relative_url}}" alt="Testing interactive application"/>
+<figure id="debugger-test-interact" class="center">
+  <img src="{{'/sdxjs/debugger/test-interact.svg' | relative_url}}" alt="Testing interactive application" class="centered">
   <figcaption>Figure 20.2: Replacing input and output to test interactive applications.</figcaption>
 </figure>
 

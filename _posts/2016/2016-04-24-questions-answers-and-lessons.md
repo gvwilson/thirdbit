@@ -34,14 +34,14 @@ original: swc
 <p>
   Here's what I've come up with so far:
 </p>
-<table class="table" width="100%">
+<table class="centered">
   <tr>
     <th>Questions</th>
     <th>Answers</th>
     <th>Lessons</th>
   </tr>
   <tr>
-    <td width="33%">
+    <td>
       How can I choose what tool to use?
       <br>
       How can I get help/fix this?
@@ -60,7 +60,7 @@ original: swc
       <br>
       How can I understand the project I've inherited?
     </td>
-    <td width="34%">
+    <td>
       Automate tasks and analyses.
       <br>
       Avoid duplication.
@@ -111,7 +111,7 @@ original: swc
       <br>
       Use version control.
     </td>
-    <td width="33%">
+    <td>
       Collaboration
       <br>
       Data Management
@@ -149,7 +149,7 @@ original: swc
   I haven't produced anything better than this:
 </p>
 <p>
-  <a href="{{'/files/2016/04/design-01.svg' | relative_url}}"><img src="{{'/files/2016/04/design-01.svg' | relative_url}}" width="80%" alt="Questions, Answers, and Lessons" /></a>
+  <a href="{{'/files/2016/04/design-01.svg' | relative_url}}"><img src="{{'/files/2016/04/design-01.svg' | relative_url}}" width="80%" alt="Questions, Answers, and Lessons" class="centered"></a>
 </p>
 <p>
   (You can click on the image to see the full thing,
@@ -165,14 +165,10 @@ original: swc
 </p>
 <ol>
   <li>
-    <p>
-      I'm pretty sure these still aren't the questions novices actually have, and
-    </p>
+    I'm pretty sure these still aren't the questions novices actually have, and
   </li>
   <li>
-    <p>
-      as presently drawn, the graph is unreadable.
-    </p>
+    as presently drawn, the graph is unreadable.
   </li>
 </ol>
 <p>

@@ -1,6 +1,6 @@
 ---
 title: "What Code Are You Proud Of?"
-date: 2008-07-06 10:29:08
+date: 2008-07-06
 year: 2008
 ---
 I've been giving <a href="http://www.cs.toronto.edu/~gvwilson/beautiful-code-jonah-2008/index.html">talks</a> about <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047"><em>Beautiful Code</em></a> for ten months now. Mostly I talk about how the project came to be, and a few of my favorite chapters, but I end with this:

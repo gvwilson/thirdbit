@@ -22,7 +22,7 @@ The short version is that *there are no patterns*—at least,
 none that show up in repository history.
 The first clustering was promising:
 
-<img src="{{'/files/2019/07/global_clustering.png' | relative_url}}" width="600px" />
+<img src="{{'/files/2019/07/global_clustering.png' | relative_url}}" width="600px" class="centered">
 
 However,
 the closer the team looked, the less signal they found.
@@ -31,7 +31,7 @@ once you filter those out,
 most of the remainder are a single linear chain of commits (essentially, one person using Git for file backup).
 Take that away and you're left with this:
 
-<img src="{{'/files/2019/07/embeddings_tsne.png' | relative_url}}" width="600px" />
+<img src="{{'/files/2019/07/embeddings_tsne.png' | relative_url}}" width="600px" class="centered">
 
 There are many possible explanations for these results:
 `git merge` might attenuate or erase the signal we're looking for,

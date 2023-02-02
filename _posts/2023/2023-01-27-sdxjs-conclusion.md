@@ -51,11 +51,7 @@ Until then:
   </p>
 </div>
 
-<div align="center">
-  <a href="{{'/sdxjs/' | relative_url}}">
-    <img src="{{'/sdxjs/sdxjs-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" />
-  </a>
-</div>
+<a href="{{'/sdxjs/' | relative_url}}"><img src="{{'/sdxjs/sdxjs-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" class="centered"></a>
 
 [bicycle]: {{'/2017/12/17/consider-the-bicycle/' | relative_url}}
 [bib]: {{'/bib/' | relative_url}}

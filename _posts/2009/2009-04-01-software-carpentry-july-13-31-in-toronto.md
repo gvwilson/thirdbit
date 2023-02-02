@@ -10,7 +10,7 @@ Thanks to a grant from <a href="http://mitacs.ca">MITACS</a>, the <a href="http:
 Many scientists and engineers spend much of their lives programming, but only a handful have ever been taught how to do this well. As a result, they spend their time wrestling with software, instead of doing research, but have no idea how reliable or efficient their programs are.
 
 Software Carpentry is an intensive introduction to basic software development practices for scientists and engineers that can reduce the time they spend programming by 20-25%. All of the material is open source: it may be used freely by anyone for educational or commercial purposes, and research groups in academia and industry are actively encouraged to adapt it to their needs.  Originally developed for <a href="http://www.lanl.gov">Los Alamos National Laboratory</a>, the course has been used at research labs and universities on four continents.  Topics include:
-<table border="0">
+<table class="center">
 <tbody>
 <tr>
 <td valign="top">
@@ -33,6 +33,7 @@ Software Carpentry is an intensive introduction to basic software development pr
 </td>
 </tr>
 </tbody></table>
+
 The course will be structured as an hour-long lecture and a two-hour lab session twice daily.  Students are strongly encouraged to co-apply with peers so that they can work together on projects relevant to their research during the latter half of the course.  Guest lecturers will discuss computer-supported collaborative science, grid computing, and legal issues related to sharing scientific data and software.
 
 <strong>Instructor</strong>

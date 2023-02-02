@@ -9,6 +9,4 @@ after [my brother's death]({{ '/2018/03/20/goodbye-jeff/' | relative_url }}) thr
 is featured in [the latest issue of *On Spec* magazine](https://onspecmag.wpcomstaging.com/2021/01/06/issue-115-coming-soon/).
 I hope you enjoy it.
 
-<div align="center">
-<img src="{{ '/files/2021/on-spec-winter-2021.jpg' | relative_url }}" alt="On Spec cover"/>
-</div>
+<img src="{{ '/files/2021/on-spec-winter-2021.jpg' | relative_url }}" alt="On Spec cover" class="centered">

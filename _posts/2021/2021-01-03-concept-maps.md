@@ -9,9 +9,7 @@ a group of us created and translated some concept maps for various topics in dat
 What we have is [online][concept-maps] under a Creative Commons license;
 we hope you find them useful.
 
-<div align="center">
-<img src="{{ '/files/2021/group_by-summarize.svg' | relative_url }}" alt="Concent Map of Grouping and Summarizing" width="400" />
-</div>
+<img src="{{ '/files/2021/group_by-summarize.svg' | relative_url }}" alt="Concent Map of Grouping and Summarizing" width="400" class="centered">
 
 *If you'd like to contribute, there are instructions on the site.
 And if you'd like to make contributing much easier,

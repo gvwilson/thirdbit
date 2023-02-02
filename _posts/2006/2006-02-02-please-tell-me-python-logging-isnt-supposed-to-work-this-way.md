@@ -1,5 +1,5 @@
 ---
-title: "Please Tell Me Python Logging *Isn't* Supposed to Work This Way"
+title: "Please Tell Me Python Logging Isn't Supposed to Work This Way"
 date: 2006-02-02 22:20:57
 year: 2006
 ---

@@ -1376,51 +1376,53 @@ Letian Zhang:
 "An Institutional Approach to Gender Diversity and Firm Performance".
 <em>Organization Science</em>, 31(2), 2020, <a class="doi" href="https://doi.org/10.1287/orsc.2019.1297">10.1287/orsc.2019.1297</a>.
 </li>
+</ul>
 
 <p>Sources:</p>
 
 <table>
-  <tbody><tr><td>ASE</td><td>Automated Software Engineering
-</td></tr><tr><td>CACM</td><td><em>Communications of the ACM</em>
-</td></tr><tr><td>CHASE</td><td>Cooperative and Human Aspects of Software Engineering
-</td></tr><tr><td>CHI</td><td>Human Factors in Computing Systems
-</td></tr><tr><td>CSE</td><td><em>Computer Science Education</em>
-</td></tr><tr><td>DLS</td><td>Symposium on Dynamic Languages
-</td></tr><tr><td>EASE</td><td>Evaluation and Assessment in Software Engineering
-</td></tr><tr><td>EDM</td><td>Educational Data Mining
-</td></tr><tr><td>ESE</td><td><em>Empirical Software Engineering</em>
-</td></tr><tr><td>ESEC/FSE</td><td>European Software Engineering Conference/Foundations of Software Engineering
-</td></tr><tr><td>ESEM</td><td>Empirical Software Engineering and Measurement
-</td></tr><tr><td>FIE</td><td>Frontiers in Education Conference
-</td></tr><tr><td>FSE</td><td>Foundations of Software Engineering
-</td></tr><tr><td>ICER</td><td>International Workshop on Computing Education Research
-</td></tr><tr><td>ICPC</td><td>International Conference on Program Comprehension
-</td></tr><tr><td>ICSE</td><td>International Conference on Software Engineering
-</td></tr><tr><td>ICSE-SEET</td><td>International Conference on Software Engineering: Software Engineering Education and Training
-</td></tr><tr><td>ICSME</td><td>International Conference on Software Maintenance and Evolution
-</td></tr><tr><td>ICSSP</td><td>International Conference on Software and System Process
-</td></tr><tr><td>ITiCSE</td><td>Innovation and Technology in Computer Science Education
-</td></tr><tr><td>JSS</td><td>Journal of Systems and Software
-</td></tr><tr><td>JSTL</td><td>Journal of the Scholarship of Teaching &amp; Learning
-</td></tr><tr><td>Koli</td><td>Koli Calling Conference on Computing Education Research
-</td></tr><tr><td>MSR</td><td>International Conference on Mining Software Repositories
-</td></tr><tr><td>NSPW</td><td>New Security Paradigms Workshop
-</td></tr><tr><td>OOPSLA</td><td>Object-Oriented Programming,  Systems,  Languages,  and Applications
-</td></tr><tr><td>PACMPL</td><td>Proceedings of the ACM on Programming Languages
-</td></tr><tr><td>PLATEAU</td><td>Workshop on Evaluation and Usability of Programming Languages and Tools
-</td></tr><tr><td>PLoS</td><td>Public Library of Science
-</td></tr><tr><td>PNAS</td><td><em>Proceedings of the National Academy of Sciences</em>
-</td></tr><tr><td>PROMISE</td><td>International Conference on Predictive Models in Software Engineering
-</td></tr><tr><td>SANER</td><td>Conference on Software Analysis, Evolution, and Reengineering
-</td></tr><tr><td>SCAM</td><td>International Working Conference on Source Code Analysis and Manipulation
-</td></tr><tr><td>SIGCSE</td><td>ACM Technical Symposium on Computer Science Education
-</td></tr><tr><td>SIGSOFT</td><td>International Symposium on Foundations of Software Engineering
-</td></tr><tr><td>SOSP</td><td>Symposium on Operating Systems Principles
-</td></tr><tr><td>SSE</td><td>Social Software Engineering
-</td></tr><tr><td>TCE</td><td><em>ACM Transactions on Computing Education</em>
-</td></tr><tr><td>TSE</td><td><em>IEEE Transactions on Software Engineering</em>
-</td></tr><tr><td>TSEM</td><td><em>ACM Transactions on Software Engineering and Methodology</em>
-</td></tr><tr><td>VL/HCC</td><td>IEEE Symposium on Visual Languages and Human-Centric Computing
-</td></tr><tr><td>WCRE</td><td>Working Conference on Reverse Engineering
-</td></tr></tbody>
+  <tbody>
+    <tr><td>ASE</td><td>Automated Software Engineering</td></tr>
+    <tr><td>CACM</td><td><em>Communications of the ACM</em></td></tr>
+    <tr><td>CHASE</td><td>Cooperative and Human Aspects of Software Engineering</td></tr>
+    <tr><td>CHI</td><td>Human Factors in Computing Systems</td></tr>
+    <tr><td>CSE</td><td><em>Computer Science Education</em></td></tr>
+    <tr><td>DLS</td><td>Symposium on Dynamic Languages</td></tr>
+    <tr><td>EASE</td><td>Evaluation and Assessment in Software Engineering</td></tr>
+    <tr><td>EDM</td><td>Educational Data Mining</td></tr>
+    <tr><td>ESE</td><td><em>Empirical Software Engineering</em></td></tr>
+    <tr><td>ESEC/FSE</td><td>European Software Engineering Conference/Foundations of Software Engineering</td></tr>
+    <tr><td>ESEM</td><td>Empirical Software Engineering and Measurement</td></tr>
+    <tr><td>FIE</td><td>Frontiers in Education Conference</td></tr>
+    <tr><td>FSE</td><td>Foundations of Software Engineering</td></tr>
+    <tr><td>ICER</td><td>International Workshop on Computing Education Research</td></tr>
+    <tr><td>ICPC</td><td>International Conference on Program Comprehension</td></tr>
+    <tr><td>ICSE</td><td>International Conference on Software Engineering</td></tr>
+    <tr><td>ICSE-SEET</td><td>International Conference on Software Engineering: Software Engineering Education and Training</td></tr>
+    <tr><td>ICSME</td><td>International Conference on Software Maintenance and Evolution</td></tr>
+    <tr><td>ICSSP</td><td>International Conference on Software and System Process</td></tr>
+    <tr><td>ITiCSE</td><td>Innovation and Technology in Computer Science Education</td></tr>
+    <tr><td>JSS</td><td>Journal of Systems and Software</td></tr>
+    <tr><td>JSTL</td><td>Journal of the Scholarship of Teaching &amp; Learning</td></tr>
+    <tr><td>Koli</td><td>Koli Calling Conference on Computing Education Research</td></tr>
+    <tr><td>MSR</td><td>International Conference on Mining Software Repositories</td></tr>
+    <tr><td>NSPW</td><td>New Security Paradigms Workshop</td></tr>
+    <tr><td>OOPSLA</td><td>Object-Oriented Programming,  Systems,  Languages,  and Applications</td></tr>
+    <tr><td>PACMPL</td><td>Proceedings of the ACM on Programming Languages</td></tr>
+    <tr><td>PLATEAU</td><td>Workshop on Evaluation and Usability of Programming Languages and Tools</td></tr>
+    <tr><td>PLoS</td><td>Public Library of Science</td></tr>
+    <tr><td>PNAS</td><td><em>Proceedings of the National Academy of Sciences</em></td></tr>
+    <tr><td>PROMISE</td><td>International Conference on Predictive Models in Software Engineering</td></tr>
+    <tr><td>SANER</td><td>Conference on Software Analysis, Evolution, and Reengineering</td></tr>
+    <tr><td>SCAM</td><td>International Working Conference on Source Code Analysis and Manipulation</td></tr>
+    <tr><td>SIGCSE</td><td>ACM Technical Symposium on Computer Science Education</td></tr>
+    <tr><td>SIGSOFT</td><td>International Symposium on Foundations of Software Engineering</td></tr>
+    <tr><td>SOSP</td><td>Symposium on Operating Systems Principles</td></tr>
+    <tr><td>SSE</td><td>Social Software Engineering</td></tr>
+    <tr><td>TCE</td><td><em>ACM Transactions on Computing Education</em></td></tr>
+    <tr><td>TSE</td><td><em>IEEE Transactions on Software Engineering</em></td></tr>
+    <tr><td>TSEM</td><td><em>ACM Transactions on Software Engineering and Methodology</em></td></tr>
+    <tr><td>VL/HCC</td><td>IEEE Symposium on Visual Languages and Human-Centric Computing</td></tr>
+    <tr><td>WCRE</td><td>Working Conference on Reverse Engineering</td></tr>
+  </tbody>
 </table>

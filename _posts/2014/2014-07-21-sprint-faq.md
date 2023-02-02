@@ -160,7 +160,7 @@ original: swc
   <dt id="sites"><em>What sites are currently included?</em></dt>
   <dd>
     We will post full addresses and other information a week before the sprint.
-    <table class="table table-striped">
+    <table class="centered">
       <tr>
 	<td>Auckland (NZ): Tim McNamara</td>
 	<td>Wellington (NZ): Alison Stringer</td>

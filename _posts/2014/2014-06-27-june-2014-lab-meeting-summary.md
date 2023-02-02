@@ -241,7 +241,7 @@ original: swc
 <ul>
 <li>Planning</li>
 <li>Meet with hosts/project leaders/anyone else who's interested next Thursday (July 3) to talk details - if you're interested in being part of the meeting, please sign up below
-  <table class="table table-striped">
+  <table class="centered">
     <tr>
       <td valign="top">
 	<ul>

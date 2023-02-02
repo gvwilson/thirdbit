@@ -16,7 +16,7 @@ original: swc
   We asked instructors this week whether we should formalize the change,
   and they responded as follows:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr><td align="right">21</td><td>Not include either (i.e., have only three requirements)</td></tr>
   <tr><td align="right">12</td><td>Leave things as they are</td></tr>
   <tr><td align="right">11</td><td>Include both (i.e., have five requirements)</td></tr>

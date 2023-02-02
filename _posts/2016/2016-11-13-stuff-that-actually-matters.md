@@ -131,7 +131,7 @@ year: 2016
   </dt>
   <dd>
     We will be looking for reviewers as well:
-    again, please <a href="mailto:gvwilson@third-bit.com">mail us</a> if you want to help.
+    again, please <a href="mailto:{{site.author.email}}">mail us</a> if you want to help.
   </dd>
 
   <dt>
@@ -184,7 +184,7 @@ year: 2016
     and we're pursuing several ideas for grants and crowdfunding
     so that we can compensate contributors for their labor.
     If you have experience, ideas, or leads,
-    please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.
+    please <a href="mailto:{{site.author.email}}">get in touch</a>.
   </dd>
 
   <dt>

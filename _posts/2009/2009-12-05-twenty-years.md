@@ -4,7 +4,7 @@ date: 2009-12-05 20:51:57
 year: 2009
 ---
 Twenty years on, most Canadians instantly recognize the name of their murderer. I'd rather remember <a href="http://en.wikipedia.org/wiki/%C3%89cole_Polytechnique_massacre">theirs</a>:
-<table border="0">
+<table class="center">
 <tbody>
 <tr>
 <td valign="top">

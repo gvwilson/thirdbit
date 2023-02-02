@@ -7,7 +7,7 @@ original: swc
 <p>
   We are very pleased to welcome another new batch of instructors to our team:
 </p>
-<table class="table table-striped">
+<table class="centered">
 <tr>
   <td>Pete Alonzi</td>
   <td>Balamurugan Desinghu</td>

@@ -25,10 +25,10 @@ favorite: true
   tomorrow's software engineers are going to analyze data from real projects
   to predict those projects' futures.
 </p>
-<div align="center">
-  <img src="{{ '/files/2015/11/obi-wan.jpg' | relative_url }}" alt="Obi Wan" />
-  <p>This isn't the math you're looking for.</p>
-</div>
+<figure class="center">
+  <img src="{{ '/files/2015/11/obi-wan.jpg' | relative_url }}" alt="Obi Wan" class="centered">
+  <figcaption>This isn't the math you're looking for.</figcaption>
+</figure>
 <p>
   To explain why,
   I need to borrow an idea from evolutionary biology.

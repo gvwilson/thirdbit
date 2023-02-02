@@ -29,6 +29,6 @@ original: swc
   so please sign up early.
 </p>
 <div class="row">
-  <div class="col-sm-6"><a href="http://www.scm-lp.com/"><img src="{{'/files/2014/05/stevens-capital-management.jpg' | relative_url}}" alt="Stevens Capital Management" /></a></div>
-  <div class="col-sm-6"><a href="http://www.wil.com/"><img src="{{'/files/2014/05/waterfront-international.jpg' | relative_url}}" alt="Waterfront International" /></a></div>
+  <div class="col-6"><a href="http://www.scm-lp.com/"><img src="{{'/files/2014/05/stevens-capital-management.jpg' | relative_url}}" alt="Stevens Capital Management" class="center"></a></div>
+  <div class="col-6"><a href="http://www.wil.com/"><img src="{{'/files/2014/05/waterfront-international.jpg' | relative_url}}" alt="Waterfront International" class="center"></a></div>
 </div>

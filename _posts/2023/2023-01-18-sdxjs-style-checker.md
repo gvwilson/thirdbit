@@ -26,8 +26,8 @@ so that I could compare and contrast the two approaches.
 If anyone feels motivated to give this a try,
 please [give me a shout][email].
 
-<figure id="style-checker-walk-tree" class="figure-here" align="center">
-  <img src="{{'/sdxjs/style-checker/walk-tree.svg' | relative_url}}" alt="Walking a tree"/>
+<figure id="style-checker-walk-tree" class="figure-here" class="center">
+  <img src="{{'/sdxjs/style-checker/walk-tree.svg' | relative_url}}" alt="Walking a tree" class="centered">
   <figcaption>Figure 14.2: Walking a tree to perform an operation at each node.</figcaption>
 </figure>
 

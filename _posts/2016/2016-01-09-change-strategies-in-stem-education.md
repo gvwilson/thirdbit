@@ -16,21 +16,18 @@ Maura Borrego and Charles Henderson:
 <p>The abstract says:</p>
 
 <blockquote>
-<p>
-<strong>Background</strong>
+<p><strong>Background</strong>
 Prior efforts have built a knowledge base of effective undergraduate STEM pedagogies,
 yet rates of implementation remain low.
 Theories from higher education, management, communication, and other fields can inform change efforts
 but remain largely inaccessible to STEM education leaders,
 who are just beginning to view change as a scholarly endeavor informed by the research literature.
 </p>
-<p>
-<strong>Purpose</strong>
+<p><strong>Purpose</strong>
 This article describes the goals, assumptions, and underlying logic of selected change strategies
 with potential relevance to STEM higher education settings for a target audience of change agents, leaders, and researchers.
 </p>
-<p>
-<strong>Scope/Method</strong>
+<p><strong>Scope/Method</strong>
 This review is organized according to the Four Categories of Change Strategies model developed by Henderson, Beach, and Finkelstein (2011).
 We describe eight strategies of potential practical relevance to STEM education change efforts (two from each category).
 For each change strategy, we present a summary with key references,
@@ -38,8 +35,7 @@ discuss their applicability to STEM higher education,
 provide a STEM education example,
 and discuss implications for change efforts and research.
 </p>
-<p>
-<strong>Conclusions</strong>
+<p><strong>Conclusions</strong>
 Change agents are guided, often implicitly, by a single change strategy.
 These eight strategies will expand the repertoire of change agents by helping them consider change from a greater diversity of perspectives.
 Change agents can use these descriptions to design more robust change efforts.
@@ -55,58 +51,58 @@ different approaches people have taken to making change happen.
 The authors break this down by *aspect of system to be changed* and *intended outcome*:</p>
 
 <table>
-  <tr>
-    <th colspan="2"></th>
-    <th colspan="2" align="center">Intended Outcome</td>
-  <tr>
-  <tr>
-    <th colspan="2"></th>
-    <th align="center">Prescribed</th>
-    <th align="center">Emergent</th>
-  </tr>
-  <tr>
-    <th rowspan="2">Aspect of System<br>to be Changed</th>
-    <th>Individuals</th>
-    <td>
-      <strong>I. Disseminating: Curriculum &amp; Pedagogy</strong>
-      <br>
-      Change Agent Role: tell/teach individuals about new teaching conceptions and/or practices and encourage their use.
-      <br>
-      <em>Diffusion</em>
-      <br>
-      <em>Implementation</em>
-    </td>
-    <td>
-      <strong>II. Developing: Reflective Teachers</strong>
-      <br>
-      Change Agent Role: encourage/support individuals to develop new teaching conceptions and/or practices.
-      <br>
-      <em>Scholarly Teaching</em>
-      <br>
-      <em>Faculty Learning Communities</em>
-    </td>
-  </tr>
-  <tr>
-    <th>Environments<br>and<br>Structures</th>
-    <td>
-      <strong>III. Enacting: Policy</strong>
-      <br>
-      Change Agent Role: enact new environmental features that require/encourage new teaching conceptions and/or practices.
-      <br>
-      <em>Quality Assurance</em>
-      <br>
-      <em>Organizational Development</em>
-    </td>
-    <td>
-      <strong>IV. Developing: Shared Vision</strong>
-      <br>
-      Change Agent Role: empower/support stakeholders to collectively develop new environmental features that encourage new teaching conceptions and/or practices.
-      <br>
-      <em>Learning Organizations</em>
-      <br>
-      <em>Complexity Leadership</em>
-    </td>
-  </tr>
+ <tr>
+ <th colspan="2"></th>
+ <th colspan="2" align="center">Intended Outcome</th>
+ </tr>
+ <tr>
+ <th colspan="2"></th>
+ <th align="center">Prescribed</th>
+ <th align="center">Emergent</th>
+ </tr>
+ <tr>
+ <th rowspan="2">Aspect of System<br>to be Changed</th>
+ <th>Individuals</th>
+ <td>
+ <strong>I. Disseminating: Curriculum &amp; Pedagogy</strong>
+ <br>
+ Change Agent Role: tell/teach individuals about new teaching conceptions and/or practices and encourage their use.
+ <br>
+ <em>Diffusion</em>
+ <br>
+ <em>Implementation</em>
+ </td>
+ <td>
+ <strong>II. Developing: Reflective Teachers</strong>
+ <br>
+ Change Agent Role: encourage/support individuals to develop new teaching conceptions and/or practices.
+ <br>
+ <em>Scholarly Teaching</em>
+ <br>
+ <em>Faculty Learning Communities</em>
+ </td>
+ </tr>
+ <tr>
+ <th>Environments<br>and<br>Structures</th>
+ <td>
+ <strong>III. Enacting: Policy</strong>
+ <br>
+ Change Agent Role: enact new environmental features that require/encourage new teaching conceptions and/or practices.
+ <br>
+ <em>Quality Assurance</em>
+ <br>
+ <em>Organizational Development</em>
+ </td>
+ <td>
+ <strong>IV. Developing: Shared Vision</strong>
+ <br>
+ Change Agent Role: empower/support stakeholders to collectively develop new environmental features that encourage new teaching conceptions and/or practices.
+ <br>
+ <em>Learning Organizations</em>
+ <br>
+ <em>Complexity Leadership</em>
+ </td>
+ </tr>
 </table>
 
 <p>The authors then discuss the underlying logic of the eight italicized approaches in detail:</p>

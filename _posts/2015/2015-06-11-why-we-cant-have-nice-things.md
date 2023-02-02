@@ -74,7 +74,6 @@ workshops:
 - pl
 </pre>
 <p>
-<p>
   But upon this change there came great puzzlement,
   because this configuration file was used to select flag icons to display upon a map,
   and among those flags were many countries, but not Norway.

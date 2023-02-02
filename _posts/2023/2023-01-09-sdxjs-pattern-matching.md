@@ -53,8 +53,8 @@ whose elements have standard, animatable graphic representations that are suppor
 Until then,
 the best we can do is try to meet the standard that Kernighan set for us forty years ago.
 
-<figure id="pattern-matching-greedy-failure" align="center">
-  <img src="{{'/sdxjs/pattern-matching/greedy-failure.svg' | relative_url}}" alt="Overly-greedy matching fails"/>
+<figure id="pattern-matching-greedy-failure" class="center">
+  <img src="{{'/sdxjs/pattern-matching/greedy-failure.svg' | relative_url}}" alt="Overly-greedy matching fails" class="centered">
   <figcaption>Figure 7.4: Why overly greedy matching doesn't work.</figcaption>
 </figure>
 

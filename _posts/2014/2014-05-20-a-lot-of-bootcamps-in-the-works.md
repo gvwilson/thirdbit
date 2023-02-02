@@ -13,7 +13,7 @@ original: swc
   as well as running a bunch of other events–we'll post again
   as registration opens up for these:
 </p>
-<table class="table table-striped bootcamps">
+<table class="centered">
 <tr>
   <td class="link"><a href="http://geocarpentry.github.io/2014-05-23-csdms/">Community Surface Dynamics Modeling System Meeting</a></td>
   <td>Boulder</td>

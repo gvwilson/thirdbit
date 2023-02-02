@@ -5,4 +5,4 @@ year: 2008
 ---
 From Jon Pipitone, unprompted, very early this morning:
 
-<img src="{{'/files/2008/09/sigh.png' | relative_url}}" alt="Sigh" />
+<img src="{{'/files/2008/09/sigh.png' | relative_url}}" alt="Sigh" class="centered">

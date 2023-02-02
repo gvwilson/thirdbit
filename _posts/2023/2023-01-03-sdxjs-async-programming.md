@@ -27,8 +27,8 @@ but I think it would be a great [summative_assessment].
 
 > Terms defined: call stack, character encoding, class, constructor, event loop, exception, fluent interface, method, method chaining, non-blocking execution, promise, promisification, protocol, UTF-8.
 
-<figure id="async-programming-resolve" align="center">
-  <img src="{{'/sdxjs/async-programming/resolve.svg' | relative_url}}" alt="How promises resolve"/>
+<figure id="async-programming-resolve" class="center">
+  <img src="{{'/sdxjs/async-programming/resolve.svg' | relative_url}}" alt="How promises resolve" class="centered">
   <figcaption>Figure 3.3: Order of operations when a promise resolves.</figcaption>
 </figure>
 

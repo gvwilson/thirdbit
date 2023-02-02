@@ -10,4 +10,4 @@ Last year, <a href="http://www.ddj.com">Dr. Dobb's Journal</a> ran a series of s
   <li><a href="http://www.ddj.com/184406437">http://www.ddj.com/184406437</a></li>
   <li><a href="http://www.ddj.com/184406467">http://www.ddj.com/184406467</a></li>
 </ul>
-If you're an SoC mentor or student, please have a look—if you'd like to contribute something similar this year, please write a draft similar in length and format to the examples, and send it with a short bio and photo to the editor, Jon Erickson, at jerickson@ddj.com.
+If you're an SoC mentor or student, please have a look—if you'd like to contribute something similar this year, please write a draft similar in length and format to the examples, and send it with a short bio and photo to the editor, Jon Erickson.

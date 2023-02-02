@@ -11,7 +11,7 @@ original: swc
   and look forward to working with them more closely.
 </p>
 <p>
-  <img src="{{'/files/2015/01/ucl.png' | relative_url}}" alt="UCL Logo" />
+  <img src="{{'/files/2015/01/ucl.png' | relative_url}}" alt="UCL Logo" class="centered">
 </p>
 <p>
   <strong>

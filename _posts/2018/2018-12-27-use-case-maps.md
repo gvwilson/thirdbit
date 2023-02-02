@@ -13,18 +13,18 @@ I still think about the *use case maps* they described.
 These two diagrams show what use case maps look like:
 
 <div class="row">
-  <div class="col-md-6">
-    <img src="{{ '/files/2018/12/use-case-maps-b.png' | relative_url }}" alt="Use Case Map Example" width="300" />
+  <div class="col-6">
+    <img src="{{ '/files/2018/12/use-case-maps-b.png' | relative_url }}" alt="Use Case Map Example" width="300" class="centered">
   </div>
-  <div class="col-md-6">
-    <img src="{{ '/files/2018/12/use-case-maps-c.png' | relative_url }}" alt="Use Case Map Example" width="300" />
+  <div class="col-6">
+    <img src="{{ '/files/2018/12/use-case-maps-c.png' | relative_url }}" alt="Use Case Map Example" width="300" class="centered">
   </div>
 </div>
 
 The background is the system's conceptual architecture;
 the overlay uses these elements to trace what happens during a particular use case:
 
-<img src="{{ '/files/2018/12/use-case-maps-a.png' | relative_url }}" alt="Use Case Map Notation" width="300" />
+<img src="{{ '/files/2018/12/use-case-maps-a.png' | relative_url }}" alt="Use Case Map Notation" width="300" class="centered">
 
 It's easy to understand,
 and I found it very useful for tracing the behavior of moderately complex systems.

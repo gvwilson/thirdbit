@@ -7,7 +7,7 @@ original: swc
 <p>
   It's a pleasure to welcome another ten instructors from the Southern Hemisphere to our team:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>Areej Alsheikh-Hussain</td>
     <td>Sung Bae</td>

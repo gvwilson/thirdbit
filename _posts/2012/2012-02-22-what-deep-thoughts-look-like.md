@@ -5,7 +5,7 @@ original: swc
 title: What Deep Thoughts Look Like
 ---
 <p>Before writing yesterday's post about assessment, I should have explained what I mean by"fundamental concepts".  I'll start with Lewis Epstein's wonderful book <a href="http://www.amazon.com/Thinking-Physics-Lewis-C-Epstein/dp/0935218017"><em>Thinking Physics</em></a>:</p>
-<p><img src="{{'/files/2012/02/thinking-physics.jpg' | relative_url}}" /></p>
+<p><img src="{{'/files/2012/02/thinking-physics.jpg' | relative_url}}" class="centered"></p>
 <p>Here's a typical problem from the book. Put a block of ice in a bathtub, then fill the bathtub to the brim with water, so that the block is floating freely. When the ice melts, will the water level go up (causing a spill), go down, or stay the same? Hm… well, the ice displaces its own weight of water, so when it melts, it exactly fills the "hole" it made, so the water level stays the same.</p>
 <p>Now let's try something a bit more complicated. Put the same block of ice in the bathtub, but put an iron weight on top of it, and <em>then</em> fill the tub to the brim. Now what happens when the ice melts? Does the water level go up, go down, or stay the same? Epstein would say that if you can answer questions like that, then you can think physically. It isn't about calculation–as with Dan Meyer's "<a href="http://blog.mrmeyer.com/?p=12962">Joulies</a>", it's about understanding principles and following them through to conclusions.</p>
 <p>The real aim of Software Carpentry is to teach scientists to think like that about computing. We want people to understand the principles:</p>

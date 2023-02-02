@@ -11,4 +11,4 @@ So, if you are:
   <li>a professor in a Canadian computer science department who'd like to help students learn how to work on real software in distributed teams, or</li>
   <li>going to be enrolled in CS at a Canadian university this fall, in your senior year (or grad school), with strong grades and a sense of adventure,</li>
 </ul>
-then please give the organizers a shout at <a href="mailto:admin@ucosp.ca">admin@ucosp.ca</a>.
+then please give the organizers a shout at admin@ucosp.ca.

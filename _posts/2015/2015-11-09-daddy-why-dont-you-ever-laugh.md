@@ -26,13 +26,13 @@ favorite: true
   he showed the price of being "all in" by turning this classic XKCD cartoon:
 </p>
 <p>
-  <img src="{{ '/files/2015/11/xkcd-duty-calls.png' | relative_url }}" alt="XKCD: Duty Calls" />
+  <img src="{{ '/files/2015/11/xkcd-duty-calls.png' | relative_url }}" alt="XKCD: Duty Calls" class="centered">
 </p>
 <p>
   into this:
 </p>
 <p>
-  <img src="{{ '/files/2015/11/noller-wrong-answer.png' | relative_url }}" alt="Noller: Wrong Answer" />
+  <img src="{{ '/files/2015/11/noller-wrong-answer.png' | relative_url }}" alt="Noller: Wrong Answer" class="centered">
 </p>
 <p>
   It took a lot of courage to be as honest as Jesse was.

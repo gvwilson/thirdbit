@@ -11,9 +11,7 @@ I'm a big fan of Guo et al's [online program visualizer](https://pythontutor.com
 which animates memory diagrams like the one below
 as users single-step through code:
 
-<div align="center">
-  <img class="iamge" src="{{'/files/2022/pythontutor.png' | relative_url}}" alt="PythonTutor screenshot" />
-</div>
+<img class="iamge" src="{{'/files/2022/pythontutor.png' | relative_url}}" alt="PythonTutor screenshot" width="80%" class="centered">
 
 I want a tool that will let me specify a program,
 its inputs,

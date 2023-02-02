@@ -27,6 +27,6 @@ Please tell me I missed something…
 
 <em>Later: in response to a suggestion, I downloaded a Windows clipboard viewer and copied a diagram out of PowerPoint. The display looked like this (click the image for full-sized):</em>
 
-<img title="Capture" src="{{'/files/2012/02/Capture-300x156.png' | relative_url}}" alt="" width="300" height="156" />
+<img alt="Capture" src="{{'/files/2012/02/Capture-300x156.png' | relative_url}}" width="300" height="156" class="centered">
 
 <em>It appears to be a reference into the source file, rather than an actual representation of my boxes, arrows, and text.</em>

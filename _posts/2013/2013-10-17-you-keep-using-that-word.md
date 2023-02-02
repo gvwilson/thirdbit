@@ -12,9 +12,7 @@ original: swc
   <a href="http://wssspe.researchcomputing.org.uk/contributions/">the papers on the workshop site</a>,
   my reaction was:
 </p>
-<div align="center">
-  <img src="{{'/files/2013/10/inigo.png' | relative_url}}" alt="I Do Not Think It Means What You Think It Means" />
-</div>
+<p><img src="{{'/files/2013/10/inigo.png' | relative_url}}" alt="I Do Not Think It Means What You Think It Means" class="centered"></p>
 <p>
   My dictionary defines "sustainable" as
   "able to be maintained at a certain rate or level."
@@ -210,9 +208,7 @@ original: swc
   I opened with a picture,
   so let me close with one as well:
 </p>
-<div align="center">
-  <img src="{{'/files/2013/10/wssspe-cycle.png' | relative_url}}" alt="It's All About the Skills" />
-</div>
+<p><img src="{{'/files/2013/10/wssspe-cycle.png' | relative_url}}" alt="It's All About the Skills" class="centered"></p>
 <p>
   Scientists needs coding skills to turn models and algorithms into working software.
   They need more of those skills to run that software,

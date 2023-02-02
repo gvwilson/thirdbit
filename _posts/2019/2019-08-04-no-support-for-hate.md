@@ -15,6 +15,4 @@ So:
 > any company that has been cited as an inspiration by a mass killer,
 > or any company that provides hosting or other services for such companies.
 
-<div align="center">
-<img src="{{'/files/2019/08/pledge.png' | relative_url}}" alt="No Support for Hate" />
-</div>
+<img src="{{'/files/2019/08/pledge.png' | relative_url}}" alt="No Support for Hate" class="centered">

@@ -21,33 +21,30 @@ title: A Question and Answer Matrix for Software Carpentry
 <li><a href="#Q07">Q07: How can other people find and use mine?</a></li>
 <li><a href="#Q08">Q08: How can I do all these things faster?</a></li>
 </ol>
-<p id="Q01"><strong>Q01: How can I manage this data?</strong></p>
-<dl>
-<dt>The Shell</dt>
-<dd>
+<h2 id="Q01">Q01: How can I manage this data?</h2>
+
+<p>The Shell</p>
 <ol>
 <li>Use directories and sub-directories with meaningful names.</li>
 <li>Use filenames that can easily be matched with wildcards.</li>
 <li>Use filename extensions that indicate the type of data in the file.</li>
 <li>Use text unless there's a powerful reason to use something else.</li>
 </ol>
-</dd>
-<dt>Version Control</dt>
-<dd>
+
+<p>Version Control</p>
 <ol>
 <li>If it's megabytes or less, put it under version control.</li>
 </ol>
-</dd>
-<dt>Basic Programming</dt>
-<dd>
+
+<p>Basic Programming</p>
 <ol>
 <li>Create and use data formats that are easy for programs to parse.</li>
 </ol>
-</dd>
-<dt>Functions and Libraries</dt>
-<dd>TBD</dd>
-<dt>Databases</dt>
-<dd>
+
+<p>Functions and Libraries</p>
+<p>TBD</p>
+
+<p>Databases</p>
 <ol>
 <li>Store it in a relational database.</li>
 <li>Store each atom of information in its own field.</li>
@@ -55,316 +52,327 @@ title: A Question and Answer Matrix for Software Carpentry
 <li>Make sure that information is never duplicated.</li>
 <li>Use foreign keys and joins to combine information from different tables.</li>
 </ol>
-</dd>
-<dt>Number Crunching</dt>
-<dd>
+
+<p>Number Crunching</p>
 <ol>
 <li>Represent it as a matrix, because that's easy to process.</li>
 </ol>
-</dd>
-<dt>Quality</dt>
-<dd>N/A</dd>
-<dt>Sets and Dictionaries</dt>
-<dd>TBD</dd>
-<dt>Development</dt>
-<dd>N/A</dd>
-<dt>Web Programming</dt>
-<dd>
+
+<p>Quality</p>
+<p>N/A</p>
+
+<p>Sets and Dictionaries</p>
+<p>TBD</p>
+
+<p>Development</p>
+<p>N/A</p>
+
+<p>Web Programming</p>
 <ol>
 <li>Format it as HTML (or XML, or some other widely-used format).</li>
 <li>Separate content from presentation (e.g., use CSS for styling).</li>
 </ol>
-</dd>
-</dl>
-<p id="Q02"><strong>Q02: How can I process it?</strong></p>
-<dl>
-<dt>The Shell</dt>
-</dl>
+
+
+<h2 id="Q02">Q02: How can I process it?</h2>
+
+<p>The Shell</p>
+
 <ol>
 <li>Use Unix commands that manipulate lines of text.</li>
 <li>Combine those commands using pipes and redirection.</li>
 <li>Use loops to perform the same operations on many files.</li>
 </ol>
-<dl>
-<dd></dd>
-<dt>Version Control</dt>
-<dd>N/A</dd>
-<dt>Basic Programming</dt>
-<dd>
+
+<p>Version Control</p>
+<p>N/A</p>
+
+<p>Basic Programming</p>
 <ol>
 <li>Write programs that use loops, file I/O, and string splitting to read data.</li>
 <li>Use floating-point numbers unless you are sure all values (including calculated values) will always be integers.</li>
 </ol>
-</dd>
-<dt>Functions and Libraries</dt>
-<dd>TBD</dd>
-<dt>Databases</dt>
-<dd>
+
+<p>Functions and Libraries</p>
+<p>TBD</p>
+
+<p>Databases</p>
 <ol>
 <li>Write SQL queries to select, filter, aggregate, and sort data.</li>
 <li>Use a general-purpose programming language for everything else.</li>
 </ol>
-</dd>
-<dt>Number Crunching</dt>
-<dd>
+
+<p>Number Crunching</p>
 <ol>
 <li>Use a linear algebra package like NumPy.</li>
 </ol>
-</dd>
-<dt>Quality</dt>
-<dd>N/A</dd>
-<dt>Sets and Dictionaries</dt>
-<dd>TBD</dd>
-<dt>Development</dt>
-<dd>
+
+<p>Quality</p>
+<p>N/A</p>
+
+<p>Sets and Dictionaries</p>
+<p>TBD</p>
+
+<p>Development</p>
 <ol>
 <li>Use the right data structures.</li>
 </ol>
-</dd>
-<dt>Web Programming</dt>
-<dd>
+
+<p>Web Programming</p>
 <ol>
 <li>Use an HTTP library to fetch it.</li>
 <li>Use an XML or JSON library to parse it.</li>
 </ol>
-</dd>
-</dl>
-<p id="Q03"><strong>Q03: How can I tell if I've processed it correctly?</strong></p>
-<dl>
-<dt>The Shell</dt>
-<dd>N/A</dd>
-<dt>Version Control</dt>
-<dd>N/A</dd>
-<dt>Basic Programming</dt>
-<dd>
+
+<h2 id="Q03">Q03: How can I tell if I've processed it correctly?</h2>
+
+<p>The Shell</p>
+<p>N/A</p>
+
+<p>Version Control</p>
+<p>N/A</p>
+
+<p>Basic Programming</p>
 <ol>
 <li>Test your programs with small data sets whose results can be checked by hand.</li>
 </ol>
-</dd>
-<dt>Functions and Libraries</dt>
-<dd>TBD</dd>
-<dt>Databases</dt>
-<dd>
+
+<p>Functions and Libraries</p>
+<p>TBD</p>
+
+<p>Databases</p>
 <ol>
 <li>Build queries in small steps.</li>
 <li>Run queries against small data sets whose output can be checked manually.</li>
 </ol>
-</dd>
-<dt>Number Crunching</dt>
-<dd>
+
+<p>Number Crunching</p>
 <ol>
 <li>Compare a program's output to analytic results, experimental results, simplified test cases, and previous programs.</li>
 <li>Use tolerances when comparing results.</li>
 </ol>
-</dd>
-<dt>Quality</dt>
-<dd>
+
+<p>Quality</p>
 <ol>
 <li>Create simple data sets for which the right answer can be calculated by hand.</li>
 <li>Compare the results produced by the new program to results produced by older programs.</li>
 </ol>
-</dd>
-<dt>Sets and Dictionaries</dt>
-<dd>TBD</dd>
-<dt>Development</dt>
-<dd>
+
+<p>Sets and Dictionaries</p>
+<p>TBD</p>
+
+<p>Development</p>
 <ol>
 <li>Make code testable by dividing it into functions, and then replacing some functions with others for testing purposes.</li>
 </ol>
-</dd>
-<dt>Web Programming</dt>
-<dd>N/A</dd>
-</dl>
-<p id="Q04"><strong>Q04: How can I find and fix bugs when I haven't?</strong></p>
-<dl>
-<dt>The Shell</dt>
-<dd>N/A</dd>
-<dt>Version Control</dt>
-<dd>N/A</dd>
-<dt>Basic Programming</dt>
-<dd>N/A</dd>
-<dt>Functions and Libraries</dt>
-<dd>TBD</dd>
-<dt>Databases</dt>
-<dd>N/A</dd>
-<dt>Number Crunching</dt>
-<dd>N/A</dd>
-<dt>Quality</dt>
-<dd>
+
+<p>Web Programming</p>
+<p>N/A</p>
+
+<h2 id="Q04">Q04: How can I find and fix bugs when I haven't?</h2>
+
+<p>The Shell</p>
+<p>N/A</p>
+
+<p>Version Control</p>
+<p>N/A</p>
+
+<p>Basic Programming</p>
+<p>N/A</p>
+
+<p>Functions and Libraries</p>
+<p>TBD</p>
+
+<p>Databases</p>
+<p>N/A</p>
+
+<p>Number Crunching</p>
+<p>N/A</p>
+
+<p>Quality</p>
 <ol>
 <li>Write test cases that fail when the bug is present, but pass when the bug is fixed.</li>
 <li>Add assertions to programs to check its internal consistency.</li>
 <li>Use a debugger.</li>
 </ol>
-</dd>
-<dt>Sets and Dictionaries</dt>
-<dd>TBD</dd>
-<dt>Development</dt>
-<dd>
+
+<p>Sets and Dictionaries</p>
+<p>TBD</p>
+
+<p>Development</p>
 <ol>
 <li>Write tests.</li>
 </ol>
-</dd>
-<dt>Web Programming</dt>
-<dd>N/A</dd>
-</dl>
-<p id="Q05"><strong>Q05: How can I keep track of what I've done?</strong></p>
-<dl>
-<dt>The Shell</dt>
-<dd>N/A</dd>
-<dt>Version Control</dt>
-<dd>
+
+<p>Web Programming</p>
+<p>N/A</p>
+
+
+<h2 id="Q05">Q05: How can I keep track of what I've done?</h2>
+
+<p>The Shell</p>
+<p>N/A</p>
+
+<p>Version Control</p>
 <ol>
 <li>Keep your work under version control.</li>
 <li>Check in whenever you've completed a significant change.</li>
 <li>Write meaningful check-in comments.</li>
 </ol>
-</dd>
-<dt>Basic Programming</dt>
-<dd>
+
+<p>Basic Programming</p>
 <ol>
 <li>Put version control IDs in programs (and data files), and copy them forward to results.</li>
 </ol>
-</dd>
-<dt>Functions and Libraries</dt>
-<dd>TBD</dd>
-<dt>Databases</dt>
-<dd>
+
+<p>Functions and Libraries</p>
+<p>TBD</p>
+
+<p>Databases</p>
 <ol>
 <li>Store queries in files (just like programs).</li>
 </ol>
-</dd>
-<dt>Number Crunching</dt>
-<dd>N/A</dd>
-<dt>Quality</dt>
-<dd>
+
+<p>Number Crunching</p>
+<p>N/A</p>
+
+<p>Quality</p>
 <ol>
 <li>Turn bug fixes into assertions and test cases.</li>
 <li>Use a coverage analyzer to see what code is and isn't being tested.</li>
 </ol>
-</dd>
-<dt>Sets and Dictionaries</dt>
-<dd>TBD</dd>
-<dt>Development</dt>
-<dd>N/A</dd>
-<dt>Web Programming</dt>
-<dd>
+
+<p>Sets and Dictionaries</p>
+<p>TBD</p>
+
+<p>Development</p>
+<p>N/A</p>
+
+<p>Web Programming</p>
 <ol>
 <li>Use <code>meta</code> headers in your HTML/XML data files.</li>
 </ol>
-</dd>
-</dl>
-<p id="Q06"><strong>Q06: How can I find and use other people's work?</strong></p>
-<dl>
-<dt>The Shell</dt>
-<dd>N/A</dd>
-<dt>Version Control</dt>
-<dd>
+
+
+<h2 id="Q06">Q06: How can I find and use other people's work?</h2>
+
+<p>The Shell</p>
+<p>N/A</p>
+
+<p>Version Control</p>
 <ol>
 <li>Get it from their version control repositories.</li>
 </ol>
-</dd>
-<dt>Basic Programming</dt>
-<dd>N/A</dd>
-<dt>Functions and Libraries</dt>
-<dd>TBD</dd>
-<dt>Databases</dt>
-<dd>N/A</dd>
-<dt>Number Crunching</dt>
-<dd>N/A</dd>
-<dt>Quality</dt>
-<dd>N/A</dd>
-<dt>Sets and Dictionaries</dt>
-<dd>TBD</dd>
-<dt>Development</dt>
-<dd>N/A</dd>
-<dt>Web Programming</dt>
-<dd>
+
+<p>Basic Programming</p>
+<p>N/A</p>
+
+<p>Functions and Libraries</p>
+<p>TBD</p>
+
+<p>Databases</p>
+<p>N/A</p>
+
+<p>Number Crunching</p>
+<p>N/A</p>
+
+<p>Quality</p>
+<p>N/A</p>
+
+<p>Sets and Dictionaries</p>
+<p>TBD</p>
+
+<p>Development</p>
+<p>N/A</p>
+
+<p>Web Programming</p>
 <ol>
 <li>Ask them to use well-formed URLs.</li>
 <li>And to format it according to well-defined machine-readable standards (e.g., XML or JSON).</li>
 </ol>
-</dd>
-</dl>
-<p id="Q07"><strong>Q07: How can other people find and use mine?</strong></p>
-<dl>
-<dt>The Shell</dt>
-<dd>N/A</dd>
-<dt>Version Control</dt>
-<dd>
+
+
+<h2 id="Q07">Q07: How can other people find and use mine?</h2>
+
+<p>The Shell</p>
+<p>N/A</p>
+
+<p>Version Control</p>
 <ol>
 <li>Put your work in a publicly-accessible version control repository.</li>
 </ol>
-</dd>
-<dt>Basic Programming</dt>
-<dd>N/A</dd>
-<dt>Functions and Libraries</dt>
-<dd>TBD</dd>
-<dt>Databases</dt>
-<dd>
+
+<p>Basic Programming</p>
+<p>N/A</p>
+
+<p>Functions and Libraries</p>
+<p>TBD</p>
+
+<p>Databases</p>
 <ol>
 <li>Raise exceptions to signal errors so that other people can handle them as they think best.</li>
 </ol>
-</dd>
-<dt>Number Crunching</dt>
-<dd>N/A</dd>
-<dt>Quality</dt>
-<dd>N/A</dd>
-<dt>Sets and Dictionaries</dt>
-<dd>TBD</dd>
-<dt>Development</dt>
-<dd>N/A</dd>
-<dt>Web Programming</dt>
-<dd>
+
+<p>Number Crunching</p>
+<p>N/A</p>
+
+<p>Quality</p>
+<p>N/A</p>
+
+<p>Sets and Dictionaries</p>
+<p>TBD</p>
+
+<p>Development</p>
+<p>N/A</p>
+
+<p>Web Programming</p>
 <ol>
 <li>Put it on the web at a stable URL.</li>
 <li>Format it according to well-defined machine-readable standards (e.g., XML or JSON).</li>
 <li>Include meta-data.</li>
 </ol>
-</dd>
-</dl>
-<p id="Q08"><strong>Q08: How can I do all these things faster?</strong></p>
-<dl>
-<dt>The Shell</dt>
-<dd>
+
+
+<h2 id="Q08">Q08: How can I do all these things faster?</h2>
+
+<p>The Shell</p>
 <ol>
 <li>Put commands in shell scripts so that they can be re-used.</li>
 </ol>
-</dd>
-<dt>Version Control</dt>
-<dd>N/A</dd>
-<dt>Basic Programming</dt>
-<dd>
+
+<p>Version Control</p>
+<p>N/A</p>
+
+<p>Basic Programming</p>
 <ol>
 <li>Use appropriate variable names so that people will waste less time trying to read programs.</li>
 </ol>
-</dd>
-<dt>Functions and Libraries</dt>
-<dd>TBD</dd>
-<dt>Databases</dt>
-<dd>N/A</dd>
-<dt>Number Crunching</dt>
-<dd>
+
+<p>Functions and Libraries</p>
+<p>TBD</p>
+
+<p>Databases</p>
+<p>N/A</p>
+
+<p>Number Crunching</p>
 <ol>
 <li>Use a linear algebra package like NumPy.</li>
 </ol>
-</dd>
-<dt>Quality</dt>
-<dd>
+
+<p>Quality</p>
 <ol>
 <li>Design code for testing.</li>
 <li>Write test cases <em>before</em> writing new code.</li>
 </ol>
-</dd>
-<dt>Sets and Dictionaries</dt>
-<dd>TBD</dd>
-<dt>Development</dt>
-<dd>
+
+<p>Sets and Dictionaries</p>
+<p>TBD</p>
+
+<p>Development</p>
 <ol>
 <li>Use a profiler to figure out why code is slow before trying to optimize it.</li>
 <li>Build code so that parts can be replaced easily.</li>
 </ol>
-</dd>
-<dt>Web Programming</dt>
-<dd>N/A</dd>
-</dl>
+
+<p>Web Programming</p>
+<p>N/A</p>

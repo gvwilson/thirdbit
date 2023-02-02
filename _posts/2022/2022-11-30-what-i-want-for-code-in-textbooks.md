@@ -26,9 +26,7 @@ before we dive into specifics.
 Again,
 the tools that let me run code in situ don't allow this.
 
-<div align="center">
-  <img src="{{'/files/2022/code-inclusions.svg' | relative_url}}" alt="code inclusions" />
-</div>
+<img src="{{'/files/2022/code-inclusions.svg' | relative_url}}" alt="code inclusions" class="centered">
 
 Authors therefore wind up hacking together code scrapers
 that (for example) look for markers and directives in source code files
@@ -103,9 +101,7 @@ because that's what I'd do if I was coding in a classroom
 with some explanations on slides on another screen
 or some diagrams on a whiteboard beside me:
 
-<div align="center">
-  <img src="{{'/files/2022/code-references.svg' | relative_url}}" alt="code references" />
-</div>
+<img src="{{'/files/2022/code-references.svg' | relative_url}}" alt="code references" class="centered">
 
 It's all technically feasible,
 particularly if someone wants to leverage an existing platform like VSCode.

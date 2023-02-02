@@ -44,7 +44,7 @@ from (select count(*) as c
 group by c
 order by c desc;
 </pre>
-<table class="table table-striped">
+<table class="centered">
 <TR><TH>number</TH>
 <TH>count</TH>
 </TR>
@@ -82,7 +82,7 @@ from person join task join role
 on person.id=task.person_id and task.role_id=role.id
 where role.name='instructor';
 </pre>
-<table class="table table-striped">
+<table class="centered">
 <TR><TH>number</TH>
 </TR>
 <TR><TD>281</TD>
@@ -91,7 +91,7 @@ where role.name='instructor';
 <pre>
 -- How many people started as learners or helpers and became instructors?
 </pre>
-<table class="table table-striped">
+<table class="centered">
 <TR><TH>number</TH>
 </TR>
 <TR><TD>123</TD>
@@ -107,7 +107,7 @@ from (select count(*) as c
 group by c
 order by c desc;
 </pre>
-<table class="table table-striped">
+<table class="centered">
 <TR><TH># instructors</TH>
 <TH># workshops</TH>
 </TR>
@@ -162,7 +162,7 @@ on trainee.cohort_id=cohort.id
 where cohort.qualifies
 group by cohort_id;
 </pre>
-<table class="table table-striped">
+<table class="centered">
 <TR><TH>name</TH>
 <TH>enrolled</TH>
 <TH>completion %age</TH>

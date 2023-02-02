@@ -62,10 +62,10 @@ while the Spearman rank correlation is moderately negative (about -0.26).
 | scikit-learn | 0.5853 | 0.3980 |
 | scipy | 0.6565 | 0.4850 |
 
-<div align="center">
-  <img src="{{'/files/2019/12/correlation.svg' | relative_url}}" width="500" alt="Correlation of correlations" />
-  <p>Correlation of correlations</p>
-</div>
+<figure class="center">
+  <img src="{{'/files/2019/12/correlation.svg' | relative_url}}" width="500" alt="Correlation of correlations" class="centered">
+  <figcaption>Correlation of correlations</figcaption>
+</figure>
 
 My question is,
 what does this difference between the two types of correlation tell me?
@@ -86,17 +86,17 @@ I can share others,
 but honestly,
 nothing jumps out in any of them.
 
-<div align="center">
-  <img src="{{'/files/2019/12/commits-lines-numpy.svg' | relative_url}}" width="500" alt="NumPy commits vs. lines" />
-  <p>NumPy commits vs. lines</p>
-</div>
+<figure class="center">
+  <img src="{{'/files/2019/12/commits-lines-numpy.svg' | relative_url}}" width="500" alt="NumPy commits vs. lines" class="centered">
+  <figcaption>NumPy commits vs. lines</figcaption>
+</figure>
 
-<div align="center">
-  <img src="{{'/files/2019/12/commits-lines-shell-novice.svg' | relative_url}}" width="500" alt="Shell lesson commits vs. lines" />
-  <p>Shell lesson commits vs. lines</p>
-</div>
+<figure class="center">
+  <img src="{{'/files/2019/12/commits-lines-shell-novice.svg' | relative_url}}" width="500" alt="Shell lesson commits vs. lines" class="centered">
+  <figcaption>Shell lesson commits vs. lines</figcaption>
+</figure>
 
-<div align="center">
-  <img src="{{'/files/2019/12/commits-lines-git-novice.svg' | relative_url}}" width="500" alt="Git lesson commits vs. lines" />
-  <p>Git lesson commits vs. lines</p>
-</div>
+<figure class="center">
+  <img src="{{'/files/2019/12/commits-lines-git-novice.svg' | relative_url}}" width="500" alt="Git lesson commits vs. lines" class="centered">
+  <figcaption>Git lesson commits vs. lines</figcaption>
+</figure>

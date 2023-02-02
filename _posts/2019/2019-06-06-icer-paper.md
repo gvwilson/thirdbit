@@ -19,7 +19,7 @@ We also asked respondents about their backgrounds and whether they teach and/or 
 The most surprising finding was how little overlap there was between
 the interests of people who do research and the interests of people who don't:
 
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <th></th>
     <th>Most Interesting to Researchers</th>

@@ -6,7 +6,7 @@ year: 2006
 I promised in the last article to move on to DrProject's ticketing system, but there are still a couple of issues around its wiki that need further description.  The first is how wiki text is transformed into HTML; the second is why this is harder to do in batch mode than you'd think.
 
 Ward Cunningham created the first wiki in 1994-95 so that people could easily edit hypertext over the web.  The only input widget he trust browsers to support was the text input box.  Since editing HTML tags by hand is tedious and error-prone, he adopted and modified the notational conventions that people were using for email and other plain-text documents:
-<table cellpadding="1" border="1">
+<table cellpadding="1" class="center">
 <tr>
 <td valign="middle"><code>== Level 2 ==</code></td>
 <td valign="middle">

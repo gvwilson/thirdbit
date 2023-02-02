@@ -61,8 +61,8 @@ You might also enjoy Levine's [*Linkers and Loaders*][linkers_loaders];
 while it is now more than 20 years old,
 it taught me things I'd never known enough to even wonder about.
 
-<figure id="module-bundler-bundling" align="center">
-  <img src="{{'/sdxjs/module-bundler/bundling.svg' | relative_url}}" alt="Bundling modules"/>
+<figure id="module-bundler-bundling" class="center">
+  <img src="{{'/sdxjs/module-bundler/bundling.svg' | relative_url}}" alt="Bundling modules" class="centered">
   <figcaption>Figure 17.1: Combining multiple modules into one.</figcaption>
 </figure>
 

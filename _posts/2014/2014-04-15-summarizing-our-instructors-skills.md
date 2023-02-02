@@ -13,7 +13,7 @@ original: swc
   to intermediates,
   or not at all?
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr><th></th><th>Not At All</th><th>Novices</th><th>Intermediates</th></tr>
   <tr><th>Python</th><td>4</td><td>27</td><td>51</td></tr>
   <tr><th>…NumPy/SciPy</th><td>16</td><td>34</td><td>32</td></tr>
@@ -38,14 +38,14 @@ original: swc
   we have a ranked visualization of those responses:
 </p>
 <p>
-  <img src="{{'/files/2014/04/instructor-survey-visualized-2014-04-04.png' | relative_url}}" alt="Instructor Skills" />
+  <img src="{{'/files/2014/04/instructor-survey-visualized-2014-04-04.png' | relative_url}}" alt="Instructor Skills" class="centered">
 </p>
 <p>
   Second,
   who feels comfortable setting up on which platforms?
   (The responses don't sum to 82 because many people selected several options.)
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr><th>Linux</th><td>71</td></tr>
   <tr><th>Mac OS X</th><td>61</td></tr>
   <tr><th>Windows</th><td>42</td></tr>
@@ -56,7 +56,7 @@ original: swc
   And finally,
   where are people from?
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr><th>North America</th><td>60</td></tr>
   <tr><th>Europe</th><td>13</td></tr>
   <tr><th>Australia/New Zealand</th><td>6</td></tr>

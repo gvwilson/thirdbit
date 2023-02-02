@@ -41,8 +41,8 @@ There are lots of ways to get this wrong;
 hopefully,
 this chapter will help readers get it right if it's ever their turn.
 
-<figure id="page-templates-options" align="center">
-  <img src="{{'/sdxjs/page-templates/options.svg' | relative_url}}" alt="Three options for page templates"/>
+<figure id="page-templates-options" class="center">
+  <img src="{{'/sdxjs/page-templates/options.svg' | relative_url}}" alt="Three options for page templates" class="centered">
   <figcaption>Figure 9.1: Three different ways to implement page templating.</figcaption>
 </figure>
 

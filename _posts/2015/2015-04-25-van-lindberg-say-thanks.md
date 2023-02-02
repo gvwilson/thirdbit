@@ -13,30 +13,24 @@ original: swc
 </p>
 <ul>
   <li>
-    <p>
-      The PSF's greatest challenge is that it's short of time:
-      it has one full-time and three part-time employees.
-    </p>
+    The PSF's greatest challenge is that it's short of time:
+    it has one full-time and three part-time employees.
   </li>
   <li>
-    <p>
-      What can you do to help?
-      <ul>
-  <li>Say thanks to people for what they're doing.</li>
-  <li>Raise up and mentor others.</li>
-  <li>Persevere when trying something new. (Bonus points if you help someone out who doesn't look like you.)</li>
-      </ul>
-    </p>
+    What can you do to help?
+    <ul>
+      <li>Say thanks to people for what they're doing.</li>
+      <li>Raise up and mentor others.</li>
+      <li>Persevere when trying something new. (Bonus points if you help someone out who doesn't look like you.)</li>
+    </ul>
   </li>
   <li>
-    <p>
-      How can a new organization grow up to be the PSF?
-      <ul>
-  <li>Don't rush it.  (In particular, don't put too much process in place too soon.)</li>
-  <li>Default to openness.</li>
-  <li>Build a culture of service.</li>
-      </ul>
-    </p>
+    How can a new organization grow up to be the PSF?
+    <ul>
+      <li>Don't rush it.  (In particular, don't put too much process in place too soon.)</li>
+      <li>Default to openness.</li>
+      <li>Build a culture of service.</li>
+    </ul>
   </li>
 </ul>
 <p>

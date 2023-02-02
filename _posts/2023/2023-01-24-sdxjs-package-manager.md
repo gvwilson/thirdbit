@@ -30,8 +30,8 @@ on [academic prototyping][academic_prototyping].
 If you'd like to have a look and let me know if it works,
 please [reach out][email].
 
-<figure id="package-manager-allowable" align="center">
-  <img src="{{'/sdxjs/package-manager/allowable.svg' | relative_url}}" alt="Allowable versions"/>
+<figure id="package-manager-allowable" class="center">
+  <img src="{{'/sdxjs/package-manager/allowable.svg' | relative_url}}" alt="Allowable versions" class="centered">
   <figcaption>Figure 18.1: Finding allowable combinations of package versions.</figcaption>
 </figure>
 

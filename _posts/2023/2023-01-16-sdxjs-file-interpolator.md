@@ -24,8 +24,8 @@ I also thought it was important to have a least one example of a working dead en
 so that readers would be comfortable when their ideas did what they were supposed to
 but still shouldn't be put into production.
 
-<figure id="file-interpolator-conceptual" align="center">
-  <img src="{{'/sdxjs/file-interpolator/conceptual.svg' | relative_url}}" alt="Using file inclusions"/>
+<figure id="file-interpolator-conceptual" class="center">
+  <img src="{{'/sdxjs/file-interpolator/conceptual.svg' | relative_url}}" alt="Using file inclusions" class="centered">
   <figcaption>Figure 12.1: Including fragments of code to create runnable programs.</figcaption>
 </figure>
 

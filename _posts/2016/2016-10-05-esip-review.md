@@ -24,45 +24,31 @@ As a taste of what they're doing,
 here's a table of their stakeholders' user cases and desired outcomes:
 
 <table>
+
 <tr>
-<th>
-Stakeholder
-</th>
-<th>
-Use Case
-</th>
-<th>
-Desired Outcome
-</th>
+<th>Stakeholder</th>
+<th>Use Case</th>
+<th>Desired Outcome</th>
 </tr>
+
 <tr>
-<th>
-Funder
-</th>
-<td>
-As a funding agency, we're interested in evaluating the software projects we fund.
-</td>
-<td>
-A functional evaluation system based on accepted metrics.
-</td>
+<th>Funder</th>
+<td>As a funding agency, we're interested in evaluating the software projects we fund.</td>
+<td>A functional evaluation system based on accepted metrics.</td>
 </tr>
+
 <tr>
-<th>
-Project Manager, Principal Investigator (manager in practice)
-</th>
-<td>
-As a manager, I'm interested in using the rubric/progression as a learning tool to help improve the development practices in my research group.
-</td>
+<th>Project Manager, Principal Investigator (manager in practice)</th>
+<td>As a manager, I'm interested in using the rubric/progression as a learning tool to help improve the development practices in my research group.</td>
 <td>
 A checklist or other informal assessment to help the research group meet 
 funder's expectations and to determine the next steps for training or 
 related activities in the research group.
 </td>
 </tr>
+
 <tr>
-<th>
-Principal Investigator
-</th>
+<th>Principal Investigator</th>
 <td>
 As a PI, I would like a tool to assess our progress and to ensure we're 
 meeting our funder's expectations for a software project based on the 
@@ -75,10 +61,9 @@ funder's expectations, and to determine the next steps for training or
 related activities in the research group. This informal assessment would also provide aid for formal reviews. 
 </td>
 </tr>
+
 <tr>
-<th>
-Science Software Developer, Researcher who codes
-</th>
+<th>Science Software Developer, Researcher who codes</th>
 <td>
 As a science software developer, I'm interested in using the recommended practices to improve my own workflow and skillsets.
 </td>
@@ -86,10 +71,9 @@ As a science software developer, I'm interested in using the recommended practic
 A checklist or mentoring activity to help guide me towards training options to meet my research and skillset goals.
 </td>
 </tr>
-<th>
-Developer
-</th>
-</td>
+
+<tr>
+<th>Developer</th>
 <td>
 As a developer, I would like community-supported guidelines to support requests to change our current dev team practices.
 </td>
@@ -97,11 +81,9 @@ As a developer, I would like community-supported guidelines to support requests 
 A checklist or informal assessment to encourage my manager or PI to allow the development team to adopt appropriate practices.
 </td>
 </tr>
+
 <tr>
-<th>
-Grad Student, Post-Doc, Researcher interested in continuing code education
-</th>
-</td>
+<th>Grad Student, Post-Doc, Researcher interested in continuing code education</th>
 <td>
 I've taken the introductory courses and want to continue to improve my 
 skills but don't know what steps to take next, and I'd like guidance 
@@ -111,10 +93,9 @@ based on my skillset.
 A checklist or mentoring activity to help guide me towards training options to meet my research and skillset goals.
 </td>
 </tr>
+
 <tr>
-<th>
-Research Community
-</th>
+<th>Research Community</th>
 <td>
 We want to provide educational materials or other support for community 
 members to meet their goals regarding research software implementation 

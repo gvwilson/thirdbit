@@ -11,9 +11,7 @@ the [US](https://www.amazon.com/dp/B098MMRLJB/),
 and elsewhere.
 I hope you enjoy reading it as much as I enjoyed writing it.
 
-<div align="center">
-  <img src="{{'/files/bib/beneath-coriandel.jpg' | relative_url}}" alt="Cover of 'Beneath Coriandel'" />
-</div>
+<img src="{{'/files/bib/beneath-coriandel.jpg' | relative_url}}" alt="Cover of 'Beneath Coriandel'" class="centered">
 
 A young man descends into the tombs beneath the city to slay a monster,
 a woman plots to steal her niece's youth,

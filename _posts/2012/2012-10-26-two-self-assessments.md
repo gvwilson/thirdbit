@@ -8,7 +8,7 @@ original: swc
 <p>A recurring problem with our workshops is the diversity of learners' backgrounds. Below are the results of two pre-workshop self-assessments (on different groups), one phrased in terms of content, the other in terms of specific tasks. The consistency is better than I expected: broadly speaking, it seems that people's impression of how much they know about X is more or less in line with their belief about whether they could do something that requires understanding X. The next step will be to follow up a few weeks after the workshop to see if they actually <em>can</em> do X.</p>
 
 <strong>Survey 1</strong>
-<table border="1">
+<table class="center">
 <tbody>
 <tr>
 <td></td>
@@ -77,7 +77,7 @@ original: swc
 </tbody>
 </table>
 <strong>Survey 2</strong>
-<table border="1">
+<table class="center">
 <tbody>
 <tr>
 <td></td>

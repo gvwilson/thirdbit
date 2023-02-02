@@ -35,8 +35,8 @@ And if you want to know (a lot) more about this level in the tower of computing,
 Bob Nystrom's [*Crafting Interpreters*][crafting] is free to read online
 and one of the most beautifully crafted books on computing I've ever seen.
 
-<figure id="virtual-machine-architecture" align="center">
-  <img src="{{'/sdxjs/virtual-machine/architecture.svg' | relative_url}}" alt="Virtual machine architecture"/>
+<figure id="virtual-machine-architecture" class="center">
+  <img src="{{'/sdxjs/virtual-machine/architecture.svg' | relative_url}}" alt="Virtual machine architecture" class="centered">
   <figcaption>Figure 19.1: Architecture of the virtual machine.</figcaption>
 </figure>
 

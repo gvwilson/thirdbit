@@ -28,4 +28,4 @@ and to cast fresh light on practices in institutional classrooms.
 If anyone is tackling this,
 I'd enjoy hearing from you.
 
-<div align="center"><img src="{{'/files/2018/02/publications-by-year.png' | relative_url}}" alt="Publications by Year" width="400" /></div>
+<img src="{{'/files/2018/02/publications-by-year.png' | relative_url}}" alt="Publications by Year" width="400" class="centered">

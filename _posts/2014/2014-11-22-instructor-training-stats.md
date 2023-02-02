@@ -9,7 +9,7 @@ and I thought other people would find them interesting as well.
 
 In the year Nov 1, 2013 - Nov 1, 2014, our numbers were:
 
-<table class="table table-striped">
+<table class="centered">
   <tr><td>instructors:</td><td>360</td></tr>
   <tr><td>helper:</td><td>163</td></tr>
   <tr><td>learner:</td><td>3914</td></tr>
@@ -29,7 +29,7 @@ Since September 2013,
 but not including the recent live round at TGAC and University of Washington,
 or the current online round:
 
-<table class="table table-striped">
+<table class="centered">
   <tr><td>started:</td><td>356</td><td></td></tr>
   <tr><td>completed:</td><td>98</td><td>(27.5%)</td></tr>
   <tr><td>incomplete:</td><td>163</td><td>(45.7%)</td></tr>
@@ -49,7 +49,7 @@ start teaching.
 
 Of the people signed up for online instructor training in January 2015:
 
-<table class="table table-striped">
+<table class="centered">
   <tr><td>66</td><td>US</td></tr>
   <tr><td>17</td><td>UK</td></tr>
   <tr><td>15</td><td>Canada</td></tr>
@@ -63,7 +63,7 @@ Of the people signed up for online instructor training in January 2015:
 
 and:
 
-<table class="table table-striped">
+<table class="centered">
   <tr><td>female</td><td>38</td><td>(25%)</td></tr>
   <tr><td>male</td><td>113</td><td>(75%)</td></tr>
 </table>

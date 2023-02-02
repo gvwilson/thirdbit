@@ -9,16 +9,21 @@ At least week's code sprint, we decided to replace the navigation bar on the lef
 At quarter after three on Friday afternoon, David Wolever came into my office and said, "I'm not happy." He'd been playing with Jeff's new interface, and while it was very shiny, it was also very slow: up to four seconds per page load with the browser on the same box as the server. (No, this wasn't the wiki parser bug resurfacing…)
 
 I sent mail to Alex Russell and Kevin Dangoor at 3:25 pm.  At 5:09 pm, Alex sent an 800-word reply that began:
-<blockquote>Looking at the drproject SVN, I can see some pretty straightforward opportunities to optimize.</blockquote>
+
+```
+Looking at the drproject SVN, I can see some pretty straightforward opportunities to optimize.
+```
+
 Yes, that's right: he had checked out our source code and read through enough to realize that we weren't using
-<link>tags to load the Javascript, that we hadn't made a layer for the widgets we were requiring, and that we hadn't taken advantage of the Dojo build system's ability to roll up just the widgets we needed into one bundle to reduce the number of requests.
+`<link>` tags to load the Javascript, that we hadn't made a layer for the widgets we were requiring, and that we hadn't taken advantage of the Dojo build system's ability to roll up just the widgets we needed into one bundle to reduce the number of requests.
+
 Kevin replied a few hours later as well, but by that time Jeff was able to post the following timings:
-<ul>
-  <li>Only dojo.js: 35 requests, 1 sec</li>
-  <li>dojo.js + dijit.js: 17 requests, 0.62 sec</li>
-  <li>dojo.js + dijit-all.js: 35 requests, 1.3 sec</li>
-  <li>dojo.js + drproject.js: 4 requests, 0.35 sec</li>
-</ul>
+
+-   Only dojo.js: 35 requests, 1 sec
+-   dojo.js + dijit.js: 17 requests, 0.62 sec
+-   dojo.js + dijit-all.js: 35 requests, 1.3 sec
+-   dojo.js + drproject.js: 4 requests, 0.35 sec
+
 Not bad at all.  No idea how long it would have taken to get there without help, but I'm very, very glad that we didn't have to find out—that there was a community out there of people who believed that helping us with no immediate prospect of reward was just the right thing to do.
 
 So thanks, guys—the next beer's on us.

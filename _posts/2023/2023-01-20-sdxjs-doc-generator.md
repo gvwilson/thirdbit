@@ -12,8 +12,8 @@ have been around since at least the 1980s;
 builds on discussion in earlier chapters of [turning code into a data structure][sdxjs_checker]
 to extract Markdown from comments and turn it into HTML.
 
-<figure id="doc-generator-mapping">
-  <img src="{{'/sdxjs/doc-generator/mapping.svg' | relative_url}}" alt="Mapping comments to documentation"/>
+<figure id="doc-generator-mapping" class="center">
+  <img src="{{'/sdxjs/doc-generator/mapping.svg' | relative_url}}" alt="Mapping comments to documentation" class="centered">
   <figcaption>Figure 16.2: How comments in code map to documentation in HTML.</figcaption>
 </figure>
 

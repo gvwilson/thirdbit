@@ -25,8 +25,6 @@ I'm sixty years old;
 the seeds will get stuck in my teeth and I'll probably need to wipe my eyes,
 but it'll be worth it for just a little taste of those long-ago summers.
 
-<div align="center">
-  <img src="{{'/files/2023/blackberry-pie.jpg' | relative_url}}" alt="blackberry pie" width="50%" />
-</div>
+<img src="{{'/files/2023/blackberry-pie.jpg' | relative_url}}" alt="blackberry pie" width="50%" class="centered">
 
 [mum]: {{'/2020/01/07/goodbye-mum/' | relative_url}}

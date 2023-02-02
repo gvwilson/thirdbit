@@ -22,7 +22,7 @@ and started playing the saxophone and Ultimate frisbee (though not simultaneousl
 From 2000 to 2004 I was a contributing editor with *Doctor Dobb's Journal*
 and part of a computer security startup that was eventually acquired by Hewlett-Packard.
 I also published my first children's book and met the woman I'm married to,
-and in 2007 we became the happy parents of a wonderful <del>little</del> teenage troublemaker.
+and in 2007 we became the happy parents of a wonderful troublemaker.
 
 I was a professor in [Computer Science](http://web.cs.toronto.edu/)
 at the [University of Toronto](http://www.utoronto.ca) from 2007 to 2010,

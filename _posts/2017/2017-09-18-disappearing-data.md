@@ -12,7 +12,7 @@ its "Effects of #Climate Change" page had 2,825 items;
 today, it has none.
 Here's his summary of the overall changes:
 
-<table class="table table-striped">
+<table class="centered">
   <tr><th>Resource Category</th><th>December 21, 2016</th><th>September 17, 2017</th></tr>
   <tr><td>All Science Items</td><td>5932</td><td>416</td></tr>
   <tr><td>Web Pages</td><td>5271</td><td></td></tr>

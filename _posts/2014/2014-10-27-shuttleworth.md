@@ -11,7 +11,6 @@ year: 2014
   you can watch the <a href="https://vimeo.com/110124235">five-minute video</a>,
   or get more details from the Q&amp;A below it.
 </p>
-<iframe src="//player.vimeo.com/video/110124235" width="500" height="294" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <h2>Describe the world as it is.</h2>
 <p>Scientists spend an increasing amount of time building and using software. However, most of them are never actually taught how to do this - they pick up bits and pieces by osmosis and good luck. As a result, it takes them weeks or months to do things they could in hours or days, and when they're done, they often don't know how trustworthy their results are, how to reproduce them, or how to share them.</p>
 <p>And there's something else scientists don't share: their lessons and how they teach them. Millions of people have contributed to Wikipedia, and tens of thousands will submit patches to open source software projects today alone, but even open educational resources are almost always still written by one or two people. People routinely "borrow" PowerPoint slides they find on the Internet, but even those who contribute to Wikipedia and open source almost never send patches back to improve the original. The "mend and extend" ethos that is the basis of truly open collaboration simply isn't part of how most people think about teaching.</p>

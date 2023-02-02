@@ -7,26 +7,26 @@ year: 2009
 
 <strong>Demographics</strong>
 
-<img title="1" src="{{'/files/2009/11/1.png' | relative_url}}" alt="1" width="414" height="358" />
+<img src="{{'/files/2009/11/1.png' | relative_url}}" width="414" height="358" class="centered">
 
 <strong>Channels</strong>
 
-<img title="2" src="{{'/files/2009/11/2.png' | relative_url}}" alt="2" width="488" height="288" />
+<img src="{{'/files/2009/11/2.png' | relative_url}}" width="488" height="288" class="centered">
 
 <strong>General Background</strong>
 
-<img title="3" src="{{'/files/2009/11/3.png' | relative_url}}" alt="3" width="488" height="288" />
+<img src="{{'/files/2009/11/3.png' | relative_url}}" width="488" height="288" class="centered">
 
 <strong>Python Background</strong>
 
-<img title="4" src="{{'/files/2009/11/4.png' | relative_url}}" alt="4" width="488" height="288" />
+<img src="{{'/files/2009/11/4.png' | relative_url}}" width="488" height="288" class="centered">
 
 <strong>Exercises</strong>
 
-<img title="6" src="{{'/files/2009/11/6.png' | relative_url}}" alt="6" width="488" height="288" />
+<img src="{{'/files/2009/11/6.png' | relative_url}}" width="488" height="288" class="centered">
 
 <strong>Individual Chapters</strong>
-<table border="0">
+<table class="center">
 <tbody>
 <tr>
 <td></td>

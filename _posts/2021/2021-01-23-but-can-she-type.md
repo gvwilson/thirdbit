@@ -38,8 +38,6 @@ communicating and inspiring is considered just as valuable as
 filling in another square millimeter in the great coloring book we live in.
 Somewhere out there—but not here.
 
-<div align="center">
-<img src="{{ '/files/2021/twilight-zone.jpg' | relative_url }}" alt="Twilight Zone logo" />
-</div>
+<img src="{{ '/files/2021/twilight-zone.jpg' | relative_url }}" alt="Twilight Zone logo" class="centered">
 
 [harper]: {{'/ideas/harper/' | relative_url}}

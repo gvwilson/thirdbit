@@ -47,7 +47,7 @@ milliseconds; on ours, it was several seconds.
 
 All right, down a layer we go.  Keir profiled Python itself using
 gprof, and found this:
-<table cellpadding="3" border="1">
+<table class="center">
 <tr>
 <th valign="top" align="left">% time</th>
 <th valign="top" align="left">cumulative seconds</th>

@@ -34,7 +34,7 @@ but I think it worked out pretty well,
 and it motivated discussion of the difference between interface and implementation rather neatly.
 
 <figure id="data-table-storage-order" align="center">
-  <img src="{{'/sdxjs/data-table//storage-order.svg' | relative_url}}" alt="Row-major vs. column-major storage order"/>
+  <img src="{{'/sdxjs/data-table//storage-order.svg' | relative_url}}" alt="Row-major vs. column-major storage order" class="centered">
   <figcaption>Figure 6.2: Row-major storage vs. column-major storage for data tables.</figcaption>
 </figure>
 

@@ -29,7 +29,7 @@ and after watching my daughter plod through their school's "data literacy" modul
 I think we need something better.
 I hope someone, some day, will find a way to make it happen.
 
-<img src="{{'/files/2021/tidyblocks-screenshot.png' | relative_url}}" alt="TidyBlocks" />
+<img src="{{'/files/2021/tidyblocks-screenshot.png' | relative_url}}" alt="TidyBlocks" class="centered" width="80%">
 
 [blockly]: https://developers.google.com/blockly/
 [gans-maya]: https://maya.rbind.io/

@@ -3,7 +3,7 @@ title: "Good Writing vs. Bad Writing"
 date: 2005-02-09 09:00:07
 year: 2005
 ---
-<p>I read this in John Lewis Gaddis's <a href="http://www.amazon.com/exec/obidos/ASIN/0195171578">The Landscape of History</a> on the way in this morning:
+<p>I read this in John Lewis Gaddis's <a href="http://www.amazon.com/exec/obidos/ASIN/0195171578">The Landscape of History</a> on the way in this morning:</p>
 
 <blockquote>We are born, each of us, with such self-centeredness that only the fact of being babies, and therefore cute, saves us.  Growing up is largely a matter of growing out of that condition: we soak in impressions, and as we do so we dethrone ourselves…from our original position at the center of the universe.    [T]he establishment of identity requires recognizing our relative insignificance in the larger scheme of things…  [T]hat's what maturity means in human relationships—the arrival at identity by way of insignificance.</blockquote>
 

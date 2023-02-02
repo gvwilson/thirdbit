@@ -17,5 +17,7 @@ favorite: true
     – Virginia Woolf
   </em>
 </p>
-<img title="slides sylvia" src="{{ '/files/2012/01/slides-sylvia-1-209x300.jpg' | relative_url }}" alt="" width="209" height="300" />
-<p>Sylvia Jane Cotton (née Wilson)<br>November 7, 1964 - January 21, 2012</p>
+<figure class="center">
+  <img alt="slides sylvia" src="{{ '/files/2012/01/slides-sylvia-1-209x300.jpg' | relative_url }}" width="209" height="300" class="centered">
+  <figcaption>Sylvia Jane Cotton (née Wilson)<br>November 7, 1964 - January 21, 2012</figcaption>
+</figure>

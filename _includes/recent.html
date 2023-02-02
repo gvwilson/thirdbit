@@ -1,6 +1,6 @@
 <table>
   <tr><th>Date</th><th>Title</th></tr>
-  {% for post in site.posts limit:14 %}
+  {% for post in site.posts limit:8 %}
   <tr><td>{{ post.date | date: "%Y-%m-%d" }}</td><td><a href="{{ post.url | relative_url }}">{{ post.title }}</a></td></tr>
   {% endfor %}
 </table>

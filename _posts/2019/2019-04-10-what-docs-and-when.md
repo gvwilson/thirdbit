@@ -25,7 +25,7 @@ Its starting point is a four-stage model of cognitive development:
 Here's a map showing which kinds of documentation help people get from stage to stage
 and which other kinds are useful across multiple stages:
 
-<img src="{{'/files/2019/04/materials.svg' | relative_url}}" width="80%" alt="Documentation model" />
+<img src="{{'/files/2019/04/materials.svg' | relative_url}}" width="80%" alt="Documentation model" class="centered">
 
 1.  An *orientation* is a general overview that makes people aware something exists.
     Orientations are often delivered as webinars,

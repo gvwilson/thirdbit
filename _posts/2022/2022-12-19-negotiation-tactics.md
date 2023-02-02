@@ -10,9 +10,7 @@ In light of a couple of conversations over the last few days
 I'd like to assemble a collection of strategies for that
 classified as shown below:
 
-<div align="center">
-  <img src="{{'/files/2022/negotiation-tactics.svg' | relative_url}}" alt="Negotiation Tactics classified as effective vs. ineffective and moral vs. scummy" />
-</div>
+<img src="{{'/files/2022/negotiation-tactics.svg' | relative_url}}" alt="Negotiation Tactics classified as effective vs. ineffective and moral vs. scummy" class="centered">
 
 If you have any to contribute, please [get in touch](mailto:{{site.author.email}}).
 

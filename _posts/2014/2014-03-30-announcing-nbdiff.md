@@ -24,5 +24,5 @@ original: swc
   see the <a href="http://nbdiff.org">NBDiff web site</a>.
 </p>
 <p>
-  <img src="{{'/files/2014/03/nbdiff.png' | relative_url}}" alt="NBDiff logo" />
+  <img src="{{'/files/2014/03/nbdiff.png' | relative_url}}" alt="NBDiff logo" class="centered">
 </p>

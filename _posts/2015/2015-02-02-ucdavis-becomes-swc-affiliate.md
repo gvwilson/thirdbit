@@ -14,7 +14,7 @@ original: swc
   "This status also gives us the opportunity to include Software Carpentry as part of a larger biological data science training program at UC Davis."
 </p>
 <p>
-  <img src="{{'/files/swc/uc-davis.png' | relative_url}}" alt="UC Davis logo" />
+  <img src="{{'/files/swc/uc-davis.png' | relative_url}}" alt="UC Davis logo" class="centered">
 </p>
 <p>
   Software Carpentry is a volunteer organisation whose goal is to make scientists more productive,

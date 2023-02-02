@@ -19,7 +19,7 @@ original: swc
       My prediction is:
     </p>
     <p>
-      <img src="{{'/files/2015/08/hst.png' | relative_url}}" alt="Hardware, Software, and Training" class="responsive" />
+      <img src="{{'/files/2015/08/hst.png' | relative_url}}" alt="Hardware, Software, and Training" class="centered">
     </p>
   </li>
   <li>
@@ -28,7 +28,7 @@ original: swc
       My prediction is:
     </p>
     <p>
-      <img src="{{'/files/2015/08/flops.png' | relative_url}}" alt="Computing Power per Year" class="responsive" />
+      <img src="{{'/files/2015/08/flops.png' | relative_url}}" alt="Computing Power per Year" class="centered">
     </p>
   </li>
   <li>
@@ -38,7 +38,7 @@ original: swc
       My prediction is:
     </p>
     <p>
-      <img src="{{'/files/2015/08/support.png' | relative_url}}" alt="Support Requests" class="responsive" />
+      <img src="{{'/files/2015/08/support.png' | relative_url}}" alt="Support Requests" class="centered">
     </p>
   </li>
 </ol>

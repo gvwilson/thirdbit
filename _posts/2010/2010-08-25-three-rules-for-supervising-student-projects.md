@@ -6,10 +6,10 @@ year: 2010
 <a href="http://jendodd.com">Jen Dodd</a> recently posted an article titled "<a href="http://jendodd.com/2010/08/16/3-rules-for-running-events/">3 rules for running events</a>", plus one metarule that I particularly appreciated: "Stop deluding yourself."  In the same spirit, I'd like to offer up three rules for running student programming projects.  To set the stage, here's the number of student programming projects I've organized, supervised, or otherwise been guilty of since <a href="http://en.wikipedia.org/wiki/David_Wallace_%28physicist%29">David Wallace</a> first asked me to look after a couple of summer interns in Edinburgh half a lifetime ago:
 <div>
 
-<img title="students-supervised-per-year" src="{{'/files/2010/08/students-supervised-per-year.png' | relative_url}}" border="0" alt="Students Supervised per Year" width="525" height="291" />
-<table>
+<img alt="students-supervised-per-year" src="{{'/files/2010/08/students-supervised-per-year.png' | relative_url}}" alt="Students Supervised per Year" width="525" height="291" class="centered">
+<table class="centered">
 <tbody>
-<tr style="text-align: right;">
+<tr>
 <td>Year</td>
 <td>1987</td>
 <td>1988</td>
@@ -28,20 +28,20 @@ year: 2010
 </tr>
 <tr>
 <td>Number</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">35</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">78</td>
-<td style="text-align: right;">110</td>
-<td style="text-align: right;">49</td>
+<td>2</td>
+<td>4</td>
+<td>12</td>
+<td>14</td>
+<td>26</td>
+<td>7</td>
+<td>13</td>
+<td>35</td>
+<td>42</td>
+<td>34</td>
+<td>38</td>
+<td>78</td>
+<td>110</td>
+<td>49</td>
 </tr>
 </tbody>
 </table>

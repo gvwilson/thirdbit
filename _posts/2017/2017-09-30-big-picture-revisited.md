@@ -13,16 +13,16 @@ please let me nkow.
 
 ## Version 1 (Summer 2010)
 
-<a href="{{'/files/2017/09/concept-2010-a.svg' | relative_url}}"><img src="{{'/files/2017/09/concept-2010-a.svg' | relative_url}}" alt="Concept Map Version 1" width="80%" /></a>
+<a href="{{'/files/2017/09/concept-2010-a.svg' | relative_url}}"><img src="{{'/files/2017/09/concept-2010-a.svg' | relative_url}}" alt="Concept Map Version 1" width="80%" class="centered"></a>
 
 ## Version 2 (Summer 2010)
 
-<a href="{{'/files/2017/09/concept-2010-b.svg' | relative_url}}"><img src="{{'/files/2017/09/concept-2010-b.svg' | relative_url}}" alt="Concept Map Version 2" width="80%" /></a>
+<a href="{{'/files/2017/09/concept-2010-b.svg' | relative_url}}"><img src="{{'/files/2017/09/concept-2010-b.svg' | relative_url}}" alt="Concept Map Version 2" width="80%" class="centered"></a>
 
 ## Version 3 (Spring 2016)
 
-<a href="{{'/files/2017/09/concept-2016-a.svg' | relative_url}}"><img src="{{'/files/2017/09/concept-2016-a.svg' | relative_url}}" alt="Concept Map Version 3" width="80%" /></a>
+<a href="{{'/files/2017/09/concept-2016-a.svg' | relative_url}}"><img src="{{'/files/2017/09/concept-2016-a.svg' | relative_url}}" alt="Concept Map Version 3" width="80%" class="centered"></a>
 
 ## Version 4 (Spring 2016)
 
-<a href="{{'/files/2017/09/concept-2016-b.svg' | relative_url}}"><img src="{{'/files/2017/09/concept-2016-b.svg' | relative_url}}" alt="Concept Map Version 4" width="80%" /></a>
+<a href="{{'/files/2017/09/concept-2016-b.svg' | relative_url}}"><img src="{{'/files/2017/09/concept-2016-b.svg' | relative_url}}" alt="Concept Map Version 4" width="80%" class="centered"></a>

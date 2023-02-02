@@ -7,11 +7,11 @@ dbook: https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717
 adept: https://betterexplained.com/articles/adept-method/
 ---
 
-<a href="{{page.t4l}}"><img src="{{'/files/2017/12/teaching-for-learning.jpg' | relative_url}}" alt="Teaching for Learning" width="200px" /></a>
+<img src="{{'/files/2017/12/teaching-for-learning.jpg' | relative_url}}" alt="Teaching for Learning" width="200px" class="centered">
 
-<em><a href="{{page.t4l}}">Teaching for Learning: 101 Intentionally Designed Educational Activities to Put Students on the Path to Success</a></em>
+*Teaching for Learning: 101 Intentionally Designed Educational Activities to Put Students on the Path to Success*
 is the book I've been looking for ever since I first read
-*<a href="{{page.dbook}}">The Discussion Book</a>*.
+*The Discussion Book*.
 As its subtitle says,
 it's a catalog of a hundred different evidence-based IDEAs
 (which stands for Intentionally Designed Educational Activities,
@@ -26,4 +26,4 @@ and the writing is crisp and jargon-free without ever soft-pedalling its subject
 If you're serious about teaching and looking for something to read over the holidays,
 I can't think of a better investment.
 (And if you'd like something shorter,
-checkout Kalid Azad's description of his [ADEPT]({{page.adept}}) approach to lesson design.)
+checkout Kalid Azad's description of his ADEPT approach to lesson design.)

@@ -5,7 +5,8 @@ year: 2007
 ---
 I posted a picture of DrProject's database schema a while ago.  Last week, I found myself drawing its architecture on the blackboard in class, so I figured I should post that too.  (It would have been up two hours ago, but my Mac died again…)
 
-<img alt="architecture1.png" id="image833" src="{{'/files/2007/02/architecture1.png' | relative_url}}" />
+<img alt="architecture1.png" src="{{'/files/2007/02/architecture1.png' | relative_url}}" class="centered">
+
 Here are the key elements:
 <ul>
   <li>Apache forwards HTTP requests for DrProject pages to SCGI; it also handles traffic from other Subversion clients (such as the command line or Eclipse).</li>

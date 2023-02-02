@@ -13,9 +13,7 @@ original: swc
   so our plan is to run three regular bootcamps for people of varying skill levels,
   and one more "master class" for scientists who are ready to learn more advanced topics.
 </p>
-<div align="center">
-  <a href="https://us.pycon.org/2014/"><img src="{{'/files/2013/10/pycon2014-blog-image.png' | relative_url}}" alt="PyCon 2014 logo" /></a>
-</div>
+<p><a href="https://us.pycon.org/2014/"><img src="{{'/files/2013/10/pycon2014-blog-image.png' | relative_url}}" alt="PyCon 2014 logo" class="centered"></a></p>
 <p>
   The primary audience is scientists in Montreal, Ottawa, Kingston, Quebec City,
   and the northeastern United States.

@@ -29,8 +29,12 @@ Here is the HTML I'm rendering:
 &lt;/body&gt;
 &lt;/html&gt;
 
-<hr />Here is the appearance with Firefox 3 on Windows XP:
-<img title="ff31" src="{{'/files/2009/07/ff31.png' | relative_url}}" alt="ff31" width="661" height="398" />
+<hr>
+
+Here is the appearance with Firefox 3 on Windows XP:
+
+<img src="{{'/files/2009/07/ff31.png' | relative_url}}" alt="ff31" width="661" height="398" class="centered">
+
 And here is the appearance with IE7 on the same platform:
 
-<img title="ie71" src="{{'/files/2009/07/ie71.png' | relative_url}}" alt="ie71" width="669" height="152" />
+<img src="{{'/files/2009/07/ie71.png' | relative_url}}" alt="ie71" width="669" height="152" class="centered">

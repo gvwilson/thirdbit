@@ -7,7 +7,7 @@ I tell the students in my software engineering classes that the absolute value o
 
 Which brings us to this year's stats for Software Carpentry:
 
-<img src="{{'/files/2008/12/stats.png' | relative_url}}" alt="Software Carpentry Site Usage Statistics 2008" />
+<img src="{{'/files/2008/12/stats.png' | relative_url}}" alt="Software Carpentry Site Usage Statistics 2008" class="centered">
 
 Looking at visits (upper right), things aren't too bad.  Looking at pages, files, and hits (on the left), it's clear the web is losing interest.  And looking at the total downloads (bottom right), I'm just confused: we didn't do any major surgery on the site, or retire any heavyweight content, so I don't understand why traffic weight would be cut by two thirds.
 

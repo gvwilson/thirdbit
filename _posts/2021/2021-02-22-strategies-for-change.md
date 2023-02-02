@@ -11,9 +11,7 @@ for adoption of new software development practices.
 This diagram from [Borrego & Henderson 2014](https://onlinelibrary.wiley.com/doi/abs/10.1002/jee.20040)
 sums up the kind of model I'm looking for:
 
-<div align="central">
-<img src="{{ '/files/2021/borrego-henderson-change-strategies.svg' | relative_url }}" alt="Borrego & Henderson change strategies" />
-</div>
+<img src="{{ '/files/2021/borrego-henderson-change-strategies.svg' | relative_url }}" alt="Borrego & Henderson change strategies" class="centered">
 
 I think the categories translate pretty directly to tech:
 in the upper left we can teach people new coding practices directly,

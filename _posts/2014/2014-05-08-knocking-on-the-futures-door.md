@@ -134,7 +134,7 @@ A storage area where a [version control](#version-control) system…
   and the initial productivity dip that comes with any new way of doing things:
 </p>
 <p>
-  <img src="{{'/files/2012/03/final.png' | relative_url}}" />
+  <img src="{{'/files/2012/03/final.png' | relative_url}}" class="center">
 </p>
 <p>
   If you'd like to help us solve this particular problem,

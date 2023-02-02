@@ -103,4 +103,4 @@ if you want to learn further,
 learn together.
 I'm pretty excited to have the chance to explore ways of helping people do that.
 
-<img src="{{'/files/2019/03/minecraft.png' | relative_url}}" alt="Minecraft" width="80%" />
+<img src="{{'/files/2019/03/minecraft.png' | relative_url}}" alt="Minecraft" width="80%" class="centered">

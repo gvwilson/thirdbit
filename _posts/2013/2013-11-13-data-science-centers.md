@@ -24,7 +24,7 @@ original: swc
   Drew Conway's <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">Venn Diagram</a>
   shows "Hacking Skills" as one of the three principal components of data science:
 </p>
-<p><img src="http://static.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png?format=750w" alt="Venn Diagram" /></p>
+<p><img src="http://static.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png?format=750w" alt="Venn Diagram" class="centered"></p>
 <p>
   Personally,
   I think the region that includes math and expertise but not hacking skills

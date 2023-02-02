@@ -71,7 +71,7 @@ original: swc
   and the lack of a clear plan have muddled things.
   Here's how we'll clear it up:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>A.</td>
     <td>
@@ -135,7 +135,7 @@ original: swc
 <p>
   Finally, since I'm making lists, we're also going to:
 </p>
-<table class="table table-striped">
+<table class="centered">
   <tr>
     <td>G.</td>
     <td>

@@ -12,9 +12,7 @@ Note that this is a canning recipe, not a cold pickle.
 Note also that the original recipe calls for only ¼ tsp of hot pepper flakes per jar,
 to which we say, "Bah."
 
-<div align="center">
-  <img src="{{ '/files/2021/pickled-carrots.jpg' | relative_url }}" alt="pickled carrots" width="50%" />
-</div>
+<img src="{{ '/files/2021/pickled-carrots.jpg' | relative_url }}" alt="pickled carrots" width="50%" class="centered">
 
 | Medieval | ingredient | metric |
 | -------- | ---------- | ------ |

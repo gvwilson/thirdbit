@@ -12,7 +12,7 @@ I'm all in favor of that. But I'm not sure that Davidson and I mean the same thi
 <table>
 <tbody>
 <tr>
-<td valign="top"><img title="algorithmic-thinking-cathy-davidson-004" src="{{'/files/2012/02/algorithmic-thinking-cathy-davidson-004-300x225.jpg' | relative_url}}" alt="" width="300" height="225" /></td>
+<td valign="top"><img alt="algorithmic-thinking-cathy-davidson-004" src="{{'/files/2012/02/algorithmic-thinking-cathy-davidson-004-300x225.jpg' | relative_url}}" width="300" height="225" class="centered"></td>
 <td valign="top">
 <ol>
   <li>procedural thinking</li>

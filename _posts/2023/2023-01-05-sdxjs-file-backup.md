@@ -36,8 +36,8 @@ with a system inspired by [Fossil][fossil],
 in the same way that comparing the implementation of undo/redo in Emacs and Vim
 can show just how large the space of possible designs actually is.
 
-<figure id="file-backup-storage" align="center">
-  <img src="{{'/sdxjs/file-backup/storage.svg' | relative_url}}" alt="Backup file storage"/>
+<figure id="file-backup-storage" class="center">
+  <img src="{{'/sdxjs/file-backup/storage.svg' | relative_url}}" alt="Backup file storage" class="centered">
   <figcaption>Figure 5.3: Organization of backup file storage.</figcaption>
 </figure>
 

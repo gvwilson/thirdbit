@@ -36,13 +36,13 @@ I know you were ready to leave,
 but I wasn't ready to say goodbye.
 I'm going to miss you so much.
 
-<img src="{{ '/files/2020/01/mum-on-the-beach.jpg' | relative_url }}" alt="Mum on the beach, 1945" width="50%" />
+<img src="{{ '/files/2020/01/mum-on-the-beach.jpg' | relative_url }}" alt="Mum on the beach, 1945" width="50%" class="centered">
 
-<img src="{{ '/files/2020/01/mum-wedding.jpg' | relative_url }}" alt="Mum at her wedding" width="50%" />
+<img src="{{ '/files/2020/01/mum-wedding.jpg' | relative_url }}" alt="Mum at her wedding" width="50%" class="centered">
 
-<img src="{{ '/files/2020/01/mum-graduation.jpg' | relative_url }}" alt="Mum at her graduation" width="50%" />
+<img src="{{ '/files/2020/01/mum-graduation.jpg' | relative_url }}" alt="Mum at her graduation" width="50%" class="centered">
 
-<img src="{{ '/files/2020/01/grandma.jpg' | relative_url }}" alt="Grandma 2014" width="50%" />
+<img src="{{ '/files/2020/01/grandma.jpg' | relative_url }}" alt="Grandma 2014" width="50%" class="centered">
 
 Doris Wilson <br>
 July 22, 1927 - January 7, 2020

@@ -6,11 +6,11 @@ year: 2015
 <table>
   <tr>
     <td valign="top">These are a couple of folders in my personal mail account:</td>
-    <td valign="top"><img src="{{'/files/2015/11/personal-inbox.png' | relative_url}}" /></td>
+    <td valign="top"><img src="{{'/files/2015/11/personal-inbox.png' | relative_url}}" class="centered"></td>
   </tr>
   <tr>
     <td valign="top">and these are a couple of folders in my work account:</td>
-    <td valign="top"><img src="{{'/files/2015/11/work-inbox.png' | relative_url}}" /></td>
+    <td valign="top"><img src="{{'/files/2015/11/work-inbox.png' | relative_url}}" class="centered"></td>
   </tr>
 </table>
 <p>

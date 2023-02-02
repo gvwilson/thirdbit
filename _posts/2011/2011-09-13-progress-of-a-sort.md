@@ -5,7 +5,7 @@ original: swc
 title: Progress Of A Sort
 ---
 <p>As I mentioned a few months ago, I'm going to turn Software Carpentry into a book. Here's the present status:</p>
-<p><img src="{{'/files/2011/09/Screenshot.png' | relative_url}}" /></p>
+<p><img src="{{'/files/2011/09/Screenshot.png' | relative_url}}" class="centered"></p>
 <table>
 <tbody>
 <tr>

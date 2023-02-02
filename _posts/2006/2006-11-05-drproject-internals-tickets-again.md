@@ -28,7 +28,7 @@ At first, the non-consecutive numbering of changelists within projects sounds li
 There's a much larger point here than just how we divvied up students' files among repositories.  The phrase "<a href="http://www.mcs.vuw.ac.nz/comp/Publications/archive/CS-TR-02/CS-TR-02-9.pdf">postmodern</a> programming" refers to the observation that people don't build programs any more: they assemble them by re-mixing the work of others.  99% of the bits in the last big <a href="http://h20229.www2.hp.com/products/select/">product</a> I worked on were bought or downloaded; our part, as complex as it was, was "just" the glue holding it all together.  It's the only way to build large systems, but it means you have to know early on—at design time—what assumptions and limitations are built into the systems you're going to be assembling.  Like other architects, we must always design <em>toward</em> the materials at hand.
 
 Here's another instance of the same problem.  How do you identify tickets?  Every system I've ever worked with numbers them: as Kronecker said, "God created the integers; all else is the work of man."  That maps pretty cleanly to a database table:
-<table border="1">
+<table class="center">
 <tr>
 <td>id</td>
 <td>summary</td>
@@ -38,7 +38,7 @@ Here's another instance of the same problem.  How do you identify tickets?  Ever
 </tr>
 </table>
 But what if you want to store multiple projects in a single database?  You can't use a separate table for each project (well, you could, but it would be a lousy design for reasons that I hope are obvious).  What about this:
-<table border="1">
+<table class="center">
 <tr>
 <td>id</td>
 <td>project</td>
@@ -62,7 +62,7 @@ Here's another example.  Over the summer, Apple Viriyakattiyaporn added tagging 
 The first wins hands-down: if she had used the second, searching for things with particular tags would have required us to delve into the stored values, which requires more code than a simple <code>WHERE</code>, and is less efficient.
 
 What about indexing?  If we only wanted to tag tickets, the table could be:
-<table border="1">
+<table class="center">
 <tr>
 <td>project id (text)</td>
 <td>ticket id (int)</td>
