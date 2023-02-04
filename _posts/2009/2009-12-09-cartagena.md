@@ -28,7 +28,7 @@ A student was in my office looking for a little AI project today.  After a bit o
 <strong>Example</strong>
 
 At the start of Green's turn, the board looks like this:
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td rowspan="3"><img alt="green" src="{{'/files/2009/12/green.gif' | relative_url}}" alt="green" width="20" height="15" class="centered">

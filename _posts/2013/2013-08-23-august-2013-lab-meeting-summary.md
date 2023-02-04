@@ -11,7 +11,7 @@ original: swc
   We ran the meeting twice to accommodate different time zones;
   those present were:
 </p>
-<table>
+<table class="centered">
   <tr>
     <td>11:00 am</td>
     <td>7:00 pm</td>

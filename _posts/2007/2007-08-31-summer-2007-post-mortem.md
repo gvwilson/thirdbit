@@ -4,7 +4,7 @@ date: 2007-08-31 14:16:17
 year: 2007
 ---
 We held the post-mortem for the summer's projects yesterday.  It went well—the summer, I mean, not just the post-mortem.  Here are the main points:
-<table>
+<table class="centered">
 <tr>
 <td align="center"><strong>Good</strong></td>
 <td align="center"><strong>Bad</strong></td>

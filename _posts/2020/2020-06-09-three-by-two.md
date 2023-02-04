@@ -13,7 +13,7 @@ I'm trying out a slightly more complicated rubric:
 the vertical axis stays the same,
 but the horizontal has an extra category called "interaction":
 
-<table>
+<table class="centered">
 <tr>
   <th style="border: 1px solid black;">Content</th>
   <th style="border: 1px solid black;">Interaction</th>

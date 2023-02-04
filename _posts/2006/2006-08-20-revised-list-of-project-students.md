@@ -18,7 +18,7 @@ I've updated my roster of project students (appears below the divide): 116 stude
   <li>Thuan Ta</li>
 </ul>
 Details would be welcome…
-<table class="center">
+<table class="centered">
 <tr>
 <td>Fall 2002</td>
 <td>Jacob Tseng</td>

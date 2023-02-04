@@ -5,7 +5,7 @@ original: swc
 title: Who Are You?
 ---
 <p>We asked participants in this year's workshops to tell us a bit about themselves. So far, 121 have done so, and their responses are summarized below.</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td colspan="2" align="center"><strong>Age</strong></td>
@@ -103,7 +103,7 @@ title: Who Are You?
 </table>
 <p>Platforms sum to more than 100% because multiple responses were allowed; I was surprised by the number of Linux responses, since we only ever had a handful of Linux laptops in the room, but looking at the responses in more detail, it appears that many of the people who use Mac laptops use Linux servers for production runs.</p>
 <p>We had a bit more trouble classifying respondents' by discipline, but our best guess is:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td align="right">11:</td>

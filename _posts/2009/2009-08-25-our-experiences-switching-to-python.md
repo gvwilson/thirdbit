@@ -7,7 +7,8 @@ In response to a question about what it's been like switching to Python as a fir
 
 And in related news, we're compiling errata and solutions to even-numbered exercises for a fresh printing of <em><a href="http://pragprog.com/titles/gwpy/practical-programming">Practical Programming</a></em>. We're pleased with how well it's doing; in particular, we've been pleasantly surprised by the number of inquiries we've had from people who are home schooling. If you have questions, suggestions, or experiences to share, we'd love to hear from you.
 
-<hr />The switch to Python was quite smooth, except for the following items:
+<hr>
+The switch to Python was quite smooth, except for the following items:
 <ul>
   <li>We decided to write a textbook because we didn't think we could live with the options at the time.</li>
   <li>We decided to use Mark Guzdial's excellent multimedia approach, but ended up almost completely rewriting his media module to use standard Python instead of Jython and had many issues with his development environment.  Mark had a proof of concept that we worked from, but it used Java naming conventions and since it was designed and written by undergrads it needed a lot of cleaning up.  You can find installation instructions for all of the packages that we use at <a href="http://www.cdf.utoronto.ca/~pgries/pybook/"></a>. A team of about 4 people worked roughly 1 day a week throughout the summer in 2007 to put together the lectures, assignments, labs, and tests, and we've been refining that since then.</li>
@@ -20,7 +21,7 @@ We love most of Python, especially the clean, readable, minimal syntax.  However
   <li>Default values for parameters are created once.  Students (and some instructors) hate this.</li>
   <li>Simple classes are harder to teach than in Java.  Also, "self" confuses a large subset of the students.  Since dictionaries are so accessible they do whatever they can to avoid using and understanding classes.</li>
   <li>Global scope is hard to explain: it's actually module scope and not global, and in the three examples below there are different behaviours; the last example in particular really confuses students. They do all of these things naturally, so we can't prevent them getting confused.
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td valign="top">

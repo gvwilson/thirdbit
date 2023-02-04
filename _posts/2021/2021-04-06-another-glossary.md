@@ -6,7 +6,7 @@ year: 2021
 
 <p>It's late and the words are stuck, so here's a list of the terms defined in the second book I'm working on:</p>
 
-<table>
+<table class="centered">
 <tr><td>90-9-1 rule</td><td>active bystander</td><td>active listening</td></tr>
 <tr><td>actor</td><td>actual result (of test)</td><td>agile development</td></tr>
 <tr><td>ally</td><td>alpha geek</td><td>already invented here syndrome</td></tr>

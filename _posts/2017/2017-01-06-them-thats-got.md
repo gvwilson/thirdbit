@@ -14,7 +14,7 @@ year: 2017
   but take a look at where attendees are coming from:
 </p>
 
-<table>
+<table class="centered">
 <tr> <td>University of California, Berkeley</td> <td align="right">10</td> </tr>
 <tr> <td>New York University</td> <td align="right">8</td> </tr>
 <tr> <td>University of Washington</td> <td align="right">7</td> </tr>

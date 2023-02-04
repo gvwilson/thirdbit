@@ -49,28 +49,26 @@ original: swc
   just as learning how to play a twelve-bar blues
   will let pretty much anyone sit in with the local bar band.
 </p>
-<em>
-  <p>
-    Note 1:
-    much of my thinking about improvisation
-    in music, programming, and teaching
-    was shaped by Ted Gioia's thought-provoking book
-    <a href="http://www.amazon.com/The-Imperfect-Art-Reflections-Portable/dp/0195063287/">The Imperfect Art</a>.
-  </p>
-  <p>
-    Note 2:
-    several of the people who reviewed this post on GitHub had comments too good not to share:
-  </p>
-  <ul>
-    <li>
-      "You don't have to strive to be Jimi Hendrix,
-      but if nothing else if you can at least master a few chords you can play in a punk band and still rock."
-    </li>
-    <li>
-      "I see inspired instructors burning their laptops on stage at the end of the git lesson…"
-    </li>
-    <li>
-      "I see fire marshals :-) How 'bout just inspired instructors typing behind their backs?"</li>
-    <li>
-  </ul>
-</em>
+<p>
+  Note 1:
+  much of my thinking about improvisation
+  in music, programming, and teaching
+  was shaped by Ted Gioia's thought-provoking book
+  <a href="http://www.amazon.com/The-Imperfect-Art-Reflections-Portable/dp/0195063287/">The Imperfect Art</a>.
+</p>
+<p>
+  Note 2:
+  several of the people who reviewed this post on GitHub had comments too good not to share:
+</p>
+<ul>
+  <li>
+    "You don't have to strive to be Jimi Hendrix,
+    but if nothing else if you can at least master a few chords you can play in a punk band and still rock."
+  </li>
+  <li>
+    "I see inspired instructors burning their laptops on stage at the end of the git lesson…"
+  </li>
+  <li>
+    "I see fire marshals :-) How 'bout just inspired instructors typing behind their backs?"</li>
+  <li>
+</ul>

@@ -5,7 +5,7 @@ original: swc
 title: We're Going to Be Busy
 ---
 <p>We're going to be busy–and these are just the ones we have confirmed.</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>Sep 13-14, 2012:</td>

@@ -5,7 +5,7 @@ original: swc
 title: Survey Update
 ---
 <p>Here's an update on responses to the <a href="http://www.surveymonkey.com/s/FM9YV9C">survey</a> I posted a couple of weeks ago. 172 people have responded at this point; it's encouraging that priorities are relatively stable as numbers increase.</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td colspan="3"><strong>Education</strong></td>

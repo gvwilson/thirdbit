@@ -26,7 +26,7 @@ year: 2009
 <img src="{{'/files/2009/11/6.png' | relative_url}}" width="488" height="288" class="centered">
 
 <strong>Individual Chapters</strong>
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td></td>

@@ -25,7 +25,7 @@ In short,
 it describes
 *situations in which teachers use what they learn from and about students as they learn it*.
 
-<table>
+<table class="centered">
   <tr>
     <th>Passive Teaching</th>
     <th>Active Teaching</th>

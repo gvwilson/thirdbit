@@ -38,7 +38,7 @@ I've also now started on a Python version;
 the topics and some key ideas are listed below,
 and I'd be [grateful for feedback](mailto:{{site.author.email}}) on what else you'd like to see included.
 
-<table>
+<table class="centered">
   <tr>
     <th>Tool</th>
     <th>Key Ideas</th>

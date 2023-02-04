@@ -5,7 +5,7 @@ original: swc
 title: By The Numbers
 ---
 <p>So what next for Software Carpentry? One possibility is to turn the scripts for the episodes, the examples, and the diagrams in the slides into a book. Let's crunch some numbers to see how feasible that is:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>Topics</td>

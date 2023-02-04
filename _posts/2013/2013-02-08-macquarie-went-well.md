@@ -5,7 +5,7 @@ year: 2013
 original: swc
 ---
 <p>Last week's bootcamp at Macquarie University went well: I fumbled the introduction to Python on Friday morning (which I haven't done in a long time), but with a bit of help from <a href="https://github.com/ebressert">Eli Bressert</a> and great crew of helpers, we got the afternoon back on track.  Here's the usual good vs. bad feedback:</p>
-<table>
+<table class="centered">
   <tr>
     <td><strong>Good</strong></td>
     <td><strong>Bad</strong></td>

@@ -4,7 +4,7 @@ date: 2009-03-01 16:02:55
 year: 2009
 ---
 The cheapest kind of social graph is just a count of how many people in the room you know.  Going through the <a href="http://democamp.eventbrite.com/">Eventbite page for DemoCamp 19</a>, I came up with:
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td>Current/former project students:</td>

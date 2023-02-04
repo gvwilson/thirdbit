@@ -4,8 +4,7 @@ date: 2017-05-31 05:00:00
 year: 2017
 ---
 
-> A new edition of this book is now available at <http://teachtogether.tech>,
-> and printed copies can be purchased at <http://www.lulu.com/shop/greg-wilson/teaching-tech-together/paperback/product-23720755.html>.
+> A new edition of this book is now available at <http://teachtogether.tech>.
 
 Over the past few months,
 I've been running a one-day introduction to teaching based on the Carpentries' instructor training course

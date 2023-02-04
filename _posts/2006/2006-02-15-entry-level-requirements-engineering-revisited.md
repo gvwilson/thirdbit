@@ -24,7 +24,7 @@ but most of them are just glorified to-do list managers.  Some integrate with Mi
 
 Which, in my experience, just doesn't happen—at least, not in the domains I'm most interested in:
 <div align="center">
-<table>
+<table class="centered">
 <tr>
 <td></td>
 <td><strong>School</strong></td>

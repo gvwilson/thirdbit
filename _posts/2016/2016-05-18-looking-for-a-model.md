@@ -27,7 +27,7 @@ original: swc
   it looks like two thirds of people who take part actually qualify as instructors
   within four months of finishing the class:
 </p>
-<table>
+<table class="centered">
   <tr>
     <td>Date</td>
     <td>Site(s)</td>

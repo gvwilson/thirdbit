@@ -16,7 +16,7 @@ right, on white, are to be replaced with something
 project-specific.  I will post again in two weeks once students'
 vision statements are on the web.
 <h2>The Problem</h2>
-<table class="center">
+<table class="centered">
 <tr>
 <td valign="top" bgcolor="#f0f0f0" style="width: 25%">The problem of</td>
 <td valign="top" style="width: 75%"><em>developing software in a predictable and reliable manner</em></td>
@@ -42,7 +42,7 @@ kinds of defects they find in their work.</em></td>
 </tr>
 </table>
 <h2>The Solution</h2>
-<table class="center">
+<table class="centered">
 <tr>
 <td valign="top" bgcolor="#f0f0f0" style="width: 25%">For</td>
 <td valign="top" style="width: 75%"><em>software development teams</em></td>

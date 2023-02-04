@@ -5,7 +5,7 @@ original: swc
 title: Wrapping Up MBARI Workshop
 ---
 <p><a href="http://www.mbari.org/staff/haddock/">Steve "Jellyfish" Haddock</a> and <a href="http://third-bit.com">Greg Wilson</a> taught a two-day workshop at <a href="http://www.mbari.org/">MBARI</a> this week. It seemed to go well: feedback is below.</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td><strong>Good</strong></td>

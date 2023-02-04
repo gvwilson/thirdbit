@@ -12,7 +12,7 @@ title: Ratings Revised
 <li>There's a noticeable mismatch between things we think people should know (like version control) and things people think they want (building desktop GUIs).</li>
 </ol>
 <p>Conclusion: more data &ne; more insight.</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>2.53</td>

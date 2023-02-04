@@ -14,7 +14,7 @@ Unfortunately, most scientists are never taught how to use computers effectively
 It doesn't have to be like this. Since 1997, the <a href="http://www.software-carpentry.org">Software Carpentry</a> course has taught scientists the concepts and skills they need to use computers more effectively in their research. This training has consistently had an immediate impact on participants' productivity by making their current work less onerous, and new kinds of work feasible. The materials [1], which are available under an open license, have been viewed by over 140,000 people from 70 countries, and have been used at Caltech, the Space Telescope Science Institute, and other universities, labs, and companies around the world.
 
 Despite its popularity, some of the material is now out of date (and users' expectations are higher than they used to be). Our goal is therefore to upgrade the course to bring this training to the widest possible audience. Using lessons learned in the July 2009 offering sponsored by MITACS [2] and Cybera [3], we will create a self-paced version of this material that students can use independently, while also offering them somewhere to turn when they have questions or problems. As described in [4], the revised course will cover the thinks that working scientists most need to know [5], including:
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td>

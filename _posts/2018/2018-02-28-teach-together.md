@@ -12,10 +12,7 @@ workshop on Saturday, April 7 in Toronto to teach people how to figure
 out what their community actually needs, how to rally and organize
 volunteers, and how to build relationships with local institutions and
 like-minded groups. For more information, and to apply to attend,
-please go to:
-
-<http://teachtogether.tech/>
-
+please go to <http://teachtogether.tech/>
 and please share this announcement with anyone who might be
 interested.
 

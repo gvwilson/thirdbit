@@ -6,7 +6,7 @@ title: Our Indiana U Workshop Went Well
 ---
 <p>Our two-day bootcamp at Indiana U. on March 7 and 8 went well–while less than half of the people who registered actually showed up (more on that in a moment), everyone who did attend the two days seemed to get a lot out of it. Special thanks are due to Prof. Andy Lumsdaine (host), Jennifer Richards (organizer), and Ben Martin, Randy Heiland, Joe Cottam, Mike Hansen, DongInn Kim, and Purdue's own Jeff Shelton for helping out.</p>
 <p>At the end, we asked everyone to give us one good and one bad thing about the bootcamp:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td><strong>Good</strong></td>

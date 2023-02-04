@@ -11,7 +11,7 @@ title: That's, Uh, Pretty Ambitious
 <li>All problem sets are due one week after being assigned; their due dates aren't marked to avoid cluttering the table.  Based on past experience, each problem set is 4-6 hours of work.</li>
 <li>There is no midterm or final examination.</li>
 </ol>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <th>Date</th>

@@ -3,7 +3,7 @@ title: "How Do Actual Software Engineers Perceive Software Engineering Research?
 date: 2011-05-20 10:48:25
 year: 2011
 ---
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td valign="top"><a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321"><img src="{{'/files/2011/05/cover.jpg' | relative_url}}" width="263" height="345" class="centered"></a></td>

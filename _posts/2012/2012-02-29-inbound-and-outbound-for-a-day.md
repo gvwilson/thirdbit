@@ -4,7 +4,7 @@ date: 2012-02-29 18:39:12
 year: 2012
 ---
 My contribution to the #OpenInbox meme summarizing one day's worth of email–in my case, February 28, 2012. There were 103 inbound (⇒), and 80 outbound (⇐).
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>⇒</td>

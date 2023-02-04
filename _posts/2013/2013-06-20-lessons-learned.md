@@ -5,7 +5,7 @@ year: 2013
 original: swc
 ---
 <p>With contributions from:</p>
-<table>
+<table class="centered">
   <tr>
     <td valign="top">
       <ul>
@@ -118,7 +118,7 @@ original: swc
 <p>More importantly, feedback from participants is strongly positive. While there are continuing problems with software setup and the speed of instruction (discussed below), 80-90% of attendees typically report that they were glad they attended and would recommend the bootcamps to colleagues.</p>
 <h2 id="what-we-do">3. What We Do</h2>
 <p>So what does a typical bootcamp look like?</p>
-<table>
+<table class="centered">
   <tr>
     <td valign="top"><em>Day 1 a.m.</em>:</td>
     <td valign="top">Introduction to Unix shell. We show participants a dozen basic commands, but the real aim is to introduce them to the ideas of combining single-purpose tools (via pipes and filters) to achieve desired effects, and to getting the computer to repeat things (via command completion, history, and loops) so that people don't have to.</td>

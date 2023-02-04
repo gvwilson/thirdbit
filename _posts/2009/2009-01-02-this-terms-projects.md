@@ -6,7 +6,7 @@ year: 2009
 We ran 21 projects in last winter's consulting course.  This term, the 25 listed below are being done by 20 grad students and 19 undergrads.  I'll post status reports here, but if you'd like to know more, you're always welcome to join us in the <a href="http://maps.google.ca/maps?ie=UTF8&amp;oe=utf-8&amp;client=firefox-a&amp;q=red+room+spadina+toronto&amp;fb=1&amp;cid=0,0,13103919213404743015&amp;ll=43.658092,-79.399781&amp;spn=0.008166,0.01826&amp;z=16&amp;iwloc=A">Red Room</a> at 444 Spadina Ave (half a block south of College, on the west side) on Monday afternoons from 1:00-3:00.
 
 <em>Note: my page generation script was over-eager; the OLM and FROG projects originally listed here are actually being run by Professors <a href="http://www.cs.toronto.edu/~reid">Karen Reid</a> and <a href="http://www.cs.toronto.edu/~dianeh">Diane Horton</a> respectively.</em>
-<table>
+<table class="centered">
 <tr>
 <td>Anatomical Animation</td>
 <td>Hanieh Bastani</td>

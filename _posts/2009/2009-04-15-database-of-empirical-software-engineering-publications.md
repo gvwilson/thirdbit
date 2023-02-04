@@ -11,14 +11,14 @@ This thesis introduced TDD, SCRUM, and pair programming to a developer team in P
 
 C. Mann, An Exploratory Longitudinal Case Study of Agile Methods in a Small Software Company, master's thesis, Dept. Computer Science, Univ. of Calgary, 2004.
 
-Type of Study: Case Study
-Methodology: TDD
-Duration: 8 months
-Company: PetroSleuth
-Type of project: Windows-based oil and gas project management with
-statistical modeling elements
-# of developers: 4-7
-project life: legacy
-Team Language Experience: Experienced
-Language: C#
-Collocation: Collocated
+- Type of Study: Case Study
+- Methodology: TDD
+- Duration: 8 months
+- Company: PetroSleuth
+- Type of project: Windows-based oil and gas project management with
+- statistical modeling elements
+- Number of developers: 4-7
+- project life: legacy
+- Team Language Experience: Experienced
+- Language: C#
+- Collocation: Collocated

@@ -23,7 +23,7 @@ and the <a href="http://www.joelonsoftware.com/articles/fog0000000043.html">Joel
 Test</a> in hand, here are the rules by which this fall's projects
 will be run:</p>
 
-<table>
+<table class="centered">
 
   <tr>
     <td align="right" valign="top">1.</td>

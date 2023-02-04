@@ -4,7 +4,7 @@ date: 2012-06-10 12:45:59
 year: 2012
 ---
 Here's a typical day:
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td><strong>Time</strong></td>

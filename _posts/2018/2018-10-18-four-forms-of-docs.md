@@ -7,7 +7,7 @@ title: "Four Forms of Documentation"
 A colleague recently pointed me at [this article by Daniele Procida](https://www.divio.com/blog/documentation/)
 that divides software documentation into four categories:
 
-<table>
+<table class="centered">
   <tr>
     <th></th>
     <th>Most useful when studying</th>
@@ -29,7 +29,7 @@ It's a useful taxonomy,
 and I've been trying to map it onto the [novice-competent-expert model](http://teachtogether.tech/en/models/).
 What I have so far is:
 
-<table>
+<table class="centered">
   <tr>
     <th></th>
     <th>Trying to acquire/deepen knowledge</th>

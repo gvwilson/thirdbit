@@ -10,7 +10,7 @@ She's right: the "rules" of English spelling aren't fair. Neither, unfortunately
 i.e., that using '*' on the integer 4 with the string containing digit '5' is the integer 20, because the string is automatically converted to a number. What would you guess the result of:
 <pre>4 + "5"</pre>
 to be? I asked four people in my office yesterday; three said "the number 9", and one said, "It's not allowed" (clearly recognizing that it must be a trick question). No-one said, "The string '45'," but that's the answer in JavaScript.  Just for comparison, here are the answers in two other languages:
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td></td>

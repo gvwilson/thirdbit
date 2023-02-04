@@ -79,7 +79,7 @@ title: Revising the Curriculum
 </li>
 </ol>
 <p>If we use a two-day workshop to start, and follow up over six weeks with one lesson per week, I think we can cover:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td></td>

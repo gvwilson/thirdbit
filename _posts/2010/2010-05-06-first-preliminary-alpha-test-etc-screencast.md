@@ -5,7 +5,7 @@ original: swc
 title: "Day 4: First Preliminary Alpha Test Etc. Screencast"
 ---
 <p>Jon Pipitone and I have created a screencast showing the basics (and I really mean "the basics") of pulling data out of a database using SQL.  It took about 4.5 hours in total to produce 7 minutes of video:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>Writing script:</td>

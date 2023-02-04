@@ -34,7 +34,7 @@ Now, you have the same room full of scientists, and you want to find out how muc
   <li>Expert-level understanding.</li>
 </ol>
 and the terms themselves are:
-<table>
+<table class="centered">
 <tr>
 <td>
 <ul>

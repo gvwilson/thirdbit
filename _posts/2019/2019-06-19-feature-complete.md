@@ -8,7 +8,7 @@ title: "Feature Complete"
 I have to revise the diagrams and do one last pass on grammar,
 but I think the content is in close-to-finished form:
 
-<table>
+<table class="centered">
 <tr><td></td><td></td><td align="right">Start</td><td align="right">(Length)</td></tr>
 <tr><td>Chapter 1</td><td>Introduction</td><td align="right">1</td><td align="right">(6)</td></tr>
 <tr><td>Chapter 2</td><td>Mental Models and Formative Assessment</td><td align="right">7</td><td align="right">(10)</td></tr>

@@ -5,7 +5,7 @@ original: swc
 title: Wrapping Up in Halifax
 ---
 <p>Things went pretty well here in Halifax–thanks to the local helpers, and to Justin Ely from STScI for coming up to teach. Next stop, Scarborough!</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td><strong>Good</strong></td>

@@ -28,7 +28,7 @@ It's still a lot harder than it should be to add pictures to web pages. I know, 
 </tr>
 </tbody></table>
 Not too bad so far, but what happens when someone wants to update the image?
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td>Modern desktop WYSIWYG editor</td>

@@ -5,7 +5,7 @@ original: swc
 title: Feedback from Michigan State
 ---
 <p>Our workshop at Michigan State University this week was three days long instead of two, and included two topics (Git and the IPython notebook) that we haven't tried before.  Feedback was generally positive, but we've got lots to work on for next time as well.</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td valign="top">Good</td>

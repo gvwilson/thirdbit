@@ -8,7 +8,7 @@ I am struggling to find a readable explanation of how circular imports are handl
 in Python and JavaScript (more specifically, by the `require` function used for CommonJS modules).
 Here's a short example in Python:
 
-<table>
+<table class="centered">
   <tr>
     <th><code>a.py</code></th>
     <th></th>
@@ -52,7 +52,7 @@ R
 
 And if we change `a.py` to call `P()` *as the file is being loaded*, it still works:
 
-<table>
+<table class="centered">
   <tr>
     <th><code>a.py</code></th>
     <th></th>
@@ -115,7 +115,7 @@ AttributeError: module 'b' has no attribute 'Q'
 Node is more consistent.
 Suppose I have two JavaScript files `a.js` and `b.js`:
 
-<table>
+<table class="centered">
   <tr>
     <th><code>a.js</code></th>
     <th></th>

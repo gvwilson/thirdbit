@@ -38,7 +38,7 @@ If you know of other simple ways to measure the evenness of contributorship,
 or if you can explain why measuring by contributions and by lines gives such different answers,
 I'd enjoy hearing from you.
 
-<table>
+<table class="centered">
   <tr>
     <th>Project</th>
     <th>Gini (Commits)</th>

@@ -5,7 +5,7 @@ year: 2013
 original: swc
 ---
 <p>We just wrapped up a two-day workshop at the Lawrence Berkeley National Laboratory, and another is due to start tomorrow.  Here's what worked and what didn't from the first one:</p>
-<table>
+<table class="centered">
   <tr>
     <td><strong>Good</strong></td>
     <td><strong>Bad</strong></td>

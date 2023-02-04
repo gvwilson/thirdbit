@@ -200,7 +200,7 @@ title: Teaching Security to Scientists
 </ul>
 </li>
 </ul>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <th>Risk</th>

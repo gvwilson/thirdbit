@@ -8,7 +8,7 @@ The <a href="http://en.wikipedia.org/wiki/Gini_coefficient"><em>Gini coefficient
 The results are shown below.  The first number shows the Gini coefficient taking into account only those people who actually contributed lines of code to the final solution, while the second shows the value when people who didn't contribute (or whose contributions didn't survive in the final submission) are given a score of 0.  By comparison, the Gini coefficient for incomes in highly unequal countries like Brazil is about 0.6, while Canada's is about 0.32.
 
 I'm the first to acknowledge that this isn't an accurate assessment of how equally work was divided among team members.  For example, one member of one team did a "reformat all" in Eclipse shortly before the submission, so almost all of their code appears to have been written by him.  Similarly, people in other teams used pair programming (which means two people did the work, but only one gets the commit credit), while the written part of the assignment (which was submitted as a PDF) wasn't included in this count at all.  But I still the numbers are interesting and revealing: twenty-to-one line count ratios are common, and a few are fifty-to-one.
-<table>
+<table class="centered">
 <tr>
 <td>0.00 / 0.50</td>
 </tr>

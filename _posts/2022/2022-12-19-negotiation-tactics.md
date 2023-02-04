@@ -14,7 +14,7 @@ classified as shown below:
 
 If you have any to contribute, please [get in touch](mailto:{{site.author.email}}).
 
-<table>
+<table class="centered">
   <tr>
     <th></th><th>Ineffective</th><th>Effective</th>
   </tr>

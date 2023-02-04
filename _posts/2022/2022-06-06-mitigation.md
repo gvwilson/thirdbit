@@ -6,7 +6,7 @@ year: 2022
 
 Here's a conventional view of roles within a small-to-medium tech company:
 
-<table>
+<table class="centered">
   <tr>
     <th>Department</th>
     <th>Also Called</th>
@@ -46,7 +46,7 @@ Here's a conventional view of roles within a small-to-medium tech company:
 
 Here's another way to look at them:
 
-<table>
+<table class="centered">
   <tr>
     <th>Department</th>
     <th>What Risk It Addresses</th>

@@ -6,7 +6,7 @@ year: 2008
 One of the ways DrProject improves on <a href="http://trac.edgewall.org">Trac</a> is role-based access control. A role is a set of capabilities, such as WIKI_VIEW or TICKET_EDIT, and users' relationships to projects are represented by triples of the form (user, project, role). It makes administration a lot easier, and once Qiyu Zhu's <a href="http://qzdrproject.wordpress.com/">web-based role editor</a> comes online, it'll be easier still.
 
 But nothing worth having comes without some kind of price. Suppose a portal administrator decides to delete a role—what should happen to people who actually have that role with respect to one or more projects? For example, if the MEMBERSHIP table looks like this:
-<table>
+<table class="centered">
 <tr>
 <td colspan="3" align="center">MEMBERSHIP</td>
 </tr>

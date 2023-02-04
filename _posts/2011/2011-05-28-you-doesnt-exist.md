@@ -39,5 +39,5 @@ year: 2011
 <p>
   I think that making something where nothing existed before
   is the greatest adventure there is. If you'd like to give it a try,
-  please <a href="mailto:{{site.author.email}} in touch</a>.
+  please <a href="mailto:{{site.author.email}}">get in touch</a>.
 </p>

@@ -50,7 +50,7 @@ to make their underlying assumptions about change more explicit.
 different approaches people have taken to making change happen.
 The authors break this down by *aspect of system to be changed* and *intended outcome*:</p>
 
-<table>
+<table class="centered">
  <tr>
  <th colspan="2"></th>
  <th colspan="2" align="center">Intended Outcome</th>

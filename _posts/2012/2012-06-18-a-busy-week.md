@@ -5,7 +5,7 @@ original: swc
 title: A Busy Week (And Schwag!)
 ---
 <p>We have a busy week coming up:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>Monday:</td>

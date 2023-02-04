@@ -48,7 +48,7 @@ rmd_files:
 
 people would read and edit something like this:
 
-<table class="center">
+<table class="centered">
 <tr>	<td> book_filename </td>	<td> "r4de" </td>		<td> </td>		<td> </td></tr>
 <tr>	<td> language </td>		<td> </td>			<td> </td>		<td> </td></tr>
 <tr>	<td>  </td>			<td> label </td>		<td> </td>		<td> </td></tr>

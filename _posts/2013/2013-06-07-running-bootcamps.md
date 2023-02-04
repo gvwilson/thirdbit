@@ -8,7 +8,7 @@ original: swc
   It's been eighteen months since we started running two-day bootcamps.
   We've grown rapidly:
 </p>
-<table>
+<table class="centered">
   <tr>
     <th>Cumulative Number of Bootcamps</th>
     <th>Cumulative Enrolment</th>
@@ -28,7 +28,7 @@ original: swc
   we've experimented with several different ways to fund travel costs,
   and several different ways of charging attendees:
 </p>
-<table>
+<table class="centered">
   <tr>
     <th><strong>Funding Model</strong></th>
     <th><strong>Charge Model</strong></th>
@@ -57,7 +57,7 @@ original: swc
 <p>
   Here's how often we've used each combination:
 </p>
-<table>
+<table class="centered">
   <tr>
     <th></th>
     <th>Free</th>

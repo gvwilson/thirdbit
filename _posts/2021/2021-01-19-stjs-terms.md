@@ -17,7 +17,7 @@ Instead,
 what I want for lesson maintenance is something that will tell me when I've broken something up
 by adding, cutting, or moving material.
 
-<table>
+<table class="centered">
   <tr><td colspan="3"><strong>Systems Programming</strong></td></tr>
   <tr><td>anonymous function</td>	<td>asynchronous</td>	<td>Boolean</td></tr>
   <tr><td>callback</td>	<td>cognitive load</td>	<td>command-line argument</td></tr>

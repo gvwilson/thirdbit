@@ -5,7 +5,7 @@ original: swc
 title: An Updated List of Upcoming Workshops
 ---
 <p>Here's an update to our upcoming workshop list:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td><strong>Venue</strong></td>

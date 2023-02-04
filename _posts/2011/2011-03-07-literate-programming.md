@@ -53,7 +53,7 @@ title: Literate Programming
 &lt;/table&gt;
 </pre>
 <p>to get something that anyone else in the 1990s (never mind the 21st Century) would create with one menu selection:</p>
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td colspan="2" rowspan="2" align="center">Result</td>

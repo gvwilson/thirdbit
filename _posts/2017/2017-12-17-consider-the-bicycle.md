@@ -8,7 +8,7 @@ favorite: true
 Consider the bicycle–more specifically,
 the De Rosa SK Pininfarina:
 
-![De Rosa]({{ '/files/2017/12/derosa.jpg' | relative_url }})
+<img alt="De Rosa" src="{{ '/files/2017/12/derosa.jpg' | relative_url }}" class="centered">
 
 I think it's beautiful,
 but I wouldn't call it art,

@@ -12,7 +12,7 @@ Their analysis is worth re-reading at least a couple of times,
 but this table (reproduced from the paper)
 is an excellent overview:
 
-<table>
+<table class="centered">
 <tr>
   <th valign="top"></th>
   <th valign="top">Mathematical tradition</th>

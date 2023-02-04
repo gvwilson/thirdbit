@@ -8,7 +8,7 @@ year: 2016
   most Canadians instantly recognize the name of their murderer.
   I'd rather remember <a href="http://en.wikipedia.org/wiki/%C3%89cole_Polytechnique_massacre">theirs</a>:
 </p>
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td valign="top">

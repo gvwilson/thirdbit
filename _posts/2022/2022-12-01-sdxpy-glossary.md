@@ -10,7 +10,7 @@ In that spirit,
 here's the glossary for the upcoming Python version of *Software Design by Example*.
 (The glossary for the JavaScript version is [also online]({{'/sdxjs/glossary/' | relative_url}}).)
 
-<table>
+<table class="centered">
   <tr>
     <td>absolute error</td>
     <td>abstract class</td>

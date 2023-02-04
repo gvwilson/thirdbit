@@ -55,7 +55,7 @@ Participants would be selected based on:
 
 So how much would this cost?
 
-<table>
+<table class="centered">
 <tr> <th>Item</th> <th>Each</th> <th>Number</th> <th>Total</th> </tr>
 <tr> <td>Venue (per day)</td> <td>$1,500</td> <td>3</td> <td>$4,500</td> </tr>
 <tr> <td>Instructors</td> <td>$8,000</td> <td>6</td> <td>$48,000</td> </tr>

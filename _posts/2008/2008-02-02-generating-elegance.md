@@ -16,7 +16,7 @@ The cleaned-up version is to have one table that stores all enumerated values:
   <li>value (string): integer value of that element (for sorting and cross-referencing)</li>
 </ul>
 which gives:
-<table class="center">
+<table class="centered">
 <tr>
 <th>whatfor</th>
 <th>name</th>

@@ -23,7 +23,7 @@ original: swc
 <pre> def word_lengths(words):
     return [____ for ____ in ____]</pre>
 <p>I'd like to be able to put exercises like this into the IPython Notebook. In particular, I'd like a two-by-two display:</p>
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td align="center">code with blanks

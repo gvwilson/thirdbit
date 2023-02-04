@@ -5,7 +5,7 @@ original: swc
 title: The Big Picture
 ---
 <p>I'm trying to be systematic about re-designing the core curriculum of Software Carpentry. So far, I've identified 11 common questions:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td id="Q01">Q01:</td>
@@ -54,7 +54,7 @@ title: The Big Picture
 </tbody>
 </table>
 <p>whose answers depend on three fundamental principles:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td id="F01">F01:</td>
@@ -71,7 +71,7 @@ title: The Big Picture
 </tbody>
 </table>
 <p>These break down into 11 more specific principles:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td id="P01">P01:</td>
@@ -120,7 +120,7 @@ title: The Big Picture
 </tbody>
 </table>
 <p>which in turn translate into 11 recommendations:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td id="R01">R01:</td>

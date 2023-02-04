@@ -6,7 +6,7 @@ year: 2006
 The best thing about writing <cite>Data Crunching</cite> wasn't that it let me work out some ideas for material that's now in the Software Carpentry course (although that was nice).  The best part was that it forced me to finally learn a little SQL.  For reasons I've now forgotten, I developed a dislike for databases when I was an undergrad.  As a result, I was one of the few developers I knew who couldn't do anything more than "select * from table".
 
 But I still don't know very much, which is why I'm asking for help. I've inherited an <a href="http://www.sqlite.org">SQLite</a> database showing who's been involved in projects of various kinds.  One of the tables looks like this:
-<table class="center">
+<table class="centered">
 <tr>
 <td align="center" colspan="4"><strong>People</strong></td>
 </tr>
@@ -42,7 +42,7 @@ But I still don't know very much, which is why I'm asking for help. I've inherit
 </tr>
 </table>
 There's a lot of redundancy in the "Affiliation" entries (only about 1200 different values, out of more than 7000 records).  I'd therefore like to split the table in two:
-<table class="center">
+<table class="centered">
 <tr>
 <td align="center" colspan="4"><strong>People</strong></td>
 </tr>
@@ -78,7 +78,7 @@ There's a lot of redundancy in the "Affiliation" entries (only about 1200 differ
 </tr>
 </table>
 and:
-<table class="center">
+<table class="centered">
 <tr>
 <td align="center" colspan="2"><strong>Institutions</strong></td>
 </tr>
@@ -119,7 +119,7 @@ but SQLite rejects that.  I've tried several variations without success; if anyo
 <pre>insert into People values(456, "Darwin", "London");</pre>
 <pre>insert into People values(789, "Turing", "Cambridge");</pre>
 <pre>select * from People;</pre>
-<table class="center">
+<table class="centered">
 <tr>
 <td>123</td>
 <td>Newton</td>
@@ -141,7 +141,7 @@ but SQLite rejects that.  I've tried several variations without success; if anyo
 <pre>insert into Places values(0, "Cambridge");</pre>
 <pre>insert into Places values(1, "London");</pre>
 <pre>select * from Places;</pre>
-<table class="center">
+<table class="centered">
 <tr>
 <td>0</td>
 <td>Cambridge</td>
@@ -155,7 +155,7 @@ but SQLite rejects that.  I've tried several variations without success; if anyo
 <pre>create table Result(Ident integer not null, Surname text not null, AffilId integer not null);</pre>
 <pre>insert into Result select Ident, Surname, 999 from People;</pre>
 <pre>select * from Result;</pre>
-<table class="center">
+<table class="centered">
 <tr>
 <td>123</td>
 <td>Newton</td>
@@ -176,7 +176,7 @@ but SQLite rejects that.  I've tried several variations without success; if anyo
 <pre>select People.Surname, Places.Ident from Places, People, Result</pre>
 <pre>where (People.Ident = Result.Ident)</pre>
 <pre>and (People.Affil = Places.Name);</pre>
-<table class="center">
+<table class="centered">
 <tr>
 <td>Newton</td>
 <td>0</td>
@@ -196,7 +196,7 @@ but SQLite rejects that.  I've tried several variations without success; if anyo
 <pre>where (People.Ident = Result.Ident)</pre>
 <pre>and (People.Affil = Places.Name) );</pre>
 <pre>select * from Result;</pre>
-<table class="center">
+<table class="centered">
 <tr>
 <td>123</td>
 <td>Newton</td>

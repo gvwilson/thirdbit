@@ -37,7 +37,7 @@ They interact naively with other team members when:
   <li>Attending meetings</li>
 </ul>
 Beliefs of new developers:
-<table>
+<table class="centered">
 <tr>
 <td valign="top">Perfectionism</td>
 <td valign="top">

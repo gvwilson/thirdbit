@@ -45,8 +45,6 @@ and evolving as fast as they can;
 if you want to work with them to make the world a better place,
 please give them a shout.
 
-<figure class="center">
-  <img alt="Bridge School" src="{{'/files/2017/09/bridge-logo.svg' | relative_url}}" class="centered">
-  <br>
-  <img alt="Mechanics Institute Toronto" src="{{'/files/2017/09/mechanics-institute.jpg' | relative_url}}" class="centered">
-</div>
+<img alt="Bridge School" src="{{'/files/2017/09/bridge-logo.svg' | relative_url}}" class="centered" width="50%">
+
+<img alt="Mechanics Institute Toronto" src="{{'/files/2017/09/mechanics-institute.jpg' | relative_url}}" class="centered" width="50%">

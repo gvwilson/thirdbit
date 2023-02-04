@@ -4,7 +4,7 @@ date: 2017-06-12 04:00:00
 year: 2017
 ---
 
-<table>
+<table class="centered">
   <tr><td>Edward Sotomayor Jr.</td><td>    </td><td>Stanley Almodovar III</td><td>    </td><td>Luis Omar Ocasio-Capo</td></tr>
   <tr><td>Juan Ramon Guerroro</td><td></td><td>Eric Ivan Ortiz-Rivera</td><td></td><td>Peter O. Gonzalez-Cruz</td></tr>
   <tr><td>Luis S. Vielma</td><td></td><td>Kimberly Morris</td><td></td><td>Eddie Jamoldroy Justice</td></tr>

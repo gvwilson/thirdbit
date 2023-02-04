@@ -4,7 +4,7 @@ date: 2008-08-12 13:49:34
 year: 2008
 ---
 I finally got a summary of graduate students feedback on the consulting course I ran this past winter.  It was pretty good overall—on a scale of 1-5, the responses were:
-<table>
+<table class="centered">
 <tr>
 <td>How much background is required to successfully complete this course?</td>
 <td>None</td>

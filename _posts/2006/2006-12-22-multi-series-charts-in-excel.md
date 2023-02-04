@@ -6,7 +6,7 @@ year: 2006
 I am increasingly fascinated with, and frustrated by, spreadsheets.  Like most computer scientists, I have mostly ignored them, thinking that they were toys for non-programmers.  The more I play with Excel for managing grading and other tasks, though, the more impressed I am.
 
 But now I have a problem.  I have three columns of data: the first is a date, the second is a project name, and the third is a count of lines of code.  I want a time-series chart that shows the size of each project over time.  The samples are irregularly spaced, and different projects are sampled at different times.  Damned if I can figure out how to get Excel to do it.  If anyone knows…
-<table>
+<table class="centered">
 <tr>
 <td>2005-11-08</td>
 <td>Red</td>

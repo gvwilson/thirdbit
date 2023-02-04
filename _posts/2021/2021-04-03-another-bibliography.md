@@ -1380,7 +1380,7 @@ Letian Zhang:
 
 <p>Sources:</p>
 
-<table>
+<table class="centered">
   <tbody>
     <tr><td>ASE</td><td>Automated Software Engineering</td></tr>
     <tr><td>CACM</td><td><em>Communications of the ACM</em></td></tr>

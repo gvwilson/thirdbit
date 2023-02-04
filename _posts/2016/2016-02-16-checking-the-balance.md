@@ -30,7 +30,7 @@ original: swc
   broken down by gender:
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Qualified Instructors by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>136</td><td>355</td><td>3</td><td>26</td></tr>
@@ -46,7 +46,7 @@ original: swc
   won't fetch stuff from that far back.)
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Repository Contributors by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>19</td><td>79</td><td>-</td><td>14</td></tr>
@@ -60,7 +60,7 @@ original: swc
   rather than number of contributors:
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Repository Contributions by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>69</td><td>532</td><td>-</td><td>28</td></tr>
@@ -71,7 +71,7 @@ original: swc
   This allows us to calculate contributions per person:
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Repository Contributions per Person by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>3.6</td><td>6.7</td><td>2</td><td>-</td></tr>
@@ -83,7 +83,7 @@ original: swc
   Our next table shows the number of people who taught workshops in 2015:
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Workshop Instructors by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>89</td><td>193</td><td>121</td><td>3</td></tr>
@@ -95,7 +95,7 @@ original: swc
   (e.g., if I taught three times, I count as three points in the male column):
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Workshops Taught by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>182</td><td>406</td><td>163</td><td>4</td></tr>
@@ -106,7 +106,7 @@ original: swc
   and this one shows the average number of workshops taught by each instructor:
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Repository Contributions per Person by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>2.0</td><td>2.1</td><td>1.3</td><td>1.3</td></tr>
@@ -118,7 +118,7 @@ original: swc
   for the three months Nov 2015 - Jan 2016:
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Email Contributors by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>22</td><td>95</td><td>-</td><td>-</td></tr>
@@ -129,7 +129,7 @@ original: swc
   of messages sent:
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Email Messages by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>73</td><td>277</td><td>-</td><td>-</td></tr>
@@ -140,7 +140,7 @@ original: swc
   and of messages per person:
 </p>
 
-<table>
+<table class="centered">
   <tr><th colspan="5">Email Messages per Person by Gender</th></tr>
   <tr><th></th><th>Female</th><th>Male</th><th>Other</th><th>Unknown</th></tr>
   <tr><th>Number</th><td>3.3</td><td>2.9</td><td>-</td><td>-</td></tr>

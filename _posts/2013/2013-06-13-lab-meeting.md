@@ -9,7 +9,7 @@ original: swc
   Software Carpentry had its first online lab meeting since October 2012.
   In attendance were:
 </p>
-<table>
+<table class="centered">
   <tr>
     <td valign="top">
       <ul>

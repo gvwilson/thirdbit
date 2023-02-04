@@ -12,7 +12,7 @@ An introduction to agile development methods appropriate for medium-sized teams 
 <em>Rationale</em>: CSC301 will introduce students to a complete, coherent set of development practices that are widely used in industry, and also appropriate for graduate-level research.  It will be appropriate for students in specializations other than Software Engineering (such as Information Systems and HCI).
 
 <em>Structure</em>: The course will be built around a term-long project, which will be done in two-week iterations by teams of 3-4 students using agile development methods.  An example of such a project is adding internationalization and accessibility support to DrProject; another is building a simple educational game for the <a href="http://www.laptop.org">OLPC</a>.
-<table class="center">
+<table class="centered">
 <tr>
 <td><strong>Topic</strong></td>
 <td align="center"><strong>Lecture Hours</strong></td>
@@ -101,7 +101,7 @@ An introduction to the theory and practice of large-scale software system design
 <em>Rationale</em>: This course will introduce students to the problems encountered in building and maintaining large systems with large, distributed teams.  We hope (but cannot require) that students will take CSC301 and CSC302 in consecutive terms, so that instructors will be able to minimize repetition and maintain momentum.
 
 <em>Structure</em>: The course will be built around a term-long project, which will be done in two iterations by groups of 6-8. Unlike CSC301, this course's project will start from an existing medium-sized application.  In each iteration, teams will go through "inception", "elaboration", "construction", and "transition" phases of the Rational Unified Process (RUP).  As in <a href="http://www.artsandscience.utoronto.ca/ofr/calendar/crs_csc.htm#CSC408H1">CSC408</a>, teams will swap projects midway through the course.
-<table class="center">
+<table class="centered">
 <tr>
 <td><strong>Topic</strong></td>
 <td align="center"><strong>Lecture Hours</strong></td>

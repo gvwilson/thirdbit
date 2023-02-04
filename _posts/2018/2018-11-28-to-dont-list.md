@@ -13,7 +13,7 @@ I started keeping a to-don't list as well—a list of things
 that I'm not going to work on because there isn't time to do everything.
 The first few lines look like this:
 
-<table>
+<table class="centered">
   <tr>
     <th>I will not work on:</th>
     <th>until I finish:</th>

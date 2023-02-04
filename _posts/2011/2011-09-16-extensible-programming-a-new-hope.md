@@ -15,13 +15,13 @@ else:
     else:
         z == 3</pre>
 I can write
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td valign="center">z</td>
 <td valign="center">=</td>
 <td>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td colspan="2"></td>
@@ -50,7 +50,7 @@ I can write
 </tbody>
 </table>
 Actually, scrap that: what I want is to be able to embed a full-blown spreadsheet in amongst other statements so that I can write:
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td colspan="3">def func(a, b):</td>
@@ -69,11 +69,11 @@ Actually, scrap that: what I want is to be able to embed a full-blown spreadshee
 <td></td>
 <td>z =</td>
 <td>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td colspan="2"></td>

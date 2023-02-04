@@ -14,68 +14,66 @@ original: swc
   I've reproduced it on the left,
   and summarized my view of how open science is doing by those same measures on the right:
 </p>
-<div class="center">
-  <table>
-    <tr>
-      <td valign="top">
-	<table>
-	  <tr>
-	    <th colspan="4" align="center">Open Web</th>
-	  </tr>
-	  <tr>
-	    <td align="center" bgcolor="#FF4444">User Choice<br>&amp; Control</td>
-	    <td align="center" bgcolor="#44FF44">Social<br>Activity</td>
-	    <td align="center" bgcolor="#FF4444">Economic<br>Activity</td>
-	    <td rowspan="6" valign="middle" align="center" bgcolor="#FF4444">Trust</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#FFFF44">Diversity of Services</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#FFFF44">Innovation</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#44FF44">Content Freedom</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#FFFF44">Interoperability</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#44FF44">Access</td>
-	  </tr>
-	</table>
-      </td>
-      <td valign="top">
-	<table>
-	  <tr>
-	    <th colspan="4" align="center">Open Science</th>
-	  </tr>
-	  <tr>
-	    <td align="center" bgcolor="#FFFF44">User Choice<br>&amp; Control</td>
-	    <td align="center" bgcolor="#44FF44">Social<br>Activity</td>
-	    <td align="center" bgcolor="#FFFF44">Economic<br>Activity</td>
-	    <td rowspan="6" valign="middle" align="center" bgcolor="#FFFF44">Trust</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#FFFF44">Diversity of Services</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#44FF44">Innovation</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#FF4444">Content Freedom</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#FF4444">Interoperability</td>
-	  </tr>
-	  <tr>
-	    <td colspan="3" align="center" bgcolor="#FFFF44">Access</td>
-	  </tr>
-	</table>
-      </td>
-    </tr>
-  </table>
-</div>
+<table class="centered">
+  <tr>
+    <td valign="top">
+      <table>
+        <tr>
+          <th colspan="4" align="center">Open Web</th>
+        </tr>
+        <tr>
+          <td align="center" bgcolor="#FF4444">User Choice<br>&amp; Control</td>
+          <td align="center" bgcolor="#44FF44">Social<br>Activity</td>
+          <td align="center" bgcolor="#FF4444">Economic<br>Activity</td>
+          <td rowspan="6" valign="middle" align="center" bgcolor="#FF4444">Trust</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#FFFF44">Diversity of Services</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#FFFF44">Innovation</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#44FF44">Content Freedom</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#FFFF44">Interoperability</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#44FF44">Access</td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top">
+      <table>
+        <tr>
+          <th colspan="4" align="center">Open Science</th>
+        </tr>
+        <tr>
+          <td align="center" bgcolor="#FFFF44">User Choice<br>&amp; Control</td>
+          <td align="center" bgcolor="#44FF44">Social<br>Activity</td>
+          <td align="center" bgcolor="#FFFF44">Economic<br>Activity</td>
+          <td rowspan="6" valign="middle" align="center" bgcolor="#FFFF44">Trust</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#FFFF44">Diversity of Services</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#44FF44">Innovation</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#FF4444">Content Freedom</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#FF4444">Interoperability</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center" bgcolor="#FFFF44">Access</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 <p>
   Here are Jensen's analysis
   (based on tons of data)
@@ -83,7 +81,7 @@ original: swc
   (which are mostly opinion)
   from the bottom up:
 </p>
-<table>
+<table class="centered">
   <tr>
     <th>Area</th>
     <th>Open Web</th>

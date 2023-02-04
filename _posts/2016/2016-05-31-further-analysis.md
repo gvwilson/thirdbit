@@ -9,11 +9,11 @@ Byron Smith has done another analysis
 using survival statistics.
 The three key figures are:
 
-![Days between certification and first teach](http://blog.byronjsmith.com/static/images/swc-survival-taught-first-hist.png)
+<img alt="Days between certification and first teach" src="http://blog.byronjsmith.com/static/images/swc-survival-taught-first-hist.png" class="centered">
 
-![Survival curve of days to teaching for the first time](http://blog.byronjsmith.com/static/images/swc-survival-taught-first-curve.png)
+<img alt="Survival curve of days to teaching for the first time" src="http://blog.byronjsmith.com/static/images/swc-survival-taught-first-curve.png" class="centered">
 
-![Survival curve of days to teaching a second time after having taught once](http://blog.byronjsmith.com/static/images/swc-survival-taught-second-curve.png)
+<img alt="Survival curve of days to teaching a second time after having taught once" src="http://blog.byronjsmith.com/static/images/swc-survival-taught-second-curve.png" class="centered">
 
 Long story short,
 about half of instructors teach within 200 days of certifying,

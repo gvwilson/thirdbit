@@ -14,7 +14,7 @@ We're still thinking about the first (tag-directed proximitization in an unstruc
 <img alt="Figure 1" src="{{'/files/2006/11/tickets.png' | relative_url}}" class="centered">
 
 What if stakeholders had another view, in which they could organize tickets like this:
-<table>
+<table class="centered">
 <tr>
 <td colspan="3"><strong>Tagging System</strong></td>
 </tr>

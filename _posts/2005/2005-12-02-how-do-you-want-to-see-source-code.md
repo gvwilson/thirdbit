@@ -6,10 +6,10 @@ year: 2005
 I ran a post-mortem for this term's run of the <a href="https://carpentries.org/">Software Carpentry</a> course on Monday.  Students gave me a lot of useful feedback, which I'll post as soon as I find my notes ;-).  One comment that's got me thinking was about the way sample programs are presented in the notes.  Right now, I include the finished code in a monochrome fixed-width font.  Adding syntax highlighting won't be difficult; the more interesting suggestion was to write the code "live", while talking aloud.  The main benefit would be that it would prevent the instructor from racing by something that students need time to absorb.  It would also force (or at least encourage) the instructor to think aloud about what the code was doing, how it was structured, etc.
 
 The problem is that I want the notes to be usable on their own, without an instructor, both on-line and when printed.  That suggests some Powerpoint-style animation trickery to reveal successively larger versions of the code sample one after the other, accompanied by comments.  I'm envisioning something like this:
-<table class="center">
+<table class="centered">
 <tr>
 <td colspan="3">
-<table>
+<table class="centered">
 <tr>
 <td><code> </code></td>
 </tr>
@@ -41,10 +41,10 @@ The problem is that I want the notes to be usable on their own, without an instr
 </tr>
 </table>
 becoming this:
-<table class="center">
+<table class="centered">
 <tr>
 <td colspan="3">
-<table>
+<table class="centered">
 <tr>
 <td><code><font color="blue">def</font> invert(d):</code></td>
 </tr>
@@ -76,10 +76,10 @@ becoming this:
 </tr>
 </table>
 then this:
-<table class="center">
+<table class="centered">
 <tr>
 <td colspan="3">
-<table>
+<table class="centered">
 <tr>
 <td><code><font color="blue">def</font> invert(d):</code></td>
 </tr>
@@ -111,10 +111,10 @@ then this:
 </tr>
 </table>
 and then this:
-<table class="center">
+<table class="centered">
 <tr>
 <td colspan="3">
-<table>
+<table class="centered">
 <tr>
 <td><code><font color="blue">def</font> invert(d):</code></td>
 </tr>

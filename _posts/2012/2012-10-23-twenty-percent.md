@@ -7,7 +7,7 @@ favorite: true
 ---
 
 <p>I realized a couple of days ago that I'd never blogged about what Software Carpentry needs to accomplish in order to change the practice of science fundamentally and permanently. In a nutshell, we need to convert a fifth of scientists to our way of thinking. Once we do that, the odds are better than 50-50 that every time someone sends a paper out for review, at least one reviewer will ask hard questions about how the computational work was done. I get that number by assuming:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>Number of Reviewers</td>

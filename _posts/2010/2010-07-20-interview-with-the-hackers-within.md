@@ -9,7 +9,7 @@ title: Interview with The Hackers Within
 <p><a href="http://hackerwithin.org/">The Hacker Within</a> is a student-run, skill-sharing, interest group dedicated to scientific software development at the University of Wisconsin-Madison. We typically meet every week or two discuss programming and computation. The meetings are also a good place to ask questions, share ideas, and meet others who use computation in their research.</p>
 <p><em>Tell us a bit about the software your group uses.</em></p>
 <p>The software our group uses includes:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td valign="top"><strong>Languages</strong><br />

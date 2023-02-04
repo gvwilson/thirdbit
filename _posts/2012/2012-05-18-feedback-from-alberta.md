@@ -5,7 +5,7 @@ original: swc
 title: Feedback from Alberta
 ---
 <p>Our two-day workshop at the University of Alberta wound up a couple of hours ago.  We had quite a few no-shows this time (which was annoying, given how many people were waitlisted), but those who did come seemed to get a lot out of it:</p>
-<table>
+<table class="centered">
 <tr>
 <td><strong>Good</strong></td>
 <td><strong>Bad</strong></td>

@@ -5,11 +5,10 @@ year: 2009
 ---
 Not unexpected, but still disappointing:
 
-<em>TO: Prof. GV Wilson
+TO: Prof. GV Wilson<br>
 RE: NSERC 2009 Competition Results
-</em>
 
-<em>Title: Software process improvement in scientific computing
+Title: Software process improvement in scientific computing<br>
 Program: Discovery-Individual
 
-NSERC has released the results of the 2009 Grants Competition to University Research Offices. I regret to inform you that your application was unsuccessful.</em>
+NSERC has released the results of the 2009 Grants Competition to University Research Offices. I regret to inform you that your application was unsuccessful.

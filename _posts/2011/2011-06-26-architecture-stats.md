@@ -17,7 +17,7 @@ In related news, translations are now under way in:
   <li>Ukrainian</li>
 </ul>
 and we have the following chapters lined up for Volume 2:
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>Apache Derby</td>

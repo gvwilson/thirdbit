@@ -3,7 +3,7 @@ title: "Summer Indulgences"
 date: 2008-05-04 19:37:08
 year: 2008
 ---
-<table>
+<table class="centered">
 <tr>
 <td><img src="{{'/files/2008/05/supernatural.png' | relative_url}}" alt="Supernatural" class="centered"></td>
 <td><img src="{{'/files/2008/05/eureka1.jpg' | relative_url}}" alt="Eureka" class="centered"></td>

@@ -6,7 +6,7 @@ year: 2005
 I'm teaching a cut-down version of Software Carpentry at the <a href="http://www.softwareeng.org/">IASSE</a> in two and a half weeks. I'll have students half days for the weeks of January 16 and 23, and full days for the week of February 6.  That's only 20 lectures (rather than 26), so the question is, what to cut?  The answer has wider implications, since this will be the version of the course I take to the <a href="http://www.aaas.org/meetings/Annual_Meeting/02_PE/PE_06_Career_Workshops.shtml#EssentialSoftware">AAAS workshop</a>.
 
 My plan is:
-<table>
+<table class="centered">
 <tr>
 <td valign="top">Jan</td>
 <td valign="top">16</td>

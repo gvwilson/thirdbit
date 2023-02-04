@@ -1,5 +1,5 @@
 ---
-title: "80% Reducation In Carbon? No, In Media Coverage"
+title: "80% Reduction In Carbon? No, In Media Coverage"
 date: 2010-03-15 14:23:06
 year: 2010
 ---

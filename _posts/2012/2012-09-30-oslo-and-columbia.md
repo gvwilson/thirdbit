@@ -5,7 +5,7 @@ original: swc
 title: Oslo and Columbia
 ---
 <p>Here's some feedback from participants in our Oslo workshop:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td valign="top"><strong>Good</strong>
@@ -43,7 +43,7 @@ title: Oslo and Columbia
 </tbody>
 </table>
 <p>And from our Columbia University workshop in New York City (see also <a href="http://columbiadatascience.wordpress.com/2012/10/01/on-language-religion-and-next-gen-data-scientists/">this great writeup</a> from the course instructor, Dr. Rachel Schutt):</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td valign="top"><strong>Good</strong>

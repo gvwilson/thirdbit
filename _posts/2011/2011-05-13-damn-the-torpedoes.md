@@ -5,7 +5,7 @@ original: swc
 title: Damn the Torpedoes (but I could use some help navigating)
 ---
 <p>Despite my own calculations (which were optimistic to begin with, and are more so now that I have a new job), I'm going to try to turn Software Carpentry into a book.  Here's what's I'm planning to include, and its presesnt status; I would be <em>very</em> grateful for feedback, especially from alumni, about what doesn't need to be here, and what's missing.  I think I'm still overshooting the knowledge and needs of far too many people; if you think so too, please let me know.</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>Status codes:</td>

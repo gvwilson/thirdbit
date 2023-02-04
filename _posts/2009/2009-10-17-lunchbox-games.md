@@ -6,7 +6,7 @@ year: 2009
 <p>In 1976, a trainee teacher doing a rotation at my high school introduced several of us to the world of tabletop wargames. He was into World War II tank battles, but we were mostly science fiction fans, so it wasn't long before we discovered <em>Dungeons &amp; Dragons</em>. We played at lunch hour, and, being small-town boys in our mid-teens, skipped all the role-playing nonsense and went straight for the "good stuff": traps, battles, spells, and gold.</p>
 <p><img alt="Dungeons &amp; Dragons" src="{{'/files/2009/10/dnd-basic.jpg' | relative_url}}" alt="Dungeons &amp; Dragons" width="154" height="199" class="centered"></p>
 <p>The same store in Victoria that sold D&amp;D stuff (there was only one at the time) also stocked a few SF games. We played <em>Star Fleet Battles</em> (a game of ship-to-ship combat) and <em>Stellar Conquest</em> (a turn-based empire-building game) for a while, but then we discovered Metagaming's Microgame series, and never looked back. For half the cost of a record, we could get a paper-sized game that took about 45 minutes to play—perfect for lunch breaks.</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td><img alt="Ogre" src="{{'/files/2009/10/ogre.jpg' | relative_url}}" alt="Ogre" width="87" height="150" class="centered"></td>

@@ -10,7 +10,7 @@ original: swc
   A lot of people have finished training since then,
   so please say hello to:
 </p>
-<table>
+<table class="centered">
   <tr>
     <td>Harriet Alexander</td>
     <td>Ewan Barr</td>

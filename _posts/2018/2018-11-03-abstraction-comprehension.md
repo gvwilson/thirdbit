@@ -19,11 +19,11 @@ More experienced programmers are more capable at both ends of the curve,
 but that's not the only thing that changes.
 If a novice's comfort curve looks like this:
 
-![Novice Comfort Curve]({{ '/files/2018/11/comprehension-01.svg' | relative_url }})
+<img alt="Novice Comfort Curve" src="{{ '/files/2018/11/comprehension-01.svg' | relative_url }}" class="centered">
 
 then an expert's comfort curve looks like this:
 
-![Expert Comfort Curve]({{ '/files/2018/11/comprehension-02.svg' | relative_url }})
+<img alt="Expert Comfort Curve" src="{{ '/files/2018/11/comprehension-02.svg' | relative_url }}" class="centered">
 
 Experts don't just understand more at all levels of abstraction;
 their *preferred* level has also shifted
@@ -37,7 +37,7 @@ the software that is quickest for a novice to comprehend
 will almost certainly be different from the software that
 an expert can understand most quickly:
 
-![Comprehension Time Curves]({{ '/files/2018/11/comprehension-03.svg' | relative_url }})
+<img alt="Comprehension Time Curves" src="{{ '/files/2018/11/comprehension-03.svg' | relative_url }}" class="centered">
 
 This brings us back,
 as so many things do,

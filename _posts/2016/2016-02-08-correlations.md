@@ -43,7 +43,7 @@ original: swc
   So, here is my  attempt to make some pretty correlation plots using the instructor training data.
 </p>
 <p>
-  <img src="{{'/files/2016/02/instructor-training-stats-1.png' | relative_url}}" alt="More Correlations" class="centered">
+  <img src="{{'/files/2016/02/instructor-training-stats-1.png' | relative_url}}" alt="More Correlations" class="centered" width="80%">
 </p>
 <h3>Plot Description and Interpretation</h3>
 <h4>A1 &amp; A2. Not all learners but most badged instructors will teach</h4>

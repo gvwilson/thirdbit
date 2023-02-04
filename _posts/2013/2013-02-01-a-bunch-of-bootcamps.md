@@ -6,7 +6,7 @@ original: swc
 ---
 <p>We've had a busy month: we've run bootcamps at the Max Planck Institute in T&uuml;bingen, the Technische Universiteit M&uuml;nchen, Mozilla's office in Toronto, McGill University, Columbia University (a double-header that's still running today), and the universities of Waterloo, Chicago, and British Columbia.  We've also booked a bunch more, some of which are now open for registration:</p>
 
-<table>
+<table class="centered">
   <thead>
     <tr>
       <th>Site</th>
@@ -115,7 +115,7 @@ original: swc
 
 <p>And we're hoping to finalize arrangements with the following sites real soon now:</p>
 
-<table>
+<table class="centered">
   <tr>
     <td>
       <ul>

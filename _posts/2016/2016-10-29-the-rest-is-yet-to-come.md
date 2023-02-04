@@ -30,15 +30,15 @@ particularly on something you've been working on for years.
 When it happens,
 I tell myself the same thing as [Ben Orlin](https://mathwithbaddrawings.com/2016/10/19/what-i-tell-myself-after-a-bad-lesson/):
 
-![I finish a lesson with a sigh. Disaster, almost from the start.]({{'/files/2016/10/bad-lesson-01.jpg' | relative_url}})
+<img alt="I finish a lesson with a sigh. Disaster, almost from the start." src="{{'/files/2016/10/bad-lesson-01.jpg' | relative_url}}" class="centered">
 
-![I pitched it wrong.  Served up an undercooked activity.  Lost my temper.  Wound up snapping at the class, as if my sloppy plans were their secret doing.]({{'/files/2016/10/bad-lesson-02.jpg' | relative_url}})
+<img alt="I pitched it wrong.  Served up an undercooked activity.  Lost my temper.  Wound up snapping at the class, as if my sloppy plans were their secret doing." src="{{'/files/2016/10/bad-lesson-02.jpg' | relative_url}}" class="centered">
 
-![I've squandered an hour in each of 25 childhoods. Made a muddle of something that I care about. In short: done a bad job.]({{'/files/2016/10/bad-lesson-03.jpg' | relative_url}})
+<img alt="I've squandered an hour in each of 25 childhoods. Made a muddle of something that I care about. In short: done a bad job." src="{{'/files/2016/10/bad-lesson-03.jpg' | relative_url}}" class="centered">
 
-![And then I remember: the students I have yet to teach far outnumber the students I taught today.]({{'/files/2016/10/bad-lesson-04.jpg' | relative_url}})
+<img alt="And then I remember: the students I have yet to teach far outnumber the students I taught today." src="{{'/files/2016/10/bad-lesson-04.jpg' | relative_url}}" class="centered">
 
-![My growth, my learning - these matter too.  They are instrumental, because I am an instrument of my students' learning - and that means honing myself as I can.]({{'/files/2016/10/bad-lesson-05.jpg' | relative_url}})
+<img alt="My growth, my learning - these matter too.  They are instrumental, because I am an instrument of my students' learning - and that means honing myself as I can." src="{{'/files/2016/10/bad-lesson-05.jpg' | relative_url}}" class="centered">
 
 (For more of Ben Orlin's wonderful work,
 see [Math With Bad Drawings](https://mathwithbaddrawings.com/).)

@@ -4,7 +4,7 @@ date: 2009-02-02 09:19:50
 year: 2009
 ---
 I just got a flyer for the Spring 2009 <a href="http://stpcon.com/">Software Test &amp; Performance</a> conference to be held in San Mateo from March 31 to April 2 this year.  The <a href="http://stpcon.com/conferencefaculty.html">faculty</a> include:
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td>Paul Anderson</td>

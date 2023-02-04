@@ -5,7 +5,7 @@ original: swc
 title: Feedback from the University of British Columbia
 ---
 <p>Aaaand that's a wrap in Vancouver, ladies and gentlemen: our workshop at the University of British Columbia seems to have gone well:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td><strong>Good</strong></td>

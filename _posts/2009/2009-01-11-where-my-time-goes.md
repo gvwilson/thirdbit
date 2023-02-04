@@ -4,7 +4,7 @@ date: 2009-01-11 17:08:24
 year: 2009
 ---
 Last week was the first of a new term.  The table below shows where my hours went; it comes to 41 hours, which is under-counting somewhere, but the proportions are accurate.
-<table class="center">
+<table class="centered">
 <tbody>
 <tr>
 <td>Departmental:</td>

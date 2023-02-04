@@ -16,7 +16,7 @@ Our objective is to *rate* someone's skill (i.e., figure out what it is)
 and then *report* it (i.e., communicate our rating in a way other people will correctly understand).
 A common way to do this is to list the skills and levels:
 
-<table>
+<table class="centered">
   <tr>
     <th></th>
     <th colspan="5" align="center">Understanding</th>

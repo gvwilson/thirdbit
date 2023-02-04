@@ -13,7 +13,7 @@ Feedback would be greatly appreciated:
 you can [mail me](mailto:{{site.author.email}})
 or file issues in [the book's GitHub repository](https://github.com/software-tools-in-javascript/stjs/).
 
-<table>
+<table class="centered">
   <tr>
     <th>Title</th>
     <th>Pages</th>

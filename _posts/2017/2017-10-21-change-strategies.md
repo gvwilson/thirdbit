@@ -15,7 +15,7 @@ year: 2017
   trying to rotate text 90 degrees with HTML and CSS is enough to drive me back to Microsoft Word.)
 </p>
 
-<table>
+<table class="centered">
   <tr>
     <th rowspan="4" class="sideways">Aspect of System to be Changed</th>
     <th class="sideways">Individuals</th>

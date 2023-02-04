@@ -9,7 +9,7 @@ year: 2012
 I recently sat in on an online discussion with <a href="http://en.wikipedia.org/wiki/Cathy_Davidson">Cathy Davidson</a>, whose work focuses on technology, collaboration, cognition, and learning. She recently wrote a blog post titled "<a href="http://dmlcentral.net/blog/cathy-davidson/why-we-need-4th-r-reading-writing-arithmetic-algorithms">Why We Need a 4th R: Reading, wRiting, aRithmetic, algoRithms</a>", in which she says:
 <blockquote>…our world changed in April 1993 when the Mosaic 1.0 browser was released to the general public. We need new forms of education. We need to reform our learning institutions, concepts, and modes of assessment for our age… I have a basic literacy to add to the last century's 3 R's of "reading, 'riting, 'rithmetic." Let's add a 4th R: "algoRithm."</blockquote>
 I'm all in favor of that. But I'm not sure that Davidson and I mean the same thing when we say "algorithm"–in fact, I'm pretty sure we don't. Based on the slide that appears on <a href="http://openmatt.wordpress.com/2012/01/30/teaching-the-fourth-r/">this page</a>, and on comments she made in that online discussion, her definition includes:
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td valign="top"><img alt="algorithmic-thinking-cathy-davidson-004" src="{{'/files/2012/02/algorithmic-thinking-cathy-davidson-004-300x225.jpg' | relative_url}}" width="300" height="225" class="centered"></td>

@@ -28,7 +28,7 @@ title: Platforms
 <li><strong>Wiki</strong>: like Retro, but with the content in a wiki.</li>
 </ul>
 <p>So how do they stack up?</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td></td>

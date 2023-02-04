@@ -5,7 +5,7 @@ original: swc
 title: Space at Upcoming Events
 ---
 <p>Here's how registration is going for upcoming events:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>University of British Columbia</td>

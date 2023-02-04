@@ -6,9 +6,9 @@ original: swc
 ---
 <p>
   Inspired in part by Byron Smith's post
-  about trimming <our standard Python lesson,
+  about trimming our standard Python lesson,
   Christina Koch has written a post of her own about
-  <a href="http://christinalk.github.io/blog/python-prep.html">preparing to teach that lesson</a>.
+  preparing to teach that lesson.
   She organizes her discussion around the motivating question that opens the lesson:
   "We have to accomplish a task (reading in data, analyzing and plotting it) by writing a program. How can we be smart about it?"
   It's a good read,
@@ -19,8 +19,8 @@ original: swc
 </p>
 <p>
   Meanwhile,
-  Pauline Barmby has also <a href="http://pbarmby.github.io/2015/08/16/in-the-shop.html">written a post</a>
-  comparing Software Carpentry to <a href="https://www.coursera.org/course/datascitoolbox">The Data Scientist's Toolbox</a>,
+  Pauline Barmby has also written a post
+  comparing Software Carpentry to "The Data Scientist's Toolbox",
   which is the first of Johns Hopkins University's data science courses.
   There are some interesting observations on both the content and the format
   (the JHU course is run online through Coursera).

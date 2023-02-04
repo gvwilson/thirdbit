@@ -15,7 +15,7 @@ original: swc
   that holds our lessons and workshop home pages
   into smaller and more manageable pieces.
 </p>
-<p><strong>The Problem</strong></p>
+<h2>The Problem</h2>
 <p>
   We face three related problems:
 </p>
@@ -61,7 +61,7 @@ original: swc
     </p>
   </li>
 </ol>
-<p><strong>The Proposal</strong></p>
+<h2>The Proposal</h2>
 <p>
   Our proposal is to divide the current content of the <code>bc</code> repository
   between several new repositories.
@@ -109,7 +109,7 @@ original: swc
   then point at rendered lessons on the Software Carpentry website
   instead of having their own (redundant) copies.
 </p>
-<p><strong>FAQ</strong></p>
+<h2>FAQ</h2>
 <dl>
   <dt>Who will certify lessons as "fit for purpose"?</dt>
   <dd>
@@ -192,7 +192,7 @@ original: swc
     and figure something else out later.
   </dd>
 </dl>
-<p><strong>Next Steps</strong></p>
+<h2>Next Steps</h2>
 <p>
   The next steps are to create a layout template for our lessons,
   then extract our current novice lessons into new repositories based on that template.
@@ -206,7 +206,7 @@ original: swc
   this will be one of the biggest changes we ever make,
   and we'd like everyone to be part of it.
 </p>
-<p><strong>Appendix: A Straw Man Lesson Template</strong></p>
+<h2>Appendix: A Straw Man Lesson Template</h2>
 <p>
   This template is guaranteed <em>not</em> to be what we eventually use,
   but we hope it will serve as a starting point for discussion.
@@ -215,150 +215,146 @@ original: swc
   rather than putting them in comments on this blog post
   so that the whole conversation is in one place.
 </p>
-<blockquote>
-  <p><strong>Overall Layout</strong></p>
-  <p>
-    Each lesson is in a directory laid out as follows:
-  </p>
-  <ol>
-    <li><code>index.md</code>: home page for lesson</li>
-    <li><code>dd-slug.md</code>: topics (where 'dd' is a sequence number and 'slug' is a mnemonic, e.g., 03-functions.md)
-      <ul>
-  <li>We'll discuss file formats (e.g., whether or not to use the IPython Notebook for the master copy of each lesson) in a separate thread.</li>
-      </ul>
-    </li>
-    <li><code>introduction.md</code>: slides for a 3-minute "why learn this?" presentation to give to learners at the start of a lesson</li>
-    <li><code>glossary.md</code>: definitions of key terms</li>
-    <li><code>reference.md</code>: cheat sheet for key commands, etc.</li>
-    <li><code>guide.md</code>: instructor's guide</li>
-    <li><code>code/</code>: sub-directory containing all code samples, which are executed from the root directory</li>
-    <li><code>data/</code>: sub-directory containing all data specific to this lesson
-      <ul>
-  <li><code>index.md</code>: describes data sets</li>
-  <li><code>filename.xyz</code>: single-file dataset</li>
-  <li><code>folder/</code>: multi-file datasets are all in their own directories</li>
-      </ul>
-    </li>
-    <li><code>img/</code>: images (including plots) used in lesson</li>
-  </ol>
-</blockquote>
-<blockquote>
-  <p><strong>Overall Index</strong></p>
-  <p>
-    The <code>index.md</code> file is structured as follows:
-  </p>
-  <pre>
-    # Lesson Title
 
-    Paragraph of introductory material.
+<h3>Overall Layout</h3>
+<p>
+  Each lesson is in a directory laid out as follows:
+</p>
+<ol>
+  <li><code>index.md</code>: home page for lesson</li>
+  <li><code>dd-slug.md</code>: topics (where 'dd' is a sequence number and 'slug' is a mnemonic, e.g., 03-functions.md)
+    <ul>
+<li>We'll discuss file formats (e.g., whether or not to use the IPython Notebook for the master copy of each lesson) in a separate thread.</li>
+    </ul>
+  </li>
+  <li><code>introduction.md</code>: slides for a 3-minute "why learn this?" presentation to give to learners at the start of a lesson</li>
+  <li><code>glossary.md</code>: definitions of key terms</li>
+  <li><code>reference.md</code>: cheat sheet for key commands, etc.</li>
+  <li><code>guide.md</code>: instructor's guide</li>
+  <li><code>code/</code>: sub-directory containing all code samples, which are executed from the root directory</li>
+  <li><code>data/</code>: sub-directory containing all data specific to this lesson
+    <ul>
+<li><code>index.md</code>: describes data sets</li>
+<li><code>filename.xyz</code>: single-file dataset</li>
+<li><code>folder/</code>: multi-file datasets are all in their own directories</li>
+    </ul>
+  </li>
+  <li><code>img/</code>: images (including plots) used in lesson</li>
+</ol>
 
-    > ## Learning Objectives
-    >
-    > * Overall objective 1
-    > * Overall objective 2
 
-    ## Topics
+<h3>Overall Index</h3>
+<p>
+  The <code>index.md</code> file is structured as follows:
+</p>
+<pre>
+  # Lesson Title
 
-    * [Topic Title](dd-slug.html)
-    * [Topic Title](dd-slug.html)
+  Paragraph of introductory material.
 
-    ## Other Resources
+  > ## Learning Objectives
+  >
+  > * Overall objective 1
+  > * Overall objective 2
 
-    * [Introduction](intro.html)
-    * [Glossary](glossary.html)
-    * [Reference Guide](reference.html)
-    * [Instructor's Guide](guide.html)
-  </pre>
-</blockquote>
-<blockquote>
-  <p><strong>Topics</strong></p>
-  <p>
-    Each topic file's name is <code>dd-slug.md</code>,
-    where 'dd' is a sequence number and 'slug' is a mnenominc,
-    e.g., '03-functions.md'.
-    Each topic should take 10-30 minutes to cover, and should be structured as follows:
-  </p>
-  <pre>
-    # Topic Title
+  ## Topics
 
-    > ## Learning Objectives {.objectives}
-    >
-    > * Learning objective 1
-    > * Learning objective 2
+  * [Topic Title](dd-slug.html)
+  * [Topic Title](dd-slug.html)
 
-    Paragraphs of introductory material.
+  ## Other Resources
 
-    ## Sub-heading
+  * [Introduction](intro.html)
+  * [Glossary](glossary.html)
+  * [Reference Guide](reference.html)
+  * [Instructor's Guide](guide.html)
+</pre>
 
-    Paragraphs of text.
+<h3>Topics</h3>
+<p>
+  Each topic file's name is <code>dd-slug.md</code>,
+  where 'dd' is a sequence number and 'slug' is a mnenominc,
+  e.g., '03-functions.md'.
+  Each topic should take 10-30 minutes to cover, and should be structured as follows:
+</p>
+<pre>
+  # Topic Title
 
-    ~~~ {.python}
-    some code:
-        to be displayed
-    ~~~
-    ~~~ {.output}
-    output
-    from
-    program
-    ~~~
+  > ## Learning Objectives {.objectives}
+  >
+  > * Learning objective 1
+  > * Learning objective 2
 
-    > ## Challenge Title {.challenge}
-    >
-    > Description of challenge
+  Paragraphs of introductory material.
 
-    ## Another Sub-heading
+  ## Sub-heading
 
-    As above…
+  Paragraphs of text.
 
-    > ## Key Points {.keypoints}
-    >
-    > * Key point 1
-    > * Key point 2
-  </pre>
-  <p>
-    Some features of this are:
-  </p>
-  <ul>
-    <li>
-      We will use Pandoc for Markdown-to-HTML conversion,
-      so we can use <code>{.attribute}</code> syntax for specifying things
-      instead of the clunky postfix syntax our current notes use
-      (because it's the only thing that Jekyll supports).
-    </li>
-    <li>
-      Rather than using &lt;div class="whatever"&gt;…&lt;/div&gt; to mark sections,
-      this uses blockquotes whose headings have specific classes:
-      the sections we need to mark are relatively small,
-      and CSS will take care of displaying these the way we want.
-    </li>
-  </ul>
-</blockquote>
-<blockquote>
-  <p><strong>Glossary</strong></p>
-  <p>
-    Each term in the glossary is laid out as a separate blockquote,
-    with the term in a heading.
-    Yes, this is odd,
-    but we want to avoid putting HTML in Markdown,
-    and we can't add identifiers to paragraphs using <code>{#whatever}</code> notation:
-    that only works on headers.
-  </p>
-  <pre>
-    # Glossary
+  ~~~ {.python}
+  some code:
+      to be displayed
+  ~~~
+  ~~~ {.output}
+  output
+  from
+  program
+  ~~~
 
-    > ## Term {#some-anchor}
-    > The definition.
-    > See also: [some word](#local-anchor)
-  </pre>
-</blockquote>
-<blockquote>
-  <p><strong>Introductory Slides</strong></p>
-  <p>
-    Every lesson must come with a short slide deck (2-3 minutes)
-    that the instructor can use to explain to learners what the subject is,
-    how knowing it will help learners,
-    and what's going to be covered.
-    Slides are written in Markdown,
-    and compiled into HTML using reveal.js.
-  </p>
-</blockquote>
+  > ## Challenge Title {.challenge}
+  >
+  > Description of challenge
+
+  ## Another Sub-heading
+
+  As above…
+
+  > ## Key Points {.keypoints}
+  >
+  > * Key point 1
+  > * Key point 2
+</pre>
+<p>
+  Some features of this are:
+</p>
+<ul>
+  <li>
+    We will use Pandoc for Markdown-to-HTML conversion,
+    so we can use <code>{.attribute}</code> syntax for specifying things
+    instead of the clunky postfix syntax our current notes use
+    (because it's the only thing that Jekyll supports).
+  </li>
+  <li>
+    Rather than using &lt;div class="whatever"&gt;…&lt;/div&gt; to mark sections,
+    this uses blockquotes whose headings have specific classes:
+    the sections we need to mark are relatively small,
+    and CSS will take care of displaying these the way we want.
+  </li>
+</ul>
+
+<h3>Glossary</h3>
+<p>
+  Each term in the glossary is laid out as a separate blockquote,
+  with the term in a heading.
+  Yes, this is odd,
+  but we want to avoid putting HTML in Markdown,
+  and we can't add identifiers to paragraphs using <code>{#whatever}</code> notation:
+  that only works on headers.
+</p>
+<pre>
+  # Glossary
+
+  > ## Term {#some-anchor}
+  > The definition.
+  > See also: [some word](#local-anchor)
+</pre>
+
+<h3>Introductory Slides</h3>
+<p>
+  Every lesson must come with a short slide deck (2-3 minutes)
+  that the instructor can use to explain to learners what the subject is,
+  how knowing it will help learners,
+  and what's going to be covered.
+  Slides are written in Markdown,
+  and compiled into HTML using reveal.js.
+</p>

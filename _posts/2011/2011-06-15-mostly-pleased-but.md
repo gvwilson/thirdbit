@@ -4,7 +4,7 @@ date: 2011-06-15 15:58:53
 year: 2011
 ---
 We have started recruiting for the second volume of <em>The Architecture of Open Source Applications</em>, and while I'm mostly pleased with how it's going, there's one glaring problem.  Here's how the three collections I've edited in the past five years have broken down:
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <th>Title</th>

@@ -29,7 +29,7 @@ original: swc
   </p>
 </blockquote>
 <p>
-  <img src="{{'/files/2015/06/Bio2.jpg' | relative_url}}" class="centered">
+  <img src="{{'/files/2015/06/Bio2.jpg' | relative_url}}" class="centered" width="100%">
 </p>
 <p>
   This is why we teach what we teach:

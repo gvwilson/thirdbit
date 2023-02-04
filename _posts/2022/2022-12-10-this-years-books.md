@@ -7,7 +7,7 @@ year: 2022
 In no particular order,
 here are some books that I enjoyed this year:
 
-<table>
+<table class="centered">
   <tr>
     <td><img width="150px" src="{{ '/files/2022/age-of-ash.jpg' | relative_url }}" alt="Cover of Daniel Abrahams: Age of Ash"></td>
     <td>Daniel Abrahams: <a href="https://www.goodreads.com/book/show/58340712-age-of-ash">Age of Ash</a></td>

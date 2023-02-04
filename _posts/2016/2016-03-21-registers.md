@@ -9,25 +9,25 @@ year: 2016
 </p>
 <ol>
   <li>
-    <em>Intimate</em>: used with very close friends, family members, and romantic partners,
+    <em>Intimate:</em> used with very close friends, family members, and romantic partners,
     it relies on a significant amount of shared history.
   </li>
   <li>
-    <em>Casual</em>: used with people one meets frequently in unstressful contexts.
+    <em>Casual:</em> used with people one meets frequently in unstressful contexts.
     Word choice is general or colloquial,
     and it also relies on shared history.
   </li>
   <li>
-    <em>Consultative</em>: a more formal way of speaking commonly used in teaching
+    <em>Consultative:</em> a more formal way of speaking commonly used in teaching
     or when talking with authority figures.
   </li>
   <li>
-    <em>Formal</em>: more often written than spoken,
+    <em>Formal:</em> more often written than spoken,
     it is more strictly grammatical,
     and is used in public speeches, business presentations, and so on.
   </li>
   <li>
-    <em>Ritualized</em>:
+    <em>Ritualized:</em>
     including wedding vows,
     oaths of office,
     and other speech acts in which the words don't change.

@@ -9,7 +9,7 @@ title: Graph Layout, Models vs. Views, and Computational Thinking
 <p>Storing my graph as an image also makes it hard to collaborate.  I can put the image in a version control repository, but if Grace edits her working copy while I'm editing mine, how do we merge our changes?  It seems strange to me that image diff-and-merge tools don't exist for Subversion, Mercurial, and other systems, but that's a yak I'm not going to shave today.</p>
 <p>Option #2: use an object-based drawing tool like Visio (or a reasonably modern PowerPoint).  This lets me group things, and links will stay attached as I move things around, but I still can't collaborate.  Switching to OpenOffice or Inkscape doesn't help: yes, they can save things as XML instead of in a binary format, but existing diff and merge tools work don't understand the structure of that XML, never mind its semantics, so they report differences at the wrong level.  It's as if my diff tool was working at the bitwise level, and reporting this:</p>
 <blockquote>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>01101101</td>
@@ -26,7 +26,7 @@ title: Graph Layout, Models vs. Views, and Computational Thinking
 </blockquote>
 <p>instead of:</p>
 <blockquote>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>m</td>

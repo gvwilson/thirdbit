@@ -52,7 +52,7 @@ for i in range(len(overall)):
     print '%10d %10d %10.1f %10d %10.1f %10.1f' % \
           (i, overall[i], pct_o, individual[i], pct_i, pct_d)</pre>
 <p>Its output looks like this:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>diff</td>

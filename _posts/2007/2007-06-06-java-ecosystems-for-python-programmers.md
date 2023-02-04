@@ -12,7 +12,7 @@ I know I want things like version control, an IDE, unit tests and logging; but I
 There are myriad books on the Java programming language proper, but I'm having a tough time finding anything that says: "If you're going to build Java software, here are some popular/pragmatic tools that most people use because they like building quality code and they don't like wasting their own time."
 
 I've spoken to a few Java hackers and here's what I've come up with so far (thanks Bill, Sean, and Greg).  I'd be interested in hearing what else <em>you</em> use.
-<table>
+<table class="centered">
 <tr>
 <td>Version control</td>
 <td>Subversion (included for completeness—I already use version control)</td>

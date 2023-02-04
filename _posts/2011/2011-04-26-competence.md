@@ -20,7 +20,7 @@ year: 2011
 
 <p>I'd like to find out what knowledge programmers think they acquire at each of these five stages.  My first guess is in the table shown below; what else do you think should be there?  And what shouldn't, or is in the wrong place?  (Note that this table starts at Novice level, which is <em>not</em> the same as an absolute beginner who has seen nothing at all.  For us, a novice is someone who has done a standard first-year university "Computing 101" course, and can hack together code to (more or less) pass an assignment, but in Benner's terms, has no "life experience" of their own on which to base decisions when faced with real-world problems.)</p>
 
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td width="10%"><strong>Topic</strong></td>

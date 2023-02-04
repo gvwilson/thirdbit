@@ -3,7 +3,7 @@ title: "How I Handle Email"
 date: 2015-11-23 03:00:00
 year: 2015
 ---
-<table>
+<table class="centered">
   <tr>
     <td valign="top">These are a couple of folders in my personal mail account:</td>
     <td valign="top"><img src="{{'/files/2015/11/personal-inbox.png' | relative_url}}" class="centered"></td>

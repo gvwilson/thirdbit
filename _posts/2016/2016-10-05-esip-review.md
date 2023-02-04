@@ -23,7 +23,7 @@ that will let you add and view comments.)
 As a taste of what they're doing,
 here's a table of their stakeholders' user cases and desired outcomes:
 
-<table>
+<table class="centered">
 
 <tr>
 <th>Stakeholder</th>

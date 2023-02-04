@@ -30,7 +30,7 @@ title: Systematic Curriculum Design
 <li>web programming (by which we mean using web APIs, not providing services yourself)</li>
 </ul>
 <p>In order to figure out how well we're helping scientists, we need to map their needs onto our content. Here's what I've come up with:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td valign="top"><strong>Question</strong></td>

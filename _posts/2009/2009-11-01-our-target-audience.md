@@ -5,7 +5,7 @@ original: swc
 title: Our Target Audience
 ---
 <p>Some graduate students at the University of Toronto have asked us to run the course for them later this fall or during the winter. There's an obvious selection bias (if they were expert programmers, they wouldn't need this course), but I think they're pretty representative of scientists at their level:</p>
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td>01.</td>

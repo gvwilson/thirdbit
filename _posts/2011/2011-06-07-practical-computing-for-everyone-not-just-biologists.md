@@ -4,7 +4,7 @@ year: 2011
 original: swc
 title: Practical Computing for Everyone (not just biologists)
 ---
-<table>
+<table class="centered">
 <tbody>
 <tr>
 <td><a href="http://practicalcomputing.org/"><img src="{{'/files/2011/06/pcb.png' | relative_url}}" class="centered"></a></td>

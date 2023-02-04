@@ -1,5 +1,5 @@
 ---
-title: "Well, *I* Think the Gray Makes Me Look Distinguished"
+title: "Well, I Think the Gray Makes Me Look Distinguished"
 date: 2011-12-21 15:11:06
 year: 2011
 ---

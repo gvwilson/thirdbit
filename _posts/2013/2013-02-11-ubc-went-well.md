@@ -5,7 +5,7 @@ year: 2013
 original: swc
 ---
 <p>Ted Hart and Ethan White just wrapped up a bootcamp at the University of British Columbia, and by all accounts it went very well:</p>
-<table>
+<table class="centered">
   <tr>
     <td><strong>Good</strong></td>
     <td><strong>Bad</strong></td>

@@ -40,7 +40,7 @@ original: swc
   I wish we had something like it for different scientific disciplines,
   and I hope to borrow a lot of ideas from it as we re-work our lessons in the coming months.
 </p>
-<table>
+<table class="centered">
   <tr>
     <td><a href="http://journals.ala.org/ltr/article/view/5671">Chapter 1. Introduction</a></td>
     <td><a href="http://journals.ala.org/ltr/article/view/5671/7033">HTML</a></td>

@@ -11,44 +11,44 @@ original: swc
   and our new committee is:
 </p>
 <div class="row">
-  <div class="col-3">
+  <div class="col-3 center">
     <img src="{{'/files/swc/davis_m.jpg' | relative_url}}" alt="Matt Davis" class="centered">
     <br>
     Matt Davis
   </div>
-  <div class="col-3">
+  <div class="col-3 center">
     <img src="{{'/files/swc/chuang-howe_a.jpg' | relative_url}}" alt="Adina Howe" class="centered">
     <br>
     Adina Howe
   </div>
-  <div class="col-3">
+  <div class="col-3 center">
     <img src="{{'/files/swc/huff_k.png' | relative_url}}" alt="Katy Huff" class="centered">
     <br>
     Katy Huff
   </div>
-  <div class="col-3">
+  <div class="col-3 center">
     <img src="{{'/files/swc/lagesen_k.jpg' | relative_url}}" alt="Karin Lagesen" class="centered">
     <br>
     Karin Lagesen
   </div>
 </div>
 <div class="row">
-  <div class="col-3">
+  <div class="col-3 center">
     <img src="{{'/files/swc/pawlik_a.jpg' | relative_url}}" alt="Aleksandra Pawlik" class="centered">
     <br>
     Aleksandra Pawlik
   </div>
-  <div class="col-3">
+  <div class="col-3 center">
     <img src="{{'/files/swc/silva_raniere.jpg' | relative_url}}" alt="Raniere Silva" class="centered">
     <br>
     Raniere Silva
   </div>
-  <div class="col-3">
+  <div class="col-3 center">
     <img src="{{'/files/swc/williams_jason.jpg' | relative_url}}" alt="Jason Williams" class="centered">
     <br>
     Jason Williams
   </div>
-  <div class="col-3">
+  <div class="col-3 center">
   </div>
 </div>
 <p>

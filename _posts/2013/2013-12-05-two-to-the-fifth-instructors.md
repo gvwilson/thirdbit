@@ -10,7 +10,7 @@ original: swc
   to the Software Carpentry team:
   we look forward to working with them all in 2014 and beyond.
 </p>
-<table>
+<table class="centered">
   <tr>
     <td>
       <ul>
