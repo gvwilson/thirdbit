@@ -9,4 +9,4 @@ Flattered and grateful that the Dev Ed Book Club has chosen
 see [this page](https://dev.to/devedbookclub/devedbookclub-round-3-teaching-tech-together-4egm) for details.
 Discussions will start online on July 7, 2022.
 
-<img src="{{'/files/2022/dev-ed-book-club.svg' | relative_url}}" alt="Dev Ed Book Club logo" width="30% class="centered">
+<img src="{{'/files/2022/dev-ed-book-club.svg' | relative_url}}" alt="Dev Ed Book Club logo" width="30%" class="centered">
