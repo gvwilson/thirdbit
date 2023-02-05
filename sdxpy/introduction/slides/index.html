@@ -33,14 +33,158 @@ class: slide-title
 
 ---
 
-<h2>Testing</h2>
-<ul>
-<li>Some content</li>
-<li><span class="bib-ref">[<a class="bib-ref" href="../../bibliography/#Armstrong2013">Armstrong2013</a>]</span></li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</code></pre></div>
+
+## Background
+
+> We shape our tools, and thereafter our tools shape us.
+> <br>
+> — Marshall McLuhan
+
+-   The best way to learn design is to study examples
+-   [Brown2011, Brown2102] dissected real open source applications
+    -   Too big and too scattered
+-   [Brown2016] used small working models instead
+    -   Too many languages
+    -   Most application domains unfamiliar to most readers
+-   [Wilson2022] tried to fix both problems
+    -   One language: JavaScript
+    -   Familiar problems: the tools programmers use every day
+
+---
+
+## This Material
+
+-   Python 3
+-   (Mostly) command-line applications
+-   All less than 200 lines long
+
+<table>
+<tr><td>testing framework</td><td>interpreter</td><td>versioned file backups</td></tr>
+<tr><td>file cache</td><td>dataframe</td><td>object persistence</td></tr>
+<tr><td>binary storage</td><td>build manager</td><td>static site generator</td></tr>
+<tr><td>page layout engine</td><td>editor</td><td>web server</td></tr>
+<tr><td>package manager</td><td>regexp matcher</td><td>parsing text</td></tr>
+<tr><td>style checker</td><td>virtual machine</td><td>debugger</td></tr>
+</table>
+
+---
+
+## Who You Are
+
+-   **Aïsha** started writing Python in an undergrad geology course.
+    After spending grad school creating ever-more-complex Jupyter notebooks
+    she wants to learn how to build packages other people can use.
+-   **Rupinder** is a computer science undergrad.
+    He has learned a lot of theory,
+    and uses Git and unit testing tools in assignments,
+    but doesn't understand how they work.
+-   **Yim** teaches courses on full-stack web development and software design.
+    They are happy with the former,
+    but frustrated that books about the latter are so abstract
+    and use examples that their students can't relate to.
+
+---
+
+## What You Will Get Out of This
+
+-   This material will fill in some gaps in **Aïsha's** programming knowledge
+    and teach her some common design patterns.
+-   This material will give **Rupinder** a better understanding of his tools
+    and show him how to design new ones.
+-   This material will give **Yim** starting points for a wide variety of course assignments.
+
+---
+
+## You Should Already Know…
+
+-   How to use dictionaries, exceptions, and classes.
+    -   We assume that if you can use these,
+        you can also use lists, loops, conditionals, and functions.
+-   Create static web pages using HTML and CSS.
+-   Use Git to save and share files.
+    -   It's OK not to know the more obscure commands.
+-   Process nested lists recursively.
+    -   This is the most complicated thing we *don't* explain.
+
+---
+
+class: aside
+
+## Pedagogical Notes
+
+-   Diagrams help (most) people learn [Wilson2019]
+-   But take time to create and are a pain to maintain
+-   So these slides are mostly text for now
+
+---
+
+## Conditions
+
+-   All participants must abide by our [Code of Conduct](https://third-bit.com/sdxpy/conduct/)
+    -   Respect and politeness are mandatory
+    -   Being helpful and welcoming are strongly encouraged
+-   All code is shared under the [Creative Commons - Attribution - NonCommercial License](https://creativecommons.org/licenses/by-nc/4.0/legalcode)
+    -   You can re-use and remix, but must cite the source
+-   All written material is shared under the [Hippocratic License](https://firstdonoharm.dev/)
+    -   You can re-use as long as you don't violate human rights treaties
+-   Contributions are very welcome and will be acknowledged
+    -   Plese submit issues and pull request to [our GitHub repository](https://github.com/gvwilson/sdxpy/)
+    -   Or [email Greg Wilson](mailto:gvwilson@third-bit.com)
+
+---
+
+## Format and Expectations
+
+-   Meet on Zoom each week for an hour
+    -   Each session will run twice (09:00 and 15:00 Eastern time)
+-   Discuss on Slack between meetings
+    -   Please ask lots of questions
+    -   And answer other people's
+-   Expect to spend 2-3 hours/week doing exercises
+    -   I understand that real life will occasionally get in the way…
+    -   …but I reserve the right to move you to the next offering
+
+---
+
+## Acknowledgments
+
+-   Christian Drumm, Julia Evans, Joe Nash, Juanan Pereira, and Dave Smith for feedback
+-   Randi Cohen for being a great editor
+-   Mike, Jon, and the other Jon for many conversations
+
+---
+
+## Bibliography
+
+<dl class="bibliography">
+
+<dt id="Brown2011">Brown2011</dt>
+<dd>Amy Brown and Greg Wilson, editors.
+<em>The Architecture of Open Source Applications: Elegance, Evolution, and a Few Fearless Hacks</em>.
+Lulu, 2011, 978-1257638017.</dd>
+
+<dt id="Brown2012">Brown2012</dt>
+<dd>Amy Brown and Greg Wilson, editors.
+<em>The Architecture of Open Source Applications: Structure, Scale, and a Few More Fearless Hacks</em>.
+Lulu, 2012, 978-0201103427.</dd>
+
+<dt id="Brown2016">Brown2016</dt>
+<dd>Amy Brown and Michael DiBernardo, editors.
+<em>500 Lines or Less: Experienced Programmers Solve Interesting Problems</em>.
+Lulu, 2016, 978-1329871274.</dd>
+
+<dt id="Wilson2019">Wilson2019</dt>
+<dd>Greg Wilson.
+<em>Teaching Tech Together</em>.
+Chapman &amp; Hall/CRC Press, 2019, 978-0367352974.</dd>
+
+<dt id="Wilson2022b">Wilson2022b</dt>
+<dd>Greg Wilson.
+<em>Software Design by Example: A Tool-Based Introduction with JavaScript</em>.
+CRC Press/Taylor and Francis, 2022, 978-1032399676.</dd>
+
+</dl>
+
 
     </textarea>
     <script src="../../remark-latest.min.js"></script>
