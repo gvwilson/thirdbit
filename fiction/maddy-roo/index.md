@@ -5758,8 +5758,8 @@ Dockety turned back to the roos.
 it said.
 "It is with the other prisoners in Heck."
 
-<center>
+<div class="center">
 <em>To be continued…</em>
-</center>
+</div>
 
 </section>

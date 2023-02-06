@@ -50,8 +50,8 @@ I now believe the easiest way forward is going to be to take the photozygometer 
 
 <figure class="center">
   <img src="{{'/files/2022/laser.jpg' | relative_url}}" alt="laser" width="40%" class="centered">
-  <figcaption(not to scale)</figcaption>
-</div>
+  <figcaption>(not to scale)</figcaption>
+</figure>
 
 and use it to spallate a new diffraction grid.
 I've never done this before,
