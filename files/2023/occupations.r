@@ -7,4 +7,4 @@ plot <- read_csv("occupations.csv") %>%
   geom_bar(aes(fill=occupation), stat="identity") +
   theme_ipsum() +
   scale_fill_ipsum()
-ggsave(filename="occupations.jpg", plot=plot, width=1800, height=1000, units="px")
+ggsave(filename="occupations.jpg", plot=plot, width=1800, height=800, units="px")
