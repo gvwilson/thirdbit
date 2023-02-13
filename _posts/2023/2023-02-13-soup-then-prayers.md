@@ -28,7 +28,7 @@ I realize that my real purpose was to reassure any "real" programmer wandering p
 (and myself)
 that I was one of the faithful.
 The same was true of some of the political causes I was involved in as a student.
-Nobody was ever going to read the statements flyers we agonized over;
+Nobody was ever going to read the statements and flyers we agonized over;
 their real purpose was to provide an arena in which we could one-up each other's insight and zealotry.
 
 I haven't linked to this particular book for two reasons.
