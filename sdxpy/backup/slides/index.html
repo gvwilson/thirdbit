@@ -21,7 +21,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../../mccole.js"></script>
-  <title>Software Design in Python: Introduction</title>
+  <title>Software Design in Python: Versioned File Backups</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@ class: slide-title
   <br>
   <a href="https://third-bit.com">Greg Wilson</a>
 </p>
-<h1>Introduction</h1>
+<h1>Versioned File Backups</h1>
 <div class="bottom">
   <a href="../">chapter</a>
 </div>
@@ -44,232 +44,120 @@ class: slide-title
 
 ## Background
 
-> We shape our tools, and thereafter our tools shape us.
-> <br>
-> — Marshall McLuhan
-
--   The best way to learn design is to study examples
--   [Brown2011, Brown2102] dissected real open source applications
-    -   Too big and too scattered
--   [Brown2016] used small working models instead
-    -   Too many languages
-    -   Most application domains unfamiliar to most readers
--   [Wilson2022] tried to fix both problems
-    -   One language: JavaScript
-    -   Familiar problems: the tools programmers use every day
+-   Version control systems solve three problems:
+    -   Save work
+    -   See what we've done
+    -   Collaborate with other people
+-   Core of a modern VCS is a way to archive files that:
+    -   Stores any particular version of a file once
+    -   Records which versions of files existed at the same time
+-   Build a tool that does both
+    -   Won't create and merge branches
 
 ---
 
-## This Material
+## Hashing
 
--   Python 3
--   (Mostly) command-line applications
--   All less than 200 lines long
+-   A __hash function__ turns arbitrary data into a fixed-length string of bits
+-   Deterministic but unpredictable
+    -   The same input always produces the same output (no randomness)
+    -   But outputs indistinguishable from random numbers
+    -   Need \\(4{\times}10^{38}\\) files to have a 50% chance of __collision__
 
-<table>
-<tr><td>testing framework</td><td>interpreter</td><td>versioned file backups</td></tr>
-<tr><td>file cache</td><td>dataframe</td><td>object persistence</td></tr>
-<tr><td>binary storage</td><td>build manager</td><td>static site generator</td></tr>
-<tr><td>page layout engine</td><td>editor</td><td>web server</td></tr>
-<tr><td>package manager</td><td>regexp matcher</td><td>parsing text</td></tr>
-<tr><td>style checker</td><td>virtual machine</td><td>debugger</td></tr>
-</table>
+<figure>
+  <img src="../backup_hash_function.svg" alt="Hash functions">
+  <figcaption>How hash functions work.</figcaption>
+</figure>
 
 ---
 
-## Who You Are
+## A Streaming API
 
-<div class="row">
-  <div class="col-2">
-    <p>
-      <img src="./aisha.svg" class="image centered" alt="Aïsha avatar from https://openclipart.org/detail/277087/female-avatar-3">
-    </p>
-  </div>
-  <div class="col-10">
-    <p>
-      <strong>Aïsha</strong> learned Python as an undergrad in biology.
-      She can create multi-page scripts and notebooks for herself
-      but wants to learn how to build software other people can use.
-    </p>
-  </div>
-</div>
+-   Process data a __block__ at a time
+-   Always able to produce the hash of the data seen so far
 
-<div class="row">
-  <div class="col-2">
-    <p>
-      <img src="./rupinder.svg" class="image centered" alt="Rupinder avatar from https://openclipart.org/detail/277084/male-avatar-3">
-    </p>
-  </div>
-  <div class="col-10">
-    <p>
-      <strong>Rupinder</strong> is a computer science undergrad.
-      He has learned a lot of theory,
-      and uses Git and unit testing tools in assignments,
-      but doesn't understand how they work.
-    </p>
-  </div>
-</div>
+```python
+import hashlib
 
-<div class="row">
-  <div class="col-2">
-    <p>
-      <img src="./yim.svg" class="image centered" alt="Yim avatar from https://openclipart.org/detail/277086/female-avatar-2">
-    </p>
-  </div>
-  <div class="col-10">
-    <p>
-      <strong>Yim</strong> teaches a college course on software architecture.
-      They and their students are frustrated that textbooks are so abstract
-      and don't use examples they can relate to.
-    </p>
-  </div>
-</div>
+BUFFER_SIZE = 4 * 1024  # how much data to read at once
+
+def hash_stream(reader):
+    sha256 = hashlib.sha256()
+    while True:
+        block = reader.read(BUFFER_SIZE)
+        if not block:
+            break
+        sha256.update(block)
+    return sha256.hexdigest()
+```
 
 ---
 
-## How This Will Help
+## A Streaming API
 
-<div class="row">
-  <div class="col-2">
-    <p>
-      <img src="./aisha.svg" class="image centered" alt="Aïsha avatar from https://openclipart.org/detail/277087/female-avatar-3">
-    </p>
-  </div>
-  <div class="col-10">
-    <p>
-      This material will fill in some gaps in <strong>Aïsha's</strong> programming knowledge
-      and teach her some common design patterns.
-    </p>
-  </div>
-</div>
+-   Open file in __binary mode__
+    -   Hashing the bytes, not the (logical) characters
 
-<div class="row">
-  <div class="col-2">
-    <p>
-      <img src="./rupinder.svg" class="image centered" alt="Rupinder avatar from https://openclipart.org/detail/277084/male-avatar-3">
-    </p>
-  </div>
-  <div class="col-10">
-    <p>
-      This material will help <strong>Rupinder</strong> understand how software tools work
-      and show him how to design new ones.
-    </p>
-  </div>
-</div>
+```python
+import sys
 
-<div class="row">
-  <div class="col-2">
-    <p>
-      <img src="./yim.svg" class="image centered" alt="Yim avatar from https://openclipart.org/detail/277086/female-avatar-2">
-    </p>
-  </div>
-  <div class="col-10">
-    <p>
-      This material will give <strong>Yim</strong> and their students
-      starting points for a wide variety of course assignments.
-    </p>
-  </div>
-</div>
+if __name__ == "__main__":
+    reader = open("dracula.txt", "rb")
+    result = hash_stream(reader)
+    print(result)
+```
+```
+0219696507d0db0e8c21c28e1b2de642b94de91be5ad9cfff0c27e5c51456987
+```
 
 ---
 
-## You Should Already Know…
+## Design
 
--   How to use dictionaries, exceptions, and classes.
-    -   We assume that if you can use these,
-        you can also use lists, loops, conditionals, and functions.
--   Create static web pages using HTML and CSS.
--   Use Git to save and share files.
-    -   It's OK not to know the more obscure commands.
--   Process nested lists recursively.
-    -   This is the most complicated thing we *don't* explain.
+1.  Calculate the hash `abcd1234`
+2.  Save that unique sequence of bytes once as `abcd1234.bck`
+3.  Record which hashes were present when a backup was made
 
----
-
-class: aside
-
-## Pedagogical Notes
-
-1.  Diagrams help (most) people learn [Wilson2019]
-    -   But take time to create and are a pain to maintain
-    -   So these slides are mostly text for now
-1.  We will be live coding during lessons
-    -   I will use a simple text editor and a Unix shell
-        to avoid screen clutter
-    -   Please follow along in the IDE of your choice
-1.  You can download the source code for all the examples from [the book's website][sdxpy_site]
-    and use it as a starting point for exercises
+<figure>
+  <img src="../backup_storage.svg" alt="Backup file storage">
+  <figcaption>Organization of backup file storage.</figcaption>
+</figure>
 
 ---
 
-## Conditions
+## Finding and Hashing Files
 
--   All participants must abide by our Code of Conduct
-    -   Respect and politeness are mandatory
-    -   Being helpful and welcoming are strongly encouraged
--   All written material is shared under the [Creative Commons - Attribution - NonCommercial License][cc_by_nc]
-    -   You can re-use and remix, but must cite the source
--   All code is shared under the [Hippocratic License][hippocratic_license]
-    -   You can re-use as long as you don't violate human rights treaties
--   Contributions are very welcome and will be acknowledged
-    -   Plese submit issues and pull request to [our GitHub repository][sdxpy_repo]
-    -   Or [email Greg Wilson][email]
+```python
+def hash_all(root):
+    result = []
+    for filename in glob("**/*.*", root_dir=root, recursive=True):
+        full_name = Path(root_dir, filename)
+        with open(full_name, "rb") as reader:
+            hash_code = hash_stream(reader)
+            result.append((filename, hash_code))
+    return result
+```
 
----
+--
 
-## Format and Expectations
-
--   Meet on Zoom each week for an hour
-    -   Each session will run at 08:00, 12:00, and 15:00 Eastern time starting Wednesday, February 15
-    -   You only need to attend one session each day
--   Discuss on Slack between meetings
-    -   Please ask lots of questions
-    -   And answer other people's
--   Expect to spend 2-3 hours/week doing exercises
-    -   I understand that real life will occasionally get in the way…
-    -   …but I reserve the right to uninvite you if you fall too far behind
--   Use <https://github.com/gvwilson/sdxpy-2023-02> for exercises
+-   `hash_stream` turns a streaming API into a blocking API
+-   We are returning `(filename, hash)` pairs rather than `(filepath, hash)` pairs
 
 ---
 
-## Acknowledgments
+## Testing
 
--   Christian Drumm, Julia Evans, Joe Nash, Juanan Pereira, and Dave Smith for feedback
--   Randi Cohen for being a great editor
--   Mike, Jon, and the other Jon for many conversations
+1.  Create directories and sub-directories full of files
+    -   But then need to create parallel directory trees with a few changes
+    -   We're likely to make mistakes and it's painful to maintain
+2.  Temporarily replace functions like `open`
+    with ones that act the same way but work on "files" in memory
+    -   A __mock filesystem__
 
----
-
-## Bibliography
-
-<dl class="bib-list">
-
-<dt id="Brown2011">Brown2011</dt>
-<dd>Amy Brown and Greg Wilson, editors.
-<em>The Architecture of Open Source Applications: Elegance, Evolution, and a Few Fearless Hacks</em>.
-Lulu, 2011, 978-1257638017.</dd>
-
-<dt id="Brown2012">Brown2012</dt>
-<dd>Amy Brown and Greg Wilson, editors.
-<em>The Architecture of Open Source Applications: Structure, Scale, and a Few More Fearless Hacks</em>.
-Lulu, 2012, 978-0201103427.</dd>
-
-<dt id="Brown2016">Brown2016</dt>
-<dd>Amy Brown and Michael DiBernardo, editors.
-<em>500 Lines or Less: Experienced Programmers Solve Interesting Problems</em>.
-Lulu, 2016, 978-1329871274.</dd>
-
-<dt id="Wilson2019">Wilson2019</dt>
-<dd>Greg Wilson.
-<em>Teaching Tech Together</em>.
-Chapman &amp; Hall/CRC Press, 2019, 978-0367352974.</dd>
-
-<dt id="Wilson2022b">Wilson2022b</dt>
-<dd>Greg Wilson.
-<em>Software Design by Example: A Tool-Based Introduction with JavaScript</em>.
-CRC Press/Taylor and Francis, 2022, 978-1032399676.</dd>
-
-</dl>
+<figure>
+  <img src="../backup_mock_fs.svg" alt="Mock filesystem">
+  <figcaption>Using a mock filesystem to simplify testing.</figcaption>
+</figure>
 
 
 [academic_prototyping]: https://www.fuzzingbook.org/html/AcademicPrototyping.html
