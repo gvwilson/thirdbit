@@ -24,11 +24,27 @@ const fixFootnotes = () => {
       item.innerHTML = `${text} <a href="#${backref}">&#x21F1;</a>`
       list.appendChild(item)
     })
-    section.appendChild(list)
+    if (list.childElementCount > 0) {
+      section.appendChild(list)
+    }
+  })
+}
+
+const fixSidenotes = () => {
+  Array.from(document.querySelectorAll('section')).forEach((section, i) => {
+    Array.from(section.querySelectorAll('span.sidenote')).forEach((span, j) => {
+      counter = document.createElement("span")
+      counter.textContent = `${j+1}) `
+      span.insertBefore(counter, span.firstChild)
+      const marker = document.createElement("sup")
+      marker.textContent = `${j+1}`
+      span.parentNode.insertBefore(marker, span)
+    })
   })
 }
 
 const fixPage = () => {
   fixToc()
   fixFootnotes()
+  fixSidenotes()
 }
