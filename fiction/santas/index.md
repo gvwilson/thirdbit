@@ -13,7 +13,7 @@ fiction: true
   </p>
 </div>
 
-<ol style="clear:both;" id="toc"></ol>
+<ol id="toc"></ol>
 
 <section markdown="1">
 

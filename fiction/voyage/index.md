@@ -6,7 +6,7 @@ fiction: true
 
 <div class="row">
   <div class="col col-6">
-    <img src="./cherne.png" alt="Terrain map of Cherne" />
+    <img src="./cherne.png" alt="Terrain map of Cherne" class="image centered">
   </div>
   <div class="col col-6">
     <ol id="toc"></ol>
