@@ -111,4 +111,4 @@ and I'd like to start playing with that now.
 
 [rstudio-instructors]: http://education.rstudio.com/trainers
 [queueing]: {{'/2019/09/27/learning-queue/' | relative_url}}
-[dragnet]: https://github.com/iezer/dragnet
+[dragnet]: {{site.links.dragnet}}
