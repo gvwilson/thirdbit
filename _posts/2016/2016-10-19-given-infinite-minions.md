@@ -50,7 +50,7 @@ year: 2016
   </p>
 </dd>
 
-<dt><a href="http://third-bit.com/browsercast/">Browsercast</a></dt>
+<dt><a href="{{site.links.browsercast}}">Browsercast</a></dt>
 <dd>
   <p>
     Allow people to create synchronized voiceovers for HTML slideshows.

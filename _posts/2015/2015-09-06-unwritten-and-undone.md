@@ -71,7 +71,7 @@ year: 2015
 <ol>
   <li>
     <p>
-      A <a href="http://third-bit.com/browsercast/"><em>web-native replacement for screencasts</em></a>.
+      A <a href="{{site.links.browsercast}}"><em>web-native replacement for screencasts</em></a>.
       Various prototypes have come <em>so</em> close to being usable…
     </p>
   </li>

@@ -100,7 +100,7 @@ please give me a shout.
    but I think it would be a lot of fun.
 
 [blockly]: https://developers.google.com/blockly/
-[browsercast]: {{'/browsercast/' | relative_url}}
+[browsercast]: {{site.links.browsercast}}
 [elm]: https://elm-lang.org/
 [github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
 [harper-lite]: {{'/ideas/harper/' | relative_url}}

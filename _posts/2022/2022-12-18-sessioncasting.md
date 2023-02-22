@@ -180,7 +180,7 @@ please give me a shout.
 > Neal Stephenson, *Cryptonomicon*, 1999, [pg. 240][cryptonomicon-pdf].
 
 [asciinema]: https://asciinema.org/
-[browsercast]: {{'/browsercast/' | relative_url}}
+[browsercast]: {{site.links.browsercast}}
 [camtasia]: https://www.techsmith.com/video-editor.html
 [code-in-textbooks]: {{'/2022/11/30/what-i-want-for-code-in-textbooks/' | relative_url}}
 [cognitive-load]: https://teachtogether.tech/en/index.html#s:architecture-load

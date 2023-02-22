@@ -152,7 +152,7 @@ Does calibrated peer review improve the quality of novices' programmers code?
     how quickly and how well?
 
 [blockly]: https://developers.google.com/blockly/
-[browsercast]: {{'/browsercast/' | relative_url}}
+[browsercast]: {{site.links.browsercast}}
 [concept-maps]: {{'/ideas/concept-maps/' | relative_url}}
 [draw-io]: https://app.diagrams.net/
 [elm]: https://elm-lang.org/
