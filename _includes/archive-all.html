@@ -1,6 +1,6 @@
 <table class="centered">
   <tbody>
-  {% for years in site.years %}
+  {% for years in site.data.years %}
   <tr>
     {% for y in (years.low..years.high) %}
     <td>{% if years.start <= y and y <= years.end %}<a href="{{'/archive/' | append: y | append: '/' | relative_url}}">{{y}}</a>{% endif %}</td>
