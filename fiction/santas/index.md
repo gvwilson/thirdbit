@@ -39,21 +39,49 @@ tough—I'm just a book, and we don't have hands.*
 Once upon a time,
 in a world halfway between yours and mine,
 lived a young santa named Finner.
-He came from a long line of santas and elves:
-his mother made her first wind-up singing wombat
+He came from a long line of santas:
+his mother boxed and wrapped her first wind-up singing wombat
 when she was not much bigger than a wombat herself,
-while his father had started helping with deliveries
+while his father started helping with deliveries
 as soon as he was reliably out of diapers.<span class="sidenote">
 There's a story behind the word "reliably" in that sentence,
 but it's best told some other time.
 </span>
 
-Now,
-Finner enjoyed elfing:
-the smell of solder,
+Finner enjoyed santafying—at least, he tried to.
+After all,
+who *wouldn't* enjoy slithering down a sooty chimney
+or trying to land a sleigh on a yurt without leaving a single dent in its stiff felt roof?
+But no matter what he did,
+a small voice in Finner's head said, "Me.
+I don't enjoy this.
+Or rather, I do, but it's not enough."
+
+What he *did* enjoy,
+at least for a while,
+was going into the basement and helping the family's elves.
+The smell of solder,
 the *shick shick* of freshly-sharpened scissors,
-and the pride of making the two halves of a dovetail joint fit perfectly together.
-But sitting in a workshop made him restless.
+the feeling of the two halves of a dovetail joint fitting perfectly together—they
+felt right in a way that clambering up the icy concrete side of an apartment building
+never did.
+
+His parents tolerated it at first.
+"Good for him to know how things are made,"
+they told each other.
+After a while, though,
+they began hinting that maybe he should being ho-ho-ho'ing in the attic
+rather than sewing or gluing.
+And a while after that,
+Finner could tell that the hints were about to become
+a number six talk from his father,<span class="sidenote">Direct eye contact,
+patient but serious voice,
+lots of awkward pauses on both sides,
+every third sentence starting, "Your mother and I think…"</span>
+so he put the tools he had borrowed from the elves back in their boxes
+and pretended he couldn't hear their hammering any longer.
+
+And so Finner became more restless every day.
 His mother suggested running up and down three flights of stairs over and over
 to burn off the energy:
 it only made him sweaty.
@@ -66,19 +94,10 @@ and they were always grateful.
 </span>
 all he got was a cold bum.
 
-He tried helping with deliveries,
-which he enjoyed at first.
-After all,
-who *wouldn't* enjoy slithering down sooty chimneys,
-scaling the icy concrete sides of apartment buildings,
-or trying to land a sleigh on a yurt without leaving a single dent in its stiff felt roof?
-"Me," said the small voice in Finner's head.
-"Or rather, I do, but it's not enough."
-
 He tried to talk to his friends about it
 without actually explaining the problem.
 That didn't go well.
-Finner's parents were the only elf and santa in town.
+Finner's parents were the only santas in town.
 There were others nearby—aunts and uncles
 and second cousins twice removed
 and even a few who'd married into the trade
@@ -107,9 +126,10 @@ She had once delivered a chocolate orange cake to a trio of scientists in a subm
 and then delivered a baby on the way home.<span class="sidenote">
 "Delivered" in the conventional sense of helping someone give birth
 rather than the postal sense used for packages.
-The santas and elves in this world didn't make cunning replicas of human infants
-and replace them in the dead of night while their parents were sleeping—but
-we're not at that part of the story yet…
+Elves did make dolls sometimes that were so lifelike normal people though they were real,
+and (whisper it) sometimes santas would deliver them in the dead of night when most people were sleeping
+and take a real child in exchange,
+but we're not at that part of the story yet.
 </span>
 Everyone was a little bit afraid of her,
 except for the unfortunate few who had felt the full force of her disapproving glare:
@@ -647,7 +667,7 @@ She glanced at the santa with the ax.
 
 "And smashed my carriage,"
 the big santa added.
-"But the elves got away safe."
+"But I got my elves away safe."
 
 The lean santa shrugged.
 "Safe for now, maybe.
@@ -696,7 +716,7 @@ We're trying to save the worlds."
 </section>
 <section markdown="1">
 
-## Episode 4: In Which Some Introductions are Made and Some Explanations Finally Given
+## Episode 4: In Which Some Introductions are Made
 
 Zombies and mummies are similar in many ways—the shambling gait,
 the moaning,
@@ -891,7 +911,7 @@ he asked Santa Greenwood.
 "No,"
 the burly man growled.
 "The gifts are for the trees.
-The ax is for choppin' down anyone who tries to hurt 'em."
+The ax is for anyone who tries to hurt 'em."
 
 "I haven't…
 brought anyone…
@@ -1131,10 +1151,10 @@ a triangular gray fin sliced through the water beside them.
 hoping the answers would be "yes" and "it's actually very friendly".
 
 Santa Hood shook her head.
-"I'm af-fraid not," she said grimly,
+"I'm af-fraid so," she said grimly,
 her teeth still chattering.
-"Sh-sharks take everything they c-can
-and never g-give *anything* back.
+"But she takes everything she c-can
+and never g-gives *anything* back.
 Be c-careful with that!" she snapped
 as Santa Greenwood hefted his ax.
 
@@ -1284,8 +1304,133 @@ until Santa Greenwood sighed heavily and gestured at Captain Clausbeard.
 "And *this* is my dad."
 
 </section>
+<section markdown="1">
+
+## Episode 6: In Which Some Explanations Are Finally Given
+
+A few busy minutes later,
+Finner was sitting in a slightly cramped cabin
+with a thick blanket wrapped around his shoulders
+and a steaming mug of something called "seaweed tea" in his hands.
+Santa Hood was somewhere under an even larger blanket on the bunk opposite his stool,
+while Santa Greenwood had solved the problem of being too big for the available furniture
+by sitting on the floor.
+*Deck,* Finner corrected himself.
+*It's called a deck on a ship.
+Which this is.*
+
+He shook himself.
+"About the whole 'saving the worlds' thing," he ventured.
+
+Santa Greenwood swallowed a swig<span class="sidenote">Which is what a "gulp" is called
+when you're on a ship.</span> of tea
+and set the mug on the deck beside his ax.
+"They showed up a while back," he said,
+looking at and through the wall opposite him.
+"'Bout the time I was your age, actually, so maybe more than a while.
+Anyway,
+at first they were all talk.
+Santas ought to do deliveries year round,
+that kind of thing.
+Made no sense,
+but folk figured there was no harm in it."
+
+"But who are 'they'?" Finner asked.
+
+Santa Greenwood glanced at the blanket heaped on the bunk.
+"A bunch of santas gone rogue," a muffled voice said.
+"It happens sometimes,
+especially on the worlds where there's only a few of each or even just one.
+The loneliness gets to them after a while and they start making odd things or,
+um,
+unusual deliveries."<span class="sidenote">See the earlier note
+about lifelike dolls.</span>
+
+The tone of her voice made it clear that details wouldn't be forthcoming,
+so instead Finner asked,
+"What happened next?"
+
+Santa Greenwood picked up his mug and scowled at its contents.
+"When sensible folk wouldn't listen to them,
+they took matters into their own hands.
+They started makin'—makin' *stuff*."
+His scowl deepened.
+"Normal enough stuff, like socks and cutlery and what-not,
+but more of it than anyone had ever seen.
+And instead of puttin' it in the basement or a barn or something decent
+until it was time to deliver it,
+they just went and delivered it right away to—to *everyone*."
+
+"They were making deliveries in broad daylight," Santa Hood said tiredly.
+"And they didn't care if people had been naughty or nice.
+They gave presents to everyone."
+
+"Didn't wrap 'em, either," Santa Greenwood added heatedly.
+"Folk might've let them get away with it for a while
+if they'd at least *wrapped* things,
+but—"
+He shook his head.
+"It was disrespectful, is what it was."
+
+"Mm."
+Wrapping had never been Finner's favorite chore,<span class="sidenote">Though
+it was still better than writing class.</span>
+but the thought of what his parents or Gran-Granna Tumbly would say
+if a present went into a sack without being wrapped made his stomach do flip-flops.
+"So you tried to stop them aaand…?"
+
+Santa Hood pulled her blanket down enough for her head to be visible.
+"And it turned out there were more of them than people realized—a *lot* more.
+It wasn't just a couple of worlds' worth—it was dozens of them."
+
+"Hundreds!"
+Santa Greenwood grunted.
+
+"Hundreds,"
+Santa Hood agreed.
+"And just when everyone thought they couldn't do anything worse,
+they let all their elves out of their basements.
+Or caves, or, you know…"
+She shrugged under her blanket.
+"Wherever they'd been keeping their elves."
+
+Finner's mouth went dry
+the way it always did when he thought about elves.
+"What do you mean?
+My parents let our elves out all the time."
+
+Santa Hood shook her head.
+"This wasn't just to run errands.
+They *let them out*.
+They let them just walk around wherever they wanted
+and have their own houses and make as many more of themselves as they wanted."
+Her eyes blazed.
+"Do you have any idea how dangerous that could be?
+One elf makes another so now you have two.
+Each of them makes another, so now there's four,
+then eight, then— then—"
+
+"Sixteen," Finner supplied helpfully.
+
+"Sixteen," Santa Hood agreed.
+"Pretty soon there'd be more of them than us,
+and then—"
+
+"Elfageddon," Santa Greenwood finished solemnly.
+"The end o' worlds.
+No more presents, no more deliveries—no more santas, most like."
+
+"I thought you said they wanted to make deliveries all the time."
+Finner swallowed at the looks the two santas gave him.
+
+"Those aren't deliveries," Santa Greenwood spat.
+"That's just givin' people stuff."
+
+</section>
 
 <!--
 What did the pirate say on his eightieth birthday?
 "Aye Matey!"
+
+Elves are robots; Robo-Santa is an elf turned santa.
 -->
