@@ -1353,7 +1353,7 @@ so instead Finner asked,
 Santa Greenwood picked up his mug and scowled at its contents.
 "When sensible folk wouldn't listen to them,
 they took matters into their own hands.
-They started makin'—makin' *stuff*."
+They started makin' *stuff*."
 His scowl deepened.
 "Normal enough stuff, like socks and cutlery and what-not,
 but more of it than anyone had ever seen.
@@ -1361,7 +1361,8 @@ And instead of puttin' it in the basement or a barn or something decent
 until it was time to deliver it,
 they just went and delivered it right away to—to *everyone*."
 
-"They were making deliveries in broad daylight," Santa Hood said tiredly.
+"In broad daylight," Santa Hood added tiredly
+as Santa Greenwood glared into his tea.
 "And they didn't care if people had been naughty or nice.
 They gave presents to everyone."
 
@@ -1400,17 +1401,19 @@ the way it always did when he thought about elves.
 My parents let our elves out all the time."
 
 Santa Hood shook her head.
-"This wasn't just to run errands.
+"I don't mean just to run errands and get parts and what-not.
 They *let them out*.
 They let them just walk around wherever they wanted
-and have their own houses and make as many more of themselves as they wanted."
+and have their own houses and make more of themselves,
+as many more as they wanted."
 Her eyes blazed.
 "Do you have any idea how dangerous that could be?
 One elf makes another so now you have two.
 Each of them makes another, so now there's four,
 then eight, then— then—"
 
-"Sixteen," Finner supplied helpfully.
+"Sixteen," Finner supplied helpfully.<span class="sidenote">He
+knew all the powers of two up to 4096.</span>
 
 "Sixteen," Santa Hood agreed.
 "Pretty soon there'd be more of them than us,
@@ -1421,10 +1424,116 @@ and then—"
 No more presents, no more deliveries—no more santas, most like."
 
 "I thought you said they wanted to make deliveries all the time."
-Finner swallowed at the looks the two santas gave him.
+Finner swallowed dryly at the looks the two santas gave him.
 
-"Those aren't deliveries," Santa Greenwood spat.
-"That's just givin' people stuff."
+"They're not doin' deliveries," Santa Greenwood spat.
+"They're just givin' people stuff."
+
+"Giving who what?" boomed Captain Clausbeard,
+who had just opened the cabin door without bothering to knock.
+His parrot squawked something in his ear.
+"Ah. Right. Them.
+Anyway, what's it like bein' back in your old digs, eh, lad?
+Must bring back memories, eh?"
+
+Santa Hood raised an eyebrow.<span class="sidenote">*Purely by coincidence*
+a slight shiver went down Finner's spine as she did so.</span>
+"This was *your* cabin?"
+
+Santa Greenwood growled but didn't reply.
+Santa Hood jerked her chin at a pencil drawing of a tropical island
+nailed up beside the cabin's single round porthole.
+"I didn't know you were so artistic."
+
+"Oh, my boy was a wizard with all that stuff,"
+Captain Clausbeard said proudly.
+"And even better at crochet.
+Why, I still have a couple of doilies that—"
+
+"I *think*," Santa Greenwood interrupted,
+"I think we oughta focus on the problem at hand, don't you?
+Namely how we're going to get Fiddler—"
+
+"Finner."
+
+"—back to Miz Tumbly
+and how we're gonna get my elves and llamas back to *me*
+and what in the name of rain we're going to do about these,
+these troublemakers,
+because I for one have had *enough*!"
+He thumped his meaty fist on the deck,
+making Captain Clausbeard's parrot<span class="sidenote">The parrot
+would have been somewhat offended by this phrasing,
+as she thought of the captain as being hers.
+Luckily for our story,
+the parrot only knew how to read *hangul*,
+which is actually one of the most sensible alphabets ever created.</span> squawk.
+
+Whatever the captain might have said in reply to that
+was cut off by a cry from the crow's nest.
+"Smoke, cap'n!
+We got smoke on the horizon!"
+
+The humor dropped from Captain Clausbeard's face like spilled porridge.
+"You fit to fight?" he asked.
+
+"Fit enough."
+Santa Greenwood clambered to his feet,
+swore as his head hit the ceiling,
+and picked up his ax.
+
+Captain Clausbeard nodded.
+"Good lad.
+Your friends can stay here 'til we know whether we're eatin' peaches or pickles.
+That's an order," he added as Santa Hood opened her mouth.
+
+"Yes cap'n," she said neutrally.
+
+Captain Clausbeard raised an eyebrow<span class="sidenote">Which,
+funnily enough,
+didn't send a shiver down Finner's spine.</span>
+but said nothing before stomping out,
+his peg leg thumping on the deck.
+"Avast, ye scallywags!" he bellowed.
+The door closed behind him.
+
+Santa Greenwood hefted his ax.
+"Don't worry about us,"
+Santa Hood said perkily,
+wriggling a bit to free herself from her blanket's embrace.
+"We'll be safe in here.
+Besides, I'm not done studying this masterpiece of yours."
+
+Finner expected Santa Greenwood to scowl or make a joke.
+Instead, he spoke quietly, without looking at either of them.
+"That's Isla del Tesoro.
+It was my first forest.
+More of a jungle, really,
+but there were trees big as masts with these great beards o' moss hangin' off them.
+The rest o' the crew didn't like it—they all got itchy
+as soon as they were out of earshot o' the waves,
+but you could walk for hours an' see nothin' that wasn't green.
+First time I spent the night there felt like comin' home.
+Drawin' that picture felt like makin' myself a promise.
+Kinda surprised my dad left it up,
+what with all the arguin' we did when I told him I was leavin'."
+
+For a long moment the only sounds were the creaking of the ship's timbers
+and muffled shouts from the crew.
+"Don't worry about us,"
+Santa Hood repeated,
+her tone as soft as Santa Greenwood's had been.
+
+Santa Greenwood nodded,
+yanked the door open,
+swore as his forehead hit the lintel,
+and closed the door behind him.
+Santa Hood rolled her head to work out a kind in her neck.
+"So," she said conversationally,
+letting the blanket slide down so that Finner could see
+the ray gun she was holding,
+which just happened to be aimed at his chest.
+"How about you tell me who you really are?"
 
 </section>
 
