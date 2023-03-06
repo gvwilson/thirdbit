@@ -285,9 +285,7 @@ having spilled cranberry juice on a white tablecloth at some point.
 "Kind heart,
 and a beautiful singing voice,
 but as clumsy as an ox on ice skates.
-Broke or burned every toy they tried to make,
-so no elfing for them,
-and they could trip over a rock that was clear across the other side of the street."
+They could trip over a rock that was clear across the other side of the street."
 
 "So no deliveries?"
 Finner ventured.
@@ -341,10 +339,10 @@ someone called for their children to come inside,
 it was time for bed and their teeth weren't going to brush themselves.
 "I just don't know what to do," Finner confessed,
 angry at the tears that he was absolutely *not* going to cry.
-"I like making toys and, and spatulas and everything,
-I really do,
-but—I dunno.
-And deliveries are—everyone else seems excited and it's like I'm just watching myself do it,
+"I like the ho-ho-ho'ing,
+but deliveries are—"
+He paused for breath.
+"It's like everyone else is excited about it but I'm just watching myself do it,
 you know?
 Like this is someone else's life and I've just put it on like a sweater
 except it doesn't quite fit
