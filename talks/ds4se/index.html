@@ -1,10 +1,10 @@
 ---
-title: "Software Design by Example: Lessons Learned"
+title: "Data Science for Software Engineers"
 layout: slides
 ---
 
 <div class="center padtop">
-  <h1>A Hard-Boiled Egg</h1>
+  <h1>Data Science<br>for Software Engineers</h1>
   <p><img src="../img/codebender-logo.svg" alt="Third Bit logo" width="15%"></p>
   <p>Greg Wilson</p>
   <p><a href="http://third-bit.com/talks/ds4se/">http://third-bit.com/talks/ds4se/</a></p>
@@ -13,45 +13,15 @@ layout: slides
 
 ---
 
-class: padtop
-
-"You'd like Freedom, Truth, and Justice, wouldn't you, Comrade Sergeant?" said Reg encouragingly.
-
-"I'd like a hard-boiled egg," said Vimes, shaking the match out.
-
-There was some nervous laughter, but Reg looked offended. "In the circumstances, Sergeant, I think we should set our sights a little higher—"
-
-"Well, yes, we could," said Vimes. "But…well, Reg, tomorrow the sun will come up again, and I'm pretty sure that whatever happens we won't have found Freedom, and there won't be a whole lot of Justice, and I'm damn sure we won't have found Truth. But it's just possible that I might get a hard-boiled egg."
-
-— Sir Terry Pratchett, *Night Watch*
-
----
-
-## What I'm Building On
-
-<div align="center">
-  <img src="./cheplygina.jpg" width="20%">
-  <br>
-  <a href="https://veronikach.com/">Veronika Cheplygina</a>
-</div>
-
-- *Weak failure:* I did a lot of work and nothing came of it
-
-- *Strong failure:* I did a lot of work and actually did harm
-
-- This talk is built on several weak failures
-
----
-
-## Back in the Twentieth Century
-
-<img src="./ddj.png" alt="Dr Dobb's Journal" class="center">
+## Once Upon a Time…
 
 - Book review editor for *[Doctor Dobb's Journal](http://drdobbs.com)*
 
 - There were hundreds of textbooks on compilers, but none on debuggers or debugging
 
 - Or build tools, or package managers, or…
+
+<img src="./ddj.png" alt="Dr Dobb's Journal" class="center">
 
 ---
 
@@ -81,7 +51,7 @@ There was some nervous laughter, but Reg looked offended. "In the circumstances,
 
 - Learning should always flow in both directions
 
-- What do software engineering researchers *actually* know that practitioners might care about?
+- What do software engineering researchers know that practitioners might care about?
 
 <a href="https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/">
   <img src="../img/making-software.jpg" alt="Making Software" width="25%" class="center">
@@ -89,9 +59,35 @@ There was some nervous laughter, but Reg looked offended. "In the circumstances,
 
 ---
 
-## Some Beautiful Truths
+## Short and Sweet
+
+-   [It Will Never Work in Theory](https://neverworkintheory.org/) launched in 2011
+    -   Brief reviews of research results that might interest practitioners
+
+-   Relaunched in 2021 with reviews and online lightning talks
+
+<img src="./nwit.png" alt="It Will Never Work in Theory" width="60%" class="center">
+
+---
+
+## What Impact Has This Had?
+
+- None
+
+- We still don't teach science to CS students
+
+- So practitioners don't know what they're missing or how to interpret it if they found it
+
+<img src="../img/blind-leading-blind.png" alt="The Blind Leading the Blind" width="60%" class="center">
+
+---
+
+## Which Is a Shame
 
 - [Languages in the C family are as hard to learn as a randomly-designed language](http://dl.acm.org/citation.cfm?id=2534973)
+
+- [Computer science grades are not bimodal](http://www.cs.toronto.edu/~sme/papers/2016/icer_2016_bimodal.pdf)
+  - I.e., there is no geek gene
 
 - [Students don't make the mistakes instructors think they make](https://kar.kent.ac.uk/46742/1/fp1187-altadmri.pdf)
 
@@ -100,219 +96,122 @@ There was some nervous laughter, but Reg looked offended. "In the circumstances,
 
 ---
 
-## Some Beautiful Truths
+## A Window of Opportunity
 
+- Data science is rather popular these days…
 
-- [Most catastrophic failures in distributed data-intensive systems could be prevented by performing simple testing on error handling code](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-yuan.pdf)
+  - Students have heard of it
 
-- [Git is awful because of the mis-match between users' mental models and its actual operation](https://dl.acm.org/citation.cfm?id=2984018)
-  - Giving it a human-friendly face is ineffective
+  - Deans and provosts think it's a Good Thing [tm]
 
-- [Computer science grades are not bimodal](http://www.cs.toronto.edu/~sme/papers/2016/icer_2016_bimodal.pdf)
-  - I.e., there is no geek gene
-
----
-
-## Weak Failures
-
-- To first order, these books have had no impact
-
-- We still don't teach science to CS students
-  - Biologists spend 6 hours/week in the lab
-  - CS students do one experiment in four years
-
-<img src="./mad-scientist.png" width="30%" class="center">
+- *Teach empirical software engineering in disguise*
 
 ---
 
-## Weak Failures
+## More Specifically
 
-<div align="center">
-  <img src="../img/carpentries-logo.svg" width="80%">
-</div>
+- Single-semester course with work done in small teams
 
-- After teaching programming to scientists for 20 years, I've come to believe that science is a good thing
+  - Minimize curricular disruption
 
-- And that statistics is going to be the math that puts the "engineering" in "software engineering"
+  - Still teach workflow, meetings, progress reporting, etc.
 
-- But *the curriculum is full*
-
-- And *we ought to help everyone, not just CS majors*
-
----
-
-## Measuring Things with Body Parts
+- Build an analysis pipeline for software engineering data
 
 <div class="row">
+  <div class="col-3"></div>
   <div class="col-6">
-    <p align="center"><img src="./yard.gif"></p>
+  <table>
+    <tr><td>Requirements analysis</td><td>✓</td></tr>
+    <tr><td>Software design</td><td>✓</td></tr>
+    <tr><td>Dev Ops</td><td>✓</td></tr>
+    <tr><td>Presentation skills</td><td>✓</td></tr>
+  </table>
   </div>
-  <div class="col-6">
-    <p>thumb == inch </p>
-    <p>arm == yard</p>
-  </div>
+  <div class="col-3"></div>
 </div>
-
-- Measure this way in the US because everyone else does
-
-- So what tools can we reasonably expect most potential learners to already know?
-
-- Or to pick up in one bladder of hands-on instruction?
-
-
----
-
-## Today's Choices
-
-<div class="row">
-  <div class="col-6 center">
-    <img src="../img/spreadsheet.png" width="60%">
-  </div>
-  <div class="col-6">
-    A functional reactive language<br>with an intuitive interface
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-6">
-<pre>
-read_csv('infant-hiv.csv') %>%
-  pmap_lgl(function(...) {
-    x <- list(...)
-    all(is.na(x) | (x == ""))
-  }) %>%
-  tibble(empty = .) %>%
-  mutate(id = row_number()) %>%
-  filter(empty) %>%
-  pull(id)
-</pre>
-  </div>
-  <div class="col-6">
-    <p>
-      A beautiful view<br>but a very steep hill
-    </p>	    
-  </div>
-</div>
-
----
-
-## A Tool That Just Works
-
-<img src="./scratch-screenshot.jpg" width="100%" class="center">
-
----
-
-## A Tool That Just Works
-
-- Multiple studies have found that people learn programming and computational thinking faster using blocks than using text
-
-<div class="row">
-  <div class="col-6 center">
-    <img src="./scratch-cat.png">
-  </div>
-  <div class="col-6">
-    <ul>
-      <li>Eliminates pointless syntax mistakes</li>
-      <li>Obvious affordances suggest possibilities</li>
-      <li>Plays well on touch-screen devices</li>
-  </div>
-</div>
-
----
-
-## A Tool That Just Works
-
-- Manipulating data is clumsy…
-- …but doesn't have to be
-
-<img src="./yahoo-pipes.jpg" width="70%" class="center">
-
----
-
-## The Next Step Seemed Obvious
-
-- **Build Scratch blocks for manipulating tabular data**
-- [Blockly](https://developers.google.com/blockly/) provides the framework
-- The [tidyverse](https://www.tidyverse.org/) defines the requirements
-
-<img src="./tidyblocks.png" width="80%" class="center">
-
----
-
-## But It Didn't Work
-
-- [Blockly](https://developers.google.com/blockly/) is getting creaky
-- No natural way to represent join operations with blocks
-- [Node-RED](https://nodered.org/) solves both problems
-
-<img src="./node-red.png" width="70%" class="center">
-
-- But nobody was willing to fund the work
-
----
-
-## The Future's So Bright…
-
-<table>
-  <caption>AP Student Numbers</caption>
-  <tr><th>Subject</th><th align="right">2012</th><th align="right">2017</th></tr>
-  <tr><td>Calculus</td><td align="right">361,000</td><td align="right">316,000</td></tr>
-  <tr><td>Statistics</td><td align="right">153,000</td><td align="right">215,000</td></tr>
-  <tr><td>Computer Science</td><td align="right">26,100</td><td align="right">44,000</td></tr>
-</table>
-
-- Statistics is an authentic task
-
-- *For teachers as well as for students*
-
----
-
-## Then We Teach Engineering
-
-- "The use of the scientific method to analyze and design structures, devices, and systems."
-
-- Require statistics rather than calculus for entry into CS
-
-- Have students analyze software engineering data starting in their first year
 
 ---
 
 ## For Example
 
-> Given source code for six software projects,
-> determine whether long functions have more bugs than short ones.
+> Given the GitHub repositories for six software projects,
+> determine whether large PRs take longer to merge than short ones.
 	  
 - Requires tool use, model building, and statistical analysis
 
 - Students *do* science, so they *understand and value* it, so they *engage* with it later
 
-- Fits into existing curriculum (implements IFirstYearMath)
-
 - And is *culturally defensible*
-
----
-
-## Then We Teach What Really Matters
-
-<div align="center">
-  <p>I no longer believe my generation will fix this
-  <p><img src="./women-in-cs.jpg" alt="Women in CS" width="50%">
-  <p class="fragment">So we need to raise up a generation that will
-</div>
 
 ---
 
 ## This Is Also Software Engineering
 
-> 1. People of East Asian or South Asian ancestry make up 8% of the
->    Canadian population, but 60-75% of undergraduates in Computer
->    Science at major universities.  Write two one-page papers to argue
->    pro and con that this proves people of European descent are
->    naturally less capable of abstract reasoning than their Asian
->    counterparts.
+> 1. People of Asian ancestry are 8% of the Canadian population
+>    but 60-75% of undergraduates in Computer Science.
+>    Write two one-page papers to argue pro and con that this proves
+>    people of European descent are naturally less capable of
+>    abstract reasoning than their Asian counterparts.
 >
 > 2. Compare and contrast your arguments with those made about
->    female under-representation in computing
+>    the under-representation of women in computing.
+
+---
+
+## Practicalities
+
+<div style="font-size: 90%">
+
+<p>"You'd like Freedom, Truth, and Justice, wouldn't you, Comrade Sergeant?" said Reg encouragingly.</p>
+
+<p>"I'd like a hard-boiled egg," said Vimes, shaking the match out.</p>
+
+<p>There was some nervous laughter, but Reg looked offended. "In the circumstances, Sergeant, I think we should set our sights a little higher—"</p>
+
+<p>"Well, yes, we could," said Vimes. "But…well, Reg, tomorrow the sun will come up again, and I'm pretty sure that whatever happens we won't have found Freedom, and there won't be a whole lot of Justice, and I'm damn sure we won't have found Truth. But it's just possible that I might get a hard-boiled egg."</p>
+
+<p>— Sir Terry Pratchett, <em>Night Watch</em></p>
+
+</div>
+
+---
+
+## The Way Forward
+
+-   A dozen people (or pairs) contribute one week's material each
+
+    -   Three 50-minute lectures
+
+    -   One set of exercises
+
+-   Preferably recapitulate interesting published results
+
+---
+
+## Prerequisites
+
+-   Assume students have done Data Structures & Algorithms in Python…
+
+-   …know the basics of Git and unit testing…
+
+-   …and vaguely remember what standard deviation means
+
+---
+
+## Publishing
+
+-   [MIT License](https://mit-license.org/) for code samples
+
+-   [Creative Commons – Attribution – Non-Commercial license](https://creativecommons.org/licenses/by-nc/4.0/) for prose
+
+    -   Publisher retains rights to physical copies, PDF, and e-book
+
+    -   HTML version free to read online forever
+
+-   All royalties go to charity
+
+    -   I'm fond of [Books for Africa](https://www.booksforafrica.org/)
 
 ---
 
