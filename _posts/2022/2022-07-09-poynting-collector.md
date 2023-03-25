@@ -7,10 +7,9 @@ year: 2022
 Back in 2020 I [asked](https://twitter.com/gvwilson/status/1309927394468392961):
 
 > If you're running a 400KW oscillation overthruster in 5-10 msec bursts,
-> how much shielding do you need to reduce harmful effects
-> from the intermediate vector bosons it throws off
+> how much shielding do you need to the intermediate vector bosons it throws off
 > to acceptable levels?
-> (Beam alignment is phase neutral but non-moiré.)
+> (Beam alignment is going to be phase neutral but non-moiré.)
 
 One person responded:
 
@@ -21,7 +20,7 @@ One person responded:
 
 However, someone else said:
 
-> What if you didn't treat vector bosons as a harmful byproduct to be compensated for
+> What if you didn't treat vector bosons as a byproduct to be compensated for
 > but a useful part of the closed loop system?
 > Get a Poynting collector and feed it back into your spin condenser.
 
@@ -38,7 +37,7 @@ By March 2021 I was far enough along to say:
 </div>
 
 But nothing's ever done.
-The first reply asked if I'd rotated the starboard beam collimator properly.
+The first reply asked if I'd rotated the beam collimator properly.
 After a bit of experimentation I realized that I wouldn't be able to get the required precision
 because my diffraction grid is analog rather than digital
 (see the comment above about Soviet-era industrial supplies).
