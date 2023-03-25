@@ -31,3 +31,11 @@ the less transferable the concepts will be.
 <div align="center">
 <img src="{{'/files/2023/code-complexity.png' | relative_url}}" alt="Histogram of language feature usage"/>
 </div>
+
+> Follow-up: I didn't mean to suggest that using fewer language features means the code is simpler.
+> Language features are a compression mechanism:
+> if you don't use them,
+> you often have to implement the same functionality in libraries,
+> which increases the volume of code the next person has to read and understand.
+> (OK, not "has to", but if we're comparing apples to apples…)
+> You can move complexity and learning burden around but not eliminate it.
