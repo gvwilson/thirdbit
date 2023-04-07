@@ -17,14 +17,6 @@ may also be helpful.*
 - Please note that I will usually suggest you invite a speaker who isn't as privileged as I am instead of me.
   I've had a lot of chances to express my opinions on stage;
   I think other people, and other kinds of people, deserve that chance as well.
-
-### No Support for Hate
-
-- I will not work with,
-  or attend events sponsored by,
-  any company that has been cited as an inspiration by a mass killer,
-  or any company that provides hosting or other services for such companies.
-- You don't include speakers who publicly advocate racism, misogyny, or homophobia.
 - [Added Nov 2021]
   I will not take part in events that do not offer participants a fully-remote option,
   as the COVID-19 lockdown showed that this is feasible
@@ -32,15 +24,21 @@ may also be helpful.*
   to people with physical disabilities
   and people from less affluent parts of the world.
 
+### No Support for Hate
+
+- You don't include speakers who publicly advocate racism, misogyny, or homophobia.
+- Neither you nor your sponsors support companies
+  [that have been cited as an inspiration by a mass killer][shopify].
+
 ### Strictly-enforced Code of Conduct
 
-- Your CoC must explicitly explain what constitutes abusive or unacceptable behavior.
-- You must have clearly defined methods for dealing with conflicts when they arise
+- Your CoC explicitly explains what constitutes abusive or unacceptable behavior.
+- You have clearly defined methods for dealing with conflicts when they arise
   and trained staff to to handle complaints.
 
 ### Representation
 
-- No tracks or panels that are all straight white/Asian males.
+- None of your tracks or panels are all straight white/Asian males.
 - You don't *only* invite marginalized people to speak about their experiences of marginalization.
 
 ## Content
@@ -51,7 +49,7 @@ may also be helpful.*
   but will make them available for reposting and rehosting under a Creative Commons license.
 - I will allow video recordings/live streams so long as they are accessible (captioned)
   and free (no paywalls).
-- No censorship of my content (visual, spoken, textual, or otherwise) without my prior express approval.
+- You do not censor my content (visual, spoken, textual, or otherwise) without my prior express approval.
 
 ### Formatting
 
@@ -73,22 +71,22 @@ may also be helpful.*
 
 ### Lodging expenses
 
-- For engagements requiring more than a four-hour flight,
+- For engagements requiring more than a three-hour flight,
   I require at least one night's lodging before the day I'm scheduled to speak
   as well as lodging on the day itself.
 - You must provide the option to purchase both travel and accommodation on behalf of the speaker.
   While I may choose to pay and then claim,
-  the reimbursement model excludes people who cannot front the cost for what is sometimes months.
+  the reimbursement model excludes people who cannot carry the cost for what is sometimes months.
 - Similarly, you must leave your credit card on file for the hotel for incidental expenses.
 
 ### Speaker honorarium
 
 - For for-profit conferences/events and for-profit companies, I ask for CAD $1500-3000.
-- Or $500-1000 if you will donate twice the difference to a mutually-agreed charity,
-  which often works out to roughly the same total cost for you thanks to tax write-downs.
+- Or CAD $500-1000 if you will donate twice the difference to a mutually-agreed charity.
+  (This usually works out to roughly the same total cost for you thanks to tax write-downs.)
 - If there are multiple speakers, we must all be paid equally.
   I do not support celebrity speakers getting paid more.
-- I may choose to waive my free for not-for-profit/community events where tickets are free or very low priced.
+- I usually waive my free for not-for-profit/community events where tickets are free or very low priced.
 
 ### Ticket to full event
 
@@ -98,51 +96,51 @@ may also be helpful.*
 
 ### Physically accessibility
 
-- All areas that are part of the conference should be accessible,
+- All areas that are part of the conference must be accessible,
   including attendee seating,
   the stage,
   and social event venues
   (where "accessible" means "complies with [2010 ADA Standards for Accessible Design][ada] or national equivalent").
-- Live captioning (which helps everyone, not just people who are hard of hearing).
+- You must provide live captioning (which helps everyone, not just people who are hard of hearing).
 
 ### Safety and security
 
-- Security should be provided as needed.
-- No transfer or sale of my data (in particular, to conference sponsors) without express, prior, case-by-case approval.
+- You must provide appropriate security at the venue.
+- You must not transfer or sell my data (not even to conference sponsors)
+  without my express, prior, case-by-case approval.
 
 ### Gender neutral and accessible bathrooms
 
-- Including an option that is both gender neutral *and* accessible.
+- You must include accessible options for all genders.
 
 ### Self-identification
 
-- Provide stickers, nametag space, or the equivalent
+- You must provide stickers, nametag space, or an equivalent
   so that people can indicate their preferred names, titles, and pronouns.
 
 ### Scholarship program
 
-- If you have a scholarship program, don't call it "diversity scholarship":
-  that reinforces the notion that "diverse" (which is often interpreted solely as racial diversity) candidates all need charity.
-- Call them "scholarships".
-  Be explicit to how you choose candidates, and don't make them recapitulate personal trauma to be approved.
-- Include travel costs in scholarships so that you aren't excluding people who are economically disadvantaged.
+- If you have a scholarship program,
+  you must be explicit about how you choose candidates,
+  and must not require them to recapitulate personal trauma to be approved.
+- You should include travel costs in scholarships
+  so that you aren't excluding people who are economically disadvantaged.
   If you can't do this, make it clear that they are solely ticket scholarships.
 
 ### Stage setup
 
-- Ensure an accessible stage (see above).
-- Require all speakers to use a microphone
+- You must ensure an accessible stage (see above).
+- You must require speakers to use a microphone
   (even—scratch that, *especially*—if they think they have loud voices,
   because otherwise you're requiring audience members to self-identify their needs).
-- Speaker's monitor (or an extra laptop so that speakers can see exactly what the audience is seeing).
-- Timer visible to the speaker (and enforced time limits for *everyone*).
+- Please provide a timer that is visible to the speaker and enforce time limits for *everyone*.
 
 ### Presentation computer
 
-- Speaker option of presenting from conference computer or their own
+- You must give speakers the option of presenting from a conference computer or their own
   (in order to accommodate custom setups, special needs, etc.).
-- An opportunity to test the setup far enough in advance of speaking
-  to be able to deal with any issues that arise.
+- You must provide an opportunity for speakers to test the setup far enough in advance of speaking
+  to deal with any issues that arise.
 
 ## Force Majeure
 
@@ -153,7 +151,7 @@ may also be helpful.*
   you may no longer associate me with your event in any way
   (for example, you may not use any materials I have prepared or videos of me that you have recorded).
 - You are responsible for any and all costs associated with this,
-  specifically including accommodations and travel plan changes.
+  specifically including reimbursement for canceled travel and accommodations.
 
 Please note that I have never had to exercise this clause,
 but my experiences with [Shopify][shopify] and [DataCamp][datacamp] have made me realize that
