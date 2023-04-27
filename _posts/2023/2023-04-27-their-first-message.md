@@ -9,9 +9,7 @@ year: 2023
 The head of NASA shrugged.
 "Afraid so, ma'am. That's what they're saying."
 
-The president sighed.
-"I'm never going to live this down."
-
+The president sighed and nodded to her media team.
 A few minutes later her solemn face appeared on half a billion screens around the world.
 "My fellow Americans, and all our friends around the world.
 After months of work,
