@@ -19,5 +19,5 @@ I hope you will too."
 
 She cleared her throat.
 "Never gonna give you up.
-"Never gonna let you down.
+Never gonna let you down.
 Never gonna run around and desert you…"
