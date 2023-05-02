@@ -92,7 +92,7 @@ layout: slides
 - Many studies are small, and not all are well done
 - But we can refute some myths and reveal new insights
 
-<img src="./icse-2021.png" alt="ICSE 2021" width="80%" class="center">
+<img src="./icse-2023.png" alt="ICSE 2023" width="80%" class="center">
 
 ---
 
@@ -104,6 +104,7 @@ layout: slides
   - Perl
   - Quorum: the language their team is building
   - Randomo: syntax "designed" by rolling D&D dice
+
 - Perl is as hard for novices to learn as a language with a randomly-designed syntax
 
 ---
@@ -116,6 +117,33 @@ layout: slides
 - Languages in the C family are as hard for novices to learn to read as a randomly-designed language
 - Ruby and Python are significantly easier
 - Quorum is easier still
+
+---
+
+## Test-Driven Development
+
+<a href="#Shull2010">Shull2010</a>: "How Effective is Test-Driven Development?"
+
+> …evidence from controlled experiments suggests an
+> improvement in productivity when TDD is used.
+> However…pilot studies provide mixed evidence, some in
+> favor of and others against TDD. In the industrial
+> studies…evidence suggests that TDD yields worse
+> productivity. Even when considering only the more rigorous
+> studies…the evidence is equally split for and against a
+> positive effect.
+
+---
+
+## Test-Driven Development
+
+<a href="#Fucci2016">Fucci2016</a>: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach"
+
+- Replication study, 39 professionals, real projects
+- No significant difference between test-first and test-last development
+- "The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."
+
+> I practice TDD…and it works great. We don't need to prove that it works anymore.
 
 ---
 
@@ -147,33 +175,6 @@ The three that take the most time to fix are:
 
 ---
 
-## Test-Driven Development
-
-<a href="#Shull2010">Shull2010</a>: "How Effective is Test-Driven Development?"
-
-> …evidence from controlled experiments suggests an
-> improvement in productivity when TDD is used.
-> However…pilot studies provide mixed evidence, some in
-> favor of and others against TDD. In the industrial
-> studies…evidence suggests that TDD yields worse
-> productivity. Even when considering only the more rigorous
-> studies…the evidence is equally split for and against a
-> positive effect.
-
----
-
-## Test-Driven Development
-
-<a href="#Fucci2016">Fucci2016</a>: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach"
-
-- Replication study, 39 professionals, real projects
-- No significant difference between test-first and test-last development
-- "The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."
-
-> I practice TDD…and it works great. We don't need to prove that it works anymore.
-
----
-
 ## Code Metrics
 
 - Lots of code metrics have been proposed
@@ -188,21 +189,21 @@ The three that take the most time to fix are:
 
 ## Check Your Error Handling
 
-<a href="#Yuan2014">Yuan2014</a>: "Simple Testing Can Prevent Most Critical Failures: An Analysis of Production Failures in Distributed Data-Intensive Systems"
-
-- 198 randomly selected, user-reported failures on Cassandra, Hadoop MapReduce, etc.
-- Majority of catastrophic failures could easily have been prevented by performing simple testing on error handling code
-
----
-
-## Check Your Error Handling
-
 <a href="#Nakshatri2016">Nakshatri2016</a>: "Analysis of Exception Handling Patterns in Java Projects: An Empirical Study"
 
 - Most common `catch` block logs the error rather than trying to recover from it
 - Next most common does nothing at all (20% of cases)
   - Or converts the checked exception into an unchecked one so it can be ignored.
 - Most programmers simply catch `Exception` (78%) or `Throwable` (84%) rather than their subclasses
+
+---
+
+## Check Your Error Handling
+
+<a href="#Yuan2014">Yuan2014</a>: "Simple Testing Can Prevent Most Critical Failures: An Analysis of Production Failures in Distributed Data-Intensive Systems"
+
+- 198 randomly selected, user-reported failures on Cassandra, Hadoop MapReduce, etc.
+- Majority of catastrophic failures could easily have been prevented by performing simple testing on error handling code
 
 ---
 
@@ -249,7 +250,7 @@ The three that take the most time to fix are:
 
 ---
 
-## Productivity
+## A Caution
 
 <a href="#Begel2014">Begel2014</a>: "Analyze This! 145 Questions for Data Scientists in Software Engineering"
 
@@ -260,12 +261,11 @@ The three that take the most time to fix are:
 
 ---
 
-class: aside
+## Test Flakiness
 
-## Aside
+<a href="#Costa2022">Costa2022</a>: "Test Flakiness Across Programming Languages"
 
-- My colleagues and I did a similar study of CS teachers and CS education researchers
-- No overlap between the top five questions selected by each group
+<img src="costa2022-table6.png" class="center">
 
 ---
 
@@ -291,6 +291,23 @@ class: aside
 - Fuzz testing invented by accident in 1988 (<a href="#Miller2021">Miller2021</a>)
 - 25-33% of Unix utilities crashed when fuzzed
 - Thirty years later, 12-20% still crash
+- [*The Fuzzing Book*](https://www.fuzzingbook.org/)
+
+---
+
+## A Few Random Results
+
+- Strong typing catches about 15% of bugs (<a href="#Gao2017">Gao2017</a>)
+- Which is either a lot or a little depending on how you think about it
+
+---
+
+## A Few Random Results
+
+- Programmers are quick to adopt new versions of the TypeScript compiler
+- But much slower to adopt new language features (<a href="#Scarsbrook2023">Scarsbrook2023</a>)
+
+<img src="typescript-features.png" class="center" width="80%">
 
 ---
 
@@ -314,12 +331,12 @@ class: aside
 
 <a href="#Xu2015">Xu2015</a>: developers create a lot more configuration options than people use
 
--   Only 6.1%-16.7% of parameters set by majority of users
--   54.1% of parameters are rarely set by *any* user
--   Only 1.8%-7.8% of parameters are configured by more than 90% of users
--   Up to 48.5% of config issues are about difficulty finding or setting parameters
--   Up to 53.3% of config errors are due to users' staying with default values incorrectly
--   Searching user manuals by keywords is not efficient to help users identify parameters
+-   Only 6-17% of parameters set by majority of users
+-   54% of parameters are rarely set by *any* user
+-   Only 2%-8% of parameters are configured by more than 90% of users
+-   48% of config issues are about difficulty finding or setting parameters
+-   53% of config errors are due to users' staying with default values incorrectly
+-   Searching user manuals by keywords doesn't help users identify parameters
 
 ---
 
@@ -340,7 +357,10 @@ class: aside
   <div class="col-3"><img src="./rapid-development.jpg" width="70%"></div>
   <div class="col-3"><img src="./facts-fallacies.jpg" width="70%"></div>
   <div class="col-3"><img src="../img/making-software.jpg" width="70%"></div>
-  <div class="col-3"><img src="./nwit.png" width="70%"></div>
+</div>
+
+<div class="center">
+  <a href="https://neverworkintheory.org/"><strong>https://neverworkintheory.org/</strong></a>
 </div>
 
 ---
@@ -353,15 +373,13 @@ class: aside
   - Academically defensible ("Look, math!")
   - And attractive to students
 - Then replicate a few simple results
-  - <a href="#Fucci2016">Fucci2016</a>, <a href="#Prechelt2000">Prechelt2000</a>, etc.
-- Then survey other results
 - At this point, students will be able to understand and assess the claims
 
 ---
 
 ## When We're Done
 
-Assignment #3
+**Assignment #3**
 
 > Given version control repositories for six software
 > projects, determine whether long functions are
@@ -394,156 +412,207 @@ Assignment #3
 
 ---
 
-class: bibliography
-
 ## Bibliography
 
-<p id="Altadmri2015">[Altadmri2015]
-Amjad Altadmri and Neil C.C. Brown:
-"<a href="https://doi.org/10.1145/2676723.2677258">37 Million Compilations</a>".
-<em>SIGCSE'15</em>, <a class="doi" href="https://doi.org/10.1145/2676723.2677258">10.1145/2676723.2677258</a>.
-</p>
+<div class="bibliography">
 
-<p id="Begel2014">[Begel2014]
-Andrew Begel and Thomas Zimmermann:
-"<a href="https://doi.org/10.1145/2568225.2568233">Analyze this! 145 questions for data scientists in software engineering</a>".
-<em>ICSE'14</em>, <a class="doi" href="https://doi.org/10.1145/2568225.2568233">10.1145/2568225.2568233</a>.
-</p>
+  <p id="Altadmri2015">[Altadmri2015]
+    Amjad Altadmri and Neil C.C. Brown:
+    "37 Million Compilations".
+    <em>SIGCSE'15</em>,
+    <a class="doi" href="https://doi.org/10.1145/2676723.2677258">10.1145/2676723.2677258</a>.
+  </p>
 
-<p id="DaCosta2017">[DaCosta2017]
-Daniel Alencar da Costa, Shane McIntosh, Christoph Treude, Uirá Kulesza, and Ahmed E. Hassan:
-"<a href="https://doi.org/10.1007/s10664-017-9548-7">The impact of rapid release cycles on the integration delay of fixed issues</a>".
-<em>Empirical Software Engineering</em>, 23(2), 2017, <a class="doi" href="https://doi.org/10.1007/s10664-017-9548-7">10.1007/s10664-017-9548-7</a>.
-</p>
+  <p id="Begel2014">[Begel2014]
+    Andrew Begel and Thomas Zimmermann:
+    "Analyze this! 145 questions for data scientists in software engineering".
+    <em>ICSE'14</em>,
+    <a class="doi" href="https://doi.org/10.1145/2568225.2568233">10.1145/2568225.2568233</a>.
+  </p>
 
-<p id="ElEmam2001">[ElEmam2001]
-Khaled El Emam, Saïda Benlarbi, Nishith Goel, and Shesh N. Rai:
-"The Confounding Effect of Class Size on the Validity of Object-Oriented Metrics".
-<em>Transactions on Software Engineering</em>, 27(7), 2001, <a class="doi" href="https://doi.org/10.1109/32.935855">10.1109/32.935855</a>.
-</p>
+  <p>Keila Costa, Ronivaldo Ferreira, Gustavo Pinto, Marcelo d'Amorim, and Breno Miranda:
+    "Test flakiness across programming languages."
+    <em>IEEE Trans. Software Engineering</em>, 2022,
+    <a class="doi" href="https://doi.org/10.1109/tse.2022.3208864">10.1109/tse.2022.3208864</a>.
+  </p>
 
-<p id="Fucci2016">[Fucci2016]
-Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo:
-"<a href="https://doi.org/10.1145/2961111.2962592">An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach</a>".
-<em>ESEM'16</em>, <a class="doi" href="https://doi.org/10.1145/2961111.2962592">10.1145/2961111.2962592</a>.
-</p>
+  <p id="DaCosta2017">[DaCosta2017]
+    Daniel Alencar da Costa, Shane McIntosh, Christoph Treude, Uirá Kulesza, and Ahmed E. Hassan:
+    "The impact of rapid release cycles on the integration delay of fixed issues".
+    <em>Empirical Software Engineering</em>, 2017,
+    <a class="doi" href="https://doi.org/10.1007/s10664-017-9548-7">10.1007/s10664-017-9548-7</a>.
+  </p>
 
-<p id="Herraiz2010">[Herraiz2010]
-Israel Herraiz and Ahmed E. Hassan:
-"Beyond Lines of Code: Do We Need More Complexity Metrics?".
-In 
-Andy Oram and Greg Wilson (eds.):
-<em>Making Software.</em>
-O'Reilly, 2010, 0596808321.
-</p>
+  <p id="ElEmam2001">[ElEmam2001]
+    Khaled El Emam, Saïda Benlarbi, Nishith Goel, and Shesh N. Rai:
+    "The Confounding Effect of Class Size on the Validity of Object-Oriented Metrics".
+    <em>IEEE Trans. Software Engineering</em>, 2001,
+    <a class="doi" href="https://doi.org/10.1109/32.935855">10.1109/32.935855</a>.
+  </p>
+
+</div>
 
 ---
 
-class: bibliography
-
 ## Bibliography
 
-<p id="McIntosh2021">[McIntosh2021]
-Lukas McIntosh and Caroline D. Hardin:
-"<a href="https://doi.org/10.1145/3408877.3432435">Do Hackathon Projects Change the World? An Empirical Analysis of GitHub Repositories</a>".
-<em>SIGCSE'21</em>, <a class="doi" href="https://doi.org/10.1145/3408877.3432435">10.1145/3408877.3432435</a>.
-</p>
+<div class="bibliography">
 
-<p id="Miller2020">[Miller2020]
-Barton Miller, Mengxiao Zhang, and Elisa Heymann:
-"<a href="https://doi.org/10.1109/tse.2020.3047766">The Relevance of Classic Fuzz Testing: Have We Solved This One?</a>".
-<em>IEEE Transactions on Software Engineering</em>, 2020, <a class="doi" href="https://doi.org/10.1109/tse.2020.3047766">10.1109/tse.2020.3047766</a>.
-</p>
+  <p id="Fucci2016">[Fucci2016]
+    Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo:
+    "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach".
+    <em>ESEM'16</em>,
+    <a class="doi" href="https://doi.org/10.1145/2961111.2962592">10.1145/2961111.2962592</a>.
+  </p>
 
-<p id="Nakshatri2016">[Nakshatri2016]
-Suman Nakshatri, Maithri Hegde, and Sahithi Thandra:
-"<a href="https://doi.org/10.1145/2901739.2903499">Analysis of exception handling patterns in Java projects</a>".
-<em>Proceedings of the 13th International Conference on Mining Software Repositories</em>, <a class="doi" href="https://doi.org/10.1145/2901739.2903499">10.1145/2901739.2903499</a>.
-</p>
+  <p id="Gao2017">Zheng Gao, Christian Bird, and Earl T. Barr:
+    "To type or not to type: quantifying detectable bugs in JavaScript."
+    <em>ICSE'17</em>,
+    <a class="doi" href="https://doi.org/10.1109/icse.2017.75">10.1109/icse.2017.75</a>
+  </p>
 
-<p id="Palomba2021">[Palomba2021]
-Fabio Palomba, Damian Andrew Tamburri, Francesca Arcelli Fontana, Rocco Oliveto, Andy Zaidman, and Alexander Serebrenik:
-"<a href="https://doi.org/10.1109/tse.2018.2883603">Beyond Technical Aspects: How Do Community Smells Influence the Intensity of Code Smells?</a>".
-<em>IEEE Transactions on Software Engineering</em>, 47(1), 2021, <a class="doi" href="https://doi.org/10.1109/tse.2018.2883603">10.1109/tse.2018.2883603</a>.
-</p>
+  <p id="Herraiz2010">[Herraiz2010]
+    Israel Herraiz and Ahmed E. Hassan:
+    "Beyond Lines of Code: Do We Need More Complexity Metrics?".
+    In Andy Oram and Greg Wilson (eds.):
+    <em>Making Software.</em>
+    O'Reilly, 2010, 0596808321.
+  </p>
 
-<p id="Patitsas2016">[Patitsas2016]
-Elizabeth Patitsas, Jesse Berlin, Michelle Craig, and Steve Easterbrook:
-"Evidence That Computer Science Grades Are Not Bimodal".
-<em>ICER'16</em>, <a class="doi" href="https://doi.org/10.1145/2960310.2960312">10.1145/2960310.2960312</a>.
-</p>
+  <p id="McIntosh2021">[McIntosh2021]
+    Lukas McIntosh and Caroline D. Hardin:
+    "Do Hackathon Projects Change the World? An Empirical Analysis of GitHub Repositories".
+    <em>SIGCSE'21</em>,
+    <a class="doi" href="https://doi.org/10.1145/3408877.3432435">10.1145/3408877.3432435</a>.
+  </p>
 
-<p id="Prechelt2000">[Prechelt2000]
-Lutz Prechelt:
-"An Empirical Comparison of Seven Programming Languages".
-<em>IEEE Computer</em>, 33(10), 2000, <a class="doi" href="https://doi.org/10.1109/2.876288">10.1109/2.876288</a>.
-</p>
+  <p id="Miller2020">[Miller2020]
+    Barton Miller, Mengxiao Zhang, and Elisa Heymann:
+    "The Relevance of Classic Fuzz Testing: Have We Solved This One?".
+    <em>IEEE Trans. Software Engineering</em>, 2020,
+    <a class="doi" href="https://doi.org/10.1109/tse.2020.3047766">10.1109/tse.2020.3047766</a>.
+  </p>
+
+</div>
 
 ---
 
-class: bibliography
-
 ## Bibliography
 
-<p id="Shull2010">[Shull2010]
-Forrest Shull, Grigori Melnik, Burak Turhan, Lucas Layman, Madeline Diep, and Hakan Erdogmus:
-"<a href="https://doi.org/10.1109/ms.2010.152">What Do We Know about Test-Driven Development?</a>".
-<em>IEEE Software</em>, 27(6), 2010, <a class="doi" href="https://doi.org/10.1109/ms.2010.152">10.1109/ms.2010.152</a>.
+<div class="bibliography">
+
+  <p id="Nakshatri2016">[Nakshatri2016]
+    Suman Nakshatri, Maithri Hegde, and Sahithi Thandra:
+    "Analysis of exception handling patterns in Java projects".
+    <em>MSR'16</em>,
+    <a class="doi" href="https://doi.org/10.1145/2901739.2903499">10.1145/2901739.2903499</a>.
+  </p>
+
+  <p id="Palomba2021">[Palomba2021]
+    Fabio Palomba, Damian Andrew Tamburri, Francesca Arcelli Fontana, Rocco Oliveto, Andy Zaidman, and Alexander Serebrenik:
+    "Beyond Technical Aspects: How Do Community Smells Influence the Intensity of Code Smells?".
+    <em>IEEE Trans. Software Engineering</em>, 2021,
+    <a class="doi" href="https://doi.org/10.1109/tse.2018.2883603">10.1109/tse.2018.2883603</a>.
 </p>
 
-<p id="Stefik2013">[Stefik2013]
-Andreas Stefik and Susanna Siebert:
-"<a href="https://doi.org/10.1145/2534973">An Empirical Investigation into Programming Language Syntax</a>".
-<em>ACM Trans. Computing Education</em>, 13(4), 2013, <a class="doi" href="https://doi.org/10.1145/2534973">10.1145/2534973</a>.
+  <p id="Patitsas2016">[Patitsas2016]
+    Elizabeth Patitsas, Jesse Berlin, Michelle Craig, and Steve Easterbrook:
+    "Evidence That Computer Science Grades Are Not Bimodal".
+    <em>ICER'16</em>,
+    <a class="doi" href="https://doi.org/10.1145/2960310.2960312">10.1145/2960310.2960312</a>.
 </p>
 
-<p id="Steinmacher2015">[Steinmacher2015]
-Igor Steinmacher, Tayana Conte, Marco Aurélio Gerosa, and David Redmiles:
-"Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects".
-<em>CSCW'15</em>, <a class="doi" href="https://doi.org/10.1145/2675133.2675215">10.1145/2675133.2675215</a>.
-</p>
+  <p id="Prechelt2000">[Prechelt2000]
+    Lutz Prechelt:
+    "An Empirical Comparison of Seven Programming Languages".
+    <em>IEEE Computer</em>, 2000,
+    <a class="doi" href="https://doi.org/10.1109/2.876288">10.1109/2.876288</a>.
+  </p>
 
-<p id="Tichy2010">[Tichy2010]
-Walter Tichy:
-"The Evidence for Design Patterns".
-In 
-Andy Oram and Greg Wilson (eds.):
-<em>Making Software.</em>
-O'Reilly, 2010, 0596808321.
-</p>
+  <p id="Scarsbrook2023">[Scarsbrook2023]
+    Joshua D. Scarsbrook, Mark Utting, and Ryan K. L. Ko:
+    "Typescript's evolution: an analysis of feature adoption over time."
+    2023,
+    <a href="https://arxiv.org/abs/2303.09802">arXiv:2303.09802</a>.
+  </p>
 
-<p id="Wessel2020">[Wessel2020]
-Mairieli Wessel, Alexander Serebrenik, Igor Wiese, Igor Steinmacher, and Marco A. Gerosa:
-"<a href="https://doi.org/10.1109/icsme46990.2020.00011">Effects of Adopting Code Review Bots on Pull Requests to OSS Projects</a>".
-<em>ICSME'20</em>, <a class="doi" href="https://doi.org/10.1109/icsme46990.2020.00011">10.1109/icsme46990.2020.00011</a>.
-</p>
-
-<p id="Xu2015">[Xu2015]
-Tianyin Xu, Long Jin, Xuepeng Fan, Yuanyuan Zhou, Shankar Pasupathy, and Rukma Talwadker:
-"<a href="https://doi.org/10.1145/2786805.2786852">Hey,  you have given me too many knobs!: understanding and dealing with over-designed configuration in system software</a>".
-<em>Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering</em>, <a class="doi" href="https://doi.org/10.1145/2786805.2786852">10.1145/2786805.2786852</a>.
-</p>
+</div>
 
 ---
 
-class: bibliography
+## Bibliography
+
+<div class="bibliography">
+
+  <p id="Shull2010">[Shull2010]
+    Forrest Shull, Grigori Melnik, Burak Turhan, Lucas Layman, Madeline Diep, and Hakan Erdogmus:
+    "What Do We Know about Test-Driven Development?".
+    <em>IEEE Software</em>, 2010,
+    <a class="doi" href="https://doi.org/10.1109/ms.2010.152">10.1109/ms.2010.152</a>.
+  </p>
+
+  <p id="Stefik2013">[Stefik2013]
+    Andreas Stefik and Susanna Siebert:
+    "An Empirical Investigation into Programming Language Syntax".
+    <em>ACM Trans. Computing Education</em>, 2013,
+    <a class="doi" href="https://doi.org/10.1145/2534973">10.1145/2534973</a>.
+  </p>
+
+  <p id="Steinmacher2015">[Steinmacher2015]
+    Igor Steinmacher, Tayana Conte, Marco Aurélio Gerosa, and David Redmiles:
+    "Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects".
+    <em>CSCW'15</em>,
+    <a class="doi" href="https://doi.org/10.1145/2675133.2675215">10.1145/2675133.2675215</a>.
+  </p>
+
+  <p id="Tichy2010">[Tichy2010]
+    Walter Tichy:
+    "The Evidence for Design Patterns".
+    In Andy Oram and Greg Wilson (eds.):
+    <em>Making Software.</em>
+    O'Reilly, 2010, 0596808321.
+  </p>
+
+  <p id="Wessel2020">[Wessel2020]
+    Mairieli Wessel, Alexander Serebrenik, Igor Wiese, Igor Steinmacher, and Marco A. Gerosa:
+    "Effects of Adopting Code Review Bots on Pull Requests to OSS Projects".
+    <em>ICSME'20</em>, <a class="doi" href="https://doi.org/10.1109/icsme46990.2020.00011">10.1109/icsme46990.2020.00011</a>.
+  </p>
+
+</div>
+
+---
 
 ## Bibliography
 
-<p id="Yuan2014">[Yuan2014]
-Ding Yuan, Yu Luo, Xin Zhuang, Guilherme Renna Rodrigues, Xu Zhao, Yongle Zhang, Pranay U. Jain, and Michael Stumm:
-"<a href="https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-yuan.pdf">Simple testing can prevent most critical failures: an analysis of production failures in distributed data-intensive systems</a>".
-<em>OSDI'14</em>, <a class="doi" href="https://doi.org/10.13140/2.1.2044.2889">10.13140/2.1.2044.2889</a>.
-</p>
+<div class="bibliography">
 
-<p id="Zhu2021">[Zhu2021]
-Wenhan Zhu and Michael W. Godfrey:
-"<a href="https://doi.org/10.1109/msr52588.2021.00065">Mea culpa: How developers fix their own simple bugs differently from other developers</a>".
-<em>MSR'21</em>, <a class="doi" href="https://doi.org/10.1109/msr52588.2021.00065">10.1109/msr52588.2021.00065</a>.
-</p>
+  <p id="Xu2015">[Xu2015]
+    Tianyin Xu, Long Jin, Xuepeng Fan, Yuanyuan Zhou, Shankar Pasupathy, and Rukma Talwadker:
+    "Hey,  you have given me too many knobs!: understanding and dealing with over-designed configuration in system software".
+    <em>FSE'15</em>,
+    <a class="doi" href="https://doi.org/10.1145/2786805.2786852">10.1145/2786805.2786852</a>.
+  </p>
 
-<p id="Zieris2020">[Zieris2020]
-Franz Zieris and Lutz Prechelt:
-"Two Elements of Pair Programming Skill".
-<em>ICSE'20</em>.
-</p>
+  <p id="Yuan2014">[Yuan2014]
+    Ding Yuan, Yu Luo, Xin Zhuang, Guilherme Renna Rodrigues, Xu Zhao, Yongle Zhang, Pranay U. Jain, and Michael Stumm:
+    "Simple testing can prevent most critical failures: an analysis of production failures in distributed data-intensive systems".
+    <em>OSDI'14</em>,
+    <a class="doi" href="https://doi.org/10.13140/2.1.2044.2889">10.13140/2.1.2044.2889</a>.
+  </p>
+
+  <p id="Zhu2021">[Zhu2021]
+    Wenhan Zhu and Michael W. Godfrey:
+    "Mea culpa: How developers fix their own simple bugs differently from other developers".
+    <em>MSR'21</em>,
+    <a class="doi" href="https://doi.org/10.1109/msr52588.2021.00065">10.1109/msr52588.2021.00065</a>.
+  </p>
+
+  <p id="Zieris2020">[Zieris2020]
+    Franz Zieris and Lutz Prechelt:
+    "Two Elements of Pair Programming Skill".
+    <em>ICSE'20</em>,
+    <a class="doi" href="https://doi.org/10.1109/ICSE-NIER52604.2021.00019">10.1109/ICSE-NIER52604.2021.00019</a>.
+  </p>
+
+</div>
