@@ -19,13 +19,13 @@ I have put the <s>six</s> <s>seven</s> <s>eight</s> nine below on [my to-don't l
 but if you're minded to tackle any of them,
 please give me a shout.
 
-1. **[A lesson aggregation system][harper-lite]**.
+1. [A lesson aggregation system][harper-lite].
    Instead of building yet another repository for lessons,
    let's draw inspiration from RSS
    (which I think is right up there with "view source" as an example of what the web *could* be)
    and create a way to find and aggregate lessons.
 
-2. **A browser-based drag-and-drop tool for data analytics**.*
+2. A browser-based drag-and-drop tool for data analytics.
    The [TidyBlocks][tidyblocks-repo] project [ground to a halt][tidyblocks-post]
    due to a lack of funding and some difficult technical challenges.
    I still believe in the idea, though,
@@ -34,7 +34,7 @@ please give me a shout.
    give non-programmers an interface they could use immediately,
    *and* be a natural successor to [Yahoo! Pipes][yahoo-pipes].
 
-3. **A WYSIWYG computational notebook**.
+3. A WYSIWYG computational notebook.
    In [a better universe than ours][notebook-post]
    someone has already built a plugin for [LibreOffice][libreoffice]
    that leverages the [the Jupyter messaging protocol][jupyter-protocol],
@@ -42,7 +42,7 @@ please give me a shout.
    can create the reports they want the way they want to.
    It's not too late…
 
-4. **[Browsercast][browsercast],**
+4. [Browsercast][browsercast],
    which would replay an HTML slideshow in sync with a voiceover.
    Tools like Wasim Lorgat's [SVG replay][svg-replay] and [Scrimba][scrimba]
    have made me more certain than ever that
@@ -51,14 +51,14 @@ please give me a shout.
    so that people can search them, style them, copy and paste them,
    and feed them to screenreaders and other accessibility aids.
 
-5. **[Use case maps][use-case-maps-post]**.
+5. [Use case maps][use-case-maps-post].
    Given an SVG diagram showing the elements of your system that produce log entries,
    be they classes or microservices,
    and UUIDs to identify the descendents of initiating messages,
    this tool would draw the diagram we all eventually wind up creating by hand
    to show what happens when and where.
 
-6. A **[Journal of Comprehensible Explanations][jce-post]**.
+6. A [Journal of Comprehensible Explanations][jce-post].
    We've been writing reviews of software engineering research results
    at [It Will Never Work in Theory][nwit]
    for years
@@ -70,7 +70,7 @@ please give me a shout.
    I think a journal (or a track at a major software engineering conference)
    might do the trick.
 
-7. **A superset of [Elm][elm] for systems programming.**
+7. A superset of [Elm][elm] for systems programming.
    I've been fascinated by pure functional programming
    since I first encountered it in the mid-1980s.
    I'd really like to do a version of [*Software Design by Example*][sdxjs]
@@ -80,7 +80,7 @@ please give me a shout.
    I think a superset of Elm with libraries for creating files and directories
    would be just about perfect.
 
-8. **Diff and merge for SVG, CSV, and office documents.**
+8. Diff and merge for SVG, CSV, and office documents.
    I think developers would be much (much) more likely to include diagrams in their documentation
    if they could diff and merge those diagrams as easily as they do text.
    GitHub has supported a [split-pane view][github-svg-diff] for years,
@@ -90,7 +90,7 @@ please give me a shout.
    that understood columns as well as rows,
    and even more so for one that would handle [LibreOffice][libreoffice] documents.
 
-9. **A caravan defense game**.
+9. A caravan defense game.
    [*Kingdom Rush: Frontiers*][kingdom-rush-frontiers] is my favorite game
    of the last ten years,
    but I'm increasingly uninterested in killing monsters.
