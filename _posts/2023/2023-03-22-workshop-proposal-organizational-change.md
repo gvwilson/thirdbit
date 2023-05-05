@@ -4,6 +4,8 @@ date: 2023-03-22
 year: 2023
 ---
 
+*Updated 2023-05-05: rejected.*
+
 I just submitted the proposal shown below for a workshop at the US-RSE
 conference in October 2023; fingers crossed, I'll see you there.
 
