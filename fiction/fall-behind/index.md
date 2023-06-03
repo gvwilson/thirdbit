@@ -384,7 +384,7 @@ each time he came to examine George's mother.
 "He's a specialist," the oncologist had explained uncomfortably the first time.
 *I thought you were the specialist,*
 George had thought,
-but she had kept the thought to himself.
+but she had kept the thought to herself.
 Not Robbie---he had demanded to know why they were shut out of their mother's room
 during Biczo's visits,
 then slammed his bedroom door and thrown himself into yet another programming project
@@ -609,7 +609,7 @@ George sighed.
 She picked up a red pencil and started to doodle blunt five-pointed stars
 on a fresh sheet of roughing paper.
 There was writing as well,
-he remembered,
+she remembered,
 something that looked like a cross between hieroglyphics and fluid flow diagrams.
 
 After a moment,
@@ -764,7 +764,7 @@ and then part of her floated free,
 giddy and unconcerned
 while the rest of her chuckled softly at their questions.
 What was Robbie working on?
-What we he *really* working on?
+What was he *really* working on?
 When had his episodes started?
 What did he talk about when he wasn't himself?
 Had George ever had episodes like that?
@@ -872,7 +872,7 @@ Robbie agreed.
 
 "Inconvenient?
 Robbie,
-you could have *died*!
+you could have *died!*
 I mean,
 look at you,
 you're exhausted and you haven't had your meds and---"
@@ -964,7 +964,7 @@ why…?"
 She gestured helplessly.
 
 Robbie cleared his throat.
-"We cannot project themselves into just anyone.
+"We cannot project ourselves into just anyone.
 The vessel has to have a certain, um, mental capacity."
 
 George looked at him.
