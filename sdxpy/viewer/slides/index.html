@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="slides">
   <meta name="major" content="Chapter 23">
   
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../../mccole.js"></script>
-  <title>Software Design for Data Scientists: A File Viewer</title>
+  <title>Software Design by Example: A File Viewer</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
 class: slide-title
 
 <p>
-  <a href="https://third-bit.com/sd4ds/">Software Design for Data Scientists</a>
+  <a href="https://third-bit.com/sdxpy/">Software Design by Example</a>
 </p>
 <h1>A File Viewer</h1>
 <div class="bottom">
@@ -223,7 +223,7 @@ def main(stdscr, lines):
 
 -   Can't create `Window` before calling `curses.wrapper` because it needs the screen
 
--   <a class="gl-ref" href="../../glossary/#delayed_construction" markdown="1">Delayed construction</a>
+-   <a class="gl-ref" href="../../glossary/#gl:delayed_construction" title="The practice of constructing an object after something that needs it has been constructed rather than before." markdown="1">Delayed construction</a>
 
 ---
 
@@ -269,7 +269,7 @@ class Window:
 
 -   Use `ROW` and `COL` instead of 0 and 1 (or `R` and `C`)
 
--   Should really create an <a class="gl-ref" href="../../glossary/#enumeration" markdown="1">enumeration</a>
+-   Should really create an <a class="gl-ref" href="../../glossary/#gl:enumeration" title="A set of distinct named values defined in a program." markdown="1">enumeration</a>
 
 ```py
 ROW = 0
@@ -331,7 +331,7 @@ def main(stdscr, size, lines):
 ```
 
 
--   <a class="gl-ref" href="../../glossary/#Spread" markdown="1">spread</a> position into `stdscr.move`
+-   <a class="gl-ref" href="../../glossary/#gl:spread" title="To automatically match the values from a list or dictionary supplied by the caller to the parameters of a function." markdown="1">Spread</a> position into `stdscr.move`
 
 -   Screen's `getkey` method returns names of cursor keys
 
@@ -344,7 +344,7 @@ def main(stdscr, size, lines):
 -   And blow up when moving off left of screen or off top with
     `_curses.error: wmove() returned ERR`
 
--   Do some <a class="gl-ref" href="../../glossary/#refactor" markdown="1">refactoring</a> before fixing this problem
+-   Do some <a class="gl-ref" href="../../glossary/#gl:refactor" title="To rewrite existing code in order to make it simpler or more efficient without changing its functionality." markdown="1">refactoring</a> before fixing this problem
 
 ---
 
@@ -376,17 +376,17 @@ class MainApp:
 ## Application Class
 
 ```py
-    def _run(self):
-        while True:
-            self._window.draw(self._lines)
-            self._screen.move(*self._cursor.pos())
-            key = self._screen.getkey()
-            if key == "KEY_UP": self._cursor.up()
-            elif key == "KEY_DOWN": self._cursor.down()
-            elif key == "KEY_LEFT": self._cursor.left()
-            elif key == "KEY_RIGHT": self._cursor.right()
-            elif key.lower() == "q":
-                return
+def _run(self):
+    while True:
+        self._window.draw(self._lines)
+        self._screen.move(*self._cursor.pos())
+        key = self._screen.getkey()
+        if key == "KEY_UP": self._cursor.up()
+        elif key == "KEY_DOWN": self._cursor.down()
+        elif key == "KEY_LEFT": self._cursor.left()
+        elif key == "KEY_RIGHT": self._cursor.right()
+        elif key.lower() == "q":
+            return
 ```
 
 ```py
@@ -401,25 +401,25 @@ if __name__ == "__main__":
 
 ## Dispatching Keystrokes
 
--   Find and call key handlers via <a class="gl-ref" href="../../glossary/#dynamic_dispatch" markdown="1">dynamic dispatch</a>
+-   Find and call key handlers via <a class="gl-ref" href="../../glossary/#gl:dynamic_dispatch" title="To find a function or a property of an object by name while a program is running. For example, instead of getting a specific property of an object using `obj.name`, a program might use `obj[someVariable]`, where `someVariable` could hold `&quot;name&quot;` or some other property name." markdown="1">dynamic dispatch</a>
 
 ```py
-    TRANSLATE = {
-        "\x18": "CONTROL_X"
-    }
+TRANSLATE = {
+    "\x18": "CONTROL_X"
+}
 
-    def _interact(self):
-        key = self._screen.getkey()
-        key = self.TRANSLATE.get(key, key)
-        name = f"_do_{key}"
-        if hasattr(self, name):
-            getattr(self, name)()
+def _interact(self):
+    key = self._screen.getkey()
+    key = self.TRANSLATE.get(key, key)
+    name = f"_do_{key}"
+    if hasattr(self, name):
+        getattr(self, name)()
 
-    def _do_CONTROL_X(self):
-        self._running = False
+def _do_CONTROL_X(self):
+    self._running = False
 
-    def _do_KEY_UP(self):
-        self._cursor.up()
+def _do_KEY_UP(self):
+    self._cursor.up()
 ```
 
 
@@ -456,7 +456,7 @@ class: aside
 
 -   `DispatchApp` is a child of `MainApp` so that we can recycle initialization
 
--   `DispatchApp.__init__` <a class="gl-ref" href="../../glossary/#upcall" markdown="1">upcalls</a> to `MainApp.__init__`
+-   `DispatchApp.__init__` <a class="gl-ref" href="../../glossary/#gl:upcall" title="The act of explicitly invoking a method of a parent class from inside a child class. A method in a child class may upcall to the corresponding method in the parent class as parent of extending that method." markdown="1">upcalls</a> to `MainApp.__init__`
 
 -   Probably wouldn't create multiple classes in a real program,
     but simplifies exposition when teaching
@@ -521,7 +521,7 @@ class: aside
 -   If `setup` calls constructors to create window, buffer, and cursor,
     we have to rewrite it each time
 
--   Putting constructor calls in <a class="gl-ref" href="../../glossary/#factory_method" markdown="1">factory methods</a>
+-   Putting constructor calls in <a class="gl-ref" href="../../glossary/#gl:factory_method" title="A method whose only job is to construct an object of some type. Factory methods are typically created to make it easier for child classes to construct objects of other types." markdown="1">factory methods</a>
     allows us to override them one by one
 
 -   Could pass classes into `BufferApp` constructor…
@@ -617,7 +617,7 @@ class ClipCursorFixed(ClipCursor):
 
 -   What if the buffer is bigger than the window?
 
--   Need a <a class="gl-ref" href="../../glossary/#viewport" markdown="1">viewport</a> to track
+-   Need a <a class="gl-ref" href="../../glossary/#gl:viewport" title="A class or other data structure whose purpose is to keep track of what can currently be seen by the user." markdown="1">viewport</a> to track
     the currently-visible portion of the buffer
 
     -   Do vertical here and leave horizontal for exercises
@@ -649,19 +649,19 @@ class ViewportBuffer(ClipBuffer):
 ## Buffer
 
 ```py
-    def transform(self, pos):
-        result = (pos[ROW] - self._top, pos[COL])
-        return result
+def transform(self, pos):
+    result = (pos[ROW] - self._top, pos[COL])
+    return result
 ```
 
 ```py
-    def scroll(self, row, col):
-        old = self._top
-        if (row == self._top - 1) and self._top > 0:
-            self._top -= 1
-        elif (row == self._bottom()) and \
-             (self._bottom() < self.nrow()):
-            self._top += 1
+def scroll(self, row, col):
+    old = self._top
+    if (row == self._top - 1) and self._top > 0:
+        self._top -= 1
+    elif (row == self._bottom()) and \
+         (self._bottom() < self.nrow()):
+        self._top += 1
 ```
 
 
@@ -743,12 +743,14 @@ class: summary
 
 
 [academic_prototyping]: https://www.fuzzingbook.org/html/AcademicPrototyping.html
+[ark]: https://www.dmulholl.com/docs/ark/main/
 [aosa]: https://aosabook.org/
 [beautiful_soup]: https://beautiful-soup-4.readthedocs.io/
 [birthday_problem]: https://en.wikipedia.org/wiki/Birthday_problem
 [black]: https://black.readthedocs.io/
-[book_repo]: https://github.com/gvwilson/sd4ds/
-[book_site]: https://third-bit.com/sd4ds/
+[book_repo]: https://github.com/gvwilson/sdxpy/
+[book_issues]: https://github.com/gvwilson/sdxpy/issues
+[book_site]: https://third-bit.com/sdxpy/
 [browser_engine_tutorial]: https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html
 [browser_engineering]: https://browser.engineering/
 [brubeck_matt]: https://limpet.net/mbrubeck/
@@ -772,9 +774,11 @@ class: summary
 [flake8]: https://flake8.pycqa.org/
 [git]: https://git-scm.com/
 [git_man_page_generator]: https://git-man-page-generator.lokaltog.net/
+[gitbook]: https://www.gitbook.com/
 [gitlet]: http://gitlet.maryrosecook.com/
 [glosario]: https://glosario.carpentries.org/
 [gnu_make]: https://www.gnu.org/software/make/
+[gorcenski_emily]: https://emilygorcenski.com/post/book-report-software-design-by-example-by-greg-wilson/
 [gutenberg]: https://www.gutenberg.org/
 [harrelson_chris]: https://twitter.com/chrishtr
 [hippocratic_license]: https://firstdonoharm.dev/
@@ -782,9 +786,10 @@ class: summary
 [html5_data_attributes]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 [human_resource_machine]: https://tomorrowcorporation.com/humanresourcemachine
 [isort]: https://pycqa.github.io/isort/
-[ivy]: https://www.dmulholl.com/docs/ivy/main/
 [jekyll]: https://jekyllrb.com/
 [json_schema]: https://json-schema.org/
+[jupybook]: https://jupyterbook.org/
+[kerr_jessica]: https://jessitron.com/2023/02/20/book-review-software-design-by-example/
 [kilo_editor]: https://viewsourcecode.org/snaptoken/kilo/index.html
 [latex]: https://www.latex-project.org/
 [loewy_raymond]: https://en.wikipedia.org/wiki/Raymond_Loewy
@@ -793,6 +798,7 @@ class: summary
 [lorgat_wasim]: https://wasimlorgat.com/
 [marthas_rules]: https://journals.sagepub.com/doi/10.1177/088610998600100206
 [nano]: https://www.nano-editor.org/
+[navarro_danielle]: https://blog.djnavarro.net/posts/2023-05-31_software-design-by-example/
 [nison_mael]: https://arcanis.github.io/
 [nystrom_bob]: http://journal.stuffwithstuff.com/
 [package_manager_tutorial]: https://classic.yarnpkg.com/blog/2017/07/11/lets-dev-a-package-manager/
@@ -823,20 +829,26 @@ class: summary
 [py_struct]: https://docs.python.org/3/library/struct.html
 [py_textwrap]: https://docs.python.org/3/library/textwrap.html
 [py_urlparse]: https://docs.python.org/3/library/urllib.parse.html
+[py_yaml]: https://pyyaml.org/wiki/PyYAMLDocumentation
 [pyfakefs]: https://pytest-pyfakefs.readthedocs.io/
 [pytest]: https://docs.pytest.org/
 [pytest_approx]: https://docs.pytest.org/en/4.6.x/reference.html#pytest-approx
 [python]: https://www.python.org/
+[quarto]: https://quarto.org/
+[red_door]: https://www.reddoorshelter.ca/
 [reim_michael]: https://elderlinux.org/
+[remark]: https://remarkjs.com/
 [requests]: https://requests.readthedocs.io/
 [ruten_paige]: https://viewsourcecode.org/
+[schiffer_jenn]: https://mastodon.social/@jenn@pixel.kitchen/109985276835264400
 [selenium]: https://www.selenium.dev/
 [semver_spec]: https://semver.org/
+[simpy]: https://simpy.readthedocs.io/
 [sinel_joseph]: https://en.wikipedia.org/wiki/Joseph_Claude_Sinel
 [snakemake]: https://snakemake.readthedocs.io/
+[sqlalchemy]: https://www.sqlalchemy.org/
 [sqlite]: https://sqlite.org/
 [stack_connor]: https://connorstack.com/
-[svg_screenshot]: https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg
 [t3_personas]: https://teachtogether.tech/en/index.html#s:process-personas
 [textualize_fraction]: https://www.textualize.io/blog/posts/7-things-about-terminals
 [udhr]: https://www.un.org/en/universal-declaration-human-rights/

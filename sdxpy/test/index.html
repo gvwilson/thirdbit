@@ -3,10 +3,10 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="default">
-  <meta name="major" content="Chapter 5">
+  <meta name="major" content="Chapter 6">
   <meta name="has_slides" content="true">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="stylesheet" href="../mccole.css">
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../mccole.js"></script>
-  <title>Software Design for Data Scientists: Running Tests</title>
+  <title>Software Design by Example: Running Tests</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
         <p>
   
   <img src="../logo.svg" alt="site logo" class="logo" />
-  <a href="../">Software Design for Data Scientists</a>
+  <a href="../">Software Design by Example</a>
   
 </p>
 <ol class="toc-chapter">
@@ -42,6 +42,12 @@
   <li>
     <a href="../intro/">
       Introduction
+    </a>
+  </li>
+  
+  <li>
+    <a href="../oop/">
+      Objects and Classes
     </a>
   </li>
   
@@ -76,20 +82,14 @@
   </li>
   
   <li>
-    <a href="../oop/">
-      Objects and Classes
-    </a>
-  </li>
-  
-  <li>
     <a href="../func/">
       Functions and Closures
     </a>
   </li>
   
   <li>
-    <a href="../mock/">
-      Mocks, Protocols, and Decorators
+    <a href="../reflect/">
+      Reflection
     </a>
   </li>
   
@@ -266,19 +266,21 @@
   
 </ol>
 
-<p><a href="../sd4ds-examples.zip" type="application/zip">download examples</a></p>
+<p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
 
 
       </div>
       <div id="printable" class="contents bordered">
         <main>
           
-  <h1>Chapter 5: Running Tests</h1>
+  <h1>Chapter 6: Running Tests</h1>
 
 
           
 <div class="draft notex">
-  <p>DRAFT</p>
+  <p class="draft">
+    DRAFT 2023-07-12
+  </p>
   <p>
     <em>Please use section heading links to submit feedback.</em>
   </p>
@@ -286,6 +288,10 @@
 
 
           
+  
+
+  
+
   
 
   
@@ -346,12 +352,10 @@
 
   
 
-  
-
 
           
 <p class="definitions">
-  Terms defined: <a class="gl-ref" href="../glossary/#actual_result" markdown="1">actual result (of test)</a>, <a class="gl-ref" href="../glossary/#assertion" markdown="1">assertion</a>, <a class="gl-ref" href="../glossary/#cognitive_load" markdown="1">cognitive load</a>, <a class="gl-ref" href="../glossary/#dynamic_typing" markdown="1">dynamic typing</a>, <a class="gl-ref" href="../glossary/#error_test" markdown="1">error (result of test)</a>, <a class="gl-ref" href="../glossary/#expected_result" markdown="1">expected result (of test)</a>, <a class="gl-ref" href="../glossary/#fail_test" markdown="1">failure (result of test)</a>, <a class="gl-ref" href="../glossary/#fixture" markdown="1">fixture</a>, <a class="gl-ref" href="../glossary/#pass_test" markdown="1">pass (result of test)</a>, <a class="gl-ref" href="../glossary/#scope" markdown="1">scope</a>, <a class="gl-ref" href="../glossary/#throw_exception" markdown="1">throw exception</a>, <a class="gl-ref" href="../glossary/#unit_test" markdown="1">unit test</a>
+  Terms defined: <a class="gl-ref" href="../glossary/#actual_result" markdown="1">actual result (of test)</a>, <a class="gl-ref" href="../glossary/#alias" markdown="1">alias</a>, <a class="gl-ref" href="../glossary/#assertion" markdown="1">assertion</a>, <a class="gl-ref" href="../glossary/#cognitive_load" markdown="1">cognitive load</a>, <a class="gl-ref" href="../glossary/#dynamic_typing" markdown="1">dynamic typing</a>, <a class="gl-ref" href="../glossary/#error_test" markdown="1">error (result of test)</a>, <a class="gl-ref" href="../glossary/#expected_result" markdown="1">expected result (of test)</a>, <a class="gl-ref" href="../glossary/#fail_test" markdown="1">failure (result of test)</a>, <a class="gl-ref" href="../glossary/#fixture" markdown="1">fixture</a>, <a class="gl-ref" href="../glossary/#pass_test" markdown="1">pass (result of test)</a>, <a class="gl-ref" href="../glossary/#register_code" markdown="1">register (in code)</a>, <a class="gl-ref" href="../glossary/#scope" markdown="1">scope</a>, <a class="gl-ref" href="../glossary/#throw_exception" markdown="1">throw exception</a>, <a class="gl-ref" href="../glossary/#unit_test" markdown="1">unit test</a>
 </p>
 
 
@@ -366,7 +370,7 @@ But we should all be grateful that
 is there to make the other 2% always does the right thing.</p>
 <p>We&rsquo;re going to write a lot of programs in this book.
 To make sure they work correctly,
-we&rsquo;re also going to write a lot of <a class="gl-ref" href="../glossary/#unit_test" markdown="1">unit tests</a>
+we&rsquo;re also going to write a lot of <a class="gl-ref" href="../glossary/#gl:unit_test" title="A test that exercises one function or feature of a piece of software and produces pass, fail, or error." markdown="1">unit tests</a>
 <span class="bib-ref">[<a class="bib-ref" href="../bibliography/#Meszaros2007">Meszaros2007</a>, <a class="bib-ref" href="../bibliography/#Aniche2022">Aniche2022</a>]</span>.
 To make those tests easier to write (so that we actually write them)
 we use a unit testing framework that finds and run tests automatically.
@@ -375,12 +379,12 @@ and introduces the single most important idea in this book:</p>
 <div class="center">
 <p><em>Programs are just another kind of data.</em></p>
 </div>
-<h2 id="test-funcobj">Section 5.1: Storing and Running Tests</h2>
-<p>The first thing we need to understand is that a function is an object.
+<h2 id="test-funcobj">Section 6.1: Storing and Running Tests</h2>
+<p>The first thing we need to understand is that a function is an <span class="ix-entry" ix-key="object" markdown="1">object</span>.
 While the bytes in a string represent characters
 and the bytes in an image represent pixels,
 the bytes in a function are instructions
-(<a class="fig-ref" href="../test/#test-func-obj">Figure 5.1</a>).
+(<a class="fig-ref" href="../test/#test-func-obj">Figure 6.1</a>).
 When Python executes the code below,
 it creates an object in memory
 that contains the instructions to print a string
@@ -392,10 +396,11 @@ and assigns that object to the variable <code>example</code>:</p>
 </div>
 <figure id="test-func-obj">
 <img src="./func_obj.svg" alt="Bytes as characters, pixels, or instructions"/>
-<figcaption markdown="1">Figure 5.1: Bytes can be interpreted as text, images, instructions, and more.</figcaption>
+<figcaption markdown="1">Figure 6.1: Bytes can be interpreted as text, images, instructions, and more.</figcaption>
 </figure>
 
-<p class="continue">We can assign the function to another variable
+<p class="continue">We can create an <a class="gl-ref" href="../glossary/#gl:alias" title="A second or subsequent reference to the same object. Aliases are useful, but increase the cognitive load on readers who have to remember that all these names refer to the same thing." markdown="1">alias</a> for the function
+by assigning it to another variable,
 and then call the function by referencing that second variable:</p>
 <div class="code-sample lang-py" title="func_obj.py">
 <div class="highlight"><pre><span></span><code><span class="n">alias</span> <span class="o">=</span> <span class="n">example</span>
@@ -410,7 +415,7 @@ and then call the function by referencing that second variable:</p>
 the connection between the function and the original name.</p>
 <div class="callout">
 <h3>Checking Types</h3>
-<p>Python is a <a class="gl-ref" href="../glossary/#dynamic_typing" markdown="1">dynamically typed</a> language,
+<p>Python is a <a class="gl-ref" href="../glossary/#gl:dynamic_typing" title="A system in which types are checked as the program is running." markdown="1">dynamically typed</a> language,
 which means that it checks the types of values as the program is running.
 We can do this ourselves using its built-in <code>type</code> function,
 which will tell us that <code>3</code> is an integer:</p>
@@ -459,7 +464,7 @@ built-in functions have a different type:</p>
 </div>
 <p>Since functions are objects,
 we can store them in a list just like numbers or strings
-(<a class="fig-ref" href="../test/#test-func-list">Figure 5.2</a>):</p>
+(<a class="fig-ref" href="../test/#test-func-list">Figure 6.2</a>):</p>
 <div class="code-sample lang-py" title="func_list.py">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">first</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First&quot;</span><span class="p">)</span>
@@ -505,7 +510,7 @@ TypeError: one() missing 1 required positional argument: &#39;value&#39;
 </div>
 <figure id="test-func-list">
 <img src="./func_list.svg" alt="A list of functions"/>
-<figcaption markdown="1">Figure 5.2: A list of functions.</figcaption>
+<figcaption markdown="1">Figure 6.2: A list of functions.</figcaption>
 </figure>
 
 <p>When we loop over the list <code>everything</code>,
@@ -554,23 +559,23 @@ so that we can call them interchangeably.</p>
 <span class="p">]</span>
 </code></pre></div>
 </div>
-<p>Each test does something to a <a class="gl-ref" href="../glossary/#fixture" markdown="1">fixture</a>
+<p>Each test does something to a <a class="gl-ref" href="../glossary/#gl:fixture" title="The thing on which a test is run, such as the parameters to the function being tested or the file being processed." markdown="1">fixture</a>
 (such as the number -3)
-and uses <a class="gl-ref" href="../glossary/#assertion" markdown="1">assertions</a>
-to compare the <a class="gl-ref" href="../glossary/#actual_result" markdown="1">actual result</a>
-against the <a class="gl-ref" href="../glossary/#expected_result" markdown="1">expected result</a>.
+and uses <a class="gl-ref" href="../glossary/#gl:assertion" title="A Boolean expression that must be true at a certain point in a program. Assertions may be built into the language or provided as functions." markdown="1">assertions</a>
+to compare the <a class="gl-ref" href="../glossary/#gl:actual_result" title="The value generated by running code in a test. If this matches the expected result, the test passes; if the two are different, the test fails." markdown="1">actual result</a>
+against the <a class="gl-ref" href="../glossary/#gl:expected_result" title="The value that a piece of software is supposed to produce when tested in a certain way, or the state in which it is supposed to leave the system." markdown="1">expected result</a>.
 The outcome of each test is exactly one of:</p>
 <ul>
 <li>
-<p><a class="gl-ref" href="../glossary/#pass_test" markdown="1">Pass</a>:
+<p><a class="gl-ref" href="../glossary/#gl:pass_test" title="A test passes if the actual result matches the expected result." markdown="1">Pass</a>:
     the test subject works as expected.</p>
 </li>
 <li>
-<p><a class="gl-ref" href="../glossary/#fail_test" markdown="1">Fail</a>:
+<p><a class="gl-ref" href="../glossary/#gl:fail_test" title="A test fails if the actual result does not match the expected result." markdown="1">Fail</a>:
     something is wrong with the test subject.</p>
 </li>
 <li>
-<p><a class="gl-ref" href="../glossary/#error_test" markdown="1">Error</a>:
+<p><a class="gl-ref" href="../glossary/#gl:error_test" title="Signalled when something goes wrong in a unit test itself rather than in the system being tested. In this case, we do not know anything about the correctness of the system." markdown="1">Error</a>:
     something is wrong in the test itself,
     which means we don&rsquo;t know if
     the thing we&rsquo;re testing is working properly or not.</p>
@@ -579,8 +584,8 @@ The outcome of each test is exactly one of:</p>
 <p>To implement this classification scheme
 we need to distinguish failing tests from broken ones.
 Our rule is that
-if a test <a class="gl-ref" href="../glossary/#throw_exception" markdown="1">throws</a> an <code>AssertionError</code>
-then one of our checks is reporting a failure,
+if a test <a class="gl-ref" href="../glossary/#gl:throw_exception" title="Another term for raising an exception." markdown="1">throws</a> an <code>AssertionError</code> <span class="ix-entry" ix-key="exception" markdown="1">exception</span>
+then one of our checks is reporting a <span class="ix-entry" ix-key="failure" markdown="1">failure</span>,
 while any other kind of exception indicates that the test contains an error.</p>
 <p>Translating that rules into code gives us the function <code>run_tests</code>
 that runs every test in a list
@@ -620,13 +625,13 @@ every unit test should work independently
 so that an error or failure in an early test
 doesn&rsquo;t affect other tests&rsquo; behavior.</p>
 </div>
-<h2 id="test-reflection">Section 5.2: Finding Functions</h2>
+<h2 id="test-reflection">Section 6.2: Finding Functions</h2>
 <p>Making lists of functions is clumsy and error-prone:
 sooner or later we&rsquo;ll add a function to <code>TESTS</code> twice
 or forget to add it at all.
 We&rsquo;d therefore like our test runner to find tests for itself,
 which it can do by exploiting the fact that
-Python stores variables in a structure similar to a dictionary.</p>
+Python stores variables in a structure similar to a <span class="ix-entry" ix-key="dictionary" markdown="1">dictionary</span>.</p>
 <p>Run the Python interpreter and call the <code>globals</code> function:</p>
 <div class="code-sample lang-py" title="globals.py">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pprint</span>
@@ -683,7 +688,7 @@ at 0x10b411110&gt;,
 <div class="callout">
 <h3>Local Variables</h3>
 <p>Another function called <code>locals</code> returns
-all the variables defined in the current (local) <a class="gl-ref" href="../glossary/#scope" markdown="1">scope</a>.</p>
+all the variables defined in the current (local) <a class="gl-ref" href="../glossary/#gl:scope" title="A region of a program in which names can be defined without colliding with definitions in other parts of the program. In Python, each module and function creates a new scope." markdown="1">scope</a>.</p>
 </div>
 <p>If function names are just variables
 and a program&rsquo;s variables are stored in a dictionary,
@@ -707,9 +712,9 @@ test_sign_error &lt;function test_sign_error at 0x10b56d800&gt;
 </div>
 <p class="continue">Notice that when we print a function,
 Python shows us its name and its address in memory.</p>
-<p>Having a program find things in itself like this at runtime
+<p>Having a program find things in itself like this at <span class="ix-entry" ix-key="runtime" markdown="1">runtime</span>
 is another example of <span class="ix-entry" ix-key="introspection" markdown="1">introspection</span>
-(<a class="x-ref" href="../parse/">Chapter 4</a>).
+(<a class="x-ref" href="../parse/">Chapter 5</a>).
 Combining introspection with the pass-fail-error pattern of the previous section
 gives us something that finds test functions,
 runs them,
@@ -738,7 +743,7 @@ fail 1
 error 1
 </code></pre></div>
 </div>
-<h2 id="test-origins">Section 5.3: Origins</h2>
+<h2 id="test-origins">Section 6.3: Origins</h2>
 <p><a href="https://en.wikipedia.org/wiki/Clarke%27s_three_laws">Clarke&rsquo;s Third Law</a> is that
 any sufficiently advanced technology is indistinguishable from magic.
 The same is true of technologies that we encounter
@@ -754,7 +759,7 @@ we read what other programmers had written
 and tried to make sense of the key ideas.</p>
 <p>The problem is that &ldquo;making sense&rdquo; depends on who we are.
 When we use a low-level language,
-we incur the <a class="gl-ref" href="../glossary/#cognitive_load" markdown="1">cognitive load</a>
+we incur the <a class="gl-ref" href="../glossary/#gl:cognitive_load" title="The mental effort required to solve a problem." markdown="1">cognitive load</a>
 of assembling micro-steps into something more meaningful.
 When we use a high-level language,
 on the other hand,
@@ -762,7 +767,7 @@ we incur a similar load translating functions of functions of functions
 into actual operations on actual data.</p>
 <p>More experienced programmers are more capable at both ends of the curve,
 but that&rsquo;s not the only thing that changes.
-If a novice&rsquo;s comprehension curve looks like the lower one in <a class="fig-ref" href="../test/#test-comprehension">Figure 5.3</a>,
+If a novice&rsquo;s comprehension curve looks like the lower one in <a class="fig-ref" href="../test/#test-comprehension">Figure 6.3</a>,
 then an expert&rsquo;s looks like the upper one.
 Experts don&rsquo;t just understand more at all levels of abstraction;
 their <em>preferred</em> level has also shifted
@@ -772,7 +777,7 @@ than the medieval expression
 whose sides are given by the first part and the second part&rdquo;.</p>
 <figure id="test-comprehension">
 <img src="./comprehension.svg" alt="Comprehension curves"/>
-<figcaption markdown="1">Figure 5.3: Novice and expert comprehension curves.</figcaption>
+<figcaption markdown="1">Figure 6.3: Novice and expert comprehension curves.</figcaption>
 </figure>
 
 <p>This curve means that for any given task,
@@ -785,13 +790,13 @@ But today&rsquo;s tools don&rsquo;t do that,
 and any IDE smart enough to translate between comprehension levels automatically
 would also be smart enough to write the code without our help.</p>
 <p><em>Please see <a class="x-ref" href="../bonus/">Appendix B</a> for extra material related to these ideas.</em></p>
-<h2 id="test-summary">Section 5.4: Summary</h2>
+<h2 id="test-summary">Section 6.4: Summary</h2>
 <figure id="test-concept-map">
 <img src="./concept_map.svg" alt="Concept map of test runner"/>
-<figcaption markdown="1">Figure 5.4: Concept map</figcaption>
+<figcaption markdown="1">Figure 6.4: Concept map</figcaption>
 </figure>
 
-<h2 id="test-exercises">Section 5.5: Exercises</h2>
+<h2 id="test-exercises">Section 6.5: Exercises</h2>
 <h3 class="exercise">Why a Copy?</h3>
 <p>Why does the function <code>globals</code> return a copy of the dictionary
 containing the program&rsquo;s global variables?
@@ -829,10 +834,10 @@ e.g., to close database connections or delete temporary files.)</p>
 <p>Modify the testing tool in this chapter so that
 if a file of tests contains a function called <code>setup</code>
 then the tool calls it exactly once before running each test in the file.
-Add a similar way to register a <code>teardown</code> function.</p>
+Add a similar way to <a class="gl-ref" href="../glossary/#gl:register_code" title="To add a function, class, or other object to a lookup table for later use." markdown="1">register</a> a <code>teardown</code> function.</p>
 <h3 class="exercise">Module Names</h3>
 <p>Our last test runner generated names <code>m0</code>, <code>m1</code>, and so on
-so that each module would have a unique name.
+so that each <span class="ix-entry" ix-key="module" markdown="1">module</span> would have a unique name.
 What happens if we don&rsquo;t do this?
 I.e.,
 what happens if we use the same constant string for all modules that we load?</p>

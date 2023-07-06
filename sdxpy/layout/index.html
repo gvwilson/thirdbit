@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="default">
   <meta name="major" content="Chapter 14">
   <meta name="has_slides" content="true">
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../mccole.js"></script>
-  <title>Software Design for Data Scientists: Page Layout</title>
+  <title>Software Design by Example: Page Layout</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
         <p>
   
   <img src="../logo.svg" alt="site logo" class="logo" />
-  <a href="../">Software Design for Data Scientists</a>
+  <a href="../">Software Design by Example</a>
   
 </p>
 <ol class="toc-chapter">
@@ -42,6 +42,12 @@
   <li>
     <a href="../intro/">
       Introduction
+    </a>
+  </li>
+  
+  <li>
+    <a href="../oop/">
+      Objects and Classes
     </a>
   </li>
   
@@ -76,20 +82,14 @@
   </li>
   
   <li>
-    <a href="../oop/">
-      Objects and Classes
-    </a>
-  </li>
-  
-  <li>
     <a href="../func/">
       Functions and Closures
     </a>
   </li>
   
   <li>
-    <a href="../mock/">
-      Mocks, Protocols, and Decorators
+    <a href="../reflect/">
+      Reflection
     </a>
   </li>
   
@@ -266,7 +266,7 @@
   
 </ol>
 
-<p><a href="../sd4ds-examples.zip" type="application/zip">download examples</a></p>
+<p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
 
 
       </div>
@@ -278,7 +278,9 @@
 
           
 <div class="draft notex">
-  <p>DRAFT</p>
+  <p class="draft">
+    DRAFT 2023-07-12
+  </p>
   <p>
     <em>Please use section heading links to submit feedback.</em>
   </p>
@@ -286,6 +288,8 @@
 
 
           
+  
+
   
 
   
@@ -353,16 +357,16 @@
 
           
 <p class="definitions">
-  Terms defined: <a class="gl-ref" href="../glossary/#accidental_complexity" markdown="1">accidental complexity</a>, <a class="gl-ref" href="../glossary/#block_page" markdown="1">block (on page)</a>, <a class="gl-ref" href="../glossary/#cache" markdown="1">cache</a>, <a class="gl-ref" href="../glossary/#confirmation_bias" markdown="1">confirmation bias</a>, <a class="gl-ref" href="../glossary/#easy_mode" markdown="1">easy mode</a>, <a class="gl-ref" href="../glossary/#intrinsic_complexity" markdown="1">intrinsic complexity</a>, <a class="gl-ref" href="../glossary/#layout_engine" markdown="1">layout engine</a>, <a class="gl-ref" href="../glossary/#liskov_substitution_principle" markdown="1">Liskov Substitution Principle</a>, <a class="gl-ref" href="../glossary/#mixin" markdown="1">mixin</a>, <a class="gl-ref" href="../glossary/#z_buffering" markdown="1">z-buffering</a>
+  Terms defined: <a class="gl-ref" href="../glossary/#accidental_complexity" markdown="1">accidental complexity</a>, <a class="gl-ref" href="../glossary/#block_page" markdown="1">block (on page)</a>, <a class="gl-ref" href="../glossary/#confirmation_bias" markdown="1">confirmation bias</a>, <a class="gl-ref" href="../glossary/#easy_mode" markdown="1">easy mode</a>, <a class="gl-ref" href="../glossary/#intrinsic_complexity" markdown="1">intrinsic complexity</a>, <a class="gl-ref" href="../glossary/#layout_engine" markdown="1">layout engine</a>, <a class="gl-ref" href="../glossary/#liskov_substitution_principle" markdown="1">Liskov Substitution Principle</a>, <a class="gl-ref" href="../glossary/#mixin_class" markdown="1">mixin class</a>, <a class="gl-ref" href="../glossary/#z_buffering" markdown="1">z-buffering</a>
 </p>
 
 
           <div class="page-toc"></div>
-          <p>You might be reading this as HTML in your browser,
+          <p>You might be reading this as <span class="ix-entry" ix-key="HTML" markdown="1">HTML</span> in your browser,
 as an e-book (which is basically the same thing),
 or on the printed page.
 In all three cases
-a <a class="gl-ref" href="../glossary/#layout_engine" markdown="1">layout engine</a> took some text and some layout instructions
+a <a class="gl-ref" href="../glossary/#gl:layout_engine" title="A piece of software that decides where to place text, images, and other elements on a page." markdown="1">layout engine</a> took some text and some layout instructions
 and decided where to put each character and image.
 To explore how they work,
 we will build a small layout engine
@@ -391,10 +395,10 @@ the past is all around us.</p>
 </figure>
 
 <h2 id="layout-size">Section 14.2: Sizing</h2>
-<p>Let&rsquo;s start on <a class="gl-ref" href="../glossary/#easy_mode" markdown="1">easy mode</a>
+<p>Let&rsquo;s start on <a class="gl-ref" href="../glossary/#gl:easy_mode" title="A term borrowed from gaming meaning to do something with obstacles or difficulties simplified or removed, often for practice purposes." markdown="1">easy mode</a>
 without margins, padding, line-wrapping, or other complications.
 Everything we can put on the screen is represented as a rectangular cell,
-and every cell is either a row, a column, or a <a class="gl-ref" href="../glossary/#block_page" markdown="1">block</a>.
+and every cell is either a row, a column, or a <a class="gl-ref" href="../glossary/#gl:block_page" title="A rectangular region of a page that may contain text, images, and other visual elements along with other blocks." markdown="1">block</a>.
 A block has a fixed width and height:</p>
 <div class="code-sample lang-py" title="easy_mode.py">
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Block</span><span class="p">:</span>
@@ -411,7 +415,7 @@ A block has a fixed width and height:</p>
 </div>
 <p>A row arranges one or more cells horizontally;
 its width is the sum of the widths of its children,
-while its height is the height of its tallest child
+while its height is the height of its tallest <span class="ix-entry" ix-key="child" markdown="1">child</span>
 (<a class="fig-ref" href="../layout/#layout-sizing">Figure 14.2</a>):</p>
 <div class="code-sample lang-py" title="easy_mode.py">
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Row</span><span class="p">:</span>
@@ -456,11 +460,11 @@ and its height is the sum of the heights of its children.
 <p>Rows and columns nest inside one another:
 a row cannot span two or more columns,
 and a column cannot cross the boundary between two rows.
-We can therefore represent our document as a tree
+We can therefore represent our document as a <span class="ix-entry" ix-key="tree" markdown="1">tree</span>
 and calculate the width and height of each cell every time we need it.
 This is simple but inefficient:
 we could calculate both width and height at the same time
-and <a class="gl-ref" href="../glossary/#cache" markdown="1">cache</a> those values to avoid recalculation,
+and <span class="ix-entry" ix-key="cache" markdown="1">cache</span> those values to avoid recalculation,
 but we called this &ldquo;easy mode&rdquo; for a reason.</p>
 <p>As simple as it is,
 this code could still contain errors (and did during development),
@@ -677,11 +681,11 @@ test_placed.py ..... \
 to figure out the expected answers for the tests shown above.
 We can do something similar in software by creating a &ldquo;screen&rdquo; of space characters
 and then having each block draw itself in the right place.
-If we do this starting at the root of the tree,
+If we do this starting at the <span class="ix-entry" ix-key="root" markdown="1">root</span> of the tree,
 child blocks will overwrite the markings made by their parents,
 which will automatically produce the right appearance
 (<a class="fig-ref" href="../layout/#layout-draw-over">Figure 14.4</a>).
-(A more sophisticated version of this called <a class="gl-ref" href="../glossary/#z_buffering" markdown="1">z-buffering</a>
+(A more sophisticated version of this called <a class="gl-ref" href="../glossary/#gl:z_buffering" title="A drawing method that keeps track of the depth of what lies &quot;under&quot; each pixel so that it displays whatever is nearest to the observer." markdown="1">z-buffering</a>
 keeps track of the visual depth of each pixel
 in order to draw things in three dimensions.)</p>
 <figure id="layout-draw-over">
@@ -717,10 +721,9 @@ while its children will be &lsquo;b&rsquo;, &lsquo;c&rsquo;, and so on.</p>
 </div>
 <p>To teach each kind of cell how to render itself,
 we have to derive a new class from each of the ones we have
-and give the new class a <code>render</code> method with the same
-<span class="ix-entry" ix-key="signature" markdown="1">signature</span>.
+and give the new class a <code>render</code> method with the same <span class="ix-entry" ix-key="signature" markdown="1">signature</span>.
 Since Python supports <span class="ix-entry" ix-key="multiple inheritance" markdown="1">multiple inheritance</span>,
-we can do this with a <a class="gl-ref" href="../glossary/#mixin" markdown="1">mixin</a> class
+we can do this with a <a class="gl-ref" href="../glossary/#gl:mixin_class" title="A class that is not meant to be instantiated itself, but which contains methods to be added to other classes (typically via multiple inheritance)." markdown="1">mixin class</a>
 (<a class="fig-ref" href="../layout/#layout-mixin">Figure 14.5</a>):</p>
 <div class="code-sample lang-py" title="rendered.py">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">placed</span> <span class="kn">import</span> <span class="n">PlacedBlock</span><span class="p">,</span> <span class="n">PlacedCol</span><span class="p">,</span> <span class="n">PlacedRow</span>
@@ -787,7 +790,7 @@ though we still had to draw things on paper to figure out our complex ones:</p>
 is a sign that we should do more testing
 It would be very easy for us to get a wrong result
 and convince ourselves that it was actually correct;
-<a class="gl-ref" href="../glossary/#confirmation_bias" markdown="1">confirmation bias</a> of this kind
+<a class="gl-ref" href="../glossary/#gl:confirmation_bias" title="The tendency for someone to look for evidence that they are right rather than searching for reasons why they might be wrong." markdown="1">confirmation bias</a> of this kind
 is very common in software development.</p>
 <h2 id="layout-fit">Section 14.5: Wrapping</h2>
 <p>One of the biggest differences between a browser and a printed page
@@ -870,12 +873,12 @@ and returns that fixed width when asked for its size:</p>
 <p class="continue">Wrapping puts the row&rsquo;s children into buckets,
 then converts the buckets to a row of a column of rows:</p>
 <div class="code-sample lang-py" title="wrapped.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">wrap</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">]</span>
-        <span class="n">rows</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bucket</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
-        <span class="n">new_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">PlacedRow</span><span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">]</span>
-        <span class="n">new_col</span> <span class="o">=</span> <span class="n">PlacedCol</span><span class="p">(</span><span class="o">*</span><span class="n">new_rows</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">PlacedRow</span><span class="p">(</span><span class="n">new_col</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">wrap</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">]</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bucket</span><span class="p">(</span><span class="n">children</span><span class="p">)</span>
+    <span class="n">new_rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">PlacedRow</span><span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">]</span>
+    <span class="n">new_col</span> <span class="o">=</span> <span class="n">PlacedCol</span><span class="p">(</span><span class="o">*</span><span class="n">new_rows</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">PlacedRow</span><span class="p">(</span><span class="n">new_col</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>Once again we bring forward all the previous tests
@@ -920,10 +923,10 @@ test_wrapped.py ....... \
 </div>
 <p>Note that we could have had columns handle resizing rather than rows,
 but we (probably) don&rsquo;t need to make both resizeable.
-This is an example of <a class="gl-ref" href="../glossary/#intrinsic_complexity" markdown="1">intrinsic complexity</a>:
+This is an example of <a class="gl-ref" href="../glossary/#gl:intrinsic_complexity" title="The inherent difficult of a problem. The term is used in contrast to accidental complexity." markdown="1">intrinsic complexity</a>:
 the problem really is this hard,
 so something, somewhere, has to deal with it.
-(Programs often contain <a class="gl-ref" href="../glossary/#accidental_complexity" markdown="1">accidental complexity</a>
+(Programs often contain <a class="gl-ref" href="../glossary/#gl:accidental_complexity" title="The extra difficulty added to a problem because of poor notation, poor tooling, an unclear problem statement, distractions, etc. The term is used in contrast with intrinsic complexity." markdown="1">accidental complexity</a>
 as well,
 which can be fixed if people are willing to accept that it is unnecessary
 and are willing to change.
@@ -932,7 +935,7 @@ these requirements usually mean that it isn&rsquo;t ever fixed.)</p>
 <div class="callout">
 <h3>The Liskov Substitution Principle</h3>
 <p>We are able to re-use tests as our code evolved
-because of the <a class="gl-ref" href="../glossary/#liskov_substitution_principle" markdown="1">Liskov Substitution Principle</a>,
+because of the <a class="gl-ref" href="../glossary/#gl:liskov_substitution_principle" title="A design rule stating that it should be possible to replace objects in a program with objects of derived classes without breaking the program. Design by contract is intended to enforce this rule." markdown="1">Liskov Substitution Principle</a>,
 which states that
 it should be possible to replace objects in a program
 with objects of derived classes
@@ -944,7 +947,7 @@ Conversely,
 its output must be a subset of what the old code produced
 so that whatever is downstream from it won&rsquo;t be surprised.
 Thinking in these terms leads to the methodology called
-<span class="ix-entry" ix-key="design by contract" markdown="1">design by contract</span> first discussed in <a class="x-ref" href="../oop/">Chapter 7</a>.</p>
+<span class="ix-entry" ix-key="design by contract" markdown="1">design by contract</span> discussed in <a class="x-ref" href="../oop/">Chapter 2</a>.</p>
 </div>
 <h2 id="layout-summary">Section 14.6: Summary</h2>
 <figure id="layout-concept-map">
@@ -957,7 +960,7 @@ Thinking in these terms leads to the methodology called
 <p>Refactor the classes used to represent blocks, rows, and columns so that:</p>
 <ol>
 <li>
-<p>They all derive from a common parent.</p>
+<p>They all derive from a common <span class="ix-entry" ix-key="parent class" markdown="1">parent class</span>.</p>
 </li>
 <li>
 <p>All common behavior is defined in that parent (if only with placeholder methods).</p>
@@ -1010,7 +1013,7 @@ allocate the extra space as equally as possible from left to right.</p>
 <p>Modify the existing code so that:</p>
 <ol>
 <li>
-<p>Authors can define a <code>padding</code> attribute for row and column elements.</p>
+<p>Authors can define a <code>padding</code> <span class="ix-entry" ix-key="attribute" markdown="1">attribute</span> for row and column elements.</p>
 </li>
 <li>
 <p>When the node is rendered, that many blank spaces are added on all four sides of the contents.</p>
@@ -1025,7 +1028,7 @@ allocate the extra space as equally as possible from left to right.</p>
 </code></pre></div>
 <p class="continue">where the lines show the outer border of the rendering.</p>
 <h3 class="exercise">Properties</h3>
-<p>Look at the documentation for Python&rsquo;s <a href="https://docs.python.org/3/library/functions.html#property"><code>@property</code></a> decorator
+<p>Look at the documentation for Python&rsquo;s <a href="https://docs.python.org/3/library/functions.html#property"><code>@property</code></a> <span class="ix-entry" ix-key="decorator" markdown="1">decorator</span>
 and modify the block classes to replace the <code>get_width</code> and <code>get_height</code> methods
 with properties called <code>width</code> and <code>height</code>.</p>
 <h3 class="exercise">Tables</h3>

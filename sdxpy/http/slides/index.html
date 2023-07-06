@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="slides">
   <meta name="major" content="Chapter 22">
   
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../../mccole.js"></script>
-  <title>Software Design for Data Scientists: Serving Web Pages</title>
+  <title>Software Design by Example: Serving Web Pages</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
 class: slide-title
 
 <p>
-  <a href="https://third-bit.com/sd4ds/">Software Design for Data Scientists</a>
+  <a href="https://third-bit.com/sdxpy/">Software Design by Example</a>
 </p>
 <h1>Serving Web Pages</h1>
 <div class="bottom">
@@ -49,7 +49,7 @@ class: slide-title
 -   Uploading and downloading files (<a class="x-ref" href="../../ftp/">Chapter 21</a>) is useful,
     but we want to do more
 
--   Don't want to create a new <a class="gl-ref" href="../../glossary/#protocol" markdown="1">protocol</a> for every interaction
+-   Don't want to create a new <a class="gl-ref" href="../../glossary/#gl:protocol" title="A set of rules that something promises to obey, i.e., the contract between that thing and its users." markdown="1">protocol</a> for every interaction
 
 -   Use a standard protocol in a variety of ways
 
@@ -57,13 +57,13 @@ class: slide-title
 
 ## HTTP
 
--   <a class="gl-ref" href="../../glossary/#http" markdown="1">Hypertext Transfer Protocol (HTTP)</a> specifies
+-   <a class="gl-ref" href="../../glossary/#gl:http" title="The protocol used to exchange information between browsers and websites, and more generally between other clients and servers. Communication consists of requests and responses." markdown="1">Hypertext Transfer Protocol (HTTP)</a> specifies
     what kinds of messages clients and servers can exchange
     and how those messages are formatted
 
--   Client sends a <a class="gl-ref" href="../../glossary/#http_request" markdown="1">request</a> as text over a socket connection
+-   Client sends a <a class="gl-ref" href="../../glossary/#gl:http_request" title="A precisely-formatted block of text sent from a client such as a browser to a server that specifies what resource is being requested, what data formats the client will accept, etc." markdown="1">request</a> as text over a socket connection
 
--   Server replies with a <a class="gl-ref" href="../../glossary/#http_response" markdown="1">response</a> (also text)
+-   Server replies with a <a class="gl-ref" href="../../glossary/#gl:http_response" title="A precisely-formatted block of text sent from a server back to a client in reply to a request." markdown="1">response</a> (also text)
 
 -   Requests and responses may carry (non-textual) data with them
 
@@ -73,11 +73,11 @@ class: slide-title
 
 ## HTTP Requests
 
--   A <a class="gl-ref" href="../../glossary/#http_method" markdown="1">method</a> such as `GET` or `POST`
+-   A <a class="gl-ref" href="../../glossary/#gl:http_method" title="The verb in an HTTP request that defines what the client wants to do. Common methods are `GET` (to get data) and `POST` (to submit data)." markdown="1">method</a> such as `GET` or `POST`
 
--   A <a class="gl-ref" href="../../glossary/#url" markdown="1">URL</a>
+-   A <a class="gl-ref" href="../../glossary/#gl:url" title="A multi-part identifier that specifies something on a computer network. A URL may contain a protocol (such as `http`), a hostname such as `example.com`, a port (such as 80), a path (such as `/homepage.html`), and various other things." markdown="1">URL</a>
 
--   A <a class="gl-ref" href="../../glossary/#http_protocol_version" markdown="1">protocol version</a>
+-   A <a class="gl-ref" href="../../glossary/#gl:http_protocol_version" title="Specifies the version of HTTP being used, which in turn defines what headers can appear, how they are to be interpreted, etc." markdown="1">protocol version</a>
 
 ```txt
 GET /index.html HTTP/1.1
@@ -88,7 +88,7 @@ GET /index.html HTTP/1.1
 
 ## Headers
 
--   Requests may also have <a class="gl-ref" href="../../glossary/#http_header" markdown="1">headers</a>
+-   Requests may also have <a class="gl-ref" href="../../glossary/#gl:http_header" title="A name-value pair at the start of an HTTP request or response. Headers are used to specify what data formats the sender can handle, the date and time the message was sent, and so on." markdown="1">headers</a>
 
 ```txt
 GET /index.html HTTP/1.1
@@ -106,7 +106,7 @@ If-Modified-Since: 16-May-2023
 
 -   Protocol and version
 
--   A <a class="gl-ref" href="../../glossary/#http_status_code" markdown="1">status code</a> and phrase
+-   A <a class="gl-ref" href="../../glossary/#gl:http_status_code" title="A numerical code that indicates what happened when an HTTP request was processed, such as 200 (OK), 404 (not found), or 500 (internal server error)." markdown="1">status code</a> and phrase
 
 -   Headers, possibly including `Content-Length` (in bytes)
 
@@ -203,7 +203,7 @@ python basic_http_server.py
 
 -   Browser shows page
 
--   Shell shows <a class="gl-ref" href="../../glossary/#log_message" markdown="1">log messages</a>
+-   Shell shows log messages
 
 ```
 127.0.0.1 - - [16/Sep/2022 06:34:59] "GET / HTTP/1.1" 200 -
@@ -238,16 +238,16 @@ class RequestHandler(BaseHTTPRequestHandler):
 
 -   Translate path in URL into path to local file
 
--   <a class="gl-ref" href="../../glossary/#path_resolution" markdown="1">Resolve</a> paths relative to server's directory
+-   <a class="gl-ref" href="../../glossary/#gl:path_resolution" title="The process of converting filename portion of a URL into a specific file on disk." markdown="1">Resolve</a> paths relative to server's directory
 
 ```py
-    def handle_file(self, given_path, full_path):
-        try:
-            with open(full_path, 'rb') as reader:
-                content = reader.read()
-            self.send_content(content, HTTPStatus.OK)
-        except IOError:
-            raise ServerException(f"Cannot read {given_path}")
+def handle_file(self, given_path, full_path):
+    try:
+        with open(full_path, 'rb') as reader:
+            content = reader.read()
+        self.send_content(content, HTTPStatus.OK)
+    except IOError:
+        raise ServerException(f"Cannot read {given_path}")
 ```
 
 
@@ -267,29 +267,29 @@ ERROR_PAGE = """\
 ```
 
 ```py
-    def handle_error(self, msg):
-        content = ERROR_PAGE.format(path=self.path, msg=msg)
-        content = bytes(content, "utf-8")
-        self.send_content(content, HTTPStatus.NOT_FOUND)
+def handle_error(self, msg):
+    content = ERROR_PAGE.format(path=self.path, msg=msg)
+    content = bytes(content, "utf-8")
+    self.send_content(content, HTTPStatus.NOT_FOUND)
 ```
 
 
 -   Use `try`/`except` to handle errors in called methods
 
--   <a class="gl-ref" href="../../glossary/#throw_low_catch_high" markdown="1">Throw low, catch high</a>
+-   <a class="gl-ref" href="../../glossary/#gl:throw_low_catch_high" title="A widely-used pattern for managing exceptions whereby they are raised in many places at low levels of a program but caught in a few high-level places where corrective action can be taken." markdown="1">Throw low, catch high</a>
 
 ---
 
 ## Problems
 
--   Client can escape from our <a class="gl-ref" href="../../glossary/#sandbox" markdown="1">sandbox</a>
+-   Client can escape from our <a class="gl-ref" href="../../glossary/#gl:sandbox" title="A space where code can execute safely." markdown="1">sandbox</a>
     by asking for `http://localhost:8080/../../passwords.txt`
 
 -   `send_content` always says it is returning HTML with `Content-Type`
 
     -   Should use things like `image/png` for images
 
--   But we got <a class="gl-ref" href="../../glossary/#character_encoding" markdown="1">character encoding</a> right
+-   But we got <a class="gl-ref" href="../../glossary/#gl:character_encoding" title="A way to represent characters as bytes. Common examples include ASCII and UTF-8." markdown="1">character encoding</a> right
 
 ---
 
@@ -317,7 +317,7 @@ def test_existing_path(fs):
 
 ## Combining Code
 
--   Use <a class="gl-ref" href="../../glossary/#multiple_inheritance" markdown="1">multiple inheritance</a>
+-   Use <a class="gl-ref" href="../../glossary/#gl:multiple_inheritance" title="Inheriting from two or more classes when creating a new class." markdown="1">multiple inheritance</a>
 
 <figure>
 <img src="../inheritance.svg" alt="Testing class hierarchy"/>
@@ -412,12 +412,14 @@ class MockHandler(
 
 
 [academic_prototyping]: https://www.fuzzingbook.org/html/AcademicPrototyping.html
+[ark]: https://www.dmulholl.com/docs/ark/main/
 [aosa]: https://aosabook.org/
 [beautiful_soup]: https://beautiful-soup-4.readthedocs.io/
 [birthday_problem]: https://en.wikipedia.org/wiki/Birthday_problem
 [black]: https://black.readthedocs.io/
-[book_repo]: https://github.com/gvwilson/sd4ds/
-[book_site]: https://third-bit.com/sd4ds/
+[book_repo]: https://github.com/gvwilson/sdxpy/
+[book_issues]: https://github.com/gvwilson/sdxpy/issues
+[book_site]: https://third-bit.com/sdxpy/
 [browser_engine_tutorial]: https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html
 [browser_engineering]: https://browser.engineering/
 [brubeck_matt]: https://limpet.net/mbrubeck/
@@ -441,9 +443,11 @@ class MockHandler(
 [flake8]: https://flake8.pycqa.org/
 [git]: https://git-scm.com/
 [git_man_page_generator]: https://git-man-page-generator.lokaltog.net/
+[gitbook]: https://www.gitbook.com/
 [gitlet]: http://gitlet.maryrosecook.com/
 [glosario]: https://glosario.carpentries.org/
 [gnu_make]: https://www.gnu.org/software/make/
+[gorcenski_emily]: https://emilygorcenski.com/post/book-report-software-design-by-example-by-greg-wilson/
 [gutenberg]: https://www.gutenberg.org/
 [harrelson_chris]: https://twitter.com/chrishtr
 [hippocratic_license]: https://firstdonoharm.dev/
@@ -451,9 +455,10 @@ class MockHandler(
 [html5_data_attributes]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 [human_resource_machine]: https://tomorrowcorporation.com/humanresourcemachine
 [isort]: https://pycqa.github.io/isort/
-[ivy]: https://www.dmulholl.com/docs/ivy/main/
 [jekyll]: https://jekyllrb.com/
 [json_schema]: https://json-schema.org/
+[jupybook]: https://jupyterbook.org/
+[kerr_jessica]: https://jessitron.com/2023/02/20/book-review-software-design-by-example/
 [kilo_editor]: https://viewsourcecode.org/snaptoken/kilo/index.html
 [latex]: https://www.latex-project.org/
 [loewy_raymond]: https://en.wikipedia.org/wiki/Raymond_Loewy
@@ -462,6 +467,7 @@ class MockHandler(
 [lorgat_wasim]: https://wasimlorgat.com/
 [marthas_rules]: https://journals.sagepub.com/doi/10.1177/088610998600100206
 [nano]: https://www.nano-editor.org/
+[navarro_danielle]: https://blog.djnavarro.net/posts/2023-05-31_software-design-by-example/
 [nison_mael]: https://arcanis.github.io/
 [nystrom_bob]: http://journal.stuffwithstuff.com/
 [package_manager_tutorial]: https://classic.yarnpkg.com/blog/2017/07/11/lets-dev-a-package-manager/
@@ -492,20 +498,26 @@ class MockHandler(
 [py_struct]: https://docs.python.org/3/library/struct.html
 [py_textwrap]: https://docs.python.org/3/library/textwrap.html
 [py_urlparse]: https://docs.python.org/3/library/urllib.parse.html
+[py_yaml]: https://pyyaml.org/wiki/PyYAMLDocumentation
 [pyfakefs]: https://pytest-pyfakefs.readthedocs.io/
 [pytest]: https://docs.pytest.org/
 [pytest_approx]: https://docs.pytest.org/en/4.6.x/reference.html#pytest-approx
 [python]: https://www.python.org/
+[quarto]: https://quarto.org/
+[red_door]: https://www.reddoorshelter.ca/
 [reim_michael]: https://elderlinux.org/
+[remark]: https://remarkjs.com/
 [requests]: https://requests.readthedocs.io/
 [ruten_paige]: https://viewsourcecode.org/
+[schiffer_jenn]: https://mastodon.social/@jenn@pixel.kitchen/109985276835264400
 [selenium]: https://www.selenium.dev/
 [semver_spec]: https://semver.org/
+[simpy]: https://simpy.readthedocs.io/
 [sinel_joseph]: https://en.wikipedia.org/wiki/Joseph_Claude_Sinel
 [snakemake]: https://snakemake.readthedocs.io/
+[sqlalchemy]: https://www.sqlalchemy.org/
 [sqlite]: https://sqlite.org/
 [stack_connor]: https://connorstack.com/
-[svg_screenshot]: https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg
 [t3_personas]: https://teachtogether.tech/en/index.html#s:process-personas
 [textualize_fraction]: https://www.textualize.io/blog/posts/7-things-about-terminals
 [udhr]: https://www.un.org/en/universal-declaration-human-rights/

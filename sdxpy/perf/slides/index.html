@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="slides">
   <meta name="major" content="Chapter 15">
   
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../../mccole.js"></script>
-  <title>Software Design for Data Scientists: Performance Profiling</title>
+  <title>Software Design by Example: Performance Profiling</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
 class: slide-title
 
 <p>
-  <a href="https://third-bit.com/sd4ds/">Software Design for Data Scientists</a>
+  <a href="https://third-bit.com/sdxpy/">Software Design by Example</a>
 </p>
 <h1>Performance Profiling</h1>
 <div class="bottom">
@@ -131,19 +131,19 @@ def dict_match(d, prototype):
 ## Row-wise Operations
 
 ```py
-    def ncol(self):
-        return len(self._data[0])
+def ncol(self):
+    return len(self._data[0])
 
-    def nrow(self):
-        return len(self._data)
+def nrow(self):
+    return len(self._data)
 
-    def cols(self):
-        return set(self._data[0].keys())
+def cols(self):
+    return set(self._data[0].keys())
 
-    def get(self, col, row):
-        assert col in self._data[0]
-        assert 0 <= row < len(self._data)
-        return self._data[row][col]
+def get(self, col, row):
+    assert col in self._data[0]
+    assert 0 <= row < len(self._data)
+    return self._data[row][col]
 ```
 
 
@@ -152,15 +152,15 @@ def dict_match(d, prototype):
 ## Row-wise Equality
 
 ```py
-    def eq(self, other):
-        assert isinstance(other, DataFrame)
-        for (i, row) in enumerate(self._data):
-            for key in row:
-                if key not in other.cols():
-                    return False
-                if row[key] != other.get(key, i):
-                    return False
-        return True
+def eq(self, other):
+    assert isinstance(other, DataFrame)
+    for (i, row) in enumerate(self._data):
+        for key in row:
+            if key not in other.cols():
+                return False
+            if row[key] != other.get(key, i):
+                return False
+    return True
 ```
 
 
@@ -172,10 +172,10 @@ def dict_match(d, prototype):
 ## Row-wise Selection
 
 ```py
-    def select(self, *names):
-        assert all(n in self._data[0] for n in names)
-        rows = [{key: r[key] for key in names} for r in self._data]
-        return DfRow(rows)
+def select(self, *names):
+    assert all(n in self._data[0] for n in names)
+    rows = [{key: r[key] for key in names} for r in self._data]
+    return DfRow(rows)
 ```
 
 
@@ -211,7 +211,7 @@ def test_filter():
 
 ## How to Call?
 
--   Use `**` to <a class="gl-ref" href="../../glossary/#spread" markdown="1">spread</a> the row
+-   Use `**` to <a class="gl-ref" href="../../glossary/#gl:spread" title="To automatically match the values from a list or dictionary supplied by the caller to the parameters of a function." markdown="1">spread</a> the row
 
 ```py
 def example(left, right):
@@ -232,19 +232,15 @@ example(**args)
 ## Row-wise Filter
 
 ```py
-    def filter(self, func):
-        result = [r for r in self._data if func(**r)]
-        return DfRow(result)
+def filter(self, func):
+    result = [r for r in self._data if func(**r)]
+    return DfRow(result)
 ```
 
 
 -   Spread the rows out to match
 
 -   Convert the result to a row-wise dataframe
-
----
-
-## Row-wise Filter
 
 <figure>
 <img src="../row_filter.svg" alt="Row-wise filtering"/>
@@ -279,20 +275,20 @@ def all_eq(*values):
 ## Column-wise Operations
 
 ```py
-    def ncol(self):
-        return len(self._data)
+def ncol(self):
+    return len(self._data)
 
-    def nrow(self):
-        n = list(self._data.keys())[0]
-        return len(self._data[n])
+def nrow(self):
+    n = list(self._data.keys())[0]
+    return len(self._data[n])
 
-    def cols(self):
-        return set(self._data.keys())
+def cols(self):
+    return set(self._data.keys())
 
-    def get(self, col, row):
-        assert col in self._data
-        assert 0 <= row < len(self._data[col])
-        return self._data[col][row]
+def get(self, col, row):
+    assert col in self._data
+    assert 0 <= row < len(self._data[col])
+    return self._data[col][row]
 ```
 
 
@@ -303,9 +299,9 @@ def all_eq(*values):
 ## Column-wise Selection
 
 ```py
-    def select(self, *names):
-        assert all(n in self._data for n in names)
-        return DfCol(**{n: self._data[n] for n in names})
+def select(self, *names):
+    assert all(n in self._data for n in names)
+    return DfCol(**{n: self._data[n] for n in names})
 ```
 
 
@@ -319,26 +315,16 @@ def all_eq(*values):
 ## Column-wise Filter
 
 ```py
-    def filter(self, func):
-        result = {n: [] for n in self._data}
-        for i in range(self.nrow()):
-            args = {n: self._data[n][i] for n in self._data}
-            if func(**args):
-                for n in self._data:
-                    result[n].append(self._data[n][i])
-        return DfCol(**result)
+def filter(self, func):
+    result = {n: [] for n in self._data}
+    for i in range(self.nrow()):
+        args = {n: self._data[n][i] for n in self._data}
+        if func(**args):
+            for n in self._data:
+                result[n].append(self._data[n][i])
+    return DfCol(**result)
 ```
 
-
--   Build a temporary "row" to give the filter function
-
--   Build a dictionary of columns as a result
-
--   Convert that to a dataframe
-
----
-
-## Column-wise Filter
 
 <figure>
 <img src="../col_filter.svg" alt="Column-wise filter"/>
@@ -359,7 +345,7 @@ def all_eq(*values):
 
 ---
 
-## Creating Dataframes
+## Experimental Setup
 
 ```py
 RANGE = 10
@@ -383,7 +369,7 @@ def make_row(nrow, ncol):
 
 ---
 
-## Results
+## Experimental Setup
 
 ```
 column-wise
@@ -395,10 +381,6 @@ row-wise
  {'label_0': 2, 'label_1': 3, 'label_2': 4}]
 ```
 
-
----
-
-## Timing Filter
 
 ```py
 FILTER = 2
@@ -440,19 +422,9 @@ def time_filter(df):
 
 ---
 
-## How Can We Improve Performance?
+## Use Tools
 
--   A <a class="gl-ref" href="../../glossary/#profiler" markdown="1">profiler</a> measures where a program spends its time
-
--   More accurate than our `time.time()` calls
-
--   Doesn't require us to modify our code
-
--   But _does_ change the execution profile slightly
-
----
-
-## Using `cProfile`
+-   A <a class="gl-ref" href="../../glossary/#gl:profiler" title="A tool that measures one or more aspects of a program&#x27;s performance." markdown="1">profiler</a> measures where a program spends its time
 
 ```sh
 python -m cProfile --sort=tottime \
@@ -460,16 +432,16 @@ python -m cProfile --sort=tottime \
 ```
 
 ```
-         3007281 function calls (3003108 primitive calls) in 1.790 seconds
+       3007281 function calls (3003108 primitive calls) in 1.790 seconds
 
-   Ordered by: internal time
+ Ordered by: internal time
 
-   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-  2319840    0.605    0.000    0.605    0.000 util.py:10(<genexpr>)
-     1660    0.258    0.000    0.258    0.000 timing.py:20(<dictcomp>)
-        5    0.201    0.040    0.408    0.082 df_col.py:50(filter)
-     1660    0.176    0.000    0.176    0.000 df_col.py:53(<dictcomp>)
-     1660    0.158    0.000    0.158    0.000 timing.py:13(<listcomp>)
+ ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+2319840    0.605    0.000    0.605    0.000 util.py:10(<genexpr>)
+   1660    0.258    0.000    0.258    0.000 timing.py:20(<dictcomp>)
+      5    0.201    0.040    0.408    0.082 df_col.py:50(filter)
+   1660    0.176    0.000    0.176    0.000 df_col.py:53(<dictcomp>)
+   1660    0.158    0.000    0.158    0.000 timing.py:13(<listcomp>)
 ```
 
 
@@ -489,23 +461,25 @@ python -m cProfile --sort=tottime \
 
 ---
 
-## Evidence First
+class: summary
+
+## Summary
 
 <figure>
-<img src="../hennessy-patterson.jpg" alt="Cover of Hennessy &amp; Patterson"/>
+<img src="../concept_map.svg" alt="Concept map of performance profiling"/>
 </figure>
 
 
--   Whoever controls the benchmarks controls the future
-
 
 [academic_prototyping]: https://www.fuzzingbook.org/html/AcademicPrototyping.html
+[ark]: https://www.dmulholl.com/docs/ark/main/
 [aosa]: https://aosabook.org/
 [beautiful_soup]: https://beautiful-soup-4.readthedocs.io/
 [birthday_problem]: https://en.wikipedia.org/wiki/Birthday_problem
 [black]: https://black.readthedocs.io/
-[book_repo]: https://github.com/gvwilson/sd4ds/
-[book_site]: https://third-bit.com/sd4ds/
+[book_repo]: https://github.com/gvwilson/sdxpy/
+[book_issues]: https://github.com/gvwilson/sdxpy/issues
+[book_site]: https://third-bit.com/sdxpy/
 [browser_engine_tutorial]: https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html
 [browser_engineering]: https://browser.engineering/
 [brubeck_matt]: https://limpet.net/mbrubeck/
@@ -529,9 +503,11 @@ python -m cProfile --sort=tottime \
 [flake8]: https://flake8.pycqa.org/
 [git]: https://git-scm.com/
 [git_man_page_generator]: https://git-man-page-generator.lokaltog.net/
+[gitbook]: https://www.gitbook.com/
 [gitlet]: http://gitlet.maryrosecook.com/
 [glosario]: https://glosario.carpentries.org/
 [gnu_make]: https://www.gnu.org/software/make/
+[gorcenski_emily]: https://emilygorcenski.com/post/book-report-software-design-by-example-by-greg-wilson/
 [gutenberg]: https://www.gutenberg.org/
 [harrelson_chris]: https://twitter.com/chrishtr
 [hippocratic_license]: https://firstdonoharm.dev/
@@ -539,9 +515,10 @@ python -m cProfile --sort=tottime \
 [html5_data_attributes]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 [human_resource_machine]: https://tomorrowcorporation.com/humanresourcemachine
 [isort]: https://pycqa.github.io/isort/
-[ivy]: https://www.dmulholl.com/docs/ivy/main/
 [jekyll]: https://jekyllrb.com/
 [json_schema]: https://json-schema.org/
+[jupybook]: https://jupyterbook.org/
+[kerr_jessica]: https://jessitron.com/2023/02/20/book-review-software-design-by-example/
 [kilo_editor]: https://viewsourcecode.org/snaptoken/kilo/index.html
 [latex]: https://www.latex-project.org/
 [loewy_raymond]: https://en.wikipedia.org/wiki/Raymond_Loewy
@@ -550,6 +527,7 @@ python -m cProfile --sort=tottime \
 [lorgat_wasim]: https://wasimlorgat.com/
 [marthas_rules]: https://journals.sagepub.com/doi/10.1177/088610998600100206
 [nano]: https://www.nano-editor.org/
+[navarro_danielle]: https://blog.djnavarro.net/posts/2023-05-31_software-design-by-example/
 [nison_mael]: https://arcanis.github.io/
 [nystrom_bob]: http://journal.stuffwithstuff.com/
 [package_manager_tutorial]: https://classic.yarnpkg.com/blog/2017/07/11/lets-dev-a-package-manager/
@@ -580,20 +558,26 @@ python -m cProfile --sort=tottime \
 [py_struct]: https://docs.python.org/3/library/struct.html
 [py_textwrap]: https://docs.python.org/3/library/textwrap.html
 [py_urlparse]: https://docs.python.org/3/library/urllib.parse.html
+[py_yaml]: https://pyyaml.org/wiki/PyYAMLDocumentation
 [pyfakefs]: https://pytest-pyfakefs.readthedocs.io/
 [pytest]: https://docs.pytest.org/
 [pytest_approx]: https://docs.pytest.org/en/4.6.x/reference.html#pytest-approx
 [python]: https://www.python.org/
+[quarto]: https://quarto.org/
+[red_door]: https://www.reddoorshelter.ca/
 [reim_michael]: https://elderlinux.org/
+[remark]: https://remarkjs.com/
 [requests]: https://requests.readthedocs.io/
 [ruten_paige]: https://viewsourcecode.org/
+[schiffer_jenn]: https://mastodon.social/@jenn@pixel.kitchen/109985276835264400
 [selenium]: https://www.selenium.dev/
 [semver_spec]: https://semver.org/
+[simpy]: https://simpy.readthedocs.io/
 [sinel_joseph]: https://en.wikipedia.org/wiki/Joseph_Claude_Sinel
 [snakemake]: https://snakemake.readthedocs.io/
+[sqlalchemy]: https://www.sqlalchemy.org/
 [sqlite]: https://sqlite.org/
 [stack_connor]: https://connorstack.com/
-[svg_screenshot]: https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg
 [t3_personas]: https://teachtogether.tech/en/index.html#s:process-personas
 [textualize_fraction]: https://www.textualize.io/blog/posts/7-things-about-terminals
 [udhr]: https://www.un.org/en/universal-declaration-human-rights/

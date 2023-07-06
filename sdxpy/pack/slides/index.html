@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="slides">
   <meta name="major" content="Chapter 20">
   
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../../mccole.js"></script>
-  <title>Software Design for Data Scientists: A Package Manager</title>
+  <title>Software Design by Example: A Package Manager</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
 class: slide-title
 
 <p>
-  <a href="https://third-bit.com/sd4ds/">Software Design for Data Scientists</a>
+  <a href="https://third-bit.com/sdxpy/">Software Design by Example</a>
 </p>
 <h1>A Package Manager</h1>
 <div class="bottom">
@@ -57,13 +57,13 @@ class: slide-title
 
 ## Identifying Versions
 
--   <a class="gl-ref" href="../../glossary/#semantic_versioning" markdown="1">Semantic versioning</a> uses three integers `X.Y.Z`
+-   <a class="gl-ref" href="../../glossary/#gl:semantic_versioning" title="A standard for identifying software releases. In the version identifier `major.minor.patch`, `major` changes when a new version of software is incompatible with old versions, `minor` changes when new features are added to an existing version, and `patch` changes when small bugs are fixed." markdown="1">Semantic versioning</a> uses three integers `X.Y.Z`
 
     -   `X` is the major version (breaking changes)
 
     -   `Y` is the minor version (new features)
 
-    -   `Z` is the <a class="gl-ref" href="../../glossary/#patch" markdown="1">patch</a> (bug fixes)
+    -   `Z` is the <a class="gl-ref" href="../../glossary/#gl:patch" title="A single file containing a set of changes to a set of files, separated by markers that indicate where each individual change should be applied, or the semantic versioning identifier for such a file." markdown="1">patch</a> (bug fixes)
 
 -   Notation
 
@@ -119,9 +119,9 @@ class: slide-title
 -   Our example has 3×3×2=18 combinations
 
 -   Adding one more package with two versions doubles
-    the <a class="gl-ref" href="../../glossary/#search_space" markdown="1">search space</a>
+    the <a class="gl-ref" href="../../glossary/#gl:search_space" title="The set of all possible solutions to a problem, i.e., the set of possibilities that an algorithm must search through to find an answer." markdown="1">search space</a>
 
--   A <a class="gl-ref" href="../../glossary/#combinatorial_explosion" markdown="1">combinatorial explosion</a>
+-   A <a class="gl-ref" href="../../glossary/#gl:combinatorial_explosion" title="The exponential growth in the size of a problem or the time required to solve it that arises when all possible combinations of a set of items must be searched." markdown="1">combinatorial explosion</a>
 
 -   Brute force solutions are impractical even for small problems
 
@@ -153,7 +153,7 @@ def main():
 
 -   Create a list of the available versions of each package
 
--   Generate their <a class="gl-ref" href="../../glossary/#cross_product" markdown="1">cross product</a>
+-   Generate their <a class="gl-ref" href="../../glossary/#gl:cross_product" title="The set of all possible combinations of items from one or more sets." markdown="1">cross product</a>
 
 ```py
 def make_possibilities(manifest):
@@ -277,7 +277,7 @@ def _make_possible(remaining, current, accum):
 -   Use recursion instead of nested loops
     because we don't know how many loops to write
 
--   The <a class="gl-ref" href="../../glossary/#recursive_enumeration_pattern" markdown="1">Recursive Enumeration</a> design pattern
+-   The <a class="gl-ref" href="../../glossary/#gl:recursive_enumeration_pattern" title="A design pattern that generates the cross product of a set of items using recursive function calls. Each level of recursion adds items from one more set of possibilities to an accumulator." markdown="1">Recursive Enumeration</a> design pattern
 
 ---
 
@@ -381,7 +381,7 @@ count 9
 
 ## Using a Theorem Prover
 
--   An <a class="gl-ref" href="../../glossary/#theorem_prover" markdown="1">automated theorem prover</a> can do much better 
+-   An automated theorem prover can do much better 
 
     -   But the algorithms quickly become very complex
 
@@ -422,7 +422,7 @@ report("A == B & B == C", solver.check())
 ```
 
 
--   Then ask Z3 to find a <a class="gl-ref" href="../../glossary/#model" markdown="1">model</a> that satisfies those constraints
+-   Then ask Z3 to find a <a class="gl-ref" href="../../glossary/#gl:model" title="A set of values for variables that satisfies a specific set of constraints." markdown="1">model</a> that satisfies those constraints
 
 ```
 A == B & B == C: sat
@@ -535,12 +535,14 @@ result sat [B.3 = True,
 
 
 [academic_prototyping]: https://www.fuzzingbook.org/html/AcademicPrototyping.html
+[ark]: https://www.dmulholl.com/docs/ark/main/
 [aosa]: https://aosabook.org/
 [beautiful_soup]: https://beautiful-soup-4.readthedocs.io/
 [birthday_problem]: https://en.wikipedia.org/wiki/Birthday_problem
 [black]: https://black.readthedocs.io/
-[book_repo]: https://github.com/gvwilson/sd4ds/
-[book_site]: https://third-bit.com/sd4ds/
+[book_repo]: https://github.com/gvwilson/sdxpy/
+[book_issues]: https://github.com/gvwilson/sdxpy/issues
+[book_site]: https://third-bit.com/sdxpy/
 [browser_engine_tutorial]: https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html
 [browser_engineering]: https://browser.engineering/
 [brubeck_matt]: https://limpet.net/mbrubeck/
@@ -564,9 +566,11 @@ result sat [B.3 = True,
 [flake8]: https://flake8.pycqa.org/
 [git]: https://git-scm.com/
 [git_man_page_generator]: https://git-man-page-generator.lokaltog.net/
+[gitbook]: https://www.gitbook.com/
 [gitlet]: http://gitlet.maryrosecook.com/
 [glosario]: https://glosario.carpentries.org/
 [gnu_make]: https://www.gnu.org/software/make/
+[gorcenski_emily]: https://emilygorcenski.com/post/book-report-software-design-by-example-by-greg-wilson/
 [gutenberg]: https://www.gutenberg.org/
 [harrelson_chris]: https://twitter.com/chrishtr
 [hippocratic_license]: https://firstdonoharm.dev/
@@ -574,9 +578,10 @@ result sat [B.3 = True,
 [html5_data_attributes]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 [human_resource_machine]: https://tomorrowcorporation.com/humanresourcemachine
 [isort]: https://pycqa.github.io/isort/
-[ivy]: https://www.dmulholl.com/docs/ivy/main/
 [jekyll]: https://jekyllrb.com/
 [json_schema]: https://json-schema.org/
+[jupybook]: https://jupyterbook.org/
+[kerr_jessica]: https://jessitron.com/2023/02/20/book-review-software-design-by-example/
 [kilo_editor]: https://viewsourcecode.org/snaptoken/kilo/index.html
 [latex]: https://www.latex-project.org/
 [loewy_raymond]: https://en.wikipedia.org/wiki/Raymond_Loewy
@@ -585,6 +590,7 @@ result sat [B.3 = True,
 [lorgat_wasim]: https://wasimlorgat.com/
 [marthas_rules]: https://journals.sagepub.com/doi/10.1177/088610998600100206
 [nano]: https://www.nano-editor.org/
+[navarro_danielle]: https://blog.djnavarro.net/posts/2023-05-31_software-design-by-example/
 [nison_mael]: https://arcanis.github.io/
 [nystrom_bob]: http://journal.stuffwithstuff.com/
 [package_manager_tutorial]: https://classic.yarnpkg.com/blog/2017/07/11/lets-dev-a-package-manager/
@@ -615,20 +621,26 @@ result sat [B.3 = True,
 [py_struct]: https://docs.python.org/3/library/struct.html
 [py_textwrap]: https://docs.python.org/3/library/textwrap.html
 [py_urlparse]: https://docs.python.org/3/library/urllib.parse.html
+[py_yaml]: https://pyyaml.org/wiki/PyYAMLDocumentation
 [pyfakefs]: https://pytest-pyfakefs.readthedocs.io/
 [pytest]: https://docs.pytest.org/
 [pytest_approx]: https://docs.pytest.org/en/4.6.x/reference.html#pytest-approx
 [python]: https://www.python.org/
+[quarto]: https://quarto.org/
+[red_door]: https://www.reddoorshelter.ca/
 [reim_michael]: https://elderlinux.org/
+[remark]: https://remarkjs.com/
 [requests]: https://requests.readthedocs.io/
 [ruten_paige]: https://viewsourcecode.org/
+[schiffer_jenn]: https://mastodon.social/@jenn@pixel.kitchen/109985276835264400
 [selenium]: https://www.selenium.dev/
 [semver_spec]: https://semver.org/
+[simpy]: https://simpy.readthedocs.io/
 [sinel_joseph]: https://en.wikipedia.org/wiki/Joseph_Claude_Sinel
 [snakemake]: https://snakemake.readthedocs.io/
+[sqlalchemy]: https://www.sqlalchemy.org/
 [sqlite]: https://sqlite.org/
 [stack_connor]: https://connorstack.com/
-[svg_screenshot]: https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg
 [t3_personas]: https://teachtogether.tech/en/index.html#s:process-personas
 [textualize_fraction]: https://www.textualize.io/blog/posts/7-things-about-terminals
 [udhr]: https://www.un.org/en/universal-declaration-human-rights/

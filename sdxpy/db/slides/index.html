@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="slides">
   <meta name="major" content="Chapter 18">
   
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../../mccole.js"></script>
-  <title>Software Design for Data Scientists: A Database</title>
+  <title>Software Design by Example: A Database</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
 class: slide-title
 
 <p>
-  <a href="https://third-bit.com/sd4ds/">Software Design for Data Scientists</a>
+  <a href="https://third-bit.com/sdxpy/">Software Design by Example</a>
 </p>
 <h1>A Database</h1>
 <div class="bottom">
@@ -52,13 +52,13 @@ class: slide-title
 
 -   And interoperability across languages
 
--   Create a simple <a class="gl-ref" href="../../glossary/#log_structured_database" markdown="1">log-structured database</a>
+-   Create a simple <a class="gl-ref" href="../../glossary/#gl:log_structured_db" title="A database to which data can only be appended, i.e., existing records cannot be overwritten." markdown="1">log-structured database</a>
 
 ---
 
 ## Starting Point
 
--   A simple <a class="gl-ref" href="../../glossary/#key_value_store" markdown="1">key-value store</a> that lets us look things up
+-   A simple <a class="gl-ref" href="../../glossary/#gl:key_value_store" title="A simple form of database in which each record can only be accessed by a single key." markdown="1">key-value store</a> that lets us look things up
 
 -   User must provide a function that gets key from record
 
@@ -209,7 +209,7 @@ class Database:
 
 ## Refactor Database
 
--   Corresponding change to use a <a class="gl-ref" href="../../glossary/#static_method" markdown="1">static method</a>
+-   Corresponding change to use a <a class="gl-ref" href="../../glossary/#gl:static_method" title="A function that is defined within a class but does not require either the class itself or an instance of the class as a parameter." markdown="1">static method</a>
     of the record class
 
 ```py
@@ -255,18 +255,18 @@ class Experiment(BasicRec):
 ## Packing
 
 ```py
-    @staticmethod
-    def pack(record):
-        assert isinstance(record, Experiment)
-        readings = "\0".join(str(r) for r in record._readings)
-        result = f"{record._name}\0{record._timestamp}\0{readings}"
-        if len(result) < Experiment.RECORD_LEN:
-            result += "\0" * (Experiment.RECORD_LEN - len(result))
-        return result
+@staticmethod
+def pack(record):
+    assert isinstance(record, Experiment)
+    readings = "\0".join(str(r) for r in record._readings)
+    result = f"{record._name}\0{record._timestamp}\0{readings}"
+    if len(result) < Experiment.RECORD_LEN:
+        result += "\0" * (Experiment.RECORD_LEN - len(result))
+    return result
 ```
 
 
--   Save as strings with <a class="gl-ref" href="../../glossary/#null_byte" markdown="1">null byte</a> `\0` between them
+-   Save as strings with <a class="gl-ref" href="../../glossary/#gl:null_byte" title="A byte with the value zero. Null bytes are used to mark the ends of strings in C and C++, and are sometimes used to fill unused space in fixed-size binary records." markdown="1">null byte</a> `\0` between them
 
 -   A real implementation would pack as binary (<a class="x-ref" href="../../binary/">Chapter 17</a>)
 
@@ -275,37 +275,24 @@ class Experiment(BasicRec):
 ## Unpacking
 
 ```py
-    @staticmethod
-    def unpack(raw):
-        assert isinstance(raw, str)
-        parts = raw.split("\0")
-        name = parts[0]
-        timestamp = int(parts[1])
-        readings = [int(r) for r in parts[2:] if len(r)]
-        return Experiment(name, timestamp, readings)
+@staticmethod
+def unpack(raw):
+    assert isinstance(raw, str)
+    parts = raw.split("\0")
+    name = parts[0]
+    timestamp = int(parts[1])
+    readings = [int(r) for r in parts[2:] if len(r)]
+    return Experiment(name, timestamp, readings)
 ```
 
 
 -   Note: this doesn't handle strings with null bytes
 
--   A real implementation etc.
+    -   A real implementation would etc.
 
----
+--
 
-## Multiple Records
-
-```py
-    @staticmethod
-    def pack_multi(records):
-        return ''.join([Experiment.pack(r) for r in records])
-
-    @staticmethod
-    def unpack_multi(raw):
-        size = Experiment.size()
-        split = [raw[i:i + size] for i in range(0, len(raw), size)]
-        return [Experiment.unpack(s) for s in split]
-```
-
+-   Methods for packing and unpacking multiple records are straightforward
 
 ---
 
@@ -339,24 +326,24 @@ class FileBacked(Database):
 ```
 
 
--   Needs two <a class="gl-ref" href="../../glossary/#helper_method" markdown="1">helper methods</a>
+-   Needs two <a class="gl-ref" href="../../glossary/#gl:helper_method" title="A method designed to be used only by other methods in the same class. Helper methods are usually created to keep other methods short and readable." markdown="1">helper methods</a>
 
 ---
 
 ## A File-Backed Database
 
 ```py
-    def _save(self):
-        packed = self._record_cls.pack_multi(self._data.values())
-        with open(self._filename, "w") as writer:
-            writer.write(packed)
+def _save(self):
+    packed = self._record_cls.pack_multi(self._data.values())
+    with open(self._filename, "w") as writer:
+        writer.write(packed)
 
-    def _load(self):
-        assert self._filename.exists()
-        with open(self._filename, "r") as reader:
-            raw = reader.read()
-        records = self._record_cls.unpack_multi(raw)
-        self._data = {self._record_cls.key(r): r for r in records}
+def _load(self):
+    assert self._filename.exists()
+    with open(self._filename, "r") as reader:
+        raw = reader.read()
+    records = self._record_cls.unpack_multi(raw)
+    self._data = {self._record_cls.key(r): r for r in records}
 ```
 
 
@@ -368,9 +355,9 @@ class FileBacked(Database):
 
 ## Saving Blocks
 
--   Save *N* records per <a class="gl-ref" href="../../glossary/#block" markdown="1">block</a>
+-   Save *N* records per <a class="gl-ref" href="../../glossary/#gl:block_memory" title="A region of memory of a fixed, constant size. Data is often divided into blocks to optimize input and output at the hardware level; software is then used to convert between blocks and streams." markdown="1">block</a>
 
--   Keep the <a class="gl-ref" href="../../glossary/#index_database" markdown="1">index</a> in memory
+-   Keep the <a class="gl-ref" href="../../glossary/#gl:index_database" title="An auxiliary data structure in a database used to speed up search for some entries. An index increases memory and disk requirements but reduces search time." markdown="1">index</a> in memory
 
 -   When writing, only modify one block (smaller and faster)
 
@@ -416,13 +403,13 @@ class Blocked(Database):
 ## Adding a Record
 
 ```py
-    def add(self, record):
-        key = self._record_cls.key(record)
-        seq_id = self._next_seq_id()
-        self._index[key] = seq_id
-        block_id = self._get_block_id(seq_id)
-        block = self._get_block(block_id)
-        block[seq_id] = record
+def add(self, record):
+    key = self._record_cls.key(record)
+    seq_id = self._next_seq_id()
+    self._index[key] = seq_id
+    block_id = self._get_block_id(seq_id)
+    block = self._get_block(block_id)
+    block[seq_id] = record
 ```
 
 
@@ -439,13 +426,13 @@ class Blocked(Database):
 ## Getting a Record
 
 ```py
-    def get(self, key):
-        if key not in self._index:
-            return None
-        seq_id = self._index[key]
-        block_id = self._get_block_id(seq_id)
-        block = self._get_block(block_id)
-        return block[seq_id]
+def get(self, key):
+    if key not in self._index:
+        return None
+    seq_id = self._index[key]
+    block_id = self._get_block_id(seq_id)
+    block = self._get_block(block_id)
+    return block[seq_id]
 ```
 
 
@@ -462,18 +449,18 @@ class Blocked(Database):
 ## Helper Methods
 
 ```py
-    def _next_seq_id(self):
-        seq_id = self._next
-        self._next += 1
-        return seq_id
+def _next_seq_id(self):
+    seq_id = self._next
+    self._next += 1
+    return seq_id
 
-    def _get_block_id(self, seq_id):
-        return seq_id // Blocked.RECORDS_PER_BLOCK
+def _get_block_id(self, seq_id):
+    return seq_id // Blocked.RECORDS_PER_BLOCK
 
-    def _get_block(self, block_id):
-        while block_id >= len(self._blocks):
-            self._blocks.append({})
-        return self._blocks[block_id]
+def _get_block(self, block_id):
+    while block_id >= len(self._blocks):
+        self._blocks.append({})
+    return self._blocks[block_id]
 ```
 
 
@@ -507,17 +494,17 @@ class BlockedFile(Blocked):
 ## Saving
 
 ```py
-    def _save(self, record):
-        key = self._record_cls.key(record)
-        seq_id = self._index[key]
-        block_id = self._get_block_id(seq_id)
+def _save(self, record):
+    key = self._record_cls.key(record)
+    seq_id = self._index[key]
+    block_id = self._get_block_id(seq_id)
 
-        block = self._get_block(block_id)
-        packed = self._record_cls.pack_multi(block.values())
+    block = self._get_block(block_id)
+    packed = self._record_cls.pack_multi(block.values())
 
-        filename = self._get_filename(block_id)
-        with open(filename, "w") as writer:
-            writer.write(''.join(packed))
+    filename = self._get_filename(block_id)
+    with open(filename, "w") as writer:
+        writer.write(''.join(packed))
 ```
 
 
@@ -528,21 +515,21 @@ class BlockedFile(Blocked):
 ## Loading
 
 ```py
-    def _load(self, key):
-        seq_id = self._index[key]
-        block_id = self._get_block_id(seq_id)
-        filename = self._get_filename(block_id)
-        self._load_block(block_id, filename)
+def _load(self, key):
+    seq_id = self._index[key]
+    block_id = self._get_block_id(seq_id)
+    filename = self._get_filename(block_id)
+    self._load_block(block_id, filename)
 
-    def _load_block(self, block_id, filename):
-        with open(filename, "r") as reader:
-            raw = reader.read()
+def _load_block(self, block_id, filename):
+    with open(filename, "r") as reader:
+        raw = reader.read()
 
-        records = self._record_cls.unpack_multi(raw)
-        base = self.size() * block_id
-        block = self._get_block(block_id)
-        for i, r in enumerate(records):
-            block[base + i] = r
+    records = self._record_cls.unpack_multi(raw)
+    base = self.size() * block_id
+    block = self._get_block(block_id)
+    for i, r in enumerate(records):
+        block[base + i] = r
 ```
 
 
@@ -555,16 +542,16 @@ class BlockedFile(Blocked):
 -   Need to initialize the in-memory index when restarting the database
 
 ```py
-    def _build_index(self):
-        seq_id = 0
-        for (block_id, filename) in enumerate(
-                sorted(self._db_dir.iterdir())
-        ):
-            self._load_block(block_id, filename)
-            for record in self._get_block(block_id).values():
-                key = self._record_cls.key(record)
-                self._index[key] = seq_id
-                seq_id += 1
+def _build_index(self):
+    seq_id = 0
+    for (block_id, filename) in enumerate(
+            sorted(self._db_dir.iterdir())
+    ):
+        self._load_block(block_id, filename)
+        for record in self._get_block(block_id).values():
+            key = self._record_cls.key(record)
+            self._index[key] = seq_id
+            seq_id += 1
 ```
 
 
@@ -574,37 +561,11 @@ class BlockedFile(Blocked):
 
 ---
 
-## Cleanup
-
-```py
-    def _cleanup(self):
-        new_seq = {
-            o: i for i, o in enumerate(self._index.values())
-        }
-        keep = {self._get_block_id(o) for o in new_seq}
-
-        renaming = {o: i for i, o in enumerate(list(sorted(keep)))}
-        garbage_ids = {
-            i for i in range(len(self._blocks))
-            if i not in renaming
-        }
-
-        self._delete_blocks(garbage_ids)
-        self._rename_blocks(renaming)
-
-        new_index = {
-            k: new_seq[self._index[k]] for k in self._index
-        }
-        self._index = new_index
-        self._next = len(self._index)
-```
-
-
----
-
 ## Next Steps
 
--   <a class="gl-ref" href="../../glossary/#compact" markdown="1">Compact</a> storage periodically
+-   Clean up unused files
+
+-   <a class="gl-ref" href="../../glossary/#gl:compact" title="To pack data so as to remove wasted or unused space." markdown="1">Compact</a> storage periodically
 
 -   Use other data structures for indexing
 
@@ -621,12 +582,14 @@ class: summary
 
 
 [academic_prototyping]: https://www.fuzzingbook.org/html/AcademicPrototyping.html
+[ark]: https://www.dmulholl.com/docs/ark/main/
 [aosa]: https://aosabook.org/
 [beautiful_soup]: https://beautiful-soup-4.readthedocs.io/
 [birthday_problem]: https://en.wikipedia.org/wiki/Birthday_problem
 [black]: https://black.readthedocs.io/
-[book_repo]: https://github.com/gvwilson/sd4ds/
-[book_site]: https://third-bit.com/sd4ds/
+[book_repo]: https://github.com/gvwilson/sdxpy/
+[book_issues]: https://github.com/gvwilson/sdxpy/issues
+[book_site]: https://third-bit.com/sdxpy/
 [browser_engine_tutorial]: https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html
 [browser_engineering]: https://browser.engineering/
 [brubeck_matt]: https://limpet.net/mbrubeck/
@@ -650,9 +613,11 @@ class: summary
 [flake8]: https://flake8.pycqa.org/
 [git]: https://git-scm.com/
 [git_man_page_generator]: https://git-man-page-generator.lokaltog.net/
+[gitbook]: https://www.gitbook.com/
 [gitlet]: http://gitlet.maryrosecook.com/
 [glosario]: https://glosario.carpentries.org/
 [gnu_make]: https://www.gnu.org/software/make/
+[gorcenski_emily]: https://emilygorcenski.com/post/book-report-software-design-by-example-by-greg-wilson/
 [gutenberg]: https://www.gutenberg.org/
 [harrelson_chris]: https://twitter.com/chrishtr
 [hippocratic_license]: https://firstdonoharm.dev/
@@ -660,9 +625,10 @@ class: summary
 [html5_data_attributes]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 [human_resource_machine]: https://tomorrowcorporation.com/humanresourcemachine
 [isort]: https://pycqa.github.io/isort/
-[ivy]: https://www.dmulholl.com/docs/ivy/main/
 [jekyll]: https://jekyllrb.com/
 [json_schema]: https://json-schema.org/
+[jupybook]: https://jupyterbook.org/
+[kerr_jessica]: https://jessitron.com/2023/02/20/book-review-software-design-by-example/
 [kilo_editor]: https://viewsourcecode.org/snaptoken/kilo/index.html
 [latex]: https://www.latex-project.org/
 [loewy_raymond]: https://en.wikipedia.org/wiki/Raymond_Loewy
@@ -671,6 +637,7 @@ class: summary
 [lorgat_wasim]: https://wasimlorgat.com/
 [marthas_rules]: https://journals.sagepub.com/doi/10.1177/088610998600100206
 [nano]: https://www.nano-editor.org/
+[navarro_danielle]: https://blog.djnavarro.net/posts/2023-05-31_software-design-by-example/
 [nison_mael]: https://arcanis.github.io/
 [nystrom_bob]: http://journal.stuffwithstuff.com/
 [package_manager_tutorial]: https://classic.yarnpkg.com/blog/2017/07/11/lets-dev-a-package-manager/
@@ -701,20 +668,26 @@ class: summary
 [py_struct]: https://docs.python.org/3/library/struct.html
 [py_textwrap]: https://docs.python.org/3/library/textwrap.html
 [py_urlparse]: https://docs.python.org/3/library/urllib.parse.html
+[py_yaml]: https://pyyaml.org/wiki/PyYAMLDocumentation
 [pyfakefs]: https://pytest-pyfakefs.readthedocs.io/
 [pytest]: https://docs.pytest.org/
 [pytest_approx]: https://docs.pytest.org/en/4.6.x/reference.html#pytest-approx
 [python]: https://www.python.org/
+[quarto]: https://quarto.org/
+[red_door]: https://www.reddoorshelter.ca/
 [reim_michael]: https://elderlinux.org/
+[remark]: https://remarkjs.com/
 [requests]: https://requests.readthedocs.io/
 [ruten_paige]: https://viewsourcecode.org/
+[schiffer_jenn]: https://mastodon.social/@jenn@pixel.kitchen/109985276835264400
 [selenium]: https://www.selenium.dev/
 [semver_spec]: https://semver.org/
+[simpy]: https://simpy.readthedocs.io/
 [sinel_joseph]: https://en.wikipedia.org/wiki/Joseph_Claude_Sinel
 [snakemake]: https://snakemake.readthedocs.io/
+[sqlalchemy]: https://www.sqlalchemy.org/
 [sqlite]: https://sqlite.org/
 [stack_connor]: https://connorstack.com/
-[svg_screenshot]: https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg
 [t3_personas]: https://teachtogether.tech/en/index.html#s:process-personas
 [textualize_fraction]: https://www.textualize.io/blog/posts/7-things-about-terminals
 [udhr]: https://www.un.org/en/universal-declaration-human-rights/

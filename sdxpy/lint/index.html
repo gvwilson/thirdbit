@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="default">
   <meta name="major" content="Chapter 13">
   <meta name="has_slides" content="true">
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../mccole.js"></script>
-  <title>Software Design for Data Scientists: A Code Linter</title>
+  <title>Software Design by Example: A Code Linter</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
         <p>
   
   <img src="../logo.svg" alt="site logo" class="logo" />
-  <a href="../">Software Design for Data Scientists</a>
+  <a href="../">Software Design by Example</a>
   
 </p>
 <ol class="toc-chapter">
@@ -42,6 +42,12 @@
   <li>
     <a href="../intro/">
       Introduction
+    </a>
+  </li>
+  
+  <li>
+    <a href="../oop/">
+      Objects and Classes
     </a>
   </li>
   
@@ -76,20 +82,14 @@
   </li>
   
   <li>
-    <a href="../oop/">
-      Objects and Classes
-    </a>
-  </li>
-  
-  <li>
     <a href="../func/">
       Functions and Closures
     </a>
   </li>
   
   <li>
-    <a href="../mock/">
-      Mocks, Protocols, and Decorators
+    <a href="../reflect/">
+      Reflection
     </a>
   </li>
   
@@ -266,7 +266,7 @@
   
 </ol>
 
-<p><a href="../sd4ds-examples.zip" type="application/zip">download examples</a></p>
+<p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
 
 
       </div>
@@ -278,7 +278,9 @@
 
           
 <div class="draft notex">
-  <p>DRAFT</p>
+  <p class="draft">
+    DRAFT 2023-07-12
+  </p>
   <p>
     <em>Please use section heading links to submit feedback.</em>
   </p>
@@ -286,6 +288,8 @@
 
 
           
+  
+
   
 
   
@@ -365,7 +369,7 @@ to check that lines aren&rsquo;t too long,
 that classes and functions have consistent names,
 that modules are imported in a consistent order,
 and dozens of other things.</p>
-<p>Checking tools are often called <a class="gl-ref" href="../glossary/#linter" markdown="1">linters</a>,
+<p>Checking tools are often called <a class="gl-ref" href="../glossary/#gl:linter" title="A program that checks for common problems in software, such as violations of indentation rules or variable naming conventions. The name comes from the first tool of its kind, called <code>lint</code>." markdown="1">linters</a>,
 because an early tool like this that found fluff in C programs was called <code>lint</code>,
 and the name stuck.
 Many projects insist that code pass checks like these
@@ -380,7 +384,7 @@ we then show how these tools can be used to extract documentation
 and to create code as well as check it.</p>
 <h2 id="lint-machinery">Section 13.1: Machinery</h2>
 <p><a class="x-ref" href="../check/">Chapter 11</a> represented HTML as
-a <span class="ix-entry" ix-key="DOM;DOM tree" markdown="1">DOM tree</span>.
+a <span class="ix-entry" ix-key="DOM tree" markdown="1">DOM tree</span>.
 Similarly,
 we can use Python&rsquo;s <a href="https://docs.python.org/3/library/ast.html">ast</a> module
 to parse Python programs and produce an <span class="ix-entry" ix-key="abstract syntax tree" markdown="1">abstract syntax tree</span>
@@ -397,7 +401,7 @@ suppose we have this short program:</p>
 </div>
 <p class="continue"><a class="fig-ref" href="../lint/#lint-ast-simple">Figure 13.1</a> shows the main parts of
 this program&rsquo;s <span class="ix-entry" ix-key="abstract syntax tree" markdown="1">abstract syntax tree</span>.
-Each node represents one element of the program,
+Each <span class="ix-entry" ix-key="node" markdown="1">node</span> represents one element of the program,
 and each node&rsquo;s <span class="ix-entry" ix-key="child (in a tree)" markdown="1">children</span> are the element nested within it.</p>
 <figure id="lint-ast-simple">
 <img src="./ast_simple.svg" alt="Simple AST"/>
@@ -442,7 +446,8 @@ and <code>ast.dump</code> to display it:</p>
 it has:</p>
 <ul>
 <li>a <code>name</code>;</li>
-<li>an <code>arguments</code> node that stores information about the function&rsquo;s arguments;</li>
+<li>an <code>arguments</code> node that stores information
+    about the function&rsquo;s <span class="ix-entry" ix-key="argument" markdown="1">arguments</span>;</li>
 <li>a <code>body</code> that holds a list of the statements making up the function; and</li>
 <li>a list of decorators applied to the function (which is empty).</li>
 </ul>
@@ -455,10 +460,10 @@ that knew which fields of that node were worth exploring.</p>
 <p>Luckily for us,
 the <a href="https://docs.python.org/3/library/ast.html">ast</a> module comes with tools that can do this for us.
 The class <code>ast.NodeVisitor</code> uses
-the now-familiar <span class="ix-entry" ix-key="Visitor pattern" markdown="1">Visitor pattern</span>
+the now-familiar <span class="ix-entry" ix-key="Visitor pattern" markdown="1">Visitor</span> <span class="ix-entry" ix-key="design pattern" markdown="1">design pattern</span>
 to recurse through an AST.
 Each time the visitor reaches a new node of type <code>Thing</code>,
-it looks for a method called <code>visit_Thing</code>;
+it looks for a <span class="ix-entry" ix-key="method" markdown="1">method</span> called <code>visit_Thing</code>;
 for example,
 when it reaches a <code>FunctionDef</code> node it looks for <code>visit_FunctionDef</code>.
 If that method has been defined,
@@ -493,7 +498,7 @@ defined in a program:</p>
 <p class="continue">A few things worth noting about this class are:</p>
 <ol>
 <li>
-<p>The constructor of <code>CollectNames</code> invokes
+<p>The <span class="ix-entry" ix-key="constructor" markdown="1">constructor</span> of <code>CollectNames</code> invokes
     the constructor of <code>NodeVisitor</code>
     using <code>super().__init__()</code>
     before doing anything else.</p>
@@ -503,7 +508,8 @@ defined in a program:</p>
     must call <code>self.generic_visit(node)</code> explicitly
     to recurse down through their children.
     By requiring this to be explicit,
-    <code>NodeVisitor</code> gives programmers control on whether and when recursion takes place.</p>
+    <code>NodeVisitor</code> gives programmers control on
+    whether and when <span class="ix-entry" ix-key="recursion" markdown="1">recursion</span> takes place.</p>
 </li>
 <li>
 <p>The method <code>position</code> relies on the fact that
@@ -562,7 +568,7 @@ for the key <code>"third"</code>:</p>
 <li>Concatenate the entries somehow.</li>
 </ol>
 <p class="continue">As the output below shows,
-Python chooses option 3,
+Python chooses the third option,
 even though code like this is probably not doing
 what its author thinks it&rsquo;s doing:</p>
 <div class="code-sample lang-out" title="has_duplicate_keys.out">
@@ -574,7 +580,7 @@ with just a few lines of code.
 We define a <code>visit_Dict</code> method for <code>NodeVisitor</code> to call;
 in it,
 we add each constant key to an instance of <code>Counter</code>
-(a specialized <code>dict</code> that counts entries`)
+(a specialized <code>dict</code> that counts entries)
 and then look for keys that have been seen more than once:</p>
 <div class="code-sample lang-py" title="find_duplicate_keys.py">
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">FindDuplicateKeys</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">NodeVisitor</span><span class="p">):</span>
@@ -617,7 +623,7 @@ so it won&rsquo;t find duplicate keys that are created on the fly like this:</p>
 <p>We could try adding logic to handle this,
 but one of the fundamental theorems of computer science is that
 it&rsquo;s impossible to create a program that can predict the output of arbitrary other programs.
-Our linter can therefore produce <a class="gl-ref" href="../glossary/#false_negative" markdown="1">false negatives</a>,
+Our linter can therefore produce <a class="gl-ref" href="../glossary/#gl:false_negative" title="A report that something is missing when it is actually present." markdown="1">false negatives</a>,
 i.e.,
 tell us there aren&rsquo;t problems when there actually are.</p>
 </div>
@@ -628,7 +634,8 @@ The problem is <span class="ix-entry" ix-key="scope" markdown="1">scope</span>:
 a variable defined in a function or method might have the same name
 as one defined elsewhere,
 but they are different variables.</p>
-<p>Let&rsquo;s start by defining a class that handles modules and functions.
+<p>Let&rsquo;s start by defining a class
+that handles <span class="ix-entry" ix-key="module" markdown="1">modules</span> and functions.
 Since functions can be defined inside modules,
 and inside other functions,
 our class&rsquo;s constructor creates a list that we will use as a stack
@@ -654,22 +661,22 @@ We then call <code>NodeVisitor.generic_visitor</code> to trigger recursion,
 pop the record we just pushed off the stack,
 and report any problems:</p>
 <div class="code-sample lang-py" title="find_unused_variables.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Scope</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">set</span><span class="p">(),</span> <span class="nb">set</span><span class="p">()))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">generic_visit</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-        <span class="n">scope</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Scope</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">set</span><span class="p">(),</span> <span class="nb">set</span><span class="p">()))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">generic_visit</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">scope</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">):</span>
-        <span class="n">unused</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">store</span> <span class="o">-</span> <span class="n">scope</span><span class="o">.</span><span class="n">load</span>
-        <span class="k">if</span> <span class="n">unused</span><span class="p">:</span>
-            <span class="n">names</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">unused</span><span class="p">))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unused in </span><span class="si">{</span><span class="n">scope</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">):</span>
+    <span class="n">unused</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">store</span> <span class="o">-</span> <span class="n">scope</span><span class="o">.</span><span class="n">load</span>
+    <span class="k">if</span> <span class="n">unused</span><span class="p">:</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">unused</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unused in </span><span class="si">{</span><span class="n">scope</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>We could just use a list of three values to record information for each scope,
 but it&rsquo;s a little cleaner to use <code>namedtuple</code>
-from Python&rsquo;s standard library:</p>
+from <span class="ix-entry" ix-key="Python standard library" markdown="1">Python&rsquo;s standard library</span>:</p>
 <div class="code-sample lang-py" title="find_unused_variables.py">
 <div class="highlight"><pre><span></span><code><span class="n">Scope</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Scope&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;load&quot;</span><span class="p">,</span> <span class="s2">&quot;store&quot;</span><span class="p">])</span>
 </code></pre></div>
@@ -682,14 +689,14 @@ the node&rsquo;s <code>.ctx</code> property will be an instance of <code>Store</
 Checking this property allows us to put the name in the right set
 in the scope that&rsquo;s at the top of the stack:</p>
 <div class="code-sample lang-py" title="find_unused_variables.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">visit_Name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Load</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Store</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Unknown context&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">generic_visit</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">visit_Name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Load</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Store</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Unknown context&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">generic_visit</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>Once again,
@@ -740,11 +747,12 @@ Inheritance is the wrong tool for this:
 if several people each create their own <code>NodeVisitor</code> with a <code>visit_Name</code> method,
 we&rsquo;d have to inherit from all those classes
 and then have the new class&rsquo;s <code>visit_Name</code> call up to all of its parents&rsquo; equivalent methods.</p>
-<p>One way around this is to <a class="gl-ref" href="../glossary/#method_injection" markdown="1">inject</a> methods into classes
+<p>One way around this is to <a class="gl-ref" href="../glossary/#gl:method_injection" title="To add methods to an existing class after its definition." markdown="1">inject</a> methods into classes
 after they have been defined.
 The code fragment below creates a new class called <code>BlankNodeVisitor</code>
 that doesn&rsquo;t add anything to <code>NodeVisitor</code>,
-then uses <code>setattr</code> to add a method to it after it has been defined:</p>
+then uses <code>setattr</code> to add a method to it after it has been defined
+(<a class="fig-ref" href="../lint/#lint-injection">Figure 13.2</a>):</p>
 <div class="code-sample lang-py" title="injection.py">
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BlankNodeVisitor</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">NodeVisitor</span><span class="p">):</span>
     <span class="k">pass</span>
@@ -755,6 +763,11 @@ then uses <code>setattr</code> to add a method to it after it has been defined:<
 <span class="nb">setattr</span><span class="p">(</span><span class="n">BlankNodeVisitor</span><span class="p">,</span> <span class="s2">&quot;visit_Name&quot;</span><span class="p">,</span> <span class="n">print_name</span><span class="p">)</span>
 </code></pre></div>
 </div>
+<figure id="lint-injection">
+<img src="./injection.svg" alt="Method injection"/>
+<figcaption markdown="1">Figure 13.2: Adding methods to classes after their definition.</figcaption>
+</figure>
+
 <p>This trick works because classes and objects are just specialized dictionaries
 (for some large value of &ldquo;just&rdquo;).
 If we create an object of <code>BlankNodeVisitor</code> and call its <code>visit</code> method:</p>
@@ -825,7 +838,7 @@ and does whatever it&rsquo;s supposed to do:</p>
 </code></pre></div>
 </div>
 <p>Setting up the visitor is a bit more complicated,
-since we have to create and register the handler:</p>
+since we have to create and <span class="ix-entry" ix-key="register (in code)" markdown="1">register</span> the handler:</p>
 <div class="code-sample lang-py" title="register.py">
 <div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
     <span class="n">source</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -846,7 +859,7 @@ for each kind of node.</p>
 <p><em>Please see <a class="x-ref" href="../bonus/">Appendix B</a> for extra material related to these ideas.</em></p>
 <figure id="lint-concept-map">
 <img src="./concept_map.svg" alt="Concept map for code manipulation"/>
-<figcaption markdown="1">Figure 13.2: Concepts for code manipulation.</figcaption>
+<figcaption markdown="1">Figure 13.3: Concepts for code manipulation.</figcaption>
 </figure>
 
 <h2 id="lint-exercises">Section 13.6: Exercises</h2>
@@ -888,7 +901,8 @@ then reports any functions from the first file that it hasn&rsquo;t seen.</p>
 </ol>
 <h3 class="exercise">Sorting Imports</h3>
 <p><a href="https://pycqa.github.io/isort/">isort</a> checks that the imports in a file are sorted correctly:
-modules from Python&rsquo;s standard library come first (in alphabetical order),
+modules from <span class="ix-entry" ix-key="Python standard library" markdown="1">Python&rsquo;s standard library</span>
+come first (in alphabetical order),
 then installed modules (also in alphabetical order)
 and finally local imports (ditto).
 Write a linter that reports violations of these rules.

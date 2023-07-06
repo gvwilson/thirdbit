@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="default">
   <meta name="major" content="Chapter 12">
   <meta name="has_slides" content="true">
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../mccole.js"></script>
-  <title>Software Design for Data Scientists: A Template Expander</title>
+  <title>Software Design by Example: A Template Expander</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
         <p>
   
   <img src="../logo.svg" alt="site logo" class="logo" />
-  <a href="../">Software Design for Data Scientists</a>
+  <a href="../">Software Design by Example</a>
   
 </p>
 <ol class="toc-chapter">
@@ -42,6 +42,12 @@
   <li>
     <a href="../intro/">
       Introduction
+    </a>
+  </li>
+  
+  <li>
+    <a href="../oop/">
+      Objects and Classes
     </a>
   </li>
   
@@ -76,20 +82,14 @@
   </li>
   
   <li>
-    <a href="../oop/">
-      Objects and Classes
-    </a>
-  </li>
-  
-  <li>
     <a href="../func/">
       Functions and Closures
     </a>
   </li>
   
   <li>
-    <a href="../mock/">
-      Mocks, Protocols, and Decorators
+    <a href="../reflect/">
+      Reflection
     </a>
   </li>
   
@@ -266,7 +266,7 @@
   
 </ol>
 
-<p><a href="../sd4ds-examples.zip" type="application/zip">download examples</a></p>
+<p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
 
 
       </div>
@@ -278,7 +278,9 @@
 
           
 <div class="draft notex">
-  <p>DRAFT</p>
+  <p class="draft">
+    DRAFT 2023-07-12
+  </p>
   <p>
     <em>Please use section heading links to submit feedback.</em>
   </p>
@@ -307,17 +309,17 @@
   
 
   
+
+  
   <ul class="syllabus">
   
   <li markdown="1">Static site generators create HTML pages from templates, directives, and data.</li>
   
-  <li markdown="1">A static site generator must have the same core features as a programming language.</li>
+  <li markdown="1">A static site generator has the same core features as a programming language.</li>
   
-  <li markdown="1">Programs can use the Visitor pattern to separate traversal of a data structure from operations on its elements.</li>
+  <li markdown="1">Special-purpose mini-languages quickly become as complex as mainstream languages.</li>
   
-  <li markdown="1">HTML documents are usually represented in memory as trees using the Document Object Model (DOM).</li>
-  
-  <li markdown="1">The style of code that programmers find easiest to read changes as they become more experienced.</li>
+  <li markdown="1">Static methods are a convenient way to group functions together.</li>
   
   </ul>
   
@@ -363,7 +365,7 @@ and the best place to put that documentation is on the web.
 Writing and updating pages by hand is time-consuming and error-prone,
 particularly when many parts are the same,
 so most documentation sites use some kind of
-<a class="gl-ref" href="../glossary/#static_site_generator" markdown="1">static site generator</a>
+<a class="gl-ref" href="../glossary/#gl:static_site_generator" title="A software tool that creates HTML pages from templates and content." markdown="1">static site generator</a>
 to create web pages from templates.</p>
 <p>At the heart of every static site generator is a page templating system.
 Thousands of these have been written in the last thirty years
@@ -373,7 +375,8 @@ Most of these systems use one of three designs
 (<a class="fig-ref" href="../template/#template-options">Figure 12.1</a>):</p>
 <ol>
 <li>
-<p>Mix commands in an existing language such as JavaScript with the HTML or Markdown
+<p>Mix commands in an existing language such as JavaScript
+    with the <span class="ix-entry" ix-key="HTML" markdown="1">HTML</span> or <span class="ix-entry" ix-key="Markdown" markdown="1">Markdown</span>
     using some kind of marker to indicate which parts are commands
     and which parts are to be taken as-is.
     This approach is taken by <span class="ix-entry" ix-key="EJS" markdown="1"><a href="https://ejs.co/">EJS</a></span>.</p>
@@ -386,10 +389,10 @@ Most of these systems use one of three designs
     which parts of the page are code and which are ordinary text.</p>
 </li>
 <li>
-<p>Put directives in specially-named attributes in the HTML.
+<p>Put directives in specially-named <span class="ix-entry" ix-key="attribute" markdown="1">attributes</span> in the HTML.
     This approach has been the least popular,
     but since pages are valid HTML,
-    it eliminates the need for a special parser.</p>
+    it eliminates the need for a special <span class="ix-entry" ix-key="parser" markdown="1">parser</span>.</p>
 </li>
 </ol>
 <figure id="template-options">
@@ -399,7 +402,7 @@ Most of these systems use one of three designs
 
 <p>This chapter builds a simple page templating system using the third strategy.
 We will process each page independently by parsing the HTML
-and walking the <span class="ix-entry" ix-key="DOM" markdown="1">DOM</span> to find nodes with special attributes.
+and walking the <span class="ix-entry" ix-key="DOM" markdown="1">DOM</span> to find <span class="ix-entry" ix-key="node" markdown="1">nodes</span> with special attributes.
 Our program will execute the instructions in those nodes
 to implement loops and if/else statements;
 other nodes will be copied as-is to create text.</p>
@@ -454,11 +457,11 @@ We could instead use two attributes like this:</p>
 <p class="continue">but we have decided to save ourselves a little typing.
 And strictly speaking
 we should call our attributes <code>data-something</code> instead of <code>z-something</code>
-to conform with <span class="ix-entry" ix-key="HTML5 specification" markdown="1"><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes">the HTML5 specification</a></span>,
+to conform with the <span class="ix-entry" ix-key="HTML5 specification" markdown="1"><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes">HTML5 specification</a></span>,
 but by the time we&rsquo;re finished processing our templates,
 there shouldn&rsquo;t be any <code>z-*</code> attributes left to confuse a browser.</p>
 </div>
-<p>The next step is to define the <a class="gl-ref" href="../glossary/#api" markdown="1">Application Programming Interface</a> (API)
+<p>The next step is to define the <a class="gl-ref" href="../glossary/#gl:api" title="A set of functions provided by a software library or web service that other software can call." markdown="1">Application Programming Interface</a> (API)
 for filling in templates,
 which is just a fancy way of saying that
 we need to specify what function or functions a program calls
@@ -470,7 +473,8 @@ These variables might come from a configuration file,
 from a YAML header in the file itself,
 or from some mix of the two;
 for the moment,
-we will just pass them into the expansion function as an object:</p>
+we will just pass them into the expansion function as an object
+(<a class="fig-ref" href="../template/#template-api">Figure 12.2</a>):</p>
 <div class="code-sample lang-py" title="example_call.py">
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Vaughan&quot;</span><span class="p">,</span> <span class="s2">&quot;Jackson&quot;</span><span class="p">]}</span>
 
@@ -480,15 +484,21 @@ we will just pass them into the expansion function as an object:</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">expander</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 </div>
+<figure id="template-api">
+<img src="./api.svg" alt="Template API"/>
+<figcaption markdown="1">Figure 12.2: Combining text and data in templating.</figcaption>
+</figure>
+
 <h2 id="template-values">Section 12.2: Managing Variables</h2>
 <p>As soon as we have variables we need a way to track their values.
 We also need to maintain multiple sets of variables
 so that (for example) variables used inside a loop
 don&rsquo;t conflict with ones used outside it.
-As in <a class="x-ref" href="../interp/">Chapter 6</a>,
-we will use a stack of environments,
+As in <a class="x-ref" href="../interp/">Chapter 7</a>,
+we will use a stack of <span class="ix-entry" ix-key="environment" markdown="1">environments</span>,
 each of which is a dictionary.</p>
-<p>Our stack-handling class <code>Env</code> has methods  to push and pop new stack frames
+<p>Our stack-handling class <code>Env</code> has methods
+to push and pop new <span class="ix-entry" ix-key="stack frame" markdown="1">stack frames</span>
 and find a variable given its name.
 If the variable can&rsquo;t be found,
 <code>Env.find</code> returns <code>None</code> instead of throwing an exception:</p>
@@ -518,8 +528,9 @@ If the variable can&rsquo;t be found,
 <h2 id="template-nodes">Section 12.3: Visiting Nodes</h2>
 <p>HTML pages have a nested structure,
 so we will process them using
-the <span class="ix-entry" ix-key="Visitor pattern" markdown="1">Visitor</span> design pattern.
-<code>Visitor</code>&lsquo;s constructor takes the root node of the DOM tree as an argument and saves it.
+the <span class="ix-entry" ix-key="Visitor pattern" markdown="1">Visitor</span> <span class="ix-entry" ix-key="design pattern" markdown="1">design pattern</span>.
+<code>Visitor</code>&lsquo;s <span class="ix-entry" ix-key="constructor" markdown="1">constructor</span> takes the root node of the <span class="ix-entry" ix-key="DOM tree" markdown="1">DOM tree</span>
+as an argument and saves it.
 When we call <code>Visitor.walk</code> without a value,
 it starts recursing from that saved root;
 if <code>.walk</code> is given a value (as it is during recursive calls),
@@ -544,9 +555,9 @@ it uses that instead.</p>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<p><code>Visitor</code> defines two <a class="gl-ref" href="../glossary/#abstract_method" markdown="1">abstract methods</a> <code>open</code> and <code>close</code>
+<p><code>Visitor</code> defines two <a class="gl-ref" href="../glossary/#gl:abstract_method" title="In object-oriented programming, a method that is defined but not implemented. Programmers will define an abstract method in a parent class to specify operations that child classes must provide." markdown="1">abstract methods</a> <code>open</code> and <code>close</code>
 that are called when we first arrive at a node and when we are finished with it.
-We cannot use <code>Visitor</code> itself—it is an <a class="gl-ref" href="../glossary/#abstract_class" markdown="1">abstract class</a>.
+We cannot use <code>Visitor</code> itself—it is an <a class="gl-ref" href="../glossary/#gl:abstract_class" title="A class that defines or requires methods it does not implement. An abstract class typically specifies the methods that child classes must have without providing default implementations." markdown="1">abstract class</a>.
 Instead,
 we must derive a class from <code>Visitor</code> that defines these two methods.
 This approach is different from that of the visitor in <a class="x-ref" href="../check/">Chapter 11</a>,
@@ -565,7 +576,7 @@ uses them to process each type of node:</p>
     call the handler&rsquo;s <code>open</code> or <code>close</code> method.</p>
 </li>
 <li>
-<p>Otherwise, open or close a regular tag.</p>
+<p>Otherwise, open or close a regular <span class="ix-entry" ix-key="tag" markdown="1">tag</span>.</p>
 </li>
 </ol>
 <div class="code-sample lang-py" title="expander.py">
@@ -639,38 +650,38 @@ uses them to process each type of node:</p>
 and get it if there is
 we just look at the node&rsquo;s attributes:</p>
 <div class="code-sample lang-py" title="expander.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">hasHandler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span>
-            <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span>
-            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">attrs</span>
-        <span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hasHandler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">any</span><span class="p">(</span>
+        <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">attrs</span>
+    <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">getHandler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-        <span class="n">possible</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">attrs</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span>
-        <span class="p">]</span>
-        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Should be exactly one handler&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="n">possible</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="k">def</span> <span class="nf">getHandler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="n">possible</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">attrs</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span>
+    <span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Should be exactly one handler&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="n">possible</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 </code></pre></div>
 </div>
 <p>Finally, we need a few helper methods to show tags and generate output:</p>
 <div class="code-sample lang-py" title="expander.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">showTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">closing</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">closing</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;/</span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
-            <span class="k">return</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;</span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;z-&quot;</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">=&quot;</span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">showTag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">closing</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">closing</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;/</span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;</span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;z-&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">=&quot;</span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;UNDEF&quot;</span> <span class="k">if</span> <span class="n">text</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">text</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;UNDEF&quot;</span> <span class="k">if</span> <span class="n">text</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">text</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">getResult</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">getResult</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p class="continue">Notice that this class adds strings to an array and joins them all right at the end
@@ -700,7 +711,7 @@ Instead,
 it&rsquo;s just a way to manage a pair of related <code>open</code> and <code>close</code> functions,
 which we declare as <span class="ix-entry" ix-key="static method" markdown="1">static methods</span>.
 When we enter a node like <code>&lt;span z-num="123"/&gt;</code>
-this handler asks the expander to show an opening tag
+this handler asks the expander to show an <span class="ix-entry" ix-key="opening tag" markdown="1">opening tag</span>
 followed by the value of the <code>z-num</code> attribute.
 When we exit the node,
 the handler asks the expander to close the tag.
@@ -727,7 +738,7 @@ we use it as a key to look up a value.</p>
 <p>These two pairs of handlers look plausible, but do they work?
 To find out,
 we can build a program that loads variable definitions from a JSON file,
-reads an HTML template using the <a href="https://beautiful-soup-4.readthedocs.io/">Beautiful Soup</a> library,
+reads an HTML template using the <a href="https://beautiful-soup-4.readthedocs.io/">Beautiful Soup</a> module,
 and does the expansion:</p>
 <div class="code-sample lang-py" title="template.py">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
@@ -845,9 +856,9 @@ software isn&rsquo;t done until it has been tested.</p>
 </div>
 <h2 id="template-flow">Section 12.5: Control Flow</h2>
 <p>Our tool supports conditional expressions and loops.
-Since it doesn&rsquo;t handle <a class="gl-ref" href="../glossary/#boolean_expression" markdown="1">Boolean expressions</a> like <code>and</code> and <code>or</code>,
+Since it doesn&rsquo;t handle <a class="gl-ref" href="../glossary/#gl:boolean_expression" title="An expression that is either true or false, i.e., one that produces a Boolean value." markdown="1">Boolean expressions</a> like <code>and</code> and <code>or</code>,
 implementing a conditional is as simple as looking up a variable
-and then expanding the node if Python thinks the value is <a class="gl-ref" href="../glossary/#truthy" markdown="1">truthy</a>:</p>
+and then expanding the node if Python thinks the value is <a class="gl-ref" href="../glossary/#gl:truthy" title="Refers to a value that is treated as true in Boolean expressions. In Python, this includes non-empty strings and lists and numbers other than zero." markdown="1">truthy</a>:</p>
 <div class="code-sample lang-py" title="z_if.py">
 <div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Conditionalize part of a template.&quot;&quot;&quot;</span>
 
@@ -886,7 +897,8 @@ and then expanding the node if Python thinks the value is <a class="gl-ref" href
 <p>This implementation of <code>if</code> contains a subtle bug.
 The <code>open</code> and <code>close</code> functions both check the value of the control variable.
 If something inside the body of the <code>if</code> changes that value,
-the result could be an opening tag without a matching closing tag or vice versa.
+the result could be an opening tag
+without a matching <span class="ix-entry" ix-key="closing tag" markdown="1">closing tag</span> or vice versa.
 We haven&rsquo;t implemented an assignment operator,
 so right now there&rsquo;s no way for that to happen,
 but it&rsquo;s a plausible thing for us to add later,
@@ -965,7 +977,7 @@ unless they had no other choice—but the basic design is there.</p>
 <h2 id="template-summary">Section 12.6: Summary</h2>
 <figure id="template-concept-map">
 <img src="./concept_map.svg" alt="Concept map for HTML templating"/>
-<figcaption markdown="1">Figure 12.2: HTML templating concept map.</figcaption>
+<figcaption markdown="1">Figure 12.3: HTML templating concept map.</figcaption>
 </figure>
 
 <h2 id="template-exercises">Section 12.7: Exercises</h2>

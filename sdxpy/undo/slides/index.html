@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="slides">
   <meta name="major" content="Chapter 24">
   
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../../mccole.js"></script>
-  <title>Software Design for Data Scientists: Undo and Redo</title>
+  <title>Software Design by Example: Undo and Redo</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
 class: slide-title
 
 <p>
-  <a href="https://third-bit.com/sd4ds/">Software Design for Data Scientists</a>
+  <a href="https://third-bit.com/sdxpy/">Software Design by Example</a>
 </p>
 <h1>Undo and Redo</h1>
 <div class="bottom">
@@ -77,7 +77,7 @@ class: slide-title
 
 ## A Headless Screen
 
--   Create a <a class="gl-ref" href="../../glossary/#headless" markdown="1">headless</a> screen for testing
+-   Create a <a class="gl-ref" href="../../glossary/#gl:headless" title="An application run without its usual graphical interface. Browsers, editors, and other applications are often run headless for testing purposes." markdown="1">headless</a> screen for testing
 
 -   Store current state of display in rectangular grid
 
@@ -194,7 +194,7 @@ class InsertDeleteBuffer(Buffer):
 
 -   Delete character *under* the cursor, not to the left
 
--   A little <span class="ix-entry" ix-key="defensive programming" markdown="1">defensive programming</span> as well
+-   A little defensive programming as well
 
 ---
 
@@ -210,11 +210,11 @@ class InsertDeleteApp(HeadlessApp):
 
 
 ```py
-    def _do_DELETE(self):
-        self._buffer.delete(self._cursor.pos())
+def _do_DELETE(self):
+    self._buffer.delete(self._cursor.pos())
 
-    def _do_INSERT(self, key):
-        self._buffer.insert(self._cursor.pos(), key)
+def _do_INSERT(self, key):
+    self._buffer.insert(self._cursor.pos(), key)
 ```
 
 
@@ -223,24 +223,24 @@ class InsertDeleteApp(HeadlessApp):
 ## Application
 
 ```py
-    def _get_key(self):
-        key = self._screen.getkey()
-        if key in self.INSERTABLE:
-            return "INSERT", key
-        else:
-            return None, key
+def _get_key(self):
+    key = self._screen.getkey()
+    if key in self.INSERTABLE:
+        return "INSERT", key
+    else:
+        return None, key
 
-    def _interact(self):
-        family, key = self._get_key()
-        if family is None:
-            name = f"_do_{key}"
-            if hasattr(self, name):
-                getattr(self, name)()
-        else:
-            name = f"_do_{family}"
-            if hasattr(self, name):
-                getattr(self, name)(key)
-        self._add_log(key)
+def _interact(self):
+    family, key = self._get_key()
+    if family is None:
+        name = f"_do_{key}"
+        if hasattr(self, name):
+            getattr(self, name)()
+    else:
+        name = f"_do_{family}"
+        if hasattr(self, name):
+            getattr(self, name)(key)
+    self._add_log(key)
 ```
 
 
@@ -336,13 +336,12 @@ class HistoryApp(InsertDeleteApp):
 
 ## Verbs as Nouns
 
--   Use the <a class="gl-ref" href="../../glossary/#command_pattern" markdown="1">Command</a> design pattern
+-   Use the <a class="gl-ref" href="../../glossary/#gl:command_pattern" title="A design pattern in which operations are represented as objects so that they can be stored and re-used." markdown="1">Command</a> design pattern
 
 -   Each action (verb) is an object (noun)
     with methods to go forward and backward
 
--   Every action is derived from
-    an <span class="ix-entry" ix-key="abstract base class" markdown="1">abstract base class</span>
+-   Every action is derived from an abstract base class
 
 ```py
 class Action:
@@ -420,15 +419,15 @@ class Move(Action):
 ## Application
 
 ```py
-    def _interact(self):
-        family, key = self._get_key()
-        name = f"_do_{family}" if family else f"_do_{key}"
-        if not hasattr(self, name):
-            return
-        action = getattr(self, name)(key)
-        self._history.append(action)
-        action.do()
-        self._add_log(key)
+def _interact(self):
+    family, key = self._get_key()
+    name = f"_do_{family}" if family else f"_do_{key}"
+    if not hasattr(self, name):
+        return
+    action = getattr(self, name)(key)
+    self._history.append(action)
+    action.do()
+    self._add_log(key)
 ```
 
 
@@ -443,14 +442,14 @@ class Move(Action):
 ## Application
 
 ```py
-    def _do_DELETE(self, key):
-        return Delete(self, self._cursor.pos())
+def _do_DELETE(self, key):
+    return Delete(self, self._cursor.pos())
 
-    def _do_INSERT(self, key):
-        return Insert(self, self._cursor.pos(), key)
+def _do_INSERT(self, key):
+    return Insert(self, self._cursor.pos(), key)
 
-    def _do_KEY_UP(self, key):
-        return Move(self, "up")
+def _do_KEY_UP(self, key):
+    return Move(self, "up")
 ```
 
 
@@ -500,12 +499,14 @@ class: summary
 
 
 [academic_prototyping]: https://www.fuzzingbook.org/html/AcademicPrototyping.html
+[ark]: https://www.dmulholl.com/docs/ark/main/
 [aosa]: https://aosabook.org/
 [beautiful_soup]: https://beautiful-soup-4.readthedocs.io/
 [birthday_problem]: https://en.wikipedia.org/wiki/Birthday_problem
 [black]: https://black.readthedocs.io/
-[book_repo]: https://github.com/gvwilson/sd4ds/
-[book_site]: https://third-bit.com/sd4ds/
+[book_repo]: https://github.com/gvwilson/sdxpy/
+[book_issues]: https://github.com/gvwilson/sdxpy/issues
+[book_site]: https://third-bit.com/sdxpy/
 [browser_engine_tutorial]: https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html
 [browser_engineering]: https://browser.engineering/
 [brubeck_matt]: https://limpet.net/mbrubeck/
@@ -529,9 +530,11 @@ class: summary
 [flake8]: https://flake8.pycqa.org/
 [git]: https://git-scm.com/
 [git_man_page_generator]: https://git-man-page-generator.lokaltog.net/
+[gitbook]: https://www.gitbook.com/
 [gitlet]: http://gitlet.maryrosecook.com/
 [glosario]: https://glosario.carpentries.org/
 [gnu_make]: https://www.gnu.org/software/make/
+[gorcenski_emily]: https://emilygorcenski.com/post/book-report-software-design-by-example-by-greg-wilson/
 [gutenberg]: https://www.gutenberg.org/
 [harrelson_chris]: https://twitter.com/chrishtr
 [hippocratic_license]: https://firstdonoharm.dev/
@@ -539,9 +542,10 @@ class: summary
 [html5_data_attributes]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 [human_resource_machine]: https://tomorrowcorporation.com/humanresourcemachine
 [isort]: https://pycqa.github.io/isort/
-[ivy]: https://www.dmulholl.com/docs/ivy/main/
 [jekyll]: https://jekyllrb.com/
 [json_schema]: https://json-schema.org/
+[jupybook]: https://jupyterbook.org/
+[kerr_jessica]: https://jessitron.com/2023/02/20/book-review-software-design-by-example/
 [kilo_editor]: https://viewsourcecode.org/snaptoken/kilo/index.html
 [latex]: https://www.latex-project.org/
 [loewy_raymond]: https://en.wikipedia.org/wiki/Raymond_Loewy
@@ -550,6 +554,7 @@ class: summary
 [lorgat_wasim]: https://wasimlorgat.com/
 [marthas_rules]: https://journals.sagepub.com/doi/10.1177/088610998600100206
 [nano]: https://www.nano-editor.org/
+[navarro_danielle]: https://blog.djnavarro.net/posts/2023-05-31_software-design-by-example/
 [nison_mael]: https://arcanis.github.io/
 [nystrom_bob]: http://journal.stuffwithstuff.com/
 [package_manager_tutorial]: https://classic.yarnpkg.com/blog/2017/07/11/lets-dev-a-package-manager/
@@ -580,20 +585,26 @@ class: summary
 [py_struct]: https://docs.python.org/3/library/struct.html
 [py_textwrap]: https://docs.python.org/3/library/textwrap.html
 [py_urlparse]: https://docs.python.org/3/library/urllib.parse.html
+[py_yaml]: https://pyyaml.org/wiki/PyYAMLDocumentation
 [pyfakefs]: https://pytest-pyfakefs.readthedocs.io/
 [pytest]: https://docs.pytest.org/
 [pytest_approx]: https://docs.pytest.org/en/4.6.x/reference.html#pytest-approx
 [python]: https://www.python.org/
+[quarto]: https://quarto.org/
+[red_door]: https://www.reddoorshelter.ca/
 [reim_michael]: https://elderlinux.org/
+[remark]: https://remarkjs.com/
 [requests]: https://requests.readthedocs.io/
 [ruten_paige]: https://viewsourcecode.org/
+[schiffer_jenn]: https://mastodon.social/@jenn@pixel.kitchen/109985276835264400
 [selenium]: https://www.selenium.dev/
 [semver_spec]: https://semver.org/
+[simpy]: https://simpy.readthedocs.io/
 [sinel_joseph]: https://en.wikipedia.org/wiki/Joseph_Claude_Sinel
 [snakemake]: https://snakemake.readthedocs.io/
+[sqlalchemy]: https://www.sqlalchemy.org/
 [sqlite]: https://sqlite.org/
 [stack_connor]: https://connorstack.com/
-[svg_screenshot]: https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg
 [t3_personas]: https://teachtogether.tech/en/index.html#s:process-personas
 [textualize_fraction]: https://www.textualize.io/blog/posts/7-things-about-terminals
 [udhr]: https://www.un.org/en/universal-declaration-human-rights/

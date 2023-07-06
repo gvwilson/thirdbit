@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="default">
   <meta name="major" content="Chapter 26">
   <meta name="has_slides" content="true">
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../mccole.js"></script>
-  <title>Software Design for Data Scientists: A Debugger</title>
+  <title>Software Design by Example: A Debugger</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
         <p>
   
   <img src="../logo.svg" alt="site logo" class="logo" />
-  <a href="../">Software Design for Data Scientists</a>
+  <a href="../">Software Design by Example</a>
   
 </p>
 <ol class="toc-chapter">
@@ -42,6 +42,12 @@
   <li>
     <a href="../intro/">
       Introduction
+    </a>
+  </li>
+  
+  <li>
+    <a href="../oop/">
+      Objects and Classes
     </a>
   </li>
   
@@ -76,20 +82,14 @@
   </li>
   
   <li>
-    <a href="../oop/">
-      Objects and Classes
-    </a>
-  </li>
-  
-  <li>
     <a href="../func/">
       Functions and Closures
     </a>
   </li>
   
   <li>
-    <a href="../mock/">
-      Mocks, Protocols, and Decorators
+    <a href="../reflect/">
+      Reflection
     </a>
   </li>
   
@@ -266,7 +266,7 @@
   
 </ol>
 
-<p><a href="../sd4ds-examples.zip" type="application/zip">download examples</a></p>
+<p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
 
 
       </div>
@@ -278,7 +278,9 @@
 
           
 <div class="draft notex">
-  <p>DRAFT</p>
+  <p class="draft">
+    DRAFT 2023-07-12
+  </p>
   <p>
     <em>Please use section heading links to submit feedback.</em>
   </p>
@@ -286,6 +288,8 @@
 
 
           
+  
+
   
 
   
@@ -357,12 +361,12 @@
 
           <div class="page-toc"></div>
           <p>We have finally come to another of the questions that sparked this book:
-how does a <a class="gl-ref" href="../glossary/#debugger" markdown="1">debugger</a> work?
+how does a <a class="gl-ref" href="../glossary/#gl:debugger" title="A program that enables its user to monitor and control another program, typically by single-stepping through its execution or setting breakpoints." markdown="1">debugger</a> work?
 Debuggers are as much a part of good programmers&rsquo; lives as version control
 but are taught far less often
 (in part, we believe, because it&rsquo;s harder to create homework questions for them).
 This chapter builds a simple single-stepping debugger
-for the virtual machine in <a class="x-ref" href="../vm/">Chapter 25</a>
+for the <span class="ix-entry" ix-key="virtual machine" markdown="1">virtual machine</span> of <a class="x-ref" href="../vm/">Chapter 25</a>
 and shows how we can test interactive applications.</p>
 <p>Before we start work,
 let&rsquo;s consolidate and reorganize the code in our virtual machine.
@@ -371,10 +375,10 @@ but we&rsquo;ve made a few changes to allow for future growth.
 The first is to pass an output stream to the constructor,
 which by default will be <code>sys.stdout</code>:</p>
 <div class="code-sample lang-py" title="vm_base.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set up memory.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">writer</span> <span class="o">=</span> <span class="n">writer</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">([])</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set up memory.&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">writer</span> <span class="o">=</span> <span class="n">writer</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">([])</span>
 </code></pre></div>
 </div>
 <p>We then replace every <code>print</code> statement with
@@ -382,17 +386,17 @@ a call to new method called <code>write</code>.
 For example,
 the &ldquo;print register&rdquo; instruction calls <code>self.write</code>:</p>
 <div class="code-sample lang-py" title="vm_base.py">
-<div class="highlight"><pre><span></span><code>        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;prr&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">assert_is_register</span><span class="p">(</span><span class="n">arg0</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">reg</span><span class="p">[</span><span class="n">arg0</span><span class="p">]</span><span class="si">:</span><span class="s2">06x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;prr&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assert_is_register</span><span class="p">(</span><span class="n">arg0</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">reg</span><span class="p">[</span><span class="n">arg0</span><span class="p">]</span><span class="si">:</span><span class="s2">06x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>For now,
 <code>write</code> just prints things to whatever output stream the VM was given:</p>
 <div class="code-sample lang-py" title="vm_base.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h2 id="debugger-step">Section 26.1: One Step at a Time</h2>
@@ -422,17 +426,17 @@ As long as the program isn&rsquo;t finished
 we fetch, decode, and execute the next instruction as usual,
 but stop after each one if we&rsquo;re single-stepping:</p>
 <div class="code-sample lang-py" title="vm_step.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">VMState</span><span class="o">.</span><span class="n">FINISHED</span><span class="p">:</span>
-                <span class="k">break</span>
-            <span class="n">instruction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ip</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">VMState</span><span class="o">.</span><span class="n">FINISHED</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">instruction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ip</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>The interaction method needs to handle several cases:</p>
@@ -442,7 +446,7 @@ but stop after each one if we&rsquo;re single-stepping:</p>
     in which case it loops around and waits for something else.</p>
 </li>
 <li>
-<p>The user asks to <a class="gl-ref" href="../glossary/#disassemble" markdown="1">disassemble</a> the current instruction
+<p>The user asks to <a class="gl-ref" href="../glossary/#gl:disassemble" title="To convert machine instructions into assembly code or some higher-level language." markdown="1">disassemble</a> the current instruction
     or show the contents of memory,
     in which case it does that and loops around.</p>
 </li>
@@ -463,13 +467,13 @@ but stop after each one if we&rsquo;re single-stepping:</p>
 </li>
 </ol>
 <p>The method that disassembles an instruction to show us what we&rsquo;re about to do
-checks a <a class="gl-ref" href="../glossary/#reverse_lookup" markdown="1">reverse lookup table</a>
+checks a <a class="gl-ref" href="../glossary/#gl:reverse_lookup" title="To find the key associated with a particular value in a table." markdown="1">reverse lookup table</a>
 to create a printable representation of an instruction and its operands:</p>
 <div class="code-sample lang-py" title="vm_step.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">disassemble</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">instruction</span><span class="p">):</span>
-        <span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">OPS_LOOKUP</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Unknown op code </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OPS_LOOKUP</span><span class="p">[</span><span class="n">op</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">arg0</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">disassemble</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">instruction</span><span class="p">):</span>
+    <span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">OPS_LOOKUP</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Unknown op code </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OPS_LOOKUP</span><span class="p">[</span><span class="n">op</span><span class="p">]</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">arg0</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
 </div>
 <p class="continue">We build the reverse lookup table from the <code>OPS</code> table in <code>architecture.py</code>
@@ -492,15 +496,15 @@ it does,
 but only by default.
 The constructor for our single-stepping VM is:</p>
 <div class="code-sample lang-py" title="vm_step.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reader</span> <span class="o">=</span> <span class="n">reader</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">reader</span> <span class="o">=</span> <span class="n">reader</span>
 </code></pre></div>
 </div>
 <p class="continue">and its <code>read</code> method is:</p>
 <div class="code-sample lang-py" title="vm_step.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompt</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <p>As with the <code>write</code> method introduced in the previous section,
@@ -551,7 +555,7 @@ but which returns strings from a list instead of waiting for the user:</p>
 </code></pre></div>
 </div>
 <p>With these in hand,
-we can write a helper function that compiles a program,
+we can write a <span class="ix-entry" ix-key="helper function" markdown="1">helper function</span> that compiles a program,
 creates a virtual machine,
 and runs it with a mock reader and a mock writer:</p>
 <div class="code-sample lang-py" title="test_vm.py">
@@ -655,16 +659,16 @@ in interactive mode
 and <code>False</code> if interaction is over.
 The method for showing the contents of memory is:</p>
 <div class="code-sample lang-py" title="vm_extend.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">_do_memory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-        <span class="k">return</span> <span class="kc">True</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">_do_memory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
 </div>
 <p class="continue">while the one for advancing one step is:</p>
 <div class="code-sample lang-py" title="vm_extend.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">_do_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span>
-        <span class="k">return</span> <span class="kc">False</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">_do_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span>
+    <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div>
 </div>
 <p>and so on.
@@ -674,46 +678,47 @@ called <code>self.handlers</code>.
 Its keys are the commands typed by the user
 and its values are the operation methods we just created:</p>
 <div class="code-sample lang-py" title="vm_extend.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">interact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
-        <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">({</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">}))</span>
-        <span class="n">interacting</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">while</span> <span class="n">interacting</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">command</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">addr</span><span class="si">:</span><span class="s2">06x</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s2">]&gt; &quot;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">command</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="k">elif</span> <span class="n">command</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown command </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">interacting</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="n">command</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">EOFError</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">FINISHED</span>
-                <span class="n">interacting</span> <span class="o">=</span> <span class="kc">False</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">interact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">({</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">}))</span>
+    <span class="n">interacting</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">while</span> <span class="n">interacting</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">command</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">addr</span><span class="si">:</span><span class="s2">06x</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s2">]&gt; &quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">command</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">elif</span> <span class="n">command</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown command </span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">interacting</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span><span class="p">[</span><span class="n">command</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">EOFError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">FINISHED</span>
+            <span class="n">interacting</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div>
 </div>
 <p>Finally,
 we extend the virtual machine&rsquo;s constructor
 to build the required lookup table.
 For convenience,
-we register the methods under both single-letter keys
+we <span class="ix-entry" ix-key="register (in code)" markdown="1">register</span> the methods
+under both single-letter keys
 and longer command names:</p>
 <div class="code-sample lang-py" title="vm_extend.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_disassemble</span><span class="p">,</span>
-            <span class="s2">&quot;dis&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_disassemble</span><span class="p">,</span>
-            <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_ip</span><span class="p">,</span>
-            <span class="s2">&quot;ip&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_ip</span><span class="p">,</span>
-            <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_memory</span><span class="p">,</span>
-            <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_memory</span><span class="p">,</span>
-            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_quit</span><span class="p">,</span>
-            <span class="s2">&quot;quit&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_quit</span><span class="p">,</span>
-            <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_run</span><span class="p">,</span>
-            <span class="s2">&quot;run&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_run</span><span class="p">,</span>
-            <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_step</span><span class="p">,</span>
-            <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_step</span><span class="p">,</span>
-        <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_disassemble</span><span class="p">,</span>
+        <span class="s2">&quot;dis&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_disassemble</span><span class="p">,</span>
+        <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_ip</span><span class="p">,</span>
+        <span class="s2">&quot;ip&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_ip</span><span class="p">,</span>
+        <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_memory</span><span class="p">,</span>
+        <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_memory</span><span class="p">,</span>
+        <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_quit</span><span class="p">,</span>
+        <span class="s2">&quot;quit&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_quit</span><span class="p">,</span>
+        <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_run</span><span class="p">,</span>
+        <span class="s2">&quot;run&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_run</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_step</span><span class="p">,</span>
+        <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_step</span><span class="p">,</span>
+    <span class="p">}</span>
 </code></pre></div>
 </div>
 <p>As in previous chapters,
@@ -731,11 +736,11 @@ that only occurs after several thousand lines of code have been executed.
 We would have to be pretty desperate to single-step through all of that even once,
 much less dozens of times as we&rsquo;re exploring new ideas or trying new fixes.
 Instead,
-we want to set a <a class="gl-ref" href="../glossary/#breakpoint" markdown="1">breakpoint</a>
+we want to set a <a class="gl-ref" href="../glossary/#gl:breakpoint" title="A point in a program where a debugger should halt execution in order to interact with a user." markdown="1">breakpoint</a>
 to tell the computer to stop at a particular location
 and drop us into the debugger.
 (We might even use
-a <a class="gl-ref" href="../glossary/#conditional_breakpoint" markdown="1">conditional breakpoint</a>
+a <a class="gl-ref" href="../glossary/#gl:conditional_breakpoint" title="A breakpoint at which the debugger should only halt if some user-specified condition is true." markdown="1">conditional breakpoint</a>
 that would only stop if (for example)
 the variable <code>x</code> was zero at that point,
 but we&rsquo;ll leave that for the exercises.)</p>
@@ -756,7 +761,7 @@ When the user sets a breakpoint at some address,
 we replace the instruction at that address with a breakpoint instruction
 and store the original instruction in a lookup table.
 If the user later
-<a class="gl-ref" href="../glossary/#clear_breakpoint" markdown="1">clears</a>
+<a class="gl-ref" href="../glossary/#gl:clear_breakpoint" title="To remove a breakpoint from a program." markdown="1">clears</a>
 the breakpoint,
 we copy the original instruction back into place,
 and if the VM encounters a breakpoint instruction while its running,
@@ -780,15 +785,15 @@ in a real interpreter for a language like Python or JavaScript.</p>
 to add two more commands to the lookup table
 we created in the previous section:</p>
 <div class="code-sample lang-py" title="vm_break.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">|=</span> <span class="p">{</span>
-            <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_add_breakpoint</span><span class="p">,</span>
-            <span class="s2">&quot;break&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_add_breakpoint</span><span class="p">,</span>
-            <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_clear_breakpoint</span><span class="p">,</span>
-            <span class="s2">&quot;clear&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_clear_breakpoint</span><span class="p">,</span>
-        <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">handlers</span> <span class="o">|=</span> <span class="p">{</span>
+        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_add_breakpoint</span><span class="p">,</span>
+        <span class="s2">&quot;break&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_add_breakpoint</span><span class="p">,</span>
+        <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_clear_breakpoint</span><span class="p">,</span>
+        <span class="s2">&quot;clear&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_clear_breakpoint</span><span class="p">,</span>
+    <span class="p">}</span>
 </code></pre></div>
 </div>
 <p>To add a breakpoint,
@@ -796,12 +801,12 @@ we copy the instruction at the given address
 into the dictionary <code>self.breaks</code>
 and replace it with a breakpoint instruction:</p>
 <div class="code-sample lang-py" title="vm_break.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">_do_add_breakpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">==</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;brk&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]:</span>
-            <span class="k">return</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">=</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;brk&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="kc">True</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">_do_add_breakpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">==</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;brk&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]:</span>
+        <span class="k">return</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">=</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;brk&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
 </div>
 <p class="continue">Notice that if there&rsquo;s already a breakpoint in place,
@@ -810,22 +815,22 @@ We also return <code>True</code> to tell <code>interact</code>
 to wait for another command from the user.</p>
 <p>Clearing a breakpoint is just as easy:</p>
 <div class="code-sample lang-py" title="vm_break.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">_do_clear_breakpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">!=</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;brk&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]:</span>
-            <span class="k">return</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span>
-        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span>
-        <span class="k">return</span> <span class="kc">True</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">_do_clear_breakpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">!=</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;brk&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]:</span>
+        <span class="k">return</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span>
+    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">[</span><span class="n">addr</span><span class="p">]</span>
+    <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
 </div>
 <p>We also update <code>show</code> to display any breakpoints that have been set:</p>
 <div class="code-sample lang-py" title="vm_break.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">instruction</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">06x</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">disassemble</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">instruction</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">instruction</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">06x</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">disassemble</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">instruction</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>Notice how the implementation first calls the parent&rsquo;s <code>show</code> method
@@ -839,24 +844,24 @@ will automatically show up in the <span class="ix-entry" ix-key="child class" ma
 so that the VM actually stops at a breakpoint.
 The whole method is:</p>
 <div class="code-sample lang-py" title="vm_break.py">
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span>
-        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">FINISHED</span><span class="p">:</span>
-            <span class="n">instruction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">]</span>
-            <span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span>
+    <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">VMState</span><span class="o">.</span><span class="n">FINISHED</span><span class="p">:</span>
+        <span class="n">instruction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">]</span>
+        <span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">instruction</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;brk&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]:</span>
-                <span class="n">original</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">]</span>
-                <span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="n">OPS</span><span class="p">[</span><span class="s2">&quot;brk&quot;</span><span class="p">][</span><span class="s2">&quot;code&quot;</span><span class="p">]:</span>
+            <span class="n">original</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">breaks</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">]</span>
+            <span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ip</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ip</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
-
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">VMState</span><span class="o">.</span><span class="n">STEPPING</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ip</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ip</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ip</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">arg0</span><span class="p">,</span> <span class="n">arg1</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>Given everything we&rsquo;ve done so far,
@@ -921,7 +926,7 @@ you may restrict the kinds of conditions the user can set to make it more manage
 or explore ways of using <code>eval</code> to support the general case.)</p>
 <h3 class="exercise">Watchpoints</h3>
 <p>Modify the debugger and VM so that the user can create
-<a class="gl-ref" href="../glossary/#watchpoint" markdown="1">watchpoints</a>,
+<a class="gl-ref" href="../glossary/#gl:watchpoint" title="A location or variable being monitored by a debugger. If the value at that location or in that variable changes, the debugger halts and gives the user a chance to inspect the program." markdown="1">watchpoints</a>,
 i.e.,
 can specify that the debugger should halt the VM
 when the value at a particular address changes.

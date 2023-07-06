@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="default">
   <meta name="major" content="Appendix C">
   
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../mccole.js"></script>
-  <title>Software Design for Data Scientists: Syllabus</title>
+  <title>Software Design by Example: Syllabus</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
         <p>
   
   <img src="../logo.svg" alt="site logo" class="logo" />
-  <a href="../">Software Design for Data Scientists</a>
+  <a href="../">Software Design by Example</a>
   
 </p>
 <ol class="toc-chapter">
@@ -42,6 +42,12 @@
   <li>
     <a href="../intro/">
       Introduction
+    </a>
+  </li>
+  
+  <li>
+    <a href="../oop/">
+      Objects and Classes
     </a>
   </li>
   
@@ -76,20 +82,14 @@
   </li>
   
   <li>
-    <a href="../oop/">
-      Objects and Classes
-    </a>
-  </li>
-  
-  <li>
     <a href="../func/">
       Functions and Closures
     </a>
   </li>
   
   <li>
-    <a href="../mock/">
-      Mocks, Protocols, and Decorators
+    <a href="../reflect/">
+      Reflection
     </a>
   </li>
   
@@ -266,7 +266,7 @@
   
 </ol>
 
-<p><a href="../sd4ds-examples.zip" type="application/zip">download examples</a></p>
+<p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
 
 
       </div>
@@ -278,7 +278,9 @@
 
           
 <div class="draft notex">
-  <p>DRAFT</p>
+  <p class="draft">
+    DRAFT 2023-07-12
+  </p>
   <p>
     <em>Please use section heading links to submit feedback.</em>
   </p>
@@ -336,22 +338,31 @@
 
   
 
+  
+
 
           
 
           <div class="page-toc"></div>
-          <h2 id="syllabus-faq">Section C.1: FAQ</h2>
-<dl>
-<dt>Why don&rsquo;t the examples connect with each other? For example, why don&rsquo;t they build toward a complete minimal IDE?</dt>
-<dd>It was tempting, but my attempts to do this in the past have never gone well.
-First, it makes maintenance much more difficult
-because a change in an early chapter may have knock-on effects on several subsequent chapters.
-Second, it constraints what is taught and in what order:
-if the examples are independent of each other,
-instructors can pick and choose the pieces that are most relevant to their audience and goals.</dd>
-</dl>
-<h2 id="syllabus-points">Section C.2: Key Points</h2>
+          <ul>
+<li><a href="../intro" markdown="1">Introduction</a> (<a href="../intro/slides/">slides</a>)
 <ul>
+<li markdown="1">The complexity of a system increases more rapidly than the number of parts it contains.</li>
+<li markdown="1">The best way to learn design is to study examples, and the best programs to use as examples are the ones programmers use every day.</li>
+<li markdown="1">These lessons assume readers already understand the basics of Python and want to learn how to write larger programs, or are looking for material to use in software design classes that they teach.</li>
+<li markdown="1">All of the content is free to read and re-use under open licenses, and all royalties from sales of this book will go to charity.</li>
+</ul>
+</li>
+<li><a href="../oop" markdown="1">Objects and Classes</a> (<a href="../oop/slides/">slides</a>)
+<ul>
+<li markdown="1">Objects are useful without classes, but classes make them easier to understand.</li>
+<li markdown="1">A well-designed class defines a contract that code using its instances can rely on.</li>
+<li markdown="1">Objects that respect the same contract are polymorphic, i.e., they can be used interchangeably even if they do different specific things.</li>
+<li markdown="1">Objects and classes can be thought of as dictionaries with stereotyped behavior.</li>
+<li markdown="1">Most programming languages allow functions and methods to take a variable number of arguments.</li>
+<li markdown="1">Inheritance can be implemented in several ways that differ in the order in which objects and classes are searched for methods.</li>
+</ul>
+</li>
 <li><a href="../dup" markdown="1">Finding Duplicate Files</a> (<a href="../dup/slides/">slides</a>)
 <ul>
 <li markdown="1">A hash function creates a fixed-size value from an arbitrary sequence of bytes.</li>
@@ -366,12 +377,20 @@ instructors can pick and choose the pieces that are most relevant to their audie
 <li markdown="1">Use globs and regular expressions to match patterns in text.</li>
 <li markdown="1">Use inheritance to make matchers composable and extensible.</li>
 <li markdown="1">Simplify code by having objects delegate work to other objects.</li>
+<li markdown="1">Use the Null Object pattern to eliminate special cases in code.</li>
+<li markdown="1">Use standard refactorings to move code from one working state to another.</li>
+<li markdown="1">Build and check the parts of your code you are least sure of first to find out if your design will work.</li>
 </ul>
 </li>
 <li><a href="../parse" markdown="1">Parsing Text</a> (<a href="../parse/slides/">slides</a>)
 <ul>
-<li markdown="1">Parsing in two or more passes is often simpler than parsing in a single pass.</li>
-<li markdown="1">Tokenize input text and then analyze the tokens.</li>
+<li markdown="1">Parsing transforms text that's easy for people to read into objects that are easy for computers to work with.</li>
+<li markdown="1">A grammar defines the textual patterns that a parser recognizes.</li>
+<li markdown="1">Most parsers tokenize input text and then analyze the tokens.</li>
+<li markdown="1">Most parsers need to implement some form of precedence to prioritize different patterns.</li>
+<li markdown="1">Programs can use introspection and dynamic dispatch to inspect their own internals and select operations while running.</li>
+<li markdown="1">Operations like addition and function call work just like user-defined functions.</li>
+<li markdown="1">Programs can overload built-in operators by defining specially-named methods that are recognized by the compiler or interpreter.</li>
 </ul>
 </li>
 <li><a href="../test" markdown="1">Running Tests</a> (<a href="../test/slides/">slides</a>)
@@ -392,16 +411,6 @@ instructors can pick and choose the pieces that are most relevant to their audie
 <li markdown="1">One way to evaluate a program's design is to ask how extensible it is.</li>
 </ul>
 </li>
-<li><a href="../oop" markdown="1">Objects and Classes</a> (<a href="../oop/slides/">slides</a>)
-<ul>
-<li markdown="1">Objects are useful without classes, but classes make them easier to understand.</li>
-<li markdown="1">A well-designed class defines a contract that code using its instances can rely on.</li>
-<li markdown="1">Objects that respect the same contract are polymorphic, i.e., they can be used interchangeably even if they do different specific things.</li>
-<li markdown="1">Objects and classes can be thought of as dictionaries with stereotyped behavior.</li>
-<li markdown="1">Most programming languages allow functions and methods to take a variable number of arguments.</li>
-<li markdown="1">Inheritance can be implemented in several ways that differ in the order in which objects and classes are searched for methods.</li>
-</ul>
-</li>
 <li><a href="../func" markdown="1">Functions and Closures</a> (<a href="../func/slides/">slides</a>)
 <ul>
 <li markdown="1">When we define a function, our programming system saves instructions for later use.</li>
@@ -413,12 +422,15 @@ instructors can pick and choose the pieces that are most relevant to their audie
 <li markdown="1">A closure stores the variables referenced in a particular scope.</li>
 </ul>
 </li>
-<li><a href="../mock" markdown="1">Mocks, Protocols, and Decorators</a> (<a href="../mock/slides/">slides</a>)
+<li><a href="../reflect" markdown="1">Reflection</a> (<a href="../reflect/slides/">slides</a>)
 <ul>
 <li markdown="1">Temporarily replacing functions with mock objects can simplify testing.</li>
+<li markdown="1">Mock objects can record their calls and/or return variable results.</li>
 <li markdown="1">Python defines protocols so that users' code can be triggered by keywords in the language.</li>
-<li markdown="1">We can use decorators to wrap functions after defining them.</li>
-<li markdown="1">Defining a decorator that has parameters is much more complicated than defining one that doesn't.</li>
+<li markdown="1">Use the context manager protocol to ensure cleanup operations always execute.</li>
+<li markdown="1">Use decorators to wrap functions after defining them.</li>
+<li markdown="1">Use closures to create decorators that take extra parameters.</li>
+<li markdown="1">Use the iterator protocol to make objects work with for loops.</li>
 </ul>
 </li>
 <li><a href="../archive" markdown="1">A File Archiver</a> (<a href="../archive/slides/">slides</a>)
@@ -426,20 +438,25 @@ instructors can pick and choose the pieces that are most relevant to their audie
 <li markdown="1">Version control tools use hashing to uniquely identify each saved file.</li>
 <li markdown="1">Each snapshot of a set of files is recorded in a manifest.</li>
 <li markdown="1">Using a mock filesystem to test version control is safer and faster than using the real thing.</li>
+<li markdown="1">Operations involving multiple files may suffer from race conditions.</li>
+<li markdown="1">Use a base class to specify what a component must be able to do and derive child classes to implement those operations.</li>
 </ul>
 </li>
 <li><a href="../check" markdown="1">An HTML Validator</a> (<a href="../check/slides/">slides</a>)
 <ul>
-<li markdown="1">FIXME</li>
+<li markdown="1">HTML consists of text and of elements represented by tags with attributes.</li>
+<li markdown="1">HTML is represented in memory as a Document Object Model (DOM) tree.</li>
+<li markdown="1">Trees are usually processed using recursion.</li>
+<li markdown="1">The Visitor design pattern is often used to perform an action for each member of a data structure.</li>
+<li markdown="1">We can summarize and check the structure of an HTML page by visiting each node and recording what we find there.</li>
 </ul>
 </li>
 <li><a href="../template" markdown="1">A Template Expander</a> (<a href="../template/slides/">slides</a>)
 <ul>
 <li markdown="1">Static site generators create HTML pages from templates, directives, and data.</li>
-<li markdown="1">A static site generator must have the same core features as a programming language.</li>
-<li markdown="1">Programs can use the Visitor pattern to separate traversal of a data structure from operations on its elements.</li>
-<li markdown="1">HTML documents are usually represented in memory as trees using the Document Object Model (DOM).</li>
-<li markdown="1">The style of code that programmers find easiest to read changes as they become more experienced.</li>
+<li markdown="1">A static site generator has the same core features as a programming language.</li>
+<li markdown="1">Special-purpose mini-languages quickly become as complex as mainstream languages.</li>
+<li markdown="1">Static methods are a convenient way to group functions together.</li>
 </ul>
 </li>
 <li><a href="../lint" markdown="1">A Code Linter</a> (<a href="../lint/slides/">slides</a>)
@@ -479,7 +496,6 @@ instructors can pick and choose the pieces that are most relevant to their audie
 <li><a href="../binary" markdown="1">Binary Data</a> (<a href="../binary/slides/">slides</a>)
 <ul>
 <li markdown="1">Programs usually store integers using two's complement rather than sign and magnitude.</li>
-<li markdown="1">Floating-point numbers have a sign, a mantissa, and an exponent.</li>
 <li markdown="1">Characters are usually encoded as bytes using either ASCII, UTF-8, or UTF-32.</li>
 <li markdown="1">Programs can use bitwise operators to manipulate the bits representing data directly.</li>
 <li markdown="1">Low-level compiled languages usually store raw values, while high-level interpreted languages use boxed values.</li>
@@ -534,7 +550,7 @@ instructors can pick and choose the pieces that are most relevant to their audie
 </li>
 <li><a href="../viewer" markdown="1">A File Viewer</a> (<a href="../viewer/slides/">slides</a>)
 <ul>
-<li markdown="1">The `curses` library manages text terminals in a platform-independent way.</li>
+<li markdown="1">The curses module manages text terminals in a platform-independent way.</li>
 <li markdown="1">Write debugging information to a log file when the screen is not available.</li>
 <li markdown="1">We can use a callable object in place of a function to satisfy an API's requirements.</li>
 <li markdown="1">Test programs using synthetic data.</li>
@@ -545,7 +561,10 @@ instructors can pick and choose the pieces that are most relevant to their audie
 </li>
 <li><a href="../undo" markdown="1">Undo and Redo</a> (<a href="../undo/slides/">slides</a>)
 <ul>
-<li markdown="1">FIXME</li>
+<li markdown="1">Replace user interface components with mock objects to simplify testing.</li>
+<li markdown="1">Record actions and state to check behavior these mock objects.</li>
+<li markdown="1">Use objects to represent actions to record history and enable undo.</li>
+<li markdown="1">Recording state is easier but more expensive than recording changes.</li>
 </ul>
 </li>
 <li><a href="../vm" markdown="1">A Virtual Machine</a> (<a href="../vm/slides/">slides</a>)

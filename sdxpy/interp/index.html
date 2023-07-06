@@ -3,10 +3,10 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="default">
-  <meta name="major" content="Chapter 6">
+  <meta name="major" content="Chapter 7">
   <meta name="has_slides" content="true">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="stylesheet" href="../mccole.css">
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../mccole.js"></script>
-  <title>Software Design for Data Scientists: An Interpreter</title>
+  <title>Software Design by Example: An Interpreter</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
         <p>
   
   <img src="../logo.svg" alt="site logo" class="logo" />
-  <a href="../">Software Design for Data Scientists</a>
+  <a href="../">Software Design by Example</a>
   
 </p>
 <ol class="toc-chapter">
@@ -42,6 +42,12 @@
   <li>
     <a href="../intro/">
       Introduction
+    </a>
+  </li>
+  
+  <li>
+    <a href="../oop/">
+      Objects and Classes
     </a>
   </li>
   
@@ -76,20 +82,14 @@
   </li>
   
   <li>
-    <a href="../oop/">
-      Objects and Classes
-    </a>
-  </li>
-  
-  <li>
     <a href="../func/">
       Functions and Closures
     </a>
   </li>
   
   <li>
-    <a href="../mock/">
-      Mocks, Protocols, and Decorators
+    <a href="../reflect/">
+      Reflection
     </a>
   </li>
   
@@ -266,19 +266,21 @@
   
 </ol>
 
-<p><a href="../sd4ds-examples.zip" type="application/zip">download examples</a></p>
+<p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
 
 
       </div>
       <div id="printable" class="contents bordered">
         <main>
           
-  <h1>Chapter 6: An Interpreter</h1>
+  <h1>Chapter 7: An Interpreter</h1>
 
 
           
 <div class="draft notex">
-  <p>DRAFT</p>
+  <p class="draft">
+    DRAFT 2023-07-12
+  </p>
   <p>
     <em>Please use section heading links to submit feedback.</em>
   </p>
@@ -286,6 +288,10 @@
 
 
           
+  
+
+  
+
   
 
   
@@ -350,27 +356,29 @@
 
   
 
-  
-
 
           
 <p class="definitions">
-  Terms defined: <a class="gl-ref" href="../glossary/#argument" markdown="1">argument</a>, <a class="gl-ref" href="../glossary/#compiler" markdown="1">compiler</a>, <a class="gl-ref" href="../glossary/#control_flow" markdown="1">control flow</a>, <a class="gl-ref" href="../glossary/#defensive_programming" markdown="1">defensive programming</a>, <a class="gl-ref" href="../glossary/#dictionary_comprehension" markdown="1">dictionary comprehension</a>, <a class="gl-ref" href="../glossary/#environment" markdown="1">environment</a>, <a class="gl-ref" href="../glossary/#expression" markdown="1">expression</a>, <a class="gl-ref" href="../glossary/#infix_notation" markdown="1">infix notation</a>, <a class="gl-ref" href="../glossary/#interpreter" markdown="1">interpreter</a>, <a class="gl-ref" href="../glossary/#json" markdown="1">JSON</a>, <a class="gl-ref" href="../glossary/#parameter" markdown="1">parameter</a>, <a class="gl-ref" href="../glossary/#prefix_notation" markdown="1">prefix notation</a>, <a class="gl-ref" href="../glossary/#runtime" markdown="1">runtime</a>, <a class="gl-ref" href="../glossary/#statement" markdown="1">statement</a>, <a class="gl-ref" href="../glossary/#type_hint" markdown="1">type hint</a>
+  Terms defined: <a class="gl-ref" href="../glossary/#argument" markdown="1">argument</a>, <a class="gl-ref" href="../glossary/#compiler" markdown="1">compiler</a>, <a class="gl-ref" href="../glossary/#control_flow" markdown="1">control flow</a>, <a class="gl-ref" href="../glossary/#defensive_programming" markdown="1">defensive programming</a>, <a class="gl-ref" href="../glossary/#dictionary_comprehension" markdown="1">dictionary comprehension</a>, <a class="gl-ref" href="../glossary/#environment" markdown="1">environment</a>, <a class="gl-ref" href="../glossary/#expression" markdown="1">expression</a>, <a class="gl-ref" href="../glossary/#infix_notation" markdown="1">infix notation</a>, <a class="gl-ref" href="../glossary/#interpreter" markdown="1">interpreter</a>, <a class="gl-ref" href="../glossary/#parameter" markdown="1">parameter</a>, <a class="gl-ref" href="../glossary/#prefix_notation" markdown="1">prefix notation</a>, <a class="gl-ref" href="../glossary/#recursion" markdown="1">recursion</a>, <a class="gl-ref" href="../glossary/#runtime" markdown="1">runtime</a>, <a class="gl-ref" href="../glossary/#statement" markdown="1">statement</a>, <a class="gl-ref" href="../glossary/#type_hint" markdown="1">type hint</a>
 </p>
 
 
           <div class="page-toc"></div>
-          <p><a class="x-ref" href="../test/">Chapter 5</a> introduced the idea that programs are just another kind of data.
+          <p><a class="x-ref" href="../oop/">Chapter 2</a> introduced the idea that functions, objects, and classes are just data,
+while <a class="x-ref" href="../test/">Chapter 6</a> showed how Python itself manages them.
 Similarly,
-the <a class="gl-ref" href="../glossary/#compiler" markdown="1">compilers</a> and <a class="gl-ref" href="../glossary/#interpreter" markdown="1">interpreters</a>
+the <a class="gl-ref" href="../glossary/#gl:compiler" title="An application that translates programs written in some languages into machine instructions or bytecode." markdown="1">compilers</a> and <a class="gl-ref" href="../glossary/#gl:interpreter" title="A program whose job it is to run programs written in a high-level interpreted language. Interpreters can run interactively, but may also execute commands saved in a file." markdown="1">interpreters</a>
 that make programs run are just programs themselves.
-Instead of changing the characters in a <span class="ix-entry" ix-key="block (of memory)" markdown="1">block</span> of memory like text editors,
+Instead of changing the characters in
+a <span class="ix-entry" ix-key="block (of memory)" markdown="1">block of memory</span> like text editors,
 or calculating sums and averages like spreadsheets,
 compilers turn text into instructions for interpreters or hardware to run.</p>
 <p>Most real programming languages have two parts:
-a <span class="ix-entry" ix-key="parser" markdown="1">parser</span> that translates the source code into a data structure in memory,
-and a <a class="gl-ref" href="../glossary/#runtime" markdown="1">runtime</a> that executes the instructions in that data structure.
-<a class="x-ref" href="../parse/">Chapter 4</a> explored parsing;
+a <span class="ix-entry" ix-key="parser" markdown="1">parser</span> that translates the source code
+into a data structure in memory,
+and a <a class="gl-ref" href="../glossary/#gl:runtime" title="A program that implements the basic operations used in a programming language." markdown="1">runtime</a> that executes
+the instructions in that data structure.
+<a class="x-ref" href="../parse/">Chapter 5</a> explored parsing;
 this chapter will build a runtime for a very simple interpreter,
 while <a class="x-ref" href="../vm/">Chapter 25</a> will look at compiling code for more efficient execution.</p>
 <div class="callout">
@@ -386,8 +394,9 @@ for example,
 it translates the source code into instructions as it loads files,
 but saves those instructions in <code>.pyc</code> files to save time in future.</p>
 </div>
-<h2 id="interp-expressions">Section 6.2: Expressions</h2>
-<p>Let&rsquo;s start by building something that can evaluate simple expressions
+<h2 id="interp-expressions">Section 7.2: Expressions</h2>
+<p>Let&rsquo;s start by building something that can evaluate
+simple <span class="ix-entry" ix-key="expression" markdown="1">expressions</span>
 like <code>1+2</code> or <code>abs(-3.5)</code>.
 We represent each expression as a list
 with the name of the operation as the first item
@@ -402,9 +411,9 @@ we use nested lists:</p>
 </div>
 <div class="callout">
 <h3>Notation</h3>
-<p>We use <a class="gl-ref" href="../glossary/#infix_notation" markdown="1">infix notation</a> like <code>1+2</code> for historical reasons
+<p>We use <a class="gl-ref" href="../glossary/#gl:infix_notation" title="Writing expressions with operators between operands, as in <code>1 + 2</code> to add 1 and 2." markdown="1">infix notation</a> like <code>1+2</code> for historical reasons
 in everyday life,
-but our programs use <a class="gl-ref" href="../glossary/#prefix_notation" markdown="1">prefix notation</a>—i.e.,
+but our programs use <a class="gl-ref" href="../glossary/#gl:prefix_notation" title="Writing expressions with the operator in front of the operand, as in <code>+ 3 4</code> to add 3 and 4." markdown="1">prefix notation</a>—i.e.,
 they always put the operations&rsquo; names first—to make the operations easier to find.
 Similarly,
 we have special symbols for addition, subtraction, and so on for historical reasons,
@@ -436,16 +445,16 @@ to evaluate those sub-expressions.
 because Python already has a function called <code>eval</code>.)
 Once <code>do_add</code> has two actual values,
 it adds them and returns the result
-(<a class="fig-ref" href="../interp/#interp-recursive-evaluation">Figure 6.1</a>)</p>
+(<a class="fig-ref" href="../interp/#interp-recursive-evaluation">Figure 7.1</a>)</p>
 <figure id="interp-recursive-evaluation">
 <img src="./recursive_evaluation.svg" alt="Recursive evaluation of an expression tree"/>
-<figcaption markdown="1">Figure 6.1: Recursively evaluating the expression <code>abs(1+2)</code>.</figcaption>
+<figcaption markdown="1">Figure 7.1: Recursively evaluating the expression <code>abs(1+2)</code>.</figcaption>
 </figure>
 
 <div class="callout">
 <h3>Arguments vs. Parameters</h3>
-<p>Many programmers use the words <a class="gl-ref" href="../glossary/#argument" markdown="1">argument</a>
-and <a class="gl-ref" href="../glossary/#parameter" markdown="1">parameter</a> interchangeably,
+<p>Many programmers use the words <a class="gl-ref" href="../glossary/#gl:argument" title="A value passed into a function or method call." markdown="1">argument</a>
+and <a class="gl-ref" href="../glossary/#gl:parameter" title="The name that a function gives to one of the values passed to it when it is called." markdown="1">parameter</a> interchangeably,
 but to make our meaning clear,
 we call the values passed into a function its arguments
 and the names the function uses to refer to them as its parameters.
@@ -465,7 +474,7 @@ and calculates a different return value:</p>
 </code></pre></div>
 </div>
 <p>Notice that <code>do_abs</code> and <code>do_add</code> have the same <span class="ix-entry" ix-key="signature" markdown="1">signature</span>.
-As with the unit testing functions in <a class="x-ref" href="../test/">Chapter 5</a>,
+As with the <span class="ix-entry" ix-key="unit test" markdown="1">unit testing</span> functions in <a class="x-ref" href="../test/">Chapter 6</a>,
 this allows us to call them interchangeably.</p>
 <p>So how does <code>do</code> work?
 It starts by checking if its input is an integer.
@@ -477,7 +486,7 @@ Otherwise,
 and then uses the first value in the list
 to decide what other function to call.
 This lookup-and-call process is the same <span class="ix-entry" ix-key="dynamic dispatch" markdown="1">dynamic dispatch</span>
-that we saw in <a class="x-ref" href="../parse/">Chapter 4</a>.</p>
+that we saw in <a class="x-ref" href="../parse/">Chapter 5</a>.</p>
 <div class="code-sample lang-py" title="expr.py">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">do</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
     <span class="c1"># Integers evaluate to themselves.</span>
@@ -492,6 +501,19 @@ that we saw in <a class="x-ref" href="../parse/">Chapter 4</a>.</p>
         <span class="k">return</span> <span class="n">do_add</span><span class="p">(</span><span class="n">expr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
     <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Unknown operation </span><span class="si">{</span><span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
+</div>
+<div class="callout">
+<h3>Recursion</h3>
+<p>A <a class="gl-ref" href="../glossary/#gl:recursion" title="To define something in terms of itself, or the act of a function invoking itself (directly or indirectly)." markdown="1">recursive function</a>
+is one that calls itself,
+either directly or indirectly.
+Recursion has a reputation for being hard to understand,
+but as our interpreter shows,
+it&rsquo;s a natural way to solve a wide range of problems.
+<code>do</code> calls functions like <code>do_add</code> to do things;
+those functions call <code>do</code> to get values for their arguments,
+and so on,
+with each recursive step handling a smaller part of the overall problem.</p>
 </div>
 <p>Finally,
 the main body of the program reads
@@ -511,7 +533,7 @@ and prints the result:</p>
 </code></pre></div>
 </div>
 <p>Our program is a list of lists (of lists…)
-so we can read it as <a class="gl-ref" href="../glossary/#json" markdown="1">JSON</a> using <code>json.load</code>
+so we can read it as <span class="ix-entry" ix-key="JSON" markdown="1">JSON</span> using <code>json.load</code>
 rather than writing our own parser.
 If our program file contains:</p>
 <div class="code-sample lang-tll" title="expr.tll">
@@ -536,16 +558,17 @@ then uses those operation identifiers to decide what functions to call.
 Those functions are written in C
 and have been compiled to machine instructions,
 but the cycle of lookup and call is exactly the same.</p>
-<h2 id="interp-variables">Section 6.3: Variables</h2>
+<h2 id="interp-variables">Section 7.3: Variables</h2>
 <p>Doing arithmetic on constants is a start,
 but our programs will be easier to read with variables
 that let us give names to values.
 We can add them to our interpreter
-by passing around a dictionary containing all the variables seen so far.
-Such a dictionary is sometimes called an <a class="gl-ref" href="../glossary/#environment" markdown="1">environment</a>
+by passing around a <span class="ix-entry" ix-key="dictionary" markdown="1">dictionary</span>
+containing all the variables seen so far.
+Such a dictionary is sometimes called an <a class="gl-ref" href="../glossary/#gl:environment" title="The set of variables currently defined in a program." markdown="1">environment</a>
 because it is the setting in which expressions are evaluated;
 the dictionaries returned by the <code>globals</code> and <code>locals</code> functions
-introduced in <a class="x-ref" href="../test/">Chapter 5</a> are both environments.</p>
+introduced in <a class="x-ref" href="../test/">Chapter 6</a> are both environments.</p>
 <p>Let&rsquo;s modify <code>do_add</code>, <code>do_abs</code>, <code>do</code>, and <code>main</code>
 to take an environment as an extra parameter and pass it on as needed:</p>
 <div class="code-sample lang-py" title="vars.py">
@@ -584,7 +607,7 @@ we may have several expressions that set variables&rsquo; values
 and then use them in calculations.
 To handle this,
 we add a function <code>do_seq</code> that runs a sequence of expressions one by one.
-This function is our first piece of <a class="gl-ref" href="../glossary/#control_flow" markdown="1">control flow</a>:
+This function is our first piece of <a class="gl-ref" href="../glossary/#gl:control_flow" title="The order in which a program executes statements and expressions." markdown="1">control flow</a>:
 rather than calculating a value itself,
 it controls when and how other expressions are evaluated.
 Its implementation is:</p>
@@ -613,8 +636,8 @@ Our test program is:</p>
 </div>
 <div class="callout">
 <h3>Everything Is An Expression</h3>
-<p>Python distinguishes <a class="gl-ref" href="../glossary/#expression" markdown="1">expressions</a> that produce values
-from <a class="gl-ref" href="../glossary/#statement" markdown="1">statements</a> that don&rsquo;t.
+<p>Python distinguishes <a class="gl-ref" href="../glossary/#gl:expression" title="A part of a program that produces a value, such as <code>1+2</code>." markdown="1">expressions</a> that produce values
+from <a class="gl-ref" href="../glossary/#gl:statement" title="A part of a program that doesn&#x27;t produce a value. <code>for</code> loops and <code>if</code> statements are statements in Python." markdown="1">statements</a> that don&rsquo;t.
 But it doesn&rsquo;t have to, and many languages don&rsquo;t.
 For example,
 Python could have been designed to allow this:</p>
@@ -628,7 +651,7 @@ Python could have been designed to allow this:</p>
         <span class="o">-</span><span class="mi">1</span>
 </code></pre></div>
 </div>
-<h2 id="interp-introspection">Section 6.4: Introspection Again</h2>
+<h2 id="interp-introspection">Section 7.4: Introspection Again</h2>
 <p>Now that we have evaluation, function lookup, and environments
 we can write small programs.
 However,
@@ -657,7 +680,8 @@ is becoming unwieldy.
 can you see if any of the instruction names are accidentally duplicated?)
 We can replace this by using <span class="ix-entry" ix-key="introspection" markdown="1">introspection</span>
 to create a lookup table
-that stores every function whose name starts with <code>do_</code>:</p>
+that stores every function whose name starts with <code>do_</code>
+(<a class="fig-ref" href="../interp/#interp-lookup">Figure 7.2</a>):</p>
 <div class="code-sample lang-py" title="vars_reflect.py">
 <div class="highlight"><pre><span></span><code><span class="n">OPS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;do_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">):</span> <span class="n">func</span>
@@ -666,10 +690,15 @@ that stores every function whose name starts with <code>do_</code>:</p>
 <span class="p">}</span>
 </code></pre></div>
 </div>
+<figure id="interp-lookup">
+<img src="./lookup.svg" alt="Function lookup table"/>
+<figcaption markdown="1">Figure 7.2: Dynamically-generated function lookup table.</figcaption>
+</figure>
+
 <p class="continue">Line by line:</p>
 <ol>
 <li>
-<p>We use a <a class="gl-ref" href="../glossary/#dictionary_comprehension" markdown="1">dictionary comprehension</a>
+<p>We use a <a class="gl-ref" href="../glossary/#gl:dictionary_comprehension" title="A single expression that constructs a dictionary by looping over key-value pairs." markdown="1">dictionary comprehension</a>
     to create a dictionary in a single statement.</p>
 </li>
 <li>
@@ -696,7 +725,7 @@ the code to select and run an operation is:</p>
     <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">expr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 </code></pre></div>
 </div>
-<p>As with unit test functions in <a class="x-ref" href="../test/">Chapter 5</a>,
+<p>As with unit test functions in <a class="x-ref" href="../test/">Chapter 6</a>,
 the <code>do_*</code> functions must have exactly the same <span class="ix-entry" ix-key="signature" markdown="1">signature</span>
 so that we can call any of them with an environment and a list of arguments
 without knowing exactly which function we&rsquo;re calling.
@@ -719,14 +748,14 @@ and what their names are.
 If we use introspection,
 we have to search through the source file (or possibly several files)
 to find all the available operations.</p>
-<h2 id="interp-summary">Section 6.5: Summary</h2>
+<h2 id="interp-summary">Section 7.5: Summary</h2>
 <p><em>Please see <a class="x-ref" href="../bonus/">Appendix B</a> for extra material related to these ideas.</em></p>
 <figure id="interp-concept-map">
 <img src="./concept_map.svg" alt="Concept map of interpreter"/>
-<figcaption markdown="1">Figure 6.2: Interpreter concept map.</figcaption>
+<figcaption markdown="1">Figure 7.3: Interpreter concept map.</figcaption>
 </figure>
 
-<h2 id="interp-exercises">Section 6.6: Exercises</h2>
+<h2 id="interp-exercises">Section 7.6: Exercises</h2>
 <h3 class="exercise">More Statements</h3>
 <p>Add <code>print</code> and <code>repeat</code> commands to the interpreter
 so that the following program produces the output shown:</p>
@@ -764,10 +793,10 @@ large 16
 <code>["array", 10]</code> creates an array of 10 elements,
 while other instructions that you design
 get and set particular array elements by index.</p>
-<h3 class="exercise">Chained maps</h3>
+<h3 class="exercise">Chained Maps</h3>
 <p>Look at the documentation for the <a href="https://docs.python.org/3/library/collections.html#collections.ChainMap"><code>ChainMap</code></a> class
 and modify the interpreter to use that to manage environments.</p>
-<h3 class="exercise">Better error handling</h3>
+<h3 class="exercise">Better Error Handling</h3>
 <p>Several of the instruction functions started with <code>assert</code> statements,
 which means that users get a stack trace of TLL itself
 when there&rsquo;s a bug in their program.</p>
@@ -795,7 +824,7 @@ Your implementation can use either a Python <code>while</code> loop or recursion
 Your implementation should allow users to specify a loop variable
 so that they know which iteration of the loop they&rsquo;re in.</p>
 <h3 class="exercise">Internal Checks</h3>
-<p><a class="gl-ref" href="../glossary/#defensive_programming" markdown="1">Defensive programming</a> is an approach to software development
+<p><a class="gl-ref" href="../glossary/#gl:defensive_programming" title="A set of programming practices that assumes mistakes will happen and either reports or corrects them, such as inserting assertions to report situations that are not ever supposed to occur." markdown="1">Defensive programming</a> is an approach to software development
 that starts from the assumption that people make mistakes
 and should therefore put checks in their code to catch &ldquo;impossible&rdquo; situations.
 These checks are typically implement as <code>assert</code> statements
@@ -806,7 +835,7 @@ like those in our interpreter that checks the lengths of lists.</p>
 <p>What other assertions could we add to this code?</p>
 </li>
 <li>
-<p>How many of these checks can be implemented as <a class="gl-ref" href="../glossary/#type_hint" markdown="1">type hints</a> instead?</p>
+<p>How many of these checks can be implemented as <a class="gl-ref" href="../glossary/#gl:type_hint" title="Extra information added to a program to indicate what data type or types a variable is supposed to have. Type hints are a compromise between static typing and dynamic typing." markdown="1">type hints</a> instead?</p>
 </li>
 </ol>
         </main>

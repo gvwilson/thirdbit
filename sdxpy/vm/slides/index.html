@@ -3,8 +3,8 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="repo" content="https://github.com/gvwilson/sd4ds">
-  <meta name="build_date" content="2023-07-04">
+  <meta name="repo" content="https://github.com/gvwilson/sdxpy">
+  <meta name="build_date" content="2023-07-12">
   <meta name="template" content="slides">
   <meta name="major" content="Chapter 25">
   
@@ -25,7 +25,7 @@
     async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   <script defer src="../../mccole.js"></script>
-  <title>Software Design for Data Scientists: A Virtual Machine</title>
+  <title>Software Design by Example: A Virtual Machine</title>
 </head>
 
   <body>
@@ -34,7 +34,7 @@
 class: slide-title
 
 <p>
-  <a href="https://third-bit.com/sd4ds/">Software Design for Data Scientists</a>
+  <a href="https://third-bit.com/sdxpy/">Software Design by Example</a>
 </p>
 <h1>A Virtual Machine</h1>
 <div class="bottom">
@@ -46,7 +46,7 @@ class: slide-title
 
 ## The Problem
 
--   Still a lot of magic in the interpreter of <a class="x-ref" href="../../interp/">Chapter 6</a>
+-   Still a lot of magic in the interpreter of <a class="x-ref" href="../../interp/">Chapter 7</a>
 
 -   Build something that mimics hardware more closely
 
@@ -58,7 +58,7 @@ class: slide-title
 
 ## Architecture
 
--  Our <a class="gl-ref" href="../../glossary/#virtual_machine" markdown="1">virtual machine</a> (VM)
+-  Our <a class="gl-ref" href="../../glossary/#gl:virtual_machine" title="A program that pretends to be a computer. This may seem a bit redundant, but VMs are quick to create and start up, and changes made inside the virtual machine are contained within that VM so we can install new packages or run a completely different operating system without affecting the underlying computer." markdown="1">virtual machine</a> (VM)
 
 <figure>
 <img src="../architecture.svg" alt="Virtual machine architecture"/>
@@ -69,17 +69,17 @@ class: slide-title
 
 ## Architecture
 
-1.  <a class="gl-ref" href="../../glossary/#instruction_pointer" markdown="1">Instruction pointer</a> (IP)
+1.  <a class="gl-ref" href="../../glossary/#gl:instruction_pointer" title="A special register in a processor that stores the address of the next instruction to execute." markdown="1">Instruction pointer</a> (IP)
     holds the address of the next instruction
 
     -   Automatically initialized to 0,
         so every program must start there
 
-1.  Instructions can access <a class="gl-ref" href="../../glossary/#register" markdown="1">registers</a> R0 to R3 directly
+1.  Instructions can access <a class="gl-ref" href="../../glossary/#gl:register_hardware" title="A small piece of memory (typically one word long) built into a processor that operations can refer to directly." markdown="1">registers</a> R0 to R3 directly
 
     -   No memory-to-memory operations
 
-1.  256 <a class="gl-ref" href="../../glossary/#word_memory" markdown="1">words</a> of memory
+1.  256 <a class="gl-ref" href="../../glossary/#gl:word_memory" title="The unit of memory that a particular processor most naturally works with. While a byte is a fixed size (8 bits), a word may be 16, 32, or 64 bits long depending on the processor." markdown="1">words</a> of memory
 
     -   Addresses fit in a single byte
 
@@ -87,11 +87,11 @@ class: slide-title
 
 ## What It Can Do
 
--   <a class="gl-ref" href="../../glossary/#instruction_set" markdown="1">Instruction set</a> defines what the processor can do
+-   <a class="gl-ref" href="../../glossary/#gl:instruction_set" title="The basic operations that a particular processor can execute directly." markdown="1">Instruction set</a> defines what the processor can do
 
 -   Each instruction is 3 bytes
 
--   <a class="gl-ref" href="../../glossary/#op_code" markdown="1">op code</a> fits in one byte
+-   <a class="gl-ref" href="../../glossary/#gl:op_code" title="The numerical operation code for an instruction that a processor can execute." markdown="1">op code</a> fits in one byte
 
 -   May have zero, one, or two single-byte operands
 
@@ -106,7 +106,7 @@ class: slide-title
 
 -   Instructions are numbers,
 
--   Write them in <a class="gl-ref" href="../../glossary/#assembly_code" markdown="1">assembly code</a> for readability
+-   Write them in <a class="gl-ref" href="../../glossary/#gl:assembly_code" title="A low-level programming language whose statements correspond closely to the actual instruction set of a particular kind of processor." markdown="1">assembly code</a> for readability
 
 <div class="small">
 <table>
@@ -165,14 +165,14 @@ class VirtualMachine:
 -   Initialize by copying program and resetting IP and registers
 
 ```py
-    def initialize(self, program):
-        assert len(program) <= RAM_LEN, "Program too long"
-        self.ram = [
-            program[i] if (i < len(program)) else 0
-            for i in range(RAM_LEN)
-        ]
-        self.ip = 0
-        self.reg = [0] * NUM_REG
+def initialize(self, program):
+    assert len(program) <= RAM_LEN, "Program too long"
+    self.ram = [
+        program[i] if (i < len(program)) else 0
+        for i in range(RAM_LEN)
+    ]
+    self.ip = 0
+    self.reg = [0] * NUM_REG
 ```
 
 
@@ -181,19 +181,19 @@ class VirtualMachine:
 ## Fetching and Unpacking
 
 ```py
-    def fetch(self):
-        instruction = self.ram[self.ip]
-        self.ip += 1
-        op = instruction & OP_MASK
-        instruction >>= OP_SHIFT
-        arg0 = instruction & OP_MASK
-        instruction >>= OP_SHIFT
-        arg1 = instruction & OP_MASK
-        return [op, arg0, arg1]
+def fetch(self):
+    instruction = self.ram[self.ip]
+    self.ip += 1
+    op = instruction & OP_MASK
+    instruction >>= OP_SHIFT
+    arg0 = instruction & OP_MASK
+    instruction >>= OP_SHIFT
+    arg1 = instruction & OP_MASK
+    return [op, arg0, arg1]
 ```
 
 
--  Use <a class="gl-ref" href="../../glossary/#bitwise_operation" markdown="1">bitwise operations</a> to get bytes out of integer
+-  Use <a class="gl-ref" href="../../glossary/#gl:bitwise_operation" title="An operation that manipulates individual bits in memory. Common bitwise operations include `and`, `or`, `not`, and `xor`." markdown="1">bitwise operations</a> to get bytes out of integer
 
 <figure>
 <img src="../unpacking.svg" alt="Unpacking instructions"/>
@@ -205,24 +205,24 @@ class VirtualMachine:
 ## Running a Program
 
 ```py
-    def run(self):
-        running = True
-        while running:
-            op, arg0, arg1 = self.fetch()
-            if op == OPS["hlt"]["code"]:
-                running = False
+def run(self):
+    running = True
+    while running:
+        op, arg0, arg1 = self.fetch()
+        if op == OPS["hlt"]["code"]:
+            running = False
 
-            elif op == OPS["ldc"]["code"]:
-                self.reg[arg0] = arg1
+        elif op == OPS["ldc"]["code"]:
+            self.reg[arg0] = arg1
 
-            elif op == OPS["ldr"]["code"]:
-                self.reg[arg0] = self.ram[self.reg[arg1]]
+        elif op == OPS["ldr"]["code"]:
+            self.reg[arg0] = self.ram[self.reg[arg1]]
 
-            elif op == OPS["cpy"]["code"]:
-                self.reg[arg0] = self.reg[arg1]
+        elif op == OPS["cpy"]["code"]:
+            self.reg[arg0] = self.reg[arg1]
 
-            else:
-                assert False, f"Unknown op {op:06x}"
+        else:
+            assert False, f"Unknown op {op:06x}"
 ```
 
 
@@ -233,25 +233,25 @@ class VirtualMachine:
 -   Store a value
 
 ```py
-            elif op == OPS["str"]["code"]:
-                self.ram[self.reg[arg1]] = self.reg[arg0]
+elif op == OPS["str"]["code"]:
+    self.ram[self.reg[arg1]] = self.reg[arg0]
 ```
 
 
 -   Addition
 
 ```py
-            elif op == OPS["add"]["code"]:
-                self.reg[arg0] += self.reg[arg1]
+elif op == OPS["add"]["code"]:
+    self.reg[arg0] += self.reg[arg1]
 ```
 
 
--   <a class="gl-ref" href="../../glossary/#conditional_jump" markdown="1">Conditional jump</a>
+-   <a class="gl-ref" href="../../glossary/#gl:conditional_jump" title="An instruction that tells a processor to start executing somewhere other than at the next address if a condition is true. Conditional jumps are used to implement higher-level constructs like `if` statements and loops." markdown="1">Conditional jump</a>
 
 ```py
-            elif op == OPS["beq"]["code"]:
-                if self.reg[arg0] == 0:
-                    self.ip = arg1
+elif op == OPS["beq"]["code"]:
+    if self.reg[arg0] == 0:
+        self.ip = arg1
 ```
 
 
@@ -276,7 +276,7 @@ hlt
 ```
 
 
--   Write an <a class="gl-ref" href="../../glossary/#assembler" markdown="1">assembler</a> to the latter into the former
+-   Write an <a class="gl-ref" href="../../glossary/#gl:assembler" title="A compiler that translates software written in assembly code into machine instructions." markdown="1">assembler</a> to the latter into the former
 
 ---
 
@@ -284,7 +284,7 @@ hlt
 
 -   Instruction set doesn't have names for addresses
 
--   But we want <a class="gl-ref" href="../../glossary/#label_address" markdown="1">labels</a> for readability
+-   But we want <a class="gl-ref" href="../../glossary/#gl:label_address" title="A human-readable name given to a particular location in memory when writing programs in assembly code." markdown="1">labels</a> for readability
 
 ```as
 # Count up to 3.
@@ -364,20 +364,20 @@ class Assembler:
 ## Resolving Labels
 
 ```py
-    def _find_labels(self, lines):
-        result = {}
-        loc = 0
-        for ln in lines:
-            if self._is_label(ln):
-                label = ln[:-1].strip()
-                assert label not in result, f"Duplicated {label}"
-                result[label] = loc
-            else:
-                loc += 1
-        return result
+def _find_labels(self, lines):
+    result = {}
+    loc = 0
+    for ln in lines:
+        if self._is_label(ln):
+            label = ln[:-1].strip()
+            assert label not in result, f"Duplicated {label}"
+            result[label] = loc
+        else:
+            loc += 1
+    return result
 
-    def _is_label(self, line):
-        return line.endswith(":")
+def _is_label(self, line):
+    return line.endswith(":")
 ```
 
 
@@ -388,27 +388,27 @@ class Assembler:
 ## Compiling an Instruction
 
 ```py
-    def _compile(self, instruction, labels):
-        tokens = instruction.split()
-        op, args = tokens[0], tokens[1:]
-        fmt, code = OPS[op]["fmt"], OPS[op]["code"]
+def _compile(self, instruction, labels):
+    tokens = instruction.split()
+    op, args = tokens[0], tokens[1:]
+    fmt, code = OPS[op]["fmt"], OPS[op]["code"]
 
-        if fmt == "--":
-            return self._combine(code)
+    if fmt == "--":
+        return self._combine(code)
 
-        elif fmt == "r-":
-            return self._combine(self._reg(args[0]), code)
+    elif fmt == "r-":
+        return self._combine(self._reg(args[0]), code)
 
-        elif fmt == "rr":
-            return self._combine(
-                self._reg(args[1]), self._reg(args[0]), code
-            )
+    elif fmt == "rr":
+        return self._combine(
+            self._reg(args[1]), self._reg(args[0]), code
+        )
 
-        elif fmt == "rv":
-            return self._combine(
-                self._val(args[1], labels),
-                self._reg(args[0]), code
-            )
+    elif fmt == "rv":
+        return self._combine(
+            self._val(args[1], labels),
+            self._reg(args[0]), code
+        )
 ```
 
 
@@ -421,12 +421,12 @@ class Assembler:
 -   Convert value to number if it doesn't
 
 ```py
-    def _val(self, token, labels):
-        if token[0] != "@":
-            return int(token)
-        lbl = token[1:]
-        assert lbl in labels, f"Unknown label '{token}'"
-        return labels[lbl]
+def _val(self, token, labels):
+    if token[0] != "@":
+        return int(token)
+    lbl = token[1:]
+    assert lbl in labels, f"Unknown label '{token}'"
+    return labels[lbl]
 ```
 
 
@@ -443,12 +443,14 @@ class: summary
 
 
 [academic_prototyping]: https://www.fuzzingbook.org/html/AcademicPrototyping.html
+[ark]: https://www.dmulholl.com/docs/ark/main/
 [aosa]: https://aosabook.org/
 [beautiful_soup]: https://beautiful-soup-4.readthedocs.io/
 [birthday_problem]: https://en.wikipedia.org/wiki/Birthday_problem
 [black]: https://black.readthedocs.io/
-[book_repo]: https://github.com/gvwilson/sd4ds/
-[book_site]: https://third-bit.com/sd4ds/
+[book_repo]: https://github.com/gvwilson/sdxpy/
+[book_issues]: https://github.com/gvwilson/sdxpy/issues
+[book_site]: https://third-bit.com/sdxpy/
 [browser_engine_tutorial]: https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html
 [browser_engineering]: https://browser.engineering/
 [brubeck_matt]: https://limpet.net/mbrubeck/
@@ -472,9 +474,11 @@ class: summary
 [flake8]: https://flake8.pycqa.org/
 [git]: https://git-scm.com/
 [git_man_page_generator]: https://git-man-page-generator.lokaltog.net/
+[gitbook]: https://www.gitbook.com/
 [gitlet]: http://gitlet.maryrosecook.com/
 [glosario]: https://glosario.carpentries.org/
 [gnu_make]: https://www.gnu.org/software/make/
+[gorcenski_emily]: https://emilygorcenski.com/post/book-report-software-design-by-example-by-greg-wilson/
 [gutenberg]: https://www.gutenberg.org/
 [harrelson_chris]: https://twitter.com/chrishtr
 [hippocratic_license]: https://firstdonoharm.dev/
@@ -482,9 +486,10 @@ class: summary
 [html5_data_attributes]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 [human_resource_machine]: https://tomorrowcorporation.com/humanresourcemachine
 [isort]: https://pycqa.github.io/isort/
-[ivy]: https://www.dmulholl.com/docs/ivy/main/
 [jekyll]: https://jekyllrb.com/
 [json_schema]: https://json-schema.org/
+[jupybook]: https://jupyterbook.org/
+[kerr_jessica]: https://jessitron.com/2023/02/20/book-review-software-design-by-example/
 [kilo_editor]: https://viewsourcecode.org/snaptoken/kilo/index.html
 [latex]: https://www.latex-project.org/
 [loewy_raymond]: https://en.wikipedia.org/wiki/Raymond_Loewy
@@ -493,6 +498,7 @@ class: summary
 [lorgat_wasim]: https://wasimlorgat.com/
 [marthas_rules]: https://journals.sagepub.com/doi/10.1177/088610998600100206
 [nano]: https://www.nano-editor.org/
+[navarro_danielle]: https://blog.djnavarro.net/posts/2023-05-31_software-design-by-example/
 [nison_mael]: https://arcanis.github.io/
 [nystrom_bob]: http://journal.stuffwithstuff.com/
 [package_manager_tutorial]: https://classic.yarnpkg.com/blog/2017/07/11/lets-dev-a-package-manager/
@@ -523,20 +529,26 @@ class: summary
 [py_struct]: https://docs.python.org/3/library/struct.html
 [py_textwrap]: https://docs.python.org/3/library/textwrap.html
 [py_urlparse]: https://docs.python.org/3/library/urllib.parse.html
+[py_yaml]: https://pyyaml.org/wiki/PyYAMLDocumentation
 [pyfakefs]: https://pytest-pyfakefs.readthedocs.io/
 [pytest]: https://docs.pytest.org/
 [pytest_approx]: https://docs.pytest.org/en/4.6.x/reference.html#pytest-approx
 [python]: https://www.python.org/
+[quarto]: https://quarto.org/
+[red_door]: https://www.reddoorshelter.ca/
 [reim_michael]: https://elderlinux.org/
+[remark]: https://remarkjs.com/
 [requests]: https://requests.readthedocs.io/
 [ruten_paige]: https://viewsourcecode.org/
+[schiffer_jenn]: https://mastodon.social/@jenn@pixel.kitchen/109985276835264400
 [selenium]: https://www.selenium.dev/
 [semver_spec]: https://semver.org/
+[simpy]: https://simpy.readthedocs.io/
 [sinel_joseph]: https://en.wikipedia.org/wiki/Joseph_Claude_Sinel
 [snakemake]: https://snakemake.readthedocs.io/
+[sqlalchemy]: https://www.sqlalchemy.org/
 [sqlite]: https://sqlite.org/
 [stack_connor]: https://connorstack.com/
-[svg_screenshot]: https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg
 [t3_personas]: https://teachtogether.tech/en/index.html#s:process-personas
 [textualize_fraction]: https://www.textualize.io/blog/posts/7-things-about-terminals
 [udhr]: https://www.un.org/en/universal-declaration-human-rights/
