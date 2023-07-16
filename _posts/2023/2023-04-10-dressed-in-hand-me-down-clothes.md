@@ -4,7 +4,7 @@ date: 2023-04-10
 year: 2023
 ---
 
-I've been updated the Python version of [*Software Design by Example*][sdxjs],
+I've been updating the Python version of [*Software Design by Example*][sdxjs],
 and once again I feel like I'm using the butt end of a screwdriver as a hammer.
 Version control systems are designed for developing applications,
 but when you're teaching,
