@@ -4,7 +4,7 @@ date: 2023-06-12
 year: 2023
 ---
 
-I'm making [slow but steady progress][progress]
+I'm making slow but steady progress
 on the Python version of [*Software Design by Example*][sdxjs],
 and would be grateful for help with something
 that's been in the back of my mind for a while.
