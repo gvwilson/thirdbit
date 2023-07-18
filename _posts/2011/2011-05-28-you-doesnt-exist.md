@@ -18,7 +18,7 @@ year: 2011
   second time.
 </p>
 <p>
-  So here it is spelled out: there is no "you". There is no
+  So here it is spelled out: there is no generic "you". There is no
   "someone". There's me, and Amy Brown, and the individuals who
   volunteered to write chapters and then actually delivered on their
   promise, and there's you, you the person who sent that email, you
@@ -29,8 +29,7 @@ year: 2011
   open source and open content happen, but that's where it started,
   and that's how things ranging from this book to Wikipedia came to
   be. If you want a chapter on <a href="http://www.gimp.org/">The
-  Gimp</a>
-  or <a href="http://www.arduino.cc/en/Main/Software">Arduino</a>,
+  Gimp</a> or <a href="http://www.arduino.cc/en/Main/Software">Arduino</a>,
   then write it. If you don't know enough to do that, then find some
   people who could and say, "I'd be happy to draw the diagrams and
   proof read and translate from your preferred format into others and
