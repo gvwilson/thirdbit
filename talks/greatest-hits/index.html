@@ -120,6 +120,26 @@ layout: slides
 
 ---
 
+## Productivity
+
+- <a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice
+- How long did it take?
+
+<img src="productivity.svg" class="center">
+
+---
+
+## Productivity
+
+- Shortest and longest times were 0.6 and 63 hours
+  - Ratio is 150X (!)
+- But people used 7 different languages
+- If we only look at Java, times are 3.8 vs. 63 hours (17X)
+- But comparing best and worst exaggerates differences
+- 90th percentile vs. 50th gives 3.7X
+
+---
+
 ## Test-Driven Development
 
 <a href="#Shull2010">Shull2010</a>: "How Effective is Test-Driven Development?"
@@ -142,6 +162,8 @@ layout: slides
 - Replication study, 39 professionals, real projects
 - No significant difference between test-first and test-last development
 - "The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."
+
+--
 
 > I practice TDD…and it works great. We don't need to prove that it works anymore.
 
@@ -175,26 +197,14 @@ The three that take the most time to fix are:
 
 ---
 
-## Code Metrics
+## A Caution
 
-- Lots of code metrics have been proposed
-  - Halstead's measures
-  - Cyclomatic complexity
-  - Many object-oriented measures
-- But nothing works better than counting lines of code
-  - <a href="#ElEmam2001">ElEmam2001</a>: "Confounding Effects of Class Size on the Validity of Object-Oriented Metrics"
-  - <a href="#Herraiz2010">Herraiz2010</a>: "Beyond Lines of Code: Do We Need More Complexity Metrics?"
+<a href="#Begel2014">Begel2014</a>: "Analyze This! 145 Questions for Data Scientists in Software Engineering"
 
----
-
-## Check Your Error Handling
-
-<a href="#Nakshatri2016">Nakshatri2016</a>: "Analysis of Exception Handling Patterns in Java Projects: An Empirical Study"
-
-- Most common `catch` block logs the error rather than trying to recover from it
-- Next most common does nothing at all (20% of cases)
-  - Or converts the checked exception into an unchecked one so it can be ignored.
-- Most programmers simply catch `Exception` (78%) or `Throwable` (84%) rather than their subclasses
+- Ask a bunch of developers to propose questions, then ask another bunch to rate them
+- Developers want to know how people actually use their products
+- They *don't* want assessments of individual performance
+  - Because they're afraid such measures will be weaponized
 
 ---
 
@@ -221,34 +231,15 @@ The three that take the most time to fix are:
 
 ---
 
-## Productivity
+## Code Metrics
 
-- <a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice
-- How long did it take?
-
-<img src="productivity.svg" class="center">
-
----
-
-## Productivity
-
-- Shortest and longest times were 0.6 and 63 hours
-  - Ratio is 150X (!)
-- But people used 7 different languages
-- If we only look at Java, times are 3.8 vs. 63 hours (17X)
-- But comparing best and worst exaggerates differences
-- 90th percentile vs. 50th gives 3.7X
-
----
-
-## A Caution
-
-<a href="#Begel2014">Begel2014</a>: "Analyze This! 145 Questions for Data Scientists in Software Engineering"
-
-- Ask a bunch of developers to propose questions, then ask another bunch to rate them
-- Developers want to know how people actually use their products
-- They *don't* want assessments of individual performance
-  - Because they're afraid such measures will be weaponized
+- Lots of code metrics have been proposed
+  - Halstead's measures
+  - Cyclomatic complexity
+  - Many object-oriented measures
+- But nothing works better than counting lines of code
+  - <a href="#ElEmam2001">ElEmam2001</a>: "Confounding Effects of Class Size on the Validity of Object-Oriented Metrics"
+  - <a href="#Herraiz2010">Herraiz2010</a>: "Beyond Lines of Code: Do We Need More Complexity Metrics?"
 
 ---
 
@@ -278,13 +269,6 @@ The three that take the most time to fix are:
 
 ---
 
-## Typing
-
-- Strong typing catches about 15% of bugs (<a href="#Gao2017">Gao2017</a>)
-- Which is either a lot or a little
-
----
-
 ## Who Fixes What?
 
 - Original authors fix their own simple bugs much faster than other people (<a href="#Zhu2021">Zhu2021</a>)
@@ -301,23 +285,29 @@ The three that take the most time to fix are:
 
 ---
 
-## Configuration
+## Language Features
 
-<a href="#Xu2015">Xu2015</a>: developers create a lot more configuration options than people use
+<div class="row">
+  <div class="col-12 center">
+    <img src="typescript-features.png" alt="Typescript feature adoption" width="90%">
+    <br>
+    From [<a href="#Scarsbrook2023">Scarsbrook2023</a>]
+  </div>
+</div>
 
--   Only 6-17% of parameters set by majority of users
--   54% of parameters are rarely set by *any* user
--   Only 2%-8% of parameters are configured by more than 90% of users
--   48% of config issues are about difficulty finding or setting parameters
--   53% of config errors are due to users' staying with default values incorrectly
--   Searching user manuals by keywords doesn't help users identify parameters
+-   Nobody knows anything…
 
 ---
 
-## Generative AI
+## Miscellaneous
 
--   Nobody knows anything yet
-
+-   Strong typing catches about 15% of bugs (<a href="#Gao2017">Gao2017</a>)
+    -   Which is a lot or a little depending on your point of view
+-   Only 6-17% of configuration options are set by most users (<a href="#Xu2015">Xu2015</a>)
+    -   Only 2%-8% of parameters are configured by more than 90% of users
+-   Secret management is a solved problem but most developers don't know the solutions (<a href="#Basak2023">Basak2023</a>)
+-   AI has trouble distinguishing between bugs and patches (<a href="#Kim2023">Kim2023</a>)
+    -   But code mutation tools and bug repair tools can be interchangeable if trained on each other's data
 ---
 
 ## What Hasn't Worked?
@@ -394,6 +384,13 @@ The three that take the most time to fix are:
     <a class="doi" href="https://doi.org/10.1145/2676723.2677258">10.1145/2676723.2677258</a>.
   </p>
 
+  <p id="Basak2023">[Basak2023]
+    Setu Kumar Basak, Lorenzo Neil, Bradley Reaves, and Laurie Williams.
+    "What challenges do developers face about checked-in secrets in software artifacts?"
+    2023.
+    <a class="doi" href="https://arxiv.org/abs/2301.12377">arXiv:2301.12377</a>.
+  </p>
+
   <p id="Begel2014">[Begel2014]
     Andrew Begel and Thomas Zimmermann:
     "Analyze this! 145 questions for data scientists in software engineering".
@@ -401,7 +398,8 @@ The three that take the most time to fix are:
     <a class="doi" href="https://doi.org/10.1145/2568225.2568233">10.1145/2568225.2568233</a>.
   </p>
 
-  <p>Keila Costa, Ronivaldo Ferreira, Gustavo Pinto, Marcelo d'Amorim, and Breno Miranda:
+  <p id="Costa2022">[Costa2022]
+    Keila Costa, Ronivaldo Ferreira, Gustavo Pinto, Marcelo d'Amorim, and Breno Miranda:
     "Test flakiness across programming languages."
     <em>IEEE Trans. Software Engineering</em>, 2022,
     <a class="doi" href="https://doi.org/10.1109/tse.2022.3208864">10.1109/tse.2022.3208864</a>.
@@ -414,13 +412,6 @@ The three that take the most time to fix are:
     <a class="doi" href="https://doi.org/10.1007/s10664-017-9548-7">10.1007/s10664-017-9548-7</a>.
   </p>
 
-  <p id="ElEmam2001">[ElEmam2001]
-    Khaled El Emam, Saïda Benlarbi, Nishith Goel, and Shesh N. Rai:
-    "The Confounding Effect of Class Size on the Validity of Object-Oriented Metrics".
-    <em>IEEE Trans. Software Engineering</em>, 2001,
-    <a class="doi" href="https://doi.org/10.1109/32.935855">10.1109/32.935855</a>.
-  </p>
-
 </div>
 
 ---
@@ -428,6 +419,13 @@ The three that take the most time to fix are:
 ## Bibliography
 
 <div class="bibliography">
+
+  <p id="ElEmam2001">[ElEmam2001]
+    Khaled El Emam, Saïda Benlarbi, Nishith Goel, and Shesh N. Rai:
+    "The Confounding Effect of Class Size on the Validity of Object-Oriented Metrics".
+    <em>IEEE Trans. Software Engineering</em>, 2001,
+    <a class="doi" href="https://doi.org/10.1109/32.935855">10.1109/32.935855</a>.
+  </p>
 
   <p id="Fucci2016">[Fucci2016]
     Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo:
@@ -450,6 +448,21 @@ The three that take the most time to fix are:
     O'Reilly, 2010, 0596808321.
   </p>
 
+</div>
+
+---
+
+## Bibliography
+
+<div class="bibliography">
+
+  <p id="Kim2023">[Kim2023]
+    Jinhan Kim, Jongchan Park, and Shin Yoo:
+    "The inversive relationship between bugs and patches: an empirical study."
+    2023.
+    <a class="doi" href="https://arxiv.org/abs/2303.00303">arXiv:2303.00303</a>.
+  </p>
+
   <p id="McIntosh2021">[McIntosh2021]
     Lukas McIntosh and Caroline D. Hardin:
     "Do Hackathon Projects Change the World? An Empirical Analysis of GitHub Repositories".
@@ -464,14 +477,6 @@ The three that take the most time to fix are:
     <a class="doi" href="https://doi.org/10.1109/tse.2020.3047766">10.1109/tse.2020.3047766</a>.
   </p>
 
-</div>
-
----
-
-## Bibliography
-
-<div class="bibliography">
-
   <p id="Nakshatri2016">[Nakshatri2016]
     Suman Nakshatri, Maithri Hegde, and Sahithi Thandra:
     "Analysis of exception handling patterns in Java projects".
@@ -484,14 +489,22 @@ The three that take the most time to fix are:
     "Beyond Technical Aspects: How Do Community Smells Influence the Intensity of Code Smells?".
     <em>IEEE Trans. Software Engineering</em>, 2021,
     <a class="doi" href="https://doi.org/10.1109/tse.2018.2883603">10.1109/tse.2018.2883603</a>.
-</p>
+  </p>
+
+</div>
+
+---
+
+## Bibliography
+
+<div class="bibliography">
 
   <p id="Patitsas2016">[Patitsas2016]
     Elizabeth Patitsas, Jesse Berlin, Michelle Craig, and Steve Easterbrook:
     "Evidence That Computer Science Grades Are Not Bimodal".
     <em>ICER'16</em>,
     <a class="doi" href="https://doi.org/10.1145/2960310.2960312">10.1145/2960310.2960312</a>.
-</p>
+  </p>
 
   <p id="Prechelt2000">[Prechelt2000]
     Lutz Prechelt:
@@ -507,14 +520,6 @@ The three that take the most time to fix are:
     <a href="https://arxiv.org/abs/2303.09802">arXiv:2303.09802</a>.
   </p>
 
-</div>
-
----
-
-## Bibliography
-
-<div class="bibliography">
-
   <p id="Shull2010">[Shull2010]
     Forrest Shull, Grigori Melnik, Burak Turhan, Lucas Layman, Madeline Diep, and Hakan Erdogmus:
     "What Do We Know about Test-Driven Development?".
@@ -528,6 +533,14 @@ The three that take the most time to fix are:
     <em>ACM Trans. Computing Education</em>, 2013,
     <a class="doi" href="https://doi.org/10.1145/2534973">10.1145/2534973</a>.
   </p>
+
+</div>
+
+---
+
+## Bibliography
+
+<div class="bibliography">
 
   <p id="Steinmacher2015">[Steinmacher2015]
     Igor Steinmacher, Tayana Conte, Marco Aurélio Gerosa, and David Redmiles:
@@ -550,6 +563,13 @@ The three that take the most time to fix are:
     <em>ICSME'20</em>, <a class="doi" href="https://doi.org/10.1109/icsme46990.2020.00011">10.1109/icsme46990.2020.00011</a>.
   </p>
 
+  <p id="Xu2015">[Xu2015]
+    Tianyin Xu, Long Jin, Xuepeng Fan, Yuanyuan Zhou, Shankar Pasupathy, and Rukma Talwadker:
+    "Hey,  you have given me too many knobs!: understanding and dealing with over-designed configuration in system software".
+    <em>FSE'15</em>,
+    <a class="doi" href="https://doi.org/10.1145/2786805.2786852">10.1145/2786805.2786852</a>.
+  </p>
+
 </div>
 
 ---
@@ -557,13 +577,6 @@ The three that take the most time to fix are:
 ## Bibliography
 
 <div class="bibliography">
-
-  <p id="Xu2015">[Xu2015]
-    Tianyin Xu, Long Jin, Xuepeng Fan, Yuanyuan Zhou, Shankar Pasupathy, and Rukma Talwadker:
-    "Hey,  you have given me too many knobs!: understanding and dealing with over-designed configuration in system software".
-    <em>FSE'15</em>,
-    <a class="doi" href="https://doi.org/10.1145/2786805.2786852">10.1145/2786805.2786852</a>.
-  </p>
 
   <p id="Yuan2014">[Yuan2014]
     Ding Yuan, Yu Luo, Xin Zhuang, Guilherme Renna Rodrigues, Xu Zhao, Yongle Zhang, Pranay U. Jain, and Michael Stumm:
