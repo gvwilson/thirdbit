@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Non-Standard Evaluation | The Tidynomicon</title>
+  <meta name="description" content="Chapter 6 Non-Standard Evaluation | The Tidynomicon" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Non-Standard Evaluation | The Tidynomicon" />
+  <meta property="og:type" content="book" />
+  
+  <meta name="github-repo" content="gvwilson/tidynomicon" />
+
+  
+  
+
+<meta name="author" content="Greg Wilson" />
+
+
+<meta name="date" content="2021-01-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="package.html"/>
+<link rel="next" href="debt.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Tidynomicon</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#s:index-personas"><i class="fa fa-check"></i><b>1.1</b> Who are these lessons for?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#s:index-install"><i class="fa fa-check"></i><b>1.2</b> How do I get started?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Simple Beginnings</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#how-do-i-say-hello"><i class="fa fa-check"></i><b>2.2</b> How do I say hello?</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#how-do-i-add-numbers"><i class="fa fa-check"></i><b>2.3</b> How do I add numbers?</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#how-do-i-store-many-numbers-together"><i class="fa fa-check"></i><b>2.4</b> How do I store many numbers together?</a></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#how-do-i-index-a-vector"><i class="fa fa-check"></i><b>2.5</b> How do I index a vector?</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#how-do-i-create-new-vectors-from-old"><i class="fa fa-check"></i><b>2.6</b> How do I create new vectors from old?</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#how-else-does-r-represent-the-absence-of-data"><i class="fa fa-check"></i><b>2.7</b> How else does R represent the absence of data?</a></li>
+<li class="chapter" data-level="2.8" data-path="basics.html"><a href="basics.html#how-can-i-store-a-mix-of-different-types-of-objects"><i class="fa fa-check"></i><b>2.8</b> How can I store a mix of different types of objects?</a></li>
+<li class="chapter" data-level="2.9" data-path="basics.html"><a href="basics.html#what-is-the-difference-between-and"><i class="fa fa-check"></i><b>2.9</b> What is the difference between <code>[</code> and <code>[[</code>?</a></li>
+<li class="chapter" data-level="2.10" data-path="basics.html"><a href="basics.html#how-can-i-access-elements-by-name"><i class="fa fa-check"></i><b>2.10</b> How can I access elements by name?</a></li>
+<li class="chapter" data-level="2.11" data-path="basics.html"><a href="basics.html#how-can-i-create-and-index-a-matrix"><i class="fa fa-check"></i><b>2.11</b> How can I create and index a matrix?</a></li>
+<li class="chapter" data-level="2.12" data-path="basics.html"><a href="basics.html#how-do-i-choose-and-repeat-things"><i class="fa fa-check"></i><b>2.12</b> How do I choose and repeat things?</a></li>
+<li class="chapter" data-level="2.13" data-path="basics.html"><a href="basics.html#how-can-i-vectorize-loops-and-conditionals"><i class="fa fa-check"></i><b>2.13</b> How can I vectorize loops and conditionals?</a></li>
+<li class="chapter" data-level="2.14" data-path="basics.html"><a href="basics.html#how-can-i-express-a-range-of-values"><i class="fa fa-check"></i><b>2.14</b> How can I express a range of values?</a></li>
+<li class="chapter" data-level="2.15" data-path="basics.html"><a href="basics.html#how-can-i-use-a-vector-in-a-conditional-statement"><i class="fa fa-check"></i><b>2.15</b> How can I use a vector in a conditional statement?</a></li>
+<li class="chapter" data-level="2.16" data-path="basics.html"><a href="basics.html#how-do-i-create-and-call-functions"><i class="fa fa-check"></i><b>2.16</b> How do I create and call functions?</a></li>
+<li class="chapter" data-level="2.17" data-path="basics.html"><a href="basics.html#how-can-i-write-a-function-that-takes-variable-arguments"><i class="fa fa-check"></i><b>2.17</b> How can I write a function that takes variable arguments?</a></li>
+<li class="chapter" data-level="2.18" data-path="basics.html"><a href="basics.html#how-can-i-provide-default-values-for-arguments"><i class="fa fa-check"></i><b>2.18</b> How can I provide default values for arguments?</a></li>
+<li class="chapter" data-level="2.19" data-path="basics.html"><a href="basics.html#how-can-i-hide-the-value-that-r-returns"><i class="fa fa-check"></i><b>2.19</b> How can I hide the value that R returns?</a></li>
+<li class="chapter" data-level="2.20" data-path="basics.html"><a href="basics.html#how-can-i-assign-to-a-global-variable-from-inside-a-function"><i class="fa fa-check"></i><b>2.20</b> How can I assign to a global variable from inside a function?</a></li>
+<li class="chapter" data-level="2.21" data-path="basics.html"><a href="basics.html#key-points"><i class="fa fa-check"></i><b>2.21</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> The Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-read-data"><i class="fa fa-check"></i><b>3.2</b> How do I read data?</a></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-inspect-data"><i class="fa fa-check"></i><b>3.3</b> How do I inspect data?</a></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-index-rows-and-columns"><i class="fa fa-check"></i><b>3.4</b> How do I index rows and columns?</a></li>
+<li class="chapter" data-level="3.5" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-calculate-basic-statistics"><i class="fa fa-check"></i><b>3.5</b> How do I calculate basic statistics?</a></li>
+<li class="chapter" data-level="3.6" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-filter-data"><i class="fa fa-check"></i><b>3.6</b> How do I filter data?</a></li>
+<li class="chapter" data-level="3.7" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-write-tidy-code"><i class="fa fa-check"></i><b>3.7</b> How do I write tidy code?</a></li>
+<li class="chapter" data-level="3.8" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-model-my-data"><i class="fa fa-check"></i><b>3.8</b> How do I model my data?</a></li>
+<li class="chapter" data-level="3.9" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-create-a-plot"><i class="fa fa-check"></i><b>3.9</b> How do I create a plot?</a></li>
+<li class="chapter" data-level="3.10" data-path="tidyverse.html"><a href="tidyverse.html#do-i-need-more-practice-with-the-tidyverse"><i class="fa fa-check"></i><b>3.10</b> Do I need more practice with the tidyverse?</a></li>
+<li class="chapter" data-level="3.11" data-path="tidyverse.html"><a href="tidyverse.html#key-points-1"><i class="fa fa-check"></i><b>3.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> Creating Reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-create-and-preview-a-simple-page"><i class="fa fa-check"></i><b>4.2</b> How can I create and preview a simple page?</a></li>
+<li class="chapter" data-level="4.3" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-run-code-and-include-its-output-in-a-page"><i class="fa fa-check"></i><b>4.3</b> How can I run code and include its output in a page?</a></li>
+<li class="chapter" data-level="4.4" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-format-tables-in-a-page"><i class="fa fa-check"></i><b>4.4</b> How can I format tables in a page?</a></li>
+<li class="chapter" data-level="4.5" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-share-code-between-pages"><i class="fa fa-check"></i><b>4.5</b> How can I share code between pages?</a></li>
+<li class="chapter" data-level="4.6" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-parameterize-documents"><i class="fa fa-check"></i><b>4.6</b> How can I parameterize documents?</a></li>
+<li class="chapter" data-level="4.7" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-publish-pages-on-github"><i class="fa fa-check"></i><b>4.7</b> How can I publish pages on GitHub?</a></li>
+<li class="chapter" data-level="4.8" data-path="rmarkdown.html"><a href="rmarkdown.html#key-points-2"><i class="fa fa-check"></i><b>4.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>5</b> Creating Packages</a><ul>
+<li class="chapter" data-level="5.1" data-path="package.html"><a href="package.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="package.html"><a href="package.html#what-is-our-starting-point"><i class="fa fa-check"></i><b>5.2</b> What is our starting point?</a></li>
+<li class="chapter" data-level="5.3" data-path="package.html"><a href="package.html#how-do-i-convert-values-to-numbers"><i class="fa fa-check"></i><b>5.3</b> How do I convert values to numbers?</a></li>
+<li class="chapter" data-level="5.4" data-path="package.html"><a href="package.html#how-do-i-reorganize-the-columns"><i class="fa fa-check"></i><b>5.4</b> How do I reorganize the columns?</a></li>
+<li class="chapter" data-level="5.5" data-path="package.html"><a href="package.html#how-do-i-create-a-package"><i class="fa fa-check"></i><b>5.5</b> How do I create a package?</a></li>
+<li class="chapter" data-level="5.6" data-path="package.html"><a href="package.html#how-can-i-document-the-contents-of-a-package"><i class="fa fa-check"></i><b>5.6</b> How can I document the contents of a package?</a></li>
+<li class="chapter" data-level="5.7" data-path="package.html"><a href="package.html#how-can-my-package-import-what-it-needs"><i class="fa fa-check"></i><b>5.7</b> How can my package import what it needs?</a></li>
+<li class="chapter" data-level="5.8" data-path="package.html"><a href="package.html#how-can-i-add-data-to-a-package"><i class="fa fa-check"></i><b>5.8</b> How can I add data to a package?</a></li>
+<li class="chapter" data-level="5.9" data-path="package.html"><a href="package.html#key-points-3"><i class="fa fa-check"></i><b>5.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="nse.html"><a href="nse.html"><i class="fa fa-check"></i><b>6</b> Non-Standard Evaluation</a><ul>
+<li class="chapter" data-level="6.1" data-path="nse.html"><a href="nse.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="nse.html"><a href="nse.html#how-does-python-evaluate-function-calls"><i class="fa fa-check"></i><b>6.2</b> How does Python evaluate function calls?</a></li>
+<li class="chapter" data-level="6.3" data-path="nse.html"><a href="nse.html#how-does-r-evaluate-function-calls"><i class="fa fa-check"></i><b>6.3</b> How does R evaluate function calls?</a></li>
+<li class="chapter" data-level="6.4" data-path="nse.html"><a href="nse.html#why-is-lazy-evaluation-useful"><i class="fa fa-check"></i><b>6.4</b> Why is lazy evaluation useful?</a></li>
+<li class="chapter" data-level="6.5" data-path="nse.html"><a href="nse.html#what-is-tidy-evaluation"><i class="fa fa-check"></i><b>6.5</b> What is tidy evaluation?</a></li>
+<li class="chapter" data-level="6.6" data-path="nse.html"><a href="nse.html#what-if-i-truly-desire-to-venture-into-the-depths"><i class="fa fa-check"></i><b>6.6</b> What if I truly desire to venture into the depths?</a></li>
+<li class="chapter" data-level="6.7" data-path="nse.html"><a href="nse.html#is-it-worth-it"><i class="fa fa-check"></i><b>6.7</b> Is it worth it?</a></li>
+<li class="chapter" data-level="6.8" data-path="nse.html"><a href="nse.html#key-points-4"><i class="fa fa-check"></i><b>6.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="debt.html"><a href="debt.html"><i class="fa fa-check"></i><b>7</b> Intellectual Debt</a><ul>
+<li class="chapter" data-level="7.1" data-path="debt.html"><a href="debt.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="debt.html"><a href="debt.html#why-shouldnt-i-use-setwd"><i class="fa fa-check"></i><b>7.2</b> Why shouldn’t I use <code>setwd</code>?</a></li>
+<li class="chapter" data-level="7.3" data-path="debt.html"><a href="debt.html#what-the-hell-are-factors"><i class="fa fa-check"></i><b>7.3</b> What the hell are factors?</a></li>
+<li class="chapter" data-level="7.4" data-path="debt.html"><a href="debt.html#how-do-i-refer-to-various-arguments-in-a-pipeline"><i class="fa fa-check"></i><b>7.4</b> How do I refer to various arguments in a pipeline?</a></li>
+<li class="chapter" data-level="7.5" data-path="debt.html"><a href="debt.html#i-thought-you-said-that-r-encouraged-functional-programming"><i class="fa fa-check"></i><b>7.5</b> I thought you said that R encouraged functional programming?</a></li>
+<li class="chapter" data-level="7.6" data-path="debt.html"><a href="debt.html#how-does-r-give-the-appearance-of-immutable-data"><i class="fa fa-check"></i><b>7.6</b> How does R give the appearance of immutable data?</a></li>
+<li class="chapter" data-level="7.7" data-path="debt.html"><a href="debt.html#what-else-should-i-worry-about"><i class="fa fa-check"></i><b>7.7</b> What else should I worry about?</a></li>
+<li class="chapter" data-level="7.8" data-path="debt.html"><a href="debt.html#key-points-5"><i class="fa fa-check"></i><b>7.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="testerror.html"><a href="testerror.html"><i class="fa fa-check"></i><b>8</b> Testing and Error Handling</a><ul>
+<li class="chapter" data-level="8.1" data-path="testerror.html"><a href="testerror.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="testerror.html"><a href="testerror.html#how-does-r-handle-errors"><i class="fa fa-check"></i><b>8.2</b> How does R handle errors?</a></li>
+<li class="chapter" data-level="8.3" data-path="testerror.html"><a href="testerror.html#what-should-i-know-about-testing-in-general"><i class="fa fa-check"></i><b>8.3</b> What should I know about testing in general?</a></li>
+<li class="chapter" data-level="8.4" data-path="testerror.html"><a href="testerror.html#how-should-i-organize-my-tests"><i class="fa fa-check"></i><b>8.4</b> How should I organize my tests?</a></li>
+<li class="chapter" data-level="8.5" data-path="testerror.html"><a href="testerror.html#how-can-i-write-a-few-simple-tests"><i class="fa fa-check"></i><b>8.5</b> How can I write a few simple tests?</a></li>
+<li class="chapter" data-level="8.6" data-path="testerror.html"><a href="testerror.html#how-can-i-check-data-transformation"><i class="fa fa-check"></i><b>8.6</b> How can I check data transformation?</a></li>
+<li class="chapter" data-level="8.7" data-path="testerror.html"><a href="testerror.html#key-points-6"><i class="fa fa-check"></i><b>8.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>9</b> Advanced Topics</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced.html"><a href="advanced.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced.html"><a href="advanced.html#how-can-i-use-python-with-r"><i class="fa fa-check"></i><b>9.2</b> How can I use Python with R?</a></li>
+<li class="chapter" data-level="9.3" data-path="advanced.html"><a href="advanced.html#how-does-object-oriented-programming-work-in-r"><i class="fa fa-check"></i><b>9.3</b> How does object-oriented programming work in R?</a></li>
+<li class="chapter" data-level="9.4" data-path="advanced.html"><a href="advanced.html#how-can-i-write-web-applications-in-r"><i class="fa fa-check"></i><b>9.4</b> How can I write web applications in R?</a></li>
+<li class="chapter" data-level="9.5" data-path="advanced.html"><a href="advanced.html#how-can-i-work-with-relational-databases-in-r"><i class="fa fa-check"></i><b>9.5</b> How can I work with relational databases in R?</a></li>
+<li class="chapter" data-level="9.6" data-path="advanced.html"><a href="advanced.html#key-points-7"><i class="fa fa-check"></i><b>9.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>A</b> License</a></li>
+<li class="chapter" data-level="B" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>B</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="B.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>B.1</b> Our Standards</a></li>
+<li class="chapter" data-level="B.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-responsibilities"><i class="fa fa-check"></i><b>B.2</b> Our Responsibilities</a></li>
+<li class="chapter" data-level="B.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>B.3</b> Scope</a></li>
+<li class="chapter" data-level="B.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>B.4</b> Enforcement</a></li>
+<li class="chapter" data-level="B.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>B.5</b> Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="citation.html"><a href="citation.html"><i class="fa fa-check"></i><b>C</b> Citation</a></li>
+<li class="chapter" data-level="D" data-path="contributing.html"><a href="contributing.html"><i class="fa fa-check"></i><b>D</b> Contributing</a></li>
+<li class="chapter" data-level="E" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>E</b> Practice Problems</a><ul>
+<li class="chapter" data-level="E.1" data-path="practice.html"><a href="practice.html#do-i-need-even-more-practice"><i class="fa fa-check"></i><b>E.1</b> Do I need even more practice?</a></li>
+<li class="chapter" data-level="E.2" data-path="practice.html"><a href="practice.html#please-may-i-create-some-charts"><i class="fa fa-check"></i><b>E.2</b> Please may I create some charts?</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>F</b> Glossary</a></li>
+<li class="chapter" data-level="G" data-path="keypoints.html"><a href="keypoints.html"><i class="fa fa-check"></i><b>G</b> Key Points</a><ul>
+<li class="chapter" data-level="G.1" data-path="keypoints.html"><a href="keypoints.html#simple-beginnings"><i class="fa fa-check"></i><b>G.1</b> Simple Beginnings</a></li>
+<li class="chapter" data-level="G.2" data-path="keypoints.html"><a href="keypoints.html#the-tidyverse"><i class="fa fa-check"></i><b>G.2</b> The Tidyverse</a></li>
+<li class="chapter" data-level="G.3" data-path="keypoints.html"><a href="keypoints.html#creating-packages"><i class="fa fa-check"></i><b>G.3</b> Creating Packages</a></li>
+<li class="chapter" data-level="G.4" data-path="keypoints.html"><a href="keypoints.html#non-standard-evaluation"><i class="fa fa-check"></i><b>G.4</b> Non-Standard Evaluation</a></li>
+<li class="chapter" data-level="G.5" data-path="keypoints.html"><a href="keypoints.html#intellectual-debt"><i class="fa fa-check"></i><b>G.5</b> Intellectual Debt</a></li>
+<li class="chapter" data-level="G.6" data-path="keypoints.html"><a href="keypoints.html#testing-and-error-handling"><i class="fa fa-check"></i><b>G.6</b> Testing and Error Handling</a></li>
+<li class="chapter" data-level="G.7" data-path="keypoints.html"><a href="keypoints.html#advanced-topics"><i class="fa fa-check"></i><b>G.7</b> Advanced Topics</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Tidynomicon</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="nse" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Non-Standard Evaluation</h1>
+<p>The biggest difference between R and Python is not where R starts counting,
+but its use of <a href="glossary.html#lazy-evaluation">lazy evaluation</a>.
+Nothing in R truly makes sense until we understand how this works.</p>
+<div id="learning-objectives-4" class="section level2">
+<h2><span class="header-section-number">6.1</span> Learning Objectives</h2>
+<ul>
+<li>Trace the order of evaluation in function calls.</li>
+<li>Explain what environments and expressions are and how they relate to one another.</li>
+<li>Justify the author’s use of ASCII art in the second decade of the 21st Century.</li>
+</ul>
+</div>
+<div id="how-does-python-evaluate-function-calls" class="section level2">
+<h2><span class="header-section-number">6.2</span> How does Python evaluate function calls?</h2>
+<p>Let’s start by looking at a small Python program and its output:</p>
+<div class="sourceCode" id="cb576"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb576-1" data-line-number="1"><span class="kw">def</span> ones_func(ones_arg):</a>
+<a class="sourceLine" id="cb576-2" data-line-number="2">    <span class="cf">return</span> ones_arg <span class="op">+</span> <span class="st">&quot; ones&quot;</span></a>
+<a class="sourceLine" id="cb576-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb576-4" data-line-number="4"><span class="kw">def</span> tens_func(tens_arg):</a>
+<a class="sourceLine" id="cb576-5" data-line-number="5">    <span class="cf">return</span> ones_func(tens_arg <span class="op">+</span> <span class="st">&quot; tens&quot;</span>)</a>
+<a class="sourceLine" id="cb576-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb576-7" data-line-number="7">initial <span class="op">=</span> <span class="st">&quot;start&quot;</span></a>
+<a class="sourceLine" id="cb576-8" data-line-number="8">final <span class="op">=</span> tens_func(initial <span class="op">+</span> <span class="st">&quot; more&quot;</span>)</a>
+<a class="sourceLine" id="cb576-9" data-line-number="9"><span class="bu">print</span>(final)</a></code></pre></div>
+<pre><code>start more tens ones</code></pre>
+<p>When we call <code>tens_func</code> we pass it <code>initial + &quot; more&quot;</code>;
+since <code>initial</code> has just been assigned the value <code>&quot;start&quot;</code>,
+that’s the same as calling <code>tens_func</code> with <code>&quot;start more&quot;</code>.
+<code>tens_func</code> then calls <code>ones_func</code> with <code>&quot;start more tens&quot;</code>,
+and <code>ones_func</code> returns <code>&quot;start more tens ones&quot;</code>.
+But there’s more going on here than that two-sentence summary suggests.
+Let’s spell out the steps:</p>
+<div class="sourceCode" id="cb578"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb578-1" data-line-number="1"><span class="kw">def</span> ones_func(ones_arg):</a>
+<a class="sourceLine" id="cb578-2" data-line-number="2">    ones_temp_1 <span class="op">=</span> ones_arg <span class="op">+</span> <span class="st">&quot; ones&quot;</span></a>
+<a class="sourceLine" id="cb578-3" data-line-number="3">    <span class="cf">return</span> ones_temp_1</a>
+<a class="sourceLine" id="cb578-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb578-5" data-line-number="5"><span class="kw">def</span> tens_func(tens_arg):</a>
+<a class="sourceLine" id="cb578-6" data-line-number="6">    tens_temp_1 <span class="op">=</span> tens_arg <span class="op">+</span> <span class="st">&quot; tens&quot;</span></a>
+<a class="sourceLine" id="cb578-7" data-line-number="7">    tens_temp_2 <span class="op">=</span> ones_func(tens_temp_1)</a>
+<a class="sourceLine" id="cb578-8" data-line-number="8">    <span class="cf">return</span> tens_temp_2</a>
+<a class="sourceLine" id="cb578-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb578-10" data-line-number="10">initial <span class="op">=</span> <span class="st">&quot;start&quot;</span></a>
+<a class="sourceLine" id="cb578-11" data-line-number="11">global_temp_1 <span class="op">=</span> initial <span class="op">+</span> <span class="st">&quot; more&quot;</span></a>
+<a class="sourceLine" id="cb578-12" data-line-number="12">final <span class="op">=</span> tens_func(global_temp_1)</a>
+<a class="sourceLine" id="cb578-13" data-line-number="13"><span class="bu">print</span>(final)</a></code></pre></div>
+<pre><code>start more tens ones</code></pre>
+<p>Step 1: we assign <code>&quot;start&quot;</code> to <code>initial</code> at the global level:</p>
+<div class="figure"><span id="fig:py-step-1"></span>
+<img src="figures/nse/python-step-01.svg" alt="Python Step 1"  />
+<p class="caption">
+Figure 6.1: Python Step 1
+</p>
+</div>
+<p>Step 2: we ask Python to call <code>tens_func(initial + &quot;more&quot;)</code>,
+so it creates a temporary variable to hold the result of the concatenation
+<em>before</em> calling <code>tens_func</code>:</p>
+<div class="figure"><span id="fig:py-step-2"></span>
+<img src="figures/nse/python-step-02.svg" alt="Python Step 2"  />
+<p class="caption">
+Figure 6.2: Python Step 2
+</p>
+</div>
+<p>Step 3: Python creates a new stack frame to hold the call to <code>tens_func</code>:</p>
+<div class="figure"><span id="fig:py-step-3"></span>
+<img src="figures/nse/python-step-03.svg" alt="Python Step 3"  />
+<p class="caption">
+Figure 6.3: Python Step 3
+</p>
+</div>
+<p>Note that <code>tens_arg</code> points to the same thing in memory as <code>global_temp_1</code>,
+since Python passes everything by reference.</p>
+<p>Step 4: we ask Python to call <code>ones_func(tens_arg + &quot; tens&quot;)</code>,
+so it creates another temporary variable:</p>
+<div class="figure"><span id="fig:py-step-4"></span>
+<img src="figures/nse/python-step-04.svg" alt="Python Step 4"  />
+<p class="caption">
+Figure 6.4: Python Step 4
+</p>
+</div>
+<p>Step 5: Python creates a new stack frame to manage the call to <code>ones_func</code>:</p>
+<div class="figure"><span id="fig:py-step-5"></span>
+<img src="figures/nse/python-step-05.svg" alt="Python Step 5"  />
+<p class="caption">
+Figure 6.5: Python Step 5
+</p>
+</div>
+<p>Step 6: Python creates a temporary variable to hold <code>ones_arg + &quot;ones&quot;</code>:</p>
+<div class="figure"><span id="fig:py-step-6"></span>
+<img src="figures/nse/python-step-06.svg" alt="Python Step 6"  />
+<p class="caption">
+Figure 6.6: Python Step 6
+</p>
+</div>
+<p>Step 7: Python returns from <code>ones_func</code>
+and puts its result in yet another temporary variable in <code>tens_func</code>:</p>
+<div class="figure"><span id="fig:py-step-7"></span>
+<img src="figures/nse/python-step-07.svg" alt="Python Step 7"  />
+<p class="caption">
+Figure 6.7: Python Step 7
+</p>
+</div>
+<p>Step 8: Python returns from <code>tens_func</code>
+and puts that call’s result in <code>final</code>:</p>
+<div class="figure"><span id="fig:py-step-8"></span>
+<img src="figures/nse/python-step-08.svg" alt="Python Step 8"  />
+<p class="caption">
+Figure 6.8: Python Step 8
+</p>
+</div>
+<p>The most important thing here is that Python evaluates expressions <em>before</em> it calls functions,
+and passes the results of those evaluations to the functions.
+This is called <a href="glossary.html#eager-evaluation">eager evaluation</a>,
+and is what most widely-used programming languages do.</p>
+</div>
+<div id="how-does-r-evaluate-function-calls" class="section level2">
+<h2><span class="header-section-number">6.3</span> How does R evaluate function calls?</h2>
+<p>In contrast,
+R uses <a href="glossary.html#lazy-evaluation">lazy evaluation</a>.
+Here’s an R program that’s roughly equivalent to the Python shown above:</p>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb580-1" data-line-number="1">ones_func &lt;-<span class="st"> </span><span class="cf">function</span>(ones_arg) {</a>
+<a class="sourceLine" id="cb580-2" data-line-number="2">  <span class="kw">paste</span>(ones_arg, <span class="st">&quot;ones&quot;</span>)</a>
+<a class="sourceLine" id="cb580-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb580-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb580-5" data-line-number="5">tens_func &lt;-<span class="st"> </span><span class="cf">function</span>(tens_arg) {</a>
+<a class="sourceLine" id="cb580-6" data-line-number="6">  <span class="kw">ones_func</span>(<span class="kw">paste</span>(tens_arg, <span class="st">&quot;tens&quot;</span>))</a>
+<a class="sourceLine" id="cb580-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb580-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb580-9" data-line-number="9">initial &lt;-<span class="st"> &quot;start&quot;</span></a>
+<a class="sourceLine" id="cb580-10" data-line-number="10">final &lt;-<span class="st"> </span><span class="kw">tens_func</span>(<span class="kw">paste</span>(initial, <span class="st">&quot;more&quot;</span>))</a>
+<a class="sourceLine" id="cb580-11" data-line-number="11"><span class="kw">print</span>(final)</a></code></pre></div>
+<pre><code>[1] &quot;start more tens ones&quot;</code></pre>
+<p>And here it is with the intermediate steps spelled out in a syntax I just made up:</p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb582-1" data-line-number="1">ones_func &lt;-<span class="st"> </span><span class="cf">function</span>(ones_arg) {</a>
+<a class="sourceLine" id="cb582-2" data-line-number="2">  <span class="kw">ones_arg.RESOLVE</span>(<span class="op">@</span>tens_func<span class="op">@</span>, <span class="kw">paste</span>(tens_arg, <span class="st">&quot;tens&quot;</span>), <span class="st">&quot;start more tens&quot;</span>)</a>
+<a class="sourceLine" id="cb582-3" data-line-number="3">  ones_temp_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">paste</span>(ones_arg, <span class="st">&quot;ones&quot;</span>)</a>
+<a class="sourceLine" id="cb582-4" data-line-number="4">  <span class="kw">return</span>(ones_temp_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb582-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb582-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb582-7" data-line-number="7">tens_func &lt;-<span class="st"> </span><span class="cf">function</span>(tens_arg) {</a>
+<a class="sourceLine" id="cb582-8" data-line-number="8">  <span class="kw">tens_arg.RESOLVE</span>(<span class="op">@</span>global<span class="op">@</span>, <span class="kw">paste</span>(initial, <span class="st">&quot;more&quot;</span>), <span class="st">&quot;start more&quot;</span>)</a>
+<a class="sourceLine" id="cb582-9" data-line-number="9">  tens_temp_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">PROMISE</span>(<span class="op">@</span>tens_func<span class="op">@</span>, <span class="kw">paste</span>(tens_arg, <span class="st">&quot;tens&quot;</span>), ____)</a>
+<a class="sourceLine" id="cb582-10" data-line-number="10">  tens_temp_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">ones_func</span>(<span class="kw">paste</span>(tens_temp_<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb582-11" data-line-number="11">  <span class="kw">return</span>(tens_temp_<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb582-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb582-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb582-14" data-line-number="14">initial &lt;-<span class="st"> &quot;start&quot;</span></a>
+<a class="sourceLine" id="cb582-15" data-line-number="15">global_temp_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">PROMISE</span>(<span class="op">@</span>global<span class="op">@</span>, <span class="kw">paste</span>(initial, <span class="st">&quot;more&quot;</span>), ____)</a>
+<a class="sourceLine" id="cb582-16" data-line-number="16">final &lt;-<span class="st"> </span><span class="kw">tens_func</span>(global_temp_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb582-17" data-line-number="17"><span class="kw">print</span>(final)</a></code></pre></div>
+<p>While the original code looked much like our Python,
+the evaluation trace is very different,
+and hinges on the fact that
+<em>an expression in a programming language can be represented as a data structure</em>.</p>
+<blockquote>
+<p><strong>What’s an Expression?</strong></p>
+<p>An expression is anything that has a value.
+The simplest expressions are literal values like the number 1,
+the string <code>&quot;stuff&quot;</code>, and the Boolean <code>TRUE</code>.
+A variable like <code>least</code> is also an expression:
+its value is whatever the variable currently refers to.</p>
+<p>Complex expressions are built out of simpler expressions:
+<code>1 + 2</code> is an expression that uses <code>+</code> to combine 1 and 2,
+while the expression <code>c(10, 20, 30)</code> uses the function <code>c</code>
+to create a vector out of the values 10, 20, 30.
+Expressions are often drawn as trees like this:</p>
+<pre><code>    +
+   / \
+  1   2</code></pre>
+<p>When Python (or R, or any other language) reads a program,
+it parses the text and builds trees like the one shown above
+to represent what the program is supposed to do.
+Processing that data structure to find its value
+is called <a href="glossary.html#evaluation">evaluating</a> the expression.</p>
+<p>Most modern languages allow us to build trees ourselves,
+either by concatenating strings to create program text
+and then asking the language to parse the result:</p>
+<pre><code>left &lt;- &#39;1&#39;
+right &lt;- &#39;2&#39;
+op &lt;- &#39;+&#39;
+combined &lt;- paste(left, op, right)
+tree &lt;- parse(text = combined)</code></pre>
+<p>or by calling functions.
+The function-based approach is safer and more flexible;
+see <span class="citation">Wickham (<a href="#ref-Wick2019">2019</a>)</span> for details.</p>
+</blockquote>
+<p>Step 1: we assign “start” to <code>initial</code> in the <a href="glossary.html#global-environment">global environment</a>:</p>
+<div class="figure"><span id="fig:r-step-1"></span>
+<img src="figures/nse/r-step-01.svg" alt="R Step 1"  />
+<p class="caption">
+Figure 6.9: R Step 1
+</p>
+</div>
+<p>Step 2: we ask R to call <code>tens_func(initial + &quot;more&quot;)</code>,
+so it creates a <a href="glossary.html#promise">promise</a> to hold:</p>
+<ul>
+<li>the <a href="glossary.html#environment">environment</a> we’re in (which I’m surrounding with <code>@</code>),</li>
+<li>the expression we’re passing to the function, and</li>
+<li>the value of that expression (which I’m showing as <code>____</code>, since it’s initially empty).</li>
+</ul>
+<div class="figure"><span id="fig:r-step-2"></span>
+<img src="figures/nse/r-step-02.svg" alt="R Step 2"  />
+<p class="caption">
+Figure 6.10: R Step 2
+</p>
+</div>
+<p>and in Step 3,
+passes that into <code>tens_func</code>:</p>
+<div class="figure"><span id="fig:r-step-3"></span>
+<img src="figures/nse/r-step-03.svg" alt="R Step 3"  />
+<p class="caption">
+Figure 6.11: R Step 3
+</p>
+</div>
+<p>Crucially,
+the promise in <code>tens_func</code> remembers that it was created in the <a href="glossary.html#global-environment">global environment</a>:
+it will eventually need a value for <code>initial</code>,
+so it needs to know where to look to find the right one.</p>
+<p>Step 4: since the very next thing we ask for is <code>paste(tens_arg, &quot;tens&quot;)</code>,
+R needs a value for <code>tens_arg</code>.
+To get it,
+R evaluates the promise that <code>tens_arg</code> refers to:</p>
+<div class="figure">
+<img src="figures/nse/r-step-04.svg" alt="R Step 4"  />
+<p class="caption">
+(#fig:r-step-4 )R Step 4
+</p>
+</div>
+<p>This evaluation happens <em>after</em> <code>tens_func</code> has been called,
+not before as in Python,
+which is why this scheme is called “lazy” evaluation.
+Once a promise has been resolved,
+R uses its value,
+and that value never changes.</p>
+<p>Steps 5:
+<code>tens_func</code> wants to call <code>ones_func</code>,
+so R creates another promise to record what’s being passed into <code>ones_func</code>:</p>
+<div class="figure"><span id="fig:r-step-5"></span>
+<img src="figures/nse/r-step-05.svg" alt="R Step 5"  />
+<p class="caption">
+Figure 6.12: R Step 5
+</p>
+</div>
+<p>Step 6:
+R calls <code>ones_func</code>,
+binding the newly-created promise to <code>ones_arg</code> as it does so:</p>
+<div class="figure"><span id="fig:r-step-6"></span>
+<img src="figures/nse/r-step-06.svg" alt="R Step 6"  />
+<p class="caption">
+Figure 6.13: R Step 6
+</p>
+</div>
+<p>Step 7:
+R needs a value for <code>ones_arg</code> to pass to <code>paste</code>,
+so it resolves the promise:</p>
+<div class="figure"><span id="fig:r-step-7"></span>
+<img src="figures/nse/r-step-07.svg" alt="R Step 7"  />
+<p class="caption">
+Figure 6.14: R Step 7
+</p>
+</div>
+<p>Step 8: <code>ones_func</code> uses <code>paste</code> to concatenate strings:</p>
+<div class="figure"><span id="fig:r-step-8"></span>
+<img src="figures/nse/r-step-08.svg" alt="R Step 8"  />
+<p class="caption">
+Figure 6.15: R Step 8
+</p>
+</div>
+<p>Step 9: <code>ones_func</code> returns:</p>
+<div class="figure"><span id="fig:r-step-9"></span>
+<img src="figures/nse/r-step-09.svg" alt="R Step 9"  />
+<p class="caption">
+Figure 6.16: R Step 9
+</p>
+</div>
+<p>Step 10: <code>tens_func</code> returns:</p>
+<div class="figure"><span id="fig:r-step-10"></span>
+<img src="figures/nse/r-step-10.svg" alt="R Step 10"  />
+<p class="caption">
+Figure 6.17: R Step 10
+</p>
+</div>
+<p>We got the same answer as we did in Python,
+but in a significantly different way.
+Each time we passed something into a function,
+R created a promise to record what it was and where it came from,
+and then resolved the promise when the value was needed.
+R <em>always</em> does this—if we call:</p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb585-1" data-line-number="1"><span class="kw">sign</span>(<span class="dv">2</span>)</a></code></pre></div>
+<p>then behind the scenes,
+R is creating a promise and passing it to <code>sign</code>,
+where it is automatically resolved to get the number 2 when its value is needed.
+(If I wanted to be thorough,
+I would have shown the promises passed into <code>paste</code> at each stage of execution above.)</p>
+</div>
+<div id="why-is-lazy-evaluation-useful" class="section level2">
+<h2><span class="header-section-number">6.4</span> Why is lazy evaluation useful?</h2>
+<p>R’s lazy evaluation seems pointless
+if it always produces the same answer as Python’s eager evaluation,
+but it doesn’t have to.
+To see how powerful lazy evaluation can be,
+let’s create an expression of our own:</p>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb586-1" data-line-number="1">my_expr &lt;-<span class="st"> </span><span class="kw">expr</span>(red)</a></code></pre></div>
+<p>Displaying the value of <code>my_expr</code> isn’t very exciting:</p>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb587-1" data-line-number="1">my_expr</a></code></pre></div>
+<pre><code>red</code></pre>
+<p>but what kind of thing is it?</p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb589-1" data-line-number="1"><span class="kw">typeof</span>(my_expr)</a></code></pre></div>
+<pre><code>[1] &quot;symbol&quot;</code></pre>
+<p>A symbol is a kind of expression.
+It is not a string (though strings can be converted to symbols and symbols to strings)
+nor is it a value—not yet.
+If we try to get the value it refers to, R displays an error message:</p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb591-1" data-line-number="1"><span class="kw">eval</span>(my_expr)</a></code></pre></div>
+<pre><code>Error in eval(my_expr): object &#39;red&#39; not found</code></pre>
+<p>We haven’t created a variable called <code>red</code>,
+so R cannot evaluate an expression that asks for it.</p>
+<p>But what if we create such a variable now and then re-evaluate the expression?</p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb593-1" data-line-number="1">red &lt;-<span class="st"> &quot;this is red&quot;</span></a>
+<a class="sourceLine" id="cb593-2" data-line-number="2"><span class="kw">eval</span>(my_expr)</a></code></pre></div>
+<pre><code>[1] &quot;this is red&quot;</code></pre>
+<p>More usefully,
+what if we create something that has a value for <code>red</code>:</p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb595-1" data-line-number="1">color_data &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb595-2" data-line-number="2">  <span class="op">~</span>red, <span class="op">~</span>green,</a>
+<a class="sourceLine" id="cb595-3" data-line-number="3">     <span class="dv">1</span>,     <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb595-4" data-line-number="4">     <span class="dv">2</span>,     <span class="dv">20</span></a>
+<a class="sourceLine" id="cb595-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb595-6" data-line-number="6">color_data</a></code></pre></div>
+<pre><code># A tibble: 2 x 2
+    red green
+  &lt;dbl&gt; &lt;dbl&gt;
+1     1    10
+2     2    20</code></pre>
+<p>and then ask R to evaluate our expression in the <a href="glossary.html#context">context</a> of that tibble:</p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb597-1" data-line-number="1"><span class="kw">eval</span>(my_expr, color_data)</a></code></pre></div>
+<pre><code>[1] 1 2</code></pre>
+<p>When we do this,
+<code>eval</code> looks for definitions of variables in the data structure we’ve given it—in this case,
+the tibble <code>color_data</code>.
+Since that tibble has a column called <code>red</code>,
+<code>eval(my_expr, color_data)</code> gives us that column.</p>
+<p>This may not seem life-changing yet,
+but being able to pass expressions around
+and evaluate them in contexts of our choosing allows us to seem very clever indeed.
+For example,
+let’s create another expression:</p>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb599-1" data-line-number="1">add_red_green &lt;-<span class="st"> </span><span class="kw">expr</span>(red <span class="op">+</span><span class="st"> </span>green)</a>
+<a class="sourceLine" id="cb599-2" data-line-number="2"><span class="kw">typeof</span>(add_red_green)</a></code></pre></div>
+<pre><code>[1] &quot;language&quot;</code></pre>
+<p>The type of <code>add_red_green</code> is <code>language</code> rather than <code>symbol</code> because it contains more than just a single symbol,
+but it’s still an expression,
+so we can evaluate it in the context of our data frame:</p>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb601-1" data-line-number="1"><span class="kw">eval</span>(add_red_green, color_data)</a></code></pre></div>
+<pre><code>[1] 11 22</code></pre>
+<p>Still not convinced?
+Have a look at this function:</p>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb603-1" data-line-number="1">run_many_checks &lt;-<span class="st"> </span><span class="cf">function</span>(data, ...) {</a>
+<a class="sourceLine" id="cb603-2" data-line-number="2">  conditions &lt;-<span class="st"> </span><span class="kw">list</span>(...)</a>
+<a class="sourceLine" id="cb603-3" data-line-number="3">  checks &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;list&quot;</span>, <span class="kw">length</span>(conditions))</a>
+<a class="sourceLine" id="cb603-4" data-line-number="4">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(conditions)) {</a>
+<a class="sourceLine" id="cb603-5" data-line-number="5">    checks[[i]] &lt;-<span class="st"> </span><span class="kw">eval</span>(conditions[[i]], data)</a>
+<a class="sourceLine" id="cb603-6" data-line-number="6">  }</a>
+<a class="sourceLine" id="cb603-7" data-line-number="7">  checks</a>
+<a class="sourceLine" id="cb603-8" data-line-number="8">}</a></code></pre></div>
+<p><code>run_many_checks</code> takes a tibble and some logical expressions,
+evaluates each expression in turn,
+and returns a list of results:</p>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb604-1" data-line-number="1"><span class="kw">run_many_checks</span>(color_data, <span class="kw">expr</span>(<span class="dv">0</span> <span class="op">&lt;</span><span class="st"> </span>red), <span class="kw">expr</span>(red <span class="op">&lt;</span><span class="st"> </span>green))</a></code></pre></div>
+<pre><code>[[1]]
+[1] TRUE TRUE
+
+[[2]]
+[1] TRUE TRUE</code></pre>
+<p>We can take it one step further and simply report whether all the checks passed or not:</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" data-line-number="1">run_all_checks &lt;-<span class="st"> </span><span class="cf">function</span>(data, ...) {</a>
+<a class="sourceLine" id="cb606-2" data-line-number="2">  conditions &lt;-<span class="st"> </span><span class="kw">list</span>(...)</a>
+<a class="sourceLine" id="cb606-3" data-line-number="3">  checks &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;logical&quot;</span>, <span class="kw">length</span>(conditions))</a>
+<a class="sourceLine" id="cb606-4" data-line-number="4">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(conditions)) {</a>
+<a class="sourceLine" id="cb606-5" data-line-number="5">    checks[[i]] &lt;-<span class="st"> </span><span class="kw">all</span>(<span class="kw">eval</span>(conditions[[i]], data))</a>
+<a class="sourceLine" id="cb606-6" data-line-number="6">  }</a>
+<a class="sourceLine" id="cb606-7" data-line-number="7">  <span class="kw">all</span>(checks)</a>
+<a class="sourceLine" id="cb606-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb606-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb606-10" data-line-number="10"><span class="kw">run_all_checks</span>(color_data, <span class="kw">expr</span>(<span class="dv">0</span> <span class="op">&lt;</span><span class="st"> </span>red), <span class="kw">expr</span>(red <span class="op">&lt;</span><span class="st"> </span>green))</a></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>This is cool, but typing <code>expr(...)</code> over and over is kind of clumsy.
+It also seems superfluous,
+since we know that arguments aren’t evaluated before they’re passed into functions.
+Can we get rid of this and write something that does this?</p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" data-line-number="1"><span class="kw">run_all_checks</span>(color_data, <span class="dv">0</span> <span class="op">&lt;</span><span class="st"> </span>red, red <span class="op">&lt;</span><span class="st"> </span>green)</a></code></pre></div>
+<p>The answer is going to be “yes”,
+but it’s going to take a bit of work.</p>
+<blockquote>
+<p><strong>Square Brackets… Why’d It Have to Be Square Brackets?</strong></p>
+<p>Before we go there,
+a word (or code snippet) of warning.
+The first version of <code>run_many_checks</code> essentially did this:</p>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1">conditions &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">expr</span>(red <span class="op">&lt;</span><span class="st"> </span>green))</a>
+<a class="sourceLine" id="cb609-2" data-line-number="2"><span class="kw">eval</span>(conditions[<span class="dv">1</span>], color_data)</a></code></pre></div>
+<p>What I did wrong was use <code>[</code> instead of <code>[[</code>,
+which meant that <code>conditions[1]</code> was not an expression—it was a list containing a single expression.
+It turns out that evaluating a list containing an expression produces a list of expressions rather than an error,
+which is so helpful that it only took me an hour to figure out my mistake.</p>
+</blockquote>
+</div>
+<div id="what-is-tidy-evaluation" class="section level2">
+<h2><span class="header-section-number">6.5</span> What is tidy evaluation?</h2>
+<p>Our goal is to write something that looks like it belongs in the tidyverse.
+We want to be able to write this:</p>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb610-1" data-line-number="1"><span class="kw">check_all</span>(color_data, <span class="dv">0</span> <span class="op">&lt;</span><span class="st"> </span>red, red <span class="op">&lt;</span><span class="st"> </span>green)</a></code></pre></div>
+<p>without calling <code>expr</code> to quote our expressions explicitly.
+For simplicity’s sake,
+our first attempt only handles a single expression:</p>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb611-1" data-line-number="1">check_naive &lt;-<span class="st"> </span><span class="cf">function</span>(data, test) {</a>
+<a class="sourceLine" id="cb611-2" data-line-number="2">  <span class="kw">eval</span>(test, data)</a>
+<a class="sourceLine" id="cb611-3" data-line-number="3">}</a></code></pre></div>
+<p>When we try it, it fails:</p>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb612-1" data-line-number="1"><span class="kw">check_naive</span>(color_data, red <span class="op">!=</span><span class="st"> </span>green)</a></code></pre></div>
+<pre><code>Error in eval(test, data): object &#39;green&#39; not found</code></pre>
+<p>This actually makes sense:
+by the time we reach the call to <code>eval</code>,
+<code>test</code> refers to a promise that represents the value of <code>red != green</code> in the global environment.
+Promises are not expressions—each promise contains an expression,
+but it also contains an environment and a copy of the expression’s value (if it has ever been calculated).
+As a result,
+when R sees the call to <code>eval</code> inside <code>check_naive</code>
+it automatically tries to resolve the promise that contains <code>left != right</code>,
+and fails because there are no variables with those names in the global environment.</p>
+<p>So how can we get the expression out of the promise without triggering evaluation?
+One way is to use a function called <code>substitute</code>:</p>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb614-1" data-line-number="1">check_using_substitute &lt;-<span class="st"> </span><span class="cf">function</span>(data, test) {</a>
+<a class="sourceLine" id="cb614-2" data-line-number="2">  subst_test &lt;-<span class="st"> </span><span class="kw">substitute</span>(test)</a>
+<a class="sourceLine" id="cb614-3" data-line-number="3">  <span class="kw">eval</span>(subst_test, data)</a>
+<a class="sourceLine" id="cb614-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb614-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb614-6" data-line-number="6"><span class="kw">check_using_substitute</span>(color_data, red <span class="op">!=</span><span class="st"> </span>green)</a></code></pre></div>
+<pre><code>[1] TRUE TRUE</code></pre>
+<p>However,
+<code>substitute</code> is frowned upon because it does one thing when called interactively on the command line
+and something else when called inside a function.
+Instead,
+we can use a function called <code>enquo</code> from the rlang package.
+<code>enquo</code> returns an object called a <a href="glossary.html#quosure">quosure</a>
+that contains only an unevaluated expression and an environment:</p>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb616-1" data-line-number="1">check_using_enquo &lt;-<span class="st"> </span><span class="cf">function</span>(data, test) {</a>
+<a class="sourceLine" id="cb616-2" data-line-number="2">  q_test &lt;-<span class="st"> </span><span class="kw">enquo</span>(test)</a>
+<a class="sourceLine" id="cb616-3" data-line-number="3">  <span class="kw">eval</span>(q_test, data)</a>
+<a class="sourceLine" id="cb616-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb616-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb616-6" data-line-number="6"><span class="kw">check_using_enquo</span>(color_data, red <span class="op">!=</span><span class="st"> </span>green)</a></code></pre></div>
+<pre><code>&lt;quosure&gt;
+expr: ^red != green
+env:  global</code></pre>
+<p>Ah: a quosure is a structured object,
+so evaluating it just gives it back to us in the same way that evaluating <code>2</code> or <code>&quot;hello&quot;</code> would.
+What we want to <code>eval</code> is the expression inside the quosure,
+which we can get using <code>quo_get_expr</code>:</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb618-1" data-line-number="1">check_using_quo_get_expr &lt;-<span class="st"> </span><span class="cf">function</span>(data, test) {</a>
+<a class="sourceLine" id="cb618-2" data-line-number="2">  q_test &lt;-<span class="st"> </span><span class="kw">enquo</span>(test)</a>
+<a class="sourceLine" id="cb618-3" data-line-number="3">  <span class="kw">eval</span>(<span class="kw">quo_get_expr</span>(q_test), data)</a>
+<a class="sourceLine" id="cb618-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb618-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb618-6" data-line-number="6"><span class="kw">check_using_quo_get_expr</span>(<span class="kw">list</span>(<span class="dt">left =</span> <span class="dv">1</span>, <span class="dt">right =</span> <span class="dv">2</span>), left <span class="op">!=</span><span class="st"> </span>right)</a></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>Enquoting and evaluating expressions is done so often in the tidyverse
+that rlang provides a shortcut called <code>{{..}}</code>:</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb620-1" data-line-number="1">max_of_var &lt;-<span class="st"> </span><span class="cf">function</span>(data, the_var) {</a>
+<a class="sourceLine" id="cb620-2" data-line-number="2">  data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb620-3" data-line-number="3"><span class="st">    </span><span class="kw">group_by</span>({{ the_var }}) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb620-4" data-line-number="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">maximum =</span> <span class="kw">max</span>({{ the_var }}))</a>
+<a class="sourceLine" id="cb620-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb620-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb620-7" data-line-number="7"><span class="kw">max_of_var</span>(color_data, red)</a></code></pre></div>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code># A tibble: 2 x 2
+    red maximum
+  &lt;dbl&gt;   &lt;dbl&gt;
+1     1       1
+2     2       2</code></pre>
+<p>We can use this to write a function <code>run_two_checks</code> that runs two checks on some data:</p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb623-1" data-line-number="1">run_two_checks &lt;-<span class="st"> </span><span class="cf">function</span>(data, first_check, second_check) {</a>
+<a class="sourceLine" id="cb623-2" data-line-number="2">  first_result &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb623-3" data-line-number="3"><span class="st">    </span><span class="kw">transmute</span>(<span class="dt">temp =</span> {{ first_check }}) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb623-4" data-line-number="4"><span class="st">    </span><span class="kw">pull</span>(temp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb623-5" data-line-number="5"><span class="st">    </span><span class="kw">all</span>()</a>
+<a class="sourceLine" id="cb623-6" data-line-number="6">  second_result &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb623-7" data-line-number="7"><span class="st">    </span><span class="kw">transmute</span>(<span class="dt">temp =</span> {{ second_check }})<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb623-8" data-line-number="8"><span class="st">    </span><span class="kw">pull</span>(temp) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">all</span>()</a>
+<a class="sourceLine" id="cb623-9" data-line-number="9">  first_result <span class="op">&amp;&amp;</span><span class="st"> </span>second_result</a>
+<a class="sourceLine" id="cb623-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb623-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb623-12" data-line-number="12"><span class="kw">run_two_checks</span>(color_data, <span class="dv">0</span> <span class="op">&lt;</span><span class="st"> </span>red, red <span class="op">&lt;</span><span class="st"> </span>green)</a></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>That’s much easier to follow than a bunch of <code>enquo</code> and <code>eval</code> calls,
+but what if we want to handle an arbitrary number of checks?
+Our first attempt is this:</p>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb625-1" data-line-number="1">new_colors &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb625-2" data-line-number="2">  <span class="op">~</span>yellow, <span class="op">~</span>violet,</a>
+<a class="sourceLine" id="cb625-3" data-line-number="3">  <span class="dv">1</span>,       <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb625-4" data-line-number="4">  <span class="dv">2</span>,       <span class="dv">20</span></a>
+<a class="sourceLine" id="cb625-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb625-6" data-line-number="6">run_all_checks &lt;-<span class="st"> </span><span class="cf">function</span>(data, ...) {</a>
+<a class="sourceLine" id="cb625-7" data-line-number="7">  conditions &lt;-<span class="st"> </span><span class="kw">list</span>(...)</a>
+<a class="sourceLine" id="cb625-8" data-line-number="8">  result =<span class="st"> </span><span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb625-9" data-line-number="9">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(conditions)) {</a>
+<a class="sourceLine" id="cb625-10" data-line-number="10">    cond =<span class="st"> </span>conditions[[i]]</a>
+<a class="sourceLine" id="cb625-11" data-line-number="11">    result &lt;-<span class="st"> </span>result <span class="op">&amp;&amp;</span><span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">transmute</span>(<span class="dt">temp =</span> {{cond}}) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(temp) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">all</span>()</a>
+<a class="sourceLine" id="cb625-12" data-line-number="12">  }</a>
+<a class="sourceLine" id="cb625-13" data-line-number="13">  result</a>
+<a class="sourceLine" id="cb625-14" data-line-number="14">}</a>
+<a class="sourceLine" id="cb625-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb625-16" data-line-number="16"><span class="kw">run_all_checks</span>(new_colors, <span class="dv">0</span> <span class="op">&lt;</span><span class="st"> </span>yellow, violet <span class="op">&lt;</span><span class="st"> </span>yellow)</a></code></pre></div>
+<pre><code>Error in run_all_checks(new_colors, 0 &lt; yellow, violet &lt; yellow): object &#39;yellow&#39; not found</code></pre>
+<p>This code fails because the call to <code>list(...)</code> tries to evaluate the expressions in <code>...</code>
+when adding them to the list.
+What we need to use instead is <code>enquos</code>,
+which does what <code>enquo</code> does but on <code>...</code>:</p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb627-1" data-line-number="1">run_all_checks &lt;-<span class="st"> </span><span class="cf">function</span>(data, ...) {</a>
+<a class="sourceLine" id="cb627-2" data-line-number="2">  conditions &lt;-<span class="st"> </span><span class="kw">enquos</span>(...)</a>
+<a class="sourceLine" id="cb627-3" data-line-number="3">  result =<span class="st"> </span><span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb627-4" data-line-number="4">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(conditions)) {</a>
+<a class="sourceLine" id="cb627-5" data-line-number="5">    cond =<span class="st"> </span>conditions[[i]]</a>
+<a class="sourceLine" id="cb627-6" data-line-number="6">    result &lt;-<span class="st"> </span>result <span class="op">&amp;&amp;</span><span class="st"> </span>data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb627-7" data-line-number="7"><span class="st">      </span><span class="kw">transmute</span>(<span class="dt">temp =</span> {{ cond }}) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb627-8" data-line-number="8"><span class="st">      </span><span class="kw">pull</span>(temp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb627-9" data-line-number="9"><span class="st">      </span><span class="kw">all</span>()</a>
+<a class="sourceLine" id="cb627-10" data-line-number="10">  }</a>
+<a class="sourceLine" id="cb627-11" data-line-number="11">  result</a>
+<a class="sourceLine" id="cb627-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb627-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb627-14" data-line-number="14"><span class="kw">run_all_checks</span>(new_colors, <span class="dv">0</span> <span class="op">&lt;</span><span class="st"> </span>yellow, violet <span class="op">&lt;</span><span class="st"> </span>yellow)</a></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div id="what-if-i-truly-desire-to-venture-into-the-depths" class="section level2">
+<h2><span class="header-section-number">6.6</span> What if I truly desire to venture into the depths?</h2>
+<p>We will occasionally need to go one level deeper in tidy evaluation.
+Our first attempt (which only handles a single test) is going to fail on purpose
+to demonstrate a common mistake:</p>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb629-1" data-line-number="1">check_without_quoting_test &lt;-<span class="st"> </span><span class="cf">function</span>(data, test) {</a>
+<a class="sourceLine" id="cb629-2" data-line-number="2">  data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">transmute</span>(<span class="dt">result =</span> test) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(result) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">all</span>()</a>
+<a class="sourceLine" id="cb629-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb629-4" data-line-number="4"><span class="kw">check_without_quoting_test</span>(color_data, yellow <span class="op">&lt;</span><span class="st"> </span>violet)</a></code></pre></div>
+<pre><code>Error: Problem with `mutate()` input `result`.
+✖ object &#39;yellow&#39; not found
+ℹ Input `result` is `test`.</code></pre>
+<p>That failed because we’re not enquoting the test.
+Let’s modify it the code to enquote and then pass in the expression:</p>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb631-1" data-line-number="1">check_without_quoting_test &lt;-<span class="st"> </span><span class="cf">function</span>(data, test) {</a>
+<a class="sourceLine" id="cb631-2" data-line-number="2">  q_test &lt;-<span class="st"> </span><span class="kw">enquo</span>(test)</a>
+<a class="sourceLine" id="cb631-3" data-line-number="3">  x_test &lt;-<span class="st"> </span><span class="kw">quo_get_expr</span>(q_test)</a>
+<a class="sourceLine" id="cb631-4" data-line-number="4">  data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">transmute</span>(<span class="dt">result =</span> x_test) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(result) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">all</span>()</a>
+<a class="sourceLine" id="cb631-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb631-6" data-line-number="6"><span class="kw">check_without_quoting_test</span>(new_colors, yellow <span class="op">&lt;</span><span class="st"> </span>violet)</a></code></pre></div>
+<pre><code>Error: Problem with `mutate()` input `result`.
+✖ object &#39;yellow&#39; not found
+ℹ Input `result` is `x_test`.</code></pre>
+<p>Damn—we thought this one had a chance.
+The problem is that when we say <code>result = x_test</code>,
+what actually gets passed into <code>transmute</code> is a promise containing an expression.
+Somehow,
+we need to prevent R from doing that promise wrapping.</p>
+<p>This brings us to <code>enquo</code>’s partner <code>!!</code>,
+which we can use to <a href="glossary.html#splice">splice</a> the expression in a quosure into a function call.
+<code>!!</code> is pronounced “bang bang” or “oh hell”,
+depending on how your day is going.
+It only works in contexts like function calls where R is automatically quoting things for us,
+but if we use it then,
+it does exactly what we want:</p>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb633-1" data-line-number="1">check_using_bangbang &lt;-<span class="st"> </span><span class="cf">function</span>(data, test) {</a>
+<a class="sourceLine" id="cb633-2" data-line-number="2">  q_test &lt;-<span class="st"> </span><span class="kw">enquo</span>(test)</a>
+<a class="sourceLine" id="cb633-3" data-line-number="3">  data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">transmute</span>(<span class="dt">result =</span> <span class="op">!!</span>q_test) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(result) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">all</span>()</a>
+<a class="sourceLine" id="cb633-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb633-5" data-line-number="5"><span class="kw">check_using_bangbang</span>(new_colors, yellow <span class="op">&lt;</span><span class="st"> </span>violet)</a></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>We are almost in a state of grace.
+The two rules we must follow are:</p>
+<ol style="list-style-type: decimal">
+<li>Use <code>enquo</code> to enquote every argument that contains an unevaluated expression.</li>
+<li>Use <code>!!</code> when passing each of those arguments into a tidyverse function.</li>
+</ol>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb635-1" data-line-number="1">check_all &lt;-<span class="st"> </span><span class="cf">function</span>(data, ...) {</a>
+<a class="sourceLine" id="cb635-2" data-line-number="2">  tests &lt;-<span class="st"> </span><span class="kw">enquos</span>(...)</a>
+<a class="sourceLine" id="cb635-3" data-line-number="3">  result &lt;-<span class="st"> </span><span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb635-4" data-line-number="4">  <span class="cf">for</span> (t <span class="cf">in</span> tests) {</a>
+<a class="sourceLine" id="cb635-5" data-line-number="5">    result &lt;-<span class="st"> </span>result <span class="op">&amp;&amp;</span><span class="st"> </span>data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb635-6" data-line-number="6"><span class="st">      </span><span class="kw">transmute</span>(<span class="dt">result =</span> <span class="op">!!</span>t) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb635-7" data-line-number="7"><span class="st">      </span><span class="kw">pull</span>(result) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb635-8" data-line-number="8"><span class="st">      </span><span class="kw">all</span>()</a>
+<a class="sourceLine" id="cb635-9" data-line-number="9">  }</a>
+<a class="sourceLine" id="cb635-10" data-line-number="10">  result</a>
+<a class="sourceLine" id="cb635-11" data-line-number="11">}</a>
+<a class="sourceLine" id="cb635-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb635-13" data-line-number="13"><span class="kw">check_all</span>(new_colors, <span class="dv">0</span> <span class="op">&lt;</span><span class="st"> </span>yellow, yellow <span class="op">&lt;</span><span class="st"> </span>violet)</a></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>And just to make sure that it fails when it’s supposed to:</p>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb637-1" data-line-number="1"><span class="kw">check_all</span>(new_colors, yellow <span class="op">==</span><span class="st"> </span>violet)</a></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<p>Backing up a bit,
+<code>!!</code> works because there are
+<a href="https://tidyeval.tidyverse.org/getting-up-to-speed.html#whats-special-about-quoting-functions">two kinds of functions in R</a>:
+<a href="glossary.html#evaluating-function">evaluating functions</a> and
+<a href="glossary.html#quoting-function">quoting functions</a>.
+Evaluating functions take arguments as values—they’re what most of us are used to working with.
+Quoting functions, on the other hand, aren’t passed the values of expressions, but the expressions themselves.
+When we write <code>color_data$red</code>, the <code>$</code> function is being passed <code>color_data</code> and the quoted expression <code>red</code>.
+This is why we can’t use variables as field names with <code>$</code>:</p>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb639-1" data-line-number="1">the_string_red &lt;-<span class="st"> &quot;red&quot;</span></a>
+<a class="sourceLine" id="cb639-2" data-line-number="2">color_data<span class="op">$</span>the_string_red</a></code></pre></div>
+<pre><code>Warning: Unknown or uninitialised column: `the_string_red`.</code></pre>
+<pre><code>NULL</code></pre>
+<p>The square bracket operators <code>[</code> and <code>[[</code>, on the other hand,
+are evaluating functions,
+so we can give them a variable containing a column name and get either a single-column tibble:</p>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb642-1" data-line-number="1">color_data[the_string_red]     <span class="co"># single square brackets</span></a></code></pre></div>
+<pre><code># A tibble: 2 x 1
+    red
+  &lt;dbl&gt;
+1     1
+2     2</code></pre>
+<p>or a naked vector:</p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb644-1" data-line-number="1">color_data[[the_string_red]]   <span class="co"># double square brackets</span></a></code></pre></div>
+<pre><code>[1] 1 2</code></pre>
+</div>
+<div id="is-it-worth-it" class="section level2">
+<h2><span class="header-section-number">6.7</span> Is it worth it?</h2>
+<p>Delayed evaluation and quoting are confusing for two reasons:</p>
+<ol style="list-style-type: decimal">
+<li>They expose machinery that most programmers have never had to deal with before (and might not even have known existed).
+It’s rather like learning to drive an automatic transmission and then switching to a manual one—all of a sudden
+you have to worry about a gear shift and a clutch.</li>
+<li>R’s built-in tools don’t behave as consistently as they could,
+and the core functions provided by the tidverse as alternatives use variations on a small number of names:
+<code>quo</code>, <code>quote</code>, and <code>enquo</code> might all appear on the same page.</li>
+</ol>
+<p>That said,
+being able to pass column names to functions without wrapping them in strings is very useful,
+and many powerful tools (such as using formulas in models)
+rely on taking unevaluated expressions apart and rearranging them.
+If you would like to know more,
+or check that what you now think you understand is accurate,
+<a href="https://ijlyttle.shinyapps.io/tidyeval/">this tutorial</a> is a good next step.</p>
+</div>
+<div id="key-points-4" class="section level2">
+<h2><span class="header-section-number">6.8</span> Key Points</h2>
+<ul>
+<li>R uses lazy evaluation: expressions are evaluated when their values are needed, not before.</li>
+<li>Use <code>expr</code> to create an expression without evaluating it.</li>
+<li>Use <code>eval</code> to evaluate an expression in the context of some data.</li>
+<li>Use <code>enquo</code> to create a quosure containing an unevaluated expression and its environment.</li>
+<li>Use <code>quo_get_expr</code> to get the expression out of a quosure.</li>
+<li>Use <code>!!</code> to splice the expression in a quosure into a function call.</li>
+</ul>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Wick2019">
+<p>Wickham, Hadley. 2019. <em>Advanced R</em>. 2nd ed. Chapman; Hall/CRC.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="debt.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/nse.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/nse.Rmd",
+"text": null
+},
+"download": ["r4de.pdf", "r4de.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

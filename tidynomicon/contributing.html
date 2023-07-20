@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>D Contributing | The Tidynomicon</title>
+  <meta name="description" content="D Contributing | The Tidynomicon" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="D Contributing | The Tidynomicon" />
+  <meta property="og:type" content="book" />
+  
+  <meta name="github-repo" content="gvwilson/tidynomicon" />
+
+  
+  
+
+<meta name="author" content="Greg Wilson" />
+
+
+<meta name="date" content="2021-01-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="citation.html"/>
+<link rel="next" href="practice.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Tidynomicon</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#s:index-personas"><i class="fa fa-check"></i><b>1.1</b> Who are these lessons for?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#s:index-install"><i class="fa fa-check"></i><b>1.2</b> How do I get started?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Simple Beginnings</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#how-do-i-say-hello"><i class="fa fa-check"></i><b>2.2</b> How do I say hello?</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#how-do-i-add-numbers"><i class="fa fa-check"></i><b>2.3</b> How do I add numbers?</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#how-do-i-store-many-numbers-together"><i class="fa fa-check"></i><b>2.4</b> How do I store many numbers together?</a></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#how-do-i-index-a-vector"><i class="fa fa-check"></i><b>2.5</b> How do I index a vector?</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#how-do-i-create-new-vectors-from-old"><i class="fa fa-check"></i><b>2.6</b> How do I create new vectors from old?</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#how-else-does-r-represent-the-absence-of-data"><i class="fa fa-check"></i><b>2.7</b> How else does R represent the absence of data?</a></li>
+<li class="chapter" data-level="2.8" data-path="basics.html"><a href="basics.html#how-can-i-store-a-mix-of-different-types-of-objects"><i class="fa fa-check"></i><b>2.8</b> How can I store a mix of different types of objects?</a></li>
+<li class="chapter" data-level="2.9" data-path="basics.html"><a href="basics.html#what-is-the-difference-between-and"><i class="fa fa-check"></i><b>2.9</b> What is the difference between <code>[</code> and <code>[[</code>?</a></li>
+<li class="chapter" data-level="2.10" data-path="basics.html"><a href="basics.html#how-can-i-access-elements-by-name"><i class="fa fa-check"></i><b>2.10</b> How can I access elements by name?</a></li>
+<li class="chapter" data-level="2.11" data-path="basics.html"><a href="basics.html#how-can-i-create-and-index-a-matrix"><i class="fa fa-check"></i><b>2.11</b> How can I create and index a matrix?</a></li>
+<li class="chapter" data-level="2.12" data-path="basics.html"><a href="basics.html#how-do-i-choose-and-repeat-things"><i class="fa fa-check"></i><b>2.12</b> How do I choose and repeat things?</a></li>
+<li class="chapter" data-level="2.13" data-path="basics.html"><a href="basics.html#how-can-i-vectorize-loops-and-conditionals"><i class="fa fa-check"></i><b>2.13</b> How can I vectorize loops and conditionals?</a></li>
+<li class="chapter" data-level="2.14" data-path="basics.html"><a href="basics.html#how-can-i-express-a-range-of-values"><i class="fa fa-check"></i><b>2.14</b> How can I express a range of values?</a></li>
+<li class="chapter" data-level="2.15" data-path="basics.html"><a href="basics.html#how-can-i-use-a-vector-in-a-conditional-statement"><i class="fa fa-check"></i><b>2.15</b> How can I use a vector in a conditional statement?</a></li>
+<li class="chapter" data-level="2.16" data-path="basics.html"><a href="basics.html#how-do-i-create-and-call-functions"><i class="fa fa-check"></i><b>2.16</b> How do I create and call functions?</a></li>
+<li class="chapter" data-level="2.17" data-path="basics.html"><a href="basics.html#how-can-i-write-a-function-that-takes-variable-arguments"><i class="fa fa-check"></i><b>2.17</b> How can I write a function that takes variable arguments?</a></li>
+<li class="chapter" data-level="2.18" data-path="basics.html"><a href="basics.html#how-can-i-provide-default-values-for-arguments"><i class="fa fa-check"></i><b>2.18</b> How can I provide default values for arguments?</a></li>
+<li class="chapter" data-level="2.19" data-path="basics.html"><a href="basics.html#how-can-i-hide-the-value-that-r-returns"><i class="fa fa-check"></i><b>2.19</b> How can I hide the value that R returns?</a></li>
+<li class="chapter" data-level="2.20" data-path="basics.html"><a href="basics.html#how-can-i-assign-to-a-global-variable-from-inside-a-function"><i class="fa fa-check"></i><b>2.20</b> How can I assign to a global variable from inside a function?</a></li>
+<li class="chapter" data-level="2.21" data-path="basics.html"><a href="basics.html#key-points"><i class="fa fa-check"></i><b>2.21</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> The Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-read-data"><i class="fa fa-check"></i><b>3.2</b> How do I read data?</a></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-inspect-data"><i class="fa fa-check"></i><b>3.3</b> How do I inspect data?</a></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-index-rows-and-columns"><i class="fa fa-check"></i><b>3.4</b> How do I index rows and columns?</a></li>
+<li class="chapter" data-level="3.5" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-calculate-basic-statistics"><i class="fa fa-check"></i><b>3.5</b> How do I calculate basic statistics?</a></li>
+<li class="chapter" data-level="3.6" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-filter-data"><i class="fa fa-check"></i><b>3.6</b> How do I filter data?</a></li>
+<li class="chapter" data-level="3.7" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-write-tidy-code"><i class="fa fa-check"></i><b>3.7</b> How do I write tidy code?</a></li>
+<li class="chapter" data-level="3.8" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-model-my-data"><i class="fa fa-check"></i><b>3.8</b> How do I model my data?</a></li>
+<li class="chapter" data-level="3.9" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-create-a-plot"><i class="fa fa-check"></i><b>3.9</b> How do I create a plot?</a></li>
+<li class="chapter" data-level="3.10" data-path="tidyverse.html"><a href="tidyverse.html#do-i-need-more-practice-with-the-tidyverse"><i class="fa fa-check"></i><b>3.10</b> Do I need more practice with the tidyverse?</a></li>
+<li class="chapter" data-level="3.11" data-path="tidyverse.html"><a href="tidyverse.html#key-points-1"><i class="fa fa-check"></i><b>3.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> Creating Reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-create-and-preview-a-simple-page"><i class="fa fa-check"></i><b>4.2</b> How can I create and preview a simple page?</a></li>
+<li class="chapter" data-level="4.3" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-run-code-and-include-its-output-in-a-page"><i class="fa fa-check"></i><b>4.3</b> How can I run code and include its output in a page?</a></li>
+<li class="chapter" data-level="4.4" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-format-tables-in-a-page"><i class="fa fa-check"></i><b>4.4</b> How can I format tables in a page?</a></li>
+<li class="chapter" data-level="4.5" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-share-code-between-pages"><i class="fa fa-check"></i><b>4.5</b> How can I share code between pages?</a></li>
+<li class="chapter" data-level="4.6" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-parameterize-documents"><i class="fa fa-check"></i><b>4.6</b> How can I parameterize documents?</a></li>
+<li class="chapter" data-level="4.7" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-publish-pages-on-github"><i class="fa fa-check"></i><b>4.7</b> How can I publish pages on GitHub?</a></li>
+<li class="chapter" data-level="4.8" data-path="rmarkdown.html"><a href="rmarkdown.html#key-points-2"><i class="fa fa-check"></i><b>4.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>5</b> Creating Packages</a><ul>
+<li class="chapter" data-level="5.1" data-path="package.html"><a href="package.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="package.html"><a href="package.html#what-is-our-starting-point"><i class="fa fa-check"></i><b>5.2</b> What is our starting point?</a></li>
+<li class="chapter" data-level="5.3" data-path="package.html"><a href="package.html#how-do-i-convert-values-to-numbers"><i class="fa fa-check"></i><b>5.3</b> How do I convert values to numbers?</a></li>
+<li class="chapter" data-level="5.4" data-path="package.html"><a href="package.html#how-do-i-reorganize-the-columns"><i class="fa fa-check"></i><b>5.4</b> How do I reorganize the columns?</a></li>
+<li class="chapter" data-level="5.5" data-path="package.html"><a href="package.html#how-do-i-create-a-package"><i class="fa fa-check"></i><b>5.5</b> How do I create a package?</a></li>
+<li class="chapter" data-level="5.6" data-path="package.html"><a href="package.html#how-can-i-document-the-contents-of-a-package"><i class="fa fa-check"></i><b>5.6</b> How can I document the contents of a package?</a></li>
+<li class="chapter" data-level="5.7" data-path="package.html"><a href="package.html#how-can-my-package-import-what-it-needs"><i class="fa fa-check"></i><b>5.7</b> How can my package import what it needs?</a></li>
+<li class="chapter" data-level="5.8" data-path="package.html"><a href="package.html#how-can-i-add-data-to-a-package"><i class="fa fa-check"></i><b>5.8</b> How can I add data to a package?</a></li>
+<li class="chapter" data-level="5.9" data-path="package.html"><a href="package.html#key-points-3"><i class="fa fa-check"></i><b>5.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="nse.html"><a href="nse.html"><i class="fa fa-check"></i><b>6</b> Non-Standard Evaluation</a><ul>
+<li class="chapter" data-level="6.1" data-path="nse.html"><a href="nse.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="nse.html"><a href="nse.html#how-does-python-evaluate-function-calls"><i class="fa fa-check"></i><b>6.2</b> How does Python evaluate function calls?</a></li>
+<li class="chapter" data-level="6.3" data-path="nse.html"><a href="nse.html#how-does-r-evaluate-function-calls"><i class="fa fa-check"></i><b>6.3</b> How does R evaluate function calls?</a></li>
+<li class="chapter" data-level="6.4" data-path="nse.html"><a href="nse.html#why-is-lazy-evaluation-useful"><i class="fa fa-check"></i><b>6.4</b> Why is lazy evaluation useful?</a></li>
+<li class="chapter" data-level="6.5" data-path="nse.html"><a href="nse.html#what-is-tidy-evaluation"><i class="fa fa-check"></i><b>6.5</b> What is tidy evaluation?</a></li>
+<li class="chapter" data-level="6.6" data-path="nse.html"><a href="nse.html#what-if-i-truly-desire-to-venture-into-the-depths"><i class="fa fa-check"></i><b>6.6</b> What if I truly desire to venture into the depths?</a></li>
+<li class="chapter" data-level="6.7" data-path="nse.html"><a href="nse.html#is-it-worth-it"><i class="fa fa-check"></i><b>6.7</b> Is it worth it?</a></li>
+<li class="chapter" data-level="6.8" data-path="nse.html"><a href="nse.html#key-points-4"><i class="fa fa-check"></i><b>6.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="debt.html"><a href="debt.html"><i class="fa fa-check"></i><b>7</b> Intellectual Debt</a><ul>
+<li class="chapter" data-level="7.1" data-path="debt.html"><a href="debt.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="debt.html"><a href="debt.html#why-shouldnt-i-use-setwd"><i class="fa fa-check"></i><b>7.2</b> Why shouldn’t I use <code>setwd</code>?</a></li>
+<li class="chapter" data-level="7.3" data-path="debt.html"><a href="debt.html#what-the-hell-are-factors"><i class="fa fa-check"></i><b>7.3</b> What the hell are factors?</a></li>
+<li class="chapter" data-level="7.4" data-path="debt.html"><a href="debt.html#how-do-i-refer-to-various-arguments-in-a-pipeline"><i class="fa fa-check"></i><b>7.4</b> How do I refer to various arguments in a pipeline?</a></li>
+<li class="chapter" data-level="7.5" data-path="debt.html"><a href="debt.html#i-thought-you-said-that-r-encouraged-functional-programming"><i class="fa fa-check"></i><b>7.5</b> I thought you said that R encouraged functional programming?</a></li>
+<li class="chapter" data-level="7.6" data-path="debt.html"><a href="debt.html#how-does-r-give-the-appearance-of-immutable-data"><i class="fa fa-check"></i><b>7.6</b> How does R give the appearance of immutable data?</a></li>
+<li class="chapter" data-level="7.7" data-path="debt.html"><a href="debt.html#what-else-should-i-worry-about"><i class="fa fa-check"></i><b>7.7</b> What else should I worry about?</a></li>
+<li class="chapter" data-level="7.8" data-path="debt.html"><a href="debt.html#key-points-5"><i class="fa fa-check"></i><b>7.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="testerror.html"><a href="testerror.html"><i class="fa fa-check"></i><b>8</b> Testing and Error Handling</a><ul>
+<li class="chapter" data-level="8.1" data-path="testerror.html"><a href="testerror.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="testerror.html"><a href="testerror.html#how-does-r-handle-errors"><i class="fa fa-check"></i><b>8.2</b> How does R handle errors?</a></li>
+<li class="chapter" data-level="8.3" data-path="testerror.html"><a href="testerror.html#what-should-i-know-about-testing-in-general"><i class="fa fa-check"></i><b>8.3</b> What should I know about testing in general?</a></li>
+<li class="chapter" data-level="8.4" data-path="testerror.html"><a href="testerror.html#how-should-i-organize-my-tests"><i class="fa fa-check"></i><b>8.4</b> How should I organize my tests?</a></li>
+<li class="chapter" data-level="8.5" data-path="testerror.html"><a href="testerror.html#how-can-i-write-a-few-simple-tests"><i class="fa fa-check"></i><b>8.5</b> How can I write a few simple tests?</a></li>
+<li class="chapter" data-level="8.6" data-path="testerror.html"><a href="testerror.html#how-can-i-check-data-transformation"><i class="fa fa-check"></i><b>8.6</b> How can I check data transformation?</a></li>
+<li class="chapter" data-level="8.7" data-path="testerror.html"><a href="testerror.html#key-points-6"><i class="fa fa-check"></i><b>8.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>9</b> Advanced Topics</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced.html"><a href="advanced.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced.html"><a href="advanced.html#how-can-i-use-python-with-r"><i class="fa fa-check"></i><b>9.2</b> How can I use Python with R?</a></li>
+<li class="chapter" data-level="9.3" data-path="advanced.html"><a href="advanced.html#how-does-object-oriented-programming-work-in-r"><i class="fa fa-check"></i><b>9.3</b> How does object-oriented programming work in R?</a></li>
+<li class="chapter" data-level="9.4" data-path="advanced.html"><a href="advanced.html#how-can-i-write-web-applications-in-r"><i class="fa fa-check"></i><b>9.4</b> How can I write web applications in R?</a></li>
+<li class="chapter" data-level="9.5" data-path="advanced.html"><a href="advanced.html#how-can-i-work-with-relational-databases-in-r"><i class="fa fa-check"></i><b>9.5</b> How can I work with relational databases in R?</a></li>
+<li class="chapter" data-level="9.6" data-path="advanced.html"><a href="advanced.html#key-points-7"><i class="fa fa-check"></i><b>9.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>A</b> License</a></li>
+<li class="chapter" data-level="B" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>B</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="B.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>B.1</b> Our Standards</a></li>
+<li class="chapter" data-level="B.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-responsibilities"><i class="fa fa-check"></i><b>B.2</b> Our Responsibilities</a></li>
+<li class="chapter" data-level="B.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>B.3</b> Scope</a></li>
+<li class="chapter" data-level="B.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>B.4</b> Enforcement</a></li>
+<li class="chapter" data-level="B.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>B.5</b> Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="citation.html"><a href="citation.html"><i class="fa fa-check"></i><b>C</b> Citation</a></li>
+<li class="chapter" data-level="D" data-path="contributing.html"><a href="contributing.html"><i class="fa fa-check"></i><b>D</b> Contributing</a></li>
+<li class="chapter" data-level="E" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>E</b> Practice Problems</a><ul>
+<li class="chapter" data-level="E.1" data-path="practice.html"><a href="practice.html#do-i-need-even-more-practice"><i class="fa fa-check"></i><b>E.1</b> Do I need even more practice?</a></li>
+<li class="chapter" data-level="E.2" data-path="practice.html"><a href="practice.html#please-may-i-create-some-charts"><i class="fa fa-check"></i><b>E.2</b> Please may I create some charts?</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>F</b> Glossary</a></li>
+<li class="chapter" data-level="G" data-path="keypoints.html"><a href="keypoints.html"><i class="fa fa-check"></i><b>G</b> Key Points</a><ul>
+<li class="chapter" data-level="G.1" data-path="keypoints.html"><a href="keypoints.html#simple-beginnings"><i class="fa fa-check"></i><b>G.1</b> Simple Beginnings</a></li>
+<li class="chapter" data-level="G.2" data-path="keypoints.html"><a href="keypoints.html#the-tidyverse"><i class="fa fa-check"></i><b>G.2</b> The Tidyverse</a></li>
+<li class="chapter" data-level="G.3" data-path="keypoints.html"><a href="keypoints.html#creating-packages"><i class="fa fa-check"></i><b>G.3</b> Creating Packages</a></li>
+<li class="chapter" data-level="G.4" data-path="keypoints.html"><a href="keypoints.html#non-standard-evaluation"><i class="fa fa-check"></i><b>G.4</b> Non-Standard Evaluation</a></li>
+<li class="chapter" data-level="G.5" data-path="keypoints.html"><a href="keypoints.html#intellectual-debt"><i class="fa fa-check"></i><b>G.5</b> Intellectual Debt</a></li>
+<li class="chapter" data-level="G.6" data-path="keypoints.html"><a href="keypoints.html#testing-and-error-handling"><i class="fa fa-check"></i><b>G.6</b> Testing and Error Handling</a></li>
+<li class="chapter" data-level="G.7" data-path="keypoints.html"><a href="keypoints.html#advanced-topics"><i class="fa fa-check"></i><b>G.7</b> Advanced Topics</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Tidynomicon</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="contributing" class="section level1">
+<h1><span class="header-section-number">D</span> Contributing</h1>
+<p>Contributions of all kinds are welcome, from errata and minor improvements to
+entirely new sections and chapters: please <a href="mailto:%7B%7Bsite.email%7D%7D">email us</a> or submit an
+issue or pull request to <a href="%7B%7Bsite.repo%7D%7D">our GitHub repository</a>. Everyone whose
+work is incorporated will be acknowledged; please note that all contributors are
+required to abide by our Code of Conduct (<a href="#REF">s:conduct</a>).</p>
+<p>The <a href="https://jekyllrb.com/">Jekyll</a> template used in this tutorial can support multiple
+languages. All English content should go in the <code>_en</code> directory. (Please note
+that we use Simplified English rather than Traditional English, i.e., American
+rather than British spelling and grammar.) We encourage translations; if you
+would like to take this on, please <a href="mailto:%7B%7Bsite.email%7D%7D">email us</a>.</p>
+<p>If you wish to report errata or suggest improvements to wording, please include
+the chapter name in the first line of the body of your report (e.g., <code>Testing Data Analysis</code>).</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="citation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="practice.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/CONTRIBUTING.md",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/CONTRIBUTING.md",
+"text": null
+},
+"download": ["r4de.pdf", "r4de.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

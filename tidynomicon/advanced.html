@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Advanced Topics | The Tidynomicon</title>
+  <meta name="description" content="Chapter 9 Advanced Topics | The Tidynomicon" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Advanced Topics | The Tidynomicon" />
+  <meta property="og:type" content="book" />
+  
+  <meta name="github-repo" content="gvwilson/tidynomicon" />
+
+  
+  
+
+<meta name="author" content="Greg Wilson" />
+
+
+<meta name="date" content="2021-01-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="testerror.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Tidynomicon</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#s:index-personas"><i class="fa fa-check"></i><b>1.1</b> Who are these lessons for?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#s:index-install"><i class="fa fa-check"></i><b>1.2</b> How do I get started?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Simple Beginnings</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#how-do-i-say-hello"><i class="fa fa-check"></i><b>2.2</b> How do I say hello?</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#how-do-i-add-numbers"><i class="fa fa-check"></i><b>2.3</b> How do I add numbers?</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#how-do-i-store-many-numbers-together"><i class="fa fa-check"></i><b>2.4</b> How do I store many numbers together?</a></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#how-do-i-index-a-vector"><i class="fa fa-check"></i><b>2.5</b> How do I index a vector?</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#how-do-i-create-new-vectors-from-old"><i class="fa fa-check"></i><b>2.6</b> How do I create new vectors from old?</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#how-else-does-r-represent-the-absence-of-data"><i class="fa fa-check"></i><b>2.7</b> How else does R represent the absence of data?</a></li>
+<li class="chapter" data-level="2.8" data-path="basics.html"><a href="basics.html#how-can-i-store-a-mix-of-different-types-of-objects"><i class="fa fa-check"></i><b>2.8</b> How can I store a mix of different types of objects?</a></li>
+<li class="chapter" data-level="2.9" data-path="basics.html"><a href="basics.html#what-is-the-difference-between-and"><i class="fa fa-check"></i><b>2.9</b> What is the difference between <code>[</code> and <code>[[</code>?</a></li>
+<li class="chapter" data-level="2.10" data-path="basics.html"><a href="basics.html#how-can-i-access-elements-by-name"><i class="fa fa-check"></i><b>2.10</b> How can I access elements by name?</a></li>
+<li class="chapter" data-level="2.11" data-path="basics.html"><a href="basics.html#how-can-i-create-and-index-a-matrix"><i class="fa fa-check"></i><b>2.11</b> How can I create and index a matrix?</a></li>
+<li class="chapter" data-level="2.12" data-path="basics.html"><a href="basics.html#how-do-i-choose-and-repeat-things"><i class="fa fa-check"></i><b>2.12</b> How do I choose and repeat things?</a></li>
+<li class="chapter" data-level="2.13" data-path="basics.html"><a href="basics.html#how-can-i-vectorize-loops-and-conditionals"><i class="fa fa-check"></i><b>2.13</b> How can I vectorize loops and conditionals?</a></li>
+<li class="chapter" data-level="2.14" data-path="basics.html"><a href="basics.html#how-can-i-express-a-range-of-values"><i class="fa fa-check"></i><b>2.14</b> How can I express a range of values?</a></li>
+<li class="chapter" data-level="2.15" data-path="basics.html"><a href="basics.html#how-can-i-use-a-vector-in-a-conditional-statement"><i class="fa fa-check"></i><b>2.15</b> How can I use a vector in a conditional statement?</a></li>
+<li class="chapter" data-level="2.16" data-path="basics.html"><a href="basics.html#how-do-i-create-and-call-functions"><i class="fa fa-check"></i><b>2.16</b> How do I create and call functions?</a></li>
+<li class="chapter" data-level="2.17" data-path="basics.html"><a href="basics.html#how-can-i-write-a-function-that-takes-variable-arguments"><i class="fa fa-check"></i><b>2.17</b> How can I write a function that takes variable arguments?</a></li>
+<li class="chapter" data-level="2.18" data-path="basics.html"><a href="basics.html#how-can-i-provide-default-values-for-arguments"><i class="fa fa-check"></i><b>2.18</b> How can I provide default values for arguments?</a></li>
+<li class="chapter" data-level="2.19" data-path="basics.html"><a href="basics.html#how-can-i-hide-the-value-that-r-returns"><i class="fa fa-check"></i><b>2.19</b> How can I hide the value that R returns?</a></li>
+<li class="chapter" data-level="2.20" data-path="basics.html"><a href="basics.html#how-can-i-assign-to-a-global-variable-from-inside-a-function"><i class="fa fa-check"></i><b>2.20</b> How can I assign to a global variable from inside a function?</a></li>
+<li class="chapter" data-level="2.21" data-path="basics.html"><a href="basics.html#key-points"><i class="fa fa-check"></i><b>2.21</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> The Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-read-data"><i class="fa fa-check"></i><b>3.2</b> How do I read data?</a></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-inspect-data"><i class="fa fa-check"></i><b>3.3</b> How do I inspect data?</a></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-index-rows-and-columns"><i class="fa fa-check"></i><b>3.4</b> How do I index rows and columns?</a></li>
+<li class="chapter" data-level="3.5" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-calculate-basic-statistics"><i class="fa fa-check"></i><b>3.5</b> How do I calculate basic statistics?</a></li>
+<li class="chapter" data-level="3.6" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-filter-data"><i class="fa fa-check"></i><b>3.6</b> How do I filter data?</a></li>
+<li class="chapter" data-level="3.7" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-write-tidy-code"><i class="fa fa-check"></i><b>3.7</b> How do I write tidy code?</a></li>
+<li class="chapter" data-level="3.8" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-model-my-data"><i class="fa fa-check"></i><b>3.8</b> How do I model my data?</a></li>
+<li class="chapter" data-level="3.9" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-create-a-plot"><i class="fa fa-check"></i><b>3.9</b> How do I create a plot?</a></li>
+<li class="chapter" data-level="3.10" data-path="tidyverse.html"><a href="tidyverse.html#do-i-need-more-practice-with-the-tidyverse"><i class="fa fa-check"></i><b>3.10</b> Do I need more practice with the tidyverse?</a></li>
+<li class="chapter" data-level="3.11" data-path="tidyverse.html"><a href="tidyverse.html#key-points-1"><i class="fa fa-check"></i><b>3.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> Creating Reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-create-and-preview-a-simple-page"><i class="fa fa-check"></i><b>4.2</b> How can I create and preview a simple page?</a></li>
+<li class="chapter" data-level="4.3" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-run-code-and-include-its-output-in-a-page"><i class="fa fa-check"></i><b>4.3</b> How can I run code and include its output in a page?</a></li>
+<li class="chapter" data-level="4.4" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-format-tables-in-a-page"><i class="fa fa-check"></i><b>4.4</b> How can I format tables in a page?</a></li>
+<li class="chapter" data-level="4.5" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-share-code-between-pages"><i class="fa fa-check"></i><b>4.5</b> How can I share code between pages?</a></li>
+<li class="chapter" data-level="4.6" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-parameterize-documents"><i class="fa fa-check"></i><b>4.6</b> How can I parameterize documents?</a></li>
+<li class="chapter" data-level="4.7" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-publish-pages-on-github"><i class="fa fa-check"></i><b>4.7</b> How can I publish pages on GitHub?</a></li>
+<li class="chapter" data-level="4.8" data-path="rmarkdown.html"><a href="rmarkdown.html#key-points-2"><i class="fa fa-check"></i><b>4.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>5</b> Creating Packages</a><ul>
+<li class="chapter" data-level="5.1" data-path="package.html"><a href="package.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="package.html"><a href="package.html#what-is-our-starting-point"><i class="fa fa-check"></i><b>5.2</b> What is our starting point?</a></li>
+<li class="chapter" data-level="5.3" data-path="package.html"><a href="package.html#how-do-i-convert-values-to-numbers"><i class="fa fa-check"></i><b>5.3</b> How do I convert values to numbers?</a></li>
+<li class="chapter" data-level="5.4" data-path="package.html"><a href="package.html#how-do-i-reorganize-the-columns"><i class="fa fa-check"></i><b>5.4</b> How do I reorganize the columns?</a></li>
+<li class="chapter" data-level="5.5" data-path="package.html"><a href="package.html#how-do-i-create-a-package"><i class="fa fa-check"></i><b>5.5</b> How do I create a package?</a></li>
+<li class="chapter" data-level="5.6" data-path="package.html"><a href="package.html#how-can-i-document-the-contents-of-a-package"><i class="fa fa-check"></i><b>5.6</b> How can I document the contents of a package?</a></li>
+<li class="chapter" data-level="5.7" data-path="package.html"><a href="package.html#how-can-my-package-import-what-it-needs"><i class="fa fa-check"></i><b>5.7</b> How can my package import what it needs?</a></li>
+<li class="chapter" data-level="5.8" data-path="package.html"><a href="package.html#how-can-i-add-data-to-a-package"><i class="fa fa-check"></i><b>5.8</b> How can I add data to a package?</a></li>
+<li class="chapter" data-level="5.9" data-path="package.html"><a href="package.html#key-points-3"><i class="fa fa-check"></i><b>5.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="nse.html"><a href="nse.html"><i class="fa fa-check"></i><b>6</b> Non-Standard Evaluation</a><ul>
+<li class="chapter" data-level="6.1" data-path="nse.html"><a href="nse.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="nse.html"><a href="nse.html#how-does-python-evaluate-function-calls"><i class="fa fa-check"></i><b>6.2</b> How does Python evaluate function calls?</a></li>
+<li class="chapter" data-level="6.3" data-path="nse.html"><a href="nse.html#how-does-r-evaluate-function-calls"><i class="fa fa-check"></i><b>6.3</b> How does R evaluate function calls?</a></li>
+<li class="chapter" data-level="6.4" data-path="nse.html"><a href="nse.html#why-is-lazy-evaluation-useful"><i class="fa fa-check"></i><b>6.4</b> Why is lazy evaluation useful?</a></li>
+<li class="chapter" data-level="6.5" data-path="nse.html"><a href="nse.html#what-is-tidy-evaluation"><i class="fa fa-check"></i><b>6.5</b> What is tidy evaluation?</a></li>
+<li class="chapter" data-level="6.6" data-path="nse.html"><a href="nse.html#what-if-i-truly-desire-to-venture-into-the-depths"><i class="fa fa-check"></i><b>6.6</b> What if I truly desire to venture into the depths?</a></li>
+<li class="chapter" data-level="6.7" data-path="nse.html"><a href="nse.html#is-it-worth-it"><i class="fa fa-check"></i><b>6.7</b> Is it worth it?</a></li>
+<li class="chapter" data-level="6.8" data-path="nse.html"><a href="nse.html#key-points-4"><i class="fa fa-check"></i><b>6.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="debt.html"><a href="debt.html"><i class="fa fa-check"></i><b>7</b> Intellectual Debt</a><ul>
+<li class="chapter" data-level="7.1" data-path="debt.html"><a href="debt.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="debt.html"><a href="debt.html#why-shouldnt-i-use-setwd"><i class="fa fa-check"></i><b>7.2</b> Why shouldn’t I use <code>setwd</code>?</a></li>
+<li class="chapter" data-level="7.3" data-path="debt.html"><a href="debt.html#what-the-hell-are-factors"><i class="fa fa-check"></i><b>7.3</b> What the hell are factors?</a></li>
+<li class="chapter" data-level="7.4" data-path="debt.html"><a href="debt.html#how-do-i-refer-to-various-arguments-in-a-pipeline"><i class="fa fa-check"></i><b>7.4</b> How do I refer to various arguments in a pipeline?</a></li>
+<li class="chapter" data-level="7.5" data-path="debt.html"><a href="debt.html#i-thought-you-said-that-r-encouraged-functional-programming"><i class="fa fa-check"></i><b>7.5</b> I thought you said that R encouraged functional programming?</a></li>
+<li class="chapter" data-level="7.6" data-path="debt.html"><a href="debt.html#how-does-r-give-the-appearance-of-immutable-data"><i class="fa fa-check"></i><b>7.6</b> How does R give the appearance of immutable data?</a></li>
+<li class="chapter" data-level="7.7" data-path="debt.html"><a href="debt.html#what-else-should-i-worry-about"><i class="fa fa-check"></i><b>7.7</b> What else should I worry about?</a></li>
+<li class="chapter" data-level="7.8" data-path="debt.html"><a href="debt.html#key-points-5"><i class="fa fa-check"></i><b>7.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="testerror.html"><a href="testerror.html"><i class="fa fa-check"></i><b>8</b> Testing and Error Handling</a><ul>
+<li class="chapter" data-level="8.1" data-path="testerror.html"><a href="testerror.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="testerror.html"><a href="testerror.html#how-does-r-handle-errors"><i class="fa fa-check"></i><b>8.2</b> How does R handle errors?</a></li>
+<li class="chapter" data-level="8.3" data-path="testerror.html"><a href="testerror.html#what-should-i-know-about-testing-in-general"><i class="fa fa-check"></i><b>8.3</b> What should I know about testing in general?</a></li>
+<li class="chapter" data-level="8.4" data-path="testerror.html"><a href="testerror.html#how-should-i-organize-my-tests"><i class="fa fa-check"></i><b>8.4</b> How should I organize my tests?</a></li>
+<li class="chapter" data-level="8.5" data-path="testerror.html"><a href="testerror.html#how-can-i-write-a-few-simple-tests"><i class="fa fa-check"></i><b>8.5</b> How can I write a few simple tests?</a></li>
+<li class="chapter" data-level="8.6" data-path="testerror.html"><a href="testerror.html#how-can-i-check-data-transformation"><i class="fa fa-check"></i><b>8.6</b> How can I check data transformation?</a></li>
+<li class="chapter" data-level="8.7" data-path="testerror.html"><a href="testerror.html#key-points-6"><i class="fa fa-check"></i><b>8.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>9</b> Advanced Topics</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced.html"><a href="advanced.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced.html"><a href="advanced.html#how-can-i-use-python-with-r"><i class="fa fa-check"></i><b>9.2</b> How can I use Python with R?</a></li>
+<li class="chapter" data-level="9.3" data-path="advanced.html"><a href="advanced.html#how-does-object-oriented-programming-work-in-r"><i class="fa fa-check"></i><b>9.3</b> How does object-oriented programming work in R?</a></li>
+<li class="chapter" data-level="9.4" data-path="advanced.html"><a href="advanced.html#how-can-i-write-web-applications-in-r"><i class="fa fa-check"></i><b>9.4</b> How can I write web applications in R?</a></li>
+<li class="chapter" data-level="9.5" data-path="advanced.html"><a href="advanced.html#how-can-i-work-with-relational-databases-in-r"><i class="fa fa-check"></i><b>9.5</b> How can I work with relational databases in R?</a></li>
+<li class="chapter" data-level="9.6" data-path="advanced.html"><a href="advanced.html#key-points-7"><i class="fa fa-check"></i><b>9.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>A</b> License</a></li>
+<li class="chapter" data-level="B" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>B</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="B.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>B.1</b> Our Standards</a></li>
+<li class="chapter" data-level="B.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-responsibilities"><i class="fa fa-check"></i><b>B.2</b> Our Responsibilities</a></li>
+<li class="chapter" data-level="B.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>B.3</b> Scope</a></li>
+<li class="chapter" data-level="B.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>B.4</b> Enforcement</a></li>
+<li class="chapter" data-level="B.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>B.5</b> Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="citation.html"><a href="citation.html"><i class="fa fa-check"></i><b>C</b> Citation</a></li>
+<li class="chapter" data-level="D" data-path="contributing.html"><a href="contributing.html"><i class="fa fa-check"></i><b>D</b> Contributing</a></li>
+<li class="chapter" data-level="E" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>E</b> Practice Problems</a><ul>
+<li class="chapter" data-level="E.1" data-path="practice.html"><a href="practice.html#do-i-need-even-more-practice"><i class="fa fa-check"></i><b>E.1</b> Do I need even more practice?</a></li>
+<li class="chapter" data-level="E.2" data-path="practice.html"><a href="practice.html#please-may-i-create-some-charts"><i class="fa fa-check"></i><b>E.2</b> Please may I create some charts?</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>F</b> Glossary</a></li>
+<li class="chapter" data-level="G" data-path="keypoints.html"><a href="keypoints.html"><i class="fa fa-check"></i><b>G</b> Key Points</a><ul>
+<li class="chapter" data-level="G.1" data-path="keypoints.html"><a href="keypoints.html#simple-beginnings"><i class="fa fa-check"></i><b>G.1</b> Simple Beginnings</a></li>
+<li class="chapter" data-level="G.2" data-path="keypoints.html"><a href="keypoints.html#the-tidyverse"><i class="fa fa-check"></i><b>G.2</b> The Tidyverse</a></li>
+<li class="chapter" data-level="G.3" data-path="keypoints.html"><a href="keypoints.html#creating-packages"><i class="fa fa-check"></i><b>G.3</b> Creating Packages</a></li>
+<li class="chapter" data-level="G.4" data-path="keypoints.html"><a href="keypoints.html#non-standard-evaluation"><i class="fa fa-check"></i><b>G.4</b> Non-Standard Evaluation</a></li>
+<li class="chapter" data-level="G.5" data-path="keypoints.html"><a href="keypoints.html#intellectual-debt"><i class="fa fa-check"></i><b>G.5</b> Intellectual Debt</a></li>
+<li class="chapter" data-level="G.6" data-path="keypoints.html"><a href="keypoints.html#testing-and-error-handling"><i class="fa fa-check"></i><b>G.6</b> Testing and Error Handling</a></li>
+<li class="chapter" data-level="G.7" data-path="keypoints.html"><a href="keypoints.html#advanced-topics"><i class="fa fa-check"></i><b>G.7</b> Advanced Topics</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Tidynomicon</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="advanced" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Advanced Topics</h1>
+<p>We have covered a lot of material in the previous chapters,
+but have only scratched the surface of what R can do <del>to</del> for us.
+To wrap up,
+we will look briefly at a few of its more advanced capabilities.</p>
+<div id="learning-objectives-7" class="section level2">
+<h2><span class="header-section-number">9.1</span> Learning Objectives</h2>
+<ul>
+<li>Use <code>reticulate</code> to share data between R and Python.</li>
+<li>Use <code>reticulate</code> to call Python functions from R code and vice versa.</li>
+<li>Run Python scripts directly from R programs.</li>
+<li>Correctly identify the most commonly used object-oriented programming system in R.</li>
+<li>Explain what attributes R and correctly set and query objects’ attributes, class, and dimensions.</li>
+<li>Explain how to define a new method for a class.</li>
+<li>Describe and implement the three functions that should be written for any user-defined class.</li>
+<li>Query a relational database from R.</li>
+</ul>
+</div>
+<div id="how-can-i-use-python-with-r" class="section level2">
+<h2><span class="header-section-number">9.2</span> How can I use Python with R?</h2>
+<p>You can put Python code in R Markdown documents:</p>
+<div class="sourceCode" id="cb815"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb815-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Hello R&quot;</span>)</a></code></pre></div>
+<pre><code>Hello R</code></pre>
+<p>but how can those chunks interact with your R and vice versa?
+The answer is a package called <a href="https://rstudio.github.io/reticulate/">reticulate</a>
+that provides two-way communication between Python and R.
+To use it,
+run <code>install.packages(&quot;reticulate&quot;)</code>.
+By default,
+it uses the system-default Python:</p>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb817-1" data-line-number="1"><span class="kw">Sys.which</span>(<span class="st">&quot;python&quot;</span>)</a></code></pre></div>
+<pre><code>                 python 
+&quot;/anaconda3/bin/python&quot; </code></pre>
+<p>but you can configure it to use different versions,
+or to use <code>virtualenv</code> or a Conda environment—see <a href="https://rstudio.github.io/reticulate/articles/versions.html">the document</a> for details.</p>
+<blockquote>
+<p>If you want to run the Pythonic bits of code we present as well as the R,
+run <code>install.packages(&quot;reticulate&quot;)</code>
+and then set the <code>RETICULATE_PYTHON</code> environment variable
+to point at the version of Python you want to use
+<em>before</em> you launch RStudio.
+This is necessary because you may have a system-installed version somewhere like <code>/usr/bin/python</code>
+and a conda-managed version in <code>~/anaconda3/bin/python</code>.</p>
+</blockquote>
+<div class="figure"><span id="fig:xkcd"></span>
+<img src="figures/advanced/python-environment.png" alt="XKCD on Python Environments (from https://xkcd.com/1987/)" width="246" />
+<p class="caption">
+Figure 9.1: XKCD on Python Environments (from <a href="https://xkcd.com/1987/" class="uri">https://xkcd.com/1987/</a>)
+</p>
+</div>
+<div id="how-can-i-access-data-across-languages" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> How can I access data across languages?</h3>
+<p>The most common way to use reticulate is to do some calculations in Python and then use the results in R
+or vice versa.
+To show how this works,
+let’s read our infant HIV data into a Pandas data frame:</p>
+<div class="sourceCode" id="cb819"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb819-1" data-line-number="1"><span class="im">import</span> pandas</a>
+<a class="sourceLine" id="cb819-2" data-line-number="2">data <span class="op">=</span> pandas.read_csv(<span class="st">&#39;results/infant_hiv.csv&#39;</span>)</a>
+<a class="sourceLine" id="cb819-3" data-line-number="3"><span class="bu">print</span>(data.head())</a></code></pre></div>
+<pre><code>  country  year  estimate  hi  lo
+0     AFG  2009       NaN NaN NaN
+1     AFG  2010       NaN NaN NaN
+2     AFG  2011       NaN NaN NaN
+3     AFG  2012       NaN NaN NaN
+4     AFG  2013       NaN NaN NaN</code></pre>
+<p>All of our Python variables are available in our R session as part of the <code>py</code> object,
+so <code>py$data</code> is our data frame inside a chunk of R code:</p>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb821-1" data-line-number="1"><span class="kw">library</span>(reticulate)</a>
+<a class="sourceLine" id="cb821-2" data-line-number="2"><span class="kw">head</span>(py<span class="op">$</span>data)</a></code></pre></div>
+<pre><code>  country year estimate  hi  lo
+1     AFG 2009      NaN NaN NaN
+2     AFG 2010      NaN NaN NaN
+3     AFG 2011      NaN NaN NaN
+4     AFG 2012      NaN NaN NaN
+5     AFG 2013      NaN NaN NaN
+6     AFG 2014      NaN NaN NaN</code></pre>
+<p>reticulate handles type conversions automatically,
+though there are a few tricky cases:
+for example,
+the number <code>9</code> is a float in R,
+so if you want an integer in Python,
+you have to add the trailing <code>L</code> (for “long”) and write it <code>9L</code>.</p>
+<p>On the other hand,
+reticulate translates between 0-based and 1-based indexing.
+Suppose we create a character vector in R:</p>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb823-1" data-line-number="1">elements =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;hydrogen&#39;</span>, <span class="st">&#39;helium&#39;</span>, <span class="st">&#39;lithium&#39;</span>, <span class="st">&#39;beryllium&#39;</span>)</a></code></pre></div>
+<p>Hydrogen is in position 1 in R:</p>
+<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb824-1" data-line-number="1">elements[<span class="dv">1</span>]</a></code></pre></div>
+<pre><code>[1] &quot;hydrogen&quot;</code></pre>
+<p>but position 0 in Python:</p>
+<div class="sourceCode" id="cb826"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb826-1" data-line-number="1"><span class="bu">print</span>(r.elements[<span class="dv">0</span>])</a></code></pre></div>
+<pre><code>hydrogen</code></pre>
+<p>Note our use of the object <code>r</code> in our Python code:
+just <code>py$whatever</code> gives us access to Python objects in R,
+<code>r.whatever</code> gives us access to R objects in Python.</p>
+</div>
+<div id="how-can-i-call-functions-across-languages" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> How can I call functions across languages?</h3>
+<p>We don’t have to run Python code,
+store values in a variable,
+and then access that variable from R:
+we can call the Python directly (or vice versa).
+For example,
+we can use Python’s random number generator in R as follows:</p>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb828-1" data-line-number="1">pyrand &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;random&quot;</span>)</a>
+<a class="sourceLine" id="cb828-2" data-line-number="2">pyrand<span class="op">$</span><span class="kw">gauss</span>(<span class="dv">0</span>, <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>[1] 0.3290297</code></pre>
+<p>(There’s no reason to do this—R’s random number generator is just as strong—but it illustrates the point.)</p>
+<p>We can also source Python scripts.
+For example,
+suppose that <code>countries.py</code> contains this function:</p>
+<div class="sourceCode" id="cb830"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb830-1" data-line-number="1"><span class="co">#!/usr/bin/env python</span></a>
+<a class="sourceLine" id="cb830-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb830-3" data-line-number="3"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
+<a class="sourceLine" id="cb830-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb830-5" data-line-number="5"><span class="kw">def</span> get_countries(filename):</a>
+<a class="sourceLine" id="cb830-6" data-line-number="6">    data <span class="op">=</span> pd.read_csv(filename)</a>
+<a class="sourceLine" id="cb830-7" data-line-number="7">    <span class="cf">return</span> data.country.unique()</a></code></pre></div>
+<p>We can run that script using <code>source_python</code>:</p>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb831-1" data-line-number="1"><span class="kw">source_python</span>(<span class="st">&#39;countries.py&#39;</span>)</a></code></pre></div>
+<p>There is no output because all the script did was define a function.
+By default,
+that function and all other top-level variables defined in the script are now available in R:</p>
+<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb832-1" data-line-number="1"><span class="kw">get_countries</span>(<span class="st">&#39;results/infant_hiv.csv&#39;</span>)</a></code></pre></div>
+<pre><code>  [1] &quot;AFG&quot; &quot;AGO&quot; &quot;AIA&quot; &quot;ALB&quot; &quot;ARE&quot; &quot;ARG&quot; &quot;ARM&quot; &quot;ATG&quot; &quot;AUS&quot; &quot;AUT&quot; &quot;AZE&quot; &quot;BDI&quot;
+ [13] &quot;BEL&quot; &quot;BEN&quot; &quot;BFA&quot; &quot;BGD&quot; &quot;BGR&quot; &quot;BHR&quot; &quot;BHS&quot; &quot;BIH&quot; &quot;BLR&quot; &quot;BLZ&quot; &quot;BOL&quot; &quot;BRA&quot;
+ [25] &quot;BRB&quot; &quot;BRN&quot; &quot;BTN&quot; &quot;BWA&quot; &quot;CAF&quot; &quot;CAN&quot; &quot;CHE&quot; &quot;CHL&quot; &quot;CHN&quot; &quot;CIV&quot; &quot;CMR&quot; &quot;COD&quot;
+ [37] &quot;COG&quot; &quot;COK&quot; &quot;COL&quot; &quot;COM&quot; &quot;CPV&quot; &quot;CRI&quot; &quot;CUB&quot; &quot;CYP&quot; &quot;CZE&quot; &quot;DEU&quot; &quot;DJI&quot; &quot;DMA&quot;
+ [49] &quot;DNK&quot; &quot;DOM&quot; &quot;DZA&quot; &quot;ECU&quot; &quot;EGY&quot; &quot;ERI&quot; &quot;ESP&quot; &quot;EST&quot; &quot;ETH&quot; &quot;FIN&quot; &quot;FJI&quot; &quot;FRA&quot;
+ [61] &quot;FSM&quot; &quot;GAB&quot; &quot;GBR&quot; &quot;GEO&quot; &quot;GHA&quot; &quot;GIN&quot; &quot;GMB&quot; &quot;GNB&quot; &quot;GNQ&quot; &quot;GRC&quot; &quot;GRD&quot; &quot;GTM&quot;
+ [73] &quot;GUY&quot; &quot;HND&quot; &quot;HRV&quot; &quot;HTI&quot; &quot;HUN&quot; &quot;IDN&quot; &quot;IND&quot; &quot;IRL&quot; &quot;IRN&quot; &quot;IRQ&quot; &quot;ISL&quot; &quot;ISR&quot;
+ [85] &quot;ITA&quot; &quot;JAM&quot; &quot;JOR&quot; &quot;JPN&quot; &quot;KAZ&quot; &quot;KEN&quot; &quot;KGZ&quot; &quot;KHM&quot; &quot;KIR&quot; &quot;KNA&quot; &quot;KOR&quot; &quot;LAO&quot;
+ [97] &quot;LBN&quot; &quot;LBR&quot; &quot;LBY&quot; &quot;LCA&quot; &quot;LKA&quot; &quot;LSO&quot; &quot;LTU&quot; &quot;LUX&quot; &quot;LVA&quot; &quot;MAR&quot; &quot;MDA&quot; &quot;MDG&quot;
+[109] &quot;MDV&quot; &quot;MEX&quot; &quot;MHL&quot; &quot;MKD&quot; &quot;MLI&quot; &quot;MLT&quot; &quot;MMR&quot; &quot;MNE&quot; &quot;MNG&quot; &quot;MOZ&quot; &quot;MRT&quot; &quot;MUS&quot;
+[121] &quot;MWI&quot; &quot;MYS&quot; &quot;NAM&quot; &quot;NER&quot; &quot;NGA&quot; &quot;NIC&quot; &quot;NIU&quot; &quot;NLD&quot; &quot;NOR&quot; &quot;NPL&quot; &quot;NRU&quot; &quot;NZL&quot;
+[133] &quot;OMN&quot; &quot;PAK&quot; &quot;PAN&quot; &quot;PER&quot; &quot;PHL&quot; &quot;PLW&quot; &quot;PNG&quot; &quot;POL&quot; &quot;PRK&quot; &quot;PRT&quot; &quot;PRY&quot; &quot;PSE&quot;
+[145] &quot;ROU&quot; &quot;RUS&quot; &quot;RWA&quot; &quot;SAU&quot; &quot;SDN&quot; &quot;SEN&quot; &quot;SGP&quot; &quot;SLB&quot; &quot;SLE&quot; &quot;SLV&quot; &quot;SOM&quot; &quot;SRB&quot;
+[157] &quot;SSD&quot; &quot;STP&quot; &quot;SUR&quot; &quot;SVK&quot; &quot;SVN&quot; &quot;SWE&quot; &quot;SWZ&quot; &quot;SYC&quot; &quot;SYR&quot; &quot;TCD&quot; &quot;TGO&quot; &quot;THA&quot;
+[169] &quot;TJK&quot; &quot;TKM&quot; &quot;TLS&quot; &quot;TON&quot; &quot;TTO&quot; &quot;TUN&quot; &quot;TUR&quot; &quot;TUV&quot; &quot;TZA&quot; &quot;UGA&quot; &quot;UKR&quot; &quot;UNK&quot;
+[181] &quot;URY&quot; &quot;USA&quot; &quot;UZB&quot; &quot;VCT&quot; &quot;VEN&quot; &quot;VNM&quot; &quot;VUT&quot; &quot;WSM&quot; &quot;YEM&quot; &quot;ZAF&quot; &quot;ZMB&quot; &quot;ZWE&quot;</code></pre>
+<p>There is one small pothole in this.
+When the script is run,
+the special Python variable <code>__name__</code> is set to <code>'__main__'&quot;'</code>,
+i.e.,
+the script thinks it is being called from the command line.
+If it includes a conditional block to handle command-line arguments like this:</p>
+<div class="sourceCode" id="cb834"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb834-1" data-line-number="1"><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</a>
+<a class="sourceLine" id="cb834-2" data-line-number="2">    input_file, output_files <span class="op">=</span> sys.argv[<span class="dv">1</span>], sys.argv[<span class="dv">2</span>:]</a>
+<a class="sourceLine" id="cb834-3" data-line-number="3">    main(input_file, output_files)</a></code></pre></div>
+<p>then that block will be executed,
+but will fail because <code>sys.argv</code> won’t include anything.</p>
+</div>
+</div>
+<div id="how-does-object-oriented-programming-work-in-r" class="section level2">
+<h2><span class="header-section-number">9.3</span> How does object-oriented programming work in R?</h2>
+<p>Programmers spend a great deal of their time trying to create order out of chaos,
+and the rest of their time inventing new ways to create more chaos.
+Object-oriented programming serves both needs well:
+it allows good software designers to create marvels,
+and less conscientious or less experienced ones to manufacture horrors.</p>
+<p>R has not one, not two, but at least three different frameworks for object-oriented programming.
+By far the most widely used is <a href="glossary.html#S3">S3</a>
+(because it was first introduced with Version 3 of S,
+the language from which R is derived).
+Unlike the approaches used in Python and similarly pedestrian languages,
+S3 does not require users to define classes.
+Instead,
+they add <a href="glossary.html#attribute">attributes</a> to data,
+then write specialized versions of <a href="glossary.html#generic-function">generic functions</a>
+to process data identified by those attributes.
+Since attributes can be used in other ways as well,
+we will start by exploring them.</p>
+<div id="what-are-attributes" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> What are attributes?</h3>
+<p>Let’s begin by creating a matrix containing the first few hundreds:</p>
+<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb835-1" data-line-number="1">values &lt;-<span class="st"> </span><span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">9</span> <span class="co"># creates c(100, 200, ..., 900)</span></a>
+<a class="sourceLine" id="cb835-2" data-line-number="2">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(values, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb835-3" data-line-number="3">m</a></code></pre></div>
+<pre><code>     [,1] [,2] [,3]
+[1,]  100  400  700
+[2,]  200  500  800
+[3,]  300  600  900</code></pre>
+<p>Behind the scenes,
+R continues to store our nine values as a vector.
+However,
+it adds an attribute called <code>class</code> to the vector to identify it as a matrix:</p>
+<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb837-1" data-line-number="1"><span class="kw">class</span>(m)</a></code></pre></div>
+<pre><code>[1] &quot;matrix&quot;</code></pre>
+<p>and another attribute called <code>dim</code> to store its dimensions as a 2-element vector:</p>
+<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb839-1" data-line-number="1"><span class="kw">dim</span>(m)</a></code></pre></div>
+<pre><code>[1] 3 3</code></pre>
+<p>An object’s attributes are simply a set of name-value pairs.
+We can find out what attributes are present using <code>attributes</code> and show or set individual attributes using <code>attr</code>:</p>
+<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb841-1" data-line-number="1"><span class="kw">attr</span>(m, <span class="st">&quot;prospects&quot;</span>) &lt;-<span class="st"> &quot;dismal&quot;</span></a>
+<a class="sourceLine" id="cb841-2" data-line-number="2"><span class="kw">attributes</span>(m)</a></code></pre></div>
+<pre><code>$dim
+[1] 3 3
+
+$prospects
+[1] &quot;dismal&quot;</code></pre>
+<p>What are the type and attributes of a tibble?</p>
+<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb843-1" data-line-number="1">t &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb843-2" data-line-number="2">  <span class="op">~</span>a, <span class="op">~</span>b,</a>
+<a class="sourceLine" id="cb843-3" data-line-number="3">  <span class="dv">1</span>, <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb843-4" data-line-number="4">  <span class="dv">3</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb843-5" data-line-number="5"><span class="kw">typeof</span>(t)</a></code></pre></div>
+<pre><code>[1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb845-1" data-line-number="1"><span class="kw">attributes</span>(t)</a></code></pre></div>
+<pre><code>$names
+[1] &quot;a&quot; &quot;b&quot;
+
+$row.names
+[1] 1 2
+
+$class
+[1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<p>This tells us that a tibble is stored as a list (the first line of output),
+and that it has an attribute called <code>names</code> that stores the names of its columns,
+another called <code>row.names</code> that stores the names of its rows (a feature we should ignore),
+and three classes.
+These classes tell R what functions to search for when we are (for example)
+asking for the length of a tibble (which is the number of rows it contains):</p>
+<div class="sourceCode" id="cb847"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb847-1" data-line-number="1"><span class="kw">length</span>(t)</a></code></pre></div>
+<pre><code>[1] 2</code></pre>
+</div>
+<div id="how-are-classes-represented" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> How are classes represented?</h3>
+<p>To show how classes and generic functions work together,
+let’s customize the way that 2D coordinates are converted to strings.
+First,
+we create two coordinate vectors:</p>
+<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb849-1" data-line-number="1">first &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.7</span>)</a>
+<a class="sourceLine" id="cb849-2" data-line-number="2"><span class="kw">class</span>(first) &lt;-<span class="st"> &quot;two_d&quot;</span></a>
+<a class="sourceLine" id="cb849-3" data-line-number="3"><span class="kw">print</span>(first)</a></code></pre></div>
+<pre><code>[1] 0.5 0.7
+attr(,&quot;class&quot;)
+[1] &quot;two_d&quot;</code></pre>
+<div class="sourceCode" id="cb851"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb851-1" data-line-number="1">second &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.3</span>, <span class="fl">3.1</span>)</a>
+<a class="sourceLine" id="cb851-2" data-line-number="2"><span class="kw">class</span>(second) &lt;-<span class="st"> &quot;two_d&quot;</span></a>
+<a class="sourceLine" id="cb851-3" data-line-number="3"><span class="kw">print</span>(second)</a></code></pre></div>
+<pre><code>[1] 1.3 3.1
+attr(,&quot;class&quot;)
+[1] &quot;two_d&quot;</code></pre>
+<p>Separately, we define the behavior of <code>toString</code> for such objects:</p>
+<div class="sourceCode" id="cb853"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb853-1" data-line-number="1">toString.two_d &lt;-<span class="st"> </span><span class="cf">function</span>(obj){</a>
+<a class="sourceLine" id="cb853-2" data-line-number="2">  <span class="kw">paste0</span>(<span class="st">&quot;&lt;&quot;</span>, obj[<span class="dv">1</span>], <span class="st">&quot;, &quot;</span>, obj[<span class="dv">2</span>], <span class="st">&quot;&gt;&quot;</span>)</a>
+<a class="sourceLine" id="cb853-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb853-4" data-line-number="4"><span class="kw">toString</span>(first)</a></code></pre></div>
+<pre><code>[1] &quot;&lt;0.5, 0.7&gt;&quot;</code></pre>
+<div class="sourceCode" id="cb855"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb855-1" data-line-number="1"><span class="kw">toString</span>(second)</a></code></pre></div>
+<pre><code>[1] &quot;&lt;1.3, 3.1&gt;&quot;</code></pre>
+<p>S3’s protocol is simple:
+given a function F and an object of class C,
+S3 looks for a function named F.C.
+If it doesn’t find one,
+it looks at the object’s next class (assuming it has more than one);
+once its user-assigned classes are exhausted,
+it uses whatever function the system has defined for its base type (in this case, character vector).
+We can trace this process by importing the sloop package and calling <code>s3_dispatch</code>:</p>
+<div class="sourceCode" id="cb857"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb857-1" data-line-number="1"><span class="kw">library</span>(sloop)</a>
+<a class="sourceLine" id="cb857-2" data-line-number="2"><span class="kw">s3_dispatch</span>(<span class="kw">toString</span>(first))</a></code></pre></div>
+<pre><code>=&gt; toString.two_d
+ * toString.default</code></pre>
+<p>Compare this with calling <code>toString</code> on a plain old character vector:</p>
+<div class="sourceCode" id="cb859"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb859-1" data-line-number="1"><span class="kw">s3_dispatch</span>(<span class="kw">toString</span>(<span class="kw">c</span>(<span class="fl">7.1</span>, <span class="fl">7.2</span>)))</a></code></pre></div>
+<pre><code>   toString.double
+   toString.numeric
+=&gt; toString.default</code></pre>
+<p>The specialized functions associated with a generic function like <code>toString</code> are called <a href="glossary.html#method">methods</a>.
+Unlike languages that require methods to be defined all together as part of a class,
+S3 allows us to add methods when and as we see fit.
+But that doesn’t mean we should:
+minds confined to three dimensions of space and one of time are simply not capable of comprehending
+complex class hierarchies.
+Instead,
+we should always write three functions that work together for a class like <code>two_d</code>:</p>
+<ul>
+<li>A <a href="glossary.html#constructor">constructor</a> called <code>new_two_d</code>
+that creates objects of our class.</li>
+<li>An optional <a href="glossary.html#validator">validator</a> called <code>validate_two_d</code>
+that checks the consistency and correctness of an object’s values.</li>
+<li>An optional <a href="glossary.html#helper">helper</a>, simply called <code>two_d</code>,
+that most users will call to create and validate objects.</li>
+</ul>
+<p>The constructor’s first argument should always be the base object (in our case, the two-element vector).
+It should also have one argument for each attribute the object is to have, if any.
+Unlike matrices, our 2D points don’t have any extra arguments, so our constructor needs no extra arguments.
+Crucially,
+the constructor checks the type of its arguments to ensure that the object has at least some chance of being valid.</p>
+<div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb861-1" data-line-number="1">new_two_d &lt;-<span class="st"> </span><span class="cf">function</span>(coordinates){</a>
+<a class="sourceLine" id="cb861-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">is.numeric</span>(coordinates))</a>
+<a class="sourceLine" id="cb861-3" data-line-number="3">  <span class="kw">class</span>(coordinates) &lt;-<span class="st"> &quot;two_d&quot;</span></a>
+<a class="sourceLine" id="cb861-4" data-line-number="4">  coordinates</a>
+<a class="sourceLine" id="cb861-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb861-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb861-7" data-line-number="7">example &lt;-<span class="st"> </span><span class="kw">new_two_d</span>(<span class="kw">c</span>(<span class="fl">4.4</span>, <span class="fl">-2.2</span>))</a>
+<a class="sourceLine" id="cb861-8" data-line-number="8"><span class="kw">toString</span>(example)</a></code></pre></div>
+<pre><code>[1] &quot;&lt;4.4, -2.2&gt;&quot;</code></pre>
+<p>Validators are only needed when checks on data correctness and consistency are expensive.
+For example,
+if we were to define a class to represent sorted vectors,
+checking that each element is no less than its predecessor could take a long time for very long vectors.
+To illustrate this,
+we will check that we have exactly two coordinates;
+in real code,
+we would probably include this (inexpensive) check in the constructor.</p>
+<div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb863-1" data-line-number="1">validate_two_d &lt;-<span class="st"> </span><span class="cf">function</span>(coordinates) {</a>
+<a class="sourceLine" id="cb863-2" data-line-number="2">  <span class="kw">stopifnot</span>(<span class="kw">length</span>(coordinates) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb863-3" data-line-number="3">  <span class="kw">stopifnot</span>(<span class="kw">class</span>(coordinates) <span class="op">==</span><span class="st"> &quot;two_d&quot;</span>)</a>
+<a class="sourceLine" id="cb863-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb863-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb863-6" data-line-number="6"><span class="kw">validate_two_d</span>(example)    <span class="co"># should succeed silently</span></a>
+<a class="sourceLine" id="cb863-7" data-line-number="7"><span class="kw">validate_two_d</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))    <span class="co"># should fail</span></a></code></pre></div>
+<pre><code>Error in validate_two_d(c(1, 3)): class(coordinates) == &quot;two_d&quot; is not TRUE</code></pre>
+<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb865-1" data-line-number="1"><span class="kw">validate_two_d</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># should also fail</span></a></code></pre></div>
+<pre><code>Error in validate_two_d(c(2, 2, 2)): length(coordinates) == 2 is not TRUE</code></pre>
+<p>The third and final function in our trio provides a user-friendly way to construct objects of our new class.
+It should call the constructor and the validator (if one exists),
+but should also provide a richer set of defaults,
+better error messages,
+and so on.
+To illustrate this,
+we shall allow the user to provide either one argument (which must be a two-element vector)
+or two (which must each be numeric):</p>
+<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb867-1" data-line-number="1">two_d &lt;-<span class="st"> </span><span class="cf">function</span>(...){</a>
+<a class="sourceLine" id="cb867-2" data-line-number="2">  args &lt;-<span class="st"> </span><span class="kw">list</span>(...)</a>
+<a class="sourceLine" id="cb867-3" data-line-number="3">  <span class="cf">if</span> (<span class="kw">length</span>(args) <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb867-4" data-line-number="4">    args &lt;-<span class="st"> </span>args[[<span class="dv">1</span>]]    <span class="co"># extract original value</span></a>
+<a class="sourceLine" id="cb867-5" data-line-number="5">  }</a>
+<a class="sourceLine" id="cb867-6" data-line-number="6">  <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">length</span>(args) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) {</a>
+<a class="sourceLine" id="cb867-7" data-line-number="7">    args &lt;-<span class="st"> </span><span class="kw">unlist</span>(args) <span class="co"># convert list to vector</span></a>
+<a class="sourceLine" id="cb867-8" data-line-number="8">  }</a>
+<a class="sourceLine" id="cb867-9" data-line-number="9">  result &lt;-<span class="st"> </span><span class="kw">new_two_d</span>(args)</a>
+<a class="sourceLine" id="cb867-10" data-line-number="10">  <span class="kw">validate_two_d</span>(result)</a>
+<a class="sourceLine" id="cb867-11" data-line-number="11">  result</a>
+<a class="sourceLine" id="cb867-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb867-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb867-14" data-line-number="14">here &lt;-<span class="st"> </span><span class="kw">two_d</span>(<span class="fl">10.1</span>, <span class="fl">11.2</span>)</a>
+<a class="sourceLine" id="cb867-15" data-line-number="15"><span class="kw">toString</span>(here)</a></code></pre></div>
+<pre><code>[1] &quot;&lt;10.1, 11.2&gt;&quot;</code></pre>
+<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb869-1" data-line-number="1">there &lt;-<span class="st"> </span><span class="kw">two_d</span>(<span class="kw">c</span>(<span class="fl">15.6</span>, <span class="fl">16.7</span>))</a>
+<a class="sourceLine" id="cb869-2" data-line-number="2"><span class="kw">toString</span>(there)</a></code></pre></div>
+<pre><code>[1] &quot;&lt;15.6, 16.7&gt;&quot;</code></pre>
+</div>
+<div id="how-does-inheritance-work" class="section level3">
+<h3><span class="header-section-number">9.3.3</span> How does inheritance work?</h3>
+<p>We said above that an object can have more than one class,
+and that S3 searches the classes in order when it wants to find a method to call.
+Methods can also trigger invocation of other methods explicitly in order to supplement,
+rather than replace,
+the behavior of other classes.
+To show how this works,
+we shall look at that classic of object-oriented design: shapes.
+(The safe kind,
+of course,
+not those whose non-Euclidean angles have placed such intolerable stress on the minds of so many of our colleagues over the years.)
+We start by defining a <code>polygon</code> class:</p>
+<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb871-1" data-line-number="1">new_polygon &lt;-<span class="st"> </span><span class="cf">function</span>(coords, name) {</a>
+<a class="sourceLine" id="cb871-2" data-line-number="2">  points &lt;-<span class="st"> </span><span class="kw">map</span>(coords, two_d)</a>
+<a class="sourceLine" id="cb871-3" data-line-number="3">  <span class="kw">class</span>(points) &lt;-<span class="st"> &quot;polygon&quot;</span></a>
+<a class="sourceLine" id="cb871-4" data-line-number="4">  <span class="kw">attr</span>(points, <span class="st">&quot;name&quot;</span>) &lt;-<span class="st"> </span>name</a>
+<a class="sourceLine" id="cb871-5" data-line-number="5">  points</a>
+<a class="sourceLine" id="cb871-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb871-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb871-8" data-line-number="8">toString.polygon &lt;-<span class="st"> </span><span class="cf">function</span>(poly) {</a>
+<a class="sourceLine" id="cb871-9" data-line-number="9">  <span class="kw">paste0</span>(<span class="kw">attr</span>(poly, <span class="st">&quot;name&quot;</span>), <span class="st">&quot;: &quot;</span>, <span class="kw">paste0</span>(<span class="kw">map</span>(poly, toString), <span class="dt">collapse =</span> <span class="st">&quot;, &quot;</span>))</a>
+<a class="sourceLine" id="cb871-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb871-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb871-12" data-line-number="12">right &lt;-<span class="st"> </span><span class="kw">new_polygon</span>(<span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)), <span class="st">&quot;triangle&quot;</span>)</a>
+<a class="sourceLine" id="cb871-13" data-line-number="13"><span class="kw">toString</span>(right)</a></code></pre></div>
+<pre><code>[1] &quot;triangle: &lt;0, 0&gt;, &lt;1, 0&gt;, &lt;0, 1&gt;&quot;</code></pre>
+<p>Now we will add colored shapes:</p>
+<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb873-1" data-line-number="1">new_colored_polygon &lt;-<span class="st"> </span><span class="cf">function</span>(coords, name, color) {</a>
+<a class="sourceLine" id="cb873-2" data-line-number="2">  object &lt;-<span class="st"> </span><span class="kw">new_polygon</span>(coords, name)</a>
+<a class="sourceLine" id="cb873-3" data-line-number="3">  <span class="kw">attr</span>(object, <span class="st">&quot;color&quot;</span>) &lt;-<span class="st"> </span>color</a>
+<a class="sourceLine" id="cb873-4" data-line-number="4">  <span class="kw">class</span>(object) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;colored_polygon&quot;</span>, <span class="kw">class</span>(object))</a>
+<a class="sourceLine" id="cb873-5" data-line-number="5">  object</a>
+<a class="sourceLine" id="cb873-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb873-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb873-8" data-line-number="8">pinkish &lt;-<span class="st"> </span><span class="kw">new_colored_polygon</span>(<span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)), <span class="st">&quot;triangle&quot;</span>, <span class="st">&quot;roseate&quot;</span>)</a>
+<a class="sourceLine" id="cb873-9" data-line-number="9"><span class="kw">class</span>(pinkish)</a></code></pre></div>
+<pre><code>[1] &quot;colored_polygon&quot; &quot;polygon&quot;        </code></pre>
+<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb875-1" data-line-number="1"><span class="kw">toString</span>(pinkish)</a></code></pre></div>
+<pre><code>[1] &quot;triangle: &lt;0, 0&gt;, &lt;1, 0&gt;, &lt;1, 1&gt;&quot;</code></pre>
+<p>So far so good:
+since we have not defined a method to handle colored polygons specifically,
+we get the behavior for a regular polygon.
+Let’s add another method that supplements the behavior of the existing method:</p>
+<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb877-1" data-line-number="1">toString.colored_polygon &lt;-<span class="st"> </span><span class="cf">function</span>(poly) {</a>
+<a class="sourceLine" id="cb877-2" data-line-number="2">  <span class="kw">paste0</span>(<span class="kw">toString.polygon</span>(poly), <span class="st">&quot;+ color = &quot;</span>, <span class="kw">attr</span>(poly, <span class="st">&quot;color&quot;</span>))</a>
+<a class="sourceLine" id="cb877-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb877-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb877-5" data-line-number="5"><span class="kw">toString</span>(pinkish)</a></code></pre></div>
+<pre><code>[1] &quot;triangle: &lt;0, 0&gt;, &lt;1, 0&gt;, &lt;1, 1&gt;+ color = roseate&quot;</code></pre>
+<p>In practice,
+we will almost always place all of the methods associated with a class in the same file as its constructor, validator, and helper.
+The time has finally come for us to explore projects and packages.</p>
+</div>
+</div>
+<div id="how-can-i-write-web-applications-in-r" class="section level2">
+<h2><span class="header-section-number">9.4</span> How can I write web applications in R?</h2>
+<p>R has this awesome gnarly web programming framework called Shiny.
+It uses <del>sympathetic magic</del> <del>quantum entanglement</del> reactive variables
+to update the application’s interface when data changes.
+You should, like, totally check it out.</p>
+</div>
+<div id="how-can-i-work-with-relational-databases-in-r" class="section level2">
+<h2><span class="header-section-number">9.5</span> How can I work with relational databases in R?</h2>
+<p>Data frames and database tables go together as naturally as chocolate and the tears of our fallen foes.
+As in Python and other languages,
+there is a standard interface for connecting to and querying relational databases;
+each database is then supported by a package that implements that interface.
+This doesn’t completely hide the differences between databases—we must still worry about
+the quirks of various SQL dialects—but it does keep the R side of things simple.</p>
+<p>This tutorial uses the SQLite database and the RSQLite interface package.
+The former is included with the latter,
+so <code>install.packages(&quot;RSQLite&quot;)</code> will give you everything you need.
+We assume that you already speak enough SQL to get yourself into trouble;
+if you do not, <a href="https://swcarpentry.github.io/sql-novice-survey/">this tutorial</a> is a good place to start.</p>
+<div id="how-can-i-get-data-from-a-database" class="section level3">
+<h3><span class="header-section-number">9.5.1</span> How can I get data from a database?</h3>
+<p>Suppose we have a small database in <code>data/example.db</code>
+containing survey data salvaged from a series of doomed expeditions to the Antarctic in the 1920s and 1930s.
+The database contains four tables:</p>
+<p><strong>Person</strong>: people who took readings.</p>
+<table>
+<thead>
+<tr class="header">
+<th>person_id</th>
+<th>personal</th>
+<th>family</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dyer</td>
+<td>William</td>
+<td>Dyer</td>
+</tr>
+<tr class="even">
+<td>pb</td>
+<td>Frank</td>
+<td>Pabodie</td>
+</tr>
+<tr class="odd">
+<td>lake</td>
+<td>Anderson</td>
+<td>Lake</td>
+</tr>
+<tr class="even">
+<td>roe</td>
+<td>Valentina</td>
+<td>Roerich</td>
+</tr>
+<tr class="odd">
+<td>danforth</td>
+<td>Frank</td>
+<td>Danforth</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Site</strong>: locations where readings were taken.</p>
+<table>
+<thead>
+<tr class="header">
+<th>site_id</th>
+<th>lat</th>
+<th>long</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DR-1</td>
+<td>-49.85</td>
+<td>-128.57</td>
+</tr>
+<tr class="even">
+<td>DR-3</td>
+<td>-47.15</td>
+<td>-126.72</td>
+</tr>
+<tr class="odd">
+<td>MSK-4</td>
+<td>-48.87</td>
+<td>-123.4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Visited</strong>: when readings were taken at specific sites.</p>
+<table>
+<thead>
+<tr class="header">
+<th>visit_id</th>
+<th>site_id</th>
+<th>dated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>619</td>
+<td>DR-1</td>
+<td>1927-02-08</td>
+</tr>
+<tr class="even">
+<td>622</td>
+<td>DR-1</td>
+<td>1927-02-10</td>
+</tr>
+<tr class="odd">
+<td>734</td>
+<td>DR-3</td>
+<td>1930-01-07</td>
+</tr>
+<tr class="even">
+<td>735</td>
+<td>DR-3</td>
+<td>1930-01-12</td>
+</tr>
+<tr class="odd">
+<td>751</td>
+<td>DR-3</td>
+<td>1930-02-26</td>
+</tr>
+<tr class="even">
+<td>752</td>
+<td>DR-3</td>
+<td>-null-</td>
+</tr>
+<tr class="odd">
+<td>837</td>
+<td>MSK-4</td>
+<td>1932-01-14</td>
+</tr>
+<tr class="even">
+<td>844</td>
+<td>DR-1</td>
+<td>1932-03-22</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Measurements</strong>: the actual readings.</p>
+<table>
+<thead>
+<tr class="header">
+<th>visit_id</th>
+<th>visitor</th>
+<th>quantity</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>619</td>
+<td>dyer</td>
+<td>rad</td>
+<td>9.82</td>
+</tr>
+<tr class="even">
+<td>619</td>
+<td>dyer</td>
+<td>sal</td>
+<td>0.13</td>
+</tr>
+<tr class="odd">
+<td>622</td>
+<td>dyer</td>
+<td>rad</td>
+<td>7.8</td>
+</tr>
+<tr class="even">
+<td>622</td>
+<td>dyer</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr class="odd">
+<td>734</td>
+<td>pb</td>
+<td>rad</td>
+<td>8.41</td>
+</tr>
+<tr class="even">
+<td>734</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.05</td>
+</tr>
+<tr class="odd">
+<td>734</td>
+<td>pb</td>
+<td>temp</td>
+<td>-21.5</td>
+</tr>
+<tr class="even">
+<td>735</td>
+<td>pb</td>
+<td>rad</td>
+<td>7.22</td>
+</tr>
+<tr class="odd">
+<td>735</td>
+<td>-null-</td>
+<td>sal</td>
+<td>0.06</td>
+</tr>
+<tr class="even">
+<td>735</td>
+<td>-null-</td>
+<td>temp</td>
+<td>-26.0</td>
+</tr>
+<tr class="odd">
+<td>751</td>
+<td>pb</td>
+<td>rad</td>
+<td>4.35</td>
+</tr>
+<tr class="even">
+<td>751</td>
+<td>pb</td>
+<td>temp</td>
+<td>-18.5</td>
+</tr>
+<tr class="odd">
+<td>751</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.1</td>
+</tr>
+<tr class="even">
+<td>752</td>
+<td>lake</td>
+<td>rad</td>
+<td>2.19</td>
+</tr>
+<tr class="odd">
+<td>752</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.09</td>
+</tr>
+<tr class="even">
+<td>752</td>
+<td>lake</td>
+<td>temp</td>
+<td>-16.0</td>
+</tr>
+<tr class="odd">
+<td>752</td>
+<td>roe</td>
+<td>sal</td>
+<td>41.6</td>
+</tr>
+<tr class="even">
+<td>837</td>
+<td>lake</td>
+<td>rad</td>
+<td>1.46</td>
+</tr>
+<tr class="odd">
+<td>837</td>
+<td>lake</td>
+<td>sal</td>
+<td>0.21</td>
+</tr>
+<tr class="even">
+<td>837</td>
+<td>roe</td>
+<td>sal</td>
+<td>22.5</td>
+</tr>
+<tr class="odd">
+<td>844</td>
+<td>roe</td>
+<td>rad</td>
+<td>11.25</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s get the data about the people into a data frame:</p>
+<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb879-1" data-line-number="1"><span class="kw">library</span>(DBI)</a>
+<a class="sourceLine" id="cb879-2" data-line-number="2">db &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(RSQLite<span class="op">::</span><span class="kw">SQLite</span>(), here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;example.db&quot;</span>))</a>
+<a class="sourceLine" id="cb879-3" data-line-number="3"><span class="kw">dbGetQuery</span>(db, <span class="st">&quot;select * from Person;&quot;</span>)</a></code></pre></div>
+<pre><code>  person_id personal_name family_name
+1      dyer       William        Dyer
+2        pb         Frank     Pabodie
+3      lake      Anderson        Lake
+4       roe     Valentina     Roerich
+5  danforth         Frank    Danforth</code></pre>
+<p>That seems simple enough:
+the database connection is the first argument to <code>dbGetQuery</code>,
+the query itself is the second,
+and the result is a tibble whose column names correspond to the names of the fields in the database table.
+What if we want to parameterize our query?
+Inside the text of the query,
+we use <code>:name</code> as a placeholder for a query parameter,
+then pass a list of name-value pairs to specify what we actually want:</p>
+<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb881-1" data-line-number="1"><span class="kw">dbGetQuery</span>(db,</a>
+<a class="sourceLine" id="cb881-2" data-line-number="2">           <span class="st">&quot;select * from Measurements where quantity = :desired&quot;</span>,</a>
+<a class="sourceLine" id="cb881-3" data-line-number="3">           <span class="dt">params =</span> <span class="kw">list</span>(<span class="dt">desired =</span> <span class="st">&quot;rad&quot;</span>))</a></code></pre></div>
+<pre><code>  visit_id person_id quantity reading
+1      619      dyer      rad    9.82
+2      622      dyer      rad    7.80
+3      734        pb      rad    8.41
+4      735        pb      rad    7.22
+5      751        pb      rad    4.35
+6      752      lake      rad    2.19
+7      837      lake      rad    1.46
+8      844       roe      rad   11.25</code></pre>
+<p>Do <em>not</em> use <code>glue</code> or some other kind of string interpolation to construct database queries,
+as this can leave you open to <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL injection attacks</a>
+and other forms of digital damnation.</p>
+<p>If you expect a large set of results,
+it’s best to page through them:</p>
+<div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb883-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">dbSendQuery</span>(db, <span class="st">&quot;select * from Measurements limit 15;&quot;</span>)</a>
+<a class="sourceLine" id="cb883-2" data-line-number="2"><span class="cf">while</span> (<span class="op">!</span><span class="kw">dbHasCompleted</span>(results)) {</a>
+<a class="sourceLine" id="cb883-3" data-line-number="3">  chunk &lt;-<span class="st"> </span><span class="kw">dbFetch</span>(results, <span class="dt">n =</span> <span class="dv">3</span>) <span class="co"># artificially low for tutorial purposes</span></a>
+<a class="sourceLine" id="cb883-4" data-line-number="4">  <span class="kw">print</span>(chunk)</a>
+<a class="sourceLine" id="cb883-5" data-line-number="5">}</a></code></pre></div>
+<pre><code>  visit_id person_id quantity reading
+1      619      dyer      rad    9.82
+2      619      dyer      sal    0.13
+3      622      dyer      rad    7.80
+  visit_id person_id quantity reading
+1      622      dyer      sal    0.09
+2      734        pb      rad    8.41
+3      734      lake      sal    0.05
+  visit_id person_id quantity reading
+1      734        pb     temp  -21.50
+2      735        pb      rad    7.22
+3      735      &lt;NA&gt;      sal    0.06
+  visit_id person_id quantity reading
+1      735      &lt;NA&gt;     temp  -26.00
+2      751        pb      rad    4.35
+3      751        pb     temp  -18.50</code></pre>
+<pre><code>Warning in result_fetch(res@ptr, n = n): Column `reading`: mixed type, first
+seen values of type real, coercing other values of type string</code></pre>
+<pre><code>  visit_id person_id quantity reading
+1      751      lake      sal    0.00
+2      752      lake      rad    2.19
+3      752      lake      sal    0.09</code></pre>
+<div class="sourceCode" id="cb887"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb887-1" data-line-number="1"><span class="kw">dbClearResult</span>(results)</a></code></pre></div>
+</div>
+<div id="how-can-i-populate-databases-with-r" class="section level3">
+<h3><span class="header-section-number">9.5.2</span> How can I populate databases with R?</h3>
+<p>Data scientists spend most of their time reading data, but someone has to create it.
+RSQLite makes it easy to map a data frame directly to a database table;
+to show how it works,
+we will create an in-memory database:</p>
+<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb888-1" data-line-number="1">colors &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb888-2" data-line-number="2">  <span class="op">~</span>name, <span class="op">~</span>red, <span class="op">~</span>green, <span class="op">~</span>blue,</a>
+<a class="sourceLine" id="cb888-3" data-line-number="3">  <span class="st">&#39;black&#39;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb888-4" data-line-number="4">  <span class="st">&#39;yellow&#39;</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb888-5" data-line-number="5">  <span class="st">&#39;aqua&#39;</span>, <span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">255</span>,</a>
+<a class="sourceLine" id="cb888-6" data-line-number="6">  <span class="st">&#39;fuchsia&#39;</span>, <span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span></a>
+<a class="sourceLine" id="cb888-7" data-line-number="7">)</a>
+<a class="sourceLine" id="cb888-8" data-line-number="8">db &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(RSQLite<span class="op">::</span><span class="kw">SQLite</span>(), <span class="st">&#39;:memory:&#39;</span>)</a>
+<a class="sourceLine" id="cb888-9" data-line-number="9"><span class="kw">dbWriteTable</span>(db, <span class="st">&quot;colors&quot;</span>, colors)</a></code></pre></div>
+<p>Let’s see what the combination of R and SQLite has done with our data and the types thereof:</p>
+<div class="sourceCode" id="cb889"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb889-1" data-line-number="1"><span class="kw">dbGetQuery</span>(db, <span class="st">&quot;select * from colors;&quot;</span>)</a></code></pre></div>
+<pre><code>     name red green blue
+1   black   0     0    0
+2  yellow 255   255    0
+3    aqua   0   255  255
+4 fuchsia 255     0    0</code></pre>
+<p>Good: the types have been guessed correctly.</p>
+<p>But what about dates?</p>
+<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb891-1" data-line-number="1">appointments &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb891-2" data-line-number="2">  <span class="op">~</span>who, <span class="op">~</span>when,</a>
+<a class="sourceLine" id="cb891-3" data-line-number="3">  <span class="st">&#39;Dyer&#39;</span>, <span class="st">&#39;1927-03-01&#39;</span>,</a>
+<a class="sourceLine" id="cb891-4" data-line-number="4">  <span class="st">&#39;Peabody&#39;</span>, <span class="st">&#39;1927-05-05&#39;</span></a>
+<a class="sourceLine" id="cb891-5" data-line-number="5">) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">when =</span> lubridate<span class="op">::</span><span class="kw">as_date</span>(when))</a>
+<a class="sourceLine" id="cb891-6" data-line-number="6"><span class="kw">dbWriteTable</span>(db, <span class="st">&quot;appointments&quot;</span>, appointments)</a>
+<a class="sourceLine" id="cb891-7" data-line-number="7"><span class="kw">dbGetQuery</span>(db, <span class="st">&quot;select * from appointments;&quot;</span>)</a></code></pre></div>
+<pre><code>      who   when
+1    Dyer -15647
+2 Peabody -15582</code></pre>
+<p>What fresh hell is this?
+After considerable trial and error,
+we discover that our dates have been returned to us as
+the number of days since January 1, 1970:</p>
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb893-1" data-line-number="1"><span class="kw">dbExecute</span>(db,</a>
+<a class="sourceLine" id="cb893-2" data-line-number="2">           <span class="st">&quot;insert into appointments values(&#39;Testing&#39;, :the_date);&quot;</span>,</a>
+<a class="sourceLine" id="cb893-3" data-line-number="3">           <span class="dt">params =</span> <span class="kw">list</span>(<span class="dt">the_date =</span> lubridate<span class="op">::</span><span class="kw">as_date</span>(<span class="st">&#39;1971-01-01&#39;</span>)))</a></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb895-1" data-line-number="1"><span class="kw">dbGetQuery</span>(db, <span class="st">&quot;select * from appointments where who = &#39;Testing&#39;;&quot;</span>)</a></code></pre></div>
+<pre><code>      who when
+1 Testing  365</code></pre>
+<p>There is no point screaming:
+those who might pity you cannot hear,
+and those who can hear will definitely not pity you.</p>
+</div>
+</div>
+<div id="key-points-7" class="section level2">
+<h2><span class="header-section-number">9.6</span> Key Points</h2>
+<ul>
+<li>The <code>reticulate</code> library allows R programs to access data in Python programs and vice versa.</li>
+<li>Use <code>py.whatever</code> to access a top-level Python variable from R.</li>
+<li>Use <code>r.whatever</code> to access a top-level R definition from Python.</li>
+<li>R is always indexed from 1 (even in Python) and Python is always indexed from 0 (even in R).</li>
+<li>Numbers in R are floating point by default, so use a trailing ‘L’ to force a value to be an integer.</li>
+<li>A Python script run from an R session believes it is the main script, i.e., <code>__name__</code> is <code>'__main__'</code> inside the Python script.</li>
+<li>S3 is the most commonly used object-oriented programming system in R.</li>
+<li>Every object can store metadata about itself in attributes, which are set and queried with <code>attr</code>.</li>
+<li>The <code>dim</code> attribute stores the dimensions of a matrix (which is physically stored as a vector).</li>
+<li>The <code>class</code> attribute of an object defines its class or classes (it may have several character entries).</li>
+<li>When <code>F(X, ...)</code> is called, and <code>X</code> has class <code>C</code>, R looks for a function called <code>F.C</code> (the <code>.</code> is just a naming convention).</li>
+<li>If an object has multiple classes in its <code>class</code> attribute, R looks for a corresponding method for each in turn.</li>
+<li>Every user defined class <code>C</code> should have functions <code>new_C</code> (to create it), <code>validate_C</code> (to validate its integrity), and <code>C</code> (to create and validate).</li>
+<li>Use the <code>DBI</code> package to work with relational databases.</li>
+<li>Use <code>DBI::dbConnect(...)</code> with database-specific parameters to connect to a specific database.</li>
+<li>Use <code>dbGetQuery(connection, &quot;query&quot;)</code> to send an SQL query string to a database and get a data frame of results.</li>
+<li>Parameterize queries using <code>:name</code> as a placeholder in the query and <code>params = list(name = value)</code> as a third parameter to <code>dbGetQuery</code> to specify actual values.</li>
+<li>Use <code>dbFetch</code> in a <code>while</code> loop to page results.</li>
+<li>Use <code>dbWriteTable</code> to write an entire data frame to a table, and <code>dbExecute</code> to execute a single insertion statement.</li>
+<li>Dates… why did it have to be dates?</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="testerror.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/advanced.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/advanced.Rmd",
+"text": null
+},
+"download": ["r4de.pdf", "r4de.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

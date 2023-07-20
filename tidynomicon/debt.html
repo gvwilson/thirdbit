@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Intellectual Debt | The Tidynomicon</title>
+  <meta name="description" content="Chapter 7 Intellectual Debt | The Tidynomicon" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Intellectual Debt | The Tidynomicon" />
+  <meta property="og:type" content="book" />
+  
+  <meta name="github-repo" content="gvwilson/tidynomicon" />
+
+  
+  
+
+<meta name="author" content="Greg Wilson" />
+
+
+<meta name="date" content="2021-01-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="nse.html"/>
+<link rel="next" href="testerror.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Tidynomicon</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#s:index-personas"><i class="fa fa-check"></i><b>1.1</b> Who are these lessons for?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#s:index-install"><i class="fa fa-check"></i><b>1.2</b> How do I get started?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Simple Beginnings</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#how-do-i-say-hello"><i class="fa fa-check"></i><b>2.2</b> How do I say hello?</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#how-do-i-add-numbers"><i class="fa fa-check"></i><b>2.3</b> How do I add numbers?</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#how-do-i-store-many-numbers-together"><i class="fa fa-check"></i><b>2.4</b> How do I store many numbers together?</a></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#how-do-i-index-a-vector"><i class="fa fa-check"></i><b>2.5</b> How do I index a vector?</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#how-do-i-create-new-vectors-from-old"><i class="fa fa-check"></i><b>2.6</b> How do I create new vectors from old?</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#how-else-does-r-represent-the-absence-of-data"><i class="fa fa-check"></i><b>2.7</b> How else does R represent the absence of data?</a></li>
+<li class="chapter" data-level="2.8" data-path="basics.html"><a href="basics.html#how-can-i-store-a-mix-of-different-types-of-objects"><i class="fa fa-check"></i><b>2.8</b> How can I store a mix of different types of objects?</a></li>
+<li class="chapter" data-level="2.9" data-path="basics.html"><a href="basics.html#what-is-the-difference-between-and"><i class="fa fa-check"></i><b>2.9</b> What is the difference between <code>[</code> and <code>[[</code>?</a></li>
+<li class="chapter" data-level="2.10" data-path="basics.html"><a href="basics.html#how-can-i-access-elements-by-name"><i class="fa fa-check"></i><b>2.10</b> How can I access elements by name?</a></li>
+<li class="chapter" data-level="2.11" data-path="basics.html"><a href="basics.html#how-can-i-create-and-index-a-matrix"><i class="fa fa-check"></i><b>2.11</b> How can I create and index a matrix?</a></li>
+<li class="chapter" data-level="2.12" data-path="basics.html"><a href="basics.html#how-do-i-choose-and-repeat-things"><i class="fa fa-check"></i><b>2.12</b> How do I choose and repeat things?</a></li>
+<li class="chapter" data-level="2.13" data-path="basics.html"><a href="basics.html#how-can-i-vectorize-loops-and-conditionals"><i class="fa fa-check"></i><b>2.13</b> How can I vectorize loops and conditionals?</a></li>
+<li class="chapter" data-level="2.14" data-path="basics.html"><a href="basics.html#how-can-i-express-a-range-of-values"><i class="fa fa-check"></i><b>2.14</b> How can I express a range of values?</a></li>
+<li class="chapter" data-level="2.15" data-path="basics.html"><a href="basics.html#how-can-i-use-a-vector-in-a-conditional-statement"><i class="fa fa-check"></i><b>2.15</b> How can I use a vector in a conditional statement?</a></li>
+<li class="chapter" data-level="2.16" data-path="basics.html"><a href="basics.html#how-do-i-create-and-call-functions"><i class="fa fa-check"></i><b>2.16</b> How do I create and call functions?</a></li>
+<li class="chapter" data-level="2.17" data-path="basics.html"><a href="basics.html#how-can-i-write-a-function-that-takes-variable-arguments"><i class="fa fa-check"></i><b>2.17</b> How can I write a function that takes variable arguments?</a></li>
+<li class="chapter" data-level="2.18" data-path="basics.html"><a href="basics.html#how-can-i-provide-default-values-for-arguments"><i class="fa fa-check"></i><b>2.18</b> How can I provide default values for arguments?</a></li>
+<li class="chapter" data-level="2.19" data-path="basics.html"><a href="basics.html#how-can-i-hide-the-value-that-r-returns"><i class="fa fa-check"></i><b>2.19</b> How can I hide the value that R returns?</a></li>
+<li class="chapter" data-level="2.20" data-path="basics.html"><a href="basics.html#how-can-i-assign-to-a-global-variable-from-inside-a-function"><i class="fa fa-check"></i><b>2.20</b> How can I assign to a global variable from inside a function?</a></li>
+<li class="chapter" data-level="2.21" data-path="basics.html"><a href="basics.html#key-points"><i class="fa fa-check"></i><b>2.21</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> The Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-read-data"><i class="fa fa-check"></i><b>3.2</b> How do I read data?</a></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-inspect-data"><i class="fa fa-check"></i><b>3.3</b> How do I inspect data?</a></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-index-rows-and-columns"><i class="fa fa-check"></i><b>3.4</b> How do I index rows and columns?</a></li>
+<li class="chapter" data-level="3.5" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-calculate-basic-statistics"><i class="fa fa-check"></i><b>3.5</b> How do I calculate basic statistics?</a></li>
+<li class="chapter" data-level="3.6" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-filter-data"><i class="fa fa-check"></i><b>3.6</b> How do I filter data?</a></li>
+<li class="chapter" data-level="3.7" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-write-tidy-code"><i class="fa fa-check"></i><b>3.7</b> How do I write tidy code?</a></li>
+<li class="chapter" data-level="3.8" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-model-my-data"><i class="fa fa-check"></i><b>3.8</b> How do I model my data?</a></li>
+<li class="chapter" data-level="3.9" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-create-a-plot"><i class="fa fa-check"></i><b>3.9</b> How do I create a plot?</a></li>
+<li class="chapter" data-level="3.10" data-path="tidyverse.html"><a href="tidyverse.html#do-i-need-more-practice-with-the-tidyverse"><i class="fa fa-check"></i><b>3.10</b> Do I need more practice with the tidyverse?</a></li>
+<li class="chapter" data-level="3.11" data-path="tidyverse.html"><a href="tidyverse.html#key-points-1"><i class="fa fa-check"></i><b>3.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> Creating Reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-create-and-preview-a-simple-page"><i class="fa fa-check"></i><b>4.2</b> How can I create and preview a simple page?</a></li>
+<li class="chapter" data-level="4.3" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-run-code-and-include-its-output-in-a-page"><i class="fa fa-check"></i><b>4.3</b> How can I run code and include its output in a page?</a></li>
+<li class="chapter" data-level="4.4" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-format-tables-in-a-page"><i class="fa fa-check"></i><b>4.4</b> How can I format tables in a page?</a></li>
+<li class="chapter" data-level="4.5" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-share-code-between-pages"><i class="fa fa-check"></i><b>4.5</b> How can I share code between pages?</a></li>
+<li class="chapter" data-level="4.6" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-parameterize-documents"><i class="fa fa-check"></i><b>4.6</b> How can I parameterize documents?</a></li>
+<li class="chapter" data-level="4.7" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-publish-pages-on-github"><i class="fa fa-check"></i><b>4.7</b> How can I publish pages on GitHub?</a></li>
+<li class="chapter" data-level="4.8" data-path="rmarkdown.html"><a href="rmarkdown.html#key-points-2"><i class="fa fa-check"></i><b>4.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>5</b> Creating Packages</a><ul>
+<li class="chapter" data-level="5.1" data-path="package.html"><a href="package.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="package.html"><a href="package.html#what-is-our-starting-point"><i class="fa fa-check"></i><b>5.2</b> What is our starting point?</a></li>
+<li class="chapter" data-level="5.3" data-path="package.html"><a href="package.html#how-do-i-convert-values-to-numbers"><i class="fa fa-check"></i><b>5.3</b> How do I convert values to numbers?</a></li>
+<li class="chapter" data-level="5.4" data-path="package.html"><a href="package.html#how-do-i-reorganize-the-columns"><i class="fa fa-check"></i><b>5.4</b> How do I reorganize the columns?</a></li>
+<li class="chapter" data-level="5.5" data-path="package.html"><a href="package.html#how-do-i-create-a-package"><i class="fa fa-check"></i><b>5.5</b> How do I create a package?</a></li>
+<li class="chapter" data-level="5.6" data-path="package.html"><a href="package.html#how-can-i-document-the-contents-of-a-package"><i class="fa fa-check"></i><b>5.6</b> How can I document the contents of a package?</a></li>
+<li class="chapter" data-level="5.7" data-path="package.html"><a href="package.html#how-can-my-package-import-what-it-needs"><i class="fa fa-check"></i><b>5.7</b> How can my package import what it needs?</a></li>
+<li class="chapter" data-level="5.8" data-path="package.html"><a href="package.html#how-can-i-add-data-to-a-package"><i class="fa fa-check"></i><b>5.8</b> How can I add data to a package?</a></li>
+<li class="chapter" data-level="5.9" data-path="package.html"><a href="package.html#key-points-3"><i class="fa fa-check"></i><b>5.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="nse.html"><a href="nse.html"><i class="fa fa-check"></i><b>6</b> Non-Standard Evaluation</a><ul>
+<li class="chapter" data-level="6.1" data-path="nse.html"><a href="nse.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="nse.html"><a href="nse.html#how-does-python-evaluate-function-calls"><i class="fa fa-check"></i><b>6.2</b> How does Python evaluate function calls?</a></li>
+<li class="chapter" data-level="6.3" data-path="nse.html"><a href="nse.html#how-does-r-evaluate-function-calls"><i class="fa fa-check"></i><b>6.3</b> How does R evaluate function calls?</a></li>
+<li class="chapter" data-level="6.4" data-path="nse.html"><a href="nse.html#why-is-lazy-evaluation-useful"><i class="fa fa-check"></i><b>6.4</b> Why is lazy evaluation useful?</a></li>
+<li class="chapter" data-level="6.5" data-path="nse.html"><a href="nse.html#what-is-tidy-evaluation"><i class="fa fa-check"></i><b>6.5</b> What is tidy evaluation?</a></li>
+<li class="chapter" data-level="6.6" data-path="nse.html"><a href="nse.html#what-if-i-truly-desire-to-venture-into-the-depths"><i class="fa fa-check"></i><b>6.6</b> What if I truly desire to venture into the depths?</a></li>
+<li class="chapter" data-level="6.7" data-path="nse.html"><a href="nse.html#is-it-worth-it"><i class="fa fa-check"></i><b>6.7</b> Is it worth it?</a></li>
+<li class="chapter" data-level="6.8" data-path="nse.html"><a href="nse.html#key-points-4"><i class="fa fa-check"></i><b>6.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="debt.html"><a href="debt.html"><i class="fa fa-check"></i><b>7</b> Intellectual Debt</a><ul>
+<li class="chapter" data-level="7.1" data-path="debt.html"><a href="debt.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="debt.html"><a href="debt.html#why-shouldnt-i-use-setwd"><i class="fa fa-check"></i><b>7.2</b> Why shouldn’t I use <code>setwd</code>?</a></li>
+<li class="chapter" data-level="7.3" data-path="debt.html"><a href="debt.html#what-the-hell-are-factors"><i class="fa fa-check"></i><b>7.3</b> What the hell are factors?</a></li>
+<li class="chapter" data-level="7.4" data-path="debt.html"><a href="debt.html#how-do-i-refer-to-various-arguments-in-a-pipeline"><i class="fa fa-check"></i><b>7.4</b> How do I refer to various arguments in a pipeline?</a></li>
+<li class="chapter" data-level="7.5" data-path="debt.html"><a href="debt.html#i-thought-you-said-that-r-encouraged-functional-programming"><i class="fa fa-check"></i><b>7.5</b> I thought you said that R encouraged functional programming?</a></li>
+<li class="chapter" data-level="7.6" data-path="debt.html"><a href="debt.html#how-does-r-give-the-appearance-of-immutable-data"><i class="fa fa-check"></i><b>7.6</b> How does R give the appearance of immutable data?</a></li>
+<li class="chapter" data-level="7.7" data-path="debt.html"><a href="debt.html#what-else-should-i-worry-about"><i class="fa fa-check"></i><b>7.7</b> What else should I worry about?</a></li>
+<li class="chapter" data-level="7.8" data-path="debt.html"><a href="debt.html#key-points-5"><i class="fa fa-check"></i><b>7.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="testerror.html"><a href="testerror.html"><i class="fa fa-check"></i><b>8</b> Testing and Error Handling</a><ul>
+<li class="chapter" data-level="8.1" data-path="testerror.html"><a href="testerror.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="testerror.html"><a href="testerror.html#how-does-r-handle-errors"><i class="fa fa-check"></i><b>8.2</b> How does R handle errors?</a></li>
+<li class="chapter" data-level="8.3" data-path="testerror.html"><a href="testerror.html#what-should-i-know-about-testing-in-general"><i class="fa fa-check"></i><b>8.3</b> What should I know about testing in general?</a></li>
+<li class="chapter" data-level="8.4" data-path="testerror.html"><a href="testerror.html#how-should-i-organize-my-tests"><i class="fa fa-check"></i><b>8.4</b> How should I organize my tests?</a></li>
+<li class="chapter" data-level="8.5" data-path="testerror.html"><a href="testerror.html#how-can-i-write-a-few-simple-tests"><i class="fa fa-check"></i><b>8.5</b> How can I write a few simple tests?</a></li>
+<li class="chapter" data-level="8.6" data-path="testerror.html"><a href="testerror.html#how-can-i-check-data-transformation"><i class="fa fa-check"></i><b>8.6</b> How can I check data transformation?</a></li>
+<li class="chapter" data-level="8.7" data-path="testerror.html"><a href="testerror.html#key-points-6"><i class="fa fa-check"></i><b>8.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>9</b> Advanced Topics</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced.html"><a href="advanced.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced.html"><a href="advanced.html#how-can-i-use-python-with-r"><i class="fa fa-check"></i><b>9.2</b> How can I use Python with R?</a></li>
+<li class="chapter" data-level="9.3" data-path="advanced.html"><a href="advanced.html#how-does-object-oriented-programming-work-in-r"><i class="fa fa-check"></i><b>9.3</b> How does object-oriented programming work in R?</a></li>
+<li class="chapter" data-level="9.4" data-path="advanced.html"><a href="advanced.html#how-can-i-write-web-applications-in-r"><i class="fa fa-check"></i><b>9.4</b> How can I write web applications in R?</a></li>
+<li class="chapter" data-level="9.5" data-path="advanced.html"><a href="advanced.html#how-can-i-work-with-relational-databases-in-r"><i class="fa fa-check"></i><b>9.5</b> How can I work with relational databases in R?</a></li>
+<li class="chapter" data-level="9.6" data-path="advanced.html"><a href="advanced.html#key-points-7"><i class="fa fa-check"></i><b>9.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>A</b> License</a></li>
+<li class="chapter" data-level="B" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>B</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="B.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>B.1</b> Our Standards</a></li>
+<li class="chapter" data-level="B.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-responsibilities"><i class="fa fa-check"></i><b>B.2</b> Our Responsibilities</a></li>
+<li class="chapter" data-level="B.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>B.3</b> Scope</a></li>
+<li class="chapter" data-level="B.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>B.4</b> Enforcement</a></li>
+<li class="chapter" data-level="B.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>B.5</b> Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="citation.html"><a href="citation.html"><i class="fa fa-check"></i><b>C</b> Citation</a></li>
+<li class="chapter" data-level="D" data-path="contributing.html"><a href="contributing.html"><i class="fa fa-check"></i><b>D</b> Contributing</a></li>
+<li class="chapter" data-level="E" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>E</b> Practice Problems</a><ul>
+<li class="chapter" data-level="E.1" data-path="practice.html"><a href="practice.html#do-i-need-even-more-practice"><i class="fa fa-check"></i><b>E.1</b> Do I need even more practice?</a></li>
+<li class="chapter" data-level="E.2" data-path="practice.html"><a href="practice.html#please-may-i-create-some-charts"><i class="fa fa-check"></i><b>E.2</b> Please may I create some charts?</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>F</b> Glossary</a></li>
+<li class="chapter" data-level="G" data-path="keypoints.html"><a href="keypoints.html"><i class="fa fa-check"></i><b>G</b> Key Points</a><ul>
+<li class="chapter" data-level="G.1" data-path="keypoints.html"><a href="keypoints.html#simple-beginnings"><i class="fa fa-check"></i><b>G.1</b> Simple Beginnings</a></li>
+<li class="chapter" data-level="G.2" data-path="keypoints.html"><a href="keypoints.html#the-tidyverse"><i class="fa fa-check"></i><b>G.2</b> The Tidyverse</a></li>
+<li class="chapter" data-level="G.3" data-path="keypoints.html"><a href="keypoints.html#creating-packages"><i class="fa fa-check"></i><b>G.3</b> Creating Packages</a></li>
+<li class="chapter" data-level="G.4" data-path="keypoints.html"><a href="keypoints.html#non-standard-evaluation"><i class="fa fa-check"></i><b>G.4</b> Non-Standard Evaluation</a></li>
+<li class="chapter" data-level="G.5" data-path="keypoints.html"><a href="keypoints.html#intellectual-debt"><i class="fa fa-check"></i><b>G.5</b> Intellectual Debt</a></li>
+<li class="chapter" data-level="G.6" data-path="keypoints.html"><a href="keypoints.html#testing-and-error-handling"><i class="fa fa-check"></i><b>G.6</b> Testing and Error Handling</a></li>
+<li class="chapter" data-level="G.7" data-path="keypoints.html"><a href="keypoints.html#advanced-topics"><i class="fa fa-check"></i><b>G.7</b> Advanced Topics</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Tidynomicon</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="debt" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Intellectual Debt</h1>
+<p>We have accumulated some intellectual debt in the previous lessons,
+and we should clear this burden from our conscience before we go on to new topics.</p>
+<div id="learning-objectives-5" class="section level2">
+<h2><span class="header-section-number">7.1</span> Learning Objectives</h2>
+<ul>
+<li>Explain what the formula operator <code>~</code> was created for and what other uses it has.</li>
+<li>Describe and use <code>.</code>, <code>.x</code>, <code>.y,</code>..1<code>,</code>..2`, and other convenience parameters.</li>
+<li>Define copy-on-modify and explain its use in R.</li>
+</ul>
+</div>
+<div id="why-shouldnt-i-use-setwd" class="section level2">
+<h2><span class="header-section-number">7.2</span> Why shouldn’t I use <code>setwd</code>?</h2>
+<p>Because <a href="https://www.tidyverse.org/articles/2017/12/workflow-vs-script/">reasons</a>.</p>
+<p><strong>But…</strong></p>
+<p>No. Use the <a href="https://cran.r-project.org/web/packages/here/index.html">here package</a> instead to create paths that are relative to your current location:</p>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb646-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&#39;here by itself: {here()}&#39;</span>))</a></code></pre></div>
+<pre><code>here by itself: /Users/gvwilson/tidynomicon</code></pre>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb648-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&#39;here(&quot;book.bib&quot;): {here(&quot;book.bib&quot;)}&#39;</span>))</a></code></pre></div>
+<pre><code>here(&quot;book.bib&quot;): /Users/gvwilson/tidynomicon/book.bib</code></pre>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb650-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&#39;here(&quot;etc&quot;, &quot;common.R&quot;): {here(&quot;etc&quot;, &quot;common.R&quot;)}&#39;</span>))</a></code></pre></div>
+<pre><code>here(&quot;etc&quot;, &quot;common.R&quot;): /Users/gvwilson/tidynomicon/etc/common.R</code></pre>
+</div>
+<div id="what-the-hell-are-factors" class="section level2">
+<h2><span class="header-section-number">7.3</span> What the hell are factors?</h2>
+<p>Another feature of R that doesn’t have an exact analog in Python is <a href="glossary.html#factor">factors</a>.
+In statistics, a factor is a categorical variable such as “flavor”,
+which can be “vanilla”, “chocolate”, “strawberry”, or “mustard”.
+Factors can be represented as strings,
+but storing the same string many times wastes space and is inefficient
+(since comparing strings takes longer than comparing numbers).
+R therefore stores each string once and gives it with a numeric key,
+so that internally, “mustard” is the number 4 in the lookup table for “flavor”,
+but is presented as “mustard” rather than 4.</p>
+<p>This is useful, but brings with it some problems:</p>
+<ol style="list-style-type: decimal">
+<li>On the statistical side,
+it encourages people to put messy reality into tidy but misleading boxes.
+For example, it’s unfortunately still common for forms to require people to identify themselves
+as either “male” or “female”,
+which is <a href="https://www.quora.com/Scientifically-how-many-sexes-genders-are-there">scientifically</a>
+<a href="https://www.joshuakennon.com/the-six-common-biological-sexes-in-humans/">incorrect</a>.
+Similarly, census forms that ask questions about racial or ethnic identity often leave people scratching their heads,
+since they don’t belong to any of the categories offered.</li>
+<li>On the computational side,
+some functions in R automatically convert strings to factors by default.
+This makes sense when working with statistical data—in most cases,
+a column in which the same strings are repeated many times is categorical—but
+it is usually not the right choice in other situations.
+This has surprised enough people the years that the tidyverse goes the other way
+and only creates factors when asked to.</li>
+</ol>
+<p>Let’s work through a small example.
+Suppose we’ve read a CSV file and wound up with this table:</p>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb652-1" data-line-number="1">raw &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb652-2" data-line-number="2">  <span class="op">~</span>person, <span class="op">~</span>flavor, <span class="op">~</span>ranking,</a>
+<a class="sourceLine" id="cb652-3" data-line-number="3">  <span class="st">&quot;Lhawang&quot;</span>, <span class="st">&quot;strawberry&quot;</span>, <span class="fl">1.7</span>,</a>
+<a class="sourceLine" id="cb652-4" data-line-number="4">  <span class="st">&quot;Lhawang&quot;</span>, <span class="st">&quot;chocolate&quot;</span>,  <span class="fl">2.5</span>,</a>
+<a class="sourceLine" id="cb652-5" data-line-number="5">  <span class="st">&quot;Lhawang&quot;</span>, <span class="st">&quot;mustard&quot;</span>,    <span class="fl">0.2</span>,</a>
+<a class="sourceLine" id="cb652-6" data-line-number="6">  <span class="st">&quot;Khadee&quot;</span>,  <span class="st">&quot;strawberry&quot;</span>, <span class="fl">2.1</span>,</a>
+<a class="sourceLine" id="cb652-7" data-line-number="7">  <span class="st">&quot;Khadee&quot;</span>, <span class="st">&quot;chocolate&quot;</span>,   <span class="fl">2.4</span>,</a>
+<a class="sourceLine" id="cb652-8" data-line-number="8">  <span class="st">&quot;Khadee&quot;</span>, <span class="st">&quot;vanilla&quot;</span>,     <span class="fl">3.9</span>,</a>
+<a class="sourceLine" id="cb652-9" data-line-number="9">  <span class="st">&quot;Haddad&quot;</span>, <span class="st">&quot;strawberry&quot;</span>,  <span class="fl">1.8</span>,</a>
+<a class="sourceLine" id="cb652-10" data-line-number="10">  <span class="st">&quot;Haddad&quot;</span>, <span class="st">&quot;vanilla&quot;</span>,     <span class="fl">2.1</span></a>
+<a class="sourceLine" id="cb652-11" data-line-number="11">)</a>
+<a class="sourceLine" id="cb652-12" data-line-number="12">raw</a></code></pre></div>
+<pre><code># A tibble: 8 x 3
+  person  flavor     ranking
+  &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;
+1 Lhawang strawberry     1.7
+2 Lhawang chocolate      2.5
+3 Lhawang mustard        0.2
+4 Khadee  strawberry     2.1
+5 Khadee  chocolate      2.4
+6 Khadee  vanilla        3.9
+7 Haddad  strawberry     1.8
+8 Haddad  vanilla        2.1</code></pre>
+<p>Let’s aggregate using flavor values so that we can check our factor-based aggregating later:</p>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb654-1" data-line-number="1">raw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb654-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(flavor) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb654-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">number =</span> <span class="kw">n</span>(), <span class="dt">average =</span> <span class="kw">mean</span>(ranking))</a></code></pre></div>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code># A tibble: 4 x 3
+  flavor     number average
+  &lt;chr&gt;       &lt;int&gt;   &lt;dbl&gt;
+1 chocolate       2    2.45
+2 mustard         1    0.2 
+3 strawberry      3    1.87
+4 vanilla         2    3   </code></pre>
+<p>It probably doesn’t make sense to turn <code>person</code> into factors,
+since names are actually character strings,
+but <code>flavor</code> is a good candidate:</p>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb657-1" data-line-number="1">raw &lt;-<span class="st"> </span><span class="kw">mutate_at</span>(raw, <span class="kw">vars</span>(flavor), as.factor)</a>
+<a class="sourceLine" id="cb657-2" data-line-number="2">raw</a></code></pre></div>
+<pre><code># A tibble: 8 x 3
+  person  flavor     ranking
+  &lt;chr&gt;   &lt;fct&gt;        &lt;dbl&gt;
+1 Lhawang strawberry     1.7
+2 Lhawang chocolate      2.5
+3 Lhawang mustard        0.2
+4 Khadee  strawberry     2.1
+5 Khadee  chocolate      2.4
+6 Khadee  vanilla        3.9
+7 Haddad  strawberry     1.8
+8 Haddad  vanilla        2.1</code></pre>
+<p>We can still aggregate as we did before:</p>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb659-1" data-line-number="1">raw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb659-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(flavor) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb659-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">number =</span> <span class="kw">n</span>(), <span class="dt">average =</span> <span class="kw">mean</span>(ranking))</a></code></pre></div>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code># A tibble: 4 x 3
+  flavor     number average
+  &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
+1 chocolate       2    2.45
+2 mustard         1    0.2 
+3 strawberry      3    1.87
+4 vanilla         2    3   </code></pre>
+<p>We can also impose an ordering on the factor’s elements:</p>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb662-1" data-line-number="1">raw &lt;-<span class="st"> </span>raw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb662-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">flavor =</span> <span class="kw">fct_relevel</span>(flavor, <span class="st">&quot;chocolate&quot;</span>, <span class="st">&quot;strawberry&quot;</span>, <span class="st">&quot;vanilla&quot;</span>, <span class="st">&quot;mustard&quot;</span>))</a>
+<a class="sourceLine" id="cb662-3" data-line-number="3">raw</a></code></pre></div>
+<pre><code># A tibble: 8 x 3
+  person  flavor     ranking
+  &lt;chr&gt;   &lt;fct&gt;        &lt;dbl&gt;
+1 Lhawang strawberry     1.7
+2 Lhawang chocolate      2.5
+3 Lhawang mustard        0.2
+4 Khadee  strawberry     2.1
+5 Khadee  chocolate      2.4
+6 Khadee  vanilla        3.9
+7 Haddad  strawberry     1.8
+8 Haddad  vanilla        2.1</code></pre>
+<p>This changes the order in which they are displayed after grouping:</p>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb664-1" data-line-number="1">raw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb664-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(flavor) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb664-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">number =</span> <span class="kw">n</span>(), <span class="dt">average =</span> <span class="kw">mean</span>(ranking))</a></code></pre></div>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code># A tibble: 4 x 3
+  flavor     number average
+  &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
+1 chocolate       2    2.45
+2 strawberry      3    1.87
+3 vanilla         2    3   
+4 mustard         1    0.2 </code></pre>
+<p>And also changes the order of bars in a bar chart:</p>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb667-1" data-line-number="1">raw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb667-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(flavor) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb667-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">number =</span> <span class="kw">n</span>(), <span class="dt">average =</span> <span class="kw">mean</span>(ranking)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb667-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> flavor, <span class="dt">y =</span> average)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb667-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_col</span>()</a></code></pre></div>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<p><img src="debt_files/figure-html/simple_bar_chart-1.png" width="672" /></p>
+<p>To learn more about how factors work and how to use them when analyzing categorical data,
+please see <a href="https://peerj.com/preprints/3163/">this paper</a> by McNamara and Horton.</p>
+</div>
+<div id="how-do-i-refer-to-various-arguments-in-a-pipeline" class="section level2">
+<h2><span class="header-section-number">7.4</span> How do I refer to various arguments in a pipeline?</h2>
+<p>When we put a function in a pipeline using <code>%&gt;%</code>,
+that operator calls the function with the incoming data as the first argument,
+so <code>data %&gt;% func(arg)</code> is the same as <code>func(data, arg)</code>.
+This is fine when we want the incoming data to be the first argument,
+but what if we want it to be second? Or third?</p>
+<p>One possibility is to save the result so far in a temporary variable
+and then start a second pipe:</p>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb669-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb669-2" data-line-number="2">  <span class="op">~</span>left, <span class="op">~</span>right,</a>
+<a class="sourceLine" id="cb669-3" data-line-number="3">  <span class="dv">1</span>,     <span class="ot">NA</span>,</a>
+<a class="sourceLine" id="cb669-4" data-line-number="4">  <span class="dv">2</span>,     <span class="dv">20</span></a>
+<a class="sourceLine" id="cb669-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb669-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb669-7" data-line-number="7">empties &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb669-8" data-line-number="8"><span class="st">  </span><span class="kw">pmap_lgl</span>(<span class="cf">function</span>(...) {</a>
+<a class="sourceLine" id="cb669-9" data-line-number="9">    args &lt;-<span class="st"> </span><span class="kw">list</span>(...)</a>
+<a class="sourceLine" id="cb669-10" data-line-number="10">    <span class="kw">any</span>(<span class="kw">is.na</span>(args))</a>
+<a class="sourceLine" id="cb669-11" data-line-number="11">  })</a>
+<a class="sourceLine" id="cb669-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb669-13" data-line-number="13">data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb669-14" data-line-number="14"><span class="st">  </span><span class="kw">transmute</span>(<span class="dt">id =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb669-15" data-line-number="15"><span class="st">  </span><span class="kw">filter</span>(empties) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb669-16" data-line-number="16"><span class="st">  </span><span class="kw">pull</span>(id)</a></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<p>This builds a logical vector <code>empties</code> with as many entries as <code>data</code> has rows,
+then filters data according to which of the entries in the vector are <code>TRUE</code>.</p>
+<p>A better practice is to use the parameter name <code>.</code>,
+which means “the incoming data”.
+In some functions (e.g., a two-argument function being used in <code>map</code>)
+we can also use <code>.x</code> and <code>.y</code> for the first and second arguments,
+and for more arguments,
+we can use <code>..1</code>, <code>..2</code>, and so on (with two dots at the front):</p>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb671-1" data-line-number="1">data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb671-2" data-line-number="2"><span class="st">  </span><span class="kw">pmap_lgl</span>(<span class="cf">function</span>(...) {</a>
+<a class="sourceLine" id="cb671-3" data-line-number="3">    args &lt;-<span class="st"> </span><span class="kw">list</span>(...)</a>
+<a class="sourceLine" id="cb671-4" data-line-number="4">    <span class="kw">any</span>(<span class="kw">is.na</span>(args))</a>
+<a class="sourceLine" id="cb671-5" data-line-number="5">  }) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb671-6" data-line-number="6"><span class="st">  </span><span class="kw">tibble</span>(<span class="dt">empty =</span> .) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb671-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">id =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb671-8" data-line-number="8"><span class="st">  </span><span class="kw">filter</span>(empty) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb671-9" data-line-number="9"><span class="st">  </span><span class="kw">pull</span>(id)</a></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<p>In this model,
+we create the logical vector,
+then turn it into a tibble with one column called <code>empty</code>
+(which is what <code>empty = .</code> does in <code>tibble</code>’s constructor).
+After that,
+we add another column with row numbers,
+filter,
+and pull out the row numbers.</p>
+<p>And while we’re here:
+<code>row_number</code> doesn’t do what its name suggests.
+We’re better off using <code>rowid_to_column</code>:</p>
+<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb673-1" data-line-number="1">data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb673-2" data-line-number="2"><span class="st">  </span><span class="kw">rowid_to_column</span>()</a></code></pre></div>
+<pre><code># A tibble: 2 x 3
+  rowid  left right
+  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     1     1    NA
+2     2     2    20</code></pre>
+</div>
+<div id="i-thought-you-said-that-r-encouraged-functional-programming" class="section level2">
+<h2><span class="header-section-number">7.5</span> I thought you said that R encouraged functional programming?</h2>
+<p>I did.
+Here is a function that reads a file and returns one of its columns:</p>
+<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb675-1" data-line-number="1">col_from_file &lt;-<span class="st"> </span><span class="cf">function</span>(filename, colname) {</a>
+<a class="sourceLine" id="cb675-2" data-line-number="2">  dat &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(filename)</a>
+<a class="sourceLine" id="cb675-3" data-line-number="3">  dat[colname]</a>
+<a class="sourceLine" id="cb675-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb675-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb675-6" data-line-number="6">person_filename &lt;-<span class="st"> </span>here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;person.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb675-7" data-line-number="7"><span class="kw">col_from_file</span>(person_filename, <span class="st">&quot;family_name&quot;</span>)</a></code></pre></div>
+<pre><code># A tibble: 5 x 1
+  family_name
+  &lt;chr&gt;      
+1 Dyer       
+2 Pabodie    
+3 Lake       
+4 Roerich    
+5 Danforth   </code></pre>
+<p>Note that the column name <em>must</em> be passed as a quoted string;
+Chapter <a href="nse.html#nse">6</a> will show us how to pass unquoted column names.</p>
+<p>We might occasionally want to allow the user to specify
+what values in the file are to be considered NAs.
+This small addition allows us to do that,
+while keeping the empty string and the string <code>&quot;NA&quot;</code> as defaults:</p>
+<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb677-1" data-line-number="1">col_from_file &lt;-<span class="st"> </span><span class="cf">function</span>(filename, colname, <span class="dt">na =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>)) {</a>
+<a class="sourceLine" id="cb677-2" data-line-number="2">  dat &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(filename, <span class="dt">na =</span> na)</a>
+<a class="sourceLine" id="cb677-3" data-line-number="3">  dat[colname]</a>
+<a class="sourceLine" id="cb677-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb677-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb677-6" data-line-number="6"><span class="kw">col_from_file</span>(person_filename, <span class="st">&quot;family_name&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;Dyer&quot;</span>))</a></code></pre></div>
+<pre><code># A tibble: 5 x 1
+  family_name
+  &lt;chr&gt;      
+1 &lt;NA&gt;       
+2 Pabodie    
+3 Lake       
+4 Roerich    
+5 Danforth   </code></pre>
+<p>We can also allow the user to specify any number of columns
+by capturing “extra” parameters in <code>...</code>
+and passing that value directly to <code>dplyr::select</code>:</p>
+<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb679-1" data-line-number="1">cols_from_file &lt;-<span class="st"> </span><span class="cf">function</span>(filename, ..., <span class="dt">na =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>)) {</a>
+<a class="sourceLine" id="cb679-2" data-line-number="2">  readr<span class="op">::</span><span class="kw">read_csv</span>(filename, <span class="dt">na =</span> na) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb679-3" data-line-number="3"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(...)</a>
+<a class="sourceLine" id="cb679-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb679-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb679-6" data-line-number="6"><span class="kw">cols_from_file</span>(person_filename, personal_name, family_name)</a></code></pre></div>
+<pre><code># A tibble: 5 x 2
+  personal_name family_name
+  &lt;chr&gt;         &lt;chr&gt;      
+1 William       Dyer       
+2 Frank         Pabodie    
+3 Anderson      Lake       
+4 Valentina     Roerich    
+5 Frank         Danforth   </code></pre>
+<p>Now that we can create functions,
+we can use the tools in the <code>purrr</code> library to wield them.
+<code>purrr::map</code> applies a function to each value in a vector in turn
+and returns a list:</p>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb681-1" data-line-number="1">is_long_name &lt;-<span class="st"> </span><span class="cf">function</span>(name) {</a>
+<a class="sourceLine" id="cb681-2" data-line-number="2">  stringr<span class="op">::</span><span class="kw">str_length</span>(name) <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb681-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb681-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb681-5" data-line-number="5">person &lt;-<span class="st"> </span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;person.csv&quot;</span>))</a></code></pre></div>
+<pre><code>Parsed with column specification:
+cols(
+  person_id = col_character(),
+  personal_name = col_character(),
+  family_name = col_character()
+)</code></pre>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb683-1" data-line-number="1">purrr<span class="op">::</span><span class="kw">map</span>(person<span class="op">$</span>family_name, is_long_name)</a></code></pre></div>
+<pre><code>[[1]]
+[1] FALSE
+
+[[2]]
+[1] TRUE
+
+[[3]]
+[1] FALSE
+
+[[4]]
+[1] TRUE
+
+[[5]]
+[1] TRUE</code></pre>
+<p>For small calculations,
+we will define the function where it is used—this is sometimes called
+an <a href="glossary.html#anonymous-function">anonymous function</a>
+since it isn’t given a name.
+We will also use <code>purrr::map_lgl</code>
+so that the result of the call is a logical vector rather than a list.
+Similarly-named functions will give us numbers, character strings, and so on:</p>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb685-1" data-line-number="1">purrr<span class="op">::</span><span class="kw">map_lgl</span>(person<span class="op">$</span>family_name,</a>
+<a class="sourceLine" id="cb685-2" data-line-number="2">               <span class="cf">function</span>(name) stringr<span class="op">::</span><span class="kw">str_length</span>(name) <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)</a></code></pre></div>
+<pre><code>[1] FALSE  TRUE FALSE  TRUE  TRUE</code></pre>
+<p>Little functions like this are so common
+that <code>purrr</code> allows us to use write them as formulas using the <code>~ operator with</code>.x` as a shorthand for the value from the vector being processed:</p>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb687-1" data-line-number="1">purrr<span class="op">::</span><span class="kw">map_chr</span>(person<span class="op">$</span>family_name, <span class="op">~</span><span class="st"> </span>stringr<span class="op">::</span><span class="kw">str_to_upper</span>(.x))</a></code></pre></div>
+<pre><code>[1] &quot;DYER&quot;     &quot;PABODIE&quot;  &quot;LAKE&quot;     &quot;ROERICH&quot;  &quot;DANFORTH&quot;</code></pre>
+<p>Other functions in <code>purrr</code> let us work on two vectors at once:</p>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb689-1" data-line-number="1">purrr<span class="op">::</span><span class="kw">map2_chr</span>(person<span class="op">$</span>personal_name,</a>
+<a class="sourceLine" id="cb689-2" data-line-number="2">                person<span class="op">$</span>family_name,</a>
+<a class="sourceLine" id="cb689-3" data-line-number="3">                <span class="op">~</span><span class="st"> </span>stringr<span class="op">::</span><span class="kw">str_c</span>(.y, .x, <span class="dt">sep =</span> <span class="st">&#39;_&#39;</span>))</a></code></pre></div>
+<pre><code>[1] &quot;Dyer_William&quot;      &quot;Pabodie_Frank&quot;     &quot;Lake_Anderson&quot;    
+[4] &quot;Roerich_Valentina&quot; &quot;Danforth_Frank&quot;   </code></pre>
+<p>If we need to collapse the result to a single value
+(e.g., to use in <code>if</code>)
+we have <code>purrr::some</code> and <code>purrr::every</code>:</p>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb691-1" data-line-number="1">purrr<span class="op">::</span><span class="kw">every</span>(person<span class="op">$</span>personal_name, <span class="op">~</span><span class="st"> </span>.x <span class="op">&gt;</span><span class="st"> &#39;M&#39;</span>)</a></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div id="modify-specific-elements-of-a-list" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Modify specific elements of a list:</h3>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb693-1" data-line-number="1">purrr<span class="op">::</span><span class="kw">modify_at</span>(person<span class="op">$</span>personal_name, <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), stringr<span class="op">::</span>str_to_upper)</a></code></pre></div>
+<pre><code>[1] &quot;William&quot;   &quot;FRANK&quot;     &quot;Anderson&quot;  &quot;VALENTINA&quot; &quot;Frank&quot;    </code></pre>
+<p><em>Use <code>modify_if</code> to upper-case names that are greater than “M”.</em></p>
+</div>
+<div id="create-an-acronym" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> Create an acronym:</h3>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb695-1" data-line-number="1">purrr<span class="op">::</span><span class="kw">reduce</span>(person<span class="op">$</span>personal_name, <span class="op">~</span>stringr<span class="op">::</span><span class="kw">str_c</span>(.x, stringr<span class="op">::</span><span class="kw">str_sub</span>(.y, <span class="dv">1</span>, <span class="dv">1</span>)), <span class="dt">.init =</span> <span class="st">&quot;&quot;</span>)</a></code></pre></div>
+<pre><code>[1] &quot;WFAVF&quot;</code></pre>
+<p><em>Explain why using <code>stringr::str_c(stringr::str_sub(.x, 1, 1), stringr::str_sub(.y, 1, 1))</code> doesn’t work.</em></p>
+</div>
+<div id="create-intermediate-values" class="section level3">
+<h3><span class="header-section-number">7.5.3</span> Create intermediate values:</h3>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb697-1" data-line-number="1">purrr<span class="op">::</span><span class="kw">accumulate</span>(person<span class="op">$</span>personal_name, <span class="op">~</span>stringr<span class="op">::</span><span class="kw">str_c</span>(.x, stringr<span class="op">::</span><span class="kw">str_sub</span>(.y, <span class="dv">1</span>, <span class="dv">1</span>)), <span class="dt">.init =</span> <span class="st">&quot;&quot;</span>)</a></code></pre></div>
+<pre><code>[1] &quot;&quot;      &quot;W&quot;     &quot;WF&quot;    &quot;WFA&quot;   &quot;WFAV&quot;  &quot;WFAVF&quot;</code></pre>
+<p><em>Modify this so that the initial empty string isn’t in the final result.</em></p>
+</div>
+</div>
+<div id="how-does-r-give-the-appearance-of-immutable-data" class="section level2">
+<h2><span class="header-section-number">7.6</span> How does R give the appearance of immutable data?</h2>
+<p>Another feature of R that can surprise the unwary is its use of <a href="glossary.html#copy-on-modify">copy-on-modify</a>
+to make data appear <a href="glossary.html#immutable">immutable</a>
+(a jargon term meaning “cannot be changed after creation”).
+If two or more variables refer to the same data
+and that data is updated via one variable,
+R automatically makes a copy of the data so that the other variable’s value doesn’t change.
+Here’s a simple example:</p>
+<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb699-1" data-line-number="1">first &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb699-2" data-line-number="2">second &lt;-<span class="st"> </span>first</a>
+<a class="sourceLine" id="cb699-3" data-line-number="3"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&quot;before modification, first is {paste(first, collapse=&#39;-&#39;)} and second is {paste(second, collapse=&#39;-&#39;)}&quot;</span>))</a></code></pre></div>
+<pre><code>before modification, first is red-green-blue and second is red-green-blue</code></pre>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb701-1" data-line-number="1">first[[<span class="dv">1</span>]] &lt;-<span class="st"> &quot;sulphurous&quot;</span></a>
+<a class="sourceLine" id="cb701-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&quot;after modification, first is {paste(first, collapse=&#39;-&#39;)} and second is {paste(second, collapse=&#39;-&#39;)}&quot;</span>))</a></code></pre></div>
+<pre><code>after modification, first is sulphurous-green-blue and second is red-green-blue</code></pre>
+<p>This is true of nested structures as well:</p>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb703-1" data-line-number="1">first &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb703-2" data-line-number="2">  <span class="op">~</span>left, <span class="op">~</span>right,</a>
+<a class="sourceLine" id="cb703-3" data-line-number="3">  <span class="dv">101</span>,   <span class="dv">202</span>,</a>
+<a class="sourceLine" id="cb703-4" data-line-number="4">  <span class="dv">303</span>,   <span class="dv">404</span>)</a>
+<a class="sourceLine" id="cb703-5" data-line-number="5">second &lt;-<span class="st"> </span>first</a>
+<a class="sourceLine" id="cb703-6" data-line-number="6">first<span class="op">$</span>left[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="dv">999</span></a>
+<a class="sourceLine" id="cb703-7" data-line-number="7"><span class="kw">print</span>(<span class="st">&quot;first after modification&quot;</span>)</a></code></pre></div>
+<pre><code>[1] &quot;first after modification&quot;</code></pre>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb705-1" data-line-number="1">first</a></code></pre></div>
+<pre><code># A tibble: 2 x 2
+   left right
+  &lt;dbl&gt; &lt;dbl&gt;
+1   999   202
+2   303   404</code></pre>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb707-1" data-line-number="1"><span class="kw">print</span>(<span class="st">&quot;second after modification&quot;</span>)</a></code></pre></div>
+<pre><code>[1] &quot;second after modification&quot;</code></pre>
+<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb709-1" data-line-number="1">second</a></code></pre></div>
+<pre><code># A tibble: 2 x 2
+   left right
+  &lt;dbl&gt; &lt;dbl&gt;
+1   101   202
+2   303   404</code></pre>
+<p>In this case,
+the entire <code>left</code> column of <code>first</code> has been replaced:
+tibbles (and data frames) are stored as lists of vectors,
+so changing any value in a column triggers construction of a new column vector.</p>
+<p>We can watch this happen using the <code>tracemem</code> function,
+which shows us where objects live in the computer’s memory:</p>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb711-1" data-line-number="1">first &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb711-2" data-line-number="2">  <span class="op">~</span>left, <span class="op">~</span>right,</a>
+<a class="sourceLine" id="cb711-3" data-line-number="3">  <span class="dv">101</span>,   <span class="dv">202</span>,</a>
+<a class="sourceLine" id="cb711-4" data-line-number="4">  <span class="dv">303</span>,   <span class="dv">404</span></a>
+<a class="sourceLine" id="cb711-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb711-6" data-line-number="6"><span class="kw">tracemem</span>(first)</a></code></pre></div>
+<pre><code>[1] &quot;&lt;0x7ff59e4b7f88&gt;&quot;</code></pre>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb713-1" data-line-number="1">first<span class="op">$</span>left[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="dv">999</span></a></code></pre></div>
+<pre><code>tracemem[0x7ff59e4b7f88 -&gt; 0x7ff59d527b08]: eval eval withVisible withCallingHandlers handle timing_fn evaluate_call &lt;Anonymous&gt; evaluate in_dir block_exec call_block process_group.block process_group withCallingHandlers process_file &lt;Anonymous&gt; &lt;Anonymous&gt; do.call eval eval eval eval eval.parent local 
+tracemem[0x7ff59d527b08 -&gt; 0x7ff59d50d788]: eval eval withVisible withCallingHandlers handle timing_fn evaluate_call &lt;Anonymous&gt; evaluate in_dir block_exec call_block process_group.block process_group withCallingHandlers process_file &lt;Anonymous&gt; &lt;Anonymous&gt; do.call eval eval eval eval eval.parent local 
+tracemem[0x7ff59d50d788 -&gt; 0x7ff59d50e688]: tbl_subassign_col tbl_subassign $&lt;-.tbl_df $&lt;- eval eval withVisible withCallingHandlers handle timing_fn evaluate_call &lt;Anonymous&gt; evaluate in_dir block_exec call_block process_group.block process_group withCallingHandlers process_file &lt;Anonymous&gt; &lt;Anonymous&gt; do.call eval eval eval eval eval.parent local 
+tracemem[0x7ff59d50e688 -&gt; 0x7ff59d50e8c8]: set_tibble_class tbl_subassign_col tbl_subassign $&lt;-.tbl_df $&lt;- eval eval withVisible withCallingHandlers handle timing_fn evaluate_call &lt;Anonymous&gt; evaluate in_dir block_exec call_block process_group.block process_group withCallingHandlers process_file &lt;Anonymous&gt; &lt;Anonymous&gt; do.call eval eval eval eval eval.parent local 
+tracemem[0x7ff59d50e8c8 -&gt; 0x7ff59d50e9c8]: vectbl_restore tbl_subassign $&lt;-.tbl_df $&lt;- eval eval withVisible withCallingHandlers handle timing_fn evaluate_call &lt;Anonymous&gt; evaluate in_dir block_exec call_block process_group.block process_group withCallingHandlers process_file &lt;Anonymous&gt; &lt;Anonymous&gt; do.call eval eval eval eval eval.parent local </code></pre>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb715-1" data-line-number="1"><span class="kw">untracemem</span>(first)</a></code></pre></div>
+<p>This rather cryptic output tell us the address of the tibble,
+then notifies us of changes to the tibble and its contents.
+We can accomplish something a little more readable using <code>pryr::address</code>
+(i.e., the <code>address</code> function from the pryr package):</p>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb716-1" data-line-number="1">left &lt;-<span class="st"> </span>first<span class="op">$</span>left <span class="co"># alias</span></a>
+<a class="sourceLine" id="cb716-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&quot;left column is initially at {pryr::address(left)}&quot;</span>))</a></code></pre></div>
+<pre><code>Registered S3 method overwritten by &#39;pryr&#39;:
+  method      from
+  print.bytes Rcpp</code></pre>
+<pre><code>left column is initially at 0x7ff59d528188</code></pre>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb719-1" data-line-number="1">first<span class="op">$</span>left[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="dv">888</span></a>
+<a class="sourceLine" id="cb719-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&quot;after modification, the original column is still at {pryr::address(left)}&quot;</span>))</a></code></pre></div>
+<pre><code>after modification, the original column is still at 0x7ff59d528188</code></pre>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb721-1" data-line-number="1">temp &lt;-<span class="st"> </span>first<span class="op">$</span>left <span class="co"># another alias</span></a>
+<a class="sourceLine" id="cb721-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&quot;but the first column is at {pryr::address(temp)}&quot;</span>))</a></code></pre></div>
+<pre><code>but the first column is at 0x7ff5a04f16c8</code></pre>
+<p>(We need to use the <a href="glossary.html#alias">alias</a> <code>temp</code> because <code>address(first$left)</code> doesn’t work:
+the argument to <code>address</code> needs to be a variable name.)</p>
+<p>R’s copy-on-modify semantics is particularly important when writing functions.
+If we modify an argument inside a function,
+that modification isn’t visible to the caller,
+so even functions that appear to modify structures usually don’t.
+(“Usually”, because there are exceptions, but we must stray off the path to find them.)</p>
+</div>
+<div id="what-else-should-i-worry-about" class="section level2">
+<h2><span class="header-section-number">7.7</span> What else should I worry about?</h2>
+<p>Ralph Waldo Emerson once wrote, “A foolish consistency is the hobgoblin of little minds.”
+Here, then, are few of the hobgoblins I’ve encountered on my journey through R.</p>
+<div id="the-order-function" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> The <code>order</code> function</h3>
+<p>The function <code>order</code> generates indices to pull values into place rather than push them,
+i.e.,
+<code>order(x)[i]</code> is the index in <code>x</code> of the element that belongs at location <code>i</code>.
+For example:</p>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb723-1" data-line-number="1">bases &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;g&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;t&quot;</span>, <span class="st">&quot;a&quot;</span>)</a>
+<a class="sourceLine" id="cb723-2" data-line-number="2"><span class="kw">order</span>(bases)</a></code></pre></div>
+<pre><code>[1] 4 2 1 3</code></pre>
+<p>shows that the value at location 4 (the <code>&quot;a&quot;</code>) belongs in the first spot of the vector;
+it does <em>not</em> mean that the value in the first location (the <code>&quot;g&quot;</code>) belongs in location 4.
+This convention means that <code>something[order(something)]</code> does the right thing:</p>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb725-1" data-line-number="1">bases[<span class="kw">order</span>(bases)]</a></code></pre></div>
+<pre><code>[1] &quot;a&quot; &quot;c&quot; &quot;g&quot; &quot;t&quot;</code></pre>
+</div>
+<div id="one-of-a-set-of-values" class="section level3">
+<h3><span class="header-section-number">7.7.2</span> One of a set of values</h3>
+<p>The function <code>one_of</code> is a handy way to specify several values for matching
+without complicated Boolean conditionals.
+For example,
+<code>gather(data, key = &quot;year&quot;, value = &quot;cases&quot;, one_of(c(&quot;1999&quot;, &quot;2000&quot;)))</code>
+collects data for the years 1999 and 2000.</p>
+</div>
+<div id="and-are-not-the-same-as-and" class="section level3">
+<h3><span class="header-section-number">7.7.3</span> <code>|</code> and <code>&amp;</code> are not the same as <code>||</code> and <code>&amp;&amp;</code></h3>
+<p>Let’s try some experiments:</p>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb727-1" data-line-number="1">TRUE_TRUE &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb727-2" data-line-number="2">TRUE_FALSE &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb727-3" data-line-number="3">FALSE_TRUE &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb727-4" data-line-number="4"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&quot;TRUE_TRUE &amp;  TRUE_FALSE: {paste(TRUE_TRUE &amp;  TRUE_FALSE, collapse = &#39; &#39;)}&quot;</span>))</a></code></pre></div>
+<pre><code>TRUE_TRUE &amp;  TRUE_FALSE: TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb729-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&quot;TRUE_TRUE &amp;  FALSE_TRUE: {paste(TRUE_TRUE &amp;  FALSE_TRUE, collapse = &#39; &#39;)}&quot;</span>))</a></code></pre></div>
+<pre><code>TRUE_TRUE &amp;  FALSE_TRUE: FALSE TRUE</code></pre>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb731-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&quot;TRUE_TRUE &amp;&amp; TRUE_FALSE: {paste(TRUE_TRUE &amp;&amp; TRUE_FALSE, collapse = &#39; &#39;)}&quot;</span>))</a></code></pre></div>
+<pre><code>TRUE_TRUE &amp;&amp; TRUE_FALSE: TRUE</code></pre>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb733-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">glue</span>(<span class="st">&quot;TRUE_TRUE &amp;&amp; FALSE_TRUE: {paste(TRUE_TRUE &amp;&amp; FALSE_TRUE, collapse = &#39; &#39;)}&quot;</span>))</a></code></pre></div>
+<pre><code>TRUE_TRUE &amp;&amp; FALSE_TRUE: FALSE</code></pre>
+<p>The difference is that <code>&amp;</code> always returns a vector result after doing element-by-element conjunction,
+while <code>&amp;&amp;</code> returns a scalar result.
+This means that <code>&amp;</code> is almost always what we want to use when working with data.</p>
+</div>
+<div id="functions-and-columns" class="section level3">
+<h3><span class="header-section-number">7.7.4</span> Functions and columns</h3>
+<p>There is a function called <code>n</code>.
+It’s not the same thing as a column called <code>n</code>.
+I only made this mistake a dozen times.</p>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb735-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">tribble</span>(</a>
+<a class="sourceLine" id="cb735-2" data-line-number="2">  <span class="op">~</span>a, <span class="op">~</span>n,</a>
+<a class="sourceLine" id="cb735-3" data-line-number="3">  <span class="dv">1</span>,  <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb735-4" data-line-number="4">  <span class="dv">2</span>,  <span class="dv">20</span></a>
+<a class="sourceLine" id="cb735-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb735-6" data-line-number="6">data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">total =</span> <span class="kw">sum</span>(n))</a></code></pre></div>
+<pre><code># A tibble: 1 x 1
+  total
+  &lt;dbl&gt;
+1    30</code></pre>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb737-1" data-line-number="1">data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">total =</span> <span class="kw">sum</span>(<span class="kw">n</span>()))</a></code></pre></div>
+<pre><code># A tibble: 1 x 1
+  total
+  &lt;int&gt;
+1     2</code></pre>
+</div>
+</div>
+<div id="key-points-5" class="section level2">
+<h2><span class="header-section-number">7.8</span> Key Points</h2>
+<ul>
+<li>Don’t use <code>setwd</code>.</li>
+<li>The formula operator <code>~</code> delays evaluation of its operand or operands.</li>
+<li><code>~</code> was created to allow users to pass formulas into functions, but is used more generally to delay evaluation.</li>
+<li>Some tidyverse functions define <code>.</code> to be the whole data, <code>.x</code> and <code>.y</code> to be the first and second arguments, and <code>..N</code> to be the N’th argument.</li>
+<li>These convenience parameters are primarily used when the data being passed to a pipelined function needs to go somewhere other than in the first parameter’s slot.</li>
+<li>‘Copy-on-modify’ means that data is aliased until something attempts to modify it, at which point it duplicated, so that data always appears to be unchanged.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="testerror.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/debt.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/debt.Rmd",
+"text": null
+},
+"download": ["r4de.pdf", "r4de.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

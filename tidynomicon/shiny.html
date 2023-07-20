@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Web Applications | The Tidynomicon</title>
+  <meta name="description" content="Chapter 10 Web Applications | The Tidynomicon" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Web Applications | The Tidynomicon" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 10 Web Applications | The Tidynomicon" />
+  <meta name="github-repo" content="gvwilson/tidynomicon" />
+
+  
+  
+
+<meta name="author" content="Greg Wilson" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="advanced.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Tidynomicon</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#s:index-personas"><i class="fa fa-check"></i><b>1.1</b> Who are these lessons for?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#s:index-install"><i class="fa fa-check"></i><b>1.2</b> How do I get started?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Simple Beginnings</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#how-do-i-say-hello"><i class="fa fa-check"></i><b>2.2</b> How do I say hello?</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#how-do-i-add-numbers"><i class="fa fa-check"></i><b>2.3</b> How do I add numbers?</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#how-do-i-store-many-numbers-together"><i class="fa fa-check"></i><b>2.4</b> How do I store many numbers together?</a></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#how-do-i-index-a-vector"><i class="fa fa-check"></i><b>2.5</b> How do I index a vector?</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#how-do-i-create-new-vectors-from-old"><i class="fa fa-check"></i><b>2.6</b> How do I create new vectors from old?</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#how-else-does-r-represent-the-absence-of-data"><i class="fa fa-check"></i><b>2.7</b> How else does R represent the absence of data?</a></li>
+<li class="chapter" data-level="2.8" data-path="basics.html"><a href="basics.html#how-can-i-store-a-mix-of-different-types-of-objects"><i class="fa fa-check"></i><b>2.8</b> How can I store a mix of different types of objects?</a></li>
+<li class="chapter" data-level="2.9" data-path="basics.html"><a href="basics.html#what-is-the-difference-between-and"><i class="fa fa-check"></i><b>2.9</b> What is the difference between <code>[</code> and <code>[[</code>?</a></li>
+<li class="chapter" data-level="2.10" data-path="basics.html"><a href="basics.html#how-can-i-access-elements-by-name"><i class="fa fa-check"></i><b>2.10</b> How can I access elements by name?</a></li>
+<li class="chapter" data-level="2.11" data-path="basics.html"><a href="basics.html#how-can-i-create-and-index-a-matrix"><i class="fa fa-check"></i><b>2.11</b> How can I create and index a matrix?</a></li>
+<li class="chapter" data-level="2.12" data-path="basics.html"><a href="basics.html#how-do-i-choose-and-repeat-things"><i class="fa fa-check"></i><b>2.12</b> How do I choose and repeat things?</a></li>
+<li class="chapter" data-level="2.13" data-path="basics.html"><a href="basics.html#how-can-i-vectorize-loops-and-conditionals"><i class="fa fa-check"></i><b>2.13</b> How can I vectorize loops and conditionals?</a></li>
+<li class="chapter" data-level="2.14" data-path="basics.html"><a href="basics.html#how-can-i-express-a-range-of-values"><i class="fa fa-check"></i><b>2.14</b> How can I express a range of values?</a></li>
+<li class="chapter" data-level="2.15" data-path="basics.html"><a href="basics.html#how-can-i-use-a-vector-in-a-conditional-statement"><i class="fa fa-check"></i><b>2.15</b> How can I use a vector in a conditional statement?</a></li>
+<li class="chapter" data-level="2.16" data-path="basics.html"><a href="basics.html#how-do-i-create-and-call-functions"><i class="fa fa-check"></i><b>2.16</b> How do I create and call functions?</a></li>
+<li class="chapter" data-level="2.17" data-path="basics.html"><a href="basics.html#how-can-i-write-a-function-that-takes-variable-arguments"><i class="fa fa-check"></i><b>2.17</b> How can I write a function that takes variable arguments?</a></li>
+<li class="chapter" data-level="2.18" data-path="basics.html"><a href="basics.html#how-can-i-provide-default-values-for-arguments"><i class="fa fa-check"></i><b>2.18</b> How can I provide default values for arguments?</a></li>
+<li class="chapter" data-level="2.19" data-path="basics.html"><a href="basics.html#how-can-i-hide-the-value-that-r-returns"><i class="fa fa-check"></i><b>2.19</b> How can I hide the value that R returns?</a></li>
+<li class="chapter" data-level="2.20" data-path="basics.html"><a href="basics.html#how-can-i-assign-to-a-global-variable-from-inside-a-function"><i class="fa fa-check"></i><b>2.20</b> How can I assign to a global variable from inside a function?</a></li>
+<li class="chapter" data-level="2.21" data-path="basics.html"><a href="basics.html#key-points"><i class="fa fa-check"></i><b>2.21</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> The Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-read-data"><i class="fa fa-check"></i><b>3.2</b> How do I read data?</a></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-inspect-data"><i class="fa fa-check"></i><b>3.3</b> How do I inspect data?</a></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-index-rows-and-columns"><i class="fa fa-check"></i><b>3.4</b> How do I index rows and columns?</a></li>
+<li class="chapter" data-level="3.5" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-calculate-basic-statistics"><i class="fa fa-check"></i><b>3.5</b> How do I calculate basic statistics?</a></li>
+<li class="chapter" data-level="3.6" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-filter-data"><i class="fa fa-check"></i><b>3.6</b> How do I filter data?</a></li>
+<li class="chapter" data-level="3.7" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-write-tidy-code"><i class="fa fa-check"></i><b>3.7</b> How do I write tidy code?</a></li>
+<li class="chapter" data-level="3.8" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-model-my-data"><i class="fa fa-check"></i><b>3.8</b> How do I model my data?</a></li>
+<li class="chapter" data-level="3.9" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-create-a-plot"><i class="fa fa-check"></i><b>3.9</b> How do I create a plot?</a></li>
+<li class="chapter" data-level="3.10" data-path="tidyverse.html"><a href="tidyverse.html#do-i-need-more-practice-with-the-tidyverse"><i class="fa fa-check"></i><b>3.10</b> Do I need more practice with the tidyverse?</a></li>
+<li class="chapter" data-level="3.11" data-path="tidyverse.html"><a href="tidyverse.html#key-points-1"><i class="fa fa-check"></i><b>3.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> Creating Reports with R Markdown</a><ul>
+<li class="chapter" data-level="4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="rmarkdown.html"><a href="rmarkdown.html#key-points-2"><i class="fa fa-check"></i><b>4.2</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>5</b> Creating Packages</a><ul>
+<li class="chapter" data-level="5.1" data-path="package.html"><a href="package.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="package.html"><a href="package.html#what-is-our-starting-point"><i class="fa fa-check"></i><b>5.2</b> What is our starting point?</a></li>
+<li class="chapter" data-level="5.3" data-path="package.html"><a href="package.html#how-do-i-convert-values-to-numbers"><i class="fa fa-check"></i><b>5.3</b> How do I convert values to numbers?</a></li>
+<li class="chapter" data-level="5.4" data-path="package.html"><a href="package.html#how-do-i-reorganize-the-columns"><i class="fa fa-check"></i><b>5.4</b> How do I reorganize the columns?</a></li>
+<li class="chapter" data-level="5.5" data-path="package.html"><a href="package.html#how-do-i-create-a-package"><i class="fa fa-check"></i><b>5.5</b> How do I create a package?</a></li>
+<li class="chapter" data-level="5.6" data-path="package.html"><a href="package.html#how-can-i-document-the-contents-of-a-package"><i class="fa fa-check"></i><b>5.6</b> How can I document the contents of a package?</a></li>
+<li class="chapter" data-level="5.7" data-path="package.html"><a href="package.html#how-can-my-package-import-what-it-needs"><i class="fa fa-check"></i><b>5.7</b> How can my package import what it needs?</a></li>
+<li class="chapter" data-level="5.8" data-path="package.html"><a href="package.html#how-can-i-add-data-to-a-package"><i class="fa fa-check"></i><b>5.8</b> How can I add data to a package?</a></li>
+<li class="chapter" data-level="5.9" data-path="package.html"><a href="package.html#key-points-3"><i class="fa fa-check"></i><b>5.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="nse.html"><a href="nse.html"><i class="fa fa-check"></i><b>6</b> Non-Standard Evaluation</a><ul>
+<li class="chapter" data-level="6.1" data-path="nse.html"><a href="nse.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="nse.html"><a href="nse.html#how-does-python-evaluate-function-calls"><i class="fa fa-check"></i><b>6.2</b> How does Python evaluate function calls?</a></li>
+<li class="chapter" data-level="6.3" data-path="nse.html"><a href="nse.html#how-does-r-evaluate-function-calls"><i class="fa fa-check"></i><b>6.3</b> How does R evaluate function calls?</a></li>
+<li class="chapter" data-level="6.4" data-path="nse.html"><a href="nse.html#why-is-lazy-evaluation-useful"><i class="fa fa-check"></i><b>6.4</b> Why is lazy evaluation useful?</a></li>
+<li class="chapter" data-level="6.5" data-path="nse.html"><a href="nse.html#what-is-tidy-evaluation"><i class="fa fa-check"></i><b>6.5</b> What is tidy evaluation?</a></li>
+<li class="chapter" data-level="6.6" data-path="nse.html"><a href="nse.html#what-if-i-truly-desire-to-venture-into-the-depths"><i class="fa fa-check"></i><b>6.6</b> What if I truly desire to venture into the depths?</a></li>
+<li class="chapter" data-level="6.7" data-path="nse.html"><a href="nse.html#is-it-worth-it"><i class="fa fa-check"></i><b>6.7</b> Is it worth it?</a></li>
+<li class="chapter" data-level="6.8" data-path="nse.html"><a href="nse.html#key-points-4"><i class="fa fa-check"></i><b>6.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="debt.html"><a href="debt.html"><i class="fa fa-check"></i><b>7</b> Intellectual Debt</a><ul>
+<li class="chapter" data-level="7.1" data-path="debt.html"><a href="debt.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="debt.html"><a href="debt.html#why-shouldnt-i-use-setwd"><i class="fa fa-check"></i><b>7.2</b> Why shouldn’t I use <code>setwd</code>?</a></li>
+<li class="chapter" data-level="7.3" data-path="debt.html"><a href="debt.html#what-the-hell-are-factors"><i class="fa fa-check"></i><b>7.3</b> What the hell are factors?</a></li>
+<li class="chapter" data-level="7.4" data-path="debt.html"><a href="debt.html#how-do-i-refer-to-various-arguments-in-a-pipeline"><i class="fa fa-check"></i><b>7.4</b> How do I refer to various arguments in a pipeline?</a></li>
+<li class="chapter" data-level="7.5" data-path="debt.html"><a href="debt.html#i-thought-you-said-that-r-encouraged-functional-programming"><i class="fa fa-check"></i><b>7.5</b> I thought you said that R encouraged functional programming?</a></li>
+<li class="chapter" data-level="7.6" data-path="debt.html"><a href="debt.html#how-does-r-give-the-appearance-of-immutable-data"><i class="fa fa-check"></i><b>7.6</b> How does R give the appearance of immutable data?</a></li>
+<li class="chapter" data-level="7.7" data-path="debt.html"><a href="debt.html#what-else-should-i-worry-about"><i class="fa fa-check"></i><b>7.7</b> What else should I worry about?</a></li>
+<li class="chapter" data-level="7.8" data-path="debt.html"><a href="debt.html#key-points-5"><i class="fa fa-check"></i><b>7.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="testerror.html"><a href="testerror.html"><i class="fa fa-check"></i><b>8</b> Testing and Error Handling</a><ul>
+<li class="chapter" data-level="8.1" data-path="testerror.html"><a href="testerror.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="testerror.html"><a href="testerror.html#how-does-r-handle-errors"><i class="fa fa-check"></i><b>8.2</b> How does R handle errors?</a></li>
+<li class="chapter" data-level="8.3" data-path="testerror.html"><a href="testerror.html#what-should-i-know-about-testing-in-general"><i class="fa fa-check"></i><b>8.3</b> What should I know about testing in general?</a></li>
+<li class="chapter" data-level="8.4" data-path="testerror.html"><a href="testerror.html#how-should-i-organize-my-tests"><i class="fa fa-check"></i><b>8.4</b> How should I organize my tests?</a></li>
+<li class="chapter" data-level="8.5" data-path="testerror.html"><a href="testerror.html#how-can-i-write-a-few-simple-tests"><i class="fa fa-check"></i><b>8.5</b> How can I write a few simple tests?</a></li>
+<li class="chapter" data-level="8.6" data-path="testerror.html"><a href="testerror.html#how-can-i-check-data-transformation"><i class="fa fa-check"></i><b>8.6</b> How can I check data transformation?</a></li>
+<li class="chapter" data-level="8.7" data-path="testerror.html"><a href="testerror.html#key-points-6"><i class="fa fa-check"></i><b>8.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>9</b> Advanced Topics</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced.html"><a href="advanced.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced.html"><a href="advanced.html#how-can-i-use-python-with-r"><i class="fa fa-check"></i><b>9.2</b> How can I use Python with R?</a></li>
+<li class="chapter" data-level="9.3" data-path="advanced.html"><a href="advanced.html#how-does-object-oriented-programming-work-in-r"><i class="fa fa-check"></i><b>9.3</b> How does object-oriented programming work in R?</a></li>
+<li class="chapter" data-level="9.4" data-path="advanced.html"><a href="advanced.html#how-can-i-work-with-relational-databases-in-r"><i class="fa fa-check"></i><b>9.4</b> How can I work with relational databases in R?</a></li>
+<li class="chapter" data-level="9.5" data-path="advanced.html"><a href="advanced.html#key-points-7"><i class="fa fa-check"></i><b>9.5</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>10</b> Web Applications</a><ul>
+<li class="chapter" data-level="10.1" data-path="shiny.html"><a href="shiny.html#learning-objectives-8"><i class="fa fa-check"></i><b>10.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="10.2" data-path="shiny.html"><a href="shiny.html#how-do-i-set-up-a-simple-application"><i class="fa fa-check"></i><b>10.2</b> How do I set up a simple application?</a></li>
+<li class="chapter" data-level="10.3" data-path="shiny.html"><a href="shiny.html#how-can-i-build-a-more-interesting-interface"><i class="fa fa-check"></i><b>10.3</b> How can I build a more interesting interface?</a></li>
+<li class="chapter" data-level="10.4" data-path="shiny.html"><a href="shiny.html#how-can-i-display-the-data-in-a-file"><i class="fa fa-check"></i><b>10.4</b> How can I display the data in a file?</a></li>
+<li class="chapter" data-level="10.5" data-path="shiny.html"><a href="shiny.html#how-can-i-break-circular-dependencies"><i class="fa fa-check"></i><b>10.5</b> How can I break circular dependencies?</a></li>
+<li class="chapter" data-level="10.6" data-path="shiny.html"><a href="shiny.html#how-can-i-control-how-the-user-interface-is-rendered"><i class="fa fa-check"></i><b>10.6</b> How can I control how the user interface is rendered?</a></li>
+<li class="chapter" data-level="10.7" data-path="shiny.html"><a href="shiny.html#key-points-8"><i class="fa fa-check"></i><b>10.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>A</b> License</a></li>
+<li class="chapter" data-level="B" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>B</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="B.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>B.1</b> Our Standards</a></li>
+<li class="chapter" data-level="B.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-responsibilities"><i class="fa fa-check"></i><b>B.2</b> Our Responsibilities</a></li>
+<li class="chapter" data-level="B.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>B.3</b> Scope</a></li>
+<li class="chapter" data-level="B.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>B.4</b> Enforcement</a></li>
+<li class="chapter" data-level="B.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>B.5</b> Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="citation.html"><a href="citation.html"><i class="fa fa-check"></i><b>C</b> Citation</a></li>
+<li class="chapter" data-level="D" data-path="contributing.html"><a href="contributing.html"><i class="fa fa-check"></i><b>D</b> Contributing</a></li>
+<li class="chapter" data-level="E" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>E</b> Practice Problems</a><ul>
+<li class="chapter" data-level="E.1" data-path="practice.html"><a href="practice.html#do-i-need-even-more-practice"><i class="fa fa-check"></i><b>E.1</b> Do I need even more practice?</a></li>
+<li class="chapter" data-level="E.2" data-path="practice.html"><a href="practice.html#please-may-i-create-some-charts"><i class="fa fa-check"></i><b>E.2</b> Please may I create some charts?</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>F</b> Glossary</a></li>
+<li class="chapter" data-level="G" data-path="keypoints.html"><a href="keypoints.html"><i class="fa fa-check"></i><b>G</b> Key Points</a><ul>
+<li class="chapter" data-level="G.1" data-path="keypoints.html"><a href="keypoints.html#simple-beginnings"><i class="fa fa-check"></i><b>G.1</b> Simple Beginnings</a></li>
+<li class="chapter" data-level="G.2" data-path="keypoints.html"><a href="keypoints.html#the-tidyverse"><i class="fa fa-check"></i><b>G.2</b> The Tidyverse</a></li>
+<li class="chapter" data-level="G.3" data-path="keypoints.html"><a href="keypoints.html#creating-packages"><i class="fa fa-check"></i><b>G.3</b> Creating Packages</a></li>
+<li class="chapter" data-level="G.4" data-path="keypoints.html"><a href="keypoints.html#non-standard-evaluation"><i class="fa fa-check"></i><b>G.4</b> Non-Standard Evaluation</a></li>
+<li class="chapter" data-level="G.5" data-path="keypoints.html"><a href="keypoints.html#intellectual-debt"><i class="fa fa-check"></i><b>G.5</b> Intellectual Debt</a></li>
+<li class="chapter" data-level="G.6" data-path="keypoints.html"><a href="keypoints.html#testing-and-error-handling"><i class="fa fa-check"></i><b>G.6</b> Testing and Error Handling</a></li>
+<li class="chapter" data-level="G.7" data-path="keypoints.html"><a href="keypoints.html#advanced-topics"><i class="fa fa-check"></i><b>G.7</b> Advanced Topics</a></li>
+<li class="chapter" data-level="G.8" data-path="keypoints.html"><a href="keypoints.html#web-applications-with-shiny"><i class="fa fa-check"></i><b>G.8</b> Web Applications with Shiny</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Tidynomicon</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="shiny" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Web Applications</h1>
+<p>Sooner or later,
+almost every application needs a graphical interface
+so that users can load data files, control parameters, and view results.
+While the desktop still has a role to play,
+the best place to build an interface these days is on the web,
+and the best toolkit for doing that in R is <a href="https://shiny.rstudio.com/">Shiny</a>.
+This lesson will walk through the construction of a simple application
+and along the way introduce you to <a href="glossary.html#reactive-programming">reactive programming</a>.
+To follow along,
+please install Shiny using:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;shiny&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)</code></pre>
+<div id="learning-objectives-8" class="section level2">
+<h2><span class="header-section-number">10.1</span> Learning Objectives</h2>
+<ul>
+<li>Describe the three essential parts of a Shiny application.</li>
+<li>Explain how element names are used to connect interface elements to server actions.</li>
+<li>Describe the structure of a simple Shiny application and how to run it.</li>
+<li>Explain what reactive variables are and how they differ from normal variables.</li>
+<li>Use functions to create and style HTML elements.</li>
+<li>Explain how to avoid circular updates in interfaces.</li>
+</ul>
+</div>
+<div id="how-do-i-set-up-a-simple-application" class="section level2">
+<h2><span class="header-section-number">10.2</span> How do I set up a simple application?</h2>
+<p>Every Shiny app has three things:</p>
+<ol style="list-style-type: decimal">
+<li>A user interface object that shows things to user.</li>
+<li>A server function, which is the back end that provides data.</li>
+<li>A call to <code>shinyApp</code> that binds the two together.</li>
+</ol>
+<p>These can all live in the same file,
+but most developers prefer to put the UI and server code in separate files.</p>
+<p>To start,
+we will reproduce the first example from <a href="https://shiny.rstudio.com/tutorial/">the Shiny tutorial</a>.
+The first step is to create a directory called <code>faithful</code>:
+we <em>must</em> do this because every Shiny application needs to be in its own directory.
+Inside that directory,
+create a file called <code>app.R</code>.
+The function call <code>runApp(directory_name)</code> automatically looks in the named directory for a file with that name.</p>
+<p>Inside <code>app.R</code>, we can create the skeleton of the application:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+
+ui &lt;-<span class="st"> </span><span class="co"># ...user interface...</span>
+
+server &lt;-<span class="st"> </span><span class="co"># ...server...</span>
+
+<span class="kw">shinyApp</span>(<span class="dt">ui =</span> ui, <span class="dt">server =</span> server)</code></pre>
+<p>Our next tasks are to fill in the user interface and server.</p>
+<div id="creating-a-user-interface" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> Creating a user interface</h3>
+<p>Our interface is a <a href="glossary.html#fluid-page">fluid page</a>,
+i.e., it resizes as needed based on the size of the browser.
+It uses a single sidebar layout with two elements, <code>sidebarPanel</code> and <code>mainPanel</code>.
+The sidebar contains a <code>sliderInput</code> object that (as you’d expect from the name) creates a slider;
+we must specify <code>label</code>, <code>min</code>, <code>max</code>, and <code>value</code> to set it up.
+We must also specify a value for <code>inputId</code>;
+this gives the widget a name so that we can refer to it in the server code.</p>
+<p>Finally,
+our interface’s <code>mainPanel</code> contains a single <code>plotOutput</code>
+whose <code>outputId</code> attribute is used to refer to it.
+The whole thing looks like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
+  <span class="kw">titlePanel</span>(<span class="st">&quot;Hello Shiny!&quot;</span>),
+  <span class="kw">sidebarLayout</span>(
+    <span class="kw">sidebarPanel</span>(
+      <span class="kw">sliderInput</span>(<span class="dt">inputId =</span> <span class="st">&quot;bins&quot;</span>,
+                  <span class="dt">label =</span> <span class="st">&quot;Number of bins:&quot;</span>,
+                  <span class="dt">min =</span> <span class="dv">1</span>,
+                  <span class="dt">max =</span> <span class="dv">50</span>,
+                  <span class="dt">value =</span> <span class="dv">30</span>)),
+    <span class="kw">mainPanel</span>(
+      <span class="kw">plotOutput</span>(<span class="dt">outputId =</span> <span class="st">&quot;distPlot&quot;</span>))
+  )
+)</code></pre>
+<p>(We could fit the <code>plotOutput</code> call on the same line as the call to <code>mainPanel</code>,
+but it’s easier to see the structure of the interface
+if each level of logical nesting is reflected in the layout of the code.)</p>
+</div>
+<div id="creating-a-server" class="section level3">
+<h3><span class="header-section-number">10.2.2</span> Creating a server</h3>
+<p>In any interactive application,
+something has to react to changes in controls and update displays.
+Shiny watches for the former and takes care of the latter automatically,
+but only once we tell it what to watch and how to make updates.
+We do this by creating a function called <code>server</code>
+that Shiny calls on our behalf whenever something in the interface changes:</p>
+<pre class="sourceCode r"><code class="sourceCode r">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {
+  output<span class="op">$</span>distPlot &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    x    &lt;-<span class="st"> </span>faithful<span class="op">$</span>waiting
+    bins &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="kw">min</span>(x), <span class="kw">max</span>(x), <span class="dt">length.out =</span> input<span class="op">$</span>bins <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)
+    <span class="kw">hist</span>(x, <span class="dt">breaks =</span> bins, <span class="dt">col =</span> <span class="st">&quot;#75AADB&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;white&quot;</span>,
+         <span class="dt">xlab =</span> <span class="st">&quot;Waiting time to next eruption (in mins)&quot;</span>,
+         <span class="dt">main =</span> <span class="st">&quot;Histogram of waiting times&quot;</span>)
+    })
+}</code></pre>
+<p>When there is a change in one of the input elements,
+Shiny notices and calls our function,
+giving it a named list of inputs (i.e., our controls) and another of outputs (our displays).
+For example,
+since we gave our slider the ID <code>bins</code>,
+<code>input$bins</code> will be the value of the slider.
+Similarly,
+<code>output$distPlot</code> matches the ID of the plot,
+so we can use Shiny’s <code>renderPlot</code> function to tell it what to plot.
+(We can’t use ggplot2 calls directly, but the terminology is very similar.)</p>
+</div>
+<div id="running-the-application" class="section level3">
+<h3><span class="header-section-number">10.2.3</span> Running the application</h3>
+<p>We can now run <code>app.R</code> from the command line or use:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runApp</span>(<span class="st">&quot;faithful&quot;</span>)</code></pre>
+<p>from the RStudio console.
+Once the application is running,
+we can narrow the window to see things automatically resize
+(the “fluid” part of the interface).
+The <code>x</code> axis is waiting times from the <code>faithful</code> data,
+the <code>y</code> axis shows the frequency of that waiting time,
+and the control in the upper left lets us change the sizes of the bins.</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/shiny/faithful.png&quot;</span>)</code></pre>
+<p><img src="figures/shiny/faithful.png" width="469" /></p>
+</div>
+</div>
+<div id="how-can-i-build-a-more-interesting-interface" class="section level2">
+<h2><span class="header-section-number">10.3</span> How can I build a more interesting interface?</h2>
+<p>Let’s trying building a tool for exploring the UNICEF data we tidied up in previous chapters.
+To start,
+we <code>mkdir unicef/skeleton</code> and create <code>app.R</code>:</p>
+<!-- unicef/skeleton/app.R -->
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(shiny)
+
+ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
+  <span class="kw">titlePanel</span>(<span class="st">&quot;UNICEF Data&quot;</span>),
+  <span class="kw">sidebarLayout</span>(
+    <span class="dt">position =</span> <span class="st">&quot;right&quot;</span>,
+    <span class="kw">sidebarPanel</span>(
+      <span class="kw">img</span>(<span class="dt">src =</span> <span class="st">&quot;logo.png&quot;</span>, <span class="dt">width =</span> <span class="dv">200</span>),
+      <span class="kw">h2</span>(<span class="st">&quot;Controls&quot;</span>)
+    ),
+    <span class="kw">mainPanel</span>(
+      <span class="kw">h1</span>(<span class="st">&quot;Display&quot;</span>))
+  )
+)
+
+server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){
+  <span class="co"># Empty for now.</span>
+}
+
+<span class="kw">shinyApp</span>(<span class="dt">ui =</span> ui, <span class="dt">server =</span> server)</code></pre>
+<p>Running this with <code>runApp('unicef/skeleton')</code> gives us:</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/shiny/unicef-skeleton.png&quot;</span>)</code></pre>
+<p><img src="figures/shiny/unicef-skeleton.png" width="449" /></p>
+<p>This has a title panel,
+controls on the right,
+and some space for a display on the left.
+We use <code>h1</code>, <code>h2</code>, and similarly-named functions to create HTML elements
+and <code>img</code> to display a logo.
+The server is empty for now: we will fill that in below.</p>
+<p>When we run this for the first time everything looks good except the image,
+because it turns out that <a href="glossary.html#static-image">static images</a> must be in the application’s <code>www</code> folder,
+i.e.,
+in <code>unicef/skeleton/www</code>.
+Once we put <code>logo.png</code> there, everything looks as it should.</p>
+<p>It’s now time to add interactive control elements, better known as <a href="glossary.html#widget">widgets</a>.
+Shiny provides:</p>
+<ul>
+<li>buttons</li>
+<li>checkboxes</li>
+<li>radio buttons</li>
+<li>pulldown selectors (for cases when checkboxes or radio buttons would take up too much space)</li>
+<li>date inputs and date ranges</li>
+<li>filenames</li>
+<li>sliders (like the one seen before)</li>
+<li>free-form text input</li>
+</ul>
+<p>That’s a lot of options;
+since we don’t have a user to consult,
+we need to decide what we’re going to visualize.
+One obvious choice is to allow people to choose a data file,
+and then select a data range based on the years in that file
+and see a line plot of the average estimate by year.
+After replacing the <code>h2</code> element with a <code>fileInput</code> and <code>dateRangeInput</code> elements in <code>unicef/prototype/app.R</code>,
+our application looks like this:</p>
+<!-- unicef/prototype/app.R -->
+<pre class="sourceCode r"><code class="sourceCode r">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
+  <span class="kw">titlePanel</span>(<span class="st">&quot;UNICEF Data&quot;</span>),
+  <span class="kw">sidebarLayout</span>(
+    <span class="dt">position =</span> <span class="st">&quot;right&quot;</span>,
+    <span class="kw">sidebarPanel</span>(
+      <span class="kw">img</span>(<span class="dt">src =</span> <span class="st">&quot;logo.png&quot;</span>, <span class="dt">width =</span> <span class="dv">200</span>),
+      <span class="kw">fileInput</span>(<span class="st">&quot;datafile&quot;</span>, <span class="kw">p</span>(<span class="st">&quot;data file&quot;</span>)),
+      <span class="kw">dateRangeInput</span>(<span class="st">&quot;years&quot;</span>, <span class="kw">p</span>(<span class="st">&quot;years&quot;</span>), <span class="dt">format =</span> <span class="st">&quot;yyyy&quot;</span>)
+    ),
+    <span class="kw">mainPanel</span>(
+      <span class="kw">h1</span>(<span class="st">&quot;Display&quot;</span>))
+  )
+)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/shiny/unicef-prototype.png&quot;</span>)</code></pre>
+<p><img src="figures/shiny/unicef-prototype.png" width="456" /></p>
+<p>Let’s show the chosen filename in the output display:</p>
+<!-- unicef/filename_wrong/app.R -->
+<pre class="sourceCode r"><code class="sourceCode r">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
+  <span class="kw">titlePanel</span>(<span class="st">&quot;UNICEF Data&quot;</span>),
+  <span class="kw">sidebarLayout</span>(
+    <span class="co"># ...as before...</span>
+    <span class="kw">mainPanel</span>(
+      <span class="kw">textOutput</span>(<span class="st">&quot;filename&quot;</span>)
+    )
+  )
+)
+
+server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){
+  output<span class="op">$</span>filename &lt;-<span class="st"> </span><span class="kw">renderText</span>({
+    <span class="kw">paste</span>(<span class="st">&quot;input file:&quot;</span>, input<span class="op">$</span>datafile)
+  })
+}</code></pre>
+<p>The initial display looks good:</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/shiny/unicef-filename-wrong-before.png&quot;</span>)</code></pre>
+<p><img src="figures/shiny/unicef-filename-wrong-before.png" width="578" /></p>
+<p>but when we fill in the filename, something is clearly wrong:</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/shiny/unicef-filename-wrong-after.png&quot;</span>)</code></pre>
+<p><img src="figures/shiny/unicef-filename-wrong-after.png" width="578" /></p>
+<p>A quick browse of the documentation reveals that
+<code>input$datafile</code> is actually a dataframe containing several values.
+What we actually want is <code>input$datafile$datapath</code>:</p>
+<!-- unicef/filename_right/app.R -->
+<pre class="sourceCode r"><code class="sourceCode r">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){
+  output<span class="op">$</span>filename &lt;-<span class="st"> </span><span class="kw">renderText</span>({
+    <span class="kw">paste</span>(<span class="st">&quot;input file:&quot;</span>, input<span class="op">$</span>datafile<span class="op">$</span>datapath)
+  })
+}</code></pre>
+<p>but this <em>still</em> looks wrong after upload:</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/shiny/unicef-filename-almost-right.png&quot;</span>)</code></pre>
+<p><img src="figures/shiny/unicef-filename-almost-right.png" width="556" /></p>
+<p>Some more digging reveals that we should display <code>name</code> but use <code>datapath</code> when reading data:</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/shiny/unicef-filename-right.png&quot;</span>)</code></pre>
+<p><img src="figures/shiny/unicef-filename-right.png" width="470" /></p>
+<p>“It’s still better than LaTeX,” we mutter, and continue.</p>
+<div id="enhancing-the-server" class="section level3">
+<h3><span class="header-section-number">10.3.1</span> Enhancing the server</h3>
+<p>Let’s fill in the server a bit:</p>
+<!-- unicef/server/app.R -->
+<pre class="sourceCode r"><code class="sourceCode r">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){
+  currentData &lt;-<span class="st"> </span><span class="ot">NULL</span>
+  output<span class="op">$</span>filename &lt;-<span class="st"> </span><span class="kw">renderText</span>({
+    currentName &lt;-<span class="st"> </span>input<span class="op">$</span>datafile<span class="op">$</span>name
+    currentPath &lt;-<span class="st"> </span>input<span class="op">$</span>datafile<span class="op">$</span>datapath
+    <span class="cf">if</span> (<span class="kw">is.null</span>(currentName)) {
+      currentData &lt;-<span class="st"> </span><span class="ot">NULL</span>
+      text &lt;-<span class="st"> &quot;no filename set&quot;</span>
+    } <span class="cf">else</span> {
+      currentData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(currentPath)
+      text &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;showing&quot;</span>, currentName)
+    }
+    text
+  })
+}</code></pre>
+</div>
+<div id="which-variables-belong-where" class="section level3">
+<h3><span class="header-section-number">10.3.2</span> Which variables belong where</h3>
+<p>This short program shows three places that we can put code:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Outside the calls to <code>ui</code> and <code>server</code>.</strong>
+Code placed here is run once when the application launches,
+so this is a good place to (for example) set up a database connection.</p></li>
+<li><p><strong>Inside <code>server</code>.</strong>
+Code placed here is run once <em>for each new <a href="glossary.html#session">session</a></em>.
+Each time someone makes a fresh connection to the application,
+Shiny starts a new server so that each user’s work will be isolated from their peers.
+If the application needs to store the current state of an analysis,
+the dataframe used for that purpose should be created here.</p></li>
+<li><p><strong>Inside a handler like <code>renderText</code>.</strong>
+Code placed here is re-run each time the handler is triggered by a change in the user interface,
+so short-lived scratchpad variables should be declared here.</p></li>
+</ol>
+</div>
+</div>
+<div id="how-can-i-display-the-data-in-a-file" class="section level2">
+<h2><span class="header-section-number">10.4</span> How can I display the data in a file?</h2>
+<p>Now comes the hard part: updating the chart when the file changes.
+The trick is to use a <a href="glossary.html#reactive-variable">reactive variable</a>,
+which is actually a function that changes value whenever something it depends on changes.
+That “something” is usually another reactive,
+like the ones provided by Shiny.</p>
+<p>In the code below,
+<code>currentData</code> is created by calling <code>reactive</code> with a block of code that produces the variable’s value.
+It uses <code>input$datafile</code>,
+so it will automatically be triggered whenever <code>input$datafile</code> changes.
+Other things can depend on it in the same way,
+which allows us to get rid of <code>currentData</code>:
+<code>output$filename</code> uses <code>currentData()</code>,
+so it is automatically called when the reactive variable’s value changes.</p>
+<!-- unicef/reactive_update/app.R -->
+<pre class="sourceCode r"><code class="sourceCode r">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){
+  currentData &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    currentPath &lt;-<span class="st"> </span>input<span class="op">$</span>datafile<span class="op">$</span>datapath
+    <span class="cf">if</span> (<span class="kw">is.null</span>(currentPath)) {
+      result &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    } <span class="cf">else</span> {
+      result &lt;-<span class="st"> </span><span class="kw">read_csv</span>(currentPath)
+    }
+    result
+  })
+
+  output<span class="op">$</span>filename &lt;-<span class="st"> </span><span class="kw">renderText</span>({
+    currentName &lt;-<span class="st"> </span>input<span class="op">$</span>datafile<span class="op">$</span>name
+    <span class="cf">if</span> (<span class="kw">is.null</span>(currentName)) {
+      text &lt;-<span class="st"> &quot;no filename set&quot;</span>
+    } <span class="cf">else</span> {
+      text &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;showing&quot;</span>, currentName)
+    }
+    text
+  })
+
+  output<span class="op">$</span>chart &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    data &lt;-<span class="st"> </span><span class="kw">currentData</span>()
+    <span class="cf">if</span> (<span class="kw">is.null</span>(data)) {
+      <span class="kw">message</span>(<span class="st">&quot;no data&quot;</span>)
+      chart &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    } <span class="cf">else</span> {
+      <span class="kw">message</span>(<span class="st">&quot;we have data, creating chart&quot;</span>)
+      chart &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">summarize</span>(<span class="dt">average =</span> <span class="kw">mean</span>(estimate, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> average)) <span class="op">+</span>
+<span class="st">        </span><span class="kw">geom_line</span>()
+    }
+    chart
+  })
+}</code></pre>
+<p><img src="figures/shiny/unicef-reactive-update.gif" /><!-- --></p>
+</div>
+<div id="how-can-i-break-circular-dependencies" class="section level2">
+<h2><span class="header-section-number">10.5</span> How can I break circular dependencies?</h2>
+<p>Now comes the <em>other</em> hard part: handling changes to the date range.
+We want the chart to display data for the selected range of years
+and have the minimum and maximum possible year set by the data.
+That means we have to change something in the user interface from the server;
+to do that,
+we add a third parameter <code>session</code> to the <code>server</code> function.
+This variable holds the backward connection from the server to the UI.</p>
+<p>Inside our server,
+we get the current years from <code>input$years</code>
+and use <code>updateDateRangeInput</code> to push a change from the output function to the input controls.
+(This is the part that needs <code>session</code>.)</p>
+<!-- unicef/infinite_update/app.R -->
+<pre class="sourceCode r"><code class="sourceCode r">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output, session){
+  <span class="co"># ...other code as before...</span>
+
+  output<span class="op">$</span>chart &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    years &lt;-<span class="st"> </span>input<span class="op">$</span>years
+    <span class="kw">message</span>(<span class="st">&#39;years&#39;</span>, years)
+    data &lt;-<span class="st"> </span><span class="kw">currentData</span>()
+    <span class="cf">if</span> (<span class="kw">is.null</span>(data)) {
+      chart &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    } <span class="cf">else</span> {
+      minYear &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">min</span>(data<span class="op">$</span>year))
+      maxYear &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">max</span>(data<span class="op">$</span>year))
+      <span class="kw">updateDateRangeInput</span>(session, <span class="st">&quot;years&quot;</span>, <span class="dt">min =</span> minYear, <span class="dt">max =</span> maxYear,
+                           <span class="dt">start =</span> minYear, <span class="dt">end =</span> maxYear)
+      chart &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">summarize</span>(<span class="dt">average =</span> <span class="kw">mean</span>(estimate, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> average)) <span class="op">+</span>
+<span class="st">        </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">        </span><span class="kw">ggtitle</span>(<span class="kw">paste</span>(<span class="st">&quot;Years&quot;</span>, minYear, <span class="st">&quot;-&quot;</span>, maxYear))
+    }
+    chart
+  })
+}</code></pre>
+<p>When we run this,
+it displays the current date twice on startup before a file is selected because that’s the default for the date input.
+Once dates are entered,
+though,
+it goes into an infinite loop because
+ghe chart depends on the dates,
+but we’re changing the dates inside the plot update.</p>
+<p>Let’s try again.
+We will just read <code>years</code> inside the chart update and display it:</p>
+<!-- unicef/every_character/app.R -->
+<pre class="sourceCode r"><code class="sourceCode r">  output<span class="op">$</span>chart &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    years &lt;-<span class="st"> </span>input<span class="op">$</span>years
+    <span class="kw">message</span>(<span class="st">&#39;years&#39;</span>, years)
+    data &lt;-<span class="st"> </span><span class="kw">currentData</span>()
+    <span class="cf">if</span> (<span class="kw">is.null</span>(data)) {
+      chart &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    } <span class="cf">else</span> {
+      minYear &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">min</span>(data<span class="op">$</span>year))
+      maxYear &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">max</span>(data<span class="op">$</span>year))
+      chart &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">summarize</span>(<span class="dt">average =</span> <span class="kw">mean</span>(estimate, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> average)) <span class="op">+</span>
+<span class="st">        </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">        </span><span class="kw">ggtitle</span>(<span class="kw">paste</span>(<span class="st">&quot;Years&quot;</span>, minYear, <span class="st">&quot;-&quot;</span>, maxYear))
+    }
+    chart
+  })</code></pre>
+<p>Whoops:
+the message appears every time a character is typed in one of the date controls,
+i.e.,
+deleting the start year and typing <code>2</code>, <code>0</code>, <code>1</code>, <code>8</code>
+produces <code>0002</code>, <code>0020</code>, and <code>0201</code> before producing a usable year.
+That’s clearly not what we want,
+so we’ll try a third approach
+and only show the year selector when there’s data.
+While we’re doing this,
+we’ll change the year selector to a double-ended slider, because seeing the day and month is misleading.
+The revised UI code looks like this:</p>
+<!-- unicef/slider/app.R -->
+<pre class="sourceCode r"><code class="sourceCode r">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
+  <span class="kw">titlePanel</span>(<span class="st">&quot;UNICEF Data&quot;</span>),
+  <span class="kw">sidebarLayout</span>(
+    <span class="dt">position =</span> <span class="st">&quot;right&quot;</span>,
+    <span class="kw">sidebarPanel</span>(
+      <span class="kw">img</span>(<span class="dt">src =</span> <span class="st">&quot;logo.png&quot;</span>, <span class="dt">width =</span> <span class="dv">200</span>),
+      <span class="kw">div</span>(
+        <span class="dt">id =</span> <span class="st">&quot;datafileInput&quot;</span>,
+        <span class="kw">fileInput</span>(<span class="st">&quot;datafile&quot;</span>, <span class="kw">p</span>(<span class="st">&quot;data file&quot;</span>))
+      )
+    ),
+    <span class="kw">mainPanel</span>(
+      <span class="kw">p</span>(<span class="kw">textOutput</span>(<span class="st">&quot;filename&quot;</span>)),
+      <span class="kw">plotOutput</span>(<span class="st">&quot;chart&quot;</span>)
+    )
+  )
+)</code></pre>
+<p>Here, we have wrapped the file selector in a <code>div</code>
+so that we have a named element after which to insert our date range selector,
+but <em>haven’t</em> included the date range selector (yet).</p>
+<p>The outline of the corresponding server is:</p>
+<pre class="sourceCode r"><code class="sourceCode r">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){
+
+  currentData &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    <span class="co"># ...provide currentData...</span>
+  })
+  
+  selectedData &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    <span class="co"># ...provide selectedData...</span>
+  })
+  
+  <span class="kw">observeEvent</span>(input<span class="op">$</span>datafile, {
+    <span class="co"># ...insert year selector when datafile changes...</span>
+  })
+  
+  output<span class="op">$</span>chart &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="co"># ...update chart when selectedData changes...</span>
+  })
+  
+  output<span class="op">$</span>filename &lt;-<span class="st"> </span><span class="kw">renderText</span>({
+    <span class="co"># ...update displayed filename when selected file changes...</span>
+  })
+}</code></pre>
+<p>The zero’th change is getting rid of the <code>session</code> variable:
+we don’t need it any longer because we’re not modifying the interface from the server.
+The first change is to create a reactive variable for the selected data.
+We need this because the chart depends on the selected data,
+while the range of years we can select depends on the current (actual) data.
+As a rule,
+everywhere we might need to “see” data,
+we should create a reactive variable.</p>
+<p>The function <code>observeEvent</code> allows us to create event handlers that aren’t directly attached to display objects;
+we need one so that we can create the year display.
+Once that’s set up,
+<code>currentData</code> is straightforward:
+if the filename changes, load that CSV file:</p>
+<pre class="sourceCode r"><code class="sourceCode r">  currentData &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    <span class="kw">read_csv</span>(input<span class="op">$</span>datafile<span class="op">$</span>datapath)
+  })</code></pre>
+<p><code>selectedData</code> is also straightforward:
+if <code>currentData</code> changes, filter by year range:</p>
+<pre class="sourceCode r"><code class="sourceCode r">  selectedData &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    <span class="kw">req</span>(input<span class="op">$</span>years)
+    <span class="kw">currentData</span>() <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">filter</span>(<span class="kw">between</span>(year, input<span class="op">$</span>years[<span class="dv">1</span>], input<span class="op">$</span>years[<span class="dv">2</span>]))
+  })</code></pre>
+<p>This function uses <code>currentData()</code> so that Shiny knows it depends on changes to the current data.
+But how do we know we <em>have</em> a year range?
+The answer is that <code>req(input$years)</code> means “make sure this thing exists before going any further”.
+Once we have the years, we can filter as required.</p>
+<p>Now for the clever bit:
+we will create a slider <em>after</em> loading a data file.
+More specifically,
+we will use <code>observeEvent(input$datafile, {...})</code> to indicate that this action depends on changes to the filename,
+then get the current data,
+grab the year range,
+create a <code>sliderInput</code>,
+and use <code>insertUI</code> to add it after the <code>div</code> we created:</p>
+<pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">observeEvent</span>(input<span class="op">$</span>datafile, {
+    current &lt;-<span class="st"> </span><span class="kw">currentData</span>()
+    lowYear &lt;-<span class="st"> </span><span class="kw">min</span>(current<span class="op">$</span>year)
+    highYear &lt;-<span class="st"> </span><span class="kw">max</span>(current<span class="op">$</span>year)
+    <span class="kw">insertUI</span>(
+      <span class="dt">selector =</span> <span class="st">&quot;#datafileInput&quot;</span>,
+      <span class="dt">where =</span> <span class="st">&quot;afterEnd&quot;</span>,
+      <span class="dt">ui =</span> <span class="kw">sliderInput</span>(<span class="st">&quot;years&quot;</span>, <span class="st">&quot;years&quot;</span>, 
+                       <span class="dt">min =</span> lowYear,
+                       <span class="dt">max =</span> highYear,
+                       <span class="dt">value =</span> <span class="kw">c</span>(lowYear, highYear),
+                       <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
+    )
+  })</code></pre>
+<p>Creating the chart and displaying the filename is done as before,
+though we have switched to <code>ifelse</code> for the filename’s value to be idiomatic.
+Note that the chart depends on <code>selectedData()</code> and <em>not</em> the raw data:</p>
+<pre class="sourceCode r"><code class="sourceCode r">  output<span class="op">$</span>chart &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="kw">selectedData</span>() <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">summarize</span>(<span class="dt">average =</span> <span class="kw">mean</span>(estimate, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> average)) <span class="op">+</span>
+<span class="st">        </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Years&quot;</span>, input<span class="op">$</span>years[<span class="dv">1</span>], <span class="st">&quot;to&quot;</span>, input<span class="op">$</span>years[<span class="dv">2</span>]))
+  })
+  
+  output<span class="op">$</span>filename &lt;-<span class="st"> </span><span class="kw">renderText</span>({
+    currentName &lt;-<span class="st"> </span>input<span class="op">$</span>datafile<span class="op">$</span>name
+    <span class="kw">ifelse</span>(<span class="kw">is.null</span>(currentName), <span class="st">&quot;no filename set&quot;</span>, <span class="kw">paste</span>(<span class="st">&quot;showing&quot;</span>, currentName))
+  })</code></pre>
+<p>Here are the dependencies we have created:</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/shiny/unicef-slider-dependencies.png&quot;</span>)</code></pre>
+<p><img src="figures/shiny/unicef-slider-dependencies.png" width="270" /></p>
+<p>It works!
+Except that we’re adding a slider every time we open a file,
+so if we open the same file twice, we get two sliders with identical ranges:</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;figures/shiny/unicef-slider.png&quot;</span>)</code></pre>
+<p><img src="figures/shiny/unicef-slider.png" width="511" /></p>
+</div>
+<div id="how-can-i-control-how-the-user-interface-is-rendered" class="section level2">
+<h2><span class="header-section-number">10.6</span> How can I control how the user interface is rendered?</h2>
+<p>Our last refinement uses <code>uiOutput</code> and <code>renderUI</code> to (re-)create the slider at just the right moment.
+The UI looks familiar,
+except there’s a <code>uiOutput</code> placeholder where the slider is to go—its name “slider”
+will be used in the server:</p>
+<pre class="sourceCode r"><code class="sourceCode r">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
+  <span class="kw">titlePanel</span>(<span class="st">&quot;UNICEF Data&quot;</span>),
+  <span class="kw">sidebarLayout</span>(
+    <span class="dt">position =</span> <span class="st">&quot;right&quot;</span>,
+    <span class="kw">sidebarPanel</span>(
+      <span class="kw">img</span>(<span class="dt">src =</span> <span class="st">&quot;logo.png&quot;</span>, <span class="dt">width =</span> <span class="dv">200</span>),
+      <span class="kw">fileInput</span>(<span class="st">&quot;datafile&quot;</span>, <span class="kw">p</span>(<span class="st">&quot;data file&quot;</span>)),
+      <span class="kw">uiOutput</span>(<span class="st">&quot;slider&quot;</span>)
+    ),
+    <span class="kw">mainPanel</span>(
+      <span class="kw">p</span>(<span class="kw">textOutput</span>(<span class="st">&quot;filename&quot;</span>)),
+      <span class="kw">plotOutput</span>(<span class="st">&quot;chart&quot;</span>)
+    )
+  )
+)</code></pre>
+<p><code>uiOutput</code> is always used in conjunction with <code>renderUI</code> in the server,
+so let’s look at the server:</p>
+<pre class="sourceCode r"><code class="sourceCode r">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){
+
+  currentData &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    <span class="co"># ...get the data...</span>
+  })
+
+  output<span class="op">$</span>slider &lt;-<span class="st"> </span><span class="kw">renderUI</span>({
+    <span class="co"># ...create a widget to allow year selection...</span>
+  })
+
+  selectedData &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    <span class="co"># ...select data using values from the year selector...</span>
+  })
+
+  output<span class="op">$</span>chart &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({
+    <span class="co"># ...draw the chart...</span>
+  })
+
+  output<span class="op">$</span>filename &lt;-<span class="st"> </span><span class="kw">renderText</span>({
+    <span class="co"># ...display the filename...</span>
+  })
+}</code></pre>
+<p>What does <code>currentData</code> look like?</p>
+<pre class="sourceCode r"><code class="sourceCode r">  currentData &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    <span class="kw">req</span>(input<span class="op">$</span>datafile)
+    <span class="kw">read_csv</span>(input<span class="op">$</span>datafile<span class="op">$</span>datapath)
+  })</code></pre>
+<p>We use <code>req(...)</code> to tell Shiny that there’s no point proceeding unless <code>input$datafile</code> actually has a value,
+because we can’t load data if we have a <code>NULL</code> filename.</p>
+<p>Once we have data,
+we create a slider or overwrite the existing slider if there already is one;
+this prevents the problem of multiple sliders.
+Note that the slider’s ID is <code>"years"</code>
+and that its range is set based on data,
+so we avoid the problem of having to create a slider when we don’t know what its range should be:</p>
+<pre class="sourceCode r"><code class="sourceCode r">  output<span class="op">$</span>slider &lt;-<span class="st"> </span><span class="kw">renderUI</span>({
+    current &lt;-<span class="st"> </span><span class="kw">currentData</span>()
+    lowYear &lt;-<span class="st"> </span><span class="kw">min</span>(current<span class="op">$</span>year)
+    highYear &lt;-<span class="st"> </span><span class="kw">max</span>(current<span class="op">$</span>year)
+
+    <span class="kw">sliderInput</span>(<span class="st">&quot;years&quot;</span>, <span class="st">&quot;years&quot;</span>,
+                     <span class="dt">min =</span> lowYear,
+                     <span class="dt">max =</span> highYear,
+                     <span class="dt">value =</span> <span class="kw">c</span>(lowYear, highYear),
+                     <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
+  })</code></pre>
+<p>Once we have a slider,
+we select the data;
+this depends on the years from the slider,
+so we make that explicit using <code>req</code>:</p>
+<pre class="sourceCode r"><code class="sourceCode r">  selectedData &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    <span class="kw">req</span>(input<span class="op">$</span>years)
+
+    <span class="kw">currentData</span>() <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">filter</span>(<span class="kw">between</span>(year, input<span class="op">$</span>years[<span class="dv">1</span>], input<span class="op">$</span>years[<span class="dv">2</span>]))
+  })</code></pre>
+<p>Displaying the chart and the filename are exactly as we’ve seen before:
+the chart depends on <code>selectedData</code>
+and the filename display depends on <code>input$datafile$name</code>.</p>
+<p>So how and why does this all work?</p>
+<ol style="list-style-type: decimal">
+<li>When the UI is initially created:
+<ul>
+<li>There is no data file, so <code>req(input$datafile)</code> in the definition of <code>currentData</code> halts.</li>
+<li>Without <code>currentData</code>, the <code>renderUI</code> call used to create the slider doesn’t proceed.</li>
+<li>So the UI doesn’t get a slider and doesn’t try to display data it doesn’t have.</li>
+</ul></li>
+<li>When a filename is selected for the first time:
+<ul>
+<li><code>input$datafile</code> gets a value.</li>
+<li>So we load data <em>and</em> we can display the filename.</li>
+<li><code>currentData</code> now has a meaningful value.</li>
+<li>So we can create a slider <em>and</em> initialize its limits to the min and max years from the actual data.</li>
+<li>So <code>selectedData</code> can now be constructed (all of the things it depends on exist).</li>
+<li>So we can draw the chart.</li>
+</ul></li>
+<li>When a new file is selected:
+<ul>
+<li><code>input$datafile</code> gets a value.</li>
+<li>So we load data and display the filenmae.</li>
+<li><code>currentData</code> is then re-created.</li>
+<li>So we replace the slider with a new one whose bounds are set by the new data.</li>
+<li>And then construct <code>selectedData</code> and draw the chart.</li>
+</ul></li>
+</ol>
+<p>This isn’t the only way to build our interface,
+but the alternatives use more advanced functions like <code>freeze</code> and are harder to debug.
+The way to get where we want to is to break everything down into single actions,
+each of which is probably smaller than we might first expect.
+It takes a bit of practice,
+but once you’re used to it,
+you’ll be able to build some powerful tools with just a page or two of code.</p>
+</div>
+<div id="key-points-8" class="section level2">
+<h2><span class="header-section-number">10.7</span> Key Points</h2>
+<ul>
+<li>Every Shiny application has a user interface, a server, and a call to <code>shinyApp</code> that connects them.</li>
+<li>Every Shiny application must be in its own directory.</li>
+<li>Images and other static assets must be in that directory’s <code>www</code> sub-directory.</li>
+<li>The <code>inputId</code> and <code>outputId</code> attributes of UI elements are used to refer to them from the server.</li>
+<li>Use <code>input$name</code> and <code>output$name</code> in the server to refer to UI elements.</li>
+<li>Code placed at the top of the script outside functions is run once when the app launches.</li>
+<li>Code placed inside <code>server</code> is run once for each user.</li>
+<li>Code placed inside a handler is run once on each change.</li>
+<li>A reactive variable is a function whose value changes automatically whenever anything it depends on changes.</li>
+<li>Use <code>reactive({...})</code> to create a reactive variable explicitly.</li>
+<li>The server can change UI elements via the <code>session</code> variable.</li>
+<li>Use <code>uiOutput</code> and <code>renderUI</code> to (re-)create UI elements as needed in order to break circular dependencies.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="advanced.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/shiny.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["tidynomicon.pdf", "tidynomicon.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

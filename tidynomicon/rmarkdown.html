@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Creating Reports | The Tidynomicon</title>
+  <meta name="description" content="Chapter 4 Creating Reports | The Tidynomicon" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Creating Reports | The Tidynomicon" />
+  <meta property="og:type" content="book" />
+  
+  <meta name="github-repo" content="gvwilson/tidynomicon" />
+
+  
+  
+
+<meta name="author" content="Greg Wilson" />
+
+
+<meta name="date" content="2021-01-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tidyverse.html"/>
+<link rel="next" href="package.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Tidynomicon</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#s:index-personas"><i class="fa fa-check"></i><b>1.1</b> Who are these lessons for?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#s:index-install"><i class="fa fa-check"></i><b>1.2</b> How do I get started?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Simple Beginnings</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#how-do-i-say-hello"><i class="fa fa-check"></i><b>2.2</b> How do I say hello?</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#how-do-i-add-numbers"><i class="fa fa-check"></i><b>2.3</b> How do I add numbers?</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#how-do-i-store-many-numbers-together"><i class="fa fa-check"></i><b>2.4</b> How do I store many numbers together?</a></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#how-do-i-index-a-vector"><i class="fa fa-check"></i><b>2.5</b> How do I index a vector?</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#how-do-i-create-new-vectors-from-old"><i class="fa fa-check"></i><b>2.6</b> How do I create new vectors from old?</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#how-else-does-r-represent-the-absence-of-data"><i class="fa fa-check"></i><b>2.7</b> How else does R represent the absence of data?</a></li>
+<li class="chapter" data-level="2.8" data-path="basics.html"><a href="basics.html#how-can-i-store-a-mix-of-different-types-of-objects"><i class="fa fa-check"></i><b>2.8</b> How can I store a mix of different types of objects?</a></li>
+<li class="chapter" data-level="2.9" data-path="basics.html"><a href="basics.html#what-is-the-difference-between-and"><i class="fa fa-check"></i><b>2.9</b> What is the difference between <code>[</code> and <code>[[</code>?</a></li>
+<li class="chapter" data-level="2.10" data-path="basics.html"><a href="basics.html#how-can-i-access-elements-by-name"><i class="fa fa-check"></i><b>2.10</b> How can I access elements by name?</a></li>
+<li class="chapter" data-level="2.11" data-path="basics.html"><a href="basics.html#how-can-i-create-and-index-a-matrix"><i class="fa fa-check"></i><b>2.11</b> How can I create and index a matrix?</a></li>
+<li class="chapter" data-level="2.12" data-path="basics.html"><a href="basics.html#how-do-i-choose-and-repeat-things"><i class="fa fa-check"></i><b>2.12</b> How do I choose and repeat things?</a></li>
+<li class="chapter" data-level="2.13" data-path="basics.html"><a href="basics.html#how-can-i-vectorize-loops-and-conditionals"><i class="fa fa-check"></i><b>2.13</b> How can I vectorize loops and conditionals?</a></li>
+<li class="chapter" data-level="2.14" data-path="basics.html"><a href="basics.html#how-can-i-express-a-range-of-values"><i class="fa fa-check"></i><b>2.14</b> How can I express a range of values?</a></li>
+<li class="chapter" data-level="2.15" data-path="basics.html"><a href="basics.html#how-can-i-use-a-vector-in-a-conditional-statement"><i class="fa fa-check"></i><b>2.15</b> How can I use a vector in a conditional statement?</a></li>
+<li class="chapter" data-level="2.16" data-path="basics.html"><a href="basics.html#how-do-i-create-and-call-functions"><i class="fa fa-check"></i><b>2.16</b> How do I create and call functions?</a></li>
+<li class="chapter" data-level="2.17" data-path="basics.html"><a href="basics.html#how-can-i-write-a-function-that-takes-variable-arguments"><i class="fa fa-check"></i><b>2.17</b> How can I write a function that takes variable arguments?</a></li>
+<li class="chapter" data-level="2.18" data-path="basics.html"><a href="basics.html#how-can-i-provide-default-values-for-arguments"><i class="fa fa-check"></i><b>2.18</b> How can I provide default values for arguments?</a></li>
+<li class="chapter" data-level="2.19" data-path="basics.html"><a href="basics.html#how-can-i-hide-the-value-that-r-returns"><i class="fa fa-check"></i><b>2.19</b> How can I hide the value that R returns?</a></li>
+<li class="chapter" data-level="2.20" data-path="basics.html"><a href="basics.html#how-can-i-assign-to-a-global-variable-from-inside-a-function"><i class="fa fa-check"></i><b>2.20</b> How can I assign to a global variable from inside a function?</a></li>
+<li class="chapter" data-level="2.21" data-path="basics.html"><a href="basics.html#key-points"><i class="fa fa-check"></i><b>2.21</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> The Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-read-data"><i class="fa fa-check"></i><b>3.2</b> How do I read data?</a></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-inspect-data"><i class="fa fa-check"></i><b>3.3</b> How do I inspect data?</a></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-index-rows-and-columns"><i class="fa fa-check"></i><b>3.4</b> How do I index rows and columns?</a></li>
+<li class="chapter" data-level="3.5" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-calculate-basic-statistics"><i class="fa fa-check"></i><b>3.5</b> How do I calculate basic statistics?</a></li>
+<li class="chapter" data-level="3.6" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-filter-data"><i class="fa fa-check"></i><b>3.6</b> How do I filter data?</a></li>
+<li class="chapter" data-level="3.7" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-write-tidy-code"><i class="fa fa-check"></i><b>3.7</b> How do I write tidy code?</a></li>
+<li class="chapter" data-level="3.8" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-model-my-data"><i class="fa fa-check"></i><b>3.8</b> How do I model my data?</a></li>
+<li class="chapter" data-level="3.9" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-create-a-plot"><i class="fa fa-check"></i><b>3.9</b> How do I create a plot?</a></li>
+<li class="chapter" data-level="3.10" data-path="tidyverse.html"><a href="tidyverse.html#do-i-need-more-practice-with-the-tidyverse"><i class="fa fa-check"></i><b>3.10</b> Do I need more practice with the tidyverse?</a></li>
+<li class="chapter" data-level="3.11" data-path="tidyverse.html"><a href="tidyverse.html#key-points-1"><i class="fa fa-check"></i><b>3.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> Creating Reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-create-and-preview-a-simple-page"><i class="fa fa-check"></i><b>4.2</b> How can I create and preview a simple page?</a></li>
+<li class="chapter" data-level="4.3" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-run-code-and-include-its-output-in-a-page"><i class="fa fa-check"></i><b>4.3</b> How can I run code and include its output in a page?</a></li>
+<li class="chapter" data-level="4.4" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-format-tables-in-a-page"><i class="fa fa-check"></i><b>4.4</b> How can I format tables in a page?</a></li>
+<li class="chapter" data-level="4.5" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-share-code-between-pages"><i class="fa fa-check"></i><b>4.5</b> How can I share code between pages?</a></li>
+<li class="chapter" data-level="4.6" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-parameterize-documents"><i class="fa fa-check"></i><b>4.6</b> How can I parameterize documents?</a></li>
+<li class="chapter" data-level="4.7" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-publish-pages-on-github"><i class="fa fa-check"></i><b>4.7</b> How can I publish pages on GitHub?</a></li>
+<li class="chapter" data-level="4.8" data-path="rmarkdown.html"><a href="rmarkdown.html#key-points-2"><i class="fa fa-check"></i><b>4.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>5</b> Creating Packages</a><ul>
+<li class="chapter" data-level="5.1" data-path="package.html"><a href="package.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="package.html"><a href="package.html#what-is-our-starting-point"><i class="fa fa-check"></i><b>5.2</b> What is our starting point?</a></li>
+<li class="chapter" data-level="5.3" data-path="package.html"><a href="package.html#how-do-i-convert-values-to-numbers"><i class="fa fa-check"></i><b>5.3</b> How do I convert values to numbers?</a></li>
+<li class="chapter" data-level="5.4" data-path="package.html"><a href="package.html#how-do-i-reorganize-the-columns"><i class="fa fa-check"></i><b>5.4</b> How do I reorganize the columns?</a></li>
+<li class="chapter" data-level="5.5" data-path="package.html"><a href="package.html#how-do-i-create-a-package"><i class="fa fa-check"></i><b>5.5</b> How do I create a package?</a></li>
+<li class="chapter" data-level="5.6" data-path="package.html"><a href="package.html#how-can-i-document-the-contents-of-a-package"><i class="fa fa-check"></i><b>5.6</b> How can I document the contents of a package?</a></li>
+<li class="chapter" data-level="5.7" data-path="package.html"><a href="package.html#how-can-my-package-import-what-it-needs"><i class="fa fa-check"></i><b>5.7</b> How can my package import what it needs?</a></li>
+<li class="chapter" data-level="5.8" data-path="package.html"><a href="package.html#how-can-i-add-data-to-a-package"><i class="fa fa-check"></i><b>5.8</b> How can I add data to a package?</a></li>
+<li class="chapter" data-level="5.9" data-path="package.html"><a href="package.html#key-points-3"><i class="fa fa-check"></i><b>5.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="nse.html"><a href="nse.html"><i class="fa fa-check"></i><b>6</b> Non-Standard Evaluation</a><ul>
+<li class="chapter" data-level="6.1" data-path="nse.html"><a href="nse.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="nse.html"><a href="nse.html#how-does-python-evaluate-function-calls"><i class="fa fa-check"></i><b>6.2</b> How does Python evaluate function calls?</a></li>
+<li class="chapter" data-level="6.3" data-path="nse.html"><a href="nse.html#how-does-r-evaluate-function-calls"><i class="fa fa-check"></i><b>6.3</b> How does R evaluate function calls?</a></li>
+<li class="chapter" data-level="6.4" data-path="nse.html"><a href="nse.html#why-is-lazy-evaluation-useful"><i class="fa fa-check"></i><b>6.4</b> Why is lazy evaluation useful?</a></li>
+<li class="chapter" data-level="6.5" data-path="nse.html"><a href="nse.html#what-is-tidy-evaluation"><i class="fa fa-check"></i><b>6.5</b> What is tidy evaluation?</a></li>
+<li class="chapter" data-level="6.6" data-path="nse.html"><a href="nse.html#what-if-i-truly-desire-to-venture-into-the-depths"><i class="fa fa-check"></i><b>6.6</b> What if I truly desire to venture into the depths?</a></li>
+<li class="chapter" data-level="6.7" data-path="nse.html"><a href="nse.html#is-it-worth-it"><i class="fa fa-check"></i><b>6.7</b> Is it worth it?</a></li>
+<li class="chapter" data-level="6.8" data-path="nse.html"><a href="nse.html#key-points-4"><i class="fa fa-check"></i><b>6.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="debt.html"><a href="debt.html"><i class="fa fa-check"></i><b>7</b> Intellectual Debt</a><ul>
+<li class="chapter" data-level="7.1" data-path="debt.html"><a href="debt.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="debt.html"><a href="debt.html#why-shouldnt-i-use-setwd"><i class="fa fa-check"></i><b>7.2</b> Why shouldn’t I use <code>setwd</code>?</a></li>
+<li class="chapter" data-level="7.3" data-path="debt.html"><a href="debt.html#what-the-hell-are-factors"><i class="fa fa-check"></i><b>7.3</b> What the hell are factors?</a></li>
+<li class="chapter" data-level="7.4" data-path="debt.html"><a href="debt.html#how-do-i-refer-to-various-arguments-in-a-pipeline"><i class="fa fa-check"></i><b>7.4</b> How do I refer to various arguments in a pipeline?</a></li>
+<li class="chapter" data-level="7.5" data-path="debt.html"><a href="debt.html#i-thought-you-said-that-r-encouraged-functional-programming"><i class="fa fa-check"></i><b>7.5</b> I thought you said that R encouraged functional programming?</a></li>
+<li class="chapter" data-level="7.6" data-path="debt.html"><a href="debt.html#how-does-r-give-the-appearance-of-immutable-data"><i class="fa fa-check"></i><b>7.6</b> How does R give the appearance of immutable data?</a></li>
+<li class="chapter" data-level="7.7" data-path="debt.html"><a href="debt.html#what-else-should-i-worry-about"><i class="fa fa-check"></i><b>7.7</b> What else should I worry about?</a></li>
+<li class="chapter" data-level="7.8" data-path="debt.html"><a href="debt.html#key-points-5"><i class="fa fa-check"></i><b>7.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="testerror.html"><a href="testerror.html"><i class="fa fa-check"></i><b>8</b> Testing and Error Handling</a><ul>
+<li class="chapter" data-level="8.1" data-path="testerror.html"><a href="testerror.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="testerror.html"><a href="testerror.html#how-does-r-handle-errors"><i class="fa fa-check"></i><b>8.2</b> How does R handle errors?</a></li>
+<li class="chapter" data-level="8.3" data-path="testerror.html"><a href="testerror.html#what-should-i-know-about-testing-in-general"><i class="fa fa-check"></i><b>8.3</b> What should I know about testing in general?</a></li>
+<li class="chapter" data-level="8.4" data-path="testerror.html"><a href="testerror.html#how-should-i-organize-my-tests"><i class="fa fa-check"></i><b>8.4</b> How should I organize my tests?</a></li>
+<li class="chapter" data-level="8.5" data-path="testerror.html"><a href="testerror.html#how-can-i-write-a-few-simple-tests"><i class="fa fa-check"></i><b>8.5</b> How can I write a few simple tests?</a></li>
+<li class="chapter" data-level="8.6" data-path="testerror.html"><a href="testerror.html#how-can-i-check-data-transformation"><i class="fa fa-check"></i><b>8.6</b> How can I check data transformation?</a></li>
+<li class="chapter" data-level="8.7" data-path="testerror.html"><a href="testerror.html#key-points-6"><i class="fa fa-check"></i><b>8.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>9</b> Advanced Topics</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced.html"><a href="advanced.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced.html"><a href="advanced.html#how-can-i-use-python-with-r"><i class="fa fa-check"></i><b>9.2</b> How can I use Python with R?</a></li>
+<li class="chapter" data-level="9.3" data-path="advanced.html"><a href="advanced.html#how-does-object-oriented-programming-work-in-r"><i class="fa fa-check"></i><b>9.3</b> How does object-oriented programming work in R?</a></li>
+<li class="chapter" data-level="9.4" data-path="advanced.html"><a href="advanced.html#how-can-i-write-web-applications-in-r"><i class="fa fa-check"></i><b>9.4</b> How can I write web applications in R?</a></li>
+<li class="chapter" data-level="9.5" data-path="advanced.html"><a href="advanced.html#how-can-i-work-with-relational-databases-in-r"><i class="fa fa-check"></i><b>9.5</b> How can I work with relational databases in R?</a></li>
+<li class="chapter" data-level="9.6" data-path="advanced.html"><a href="advanced.html#key-points-7"><i class="fa fa-check"></i><b>9.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>A</b> License</a></li>
+<li class="chapter" data-level="B" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>B</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="B.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>B.1</b> Our Standards</a></li>
+<li class="chapter" data-level="B.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-responsibilities"><i class="fa fa-check"></i><b>B.2</b> Our Responsibilities</a></li>
+<li class="chapter" data-level="B.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>B.3</b> Scope</a></li>
+<li class="chapter" data-level="B.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>B.4</b> Enforcement</a></li>
+<li class="chapter" data-level="B.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>B.5</b> Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="citation.html"><a href="citation.html"><i class="fa fa-check"></i><b>C</b> Citation</a></li>
+<li class="chapter" data-level="D" data-path="contributing.html"><a href="contributing.html"><i class="fa fa-check"></i><b>D</b> Contributing</a></li>
+<li class="chapter" data-level="E" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>E</b> Practice Problems</a><ul>
+<li class="chapter" data-level="E.1" data-path="practice.html"><a href="practice.html#do-i-need-even-more-practice"><i class="fa fa-check"></i><b>E.1</b> Do I need even more practice?</a></li>
+<li class="chapter" data-level="E.2" data-path="practice.html"><a href="practice.html#please-may-i-create-some-charts"><i class="fa fa-check"></i><b>E.2</b> Please may I create some charts?</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>F</b> Glossary</a></li>
+<li class="chapter" data-level="G" data-path="keypoints.html"><a href="keypoints.html"><i class="fa fa-check"></i><b>G</b> Key Points</a><ul>
+<li class="chapter" data-level="G.1" data-path="keypoints.html"><a href="keypoints.html#simple-beginnings"><i class="fa fa-check"></i><b>G.1</b> Simple Beginnings</a></li>
+<li class="chapter" data-level="G.2" data-path="keypoints.html"><a href="keypoints.html#the-tidyverse"><i class="fa fa-check"></i><b>G.2</b> The Tidyverse</a></li>
+<li class="chapter" data-level="G.3" data-path="keypoints.html"><a href="keypoints.html#creating-packages"><i class="fa fa-check"></i><b>G.3</b> Creating Packages</a></li>
+<li class="chapter" data-level="G.4" data-path="keypoints.html"><a href="keypoints.html#non-standard-evaluation"><i class="fa fa-check"></i><b>G.4</b> Non-Standard Evaluation</a></li>
+<li class="chapter" data-level="G.5" data-path="keypoints.html"><a href="keypoints.html#intellectual-debt"><i class="fa fa-check"></i><b>G.5</b> Intellectual Debt</a></li>
+<li class="chapter" data-level="G.6" data-path="keypoints.html"><a href="keypoints.html#testing-and-error-handling"><i class="fa fa-check"></i><b>G.6</b> Testing and Error Handling</a></li>
+<li class="chapter" data-level="G.7" data-path="keypoints.html"><a href="keypoints.html#advanced-topics"><i class="fa fa-check"></i><b>G.7</b> Advanced Topics</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Tidynomicon</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rmarkdown" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Creating Reports</h1>
+<p>Every serious scholar dreams of recording their knowledge in a leather-bound tome
+that will lie forgotten and dusty on the shelves of an out-of-the-way library
+at a small college with a dubious reputation
+until someone naïve enough to believe that they can control forces beyond mortal ken
+stumbles upon it and unleashes ravenous horrors to prey upon the sanity of the innocent.
+Sadly,
+in these diminished times we must settle for dry expositions of trivia
+typeset in two columns using a demure font and sequentially-numbered citations.</p>
+<p>But there is yet hope.
+One of R’s greatest strengths is a package called <code>knitr</code>
+that translates documents written in a format called R Markdown into HTML, PDF, and e-books.
+R Markdown files are a kind of programmable document;
+authors can interleave prose with chunks of R (or other languages)
+and <code>knitr</code> will run that code as it processes the document
+to create tables and diagrams.
+To aid this,
+the RStudio IDE includes tools to create new documents,
+insert and run code chunks,
+preview documents’ structure and output,
+and much more.</p>
+<p>That’s the good news.
+The bad news is that Markdown isn’t a standard:
+it’s more like a set of ad hoc implementations flying in loose formation.
+While basic elements like headings and links are more or less the same in R Markdown
+as they are in (for example) <a href="glossary.html#gfm">GitHub Flavored Markdown</a>,
+people who have used other dialects may trip over small differences.</p>
+<p>This chapter starts by introducing Markdown and publishing workflow,
+then shows how to embed code and customize reports.
+We close by showing how to publish reports on GitHub and Netlify,
+which both offer free hosting for small websites.</p>
+<div id="learning-objectives-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> Learning Objectives</h2>
+<ul>
+<li>Create a Markdown file that includes headings, links, and external images.</li>
+<li>Compile that file to produce an HTML page.</li>
+<li>Customize the page via its YAML header.</li>
+<li>Add R code chunks to a page.</li>
+<li>Format tabular output programmatically.</li>
+<li>Share common startup code between pages.</li>
+<li>Create and customize parameterized documents.</li>
+<li>Publish pages on GitHub by putting generated HTML in the <code>docs</code> directory.</li>
+<li>Publish pages by copying them to Netlify.</li>
+</ul>
+</div>
+<div id="how-can-i-create-and-preview-a-simple-page" class="section level2">
+<h2><span class="header-section-number">4.2</span> How can I create and preview a simple page?</h2>
+<p>To begin,
+create a file called <code>first.Rmd</code> and add the following text to it:</p>
+<!-- rmarkdown/first.Rmd -->
+<div class="sourceCode" id="cb374"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb374-1" data-line-number="1"><span class="fu">## Methods {-}</span></a>
+<a class="sourceLine" id="cb374-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb374-3" data-line-number="3">Something *really important*.</a>
+<a class="sourceLine" id="cb374-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb374-5" data-line-number="5">An <span class="ot">[external link](https://tidynomicon.tech)</span>.</a>
+<a class="sourceLine" id="cb374-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb374-7" data-line-number="7"><span class="ot">[Another link][rstudio]</span></a>
+<a class="sourceLine" id="cb374-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb374-9" data-line-number="9">&lt;!--<span class="co"> link table below --&gt;</span></a>
+<a class="sourceLine" id="cb374-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb374-11" data-line-number="11"><span class="ot">[rstudio]: https://rstudio.com</span></a></code></pre></div>
+<p>This shows several key features of Markdown:</p>
+<ul>
+<li>A level-1 heading (<code>h1</code> in HTML) is put on a line starting with <code>#</code>.
+A level-2 heading (<code>h2</code>) uses two of these and so on.</li>
+<li>Putting <code>{-}</code> immediately after the heading title suppresses numbering.
+Without this,
+our examples would all be included in this book’s table of contents,
+which isn’t what we want.
+(This is one of R Markdown’s extensions to Markdown.)</li>
+<li>Paragraphs are separated by blank lines.</li>
+<li>Text can be put in single asterisks for <em>italics</em>
+or double asterisk for <strong>bold</strong>.</li>
+<li>To create a link,
+put the visible text inside square brackets
+and the URL inside parentheses immediately after it.
+This is the reverse of HTML’s order,
+which puts the URL inside the opening <code>a</code> tag
+<em>before</em> the contained text that is displayed.</li>
+<li>Links can also be written by putting text inside square brackets
+and an identifier immediately after it,
+also in square brackets.
+Those identifiers can then be associated with links in a table at the bottom of the page.</li>
+<li>Comments are written as they are in HTML.</li>
+</ul>
+<p>Here’s what the HTML corresponding to our simple Markdown document looks like:</p>
+<blockquote>
+<h2 id="methods" class="unnumbered">Methods</h2>
+<p>Something <em>really important</em>.</p>
+<p>An <a href="https://tidynomicon.tech">external link</a>.</p>
+<p><a href="https://rstudio.com">Another link</a></p>
+<!-- link table below -->
+</blockquote>
+<p>To preview it,
+go to the mini-toolbar at the top of your document in the RStudio IDE
+and click “knit”:
+to call the appropriate function from <code>knitr</code>
+(or a function from one of the libraries built on top of it for generating books or slides).</p>
+<div class="figure"><span id="fig:knit-button"></span>
+<img src="figures/rmarkdown/knit-button.png" alt="The 'knit' Button" width="198" />
+<p class="caption">
+Figure 4.1: The ‘knit’ Button
+</p>
+</div>
+</div>
+<div id="how-can-i-run-code-and-include-its-output-in-a-page" class="section level2">
+<h2><span class="header-section-number">4.3</span> How can I run code and include its output in a page?</h2>
+<p>If this is all R Markdown could do,
+it would be nothing more than an idiosyncratic way to create HTML pages.
+What makes it powerful is the ability to include code chunks
+that are evaluated as the document is knit,
+and whose output is included in the final page.
+Put this in a file called <code>second.Rmd</code>:</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb375-1" data-line-number="1">Displaying the colors:</a>
+<a class="sourceLine" id="cb375-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb375-3" data-line-number="3"><span class="bn">```{r}</span></a>
+<a class="sourceLine" id="cb375-4" data-line-number="4"><span class="bn">colors &lt;- c(&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;)</span></a>
+<a class="sourceLine" id="cb375-5" data-line-number="5"><span class="bn">colors</span></a>
+<a class="sourceLine" id="cb375-6" data-line-number="6"><span class="bn">```</span></a></code></pre></div>
+<p>The triple back-quotes mark the start and end of a block of code;
+putting <code>{r}</code> immediately after the back-quotes at the start
+tells <code>knitr</code> to run the code
+and include its output in the generated page,
+which therefore looks like this:</p>
+<blockquote>
+<p>
+Displaying the colors:
+</p>
+<pre class="r"><code>colors &lt;- c('red', 'green', 'blue')
+colors</code></pre>
+<pre><code>## [1] &quot;red&quot;   &quot;green&quot; &quot;blue&quot;</code></pre>
+</blockquote>
+<p>We can put any code we want inside code blocks.
+We don’t have to execute it all at once:
+the <code>Code</code> pulldown in RStudio’s main menu offers a variety of ways
+to run regions of code.
+The IDE also gives us a keyboard shortcut to insert a new code chunk,
+so there really is no excuse for not making notes as we go along.</p>
+<p>We can control execution and formatting by putting options inside the curly braces
+at the start of the code block:</p>
+<ul>
+<li><code>{r label}</code> gives the chunk a label that we can cross-reference.
+Labels must be unique within documents,
+just like the <code>id</code> attributes of HTML elements.</li>
+<li><code>{r include=FALSE}</code> tells <code>knitr</code> to run the code
+but <em>not</em> to include either the code or its output in the finished document.
+While the option name is confusing—the code is actually included in processing—this
+is handy when we have setup code that loads libraries or does other things
+that our readers probably don’t care about.</li>
+<li><code>{r eval=FALSE}</code> displays the code but doesn’t run it,
+and is often used for tutorials like this one.</li>
+<li><code>{r echo=FALSE}</code> hides the code but includes the output.
+This is most often used for displaying static images
+as we will see below.</li>
+</ul>
+<p>These options can be combined by separating them with commas.
+In particular,
+it’s good style to give every chunk a unique label,
+so a document might look like this:</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb376-1" data-line-number="1"><span class="fu"># My Thesis {-}</span></a>
+<a class="sourceLine" id="cb376-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb376-3" data-line-number="3"><span class="bn">```{r setup, include=FALSE}</span></a>
+<a class="sourceLine" id="cb376-4" data-line-number="4"><span class="bn"># Load tidyverse but don&#39;t display messages.</span></a>
+<a class="sourceLine" id="cb376-5" data-line-number="5"><span class="bn">library(tidyverse)</span></a>
+<a class="sourceLine" id="cb376-6" data-line-number="6"><span class="bn">```</span></a>
+<a class="sourceLine" id="cb376-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb376-8" data-line-number="8"><span class="bn">```{r read-data, message=FALSE}</span></a>
+<a class="sourceLine" id="cb376-9" data-line-number="9"><span class="bn">earthquakes &lt;- read_csv(&#39;earthquakes.csv&#39;)</span></a>
+<a class="sourceLine" id="cb376-10" data-line-number="10"><span class="bn">```</span></a>
+<a class="sourceLine" id="cb376-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb376-12" data-line-number="12">A profound quotation to set the scene.</a>
+<a class="sourceLine" id="cb376-13" data-line-number="13">And then some analysis:</a>
+<a class="sourceLine" id="cb376-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb376-15" data-line-number="15"><span class="bn">```{r calculate-depth-by-magnitude}</span></a>
+<a class="sourceLine" id="cb376-16" data-line-number="16"><span class="bn">depth_by_magnitude &lt;- earthquakes %&gt;%</span></a>
+<a class="sourceLine" id="cb376-17" data-line-number="17"><span class="bn">  mutate(round_mag = round(Magnitude)) %&gt;%</span></a>
+<a class="sourceLine" id="cb376-18" data-line-number="18"><span class="bn">  group_by(round_mag) %&gt;%</span></a>
+<a class="sourceLine" id="cb376-19" data-line-number="19"><span class="bn">  summarize(depth = mean(Depth_Km))</span></a>
+<a class="sourceLine" id="cb376-20" data-line-number="20"><span class="bn">depth_by_magnitude</span></a>
+<a class="sourceLine" id="cb376-21" data-line-number="21"><span class="bn">```</span></a>
+<a class="sourceLine" id="cb376-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb376-23" data-line-number="23">Now let&#39;s visualize that:</a>
+<a class="sourceLine" id="cb376-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb376-25" data-line-number="25"><span class="bn">```{r plot-depth-by-magnitude}</span></a>
+<a class="sourceLine" id="cb376-26" data-line-number="26"><span class="bn">depth_by_magnitude %&gt;%</span></a>
+<a class="sourceLine" id="cb376-27" data-line-number="27"><span class="bn">  ggplot() +</span></a>
+<a class="sourceLine" id="cb376-28" data-line-number="28"><span class="bn">  geom_point(mapping = aes(x = round_mag, y = depth))</span></a>
+<a class="sourceLine" id="cb376-29" data-line-number="29"><span class="bn">```</span></a></code></pre></div>
+<p>In order:</p>
+<ul>
+<li>The document title is a level-1 header with suppressed numbering.</li>
+<li>The first code chunk is called <code>setup</code>
+and neither it nor its output are included in the output page.</li>
+<li>The second chunk is called <code>read-data</code>.
+It is shown in the output,
+but its output is not.</li>
+<li>There is then a (very) short paragraph.</li>
+<li>The third code chunk calculates the mean depth by rounded magnitude.
+Both the code and its output are included;
+the output is just R’s textual display of the <code>depth_by_magnitude</code> table.</li>
+<li>After an even shorter paragraph,
+there is another named chunk whose output is a plot rather than text.
+<code>knitr</code> runs <code>ggplot2</code> to create the plot and includes it in the page.</li>
+</ul>
+<p>When this page is knit,
+the result is:</p>
+<blockquote>
+<h1>
+My Thesis
+</h1>
+<pre class="r"><code>earthquakes &lt;- read_csv('earthquakes.csv')</code></pre>
+<p>
+A profound quotation to set the scene. And then some analysis:
+</p>
+<pre class="r"><code>depth_by_magnitude &lt;- earthquakes %&gt;%
+  mutate(round_mag = round(Magnitude)) %&gt;%
+  group_by(round_mag) %&gt;%
+  summarize(depth = mean(Depth_Km))
+depth_by_magnitude</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   round_mag depth
+##       &lt;dbl&gt; &lt;dbl&gt;
+## 1         2  9.85
+## 2         3  9.15
+## 3         4  8.64
+## 4         5  8   
+## 5         6  8.1</code></pre>
+<p>
+Now let’s visualize that:
+</p>
+<pre class="r"><code>depth_by_magnitude %&gt;%
+  ggplot() +
+  geom_point(mapping = aes(x = round_mag, y = depth))</code></pre>
+<p>
+<img src="figures/rmarkdown/earthquakes.png"/>
+</p>
+</blockquote>
+<p>Note that if we want to include a static image (such as a screenshot) in a report,
+we can use Markdown’s own syntax:</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb377-1" data-line-number="1"><span class="al">![Summoning Ritual](figures/summoning-ritual.jpg)</span></a></code></pre></div>
+<p>or create an R code chunk with a call to <code>knitr::include_graphics</code>:</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb378-1" data-line-number="1"><span class="bn">```{r summoning-ritual, echo=FALSE, fig.cap=&quot;Summoning Ritual&quot;}</span></a>
+<a class="sourceLine" id="cb378-2" data-line-number="2"><span class="bn">knitr::include_graphics(&quot;figures/summoning-ritual.jpg&quot;)</span></a>
+<a class="sourceLine" id="cb378-3" data-line-number="3"><span class="bn">```</span></a></code></pre></div>
+<p>The options for the latter give the code chunk an ID,
+prevent it from being echoed in the final document,
+and most importantly,
+give the figure a caption.
+While it requires a bit of extra typing,
+it produces more predictable results across different output formats.</p>
+</div>
+<div id="how-can-i-format-tables-in-a-page" class="section level2">
+<h2><span class="header-section-number">4.4</span> How can I format tables in a page?</h2>
+<p>Tables are the undemonstrative yet reliable foundation on which data science is built.
+While they are not as showy as their graphical counterparts,
+they permit closer scrutiny,
+and are accessible both to people with visual challenges
+and to the machines whose inevitable triumph over us
+shall usher in an agorithmic age free of superstition and mercy.</p>
+<p>The simplest way to format tables is to use <code>knitr::kable</code>:</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1">earthquakes <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb379-2" data-line-number="2"><span class="st">  </span><span class="kw">head</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb379-3" data-line-number="3"><span class="st">  </span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:right;">
+Latitude
+</th>
+<th style="text-align:right;">
+Longitude
+</th>
+<th style="text-align:right;">
+Depth_Km
+</th>
+<th style="text-align:right;">
+Magnitude
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2016-08-24 03:36:32
+</td>
+<td style="text-align:right;">
+42.6983
+</td>
+<td style="text-align:right;">
+13.2335
+</td>
+<td style="text-align:right;">
+8.1
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016-08-24 03:37:26
+</td>
+<td style="text-align:right;">
+42.7123
+</td>
+<td style="text-align:right;">
+13.2533
+</td>
+<td style="text-align:right;">
+9.0
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016-08-24 03:40:46
+</td>
+<td style="text-align:right;">
+42.7647
+</td>
+<td style="text-align:right;">
+13.1723
+</td>
+<td style="text-align:right;">
+9.7
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016-08-24 03:41:38
+</td>
+<td style="text-align:right;">
+42.7803
+</td>
+<td style="text-align:right;">
+13.1683
+</td>
+<td style="text-align:right;">
+9.7
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2016-08-24 03:42:07
+</td>
+<td style="text-align:right;">
+42.7798
+</td>
+<td style="text-align:right;">
+13.1575
+</td>
+<td style="text-align:right;">
+9.7
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+</tr>
+</tbody>
+</table>
+<p>Our output is more attractive if we install and load the <code>kableExtra</code> package
+and use it to style the table.
+We must call its functions <em>after</em> we call <code>kable()</code>,
+just as we call the styling functions for plots after <code>ggplot()</code>.
+Below,
+we select four columns from our earthquake data and format them as a narrow table
+with two decimal places for latitude and longitude,
+one for magnitude and depth,
+and some multi-column headers:</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1">earthquakes <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb380-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="dt">lat =</span> Latitude, <span class="dt">long =</span> Longitude,</a>
+<a class="sourceLine" id="cb380-3" data-line-number="3">         <span class="dt">mag =</span> Magnitude, <span class="dt">depth =</span> Depth_Km) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb380-4" data-line-number="4"><span class="st">  </span><span class="kw">head</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb380-5" data-line-number="5"><span class="st">  </span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb380-6" data-line-number="6"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb380-7" data-line-number="7"><span class="st">  </span><span class="kw">add_header_above</span>(<span class="kw">c</span>(<span class="st">&#39;Location&#39;</span> =<span class="st"> </span><span class="dv">2</span>, <span class="st">&#39;Details&#39;</span> =<span class="st"> </span><span class="dv">2</span>))</a></code></pre></div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Location
+</div>
+</th>
+<th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Details
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:right;">
+lat
+</th>
+<th style="text-align:right;">
+long
+</th>
+<th style="text-align:right;">
+mag
+</th>
+<th style="text-align:right;">
+depth
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+42.70
+</td>
+<td style="text-align:right;">
+13.23
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:right;">
+8.1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+42.71
+</td>
+<td style="text-align:right;">
+13.25
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+<td style="text-align:right;">
+9.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+42.76
+</td>
+<td style="text-align:right;">
+13.17
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+9.7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+42.78
+</td>
+<td style="text-align:right;">
+13.17
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+9.7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+42.78
+</td>
+<td style="text-align:right;">
+13.16
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+9.7
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="how-can-i-share-code-between-pages" class="section level2">
+<h2><span class="header-section-number">4.5</span> How can I share code between pages?</h2>
+<p>If you are working on several related reports,
+you may want to share some code between them.
+The best way to do this with R Markdown is to put that code in a separate <code>.R</code> file
+and then load that at the start of each document using the <code>source</code> function.
+For example,
+all of the chapters in this book begin with:</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb381-1" data-line-number="1"><span class="bn">```{r setup, include=FALSE}</span></a>
+<a class="sourceLine" id="cb381-2" data-line-number="2"><span class="bn">source(&#39;common.R&#39;)</span></a>
+<a class="sourceLine" id="cb381-3" data-line-number="3"><span class="bn">```</span></a></code></pre></div>
+<p>The chunk is named <code>setup</code>, and neither it nor its output are displayed.
+All the chunk does is load and run <code>common.R</code>,
+which contains the following lines:</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb382-2" data-line-number="2"><span class="kw">library</span>(reticulate)</a>
+<a class="sourceLine" id="cb382-3" data-line-number="3"><span class="kw">library</span>(rlang)</a>
+<a class="sourceLine" id="cb382-4" data-line-number="4"><span class="kw">library</span>(knitr)</a>
+<a class="sourceLine" id="cb382-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb382-6" data-line-number="6">knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">width =</span> <span class="dv">69</span>)</a></code></pre></div>
+<p>The first few load libraries that various chapters depend on;
+the last one tells <code>knitr</code> to set the line width option to 69 characters.</p>
+</div>
+<div id="how-can-i-parameterize-documents" class="section level2">
+<h2><span class="header-section-number">4.6</span> How can I parameterize documents?</h2>
+<p><code>knitr</code> has many other options besides line width,
+and the tools built on top of it,
+like <a href="https://bookdown.org/yihui/blogdown/">Blogdown</a> and <a href="https://bookdown.org/">Bookdown</a>,
+have many (many) more.
+Rather than calling a function to set them,
+you can and should add a header to each document.
+If we use <code>File...New File...RMarkdown</code> to create a new R Markdown file,
+its header looks like this:</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb383-1" data-line-number="1">---</a>
+<a class="sourceLine" id="cb383-2" data-line-number="2">title: &quot;fourth&quot;</a>
+<a class="sourceLine" id="cb383-3" data-line-number="3">author: &quot;Greg Wilson&quot;</a>
+<a class="sourceLine" id="cb383-4" data-line-number="4">date: &quot;18/09/2019&quot;</a>
+<a class="sourceLine" id="cb383-5" data-line-number="5">output: html_document</a>
+<a class="sourceLine" id="cb383-6" data-line-number="6">---</a></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>The header starts with exactly three dashes on a line of their own and ends the same way.
+A common mistake is to forget the closing dashes;
+another is to use too many or too few,
+or to include whitespace in the line.</li>
+<li>The content of the header is formatted using <a href="https://yaml.org/">YAML</a>,
+which stands for “Yet Another Markup Language”.
+In its simplest form it contains key-value pairs:
+the keys are words,
+the values can be numbers, quoted strings, or a variety of other things,
+and the two are separated by a comma.</li>
+</ol>
+<p>This header tells <code>knitr</code> what the document’s title is,
+who its author is,
+when it was created
+(which really ought to be written as an ISO-formatted date, but worse sins await us),
+and what output format we want by default.
+When we knit the document,
+<code>knitr</code> reads the header but does <em>not</em> include it in the output.
+Instead,
+its values control <code>knitr</code>’s operation (e.g., select HTML as the output format)
+or are inserted into the document itself (e.g., the title).</p>
+<p>Let’s edit the YAML header so that it looks like this:</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb384-1" data-line-number="1">---</a>
+<a class="sourceLine" id="cb384-2" data-line-number="2">title: &quot;fourth&quot;</a>
+<a class="sourceLine" id="cb384-3" data-line-number="3">author: &quot;Greg Wilson&quot;</a>
+<a class="sourceLine" id="cb384-4" data-line-number="4">date: &quot;2019-09-18&quot;</a>
+<a class="sourceLine" id="cb384-5" data-line-number="5">output:</a>
+<a class="sourceLine" id="cb384-6" data-line-number="6">  html_document:</a>
+<a class="sourceLine" id="cb384-7" data-line-number="7"><span class="bn">    theme: united</span></a>
+<a class="sourceLine" id="cb384-8" data-line-number="8"><span class="bn">    toc: true</span></a>
+<a class="sourceLine" id="cb384-9" data-line-number="9">---</a></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>The date is now in an unambiguous, sortable format.
+This doesn’t impact our document,
+but makes us feel better.</li>
+<li>We have added two sub-keys under <code>html_document</code>
+(which we have made a sub-key of <code>output</code> so that we can nest things beneath it).
+The first tells <code>knitr</code> to use the <code>united</code> theme,
+which gives us a different set of fonts and margins.
+The second tells it to create a table of contents at the start of the document
+with links to all of the section headers.</li>
+</ol>
+<p>YAML can <a href="http://third-bit.com/2015/06/11/why-we-cant-have-nice-things.html">be quite complicated to understand</a>.
+Luckily,
+a package called <code>ymlthis</code> is being developed to create and check files’ headers.
+<a href="https://ymlthis.r-lib.org/">Its documentation</a> and capabilities are both steadily growing,
+it’s a great way to experiment with new or obscure options.</p>
+<p>But YAML can do more than control the way <code>knitr</code> processes the document:
+we can also use it to create <a href="glossary.html#parameterized-report">parameterized reports</a>.</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb385-1" data-line-number="1">---</a>
+<a class="sourceLine" id="cb385-2" data-line-number="2">title: &quot;Fifth Report&quot;</a>
+<a class="sourceLine" id="cb385-3" data-line-number="3">params:</a>
+<a class="sourceLine" id="cb385-4" data-line-number="4">  country: Canada</a>
+<a class="sourceLine" id="cb385-5" data-line-number="5">---</a>
+<a class="sourceLine" id="cb385-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb385-7" data-line-number="7">This report looks at defenstration rates in <span class="bn">`r params$country`</span>.</a>
+<a class="sourceLine" id="cb385-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb385-9" data-line-number="9"><span class="bn">```{r load-data}</span></a>
+<a class="sourceLine" id="cb385-10" data-line-number="10"><span class="bn">data &lt;- read_csv(here::here(&#39;data&#39;, glue(params$country, &#39;.csv&#39;)))</span></a>
+<a class="sourceLine" id="cb385-11" data-line-number="11"><span class="bn">```</span></a></code></pre></div>
+<p>This document’s YAML header contains the key <code>params</code>,
+under which is a sub-key for each parameter we want to create.
+When the document is knit,
+these parameters are put in a <a href="glossary.html#named-list">named list</a> called <code>params</code>
+and can be referred to like any other variable.
+If we want to display it inline,
+we use a back-ticked code fragment that starts with the letter ‘r’;
+if we want to use it in a fenced code block,
+it’s no different from any other variable.</p>
+<p>Parameters don’t have to be single values:
+they can, for example, be lists of mysterious ailments whose inexorable spread you are vainly trying to halt.
+Parameters can also be provided on the command line:</p>
+<pre class="shell"><code>Rscript -e &quot;rmarkdown::render(&#39;fifth.Rmd&#39;, params=list(country=&#39;Lesotho&#39;))&quot;</code></pre>
+<p>will create a page called <code>fifth.html</code> that reports defenestration rates in Lesotho.</p>
+</div>
+<div id="how-can-i-publish-pages-on-github" class="section level2">
+<h2><span class="header-section-number">4.7</span> How can I publish pages on GitHub?</h2>
+<p>Many programmers use <a href="https://pages.github.com/">GitHub Pages</a> to publish websites
+for project documentation, personal blogs,
+and desperate entreaties to other-worldly forces
+(Iä! Iä! Git rebase fhtagn!).
+In its original incarnation,
+GitHub Pages worked used as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Authors created Markdown and HTML files with content they want to publish.
+They also created a configuration file called <code>_config.yml</code>
+with settings for their site (such as its title).</li>
+<li>All of this was put on a Git branch called <code>gh-pages</code>.
+Whenever that branch was updated on GitHub,
+a <a href="glossary.html#static-site-generator">static site generator</a> called <a href="https://jekyllrb.com/">Jekyll</a>
+would find and transform those files
+using templates and inclusions taken from the <code>_layouts</code> and <code>_includes</code> directories respectively.</li>
+</ol>
+<p>Keeping the <code>gh-pages</code> branch synchronized with other work proved to be a minor headache,
+so GitHub now offers two other options
+(which can be configured from a project’s settings in the GitHub browser interface):</p>
+<ol style="list-style-type: decimal">
+<li>Publish directly from the root directory of the project’s <code>master</code> branch.</li>
+<li>Publish from the <code>docs</code> folder in the <code>master</code> branch.</li>
+</ol>
+<p>One other piece of background is how Jekyll determines what to publish:</p>
+<ul>
+<li>It ignores files and directories whose names start with an underscore,
+or that it is specifically told to exclude in <code>_config.yml</code>.</li>
+<li>If an HTML or Markdown file starts with a YAML header,
+Jekyll translates it.</li>
+<li>If the file does not include such a header,
+Jekyll simply copies it as-is.</li>
+</ul>
+<p>All of this gives us a simple way to publish an R Markdown website:</p>
+<ol style="list-style-type: decimal">
+<li>Make sure the project is configured to publish from the root directory of the <code>master</code> branch.</li>
+<li>Compile our R Markdown files locally to create HTML in the root directory of our local copy.</li>
+<li>Commit that HTML to the <code>master</code> branch.</li>
+<li>Push.</li>
+</ol>
+<p>This works because the HTML files generated by <code>knitr</code> don’t contain YAML headers,
+so they are copied as-is.
+If we want to style those pages with our own CSS or add some JavaScript,
+we can tell <code>knitr</code> to include files of our choice during translation:</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb387-1" data-line-number="1">---</a>
+<a class="sourceLine" id="cb387-2" data-line-number="2">title: &quot;Defenestration By Country&quot;</a>
+<a class="sourceLine" id="cb387-3" data-line-number="3">output:</a>
+<a class="sourceLine" id="cb387-4" data-line-number="4">  html_document:</a>
+<a class="sourceLine" id="cb387-5" data-line-number="5"><span class="bn">    includes:</span></a>
+<a class="sourceLine" id="cb387-6" data-line-number="6"><span class="bn">      in_header: extra-header.html</span></a>
+<a class="sourceLine" id="cb387-7" data-line-number="7"><span class="bn">      after_body: extra-footer.html</span></a>
+<a class="sourceLine" id="cb387-8" data-line-number="8">---</a>
+<a class="sourceLine" id="cb387-9" data-line-number="9">...content...</a></code></pre></div>
+<p>Behind the scenes,
+<code>knitr</code> translates our R Markdown into plain Markdown,
+which is then turned into HTML by yet another tool called <a href="https://pandoc.org/">Pandoc</a>.
+If we are brave,
+we can create an entirely new Pandoc HTML template and format our files with that:</p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb388-1" data-line-number="1">---</a>
+<a class="sourceLine" id="cb388-2" data-line-number="2">title: &quot;Defenestration by Season&quot;</a>
+<a class="sourceLine" id="cb388-3" data-line-number="3">output:</a>
+<a class="sourceLine" id="cb388-4" data-line-number="4">  html_document:</a>
+<a class="sourceLine" id="cb388-5" data-line-number="5"><span class="bn">    template: seasonal-report.html</span></a>
+<a class="sourceLine" id="cb388-6" data-line-number="6">---</a>
+<a class="sourceLine" id="cb388-7" data-line-number="7">...content...</a></code></pre></div>
+<p>This works,
+but having the generated HTML in our root directory is messy.
+Given that we can configure GitHub Pages to publish from the <code>docs</code> folder,
+why don’t we put our HTML there?
+After all,
+<code>knitr::knit</code> has an <code>output</code> parameter with which we can specify a location for the output file.</p>
+<p>The answer is that <code>knitr</code> becomes rather vexed when the output directory is not the same as
+the current working directory.
+Programmers being programmers,
+there are several ways around this:</p>
+<ol style="list-style-type: decimal">
+<li>Put up with it.</li>
+<li>Write a small function that changes the current wording directory to <code>docs</code>,
+knits <code>../report.Rmd</code>,
+then changes the working directory back to the project root.</li>
+<li>Use something like <a href="https://www.gnu.org/software/make/">Make</a> to build everything on the command line
+and then move all the generated files into <code>docs</code>.</li>
+</ol>
+<p>None of this is made any less frustrating by the fact that other tools in the <code>knitr</code> family,
+such as Bookdown,
+<em>do</em> allow users to specify the output directory through a configuration parameter.</p>
+</div>
+<div id="key-points-2" class="section level2">
+<h2><span class="header-section-number">4.8</span> Key Points</h2>
+<ul>
+<li>FIXME: key points for R Markdown</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tidyverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/rmarkdown.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/rmarkdown.Rmd",
+"text": null
+},
+"download": ["r4de.pdf", "r4de.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

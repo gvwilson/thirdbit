@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>E Practice Problems | The Tidynomicon</title>
+  <meta name="description" content="E Practice Problems | The Tidynomicon" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="E Practice Problems | The Tidynomicon" />
+  <meta property="og:type" content="book" />
+  
+  <meta name="github-repo" content="gvwilson/tidynomicon" />
+
+  
+  
+
+<meta name="author" content="Greg Wilson" />
+
+
+<meta name="date" content="2021-01-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="contributing.html"/>
+<link rel="next" href="glossary.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Tidynomicon</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#s:index-personas"><i class="fa fa-check"></i><b>1.1</b> Who are these lessons for?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#s:index-install"><i class="fa fa-check"></i><b>1.2</b> How do I get started?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Simple Beginnings</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#how-do-i-say-hello"><i class="fa fa-check"></i><b>2.2</b> How do I say hello?</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#how-do-i-add-numbers"><i class="fa fa-check"></i><b>2.3</b> How do I add numbers?</a></li>
+<li class="chapter" data-level="2.4" data-path="basics.html"><a href="basics.html#how-do-i-store-many-numbers-together"><i class="fa fa-check"></i><b>2.4</b> How do I store many numbers together?</a></li>
+<li class="chapter" data-level="2.5" data-path="basics.html"><a href="basics.html#how-do-i-index-a-vector"><i class="fa fa-check"></i><b>2.5</b> How do I index a vector?</a></li>
+<li class="chapter" data-level="2.6" data-path="basics.html"><a href="basics.html#how-do-i-create-new-vectors-from-old"><i class="fa fa-check"></i><b>2.6</b> How do I create new vectors from old?</a></li>
+<li class="chapter" data-level="2.7" data-path="basics.html"><a href="basics.html#how-else-does-r-represent-the-absence-of-data"><i class="fa fa-check"></i><b>2.7</b> How else does R represent the absence of data?</a></li>
+<li class="chapter" data-level="2.8" data-path="basics.html"><a href="basics.html#how-can-i-store-a-mix-of-different-types-of-objects"><i class="fa fa-check"></i><b>2.8</b> How can I store a mix of different types of objects?</a></li>
+<li class="chapter" data-level="2.9" data-path="basics.html"><a href="basics.html#what-is-the-difference-between-and"><i class="fa fa-check"></i><b>2.9</b> What is the difference between <code>[</code> and <code>[[</code>?</a></li>
+<li class="chapter" data-level="2.10" data-path="basics.html"><a href="basics.html#how-can-i-access-elements-by-name"><i class="fa fa-check"></i><b>2.10</b> How can I access elements by name?</a></li>
+<li class="chapter" data-level="2.11" data-path="basics.html"><a href="basics.html#how-can-i-create-and-index-a-matrix"><i class="fa fa-check"></i><b>2.11</b> How can I create and index a matrix?</a></li>
+<li class="chapter" data-level="2.12" data-path="basics.html"><a href="basics.html#how-do-i-choose-and-repeat-things"><i class="fa fa-check"></i><b>2.12</b> How do I choose and repeat things?</a></li>
+<li class="chapter" data-level="2.13" data-path="basics.html"><a href="basics.html#how-can-i-vectorize-loops-and-conditionals"><i class="fa fa-check"></i><b>2.13</b> How can I vectorize loops and conditionals?</a></li>
+<li class="chapter" data-level="2.14" data-path="basics.html"><a href="basics.html#how-can-i-express-a-range-of-values"><i class="fa fa-check"></i><b>2.14</b> How can I express a range of values?</a></li>
+<li class="chapter" data-level="2.15" data-path="basics.html"><a href="basics.html#how-can-i-use-a-vector-in-a-conditional-statement"><i class="fa fa-check"></i><b>2.15</b> How can I use a vector in a conditional statement?</a></li>
+<li class="chapter" data-level="2.16" data-path="basics.html"><a href="basics.html#how-do-i-create-and-call-functions"><i class="fa fa-check"></i><b>2.16</b> How do I create and call functions?</a></li>
+<li class="chapter" data-level="2.17" data-path="basics.html"><a href="basics.html#how-can-i-write-a-function-that-takes-variable-arguments"><i class="fa fa-check"></i><b>2.17</b> How can I write a function that takes variable arguments?</a></li>
+<li class="chapter" data-level="2.18" data-path="basics.html"><a href="basics.html#how-can-i-provide-default-values-for-arguments"><i class="fa fa-check"></i><b>2.18</b> How can I provide default values for arguments?</a></li>
+<li class="chapter" data-level="2.19" data-path="basics.html"><a href="basics.html#how-can-i-hide-the-value-that-r-returns"><i class="fa fa-check"></i><b>2.19</b> How can I hide the value that R returns?</a></li>
+<li class="chapter" data-level="2.20" data-path="basics.html"><a href="basics.html#how-can-i-assign-to-a-global-variable-from-inside-a-function"><i class="fa fa-check"></i><b>2.20</b> How can I assign to a global variable from inside a function?</a></li>
+<li class="chapter" data-level="2.21" data-path="basics.html"><a href="basics.html#key-points"><i class="fa fa-check"></i><b>2.21</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> The Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-read-data"><i class="fa fa-check"></i><b>3.2</b> How do I read data?</a></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-inspect-data"><i class="fa fa-check"></i><b>3.3</b> How do I inspect data?</a></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-index-rows-and-columns"><i class="fa fa-check"></i><b>3.4</b> How do I index rows and columns?</a></li>
+<li class="chapter" data-level="3.5" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-calculate-basic-statistics"><i class="fa fa-check"></i><b>3.5</b> How do I calculate basic statistics?</a></li>
+<li class="chapter" data-level="3.6" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-filter-data"><i class="fa fa-check"></i><b>3.6</b> How do I filter data?</a></li>
+<li class="chapter" data-level="3.7" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-write-tidy-code"><i class="fa fa-check"></i><b>3.7</b> How do I write tidy code?</a></li>
+<li class="chapter" data-level="3.8" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-model-my-data"><i class="fa fa-check"></i><b>3.8</b> How do I model my data?</a></li>
+<li class="chapter" data-level="3.9" data-path="tidyverse.html"><a href="tidyverse.html#how-do-i-create-a-plot"><i class="fa fa-check"></i><b>3.9</b> How do I create a plot?</a></li>
+<li class="chapter" data-level="3.10" data-path="tidyverse.html"><a href="tidyverse.html#do-i-need-more-practice-with-the-tidyverse"><i class="fa fa-check"></i><b>3.10</b> Do I need more practice with the tidyverse?</a></li>
+<li class="chapter" data-level="3.11" data-path="tidyverse.html"><a href="tidyverse.html#key-points-1"><i class="fa fa-check"></i><b>3.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rmarkdown.html"><a href="rmarkdown.html"><i class="fa fa-check"></i><b>4</b> Creating Reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="rmarkdown.html"><a href="rmarkdown.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-create-and-preview-a-simple-page"><i class="fa fa-check"></i><b>4.2</b> How can I create and preview a simple page?</a></li>
+<li class="chapter" data-level="4.3" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-run-code-and-include-its-output-in-a-page"><i class="fa fa-check"></i><b>4.3</b> How can I run code and include its output in a page?</a></li>
+<li class="chapter" data-level="4.4" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-format-tables-in-a-page"><i class="fa fa-check"></i><b>4.4</b> How can I format tables in a page?</a></li>
+<li class="chapter" data-level="4.5" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-share-code-between-pages"><i class="fa fa-check"></i><b>4.5</b> How can I share code between pages?</a></li>
+<li class="chapter" data-level="4.6" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-parameterize-documents"><i class="fa fa-check"></i><b>4.6</b> How can I parameterize documents?</a></li>
+<li class="chapter" data-level="4.7" data-path="rmarkdown.html"><a href="rmarkdown.html#how-can-i-publish-pages-on-github"><i class="fa fa-check"></i><b>4.7</b> How can I publish pages on GitHub?</a></li>
+<li class="chapter" data-level="4.8" data-path="rmarkdown.html"><a href="rmarkdown.html#key-points-2"><i class="fa fa-check"></i><b>4.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>5</b> Creating Packages</a><ul>
+<li class="chapter" data-level="5.1" data-path="package.html"><a href="package.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="package.html"><a href="package.html#what-is-our-starting-point"><i class="fa fa-check"></i><b>5.2</b> What is our starting point?</a></li>
+<li class="chapter" data-level="5.3" data-path="package.html"><a href="package.html#how-do-i-convert-values-to-numbers"><i class="fa fa-check"></i><b>5.3</b> How do I convert values to numbers?</a></li>
+<li class="chapter" data-level="5.4" data-path="package.html"><a href="package.html#how-do-i-reorganize-the-columns"><i class="fa fa-check"></i><b>5.4</b> How do I reorganize the columns?</a></li>
+<li class="chapter" data-level="5.5" data-path="package.html"><a href="package.html#how-do-i-create-a-package"><i class="fa fa-check"></i><b>5.5</b> How do I create a package?</a></li>
+<li class="chapter" data-level="5.6" data-path="package.html"><a href="package.html#how-can-i-document-the-contents-of-a-package"><i class="fa fa-check"></i><b>5.6</b> How can I document the contents of a package?</a></li>
+<li class="chapter" data-level="5.7" data-path="package.html"><a href="package.html#how-can-my-package-import-what-it-needs"><i class="fa fa-check"></i><b>5.7</b> How can my package import what it needs?</a></li>
+<li class="chapter" data-level="5.8" data-path="package.html"><a href="package.html#how-can-i-add-data-to-a-package"><i class="fa fa-check"></i><b>5.8</b> How can I add data to a package?</a></li>
+<li class="chapter" data-level="5.9" data-path="package.html"><a href="package.html#key-points-3"><i class="fa fa-check"></i><b>5.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="nse.html"><a href="nse.html"><i class="fa fa-check"></i><b>6</b> Non-Standard Evaluation</a><ul>
+<li class="chapter" data-level="6.1" data-path="nse.html"><a href="nse.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="nse.html"><a href="nse.html#how-does-python-evaluate-function-calls"><i class="fa fa-check"></i><b>6.2</b> How does Python evaluate function calls?</a></li>
+<li class="chapter" data-level="6.3" data-path="nse.html"><a href="nse.html#how-does-r-evaluate-function-calls"><i class="fa fa-check"></i><b>6.3</b> How does R evaluate function calls?</a></li>
+<li class="chapter" data-level="6.4" data-path="nse.html"><a href="nse.html#why-is-lazy-evaluation-useful"><i class="fa fa-check"></i><b>6.4</b> Why is lazy evaluation useful?</a></li>
+<li class="chapter" data-level="6.5" data-path="nse.html"><a href="nse.html#what-is-tidy-evaluation"><i class="fa fa-check"></i><b>6.5</b> What is tidy evaluation?</a></li>
+<li class="chapter" data-level="6.6" data-path="nse.html"><a href="nse.html#what-if-i-truly-desire-to-venture-into-the-depths"><i class="fa fa-check"></i><b>6.6</b> What if I truly desire to venture into the depths?</a></li>
+<li class="chapter" data-level="6.7" data-path="nse.html"><a href="nse.html#is-it-worth-it"><i class="fa fa-check"></i><b>6.7</b> Is it worth it?</a></li>
+<li class="chapter" data-level="6.8" data-path="nse.html"><a href="nse.html#key-points-4"><i class="fa fa-check"></i><b>6.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="debt.html"><a href="debt.html"><i class="fa fa-check"></i><b>7</b> Intellectual Debt</a><ul>
+<li class="chapter" data-level="7.1" data-path="debt.html"><a href="debt.html#learning-objectives-5"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="debt.html"><a href="debt.html#why-shouldnt-i-use-setwd"><i class="fa fa-check"></i><b>7.2</b> Why shouldn’t I use <code>setwd</code>?</a></li>
+<li class="chapter" data-level="7.3" data-path="debt.html"><a href="debt.html#what-the-hell-are-factors"><i class="fa fa-check"></i><b>7.3</b> What the hell are factors?</a></li>
+<li class="chapter" data-level="7.4" data-path="debt.html"><a href="debt.html#how-do-i-refer-to-various-arguments-in-a-pipeline"><i class="fa fa-check"></i><b>7.4</b> How do I refer to various arguments in a pipeline?</a></li>
+<li class="chapter" data-level="7.5" data-path="debt.html"><a href="debt.html#i-thought-you-said-that-r-encouraged-functional-programming"><i class="fa fa-check"></i><b>7.5</b> I thought you said that R encouraged functional programming?</a></li>
+<li class="chapter" data-level="7.6" data-path="debt.html"><a href="debt.html#how-does-r-give-the-appearance-of-immutable-data"><i class="fa fa-check"></i><b>7.6</b> How does R give the appearance of immutable data?</a></li>
+<li class="chapter" data-level="7.7" data-path="debt.html"><a href="debt.html#what-else-should-i-worry-about"><i class="fa fa-check"></i><b>7.7</b> What else should I worry about?</a></li>
+<li class="chapter" data-level="7.8" data-path="debt.html"><a href="debt.html#key-points-5"><i class="fa fa-check"></i><b>7.8</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="testerror.html"><a href="testerror.html"><i class="fa fa-check"></i><b>8</b> Testing and Error Handling</a><ul>
+<li class="chapter" data-level="8.1" data-path="testerror.html"><a href="testerror.html#learning-objectives-6"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="testerror.html"><a href="testerror.html#how-does-r-handle-errors"><i class="fa fa-check"></i><b>8.2</b> How does R handle errors?</a></li>
+<li class="chapter" data-level="8.3" data-path="testerror.html"><a href="testerror.html#what-should-i-know-about-testing-in-general"><i class="fa fa-check"></i><b>8.3</b> What should I know about testing in general?</a></li>
+<li class="chapter" data-level="8.4" data-path="testerror.html"><a href="testerror.html#how-should-i-organize-my-tests"><i class="fa fa-check"></i><b>8.4</b> How should I organize my tests?</a></li>
+<li class="chapter" data-level="8.5" data-path="testerror.html"><a href="testerror.html#how-can-i-write-a-few-simple-tests"><i class="fa fa-check"></i><b>8.5</b> How can I write a few simple tests?</a></li>
+<li class="chapter" data-level="8.6" data-path="testerror.html"><a href="testerror.html#how-can-i-check-data-transformation"><i class="fa fa-check"></i><b>8.6</b> How can I check data transformation?</a></li>
+<li class="chapter" data-level="8.7" data-path="testerror.html"><a href="testerror.html#key-points-6"><i class="fa fa-check"></i><b>8.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="advanced.html"><a href="advanced.html"><i class="fa fa-check"></i><b>9</b> Advanced Topics</a><ul>
+<li class="chapter" data-level="9.1" data-path="advanced.html"><a href="advanced.html#learning-objectives-7"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced.html"><a href="advanced.html#how-can-i-use-python-with-r"><i class="fa fa-check"></i><b>9.2</b> How can I use Python with R?</a></li>
+<li class="chapter" data-level="9.3" data-path="advanced.html"><a href="advanced.html#how-does-object-oriented-programming-work-in-r"><i class="fa fa-check"></i><b>9.3</b> How does object-oriented programming work in R?</a></li>
+<li class="chapter" data-level="9.4" data-path="advanced.html"><a href="advanced.html#how-can-i-write-web-applications-in-r"><i class="fa fa-check"></i><b>9.4</b> How can I write web applications in R?</a></li>
+<li class="chapter" data-level="9.5" data-path="advanced.html"><a href="advanced.html#how-can-i-work-with-relational-databases-in-r"><i class="fa fa-check"></i><b>9.5</b> How can I work with relational databases in R?</a></li>
+<li class="chapter" data-level="9.6" data-path="advanced.html"><a href="advanced.html#key-points-7"><i class="fa fa-check"></i><b>9.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>A</b> License</a></li>
+<li class="chapter" data-level="B" data-path="code-of-conduct.html"><a href="code-of-conduct.html"><i class="fa fa-check"></i><b>B</b> Code of Conduct</a><ul>
+<li class="chapter" data-level="B.1" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-standards"><i class="fa fa-check"></i><b>B.1</b> Our Standards</a></li>
+<li class="chapter" data-level="B.2" data-path="code-of-conduct.html"><a href="code-of-conduct.html#our-responsibilities"><i class="fa fa-check"></i><b>B.2</b> Our Responsibilities</a></li>
+<li class="chapter" data-level="B.3" data-path="code-of-conduct.html"><a href="code-of-conduct.html#scope"><i class="fa fa-check"></i><b>B.3</b> Scope</a></li>
+<li class="chapter" data-level="B.4" data-path="code-of-conduct.html"><a href="code-of-conduct.html#enforcement"><i class="fa fa-check"></i><b>B.4</b> Enforcement</a></li>
+<li class="chapter" data-level="B.5" data-path="code-of-conduct.html"><a href="code-of-conduct.html#attribution"><i class="fa fa-check"></i><b>B.5</b> Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="citation.html"><a href="citation.html"><i class="fa fa-check"></i><b>C</b> Citation</a></li>
+<li class="chapter" data-level="D" data-path="contributing.html"><a href="contributing.html"><i class="fa fa-check"></i><b>D</b> Contributing</a></li>
+<li class="chapter" data-level="E" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>E</b> Practice Problems</a><ul>
+<li class="chapter" data-level="E.1" data-path="practice.html"><a href="practice.html#do-i-need-even-more-practice"><i class="fa fa-check"></i><b>E.1</b> Do I need even more practice?</a></li>
+<li class="chapter" data-level="E.2" data-path="practice.html"><a href="practice.html#please-may-i-create-some-charts"><i class="fa fa-check"></i><b>E.2</b> Please may I create some charts?</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>F</b> Glossary</a></li>
+<li class="chapter" data-level="G" data-path="keypoints.html"><a href="keypoints.html"><i class="fa fa-check"></i><b>G</b> Key Points</a><ul>
+<li class="chapter" data-level="G.1" data-path="keypoints.html"><a href="keypoints.html#simple-beginnings"><i class="fa fa-check"></i><b>G.1</b> Simple Beginnings</a></li>
+<li class="chapter" data-level="G.2" data-path="keypoints.html"><a href="keypoints.html#the-tidyverse"><i class="fa fa-check"></i><b>G.2</b> The Tidyverse</a></li>
+<li class="chapter" data-level="G.3" data-path="keypoints.html"><a href="keypoints.html#creating-packages"><i class="fa fa-check"></i><b>G.3</b> Creating Packages</a></li>
+<li class="chapter" data-level="G.4" data-path="keypoints.html"><a href="keypoints.html#non-standard-evaluation"><i class="fa fa-check"></i><b>G.4</b> Non-Standard Evaluation</a></li>
+<li class="chapter" data-level="G.5" data-path="keypoints.html"><a href="keypoints.html#intellectual-debt"><i class="fa fa-check"></i><b>G.5</b> Intellectual Debt</a></li>
+<li class="chapter" data-level="G.6" data-path="keypoints.html"><a href="keypoints.html#testing-and-error-handling"><i class="fa fa-check"></i><b>G.6</b> Testing and Error Handling</a></li>
+<li class="chapter" data-level="G.7" data-path="keypoints.html"><a href="keypoints.html#advanced-topics"><i class="fa fa-check"></i><b>G.7</b> Advanced Topics</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Tidynomicon</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practice" class="section level1">
+<h1><span class="header-section-number">E</span> Practice Problems</h1>
+<p>You need more practice with the functions in Chapter <a href="tidyverse.html#tidyverse">3</a>.
+To begin,
+open a fresh file and begin by loading the tidyverse
+and the here package used to construct paths:</p>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb897-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb897-2" data-line-number="2"><span class="kw">library</span>(here)</a></code></pre></div>
+<p>Next,
+use <code>here::here</code> to construct a path to a file and <code>readr::read_csv</code> to read that file:</p>
+<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb898-1" data-line-number="1">path =<span class="st"> </span>here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;person.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb898-2" data-line-number="2">person &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(path)</a></code></pre></div>
+<pre><code>Parsed with column specification:
+cols(
+  person_id = col_character(),
+  personal_name = col_character(),
+  family_name = col_character()
+)</code></pre>
+<p>We don’t need to write out fully-qualified names—<code>here</code> and <code>read_csv</code> will do—but
+we will use them to make it easier to see what comes from where.</p>
+<p>Next,
+have a look at the tibble <code>person</code>,
+which contains some basic information about a group of foolhardy scientists
+who ventured into the Antarctic in the 1920s and 1930s in search of things best left undisturbed:</p>
+<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb900-1" data-line-number="1">person</a></code></pre></div>
+<pre><code># A tibble: 5 x 3
+  person_id personal_name family_name
+  &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;      
+1 dyer      William       Dyer       
+2 pb        Frank         Pabodie    
+3 lake      Anderson      Lake       
+4 roe       Valentina     Roerich    
+5 danforth  Frank         Danforth   </code></pre>
+<p>How many rows and columns does this tibble contain?</p>
+<div class="sourceCode" id="cb902"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb902-1" data-line-number="1"><span class="kw">nrow</span>(person)</a></code></pre></div>
+<pre><code>[1] 5</code></pre>
+<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb904-1" data-line-number="1"><span class="kw">ncol</span>(person)</a></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<p>(These names don’t have a package prefix because they are built in.)
+Let’s show that information in a slightly nicer way
+using <code>glue</code> to insert values into a string
+and <code>print</code> to display the result:</p>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb906-1" data-line-number="1"><span class="kw">print</span>(glue<span class="op">::</span><span class="kw">glue</span>(<span class="st">&quot;person has {nrow(person)} rows and {ncol(person)} columns&quot;</span>))</a></code></pre></div>
+<pre><code>person has 5 rows and 3 columns</code></pre>
+<p>If we want to display several values,
+we can use the function <code>paste</code> to combine the elements of a vector.
+<code>colnames</code> gives us the names of a tibble’s columns,
+and <code>paste</code>’s <code>collapse</code> argument tells the function
+to use a single space to separate concatenated values:</p>
+<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb908-1" data-line-number="1"><span class="kw">print</span>(glue<span class="op">::</span><span class="kw">glue</span>(<span class="st">&quot;person columns are {paste(colnames(person), collapse = &#39; &#39;)}&quot;</span>))</a></code></pre></div>
+<pre><code>person columns are person_id personal_name family_name</code></pre>
+<p>Time for some data manipulation.
+Let’s get everyone’s family and personal names:</p>
+<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb910-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">select</span>(person, family_name, personal_name)</a></code></pre></div>
+<pre><code># A tibble: 5 x 2
+  family_name personal_name
+  &lt;chr&gt;       &lt;chr&gt;        
+1 Dyer        William      
+2 Pabodie     Frank        
+3 Lake        Anderson     
+4 Roerich     Valentina    
+5 Danforth    Frank        </code></pre>
+<p>and then filter that list to keep only those that come in the first half of the alphabet:</p>
+<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb912-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">select</span>(person, family_name, personal_name) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb912-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(family_name <span class="op">&lt;</span><span class="st"> &quot;N&quot;</span>)</a></code></pre></div>
+<pre><code># A tibble: 3 x 2
+  family_name personal_name
+  &lt;chr&gt;       &lt;chr&gt;        
+1 Dyer        William      
+2 Lake        Anderson     
+3 Danforth    Frank        </code></pre>
+<p>It would be more consistent to rewrite this as:</p>
+<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb914-1" data-line-number="1">person <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb914-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(family_name, personal_name) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb914-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(family_name <span class="op">&lt;</span><span class="st"> &quot;N&quot;</span>)</a></code></pre></div>
+<pre><code># A tibble: 3 x 2
+  family_name personal_name
+  &lt;chr&gt;       &lt;chr&gt;        
+1 Dyer        William      
+2 Lake        Anderson     
+3 Danforth    Frank        </code></pre>
+<p>It’s easy to add a column that records the lengths of family names:</p>
+<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb916-1" data-line-number="1">person <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb916-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">name_length =</span> stringr<span class="op">::</span><span class="kw">str_length</span>(family_name))</a></code></pre></div>
+<pre><code># A tibble: 5 x 4
+  person_id personal_name family_name name_length
+  &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;             &lt;int&gt;
+1 dyer      William       Dyer                  4
+2 pb        Frank         Pabodie               7
+3 lake      Anderson      Lake                  4
+4 roe       Valentina     Roerich               7
+5 danforth  Frank         Danforth              8</code></pre>
+<p>and then arrange in descending order:</p>
+<div class="sourceCode" id="cb918"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb918-1" data-line-number="1">person <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb918-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">name_length =</span> stringr<span class="op">::</span><span class="kw">str_length</span>(family_name)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb918-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(dplyr<span class="op">::</span><span class="kw">desc</span>(name_length))</a></code></pre></div>
+<pre><code># A tibble: 5 x 4
+  person_id personal_name family_name name_length
+  &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;             &lt;int&gt;
+1 danforth  Frank         Danforth              8
+2 pb        Frank         Pabodie               7
+3 roe       Valentina     Roerich               7
+4 dyer      William       Dyer                  4
+5 lake      Anderson      Lake                  4</code></pre>
+<div id="do-i-need-even-more-practice" class="section level2">
+<h2><span class="header-section-number">E.1</span> Do I need even more practice?</h2>
+<p>Yes.
+Yes, you do.
+Let’s load a slightly larger dataset:</p>
+<div class="sourceCode" id="cb920"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb920-1" data-line-number="1">measurements &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;measurements.csv&quot;</span>))</a></code></pre></div>
+<pre><code>Parsed with column specification:
+cols(
+  visit_id = col_double(),
+  person_id = col_character(),
+  quantity = col_character(),
+  reading = col_double()
+)</code></pre>
+<div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb922-1" data-line-number="1">measurements</a></code></pre></div>
+<pre><code># A tibble: 21 x 4
+   visit_id person_id quantity reading
+      &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;
+ 1      619 dyer      rad         9.82
+ 2      619 dyer      sal         0.13
+ 3      622 dyer      rad         7.8 
+ 4      622 dyer      sal         0.09
+ 5      734 pb        rad         8.41
+ 6      734 lake      sal         0.05
+ 7      734 pb        temp      -21.5 
+ 8      735 pb        rad         7.22
+ 9      735 &lt;NA&gt;      sal         0.06
+10      735 &lt;NA&gt;      temp      -26   
+# … with 11 more rows</code></pre>
+<p>If we want an overview of our data’s properties,
+we can use the aptly-named <code>summarize</code> function:</p>
+<div class="sourceCode" id="cb924"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb924-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">summarize</span>(measurements)</a></code></pre></div>
+<pre><code># A tibble: 1 x 0</code></pre>
+<p>Removing records with missing readings is straightforward:</p>
+<div class="sourceCode" id="cb926"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb926-1" data-line-number="1">measurements <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb926-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(reading))</a></code></pre></div>
+<pre><code># A tibble: 20 x 4
+   visit_id person_id quantity reading
+      &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;
+ 1      619 dyer      rad         9.82
+ 2      619 dyer      sal         0.13
+ 3      622 dyer      rad         7.8 
+ 4      622 dyer      sal         0.09
+ 5      734 pb        rad         8.41
+ 6      734 lake      sal         0.05
+ 7      734 pb        temp      -21.5 
+ 8      735 pb        rad         7.22
+ 9      735 &lt;NA&gt;      sal         0.06
+10      735 &lt;NA&gt;      temp      -26   
+11      751 pb        rad         4.35
+12      751 pb        temp      -18.5 
+13      752 lake      rad         2.19
+14      752 lake      sal         0.09
+15      752 lake      temp      -16   
+16      752 roe       sal        41.6 
+17      837 lake      rad         1.46
+18      837 lake      sal         0.21
+19      837 roe       sal        22.5 
+20      844 roe       rad        11.2 </code></pre>
+<p>Removing rows that contain <em>any</em> NAs is equally easy,
+though it may be statistically unsound:</p>
+<p>We can now group our data by the quantity measured
+and count the number of each—the column is named <code>n</code> automatically:</p>
+<div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb928-1" data-line-number="1">cleaned <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb928-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(quantity) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb928-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">count</span>()</a></code></pre></div>
+<pre><code># A tibble: 3 x 2
+# Groups:   quantity [3]
+  quantity     n
+  &lt;chr&gt;    &lt;int&gt;
+1 rad          8
+2 sal          7
+3 temp         3</code></pre>
+<p>How are the readings of each type distributed?</p>
+<div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb930-1" data-line-number="1">cleaned <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb930-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(quantity) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb930-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(<span class="dt">low =</span> <span class="kw">min</span>(reading),</a>
+<a class="sourceLine" id="cb930-4" data-line-number="4">                   <span class="dt">mid =</span> <span class="kw">mean</span>(reading),</a>
+<a class="sourceLine" id="cb930-5" data-line-number="5">                   <span class="dt">high =</span> <span class="kw">max</span>(reading))</a></code></pre></div>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code># A tibble: 3 x 4
+  quantity    low    mid  high
+  &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 rad        1.46   6.56  11.2
+2 sal        0.05   9.24  41.6
+3 temp     -21.5  -18.7  -16  </code></pre>
+<p>After inspection,
+we realize that most of the salinity measurements lie between 0 and 1,
+but a handful range up to 100.
+During a brief interval of lucidity,
+the librarian who collected the battered notebooks from which the data was transcribed
+informs us that one of the explorers recorded percentages rather than actual values.
+We therefore decide to normalize all salinity measurements greater than 1.0 using <code>ifelse</code>
+(a two-branch analog of <code>case_when</code>):</p>
+<div class="sourceCode" id="cb933"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb933-1" data-line-number="1">cleaned &lt;-<span class="st"> </span>cleaned <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb933-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">reading =</span> <span class="kw">ifelse</span>(quantity <span class="op">==</span><span class="st"> &#39;sal&#39;</span> <span class="op">&amp;</span><span class="st"> </span>reading <span class="op">&gt;</span><span class="st"> </span><span class="fl">1.0</span>,</a>
+<a class="sourceLine" id="cb933-3" data-line-number="3">                                 reading<span class="op">/</span><span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb933-4" data-line-number="4">                                 reading))</a>
+<a class="sourceLine" id="cb933-5" data-line-number="5">cleaned</a></code></pre></div>
+<pre><code># A tibble: 18 x 4
+   visit_id person_id quantity reading
+      &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;
+ 1      619 dyer      rad        9.82 
+ 2      619 dyer      sal        0.13 
+ 3      622 dyer      rad        7.8  
+ 4      622 dyer      sal        0.09 
+ 5      734 pb        rad        8.41 
+ 6      734 lake      sal        0.05 
+ 7      734 pb        temp     -21.5  
+ 8      735 pb        rad        7.22 
+ 9      751 pb        rad        4.35 
+10      751 pb        temp     -18.5  
+11      752 lake      rad        2.19 
+12      752 lake      sal        0.09 
+13      752 lake      temp     -16    
+14      752 roe       sal        0.416
+15      837 lake      rad        1.46 
+16      837 lake      sal        0.21 
+17      837 roe       sal        0.225
+18      844 roe       rad       11.2  </code></pre>
+<p>To answer our next set of questions,
+we need data about when each site was visited.
+Let’s read <code>visited.csv</code> and discard entries that are missing the visit date:</p>
+<div class="sourceCode" id="cb935"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb935-1" data-line-number="1">visited &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;visited.csv&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb935-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(visit_date))</a></code></pre></div>
+<pre><code>Parsed with column specification:
+cols(
+  visit_id = col_double(),
+  site_id = col_character(),
+  visit_date = col_date(format = &quot;&quot;)
+)</code></pre>
+<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb937-1" data-line-number="1">visited</a></code></pre></div>
+<pre><code># A tibble: 7 x 3
+  visit_id site_id visit_date
+     &lt;dbl&gt; &lt;chr&gt;   &lt;date&gt;    
+1      619 DR-1    1927-02-08
+2      622 DR-1    1927-02-10
+3      734 DR-3    1930-01-07
+4      735 DR-3    1930-01-12
+5      751 DR-3    1930-02-26
+6      837 MSK-4   1932-01-14
+7      844 DR-1    1932-03-22</code></pre>
+<p>and then combine that table with our cleaned measurement data.
+We will use an <a href="glossary.html#inner-join">inner join</a>
+that matches records on the visit ID;
+dplyr also provides other kinds of joins should we need them.</p>
+<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb939-1" data-line-number="1">combined &lt;-<span class="st"> </span>visited <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb939-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">inner_join</span>(cleaned,</a>
+<a class="sourceLine" id="cb939-3" data-line-number="3">                    <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;visit_id&quot;</span> =<span class="st"> &quot;visit_id&quot;</span>))</a></code></pre></div>
+<p>We can now find the date of the highest radiation reading at each site:</p>
+<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb940-1" data-line-number="1">combined <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb940-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb940-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb940-4" data-line-number="4"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">max_rad =</span> <span class="kw">max</span>(reading)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb940-5" data-line-number="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(reading <span class="op">==</span><span class="st"> </span>max_rad)</a></code></pre></div>
+<pre><code># A tibble: 3 x 7
+# Groups:   site_id [3]
+  visit_id site_id visit_date person_id quantity reading max_rad
+     &lt;dbl&gt; &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;
+1      734 DR-3    1930-01-07 pb        rad         8.41    8.41
+2      837 MSK-4   1932-01-14 lake      rad         1.46    1.46
+3      844 DR-1    1932-03-22 roe       rad        11.2    11.2 </code></pre>
+<p>or:</p>
+<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb942-1" data-line-number="1">combined <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb942-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb942-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb942-4" data-line-number="4"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">top_n</span>(<span class="dv">1</span>, reading) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb942-5" data-line-number="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(site_id, visit_date, reading)</a></code></pre></div>
+<pre><code># A tibble: 3 x 3
+# Groups:   site_id [3]
+  site_id visit_date reading
+  &lt;chr&gt;   &lt;date&gt;       &lt;dbl&gt;
+1 DR-3    1930-01-07    8.41
+2 MSK-4   1932-01-14    1.46
+3 DR-1    1932-03-22   11.2 </code></pre>
+<p>The function <code>dplyr::lag</code> shifts the values in a column.
+We can use it to calculate the difference in radiation at each site
+between visits:</p>
+<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb944-1" data-line-number="1">combined <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb944-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb944-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb944-4" data-line-number="4"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">delta_rad =</span> reading <span class="op">-</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">lag</span>(reading)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb944-5" data-line-number="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(site_id, visit_date)</a></code></pre></div>
+<pre><code># A tibble: 7 x 7
+# Groups:   site_id [3]
+  visit_id site_id visit_date person_id quantity reading delta_rad
+     &lt;dbl&gt; &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+1      619 DR-1    1927-02-08 dyer      rad         9.82     NA   
+2      622 DR-1    1927-02-10 dyer      rad         7.8      -2.02
+3      844 DR-1    1932-03-22 roe       rad        11.2       3.45
+4      734 DR-3    1930-01-07 pb        rad         8.41     NA   
+5      735 DR-3    1930-01-12 pb        rad         7.22     -1.19
+6      751 DR-3    1930-02-26 pb        rad         4.35     -2.87
+7      837 MSK-4   1932-01-14 lake      rad         1.46     NA   </code></pre>
+<p>Going one step further,
+we can create a list of sites at which radiation increased between any two visits:</p>
+<div class="sourceCode" id="cb946"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb946-1" data-line-number="1">combined <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb946-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb946-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb946-4" data-line-number="4"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">delta_rad =</span> reading <span class="op">-</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">lag</span>(reading)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb946-5" data-line-number="5"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(delta_rad)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb946-6" data-line-number="6"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(<span class="dt">any_increase =</span> <span class="kw">any</span>(delta_rad <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb946-7" data-line-number="7"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(any_increase)</a></code></pre></div>
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code># A tibble: 1 x 2
+  site_id any_increase
+  &lt;chr&gt;   &lt;lgl&gt;       
+1 DR-1    TRUE        </code></pre>
+</div>
+<div id="please-may-i-create-some-charts" class="section level2">
+<h2><span class="header-section-number">E.2</span> Please may I create some charts?</h2>
+<p>Certainly.
+We will use data on the mass and home range area (HRA) of various species from:</p>
+<blockquote>
+<p>Tamburello N, Côté IM, Dulvy NK (2015) Data from: Energy and the scaling of animal space use. Dryad Digital Repository.
+<a href="https://doi.org/10.5061/dryad.q5j65" class="uri">https://doi.org/10.5061/dryad.q5j65</a></p>
+</blockquote>
+<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb949-1" data-line-number="1">hra &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;home-range-database.csv&quot;</span>))</a></code></pre></div>
+<pre><code>Parsed with column specification:
+cols(
+  .default = col_character(),
+  mean.mass.g = col_double(),
+  log10.mass = col_double(),
+  mean.hra.m2 = col_double(),
+  log10.hra = col_double(),
+  preymass = col_double(),
+  log10.preymass = col_double(),
+  PPMR = col_double()
+)</code></pre>
+<pre><code>See spec(...) for full column specifications.</code></pre>
+<div class="sourceCode" id="cb952"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb952-1" data-line-number="1"><span class="kw">head</span>(hra)</a></code></pre></div>
+<pre><code># A tibble: 6 x 24
+  taxon common.name class order family genus species primarymethod N    
+  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;
+1 lake… american e… acti… angu… angui… angu… rostra… telemetry     16   
+2 rive… blacktail … acti… cypr… catos… moxo… poecil… mark-recaptu… &lt;NA&gt; 
+3 rive… central st… acti… cypr… cypri… camp… anomal… mark-recaptu… 20   
+4 rive… rosyside d… acti… cypr… cypri… clin… fundul… mark-recaptu… 26   
+5 rive… longnose d… acti… cypr… cypri… rhin… catara… mark-recaptu… 17   
+6 rive… muskellunge acti… esoc… esoci… esox  masqui… telemetry     5    
+# … with 15 more variables: mean.mass.g &lt;dbl&gt;, log10.mass &lt;dbl&gt;,
+#   alternative.mass.reference &lt;chr&gt;, mean.hra.m2 &lt;dbl&gt;, log10.hra &lt;dbl&gt;,
+#   hra.reference &lt;chr&gt;, realm &lt;chr&gt;, thermoregulation &lt;chr&gt;, locomotion &lt;chr&gt;,
+#   trophic.guild &lt;chr&gt;, dimension &lt;chr&gt;, preymass &lt;dbl&gt;, log10.preymass &lt;dbl&gt;,
+#   PPMR &lt;dbl&gt;, prey.size.reference &lt;chr&gt;</code></pre>
+<p>A few keystrokes show us how the masses of these animals are distributed:</p>
+<div class="sourceCode" id="cb954"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb954-1" data-line-number="1">ggplot2<span class="op">::</span><span class="kw">ggplot</span>(hra) <span class="op">+</span></a>
+<a class="sourceLine" id="cb954-2" data-line-number="2"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> mean.mass.g))</a></code></pre></div>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="practice_files/figure-html/chart-mass-1.png" width="672" /></p>
+<p>The distribution becomes much clearer if we plot the logarithms of the masses,
+which are helpfully precalculated in <code>log10.mass</code>:</p>
+<div class="sourceCode" id="cb956"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb956-1" data-line-number="1">ggplot2<span class="op">::</span><span class="kw">ggplot</span>(hra) <span class="op">+</span></a>
+<a class="sourceLine" id="cb956-2" data-line-number="2"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass))</a></code></pre></div>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="practice_files/figure-html/chart-log-mass-1.png" width="672" /></p>
+<p>Let’s tidy that up a bit:</p>
+<div class="sourceCode" id="cb958"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb958-1" data-line-number="1">ggplot2<span class="op">::</span><span class="kw">ggplot</span>(hra) <span class="op">+</span></a>
+<a class="sourceLine" id="cb958-2" data-line-number="2"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass), <span class="dt">bins =</span> <span class="dv">100</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb958-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggtitle</span>(<span class="st">&quot;Frequency of Species Masses&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb958-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">xlab</span>(<span class="st">&quot;Log10 of Mass&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb958-5" data-line-number="5"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ylab</span>(<span class="st">&quot;Number of Species&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb958-6" data-line-number="6"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<p><img src="practice_files/figure-html/change-visual-1.png" width="672" /></p>
+<p>How are mass and home range area related?</p>
+<div class="sourceCode" id="cb959"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb959-1" data-line-number="1">ggplot2<span class="op">::</span><span class="kw">ggplot</span>(hra) <span class="op">+</span></a>
+<a class="sourceLine" id="cb959-2" data-line-number="2"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra))</a></code></pre></div>
+<p><img src="practice_files/figure-html/scatterplot-1.png" width="672" /></p>
+<p>Does the relationship depend on the class of animal?
+(Here, we use the word “class” in the biological sense:
+the class “aves” is birds.)</p>
+<div class="sourceCode" id="cb960"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb960-1" data-line-number="1">hra <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb960-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">class_fct =</span> <span class="kw">as.factor</span>(class)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb960-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra, <span class="dt">color =</span> class_fct)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb960-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<p><img src="practice_files/figure-html/colorize-scatterplot-1.png" width="672" /></p>
+<blockquote>
+<p>*What’s a Factor?</p>
+<p>The code above creates a new column <code>class_fct</code>
+by converting the text values in <code>class</code> to a <a href="glossary.html#factor">factor</a>.
+Other languages call this an enumeration:
+we will discuss factors in more detail in Chapter <a href="debt.html#debt">7</a>.</p>
+</blockquote>
+<p>Our chart may be clearer if we display the <a href="glossary.html#facet">facets</a> separately:</p>
+<div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb961-1" data-line-number="1">hra <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb961-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">class_fct =</span> <span class="kw">as.factor</span>(class)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb961-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra, <span class="dt">color =</span> class_fct)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb961-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb961-5" data-line-number="5"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">facet_wrap</span>(<span class="op">~</span>class_fct)</a></code></pre></div>
+<p><img src="practice_files/figure-html/facet-plot-1.png" width="672" /></p>
+<p>If we want to look at the mass-area relationship more closely for birds,
+we can construct a regression line:</p>
+<div class="sourceCode" id="cb962"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb962-1" data-line-number="1">hra <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb962-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(class <span class="op">==</span><span class="st"> &quot;aves&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb962-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb962-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb962-5" data-line-number="5"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>)</a></code></pre></div>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="practice_files/figure-html/fit-line-1.png" width="672" /></p>
+<p>Drilling down even further,
+we can create a violin plot of mass by order for the birds
+(where “order” is the biological division below “class”):</p>
+<div class="sourceCode" id="cb964"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb964-1" data-line-number="1">hra <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb964-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(class <span class="op">==</span><span class="st"> &quot;aves&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb964-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">order_fct =</span> <span class="kw">as.factor</span>(order)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb964-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> order_fct, <span class="dt">y =</span> log10.mass, <span class="dt">color =</span> order_fct)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb964-5" data-line-number="5"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_violin</span>()</a></code></pre></div>
+<p><img src="practice_files/figure-html/violin-plot-1.png" width="672" /></p>
+<p>Changing just one line gives us a box plot instead:</p>
+<div class="sourceCode" id="cb965"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb965-1" data-line-number="1">hra <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb965-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(class <span class="op">==</span><span class="st"> &quot;aves&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb965-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">order_fct =</span> <span class="kw">as.factor</span>(order)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb965-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> order_fct, <span class="dt">y =</span> log10.mass, <span class="dt">color =</span> order_fct)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb965-5" data-line-number="5"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<p><img src="practice_files/figure-html/box-plot-1.png" width="672" /></p>
+<p>And if we want to save our chart to a file,
+that’s just one more call as well:</p>
+<div class="sourceCode" id="cb966"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb966-1" data-line-number="1">hra <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb966-2" data-line-number="2"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(class <span class="op">==</span><span class="st"> &quot;aves&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb966-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb966-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb966-5" data-line-number="5"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>)</a></code></pre></div>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="practice_files/figure-html/save-file-1.png" width="672" /></p>
+<div class="sourceCode" id="cb968"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb968-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;/tmp/birds.png&quot;</span>)</a></code></pre></div>
+<pre><code>Saving 7 x 5 in image
+`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="contributing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="glossary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/practice.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/gvwilson/tidynomicon/edit/master/practice.Rmd",
+"text": null
+},
+"download": ["r4de.pdf", "r4de.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
