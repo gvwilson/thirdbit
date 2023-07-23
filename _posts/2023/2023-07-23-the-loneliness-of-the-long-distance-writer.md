@@ -45,6 +45,14 @@ Time to make another cup of tea.
 If you came in peace, be welcome;
 if not, be damned with you.
 
+> Revising a book feels a lot like fixing bugs in a tangled piece of legacy code:
+> everything connects to everything else in ways that you understood at the time
+> but now struggle to remember.
+> It needs to be done,
+> but you would rather be working on something new
+> where you can still hope—despite all past experience—that
+> it might live up to your secret dreams.
+
 [25years]: {{ '/2023/07/19/twenty-five-years-and-counting/' | relative_url}}
 [build]: https://buildtogether.tech/
 [carpentries]: https://carpentries.org/
