@@ -51,7 +51,7 @@ a worldwide volunteer organization that teaches basic computing skills to thousa
 Somewhere in there I found time to edit
 [a book on evidence-based software engineering][making-software]
 and the first two volumes of [*The Architecture of Open Source Applications*][aosabook].
-After a brief stint with [Rangle.io][rangle] in 2017 I joined DataCamp,
+After a short stint with [Rangle.io][rangle] in 2017 I joined DataCamp,
 who I'm proud to say [fired me in 2018][datacamp].
 
 More recently I spent two and a half years developing
