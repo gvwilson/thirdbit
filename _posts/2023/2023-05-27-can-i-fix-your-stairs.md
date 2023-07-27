@@ -39,6 +39,6 @@ I don't know how many things he got to make right
 before he was too weak to go out on his own any more.
 I hope it was enough for him to feel that he'd done as much as he could.
 
-Time to make a cup of tea.
+Time to make another cup of tea.
 If you came in peace, be welcome;
 if not, be damned with you.

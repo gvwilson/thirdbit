@@ -26,5 +26,6 @@ just lives its life at a slower pace.
   <img src="{{'/files/2023/garden-2023-06-01.jpg' | relative_url}}" width="80%" alt="Our garden on June 1, 2023">
 </div>
 
+Time to make another cup of tea.
 If you came in peace, be welcome.
 If not, be damned with you.

@@ -22,6 +22,6 @@ so that it fell into the undergrowth and was lost?
 Either way,
 did the other chimes miss it?
 
-Time to make a cup of tea.
+Time to make another cup of tea.
 If you came in peace, be welcome;
 if not, be damned with you.

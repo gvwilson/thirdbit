@@ -21,7 +21,7 @@ will anyone learn from it or will it bring anyone any pleasure after I'm gone,
 and if so,
 for how long?
 
-Time to make a cup of tea.
+Time to make another cup of tea.
 If you came in peace, be welcome;
 if not, be damned with you.
 

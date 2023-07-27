@@ -16,6 +16,6 @@ like mass and energy and angular momentum,
 or whether meaning is like an old house that each generation renovates to meet its needs,
 only to have the next generation renovate again.
 
-Time to make a cup of tea.
+Time to make another cup of tea.
 If you came in peace, be welcome;
 if not, be damned with you.

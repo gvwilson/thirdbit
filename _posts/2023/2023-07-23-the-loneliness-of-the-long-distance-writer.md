@@ -41,10 +41,6 @@ They are also,
 I hope,
 more likely to give me a chance to write with people again.
 
-Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
-
 > Revising a book feels a lot like fixing bugs in a tangled piece of legacy code:
 > everything connects to everything else in ways that you understood at the time
 > but now struggle to remember.

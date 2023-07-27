@@ -19,5 +19,6 @@ and one of my colleagues looked me up and down and said,
 <img src="{{'/files/2023/loud-shirt.jpg' | relative_url}}" alt="Greg in a loud shirt">
 </div>
 
+Time to make another cup of tea.
 If you came in peace, be welcome.
 If not, be damned with you.
