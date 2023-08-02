@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-08-01">
+  <meta name="build_date" content="2023-08-02">
   <meta name="template" content="default">
   <meta name="major" content="archive">
   <meta name="has_slides" content="true">
@@ -273,10 +273,10 @@
           
 <div class="draft notex">
   <p class="draft">
-    DRAFT 2023-08-01
+    DRAFT 2023-08-02
   </p>
   <p>
-    awaiting revision<br>
+    revisions completed 2023-08-02<br>
     Please use section heading links to submit feedback
     or go to <a href="https://github.com/gvwilson/sdxpy">https://github.com/gvwilson/sdxpy</a>.
   </p>
@@ -364,27 +364,26 @@
 
           <div class="page-toc"></div>
           <p>We&rsquo;ve written almost a thousand lines of Python so far.
-We could recreate it if we had to,
+We could rewrite it if we accidentally deleted it,
 but we&rsquo;d rather not have to.
 We&rsquo;d also like to be able to see what we&rsquo;ve changed
 and to collaborate with other people.</p>
-<p>A <a class="gl-ref" href="../glossary/#gl:version_control_system" title="A system for managing changes made to software during its development." markdown="1">version control system</a>
-like <span class="ix-entry" ix-key="Git" markdown="1"><a href="https://git-scm.com/">Git</a></span>
-solves all of these problems at once.
-It keeps track of changes to files
-so that we can see what we&rsquo;ve changed,
+<p><a class="gl-ref" href="../glossary/#gl:version_control_system" title="A system for managing changes made to software during its development." markdown="1">Version control systems</a>
+like <span class="ix-entry" ix-key="CVS" markdown="1"><a href="https://www.nongnu.org/cvs/">CVS</a></span>, <span class="ix-entry" ix-key="Subversion" markdown="1"><a href="https://subversion.apache.org/">Subversion</a></span>,
+<span class="ix-entry" ix-key="Mercurial" markdown="1"><a href="https://www.mercurial-scm.org/">Mercurial</a></span>, and <span class="ix-entry" ix-key="Git" markdown="1"><a href="https://git-scm.com/">Git</a></span>
+solve all of these problems at once.
+A version control system (VCS) keeps track of changes to files
+so that we can see what we modified when,
 recover old versions,
-and merge our changes with those made by other people.</p>
-<p>The core of a modern version control tool
-is a way to archive files that:</p>
+and merge our changes with those made by other people.
+The core of a modern VCS does two things:</p>
 <ol>
 <li>
-<p>records which versions of which files existed at the same time,
-    so that we can go back to a consistent previous state,
-    and</p>
+<p>It records which versions of which files existed at the same time,
+    so that we can go back to a consistent previous state.</p>
 </li>
 <li>
-<p>stores any particular version of a file only once,
+<p>It stores any particular version of a file only once,
     so that we don&rsquo;t waste disk space.</p>
 </li>
 </ol>
@@ -392,29 +391,31 @@ is a way to archive files that:</p>
 It won&rsquo;t create and merge branches;
 if you would like to see how that works,
 please see <span class="ix-entry" ix-key="Cook, Mary Rose" markdown="1"><a href="https://maryrosecook.com/">Mary Rose Cook&rsquo;s</a></span> <a href="http://gitlet.maryrosecook.com/">Gitlet</a>
-or <span class="ix-entry" ix-key="Polge, Thibault" markdown="1">Thibault Polge&rsquo;s</span> <a href="https://wyag.thb.lt/">Write yourself a Git</a>.</p>
+or <span class="ix-entry" ix-key="Polge, Thibault" markdown="1">Thibault Polge&rsquo;s</span> &ldquo;<a href="https://wyag.thb.lt/">Write Yourself a Git</a>&rdquo;.</p>
 <h2 id="archive-files">Section 10.1: Saving Files</h2>
-<p>Many files only change occasionally after they&rsquo;re created, or not at all.
-It would be wasteful for a version control system to make copies
-each time the user saved a snapshot of a project,
-so instead we will copy each unique file to something like <code>abcd1234.bck</code>,
+<p>The first step in building a VCS is to save files without wasting space.
+Many files only change occasionally after they&rsquo;re created (if at all),
+so it would be wasteful for a VCS to make copies
+each time the user saved a snapshot of a project.
+Instead, we will copy each unique file to something like <code>abcd1234.bck</code>,
 where <code>abcd1234</code> is the hash of the file&rsquo;s contents (<a class="x-ref" href="../dup/">Chapter 3</a>).
-We will then record the filenames and hash keys in each snapshot:
-The hash keys tell us which unique files existed at the time of the snapshot,
+We will then record the filenames and hash keys included in each snapshot;
+the hash keys tell us which unique files existed at the time of the snapshot,
 while the filenames tell us what each file was called when the snapshot was made.
 To restore a particular snapshot,
-we will copy the <code>.bck</code> files back to their original locations
+we can copy the <code>.bck</code> files back to their original locations
 (<a class="fig-ref" href="../archive/#archive-storage">Figure 10.1</a>).</p>
 <figure id="archive-storage">
 <img src="./storage.svg" alt="Backup file storage"/>
 <figcaption markdown="1">Figure 10.1: Organization of backup file storage.</figcaption>
 </figure>
 
-<p>The first step is to find all the files in or below a given directory
-that we need to save.
-As described in <a class="x-ref" href="../glob/">Chapter 4</a>,
-Python&rsquo;s <a href="https://docs.python.org/3/library/glob.html">glob</a> module can do this for us.
-Let&rsquo;s use this to create a table of files and hashes:</p>
+<p>We use the <span class="ix-entry" ix-key="globbing" markdown="1">globbing</span> functions from Python&rsquo;s <a href="https://docs.python.org/3/library/glob.html">glob</a> module
+to find files we need to save (<a class="x-ref" href="../glob/">Chapter 4</a>).
+The pattern <code>**/*.*</code> below in the code below matches
+all two-part filenames in the current directory and its subdirectories.
+We can use this and the <span class="ix-entry" ix-key="sha256" markdown="1">SHA-256</span> function from Python&rsquo;s <a href="https://docs.python.org/3/library/hashlib.html">hashing module</a>
+to create a table of files and hashes:</p>
 <div class="code-sample lang-py" title="hash_all.py">
 <div class="highlight"><pre><span></span><code><span class="n">HASH_LEN</span> <span class="o">=</span> <span class="mi">16</span>
 
@@ -432,10 +433,9 @@ Let&rsquo;s use this to create a table of files and hashes:</p>
 <p>Notice that we&rsquo;re truncating the <span class="ix-entry" ix-key="hash code" markdown="1">hash code</span> of each file
 to just 16 <span class="ix-entry" ix-key="hexadecimal" markdown="1">hexadecimal</span> digits.
 This greatly increases the odds of <span class="ix-entry" ix-key="collision (in hashing)" markdown="1">collision</span>,
-so real version control systems don&rsquo;t do this,
-but it makes our program&rsquo;s output easier to show on screen.
-For example,
-if our test directory looks like this:</p>
+so real VCSes don&rsquo;t do this,
+but it makes our program&rsquo;s output easier to display.
+If our test directory looks like this:</p>
 <div class="code-sample lang-out" title="sample_dir.out">
 <div class="highlight"><pre><span></span><code>sample_dir
 |-- a.txt
@@ -460,7 +460,7 @@ sub_dir/c.txt,5695d82a086b6779
 </div>
 <h2 id="archive-test">Section 10.2: Testing</h2>
 <p>Before we go any further
-we need to figure out how we&rsquo;re going to test our code.
+we need to figure out how to test our code.
 The obvious approach is to create directories and sub-directories
 containing some files we can use as <span class="ix-entry" ix-key="fixture" markdown="1">fixtures</span>.
 However,
@@ -468,26 +468,26 @@ we are going to change or delete those files
 as we back things up and restore them.
 To make sure early tests don&rsquo;t contaminate later ones
 we would have to re-create those files and directories after each test.</p>
-<p>As discussed in <a class="x-ref" href="../protocols/">Chapter 9</a>,
-a better approach is to use a <span class="ix-entry" ix-key="mock object" markdown="1">mock object</span>
-instead of the real filesystem.
+<p>A better approach is to use a <span class="ix-entry" ix-key="mock object" markdown="1">mock object</span> instead of the real filesystem
+(<a class="x-ref" href="../protocols/">Chapter 9</a>).
 The <a href="https://pytest-pyfakefs.readthedocs.io/">pyfakefs</a> module replaces key functions like <code>open</code>
 with functions that behave the same way
 but act on &ldquo;files&rdquo; stored in memory
 (<a class="fig-ref" href="../archive/#archive-mock-fs">Figure 10.2</a>).
 Using it prevents our tests from accidentally disturbing the filesystem;
-it also makes tests much faster
-since in-memory operations are thousands of times faster than ones that touch the disk.</p>
+it also speeds up our tests
+because in-memory operations are thousands of times faster than ones that touch the disk.</p>
 <figure id="archive-mock-fs">
 <img src="./mock_fs.svg" alt="Mock filesystem"/>
 <figcaption markdown="1">Figure 10.2: Using a mock filesystem to simplify testing.</figcaption>
 </figure>
 
 <p>If we <code>import pyfakefs</code>,
-we automatically get a fixture called <code>fs</code>
+we automatically get a <span class="ix-entry" ix-key="fixture" markdown="1">fixture</span> called <code>fs</code>
 that we can use to create files.
-We tell <a href="https://docs.pytest.org/">pytest</a> we want to use this fixture
-by passing it as an argument to our testing function:</p>
+As <a class="x-ref" href="../bonus/">Appendix B</a> explains,
+<a href="https://docs.pytest.org/">pytest</a> automatically creates this fixture
+when we pass its name as an argument to our testing function:</p>
 <div class="code-sample lang-py" title="test_mock_fs.py">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
@@ -542,7 +542,7 @@ with multiple directories and files:</p>
     <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">HASH_LEN</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<p class="continue">and that hashes change when files change:</p>
+<p>We should also test that hashes change when files change:</p>
 <div class="code-sample lang-py" title="test_hash_all.py">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_change</span><span class="p">(</span><span class="n">our_fs</span><span class="p">):</span>
     <span class="n">original</span> <span class="o">=</span> <span class="n">hash_all</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
@@ -561,9 +561,9 @@ It stores backups in a directory that contains files like <code>abcd1234.bck</co
 (the hash followed by <code>.bck</code>)
 and creates a <a class="gl-ref" href="../glossary/#gl:manifest" title="A list of something&#x27;s parts or components." markdown="1">manifest</a>
 that describe the content of each snapshot.
-A real system would support remote storage as well
-so that losing one hard drive wouldn&rsquo;t mean losing all our work,
-so we need to design our system with multiple back ends in mind.</p>
+A real VCS needs to support remote storage as well
+so that losing one hard drive won&rsquo;t mean losing all our work;
+we therefore need to design our VCS with multiple back ends in mind.</p>
 <p>For now,
 we will store manifests in <span class="ix-entry" ix-key="CSV" markdown="1">CSV</span> files named <code>ssssssssss.csv</code>,
 where <code>ssssssssss</code> is the <a class="gl-ref" href="../glossary/#gl:utc" title="The standard time against which all others are defined. UTC is the time at longitude 0°, and is not adjusted for daylight savings. Timestamps are often reported in UTC so that they will be the same no matter what timezone the computer is in." markdown="1">UTC</a> <a class="gl-ref" href="../glossary/#gl:timestamp" title="A digital identifier showing the time at which something was created or accessed. Timestamps should use ISO date format for portability." markdown="1">timestamp</a>
@@ -584,8 +584,8 @@ they will both see that there isn&rsquo;t a file (yet) with the current timestam
 so they will both try to create the first one.
 Ensuring that multi-file updates are <a class="gl-ref" href="../glossary/#gl:atomic_operation" title="An operation that is guaranteed to complete, i.e., one that cannot be interrupted part-way through." markdown="1">atomic operations</a>
 (i.e., that they always behave a single indivisible step)
-is a hard problem;
-<a class="gl-ref" href="../glossary/#gl:file_locking" title="The act of restricting updates to a file, or its deletion, so that operations on it appear atomic." markdown="1">file locking</a> is a common approach,
+is a hard problem.
+<a class="gl-ref" href="../glossary/#gl:file_locking" title="The act of restricting updates to a file, or its deletion, so that operations on it appear atomic." markdown="1">File locking</a> is a common approach,
 but complete solutions are out of the scope of this book.</p>
 </div>
 <p>This function creates a backup—or rather,
@@ -610,7 +610,7 @@ Instead,
 good programmers jump back and forth between higher and lower levels of design,
 adjusting their overall strategy as work on low-level details
 reveals problems or opportunities they hadn&rsquo;t foreseen.</p>
-<p class="continue">When writing the manifest,
+<p>When writing the manifest,
 we check that the backup directory exists,
 create it if it does not,
 and then save the manifest as CSV:</p>
@@ -642,8 +642,7 @@ if two people are creating backups at the same time,
 they could both discover that the backup directory doesn&rsquo;t exist
 and then both try to create it.
 Whoever does so first will succeed,
-but whoever comes second will fail.
-We will look at ways to fix this in the exercises as well.</p>
+but whoever comes second will fail.</p>
 <div class="callout">
 <h3>What Time Is It?</h3>
 <p>Our <code>backup</code> function relies on a <a class="gl-ref" href="../glossary/#gl:helper_function" title="A function created to support another function or functions that has no other use on its own." markdown="1">helper function</a>
@@ -760,10 +759,10 @@ or anything else:</p>
     <span class="n">archiver</span><span class="o">.</span><span class="n">backup</span><span class="p">()</span>
 </code></pre></div>
 </div>
-<p>This example highlights one of the great strengths of <span class="ix-entry" ix-key="object-oriented programming" markdown="1">object-oriented programming</span>.
-It&rsquo;s easy to write programs in which new code uses old code;
-provided classes and objects are carefully designed,
-they allow old code to use new code without being changed.</p>
+<p>This example highlights one of the ways we can evaluate
+the design of a piece of software.
+If old code can use new code without needing any changes,
+the old code was well designed.</p>
 <h2 id="archive-summary">Section 10.5: Summary</h2>
 <figure id="archive-concept-map" class="here">
 <img src="./concept_map.svg" alt="Concept map of file backup"/>
