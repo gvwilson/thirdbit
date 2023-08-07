@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-08-01">
+  <meta name="build_date" content="2023-08-07">
   <meta name="template" content="slides">
   <meta name="major" content="slides">
   
@@ -68,16 +68,16 @@ class DataFrame:
         """Return the set of column names."""
 
     def eq(self, other):
-        """Check equality of two dataframes."""
+        """Check equality with another dataframe."""
 
     def get(self, col, row):
         """Get a scalar value."""
 
     def select(self, *names):
-        """Select a subset of columns."""
+        """Select a named subset of columns."""
 
     def filter(self, func):
-        """Select a subset of rows."""
+        """Select a subset of rows by testing values."""
 ```
 
 
@@ -212,20 +212,6 @@ def test_filter():
 ## How to Call?
 
 -   Use `**` to <a class="gl-ref" href="../../glossary/#gl:spread" title="To automatically match the values from a list or dictionary supplied by the caller to the parameters of a function." markdown="1">spread</a> the row
-
-```py
-def example(left, right):
-    print(left, right)
-
-args = {"right": 3, "left": 5}
-example(**args)
-```
-
-
-```
-5 3
-```
-
 
 ---
 
@@ -432,16 +418,17 @@ python -m cProfile --sort=tottime \
 ```
 
 ```
-       3007281 function calls (3003108 primitive calls) in 1.790 seconds
+         3007281 function calls (3003108 primitive calls) in 1.790 seconds
 
- Ordered by: internal time
+   Ordered by: internal time
 
- ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-2319840    0.605    0.000    0.605    0.000 util.py:10(<genexpr>)
-   1660    0.258    0.000    0.258    0.000 timing.py:20(<dictcomp>)
-      5    0.201    0.040    0.408    0.082 df_col.py:50(filter)
-   1660    0.176    0.000    0.176    0.000 df_col.py:53(<dictcomp>)
-   1660    0.158    0.000    0.158    0.000 timing.py:13(<listcomp>)
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+  2319840    0.605    0.000    0.605    0.000 util.py:10(<genexpr>)
+     1660    0.258    0.000    0.258    0.000 timing.py:20(<dictcomp>)
+        5    0.201    0.040    0.408    0.082 df_col.py:50(filter)
+     1660    0.176    0.000    0.176    0.000 df_col.py:53(<dictcomp>)
+     1660    0.158    0.000    0.158    0.000 timing.py:13(<listcomp>)
+…
 ```
 
 
@@ -475,10 +462,10 @@ class: summary
 [ark]: https://www.dmulholl.com/docs/ark/main/
 [aosa]: https://aosabook.org/
 [beautiful_soup]: https://beautiful-soup-4.readthedocs.io/
+[beuchat_odin]: https://www.drafolin.ch/
 [birthday_problem]: https://en.wikipedia.org/wiki/Birthday_problem
 [black]: https://black.readthedocs.io/
 [book_repo]: https://github.com/gvwilson/sdxpy/
-[book_issues]: https://github.com/gvwilson/sdxpy/issues
 [book_site]: https://third-bit.com/sdxpy/
 [browser_engine_tutorial]: https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html
 [browser_engineering]: https://browser.engineering/
@@ -516,6 +503,7 @@ class: summary
 [html5_data_attributes]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 [human_resource_machine]: https://tomorrowcorporation.com/humanresourcemachine
 [isort]: https://pycqa.github.io/isort/
+[jamstack_ssg]: https://jamstack.org/generators/
 [jekyll]: https://jekyllrb.com/
 [json_schema]: https://json-schema.org/
 [jupybook]: https://jupyterbook.org/
@@ -542,6 +530,7 @@ class: summary
 [py_array]: https://docs.python.org/3/library/array.html
 [py_ast]: https://docs.python.org/3/library/ast.html
 [py_chainmap]: https://docs.python.org/3/library/collections.html#collections.ChainMap
+[py_collections]: https://docs.python.org/3/library/collections.html
 [py_cprofile]: https://docs.python.org/3/library/profile.html
 [py_curses]: https://docs.python.org/3/library/curses.html
 [py_fractions]: https://docs.python.org/3/library/fractions.html
