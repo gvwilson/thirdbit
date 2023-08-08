@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-08-07">
+  <meta name="build_date" content="2023-08-08">
   <meta name="template" content="slides">
   <meta name="major" content="slides">
   
@@ -109,11 +109,11 @@ class JustDict(Database):
 
 ```py
 class BasicRec:
-    MAX_NAME_LEN = 6
-    TIMESTAMP_LEN = 8
-    MAX_READING = 10
-    MAX_READING_LEN = 2
-    MAX_READINGS_NUM = 2
+    MAX_NAME_LEN = 6     # length of name in chars
+    TIMESTAMP_LEN = 8    # length of timestamp in chars
+    MAX_READING = 10     # maximum reading value
+    MAX_READING_LEN = 2  # length of reading in chars
+    MAX_READINGS_NUM = 2 # maximum number of readings
 
     @staticmethod
     def key(record):

@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-08-07">
+  <meta name="build_date" content="2023-08-08">
   <meta name="template" content="default">
   <meta name="major" content="bonus">
   
@@ -273,7 +273,7 @@
           
 <div class="draft notex">
   <p class="draft">
-    DRAFT 2023-08-07
+    DRAFT 2023-08-08
   </p>
   <p>
     awaiting revision<br>
@@ -1015,13 +1015,8 @@ leads to <code>self._builtin</code> checking for <code>"_@extension"</code> in t
 which doesn&rsquo;t exist,
 so everything goes as it should.</p>
 </div>
-<h2>Big and Little Endian</h2>
-<p>The examples in <a class="x-ref" href="../binary/">Chapter 17</a> of packing integers and then unpacking bytes
-may run differently on different machines
-because hardware designers have to choose the order in which
-the bytes in a number are stored in memory.
-Intel processors put the least significant bytes first,
-which is called <a class="gl-ref" href="../glossary/#gl:little_endian" title="A storage scheme in which the most significant part of a number is stored in the byte with the highest address. For example, the 16-bit big-endian representation of 258 stores 0x02 in the lower byte and 0x01 in the higher byte." markdown="1">little-endian</a> order.
+<h2 id="bonus-endian">Section B.8: Big and Little Endian</h2>
+<p>This is called <a class="gl-ref" href="../glossary/#gl:little_endian" title="A storage scheme in which the most significant part of a number is stored in the byte with the highest address. For example, the 16-bit big-endian representation of 258 stores 0x02 in the lower byte and 0x01 in the higher byte." markdown="1">little-endian</a> and is used by all Intel processors.
 Some other processors put the most significant byte first,
 which is called <a class="gl-ref" href="../glossary/#gl:big_endian" title="A storage scheme in which the most significant part of a number is stored in the byte with the lowest address. For example, the 16-bit big-endian representation of 258 stores 0x01 in the lower byte and 0x02 in the higher byte." markdown="1">big-endian</a>.
 There are pro&rsquo;s and con&rsquo;s to both, which we won&rsquo;t go into here.
@@ -1032,8 +1027,8 @@ This is such a pain that the <code>struct</code> module and other libraries like
 will do things for you if you ask it to.
 If you&rsquo;re using <code>struct</code>,
 the first character of a format string optionally indicates the byte order
-(<a class="tbl-ref" href="../bonus/#bonus-endian">Table B.2</a>).</p>
-<div class="table"><table id="bonus-endian"><caption>Table B.2: <code>struct</code> package endian indicators</caption>
+(<a class="tbl-ref" href="../bonus/#bonus-endian-formats">Table B.2</a>).</p>
+<div class="table"><table id="bonus-endian-formats"><caption>Table B.2: <code>struct</code> package endian indicators</caption>
 <thead>
 <tr>
 <th>Character</th>

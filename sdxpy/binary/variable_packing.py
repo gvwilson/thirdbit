@@ -10,6 +10,7 @@ def pack_string(as_string):
 # [/pack]
 
 # [main]
-result = pack_string("hello!")
-print(repr(result))
+if __name__ == "__main__":
+    result = pack_string("hello!")
+    print(repr(result))
 # [/main]

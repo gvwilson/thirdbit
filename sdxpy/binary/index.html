@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-08-07">
+  <meta name="build_date" content="2023-08-08">
   <meta name="template" content="default">
   <meta name="major" content="binary">
   <meta name="has_slides" content="true">
@@ -273,7 +273,7 @@
           
 <div class="draft notex">
   <p class="draft">
-    DRAFT 2023-08-07
+    DRAFT 2023-08-08
   </p>
   <p>
     revised 2023-08-07<br>
@@ -363,8 +363,8 @@
 
 
           <div class="page-toc"></div>
-          <p>Python and other high-level languages shield programmers from
-the low-level details of how computers actually store and manipulate data,
+          <p>Python and other high-level languages shield programmers from the low-level details
+of how computers actually store and manipulate data,
 but sooner or later someone has to worry about bits and bytes.
 This chapter explores how computers represent numbers and text
 and shows how to work with data at this level.</p>
@@ -378,7 +378,8 @@ so that 01001 is +9 and 11001 is -9.</p>
 The less important one is that it gives us two zeroes,
 one positive and one negative.
 The larger one is that
-the hardware needed to do arithmetic on this <a class="gl-ref" href="../glossary/#gl:sign_magnitude" title="A binary representation of integers in which one bit indicates whether the value is positive or negative and the remaining bits indicate its magnitude." markdown="1">sign and magnitude</a> representation
+the hardware needed to do arithmetic
+on this <a class="gl-ref" href="../glossary/#gl:sign_magnitude" title="A binary representation of integers in which one bit indicates whether the value is positive or negative and the remaining bits indicate its magnitude." markdown="1">sign and magnitude</a> representation
 is more complicated than the hardware needed for another scheme
 called <a class="gl-ref" href="../glossary/#gl:twos_complement" title="A binary representation of integers that &quot;rolls over&quot; like an odometer to represent negative values." markdown="1">two&rsquo;s complement</a>.
 Instead of mirroring positive values,
@@ -430,7 +431,7 @@ with three-bit integers we get the values in <a class="tbl-ref" href="../binary/
 </div>
 <p>We can still tell whether a number is positive or negative
 by looking at the first bit:
-negative numbers have 1, positives have 0.
+negative numbers have 1, positive numbers have 0.
 However,
 two&rsquo;s complement is asymmetric:
 since 0 counts as a positive number,
@@ -450,12 +451,17 @@ for example,
 </code></pre></div>
 </div>
 <p>As noted in <a class="x-ref" href="../dup/">Chapter 3</a>,
-programmers usually write <span class="ix-entry" ix-key="hexadecimal" markdown="1">hexadecimal</span> instead.
+programmers usually use <span class="ix-entry" ix-key="hexadecimal" markdown="1">hexadecimal</span> instead:
+the digits 0–9 have the usual meaning,
+and the letters A-F (or a-f) are used to represent the digits 11–15.
+We signal that we&rsquo;re using hexadecimal with a <code>0x</code> prefix,
+so <code>0xF7</code> is \( (15×16)+7 \) or 247 base 10.
 Each hexadecimal digit corresponds to four bits (<a class="tbl-ref" href="../binary/#binary-hex">Table 17.2</a>),
 which makes it easy to translate bits to digits and vice versa:
 for example,
-<code>0xF7</code> is <code>0b11110111</code>,
-and two hexadecimal digits represent exactly one byte.</p>
+<code>0xF7</code> is <code>0b11110111</code>.
+One advantage of this representation is that
+two hexadecimal digits is exactly one byte.</p>
 <div class="table"><table id="binary-hex"><caption>Table 17.2: Hexadecimal digits</caption>
 <thead>
 <tr>
@@ -546,12 +552,12 @@ for working directly with 1&rsquo;s and 0&rsquo;s in memory:
 <code>&amp;</code> yields a 1 only if both its inputs are 1&rsquo;s,
 while <code>|</code> yields 1 if either or both are 1.
 <code>^</code>, called <a class="gl-ref" href="../glossary/#gl:exclusive_or" title="A logical (or bitwise) operator that is true (or 1) if its arguments have different values and false (or 0) if they are the same. Exclusive or implements &quot;either/or&quot; or &quot;one or the other&quot;." markdown="1">exclusive or</a> or &ldquo;xor&rdquo; (pronounced &ldquo;ex-or&rdquo;),
-produces 1 if the two bits are different,
+produces 1 if the bits are different,
 i.e.,
-if either but not both are 1.
+it produces 1 if either input bit is 1 but not both.
 Finally,
-<code>~</code> flips bits: 1 becomes 0, and 0 becomes 1.
-When these operators are applied to multi-bit values
+<code>~</code> flips its argument: 1 becomes 0, and 0 becomes 1.
+When these operators are applied on multi-bit values
 they work on corresponding bits independently as shown in <a class="tbl-ref" href="../binary/#binary-ops">Table 17.3</a>.</p>
 <div class="table"><table id="binary-ops"><caption>Table 17.3: Bitwise operations</caption>
 <thead>
@@ -726,7 +732,7 @@ if we want to represent a character whose code point is 1789:</p>
 </ul>
 <h2 id="binary-binary">Section 17.4: And Now, Persistence</h2>
 <p><a class="x-ref" href="../persist/">Chapter 16</a> showed how to store data as human-readable text.
-There are generally four reasons to store it as binary instead:</p>
+There are generally three reasons to store it in formats that people can&rsquo;t easily read:</p>
 <ol>
 <li>
 <p>Size.
@@ -738,7 +744,7 @@ There are generally four reasons to store it as binary instead:</p>
     or between different computers.</p>
 </li>
 <li>
-<p>Speed
+<p>Speed.
     Adding the integers 34 and 56 is a single machine operation.
     Adding the values represented by the strings <code>"34"</code> and <code>"56"</code> is dozens;
     we&rsquo;ll explore this in the exercises.
@@ -749,16 +755,17 @@ There are generally four reasons to store it as binary instead:</p>
     it makes sense to avoid paying the conversion cost over and over.</p>
 </li>
 <li>
-<p>Lack of anything better
+<p>Lack of anything better.
     It&rsquo;s possible to represent images as ASCII art, but sound?
     Or video?
     It would be possible, but it would hardly be sensible.</p>
 </li>
 </ol>
 <p class="continue">Finally,
-someone, somewhere, has to convert the signal from a digital thermometer to a number.
-No matter how that value is stored,
-the signal almost arrives as a stream of 1&rsquo;s and 0&rsquo;s.</p>
+no matter how values are eventually stored,
+someone, somewhere, has to convert the signals from a digital thermometer to numbers.
+Those signals almost certainly arrive as a stream of 1&rsquo;s and 0&rsquo;s,
+and the bitwise operations shown above are almost certainly used to do the conversion.</p>
 <p>The first step toward saving and loading binary data
 is to write it and read it correctly.
 If we open a file for reading using <code>open("filename", "r")</code>
@@ -766,30 +773,35 @@ then Python assumes we want to read character strings from the file.
 It therefore:</p>
 <ul>
 <li>
-<p>uses our operating system&rsquo;s default encoding (which is probably UTF-8)
-    to convert bytes to characters, and</p>
+<p>ask the operating system for the default character encoding
+    (which is almost always UTF-8);</p>
 </li>
 <li>
-<p>converts Windows end-of-line markers
-    (which are the two characters carriage return and newline, written <code>"\r\n"</code>)
-    into their Unix equivalent
-    (the single newline character <code>"\n"</code>)
-    so that our program only has to deal with one kind of end-of-line marker.</p>
+<p>uses this to convert bytes to characters;
+    and</p>
+</li>
+<li>
+<p>converts Windows end-of-line markers to the Unix standard if necessary.
+    For historical reasons,
+    Windows uses both a carriage return <code>"\r"</code> and a newline <code>"\n"</code> to mark the end of a line,
+    while Unix uses only the latter.
+    Python converts from Windows to Unix on the way in
+    and vice versa on the way out
+    so that programs (usually) don&rsquo;t have to worry about the difference.</p>
 </li>
 </ul>
 <p>These translations are handy when we&rsquo;re working with text,
 but they mess up binary data:
 we probably don&rsquo;t want the pixels in our PNG image translated in these ways.
 As mentioned in <a class="x-ref" href="../dup/">Chapter 3</a>,
-if we use <code>open("filename", "rb")</code> with a lower-case &lsquo;b&rsquo; after the &lsquo;r&rsquo;,
+if we open a file in <span class="ix-entry" ix-key="binary mode" markdown="1">binary mode</span> using <code>open(filename, "rb")</code> with a lower-case &lsquo;b&rsquo; after the &lsquo;r&rsquo;,
 Python gives us back the file&rsquo;s contents as a <code>bytes</code> object
 instead of as character strings.
-In this case we will almost always use <code>reader.read(N)</code>
-to read <code>N</code> bytes at a time
+In this case we will almost always get data
+using <code>reader.read(N)</code> to read <code>N</code> bytes at a time
 rather than <code>for line in reader</code>
-to read up to the next &ldquo;line ending&rdquo;
-(which in a binary file isn&rsquo;t meaningful anyway).</p>
-<p>What about the values we actually store?
+because there aren&rsquo;t actually lines of text in the file.</p>
+<p>But what values should we actually store?
 C and Fortran manipulate &ldquo;naked&rdquo; values:
 programs use what the hardware provides directly.
 Python and other dynamic languages,
@@ -798,7 +810,7 @@ put each value in a data structure
 that keeps track of its type along with a bit of extra administrative information
 (<a class="fig-ref" href="../binary/#binary-boxing">Figure 17.1</a>).
 Something stored this way is called a <a class="gl-ref" href="../glossary/#gl:boxed_value" title="A value (such as an integer) that is embedded in a larger structure in memory that carries metadata about its type, how many structures are referring to it, and so on." markdown="1">boxed value</a>,
-and this extra data is what allows the interpreter to do <span class="ix-entry" ix-key="introspection" markdown="1">introspection</span> at runtime.</p>
+and this extra information is what allows the interpreter to do <span class="ix-entry" ix-key="introspection" markdown="1">introspection</span> at runtime.</p>
 <figure id="binary-boxing">
 <img src="./boxing.svg" alt="Boxed values"/>
 <figcaption markdown="1">Figure 17.1: Using boxed values to store metadata.</figcaption>
@@ -827,8 +839,8 @@ Similarly,
 when reading from a file,
 we can either grab the values one by one
 or read a larger block and then unpack it in memory.</p>
-<p>Packing data is a lot like formatting values using Python&rsquo;s <code>str.format</code> method.
-The <a class="gl-ref" href="../glossary/#gl:format_string" title="A string that contains special markers showing how to format values. For example, the string <code>&amp;quot;{age:02d} years old&amp;quot;</code> specifies that that the value of <code>age</code> is to be inserted at the front of the string and formatted as a 2-digit decimal number with a leading 0 (if necessary)." markdown="1">format string</a> specifies what types of data are being packed,
+<p>Packing data is a lot like formatting strings using Python&rsquo;s <code>str.format</code> method.
+The <a class="gl-ref" href="../glossary/#gl:format_string" title="A string that contains special markers showing how to format values. For example, the string <code>&amp;quot;{age:02d} years old&amp;quot;</code> specifies that the value of <code>age</code> is to be inserted at the front of the string and formatted as a 2-digit decimal number with a leading 0 (if necessary)." markdown="1">format string</a> specifies what types of data are being packed,
 how big they are (e.g., is this a 32-bit or 64-bit floating point number?),
 and how many values there are,
 which in turn exactly determines how much memory is required by the packed representation.</p>
@@ -881,8 +893,8 @@ back to normal: (31, 65)
 </code></pre></div>
 </div>
 <p>What is <code>\x1f</code> and why is it in our data?
-If Python finds a byte in a string that doesn&rsquo;t have a printable representation,
-it prints a 2-digit <a class="gl-ref" href="../glossary/#gl:escape_sequence" title="A series of two or more characters used to represent a character that otherwise couldn&#x27;t be represented. For example, the escape sequence <code>\&amp;quot;</code> is used to represent a single <code>&amp;quot;</code> character inside a double-quoted string." markdown="1">escape sequence</a> in <span class="ix-entry" ix-key="hexadecimal" markdown="1">hexadecimal</span>.
+If Python finds a byte in a string that doesn&rsquo;t correspond to a printable character,
+it prints a 2-digit <a class="gl-ref" href="../glossary/#gl:escape_sequence" title="A series of two or more characters used to represent a character that otherwise couldn&#x27;t be represented. For example, the escape sequence <code>\&amp;quot;</code> is used to represent a single <code>&amp;quot;</code> character inside a double-quoted string." markdown="1">escape sequence</a> in hexadecimal.
 Python is therefore telling us that
 our string contains the eight bytes
 <code>['\x1f', '\x00', '\x00', '\x00', 'A', '\x00', '\x00', '\x00']</code>.
@@ -906,7 +918,7 @@ and the significant digits only fill one byte&rsquo;s worth of each.</p>
 </tr>
 <tr>
 <td><code>"B"</code></td>
-<td>Unsigned 8-bit integer (i.e., all bits used for value)</td>
+<td>Unsigned 8-bit integer with all 8 bits used for value</td>
 </tr>
 <tr>
 <td><code>"h"</code></td>
@@ -917,10 +929,6 @@ and the significant digits only fill one byte&rsquo;s worth of each.</p>
 <td>32-bit integer</td>
 </tr>
 <tr>
-<td><code>"f"</code></td>
-<td>32-bit float</td>
-</tr>
-<tr>
 <td><code>"d"</code></td>
 <td>64-bit float</td>
 </tr>
@@ -929,11 +937,10 @@ and the significant digits only fill one byte&rsquo;s worth of each.</p>
 </div>
 <p>The <code>struct</code> module offers a lot of different formats,
 some of which are shown in <a class="tbl-ref" href="../binary/#binary-formats">Table 17.4</a>.
-The formats for a single character and for integers and floating-point numbers
-are straightforward.
-The <code>"B"</code> format takes the least significant 8 bits out of an integer and packs those;
-<code>"h"</code> takes the least significant 16 bits and does likewise.
-They&rsquo;re needed because binary data formats often store only as much data as they need to,
+Some of the formats, like <code>"c"</code> for a single character, are self-explanatory.
+The <code>"B"</code> format packs or unpacks the least significant 8 bits of an integer;
+the <code>"h"</code> format takes the least significant 16 bits and does likewise.
+They are needed because binary data formats often store only as much data as they need to,
 so we need a way to get 8- and 16-bit values out of files.
 (Many audio formats,
 for example,
@@ -968,11 +975,10 @@ using an expression like this:</p>
 the expression above will assign <code>"7s"</code> to <code>format</code>,
 which just happens to be exactly the right format to use to pack it
 <em>provided all the characters can be represented in a single byte each</em>.
-We will explore packing and unpacking strings with other characters below.</p>
-<p>Saving the format when we are writing solves half the problem,
-but how do we know how much data to get if we&rsquo;re reading?
-For example,
-suppose we have the two strings &ldquo;hello&rdquo; and &ldquo;Python&rdquo;.
+We will explore packing and unpacking strings with other characters in the exercises.</p>
+<p>Saving the format when we are writing solves half of the problem,
+but how do we know how much data to get when we&rsquo;re reading?
+For example, suppose we have the two strings &ldquo;hello&rdquo; and &ldquo;Python&rdquo;.
 We can pack them like this:</p>
 <div class="highlight"><pre><span></span><code><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;5s6s&#39;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -991,8 +997,9 @@ then use it to figure out how big our string is:</p>
 </code></pre></div>
 </div>
 <div class="code-sample lang-py" title="variable_packing.py">
-<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">pack_string</span><span class="p">(</span><span class="s2">&quot;hello!&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pack_string</span><span class="p">(</span><span class="s2">&quot;hello!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div class="code-sample lang-out" title="variable_packing.out">
@@ -1028,8 +1035,8 @@ and then unpack the string and return it.</p>
 </code></pre></div>
 </div>
 <p>In practice,
-most programmers use the <code>struct</code> module&rsquo;s <code>calcsize</code> function
-to find out how large (in bytes) the data produced or consumed by a format will be:</p>
+programmers use the <code>struct</code> module&rsquo;s <code>calcsize</code> function
+to figure out how large (in bytes) the data represented by a format is:</p>
 <div class="code-sample lang-py" title="calcsize.py">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">calcsize</span>
 
