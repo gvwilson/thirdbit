@@ -18,6 +18,8 @@ all of which are available online:
 -   [Ten Quick Tips for Making Things Findable](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008469)
 -   [Ten Quick Tips for Teaching with Participatory Live Coding](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008090)
 -   [Ten Quick Tips for Staying Safe Online](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008563)
+-   [Twelve Quick Tips for Software Design](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009809)
+-   [Ten Simple Rules for Writing a Technical Book](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305)
 
 I also have some shorter guidelines for:
 

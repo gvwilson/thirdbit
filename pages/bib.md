@@ -12,6 +12,12 @@ permalink: "/bib/"
 
 <div class="bibliography">
 
+<p id="Haberman2023">
+Jess Haberman and Greg Wilson:
+Ten simple rules for writing a technical book.
+<em>PLOS Computational Biology</em>, 19(8), Aug 2023.
+<a href="https://doi.org/10.1371/journal.pcbi.1011305">doi:10.1371/journal.pcbi.1011305</a>, <a href="{{'/files/bib/Haberman2023.pdf' | relative_url}}">PDF</a>.</p>
+
 <p id="Wilson2022b">
 Greg Wilson:
 <a href="{{'/sdxjs/' | relative_url}}"><em>Software Design by Example: A Tool-Based Introduction with JavaScript</em></a>.
