@@ -63,15 +63,15 @@ So as the title says,
 I don't know what to think about AI.
 People I trust believe in its potential;
 other people whom I also trust are terrified of the ways in which it is going to be mis-used.
-What I think I need to do is spend a year watching people experiment with these tools
+What I *want* to do is spend a year watching people experiment with these tools
 in the way that they experimented with the web in the 1990s
-and *then* form an opinion.
-To paraphrase William Gibson,
-the classroom finds its own uses for things;
-I think we'd all be better off if we gave the courageous and the curious
+and *then* form an opinion:
+to paraphrase William Gibson,
+the classroom finds its own uses for things,
+and I think we'd all be better off if we gave the courageous and the curious
 a year to figure out what AI is actually good for
-before we start placing our bets,
-but I fear that train has already left the station.
+before we start placing our bets.
+But I fear the train has already left the station…
 
 [guardian-ai]: https://www.theguardian.com/technology/2023/aug/02/ai-chatbot-training-human-toll-content-moderator-meta-openai
 [jeff]: {{'/2018/03/20/goodbye-jeff/' | relative_url}}
