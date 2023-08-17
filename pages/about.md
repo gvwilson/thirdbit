@@ -13,7 +13,7 @@ including [*Beautiful Code*][bc],
 [*Teaching Tech Together*][t3],
 and most recently [*Software Design by Example*][sdxjs].
 Greg is a member of the [Python Software Foundation][psf]
-and a recipient of ACM SIGSOFT's Influential Educator of the Year award,
+and a recipient of [ACM SIGSOFT][sigsoft]'s Influential Educator of the Year award,
 and currently works as a software engineering manager at [Deep Genomics][dg].
 
 ---
@@ -89,6 +89,7 @@ CV (<a href="{{ '/cv/gvwilson.pdf' | relative_url }}">PDF</a>, <a href="{{ '/cv/
 [rse-py]: https://merely-useful.tech/py-rse/
 [rstudio-trainers]: http://education.rstudio.com/trainers
 [sdxjs]: {{'/sdxjs/' | relative_url}}
+[sigsoft]: https://www.sigsoft.org/
 [t3]: http://teachtogether.tech
 [ut]: http://www.utoronto.ca
 [ut-cs]: http://web.cs.toronto.edu/
