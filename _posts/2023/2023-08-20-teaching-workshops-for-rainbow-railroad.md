@@ -27,7 +27,7 @@ year: 2023
 
 In order to raise money to help them do their work,
 I am offering to run one-day workshops on teaching and learning online
-or in person if you're between Windsor and Quebec City).
+(or in person if you're between Windsor and Quebec City).
 The material is a shortened and updated version of
 lessons originally developed for
 [the Carpentries][carpentries]' instructor training program
