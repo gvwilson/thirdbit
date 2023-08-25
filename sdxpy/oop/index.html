@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-08-24">
+  <meta name="build_date" content="2023-08-27">
   <meta name="template" content="default">
   <meta name="major" content="oop">
   <meta name="has_slides" content="true">
@@ -273,7 +273,7 @@
           
 <div class="draft notex">
   <p class="draft">
-    DRAFT 2023-08-24
+    DRAFT 2023-08-27
   </p>
   <p>
     revised 2023-07-27<br>
@@ -368,7 +368,7 @@
           <p>We are going to create a lot of <span class="ix-entry" ix-key="object" markdown="1">objects</span> and <span class="ix-entry" ix-key="class" markdown="1">classes</span> in these lessons,
 and they will be a lot easier to use if we understand how they are implemented.
 Historically,
-<a class="gl-ref" href="../glossary/#gl:oop" title="A style of programming in which functions and data are bound together in objects that only interact with each other through well-defined interfaces." markdown="1">object-oriented programming</a> was invented to solve two problems:</p>
+<a class="gl-ref" href="../glossary/#gl:oop" title="A style of programming in which functions and data are bound together in objects that only interact with each other through well-defined interfaces." markdown="1">object-oriented programming</a> (OOP) was invented to solve two problems:</p>
 <ol>
 <li>
 <p>What is a natural way to represent real-world &ldquo;things&rdquo; in code?</p>
@@ -439,8 +439,8 @@ by allowing the people using related things to ignore their differences:</p>
 </code></pre></div>
 </div>
 <div class="code-sample lang-out" title="shapes_original.out">
-<div class="highlight"><pre><span></span><code>sq is a Square 12.00 12.00
-ci is a Circle 12.57 12.57
+<div class="highlight"><pre><span></span><code>sq has perimeter 12.00 and area 9.00
+ci has perimeter 12.57 and area 12.57
 </code></pre></div>
 </div>
 <p>But how does polymorphism work?</p>
@@ -629,8 +629,6 @@ it captures any extra named parameters:</p>
 one unnamed argument args &#39;(1,)&#39; and kwargs &#39;{}&#39;
 one named argument args &#39;()&#39; and kwargs &#39;{&#39;second&#39;: &#39;2&#39;}&#39;
 one of each args &#39;(3,)&#39; and kwargs &#39;{&#39;fourth&#39;: &#39;4&#39;}&#39;
-direct args &#39;([7, 8], {&#39;nine&#39;: 9, &#39;ten&#39;: 10})&#39; and kwargs &#39;{}&#39;
-spreading args &#39;(7, 8)&#39; and kwargs &#39;{&#39;nine&#39;: 9, &#39;ten&#39;: 10}&#39;
 </code></pre></div>
 </div>
 <p>This mechanism is sometimes referred to as <a class="gl-ref" href="../glossary/#gl:varargs" title="Short for &quot;variable arguments&quot;, a mechanism that captures any &quot;extra&quot; arguments to a function or method." markdown="1">varargs</a>

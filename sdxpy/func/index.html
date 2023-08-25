@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-08-24">
+  <meta name="build_date" content="2023-08-27">
   <meta name="template" content="default">
   <meta name="major" content="func">
   <meta name="has_slides" content="true">
@@ -273,7 +273,7 @@
           
 <div class="draft notex">
   <p class="draft">
-    DRAFT 2023-08-24
+    DRAFT 2023-08-27
   </p>
   <p>
     revised 2023-07-31<br>
@@ -371,7 +371,7 @@
 to ask how <a class="gl-ref" href="../glossary/#gl:extensibility" title="How easily new features can be added to a program or existing features can be changed." markdown="1">extensible</a> it is,
 i.e.,
 how easily we can add or change things <span class="bib-ref">[<a class="bib-ref" href="../bib/#Wilson2022a">Wilson2022a</a>]</span>.
-The answer for the <span class="ix-entry" ix-key="interpreter" markdown="1">interpreter</span> of <a class="x-ref" href="../interp/">Chapter 7</a> is pretty easily&rdquo;
+The answer for the <span class="ix-entry" ix-key="interpreter" markdown="1">interpreter</span> of <a class="x-ref" href="../interp/">Chapter 7</a> is &ldquo;pretty easily&rdquo;
 but the answer for the little language it interprets is &ldquo;not at all&rdquo;
 because users cannot define new operations in the little language itself.
 We need to give them a way to define and call functions.
@@ -597,7 +597,7 @@ the outer function can return the inner function it defined as its result:</p>
 </code></pre></div>
 </div>
 <div class="code-sample lang-out" title="closure.out">
-<div class="highlight"><pre><span></span><code>hidden thing is example
+<div class="highlight"><pre><span></span><code>hidden thing is 3
 </code></pre></div>
 </div>
 <p>The inner function still has access to the value of <code>thing</code>,
@@ -607,8 +607,8 @@ the variables in the enclosing function
 to create a <a class="gl-ref" href="../glossary/#gl:closure" title="A record that stores a function and its environment so that variables that were in scope when the function was defined can still be accessed from within the function even if they are no longer visible to other parts of the program." markdown="1">closure</a>
 (<a class="fig-ref" href="../func/#func-closure">Figure 8.1</a>).
 Doing this is a way to make data private:
-once <code>make_hidden</code> returns <code>_inner</code> and we assign it to <code>m</code> in the example above,
-nothing else in our program can access
+once <code>make_hidden</code> returns <code>_inner</code> and we assign it to <code>has_secret</code> in the example above,
+nothing else in our program has any way to access
 the value that was passed to <code>make_hidden</code> as <code>thing</code>.</p>
 <figure id="func-closure">
 <img src="./closure.svg" alt="Closures"/>
@@ -663,15 +663,15 @@ containing two functions:</p>
 </div>
 <div class="code-sample lang-out" title="oop.out">
 <div class="highlight"><pre><span></span><code>initial value 0
-obj[&#39;thing&#39;] is now 99
+object now contains 99
 </code></pre></div>
 </div>
-<p class="continue">These functions both refer to a dictionary called <code>private</code>,
-which is another way of saying that
-they both have reference to the dictionary Python created to represent the closure
-that has a key <code>"private"</code> (<a class="fig-ref" href="../func/#func-objects">Figure 8.2</a>).
-They share the data in this dictionary,
-but nothing else in the program has access to it.
+<p class="continue">When this code runs,
+Python creates a closure that is shared by the two functions (<a class="fig-ref" href="../func/#func-objects">Figure 8.2</a>).
+The closure has a key <code>"private"</code>;
+there is nothing special about this name,
+but nothing in the program can see the data in the closure
+except the two functions.
 We could add more keys to this dictionary to create more complex objects,
 and build an entire system of objects and classes this way.</p>
 <figure id="func-objects">
@@ -695,7 +695,7 @@ without requiring a separate <code>"set"</code> instruction.</p>
 <li>
 <p>Modify <code>do_func</code> so that if it is given more than one argument,
     it uses all but the first as the body of the function
-    (i.e., treats every after the parameter list as an implicit <code>"seq"</code>).</p>
+    (i.e., treats everything after the parameter list as an implicit <code>"seq"</code>).</p>
 </li>
 <li>
 <p>Is there a way to make this work in combination with
