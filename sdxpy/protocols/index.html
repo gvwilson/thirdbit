@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-08-27">
+  <meta name="build_date" content="2023-09-01">
   <meta name="template" content="default">
   <meta name="major" content="protocols">
   <meta name="has_slides" content="true">
@@ -273,7 +273,7 @@
           
 <div class="draft notex">
   <p class="draft">
-    DRAFT 2023-08-27
+    DRAFT 2023-09-01
   </p>
   <p>
     revised 2023-07-31<br>
@@ -711,13 +711,13 @@ original: example
 after call
 </code></pre></div>
 </div>
-<p>If we want to pass parameters at the time we apply the decorator,
+<p>If we want to pass arguments at the time we apply the decorator,
 though,
 it seems like we&rsquo;re stuck:
 a Python decorator must take exactly one argument,
 which must be the function we want to decorate.
 The solution is to define a function inside a function <em>inside yet another function</em>
-to create a closure that captures the parameters:</p>
+to create a closure that captures the arguments:</p>
 <div class="code-sample lang-py" title="decorator_param.py">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>                  <span class="c1"># function returning a decorator</span>
     <span class="k">def</span> <span class="nf">_decorate</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>          <span class="c1"># the decorator Python will apply</span>
