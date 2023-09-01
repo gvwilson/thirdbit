@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-09-01">
+  <meta name="build_date" content="2023-09-03">
   <meta name="template" content="default">
   <meta name="major" content="pack">
   <meta name="has_slides" content="true">
@@ -273,10 +273,10 @@
           
 <div class="draft notex">
   <p class="draft">
-    DRAFT 2023-09-01
+    DRAFT 2023-09-03
   </p>
   <p>
-    revised 2023-08-11<br>
+    revised 2023-09-03<br>
     Please use section heading links to submit feedback
     or go to <a href="https://github.com/gvwilson/sdxpy">https://github.com/gvwilson/sdxpy</a>.
   </p>
@@ -557,7 +557,8 @@ we compare every entry X against every other entry Y:</p>
     we add it to the list of allowed configurations.</p>
 </li>
 </ol>
-<p>The code that implements these rules is:</p>
+<p>Sure enough,
+these rules find 3 valid combinations among our 18 possibilities:</p>
 <div class="code-sample lang-py" title="exhaustive.py">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compatible</span><span class="p">(</span><span class="n">manifest</span><span class="p">,</span> <span class="n">combination</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">package_i</span><span class="p">,</span> <span class="n">version_i</span> <span class="ow">in</span> <span class="n">combination</span><span class="p">:</span>
@@ -572,8 +573,6 @@ we compare every entry X against every other entry Y:</p>
     <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
 </div>
-<p>Sure enough,
-it finds 3 valid combinations among our 18 possibilities:</p>
 <div class="code-sample lang-out" title="exhaustive.out">
 <div class="highlight"><pre><span></span><code>18 possibilities
 3 allowed
@@ -586,7 +585,6 @@ it finds 3 valid combinations among our 18 possibilities:</p>
 <p>Our brute-force code uses <code>itertools.product</code>
 to generate all possible combinations of several lists of items.
 To see how it works,
-and to lay the ground for a more efficient algorithm,
 let&rsquo;s rewrite <code>make_possibilities</code> to use a function of our own:</p>
 <div class="code-sample lang-py" title="manual.py">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">make_possibilities</span><span class="p">(</span><span class="n">manifest</span><span class="p">):</span>
@@ -783,8 +781,8 @@ If we frame our problem as,
 that satisfies all the inter-package dependencies at once?&rdquo;
 then a theorem prover is exactly what we need.</p>
 <p>To start,
-let&rsquo;s import a few things from the <code>z3</code> module
-and then create three <a class="gl-ref" href="../glossary/#gl:boolean_value" title="One of the two values &quot;true&quot; or &quot;false&quot;. Named for George Boole, a 19th century mathematician." markdown="1">Boolean variables</a>:</p>
+let&rsquo;s import a few things from <code>z3</code>
+and create three <a class="gl-ref" href="../glossary/#gl:boolean_value" title="One of the two values &quot;true&quot; or &quot;false&quot;. Named for George Boole, a 19th century mathematician." markdown="1">Boolean variables</a>:</p>
 <div class="code-sample lang-py" title="z3_setup.py">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">z3</span> <span class="kn">import</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Implies</span><span class="p">,</span> <span class="n">Not</span><span class="p">,</span> <span class="n">Solver</span><span class="p">,</span> <span class="n">sat</span><span class="p">,</span> <span class="n">unsat</span>
 

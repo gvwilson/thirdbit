@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-09-01">
+  <meta name="build_date" content="2023-09-03">
   <meta name="template" content="slides">
   <meta name="major" content="vm">
   
@@ -204,16 +204,12 @@ def run(self):
         op, arg0, arg1 = self.fetch()
         if op == OPS["hlt"]["code"]:
             running = False
-
         elif op == OPS["ldc"]["code"]:
             self.reg[arg0] = arg1
-
         elif op == OPS["ldr"]["code"]:
             self.reg[arg0] = self.ram[self.reg[arg1]]
-
         elif op == OPS["cpy"]["code"]:
             self.reg[arg0] = self.reg[arg1]
-
         else:
             assert False, f"Unknown op {op:06x}"
 ```

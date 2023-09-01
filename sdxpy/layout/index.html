@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-09-01">
+  <meta name="build_date" content="2023-09-03">
   <meta name="template" content="default">
   <meta name="major" content="layout">
   <meta name="has_slides" content="true">
@@ -273,10 +273,10 @@
           
 <div class="draft notex">
   <p class="draft">
-    DRAFT 2023-09-01
+    DRAFT 2023-09-03
   </p>
   <p>
-    revised 2023-08-05<br>
+    revised 2023-09-03<br>
     Please use section heading links to submit feedback
     or go to <a href="https://github.com/gvwilson/sdxpy">https://github.com/gvwilson/sdxpy</a>.
   </p>
@@ -315,15 +315,15 @@
   
   <ul class="syllabus">
   
-  <li markdown="1">A layout engine determines where to place text and other page elements based on their size and organization.</li>
+  <li markdown="1">A layout engine determines where to place page elements based on size and organization.</li>
   
   <li markdown="1">Page elements are organized as a tree of basic blocks, rows, and columns.</li>
   
   <li markdown="1">The layout engine calculates the position of each block based on its size and the position of its parent.</li>
   
-  <li markdown="1">Drawing blocks on top of each other from top to bottom is an easy way to render them.</li>
+  <li markdown="1">Drawing blocks on top of each other is an easy way to render them.</li>
   
-  <li markdown="1">Use multiple inheritance and mixin classes to inject methods into classes without modifying their parent class.</li>
+  <li markdown="1">Use multiple inheritance and mixin classes to inject methods into classes.</li>
   
   </ul>
   
@@ -364,7 +364,7 @@
 
           <div class="page-toc"></div>
           <p>You might be reading this as <span class="ix-entry" ix-key="HTML" markdown="1">HTML</span> in your browser,
-as an e-book (which is basically the same thing),
+as an e-book,
 or on the printed page.
 In all three cases
 a <a class="gl-ref" href="../glossary/#gl:layout_engine" title="A piece of software that decides where to place text, images, and other elements on a page." markdown="1">layout engine</a> took some text and some layout instructions
@@ -490,8 +490,8 @@ If the cell is a block, we place it there.
 If the cell is a row, on the other hand,
 we get its height
 and then calculate its lower edge as y1 = y0 + height.
-We then place the first child&rsquo;s upper-left corner at (x0, y1),
-the second child&rsquo;s at (x0 + width0, y1), and so on
+We then place the first child&rsquo;s upper-left corner at (x0, y1-height0),
+the second child&rsquo;s at (x0 + width0, y1-height0), and so on
 (<a class="fig-ref" href="../layout/#layout-layout">Figure 14.3</a>).
 Similarly,
 if the cell is a column
@@ -569,24 +569,24 @@ One such test is:</p>
 <p>We drew blocks on graph paper
 to figure out the expected answers for the tests shown above.
 We can do something similar in software by creating a &ldquo;screen&rdquo; of space characters
-and then having each block draw itself in the right place.
-If we do this starting at the <span class="ix-entry" ix-key="root" markdown="1">root</span> of the tree,
-child blocks will overwrite the markings made by their parents,
+and having each block draw itself in the right place.
+If we start at the <span class="ix-entry" ix-key="root" markdown="1">root</span> of the tree,
+children will overwrite the marks made by their parents,
 which will automatically produce the right appearance
 (<a class="fig-ref" href="../layout/#layout-draw-over">Figure 14.4</a>).
 (A more sophisticated version of this called <a class="gl-ref" href="../glossary/#gl:z_buffering" title="A drawing method that keeps track of the depth of what lies &quot;under&quot; each pixel so that it displays whatever is nearest to the observer." markdown="1">z-buffering</a>
 used in 3D graphics
 keeps track of the visual depth of each pixel
-in order to draw objects correctly regardless of their order.)</p>
+to draw objects correctly regardless of their order.)</p>
 <figure id="layout-draw-over">
 <img src="./draw_over.svg" alt="Children drawing over their parents"/>
 <figcaption markdown="1">Figure 14.4: Render blocks by drawing child nodes on top of parent nodes.</figcaption>
 </figure>
 
-<p>Our pretended screen is a list of lists of characters,
-with each inner list representing a row on the screen.
-We use lists for this rather than strings
-so that we can overwrite characters in place:</p>
+<p>Our &ldquo;screen&rdquo; is a list of lists of characters,
+with one inner list for each a row on the screen.
+(We use lists rather than strings
+so that we can overwrite characters in place.)</p>
 <div class="code-sample lang-py" title="render.py">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">make_screen</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
     <span class="n">screen</span> <span class="o">=</span> <span class="p">[]</span>
@@ -668,6 +668,8 @@ to figure out what to expect:</p>
     <span class="k">assert</span> <span class="n">render</span><span class="p">(</span><span class="n">fixture</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
 </code></pre></div>
 </div>
+<div class="pagebreak"></div>
+
 <p class="continue">The fact that our tests are difficult to understand
 is a sign that we should do more testing.
 It would be very easy for us to get a wrong result
@@ -705,7 +707,7 @@ the class representing columns needs a new method:</p>
         <span class="k">return</span> <span class="n">PlacedCol</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">wrap</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">])</span>
 </code></pre></div>
 </div>
-<p class="continue">(The <code>*</code> in front of the list being pacced to <code>PlacedCol</code>
+<p class="continue">(The <code>*</code> in front of the list being passed to <code>PlacedCol</code>
 in the last line of the code above
 is another use of the <span class="ix-entry" ix-key="spreading" markdown="1">spreading</span> introduced in <a class="x-ref" href="../oop/">Chapter 2</a>.)</p>
 <p>Rows do all the hard work.
@@ -773,7 +775,7 @@ we use that node to start a new temporary list:</p>
 and write some new ones to test the functionality we&rsquo;ve added:</p>
 <div class="code-sample lang-py" title="test_wrapped.py">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_wrap_a_row_of_two_blocks_that_do_not_fit_on_one_row</span><span class="p">():</span>
-    <span class="n">fixture</span> <span class="o">=</span> <span class="n">Row</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">Block</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">Block</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">fixture</span> <span class="o">=</span> <span class="n">WrappedRow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">WrappedBlock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">WrappedBlock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
     <span class="n">wrapped</span> <span class="o">=</span> <span class="n">fixture</span><span class="o">.</span><span class="n">wrap</span><span class="p">()</span>
     <span class="n">wrapped</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">wrapped</span><span class="o">.</span><span class="n">report</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span>
@@ -832,6 +834,13 @@ Thinking in these terms leads to the methodology called
 <p>All common behavior is defined in that parent (if only with placeholder methods).</p>
 </li>
 </ol>
+<h3 class="exercise">Removing Spreads</h3>
+<p>The code shown in this chapter makes heavy use of <span class="ix-entry" ix-key="varargs" markdown="1">varargs</span> and <span class="ix-entry" ix-key="spreading" markdown="1">spreading</span>,
+i.e.,
+uses <code>*</code> to spread the values of lists to match parameters
+and <code>*children</code> to capture multiple arguments.
+Rewrite the code to use lists instead.
+Do you find your rewritten code easier to understand?</p>
 <h3 class="exercise">Recycling</h3>
 <p>Modify the wrapping code so that new rows and columns are only created if needed.
 For example,
@@ -865,6 +874,10 @@ i.e.,
 so that all of the columns in a row are automatically sized to have the same width.
 If the number of columns does not divide evenly into the width of the row,
 allocate the extra space as equally as possible from left to right.</p>
+<h3 class="exercise">Properties</h3>
+<p>Look at the documentation for Python&rsquo;s <a href="https://docs.python.org/3/library/functions.html#property"><code>@property</code></a> <span class="ix-entry" ix-key="decorator" markdown="1">decorator</span>
+and modify the block classes to replace the <code>get_width</code> and <code>get_height</code> methods
+with properties called <code>width</code> and <code>height</code>.</p>
 <h3 class="exercise">Drawing Borders</h3>
 <ol>
 <li>
@@ -893,10 +906,6 @@ allocate the extra space as equally as possible from left to right.</p>
 +------+
 </code></pre></div>
 <p class="continue">where the lines show the outer border of the rendering.</p>
-<h3 class="exercise">Properties</h3>
-<p>Look at the documentation for Python&rsquo;s <a href="https://docs.python.org/3/library/functions.html#property"><code>@property</code></a> <span class="ix-entry" ix-key="decorator" markdown="1">decorator</span>
-and modify the block classes to replace the <code>get_width</code> and <code>get_height</code> methods
-with properties called <code>width</code> and <code>height</code>.</p>
 <h3 class="exercise">Tables</h3>
 <p>Add another node type <code>Table</code> such that:</p>
 <ol>

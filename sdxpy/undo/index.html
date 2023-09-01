@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-09-01">
+  <meta name="build_date" content="2023-09-03">
   <meta name="template" content="default">
   <meta name="major" content="undo">
   <meta name="has_slides" content="true">
@@ -273,10 +273,10 @@
           
 <div class="draft notex">
   <p class="draft">
-    DRAFT 2023-09-01
+    DRAFT 2023-09-03
   </p>
   <p>
-    revised 2023-08-14<br>
+    revised 2023-09-03<br>
     Please use section heading links to submit feedback
     or go to <a href="https://github.com/gvwilson/sdxpy">https://github.com/gvwilson/sdxpy</a>.
   </p>
@@ -682,6 +682,8 @@ That base class is:</p>
 </div>
 <p>We could implement one class for each direction of cursor movement,
 but instead choose to create a single class:</p>
+<div class="pagebreak"></div>
+
 <div class="code-sample lang-py" title="action.py">
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Move</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">direction</span><span class="p">):</span>
@@ -698,7 +700,9 @@ but instead choose to create a single class:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_cursor</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_old</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<p>This class depends on adding two new methods to <code>Cursor</code>
+<p>This class records the new cursor position as well as the old one
+to make debugging easier.
+It depends on adding two new methods to <code>Cursor</code>
 to move in a particular direction by name
 (e.g., &ldquo;right&rdquo; or &ldquo;left&rdquo;)
 and to move to a particular location:</p>
@@ -781,6 +785,23 @@ but we override it in <code>Undo</code> to return <code>False</code>:</p>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Undo(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_app</span><span class="o">.</span><span class="n">_history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span>
 </code></pre></div>
 </div>
+<p>Note that popping the most recent action off the history stack
+only works once we modify the application&rsquo;s <code>_interact</code> method
+so that it only saves actions that ought to be saved:</p>
+<div class="code-sample lang-py" title="undoable.py">
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">UndoableApp</span><span class="p">(</span><span class="n">ActionApp</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_interact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">family</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_key</span><span class="p">()</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;_do_</span><span class="si">{</span><span class="n">family</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">family</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;_do_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">action</span><span class="o">.</span><span class="n">do</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">action</span><span class="o">.</span><span class="n">save</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_add_log</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</code></pre></div>
+</div>
 <p>We can now write tests like this to check that we can insert a character,
 undo the action,
 and get back the screen we originally had:</p>
@@ -797,13 +818,23 @@ and get back the screen we originally had:</p>
 </figure>
 
 <h2 id="undo-exercises">Section 24.5: Exercises</h2>
-<h3 class="exercise">Limiting History</h3>
-<p>Modify the application so that only the most recent hundred operations can be undone.</p>
 <h3 class="exercise">Combining Movement</h3>
 <p>Modify the application so that successive movement operations are combined
 into a single undo step.</p>
+<h3 class="exercise">Forgetting Moves</h3>
+<p>Most editors do not save cursor movements in their undo history.
+Modify the code in this chapter so that undo only works on
+changes to the content being edited.</p>
+<h3 class="exercise">Limiting History</h3>
+<p>Modify the application so that only the most recent hundred operations can be undone.</p>
+<h3 class="exercise">Breaking Lines</h3>
+<p>Modify the code so that pressing the Enter key inserts a new line
+or breaks the current line in two.
+What information do you have to store to make this operation undoable?</p>
 <h3 class="exercise">Re-doing Operations</h3>
-<p>Implement a &ldquo;redo&rdquo; command that re-executes an operation that has been undone.</p>
+<p>Implement a &ldquo;redo&rdquo; command that re-executes an operation that has been undone.
+How does redo differ from undoing an undo?
+Does it make sense to redo an action that wasn&rsquo;t done?</p>
 <h3 class="exercise">Repeating Operations</h3>
 <ol>
 <li>

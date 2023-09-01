@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-09-01">
+  <meta name="build_date" content="2023-09-03">
   <meta name="template" content="slides">
   <meta name="major" content="viewer">
   
@@ -536,15 +536,15 @@ class: aside
 
 ```py
 class ClipCursor(Cursor):
-    def __init__(self, buf):
+    def __init__(self, buffer):
         super().__init__()
-        self._buf = buf
+        self._buffer = buffer
 
     def up(self):
         self._pos[ROW] = max(self._pos[ROW]-1, 0)
 
     def down(self):
-        self._pos[ROW] = min(self._pos[ROW]+1, self._buf.nrow()-1)
+        self._pos[ROW] = min(self._pos[ROW]+1, self._buffer.nrow()-1)
 
     def left(self):
         self._pos[COL] = max(self._pos[COL]-1, 0)
@@ -552,7 +552,7 @@ class ClipCursor(Cursor):
     def right(self):
         self._pos[COL] = min(
             self._pos[COL]+1,
-            self._buf.ncol(self._pos[ROW])-1
+            self._buffer.ncol(self._pos[ROW])-1
         )
 ```
 
@@ -603,7 +603,7 @@ class ClipCursorFixed(ClipCursor):
     def _fix(self):
         self._pos[COL] = min(
             self._pos[COL],
-            (self._buf.ncol(self._pos[ROW])-1))
+            (self._buffer.ncol(self._pos[ROW])-1))
 ```
 
 
@@ -717,17 +717,6 @@ class ViewportCursor(ClipCursorFixed):
             self._window.size()[COL] - 1
         )
 ```
-
-
----
-
-class: aside
-
-## Inheritance
-
-<figure>
-<img src="../inheritance.svg" alt="Inheritance in lesson"/>
-</figure>
 
 
 ---
