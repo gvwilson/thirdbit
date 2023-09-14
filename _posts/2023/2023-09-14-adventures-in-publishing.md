@@ -18,7 +18,7 @@ those chapters still get more visitors every day
 than [*It Will Never Work in Theory*][nwit]
 and [this site][third] (which hosts both of the *Software Design by Example* books)
 combined,
-which I guess goes to show that William Goldman was write:
+which I guess goes to show that William Goldman was right:
 nobody knows anything.
 
 <img src="{{'/files/2023/site-visitors.svg' | relative_url}}" alt="Site Visitors">
