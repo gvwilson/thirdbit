@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-09-23">
+  <meta name="build_date" content="2023-10-02">
   <meta name="template" content="default">
   <meta name="major" content="db">
   <meta name="has_slides" content="true">
@@ -37,6 +37,11 @@
   <a href="../">Software Design by Example</a>
   
 </p>
+
+<div class="screen-reader-only">
+  <a href="#printable">Skip to content</a>
+</div>
+
 <ol class="toc-chapter">
   
   <li>
@@ -202,6 +207,7 @@
   </li>
   
 </ol>
+
 <ol class="toc-appendix">
   
   <li>
@@ -260,7 +266,9 @@
   
 </ol>
 
+
 <p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
+
 
 <p><a href="https://github.com/gvwilson/sdxpy">GitHub repository</a></p>
 
@@ -525,8 +533,6 @@ when it needs a key:</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<p class="continue">After a bit of refactoring,
-our tests work as before.</p>
 <h2 id="db-save">Section 18.2: Saving Records</h2>
 <p>The next step in building a usable database is to have it store records
 rather than just refer to the user&rsquo;s objects.

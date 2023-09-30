@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="repo" content="https://github.com/gvwilson/sdxpy">
-  <meta name="build_date" content="2023-09-23">
+  <meta name="build_date" content="2023-10-02">
   <meta name="template" content="default">
   <meta name="major" content="perf">
   <meta name="has_slides" content="true">
@@ -37,6 +37,11 @@
   <a href="../">Software Design by Example</a>
   
 </p>
+
+<div class="screen-reader-only">
+  <a href="#printable">Skip to content</a>
+</div>
+
 <ol class="toc-chapter">
   
   <li>
@@ -202,6 +207,7 @@
   </li>
   
 </ol>
+
 <ol class="toc-appendix">
   
   <li>
@@ -260,7 +266,9 @@
   
 </ol>
 
+
 <p><a href="../sdxpy-examples.zip" type="application/zip">download examples</a></p>
+
 
 <p><a href="https://github.com/gvwilson/sdxpy">GitHub repository</a></p>
 
@@ -660,7 +668,7 @@ this recycles the existing storage:</p>
 </div>
 <figure id="perf-col-select">
 <img src="./col_select.svg" alt="Column-wise selection"/>
-<figcaption markdown="1">Figure 15.5: Column-wise selection</figcaption>
+<figcaption markdown="1">Figure 15.5: Column-wise selection.</figcaption>
 </figure>
 
 <p>Finally,
@@ -827,7 +835,7 @@ is called <a class="gl-ref" href="../glossary/#gl:parameter_sweeping" title="To 
 For a \( 1000 \times 1000 \) dataframe
 selection is over 250 times faster with column-wise storage than with row-wise,
 while filtering is 1.8 times slower.</p>
-<div class="table"><table id="perf-timing"><caption>Table 15.1: Dataframe timings</caption>
+<div class="table"><table id="perf-timing"><caption>Table 15.1: Dataframe timings.</caption>
 <thead>
 <tr>
 <th>nrow</th>
@@ -876,7 +884,7 @@ while filtering is 1.8 times slower.</p>
 </div>
 <figure id="perf-analysis" class="here">
 <img src="./analysis.svg" alt="Performance curves"/>
-<figcaption markdown="1">Figure 15.7: Relative performance of row-wise and column-wise storage</figcaption>
+<figcaption markdown="1">Figure 15.7: Relative performance of row-wise and column-wise storage.</figcaption>
 </figure>
 
 <p>We can get much more insight by <a class="gl-ref" href="../glossary/#gl:profiling" title="The act of measuring where a program spends it time, which operations consume memory or disk space, etc." markdown="1">profiling</a> our code
