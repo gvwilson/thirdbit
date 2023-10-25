@@ -16,9 +16,9 @@ and would make the world a better place:
 - [Software Engineering: Compassion, Evidence, Process, and Tools](./secept/)
 - [Harper-Lite: Simple Lesson Discovery and Aggregation](./harper/)
 
-Others are listed below
-and in [my list of unwritten books][unwritten]
-and [this summary of software engineering research ideas][se-ideas-post].
+Others are described below,
+in [my list of unwritten books][unwritten],
+and in [this summary of software engineering research ideas](./research/).
 If you are already working on any of these,
 please let me know.
 
@@ -41,8 +41,8 @@ A WYSIWYG computational notebook.
     can create the reports they want the way they want to.
     It's not too late…
 
-[Browsercast][browsercast],
-:   which would replay an HTML slideshow in sync with a voiceover.
+[Browsercast][browsercast].
+:   This tool would replay an HTML slideshow in sync with a voiceover.
     Tools like Wasim Lorgat's [SVG replay][svg-replay] and [Scrimba][scrimba]
     have made me more certain than ever that
     we shouldn't turn text and HTML into video streams:
@@ -73,7 +73,7 @@ A superset of [Elm][elm] for systems programming.
 :   I've been fascinated by pure functional programming
     since I first encountered it in the mid-1980s.
     I'd really like to do a version of [*Software Design by Example*][sdxjs]
-    in a pure functiona language,
+    in a pure functional language,
     but want one that is to [Haskell][haskell] what Pascal was to Algol-68:
     smaller, simpler, and more accessible.
     I think a superset of Elm with libraries for creating files and directories
@@ -109,48 +109,6 @@ A caravan defense game.
     It has nothing to do with software engineering,
     but I think it would be a lot of fun.
 
-## What I Won't Study
-
-I never had the patience or diligence to be a good researcher,
-but I still have lots of questions.
-
-Are programmers who use version control more productive that programmers who don't?
-:   This may seem too obvious to be worth investigating,
-    but what I really want to do is calibrate and compare different ways to measure productivity.
-    If a method *doesn't* find that version control helps,
-    there's something wrong with the method.
-    This study would compare three or four different approaches,
-    and thereby help the research community agree on what to measure and how
-    when tackling cases that *aren't* obvious.
-
-Can we assess students' proficiency with tools by watching screencasts of their work?
-:   Just before I left the University of Toronto,
-    I asked several people to record their desktop while solving a small data analysis problem.
-    The result shook me:
-    the times ranged from just under four minutes to just under 38 minutes,
-    and I would not have been able to tell which was which
-    from the code they produced.
-    I have wondered ever since if we could use screencasting to implement lab exams for programming classes,
-    i.e,
-    if having students record *how* they solve problems would allow us to assess verbs as well as nouns.
-    I think it's feasible:
-    the files are only a few megabytes
-    and you can watch a screencast at 5X or even 10X
-    and get a good sense of how well its creator is using their tools,
-    so 30 minutes of work is less than 5 minutes to grade.
-    What I don't know is whether this would help learners,
-    or whether it would help more than other things we could have them do.
-
-Does calibrated peer review improve the quality of novices' programmers code?
-:   Give a student a one-page program and have them score it using a checklist,
-    then grade them on how closely their scoring matches the instructor's.
-    (They start with 100%, and lose one mark for each false positive or false negative.)
-    After doing this a handful of times,
-    they should learn to see code through the instructor's eyes.
-    Does this help them write better code?
-    If so,
-    how quickly and how well?
-
 [blockly]: https://developers.google.com/blockly/
 [browsercast]: {{site.links.browsercast}}
 [concept-maps]: {{'/ideas/concept-maps/' | relative_url}}
@@ -171,7 +129,6 @@ Does calibrated peer review improve the quality of novices' programmers code?
 [scratch]: https://scratch.mit.edu/
 [scrimba]: https://scrimba.com/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
-[se-ideas-post]: {{'/2022/08/30/research-topics/' | relative_url}}
 [svg-replay]: https://wasimlorgat.com/tils/how-to-share-terminal-demos-as-razor-sharp-animated-svg.html
 [tidyblocks-post]: {{'/2021/07/22/whatever-happened-to-tidyblocks/' | relative_url}}
 [tidyblocks-repo]: https://github.com/tidyblocks/tidyblocks

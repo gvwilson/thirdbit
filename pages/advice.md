@@ -7,19 +7,19 @@ permalink: "/advice/"
 I've collaborated on a handful of papers that give practical tips on building research software and teaching others how to do it,
 all of which are available online:
 
--   [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
--   [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
--   [Ten Simple Rules for Making Research Software More Robust](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412)
--   [Ten Simple Rules for Collaborative Lesson Development](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005963)
--   [Ten Quick Tips for Teaching Programming](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006023)
--   [Ten Quick Tips for Creating an Effective Lesson](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006915)
--   [Ten Simple Rules for Helping Newcomers Become Contributors to Open Source Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007296)
--   [Ten Quick Tips for Delivering Programming Lessons](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007433)
--   [Ten Quick Tips for Making Things Findable](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008469)
--   [Ten Quick Tips for Teaching with Participatory Live Coding](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008090)
--   [Ten Quick Tips for Staying Safe Online](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008563)
--   [Twelve Quick Tips for Software Design](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009809)
--   [Ten Simple Rules for Writing a Technical Book](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305)
+-   [Best Practices for Scientific Computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745) (2014)
+-   [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) (2017)
+-   [Ten Simple Rules for Making Research Software More Robust](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412) (2017)
+-   [Ten Simple Rules for Collaborative Lesson Development](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005963) (2018)
+-   [Ten Quick Tips for Teaching Programming](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006023) (2018)
+-   [Ten Quick Tips for Creating an Effective Lesson](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006915) (2019)
+-   [Ten Simple Rules for Helping Newcomers Become Contributors to Open Source Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007296) (2019)
+-   [Ten Quick Tips for Delivering Programming Lessons](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007433) (2019)
+-   [Ten Quick Tips for Making Things Findable](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008469) (2020)
+-   [Ten Quick Tips for Teaching with Participatory Live Coding](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008090) (2020)
+-   [Ten Quick Tips for Staying Safe Online](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008563) (2021)
+-   [Twelve Quick Tips for Software Design](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009809) (2022)
+-   [Ten Simple Rules for Writing a Technical Book](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011305) (2023)
 
 I also have some shorter guidelines for:
 

@@ -1,16 +1,17 @@
 ---
-title: "Software Engineering Research Topics"
-date: 2022-08-30
-year: 2022
+title: "Software Engineering Research Ideas"
+layout: page
+redirect_from:
+- /2022/08/30/research-topics/
 ---
 
 I was honored to be given ACM SIGSOFT's "Influential Educator" award in 2020,
-but [I was also surprised]({{'/2020/07/09/acm-sigsoft-award/' | relative_url}}):
+but [I was also surprised][post-sigsoft]:
 as far as I can tell,
-projects like [*Beautiful Code*](https://www.oreilly.com/library/view/beautiful-code/9780596510046/),
-[*Making Software*](https://www.oreilly.com/library/view/making-software/9780596808310/),
-[*The Architecture of Open Source Applications*](http://aosabook.org/),
-and [*It Will Never Work in Theory*](https://neverworkintheory.org/)
+projects like [*Beautiful Code*][bc],
+[*Making Software*][ms],
+[*The Architecture of Open Source Applications*][aosa],
+and [*It Will Never Work in Theory*][nwit]
 haven't actually had any impact on how software engineering is taught.
 
 However,
@@ -32,7 +33,7 @@ please get in touch and I'll try to track them down.
     and if so,
     by what measure(s)?
 
-1.  Do [doctest](https://docs.python.org/3/library/doctest.html)-style tests
+1.  Do [doctest][doctest]-style tests
     (i.e., tests embedded directly in the code being tested)
     have any impact long-term usability or maintainability
     compared to putting tests in separate files?
@@ -51,9 +52,10 @@ please get in touch and I'll try to track them down.
     less likely to use diagrams
     than slides written with GUI tools?
 
-1.  A lot of [code metrics](https://neverworkintheory.org/category/#metrics)
+1.  A lot of [code metrics][nwit-metrics]
     have been developed over the years;
-    are there any for measuring/ranking the difficulty of getting software installed and configured?
+    are there any for measuring/ranking
+    the difficulty of getting software installed and configured?
 
 1.  How does the percentage of effort devoted to tooling and deployment change
     as a project grows and/or ages?
@@ -64,12 +66,12 @@ please get in touch and I'll try to track them down.
     but that's just one data point.)
 
 1.  Has anyone developed a graphical notation for software development processes
-    like [this one for game play](https://lostgarden.home.blog/2006/01/16/creating-a-system-of-game-play-notation/)?
+    like [this one for game play][game-play-notation]?
 
 1.  How do open source projects actually track and manage requirements or user needs?
     Do they use issues,
     is it done through discussion threads on email or chat,
-    do people write wiki pages or [PEPs](https://peps.python.org/),
+    do people write wiki pages or [PEPs][pep],
     etc.?
 
 1.  Has anyone ever done a quantitative survey of programming books aimed at professionals
@@ -93,10 +95,10 @@ please get in touch and I'll try to track them down.
     how many are still considered valid?
 
 1.  Are there any metrics for code fitness that take process and team into account?
-    (I actually have [the source](https://twitter.com/sarahmei/status/819256231869214721) for this one.)
+    (I actually have [the source][mei-twitter] for this one.)
 
 1.  Which of the techniques catalogued in
-    [*The Discussion Book*](https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715)
+    [*The Discussion Book*][discussion-book]
     are programmers familiar with?
     Which ones do they use informally (i.e., without explicit tool support),
     and how do they operationalize them?
@@ -115,15 +117,15 @@ please get in touch and I'll try to track them down.
 1.  The Turing Test classifies a machine as "intelligent"
     if an independent observer can't distinguish between it and a human being in conversation.
     Has anyone ever implemented a similar test for malicious software
-    (which we should call the [Hoye Test](https://exple.tive.org/blarg/) in honor of the person who proposed it,
-    or the [Moses Test](https://twitter.com/gvwilson/status/1159605481196937216) in "honor" of the person who inspired it):
+    (which we should call the [Hoye Test][hoye-test] in honor of the person who proposed it,
+    or the [Moses Test][moses-test] in "honor" of the person who inspired it):
     1.	Pick an application (e.g., Twitter).
     1.	Build a work-alike that is deliberately malicious in some way
     	(e.g., designed to radicalize its users).
     1.	Have people selected at random use both and then guess which is which.
 
 1.  Has anyone ever summarized the topics covered
-    by [ACM Doctoral Dissertation Award](https://awards.acm.org/doctoral-dissertation) winners
+    by [ACM Doctoral Dissertation Award][acm-dissertation] winners
     to see what computer science is *actually* about?
     (A subject is defined by what it gives awards for…)
 
@@ -168,17 +170,16 @@ please get in touch and I'll try to track them down.
 1.  Has anyone ever written a compare-and-contrast feature analysis
     of tools for building documentation and tutorials?
     For example,
-    how do [Sphinx](https://www.sphinx-doc.org/),
-    [Jekyll](https://jekyllrb.com/),
-    and [roxygen](https://roxygen2.r-lib.org/) stack up?
+    how do [Sphinx][sphinx],
+    [Jekyll][jekyll],
+    and [roxygen][roxygen] stack up?
 
-1.  [Käfer et al's paper](https://programming-journal.org/2017/1/17/)
+1.  [Käfer et al's paper][video-tutorials]
     comparing text and video tutorials for learning new software tools
     was interesting:
     has anyone done a follow-up?
 
-1.  [Bjarnason et al's paper](https://ieeexplore.ieee.org/document/6619486) on retrospectives
-    was interesting:
+1.  [Bjarnason et al's paper][retro-paper] on retrospectives was interesting:
     has anyone looked in more detail at what developers discuss in retrospectives
     and (crucially) what impact that has?
 
@@ -212,11 +213,10 @@ please get in touch and I'll try to track them down.
     what do they measure,
     and how do they measure it?
 
-1.  Has anyone ever created some like [Sajaniemi's roles of variables](https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf)
+1.  Has anyone ever created some like [Sajaniemi's roles of variables][variables]
     for refactoring steps or test cases?
     (Note: the person asking the question is a self-taught programmer
-    who found [Gamma et al's book](https://www.pearson.com/en-us/subject-catalog/p/design-patterns-elements-of-reusable-object-oriented-software/P200000009480)
-    a bit intimidating,
+    who found [Gamma et al's book][gang-of-four] a bit intimidating,
     and is looking for beginner-level patterns.)
 
 1.  Has anyone defined a set of design patterns for the roles that columns play in dataframes
@@ -259,8 +259,8 @@ please get in touch and I'll try to track them down.
     i.e.,
     embedded runnable code chunks and their output in a rich document?
 
-1.  When people write essay-length explanations about [error handling](https://beepb00p.xyz/mypy-error-handling.html)
-    or [database internals](https://fly.io/blog/sqlite-internals-wal/),
+1.  When people write essay-length explanations about [error handling][error-handling]
+    or [database internals][sqlite-internals],
     how do they decide what's worth explaining?
     Is it "I struggled to figure this out and want to save you the pain"
     or "I'm trying to build my reputation as an expert in this field"
@@ -361,3 +361,48 @@ please get in touch and I'll try to track them down.
     (e.g., a young woman joining a company might be taken aside for an off-the-record chat
     by an older colleague and cautioned about the behavior of certain senior male colleagues).
     How have these networks changed during the COVID-19 lockdown?
+
+And here are two of my own:
+
+Are programmers who use version control more productive that programmers who don't?
+:   This may seem too obvious to be worth investigating,
+    but what I really want to do is calibrate and compare different ways to measure productivity.
+    If a method *doesn't* find that version control helps,
+    there's something wrong with the method.
+    This study would compare three or four different approaches,
+    and thereby help the research community agree on what to measure and how
+    when tackling cases that *aren't* obvious.
+
+Does calibrated peer review improve the quality of novices' programmers code?
+:   Give a student a one-page program and have them score it using a checklist,
+    then grade them on how closely their scoring matches the instructor's.
+    (They start with 100%, and lose one mark for each false positive or false negative.)
+    After doing this a handful of times,
+    they should learn to see code through the instructor's eyes.
+    Does this help them write better code?
+    If so,
+    how quickly and how well?
+
+[acm-dissertation]: https://awards.acm.org/doctoral-dissertation
+[aosa]: http://aosabook.org/
+[bc]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
+[discussion-book]: https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715
+[doctest]: https://docs.python.org/3/library/doctest.html
+[error-handling]: https://beepb00p.xyz/mypy-error-handling.html
+[game-play-notation]: https://lostgarden.home.blog/2006/01/16/creating-a-system-of-game-play-notation/
+[gang-of-four]: https://www.pearson.com/en-us/subject-catalog/p/design-patterns-elements-of-reusable-object-oriented-software/P200000009480
+[hoye-test]: https://exple.tive.org/blarg/
+[jekyll]: https://jekyllrb.com/
+[mei-twitter]: https://twitter.com/sarahmei/status/819256231869214721
+[moses-test]: https://twitter.com/gvwilson/status/1159605481196937216
+[ms]: https://www.oreilly.com/library/view/making-software/9780596808310/
+[nwit]: https://neverworkintheory.org/
+[nwit-metrics]: https://neverworkintheory.org/category/#metrics
+[pep]: https://peps.python.org/
+[post-sigsoft]: {{'/2020/07/09/acm-sigsoft-award/' | relative_url}}
+[retro-paper]: https://ieeexplore.ieee.org/document/6619486
+[roxygen]: https://roxygen2.r-lib.org/
+[sphinx]: https://www.sphinx-doc.org/
+[sqlite-internals]: https://fly.io/blog/sqlite-internals-wal/
+[variables]: https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf
+[video-tutorials]: https://programming-journal.org/2017/1/17/
