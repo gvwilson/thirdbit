@@ -1,5 +1,5 @@
 ---
-title: "Hiring an Engineering Managr"
+title: "Hiring an Engineering Manager"
 date: 2023-09-26
 year: 2023
 ---
