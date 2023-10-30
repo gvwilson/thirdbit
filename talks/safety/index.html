@@ -1,0 +1,370 @@
+---
+title: "Staying Safe Online"
+layout: slides
+---
+
+<div class="center padtop">
+  <h1>Staying Safe Online</h1>
+  <p><img src="../img/codebender-logo.svg" alt="Third Bit logo" width="15%" /></p>
+  <p>Greg Wilson</p>
+  <p><a href="http://third-bit.com/talks/safety/">http://third-bit.com/talks/safety/</a></p>
+  <p><img src="../img/cc-by.svg" width="20%" alt="CC-BY" /></p>
+</div>
+
+---
+
+## Introduction
+
+- Researchers are increasingly targeted and harassed online
+  - Sexual health, vaccines, climate change, gun violence, …
+- Hollywood's depictions of these threats are unrealistic, to put it mildly
+- A few simple rules will keep you safe(r)
+
+<div class="center">
+  <img src="hacker.jpg" alt="Hollywood conception of hacker" width="40%"/>
+</div>
+
+???
+
+Image credit: Max Bender, https://unsplash.com/photos/XIVDN9cxOVc
+
+---
+
+## 1. Put on your own mask first
+
+- Companies and universities' rules protect them, not you
+- Much institutional security is performative <a href="https://www.schneier.com/tag/security-theater/"><em>security theater</em></a>
+  - E.g. forcing regular passwords changes makes people choose passwords they can remember easily (which are insecure)
+- We have to look after ourselves
+
+<div class="center">
+  <img src="oxygen-masks.jpg" alt="Oxygen masks" width="40%"/>
+</div>
+
+---
+
+## 2. Most attacks aren't online
+
+- Most attacks take place offline
+- *Social engineering* is a much bigger threat than digital hacking
+  - "Smart spies don't break in: they get jobs as bartenders."
+- Rely on *situational awareness*
+  - Be more careful when working on controversial things
+  - De-escalate at other times to avoid security fatigue
+
+???
+
+At an airport several years ago,
+I heard a professor of computer science try to reset an online account over the phone.
+In just a couple of minutes they had inadvertently told everyone in the lounge their full name,
+their date of birth,
+the three-digit verification code on the back of their credit card,
+and what was almost certainly their mother's maiden name.
+
+---
+
+## 3. Understand your threat models
+
+- You can't manage risk in an abstract way
+- You probably aren't targeted by state-level actors
+  - If you are, there's little you can do
+  - Most attackers have a boss and a budget
+- Effective, practical security comes from simple routine
+  - "I'll put on my seatbelt when I need it" doesn't work
+- You might face one of the following scenarios
+
+???
+
+<a href="https://www.usenix.org/system/files/1401_08-12_mickens.pdf">James Mickens has observed</a>
+that if the Mossad is going to Mossad you,
+you're getting Mossadded and there's not much you can do about it.
+
+---
+
+## 3.1 Casual threats
+
+- A student in your class hangs out in online echo chambers with other young men complaining about SJW bullshit
+- He and his friends decide to target you with anonymous online abuse for the lolz
+- Low skill level and unlikely to invest significant effort
+- But may be backed up by more knowledgeable (and more committed) forum members seeking to radicalize him
+ - Who might also scale up the attack
+
+???
+
+This is the most common threat model for most researchers.
+It's easy to defend against up close (i.e., direct hacking)
+but online harassment is woefully under-policed.
+
+???
+
+## 3.2 Intimate threats
+
+- Abusive/controlling ex-romantic partner
+- Knows the name of your first pet
+- And has/had opportunities to install spyware on your devices
+  - Everything created for parents to track children can be abused in this way
+ - Lots of online forums with "helpful" advice
+- Lone attacker, but very persistent
+
+???
+
+Domestic abuse is the infosec threat model we don't like to talk about
+because it's the hardest to solve.
+An abuser likely has uncontrolled long term access to the victim's hardware,
+and the possibility of physical abuse is immediate.
+One of the first things you're given at a shelter is a clean phone. 
+
+---
+
+## 3.3 Insider threats
+
+- Somebody always has their hands on the hardware
+- Whistleblowers use privileged access for good, but:
+- Access can just as easily be used for profit
+  - Or in response to blackmail
+  - Or for a cause they genuinely believe in
+- One motivation for this talk is to help you safety-check what you're being asked/told to do
+
+???
+
+There's no way to distinguish good motives from malicious ones at the wire level:
+there's no "evil" bit to flip.
+
+---
+
+## 3.4 Professional threats
+
+- Professionals don't care about you: they're in it for the money
+- *Phishing attacks* are a game of percentages
+  - If you send a million emails, someone will click the link
+- Spoofing the WiFi at an airport or coffee shop is similar
+- A bike lock's actual purpose is to make it easier for a thief to steal someone else's bike
+
+???
+
+Professionals are technically savvy but not interested in you personally.
+
+---
+
+## 4. Use a password manager
+
+- Weak passwords can be broken by *dictionary attacks*
+  - *Every* clever scheme you come up with has been thought of before
+- A *password manager* generates strong passwords for you
+- Your *passphrase* should be several words long
+  - And *not* a sentence
+- <a href="https://1password.com">1Password</a> is my favorite
+  - No longer recommend LastPass
+- "Who will read my email when I'm dead?"
+
+???
+
+It's OK if you can't remember your passwords - in fact, it's better.
+
+---
+
+class: aside
+
+## Scraps of paper
+
+<div class="row">
+  <div class="col-4">
+    <img src="notebook-pen.jpg" alt="Notebook and pen" width="80%"/>
+  </div>
+  <div class="col-8">
+    <ul>
+      <li>Writing passwords down isn't such a bad idea</li>
+      <li>You have a lifetime of practice keeping track of papers and notebooks,
+          and you'll probably notice if they're stolen</li>
+      <li>Putting a sticky note on your desk, on the other hand…</li>
+    </ul>
+  </div>
+</div>
+
+???
+
+Image credit: Justin Morgan, https://unsplash.com/photos/Hx-4TbpsoIw
+
+---
+
+## 5. Use two-factor authentication
+
+- *Authentication* relies on:
+  - Something you know (like a password)
+  - Something you have (like a security key)
+  - Something you are (e.g., your fingerprints)
+- *Two-factor authentication* (2FA) requires two of these
+  - Use an app rather than text messages
+  - *Never* share an authentication code
+
+???
+
+Use an app rather than SMS because of SIM swapping, network snooping, and other attacks.
+But note: not everyone has a phone…
+
+---
+
+class: aside
+
+## Get two YubiKeys
+
+<div class="center">
+  <img src="yubikeys.png" alt="Yubikeys" width="80%">
+</div>
+
+???
+
+Set this up for your email inbox.
+Don't use SMS or an app for this:
+the odds are good that your inbox is a skeleton key for your entire life.
+One Yubikey goes on your keychain, the other goes in the back of your sock drawer.
+
+---
+
+class: aside
+
+## VPNs and Tor, oh my
+
+- Incognito browsing doesn't store history,
+  but doesn't make you invisible to your ISP (or the coffee shop, or…)
+- A *virtual private network* (VPN) connects to a server
+  then has that server connect to other sites on your behalf
+- <a href="https://www.torproject.org">Tor</a> routes messages randomly through a network of servers
+  - Protects both terrorists and human rights activists
+- Both reduce some risk but, again: what is your threat model?
+
+???
+
+VPNs protect the institution more than they protect you.
+
+---
+
+## 6. Check before opening
+
+- Microsoft Office documents are actually programs
+  - Which run automatically when you open them
+  - Institutional emails are basically training us to be hacked
+- The text of a link in email or on a web page can say anything
+  - And domain names like paypa1.com are hard to spot
+- If someone from your bank asks you for information to confirm your identity,
+  call them back using the number in the phone book
+
+???
+
+My bank used to send messages to me as encrypted HTML files with a bit of JavaScript in them
+and then send the password as clear text to the same email address.
+Can you count how many things are wrong with this?
+
+---
+
+## 7. Erase before discarding
+
+- Emptying the trash doesn't erase files
+- Encrypting your hard drive helps, but it's annoying to use
+- Use secure deletion tools like <a href="https://www.bleachbit.org">BleachBit</a>
+  or <a href="https://www.fileshredder.org">FileShredder</a> before discarding any hardware
+
+<div class="center">
+  <img src="dumpster-diving.jpg" alt="Cover of 'The Art & Science of Dumpster Diving" width="30%"/>
+</div>
+
+---
+
+class: aside
+
+## Online is forever
+
+- Shredding files doesn't affect sites like Dropbox
+- Or things you posted on social media
+- But the EU now has a <a href="https://gdpr.eu/right-to-be-forgotten/">right to be forgotten</a>,
+  which is a big step in the right direction
+
+<div class="center">
+  <img src="gdpr.png" alt="GDPR acronym on European flag" width="40%"/>
+</div>
+
+---
+
+## 8. Check accounts periodically
+
+- Building social media around ad revenue was one of my generation's biggest mistakes
+  - Which is saying a lot…
+  - "If you don't pay for the service, you're the product"
+- Use a tracking blocker like <a href="https://www.ghostery.com">Ghostery</a>
+- Companies frequently change their terms
+  - So check your settings at the start of every semester
+  - Or some other biannual event
+
+---
+
+class: aside
+
+## Travel
+
+- Experts recommend using separate devices for work and personal life
+  - That's increasingly unrealistic
+- You can use a burner phone when traveling internationally
+  - But that can arouse suspicion
+
+---
+
+## 9. Help fight back
+
+- Casual attackers may eventually move on
+- But will also often revisit previous victims
+- And will usually find new ones
+
+<div class="row">
+  <div class="col-4">
+    <img src="silence-is-violence.jpg" alt="Woman holding sign saying 'silence is violence'" width="80%"/>
+  </div>
+  <div class="col-8">
+    <ol>
+      <li>Do not engage directly</li>
+      <li>Report the attack</li>
+      <li>Find support</li>
+      <li>Use anti-harassment apps like <a href="https://www.blockpartyapp.com">Block Party</a></li>
+    </ol>
+  </div>
+</div>
+
+???
+
+Image credit: Diana Wing So, https://unsplash.com/photos/Le1tP8M9flQ
+
+---
+
+## 10. It's not just about you
+
+- The only long-term solution to these problems is legislative
+  - Cars and drugs are safe(r) because of liability legislation
+  - Which auto and pharma companies still fight against
+- Combating hate speech and radicalization has to be part of the solution too
+
+<blockquote>
+Man I can't honestly tell if it's just transference because I don't know what to do with my anger and pain about it, but it sure does fucking suck that every alt-right influence the Christchurch shooter cites makes money via Shopify.
+<br>
+– Johnathan Nightingale, March 15, 2019
+</blockquote>
+
+???
+
+We wear masks to keep others safe, too.
+
+---
+
+## Conclusion
+
+- Please see <a href="https://www.tallpoppy.com/resources">https://www.tallpoppy.com/resources</a>
+  for more suggestions and tools
+
+<div class="center">
+  <p><img src="../img/gvwilson.png" width="40%"></p>
+  <p>
+    <a href="http://third-bit.com">Greg Wilson</a>
+    <br>
+    <a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a>
+    <br>
+    <a href="http://third-bit.com/talks/safety/">http://third-bit.com/talks/safety/</a>
+  </p>
+</div>
