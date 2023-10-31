@@ -161,4 +161,22 @@ and it's perfectly OK for your direction and aspirations to change as you go alo
   </tr>
 </table>
 
+<hr>
+
+*[Yanina][yanina] adds:*
+
+*One of the things I ask my team is what they needed to achieve their objectives.
+Even when I, as their manager, should know what they need,
+it is always helpful to see their answer.
+Sometimes they don't know what they need;
+sometimes they have good ideas that I wouldn't have thought of,
+and sometimes there are interesting dynamics in or between teams.
+Doing this helped me see if we had the resources and the conditions for everyone's career aspirations:
+what things depended only on me,
+what things depended on the team,
+and what things depended on the organization.
+Knowing that allowed me to generate a plan,
+which in turn allowed me to (try to) get the money, hours, and equipment we needed.*
+
 [reviews]: {{'/2023/07/14/performance-review-counterexamples/' | relative_url}}
+[yanina]: https://yabellini.netlify.app/
