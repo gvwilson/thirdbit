@@ -17,12 +17,10 @@ layout: slides
 
 - Researchers are increasingly targeted and harassed online
   - Sexual health, vaccines, climate change, gun violence, …
-- Hollywood's depictions of these threats are unrealistic, to put it mildly
+- Hollywood's depictions of these threats are unrealistic
 - A few simple rules will keep you safe(r)
 
-<div class="center">
-  <img src="hacker.jpg" alt="Hollywood conception of hacker" width="40%"/>
-</div>
+<img src="hacker.jpg" alt="Hollywood conception of hacker" width="40%" class="center"/>
 
 ???
 
@@ -30,27 +28,37 @@ Image credit: Max Bender, https://unsplash.com/photos/XIVDN9cxOVc
 
 ---
 
-## 1. Put on your own mask first
+class: aside
 
-- Companies and universities' rules protect them, not you
-- Much institutional security is performative <a href="https://www.schneier.com/tag/security-theater/"><em>security theater</em></a>
-  - E.g. forcing regular passwords changes makes people choose passwords they can remember easily (which are insecure)
-- We have to look after ourselves
+## You vs. the data you collect
 
-<div class="center">
-  <img src="oxygen-masks.jpg" alt="Oxygen masks" width="40%"/>
-</div>
+- This talk is about keeping *you* safe
+- Keeping the data you collect for your research safe is a different (but related) problem
+  - Though compromising you is often the fastest way to get at that data
 
 ---
 
-## 2. Most attacks aren't online
+## 1. We have to look after ourselves
+
+- Companies and universities' rules protect them, not you
+- Much institutional security is performative [*security theater*](https://www.schneier.com/tag/security-theater/)
+  - E.g. forcing regular passwords changes makes people choose passwords they can remember easily (which are insecure)
+- We have to put on our own masks
+
+<img src="oxygen-masks.jpg" alt="Oxygen masks" width="40%" class="center"/>
+
+---
+
+## 2. The real world matters too
 
 - Most attacks take place offline
 - *Social engineering* is a much bigger threat than digital hacking
   - "Smart spies don't break in: they get jobs as bartenders."
 - Rely on *situational awareness*
   - Be more careful when working on controversial things
-  - De-escalate at other times to avoid security fatigue
+  - De-escalate at other times to avoid *security fatigue*
+  - E.g., if you're studying the atmosphere of Venus,
+    the high school students who wants to talk to you probably actually is a high school student
 
 ???
 
@@ -65,19 +73,21 @@ and what was almost certainly their mother's maiden name.
 
 ## 3. Understand your threat models
 
-- You can't manage risk in an abstract way
 - You probably aren't targeted by state-level actors
   - If you are, there's little you can do
-  - Most attackers have a boss and a budget
-- Effective, practical security comes from simple routine
-  - "I'll put on my seatbelt when I need it" doesn't work
-- You might face one of the following scenarios
+  - But Apple does have [Lockdown Mode](https://support.apple.com/en-us/HT212650)
+- Effective, practical security comes from simple *preventive* routine
+  - "I'll brush my teeth when I have cavities" doesn't work
+
+<img src="dentist.jpg" alt="Dentist visit" width="40%" class="center"/>
 
 ???
 
-<a href="https://www.usenix.org/system/files/1401_08-12_mickens.pdf">James Mickens has observed</a>
+[James Mickens has observed](https://www.usenix.org/system/files/1401_08-12_mickens.pdf)
 that if the Mossad is going to Mossad you,
 you're getting Mossadded and there's not much you can do about it.
+
+Image credit: Lafayett Zapata Montero, https://unsplash.com/photos/boy-in-blue-long-sleeve-shirt-drinking-from-a-feeding-bottle-loBRFqXm1QA
 
 ---
 
@@ -95,7 +105,7 @@ This is the most common threat model for most researchers.
 It's easy to defend against up close (i.e., direct hacking)
 but online harassment is woefully under-policed.
 
-???
+---
 
 ## 3.2 Intimate threats
 
@@ -118,31 +128,73 @@ One of the first things you're given at a shelter is a clean phone.
 
 ## 3.3 Insider threats
 
-- Somebody always has their hands on the hardware
-- Whistleblowers use privileged access for good, but:
-- Access can just as easily be used for profit
-  - Or in response to blackmail
-  - Or for a cause they genuinely believe in
-- One motivation for this talk is to help you safety-check what you're being asked/told to do
+<div class="row">
+  <div class="col-3">
+    <p>
+      <img src="grandmother.jpg" alt="grandmother" width="100%"/>
+    </p>
+  </div>
+  <div class="col-9">
+    <ul>
+      <li>Somebody always has their hands on the hardware</li>
+      <li>Whistleblowers use privileged access for good</li>
+      <li>But access can just as easily be used for profit
+	<ul>
+          <li>Or in response to blackmail</li>
+          <li>Or for a cause they genuinely believe in</li>
+	</ul>
+      </li>
+      <li>One motivation for this talk is to help you safety-check things you are asked/told to do</li>
+    </ul>
+  </div>
+</div>
 
 ???
 
 There's no way to distinguish good motives from malicious ones at the wire level:
 there's no "evil" bit to flip.
 
+image credit: Tadeu Jnr, https://unsplash.com/photos/woman-standing-near-glass-while-looking-camera-zJ7viaRABWQ
+
 ---
 
-## 3.4 Professional threats
+## 3.4 Commercial threats
 
 - Professionals don't care about you: they're in it for the money
 - *Phishing attacks* are a game of percentages
   - If you send a million emails, someone will click the link
-- Spoofing the WiFi at an airport or coffee shop is similar
-- A bike lock's actual purpose is to make it easier for a thief to steal someone else's bike
+  - So will someone if you spoof the WiFi at a coffee shop
+- Anti-virus software and similar measures help with this
+  - A bike lock's real purpose is to make it easier for a thief to steal someone else's bike
+  - You *do* have an anti-virus installed, right?
 
 ???
 
 Professionals are technically savvy but not interested in you personally.
+
+---
+
+class: aside
+
+## Traces
+
+- You have been leaving parts of yourself online for years
+- Existing breaches leaked to the dark web let even low-level attackers see billions of leaked records
+- Check [https://haveibeenpwned.com/](https://haveibeenpwned.com/) to see which you are included in
+- Sign up to find out what services you need to change passwords for
+  - And set up [Google Alerts](https://www.google.com/alerts) for your name, email address, etc.
+
+<img src="pwned.png" alt="Have I been pwned? logo" width="60%" class="center"/>
+
+---
+
+class: aside
+
+## Keep your software up to date
+
+- Yeah, the downloads are annoying…
+- …but many (most?) are security fixes
+- This is especially critical for your browser
 
 ---
 
@@ -153,9 +205,9 @@ Professionals are technically savvy but not interested in you personally.
 - A *password manager* generates strong passwords for you
 - Your *passphrase* should be several words long
   - And *not* a sentence
-- <a href="https://1password.com">1Password</a> is my favorite
-  - No longer recommend LastPass
-- "Who will read my email when I'm dead?"
+- [1Password](https://1password.com) is my favorite
+  - *Not* LastPass, whose breaches have leaked millions of passwords
+- But who will read my email when I'm dead?
 
 ???
 
@@ -206,11 +258,33 @@ But note: not everyone has a phone…
 
 class: aside
 
-## Get two YubiKeys
+## VPNs and Tor, oh my
 
-<div class="center">
-  <img src="yubikeys.png" alt="Yubikeys" width="80%">
-</div>
+- Incognito browsing doesn't store history,
+  but doesn't make you invisible to your ISP
+  - Or the coffee shop owner, or…
+  - SMS messaging (texts) are basically in the clear
+- A *virtual private network* (VPN) connects to a server
+  then has that server connect to other sites on your behalf
+  - [Mullvad](https://mullvad.net/en)
+- [Tor](https://www.torproject.org) routes messages randomly through a network of servers
+  - Protects both terrorists and human rights activists
+- Both reduce some risk, but again: what is your threat model?
+- Please use [Signal](https://www.signal.org/) or [Threema](https://threema.ch/)
+
+???
+
+VPNs protect the institution more than they protect you.
+
+---
+
+class: aside
+
+## YubiKeys
+
+<img src="yubikeys.png" alt="Yubikeys" width="60%" class="center">
+
+- Dedicated password storage with push-button access
 
 ???
 
@@ -221,29 +295,11 @@ One Yubikey goes on your keychain, the other goes in the back of your sock drawe
 
 ---
 
-class: aside
-
-## VPNs and Tor, oh my
-
-- Incognito browsing doesn't store history,
-  but doesn't make you invisible to your ISP (or the coffee shop, or…)
-- A *virtual private network* (VPN) connects to a server
-  then has that server connect to other sites on your behalf
-- <a href="https://www.torproject.org">Tor</a> routes messages randomly through a network of servers
-  - Protects both terrorists and human rights activists
-- Both reduce some risk but, again: what is your threat model?
-
-???
-
-VPNs protect the institution more than they protect you.
-
----
-
 ## 6. Check before opening
 
 - Microsoft Office documents are actually programs
   - Which run automatically when you open them
-  - Institutional emails are basically training us to be hacked
+  - So institutional emails are training us to be hacked
 - The text of a link in email or on a web page can say anything
   - And domain names like paypa1.com are hard to spot
 - If someone from your bank asks you for information to confirm your identity,
@@ -260,13 +316,13 @@ Can you count how many things are wrong with this?
 ## 7. Erase before discarding
 
 - Emptying the trash doesn't erase files
-- Encrypting your hard drive helps, but it's annoying to use
-- Use secure deletion tools like <a href="https://www.bleachbit.org">BleachBit</a>
-  or <a href="https://www.fileshredder.org">FileShredder</a> before discarding any hardware
+- Encrypting your hard drive helps is quick and easy
+  - [BitLocker](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/) on Windows,
+    [FileVault](https://support.apple.com/en-ca/guide/deployment/dep82064ec40/web) on MacOS
+- Use secure deletion tools like [BleachBit](https://www.bleachbit.org)
+  or [FileShredder](https://www.fileshredder.org) before discarding any hardware
 
-<div class="center">
-  <img src="dumpster-diving.jpg" alt="Cover of 'The Art & Science of Dumpster Diving" width="30%"/>
-</div>
+<img src="dumpster-diving.jpg" alt="Cover of 'The Art & Science of Dumpster Diving" width="30%" class="center"/>
 
 ---
 
@@ -276,12 +332,12 @@ class: aside
 
 - Shredding files doesn't affect sites like Dropbox
 - Or things you posted on social media
-- But the EU now has a <a href="https://gdpr.eu/right-to-be-forgotten/">right to be forgotten</a>,
+- But the EU now has a [right to be forgotten](https://gdpr.eu/right-to-be-forgotten/),
   which is a big step in the right direction
+- And California now requires it to be a single-step process
+  - See e.g. [https://globalprivacycontrol.org/](https://globalprivacycontrol.org/)
 
-<div class="center">
-  <img src="gdpr.png" alt="GDPR acronym on European flag" width="40%"/>
-</div>
+<img src="gdpr.png" alt="GDPR acronym on European flag" width="40%" class="center"/>
 
 ---
 
@@ -290,7 +346,8 @@ class: aside
 - Building social media around ad revenue was one of my generation's biggest mistakes
   - Which is saying a lot…
   - "If you don't pay for the service, you're the product"
-- Use a tracking blocker like <a href="https://www.ghostery.com">Ghostery</a>
+- *Stop using ~~Twitter~~ X*
+- Use a tracking blocker like [uBlock Origin](https://ublockorigin.com/)
 - Companies frequently change their terms
   - So check your settings at the start of every semester
   - Or some other biannual event
@@ -301,10 +358,24 @@ class: aside
 
 ## Travel
 
-- Experts recommend using separate devices for work and personal life
+- Some people use separate devices for work and personal life
   - That's increasingly unrealistic
-- You can use a burner phone when traveling internationally
+- Others use a burner phone when traveling internationally
   - But that can arouse suspicion
+
+---
+
+class: aside
+
+## And now, AI
+
+- AI is writing malware and ransomware in industrialized quantities
+  - And language models are really good at predicting human password choices
+- Companies are strip-mining user data to train models
+  - Or to sell to companies that are training models
+  - Remember, Leland Stanford ran a grocery store…
+- You should be able to say "no"
+  - Or to be paid a negotiable rate for its use
 
 ---
 
@@ -339,7 +410,8 @@ Image credit: Diana Wing So, https://unsplash.com/photos/Le1tP8M9flQ
 - The only long-term solution to these problems is legislative
   - Cars and drugs are safe(r) because of liability legislation
   - Which auto and pharma companies still fight against
-- Combating hate speech and radicalization has to be part of the solution too
+- Combating hate speech and radicalization is part of the solution
+- As is end-to-end encryption
 
 <blockquote>
 Man I can't honestly tell if it's just transference because I don't know what to do with my anger and pain about it, but it sure does fucking suck that every alt-right influence the Christchurch shooter cites makes money via Shopify.
@@ -353,10 +425,17 @@ We wear masks to keep others safe, too.
 
 ---
 
-## Conclusion
+## Resources
 
-- Please see <a href="https://www.tallpoppy.com/resources">https://www.tallpoppy.com/resources</a>
-  for more suggestions and tools
+- [Zebra Crossing digital safety checklist](https://github.com/narwhalacademy/zebra-crossing)
+- Consumer Reports' [Security Planner](https://securityplanner.consumerreports.org/)
+- [Security in a Box](https://securityinabox.org/)
+- [How journalists can work from home](https://freedom.press/training/blog/wfh-securely/)
+- [Tall Poppy](https://www.tallpoppy.com/resources)
+
+---
+
+## Thank You
 
 <div class="center">
   <p><img src="../img/gvwilson.png" width="40%"></p>
