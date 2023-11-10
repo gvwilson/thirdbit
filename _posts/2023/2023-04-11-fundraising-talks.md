@@ -6,7 +6,7 @@ year: 2023
 
 If you and your team are looking for an entertaining and informative lunch-and-learn session,
 I am willing to give any of the five talks listed below via video conferencing
-in exchange for a donation of US$200 or more to [Rainbow Railroad][rr],
+in exchange for a donation of US$200 or more to [Rainbow Railroad]({{site.rainbow}}),
 a non-profit group that helps LGBTQI+ people escape state-sponsored violence.
 (I hope to add a sixth talk based on [*Software Design by Example*][sdxjs] by May
 if that would be more interesting.)
@@ -23,7 +23,6 @@ please [reach out](mailto:{{site.author.email}}).
 
 [meeting]: https://docs.google.com/presentation/d/1HSdgVQjq0d3UYh-aA4uWHXxYYpySn_xXwfn_M4Ms8Ts/
 [nwit]: https://neverworkintheory.org/
-[rr]: https://www.rainbowrailroad.org/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sd]: https://third-bit.com/talks/sd4ds/#1
 [se]: https://third-bit.com/talks/greatest-hits/#1

@@ -7,14 +7,14 @@ year: 2023
 <div class="row">
   <div class="col-2">
     <p>
-      <a href="https://www.rainbowrailroad.org/">
+      <a href="{{site.rainbow}}">
         <img src="{{ '/files/rainbow-railroad.jpg' | relative_url }}" alt="Rainbow Railroad logo" class="image centered" >
       </a>
     </p>
   </div>
   <div class="col-10">
     <p markdown="1">
-      [Rainbow Railroad][rainbow] is a global nonprofit organization
+      [Rainbow Railroad]({{site.rainbow}}) is a global nonprofit organization
       that helps at-risk LGTBQI+ people get to safety worldwide.
       Since its founding
       it has helped almost 10,000 people find safety through emergency relocation,
@@ -51,6 +51,5 @@ or email me at [{{site.author.email}}][email].
 
 [carpentries]: https://carpentries.org/
 [email]: mailto:{{site.author.email}}
-[rainbow]: https://www.rainbowrailroad.org/
 [rstudio-ed]: https://education.rstudio.com/trainers
 [t3-ad]: {{ '/t3/' | relative_url }}
