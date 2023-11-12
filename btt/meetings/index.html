@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="repo" content="https://github.com/gvwilson/btt">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../tango.css">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script
+    type="text/javascript"
+    id="MathJax-script"
+    async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <title>Building Tech Together: Meetings</title>
+</head>
+
+  <body>
+    <main>
+      <h1>Meetings</h1>
+
+  <div class="tagline"><p>FIXME</p></div>
+  <ul class="syllabus">
+<li>FIXME</li>
+</ul>
+
+
+      <p>Chapter&nbsp;2 explained how to be productive individually,
+but what about being productive with others?
+The most important thing is running meetings efficiently,
+and the key to doing that is to distinguish between:</p>
+<ul>
+<li>
+<p>Status meetings for keeping everyone up to date on what everyone else is doing
+    and for making simple decisions when the options are well understood.</p>
+</li>
+<li>
+<p>Discussion meetings for weighing alternatives and making complex decisions.</p>
+</li>
+<li>
+<p>Co-working sessions like brainstorming sessions and programming sprints
+    that are devoted to the content of the project rather than its operation.</p>
+</li>
+</ul>
+<h2 id="meetings-status">Status Meetings</h2>
+<p>Every team should have a short weekly status meeting.
+For each meeting,
+create a table in a shared document like the one in <a class="tbl-ref" href="#meetings-log">Table&nbsp;1</a>.
+Everyone adds a few bullet points to their row in the table
+at least half an hour before the meeting starts
+so that the whole team can mull everything over.
+If anyone wants to discuss something,
+they highlight it by adding a comment.
+The meeting moderator then goes through the highlighted items one by one,
+spending no more than a couple of minutes on each;
+anything that requires more time is deferred to a discussion meeting.</p>
+<div class="table" id="meetings-log">
+<table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Progress</th>
+<th>Plans</th>
+<th>Problems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ren</td>
+<td>Parsing OCTL records</td>
+<td>Tag OCTL records in DVC</td>
+<td>Duplicate OCTL tags?</td>
+</tr>
+<tr>
+<td></td>
+<td>Deployed progress bar patch</td>
+<td>Help onboard Silvia</td>
+<td></td>
+</tr>
+<tr>
+<td>Mikka</td>
+<td>Refactored PostgreSQL connector</td>
+<td>#156: handle records with NULL timestamp</td>
+<td>Clarify authorship guidelines</td>
+</tr>
+<tr>
+<td></td>
+<td>Patched database tests</td>
+<td>#171: auto-archive duplicate records</td>
+<td></td>
+</tr>
+<tr>
+<td>Sanjay</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>Jess</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p><caption markdown="1">Table&nbsp;1: Status Update Table</caption></p>
+</div>
+<h2 id="meetings-decision">Decision Meetings</h2>
+<p>Decision meetings are for issues that will have more long-term impact on the project
+or that team members disagree about.
+Since the stakes are higher,
+they need more structure:</p>
+<dl>
+<dt>Decide if there actually needs to be a meeting.</dt>
+<dd>If the only purpose is to share information,
+send a brief email instead:
+most people can read faster than they can speak.</dd>
+<dt>Write an agenda.</dt>
+<dd>If nobody cares enough about the meeting to prepare
+a point-form list of what&rsquo;s to be discussed,
+the meeting probably doesn&rsquo;t need to happen.
+(Note that &ldquo;the agenda is all the open issues in our GitHub repo&rdquo; doesn&rsquo;t count.)</dd>
+<dt>Include timings in the agenda.</dt>
+<dd>Doing this helps prevent early items stealing time from later ones.
+The first estimates with any new group are inevitably optimistic,
+so expect to revise them upward for subsequent meetings.
+But don&rsquo;t have second or third
+meeting just because the first one ran over time: instead, try to figure out
+<em>why</em> it ran over and fix the underlying problem.</dd>
+<dt>Select a moderator.</dt>
+<dd>Put one person in charge of keeping items on time,
+selecting the next person to speak,
+chiding people who are having side conversations or checking email,
+and asking people who are talking too much to get to the point.
+The moderator should <em>not</em> do all the talking:
+in fact,
+the moderator will talk less in a well-run meeting than most other participants.</dd>
+<dt>Prioritize.</dt>
+<dd>Tackle the most important issues first, even if they&rsquo;re the longest,
+because the little ones always take more time than you expect.</dd>
+<dt>Require politeness.</dt>
+<dd>No one gets to be rude,
+no one gets to ramble,
+and if someone goes off topic,
+it&rsquo;s the moderator&rsquo;s job to say, &ldquo;Let&rsquo;s discuss that elsewhere.&rdquo;</dd>
+<dt>No interruptions.</dt>
+<dd>This rule is a special case of the one above,
+since treating other people with respect is the sincerest form of politeness.
+Participants should raise a hand (physically or electronically)
+when they want to speak.
+The moderator should keep track of the queue
+and give each person time in turn.</dd>
+<dt>No distractions.</dt>
+<dd>Side conversations make meetings less efficient
+because nobody can actually pay attention to two things at once.
+More importantly,
+if someone is checking their email or texting a friend during a meeting,
+it&rsquo;s a clear signal that they don&rsquo;t think the speaker or their work is important.
+This doesn&rsquo;t mean a complete ban on technology—people may need accessibility aids
+or be waiting for a call about childcare—but by default
+phones should be face down and laptops should be closed
+during in-person meetings.</dd>
+<dt>Take minutes.</dt>
+<dd>As discussed below,
+someone other than the moderator should take point-form notes
+about the most important information that was shared
+and about every decision that was made or every task that was assigned to someone.</dd>
+<dt>End early.</dt>
+<dd>If the meeting is scheduled for 10:00 to 11:00,
+aim to end at 10:50 to give people a break before whatever they&rsquo;re doing next.</dd>
+</dl>
+<p>As soon as the meeting is over,
+add the minutes to the project&rsquo;s wiki,
+version control repository,
+or shared cloud drive.
+Please don&rsquo;t email minutes to everyone:
+our inboxes are full enough,
+and the more places new team members need to search in order to find things,
+the more likely they are to miss something important.</p>
+<p>Sharing the minutes ensures that:</p>
+<dl>
+<dt>People who weren&rsquo;t at the meeting can follow what&rsquo;s going on.</dt>
+<dd>We all have to juggle tasks from several projects or courses,
+which means that sometimes we can&rsquo;t make it to meetings.
+Checking a shared record is more accurate and more efficient than asking a colleague,
+&ldquo;What did I miss?&rdquo;</dd>
+<dt>Everyone can check what was actually said or promised.</dt>
+<dd>Accidentally or not, people often remember things differently;
+writing them down gives everyone a chance to correct mistakes
+and misinterpretations.</dd>
+<dt>People can be held accountable.</dt>
+<dd>Whoever has to draw up the agenda for the next meeting
+can start with the action items from the previous one.</dd>
+</dl>
+<p>If you would like to become better at sharing information and making decisions,
+there is no better place to start than <span class="bib-ref">[<a class="bib-ref" href="../bib/#Brookfield2016">Brookfield2016</a>]</span>,
+which catalogs fifty different techniques for managing discussions
+and explains when and how each is useful.</p>
+<h2 id="meetings-airtime">Air Time</h2>
+<p>One problem with meetings is that
+some people may talk far more than others.
+Other people may be so accustomed to this
+that they don&rsquo;t speak up even when they have valuable points to make.</p>
+<p>You can combat this
+by giving everyone three sticky notes
+(or coins, or paperclips—anything inedible will do) at the start of the meeting.
+Every time someone speaks,
+they have to give up one sticky note.
+When they&rsquo;re out of stickies,
+they aren&rsquo;t allowed to speak until everyone has used at least one,
+at which point everyone gets all of their sticky notes back.
+This ensures that nobody talks more than three times as often as
+the quietest person in the room,
+which completely changes group dynamics.
+People who have given up trying to be heard suddenly have space to contribute,
+and the overly-frequent speakers realize how talkative they have been.</p>
+<p>Another useful technique is called interruption bingo.
+Draw a grid and label the rows and columns with the participants&rsquo; names;
+each time person A interrupts person B,
+add a tally mark to the appropriate cell.
+Look at the results Halfway through the meeting:
+in most cases it will be clear that one or two people are doing all of the interrupting,
+and that they&rsquo;re always interrupting the same people.
+After that,
+saying, &ldquo;All right, I&rsquo;m adding another tally to the bingo card,&rdquo;
+is usually enough to get them to throttle back.
+If it isn&rsquo;t,
+well,
+you just learned something about your teammate…</p>
+<p>Online meetings provide special challenges for regulating how often individuals speak.
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Troy2018">Troy2018</a>]</span> discusses why online meetings are often frustrating,
+and points out that in most online meetings,
+the first person to speak during a pause gets the floor.
+As a result,
+&ldquo;If you have something you want to say,
+you have to stop listening to the person currently speaking
+and instead focus on when they&rsquo;re gonna pause or finish
+so you can leap into that nanosecond of silence
+and be the first to utter something.
+The format…encourages participants who want to contribute to say more and listen less.&rdquo;</p>
+<p>The solution is to run a text chat beside the video conference
+where people can signal that they want to speak;
+the moderator can then select people from the waiting list.
+Text chat is better than the &ldquo;raise hand&rdquo; feature most video conferencing tools offer
+because the person who wants to speak can indicate why.
+For example,
+they can type &ldquo;question about budget&rdquo;
+rather than just &ldquo;question&rdquo;
+so that the moderator can group related questions together.</p>
+<h2 id="meetings-disruptive">Blowfish and Clams</h2>
+<p><a href="https://coast.noaa.gov/ddb/">NOAA&rsquo;s guide</a> to dealing with disruptive behaviors
+has useful labels and even more useful advice
+for handling people who may send meetings off course.
+For example:</p>
+<blockquote>
+<p><em>Description</em>:</p>
+<p>Blowfish is a very chatty, assertive &ldquo;people person&rdquo;.
+Blowfish wants everyone to feel comfortable and positive about the process.</p>
+<p>They have a tendency to be overly talkative (almost compulsively)
+because they are enthusiastic,
+want to show off,
+or are well-informed and eager to use their knowledge.</p>
+<p>Blowfish can dominate the floor time at the expense of other group members.
+While they frequently have good ideas and strong contributions to make,
+they also ramble,
+monopolize the discussion,
+and do not give others an opportunity to express their thoughts.</p>
+<p><em>Gentle Intervention</em></p>
+<p>Listen actively:
+&ldquo;I&rsquo;d like to capture all your points on the easel chart
+and then get the other participants&rsquo; feedback as well.
+Help me make sure I capture your thoughts correctly.
+Your first point is [pause for response]?&rdquo;</p>
+<p>Label sidetracks and interrupt tactfully
+by clearly saying his or her name:
+&ldquo;Blowfish? Blowfish? Blowfish?
+Is this comment related to what we are discussing
+or should it go into the parking lot?&rdquo;</p>
+<p><strong>Firm Intervention</strong></p>
+<p>Describe the impact:
+&ldquo;Let&rsquo;s use a round-robin technique
+to allow everyone an opportunity to contribute,&rdquo;
+or,
+&ldquo;We are collecting information from everyone right now—it
+is essential to hear other opinions and information&rdquo;</p>
+<p>Redirect the behavior:
+&ldquo;Thank you Blowfish—now let&rsquo;s hear from someone else,&rdquo;
+or,
+&ldquo;Hold that thought for now,
+and let&rsquo;s let Clam finish his thought,&rdquo;
+or,
+&ldquo;Let&rsquo;s ask some others what they think.&rdquo;</p>
+</blockquote>
+    </main>
+    <footer>
+  <a href="../license/">License</a> &middot; <a href="https://github.com/gvwilson/btt">Repository</a>
+</footer>
+
+  </body>
+</html>

@@ -1,286 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
-<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
-<link rel="stylesheet" href="../mccole.css">
-<link rel="stylesheet" href="../codehilite-tango.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="repo" content="https://github.com/gvwilson/btt">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../tango.css">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script
+    type="text/javascript"
+    id="MathJax-script"
+    async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <title>Building Tech Together: Automation</title>
+</head>
 
-    <title>Building Tech Together: Automation</title>
-  </head>
-  <body class="page">
-    <div class="centered title">
-      
-      <h2><a href="../">Building Tech Together</a></h2>
-      <h1>Chapter 16: Automation</h1>
-      
-      <p>
-        <img class="page-logo" src="../files/codebender.svg" alt="logo" />
-      </p>
-    </div>
+  <body>
+    <main>
+      <h1>Automation</h1>
 
-<p>Everyone is talking about <span class="indexref" key="DevOps" markdown="1"><a class="glossref" href="../glossary/#devops" markdown="1">DevOps</a></span> these days,
-even though (or perhaps because) no one can quite agree what it is.  The term
-mostly seems to refer to practices that minimize the time between a developer
-implementing a change and that change being tested, integrated, tested again,
-and deployed.  Those practices have one thing in common: <span class="indexref" key="automation" markdown="1">automating</span> as many steps as possible to make them fast and
-reliable.  You may not be required to do this for your project, but if you have
-time, you should try to do a little—it will save time when you are up against
-the end-of-term deadline, and more importantly, prevent mistakes when you are
-stretched thin.</p>
-<h2>Build Manager</h2>
-<p>The foundation for almost all automation in software development is a
-<span class="indexref" key="build manager" markdown="1"><a class="glossref" href="../glossary/#build_manager" markdown="1">build manager</a></span>—a tool that will
-transform what you've typed into what you want to deliver. The origin build
-manager is <span class="indexref" key="Make;build manager!Make" markdown="1"><a href="https://www.gnu.org/software/make/">Make</a></span>, which was
-invented in 1975 by a summer intern at Bell Labs to compile programs in which
-some modules depended on others. To use it, you create a Makefile that specifies
-the dependencies between the files in your project and the commands needed to
-update them. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="nf">game.exe </span><span class="o">:</span> <span class="n">game</span>.<span class="n">bc</span> <span class="n">graphics</span>.<span class="n">bc</span> <span class="n">utils</span>.<span class="n">bc</span>
-        tx -E -o game.exe game.bc graphics.bc utils.bc
-
-<span class="nf">%.bc </span><span class="o">:</span> %.<span class="n">grace</span>
-        tx -C $&lt;
-</code></pre></div>
-
-<!-- continue -->
-<p>tells Make that <code>game.exe</code> can't be built until <code>game.bc</code>, <code>graphics.bc</code>, and
-<code>utils.bc</code> exist, and that once they do, the way to create <code>game.exe</code> is to run
-the <code>tx</code> compiler with several options.  Below that is a
-<span class="indexref" key="Make!pattern rule" markdown="1"><a class="glossref" href="../glossary/#pattern_rule" markdown="1">pattern rule</a></span> telling Make
-how to create any <code>.bc</code> file from a <code>.grace</code> file with the same root name;
-the cryptic expression <code>$&lt;</code> is Make's way of saying "the first thing the target depends on".</p>
-<p>Make has been used by hundreds of thousands of programmers for more than thirty
-years, but has some <span class="indexref" key="Make!shortcomings" markdown="1">fundamental flaws</span>. The
-first is its syntax, which looks like something produced by a cat dancing on the
-keyboard. The second is that it runs commands by handing them over to whatever
-operating system it is running on, which make portability a constant headache.
-(Quick, should you use <code>rm</code> or <code>del</code> to delete a file?) Third, Make doesn't have
-a debugger: the only way to track down problems in your build configuration is
-to stare at the configuration file until little drops of blood form on your
-forehead.</p>
-<p>I could live with ugly syntax—if Ie kan lurn Inglish speling, Ie kan lurn
-eneething. But the lack of a debugger is a never-ending headache, because real
-build systems aren't just configured: they're programmed. For example, this
-book's Makefile checks the consistency of cross-references and glossary
-entries, makes sure all the bibliography citations are in place, and copies
-files to my web site, and is more complex than many programs I've written.
-Thinking of it as a "configuration" file is a mistake: you <em>have</em> to <span class="indexref" key="automation!as programming" markdown="1">approach builds as a programming problem</span>.</p>
-<p>The current generation of build managers dispense with custom configuration file
-syntax, but most still don't have debuggers. The <code>package.json</code> file used by
-<a href="https://nodejs.org/en/">Node.js</a> serves as both a <span class="indexref" key="package manifest;Node.js!package.json file" markdown="1"><a class="glossref" href="../glossary/#package_manifest" markdown="1">package manifest</a></span> and a build
-file—as the example below shows, some of its entries describe the package or
-its dependencies, while others store commands that can be re-run by typing
-things like <code>npm run test</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;stjs&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Software Design by Example&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;module&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;main&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;ejslint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ejslint inc/*.html *.md */*.md&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;serve&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http-server docs -p 4000 --utc&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;test&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;mocha */test/test-*.js&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;dependencies&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;argparse&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^2.0.1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;caller&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^1.0.1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;csv&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^5.3.2&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">..</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<!-- continue -->
-<p><code>package.json</code> files have two flaws: there is no standard way to write comments
-(since <a class="glossref" href="../glossary/#json" markdown="1">JSON</a> itself doesn't have this) and there is no way
-to express dependencies between tasks, i.e., there's no way to say, "A depends
-on B which depends on C".</p>
-<p><span class="indexref" key="build manager!Snakemake;Snakemake" markdown="1"><a href="https://snakemake.readthedocs.io/en/stable/">Snakemake</a></span> and
-<span class="indexref" key="build manager!Rake;Rake" markdown="1"><a href="https://ruby.github.io/rake/">Rake</a></span> take the idea of "build
-file as data structure" one step further. Their users describe dependencies as
-small Python or Ruby programs respectively, making use of an extensive support
-library that handles dependencies, invokes appropriate compilers, and so on.
-Debugging is still problematic, but at least it's possible. Unfortunately, like
-front-end JavaScript frameworks and static site generators, a simple build tool
-is so simple to create that hundreds have proliferated. As a result, none has
-achieved <a class="glossref" href="../glossary/#critical_mass" markdown="1">critical mass</a>.</p>
-<p>Whatever you choose or are told to use, please <span class="indexref" key="build manager!rules for
-using" markdown="1">follow these rules</span>:</p>
-<dl>
-<dt>Pick something that plays nicely with your other tools.</dt>
-<dd>For example, most Java editors and IDEs integrate with a build tool called
-<span class="indexref" key="build manager!Ant;Ant;Java!build manager" markdown="1"><a href="https://ant.apache.org/">Ant</a></span>,
-which means they can jump directly to compilation errors when they occur.</dd>
-<dt>Be very cautious about adding dependencies.</dt>
-<dd>"Reduce, re-use, recycle" is as important for software as it is for daily
-life, but every library you depend on is one more way for your project to
-accumulate <span class="indexref" key="technical debt" markdown="1">technical debt</span>.  Recent
-research shows that we are all biased toward solving problems by adding
-things instead of taking them away [<a href="../bibliography/#Meyvis2021">Meyvis2021</a>]; checking the
-packages your project depends on before every release and cutting any you
-can will prevent a lot of future headaches.</dd>
-<dt>Always use the build manager—never compile or copy things by hand.</dt>
-<dd>This isn't just for efficiency's sake: if any of the things you need to do
-to get your application up on your web site have to be done by hand, the
-odds are that you'll forget a crucial step right before your end-of-term
-demo.</dd>
-<dt>Always use the build manager—never compile or copy things by hand.</dt>
-<dd>Yes, I'm repeating myself, but this time the reason is different. If you do
-something by hand, one of your teammates might do it differently.  "But it
-works on my machine!" isn't something you want to hear an hour before a
-deadline…</dd>
-</dl>
-<p>A good way to start using a build manager is to create a "version zero" of the
-project. Set up the build and make sure it works even when there isn't anything
-to compile, run, test, or copy. Now add something—anything.  Does the build
-still work? If it does, you're on your way.</p>
-<blockquote>
-<h3>Never break the build</h3>
-<p>Once you have a build system in place, never commit anything to version control
-that breaks the <span class="indexref" key="version control!and build manager;build manager!and
-version control" markdown="1">build</span>. This is one of the golden rules of working in a
-team: if your code won't compile, or doesn't pass whatever automated tests you
-have, then putting it into the repository means putting every other person on
-your team into exactly the same broken state you're in. When you're working on
-your own, it's OK to use version control as a way to transfer files from one
-machine to another, or as a way to back things up at the end of the day. Do
-<em>not</em> carry this habit over to teamwork.</p>
-</blockquote>
-<h2>Checking Style</h2>
-<p>One task you should add to your build system right at the start of the project
-is something that runs a <span class="indexref" key="style checker" markdown="1"><a class="glossref" href="../glossary/#style_checker" markdown="1">style checker</a></span> to make sure your code follows the team's formatting rules.
-(Style checkers are often called <span class="indexref" key="linter" markdown="1"><a class="glossref" href="../glossary/#linter" markdown="1">linters</a></span>
-because an early one called <code>lint</code> looked for problems in C programs.)  Some of
-these rules are as simple as "no method can be longer than 100 lines" or "class
-names must be written in CamelCase".  Modern tools like <span class="indexref" key="style
-checker!ESLint;ESLint" markdown="1"><a href="https://eslint.org/">ESLint</a></span> for <span class="indexref" key="JavaScript!style
-checker" markdown="1">JavaScript</span>, <span class="indexref" key="Checkstyle;style
-checker!Checkstyle" markdown="1"><a href="https://checkstyle.org/">Checkstyle</a></span> for <span class="indexref" key="Java!style
-checker" markdown="1">Java</span>, or <span class="indexref" key="style checker!Black;Black" markdown="1"><a href="https://pypi.org/project/black/">Black</a></span> for <span class="indexref" key="Python!style checker" markdown="1">Python</span>
-can do a lot more: they can find code that is never called, parameters that are
-never used, duplicated code that could be refactored, and a lot more.  Code
-reviews are much more straightforward when the code you're looking at is
-guaranteed to be clean, so if something violates style rules, treat it as a
-broken build.</p>
-<p>Style checkers are just one kind of <span class="indexref" key="static analysis" markdown="1"><a class="glossref" href="../glossary/#static_analysis" markdown="1">static analysis</a></span> tool, since they work by parsing the source
-code for your program rather than by watching the program run. Compilers also do
-a lot of static analysis; the non-fatal warnings they produce are a lot more
-useful than many students realize, and a "zero warnings" policy can prevent a
-lot of subtle bugs.  As we'll see in <a href="../research/">Chapter 22</a>, requiring type
-definitions in code helps programmers understand software as well.</p>
-<h2>Continuous Integration</h2>
-<p>Build tools will do a lot more for you if you adopt some kind of <span class="indexref" key="continuous integration" markdown="1"><a class="glossref" href="../glossary/#ci" markdown="1">continuous integration</a></span> system such as <span class="indexref" key="Travis CI;continuous integration!Travis CI" markdown="1"><a href="https://travis-ci.org/">Travis CI</a></span> or
-<span class="indexref" key="GitHub Actions;continuous integration!GitHub Actions" markdown="1"><a href="https://github.com/features/actions">GitHub
-Actions</a></span>.  These can be set up to run either at regular
-intervals (e.g., every hour or at three a.m.), or every time someone checks into
-version control (which I find more useful). Each time they run, they check a
-fresh copy of the project out of version control, build it, re-run all the
-tests, and post the results to the project's blog, web site, and mailing list.</p>
-<p>Research has proven the benefits of CI [<a href="../bibliography/#Hilton2016">Hilton2016</a>].  It acts as a
-"heartbeat" for the project: as soon as anything goes wrong, everyone knows. It
-also encourages good development practices: if someone checks something in that
-doesn't compile, run, or pass the project's tests, everyone will know very
-quickly. (Funnily enough, after the system has shamed you a couple of times,
-you'll stop checking in broken code…)</p>
-<p>For example, we can check every attempt to push changes to the repository for a
-Python project, and every pull request created for that repository, by putting
-these commands in a file called <code>.github/workflows/check.yml</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Check</span><span class="w"></span>
-
-<span class="n">on</span><span class="o">:</span><span class="w"> </span><span class="o">[</span><span class="n">push</span><span class="o">,</span><span class="w"> </span><span class="n">pull_request</span><span class="o">]</span><span class="w"></span>
-
-<span class="n">jobs</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="n">check</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="n">runs</span><span class="o">-</span><span class="n">on</span><span class="o">:</span><span class="w"> </span><span class="n">ubuntu</span><span class="o">-</span><span class="n">latest</span><span class="w"></span>
-<span class="w">    </span><span class="n">steps</span><span class="o">:</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="o">/</span><span class="n">checkout</span><span class="err">@</span><span class="n">v2</span><span class="w"></span>
-
-<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Setup</span><span class="w"> </span><span class="n">Python</span><span class="w"></span>
-<span class="w">        </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">python</span><span class="err">@</span><span class="n">v1</span><span class="w"></span>
-<span class="w">        </span><span class="k">with</span><span class="o">:</span><span class="w"></span>
-<span class="w">          </span><span class="n">python</span><span class="o">-</span><span class="n">version</span><span class="o">:</span><span class="w"> </span><span class="mf">3.9</span><span class="w"></span>
-
-<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Install</span><span class="w"> </span><span class="n">dependencies</span><span class="w"></span>
-<span class="w">        </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
-<span class="w">          </span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">requirements</span><span class="o">.</span><span class="na">txt</span><span class="w"></span>
-
-<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="n">black</span><span class="w"> </span><span class="o">--</span><span class="n">check</span><span class="w"> </span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="n">flake8</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="n">pytest</span><span class="w"></span>
-</code></pre></div>
-
-<p>From top to bottom:</p>
-<ul>
-<li>
-<p>The <code>name</code> key tells GitHub what this action is called, while the values
-    associated with the <code>on</code> key determine when the action runs.</p>
-</li>
-<li>
-<p>An action can have many jobs (or tasks); in this case there's just one called
-    <code>check</code>.  We want it to run on the latest version of Ubuntu Linux.</p>
-</li>
-<li>
-<p>The <code>uses</code> key tells GitHub to run the steps in another action before
-    running the steps for this one; <code>actions/checkout@v2</code> points at steps in
-    GitHub's own <code>actions</code> repository, but there are lots of others.</p>
-</li>
-<li>
-<p>Similarly, we can use a pre-defined action to set up Python 3.9, and then
-    use <code>pip</code> to install our project's requirements (which are listed in a file
-    called <code>requirements.txt</code>). This ensures that we have a brand-new
-    environment every time we run our checks.</p>
-</li>
-<li>
-<p>We can now run our checks: <code>black</code> to check code style, <code>flake8</code> to look for
-    common errors, and <code>pytest</code> to run our tests. If any of these fail (i.e., if
-    any return a non-zero exit status), the overall action fails and the push or
-    pull request doesn't go through.</p>
-</li>
+  <div class="tagline"><p>Let the computer do the work.</p></div>
+  <ul class="syllabus">
+<li>FIXME</li>
 </ul>
-<p>Configuring actions like these is a programming task like any other, except for
-the fact that you specify what you want in YAML rather than in Python,
-JavaScript, or some other language.  [<a href="../bibliography/#Zampetti2020">Zampetti2020</a>] looks at how
-<em>not</em> to use CI, and can serve as a good checklist of things to avoid.</p>
-<p>If you don't want to go this far, you can add <span class="indexref" key="pre-commit hook;Git!pre-commit hook" markdown="1"><a class="glossref" href="../glossary/#pre_commit_hook" markdown="1">pre-commit</a></span> or <span class="indexref" key="post-commit hook;Git!post-commit hook" markdown="1"><a class="glossref" href="../glossary/#post_commit_hook" markdown="1">post-commit hooks</a></span> to your repository to specify actions to run on your machine before
-and after each commit. When I set these up, I almost always have them run
-commands via the build manager so that I can also run checks whenever I want.</p>
-<blockquote>
-<h3>Getting past the dip</h3>
-<p>Any new tool or practice initially makes you less productive, so if you're up
-against a deadline (as you almost always will be), the safest course of action
-is often to keep doing things the "wrong" way because there isn't time to learn
-how to do it more efficiently.  This is why I think that lab exams should be
-part of project courses, i.e., that you should be required to demonstrate to
-your instructor that you're able to use a build manager or a debugger.  People
-learn how to use version control because they're required to in order to submit
-work for grading; if you are required to submit a screen recording of you using
-particular tools as part of an assignment, it will help you in the long run.</p>
-</blockquote>
 
-  <hr/>
-<div class="centered">
-  <table class="plain footer">
-    <tr>
-      
-      <td><a href="../license/">License</a></td>
-      
-      <td><a href="../conduct/">Code of Conduct</a></td>
-      
-      <td><a href="../bibliography/">Bibliography</a></td>
-      
-      <td><a href="../glossary/">Glossary</a></td>
-      
-      <td><a href="../links/">Links</a></td>
-      
-      <td><a href="https://github.com/gvwilson/buildtogether.tech.git">GitHub</a></td>
-      
-    </tr>
-  </table>
-</div>
+
+      <p>To do</p>
+    </main>
+    <footer>
+  <a href="../license/">License</a> &middot; <a href="https://github.com/gvwilson/btt">Repository</a>
+</footer>
 
   </body>
 </html>
