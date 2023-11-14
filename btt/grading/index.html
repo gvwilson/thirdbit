@@ -36,29 +36,24 @@
       <p>Many organizations make the mistake of focusing on outputs rather than on outcomes <span class="bib-ref">[<a class="bib-ref" href="../bib/#Perri2018">Perri2018</a>]</span>.
 In software teams this often takes the form of measuring progress by the number of features added to a product
 rather than by whether changes to the code are actually making people&rsquo;s lives easier.
-Claims like &ldquo;80% of people only use 20% of a product&rsquo;s features&rdquo; are often optimistic
-(FIXME citation):
-in most cases,
-people learn just enough to accomplish the task at hand
-and only discover more intermittently and accidentally if at all.</p>
-<p>The equivalent mistake in a project course
+The equivalent mistake in a project course
 is to measure progress by how much code you have written
 rather than by how your work compares to the grading scheme.
 Doing this doesn&rsquo;t mean you should only do things that are going to show up on your transcript,
 but keep in mind that your actual product isn&rsquo;t your software:
 it&rsquo;s your grade.</p>
-<p>The first step in any project is therefore to figure out where the goalposts are.
-In a company,
-your boss should tell you what you&rsquo;re responsible for
-and the HR department should tell you what the criteria are
-for retention, promotion, and bonuses.
-Again,
-you shouldn&rsquo;t do only those things,
-but if you&rsquo;re going to drop any or put time elsewhere,
-you should do it with your eyes open.</p>
 <div class="callout">
-<h3>Co-operatives</h3>
-<p>FIXME: explain how they&rsquo;re different</p>
+<h3>Weigh and measure</h3>
+<p>An undergraduate program in software engineering (or anything else) has three purposes:
+to broaden your mind,
+to train you to do something that employers will pay you to do,
+and to give you and those future employers a sense of
+how much you can do and how well you can do it.
+Grades are inaccurate,
+frequently biased,
+and foster a zero-sum world view,
+but while many people are working on alternatives <span class="bib-ref">[<a class="bib-ref" href="../bib/#Blum2020">Blum2020</a>]</span>,
+we are stuck with them for now.</p>
 </div>
 <p>In a project course,
 your grade is typically based on:</p>
@@ -84,9 +79,9 @@ it&rsquo;s very tempting to just put your head down and code.
 Resist—any process is better than chaos,
 and sticking to what the instructor asked for will at least save arguments within the team.</dd>
 <dt>Final deliverables.</dt>
-<dd>This may be a retrospective (Chapter&nbsp;22),
-a demo (Chapter&nbsp;20),
-or the &ldquo;final&rdquo; state of the project (Chapter&nbsp;21).</dd>
+<dd>This may be a retrospective (Chapter&nbsp;24),
+a demo (Chapter&nbsp;22),
+or the &ldquo;final&rdquo; state of the project (Chapter&nbsp;23).</dd>
 <dt>A final exam.</dt>
 <dd>This may focus on the theoretical side of the course
 (&ldquo;Describe the four main functions of Quality Assurance…&rdquo;)
@@ -94,50 +89,6 @@ but smart instructors will include some questions
 to test your understanding of <em>your</em> project
 to determine who actually did the work and who was hitchhiking (Chapter&nbsp;6).</dd>
 </dl>
-<div class="callout">
-<h3>How much of what?</h3>
-<p><span class="bib-ref">[<a class="bib-ref" href="../bib/#Spinellis2007">Spinellis2007</a>]</span> looked at how much content of different kinds
-went into the FreeBSD project in 2006.
-<a class="tbl-ref" href="#evaluation-spinellis-stats">Table&nbsp;1</a> doesn&rsquo;t divide &ldquo;source code&rdquo; into &ldquo;application code&rdquo; and &ldquo;tests&rdquo;,
-but it&rsquo;s still an eye-opener.</p>
-<table id="evaluation-spinellis-stats">
-<caption>Distribution of effort and artefacts in FreeBSD 2006.</caption>
-<thead>
-<tr>
-<th style="text-align: left;">Asset</th>
-<th style="text-align: left;">Source</th>
-<th style="text-align: right;">Size (KB)</th>
-<th style="text-align: right;">Percentage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Issues database</td>
-<td style="text-align: left;">GNATS</td>
-<td style="text-align: right;">711783</td>
-<td style="text-align: right;">30.5%</td>
-</tr>
-<tr>
-<td style="text-align: left;">Source code</td>
-<td style="text-align: left;">C/C++</td>
-<td style="text-align: right;">431519</td>
-<td style="text-align: right;">18.5%</td>
-</tr>
-<tr>
-<td style="text-align: left;">Documentation</td>
-<td style="text-align: left;">troff, DocBook</td>
-<td style="text-align: right;">114450</td>
-<td style="text-align: right;">5.0%</td>
-</tr>
-<tr>
-<td style="text-align: left;">Version history</td>
-<td style="text-align: left;">CVS</td>
-<td style="text-align: right;">1076762</td>
-<td style="text-align: right;">46.0%</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>The list below is a grading scheme for a typical one-semester project course:</p>
 <dl>
 <dt>Prototyping (10%)</dt>
@@ -177,13 +128,13 @@ and re-run the tests with a single command
 And it&rsquo;s no good saying,
 &ldquo;But I can&rsquo;t write tests for my GUI&rdquo;:
 if you design your program the right way
-you can test a lot more of your front end than you might think (Chapter&nbsp;14).</dd>
+you can test a lot more of your front end than you might think (Chapter&nbsp;16).</dd>
 <dt>Demos (10%)</dt>
 <dd>I used to have students prepare a 20-minute talk on a topic related to their project
 and deliver it to their coursemates or a junior class.
 It was a valuable experience,
 but it ate up a lot of time,
-so I switched to having students do 10-minute demos instead (Chapter&nbsp;20).
+so I switched to having students do 10-minute demos instead (Chapter&nbsp;22).
 I usually give students two shots at this:
 one after which their peers give them feedback,
 and a second that&rsquo;s actually graded.
@@ -196,7 +147,7 @@ check in code that breaks the build,
 or are disrespectful
 (Chapter&nbsp;12).</dd>
 <dt>Retrospective (10%)</dt>
-<dd>This summarizes what you learned along the way (Chapter&nbsp;22)
+<dd>This summarizes what you learned along the way (Chapter&nbsp;24)
 so that you and others can avoid any pitfalls this team ran into.</dd>
 <dt>Final state of project (20%)</dt>
 <dd>Some projects carry forward from term to term and team to team,
@@ -211,6 +162,16 @@ I probably spend 10 to 12 hours reading and grading each project in a term.
 I&rsquo;ve thought several times about using peer grading to reduce my load
 and give students some experience of what life is like on the other side of the red pen,
 but I&rsquo;ve never been able to convince myself that it would be fair.</p>
+<div class="callout">
+<h3>Co-operatives</h3>
+<p>FIXME:
+Project courses are often presented as &ldquo;pretend you&rsquo;re starting a company&rdquo;.
+In every case I&rsquo;ve seen,
+these &ldquo;companies&rdquo; follow the Silicon Valley model of a for-profit startup
+trying to attract venture capital funding
+to fuel explosive growth.
+Many alternatives exist Chapter&nbsp;14</p>
+</div>
     </main>
     <footer>
   <a href="../license/">License</a> &middot; <a href="https://github.com/gvwilson/btt">Repository</a>
