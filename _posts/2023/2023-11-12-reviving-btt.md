@@ -8,7 +8,7 @@ I promised myself I wouldn't write any more technical books,
 but it seems a shame to leave my notes on undergraduate team projects
 languishing in a Git repository,
 so I'm going to tidy them up and post them on this site.
-The first few sections are up at <https://third-bit.com/btt/>;
+The first few sections are up at <https://gvwilson.github.io/btt/>;
 I'll blog and toot as others become available.
 Feedback is always appreciated;
 in particular,

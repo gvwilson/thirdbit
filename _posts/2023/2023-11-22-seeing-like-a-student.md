@@ -91,7 +91,7 @@ can the transition from one to the other be made seamless enough to seem inevita
 I don't yet know,
 but I'd [welcome your thoughts](mailto:{{site.author.email}}).
 
-[btt]: {{'/btt/' | relative_url}}
+[btt]: https://gvwilson.github.io/btt/
 [seeing]: https://en.wikipedia.org/wiki/Seeing_Like_a_State
 [small-giants]: https://www.penguinrandomhouse.ca/books/535902/small-giants-by-bo-burlingham/9780143109600
 [tyranny]: https://en.wikipedia.org/wiki/The_Tyranny_of_Structurelessness
