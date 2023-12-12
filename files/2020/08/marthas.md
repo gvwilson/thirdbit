@@ -1,4 +1,7 @@
-# Governance: Martha's Rules
+---
+layout: page
+title: "Martha's Rules"
+---
 
 This project uses [Martha's Rules][marthas-rules] for making decisions.  The
 first section below describes these rules; the second lists voting members of
