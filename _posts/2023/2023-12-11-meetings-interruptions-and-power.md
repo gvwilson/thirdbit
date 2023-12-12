@@ -115,5 +115,5 @@ That question needs to be answered on three levels:
 
 [marthas_rules]: https://journals.sagepub.com/doi/10.1177/088610998600100206
 [noaa_disruptive]: https://coast.noaa.gov/ddb/
-[seeing]: https://third-bit.com/2023/11/22/seeing-like-a-student/
+[seeing]: {{'/2023/11/22/seeing-like-a-student/' | relative_url}}
 [womens_work]: https://en.wikipedia.org/wiki/Women%27s_work
