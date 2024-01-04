@@ -55,7 +55,10 @@ though,
 I think they would help a lot of people.
 I'm always [happy to chat][email].
 
+*Later: see [the next post in this series][fourth-example].*
+
 [email]: mailto:{{site.author.email}}
+[fourth-example]:  {{'/2024/01/04/the-fourth-example/' | relative_url}}
 [erlang]: https://www.erlang.org/
 [gleam]: https://gleam.run/
 [haskell]: https://www.haskell.org/
