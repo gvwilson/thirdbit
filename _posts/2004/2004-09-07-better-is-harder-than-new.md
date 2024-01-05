@@ -3,7 +3,7 @@ title: "Better is Harder than New"
 date: 2004-09-07 16:43:25
 year: 2004
 ---
-<p>I gave notice at Hewlett-Packard last Friday; I've enjoyed working with the Select Access team a lot over the past four years, and have learned a tremendous amount from them, it's time for me to focus on a few personal projects (including Hippo—I really would like to learn how it works).</p>
+<p>I gave notice at Hewlett-Packard last Friday; I've enjoyed working with the SelectAccess team a lot over the past four years, and have learned a tremendous amount from them, it's time for me to focus on a few personal projects (including Hippo—I really would like to learn how it works).</p>
 
 <p>As part of unwinding my commitments at HP, I'm going to resign from <a href="http://www.jcp.org/en/jsr/detail?id=241">JSR-241</a>, the committee that is supposed to be standardizing a new JVM-based scripting language called <a href="http://groovy.codehaus.org/">Groovy</a>.  I would probably have done this anyway; developers have been adding an average of one major new feature every ten days for the past three months, without any direction or discipline that I can see.  It's kind of sad—there was a lot of excitement about the language back in the spring, and despite four of its developers now having book deals, I think it's going to be stillborn.</p>
 

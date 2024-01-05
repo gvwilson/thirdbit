@@ -1,5 +1,5 @@
 ---
-title: "Bottom up and top down meet"
+title: "Bottom Up and Top Down Meet"
 date: 2004-06-26 17:16:19
 year: 2004
 ---

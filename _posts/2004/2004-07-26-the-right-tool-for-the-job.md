@@ -1,5 +1,5 @@
 ---
-title: "The right tool for the job"
+title: "The Right Tool for the Job"
 date: 2004-07-26 19:33:43
 year: 2004
 ---

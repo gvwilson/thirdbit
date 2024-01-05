@@ -1,5 +1,5 @@
 ---
-title: "All work and no play makes a dull team"
+title: "All Work and No Play Makes a Dull Team"
 date: 2004-09-14 17:04:50
 year: 2004
 ---
