@@ -42,7 +42,7 @@ I think these numbers show that:
 3.  Which implies that it's possible do a lot of design with a fairly small language.
 
 As I wrote [a couple of days ago][other-examples],
-I'm not going to do another book in this series.
+I'm not going to write another programming book.
 If I had it all to do over again,
 though,
 I'd think very seriously about doing just one volume in [Lua][lua]:
@@ -108,6 +108,19 @@ And here are the uninteresting bits
 |   136 | Add            |    12 | Is            |     1 | Invert        |
 |    58 | Mult           |    11 | Mod           |     1 | Delete        |
 |    57 | Not            |       |               |       |               |
+
+---
+
+Update: in memory of Niklaus Wirth,
+Dana Sibera has reproduced the classic Apple Pascal poster (see below).
+Like I said,
+I'm not going to write another programming book,
+but if I *did*,
+I'd want to use a language whose grammer is no more complicated than this.
+
+<div class="center">
+  <img src="{{'/files/2024/PascalPosterV1.svg' | relative_url}}" alt="Apple Pascal poster redrawn by Dana Sibera"/>
+</div>
 
 [lua]: https://www.lua.org/
 [other-examples]: {{'/2024/01/03/the-other-examples/' | relative_url}}
