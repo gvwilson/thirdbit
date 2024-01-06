@@ -14,7 +14,6 @@ we are launching a collaborative book project called
 Close Enough for Scientific Work
 in which scientists will show one another how they test their software.
 
-
 Contributions should be aimed at sophomores in science and engineering,
 and each should be sized to fit a one-hour lecture.
 While the format of each entry will vary according to its content,

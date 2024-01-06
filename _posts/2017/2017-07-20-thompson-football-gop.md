@@ -28,7 +28,7 @@ If the worst president in American history (at that time) liked it,
 there had to be something fundamentally wrong with it.
 
 I've thought about that episode in recent months
-each time [Evan McMullin](https://twitter.com/Evan_McMullin) and other "principled conservatives"
+each time Evan McMullin and other "principled conservatives"
 have attacked Donald Trump.
 If your party's leaders can set aside their principles to back someone so truly disgusting,
 isn't it time you questioned not only those leaders but also those principles?
@@ -36,5 +36,5 @@ The left faced a similar agonizing reappraisal in the middle of the last century
 Stalin's show trials, the invasion of Hungary, the Cultural Revolution, and similar events
 led many to realize that there must be something fundamentally wrong with a political philosophy
 that so frequently produced horrors.
-If people like McMullin and [David Frum](https://twitter.com/davidfrum) cannot find the courage to do the same,
+If people like McMullin and David Frum cannot find the courage to do the same,
 their protests are just a game of charades.

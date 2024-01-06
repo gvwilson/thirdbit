@@ -4,7 +4,7 @@ date: 2021-08-24
 year: 2021
 ---
 
-Yesterday I [tweeted](https://twitter.com/gvwilson/status/1429834765616680972):
+Yesterday I tweeted:
 
 > After reviewing three books more-or-less titled "Data Science for Social Scientists",
 > I think what our field desperately needs is "Social Science for Data Scientists".

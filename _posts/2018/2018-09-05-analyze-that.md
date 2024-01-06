@@ -2,7 +2,6 @@
 date: 2018-09-05 03:00:00
 year: 2018
 title: "Analyze That!"
-form: https://docs.google.com/forms/d/e/1FAIpQLSc8-kwE6SmF3o5xRDM_3_sf3hnzYYoAhlyPQl5Hx05gAzskhQ/viewform
 ---
 
 We are conducting a study to find out what questions people who teach computing
@@ -16,7 +15,7 @@ participant, you will be involved in only one of these parts, and your
 participation will take no more than 5-10 minutes.
 
 If you would like to take part, please provide us with your name and email
-address by [filling in this form]({{page.form}}).  We will randomly assign you
+address by filling in this form.  We will randomly assign you
 to one of the two rounds (either collecting questions or ranking questions) and
 contact you shortly thereafter to participate.  You may choose to be entered
 into a draw for a $250 gift card.

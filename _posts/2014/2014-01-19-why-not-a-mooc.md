@@ -15,7 +15,7 @@ original: swc
     We're already trying to revolutionize the way scientists build software and use the web;
     if we try to change the educational system at the same time,
     we'll probably fail to do either.
-    (Our <a href="{{site.training_url}}">instructor training</a> <em>does</em> introduce people
+    (Our instructor training <em>does</em> introduce people
     to modern evidence-based teaching techniques,
     but that's only revolutionary because most universities do such a poor job of teaching researchers how to teach.)
   </li>

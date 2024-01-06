@@ -4,7 +4,7 @@ date: 2021-04-17
 year: 2021
 ---
 
-Most of the early feedback on *[Building Tech Together](https://buildtogether.tech/)* has been positive,
+Most of the early feedback on *Building Tech Together* has been positive,
 but one person has said that I'm over-simplifying some things and dumbing down others.
 I'm not sure what the difference is,
 but my answer is that Newtonian physics isn't a dumbed down version of quantum mechanics or general relativity:

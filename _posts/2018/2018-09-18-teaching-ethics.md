@@ -8,7 +8,7 @@ title: "Teaching Ethics"
 I wrote about the excellent book
 *[What Works for Women at Work](https://isbndb.com/book/9781479872664)*
 and said that it would be required reading if I ever taught another undergraduate software engineering class.
-I later [tweeted](https://twitter.com/gvwilson/status/1041436262924804096):
+I later tweeted:
 
 > I think ethics courses in software engineering are mostly duds because the
 > issues are too abstract for undergrads.  It's easy to say, "I wouldn't steal"

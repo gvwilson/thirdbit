@@ -62,19 +62,15 @@ title: "Things I Didn't Tweet This Month"
     than in the near certainty that people of equal talent have lived and died in cotton fields and sweatshops."
     -- Stephen Jay Gould
 
--   [This tweet](https://twitter.com/juliansimioni/status/1086289665194217472) pretty much sums it up.
-
 -   I'm no good at writing villains.
 
 -   [Rebel Against the Kings of Babylon](https://www.youtube.com/watch?v=2ge7j5wyVvo)
-
--   I almost re-enabled my Twitter account so that I could re-tweet [this](https://twitter.com/SlacktivistFred/status/1096165930365796357).
 
 -   The truth (still) points to itself.
 
 -   You can run JavaScript code using Node from inside RMarkdown documents by using a `{node}` language specifier.
 
--   [Libraries are cool](https://twitter.com/lindsiecanton/status/1098043838621499392).
+-   Libraries are cool.
 
 -   Some day there's going to be an even grittier reboot of *Battlestar Galactica*.
 

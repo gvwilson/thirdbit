@@ -5,8 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  As we announced
-  two weeks ago,
+  As we announced two weeks ago,
   we are setting up an independent foundation to manage Software Carpentry's continued growth.
   This week, we passed an important milestone
   when we signed a fiscal sponsorship agreement with <a href="http://numfocus.org/">NumFOCUS</a>.

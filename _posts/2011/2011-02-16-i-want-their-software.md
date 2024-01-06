@@ -1,7 +1,0 @@
----
-date: 2011-02-16 10:00:00
-year: 2011
-original: swc
-title: I Want Their Software
----
-<p><a href="http://singularityhub.com/2011/02/13/yes-the-khan-academy-is-the-future-of-education-video/">This blog post</a> about<a href="http://www.khanacademy.org/"> the Khan Academy</a> might gush a bit, but the embedded video is a must-watch for anyone who cares about education. I <em>really</em> want their software…</p>

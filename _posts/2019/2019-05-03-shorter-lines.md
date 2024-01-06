@@ -5,7 +5,7 @@ title: "Shorter Lines"
 ---
 
 [Mark Guzdial](https://www.si.umich.edu/people/mark-guzdial)
-wrote [a short series of tweets](https://twitter.com/guzdial/status/1123933230250459136) yesterday
+wrote a short series of tweets yesterday
 on how to reduce long lines at Computer Science office hours,
 which he has expanded in [this post](https://cacm.acm.org/blogs/blog-cacm/236593-how-to-reduce-long-lines-at-cs-office-hours-in-five-tweets/fulltext):
 

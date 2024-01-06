@@ -5,7 +5,8 @@ title: "In the Classroom"
 favorite: true
 ---
 
-My [ten rules for teaching](http://teachtogether.tech/en/#s:index-rules) are too high-level to be immediately useful in the classroom,
+My [ten rules for teaching](http://teachtogether.tech/en/#s:index-rules)
+are too high-level to be immediately useful in the classroom,
 so here are ten others that I hope will help people in the moment as they deliver lessons on programming:
 
 1.  **Have the learners do something interactive every 5-15 minutes.**

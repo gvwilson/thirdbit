@@ -4,7 +4,7 @@ date: 2014-11-10 13:00
 year: 2014
 ---
 <p>
-  Sarah Mei tweeted <a href="https://twitter.com/sarahmei/status/531583722772905985">this</a>
+  Sarah Mei tweeted this
   in response to news that researchers at Rice were getting $11 million
   for a souped-up autocomplete:
 </p>

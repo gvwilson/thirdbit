@@ -30,7 +30,7 @@ they tell me that what I taught them about this stuff
 helped them more than anything they learned from me about Python or version control.
 
 There's a world of difference between helping the poor and working to end poverty;
-while it's easy to [make jokes about critical theory](https://twitter.com/jane_gatsby/status/1327687266202955777),
+while it's easy to make jokes about critical theory,
 asking "how do we not be here?" often leads to better solutions than asking "how do we fix this?"
 Rather than individual strategies for getting to inbox zero,
 I think we should be looking for ways to make those emails never happen in the first place.

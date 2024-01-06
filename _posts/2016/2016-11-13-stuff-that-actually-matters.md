@@ -40,7 +40,7 @@ year: 2016
     Sure:
     Fred Clark's article on
     <a href="http://www.patheos.com/blogs/slacktivist/2016/03/11/this-is-what-abortion-politics-is-for/">abortion politics</a>,
-    or Siyanda Mohutsiwa's analysis of <a href="https://twitter.com/SiyandaWrites/status/796286719058382848">how young white men are being radicalized online</a>
+    or Siyanda Mohutsiwa's analysis of how young white men are being radicalized online
     both teach both useful specifics
     and a way of seeing the world that most programmers have never been exposed to.
     Similarly,

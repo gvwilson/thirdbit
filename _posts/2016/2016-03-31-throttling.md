@@ -58,7 +58,7 @@ year: 2016
 </blockquote>
 <p>
   This,
-  and <a href="https://software-carpentry.org/blog/2016/02/checking-the-balance.html">my analysis of gender balance in the Software Carpentry community</a>,
+  and my analysis of gender balance in the Software Carpentry community,
   has prompted me to re-think <a href="https://gitlab.com/mailman/mailman/issues/119">this Mailman feature request</a>
   that Barry Warsaw filed on my behalf last year:
 </p>

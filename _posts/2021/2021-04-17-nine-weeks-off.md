@@ -7,10 +7,9 @@ year: 2021
 I'm starting a new job on Monday;
 what have I done with the nine weeks since RStudio laid me off without warning?
 
--   Published [a short story](https://onspecmag.wpcomstaging.com/2021/01/23/issue-115-in-the-mail-to-your-home-soon/)
-    that I wrote after my brother died
+-   Published a short story that I wrote after my brother died
     and  "[Ten quick tips for staying safe online](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008563)"
-    that I co-authored with [Danielle Smalls](https://twitter.com/smallperks).
+    that I co-authored with Danielle Smalls.
     (All the work for both was done before I was canned, but seeing them in print was still a nice boost.)
 
 -   Wrapped up *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*:

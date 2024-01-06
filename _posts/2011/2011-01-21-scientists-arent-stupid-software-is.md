@@ -4,9 +4,9 @@ year: 2011
 original: swc
 title: "Scientists Aren't Stupid: Software Is"
 ---
-<p>Last night, <a href="http://techspot.zzzeek.org/">Mike Bayer</a> (<a href="http://twitter.com/zzzeek">@zzzeek</a>) tweeted:</p>
+<p>Last night, <a href="http://techspot.zzzeek.org/">Mike Bayer</a> tweeted:</p>
 <blockquote><p>Why are "scientists", who are so dramatically smarter than me, such dumdums when it comes to basic programming skills: <a rel="nofollow" href="http://bit.ly/fWPtjW" target="_blank">http://bit.ly/fWPtjW</a></p></blockquote>
-<p>Taavi Burns (<a href="http://twitter.com/jaaaarel">@jaaaarel</a>) replied:</p>
+<p>Taavi Burns (@jaaaarel) replied:</p>
 <blockquote><p>Ask @gvwilson of @swcarpentry?</p></blockquote>
 <p>So here I am, and what I want to say is:</p>
 <blockquote><p>Scientists aren't stupid: software is.</p></blockquote>

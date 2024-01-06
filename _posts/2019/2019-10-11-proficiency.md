@@ -4,7 +4,7 @@ date: 2019-10-11 13:29:00
 year: 2019
 ---
 
-Edwin Thoen recently tweeted [a short video](https://twitter.com/edwin_thoen/status/1182563623077584896)
+Edwin Thoen recently tweeted a short video
 showing how to use multiple cursors in the RStudio IDE.
 It's a powerful little feature that most users don't know about,
 and seeing it reminded me of a conversation earlier this week with [Andreas Stefik](https://web.cs.unlv.edu/stefika/)
@@ -56,7 +56,7 @@ It was partly a safety concern (you don't really appreciate your eyebrows 'til t
 but they also wanted us to be able to focus on what we were trying to accomplish
 and not be distracted by the mechanics of accomplishing it.
 
-Watching [Thoen's video](https://twitter.com/edwin_thoen/status/1182563623077584896)
+Watching Thoen's video
 makes me wonder how many seconds programmers lose every minute
 doing things that their tools could do for them,
 and how many minutes they lose every hour because doing those things by hand distracts them from

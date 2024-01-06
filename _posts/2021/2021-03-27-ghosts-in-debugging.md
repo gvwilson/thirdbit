@@ -4,7 +4,7 @@ date: 2021-03-27
 year: 2021
 ---
 
-A couple of days ago I [tweeted](https://twitter.com/gvwilson/status/1375164960955850754):
+A couple of days ago I tweeted:
 
 > I would trade my left nostril for a decent book on debugging.
 > (I realize that's not much of an incentive for potential authors, but I hope it'll be taken as a sign of how desperate I am.)
@@ -32,7 +32,7 @@ A quick check on an online bookstore tells me that
 in the time it's taken our profession to write six books on debugging,
 we have written over a hundred on compilers
 and a roughly equal number on operating systems.
-Again [on Twitter](https://twitter.com/gvwilson/status/1375177406529613827):
+Again on Twitter:
 
 > I used to think the reason there are several hundred books on parsers and compilers in print
 > but only a handful on debugging stems in part from the fact that debugging doesn't have a mathematical foundation
@@ -44,7 +44,7 @@ Again [on Twitter](https://twitter.com/gvwilson/status/1375177406529613827):
 > but I don't know of any that watch the order in which you write things and says,
 > "Maybe you should have written *this* before *that*."
 
-[Mark Guzdial replied](https://twitter.com/guzdial/status/1375221594457583616):
+Mark Guzdial replied:
 
 > I have a hypothesis that we can't teach debugging.
 > We can teach a debugging process as rules ("When you see this, do that"), but we can't teach [students] to be successful debuggers.

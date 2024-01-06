@@ -6,8 +6,7 @@ original: swc
 ---
 <p>
   We got word a few days ago that our proposal to the
-  NSF's <a href="https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=504976">Improving
-  Undergraduate STEM Education</a> program had been rejected.
+  NSF's <a href="https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=504976">Improving Undergraduate STEM Education</a> program had been rejected.
   The panel summary agreed that software training is a good idea,
   but were not convinced about our plans to shift from training grad students to undergrads. 
   In particular,

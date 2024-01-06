@@ -55,7 +55,7 @@ year: 2015
     though in the end <a href="{{'/2015/11/09/daddy-why-dont-you-ever-laugh/' | relative_url}}">I decided not to attend</a>.
   </li>
   <li>
-    Revise <a href="http://sensibleadventures.com/works-in-progress/madica/"><em>Madica</em></a>:
+    Revise <em>Madica</em>:
     nope.
     I feel bad about this–I really wanted to get it ready by Christmas.
   </li>
@@ -86,8 +86,8 @@ year: 2015
     but need to find something longer-term by the end of June.)
   </li>
   <li>
-    Finish <a href="http://sensibleadventures.com/works-in-progress/madica/"><em>Madica</em></a>
-    and <a href="http://sensibleadventures.com/works-in-progress/beneath-coriandel/"><em>Beneath Coriandel</em></a>.
+    Finish <em>Madica</em>
+    and <em>Beneath Coriandel</em>.
   </li>
   <li>
     Train at least half a dozen people to run Software Carpentry instructor training.

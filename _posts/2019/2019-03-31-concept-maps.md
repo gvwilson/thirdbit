@@ -5,7 +5,7 @@ title: "Concept Maps"
 ---
 
 Inspired by [Daniela Soto](http://www.dennislab.org/daniela-soto)'s awesome
-[concept map of the Carpentries' instructor training](https://twitter.com/dcsoto_cl/status/1111447971550228480),
+concept map of the Carpentries' instructor training,
 I've drawn some for [the lessons I've been writing for RStudio](https://blog.rstudio.com/2019/02/28/rstudio-instructor-training/).
 Whatever else I've learned,
 it confirms that my startup colleagues in the 1990s made the right decision

@@ -39,6 +39,6 @@ original: swc
   – John von Neumann, in a letter to Marston Morse, April 23, 1952
 </p>
 <p>
-  From <a href="https://twitter.com/openscience/status/433288591327113216">a tweet by Chris Boshuizen</a>.
+  From a tweet by Chris Boshuizen.
 </p>
 <img src="{{'/files/2014/03/von-neumann-letter.jpg' | relative_url}}" alt="Copy of von Neumann Letter" class="centered">

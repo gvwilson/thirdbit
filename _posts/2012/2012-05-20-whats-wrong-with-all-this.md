@@ -4,7 +4,7 @@ year: 2012
 original: swc
 title: What's Wrong With All This?
 ---
-<p>Titus Brown <a href="https://twitter.com/ctitusbrown/status/200937511999123456">doesn't like this web site</a>. He's OK with the content (I think), but he finds it awkward to use, and while I don't feel as strongly as he does, I accept that we have outgrown WordPress. The question is, what should we use instead? We need a lot more than just a blog and some static web pages, but learning management systems like <a href="http://moodle.org/">Moodle</a> weren't built with our ad hoc model in mind (they're really teaching administration systems), and newer tools like <a href="http://p2pu.org">P2PU</a> feel like a step backward. I started thinking about requirements for a replacement back in April, but got distracted. Here's a longer look.</p>
+<p>Titus Brown doesn't like this web site. He's OK with the content (I think), but he finds it awkward to use, and while I don't feel as strongly as he does, I accept that we have outgrown WordPress. The question is, what should we use instead? We need a lot more than just a blog and some static web pages, but learning management systems like <a href="http://moodle.org/">Moodle</a> weren't built with our ad hoc model in mind (they're really teaching administration systems), and newer tools like <a href="http://p2pu.org">P2PU</a> feel like a step backward. I started thinking about requirements for a replacement back in April, but got distracted. Here's a longer look.</p>
 <h2>Who are we?</h2>
 <ul>
 <li>A <em>learner</em> learns new tools and skills.</li>

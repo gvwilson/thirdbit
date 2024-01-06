@@ -3,8 +3,7 @@ title: "Choosing Sides"
 date: 2005-12-21 10:16:28
 year: 2005
 ---
-<p>Bruce Schneier, on revelations that <a href="http://www.schneier.com/blog/archives/2005/12/the_security_th.html">President
-Bush authorized the NSA to engage in domestic spying</a>:</p>
+<p>Bruce Schneier, on revelations that <a href="http://www.schneier.com/blog/archives/2005/12/the_security_th.html">President Bush authorized the NSA to engage in domestic spying</a>:</p>
 
 <blockquote>
 Any debate over laws is predicated on the belief that the

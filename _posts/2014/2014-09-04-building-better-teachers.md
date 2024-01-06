@@ -196,7 +196,7 @@ original: swc
   Which is,
   to my embarrassment,
   a pretty accurate description of what Software Carpentry instructors have to do as well.
-  The <a href="{{site.training_url}}">training course</a> that I run
+  The training course that I run
   covers the basics of educational psychology and instructional design,
   but <em>doesn't</em> walk trainees through our existing material
   or how to deliver it.

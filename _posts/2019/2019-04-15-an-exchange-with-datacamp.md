@@ -7,7 +7,7 @@ favorite: true
 
 I haven't spoken publicly about my experience with DataCamp
 out of respect for Kara Woo's privacy.
-Now that she has so bravely [come forward](https://twitter.com/kara_woo/status/1114229065509003264),
+Now that she has so bravely come forward,
 I can say that after I was fired in June 2018,
 DataCamp offered me the equivalent of a month's pay
 if I would sign a separation agreement that included a non-disparagement clause.
@@ -39,7 +39,7 @@ so I declined the agreement and ended the exchange there.
 *Please also see [this post](https://dhavide.github.io/a-note-to-our-commuity-on-building-trust.html)
 by my friend and colleague [Dhavide Aruliah](https://dhavide.github.io/),
 who was fired the same day as me,
-[this tweet](https://twitter.com/noamross/status/1116709899159916544)
+this tweet
 [and post](https://rud.is/b/2019/04/12/a-note-to-our-community-on-how-to-hide-your-content-from-search-engines/)
 for more on DataCamp's attempt to bury their belated acknowledgment of the assault,
 and [my post from ten days ago]({{ '/2019/04/05/the-worst-behavior/' | relative_url }}).*

@@ -106,9 +106,8 @@ My second is to make more intensive use of graphics *with* learners
 rather than *at* them (as slides).
 Many laptops already have touchscreens;
 as soon as Apple produces a MacBook that supports fingerpainting
-it will be feasible to add [new types of exercises][dragnet] to collaborative online classes,
+it will be feasible to add new types of exercises to collaborative online classes,
 and I'd like to start playing with that now.
 
 [rstudio-instructors]: http://education.rstudio.com/trainers
 [queueing]: {{'/2019/09/27/learning-queue/' | relative_url}}
-[dragnet]: {{site.links.dragnet}}

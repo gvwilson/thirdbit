@@ -36,7 +36,7 @@ interleaving different material,
 having students write a one-minute thesis or draw a concept map,
 making the assessment criteria clear,
 setting aside time for self-explanation and peer explanation—none of these should be new to
-anyone who has been through [our instructor training course]({{site.training_url}}),
+anyone who has been through our instructor training course,
 but Lang does an excellent job of organizing them
 and connecting them back to research and theory.
 

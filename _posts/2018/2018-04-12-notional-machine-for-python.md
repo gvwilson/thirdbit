@@ -5,8 +5,7 @@ year: 2018
 ---
 
 [Mark Guzdial](http://computinged.wordpress.com) was kind enough
-to take [a few](https://twitter.com/gvwilson/status/982233353125376000)
-[tweets](https://twitter.com/guzdial/status/982293974131007489) last week
+to take a few tweets last week
 to try to explain the idea of a "notional machine" to me.
 If I understand correctly,
 it's a competent practitioner's mental representation

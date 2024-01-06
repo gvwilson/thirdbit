@@ -3,7 +3,7 @@ title: "Teaching Computational Thinking on the Web in Just Two Hours"
 date: 2009-09-16 12:34:15
 year: 2009
 ---
-Someone once said, "Never set yourself achievable goals." I'm willing to bet he died a lonely, bitter man, and I have no desire to follow in his footsteps. However, I <em>do</em> have to figure out what the <a href="https://software-carpentry.org">Software Carpentry</a> course should try to teach scientists about programming for the web. I have to teach something: getting data from the web, and making data and useful programs accessible to others, is high on everyone's wish list, and crucial to being a more effective scientist.
+Someone once said, "Never set yourself achievable goals." I'm willing to bet he died a lonely, bitter man, and I have no desire to follow in his footsteps. However, I <em>do</em> have to figure out what the Software Carpentry course should try to teach scientists about programming for the web. I have to teach something: getting data from the web, and making data and useful programs accessible to others, is high on everyone's wish list, and crucial to being a more effective scientist.
 
 But even basic web programming would be a course unto itself. At best, there's room in Software Carpentry for two hours of lecture and four hours of practical work. Students will be comfortable with strings, lists, loops, conditionals, and functions; they will have just met regular expressions, XML, and databases, and their grasp of these topics will still be pretty shaky. It's hard to cover even simple CGI programming with those constraints, and morally questionable as well—there are just too many ways they could leave their machines open to compromise.
 

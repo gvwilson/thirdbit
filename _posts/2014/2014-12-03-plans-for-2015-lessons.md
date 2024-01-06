@@ -5,10 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  The previous
-  three
-  posts
-  in this set looked at instructor training,
+  The previous three posts in this set looked at instructor training,
   workshop organization,
   and the twin challenges of mentorship and assessment.
   In this final one,

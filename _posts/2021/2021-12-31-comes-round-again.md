@@ -17,7 +17,7 @@ Another year over; what have I learned?
   It took a lot longer than originally planned,
   but I'm very grateful to have worked with Damien, Kate, Luke, Joel, and Charlotte.
 
-- [Danielle Smalls](https://twitter.com/smallperks) and I published
+- Danielle Smalls and I published
   "[Ten quick tips for staying safe online](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008563)".
 
 - RStudio laid me off.

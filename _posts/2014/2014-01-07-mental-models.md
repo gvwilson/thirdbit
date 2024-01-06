@@ -58,7 +58,7 @@ original: swc
   but there are things we can do.
   One is to become familiar with what we <em>do</em> know:
   we use <a href="http://www.amazon.com/How-Learning-Works-Research-Based-Principles/dp/0470484101/">this book</a>
-  in our <a href="{{site.training_url}}">instructor training course</a>,
+  in our instructor training course,
   and most people seem to learn a lot from it.
   Another is to help people who are doing this kind of research
   by taking part in studies

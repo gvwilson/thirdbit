@@ -4,7 +4,7 @@ date: 2017-09-18 05:00:00
 year: 2017
 ---
 
-I woke up this morning to [a really depressing thread on Twitter](https://twitter.com/PeterGleick/status/909588979661574145)
+I woke up this morning to a really depressing thread on Twitter
 from the Pacific Institute's Peter Gleick.
 He went looking for the data on climate change that used to be on the US Geological Survey's website.
 In December 2016,

@@ -58,7 +58,7 @@ year: 2017
     and went swimming,
     and when my time comes,
     I hope this is what I remember.
-  - Finished rewriting *[The Cloudherd and the Tiger's Boy][ctb]*.
+  - Finished rewriting *The Cloudherd and the Tiger's Boy*.
     My daughter thinks it's still kind of boring–it certainly needs a better villain.
 - August
   - Nazis marched in Charlottesville and killed a young woman.
@@ -83,7 +83,7 @@ year: 2017
   - My wife passed her PMP exam on the first try.
     She's pretty awesome too.
 - November
-  - Finished revising *[The Bookster's Apprentice][ba]*.
+  - Finished revising *The Bookster's Apprentice*.
     My daughter thinks it's OK.
   - My best friend was told that he has terminal cancer.
     I knew there would be a last game of chess some day;
@@ -94,7 +94,5 @@ year: 2017
     The world is darker than it used to be;
     I hope I'm strong enough for what comes next.
 
-[ba]: http://sensibleadventures.com/
 [bpco]: https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/
-[ctb]: http://sensibleadventures.com/
 [jsrc]: {{'/js4ds/' | relative_url}}

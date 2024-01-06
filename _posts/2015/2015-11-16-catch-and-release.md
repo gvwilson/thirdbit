@@ -12,10 +12,8 @@ year: 2015
   because they never had a chance to see what it used to look like.
 </p>
 <p>
-  As I was writing up
-  <a href="https://software-carpentry.org/blog/2015/11/miscellaneous-projects.html">this list of projects</a>
-  for <a href="https://software-carpentry.org">Software Carpentry</a>,
-  and revising <a href="http://www.slideshare.net/gvwilson/how-to-become-rich-famous-and-popular-while-using-your-programming-skills-to-make-the-world-a-better-place">this talk</a>,
+  As I was writing up this list of projects for Software Carpentry,
+  and revising this talk,
   I started to wonder if was why so much of academic research and Silicon Valley alike seems so… small.
   Universities and corporate research labs are supposed to be places where ideas can mature,
   but as researchers' and entrepreneurs' cycle times shrink their ideas do too,

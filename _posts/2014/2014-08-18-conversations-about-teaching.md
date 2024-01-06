@@ -7,12 +7,7 @@ archives:
 ---
 <p>
   Over the last few days,
-  there have been
-  four
-  related
-  discussion
-  threads
-  on the Software Carpentry mailing lists
+  there have been four related discussion threads on the Software Carpentry mailing lists
   about what we use, what we teach, and how we teach it.
   Together,
   they highlight what we're doing well and where we need to do better.
@@ -171,7 +166,7 @@ archives:
 </p>
 <p>
   As this discussion was going on,
-  Ethan White <a href="https://twitter.com/ethanwhite/status/499715179945672704">tweeted</a>:
+  Ethan White tweeted:
 </p>
 <blockquote>
   <p>

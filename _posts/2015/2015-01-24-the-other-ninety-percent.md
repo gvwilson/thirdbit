@@ -57,8 +57,7 @@ original: swc
       "<a href="https://en.wiktionary.org/wiki/RTFM">RTFM</a>, noob,"
       and if being thick-skinned is a prerequisite for getting help somewhere,
       that "somewhere" isn't really helpful.
-      Cf. <a href="http://www.curiousefficiency.org/posts/2015/01/abuse-is-not-ok.html">Nick Coghlan's piece on abusing contributors</a>,
-      neatly summarized by <a href="https://twitter.com/nslater/status/558342559010127872">Noah Slater</a>.)
+      Cf. <a href="http://www.curiousefficiency.org/posts/2015/01/abuse-is-not-ok.html">Nick Coghlan's piece on abusing contributors</a>.)
     </p>
   </li>
 </ol>

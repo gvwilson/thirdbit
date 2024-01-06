@@ -110,7 +110,7 @@ Traceback (most recent call last):
 AttributeError: module 'b' has no attribute 'Q'
 ```
 
-*Update: see [this thread](https://twitter.com/Iguananaut/status/1316048236386365447) from EM Bray.*
+*Update: in a thread on Twitter from EM Bray.*
 
 Node is more consistent.
 Suppose I have two JavaScript files `a.js` and `b.js`:

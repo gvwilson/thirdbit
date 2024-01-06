@@ -6,7 +6,7 @@ title: "Not on the Shelves (2019 Edition)"
 
 I made progress on two book projects last year:
 *[Teaching Tech Together](http://teachtogether.tech)* is now "done",
-and *[JavaScript versus Data Science](https://software-tools-in-javascript.github.io/js-vs-ds/)*
+and *[JavaScript versus Data Science]({{'/js4ds/' | relative_url}})*
 should be out some time in February.
 That means it's time to update my list of
 [books that don't yet exist]({{'/not-on-the-shelves/' | relative_url}}),
@@ -29,7 +29,7 @@ then elaborated with further lessons on using the web to share data,
 cleaning data,
 and creating reproducible workflows.
 
-Status: [working on it](https://merely-useful.github.io/still-magic/en/).
+Status: [working on it](https://merely-useful.tech/py-rse/).
 
 ## Probably Approximately Correct: A Guide to Testing Numerical Software
 
@@ -82,7 +82,7 @@ it shows readers how to build standard software engineering tools
 like style checkers, unit testing frameworks, and version control systems
 using modern JavaScript.
 
-Status: sidetracked by *[JS vs DS](https://software-tools-in-javascript.github.io/js-vs-ds/)*.
+Status: sidetracked by *[JS vs DS]({{'/js4ds/' | relative_url}})*.
 
 ## Sex and Drugs and Guns and Code: What Everyone in Tech Needs to Know About Politics, Economics, and Power
 

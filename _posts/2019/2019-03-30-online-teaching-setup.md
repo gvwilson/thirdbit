@@ -82,7 +82,7 @@ I don't know how well this setup would work for a programming class,
 but I'm keen to try.
 RStudio Server Pro will allow people to share live coding sessions,
 and so will other tools like [Jupyter](https://jupyterhub.readthedocs.io/en/stable/).
-I'm not slated to teach R, Python, or [JavaScript](https://software-tools-in-javascript.github.io/js-vs-ds/) in the next few months,
+I'm not slated to teach R, Python, or JavaScript in the next few months,
 but when I am,
 I'd like to give this a try.
 

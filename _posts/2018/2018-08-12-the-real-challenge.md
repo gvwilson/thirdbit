@@ -4,14 +4,14 @@ year: 2018
 title: The Real Challenge
 ---
 
-A recent conversation with [Toby Hodges](https://github.com/tobyhodges) reminded me of
+A recent conversation with Toby Hodges reminded me of
 [this post last year by Anil Dash](https://medium.com/make-better-software/against-the-whiteboard-f1df0013954f),
 which in turn reminded me of this Twitter thread:
 
-- "Hello, my name is David. I would fail to write bubble sort on a whiteboard. I look code up on the internet all the time. I don't do riddles." - [David Heinemeier Hansson](https://twitter.com/dhh/status/834146806594433025)
-- "Hi, I'm Simon. I helped create Django and I've never created a Django management command without copying and pasting one that already exists." - [Simon Willison](https://twitter.com/simonw/status/835975770740670464)
+- "Hello, my name is David. I would fail to write bubble sort on a whiteboard. I look code up on the internet all the time. I don't do riddles." - David Heinemeier Hansson
+- "Hi, I'm Simon. I helped create Django and I've never created a Django management command without copying and pasting one that already exists." - Simon Willison
 - …several others…
-- ""Hi. I'm Estelle. I've been developing websites since 1998. As a woman in tech I don't announce my code shortcomings for fear of consequences." - [Estelle Weyl](https://twitter.com/estellevw/status/836228371361091584)
+- ""Hi. I'm Estelle. I've been developing websites since 1998. As a woman in tech I don't announce my code shortcomings for fear of consequences." - Estelle Weyl
 
 Increasingly, I think that the real obstacle to more openness in scientific research
 isn't the lack of tooling but the fear of consequences.

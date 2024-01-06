@@ -6,7 +6,7 @@ original: swc
 ---
 <p>
   A little over a year ago,
-  we blogged about jugyokenkyu,
+  we blogged about <em>jugyokenkyu</em>,
   or "lesson study",
   a bucket of practices that Japanese teachers use to hone their craft,
   from observing each other at work

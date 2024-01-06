@@ -35,7 +35,7 @@ I want debuggers and linters and a package manager
 and I don't want to have to write any of them.
 
 Which brings us to Javascript,
-and more specifically, to [this tweet][original-tweet]:
+and more specifically, to this tweet:
 
 > Has anyone built a replacement for Jekyll in JS that provides React-like syntax and semantics?
 
@@ -79,7 +79,6 @@ inevitable.
 [jekyll]: https://jekyllrb.com/
 [mistakes]: {{'/2015/12/06/just-keep-swimming/' | relative_url}}
 [numjs]: {{'/2017/05/22/numerical-javascript/' | relative_url}}
-[original-tweet]: https://twitter.com/gvwilson/status/925714333392289793
 [react]: https://reactjs.org/
 [stefik]: http://neverworkintheory.org/2014/01/29/stefik-siebert-syntax.html
 [swc]: https://software-carpentry.org

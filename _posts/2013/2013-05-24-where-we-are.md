@@ -129,7 +129,7 @@ John Cook posted <a href="http://blog.codekills.net/">this</a> to his widely-rea
   as well as "what".
 </p>
 <p>
-  We also run an <a href="{{site.training_url}}">online training course</a>
+  We also run an online training course
   for would-be instructors.
   It takes 2-4 hours/week of their time for 12 weeks,
   and introduces them to the basics of educational psychology,

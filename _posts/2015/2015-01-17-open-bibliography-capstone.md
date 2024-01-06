@@ -5,9 +5,7 @@ year: 2015
 original: swc
 ---
 <p>
-  I started working on
-  a short capstone example
-  last month
+  I started working on a short capstone example last month
   to show learners how to get a badly-formatted reference list out of an Excel spreadsheet
   and into a relational database
   so that it would be easy to answer questions like, "Who has co-authored papers with whom?"

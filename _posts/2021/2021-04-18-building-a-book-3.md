@@ -4,9 +4,9 @@ date: 2021-04-17
 year: 2021
 ---
 
-The [previous post in this series](https://third-bit.com/2021/03/10/building-a-book-2/)
+The [previous post in this series]({{'/2021/03/10/building-a-book-2/' | relative_url}})
 described the template I'm using for [*Software Design by Example Using JavaScript*][sdxjs]
-and *[Building Tech Together][bst]*.
+and *Building Tech Together*.
 Here's more detail on the helper scripts I had to write
 to work around Jekyll's inadequacies,
 in the order in which they run during a full build.
@@ -98,6 +98,5 @@ I also have:
 1.  `show-pages.py`:
     display the number of pages in each chapter of the final PDF.
 
-[bst]: https://bst.tech/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [yaml-bug]: https://stackoverflow.com/questions/66320774/how-to-pre-define-links-in-jekyll-config-yml-using-kramdown-links-def-options

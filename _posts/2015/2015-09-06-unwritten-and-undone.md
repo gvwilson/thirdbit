@@ -57,7 +57,7 @@ year: 2015
     <p>
       <em>Teaching Software Carpentry</em>:
       a short guide to evidence-based teaching
-      using <a href="https://software-carpentry.org">Software Carpentry</a> as a running example.
+      using Software Carpentry as a running example.
       (In order to write this I'd first have to upgrade the Software Carpentry lessons
       to use more of what I've learned and preached in the last five years,
       but I should do that anyway.)
@@ -71,7 +71,7 @@ year: 2015
 <ol>
   <li>
     <p>
-      A <a href="{{site.links.browsercast}}"><em>web-native replacement for screencasts</em></a>.
+      A <em>web-native replacement for screencasts</em>.
       Various prototypes have come <em>so</em> close to being usable…
     </p>
   </li>

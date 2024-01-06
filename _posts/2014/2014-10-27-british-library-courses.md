@@ -5,7 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  I had a chance to catch up with <a href="https://twitter.com/j_w_baker">James Baker</a> at the British
+  I had a chance to catch up with James Baker at the British
   Library on Friday, and discovered that they're running an amazing
   series of short classes on digital skills for librarians.  With his
   permission, I've posted their outline below, along with a few

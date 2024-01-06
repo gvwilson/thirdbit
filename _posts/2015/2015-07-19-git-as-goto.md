@@ -5,7 +5,7 @@ year: 2015
 ---
 <p>
   I am not a fan of Git.
-  While <a href="https://twitter.com/jiffyclub/status/622622918854381568">some people may find it intuitive</a>,
+  While some people may find it intuitive,
   I consider it one of the most complicated programs I have ever tried to teach.
   Some of that complexity comes from its inconsistent command syntax and
   <a href="http://git-man-page-generator.lokaltog.net/">needless jargon</a>,

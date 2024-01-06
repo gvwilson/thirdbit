@@ -3,7 +3,7 @@ title: "DemoCamp 6 redux"
 date: 2006-05-31 06:43:47
 year: 2006
 ---
-Last night's <a href="http://barcamp.org/TorCampDemoCamp6">DemoCamp 6</a> was a little bumpier than usual: the organizer, <a href="http://davidcrow.ca/">David Crow</a>, was unwell, so <a href="http://www.radiantcore.com/">Joey</a> and <a href="http://www.radiantcore.com/">Jay</a> stepped in as MCs, and then the A/V system went <a href="http://en.wikipedia.org/wiki/HAL_9000">HAL</a> on us.  Nevertheless, the demos were very entertaining:
+Last night's DemoCamp 6 was a little bumpier than usual: the organizer, <a href="http://davidcrow.ca/">David Crow</a>, was unwell, so <a href="http://www.radiantcore.com/">Joey</a> and <a href="http://www.radiantcore.com/">Jay</a> stepped in as MCs, and then the A/V system went <a href="http://en.wikipedia.org/wiki/HAL_9000">HAL</a> on us.  Nevertheless, the demos were very entertaining:
 <ul>
   <li><a href="http://www.tucows.com">Ross Rader</a> of TUCOWS presented <a href="http://start.tucows.com/">Skydasher</a>, their new AJAX-y home page system</li>
   <li><a href="http://queens.db.toronto.edu/~nilesh/">Nilesh Bansal</a>, from <a href="http://www.cs.utoronto.ca">U of T</a>, showed a correlation-aware blog search engine called <a href="http://queens.db.toronto.edu/project/blogs/">Blogscope</a>.</li>

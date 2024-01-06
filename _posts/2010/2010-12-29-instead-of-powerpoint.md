@@ -3,7 +3,7 @@ title: "Instead of PowerPoint"
 date: 2010-12-29 16:28:50
 year: 2010
 ---
-After cursing PowerPoint for eight solid months while building screencasts for <a href="https://software-carpentry.org">Software Carpentry</a>, I think I have figured out what I want instead.  Here's a top-down view of a PowerPoint slide (drawn, ironically, with OmniGraffle):
+After cursing PowerPoint for eight solid months while building screencasts for Software Carpentry, I think I have figured out what I want instead.  Here's a top-down view of a PowerPoint slide (drawn, ironically, with OmniGraffle):
 
 <img src="{{'/files/2010/12/ppt-top-view.png' | relative_url}}" width="175" height="133" class="centered">
 

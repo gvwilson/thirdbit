@@ -44,7 +44,7 @@ year: 2015
       I managed to deliver a 30,000-word story to my daughter this Christmas,
       but it took 15 months.
       Realistically,
-      I'll do well in 2015 to revise that and get it <a href="http://sensibleadventures.com">published</a>.
+      I'll do well in 2015 to revise that and get it published.
       The other fiction I've had on the back burner for the last few years will just have to wait…
     </p>
   </dd>
@@ -85,7 +85,7 @@ year: 2015
   </dt>
   <dd>
     <p>
-      I care a lot about <a href="https://software-carpentry.org">Software Carpentry</a>,
+      I care a lot about Software Carpentry,
       but I've been running without a salary since the end of October,
       and that has to end–soon.
     </p>
@@ -95,13 +95,11 @@ year: 2015
   </dt>
   <dd>
     <p>
-      The <a href="https://software-carpentry.org/blog/2014/12/standing-for-election.html">first election</a>
-      for our Steering Committee
-      is happening at the end of this month.
+      The first election for our Steering Committee is happening at the end of this month.
       Once that's taken place
       we'll be able to start moving forward on partnerships,
-      <a href="https://software-carpentry.org/blog/2014/12/beta-release-of-new-format-lessons.html">our new lessons</a>,
-      and <a href="https://software-carpentry.org/blog/2014/12/projects-projects-projects.html">a bunch of other projects</a>.
+      our new lessons,
+      and a bunch of other projects.
     </p>
   </dd>
   <dt>
@@ -131,14 +129,14 @@ year: 2015
     </p>
   </dd>
   <dt>
-    Revise <a href="http://sensibleadventures.com/madica/"><em>Madica</em></a>.
+    Revise <em>Madica</em>.
   </dt>
   <dd>
     <p>
       That's the (inadequate) working title of the book I wrote for my daughter's Christmas present.
       It's full of plot holes and half-used ideas;
       I really want to tidy it up and get it out the door.
-      It probably won't sell any better than <a href="http://sensibleadventures.com/still/"><em>Still</em></a> has,
+      It probably won't sell any better than <em>Still</em> has,
       but that's no longer the point for me:
       borrowing from <a href="http://www.amazon.com/Shop-Class-Soulcraft-Inquiry-Value/dp/0143117467/">Matthew Crawford</a>,
       there are things you can only learn about yourself from writing.

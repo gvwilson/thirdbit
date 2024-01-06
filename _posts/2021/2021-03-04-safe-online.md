@@ -6,7 +6,7 @@ year: 2021
 
 I am pleased to announce that
 "[Ten quick tips for staying safe online](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008563)"
-by [Danielle Smalls](https://twitter.com/smallperks) and myself has been published by PLoS.
+by Danielle Smalls and myself has been published by PLoS.
 Researchers studying everything from COVID-19 to sexual health and gun violence are increasingly targeted online;
 we hope these tips will help keep you a little bit safer.
 

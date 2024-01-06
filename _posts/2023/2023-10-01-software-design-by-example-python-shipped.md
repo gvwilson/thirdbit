@@ -15,7 +15,7 @@ I couldn't have done it without you.
 <li><a href="https://maryrosecook.com/">Mary Rose Cook's</a> <a href="http://gitlet.maryrosecook.com/">Gitlet</a>;</li>
 <li><a href="https://limpet.net/mbrubeck/">Matt Brubeck's</a> <a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">browser engine tutorial</a>;</li>
 <li><a href="https://browser.engineering/"><em>Web Browser Engineering</em></a>
-    by <a href="https://pavpanchekha.com/">Pavel Panchekha</a> and <a href="https://twitter.com/chrishtr">Chris Harrelson</a>;</li>
+    by <a href="https://pavpanchekha.com/">Pavel Panchekha</a> and Chris Harrelson;</li>
 <li><a href="https://connorstack.com/">Connor Stack's</a> <a href="https://cstack.github.io/db_tutorial/">database tutorial</a>;</li>
 <li><a href="https://arcanis.github.io/">Maël Nison's</a> <a href="https://classic.yarnpkg.com/blog/2017/07/11/lets-dev-a-package-manager/">package manager tutorial</a>;</li>
 <li><a href="https://viewsourcecode.org/">Paige Ruten's</a> <a href="https://viewsourcecode.org/snaptoken/kilo/index.html">kilo text editor</a>

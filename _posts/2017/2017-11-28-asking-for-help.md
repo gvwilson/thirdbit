@@ -15,9 +15,3 @@ or cold-calling people
 to see if they'll host a workshop,
 asking for help has probably done more for me
 than Emacs and version control combined.
-
-Have you got a favourite tool you would like to tell us about? 
-Please use this form 
-to add a bit of detail and we will do the rest. You can read 
-the background to these posts here, 
-or see what other tools people have written about.

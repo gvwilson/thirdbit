@@ -9,7 +9,7 @@ R-Ladies posted
 [this great list](https://threader.app/thread/1126811968571170816)
 of practical steps that people can take to build an R community where they work.
 I'm going to quote it a lot,
-but first I want to respond to [this tweet](https://twitter.com/8bitscollider/status/1127187818600632322):
+but first I want to respond to this tweet:
 
 > i dont get it. why this obsession with the "r community?" this is just a programming language.
 

@@ -70,7 +70,7 @@ All of which brings me to the point of this post,
 which is that I *couldn't* write [*SDXJS*]({{'/sdxjs/' | relative_url}}) that way.
 We couldn't have written [*JavaScript for Data Science*]({{'/js4ds/' | relative_url}}) in this style either,
 though we could use it for some parts of
-*[Research Software Engineering with Python](https://merely-useful.github.io/py-rse/)*,
+*[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*,
 such as the introduction to the Unix shell and the introduction to Make.
 The difference is that there are learning paths for the shell and Make that are
 *continuously incrementally useful to the learner*,

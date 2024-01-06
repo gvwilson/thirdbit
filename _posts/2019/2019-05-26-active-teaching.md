@@ -57,7 +57,7 @@ it describes
 </table>
 
 I strongly prefer active teaching.
-As [I tweeted last week](https://twitter.com/gvwilson/status/1130501444275200002),
+As I tweeted last week,
 I use a sequence of formative assessments like a series of chord changes to improvise over
 rather than having what most people would call a lesson plan.
 A lot of other excellent instructors prefer a fully worked out lesson plan that they can play like an orchestral score.

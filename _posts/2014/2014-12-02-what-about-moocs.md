@@ -5,8 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  We frequently get asked whether Software Carpentry would work as a
-  <a href="https://en.wikipedia.org/wiki/Massive_open_online_course">MOOC</a>.
+  We frequently get asked whether Software Carpentry would work as a MOOC.
   The answer is that I think it can work well
   if it's what Siemens and Downes actually had in mind when they coined the term.
   They didn't people watching videos and then doing robo-graded exercises;

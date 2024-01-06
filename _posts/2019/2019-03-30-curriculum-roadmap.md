@@ -4,7 +4,8 @@ year: 2019
 title: "Curriculum Roadmap"
 ---
 
-"PythonSneks: An Open-Source, Instructionally-Designed Introductory Curriculum with Action-Design Research" by Bart, Sarver, Friend, and Cox
+"PythonSneks: An Open-Source, Instructionally-Designed Introductory Curriculum with Action-Design Research"
+by Bart, Sarver, Friend, and Cox
 is one of my favorite papers from this year's SIGCSE conference.
 It describes an introductory Python course for STEM majors who aren't in Computer Science
 that was designed using many of the same principles taught in [the Carpentries' instructor training](https://carpentries.github.io/instructor-training/)

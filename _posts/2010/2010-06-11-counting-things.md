@@ -4,7 +4,7 @@ year: 2010
 original: swc
 title: Counting Things
 ---
-<p>I re-read Robins et al's "Learning and Teaching Programming: A Review and Discussion" [1] and Eccles and Stacey's "Understanding the Parallel Programming" [2] this morning. One of the key takeaways in both is that novice programmers tend to classify problems according to problem domain or language features, while experienced programmers tend to classify them according to solution strategies. Where a beginner sees a problem in molecular biology or statistics, for example, an expert sees an opportunity to apply divide-and-conquer or accumulate-and-adjust.</p>
+<p>I re-read Robins et al's "Learning and Teaching Programming: A Review and Discussion"[^1] and Eccles and Stacey's "Understanding the Parallel Programming"[^2] this morning. One of the key takeaways in both is that novice programmers tend to classify problems according to problem domain or language features, while experienced programmers tend to classify them according to solution strategies. Where a beginner sees a problem in molecular biology or statistics, for example, an expert sees an opportunity to apply divide-and-conquer or accumulate-and-adjust.</p>
 <p>Knowing that, it's tempting to try a strategies-first approach when teaching programming. That usually doesn't work, though, because the strategies are shaped by what computers can do, and if you don't know that, those strategies seem to appear like rabbits out of a magician's hat.</p>
 <p>The idea is still appealing, so as part of the lecture on program design (or perhaps as a separate lecture), I'd like to explore strategies for solving variations on a simple problem as a way to sum up previous material on programming language features like loops and conditionals. The problem I have in mind can be summed up in one word: counting. The variations are:</p>
 <ol>
@@ -25,5 +25,7 @@ title: Counting Things
 <li>What if I want to calculate a median? (Requires different strategies entirely because it depends on global knowledge.)</li>
 </ol>
 <p>I don't think students could absorb graph traversal, design patterns, and select/filter/aggregate as asides in a single lecture. (It's already clear from feedback, by the way, that introducing big-oh as an aside in the lecture on tuning programs is asking too much–we'll fix that up soon.) What I'm wondering is, if we've introduced those topics earlier, would a single lecture that showed how changes in the problem determine solution strategy be useful as a summing up? Your feedback would be greatly appreciated.</p>
-<p>[1] Anthony Robins, Janet Rountree, and Nathan Rountree: "<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.100.9130&amp;rep=rep1&amp;type=pdf">Learning and Teaching Programming: A Review and Discussion</a>". <em>Computer Science Education</em>, 13(2), 2003.</p>
-<p>[2] Ryan Eccles and Deborah A. Stacey: "<a href="http://portal.acm.org/citation.cfm?id=1135771.1136120">Understanding the Parallel Programmer</a>". <em>Proc. 20th International  Symposium on High-Performance Computing in an Advanced Collaborative  Environment</em> (HPCS'06), 2006.</p>
+
+[^1]: Anthony Robins, Janet Rountree, and Nathan Rountree: "<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.100.9130&amp;rep=rep1&amp;type=pdf">Learning and Teaching Programming: A Review and Discussion</a>". <em>Computer Science Education</em>, 13(2), 2003.
+
+[^2]: Ryan Eccles and Deborah A. Stacey: "<a href="http://portal.acm.org/citation.cfm?id=1135771.1136120">Understanding the Parallel Programmer</a>". <em>Proc. 20th International  Symposium on High-Performance Computing in an Advanced Collaborative  Environment</em> (HPCS'06), 2006.

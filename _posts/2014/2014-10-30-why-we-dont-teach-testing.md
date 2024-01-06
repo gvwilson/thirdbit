@@ -17,7 +17,7 @@ original: swc
   I tweeted,
   "Beautiful… but where are the unit tests?"
   In the wake of
-  <a href="https://twitter.com/lorenaabarba/status/527149484942585856">the discussion that followed</a>,
+  the discussion that followed,
   I'd like to explain why we no longer require people to teach testing as part of the Software Carpentry core,
   and then ask you all a favor.
 </p>

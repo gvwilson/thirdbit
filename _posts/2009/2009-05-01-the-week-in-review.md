@@ -25,6 +25,6 @@ Things that I did that I really shouldn't have wasted time on:
 <ol>
   <li>A cold.</li>
   <li><a href="http://www.quakelive.com">Quake Live</a> ("Rail gun naaaation, oh yeah, rail gun nation…")</li>
-  <li><a href="http://www.twitter.com">Twitter</a>.</li>
+  <li>Twitter.</li>
 </ol>
 Here's hoping next week will be more productive…

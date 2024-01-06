@@ -5,7 +5,7 @@ year: 2015
 ---
 <p>
   The following exchange (lightly edited) took place on Twitter
-  <a href="https://twitter.com/ctitusbrown/status/679795880912760832">a few days ago</a>:
+  a few days ago:
 </p>
 <ul>
   <li>Titus Brown: bash is disastrous for pipelines! very hard to rerun entire analysis from bash script.</li>

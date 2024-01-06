@@ -92,7 +92,7 @@ just as you would using "undo" and "redo" in an editor.
 ## Step 3: Branching
 
 I don't know if anyone has married voiceover with a browser testing tool,
-but as we discovered during the [Browsercast][browsercast] project,
+but as we discovered during the Browsercast project,
 modern browser APIs make it pretty easy to synchronize media with browser events.
 (You may have to dismiss some warnings or press the space bar to start that demo:
 the code is ten years old and I haven't had time to update it.)
@@ -180,7 +180,6 @@ please give me a shout.
 > Neal Stephenson, *Cryptonomicon*, 1999, [pg. 240][cryptonomicon-pdf].
 
 [asciinema]: https://asciinema.org/
-[browsercast]: {{site.links.browsercast}}
 [camtasia]: https://www.techsmith.com/video-editor.html
 [code-in-textbooks]: {{'/2022/11/30/what-i-want-for-code-in-textbooks/' | relative_url}}
 [cognitive-load]: https://teachtogether.tech/en/index.html#s:architecture-load

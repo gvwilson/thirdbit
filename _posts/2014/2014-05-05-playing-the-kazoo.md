@@ -8,7 +8,7 @@ original: swc
   Yesterday,
   Matt Davis quoted Peter Wang as saying,
   "A violin is to a kazoo as Python is to Excel."
-  To which I <a href="https://twitter.com/gvwilson/status/463109014776082432">replied</a>,
+  To which I replied,
   "Exactly: anyone who wants to make music can play a kazoo right away without days of training."
   The difference between these two points of view lies at the heart of Software Carpentry.
   As I said in a post two years ago:
@@ -84,8 +84,7 @@ original: swc
 </p>
 <p>
   Not long after writing the tweet that opened this article,
-  Matt <a href="https://twitter.com/jiffyclub/status/463185167230590976">described</a>
-  a partial solution to the <em>p<sub>1/2</sub></em> problem:
+  Matt described a partial solution to the <em>p<sub>1/2</sub></em> problem:
   "If <a href="http://ipythonblocks.org">ipythonblocks</a> is an onramp for arrays and image processing,
   can an equivalent be made for your favorite computational library/process?"
   His work,

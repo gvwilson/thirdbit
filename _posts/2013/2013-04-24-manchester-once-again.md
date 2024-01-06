@@ -1,7 +1,0 @@
----
-title: Manchester Once Again
-date: 2013-04-24 09:00:00
-year: 2013
-original: swc
----
-<p>Mike Jackson has posted <a href="http://www.software.ac.uk/blog/2013-04-19-software-carpentry-makes-its-debut-manchester">a summary</a> of Software Carpentry's second bootcamp in Manchester this month.  We're hoping to visit again before the year's end–please keep an eye on this blog for announcements.</p>

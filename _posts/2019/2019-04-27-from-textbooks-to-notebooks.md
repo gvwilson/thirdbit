@@ -63,5 +63,5 @@ If anyone in our field deserves to have their name become a common noun,
 I think he does.*
 
 [bookdown]: https://bookdown.org/
-[js-vs-ds]: https://software-tools-in-javascript.github.io/js-vs-ds/
+[js-vs-ds]: {{'/js4ds/' | relative_url}}
 [sets-pep]: https://www.python.org/dev/peps/pep-0218/

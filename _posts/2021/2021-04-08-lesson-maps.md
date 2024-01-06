@@ -7,7 +7,7 @@ year: 2021
 One of the silver linings of unemployment is that
 it has given me time to explore a few ideas
 that have been living rent-free in my head for a while,
-like adapting [use case maps]({{ '/2018/12/27/use-case-maps/' | relative-url }}) for lesson design.
+like adapting [use case maps]({{ '/2018/12/27/use-case-maps/' | relative_url }}) for lesson design.
 Here's a concept map for a `for` loop in a language like Python:
 
 <img src="{{ '/files/2021/lesson-map-1.svg' | relative_url }}" alt="Concept map for a 'for' loop" class="centered">

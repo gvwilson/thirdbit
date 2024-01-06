@@ -50,7 +50,7 @@ I don't know if most people really *believe* we're doing badly,
 but the majority now *say* that we are,
 which means that the only way some smarter-thans can assuage their insecurity
 is to say, "Well, actually…"
-and then [take the devil's side][devil].
+and then take the devil's side.
 I honestly don't know how many are actually misogynists
 and how many are just sad and lonely and still looking for the praise they got from their teachers for being clever.
 Speaking as someone who made a fool of himself time and time again by trying to be the smartest person in the room,
@@ -59,6 +59,5 @@ my advice to such contrarians is,
 "Get over yourself."
 
 [computerworld]: https://www.computerworld.com/article/3389684/r-community-blasts-datacamp-response-to-execs-inappropriate-behavior.html
-[devil]: https://twitter.com/Shakestweetz/status/1107740466123079681
 [testing]: {{'/2012/05/24/everything-you-need-to-know-about-standardized-testing/' | relative_url}}
 [true-believer]: https://en.wikipedia.org/wiki/The_True_Believer

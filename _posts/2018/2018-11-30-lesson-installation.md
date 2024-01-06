@@ -4,7 +4,7 @@ year: 2018
 title: "Lesson Installation"
 ---
 
-I [asked this question on Twitter](https://twitter.com/gvwilson/status/1068317515372249088) last night:
+I asked this question on Twitter last night:
 
 > Is there a widely-used packaging format for distributing lesson and exercise files to students?
 > Like R packages for R, eggs or wheels for Python, gems for Ruby, etc.?
@@ -46,7 +46,7 @@ they'll choose a different distribution mechanism.
 (One repository per exercise also seems like the wrong granularity,
 but I'm sure we'd get used to it.)
 
-[Another reader pointed out](https://twitter.com/amritavadas/status/1068331539728121856)
+Another reader pointed out
 that people don't have to be able to use Git in order to get files from GitHub:
 they can download the contents of a repository as a zip file.
 That solves the multi-file/novice-friendly issues,

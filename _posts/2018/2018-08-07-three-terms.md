@@ -5,12 +5,12 @@ title: Three Terms
 ---
 
 After DataCamp fired me in June,
-I spent a month getting *[Teaching Tech Together](http://teachtogether.tech)* over the finish line.
+I spent a month getting [*Teaching Tech Together*](http://teachtogether.tech) over the finish line.
 With that out of the way,
-I started thinking once again about what a full-semester or full-year version of [Software Carpentry](http://software-carpentry.org)
+I started thinking once again about what a full-semester or full-year version of [Software Carpentry](http://carpentries.org)
 would cover.
 My first outline was far too ambitious:
-after re-reading [Data Carpentry for Biologists](https://datacarpentry.org/semester-biology/)
+after re-reading "Data Carpentry for Biologists"
 and talking to half a dozen people,
 I've realized that it would take at least three terms to cover the material I had listed.
 
@@ -21,11 +21,11 @@ the first course is what every grad student analyzing data ought to know
 the second is for the minority of researchers working on larger projects,
 and the third is for the even smaller group of people who find themselves running those larger projects.
 
-The outlines for these three courses are now hosted in the [Merely Useful](https://github.com/merely-useful/) organization on GitHub.
+The outlines for these three courses are now hosted in the Merely Useful organization on GitHub.
 As always,
 I'd be very grateful for feedback.
 
-- Term 1: [basic skills](https://merely-useful.github.io/one-extra-fact/en/)
+- Term 1: basic skills
   - An introduction to tidy data using spreadsheets
   - The basics of Python (lists, loops, conditionals, libraries, and functions)
   - Using the Unix shell (basic commands up to pipes and simple shell scripts)
@@ -34,7 +34,7 @@ I'd be very grateful for feedback.
   - How to publish a static web site using Jekyll and GitHub Pages
   - Simple array manipulations with NumPy
   - Simple data frame manipulations with Pandas
-- Term 2: [reproducible and scalable](https://merely-useful.github.io/still-magic/en/)
+- Term 2: reproducible and scalable
   - The elements of Python style (including PEP-8 and docstrings)
   - Installing and managing libraries (pip and virtualenv)
   - Automating workflows with Make
@@ -43,7 +43,7 @@ I'd be very grateful for feedback.
   - A branch-per-feature Git workflow
   - Organizing projects (Noble's Rules and Taschuk's Rules)
   - Writing reusable code (using functions as values)
-- Term 3: [building a research software commons](https://merely-useful.github.io/set-on-fire/en/)
+- Term 3: building a research software commons
   - Where to host projects and how to license them
   - Data provenance
   - Building and sharing packages

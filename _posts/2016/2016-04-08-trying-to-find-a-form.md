@@ -5,7 +5,7 @@ year: 2016
 ---
 <p>
   I have been thinking (again) about what to teach in a full-length course
-  on <a href="https://software-carpentry.org">Software Carpentry</a>
+  on Software Carpentry
   and <a href="http://datacarpentry.org">Data Carpentry</a>,
   which has led me,
   meta begetting meta,

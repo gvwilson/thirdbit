@@ -5,7 +5,7 @@ title: "A Story Line Game for Teaching"
 ---
 
 In the wake of [yesterday's launch]({{'/2018/12/12/js-vs-ds/' | relative_url}})
-of *[JavaScript versus Data Science](https://software-tools-in-javascript.github.io/js-vs-ds/)*,
+of *[JavaScript versus Data Science]({{'/js4ds/' | relative_url}})*,
 I've been thinking about what I could do in 2019,
 and about a party game that I'm fond of called "story lines".
 The first person writes an opening sentence on a piece of paper.

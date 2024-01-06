@@ -4,7 +4,7 @@ year: 2019
 title: "What I Didn't Tweet in March"
 ---
 
--   [The greatest trick the devil ever pulled was convincing so many people that he needs an advocate.](https://twitter.com/Shakestweetz/status/1107740466123079681)
+-   The greatest trick the devil ever pulled was convincing so many people that he needs an advocate.
 
 -   *[The Gutter Prayer](https://www.hachettebookgroup.com/titles/gareth-hanrahan/the-gutter-prayer/9780316525305/)* is a damn good read.
 
@@ -30,7 +30,7 @@ title: "What I Didn't Tweet in March"
 
 -   Half of the children in my daughter's grade 6 class believe that vaccines cause autism :-(
     I wish I could make a Venn diagram about it as biting as
-    [this one from Dr. Jennifer Gunter](https://twitter.com/DrJenGunter/status/1112019556787118080).
+    the one that Dr. Jennifer Gunter tweeted.
 
 -   *Fringe* was a better show than we deserved.
 
@@ -62,7 +62,7 @@ title: "What I Didn't Tweet in March"
     "education" wasn't one of the options,
     which pretty much sums up what I consider to be the root cause of a lot of software engineering problems.
 
--   I appreciate [the praise](https://twitter.com/sail_lab/status/1111662823090868224),
+-   I appreciate praise,
     but honestly, I think I'm more of a cautionary tale.
 
 -   Posts:

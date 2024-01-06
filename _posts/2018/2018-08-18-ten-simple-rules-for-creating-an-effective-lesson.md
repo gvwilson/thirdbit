@@ -4,7 +4,7 @@ year: 2018
 title: Ten Simple Rules for Creating an Effective Lesson
 ---
 
-I'm preparing a couple of talks based on *[Teaching Tech Together](http://teachtogether.tech)*,
+I'm preparing a couple of talks based on [*Teaching Tech Together*](http://teachtogether.tech),
 and this seems like a useful topic to cover.
 Updated notes are below;
 I'd be grateful for [feedback by email](mailto:{{site.author.email}}).

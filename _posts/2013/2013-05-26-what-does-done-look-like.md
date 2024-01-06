@@ -25,7 +25,7 @@ original: swc
   What prevents us are a lack of instructors (to teach)
   and administrators (to coordinate who's going where).
   We're working on the first
-  (our <a href="{{site.training_url}}">online training</a>
+  (our online training
   should give us 75 qualified instructors by the fall)
   but we need much better tooling to handle the matching:
   while We encourage people to set up bootcamps on their own,

@@ -5,8 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  The previous
-  posts
+  The previous posts
   in this set looked at instructor training and workshop organization.
   In this one,
   I'd like to look at mentorship and assessment,

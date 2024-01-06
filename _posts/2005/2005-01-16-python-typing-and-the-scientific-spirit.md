@@ -4,8 +4,7 @@ date: 2005-01-16 22:11:49
 year: 2005
 ---
 <p>There's been a minor blog storm over the last few weeks about Guido
-van Rossum's proposal to add optional type declarations to Python [<a href="#1">1</a>].  Guido believes it will help catch errors before
-code is run (or in sections of code that aren't exercised by unit
+van Rossum's proposal to add optional type declarations to Python [<a href="#1">1</a>].  Guido believes it will help catch errors before code is run (or in sections of code that aren't exercised by unit
 tests), but other people say no, the extra clutter and complexity will
 spoil Python's clean lines.</p>
 

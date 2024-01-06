@@ -43,7 +43,7 @@ are at R2 and R3 institutions.
 I don't have numbers for other countries,
 but I'd be amazed if the breakdown was significantly different.
 
-I have decided not to run for a seat on the [joint Carpentry board][board] this year,
+I have decided not to run for a seat on the joint Carpentry board this year,
 but I would like to ask those who do
 to make improving these figures a priority.
 Software Carpentry was created to make research computing skills accessible to *everyone*;
@@ -51,6 +51,5 @@ in these difficult times,
 nothing would make me prouder than seeing the organization I helped start
 continue to do that.
 
-[board]: https://software-carpentry.org/blog/2017/10/call-new-joint-board.html
 [carnegie]: https://en.wikipedia.org/wiki/Carnegie_Classification_of_Institutions_of_Higher_Education
 [mcglynn]: https://smallpondscience.com/2017/12/11/sending-campus-exchanges-the-other-way/

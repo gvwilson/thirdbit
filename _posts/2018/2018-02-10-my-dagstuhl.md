@@ -18,7 +18,7 @@ It's a situation that women and other under-represented groups in science are al
 lack of access engenders lack of opportunity,
 which in turn leads to existing inequalities perpetuating themselves.
 
-I don't think we'll fix [what's wrong with computing](https://twitter.com/AmeliaMN/status/961900236477169664)
+I don't think we'll fix what's wrong with computing
 unless we fix that.
 I'd therefore like to suggest (again)
 that meetings like this adopt a buddy system:
@@ -29,7 +29,7 @@ spread knowledge and good practices to more places,
 and perhaps most importantly,
 give event sponsors insight into the issues that academia's "other 90%" face.
 
-*Later: in response to [a question about how organizers can identify buddies](https://twitter.com/rg9119/status/962726905492529152),
+*Later: in response to a question about how organizers can identify buddies,
 my first suggestion would be for organizers to identify institutions,
 and then have those institutions propose people.
 Alternatively,

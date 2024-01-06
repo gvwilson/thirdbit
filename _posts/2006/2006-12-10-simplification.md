@@ -3,7 +3,7 @@ title: "Simplification"
 date: 2006-12-10 19:19:43
 year: 2006
 ---
-We held a <a href="https://www.drproject.org/All/wiki/Fall2006PostMortem">post mortem</a> on this term's projects Friday before going out to dinner. I took away three major points:
+We held a post mortem on this term's projects Friday before going out to dinner. I took away three major points:
 
 -   We have to simplify the ticketing interface in DrProject, so that people will use it even in very small groups. One suggestion is to make it more like Basecamp's to-do list. However:
     -   We want to keep AJAX to a minimum (accessibility, stability, etc.).

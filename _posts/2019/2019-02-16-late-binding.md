@@ -4,7 +4,7 @@ year: 2019
 title: "Late Binding"
 ---
 
-I've been working on [a new Jekyll template for lessons](https://github.com/merely-useful/template)
+I've been working on a new Jekyll template for lessons
 that can also be used to produce nicely-formatted PDFs,
 mostly to give myself an excuse to do a little programming every once in a while.
 I wanted to do the whole thing in pure GitHub Pages-compatible Jekyll without any plugins or compilation,
@@ -30,7 +30,7 @@ but my early-80s instincts kept telling me, "Nope, that's too clever, something 
 Paradoxically,
 I trend the other way when teaching.
 Toby Hodges and I have put together
-[a tutorial on JavaScript for data scientists](https://software-tools-in-javascript.github.io/js-vs-ds/),
+[a tutorial on JavaScript for data scientists]({{'/js4ds/' | relative_url}}),
 but I don't think I'll ever teach it exactly as written.
 I always improvise based on who's in my audience and whatever bright ideas I had in the shower that morning.
 It makes co-instruction harder,

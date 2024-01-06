@@ -4,8 +4,7 @@ date: 2021-09-13
 year: 2021
 ---
 
-Not long ago I interviewed for a community manager position
-with <strike>a company that's pretty well known in open source</strike> Canonical.
+Not long ago I interviewed for a community manager position with Canonical.
 They opened by asking me to write paragraph-length answers to some fairly innocuous questions,
 but in the second round,
 they asked me to do an IQ test and a personality profile test.

@@ -8,8 +8,7 @@ original: swc
   Long-time readers of this blog and
   our discussion list
   will know that I'm unhappy with the choices we have for formatting our lessons.
-  Thanks to <a href="https://twitter.com/kwbroman/status/526776697828671488">a tweet</a>
-  from <a href="http://kbroman.org/">Karl Broman</a>,
+  Thanks to a tweet from <a href="http://kbroman.org/">Karl Broman</a>,
   I may have an answer.
   It's outlined below,
   and I'd be grateful for comments on usability and feasibility.

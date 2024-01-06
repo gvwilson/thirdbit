@@ -27,8 +27,7 @@ original: swc
   </li>
 </ul>
 <p>
-  A longer response from <a href="https://twitter.com/FCTweedie">Fiona Tweedie</a>
-  at the University Melbourne
+  A longer response from Fiona Tweedie at the University Melbourne
   is worth quoting in full.
   She first suggested seeing if the person in question
   could import and export bibliographic data

@@ -42,7 +42,7 @@ please give me a shout.
    can create the reports they want the way they want to.
    It's not too late…
 
-4. [Browsercast][browsercast],
+4. Browsercast,
    which would replay an HTML slideshow in sync with a voiceover.
    Tools like Wasim Lorgat's [SVG replay][svg-replay] and [Scrimba][scrimba]
    have made me more certain than ever that
@@ -100,7 +100,6 @@ please give me a shout.
    but I think it would be a lot of fun.
 
 [blockly]: https://developers.google.com/blockly/
-[browsercast]: {{site.links.browsercast}}
 [elm]: https://elm-lang.org/
 [github-svg-diff]: https://github.blog/2014-10-06-svg-viewing-diffing/
 [harper-lite]: {{'/ideas/harper/' | relative_url}}

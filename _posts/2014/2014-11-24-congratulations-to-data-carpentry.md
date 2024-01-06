@@ -49,7 +49,7 @@ original: swc
   (I'm on their board, and Tracy Teal is on ours).
   In particular,
   we hope to share teaching materials where we can
-  and put people through the same <a href="{{site.training_url}}">instructor training</a>
+  and put people through the same instructor training
   (though we'll probably each supplement that in different curriculum-specific ways).
   If you'd like to help them out,
   please get in touch.

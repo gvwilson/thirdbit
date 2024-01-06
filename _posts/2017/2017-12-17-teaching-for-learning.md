@@ -2,9 +2,6 @@
 title: "Teaching for Learning"
 date: 2017-12-17 05:45:00
 year: 2017
-t4l: https://www.amazon.com/Teaching-Learning-Intentionally-Educational-Activities/dp/0415699363/
-dbook: https://www.amazon.com/Discussion-Book-Great-People-Talking/dp/1119049717/
-adept: https://betterexplained.com/articles/adept-method/
 ---
 
 <img src="{{'/files/2017/12/teaching-for-learning.jpg' | relative_url}}" alt="Teaching for Learning" width="200px" class="centered">

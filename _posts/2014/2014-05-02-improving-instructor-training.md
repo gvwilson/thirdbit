@@ -5,8 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  We ran a three-day intensive version of
-  <a href="{{site.training_url}}">our instructor training course</a>
+  We ran a three-day intensive version of our instructor training course
   in Toronto earlier this week.
   The 40 attendees seemed to find it useful,
   and I'm very grateful to UBC's Warren Code for co-teaching,

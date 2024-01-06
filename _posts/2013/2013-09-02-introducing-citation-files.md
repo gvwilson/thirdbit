@@ -40,7 +40,6 @@ A BibTeX entry for LaTeX users is
   it's a pretty good one.
   So go ahead,
   write some <code>CITATION</code> files today
-  and tweet your project's URL with the hash tag
-  <a href="https://twitter.com/search?q=%23citationfile">#citationfile</a>;
+  and tweet your project's URL with the hash tag #citationfile;
   we'll post some of those links here soon.
 </p>

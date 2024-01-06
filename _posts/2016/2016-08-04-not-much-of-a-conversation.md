@@ -23,8 +23,7 @@ year: 2016
 </p>
 <p>
   <em>
-    Later: the first post of this article led to
-    <a href="https://twitter.com/PatSchloss/status/761172969020424193">a short exchange on Twitter</a>,
+    Later: the first post of this article led to a short exchange on Twitter,
     which led me to <a href="http://blog.f1000research.com/2016/07/20/the-f1000research-authorship-policy/">F1000's authorship policy</a>.
     It requires "at least one of the authors is an active researcher from a recognised institution";
     while I recognize the need to filter out homeopathists, anti-vaxxers, and the like,

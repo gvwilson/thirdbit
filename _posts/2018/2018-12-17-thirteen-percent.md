@@ -4,10 +4,10 @@ year: 2018
 title: "Thirteen Percent and Counting"
 ---
 
-Last week, I posted a description of a half-baked plan for [lesson
-aggregation]({{'/2018/12/12/twelve-percent/' | relative_url}}).  I've had some
-useful discussions since then; what follows is hopefully the first in a series
-of summaries.
+Last week, I posted a description of a half-baked plan for
+[lesson aggregation]({{'/2018/12/12/twelve-percent/' | relative_url}}).
+I've had some useful discussions since then; what follows is hopefully
+the first in a series of summaries.
 
 **First,** after further conversation with David Wiley, publishing educational
 resources in a single place with consistent formatting, giving them a sensible

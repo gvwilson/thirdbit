@@ -6,8 +6,7 @@ original: swc
 ---
 <p>
   We started running an
-  <a href="{{site.training_url}}">online training course for Software Carpentry instructors</a>
-  last fall.
+  online training course for Software Carpentry instructors last fall.
   It's been going pretty well:
 </p>
 <ul>

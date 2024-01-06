@@ -23,7 +23,7 @@ that have the highest thinking-to-coding ratio.
 Without some operationalization of "better" and "worse",
 it's hard to rank or compare alternatives.
 
-This problem came up again when [I tweeted](https://twitter.com/gvwilson/status/776733301419630592),
+This problem came up again when I tweeted,
 "If anyone has data showing Excel is *more* error-prone than MATLAB/Python/R once you normalize for hours spent learning it, plz post."
 It's clear from the responses that most people on Twitter believe this,
 but I'm not really sure what "this" is:

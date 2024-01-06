@@ -8,7 +8,7 @@ original: swc
 PLOS has published a very useful set of articles called [Ten Simple Rules](http://collections.plos.org/ten-simple-rules)
 that covers everything from effective statistical practice to winning a Nobel Prize.
 I'm just as interested in what *not* to do and what mistakes to avoid,
-so as part of our [instructor training course]({{site.training_url}}),
+so as part of our instructor training course,
 I'd like to put together a list of ten simple ways you can turn off your learners.
 My first five are listed below;
 if you'd like to add your own,

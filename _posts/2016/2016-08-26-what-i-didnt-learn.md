@@ -34,7 +34,7 @@ living in a peaceful democracy.
 <li>
 The computing industry is actively unwelcoming to people who aren't straight white/Asian males,
 routinely builds systems that facilitate their harassment and abuse,
-and then <a href="https://twitter.com/mhoye/status/763955787869753344">pretends that the problem is somehow insoluble</a>.
+and then pretends that the problem is somehow insoluble.
 Equally,
 the financial-industrial complex called Silicon Valley doesn't actually want to disrupt anything that matters
 because it's quite happy with wealth and power being distributed as they are

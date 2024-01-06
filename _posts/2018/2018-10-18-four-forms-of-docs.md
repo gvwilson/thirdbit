@@ -58,7 +58,7 @@ than identifying the two audiences and the state of their mental models.
 I'd be very grateful for pointers to other ways of classifying different types of documentation
 and their theoretical underpinnings.
 
-Later: Neil Brown [commented](https://twitter.com/neilccbrown/status/1052995540491866112):
+Later: Neil Brown commented:
 
 > -   How-to guide: what you hope to find when you google
 > -   Reference: for when you encounter surprising behaviour

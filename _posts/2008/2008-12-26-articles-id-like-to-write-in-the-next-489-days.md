@@ -3,7 +3,7 @@ title: "Things I'd Like To Finish In the Next 489 Days"
 date: 2008-12-26 11:53:53
 year: 2008
 ---
-One of the things I teach my students is that the real purpose of a schedule is to tell you when to start cutting corners and dropping features. The ticker on my web site tells me I have 489 days left in my contract with the university; I signed up hoping to study ways of teaching second-stage novices [1] how to be better programmers, but after four failed attempts to get NSERC funding [2], it's time to lower my sights. Here are the things I'd like to finish off before my stint at <a href="http://www.cs.toronto.edu">U of T</a> is over:
+One of the things I teach my students is that the real purpose of a schedule is to tell you when to start cutting corners and dropping features. The ticker on my web site tells me I have 489 days left in my contract with the university; I signed up hoping to study ways of teaching second-stage novices[^1] how to be better programmers, but after four failed attempts to get NSERC funding[^2], it's time to lower my sights. Here are the things I'd like to finish off before my stint at <a href="http://www.cs.toronto.edu">U of T</a> is over:
 <ol>
   <li>Help Samira Abdi, Jeremy Handcock, and Carolyn MacLeod finish their Master's theses, and get Aran Donohue, Alecia Fowler, Alicia Grubb, Zachary Kincaid, Jason Montojo, and Rory Tulk through theirs.</li>
   <li>Publish <a href="http://pragprog.com/titles/gwpy/practical-programming"><em>Practical Programming</em></a> (the "CS-1 in Python" book that <a href="http://www.cs.toronto.edu/~campbell">Jennifer Campbell</a>, <a href="http://www.cs.toronto.edu/~pgries">Paul Gries</a>, <a href="http://www.jaysnothere.com/blog/">Jason Montojo</a>, and I have been writing). It's currently in beta, and due for release in a month or so; we'd like to do a Python 3 update in a year or so, but that's likely to slip.</li>
@@ -11,7 +11,7 @@ One of the things I teach my students is that the real purpose of a schedule is 
   <li>Co-edit a special issue of <a href="http://cise.aip.org/"><em>Computing in Science &amp; Engineering</em></a> on "Software Engineering and Computational Science". <a href="http://www.cs.indiana.edu/~lums">Andy Lumsdaine</a> and I have four articles lined up, and are looking for two more—if you'd like to volunteer, please give me a shout.</li>
   <li>Submit a proposal for a professional master's degree in Computer Science to U of T's School of Graduate Studies. This is mostly a matter of filling in forms, but that's kind of like looking at Everest and saying, "It's mostly a matter of going uphill."</li>
   <li>"Finish" a much-improved DrProject.  I originally planned to use it as a platform for research, as well as teaching; there isn't enough time left for that, but I still hope to make it easier for software engineering instructors to introduce students to modern tools.</li>
-  <li>Rewrite Software Carpentry.  Tina Yee has translated some of the lectures into MATLAB; the next step is to make the whole thing look like it was written in the 21st Century [3].</li>
+  <li>Rewrite Software Carpentry.  Tina Yee has translated some of the lectures into MATLAB; the next step is to make the whole thing look like it was written in the 21st Century[^3].</li>
 </ol>
 Everything else has to go by the boards. In particular:
 <ul>
@@ -22,8 +22,8 @@ Everything else has to go by the boards. In particular:
 </ul>
 On the upside, Sadie got me some biking gear for Christmas, so now I'll <em>have</em> to shed the twenty pounds I've picked up in the last couple of years, and I get to start taking our daughter to music classes every week. To quote a friend, it isn't what I planned—it's better.
 
-[1] People who already know how to write programs, but not how to develop applications. I'm specifically interested in undergraduate Computer Science students, and graduate students in other disciplines.
+[^1]: People who already know how to write programs, but not how to develop applications. I'm specifically interested in undergraduate Computer Science students, and graduate students in other disciplines.
 
-[2] Companies like <a href="http://www.nitido.com">Nitido</a>, the <a href="http://www.jonahgroup.com">Jonah Group</a>, <a href="http://www.ideeinc.com">Idee</a>, and <a href="http://www.rogers.com">Rogers</a> have kindly donated a few thousand dollars each to keep things like DrProject going, as have  <a href="http://www.dgp.toronto.edu/~ravin/">several</a> <a href="http://www.cs.toronto.edu/~sme">of my</a> <a href="http://www3.fis.utoronto.ca/~yu/">fellow</a> <a href="http://www.cs.toronto.edu/~lilien/">professors</a>,  but a $24K grant from <a href="http://www.mathworks.com">The MathWorks</a> is the only "research" funding I've been able to raise.
+[^2]: Companies like <a href="http://www.nitido.com">Nitido</a>, the <a href="http://www.jonahgroup.com">Jonah Group</a>, <a href="http://www.ideeinc.com">Idee</a>, and <a href="http://www.rogers.com">Rogers</a> have kindly donated a few thousand dollars each to keep things like DrProject going, as have  <a href="http://www.dgp.toronto.edu/~ravin/">several</a> <a href="http://www.cs.toronto.edu/~sme">of my</a> <a href="http://www3.fis.utoronto.ca/~yu/">fellow</a> <a href="http://www.cs.toronto.edu/~lilien/">professors</a>,  but a $24K grant from <a href="http://www.mathworks.com">The MathWorks</a> is the only "research" funding I've been able to raise.
 
-[3] As I said yesterday, I'm looking for a mentor in the Toronto area who can show me how to do this.
+[^3]: As I said yesterday, I'm looking for a mentor in the Toronto area who can show me how to do this.

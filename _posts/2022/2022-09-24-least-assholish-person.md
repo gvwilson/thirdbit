@@ -4,12 +4,12 @@ date: 2022-09-24
 year: 2022
 ---
 
-[@ellesystem wrote](https://twitter.com/ellesystem/status/1572959575896215552):
+@ellesystem tweeted:
 
 > What actually makes a good first language?
 > I'm sure CS ed has grappled with this, but it seems like a daunting question.
 
-[@elliewix replied](https://twitter.com/elliewix/status/1573519541807857664)
+@elliewix replied:
 
 > The language the least assholish person willing to teach in is the best.
 > Anything that's the best can still be made the worst by the instructor. 

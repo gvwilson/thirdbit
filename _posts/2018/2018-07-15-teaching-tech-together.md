@@ -2,11 +2,9 @@
 date: 2018-07-15 13:00:00
 year: 2018
 title: Teaching Tech Together
-purchase: "http://www.lulu.com/commerce/index.php?fBuyContent=23123539"
 website: http://teachtogether.tech/
 license: https://creativecommons.org/licenses/by/4.0/
 github: https://github.com/gvwilson/teachtogether.tech
-training: http://carpentries.github.io/instructor-training/
 ---
 
 I am pleased to announce the publication of *[Teaching Tech
@@ -30,12 +28,12 @@ This book is a much-expanded successor to *How to Teach Programming
 > help you go further.
 
 Parts of the book were originally written for Software Carpentry's
-[instructor training program]({{page.training}}), which has been run
+instructor training program, which has been run
 over a hundred times in the past six years.  You can share and remix
 all of the book's material under the [Creative Commons - Attribution
 4.0 (CC-BY) license]({{page.license}}); digital versions can be
 [downloaded for free]({{page.website}}), and printed versions can be
-[purchased at cost]({{page.purchase}}).
+purchased at cost.
 
 <a href="{{page.website}}"><img src="{{'/files/2018/07/t3-cover.png' | relative_url}}" alt="Teaching Tech Together" class="centered"></a>
 

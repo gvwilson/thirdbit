@@ -45,7 +45,7 @@ are used to create what's profitable for the few rather than what's useful for t
 to spew fossil carbon into the atmosphere rather than develop new antibiotics or affordable housing.
 The private profits extracted by the unaccountable owners of those supply chains
 are then used to shape public discussion and election outcomes in order to perpetuate inequality:
-Jeff Bezos could [buy a house for every homeless person in the United States and still have billions left over](https://twitter.com/fawfulfan/status/992836811230711808),
+Jeff Bezos could buy a house for every homeless person in the United States and still have billions left over,
 but Amazon [doesn't pay taxes](https://www.chicagotribune.com/business/ct-amazon-federal-taxes-profits-analysis-20190216-story.html).
 The essence of socialism is the generalization of the democratic ideal
 to places of power currently in the hands of the unelected and unaccountable.

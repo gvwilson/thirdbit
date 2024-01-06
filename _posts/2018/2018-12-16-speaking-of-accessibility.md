@@ -5,8 +5,7 @@ title: "Speaking of Accessibility"
 ---
 
 [Elizabeth Patitsas](https://patitsas.github.io/)
-has put together
-a truly awesome reading list on
+has put together a truly awesome reading list on
 [the social context of computer science education](https://docs.google.com/document/d/1F1z8BvKpMqz0MdwagjhG6X6R4sVFHLhY52dSgssnE4I/).
 It's full of pointers to important works and ideas,
 but looking through it reminded me that "awesome" means "extremely impressive *or daunting*".

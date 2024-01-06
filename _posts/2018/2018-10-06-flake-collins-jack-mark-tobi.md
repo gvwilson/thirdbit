@@ -15,8 +15,7 @@ though,
 they lacked Prof. Ford's integrity,
 or (so far as I can tell) any integrity at all.
 
-Coincidentally (or not)
-[this thread](https://twitter.com/slpng_giants/status/1048611032330117120) popped up
+Coincidentally (or not) this thread popped up
 on the Sleeping Giants Twitter account today:
 
 > Sequence of events that led to this:

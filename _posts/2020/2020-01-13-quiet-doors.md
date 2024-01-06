@@ -21,8 +21,7 @@ I hope they'll be OK.
 
 *Later: I left home in September of 1980.
 I didn't call every week,
-but I figure I probably talked to my mum four Sundays out of five—say,
-1600 times or more over forty years.
+but I figure I probably talked to my mum four Sundays out of five.
 I didn't call last night because there was no one there to answer any more.
 I haven't taken the number off my phone, though;
 I don't think I know how to do that…*

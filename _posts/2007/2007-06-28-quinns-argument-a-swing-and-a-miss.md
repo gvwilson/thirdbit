@@ -1,5 +1,5 @@
 ---
-title: "Quinn's argument: a swing and a mis"
+title: "Quinn's Argument: A Swing and a Miss"
 date: 2007-06-28 13:43:08
 year: 2007
 ---

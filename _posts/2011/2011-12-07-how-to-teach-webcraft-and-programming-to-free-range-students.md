@@ -3,7 +3,7 @@ title: "How to Teach Webcraft and Programming to Free-Range Students"
 date: 2011-12-07 17:49:52
 year: 2011
 ---
-I will be running a <a href="http://p2pu.org">P2PU</a> course starting in January on teaching free-range learners how to program and build stuff on the web. The blurb is below; anyone who wants to can sign up to follow along or take part (we expect it will require 3-4 hours/week from mid-January to some time in April). I'm not an expert on these subjects by any means, but I've learned a few things from running <a href="https://software-carpentry.org">Software Carpentry</a> that I think are worth sharing, and hope that this course will give me a chance to learn more.  (Note that I'm primarily interested in how to teach adults outside traditional classroom settings, so that will be the course's initial focus, but its long-term direction will depend on the interests of participants.)
+I will be running a <a href="http://p2pu.org">P2PU</a> course starting in January on teaching free-range learners how to program and build stuff on the web. The blurb is below; anyone who wants to can sign up to follow along or take part (we expect it will require 3-4 hours/week from mid-January to some time in April). I'm not an expert on these subjects by any means, but I've learned a few things from running Software Carpentry that I think are worth sharing, and hope that this course will give me a chance to learn more.  (Note that I'm primarily interested in how to teach adults outside traditional classroom settings, so that will be the course's initial focus, but its long-term direction will depend on the interests of participants.)
 
 <hr />
 

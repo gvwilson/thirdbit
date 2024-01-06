@@ -20,10 +20,10 @@ but it's still the clearest and most inspiring statement of this principle
 in recent times.)
 
 Which brings me to an exchange on Twitter today.
-[JD Long asked](https://twitter.com/CMastication/status/1117361694731329537),
+JD Long asked,
 "OK, we've been burned by DataCamp.
 What do we need from an ed site that would prevent this in the future?"
-[One of the tweets](https://twitter.com/jakekaupp/status/1117518011529859072)
+One of the tweets
 in the stream that followed said:
 
 > +1 to the team teaching model.

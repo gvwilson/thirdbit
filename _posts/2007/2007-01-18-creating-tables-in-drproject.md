@@ -55,4 +55,4 @@ E. Give our system a name and version number:
 <pre>version = 1</pre>
 Done.
 <h2>Step 3: Finishing Off</h2>
-Now, when we create a new environment, <a href="http://www.drproject.org">Drproject</a> will go over all the <code>EnvironmentSetupParticipant</code> objects, and create all the database tables each one is associated with. Process occurs in the method <code>__init__</code> of the class <code>Environment</code> in the file <code>drproject/env.py</code>.
+Now, when we create a new environment, DrProject will go over all the <code>EnvironmentSetupParticipant</code> objects, and create all the database tables each one is associated with. Process occurs in the method <code>__init__</code> of the class <code>Environment</code> in the file <code>drproject/env.py</code>.

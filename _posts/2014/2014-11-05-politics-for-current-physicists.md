@@ -18,7 +18,7 @@ year: 2014
   After discovering how many kids in my daughter's school aren't vaccinated
   because their parents have bought into fashionable yuppie angst about autism,
   I'd really like a book called <em>Public Health for Future Presidents</em>
-  (see also <a href="https://twitter.com/allergykidsdoc/status/529665665045893120">this tweet</a>),
+  (see also this tweet),
   but more than that,
   I'd like someone to write a book called <em>Politics for Current Physicists</em>.
   I'd like someone to do the reverse of what Muller did

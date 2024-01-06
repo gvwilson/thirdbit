@@ -97,11 +97,9 @@ jupyter: http://jupyter.org/
     follows me on Twitter who said that they wished the "open" in
     "open source" and "open science" meant "actually open to all
     comers".  They pointed me
-    at <a href="https://twitter.com/LorenaABarba/status/745133796052205570">this
-    depressing story</a> I'd retweeted about a woman's experience at a
+    at this depressing story I'd retweeted about a woman's experience at a
     recent high-performance computing conference, and
-    at <a href="https://twitter.com/walkingrandomly/status/745521958238904320">this
-    picture</a> from a meeting
+    at this picture from a meeting
     about <a href="http://www.dagstuhl.de/en/program/calendar/semhp/?semnr=16252">engineering
     academic software</a> where their presence would apparently have
     increased the number of visible minority participants from zero to

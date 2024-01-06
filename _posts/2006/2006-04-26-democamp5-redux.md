@@ -3,7 +3,7 @@ title: "DemoCamp5 Redux"
 date: 2006-04-26 09:57:46
 year: 2006
 ---
-The <a href="http://www.utoronto.ca">University of Toronto</a> hosted <a href="http://barcamp.org/TorCampDemoCamp5">DemoCamp 5</a> last night.  It went well: 143 people showed up, the Bell Kids Help Phone team gave a fault-free presentation, and the folks at <a href="http://www.mollyblooms.ca">Molly Bloom's</a> took good care of us afterward (so good, in fact, that I'm going to let people who <em>don't</em> have hangovers cover the details).
+The <a href="http://www.utoronto.ca">University of Toronto</a> hosted DemoCamp 5 last night.  It went well: 143 people showed up, the Bell Kids Help Phone team gave a fault-free presentation, and the folks at <a href="http://www.mollyblooms.ca">Molly Bloom's</a> took good care of us afterward (so good, in fact, that I'm going to let people who <em>don't</em> have hangovers cover the details).
 <ul>
   <li><a href="http://farm.tucows.com/blog/_archives/2006/4/26/1913333.html">Joey deVilla</a></li>
   <li><a href="http://www.festive.net/2006/04/26/back-from-democamp-tdot/">Brian Ivanovick</a></li>

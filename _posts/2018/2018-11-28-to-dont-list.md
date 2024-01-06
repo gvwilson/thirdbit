@@ -19,12 +19,12 @@ The first few lines look like this:
     <th>until I finish:</th>
   </tr>
   <tr>
-    <td><em><a href="https://merely-useful.github.io/en/">Merely Useful</a></em></td>
+    <td><em><a href="https://merely-useful.tech/py-rse/">Merely Useful</a></em></td>
     <td><em>The Tidynomicon</em></td>
   </tr>
   <tr>
-    <td><em><a href="https://github.com/software-tools-in-javascript/software-tools-in-javascript">Software Tools in JavaScript</a></em></td>
-    <td><em><a href="https://software-tools-in-javascript.github.io/js-vs-ds/">JavaScript versus Data Science</a></em></td>
+    <td><em><a href="{{'/sdxjs/' | relative_url}}">Software Tools in JavaScript</a></em></td>
+    <td><em><a href="{{'/js4ds/' | relative_url}}">JavaScript versus Data Science</a></em></td>
   </tr>
   <tr>
     <td><em><a href="{{'/ideas/' | relative_url}}">Software Engineering: An Evidence-Based Approach</a></em></td>
@@ -32,7 +32,7 @@ The first few lines look like this:
   </tr>
   <tr>
     <td><em><a href="{{'/ideas/' | relative_url}}">Sex and Drugs and Guns and Code</a></em></td>
-    <td><em><a href="http://sensibleadventures.com/cloudherd-tigers-boy/">The Cloudherd and the Tiger's Boy</a></em></td>
+    <td><em>The Cloudherd and the Tiger's Boy</em></td>
   </tr>
 </table>
 

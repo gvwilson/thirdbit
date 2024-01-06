@@ -6,18 +6,7 @@ original: swc
 ---
 <p>
   This is pretty amazing:
-  a group has translated the core Software Carpentry lessons into Korean:
-</p>
-<ol>
-  <li>Introduction: <a href="http://statkclee.github.io/xwmooc-sc/intro.html">http://statkclee.github.io/xwmooc-sc/intro.html</a></li>
-  <li>The Unix Shell: <a href="http://statkclee.github.io/xwmooc-sc/novice/shell/">http://statkclee.github.io/xwmooc-sc/novice/shell/</a></li>
-  <li>Version Control with Git: <a href="http://statkclee.github.io/xwmooc-sc/novice/git/">http://statkclee.github.io/xwmooc-sc/novice/git/</a></li>
-  <li>Programming with Python: <a href="http://statkclee.github.io/xwmooc-sc/novice/python/">http://statkclee.github.io/xwmooc-sc/novice/python/</a></li>
-  <li>Programming with R: <a href="http://statkclee.github.io/xwmooc-sc/novice/r/">http://statkclee.github.io/xwmooc-sc/novice/r/</a></li>
-  <li>Using Databases and SQL: <a href="http://statkclee.github.io/xwmooc-sc/novice/sql/">http://statkclee.github.io/xwmooc-sc/novice/sql/</a></li>
-  <li>Extras: <a href="http://statkclee.github.io/xwmooc-sc/novice/extras/">http://statkclee.github.io/xwmooc-sc/novice/extras/</a></li>
-</ol>
-<p>
+  a group has translated the core Software Carpentry lessons into Korean.
   It's a remarkable and encouraging achievement–congratulations and thanks
   to the team that did the work:
 </p>

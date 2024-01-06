@@ -6,7 +6,7 @@ year: 2016
 <p>
   This one started with me
   <a href="http://stackoverflow.com/questions/36088231/unable-to-install-bioperl-on-mac-os-x">trying and failing to install some bioinformatics software on my Mac</a>,
-  then turned into <a href="https://twitter.com/gvwilson/status/710950558207774722">a Twitter rant</a>:
+  then turned into a Twitter rant:
 </p>
 <ul>
   <li>Everyone: please start doing installation-driven development. Not test-driven, not feature-driven: installation-driven.</li>

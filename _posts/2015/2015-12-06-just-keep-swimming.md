@@ -31,7 +31,7 @@ favorite: true
 </p>
 <p>
   So yes,
-  <a href="https://software-carpentry.org">Software Carpentry</a> is doing well,
+  Software Carpentry is doing well,
   but it took <em>14 years</em> of on-and-off work to reach take-off,
   and nearly another four to get to where we are now.
   The <a href="http://aosabook.org">Architecture of Open Source Applications</a> series
@@ -78,10 +78,10 @@ favorite: true
     I didn't get a Shuttleworth Foundation fellowship.
   </li>
   <li>
-    I bet you haven't read <a href="http://sensibleadventures.com/and-then/">And Then…</a>
-    or <a href="http://sensibleadventures.com/still/"><em>Still</em></a>,
-    and I haven't even finished <a href="http://sensibleadventures.com/madica/"><em>Madica</em></a>
-    or <a href="http://sensibleadventures.com/beneath-coriandel/"><em>Beneath Coriandel</em></a>.
+    I bet you haven't read And Then…
+    or <em>Still</em>,
+    and I haven't even finished <em>Madica</em>
+    or <em>Beneath Coriandel</em>.
   </li>
   <li>
     I'm really proud that

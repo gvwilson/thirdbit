@@ -3,7 +3,7 @@ title: "State of DrProject"
 date: 2006-02-21 15:27:21
 year: 2006
 ---
-In the wake of  at <a href="http://barcamp.pbwiki.com/TorCampDemoCamp3">DemoCamp 3</a> last night, we had another on-line meeting this morning about the state of DrProject.  Our original aim was to release it at the end of January; we're now looking at the first week of March, and it may slip again.  Here's the current to-do list:
+In the wake of feedback at DemoCamp 3 last night, we had another on-line meeting this morning about the state of DrProject.  Our original aim was to release it at the end of January; we're now looking at the first week of March, and it may slip again.  Here's the current to-do list:
 <ol>
   <li>Our <a href="http://kid.lesscode.org/">Kid</a> templates are too slow: 2-3 seconds per page.  This is only partly Kid's fault—as Chris Lenz pointed out, our current wiki formatter is creating HTML, which Kid then tries to validate.  We hope to fix this with a two-pronged attack: writing a new wiki formatting engine (which we really want to do anyway), and getting Kid's maintainers to add a "don't bother to validate" flag.</li>
   <li>The mail subsystem still isn't hooked up.  <a href="http://www.exim.org">Exim</a> vs. <a href="http://www.sendmail.org">Sendmail</a> is part of the problem, but so is the code that was written last summer.</li>

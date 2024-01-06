@@ -5,7 +5,7 @@ title: "Two Columns"
 ---
 
 I'm spending a few minutes every morning adding prose to the point-form notes in
-[JavaScript versus Data Science](https://software-tools-in-javascript.github.io/js-vs-ds/en/).
+[JavaScript versus Data Science]({{'/js4ds/' | relative_url}}).
 My goal is to have a single document that contains both
 the slides someone would use when teaching in a classroom
 and the text that someone would read on their own,

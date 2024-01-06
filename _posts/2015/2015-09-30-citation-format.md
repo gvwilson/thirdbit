@@ -16,8 +16,7 @@ original: swc
   to produce those human-readable citations.
 </p>
 <p>
-  Noam Ross has come up with
-  <a href="https://twitter.com/noamross/status/648963898079637504">an elegant solution</a>
+  Noam Ross has come up with an elegant solution
   to the former problem:
 </p>
 <blockquote>

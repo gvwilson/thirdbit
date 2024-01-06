@@ -10,7 +10,7 @@ title: GitHub for Education
 <li>Joseph Reagle: <a href="http://reagle.org/joseph/blog/career/teaching/fork-merge-share.html">fork-merge-share</a> (describing, among other things, a geek-oriented solution to one practical obstacle I mentioned)</li>
 <li>AJ Juliani: <a href="http://educationismylife.com/why-every-educator-should-read-hacker-news/">Why Every Educator Should Read Hacker News</a></li>
 <li>Aaron Shaw: <a href="http://fringethoughts.wordpress.com/tag/education/">A Modest Academic Fantasy</a></li>
-<li>Ethan Watrall: <a href="https://twitter.com/captain_primate/status/179377482816946176">I want "forking a class" to become part of our vernacular</a> (Twitter)</li>
+<li>Ethan Watrall: I want "forking a class" to become part of our vernacular (Twitter)</li>
 <li>Brian Croxall: <a href="http://chronicle.com/blogs/profhacker/forking-your-syllabus/39137">Forking Your Syllabus</a> (ProfHacker)</li>
 <li>Lincoln Mullen: <a href="http://chronicle.com/blogs/profhacker/how-to-fork-a-syllabus-on-github/39447">How to Fork a Syllabus on GitHub</a> (ProfHacker)</li>
 <li>Katherine Harris: <a href="http://triproftri.wordpress.com/2012/03/08/acknowledgments-on-syllabi/">Acknowledgments on Syllabi</a> (tracking sources)</li>

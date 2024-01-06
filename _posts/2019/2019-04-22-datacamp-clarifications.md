@@ -5,7 +5,7 @@ title: "DataCamp Clarifications"
 ---
 
 There has been a lot of discussion online about DataCamp's mishandling of a sexual assault case
-since [Kara Woo bravely came forward](https://twitter.com/kara_woo/status/1114229065509003264) on April 5.
+since Kara Woo bravely came forward on April 5.
 I [published and updated some thoughts]({{'/2019/04/05/the-worst-behavior/' | relative_url}}) that same day,
 and [summarized my final exchange with the company]({{'/2019/04/15/an-exchange-with-datacamp/' | relative_url}}) on April 15.
 Reading what's been written since,

@@ -8,7 +8,7 @@ original: swc
   I'm a big fan of <a href="http://computinged.wordpress.com">Mark Guzdial</a>'s work
   on computing education.
   Last week,
-  he <a href="https://twitter.com/guzdial/status/413374893141413888">tweeted</a> this:
+  he tweeted this:
 </p>
 <blockquote>
   Google is made of people who succeed in current CS teaching model.

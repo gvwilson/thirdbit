@@ -13,7 +13,7 @@ we got this:
 > The ecosystem I have chosen to study is the Moon.
 > Nothing lives there,
 > which makes it the simplest possible ecosystem to analyze.
-> (It easier to understand a parked car with its engine off
+> (It's easier to understand a parked car with its engine off
 > than a big truck hurtling down the highway with a mad clown at the steering wheel.)
 > There are no producers, consumers, or decomposers on the Moon
 > except maybe for whatever food or poop the astronauts left behind,

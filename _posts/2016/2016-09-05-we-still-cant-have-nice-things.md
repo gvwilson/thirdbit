@@ -354,7 +354,9 @@ The new template that we deployed in June 2016 uses `site.github.url`.
 We recognized the problem with HTTP vs. HTTPS early on,
 so the standard layouts shared by all the lessons do this:
 
-    <link rel="stylesheet" type="text/css" href="{% raw %}{{ site.github.url | replace_first: 'http:', 'https:' }}{% endraw %}/css/pretty.css" />
+```
+<link rel="stylesheet" type="text/css" href="{% raw %}{{ site.github.url | replace_first: 'http:', 'https:' }}{% endraw %}/css/pretty.css" />
+```
 
 i.e., they convert the `http` prefix given in `site.github.url` into `https`.
 That solved the problem for pages served from `github.io` domains,

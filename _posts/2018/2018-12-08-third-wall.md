@@ -23,13 +23,13 @@ and 33,000 words into yet another revision of another
 and I really have to push myself to do 500 words on either.
 Similarly,
 Toby Hodges and I have written about 32,000 words of
-[our tutorial on JavaScript for data scientists](https://software-tools-in-javascript.github.io/js-vs-ds/en/),
+[our tutorial on JavaScript for data scientists]({{'/js4ds/' | relative_url}}),
 and I've written about 19,000 words explaining R for Python programmers;
 what both projects need now is a bunch of holes filled in and diagrams drawn
 and citations tracked down and examples cleaned up to be consistent and honestly,
 I'd rather do dishes and laundry and watch inane YouTube videos than look at any of them.
 
 But as Bernd Heinrich said, the will to succeed means nothing without the will to prepare.
-So I'm off to the land of [Antarctic fairies and ninja cats and tiny robot dinosaurs](http://sensibleadventures.com/madica/),
+So I'm off to the land of Antarctic fairies and ninja cats and tiny robot dinosaurs,
 just as soon as I finish writing this procrastinatory blog post and making another cup of tea.
 Speaking of which, we're almost out of tea—maybe I should go and buy some more…

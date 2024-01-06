@@ -2,7 +2,7 @@
 date: 2012-06-18 09:00:00
 year: 2012
 original: swc
-title: A Busy Week (And Schwag!)
+title: A Busy Week (And Swag!)
 ---
 <p>We have a busy week coming up:</p>
 <table class="centered">

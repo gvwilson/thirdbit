@@ -5,9 +5,7 @@ year: 2014
 original: swc
 ---
 <p>
-  The Mozilla Science Lab's first-ever
-  two-day
-  sprint
+  The Mozilla Science Lab's first-ever two-day sprint
   is less than three weeks away,
   so here's a short FAQ to tell you who can take part and how.
 </p>

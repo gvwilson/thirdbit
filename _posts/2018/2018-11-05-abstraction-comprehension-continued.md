@@ -6,7 +6,7 @@ title: "Abstraction and Comprehension Continued"
 
 In response to [my previous post]({{'/2018/11/03/abstraction-comprehension/' | relative_url}}),
 [Mark Guzdial](https://www.si.umich.edu/people/mark-guzdial)
-[tweeted this](https://twitter.com/guzdial/status/1059260901105303552):
+tweeted this:
 
 > There's an assumption in the third solution: that Solution E is within the
 > novice's Zone of Proximal Development.  If not, then it won't be helpful to

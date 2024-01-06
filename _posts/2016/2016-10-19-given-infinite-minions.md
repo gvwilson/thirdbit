@@ -10,7 +10,7 @@ year: 2016
   (at least, not yet).
   There's more than this,
   like fiction I want to finish,
-  but that's <a href="http://sensibleadventures.com">a story for a different site</a>.
+  but that's a story for a different site.
   Maybe some day I'll reconcile myself to the knowledge that
   there just isn't time to do it all.
   Meanwhile,
@@ -50,7 +50,7 @@ year: 2016
   </p>
 </dd>
 
-<dt><a href="{{site.links.browsercast}}">Browsercast</a></dt>
+<dt>Browsercast</dt>
 <dd>
   <p>
     Allow people to create synchronized voiceovers for HTML slideshows.

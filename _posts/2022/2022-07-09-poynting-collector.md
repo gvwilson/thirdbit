@@ -4,7 +4,7 @@ date: 2022-07-09
 year: 2022
 ---
 
-Back in 2020 I [asked](https://twitter.com/gvwilson/status/1309927394468392961):
+Back in 2020 I asked:
 
 > If you're running a 400KW oscillation overthruster in 5-10 msec bursts,
 > how much shielding do you need to reduce the intermediate vector bosons it throws off

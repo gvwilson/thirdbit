@@ -4,11 +4,11 @@ date: 2018-02-04 04:20
 year: 2018
 ---
 
-[Harriet Alexander just announced](https://twitter.com/nekton4plankton/status/960295582224011264)
+Harriet Alexander just announced
 that she has taught
-[the first Software Carpentry workshop in Antarctica](https://halexand.github.io/2018-02-03-swc-antarctica/).
+the first Software Carpentry workshop in Antarctica.
 Coincidentally,
-[registration is now open](https://www.eventbrite.com/e/carpentrycon-2018-tickets-42447719271)
+registration is now open
 for [CarpentryCon 2018](http://www.carpentrycon.org/);
 it'll be much easier to get to than McMurdo Sound,
 so I hope to see you there.

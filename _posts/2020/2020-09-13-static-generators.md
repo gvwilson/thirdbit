@@ -4,7 +4,7 @@ date: 2020-09-13
 year: 2020
 ---
 
-Yesterday I [tweeted](https://twitter.com/gvwilson/status/1304812291658076162):
+Yesterday I tweeted:
 
 > Somewhere out there, in a timeline very close to ours,
 > there are as many static site generators for lessons and courses as there are for blogs,
@@ -118,7 +118,7 @@ but:
 -   Finally, lessons themselves also have some implicit semantics
     that SSGs designed for blogging don't support.
     In our upcoming book
-    *[Research Software Engineering with Python](https://merely-useful.github.io/py-rse/)*,
+    *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*,
     each chapter starts with learning objectives and ends with a summary of key points.
     The former and latter also appear in appendices for easy reference,
     so we've put each set in its own includable file.

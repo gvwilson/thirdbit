@@ -8,7 +8,7 @@ year: 2021
 >
 >—variously attributed
 
-I [tweeted yesterday](https://twitter.com/gvwilson/status/1350419811080269824)
+I tweeted yesterday
 about using static website generator templates for lessons:
 
 1.  Programmers follow many conventions to make code repos more usable,
