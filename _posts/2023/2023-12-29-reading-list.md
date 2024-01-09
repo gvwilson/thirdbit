@@ -227,4 +227,10 @@ ISBN 978-0374278014.</dd>
 Bloomsbury Press, 2011.
 ISBN 978-1608193417.</dd>
 
+<dt id="Williams2014">Williams2014</dt>
+<dd>Joan&nbsp;C. Williams and Rachel Dempsey.
+<em>What Works for Women at Work: Four Patterns Working Women Need to Know</em>.
+<span class="bibtex-protected">NYU</span> Press, 2014.
+ISBN 978-1479835454.</dd>
+
 </dl>
