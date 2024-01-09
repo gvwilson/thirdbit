@@ -19,7 +19,7 @@ what have I done with the nine weeks since RStudio laid me off without warning?
     which teaches software design by building small versions of the tools programmers use themselves.
     Comments and feedback would be very welcome.
 
--   Turned a pile of notes into a rough draft of *[Building Software Together](https://buildtogether.tech/)*,
+-   Turned a pile of notes into a rough draft of *Building Tech Together*,
     which is a guide for undergraduates embarking on their first team software project.
     The sections on security and fairness are still unsatisfying,
     but I hope it's useful,

@@ -15,7 +15,7 @@ but hope I'll be able to wrap up these side projects soon as well:
   for Mike Hoye's software engineering course at the University of Toronto
 
 - finishing [*SDXJS*]({{'/sdxjs/' | relative_url}})
-  and its companion [*Building Software Together*](https://buildtogether.tech/)
+  and its companion *Building Software Together*
 
 - finishing the paper "[Twelve Quick Tips for Software Design](https://github.com/gvwilson/12-design/)"
 

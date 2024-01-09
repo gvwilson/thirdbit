@@ -35,7 +35,7 @@ about what they're all missing).
 
 I think this will be my last technical book.
 I don't think I'll ever try to get [*The Tidynomicon*][tidynomicon]
-or [*Building Tech Together*][build] into publishable form.
+or *Building Tech Together* into publishable form.
 [Other things][25years] are more important and more likely to find an audience.
 They are also,
 I hope,
@@ -50,7 +50,6 @@ more likely to give me a chance to write with people again.
 > it might live up to your secret dreams.
 
 [25years]: {{ '/2023/07/19/twenty-five-years-and-counting/' | relative_url}}
-[build]: https://buildtogether.tech/
 [carpentries]: https://carpentries.org/
 [class]: {{ '/2023/01/29/would-you-take-this-class/' | relative_url }}
 [dubious]: https://en.wikipedia.org/wiki/In_Dubious_Battle
