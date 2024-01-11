@@ -22,5 +22,5 @@ Comes a day, last kiss
 <br>
 Comes a day, last breath
 <br>
-Comes a day—and then another
+Comes your last day, and then another
 </blockquote>
