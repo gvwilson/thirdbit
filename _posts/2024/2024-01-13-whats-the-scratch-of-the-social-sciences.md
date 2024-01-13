@@ -60,8 +60,22 @@ consciously designed to be accessible to people with zero background knowledge
 *and* is supported by a community that helps those people *as they are*?
 Pointers or introductions would be very welcome.
 
+> Later: in response to the first handful of suggestions,
+> I'm not looking for computer games or simulations—at least,
+> I don't think I am.
+> I think I'm looking for something like the [Carpentries][carpentries],
+> i.e.,
+> a collection of lessons
+> *plus* workshops that deliver those lessons
+> *plus* a community that centers novice learning
+> whose scope is wide-ranging (and therefore fairly shallow in any area)
+> rather than deep (and therefore necessarily narrow).
+> I asked for something like Scratch because I want something with that vibe,
+> not because I think the only way to teach programmers is via programming tools.
+
 [^1]: All of it, not just the victors' version.
 
+[carpentries]: https://carpentries.org/
 [race]: https://en.wikipedia.org/wiki/So_You_Want_to_Talk_About_Race
 [scratch]: https://scratch.mit.edu/
 [t3]: https://teachtogether.tech/
