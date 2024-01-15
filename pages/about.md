@@ -42,7 +42,7 @@ I was a professor in [Computer Science][ut-cs]
 at the [University of Toronto][ut] from 2007 to 2010,
 during which time I helped create a [Master's degree in Applied Computing][mscac],
 was named ComputerWorld Canada's "IT Educator of the Year",
-and wrote some more books
+and published some more books
 (one of which, [*Beautiful Code*][bc], won a Jolt Award).
 
 I left academia in 2010
@@ -51,18 +51,17 @@ a worldwide volunteer organization that teaches basic computing skills to thousa
 Somewhere in there I found time to edit
 [a book on evidence-based software engineering][making-software]
 and the first two volumes of [*The Architecture of Open Source Applications*][aosabook].
-After a short stint with [Rangle.io][rangle] in 2017 I joined DataCamp,
+After a stint at [Rangle.io][rangle] in 2017 I joined DataCamp,
 who I'm proud to say [fired me in 2018][datacamp].
 
-More recently I spent two and a half years developing
-an [instructor training and certification program][rstudio-trainers] for RStudio (now Posit)
+More recently I developed an [instructor training and certification program][rstudio-trainers] for RStudio (now Posit)
 and was briefly Head of Education for [Metabase][metabase]
 before becoming a software engineering manager at [Deep Genomics][dg].
 In my free time I helped build TidyBlocks and [Glosario][glosario]
 and wrote or co-wrote [*Teaching Tech Together*][t3],
 [*JavaScript for Data Science*][js4ds],
 [*Research Software Engineering with Python*][rse-py],
-and [*Software Design by Example*][sdxjs].
+and a pair of books called *Software Design by Example* in [JavaScript][sdxjs] and [Python][sdxpy].
 if you'd like to chat,
 please [drop me a line](mailto:gvwilson@third-bit.com).
 
@@ -89,6 +88,7 @@ CV (<a href="{{ '/cv/gvwilson.pdf' | relative_url }}">PDF</a>, <a href="{{ '/cv/
 [rse-py]: https://merely-useful.tech/py-rse/
 [rstudio-trainers]: http://education.rstudio.com/trainers
 [sdxjs]: {{'/sdxjs/' | relative_url}}
+[sdxpy]: {{'/sdxpy/' | relative_url}}
 [sigsoft]: https://www.sigsoft.org/
 [t3]: http://teachtogether.tech
 [ut]: http://www.utoronto.ca
