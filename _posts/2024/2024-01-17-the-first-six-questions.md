@@ -4,6 +4,9 @@ date: 2024-01-17
 year: 2024
 ---
 
+> Please see [the bottom of this page](#faq)
+> for answers and responses to questions and comments that have come in.
+
 I've been talking and writing for several years
 about teaching programmers the basics of economics, politics, sociology, and related fields
 so that they could understand the world they're living in and reshaping.
@@ -48,7 +51,7 @@ they don't have translate immediately into "how to write better OKRs with scienc
 What they *do* have to be is engaging:
 the prototypical audience member is busy,
 a little bit skeptical,
-and utterly uninterested in anything that feels pious, faddish, or condescending[^frank].
+and utterly uninterested in anything that feels pious, faddish, or condescending[^believers].
 
 I've listed six possible questions below,
 and hope to set up an hour-long call later this month
@@ -105,8 +108,9 @@ Why don't programmers need licenses?
     but *exalted* programmers don't?"
     The answer is that licensure is tied to professional responsibility,
     which leads to discussion of the fact that
-    middle-class professions such as law and medicine are (mostly) allowed to be self-regulating
-    while working-class professions like hairdressing mostly have regulations imposed on them.
+    middle-class professions such as engineering, law, and medicine
+    are (mostly) allowed to oversee licensure themselves,
+    while working-class professions like hairdressing mostly have it imposed on them.
 
 People of Asian ancestry make up 4–5% of the Canadian population but 50–75% of computer science classes. Does this prove Asians are intrinsically better at programming than everyone else?
 :   The corollary is,
@@ -115,7 +119,43 @@ People of Asian ancestry make up 4–5% of the Canadian population but 50–75% 
     That introduces discussion of how supposedly-objective "science" is often used to prove
     whatever the powerful want proven.
 
-Footnotes:
+<h2 id="faq">FAQ</h2>
+
+Economics, politics, and sociology are all different fields, and each one is enormous.
+:   I think that books like Bryson's [*A Short History of Nearly Everything*][bryson]
+    are proof by example that it's possible to touch on a wide range of disciplines
+    in a useful, informative way
+    without it feeling like the author is doing a speed run through a list of keywords.
+
+What you cover depends on who your audience is.
+:   When I think about the prototypical learner for this I think about Frank,
+    a 25-year-old straight cis white male from a middle-class family.
+    Frank thinks Jordan Peterson is a pompous dick but not necessarily wrong;
+    he thinks Trump voters are idiots but finds Dave Chappelle's "edgy" humor funny;
+    and he'd be angry if you called him racist or misogynist
+    but thinks his company shouldn't make "diversity hires".
+    Frank did a course called "The Business of Software" as an undergrad,
+    in which he and three other (straight cis white and Asian male) students
+    pretended they were launching a startup;
+    at no point in the course did the prof use the word "monopoly"
+    or suggest that collecting and selling as much information about users as possible
+    might be problematic.
+
+The person you just described isn't going to sit through a lecture on sociology.
+:   Books like *Freakonomics* have convinced me otherwise.
+    I disagree (strongly) with its authors pseudo-libertarian Chicago School perspective,
+    but I think it's one of the most effective pieces of propaganda
+    written in English in the last half century.
+    Literally millions of people like Frank have read it
+    because it doesn't preach or offer tips on writing better OKRs;
+    instead,
+    it sidles up to the reader and says,
+    "Psst—wanna take a look behind the curtain and see how things *really* work?"
+    The prospect of being smarter than other people in the room
+    is catnip and cocaine for the Franks of this world;
+    I'd like to use that same technique to do good.
+
+## Footnotes
 
 [^useful]: "Useful" doesn't necessarily mean something like "translates into five tips for running more effective meetings". Instead, this new knowledge should (for example) help people understand why so many people repeatedly vote against their own interests, or why the argument that racism can't exist in a truly free-market society because it's economically inefficient is bullshit.
 
@@ -129,8 +169,9 @@ Footnotes:
 
 [^fundamental]: For example, two minutes after I start teaching people how to use the Unix shell, I show them the `history` command and explain how to repeat commands they've recently run. It isn't the most important thing in the shell, but it's something they probably can't do easily with the GUI tools they've used before, and they immediately understand its value. Finding hooks like these is key to learner engagement.
 
-[^frank]: One thing I *don't* want to do is preach to believers, e.g., tell people who already think diversity is important that some people are systematically excluded from power. I often think about Frank, a 25-year-old straight cis white male from a middle-class family who thinks Jordan Peterson is a pompous dick but not necessarily wrong, that Trump voters are idiots but Dave Chappelle is funny, and that the company he's working for shouldn't make "diversity hires".
+[^believers]: One thing I *don't* want to do is preach to believers, e.g., tell people who already think diversity is important that some people are systematically excluded from power.
 
+[bryson]: https://en.wikipedia.org/wiki/A_Short_History_of_Nearly_Everything
 [carpentries]: https://carpentries.org/
 [like-scratch]: {{'/2024/01/13/whats-the-scratch-of-the-social-sciences/' | relative_url}}
 [meetings]: https://docs.google.com/presentation/d/1HSdgVQjq0d3UYh-aA4uWHXxYYpySn_xXwfn_M4Ms8Ts/
