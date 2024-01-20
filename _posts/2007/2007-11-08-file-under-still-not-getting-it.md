@@ -26,7 +26,7 @@ year: 2007
   gripes about how uninterested most people are in science.  Maybe
   they're just uninterested in <em>his</em> kind of science.  Ending
   segregation in the American South was a more passionate issue than
-  going to the Moon, and rightly so; if scientists Kaku understood
+  going to the Moon, and rightly so; if scientists like Kaku understood
   that figuring out how to raise a billion people out of abject
   poverty, <em>and then doing it</em>, would be a greater adventure
   than bending light to make things invisible, maybe more people would
