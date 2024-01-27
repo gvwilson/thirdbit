@@ -3,7 +3,6 @@ title: "Complexity vs. Subtlety"
 date: 2016-03-05 08:00:00
 year: 2016
 original: swc
-favorite: true
 ---
 I gave a lightning talk on Software Carpentry for the [OICR](http://oicr.on.ca/) yesterday,
 and in discussion afterward,
