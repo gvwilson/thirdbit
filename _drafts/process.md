@@ -108,7 +108,7 @@ have grown out of these self-reviews.
     -   What didn't?
     -   What changes would we like to implement to improve the way we work?
 -   Frequency: quarterly
--   Responsible: Scrum Master
+-   Responsible: Scrum master
 -   Contributors: entire engineering team
 -   Products:
     -   Ranked list of things that worked well and things that didn't
@@ -253,6 +253,13 @@ the activities below are undertaken by specific people or groups of people.
 
 ### Problem Discovery
 
+If you've never had the pleasure of working with a good product manager,
+you may not realize how much better your life could be.
+This activity and the one that follows are the core of what they do:
+question, observe, and listen to users,
+figure out what their *actual* needs are,
+and translate those needs into things for engineers to fix or build.
+
 -   Summary: Ongoing investigation of users' needs
 -   Key Questions:
     -   Who are our primary stakeholders?
@@ -268,7 +275,12 @@ the activities below are undertaken by specific people or groups of people.
 
 ### Solution Discovery
 
--   Summary: Exploration and validation of potential solutions to address prioritized problems
+This activity is where product management and engineering design overlap.
+Its output is the starting point for the design docs mentioned earlier:
+in particular,
+this is where needs, constraints, and big-picture alternatives are formulated.
+
+-   Summary: Exploration and validation of potential solutions to prioritized problems
 -   Key Questions:
     -   Should we build it or buy it?
     -   How could we solve this problem for our users?
@@ -278,8 +290,16 @@ the activities below are undertaken by specific people or groups of people.
 -   Frequency: ongoing
 -   Responsible: Product Manager and technical leads
 -   Contributors: users and engineering team members
+-   Products:
+    -   Designs for new features or applications
 
 ### Engineering Needs
+
+Software engineers are people too,
+and have their own specialized needs.
+Our product manager occasionally treats us as users
+and uses discovery techniques to (help us) figure out
+what would make *our* lives better.
 
 -   Summary: Ongoing assessment of engineering's needs
 -   Key Questions:
@@ -289,38 +309,23 @@ the activities below are undertaken by specific people or groups of people.
 -   Frequency: ongoing
 -   Responsible: technical leads
 -   Contributors: entire engineering team
-
-## Delivery
-
-### Project Planning
-
--   Summary: Documentation and organization of prioritized projects
--   Key Questions:
-    -   What problem is this project focused on solving for whom?
-    -   What will be the impact of solving this problem?
-    -   What are the goals or desired outcomes of this project?
-    -   How will we measure success?
-    -   What is in scope and out of scope?
-    -   What are our milestones, timelines, and expected deliverables?
-    -   What are the smallest slices of value we can deliver to our customers?
--   Frequency: project dependent
--   Responsible: Product Manager and technical leads
--   Contributors: engineering team members
-
-### Technical Design
-
--   Summary: Deep dive into the technical design/architecture of a given solution
--   Key Questions:
-    -   What problem is the design solving for whom?
-    -   How are they solving the problem today?
-    -   What pain points with the existing solution led to the need for a better one?
-    -   What is out of scope?
-    -   What is the prototype of the technical solution?
--   Frequency: project dependent
--   Responsible: technical leads
--   Contributors: engineering team members
+-   Products:
+    -   Designs for new features or applications
 
 ### Biweekly Sprint Goals/Backlog Grooming
+
+OK,
+we've agreed on what we're going to build—now we actually have to build it.
+Every two weeks,
+the Scrum master and the project's technical lead
+create issues for new work
+and (if necessary) relabel old issues
+to define what we're going to try to accomplish in this sprint.
+Most of the new issues come from the design docs,
+or are elaborations or breakdowns of things discussed in those docs;
+depending on the size of the work,
+we may create several sub-issues under a single high-level issue
+so that progress reports aren't "I'm working on it" several days in a row.
 
 -   Summary: Biweekly prioritization to determine team focus for the sprint
 -   Key Questions:
@@ -329,20 +334,42 @@ the activities below are undertaken by specific people or groups of people.
     -   What key bugs should we prioritize?
     -   What tech debt needs to be addressed?
 -   Frequency: biweekly
--   Responsible: Product Manager and technical leads
--  Contributors: engineering team members
+-   Responsible: Scrum master and technical leads
+-   Contributors: engineering team members
+-   Products:
+    -   Labeled issues
+
+> I've worked on teams where issues had a "percent complete" field
+> that the people responsible for it were supposed to update daily.
+> It wasn't helpful:
+> it's easy to see how much ditch you have left to dig,
+> but much harder to know how much code you have left to write and debug.
+> Breaking milestones down into inch-pebbles
+> and marking the latter as "finished" or "not finished"
+> has proven much more useful.
 
 ### Daily Standups
 
--   Summary: Daily team sync to discuss progress and identify blockers as relates to the sprint goals
+We don't actually stand up,
+but this is still the most important meeting each team has.
+The tech lead of the project does a quick lap around the team to find out
+what each person has done,
+what they're planning to do,
+and what's holding them back.
+We try to enforce a three-sentence rule:
+if a discussion during individual updates goes on longer than that
+we defer it until after everyone has finished their initial report.
+
+-   Summary: Daily team sync
 -   Key Questions:
     -   What did you work on yesterday?
     -   What are you working on today?
     -   What is blocking you?
-    -   Any key questions, decisions, or concerns to raise with the team?
 -   Frequency: daily
 -   Responsible: technical leads
 -   Contributors: engineering team members
+-   Products:
+    -   Updated issues
 
 ### Sprint Retros
 
