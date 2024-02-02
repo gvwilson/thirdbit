@@ -360,6 +360,11 @@ We try to enforce a three-sentence rule:
 if a discussion during individual updates goes on longer than that
 we defer it until after everyone has finished their initial report.
 
+The "output" from standups is course corrections.
+Should we try another approach to a problem?
+Did someone discover an issue that ought to go in the backlog for the next sprint,
+or something that's important enough to replace something planned for this sprint?
+
 -   Summary: Daily team sync
 -   Key Questions:
     -   What did you work on yesterday?
@@ -373,6 +378,15 @@ we defer it until after everyone has finished their initial report.
 
 ### Sprint Retros
 
+Just as the whole of engineering does a retrospective each quarter,
+each team does a short retrospective at the end of each sprint.
+Sometimes the output is "let's try doing something differently"
+(for a smaller value of "something" than would be discussed by the whole team in a quarterly retro);
+other times,
+the output is just,
+"Well done!"
+because it's as important to celebrate victories as it is to learn from defeats.
+
 -   Summary: Bi-weekly sync to reflect on the past sprint and identify possible improvements
 -   Key Questions:
     -   What went well?
@@ -381,25 +395,57 @@ we defer it until after everyone has finished their initial report.
 -   Frequency: biweekly
 -   Responsible: Scrum master
 -   Contributors: engineering team members
+-   Products:
+    -   Updated issues and processes
 
-### Feature/Slice Deployment
+### Feature Deployment
+
+We figured out what our users needed,
+we designed it,
+we built it,
+we tested it (more on that below),
+we did a few trial deployments:
+time to put it into production.
+As the list of key questions below shows,
+that's never as simple as restarting a server
+or pushing a new version of a package to our company's conda repository.
+We have to tell people the things they've been asking for are now available,
+and we have to check that they actually work in production.
 
 -   Summary: Testing, deployment, documentation, and communication of fixes and features
 -   Key Questions:
     -   Is the feature/fix/change working as expected?
     -   Is it well documented both from a technical and user-facing perspective?
-    -   Who needs to be aware of this change once pushed to production?
-    -   Is there any training needed to enable use of this change?
+    -   Who needs to be aware of this change?
+    -   Is any training needed to enable use of this change?
 -   Frequency: ongoing
 -   Responsible: technical leads
 -   Contributors: entire engineering team
+-   Products:
+    -   (Hopefully) happy users
 
-### Customer Feedback and Metrics
+## Reflection
 
--   Summary: Measuring and assessing impact and identifying gaps or areas for improvement
--   Frequency: ongoing
--   Responsible: VP Engineering and Product Manager
--   Contributors: entire engineering team
+We didn't adopt all these processes at once.
+It's taken two years to put them in place,
+and there are a few other things we tried that didn't survive.
+*This* is the real heart of any software development process:
+the willingness to experiment,
+to learn,
+and to adapt.
+As a previous boss once said to me,
+"If you're doing everything by the book, you're doing something wrong."
+
+We're not done,
+and I hope we never will be.
+Right now,
+for example,
+everyone is responsible for testing the features they develop.
+We do catch some of each other's mistakes in code review,
+but we're not testing service interoperability nearly as well as we should.
+Fixing that will require more than just setting up some more continuous integration tasks;
+we will almost certainly have to extend or amend our processes as well.
+We'll keep you posted...
 
 [dottie]: https://www.linkedin.com/in/dottie-omino/
 [linear]: https://linear.app/
