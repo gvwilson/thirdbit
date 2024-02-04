@@ -40,7 +40,7 @@ to help myself wake up,
 and I think that shows.
 And yeah,
 there have been a few distractions—resigning from Shopify,
-being fired by DataCamp (for poor performance, in case you were wondering),
+being fired by DataCamp,
 my brother's death,
 joining RStudio—but
 I think that if I want to create something worthwhile in 2019,
