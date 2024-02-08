@@ -9,6 +9,7 @@ He co-founded and and was the first Executive Director of [Software Carpentry][c
 which has taught basic software skills to tens of thousands of researchers worldwide,
 and has authored or edited over a dozen books,
 including [*Beautiful Code*][bc],
+[*Making Software*][ms],
 [*The Architecture of Open Source Applications*][aosabook],
 [*Teaching Tech Together*][t3],
 and most recently [*Software Design by Example*][sdxjs].
@@ -80,6 +81,7 @@ CV (<a href="{{ '/cv/gvwilson.pdf' | relative_url }}">PDF</a>, <a href="{{ '/cv/
 [lake-cowichan]: http://www.town.lakecowichan.bc.ca/
 [making-software]: https://www.oreilly.com/library/view/making-software/9780596808310/
 [metabase]: http://www.metabase.com/
+[ms]: https://www.oreilly.com/library/view/making-software/9780596808310/
 [mscac]: https://mscac.utoronto.ca/
 [new-sci]: https://www.newscientist.com/
 [psf]: https://www.python.org/psf-landing/
