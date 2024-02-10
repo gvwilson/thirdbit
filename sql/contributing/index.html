@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+<link rel="stylesheet" href="/res/github.css" type="text/css">
+<link rel="stylesheet" href="/res/tutorial.css" type="text/css">
+<script defer data-domain="gvwilson.github.io/sql-tutorial" src="https://plausible.io/js/script.js"></script>
+<title>An Introduction to SQL for Weary Data Scientists &middot; Contributing</title>
+
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="/">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a href="https://github.com/gvwilson/sql-tutorial">repo</a>
+      <a href="https://github.com/gvwilson/sql-tutorial/raw/main/sql-tutorial.zip">download</a>
+      <a class="navlink" href="/license/">license</a>
+      <a class="navlink" href="/conduct/">conduct</a>
+      <a class="navlink" href="/contributing/">contributing</a>
+      <a class="navlink" href="/colophon/">colophon</a>
+    </div>
+  </div>
+</nav>
+
+    <main>
+      <h1>Contributing</h1>
+      
+<p>Contributions are very welcome.
+Please file issues or submit pull requests in our GitHub repository.
+All contributors will be acknowledged.</p>
+
+<h2 id="in-brief">In Brief</h2>
+
+<ul>
+  <li>
+    <p>The tutorial lives in <code class="language-plaintext highlighter-rouge">index.md</code>,
+which is translated into a static GitHub Pages website using <a href="https://jekyllrb.com/">Jekyll</a>.</p>
+  </li>
+  <li>
+    <p>The source files for examples are in <code class="language-plaintext highlighter-rouge">src/</code>,
+while the output they generate is in <code class="language-plaintext highlighter-rouge">out/</code>.</p>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">pip install -r requirements.txt</code>
+to install the packages required by the helper tools and Python examples.
+You may wish to create a new virtual environment before doing so.
+All code has been tested with Python 3.12.1.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Makefile</code> contains the commands used to re-run each example.
+If you add a new example,
+please add a corresponding rule in <code class="language-plaintext highlighter-rouge">Makefile</code>.</p>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">{% include section_start.md class="CLASS" title="TITLE" %}</code>
+at the start of the first section.
+The class can be <code class="language-plaintext highlighter-rouge">topic</code> for a numbered topic,
+<code class="language-plaintext highlighter-rouge">aside</code> for an unnumbered aside,
+or <code class="language-plaintext highlighter-rouge">exercise</code> for practice exercises.
+Topics and asides must have titled;
+exercise section do not (the name is filled in automatically).</p>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">{% include section_end.md %}</code>
+at the end of the final section.</p>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">{% include section_break.md class="CLASS" title="TITLE" %}</code>
+to end the previous section and start a new one.</p>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">{% include double.md stem="file" suffix="sql out" %}</code>
+in <code class="language-plaintext highlighter-rouge">index.md</code> to include <code class="language-plaintext highlighter-rouge">src/file.sql</code> and <code class="language-plaintext highlighter-rouge">out/file.out</code>.
+(Any two suffixes can be provided, such as <code class="language-plaintext highlighter-rouge">"py out"</code>.)</p>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">{% include single.md file="dir/file.ext" %}</code>
+in <code class="language-plaintext highlighter-rouge">index.md</code> to include an arbitrary text file <em>without</em> automatically including output.
+(Note that <code class="language-plaintext highlighter-rouge">single</code> requires a directory name such as <code class="language-plaintext highlighter-rouge">src</code> or <code class="language-plaintext highlighter-rouge">out</code> but <code class="language-plaintext highlighter-rouge">double</code> does not.)</p>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">{% include exercise.md %}</code> to introduce a numbered exercise.
+Do not leave a blank link between the inclusion and the text of the exercise.</p>
+  </li>
+  <li>
+    <p>By default, file inclusion strips out everything between <code class="language-plaintext highlighter-rouge">-- [keep]</code> and <code class="language-plaintext highlighter-rouge">-- [/keep]</code>
+for SQL files and <code class="language-plaintext highlighter-rouge"># [keep]</code> and <code class="language-plaintext highlighter-rouge"># [/keep]</code> for Python files.
+The start and end tags can be customized by passing <code class="language-plaintext highlighter-rouge">keep="label"</code> to either
+<code class="language-plaintext highlighter-rouge">single.md</code> or <code class="language-plaintext highlighter-rouge">double.md</code>.</p>
+  </li>
+  <li>
+    <p>Add important terms to <code class="language-plaintext highlighter-rouge">_info/glossary.yml</code>,
+which is in <a href="https://glosario.carpentries.org/">Glosario</a> format.</p>
+  </li>
+  <li>
+    <p>Use <code class="language-plaintext highlighter-rouge">&lt;a href="#g:key"&gt;text&lt;/span&gt;</code> to link to glossary entries.
+The key must identify an entry in <code class="language-plaintext highlighter-rouge">_data/glossary.yml</code>;
+the <code class="language-plaintext highlighter-rouge">#</code> makes it an in-page reference,
+while the <code class="language-plaintext highlighter-rouge">g:</code> prefix triggers CSS styling.</p>
+  </li>
+  <li>
+    <p>SVG images used in the tutorial are in <code class="language-plaintext highlighter-rouge">img/</code>
+and can be edited using <a href="https://www.drawio.com/">draw.io</a>.
+Please use 12-point Helvetica for text,
+solid 1-point black lines,
+and unfilled objects.</p>
+  </li>
+  <li>
+    <p>All external links are written using <code class="language-plaintext highlighter-rouge">[box][notation]</code> inline
+and defined in <code class="language-plaintext highlighter-rouge">_data/tutorial.yml</code>.
+The inclusion <code class="language-plaintext highlighter-rouge">{% include links.md links=site.data.links %}</code>
+at the end of <code class="language-plaintext highlighter-rouge">index.md</code> fills in these links.</p>
+  </li>
+</ul>
+
+<h2 id="logical-structure">Logical Structure</h2>
+
+<ul>
+  <li>Introduction
+    <ul>
+      <li>A <em>learner persona</em> that characterizes the intended audience in concrete terms.</li>
+      <li><em>Prerequisites</em> (which should be interpreted with reference to the learner persona).</li>
+      <li><em>Learning objectives</em> that define the tutorial’s scope.</li>
+      <li><em>Setup instructions</em> that instructors and learners must go through in order to code along</li>
+    </ul>
+  </li>
+  <li>
+    <p><em>Topics</em> are numbered.
+Each contains one code sample, its output, and notes for the instructor.
+Learners are <em>not</em> expected to be able to understand topics without instructor elaboration.</p>
+  </li>
+  <li>
+    <p><em>Asides</em> are not numbered,
+and contain code-less explanatory material,
+additional setup instructions,
+<em>concept maps</em> summarizing recently-introduced ideas,
+etc.</p>
+  </li>
+  <li>
+    <p><em>Exercises</em> are numbered.
+An exercise section may include any number of exercises.</p>
+  </li>
+  <li>
+    <p>Topics of both kinds may contain <em>glossary references</em>
+and/or <em>explanatory diagrams</em>.</p>
+  </li>
+  <li>Appendices
+    <ul>
+      <li>A <em>glossary</em> that defines terms called out in the topics.</li>
+      <li><em>Acknowledgments</em> that point at inspirations and thank contributors.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="physical-structure">Physical Structure</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CODE_OF_CONDUCT.md</code>: source for Code of Conduct
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">conduct_.md</code>: auxiliary file to translate CoC into HTML</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">CONTRIBUTING.md</code>: this guide
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">contributing_.md</code>: auxiliary file to translate this guide into HTML</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">LICENSE.md</code>: licenses for code and prose
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">license_.md</code>: auxiliary file to translate licenses into HTML</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Makefile</code>: commands for rebuilding examples
+    <ul>
+      <li>Run <code class="language-plaintext highlighter-rouge">make</code> with no arguments to see available targets</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">README.md</code>: home page</li>
+  <li><code class="language-plaintext highlighter-rouge">_config.yml</code>: Jekyll configuration file</li>
+  <li><code class="language-plaintext highlighter-rouge">_data/</code>: auxiliary data files used to build website
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">_data/thanks.yml</code>: names of people to include in acknowledgments</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/</code>: Jekyll inclusions (discussed above)</li>
+  <li><code class="language-plaintext highlighter-rouge">_layouts/</code>: Jekyll layouts</li>
+  <li><code class="language-plaintext highlighter-rouge">_site/</code>: Jekyll output (not stored in version control)</li>
+  <li><code class="language-plaintext highlighter-rouge">bin/</code>: helper programs (e.g., for generating databases)</li>
+  <li><code class="language-plaintext highlighter-rouge">db/</code>: databases used in examples</li>
+  <li><code class="language-plaintext highlighter-rouge">favicon.ico</code>: favicon used in generated site</li>
+  <li><code class="language-plaintext highlighter-rouge">img/</code>: images used in tutorial</li>
+  <li><code class="language-plaintext highlighter-rouge">index.md</code>: home page for generated website</li>
+  <li><code class="language-plaintext highlighter-rouge">misc/</code>: miscellaneous files
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">jupysql.ipynb</code>: Jupyter notebook used in examples</li>
+      <li><code class="language-plaintext highlighter-rouge">penguins.csv</code>: <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer penguins</a> data</li>
+      <li><code class="language-plaintext highlighter-rouge">sql_keywords.txt</code>: all SQLite keywords</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">out/</code>: generated output files for examples</li>
+  <li><code class="language-plaintext highlighter-rouge">requirements.txt</code>: <code class="language-plaintext highlighter-rouge">pip</code> requirements file to build Python environment</li>
+  <li><code class="language-plaintext highlighter-rouge">res/</code>: CSS and JavaScript for styling site</li>
+  <li><code class="language-plaintext highlighter-rouge">src/</code>: source files for examples</li>
+</ul>
+
+<h2 id="tags-for-issues-and-pull-requests">Tags for Issues and Pull Requests</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">contribute-addition</code>: a pull request that contains new material</li>
+  <li><code class="language-plaintext highlighter-rouge">contribute-change</code>: a pull request that changes or fixes existing material</li>
+  <li><code class="language-plaintext highlighter-rouge">governance</code>: discussion of direction, use, etc.</li>
+  <li><code class="language-plaintext highlighter-rouge">help-wanted</code>: requires knowledge or skills the core maintainer lacks</li>
+  <li><code class="language-plaintext highlighter-rouge">in-content</code>: issue or PR is related to lesson content</li>
+  <li><code class="language-plaintext highlighter-rouge">in-infrastructure</code>: issue or PR is related to build tools, styling, etc.</li>
+  <li><code class="language-plaintext highlighter-rouge">report-bug</code>: issue reporting an error</li>
+  <li><code class="language-plaintext highlighter-rouge">request-addition</code>: issue asking for new content</li>
+  <li><code class="language-plaintext highlighter-rouge">request-change</code>: issue asking for a change to existing content</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+
+<dl>
+  <dt>Why SQL?</dt>
+  <dd>Because if you dig down far enough,
+almost every data science project sits on top of a relational database.
+(<a href="https://blog.jonudell.net/">Jon Udell</a> once called <a href="https://www.postgresql.org/">PostgreSQL</a>
+“an operating system for data science”.)
+SQL’s relational model has also been a powerful influence
+on dataframe libraries like <a href="https://www.tidyverse.org/">the tidyverse</a>,
+<a href="https://pandas.pydata.org/">Pandas</a>,
+and <a href="https://pola.rs/">Polars</a>;
+understanding the former therefore helps people understand the latter.</dd>
+  <dt>Why Jekyll?</dt>
+  <dd>It’s the default for GitHub Pages,
+and if we used something more comfortable
+people would spend time fiddling with the tools instead of writing content.</dd>
+  <dt>Why Make?</dt>
+  <dd>It runs everywhere,
+no other build tool is a clear successor,
+and,
+like Jekyll,
+it’s uncomfortable enough to use that people won’t be tempted to fiddle with it
+when they could be writing.</dd>
+  <dt>Why hand-drawn figures rather than <a href="https://graphviz.org/">Graphviz</a> or <a href="https://mermaid.js.org/">Mermaid</a>?</dt>
+  <dd>Because it’s faster to Just Effing Draw than it is
+to try to tweak layout parameters for text-to-diagram systems.
+If you really want to make developers’ lives better,
+build a diff-and-merge tool for SVG:
+programmers shouldn’t have to use punchard-compatible data formats in the 21st Century
+just to get the benefits of version control.</dd>
+  <dt>Why make this tutorial freely available?</dt>
+  <dd>Because if we all give a little, we all get a lot.</dd>
+</dl>
+
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> <time datetime="2024-02-10T14:31:19-05:00">2024</time> Greg Wilson
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href=""><i class="fab fa-github" aria-hidden="true" title="GitHub repository"></i></a>
+  <a href="/license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  &middot;
+  <time datetime="2024-02-10T14:31:19-05:00">Last built 2024-02-10:14:31:19</time>
+</footer>
+
+  </body>
+</html>
