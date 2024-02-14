@@ -89,7 +89,7 @@ do the things I want:
 1.  **No mandated editor.**
     So far this week I have edited in Emacs, the RStudio IDE, and Microsoft Visual Code.
     My co-authors on *[JavaScript for Data Science]({{'/js4ds/' | relative_url}})*
-    and *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*,
+    and *[Research Software Engineering with Python]({{'/py-rse/' | relative_url}})*,
     and the team translating *[Teaching Tech Together](https://teachtogether.tech/)*
     into [Spanish](http://teachtogether.tech/es/index.html),
     use another half-dozen editors between them.

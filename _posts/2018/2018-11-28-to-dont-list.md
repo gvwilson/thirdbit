@@ -19,7 +19,7 @@ The first few lines look like this:
     <th>until I finish:</th>
   </tr>
   <tr>
-    <td><em><a href="https://merely-useful.tech/py-rse/">Merely Useful</a></em></td>
+    <td><em><a href="{{'/py-rse/' | relative_url}}">Merely Useful</a></em></td>
     <td><em>The Tidynomicon</em></td>
   </tr>
   <tr>

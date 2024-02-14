@@ -118,7 +118,7 @@ but:
 -   Finally, lessons themselves also have some implicit semantics
     that SSGs designed for blogging don't support.
     In our upcoming book
-    *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*,
+    *[Research Software Engineering with Python]({{'/py-rse/' | relative_url}})*,
     each chapter starts with learning objectives and ends with a summary of key points.
     The former and latter also appear in appendices for easy reference,
     so we've put each set in its own includable file.

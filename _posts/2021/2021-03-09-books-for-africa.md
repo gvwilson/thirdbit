@@ -7,7 +7,7 @@ year: 2021
 Randi Cohen at Taylor & Francis
 (who published *[Teaching Tech Together](https://teachtogether.tech)*
 and *[JavaScript for Data Scientists]({{'/js4ds/' | relative_url}})*,
-and who will be publishing *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*
+and who will be publishing *[Research Software Engineering with Python]({{'/py-rse/' | relative_url}})*
 in a few weeks)
 posted this:
 

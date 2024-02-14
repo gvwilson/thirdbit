@@ -76,7 +76,7 @@ and so far it's hurting less than any of the others.
 [nikola]: https://www.getnikola.com/
 [paged]: https://pagedjs.org/
 [pelican]: https://getpelican.com/
-[py-rse]: https://merely-useful.tech/py-rse/
+[py-rse]: {{'/py-rse/' | relative_url}}
 [quarto]: https://quarto.org/docs/books/
 [rethinking]: {{'/2023/03/12/rethinking-design-examples/' | relative_url}}
 [sdxjs]: {{'/sdxjs/' | relative_url}}

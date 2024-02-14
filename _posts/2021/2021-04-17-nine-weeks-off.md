@@ -12,7 +12,7 @@ what have I done with the nine weeks since RStudio laid me off without warning?
     that I co-authored with Danielle Smalls.
     (All the work for both was done before I was canned, but seeing them in print was still a nice boost.)
 
--   Wrapped up *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*:
+-   Wrapped up *[Research Software Engineering with Python]({{'/py-rse/' | relative_url}})*:
     it should be on the shelves this quarter.
 
 -   Finished the first usable draft of [*Software Design by Example Using JavaScript*]({{'/sdxjs/' | relative_url}}),

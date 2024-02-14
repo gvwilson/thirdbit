@@ -7,7 +7,7 @@ year: 2021
 I recently helped a group of about fifteen people set up a new research software engineering project
 (where by "new" I mean "restart something that was in bits and pieces scattered across half the internet").
 They all had GitHub accounts already,
-and a couple of them had read *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)*,
+and a couple of them had read *[Research Software Engineering with Python]({{'/py-rse/' | relative_url}})*,
 but only one had any formal training as a programmer
 (a 12-week bootcamp four years ago).
 Here's what we did in order—I'd be grateful for suggestions about what we missed
