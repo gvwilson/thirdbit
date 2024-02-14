@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 The Basics of the Unix Shell | Research Software Engineering with Python</title>
+  <meta name="description" content="Chapter 2 The Basics of the Unix Shell | Research Software Engineering with Python" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 The Basics of the Unix Shell | Research Software Engineering with Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="tugboats-800x600.jpg" />
+  
+  <meta name="github-repo" content="merely-useful/py-rse" />
+
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<meta name="author" content="Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="getting-started.html"/>
+<link rel="next" href="bash-tools.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link rel="shortcut icon" href="favicon.ico" />
+<script defer data-domain="merely-useful.tech" src="https://plausible.io/js/plausible.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="index.html">Merely Useful</a></strong></li>
+<li><img src="tugboats-800x600.jpg" width=267 height=200 style="padding-left:20px;"/></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html">Welcome</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intro-big-picture"><b>0.1</b> The Big Picture</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intro-personas"><b>0.2</b> Intended Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#intro-syllabus"><b>0.3</b> What You Will Learn</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#intro-using"><b>0.4</b> Using this Book</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#contributing-and-re-use"><b>0.5</b> Contributing and Re-Use</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#intro-ack"><b>0.6</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#dedications"><b>0.7</b> Dedications</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-structure"><b>1.1</b> Project Structure</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-boilerplate"><b>1.1.1</b> Standard information</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-organize"><b>1.1.2</b> Organizing project content</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-download-data"><b>1.2</b> Downloading the Data</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#getting-started-install-software"><b>1.3</b> Installing the Software</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#getting-started-summary"><b>1.4</b> Summary</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#getting-started-exercises"><b>1.5</b> Exercises</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-install"><b>1.5.1</b> Getting ready</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#getting-started-keypoints"><b>1.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bash-basics.html"><a href="bash-basics.html"><b>2</b> The Basics of the Unix Shell</a><ul>
+<li class="chapter" data-level="2.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-explore"><b>2.1</b> Exploring Files and Directories</a></li>
+<li class="chapter" data-level="2.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-navigate"><b>2.2</b> Moving Around</a></li>
+<li class="chapter" data-level="2.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-filedir"><b>2.3</b> Creating New Files and Directories</a></li>
+<li class="chapter" data-level="2.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-move"><b>2.4</b> Moving Files and Directories</a></li>
+<li class="chapter" data-level="2.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-copy"><b>2.5</b> Copying Files and Directories</a></li>
+<li class="chapter" data-level="2.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-rm"><b>2.6</b> Deleting Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-wildcard"><b>2.7</b> Wildcards</a></li>
+<li class="chapter" data-level="2.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-help"><b>2.8</b> Reading the Manual</a></li>
+<li class="chapter" data-level="2.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-summary"><b>2.9</b> Summary</a></li>
+<li class="chapter" data-level="2.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-exercises"><b>2.10</b> Exercises</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-more-ls"><b>2.10.1</b> Exploring more <code>ls</code> flags</a></li>
+<li class="chapter" data-level="2.10.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-rt"><b>2.10.2</b> Listing recursively and by time</a></li>
+<li class="chapter" data-level="2.10.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-paths"><b>2.10.3</b> Absolute and relative paths</a></li>
+<li class="chapter" data-level="2.10.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-resolve-rel-path"><b>2.10.4</b> Relative path resolution</a></li>
+<li class="chapter" data-level="2.10.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reading-ls"><b>2.10.5</b> <code>ls</code> reading comprehension</a></li>
+<li class="chapter" data-level="2.10.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-touch"><b>2.10.6</b> Creating files a different way</a></li>
+<li class="chapter" data-level="2.10.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-safe-rm"><b>2.10.7</b> Using <code>rm</code> safely</a></li>
+<li class="chapter" data-level="2.10.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-move-dot"><b>2.10.8</b> Moving to the current folder</a></li>
+<li class="chapter" data-level="2.10.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-renaming-files"><b>2.10.9</b> Renaming files</a></li>
+<li class="chapter" data-level="2.10.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-last-ls"><b>2.10.10</b> Moving and copying</a></li>
+<li class="chapter" data-level="2.10.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-copy-multi"><b>2.10.11</b> Copy with multiple filenames</a></li>
+<li class="chapter" data-level="2.10.12" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-match"><b>2.10.12</b> List filenames matching a pattern</a></li>
+<li class="chapter" data-level="2.10.13" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-organizing"><b>2.10.13</b> Organizing directories and files</a></li>
+<li class="chapter" data-level="2.10.14" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reproduce-structure"><b>2.10.14</b> Reproduce a directory structure</a></li>
+<li class="chapter" data-level="2.10.15" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-wildcard-expressions"><b>2.10.15</b> Wildcard expressions</a></li>
+<li class="chapter" data-level="2.10.16" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-remove-unneeded"><b>2.10.16</b> Removing unneeded files</a></li>
+<li class="chapter" data-level="2.10.17" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-other-wildcards"><b>2.10.17</b> Other wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-keypoints"><b>2.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bash-tools.html"><a href="bash-tools.html"><b>3</b> Building Tools with the Unix Shell</a><ul>
+<li class="chapter" data-level="3.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-pipe"><b>3.1</b> Combining Commands</a></li>
+<li class="chapter" data-level="3.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-stdio"><b>3.2</b> How Pipes Work</a></li>
+<li class="chapter" data-level="3.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-loops"><b>3.3</b> Repeating Commands on Many Files</a></li>
+<li class="chapter" data-level="3.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-meaningless"><b>3.4</b> Variable Names</a></li>
+<li class="chapter" data-level="3.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-history"><b>3.5</b> Redoing Things</a></li>
+<li class="chapter" data-level="3.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-autoname"><b>3.6</b> Creating New Filenames Automatically</a></li>
+<li class="chapter" data-level="3.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-summary"><b>3.7</b> Summary</a></li>
+<li class="chapter" data-level="3.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-exercises"><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-redirect-append"><b>3.8.1</b> What does <code>&gt;&gt;</code> mean?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-append-data"><b>3.8.2</b> Appending data</a></li>
+<li class="chapter" data-level="3.8.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-piping"><b>3.8.3</b> Piping commands</a></li>
+<li class="chapter" data-level="3.8.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-uniq-adjacent"><b>3.8.4</b> Why does <code>uniq</code> only remove adjacent duplicates?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-reading-pipes"><b>3.8.5</b> Pipe reading comprehension</a></li>
+<li class="chapter" data-level="3.8.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-pipe-construction"><b>3.8.6</b> Pipe construction</a></li>
+<li class="chapter" data-level="3.8.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-which-pipe"><b>3.8.7</b> Which pipe?</a></li>
+<li class="chapter" data-level="3.8.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-dry-run"><b>3.8.8</b> Doing a dry run</a></li>
+<li class="chapter" data-level="3.8.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-variables"><b>3.8.9</b> Variables in loops</a></li>
+<li class="chapter" data-level="3.8.10" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-limiting-file-sets"><b>3.8.10</b> Limiting sets of files</a></li>
+<li class="chapter" data-level="3.8.11" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-save"><b>3.8.11</b> Saving to a file in a loop</a></li>
+<li class="chapter" data-level="3.8.12" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-history-order"><b>3.8.12</b> Why does <code>history</code> record commands before running them?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-keypoints"><b>3.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bash-advanced.html"><a href="bash-advanced.html"><b>4</b> Going Further with the Unix Shell</a><ul>
+<li class="chapter" data-level="4.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-script"><b>4.1</b> Creating New Commands</a></li>
+<li class="chapter" data-level="4.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-params"><b>4.2</b> Making Scripts More Versatile</a></li>
+<li class="chapter" data-level="4.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-capture"><b>4.3</b> Turning Interactive Work into a Script</a></li>
+<li class="chapter" data-level="4.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-grep"><b>4.4</b> Finding Things in Files</a></li>
+<li class="chapter" data-level="4.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-find"><b>4.5</b> Finding Files</a></li>
+<li class="chapter" data-level="4.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-vars"><b>4.6</b> Configuring the Shell</a></li>
+<li class="chapter" data-level="4.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-summary"><b>4.7</b> Summary</a></li>
+<li class="chapter" data-level="4.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-exercises"><b>4.8</b> Exercises</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-cleaning-up"><b>4.8.1</b> Cleaning up</a></li>
+<li class="chapter" data-level="4.8.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-script-variables"><b>4.8.2</b> Variables in shell scripts</a></li>
+<li class="chapter" data-level="4.8.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-longest-with-extension"><b>4.8.3</b> Find the longest file with a given extension</a></li>
+<li class="chapter" data-level="4.8.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-scripts"><b>4.8.4</b> Script reading comprehension</a></li>
+<li class="chapter" data-level="4.8.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-using-grep"><b>4.8.5</b> Using <code>grep</code></a></li>
+<li class="chapter" data-level="4.8.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-year-script"><b>4.8.6</b> Tracking publication years</a></li>
+<li class="chapter" data-level="4.8.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-sense-sensibility"><b>4.8.7</b> Counting names</a></li>
+<li class="chapter" data-level="4.8.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-match-subtract"><b>4.8.8</b> Matching and subtracting</a></li>
+<li class="chapter" data-level="4.8.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-find"><b>4.8.9</b> <code>find</code> pipeline reading comprehension</a></li>
+<li class="chapter" data-level="4.8.10" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-find-tests"><b>4.8.10</b> Finding files with different properties</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-keypoints"><b>4.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="scripting.html"><a href="scripting.html"><b>5</b> Building Command-Line Tools with Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="scripting.html"><a href="scripting.html#scripting-main"><b>5.1</b> Programs and Modules</a></li>
+<li class="chapter" data-level="5.2" data-path="scripting.html"><a href="scripting.html#scripting-options"><b>5.2</b> Handling Command-Line Options</a></li>
+<li class="chapter" data-level="5.3" data-path="scripting.html"><a href="scripting.html#scripting-docstrings"><b>5.3</b> Documentation</a></li>
+<li class="chapter" data-level="5.4" data-path="scripting.html"><a href="scripting.html#scripting-wordcount"><b>5.4</b> Counting Words</a></li>
+<li class="chapter" data-level="5.5" data-path="scripting.html"><a href="scripting.html#scripting-pipeline"><b>5.5</b> Pipelining</a></li>
+<li class="chapter" data-level="5.6" data-path="scripting.html"><a href="scripting.html#scripting-positional-optional"><b>5.6</b> Positional and Optional Arguments</a></li>
+<li class="chapter" data-level="5.7" data-path="scripting.html"><a href="scripting.html#scripting-collate"><b>5.7</b> Collating Results</a></li>
+<li class="chapter" data-level="5.8" data-path="scripting.html"><a href="scripting.html#scripting-modules"><b>5.8</b> Writing Our Own Modules</a></li>
+<li class="chapter" data-level="5.9" data-path="scripting.html"><a href="scripting.html#scripting-plotting"><b>5.9</b> Plotting</a></li>
+<li class="chapter" data-level="5.10" data-path="scripting.html"><a href="scripting.html#scripting-summary"><b>5.10</b> Summary</a></li>
+<li class="chapter" data-level="5.11" data-path="scripting.html"><a href="scripting.html#scripting-exercises"><b>5.11</b> Exercises</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="scripting.html"><a href="scripting.html#scripting-ex-command-line"><b>5.11.1</b> Running Python statements from the command line</a></li>
+<li class="chapter" data-level="5.11.2" data-path="scripting.html"><a href="scripting.html#scripting-ex-glob-ls"><b>5.11.2</b> Listing files</a></li>
+<li class="chapter" data-level="5.11.3" data-path="scripting.html"><a href="scripting.html#scripting-ex-sentence-endings"><b>5.11.3</b> Sentence ending punctuation</a></li>
+<li class="chapter" data-level="5.11.4" data-path="scripting.html"><a href="scripting.html#scripting-ex-better-plotting"><b>5.11.4</b> A better plotting program</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="scripting.html"><a href="scripting.html#scripting-keypoints"><b>5.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="git-cmdline.html"><a href="git-cmdline.html"><b>6</b> Using Git at the Command Line</a><ul>
+<li class="chapter" data-level="6.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-setup"><b>6.1</b> Setting Up</a></li>
+<li class="chapter" data-level="6.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-repos"><b>6.2</b> Creating a New Repository</a></li>
+<li class="chapter" data-level="6.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-add-existing"><b>6.3</b> Adding Existing Work</a></li>
+<li class="chapter" data-level="6.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-commit-message"><b>6.4</b> Describing Commits</a></li>
+<li class="chapter" data-level="6.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-changes"><b>6.5</b> Saving and Tracking Changes</a></li>
+<li class="chapter" data-level="6.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-remotes"><b>6.6</b> Synchronizing with Other Repositories</a></li>
+<li class="chapter" data-level="6.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-history"><b>6.7</b> Exploring History</a></li>
+<li class="chapter" data-level="6.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-restore"><b>6.8</b> Restoring Old Versions of Files</a></li>
+<li class="chapter" data-level="6.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ignore"><b>6.9</b> Ignoring Files</a></li>
+<li class="chapter" data-level="6.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-summary"><b>6.10</b> Summary</a></li>
+<li class="chapter" data-level="6.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-exercises"><b>6.11</b> Exercises</a><ul>
+<li class="chapter" data-level="6.11.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-places"><b>6.11.1</b> Places to create Git repositories</a></li>
+<li class="chapter" data-level="6.11.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unsave"><b>6.11.2</b> Removing before saving</a></li>
+<li class="chapter" data-level="6.11.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-word-diff"><b>6.11.3</b> Viewing changes</a></li>
+<li class="chapter" data-level="6.11.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-commit"><b>6.11.4</b> Committing changes</a></li>
+<li class="chapter" data-level="6.11.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-bio"><b>6.11.5</b> Write your biography</a></li>
+<li class="chapter" data-level="6.11.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-multiple"><b>6.11.6</b> Committing multiple files</a></li>
+<li class="chapter" data-level="6.11.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-timestamp"><b>6.11.7</b> GitHub timestamps</a></li>
+<li class="chapter" data-level="6.11.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-history"><b>6.11.8</b> Workflow and history</a></li>
+<li class="chapter" data-level="6.11.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-ignore-nested"><b>6.11.9</b> Ignoring nested files</a></li>
+<li class="chapter" data-level="6.11.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-include"><b>6.11.10</b> Including specific files</a></li>
+<li class="chapter" data-level="6.11.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-github-interface"><b>6.11.11</b> Exploring the GitHub interface</a></li>
+<li class="chapter" data-level="6.11.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-push-commit"><b>6.11.12</b> Push versus commit</a></li>
+<li class="chapter" data-level="6.11.13" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-boilerplate"><b>6.11.13</b> License and README files</a></li>
+<li class="chapter" data-level="6.11.14" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-recover"><b>6.11.14</b> Recovering older versions of a file</a></li>
+<li class="chapter" data-level="6.11.15" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-diff"><b>6.11.15</b> Understanding <code>git diff</code></a></li>
+<li class="chapter" data-level="6.11.16" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unstage"><b>6.11.16</b> Getting rid of staged changes</a></li>
+<li class="chapter" data-level="6.11.17" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-blame"><b>6.11.17</b> Figuring out who did what</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-keypoints"><b>6.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-advanced.html"><a href="git-advanced.html"><b>7</b> Going Further with Git</a><ul>
+<li class="chapter" data-level="7.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-what"><b>7.1</b> What’s a Branch?</a></li>
+<li class="chapter" data-level="7.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-how"><b>7.2</b> Creating a Branch</a></li>
+<li class="chapter" data-level="7.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-theory"><b>7.3</b> What Curve Should We Fit?</a></li>
+<li class="chapter" data-level="7.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-zipf-verify"><b>7.4</b> Verifying Zipf’s Law</a></li>
+<li class="chapter" data-level="7.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-merge"><b>7.5</b> Merging</a></li>
+<li class="chapter" data-level="7.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-conflict"><b>7.6</b> Handling Conflicts</a></li>
+<li class="chapter" data-level="7.7" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-workflow"><b>7.7</b> A Branch-Based Workflow</a></li>
+<li class="chapter" data-level="7.8" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-fork"><b>7.8</b> Using Other People’s Work</a></li>
+<li class="chapter" data-level="7.9" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pull-requests"><b>7.9</b> Pull Requests</a></li>
+<li class="chapter" data-level="7.10" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pr-conflict"><b>7.10</b> Handling Conflicts in Pull Requests</a></li>
+<li class="chapter" data-level="7.11" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-summary"><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="7.12" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-exercises"><b>7.12</b> Exercises</a><ul>
+<li class="chapter" data-level="7.12.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-explain-options"><b>7.12.1</b> Explaining options</a></li>
+<li class="chapter" data-level="7.12.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-modify-prompt"><b>7.12.2</b> Modifying prompt</a></li>
+<li class="chapter" data-level="7.12.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-ignoring-files"><b>7.12.3</b> Ignoring files</a></li>
+<li class="chapter" data-level="7.12.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-create-twice"><b>7.12.4</b> Creating the same file twice</a></li>
+<li class="chapter" data-level="7.12.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-delete-unmerged"><b>7.12.5</b> Deleting a branch without merging</a></li>
+<li class="chapter" data-level="7.12.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-trace-changes"><b>7.12.6</b> Tracing changes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.13" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-keypoints"><b>7.13</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="teams.html"><a href="teams.html"><b>8</b> Working in Teams</a><ul>
+<li class="chapter" data-level="8.1" data-path="teams.html"><a href="teams.html#teams-scope"><b>8.1</b> What Is a Project?</a></li>
+<li class="chapter" data-level="8.2" data-path="teams.html"><a href="teams.html#teams-inclusive"><b>8.2</b> Include Everyone</a></li>
+<li class="chapter" data-level="8.3" data-path="teams.html"><a href="teams.html#teams-coc"><b>8.3</b> Establish a Code of Conduct</a></li>
+<li class="chapter" data-level="8.4" data-path="teams.html"><a href="teams.html#teams-license"><b>8.4</b> Include a License</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="teams.html"><a href="teams.html#teams-license-software"><b>8.4.1</b> Software</a></li>
+<li class="chapter" data-level="8.4.2" data-path="teams.html"><a href="teams.html#teams-license-other"><b>8.4.2</b> Data and reports</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="teams.html"><a href="teams.html#teams-planning"><b>8.5</b> Planning</a></li>
+<li class="chapter" data-level="8.6" data-path="teams.html"><a href="teams.html#teams-bugs"><b>8.6</b> Bug Reports</a></li>
+<li class="chapter" data-level="8.7" data-path="teams.html"><a href="teams.html#teams-labels"><b>8.7</b> Labeling Issues</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="teams.html"><a href="teams.html#teams-workflow"><b>8.7.1</b> Standardizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="teams.html"><a href="teams.html#teams-prioritize"><b>8.8</b> Prioritizing</a></li>
+<li class="chapter" data-level="8.9" data-path="teams.html"><a href="teams.html#teams-meetings"><b>8.9</b> Meetings</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="teams.html"><a href="teams.html#teams-fair"><b>8.9.1</b> Air time</a></li>
+<li class="chapter" data-level="8.9.2" data-path="teams.html"><a href="teams.html#teams-online"><b>8.9.2</b> Online meetings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="teams.html"><a href="teams.html#teams-martha"><b>8.10</b> Making Decisions</a></li>
+<li class="chapter" data-level="8.11" data-path="teams.html"><a href="teams.html#teams-documentation"><b>8.11</b> Make All This Obvious to Newcomers</a></li>
+<li class="chapter" data-level="8.12" data-path="teams.html"><a href="teams.html#teams-conflict"><b>8.12</b> Handling Conflict</a></li>
+<li class="chapter" data-level="8.13" data-path="teams.html"><a href="teams.html#teams-summary"><b>8.13</b> Summary</a></li>
+<li class="chapter" data-level="8.14" data-path="teams.html"><a href="teams.html#teams-exercises"><b>8.14</b> Exercises</a><ul>
+<li class="chapter" data-level="8.14.1" data-path="teams.html"><a href="teams.html#teams-ex-scavenger-hunt"><b>8.14.1</b> Finding information</a></li>
+<li class="chapter" data-level="8.14.2" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-coc"><b>8.14.2</b> Add a Code of Conduct to your project</a></li>
+<li class="chapter" data-level="8.14.3" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-license"><b>8.14.3</b> Add a license to your project</a></li>
+<li class="chapter" data-level="8.14.4" data-path="teams.html"><a href="teams.html#teams-ex-contributing"><b>8.14.4</b> Adding contribution guidelines</a></li>
+<li class="chapter" data-level="8.14.5" data-path="teams.html"><a href="teams.html#teams-ex-file-issue"><b>8.14.5</b> File an issue</a></li>
+<li class="chapter" data-level="8.14.6" data-path="teams.html"><a href="teams.html#teams-ex-label"><b>8.14.6</b> Label issues</a></li>
+<li class="chapter" data-level="8.14.7" data-path="teams.html"><a href="teams.html#teams-ex-balancing"><b>8.14.7</b> Balancing individual and team needs</a></li>
+<li class="chapter" data-level="8.14.8" data-path="teams.html"><a href="teams.html#teams-ex-invisible"><b>8.14.8</b> Crediting invisible contributions</a></li>
+<li class="chapter" data-level="8.14.9" data-path="teams.html"><a href="teams.html#teams-ex-members"><b>8.14.9</b> Who are you?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.15" data-path="teams.html"><a href="teams.html#teams-keypoints"><b>8.15</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="automate.html"><a href="automate.html"><b>9</b> Automating Analyses with Make</a><ul>
+<li class="chapter" data-level="9.1" data-path="automate.html"><a href="automate.html#automate-single-file"><b>9.1</b> Updating a Single File</a></li>
+<li class="chapter" data-level="9.2" data-path="automate.html"><a href="automate.html#automate-multiple"><b>9.2</b> Managing Multiple Files</a></li>
+<li class="chapter" data-level="9.3" data-path="automate.html"><a href="automate.html#automate-depend-programs"><b>9.3</b> Updating Files When Programs Change</a></li>
+<li class="chapter" data-level="9.4" data-path="automate.html"><a href="automate.html#automate-variables"><b>9.4</b> Reducing Repetition in a Makefile</a></li>
+<li class="chapter" data-level="9.5" data-path="automate.html"><a href="automate.html#automate-autovar"><b>9.5</b> Automatic Variables</a></li>
+<li class="chapter" data-level="9.6" data-path="automate.html"><a href="automate.html#automate-pattern"><b>9.6</b> Generic Rules</a></li>
+<li class="chapter" data-level="9.7" data-path="automate.html"><a href="automate.html#automate-functions"><b>9.7</b> Defining Sets of Files</a></li>
+<li class="chapter" data-level="9.8" data-path="automate.html"><a href="automate.html#automate-doc"><b>9.8</b> Documenting a Makefile</a></li>
+<li class="chapter" data-level="9.9" data-path="automate.html"><a href="automate.html#automate-pipeline"><b>9.9</b> Automating Entire Analyses</a></li>
+<li class="chapter" data-level="9.10" data-path="automate.html"><a href="automate.html#automate-summary"><b>9.10</b> Summary</a></li>
+<li class="chapter" data-level="9.11" data-path="automate.html"><a href="automate.html#automate-exercises"><b>9.11</b> Exercises</a><ul>
+<li class="chapter" data-level="9.11.1" data-path="automate.html"><a href="automate.html#automate-ex-report-change"><b>9.11.1</b> Report results that would change</a></li>
+<li class="chapter" data-level="9.11.2" data-path="automate.html"><a href="automate.html#automate-ex-useful-options"><b>9.11.2</b> Useful options</a></li>
+<li class="chapter" data-level="9.11.3" data-path="automate.html"><a href="automate.html#automate-ex-mkdir"><b>9.11.3</b> Make sure the output directory exists</a></li>
+<li class="chapter" data-level="9.11.4" data-path="automate.html"><a href="automate.html#automate-ex-print"><b>9.11.4</b> Print the title and author</a></li>
+<li class="chapter" data-level="9.11.5" data-path="automate.html"><a href="automate.html#automate-ex-all-results"><b>9.11.5</b> Create all results</a></li>
+<li class="chapter" data-level="9.11.6" data-path="automate.html"><a href="automate.html#automate-ex-wildcard-perils"><b>9.11.6</b> The perils of shell wildcards</a></li>
+<li class="chapter" data-level="9.11.7" data-path="automate.html"><a href="automate.html#automate-ex-readable-docs"><b>9.11.7</b> Making documentation more readable</a></li>
+<li class="chapter" data-level="9.11.8" data-path="automate.html"><a href="automate.html#automate-ex-configuration"><b>9.11.8</b> Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="automate.html"><a href="automate.html#automate-keypoints"><b>9.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="config.html"><a href="config.html"><b>10</b> Configuring Programs</a><ul>
+<li class="chapter" data-level="10.1" data-path="config.html"><a href="config.html#config-formats"><b>10.1</b> Configuration File Formats</a></li>
+<li class="chapter" data-level="10.2" data-path="config.html"><a href="config.html#config-matplotlib"><b>10.2</b> Matplotlib Configuration</a></li>
+<li class="chapter" data-level="10.3" data-path="config.html"><a href="config.html#config-global"><b>10.3</b> The Global Configuration File</a></li>
+<li class="chapter" data-level="10.4" data-path="config.html"><a href="config.html#config-user"><b>10.4</b> The User Configuration File</a></li>
+<li class="chapter" data-level="10.5" data-path="config.html"><a href="config.html#config-command-line"><b>10.5</b> Adding Command-Line Options</a></li>
+<li class="chapter" data-level="10.6" data-path="config.html"><a href="config.html#config-job-file"><b>10.6</b> A Job Control File</a></li>
+<li class="chapter" data-level="10.7" data-path="config.html"><a href="config.html#config-summary"><b>10.7</b> Summary</a></li>
+<li class="chapter" data-level="10.8" data-path="config.html"><a href="config.html#config-exercises"><b>10.8</b> Exercises</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="config.html"><a href="config.html#config-ex-build-plotparams"><b>10.8.1</b> Building with plotting parameters</a></li>
+<li class="chapter" data-level="10.8.2" data-path="config.html"><a href="config.html#config-ex-style"><b>10.8.2</b> Using different plot styles</a></li>
+<li class="chapter" data-level="10.8.3" data-path="config.html"><a href="config.html#config-ex-saveload"><b>10.8.3</b> Saving configurations</a></li>
+<li class="chapter" data-level="10.8.4" data-path="config.html"><a href="config.html#config-ex-ini"><b>10.8.4</b> Using INI syntax</a></li>
+<li class="chapter" data-level="10.8.5" data-path="config.html"><a href="config.html#config-ex-consistency"><b>10.8.5</b> Configuration consistency</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="config.html"><a href="config.html#config-keypoints"><b>10.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing.html"><a href="testing.html"><b>11</b> Testing Software</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing.html"><a href="testing.html#testing-assertions"><b>11.1</b> Assertions</a></li>
+<li class="chapter" data-level="11.2" data-path="testing.html"><a href="testing.html#testing-unit"><b>11.2</b> Unit Testing</a></li>
+<li class="chapter" data-level="11.3" data-path="testing.html"><a href="testing.html#testing-framework"><b>11.3</b> Testing Frameworks</a></li>
+<li class="chapter" data-level="11.4" data-path="testing.html"><a href="testing.html#testing-numeric"><b>11.4</b> Testing Floating-Point Values</a></li>
+<li class="chapter" data-level="11.5" data-path="testing.html"><a href="testing.html#testing-integration"><b>11.5</b> Integration Testing</a></li>
+<li class="chapter" data-level="11.6" data-path="testing.html"><a href="testing.html#testing-regression"><b>11.6</b> Regression Testing</a></li>
+<li class="chapter" data-level="11.7" data-path="testing.html"><a href="testing.html#testing-coverage"><b>11.7</b> Test Coverage</a></li>
+<li class="chapter" data-level="11.8" data-path="testing.html"><a href="testing.html#testing-ci"><b>11.8</b> Continuous Integration</a></li>
+<li class="chapter" data-level="11.9" data-path="testing.html"><a href="testing.html#testing-tdd"><b>11.9</b> When to Write Tests</a></li>
+<li class="chapter" data-level="11.10" data-path="testing.html"><a href="testing.html#testing-summary"><b>11.10</b> Summary</a></li>
+<li class="chapter" data-level="11.11" data-path="testing.html"><a href="testing.html#testing-exercises"><b>11.11</b> Exercises</a><ul>
+<li class="chapter" data-level="11.11.1" data-path="testing.html"><a href="testing.html#testing-ex-explain-assertions"><b>11.11.1</b> Explaining assertions</a></li>
+<li class="chapter" data-level="11.11.2" data-path="testing.html"><a href="testing.html#testing-ex-rectangles"><b>11.11.2</b> Rectangle normalization</a></li>
+<li class="chapter" data-level="11.11.3" data-path="testing.html"><a href="testing.html#testing-ex-random"><b>11.11.3</b> Testing with randomness</a></li>
+<li class="chapter" data-level="11.11.4" data-path="testing.html"><a href="testing.html#testing-ex-relative-error"><b>11.11.4</b> Testing with relative error</a></li>
+</ul></li>
+<li class="chapter" data-level="11.12" data-path="testing.html"><a href="testing.html#testing-keypoints"><b>11.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="errors.html"><a href="errors.html"><b>12</b> Handling Errors</a><ul>
+<li class="chapter" data-level="12.1" data-path="errors.html"><a href="errors.html#errors-exceptions"><b>12.1</b> Exceptions</a></li>
+<li class="chapter" data-level="12.2" data-path="errors.html"><a href="errors.html#errors-messages"><b>12.2</b> Writing Useful Error Messages</a></li>
+<li class="chapter" data-level="12.3" data-path="errors.html"><a href="errors.html#errors-testing"><b>12.3</b> Testing Error Handling</a></li>
+<li class="chapter" data-level="12.4" data-path="errors.html"><a href="errors.html#errors-logging"><b>12.4</b> Reporting Errors</a></li>
+<li class="chapter" data-level="12.5" data-path="errors.html"><a href="errors.html#errors-summary"><b>12.5</b> Summary</a></li>
+<li class="chapter" data-level="12.6" data-path="errors.html"><a href="errors.html#errors-exercises"><b>12.6</b> Exercises</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="errors.html"><a href="errors.html#errors-ex-set-level"><b>12.6.1</b> Set the logging level</a></li>
+<li class="chapter" data-level="12.6.2" data-path="errors.html"><a href="errors.html#errors-ex-logging-output"><b>12.6.2</b> Send the logging output to file</a></li>
+<li class="chapter" data-level="12.6.3" data-path="errors.html"><a href="errors.html#errors-ex-exceptions"><b>12.6.3</b> Handling exceptions</a></li>
+<li class="chapter" data-level="12.6.4" data-path="errors.html"><a href="errors.html#errors-ex-error-handling"><b>12.6.4</b> Testing error handling</a></li>
+<li class="chapter" data-level="12.6.5" data-path="errors.html"><a href="errors.html#errors-ex-catalog"><b>12.6.5</b> Error catalogs</a></li>
+<li class="chapter" data-level="12.6.6" data-path="errors.html"><a href="errors.html#errors-ex-traceback"><b>12.6.6</b> Tracebacks</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="errors.html"><a href="errors.html#errors-keypoints"><b>12.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="provenance.html"><a href="provenance.html"><b>13</b> Tracking Provenance</a><ul>
+<li class="chapter" data-level="13.1" data-path="provenance.html"><a href="provenance.html#provenance-data"><b>13.1</b> Data Provenance</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="provenance.html"><a href="provenance.html#provenance-data-fair"><b>13.1.1</b> The FAIR Principles</a></li>
+<li class="chapter" data-level="13.1.2" data-path="provenance.html"><a href="provenance.html#provenance-data-where"><b>13.1.2</b> Where to archive data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="provenance.html"><a href="provenance.html#provenance-code"><b>13.2</b> Code Provenance</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="provenance.html"><a href="provenance.html#provenance-code-environment"><b>13.2.1</b> Software environment</a></li>
+<li class="chapter" data-level="13.2.2" data-path="provenance.html"><a href="provenance.html#provenance-code-steps"><b>13.2.2</b> Data processing steps</a></li>
+<li class="chapter" data-level="13.2.3" data-path="provenance.html"><a href="provenance.html#provenance-code-scripts"><b>13.2.3</b> Analysis scripts</a></li>
+<li class="chapter" data-level="13.2.4" data-path="provenance.html"><a href="provenance.html#provenance-inspectability"><b>13.2.4</b> Reproducibility versus inspectability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="provenance.html"><a href="provenance.html#provenance-summary"><b>13.3</b> Summary</a></li>
+<li class="chapter" data-level="13.4" data-path="provenance.html"><a href="provenance.html#provenance-exercises"><b>13.4</b> Exercises</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="provenance.html"><a href="provenance.html#provenance-ex-get-orcid"><b>13.4.1</b> ORCID</a></li>
+<li class="chapter" data-level="13.4.2" data-path="provenance.html"><a href="provenance.html#provenance-ex-fair-test"><b>13.4.2</b> A FAIR test</a></li>
+<li class="chapter" data-level="13.4.3" data-path="provenance.html"><a href="provenance.html#provenance-ex-understand-project"><b>13.4.3</b> Evaluate a project’s data provenance</a></li>
+<li class="chapter" data-level="13.4.4" data-path="provenance.html"><a href="provenance.html#provenance-ex-eval-code"><b>13.4.4</b> Evaluate a project’s code provenance</a></li>
+<li class="chapter" data-level="13.4.5" data-path="provenance.html"><a href="provenance.html#provenance-ex-permanent-links"><b>13.4.5</b> Making permanent links</a></li>
+<li class="chapter" data-level="13.4.6" data-path="provenance.html"><a href="provenance.html#provenance-ex-release"><b>13.4.6</b> Create an archive of your Zipf’s analysis</a></li>
+<li class="chapter" data-level="13.4.7" data-path="provenance.html"><a href="provenance.html#provenance-ex-publish-code"><b>13.4.7</b> Publishing your code</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="provenance.html"><a href="provenance.html#publish-keypoints"><b>13.5</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="packaging.html"><a href="packaging.html"><b>14</b> Creating Packages with Python</a><ul>
+<li class="chapter" data-level="14.1" data-path="packaging.html"><a href="packaging.html#packaging-package"><b>14.1</b> Creating a Python Package</a></li>
+<li class="chapter" data-level="14.2" data-path="packaging.html"><a href="packaging.html#packaging-virtualenv"><b>14.2</b> Virtual Environments</a></li>
+<li class="chapter" data-level="14.3" data-path="packaging.html"><a href="packaging.html#packaging-installing"><b>14.3</b> Installing a Development Package</a></li>
+<li class="chapter" data-level="14.4" data-path="packaging.html"><a href="packaging.html#packaging-installation"><b>14.4</b> What Installation Does</a></li>
+<li class="chapter" data-level="14.5" data-path="packaging.html"><a href="packaging.html#packaging-distribute"><b>14.5</b> Distributing Packages</a></li>
+<li class="chapter" data-level="14.6" data-path="packaging.html"><a href="packaging.html#packaging-document"><b>14.6</b> Documenting Packages</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="packaging.html"><a href="packaging.html#packaging-readme"><b>14.6.1</b> Including package-level documentation in the <code>README</code></a></li>
+<li class="chapter" data-level="14.6.2" data-path="packaging.html"><a href="packaging.html#packaging-sphinx"><b>14.6.2</b> Creating a web page for documentation</a></li>
+<li class="chapter" data-level="14.6.3" data-path="packaging.html"><a href="packaging.html#packaging-rtd"><b>14.6.3</b> Hosting documentation online</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="packaging.html"><a href="packaging.html#packaging-software-journals"><b>14.7</b> Software Journals</a></li>
+<li class="chapter" data-level="14.8" data-path="packaging.html"><a href="packaging.html#packaging-summary"><b>14.8</b> Summary</a></li>
+<li class="chapter" data-level="14.9" data-path="packaging.html"><a href="packaging.html#exercises"><b>14.9</b> Exercises</a><ul>
+<li class="chapter" data-level="14.9.1" data-path="packaging.html"><a href="packaging.html#packaging-ex-metadata"><b>14.9.1</b> Package metadata</a></li>
+<li class="chapter" data-level="14.9.2" data-path="packaging.html"><a href="packaging.html#packaging-ex-separating-requirements"><b>14.9.2</b> Separating requirements</a></li>
+<li class="chapter" data-level="14.9.3" data-path="packaging.html"><a href="packaging.html#packaging-ex-software-review"><b>14.9.3</b> Software review</a></li>
+<li class="chapter" data-level="14.9.4" data-path="packaging.html"><a href="packaging.html#packaging-ex-pratchett"><b>14.9.4</b> Packaging quotations</a></li>
+</ul></li>
+<li class="chapter" data-level="14.10" data-path="packaging.html"><a href="packaging.html#packaging-keypoints"><b>14.10</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="finale.html"><a href="finale.html"><b>15</b> Finale</a><ul>
+<li class="chapter" data-level="15.1" data-path="finale.html"><a href="finale.html#why-we-wrote-this-book"><b>15.1</b> Why We Wrote This Book</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="solutions.html"><a href="solutions.html"><b>A</b> Solutions</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-basics">Chapter @ref(bash-basics)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-more-ls">Exercise @ref(bash-basics-ex-more-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-rt">Exercise @ref(bash-basics-ex-ls-rt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-paths">Exercise @ref(bash-basics-ex-paths)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-resolve-rel-path">Exercise @ref(bash-basics-ex-resolve-rel-path)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reading-ls">Exercise @ref(bash-basics-ex-reading-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-touch">Exercise @ref(bash-basics-ex-touch)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-safe-rm">Exercise @ref(bash-basics-ex-safe-rm)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-move-dot">Exercise @ref(bash-basics-ex-move-dot)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-renaming-files">Exercise @ref(bash-basics-ex-renaming-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-last-ls">Exercise @ref(bash-basics-ex-last-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-copy-multi">Exercise @ref(bash-basics-ex-copy-multi)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-match">Exercise @ref(bash-basics-ex-ls-match)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-organizing">Exercise @ref(bash-basics-ex-organizing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reproduce-structure">Exercise @ref(bash-basics-ex-reproduce-structure)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-wildcard-expressions">Exercise @ref(bash-basics-ex-wildcard-expressions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-remove-unneeded">Exercise @ref(bash-basics-ex-remove-unneeded)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-other-wildcards">Exercise @ref(bash-basics-ex-other-wildcards)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-tools">Chapter @ref(bash-tools)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-redirect-append">Exercise @ref(bash-tools-ex-redirect-append)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-append-data">Exercise @ref(bash-tools-ex-append-data)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-piping">Exercise @ref(bash-tools-ex-piping)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-uniq-adjacent">Exercise @ref(bash-tools-ex-uniq-adjacent)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-reading-pipes">Exercise @ref(bash-tools-ex-reading-pipes)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-pipe-construction">Exercise @ref(bash-tools-ex-pipe-construction)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-which-pipe">Exercise @ref(bash-tools-ex-which-pipe)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-dry-run">Exercise @ref(bash-tools-ex-loop-dry-run)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-variables">Exercise @ref(bash-tools-ex-loop-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-limiting-file-sets">Exercise @ref(bash-tools-ex-limiting-file-sets)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-save">Exercise @ref(bash-tools-ex-loop-save)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-history-order">Exercise @ref(bash-tools-ex-history-order)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-advanced">Chapter @ref(bash-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-cleaning-up">Exercise @ref(bash-advanced-ex-cleaning-up)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-script-variables">Exercise @ref(bash-advanced-ex-script-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-longest-with-extension">Exercise @ref(bash-advanced-ex-longest-with-extension)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-scripts">Exercise @ref(bash-advanced-ex-reading-scripts)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-using-grep">Exercise @ref(bash-advanced-ex-using-grep)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-year-script">Exercise @ref(bash-advanced-ex-year-script)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-sense-sensibility">Exercise @ref(bash-advanced-ex-sense-sensibility)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-match-subtract">Exercise @ref(bash-advanced-ex-match-subtract)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-find">Exercise @ref(bash-advanced-ex-reading-find)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-find-tests">Exercise @ref(bash-advanced-ex-find-tests)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refscripting">Chapter @ref(scripting)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-command-line">Exercise @ref(scripting-ex-command-line)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-glob-ls">Exercise @ref(scripting-ex-glob-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-sentence-endings">Exercise @ref(scripting-ex-sentence-endings)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-better-plotting">Exercise @ref(scripting-ex-better-plotting)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-cmdline">Chapter @ref(git-cmdline)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-places">Exercise @ref(git-cmdline-ex-places)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unsave">Exercise @ref(git-cmdline-ex-unsave)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-word-diff">Exercise @ref(git-cmdline-ex-word-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-commit">Exercise @ref(git-cmdline-ex-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-bio">Exercise @ref(git-cmdline-ex-bio)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-multiple">Exercise @ref(git-cmdline-ex-multiple)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-timestamp">Exercise @ref(git-cmdline-ex-timestamp)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-history">Exercise @ref(git-cmdline-ex-history)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-ignore-nested">Exercise @ref(git-cmdline-ex-ignore-nested)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-include">Exercise @ref(git-cmdline-ex-include)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-github-interface">Exercise @ref(git-cmdline-ex-github-interface)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-push-commit">Exercise @ref(git-cmdline-ex-push-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-boilerplate">Exercise @ref(git-cmdline-ex-boilerplate)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-recover">Exercise @ref(git-cmdline-ex-recover)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-diff">Exercise @ref(git-cmdline-ex-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unstage">Exercise @ref(git-cmdline-ex-unstage)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-blame">Exercise @ref(git-cmdline-ex-blame)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-advanced">Chapter @ref(git-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-explain-options">Exercise @ref(git-advanced-ex-explain-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-modify-prompt">Exercise @ref(git-advanced-ex-modify-prompt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-ignoring-files">Exercise @ref(git-advanced-ex-ignoring-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-create-twice">Exercise @ref(git-advanced-ex-create-twice)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-delete-unmerged">Exercise @ref(git-advanced-ex-delete-unmerged)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-trace-changes">Exercise @ref(git-advanced-ex-trace-changes)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refteams">Chapter @ref(teams)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-scavenger-hunt">Exercise @ref(teams-ex-scavenger-hunt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-coc">Exercise @ref(teams-ex-boilerplate-coc)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-license">Exercise @ref(teams-ex-boilerplate-license)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-contributing">Exercise @ref(teams-ex-contributing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-file-issue">Exercise @ref(teams-ex-file-issue)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-label">Exercise @ref(teams-ex-label)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-balancing">Exercise @ref(teams-ex-balancing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-invisible">Exercise @ref(teams-ex-invisible)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-members">Exercise @ref(teams-ex-members)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refautomate">Chapter @ref(automate)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-report-change">Exercise @ref(automate-ex-report-change)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-useful-options">Exercise @ref(automate-ex-useful-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-mkdir">Exercise @ref(automate-ex-mkdir)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-print">Exercise @ref(automate-ex-print)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-all-results">Exercise @ref(automate-ex-all-results)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-wildcard-perils">Exercise @ref(automate-ex-wildcard-perils)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-readable-docs">Exercise @ref(automate-ex-readable-docs)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-configuration">Exercise @ref(automate-ex-configuration)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refconfig">Chapter @ref(config)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-build-plotparams">Exercise @ref(config-ex-build-plotparams)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-style">Exercise @ref(config-ex-style)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-saveload">Exercise @ref(config-ex-saveload)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-ini">Exercise @ref(config-ex-ini)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-consistency">Exercise @ref(config-ex-consistency)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-reftesting">Chapter @ref(testing)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-explain-assertions">Exercise @ref(testing-ex-explain-assertions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-rectangles">Exercise @ref(testing-ex-rectangles)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-random">Exercise @ref(testing-ex-random)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-relative-error">Exercise @ref(testing-ex-relative-error)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-referrors">Chapter @ref(errors)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-set-level">Exercise @ref(errors-ex-set-level)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-logging-output">Exercise @ref(errors-ex-logging-output)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-exceptions">Exercise @ref(errors-ex-exceptions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-error-handling">Exercise @ref(errors-ex-error-handling)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-catalog">Exercise @ref(errors-ex-catalog)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-traceback">Exercise @ref(errors-ex-traceback)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refprovenance">Chapter @ref(provenance)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-get-orcid">Exercise @ref(provenance-ex-get-orcid)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-fair-test">Exercise @ref(provenance-ex-fair-test)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-understand-project">Exercise @ref(provenance-ex-understand-project)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-eval-code">Exercise @ref(provenance-ex-eval-code)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-permanent-links">Exercise @ref(provenance-ex-permanent-links)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-release">Exercise @ref(provenance-ex-release)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-publish-code">Exercise @ref(provenance-ex-publish-code)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refpackaging">Chapter @ref(packaging)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-metadata">Exercise @ref(packaging-ex-metadata)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-separating-requirements">Exercise @ref(packaging-ex-separating-requirements)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-software-review">Exercise @ref(packaging-ex-software-review)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-pratchett">Exercise @ref(packaging-ex-pratchett)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="objectives.html"><a href="objectives.html"><b>B</b> Learning Objectives</a><ul>
+<li class="chapter" data-level="B.1" data-path="objectives.html"><a href="objectives.html#getting-started-1"><b>B.1</b> Getting Started</a></li>
+<li class="chapter" data-level="B.2" data-path="objectives.html"><a href="objectives.html#the-basics-of-the-unix-shell"><b>B.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="B.3" data-path="objectives.html"><a href="objectives.html#building-tools-with-the-unix-shell"><b>B.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="B.4" data-path="objectives.html"><a href="objectives.html#going-further-with-the-unix-shell"><b>B.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="B.5" data-path="objectives.html"><a href="objectives.html#building-command-line-tools-with-python"><b>B.5</b> Building Command-Line Tools with Python</a></li>
+<li class="chapter" data-level="B.6" data-path="objectives.html"><a href="objectives.html#using-git-at-the-command-line"><b>B.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="B.7" data-path="objectives.html"><a href="objectives.html#going-further-with-git"><b>B.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="B.8" data-path="objectives.html"><a href="objectives.html#working-in-teams"><b>B.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="B.9" data-path="objectives.html"><a href="objectives.html#automating-analyses-with-make"><b>B.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="B.10" data-path="objectives.html"><a href="objectives.html#configuring-programs"><b>B.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="B.11" data-path="objectives.html"><a href="objectives.html#testing-software"><b>B.11</b> Testing Software</a></li>
+<li class="chapter" data-level="B.12" data-path="objectives.html"><a href="objectives.html#handling-errors"><b>B.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="B.13" data-path="objectives.html"><a href="objectives.html#tracking-provenance"><b>B.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="B.14" data-path="objectives.html"><a href="objectives.html#creating-packages-with-python"><b>B.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="keypoints.html"><a href="keypoints.html"><b>C</b> Key Points</a><ul>
+<li class="chapter" data-level="C.1" data-path="keypoints.html"><a href="keypoints.html#getting-started-2"><b>C.1</b> Getting Started</a></li>
+<li class="chapter" data-level="C.2" data-path="keypoints.html"><a href="keypoints.html#the-basics-of-the-unix-shell-1"><b>C.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="C.3" data-path="keypoints.html"><a href="keypoints.html#building-tools-with-the-unix-shell-1"><b>C.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="C.4" data-path="keypoints.html"><a href="keypoints.html#going-further-with-the-unix-shell-1"><b>C.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="C.5" data-path="keypoints.html"><a href="keypoints.html#building-command-line-programs-in-python"><b>C.5</b> Building Command-Line Programs in Python</a></li>
+<li class="chapter" data-level="C.6" data-path="keypoints.html"><a href="keypoints.html#using-git-at-the-command-line-1"><b>C.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="C.7" data-path="keypoints.html"><a href="keypoints.html#going-further-with-git-1"><b>C.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="C.8" data-path="keypoints.html"><a href="keypoints.html#working-in-teams-1"><b>C.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="C.9" data-path="keypoints.html"><a href="keypoints.html#automating-analyses-with-make-1"><b>C.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="C.10" data-path="keypoints.html"><a href="keypoints.html#configuring-programs-1"><b>C.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="C.11" data-path="keypoints.html"><a href="keypoints.html#testing-software-1"><b>C.11</b> Testing Software</a></li>
+<li class="chapter" data-level="C.12" data-path="keypoints.html"><a href="keypoints.html#handling-errors-1"><b>C.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="C.13" data-path="keypoints.html"><a href="keypoints.html#tracking-provenance-1"><b>C.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="C.14" data-path="keypoints.html"><a href="keypoints.html#creating-packages-with-python-1"><b>C.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="tree.html"><a href="tree.html"><b>D</b> Project Tree</a></li>
+<li class="chapter" data-level="E" data-path="ssh.html"><a href="ssh.html"><b>E</b> Working Remotely</a><ul>
+<li class="chapter" data-level="E.1" data-path="ssh.html"><a href="ssh.html#ssh-login"><b>E.1</b> Logging In</a></li>
+<li class="chapter" data-level="E.2" data-path="ssh.html"><a href="ssh.html#ssh-cp"><b>E.2</b> Copying Files</a></li>
+<li class="chapter" data-level="E.3" data-path="ssh.html"><a href="ssh.html#ssh-cmd"><b>E.3</b> Running Commands</a></li>
+<li class="chapter" data-level="E.4" data-path="ssh.html"><a href="ssh.html#ssh-keys"><b>E.4</b> Creating Keys</a></li>
+<li class="chapter" data-level="E.5" data-path="ssh.html"><a href="ssh.html#ssh-filedir"><b>E.5</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="style.html"><a href="style.html"><b>F</b> Writing Readable Code</a><ul>
+<li class="chapter" data-level="F.1" data-path="style.html"><a href="style.html#style-pep8"><b>F.1</b> Python Style</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="style.html"><a href="style.html#spacing"><b>F.1.1</b> Spacing</a></li>
+<li class="chapter" data-level="F.1.2" data-path="style.html"><a href="style.html#naming"><b>F.1.2</b> Naming</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="style.html"><a href="style.html#style-order"><b>F.2</b> Order</a></li>
+<li class="chapter" data-level="F.3" data-path="style.html"><a href="style.html#style-check"><b>F.3</b> Checking Style</a></li>
+<li class="chapter" data-level="F.4" data-path="style.html"><a href="style.html#style-refactor"><b>F.4</b> Refactoring</a><ul>
+<li class="chapter" data-level="F.4.1" data-path="style.html"><a href="style.html#do-not-repeat-values"><b>F.4.1</b> Do not repeat values</a></li>
+<li class="chapter" data-level="F.4.2" data-path="style.html"><a href="style.html#do-not-repeat-calculations-in-loops"><b>F.4.2</b> Do not repeat calculations in loops</a></li>
+<li class="chapter" data-level="F.4.3" data-path="style.html"><a href="style.html#replace-tests-with-flags-to-clarify-repeated-tests"><b>F.4.3</b> Replace tests with flags to clarify repeated tests</a></li>
+<li class="chapter" data-level="F.4.4" data-path="style.html"><a href="style.html#use-in-place-operators-to-avoid-duplicating-expression"><b>F.4.4</b> Use in-place operators to avoid duplicating expression</a></li>
+<li class="chapter" data-level="F.4.5" data-path="style.html"><a href="style.html#handle-special-cases-first"><b>F.4.5</b> Handle special cases first</a></li>
+<li class="chapter" data-level="F.4.6" data-path="style.html"><a href="style.html#use-functions-to-make-code-more-comprehensible"><b>F.4.6</b> Use functions to make code more comprehensible</a></li>
+<li class="chapter" data-level="F.4.7" data-path="style.html"><a href="style.html#combine-operations-in-functions"><b>F.4.7</b> Combine operations in functions</a></li>
+<li class="chapter" data-level="F.4.8" data-path="style.html"><a href="style.html#replace-code-with-data"><b>F.4.8</b> Replace code with data</a></li>
+</ul></li>
+<li class="chapter" data-level="F.5" data-path="style.html"><a href="style.html#style-review"><b>F.5</b> Code Reviews</a></li>
+<li class="chapter" data-level="F.6" data-path="style.html"><a href="style.html#style-features"><b>F.6</b> Python Features</a><ul>
+<li class="chapter" data-level="F.6.1" data-path="style.html"><a href="style.html#provide-default-values-for-parameters"><b>F.6.1</b> Provide default values for parameters</a></li>
+<li class="chapter" data-level="F.6.2" data-path="style.html"><a href="style.html#handle-a-variable-number-of-arguments"><b>F.6.2</b> Handle a variable number of arguments</a></li>
+<li class="chapter" data-level="F.6.3" data-path="style.html"><a href="style.html#unpacking-variable-arguments"><b>F.6.3</b> Unpacking variable arguments</a></li>
+<li class="chapter" data-level="F.6.4" data-path="style.html"><a href="style.html#use-destructuring-to-assign-multiple-values-at-once"><b>F.6.4</b> Use destructuring to assign multiple values at once</a></li>
+</ul></li>
+<li class="chapter" data-level="F.7" data-path="style.html"><a href="style.html#style-summary"><b>F.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="documentation.html"><a href="documentation.html"><b>G</b> Documenting Programs</a><ul>
+<li class="chapter" data-level="G.1" data-path="documentation.html"><a href="documentation.html#documentation-docstrings"><b>G.1</b> Writing Good Docstrings</a></li>
+<li class="chapter" data-level="G.2" data-path="documentation.html"><a href="documentation.html#documentation-audience"><b>G.2</b> Defining Your Audience</a></li>
+<li class="chapter" data-level="G.3" data-path="documentation.html"><a href="documentation.html#documentation-faq"><b>G.3</b> Creating an FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="H" data-path="yaml.html"><a href="yaml.html"><b>H</b> YAML</a></li>
+<li class="chapter" data-level="I" data-path="anaconda.html"><a href="anaconda.html"><b>I</b> Anaconda</a><ul>
+<li class="chapter" data-level="I.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-conda-package-management"><b>I.1</b> Package Management with conda</a><ul>
+<li class="chapter" data-level="I.1.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-cloud"><b>I.1.1</b> Anaconda Cloud</a></li>
+<li class="chapter" data-level="I.1.2" data-path="anaconda.html"><a href="anaconda.html#conda-forge"><b>I.1.2</b> conda-forge</a></li>
+</ul></li>
+<li class="chapter" data-level="I.2" data-path="anaconda.html"><a href="anaconda.html#anaconda-environments"><b>I.2</b> Environment Management with conda</a></li>
+</ul></li>
+<li class="chapter" data-level="J" data-path="glossary.html"><a href="glossary.html"><b>J</b> Glossary</a></li>
+<li class="chapter" data-level="K" data-path="references.html"><a href="references.html"><b>K</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Research Software Engineering with Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bash-basics" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> The Basics of the Unix Shell</h1>
+<blockquote>
+<p>Ninety percent of most magic merely consists of knowing one extra fact.</p>
+<p>— Terry Pratchett</p>
+</blockquote>
+<p>Computers do four basic things:
+store data,
+run programs,
+talk with each other,
+and interact with people.
+They do the interacting in many different ways,
+of which <a href="glossary.html#gui">graphical user interfaces</a> (GUIs) are the most widely used.
+The computer displays icons to show our files and programs,
+and we tell it to copy or run those by clicking with a mouse.
+GUIs are easy to learn but hard to automate,
+and don’t create a record of what we did.</p>
+<p>In contrast,
+when we use a <a href="glossary.html#cli">command-line interface</a> (CLI)
+we communicate with the computer by typing commands,
+and the computer responds by displaying text.
+CLIs existed long before GUIs;
+they have survived because they are efficient,
+easy to automate,
+and automatically record what we have done.</p>
+<p>The heart of every CLI is a <a href="glossary.html#repl">read-evaluate-print loop</a> (REPL).
+When we type a command and press <kbd>Return</kbd> (also called <kbd>Enter</kbd>)
+the CLI <strong>r</strong>eads the command,
+<strong>e</strong>valuates it (i.e., executes it),
+<strong>p</strong>rints the command’s output,
+and <strong>l</strong>oops around to wait for another command.
+If you have used an interactive console for Python,
+you have already used a simple CLI.</p>
+<p>This lesson introduces another CLI that lets us interact with our computer’s operating system.
+It is called a “command shell”,
+or just <a href="glossary.html#shell">shell</a> for short,
+and in essence is a program that runs other programs on our behalf
+(Figure <a href="bash-basics.html#fig:bash-basics-repl">2.1</a>).
+Those “other programs” can do things as simple as telling us the time
+or as complex as modeling global climate change;
+as long as they obey a few simple rules,
+the shell can run them without having to know what language they are written in
+or how they do what they do.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bash-basics-repl"></span>
+<img src="figures/bash-basics/the-shell.png" alt="The Bash shell." width="100%" />
+<p class="caption">
+Figure 2.1: The Bash shell.
+</p>
+</div>
+<blockquote>
+<p><strong>What’s in a Name?</strong></p>
+<p>Programmers have written many different shells over the last forty years,
+just as they have created many different text editors and plotting packages.
+The most popular shell today is called Bash
+(an acronym of <strong>B</strong>ourne <strong>A</strong>gain <strong>SH</strong>ell,
+and a weak pun on the name of its predecessor,
+the Bourne shell).
+Other shells may differ from Bash in minor ways,
+but the core commands and ideas remain the same.
+In particular,
+the most recent versions of MacOS use a shell called the Z Shell or <code>zsh</code>;
+we will point out a few differences as we go along.</p>
+</blockquote>
+<p>Please see Section <a href="getting-started.html#getting-started-install-software">1.3</a> for instructions
+on how to install and launch the shell on your computer.</p>
+<div id="bash-basics-explore" class="section level2">
+<h2><span class="header-section-number">2.1</span> Exploring Files and Directories</h2>
+<p>Our first shell commands will let us explore our folders and files,
+and will also introduce us to several conventions that most Unix tools follow.
+To start,
+when Bash runs it presents us with a <a href="glossary.html#prompt">prompt</a>
+to indicate that it is waiting for us to type something.
+This prompt is a simple dollar sign by default:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="bash-basics.html#cb3-1"></a>$</span></code></pre></div>
+<p>However,
+different shells may use a different symbol:
+in particular,
+the <code>zsh</code> shell, which is the default on newer versions of MacOS, uses <code>%</code>.
+As we’ll see in Section <a href="bash-advanced.html#bash-advanced-vars">4.6</a>,
+we can customize the prompt to give us more information.</p>
+<blockquote>
+<p><strong>Don’t Type the Dollar Sign</strong></p>
+<p>We show the <code>$</code> prompt so that it’s clear what you are supposed to type,
+particularly when several commands appear in a row,
+but you should <em>not</em> type it yourself.</p>
+</blockquote>
+<p>Let’s run a command to find out who the shell thinks we are:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="bash-basics.html#cb4-1"></a>$ <span class="fu">whoami</span></span></code></pre></div>
+<pre class="text"><code>amira</code></pre>
+<blockquote>
+<p><strong>Learn by Doing</strong></p>
+<p>Amira is one of the learners described in Section <a href="index.html#intro-personas">0.2</a>.
+For the rest of the book,
+we’ll present code and examples from her perspective.
+You should follow along on your own computer,
+though what you see might deviate in small ways because of differences in operating system
+(and because your name probably isn’t Amira).</p>
+</blockquote>
+<p>Now that we know who we are,
+we can explore where we are and what we have.
+The part of the operating system that manages files and directories (also called <a href="glossary.html#folder">folders</a>)
+is called the <a href="glossary.html#filesystem">filesystem</a>.
+Some of the most commonly used commands in the shell create, inspect, rename, and delete files and directories.
+Let’s start exploring them by running the command <code>pwd</code>,
+which stands for <strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory.
+The “print” part of its name is straightforward;
+the “working directory” part refers to the fact that
+the shell keeps track of our <a href="glossary.html#current_working_directory">current working directory</a> at all times.
+Most commands read and write files in the current working directory
+unless we tell them to do something else,
+so knowing where we are before running a command is important.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="bash-basics.html#cb6-1"></a>$ <span class="bu">pwd</span></span></code></pre></div>
+<pre class="text"><code>/Users/amira</code></pre>
+<p>Here,
+the computer’s response is <code>/Users/amira</code>,
+which tells us that we are in a directory called <code>amira</code>
+that is contained in a top-level directory called <code>Users</code>.
+This directory is Amira’s <a href="glossary.html#home_directory">home directory</a>;
+to understand what that means,
+we must first understand how the filesystem is organized.
+On Amira’s computer
+it looks like Figure <a href="bash-basics.html#fig:bash-basics-filesystem">2.2</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bash-basics-filesystem"></span>
+<img src="figures/bash-basics/sample-filesystem.png" alt="A sample filesystem." width="70%" />
+<p class="caption">
+Figure 2.2: A sample filesystem.
+</p>
+</div>
+<p>At the top is the <a href="glossary.html#root_directory">root directory</a> that holds everything else,
+which we can refer to using a slash character <code>/</code> on its own.
+Inside that directory are several other directories,
+including <code>bin</code> (where some built-in programs are stored),
+<code>data</code> (for miscellaneous data files),
+<code>tmp</code> (for temporary files that don’t need to be stored long-term),
+and <code>Users</code> (where users’ personal directories are located).
+We know that <code>/Users</code> is stored inside the root directory <code>/</code> because its name begins with <code>/</code>,
+and that our current working directory <code>/Users/amira</code> is stored inside <code>/Users</code>
+because <code>/Users</code> is the first part of its name.
+A name like this is called a <a href="glossary.html#path">path</a> because it tells us
+how to get from one place in the filesystem (e.g., the root directory)
+to another (e.g., Amira’s home directory).</p>
+<blockquote>
+<p><strong>Slashes</strong></p>
+<p>The <code>/</code> character means two different things in a path.
+At the front of a path or on its own,
+it refers to the root directory.
+When it appears inside a name, it is a separator.
+Windows uses backslashes (<code>\\</code>) instead of forward slashes as separators.</p>
+</blockquote>
+<p>Underneath <code>/Users</code>,
+we find one directory for each user with an account on this machine.
+Jun’s files are stored in <code>/Users/jun</code>,
+Sami’s in <code>/Users/sami</code>,
+and Amira’s in <code>/Users/amira</code>.
+This is where the name “home directory” comes from:
+when we first log in,
+the shell puts us in the directory that holds our files.</p>
+<blockquote>
+<p><strong>Home Directory Variations</strong></p>
+<p>Our home directory will be in different places on different operating systems.
+On Linux it may be <code>/home/amira</code>,
+and on Windows it may be <code>C:\Documents and Settings\amira</code> or <code>C:\Users\amira</code>
+(depending on the version of Windows).
+Our examples show what we would see on MacOS.</p>
+</blockquote>
+<p>Now that we know where we are,
+let’s see what we have using the command <code>ls</code>
+(short for “listing”),
+which prints the names of the files and directories in the current directory:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="bash-basics.html#cb8-1"></a>$ <span class="fu">ls</span></span></code></pre></div>
+<pre class="text"><code>Applications   Downloads     Music        todo.txt
+Desktop        Library       Pictures     zipf
+Documents      Movies        Public       </code></pre>
+<p>Again,
+our results may be different depending on our operating system
+and what files or directories we have.</p>
+<p>We can make the output of <code>ls</code> more informative using the <code>-F</code> <a href="glossary.html#command_line_option">option</a>
+(also sometimes called a <a href="glossary.html#command_line_switch">switch</a> or a <a href="glossary.html#command_line_flag">flag</a>).
+Options are exactly like arguments to a function in Python;
+in this case,
+<code>-F</code> tells <code>ls</code> to decorate its output to show what things are.
+A trailing <code>/</code> indicates a directory,
+while a trailing <code>*</code> tells us something is a runnable program.
+Depending on our setup,
+the shell might also use colors to indicate whether each entry is a file or directory.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="bash-basics.html#cb10-1"></a>$ <span class="fu">ls</span> -F</span></code></pre></div>
+<pre class="text"><code>Applications/   Downloads/     Music/        todo.txt
+Desktop/        Library/       Pictures/     zipf/
+Documents/      Movies/        Public/       </code></pre>
+<p>Here,
+we can see that almost everything in our home directory is a <a href="glossary.html#subdirectory">subdirectory</a>;
+the only thing that isn’t is a file called <code>todo.txt</code>.</p>
+<blockquote>
+<p><strong>Spaces Matter</strong></p>
+<p><code>1+2</code> and <code>1 + 2</code> mean the same thing in mathematics,
+but <code>ls -F</code> and <code>ls-F</code> are very different things in the shell.
+The shell splits whatever we type into pieces based on spaces,
+so if we forget to separate <code>ls</code> and <code>-F</code> with at least one space,
+the shell will try to find a program called <code>ls-F</code> and (quite sensibly)
+give an error message like <code>ls-F: command not found</code>.</p>
+</blockquote>
+<p>Some options tell a command how to behave,
+but others tell it what to act on.
+For example,
+if we want to see what’s in the <code>/Users</code> directory,
+we can type:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="bash-basics.html#cb12-1"></a>$ <span class="fu">ls</span> /Users</span></code></pre></div>
+<pre class="text"><code>amira   jun     sami</code></pre>
+<p>We often call the file and directory names that we give to commands <a href="glossary.html#command_line_argument">arguments</a>
+to distinguish them from the built-in options.
+We can combine options and arguments:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="bash-basics.html#cb14-1"></a>$ <span class="fu">ls</span> -F /Users</span></code></pre></div>
+<pre class="text"><code>amira/  jun/    sami/</code></pre>
+<p>but we must put the options (like <code>-F</code>)
+before the names of any files or directories we want to work on,
+because once the command encounters something that <em>isn’t</em> an option
+it assumes there aren’t any more:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="bash-basics.html#cb16-1"></a>$ <span class="fu">ls</span> /Users -F</span></code></pre></div>
+<pre class="text"><code>ls: -F: No such file or directory
+amira   jun     sami</code></pre>
+<blockquote>
+<p><strong>Command Line Differences</strong></p>
+<p>Code can sometimes behave in unexpected ways on different computers,
+and this applies to the command line as well.
+For example,
+the following code actually <em>does</em> work on some Linux operating systems:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="bash-basics.html#cb18-1"></a>$ <span class="fu">ls</span> /Users -F</span></code></pre></div>
+<p>Some people think this is convenient;
+others (including us) believe it is confusing,
+so it’s best to avoid doing this.</p>
+</blockquote>
+</div>
+<div id="bash-basics-navigate" class="section level2">
+<h2><span class="header-section-number">2.2</span> Moving Around</h2>
+<p>Let’s run <code>ls</code> again.
+Without any arguments,
+it shows us what’s in our current working directory:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="bash-basics.html#cb19-1"></a>$ <span class="fu">ls</span> -F</span></code></pre></div>
+<pre class="text"><code>Applications/   Downloads/     Music/        todo.txt
+Desktop/        Library/       Pictures/     zipf/
+Documents/      Movies/        Public/       </code></pre>
+<p>If we want to see what’s in the <code>zipf</code> directory
+we can ask <code>ls</code> to list its contents:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="bash-basics.html#cb21-1"></a>$ <span class="fu">ls</span> -F zipf</span></code></pre></div>
+<pre class="text"><code>data/</code></pre>
+<p>Notice that <code>zipf</code> doesn’t have a leading slash before its name.
+This absence tells the shell that it is a <a href="glossary.html#relative_path">relative path</a>,
+i.e.,
+that it identifies something starting from our current working directory.
+In contrast,
+a path like <code>/Users/amira</code> is an <a href="glossary.html#absolute_path">absolute path</a>:
+it is always interpreted from the root directory down,
+so it always refers to the same thing.
+Using a relative path is like telling someone to go two kilometers north and then half a kilometer east;
+using an absolute path is like giving them the latitude and longitude of their destination.</p>
+<p>We can use whichever kind of path is easiest to type,
+but if we are going to do a lot of work with the data in the <code>zipf</code> directory,
+the easiest thing would be to change our current working directory
+so that we don’t have to type <code>zipf</code> over and over again.
+The command to do this is <code>cd</code>,
+which stands for <strong>c</strong>hange <strong>d</strong>irectory.
+This name is a bit misleading because the command doesn’t change the directory;
+instead, it changes the shell’s idea of what directory we are in.
+Let’s try it out:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="bash-basics.html#cb23-1"></a>$ <span class="bu">cd</span> zipf</span></code></pre></div>
+<p><code>cd</code> doesn’t print anything.
+This is normal:
+many shell commands run silently unless something goes wrong,
+on the theory that they should only ask for our attention when they need it.
+To confirm that <code>cd</code> has done what we asked,
+we can use <code>pwd</code>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="bash-basics.html#cb24-1"></a>$ <span class="bu">pwd</span></span></code></pre></div>
+<pre class="text"><code>/Users/amira/zipf</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="bash-basics.html#cb26-1"></a>$ <span class="fu">ls</span> -F</span></code></pre></div>
+<pre class="text"><code>data/</code></pre>
+<blockquote>
+<p><strong>Missing Directories and Unknown Options</strong></p>
+<p>If we give a command an option that it doesn’t understand,
+it will usually print an error message, and (if we’re lucky)
+tersely remind us of what we should have done:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="bash-basics.html#cb28-1"></a>$ <span class="bu">cd</span> -j</span></code></pre></div>
+<pre class="text"><code>-bash: cd: -j: invalid option
+cd: usage: cd [-L|-P] [dir]</code></pre>
+<p>On the other hand,
+if we get the syntax right but make a mistake in the name of a file or directory,
+it will tell us that:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="bash-basics.html#cb30-1"></a>$ <span class="bu">cd</span> whoops</span></code></pre></div>
+<pre class="text"><code>-bash: cd: whoops: No such file or directory</code></pre>
+</blockquote>
+<p>We now know how to go down the directory tree,
+but how do we go up?
+This doesn’t work:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="bash-basics.html#cb32-1"></a>$ <span class="bu">cd</span> amira</span></code></pre></div>
+<pre class="text"><code>cd: amira: No such file or directory</code></pre>
+<p>because <code>amira</code> on its own is a relative path meaning
+“a file or directory called <code>amira</code> <em>below our current working directory.</em>”
+To get back home,
+we can either use an absolute path:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="bash-basics.html#cb34-1"></a>$ <span class="bu">cd</span> /Users/amira</span></code></pre></div>
+<p>or a special relative path called <code>..</code> (two periods in a row with no spaces),
+which always means “the directory that contains the current one.”
+The directory that contains the one we are in is called the <a href="glossary.html#parent_directory">parent directory</a>,
+and sure enough,
+<code>..</code> gets us there:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="bash-basics.html#cb35-1"></a>$ <span class="bu">cd</span> ..</span>
+<span id="cb35-2"><a href="bash-basics.html#cb35-2"></a>$ <span class="bu">pwd</span></span></code></pre></div>
+<pre class="text"><code>/Users/amira</code></pre>
+<p><code>ls</code> usually doesn’t show us this special directory—since it’s always there,
+displaying it every time would be a distraction.
+We can ask <code>ls</code> to include it using the <code>-a</code> option,
+which stands for “all”.
+Remembering that we are now in <code>/Users/amira</code>:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="bash-basics.html#cb37-1"></a>$ <span class="fu">ls</span> -F -a</span></code></pre></div>
+<pre class="text"><code>./              Documents/     Music/        zipf/
+../             Downloads/     Pictures/     
+Applications/   Library/       Public/ 
+Desktop/        Movies/        todo.txt</code></pre>
+<p>The output also shows another special directory called <code>.</code> (a single period),
+which refers to the current working directory.
+It may seem redundant to have a name for it,
+but we’ll see some uses for it soon.</p>
+<blockquote>
+<p><strong>Combining Options</strong></p>
+<p>You’ll occasionally need to use multiple options in the same command.
+In most command-line tools,
+multiple options can be combined with a single <code>-</code>
+and no spaces between the options:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="bash-basics.html#cb39-1"></a>$ <span class="fu">ls</span> -Fa</span></code></pre></div>
+<p>This command is synonymous with the previous example.
+While you may see commands written like this,
+we don’t recommend you use this approach in your own work.
+This is because some commands take <a href="glossary.html#long_option">long options</a>
+with multi-letter names,
+and it’s very easy to mistake <code>--no</code> (meaning “answer ‘no’ to all questions”)
+with <code>-no</code> (meaning <code>-n -o</code>).</p>
+</blockquote>
+<p>The special names <code>.</code> and <code>..</code> don’t belong to <code>cd</code>:
+they mean the same thing to every program.
+For example,
+if we are in <code>/Users/amira/zipf</code>,
+then <code>ls ..</code> will display a listing of <code>/Users/amira</code>.
+When the meanings of the parts are the same no matter how they’re combined,
+programmers say they are <a href="glossary.html#orthogonality">orthogonal</a>.
+Orthogonal systems tend to be easier for people to learn
+because there are fewer special cases to remember.</p>
+<blockquote>
+<p><strong>Other Hidden Files</strong></p>
+<p>In addition to the hidden directories <code>..</code> and <code>.</code>,
+we may also come across files with names like <code>.jupyter</code>.
+These usually contain settings or other data for particular programs;
+the prefix <code>.</code> is used to prevent <code>ls</code> from cluttering up the output
+when we run <code>ls</code>.
+We can always use the <code>-a</code> option to display them.</p>
+</blockquote>
+<p><code>cd</code> is a simple command,
+but it allows us to explore several new ideas.
+First,
+several <code>..</code> can be joined by the path separator
+to move higher than the parent directory in a single step.
+For example, <code>cd ../..</code> will move us up two directories
+(e.g., from <code>/Users/amira/zipf</code> to <code>/Users</code>),
+while <code>cd ../Movies</code> will move us up from <code>zipf</code> and back down into <code>Movies</code>.</p>
+<p>What happens if we type <code>cd</code> on its own without giving a directory?</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="bash-basics.html#cb40-1"></a>$ <span class="bu">pwd</span></span></code></pre></div>
+<pre class="text"><code>/Users/amira/Movies</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="bash-basics.html#cb42-1"></a>$ <span class="bu">cd</span></span>
+<span id="cb42-2"><a href="bash-basics.html#cb42-2"></a>$ <span class="bu">pwd</span></span></code></pre></div>
+<pre class="text"><code>/Users/amira</code></pre>
+<p>No matter where we are,
+<code>cd</code> on its own always returns us to our home directory.
+We can achieve the same thing using the special directory name <code>~</code>,
+which is a shortcut for our home directory:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="bash-basics.html#cb44-1"></a>$ <span class="fu">ls</span> ~</span></code></pre></div>
+<pre class="text"><code>Applications   Downloads     Music        todo.txt
+Desktop        Library       Pictures     zipf
+Documents      Movies        Public       </code></pre>
+<p>(<code>ls</code> doesn’t show any trailing slashes here because we haven’t used <code>-F</code>.)
+We can use <code>~</code> in paths,
+so that (for example) <code>~/Downloads</code> always refers to our download directory.</p>
+<p>Finally,
+<code>cd</code> interprets the shortcut <code>-</code> (a single dash) to mean the last directory we were in.
+Using this is usually faster and more reliable than trying to remember and type the path,
+but unlike <code>~</code>,
+it only works with <code>cd</code>:
+<code>ls -</code> tries to print a listing of a directory called <code>-</code>
+rather than showing us the contents of our previous directory.</p>
+</div>
+<div id="bash-basics-filedir" class="section level2">
+<h2><span class="header-section-number">2.3</span> Creating New Files and Directories</h2>
+<p>We now know how to explore files and directories,
+but how do we create them?
+To find out,
+let’s go back to our <code>zipf</code> directory:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="bash-basics.html#cb46-1"></a>$ <span class="bu">cd</span> ~/zipf</span>
+<span id="cb46-2"><a href="bash-basics.html#cb46-2"></a>$ <span class="fu">ls</span> -F</span></code></pre></div>
+<pre class="text"><code>data/</code></pre>
+<p>To create a new directory,
+we use the command <code>mkdir</code> (short for <strong>m</strong>a<strong>k</strong>e <strong>d</strong>irectory):</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="bash-basics.html#cb48-1"></a>$ <span class="fu">mkdir</span> docs</span></code></pre></div>
+<p>Since <code>docs</code> is a relative path
+(i.e., does not have a leading slash)
+the new directory is created below the current working directory:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="bash-basics.html#cb49-1"></a>$ <span class="fu">ls</span> -F</span></code></pre></div>
+<pre class="text"><code>data/  docs/</code></pre>
+<p>Using the shell to create a directory is no different than using a graphical tool.
+If we look at the current directory with our computer’s file browser
+we will see the <code>docs</code> directory there too.
+The shell and the file explorer are two different ways of interacting with the files;
+the files and directories themselves are the same.</p>
+<blockquote>
+<p><strong>Naming Files and Directories</strong></p>
+<p>Complicated names of files and directories can make our life painful.
+Following a few simple rules can save a lot of headaches:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Don’t use spaces.</strong>
+Spaces can make a name easier to read,
+but since they are used to separate arguments on the command line,
+most shell commands interpret a name like <code>My Thesis</code> as two names <code>My</code> and <code>Thesis</code>.
+Use <code>-</code> or <code>_</code> instead,
+e.g., <code>My-Thesis</code> or <code>My_Thesis</code>.</p></li>
+<li><p><strong>Don’t begin the name with <code>-</code> (dash)</strong>
+to avoid confusion with command options like <code>-F</code>.</p></li>
+<li><p><strong>Stick with letters, digits, <code>.</code> (period or ‘full stop’), <code>-</code> (dash) and <code>_</code> (underscore).</strong>
+Many other characters mean special things in the shell.
+We will learn about some of those special characters during this lesson,
+but the characters cited here are always safe.</p></li>
+</ol>
+<p>If we need to refer to files or directories that have spaces or other special characters in their names,
+we can surround the name in quotes (<code>""</code>).
+For example, <code>ls "My Thesis"</code> will work where <code>ls My Thesis</code> does not.</p>
+</blockquote>
+<p>Since we just created the <code>docs</code> directory,
+<code>ls</code> doesn’t display anything when we ask for a listing of its contents:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="bash-basics.html#cb51-1"></a>$ <span class="fu">ls</span> -F docs</span></code></pre></div>
+<p>Let’s change our working directory to <code>docs</code> using <code>cd</code>,
+then use a very simple text editor called <a href="glossary.html#nano_editor">Nano</a> to create a file called <code>draft.txt</code>
+(Figure <a href="bash-basics.html#fig:bash-basics-nano">2.3</a>):</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="bash-basics.html#cb52-1"></a>$ <span class="bu">cd</span> docs</span>
+<span id="cb52-2"><a href="bash-basics.html#cb52-2"></a>$ <span class="fu">nano</span> draft.txt</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bash-basics-nano"></span>
+<img src="figures/bash-basics/nano-editor.png" alt="The Nano editor." width="100%" />
+<p class="caption">
+Figure 2.3: The Nano editor.
+</p>
+</div>
+<p>When we say “Nano is a text editor” we really do mean “text”:
+it can only work with plain character data,
+not spreadsheets, images, Microsoft Word files, or anything else invented after 1970.
+We use it in this lesson because it runs everywhere,
+and because it is as simple as something can be and still be called an editor.
+However,
+that last trait means that we <em>shouldn’t</em> use it for larger tasks
+like writing a program or a paper.</p>
+<blockquote>
+<p><strong>Recycling Pixels</strong></p>
+<p>Unlike most modern editors,
+Nano runs <em>inside</em> the shell window instead of opening a new window of its own.
+This is a holdover from an era when graphical terminals were a rarity
+and different applications had to share a single screen.</p>
+</blockquote>
+<p>Once Nano is open we can type in a few lines of text,
+then press <kbd>Ctrl</kbd>+<kbd>O</kbd>
+(the Control key and the letter ‘O’ at the same time)
+to save our work.
+Nano will ask us what file we want to save it to;
+press <kbd>Return</kbd> to accept the suggested default of <code>draft.txt</code>.
+Once our file is saved,
+we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to exit the editor and return to the shell.</p>
+<blockquote>
+<p><strong>Control, Ctrl, or ^ Key</strong></p>
+<p>The Control key,
+also called the “Ctrl” key,
+can be described in a bewildering variety of ways.
+For example,
+<kbd>Control</kbd> plus <kbd>X</kbd> may be written as:</p>
+<ul>
+<li><code>Control-X</code></li>
+<li><code>Control+X</code></li>
+<li><code>Ctrl-X</code></li>
+<li><code>Ctrl+X</code></li>
+<li><code>C-x</code></li>
+<li><code>^X</code></li>
+</ul>
+<p>When Nano runs,
+it displays some help in the bottom two lines of the screen
+using the last of these notations:
+for example,
+<code>^G Get Help</code> means “use <kbd>Ctrl</kbd>+<kbd>G</kbd> to get help”
+and <code>^O WriteOut</code> means “use <kbd>Ctrl</kbd>+<kbd>O</kbd> to write out the current file.”</p>
+</blockquote>
+<p>Nano doesn’t leave any output on the screen after it exits,
+but <code>ls</code> will show that we have indeed created a new file <code>draft.txt</code>:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="bash-basics.html#cb53-1"></a>$ <span class="fu">ls</span></span></code></pre></div>
+<pre class="text"><code>draft.txt</code></pre>
+<blockquote>
+<p><strong>Dot Something</strong></p>
+<p>All of Amira’s files are named “something dot something.”
+This is just a convention:
+we can call a file <code>mythesis</code> or almost anything else.
+However,
+both people and programs use two-part names to help them tell different kinds of files apart.
+The part of the filename after the dot
+is called the <a href="glossary.html#filename_extension">filename extension</a>
+and indicates what type of data the file holds:
+<code>.txt</code> for plain text,
+<code>.pdf</code> for a PDF document,
+<code>.png</code> for a PNG image, and so on.
+This is just a convention:
+saving a PNG image of a whale as <code>whale.mp3</code>
+doesn’t somehow magically turn it into a recording of whalesong,
+though it <em>might</em> cause the operating system to try to open it with a music player
+when someone double-clicks it.</p>
+</blockquote>
+</div>
+<div id="bash-basics-move" class="section level2">
+<h2><span class="header-section-number">2.4</span> Moving Files and Directories</h2>
+<p>Let’s go back to our <code>zipf</code> directory:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb55-1"><a href="bash-basics.html#cb55-1"></a><span class="bu">cd</span> ~/zipf</span></code></pre></div>
+<p>The <code>docs</code> directory contains a file called <code>draft.txt</code>.
+That isn’t a particularly informative name,
+so let’s change it using <code>mv</code> (short for <strong>m</strong>o<strong>v</strong>e):</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb56-1"><a href="bash-basics.html#cb56-1"></a>$ <span class="fu">mv</span> docs/draft.txt docs/prior-work.txt</span></code></pre></div>
+<p>The first argument tells <code>mv</code> what we are “moving”,
+while the second is where it’s to go.
+“Moving” <code>docs/draft.txt</code> to <code>docs/prior-work.txt</code>
+has the same effect as renaming the file:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb57-1"><a href="bash-basics.html#cb57-1"></a>$ <span class="fu">ls</span> docs</span></code></pre></div>
+<pre class="text"><code>prior-work.txt</code></pre>
+<p>We must be careful when specifying the destination
+because <code>mv</code> will overwrite existing files without warning.
+An option <code>-i</code> (for “interactive”) makes <code>mv</code> ask us for confirmation before overwriting.
+<code>mv</code> also works on directories,
+so <code>mv analysis first-paper</code> would rename the directory without changing its contents.</p>
+<p>Now suppose we want to move <code>prior-work.txt</code> into the current working directory.
+If we don’t want to change the file’s name,
+just its location,
+we can provide <code>mv</code> with a directory as a destination
+and it will move the file there.
+In this case,
+the directory we want is the special name <code>.</code> that we mentioned earlier:</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb59-1"><a href="bash-basics.html#cb59-1"></a>$ <span class="fu">mv</span> docs/prior-work.txt .</span></code></pre></div>
+<div style="page-break-after: always;"></div>
+<p><code>ls</code> now shows us that <code>docs</code> is empty:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb60-1"><a href="bash-basics.html#cb60-1"></a>$ <span class="fu">ls</span> docs</span></code></pre></div>
+<p>and that our current directory now contains our file:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb61-1"><a href="bash-basics.html#cb61-1"></a>$ <span class="fu">ls</span></span></code></pre></div>
+<pre class="text"><code>data/  docs/  prior-work.txt</code></pre>
+<p>If we only want to check that the file exists,
+we can give its name to <code>ls</code>
+just like we can give the name of a directory:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb63-1"><a href="bash-basics.html#cb63-1"></a>$ <span class="fu">ls</span> prior-work.txt</span></code></pre></div>
+<pre class="text"><code>prior-work.txt</code></pre>
+</div>
+<div id="bash-basics-copy" class="section level2">
+<h2><span class="header-section-number">2.5</span> Copying Files and Directories</h2>
+<p>The <code>cp</code> command <strong>c</strong>o<strong>p</strong>ies files.
+It works like <code>mv</code> except it creates a file instead of moving an existing one:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb65-1"><a href="bash-basics.html#cb65-1"></a>$ <span class="fu">cp</span> prior-work.txt docs/section-1.txt</span></code></pre></div>
+<p>We can check that <code>cp</code> did the right thing
+by giving <code>ls</code> two arguments
+to ask it to list two things at once:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb66-1"><a href="bash-basics.html#cb66-1"></a>$ <span class="fu">ls</span> prior-work.txt docs/section-1.txt</span></code></pre></div>
+<pre class="text"><code>docs/section-1.txt  prior-work.txt</code></pre>
+<p>Notice that <code>ls</code> shows the output in alphabetical order.
+If we leave off the second filename and ask it to show us a file and a directory
+(or multiple directories)
+it lists them one by one:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb68-1"><a href="bash-basics.html#cb68-1"></a>$ <span class="fu">ls</span> prior-work.txt docs</span></code></pre></div>
+<pre class="text"><code>prior-work.txt
+
+docs:
+section-1.txt</code></pre>
+<p>Copying a directory and everything it contains is a little more complicated.
+If we use <code>cp</code> on its own,
+we get an error message:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb70-1"><a href="bash-basics.html#cb70-1"></a>$ <span class="fu">cp</span> docs backup</span></code></pre></div>
+<pre class="text"><code>cp: docs is a directory (not copied).</code></pre>
+<p>If we really want to copy everything,
+we must give <code>cp</code> the <code>-r</code> option (meaning <a href="glossary.html#recursion">recursive</a>):</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb72-1"><a href="bash-basics.html#cb72-1"></a>$ <span class="fu">cp</span> -r docs backup</span></code></pre></div>
+<p>Once again we can check the result with <code>ls</code>:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb73-1"><a href="bash-basics.html#cb73-1"></a>$ <span class="fu">ls</span> docs backup</span></code></pre></div>
+<pre class="text"><code>docs/:
+section-1.txt
+
+backup/:
+section-1.txt</code></pre>
+<blockquote>
+<p><strong>Copying Files to and from Remote Computers</strong></p>
+<p>For many researchers,
+a motivation for learning how to use the shell
+is that it’s often the only way to connect to a remote computer
+(e.g., located at a supercomputing facility or in a university department).</p>
+<p>Similar to the <code>cp</code> command,
+there exists a <strong>s</strong>ecure <strong>c</strong>o<strong>p</strong>y (<code>scp</code>) command for
+copying files between computers.
+See Appendix <a href="ssh.html#ssh">E</a> for details, including how to set up
+a secure connection to a remote computer via the shell.</p>
+</blockquote>
+</div>
+<div id="bash-basics-rm" class="section level2">
+<h2><span class="header-section-number">2.6</span> Deleting Files and Directories</h2>
+<p>Let’s tidy up by removing the <code>prior-work.txt</code> file we created in our <code>zipf</code> directory.
+The command to do this is <code>rm</code> (for <strong>r</strong>e<strong>m</strong>ove):</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb75-1"><a href="bash-basics.html#cb75-1"></a>$ <span class="fu">rm</span> prior-work.txt</span></code></pre></div>
+<p>We can confirm the file is gone using <code>ls</code>:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb76-1"><a href="bash-basics.html#cb76-1"></a>$ <span class="fu">ls</span> prior-work.txt</span></code></pre></div>
+<pre class="text"><code>ls: prior-work.txt: No such file or directory</code></pre>
+<p>Deleting is forever:
+unlike most GUIs,
+the Unix shell doesn’t have a trash bin that we can recover deleted files from.
+Tools for finding and recovering deleted files do exist,
+but there is no guarantee they will work,
+since the computer may recycle the file’s disk space at any time.
+In most cases,
+when we delete a file it really is gone.</p>
+<p>In a half-hearted attempt to stop us from erasing things accidentally,
+<code>rm</code> refuses to delete directories:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb78-1"><a href="bash-basics.html#cb78-1"></a>$ <span class="fu">rm</span> docs</span></code></pre></div>
+<pre class="text"><code>rm: docs: is a directory</code></pre>
+<p>We can tell <code>rm</code> we really want to do this
+by giving it the recursive option <code>-r</code>:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb80-1"><a href="bash-basics.html#cb80-1"></a>$ <span class="fu">rm</span> -r docs</span></code></pre></div>
+<p><code>rm -r</code> should be used with great caution:
+in most cases,
+it’s safest to add the <code>-i</code> option (for <strong>i</strong>nteractive)
+to get <code>rm</code> to ask us to confirm each deletion.
+As a halfway measure,
+we can use <code>-v</code> (for <strong>v</strong>erbose)
+to get <code>rm</code> to print a message for each file it deletes.
+This option works the same way with <code>mv</code> and <code>cp</code>.</p>
+</div>
+<div id="bash-basics-wildcard" class="section level2">
+<h2><span class="header-section-number">2.7</span> Wildcards</h2>
+<p><code>zipf/data</code> contains the text files for several ebooks
+from <a href="https://www.gutenberg.org/">Project Gutenberg</a>:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb81-1"><a href="bash-basics.html#cb81-1"></a>$ <span class="fu">ls</span> data</span></code></pre></div>
+<pre class="text"><code>README.md         moby_dick.txt
+dracula.txt       sense_and_sensibility.txt
+frankenstein.txt  sherlock_holmes.txt
+jane_eyre.txt     time_machine.txt</code></pre>
+<p>The <code>wc</code> command (short for <strong>w</strong>ord <strong>c</strong>ount)
+tells us how many lines, words, and letters there are in one file:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="bash-basics.html#cb83-1"></a>$ <span class="fu">wc</span> data/moby_dick.txt</span></code></pre></div>
+<pre class="text"><code> 22331  215832 1276222 data/moby_dick.txt</code></pre>
+<blockquote>
+<p><strong>What’s in a Word?</strong></p>
+<p><code>wc</code> only considers spaces to be word breaks:
+if two words are connected by a long dash—like “dash” and “like”
+in this sentence—then <code>wc</code> will count them as one word.</p>
+</blockquote>
+<p>We could run <code>wc</code> more times to find out how many lines there are in the other files,
+but that would be a lot of typing
+and we could easily make a mistake.
+We can’t just give <code>wc</code> the name of the directory as we do with <code>ls</code>:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb85-1"><a href="bash-basics.html#cb85-1"></a>$ <span class="fu">wc</span> data</span></code></pre></div>
+<pre class="text"><code>wc: data: read: Is a directory</code></pre>
+<p>Instead,
+we can use <a href="glossary.html#wildcard">wildcards</a> to specify a set of files at once.
+The most commonly used wildcard is <code>*</code> (a single asterisk).
+It matches zero or more characters,
+so <code>data/*.txt</code> matches all of the text files in the <code>data</code> directory:</p>
+<pre class="text"><code>$ ls data/*.txt</code></pre>
+<pre class="text"><code>data/dracula.txt       data/sense_and_sensibility.txt
+data/frankenstein.txt  data/sherlock_holmes.txt
+data/jane_eyre.txt     data/time_machine.txt
+data/moby_dick.txt</code></pre>
+<p>while <code>data/s*.txt</code> only matches the two whose names begin with an ‘s’:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb89-1"><a href="bash-basics.html#cb89-1"></a>$ <span class="fu">ls</span> data/s*.txt</span></code></pre></div>
+<pre class="text"><code>data/sense_and_sensibility.txt  data/sherlock_holmes.txt</code></pre>
+<p>Wildcards are expanded to match filenames <em>before</em> commands are run,
+so they work exactly the same way for every command.
+This means that we can use them with <code>wc</code> to (for example)
+count the number of words in the books with names that contain an underscore:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb91-1"><a href="bash-basics.html#cb91-1"></a>$ <span class="fu">wc</span> data/*_*.txt</span></code></pre></div>
+<pre class="text"><code>  21054  188460 1049294 data/jane_eyre.txt
+  22331  215832 1253891 data/moby_dick.txt
+  13028  121593  693116 data/sense_and_sensibility.txt
+  13053  107536  581903 data/sherlock_holmes.txt
+   3582   35527  200928 data/time_machine.txt
+  73048  668948 3779132 total</code></pre>
+<p>or the number of words in Frankenstein:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb93-1"><a href="bash-basics.html#cb93-1"></a>$ <span class="fu">wc</span> data/frank*.txt</span></code></pre></div>
+<pre class="text"><code>  7832  78100 442967 data/frankenstein.txt</code></pre>
+<p>The exercises will introduce and explore other wildcards.
+For now,
+we only need to know that
+it’s possible for a wildcard expression to <em>not</em> match anything.
+In this case,
+the command will usually print an error message:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb95-1"><a href="bash-basics.html#cb95-1"></a>$ <span class="fu">wc</span> data/*.csv</span></code></pre></div>
+<pre class="text"><code>wc: data/*.csv: open: No such file or directory</code></pre>
+</div>
+<div id="bash-basics-help" class="section level2">
+<h2><span class="header-section-number">2.8</span> Reading the Manual</h2>
+<p><code>wc</code> displays lines, words, and characters by default,
+but we can ask it to display only the number of lines:</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb97-1"><a href="bash-basics.html#cb97-1"></a>$ <span class="fu">wc</span> -l data/s*.txt</span></code></pre></div>
+<pre class="text"><code>  13028 sense_and_sensibility.txt
+  13053 sherlock_holmes.txt
+  26081 total</code></pre>
+<p><code>wc</code> has other options as well.
+We can use the <code>man</code> command (short for <strong>man</strong>ual)
+to find out what they are:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb99-1"><a href="bash-basics.html#cb99-1"></a>$ <span class="fu">man</span> wc</span></code></pre></div>
+<blockquote>
+<p><strong>Paging through the Manual</strong></p>
+<p>If our screen is too small to display an entire manual page at once,
+the shell will use a <a href="glossary.html#pager">paging program</a> called <code>less</code> to show it
+piece by piece.
+We can use <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line
+or <kbd>Ctrl</kbd>+<kbd>Spacebar</kbd> and <kbd>Spacebar</kbd>
+to skip up and down one page at a time.
+(<kbd>B</kbd> and <kbd>F</kbd> also work.)</p>
+<p>To search for a character or word,
+use <kbd>/</kbd> followed by the character or word to search for.
+If the search produces multiple hits,
+we can move between them using <kbd>N</kbd> (for “next”).
+To quit, press <kbd>Q</kbd>.</p>
+</blockquote>
+<p>Manual pages contain a lot of information—often more than we really want.
+Figure <a href="bash-basics.html#fig:bash-basics-manual">2.4</a>
+includes excerpts from the manual on your screen,
+and highlights a few of features useful for beginners.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bash-basics-manual"></span>
+<img src="figures/bash-basics/man-callouts.png" alt="Key features of Unix manual pages." width="100%" />
+<p class="caption">
+Figure 2.4: Key features of Unix manual pages.
+</p>
+</div>
+<p>Some commands have a <code>--help</code> option that provides a succinct summary of possibilities,
+but the best place to go for help these days is probably the <a href="https://tldr.sh/">TLDR</a> website.
+The acronym stands for “too long, didn’t read,”
+and its help for <code>wc</code> displays this:</p>
+<pre><code>wc
+Count words, bytes, or lines.
+
+Count lines in file:
+wc -l {{file}}
+
+Count words in file:
+wc -w {{file}}
+
+Count characters (bytes) in file:
+wc -c {{file}}
+
+Count characters in file (taking multi-byte character sets into
+account):
+wc -m {{file}}
+
+edit this page on github</code></pre>
+<p>As the last line suggests,
+all of its examples are in a public GitHub repository
+so that users like you can add the examples you wish it had.
+For more information,
+we can search on <a href="https://stackoverflow.com/questions/tagged/bash">Stack Overflow</a>
+or browse the <a href="https://www.gnu.org/manual/manual.html">GNU manuals</a>
+(particularly those for the <a href="https://www.gnu.org/software/coreutils/manual/coreutils.html">core GNU utilities</a>,
+which include many of the commands introduced in this lesson).
+In all cases,
+though,
+we need to have some idea of what we’re looking for in the first place:
+someone who wants to know how many lines there are in a data file
+is unlikely to think to look for <code>wc</code>.</p>
+</div>
+<div id="bash-basics-summary" class="section level2">
+<h2><span class="header-section-number">2.9</span> Summary</h2>
+<p>The original Unix shell is celebrating its fiftieth anniversary.
+Its commands may be cryptic,
+but few programs have remained in daily use for so long.
+The next chapter will explore how we can combine and repeat commands
+in order to create powerful, efficient workflows.</p>
+</div>
+<div id="bash-basics-exercises" class="section level2">
+<h2><span class="header-section-number">2.10</span> Exercises</h2>
+<p>The exercises below involve creating and moving new files,
+as well as considering hypothetical files.
+Please note that if you create or move any files or directories in your Zipf’s Law project,
+you may want to reorganize your files following the outline at the beginning of the next chapter.
+If you accidentally delete necessary files,
+you can start with a fresh copy of the data files
+by following the instructions in Section <a href="getting-started.html#getting-started-download-data">1.2</a>.</p>
+<div id="bash-basics-ex-more-ls" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> Exploring more <code>ls</code> flags</h3>
+<p>What does the command <code>ls</code> do when used
+with the <code>-l</code> option?</p>
+<p>What happens if you use two options at the same time, such as <code>ls -l -h</code>?</p>
+</div>
+<div id="bash-basics-ex-ls-rt" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> Listing recursively and by time</h3>
+<p>The command <code>ls -R</code> lists the contents of directories recursively,
+which means the subdirectories, sub-subdirectories, and so on at each level are listed.
+The command <code>ls -t</code> lists things by time of last change,
+with most recently changed files or directories first.</p>
+<p>In what order does <code>ls -R -t</code> display things? Hint: <code>ls -l</code> uses a long listing
+format to view timestamps.</p>
+</div>
+<div id="bash-basics-ex-paths" class="section level3">
+<h3><span class="header-section-number">2.10.3</span> Absolute and relative paths</h3>
+<p>Starting from <code>/Users/amira/data</code>,
+which of the following commands could Amira use to navigate to her home directory,
+which is <code>/Users/amira</code>?</p>
+<ol style="list-style-type: decimal">
+<li><code>cd .</code></li>
+<li><code>cd /</code></li>
+<li><code>cd /home/amira</code></li>
+<li><code>cd ../..</code></li>
+<li><code>cd ~</code></li>
+<li><code>cd home</code></li>
+<li><code>cd ~/data/..</code></li>
+<li><code>cd</code></li>
+<li><code>cd ..</code></li>
+<li><code>cd ../.</code></li>
+</ol>
+</div>
+<div id="bash-basics-ex-resolve-rel-path" class="section level3">
+<h3><span class="header-section-number">2.10.4</span> Relative path resolution</h3>
+<p>Using the filesystem shown in Figure <a href="bash-basics.html#fig:bash-basics-ex-rel-path">2.5</a>,
+if <code>pwd</code> displays <code>/Users/sami</code>,
+what will <code>ls -F ../backup</code> display?</p>
+<ol style="list-style-type: decimal">
+<li><code>../backup: No such file or directory</code></li>
+<li><code>final original revised</code></li>
+<li><code>final/ original/ revised/</code></li>
+<li><code>data/ analysis/ doc/</code></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bash-basics-ex-rel-path"></span>
+<img src="figures/bash-basics/exercise-filesystem.png" alt="Filesystem for exercises." width="100%" />
+<p class="caption">
+Figure 2.5: Filesystem for exercises.
+</p>
+</div>
+</div>
+<div id="bash-basics-ex-reading-ls" class="section level3">
+<h3><span class="header-section-number">2.10.5</span> <code>ls</code> reading comprehension</h3>
+<p>Using the filesystem shown in Figure <a href="bash-basics.html#fig:bash-basics-ex-rel-path">2.5</a>,
+if <code>pwd</code> displays <code>/Users/backup</code>,
+and <code>-r</code> tells <code>ls</code> to display things in reverse order,
+what command(s) will result in the following output:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb101-1"><a href="bash-basics.html#cb101-1"></a><span class="ex">doc/</span> data/ analysis/</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li><code>ls pwd</code></li>
+<li><code>ls -r -F</code></li>
+<li><code>ls -r -F /Users/backup</code></li>
+</ol>
+</div>
+<div id="bash-basics-ex-touch" class="section level3">
+<h3><span class="header-section-number">2.10.6</span> Creating files a different way</h3>
+<p>What happens when you execute <code>touch my_file.txt</code>?
+(Hint: use <code>ls -l</code> to find information about the file)</p>
+<p>When might you want to create a file this way?</p>
+</div>
+<div id="bash-basics-ex-safe-rm" class="section level3">
+<h3><span class="header-section-number">2.10.7</span> Using <code>rm</code> safely</h3>
+<p>What would happen if you executed <code>rm -i my_file.txt</code>
+on the file created in the previous exercise?
+Why would we want this protection when using <code>rm</code>?</p>
+</div>
+<div id="bash-basics-ex-move-dot" class="section level3">
+<h3><span class="header-section-number">2.10.8</span> Moving to the current folder</h3>
+<p>After running the following commands,
+Amira realizes that she put the (hypothetical) files <code>chapter1.txt</code> and <code>chapter2.txt</code> into the wrong folder:</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb102-1"><a href="bash-basics.html#cb102-1"></a>$ <span class="fu">ls</span> -F</span></code></pre></div>
+<pre class="text"><code>  data/  docs/</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb104-1"><a href="bash-basics.html#cb104-1"></a>$ <span class="fu">ls</span> -F data</span></code></pre></div>
+<pre class="text"><code>README.md           frankenstein.txt        sherlock_holmes.txt
+chapter1.txt        jane_eyre.txt           time_machine.txt
+chapter2.txt        moby_dick.txt
+dracula.txt         sense_and_sensibility.txt</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb106-1"><a href="bash-basics.html#cb106-1"></a>$ <span class="bu">cd</span> docs</span></code></pre></div>
+<p>Fill in the blanks to move these files to the current folder
+(i.e., the one she is currently in):</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb107-1"><a href="bash-basics.html#cb107-1"></a>$ <span class="fu">mv</span> ___/chapter1.txt  ___/chapter2.txt ___</span></code></pre></div>
+</div>
+<div id="bash-basics-ex-renaming-files" class="section level3">
+<h3><span class="header-section-number">2.10.9</span> Renaming files</h3>
+<p>Suppose that you created a plain-text file in your current directory to contain a list of the
+statistical tests you will need to do to analyze your data, and named it: <code>statstics.txt</code></p>
+<p>After creating and saving this file you realize you misspelled the filename! You want to
+correct the mistake, which of the following commands could you use to do so?</p>
+<ol style="list-style-type: decimal">
+<li><code>cp statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt .</code></li>
+<li><code>cp statstics.txt .</code></li>
+</ol>
+</div>
+<div id="bash-basics-ex-last-ls" class="section level3">
+<h3><span class="header-section-number">2.10.10</span> Moving and copying</h3>
+<p>Assuming the following hypothetical files,
+what is the output of the closing <code>ls</code> command in the sequence shown below?</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb108-1"><a href="bash-basics.html#cb108-1"></a>$ <span class="bu">pwd</span></span></code></pre></div>
+<pre class="text"><code>/Users/amira/data</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb110-1"><a href="bash-basics.html#cb110-1"></a>$ <span class="fu">ls</span></span></code></pre></div>
+<pre class="text"><code>books.dat</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb112-1"><a href="bash-basics.html#cb112-1"></a>$ <span class="fu">mkdir</span> doc</span>
+<span id="cb112-2"><a href="bash-basics.html#cb112-2"></a>$ <span class="fu">mv</span> books.dat doc/</span>
+<span id="cb112-3"><a href="bash-basics.html#cb112-3"></a>$ <span class="fu">cp</span> doc/books.dat ../books-saved.dat</span>
+<span id="cb112-4"><a href="bash-basics.html#cb112-4"></a>$ <span class="fu">ls</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li><code>books-saved.dat doc</code></li>
+<li><code>doc</code></li>
+<li><code>books.dat doc</code></li>
+<li><code>books-saved.dat</code></li>
+</ol>
+</div>
+<div id="bash-basics-ex-copy-multi" class="section level3">
+<h3><span class="header-section-number">2.10.11</span> Copy with multiple filenames</h3>
+<p>This exercise explores how <code>cp</code> responds when attempting to copy multiple things.</p>
+<p>What does <code>cp</code> do when given several filenames followed by a directory name?</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb113-1"><a href="bash-basics.html#cb113-1"></a>$ <span class="fu">mkdir</span> backup</span>
+<span id="cb113-2"><a href="bash-basics.html#cb113-2"></a>$ <span class="fu">cp</span> dracula.txt frankenstein.txt backup/</span></code></pre></div>
+<p>What does <code>cp</code> do when given three or more filenames?</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb114-1"><a href="bash-basics.html#cb114-1"></a>$ <span class="fu">cp</span> dracula.txt frankenstein.txt jane_eyre.txt</span></code></pre></div>
+</div>
+<div id="bash-basics-ex-ls-match" class="section level3">
+<h3><span class="header-section-number">2.10.12</span> List filenames matching a pattern</h3>
+<p>When run in the <code>data</code> directory of your project directory,
+which <code>ls</code> command(s) will produce this output?</p>
+<p><code>jane_eyre.txt   sense_and_sensibility.txt</code></p>
+<ol style="list-style-type: decimal">
+<li><code>ls ??n*.txt</code></li>
+<li><code>ls *e_*.txt</code></li>
+<li><code>ls *n*.txt</code></li>
+<li><code>ls *n?e*.txt</code></li>
+</ol>
+</div>
+<div id="bash-basics-ex-organizing" class="section level3">
+<h3><span class="header-section-number">2.10.13</span> Organizing directories and files</h3>
+<p>Amira is working on a project and she sees that her files aren’t very well
+organized:</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb115-1"><a href="bash-basics.html#cb115-1"></a>$ <span class="fu">ls</span> -F</span></code></pre></div>
+<pre class="text"><code>books.txt    data/    results/   titles.txt</code></pre>
+<p>The <code>books.txt</code> and <code>titles.txt</code> files contain output from her data
+analysis. What command(s) does she need to run
+to produce the output shown?</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb117-1"><a href="bash-basics.html#cb117-1"></a>$ <span class="fu">ls</span> -F</span></code></pre></div>
+<pre class="text"><code>data/   results/</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb119-1"><a href="bash-basics.html#cb119-1"></a>$ <span class="fu">ls</span> results</span></code></pre></div>
+<pre class="text"><code>books.txt    titles.txt</code></pre>
+</div>
+<div id="bash-basics-ex-reproduce-structure" class="section level3">
+<h3><span class="header-section-number">2.10.14</span> Reproduce a directory structure</h3>
+<p>You’re starting a new analysis, and would like to duplicate the directory
+structure from your previous experiment so you can add new data.</p>
+<p>Assume that the previous experiment is in a folder called <code>2016-05-18</code>,
+which contains a <code>data</code> folder that in turn contains folders named <code>raw</code> and
+<code>processed</code> that contain data files. The goal is to copy the folder structure
+of <code>2016-05-18/data</code> into a folder called <code>2016-05-20</code>
+so that your final directory structure looks like this:</p>
+<pre><code>2016-05-20/
+└── data
+    ├── processed
+    └── raw</code></pre>
+<p>Which of the following commands would achieve this objective?
+What would the other commands do?</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb122-1"><a href="bash-basics.html#cb122-1"></a><span class="co"># Set 1</span></span>
+<span id="cb122-2"><a href="bash-basics.html#cb122-2"></a>$ <span class="fu">mkdir</span> 2016-05-20</span>
+<span id="cb122-3"><a href="bash-basics.html#cb122-3"></a>$ <span class="fu">mkdir</span> 2016-05-20/data</span>
+<span id="cb122-4"><a href="bash-basics.html#cb122-4"></a>$ <span class="fu">mkdir</span> 2016-05-20/data/processed</span>
+<span id="cb122-5"><a href="bash-basics.html#cb122-5"></a>$ <span class="fu">mkdir</span> 2016-05-20/data/raw</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb123-1"><a href="bash-basics.html#cb123-1"></a><span class="co"># Set 2</span></span>
+<span id="cb123-2"><a href="bash-basics.html#cb123-2"></a>$ <span class="fu">mkdir</span> 2016-05-20</span>
+<span id="cb123-3"><a href="bash-basics.html#cb123-3"></a>$ <span class="bu">cd</span> 2016-05-20</span>
+<span id="cb123-4"><a href="bash-basics.html#cb123-4"></a>$ <span class="fu">mkdir</span> data</span>
+<span id="cb123-5"><a href="bash-basics.html#cb123-5"></a>$ <span class="bu">cd</span> data</span>
+<span id="cb123-6"><a href="bash-basics.html#cb123-6"></a>$ <span class="fu">mkdir</span> raw processed</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb124-1"><a href="bash-basics.html#cb124-1"></a><span class="co"># Set 3</span></span>
+<span id="cb124-2"><a href="bash-basics.html#cb124-2"></a>$ <span class="fu">mkdir</span> 2016-05-20/data/raw</span>
+<span id="cb124-3"><a href="bash-basics.html#cb124-3"></a>$ <span class="fu">mkdir</span> 2016-05-20/data/processed</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb125-1"><a href="bash-basics.html#cb125-1"></a><span class="co"># Set 4</span></span>
+<span id="cb125-2"><a href="bash-basics.html#cb125-2"></a>$ <span class="fu">mkdir</span> 2016-05-20</span>
+<span id="cb125-3"><a href="bash-basics.html#cb125-3"></a>$ <span class="bu">cd</span> 2016-05-20</span>
+<span id="cb125-4"><a href="bash-basics.html#cb125-4"></a>$ <span class="fu">mkdir</span> data</span>
+<span id="cb125-5"><a href="bash-basics.html#cb125-5"></a>$ <span class="fu">mkdir</span> raw processed</span></code></pre></div>
+</div>
+<div id="bash-basics-ex-wildcard-expressions" class="section level3">
+<h3><span class="header-section-number">2.10.15</span> Wildcard expressions</h3>
+<p>Wildcard expressions can be very complex, but you can sometimes write
+them in ways that only use simple syntax, at the expense of being a bit
+more verbose.
+In your <code>data/</code> directory,
+the wildcard expression <code>[st]*.txt</code>
+matches all files beginning with <code>s</code> or <code>t</code> and ending with <code>.txt</code>.
+Imagine you forgot about this.</p>
+<ol style="list-style-type: decimal">
+<li><p>Can you match the same set of files with basic wildcard expressions
+that do not use the <code>[]</code> syntax? <em>Hint</em>: You may need more than one
+expression.</p></li>
+<li><p>Under what circumstances would your new expression produce an error message
+where the original one would not?</p></li>
+</ol>
+</div>
+<div id="bash-basics-ex-remove-unneeded" class="section level3">
+<h3><span class="header-section-number">2.10.16</span> Removing unneeded files</h3>
+<p>Suppose you want to delete your processed data files, and only keep
+your raw files and processing script to save storage.
+The raw files end in <code>.txt</code> and the processed files end in <code>.csv</code>.
+Which of the following would remove all the processed data files,
+and <em>only</em> the processed data files?</p>
+<ol style="list-style-type: decimal">
+<li><code>rm ?.csv</code></li>
+<li><code>rm *.csv</code></li>
+<li><code>rm * .csv</code></li>
+<li><code>rm *.*</code></li>
+</ol>
+</div>
+<div id="bash-basics-ex-other-wildcards" class="section level3">
+<h3><span class="header-section-number">2.10.17</span> Other wildcards</h3>
+<p>The shell provides several wildcards beyond the widely used <code>*</code>.
+To explore them,
+explain in plain language what (hypothetical) files the expression <code>novel-????-[ab]*.{txt,pdf}</code> matches and why.</p>
+</div>
+</div>
+<div id="bash-basics-keypoints" class="section level2">
+<h2><span class="header-section-number">2.11</span> Key Points</h2>
+<ul>
+<li>A <a href="glossary.html#shell">shell</a> is a program that reads commands and runs other programs.</li>
+<li>The <a href="glossary.html#filesystem">filesystem</a> manages information stored on disk.</li>
+<li>Information is stored in files, which are located in directories (folders).</li>
+<li>Directories can also store other directories, which forms a directory tree.</li>
+<li><code>pwd</code> prints the user’s <a href="glossary.html#current_working_directory">current working directory</a>.</li>
+<li><code>/</code> on its own is the <a href="glossary.html#root_directory">root directory</a> of the whole filesystem.</li>
+<li><code>ls</code> prints a list of files and directories.</li>
+<li>An <a href="glossary.html#absolute_path">absolute path</a> specifies a location from the root of the filesystem.</li>
+<li>A <a href="glossary.html#relative_path">relative path</a> specifies a location in the filesystem starting from the current directory.</li>
+<li><code>cd</code> changes the current working directory.</li>
+<li><code>..</code> means the <a href="glossary.html#parent_directory">parent directory</a>.</li>
+<li><code>.</code> on its own means the current directory.</li>
+<li><code>mkdir</code> creates a new directory.</li>
+<li><code>cp</code> copies a file.</li>
+<li><code>rm</code> removes (deletes) a file.</li>
+<li><code>mv</code> moves (renames) a file or directory.</li>
+<li><code>*</code> matches zero or more characters in a filename.</li>
+<li><code>?</code> matches any single character in a filename.</li>
+<li><code>wc</code> counts lines, words, and characters in its inputs.</li>
+<li><code>man</code> displays the manual page for a given command; some commands also have a <code>--help</code> option.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bash-tools.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/merely-useful/py-rse/edit/book/chapters/bash-basics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/merely-useful/py-rse/blob/book/chapters/bash-basics.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Building Command-Line Tools with Python | Research Software Engineering with Python</title>
+  <meta name="description" content="Chapter 5 Building Command-Line Tools with Python | Research Software Engineering with Python" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Building Command-Line Tools with Python | Research Software Engineering with Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="tugboats-800x600.jpg" />
+  
+  <meta name="github-repo" content="merely-useful/py-rse" />
+
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<meta name="author" content="Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="bash-advanced.html"/>
+<link rel="next" href="git-cmdline.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link rel="shortcut icon" href="favicon.ico" />
+<script defer data-domain="merely-useful.tech" src="https://plausible.io/js/plausible.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="index.html">Merely Useful</a></strong></li>
+<li><img src="tugboats-800x600.jpg" width=267 height=200 style="padding-left:20px;"/></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html">Welcome</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intro-big-picture"><b>0.1</b> The Big Picture</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intro-personas"><b>0.2</b> Intended Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#intro-syllabus"><b>0.3</b> What You Will Learn</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#intro-using"><b>0.4</b> Using this Book</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#contributing-and-re-use"><b>0.5</b> Contributing and Re-Use</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#intro-ack"><b>0.6</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#dedications"><b>0.7</b> Dedications</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-structure"><b>1.1</b> Project Structure</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-boilerplate"><b>1.1.1</b> Standard information</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-organize"><b>1.1.2</b> Organizing project content</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-download-data"><b>1.2</b> Downloading the Data</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#getting-started-install-software"><b>1.3</b> Installing the Software</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#getting-started-summary"><b>1.4</b> Summary</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#getting-started-exercises"><b>1.5</b> Exercises</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-install"><b>1.5.1</b> Getting ready</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#getting-started-keypoints"><b>1.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bash-basics.html"><a href="bash-basics.html"><b>2</b> The Basics of the Unix Shell</a><ul>
+<li class="chapter" data-level="2.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-explore"><b>2.1</b> Exploring Files and Directories</a></li>
+<li class="chapter" data-level="2.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-navigate"><b>2.2</b> Moving Around</a></li>
+<li class="chapter" data-level="2.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-filedir"><b>2.3</b> Creating New Files and Directories</a></li>
+<li class="chapter" data-level="2.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-move"><b>2.4</b> Moving Files and Directories</a></li>
+<li class="chapter" data-level="2.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-copy"><b>2.5</b> Copying Files and Directories</a></li>
+<li class="chapter" data-level="2.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-rm"><b>2.6</b> Deleting Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-wildcard"><b>2.7</b> Wildcards</a></li>
+<li class="chapter" data-level="2.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-help"><b>2.8</b> Reading the Manual</a></li>
+<li class="chapter" data-level="2.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-summary"><b>2.9</b> Summary</a></li>
+<li class="chapter" data-level="2.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-exercises"><b>2.10</b> Exercises</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-more-ls"><b>2.10.1</b> Exploring more <code>ls</code> flags</a></li>
+<li class="chapter" data-level="2.10.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-rt"><b>2.10.2</b> Listing recursively and by time</a></li>
+<li class="chapter" data-level="2.10.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-paths"><b>2.10.3</b> Absolute and relative paths</a></li>
+<li class="chapter" data-level="2.10.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-resolve-rel-path"><b>2.10.4</b> Relative path resolution</a></li>
+<li class="chapter" data-level="2.10.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reading-ls"><b>2.10.5</b> <code>ls</code> reading comprehension</a></li>
+<li class="chapter" data-level="2.10.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-touch"><b>2.10.6</b> Creating files a different way</a></li>
+<li class="chapter" data-level="2.10.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-safe-rm"><b>2.10.7</b> Using <code>rm</code> safely</a></li>
+<li class="chapter" data-level="2.10.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-move-dot"><b>2.10.8</b> Moving to the current folder</a></li>
+<li class="chapter" data-level="2.10.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-renaming-files"><b>2.10.9</b> Renaming files</a></li>
+<li class="chapter" data-level="2.10.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-last-ls"><b>2.10.10</b> Moving and copying</a></li>
+<li class="chapter" data-level="2.10.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-copy-multi"><b>2.10.11</b> Copy with multiple filenames</a></li>
+<li class="chapter" data-level="2.10.12" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-match"><b>2.10.12</b> List filenames matching a pattern</a></li>
+<li class="chapter" data-level="2.10.13" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-organizing"><b>2.10.13</b> Organizing directories and files</a></li>
+<li class="chapter" data-level="2.10.14" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reproduce-structure"><b>2.10.14</b> Reproduce a directory structure</a></li>
+<li class="chapter" data-level="2.10.15" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-wildcard-expressions"><b>2.10.15</b> Wildcard expressions</a></li>
+<li class="chapter" data-level="2.10.16" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-remove-unneeded"><b>2.10.16</b> Removing unneeded files</a></li>
+<li class="chapter" data-level="2.10.17" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-other-wildcards"><b>2.10.17</b> Other wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-keypoints"><b>2.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bash-tools.html"><a href="bash-tools.html"><b>3</b> Building Tools with the Unix Shell</a><ul>
+<li class="chapter" data-level="3.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-pipe"><b>3.1</b> Combining Commands</a></li>
+<li class="chapter" data-level="3.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-stdio"><b>3.2</b> How Pipes Work</a></li>
+<li class="chapter" data-level="3.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-loops"><b>3.3</b> Repeating Commands on Many Files</a></li>
+<li class="chapter" data-level="3.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-meaningless"><b>3.4</b> Variable Names</a></li>
+<li class="chapter" data-level="3.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-history"><b>3.5</b> Redoing Things</a></li>
+<li class="chapter" data-level="3.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-autoname"><b>3.6</b> Creating New Filenames Automatically</a></li>
+<li class="chapter" data-level="3.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-summary"><b>3.7</b> Summary</a></li>
+<li class="chapter" data-level="3.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-exercises"><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-redirect-append"><b>3.8.1</b> What does <code>&gt;&gt;</code> mean?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-append-data"><b>3.8.2</b> Appending data</a></li>
+<li class="chapter" data-level="3.8.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-piping"><b>3.8.3</b> Piping commands</a></li>
+<li class="chapter" data-level="3.8.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-uniq-adjacent"><b>3.8.4</b> Why does <code>uniq</code> only remove adjacent duplicates?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-reading-pipes"><b>3.8.5</b> Pipe reading comprehension</a></li>
+<li class="chapter" data-level="3.8.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-pipe-construction"><b>3.8.6</b> Pipe construction</a></li>
+<li class="chapter" data-level="3.8.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-which-pipe"><b>3.8.7</b> Which pipe?</a></li>
+<li class="chapter" data-level="3.8.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-dry-run"><b>3.8.8</b> Doing a dry run</a></li>
+<li class="chapter" data-level="3.8.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-variables"><b>3.8.9</b> Variables in loops</a></li>
+<li class="chapter" data-level="3.8.10" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-limiting-file-sets"><b>3.8.10</b> Limiting sets of files</a></li>
+<li class="chapter" data-level="3.8.11" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-save"><b>3.8.11</b> Saving to a file in a loop</a></li>
+<li class="chapter" data-level="3.8.12" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-history-order"><b>3.8.12</b> Why does <code>history</code> record commands before running them?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-keypoints"><b>3.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bash-advanced.html"><a href="bash-advanced.html"><b>4</b> Going Further with the Unix Shell</a><ul>
+<li class="chapter" data-level="4.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-script"><b>4.1</b> Creating New Commands</a></li>
+<li class="chapter" data-level="4.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-params"><b>4.2</b> Making Scripts More Versatile</a></li>
+<li class="chapter" data-level="4.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-capture"><b>4.3</b> Turning Interactive Work into a Script</a></li>
+<li class="chapter" data-level="4.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-grep"><b>4.4</b> Finding Things in Files</a></li>
+<li class="chapter" data-level="4.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-find"><b>4.5</b> Finding Files</a></li>
+<li class="chapter" data-level="4.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-vars"><b>4.6</b> Configuring the Shell</a></li>
+<li class="chapter" data-level="4.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-summary"><b>4.7</b> Summary</a></li>
+<li class="chapter" data-level="4.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-exercises"><b>4.8</b> Exercises</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-cleaning-up"><b>4.8.1</b> Cleaning up</a></li>
+<li class="chapter" data-level="4.8.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-script-variables"><b>4.8.2</b> Variables in shell scripts</a></li>
+<li class="chapter" data-level="4.8.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-longest-with-extension"><b>4.8.3</b> Find the longest file with a given extension</a></li>
+<li class="chapter" data-level="4.8.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-scripts"><b>4.8.4</b> Script reading comprehension</a></li>
+<li class="chapter" data-level="4.8.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-using-grep"><b>4.8.5</b> Using <code>grep</code></a></li>
+<li class="chapter" data-level="4.8.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-year-script"><b>4.8.6</b> Tracking publication years</a></li>
+<li class="chapter" data-level="4.8.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-sense-sensibility"><b>4.8.7</b> Counting names</a></li>
+<li class="chapter" data-level="4.8.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-match-subtract"><b>4.8.8</b> Matching and subtracting</a></li>
+<li class="chapter" data-level="4.8.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-find"><b>4.8.9</b> <code>find</code> pipeline reading comprehension</a></li>
+<li class="chapter" data-level="4.8.10" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-find-tests"><b>4.8.10</b> Finding files with different properties</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-keypoints"><b>4.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="scripting.html"><a href="scripting.html"><b>5</b> Building Command-Line Tools with Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="scripting.html"><a href="scripting.html#scripting-main"><b>5.1</b> Programs and Modules</a></li>
+<li class="chapter" data-level="5.2" data-path="scripting.html"><a href="scripting.html#scripting-options"><b>5.2</b> Handling Command-Line Options</a></li>
+<li class="chapter" data-level="5.3" data-path="scripting.html"><a href="scripting.html#scripting-docstrings"><b>5.3</b> Documentation</a></li>
+<li class="chapter" data-level="5.4" data-path="scripting.html"><a href="scripting.html#scripting-wordcount"><b>5.4</b> Counting Words</a></li>
+<li class="chapter" data-level="5.5" data-path="scripting.html"><a href="scripting.html#scripting-pipeline"><b>5.5</b> Pipelining</a></li>
+<li class="chapter" data-level="5.6" data-path="scripting.html"><a href="scripting.html#scripting-positional-optional"><b>5.6</b> Positional and Optional Arguments</a></li>
+<li class="chapter" data-level="5.7" data-path="scripting.html"><a href="scripting.html#scripting-collate"><b>5.7</b> Collating Results</a></li>
+<li class="chapter" data-level="5.8" data-path="scripting.html"><a href="scripting.html#scripting-modules"><b>5.8</b> Writing Our Own Modules</a></li>
+<li class="chapter" data-level="5.9" data-path="scripting.html"><a href="scripting.html#scripting-plotting"><b>5.9</b> Plotting</a></li>
+<li class="chapter" data-level="5.10" data-path="scripting.html"><a href="scripting.html#scripting-summary"><b>5.10</b> Summary</a></li>
+<li class="chapter" data-level="5.11" data-path="scripting.html"><a href="scripting.html#scripting-exercises"><b>5.11</b> Exercises</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="scripting.html"><a href="scripting.html#scripting-ex-command-line"><b>5.11.1</b> Running Python statements from the command line</a></li>
+<li class="chapter" data-level="5.11.2" data-path="scripting.html"><a href="scripting.html#scripting-ex-glob-ls"><b>5.11.2</b> Listing files</a></li>
+<li class="chapter" data-level="5.11.3" data-path="scripting.html"><a href="scripting.html#scripting-ex-sentence-endings"><b>5.11.3</b> Sentence ending punctuation</a></li>
+<li class="chapter" data-level="5.11.4" data-path="scripting.html"><a href="scripting.html#scripting-ex-better-plotting"><b>5.11.4</b> A better plotting program</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="scripting.html"><a href="scripting.html#scripting-keypoints"><b>5.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="git-cmdline.html"><a href="git-cmdline.html"><b>6</b> Using Git at the Command Line</a><ul>
+<li class="chapter" data-level="6.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-setup"><b>6.1</b> Setting Up</a></li>
+<li class="chapter" data-level="6.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-repos"><b>6.2</b> Creating a New Repository</a></li>
+<li class="chapter" data-level="6.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-add-existing"><b>6.3</b> Adding Existing Work</a></li>
+<li class="chapter" data-level="6.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-commit-message"><b>6.4</b> Describing Commits</a></li>
+<li class="chapter" data-level="6.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-changes"><b>6.5</b> Saving and Tracking Changes</a></li>
+<li class="chapter" data-level="6.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-remotes"><b>6.6</b> Synchronizing with Other Repositories</a></li>
+<li class="chapter" data-level="6.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-history"><b>6.7</b> Exploring History</a></li>
+<li class="chapter" data-level="6.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-restore"><b>6.8</b> Restoring Old Versions of Files</a></li>
+<li class="chapter" data-level="6.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ignore"><b>6.9</b> Ignoring Files</a></li>
+<li class="chapter" data-level="6.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-summary"><b>6.10</b> Summary</a></li>
+<li class="chapter" data-level="6.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-exercises"><b>6.11</b> Exercises</a><ul>
+<li class="chapter" data-level="6.11.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-places"><b>6.11.1</b> Places to create Git repositories</a></li>
+<li class="chapter" data-level="6.11.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unsave"><b>6.11.2</b> Removing before saving</a></li>
+<li class="chapter" data-level="6.11.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-word-diff"><b>6.11.3</b> Viewing changes</a></li>
+<li class="chapter" data-level="6.11.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-commit"><b>6.11.4</b> Committing changes</a></li>
+<li class="chapter" data-level="6.11.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-bio"><b>6.11.5</b> Write your biography</a></li>
+<li class="chapter" data-level="6.11.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-multiple"><b>6.11.6</b> Committing multiple files</a></li>
+<li class="chapter" data-level="6.11.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-timestamp"><b>6.11.7</b> GitHub timestamps</a></li>
+<li class="chapter" data-level="6.11.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-history"><b>6.11.8</b> Workflow and history</a></li>
+<li class="chapter" data-level="6.11.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-ignore-nested"><b>6.11.9</b> Ignoring nested files</a></li>
+<li class="chapter" data-level="6.11.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-include"><b>6.11.10</b> Including specific files</a></li>
+<li class="chapter" data-level="6.11.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-github-interface"><b>6.11.11</b> Exploring the GitHub interface</a></li>
+<li class="chapter" data-level="6.11.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-push-commit"><b>6.11.12</b> Push versus commit</a></li>
+<li class="chapter" data-level="6.11.13" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-boilerplate"><b>6.11.13</b> License and README files</a></li>
+<li class="chapter" data-level="6.11.14" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-recover"><b>6.11.14</b> Recovering older versions of a file</a></li>
+<li class="chapter" data-level="6.11.15" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-diff"><b>6.11.15</b> Understanding <code>git diff</code></a></li>
+<li class="chapter" data-level="6.11.16" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unstage"><b>6.11.16</b> Getting rid of staged changes</a></li>
+<li class="chapter" data-level="6.11.17" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-blame"><b>6.11.17</b> Figuring out who did what</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-keypoints"><b>6.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-advanced.html"><a href="git-advanced.html"><b>7</b> Going Further with Git</a><ul>
+<li class="chapter" data-level="7.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-what"><b>7.1</b> What’s a Branch?</a></li>
+<li class="chapter" data-level="7.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-how"><b>7.2</b> Creating a Branch</a></li>
+<li class="chapter" data-level="7.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-theory"><b>7.3</b> What Curve Should We Fit?</a></li>
+<li class="chapter" data-level="7.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-zipf-verify"><b>7.4</b> Verifying Zipf’s Law</a></li>
+<li class="chapter" data-level="7.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-merge"><b>7.5</b> Merging</a></li>
+<li class="chapter" data-level="7.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-conflict"><b>7.6</b> Handling Conflicts</a></li>
+<li class="chapter" data-level="7.7" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-workflow"><b>7.7</b> A Branch-Based Workflow</a></li>
+<li class="chapter" data-level="7.8" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-fork"><b>7.8</b> Using Other People’s Work</a></li>
+<li class="chapter" data-level="7.9" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pull-requests"><b>7.9</b> Pull Requests</a></li>
+<li class="chapter" data-level="7.10" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pr-conflict"><b>7.10</b> Handling Conflicts in Pull Requests</a></li>
+<li class="chapter" data-level="7.11" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-summary"><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="7.12" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-exercises"><b>7.12</b> Exercises</a><ul>
+<li class="chapter" data-level="7.12.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-explain-options"><b>7.12.1</b> Explaining options</a></li>
+<li class="chapter" data-level="7.12.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-modify-prompt"><b>7.12.2</b> Modifying prompt</a></li>
+<li class="chapter" data-level="7.12.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-ignoring-files"><b>7.12.3</b> Ignoring files</a></li>
+<li class="chapter" data-level="7.12.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-create-twice"><b>7.12.4</b> Creating the same file twice</a></li>
+<li class="chapter" data-level="7.12.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-delete-unmerged"><b>7.12.5</b> Deleting a branch without merging</a></li>
+<li class="chapter" data-level="7.12.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-trace-changes"><b>7.12.6</b> Tracing changes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.13" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-keypoints"><b>7.13</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="teams.html"><a href="teams.html"><b>8</b> Working in Teams</a><ul>
+<li class="chapter" data-level="8.1" data-path="teams.html"><a href="teams.html#teams-scope"><b>8.1</b> What Is a Project?</a></li>
+<li class="chapter" data-level="8.2" data-path="teams.html"><a href="teams.html#teams-inclusive"><b>8.2</b> Include Everyone</a></li>
+<li class="chapter" data-level="8.3" data-path="teams.html"><a href="teams.html#teams-coc"><b>8.3</b> Establish a Code of Conduct</a></li>
+<li class="chapter" data-level="8.4" data-path="teams.html"><a href="teams.html#teams-license"><b>8.4</b> Include a License</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="teams.html"><a href="teams.html#teams-license-software"><b>8.4.1</b> Software</a></li>
+<li class="chapter" data-level="8.4.2" data-path="teams.html"><a href="teams.html#teams-license-other"><b>8.4.2</b> Data and reports</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="teams.html"><a href="teams.html#teams-planning"><b>8.5</b> Planning</a></li>
+<li class="chapter" data-level="8.6" data-path="teams.html"><a href="teams.html#teams-bugs"><b>8.6</b> Bug Reports</a></li>
+<li class="chapter" data-level="8.7" data-path="teams.html"><a href="teams.html#teams-labels"><b>8.7</b> Labeling Issues</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="teams.html"><a href="teams.html#teams-workflow"><b>8.7.1</b> Standardizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="teams.html"><a href="teams.html#teams-prioritize"><b>8.8</b> Prioritizing</a></li>
+<li class="chapter" data-level="8.9" data-path="teams.html"><a href="teams.html#teams-meetings"><b>8.9</b> Meetings</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="teams.html"><a href="teams.html#teams-fair"><b>8.9.1</b> Air time</a></li>
+<li class="chapter" data-level="8.9.2" data-path="teams.html"><a href="teams.html#teams-online"><b>8.9.2</b> Online meetings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="teams.html"><a href="teams.html#teams-martha"><b>8.10</b> Making Decisions</a></li>
+<li class="chapter" data-level="8.11" data-path="teams.html"><a href="teams.html#teams-documentation"><b>8.11</b> Make All This Obvious to Newcomers</a></li>
+<li class="chapter" data-level="8.12" data-path="teams.html"><a href="teams.html#teams-conflict"><b>8.12</b> Handling Conflict</a></li>
+<li class="chapter" data-level="8.13" data-path="teams.html"><a href="teams.html#teams-summary"><b>8.13</b> Summary</a></li>
+<li class="chapter" data-level="8.14" data-path="teams.html"><a href="teams.html#teams-exercises"><b>8.14</b> Exercises</a><ul>
+<li class="chapter" data-level="8.14.1" data-path="teams.html"><a href="teams.html#teams-ex-scavenger-hunt"><b>8.14.1</b> Finding information</a></li>
+<li class="chapter" data-level="8.14.2" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-coc"><b>8.14.2</b> Add a Code of Conduct to your project</a></li>
+<li class="chapter" data-level="8.14.3" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-license"><b>8.14.3</b> Add a license to your project</a></li>
+<li class="chapter" data-level="8.14.4" data-path="teams.html"><a href="teams.html#teams-ex-contributing"><b>8.14.4</b> Adding contribution guidelines</a></li>
+<li class="chapter" data-level="8.14.5" data-path="teams.html"><a href="teams.html#teams-ex-file-issue"><b>8.14.5</b> File an issue</a></li>
+<li class="chapter" data-level="8.14.6" data-path="teams.html"><a href="teams.html#teams-ex-label"><b>8.14.6</b> Label issues</a></li>
+<li class="chapter" data-level="8.14.7" data-path="teams.html"><a href="teams.html#teams-ex-balancing"><b>8.14.7</b> Balancing individual and team needs</a></li>
+<li class="chapter" data-level="8.14.8" data-path="teams.html"><a href="teams.html#teams-ex-invisible"><b>8.14.8</b> Crediting invisible contributions</a></li>
+<li class="chapter" data-level="8.14.9" data-path="teams.html"><a href="teams.html#teams-ex-members"><b>8.14.9</b> Who are you?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.15" data-path="teams.html"><a href="teams.html#teams-keypoints"><b>8.15</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="automate.html"><a href="automate.html"><b>9</b> Automating Analyses with Make</a><ul>
+<li class="chapter" data-level="9.1" data-path="automate.html"><a href="automate.html#automate-single-file"><b>9.1</b> Updating a Single File</a></li>
+<li class="chapter" data-level="9.2" data-path="automate.html"><a href="automate.html#automate-multiple"><b>9.2</b> Managing Multiple Files</a></li>
+<li class="chapter" data-level="9.3" data-path="automate.html"><a href="automate.html#automate-depend-programs"><b>9.3</b> Updating Files When Programs Change</a></li>
+<li class="chapter" data-level="9.4" data-path="automate.html"><a href="automate.html#automate-variables"><b>9.4</b> Reducing Repetition in a Makefile</a></li>
+<li class="chapter" data-level="9.5" data-path="automate.html"><a href="automate.html#automate-autovar"><b>9.5</b> Automatic Variables</a></li>
+<li class="chapter" data-level="9.6" data-path="automate.html"><a href="automate.html#automate-pattern"><b>9.6</b> Generic Rules</a></li>
+<li class="chapter" data-level="9.7" data-path="automate.html"><a href="automate.html#automate-functions"><b>9.7</b> Defining Sets of Files</a></li>
+<li class="chapter" data-level="9.8" data-path="automate.html"><a href="automate.html#automate-doc"><b>9.8</b> Documenting a Makefile</a></li>
+<li class="chapter" data-level="9.9" data-path="automate.html"><a href="automate.html#automate-pipeline"><b>9.9</b> Automating Entire Analyses</a></li>
+<li class="chapter" data-level="9.10" data-path="automate.html"><a href="automate.html#automate-summary"><b>9.10</b> Summary</a></li>
+<li class="chapter" data-level="9.11" data-path="automate.html"><a href="automate.html#automate-exercises"><b>9.11</b> Exercises</a><ul>
+<li class="chapter" data-level="9.11.1" data-path="automate.html"><a href="automate.html#automate-ex-report-change"><b>9.11.1</b> Report results that would change</a></li>
+<li class="chapter" data-level="9.11.2" data-path="automate.html"><a href="automate.html#automate-ex-useful-options"><b>9.11.2</b> Useful options</a></li>
+<li class="chapter" data-level="9.11.3" data-path="automate.html"><a href="automate.html#automate-ex-mkdir"><b>9.11.3</b> Make sure the output directory exists</a></li>
+<li class="chapter" data-level="9.11.4" data-path="automate.html"><a href="automate.html#automate-ex-print"><b>9.11.4</b> Print the title and author</a></li>
+<li class="chapter" data-level="9.11.5" data-path="automate.html"><a href="automate.html#automate-ex-all-results"><b>9.11.5</b> Create all results</a></li>
+<li class="chapter" data-level="9.11.6" data-path="automate.html"><a href="automate.html#automate-ex-wildcard-perils"><b>9.11.6</b> The perils of shell wildcards</a></li>
+<li class="chapter" data-level="9.11.7" data-path="automate.html"><a href="automate.html#automate-ex-readable-docs"><b>9.11.7</b> Making documentation more readable</a></li>
+<li class="chapter" data-level="9.11.8" data-path="automate.html"><a href="automate.html#automate-ex-configuration"><b>9.11.8</b> Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="automate.html"><a href="automate.html#automate-keypoints"><b>9.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="config.html"><a href="config.html"><b>10</b> Configuring Programs</a><ul>
+<li class="chapter" data-level="10.1" data-path="config.html"><a href="config.html#config-formats"><b>10.1</b> Configuration File Formats</a></li>
+<li class="chapter" data-level="10.2" data-path="config.html"><a href="config.html#config-matplotlib"><b>10.2</b> Matplotlib Configuration</a></li>
+<li class="chapter" data-level="10.3" data-path="config.html"><a href="config.html#config-global"><b>10.3</b> The Global Configuration File</a></li>
+<li class="chapter" data-level="10.4" data-path="config.html"><a href="config.html#config-user"><b>10.4</b> The User Configuration File</a></li>
+<li class="chapter" data-level="10.5" data-path="config.html"><a href="config.html#config-command-line"><b>10.5</b> Adding Command-Line Options</a></li>
+<li class="chapter" data-level="10.6" data-path="config.html"><a href="config.html#config-job-file"><b>10.6</b> A Job Control File</a></li>
+<li class="chapter" data-level="10.7" data-path="config.html"><a href="config.html#config-summary"><b>10.7</b> Summary</a></li>
+<li class="chapter" data-level="10.8" data-path="config.html"><a href="config.html#config-exercises"><b>10.8</b> Exercises</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="config.html"><a href="config.html#config-ex-build-plotparams"><b>10.8.1</b> Building with plotting parameters</a></li>
+<li class="chapter" data-level="10.8.2" data-path="config.html"><a href="config.html#config-ex-style"><b>10.8.2</b> Using different plot styles</a></li>
+<li class="chapter" data-level="10.8.3" data-path="config.html"><a href="config.html#config-ex-saveload"><b>10.8.3</b> Saving configurations</a></li>
+<li class="chapter" data-level="10.8.4" data-path="config.html"><a href="config.html#config-ex-ini"><b>10.8.4</b> Using INI syntax</a></li>
+<li class="chapter" data-level="10.8.5" data-path="config.html"><a href="config.html#config-ex-consistency"><b>10.8.5</b> Configuration consistency</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="config.html"><a href="config.html#config-keypoints"><b>10.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing.html"><a href="testing.html"><b>11</b> Testing Software</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing.html"><a href="testing.html#testing-assertions"><b>11.1</b> Assertions</a></li>
+<li class="chapter" data-level="11.2" data-path="testing.html"><a href="testing.html#testing-unit"><b>11.2</b> Unit Testing</a></li>
+<li class="chapter" data-level="11.3" data-path="testing.html"><a href="testing.html#testing-framework"><b>11.3</b> Testing Frameworks</a></li>
+<li class="chapter" data-level="11.4" data-path="testing.html"><a href="testing.html#testing-numeric"><b>11.4</b> Testing Floating-Point Values</a></li>
+<li class="chapter" data-level="11.5" data-path="testing.html"><a href="testing.html#testing-integration"><b>11.5</b> Integration Testing</a></li>
+<li class="chapter" data-level="11.6" data-path="testing.html"><a href="testing.html#testing-regression"><b>11.6</b> Regression Testing</a></li>
+<li class="chapter" data-level="11.7" data-path="testing.html"><a href="testing.html#testing-coverage"><b>11.7</b> Test Coverage</a></li>
+<li class="chapter" data-level="11.8" data-path="testing.html"><a href="testing.html#testing-ci"><b>11.8</b> Continuous Integration</a></li>
+<li class="chapter" data-level="11.9" data-path="testing.html"><a href="testing.html#testing-tdd"><b>11.9</b> When to Write Tests</a></li>
+<li class="chapter" data-level="11.10" data-path="testing.html"><a href="testing.html#testing-summary"><b>11.10</b> Summary</a></li>
+<li class="chapter" data-level="11.11" data-path="testing.html"><a href="testing.html#testing-exercises"><b>11.11</b> Exercises</a><ul>
+<li class="chapter" data-level="11.11.1" data-path="testing.html"><a href="testing.html#testing-ex-explain-assertions"><b>11.11.1</b> Explaining assertions</a></li>
+<li class="chapter" data-level="11.11.2" data-path="testing.html"><a href="testing.html#testing-ex-rectangles"><b>11.11.2</b> Rectangle normalization</a></li>
+<li class="chapter" data-level="11.11.3" data-path="testing.html"><a href="testing.html#testing-ex-random"><b>11.11.3</b> Testing with randomness</a></li>
+<li class="chapter" data-level="11.11.4" data-path="testing.html"><a href="testing.html#testing-ex-relative-error"><b>11.11.4</b> Testing with relative error</a></li>
+</ul></li>
+<li class="chapter" data-level="11.12" data-path="testing.html"><a href="testing.html#testing-keypoints"><b>11.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="errors.html"><a href="errors.html"><b>12</b> Handling Errors</a><ul>
+<li class="chapter" data-level="12.1" data-path="errors.html"><a href="errors.html#errors-exceptions"><b>12.1</b> Exceptions</a></li>
+<li class="chapter" data-level="12.2" data-path="errors.html"><a href="errors.html#errors-messages"><b>12.2</b> Writing Useful Error Messages</a></li>
+<li class="chapter" data-level="12.3" data-path="errors.html"><a href="errors.html#errors-testing"><b>12.3</b> Testing Error Handling</a></li>
+<li class="chapter" data-level="12.4" data-path="errors.html"><a href="errors.html#errors-logging"><b>12.4</b> Reporting Errors</a></li>
+<li class="chapter" data-level="12.5" data-path="errors.html"><a href="errors.html#errors-summary"><b>12.5</b> Summary</a></li>
+<li class="chapter" data-level="12.6" data-path="errors.html"><a href="errors.html#errors-exercises"><b>12.6</b> Exercises</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="errors.html"><a href="errors.html#errors-ex-set-level"><b>12.6.1</b> Set the logging level</a></li>
+<li class="chapter" data-level="12.6.2" data-path="errors.html"><a href="errors.html#errors-ex-logging-output"><b>12.6.2</b> Send the logging output to file</a></li>
+<li class="chapter" data-level="12.6.3" data-path="errors.html"><a href="errors.html#errors-ex-exceptions"><b>12.6.3</b> Handling exceptions</a></li>
+<li class="chapter" data-level="12.6.4" data-path="errors.html"><a href="errors.html#errors-ex-error-handling"><b>12.6.4</b> Testing error handling</a></li>
+<li class="chapter" data-level="12.6.5" data-path="errors.html"><a href="errors.html#errors-ex-catalog"><b>12.6.5</b> Error catalogs</a></li>
+<li class="chapter" data-level="12.6.6" data-path="errors.html"><a href="errors.html#errors-ex-traceback"><b>12.6.6</b> Tracebacks</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="errors.html"><a href="errors.html#errors-keypoints"><b>12.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="provenance.html"><a href="provenance.html"><b>13</b> Tracking Provenance</a><ul>
+<li class="chapter" data-level="13.1" data-path="provenance.html"><a href="provenance.html#provenance-data"><b>13.1</b> Data Provenance</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="provenance.html"><a href="provenance.html#provenance-data-fair"><b>13.1.1</b> The FAIR Principles</a></li>
+<li class="chapter" data-level="13.1.2" data-path="provenance.html"><a href="provenance.html#provenance-data-where"><b>13.1.2</b> Where to archive data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="provenance.html"><a href="provenance.html#provenance-code"><b>13.2</b> Code Provenance</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="provenance.html"><a href="provenance.html#provenance-code-environment"><b>13.2.1</b> Software environment</a></li>
+<li class="chapter" data-level="13.2.2" data-path="provenance.html"><a href="provenance.html#provenance-code-steps"><b>13.2.2</b> Data processing steps</a></li>
+<li class="chapter" data-level="13.2.3" data-path="provenance.html"><a href="provenance.html#provenance-code-scripts"><b>13.2.3</b> Analysis scripts</a></li>
+<li class="chapter" data-level="13.2.4" data-path="provenance.html"><a href="provenance.html#provenance-inspectability"><b>13.2.4</b> Reproducibility versus inspectability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="provenance.html"><a href="provenance.html#provenance-summary"><b>13.3</b> Summary</a></li>
+<li class="chapter" data-level="13.4" data-path="provenance.html"><a href="provenance.html#provenance-exercises"><b>13.4</b> Exercises</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="provenance.html"><a href="provenance.html#provenance-ex-get-orcid"><b>13.4.1</b> ORCID</a></li>
+<li class="chapter" data-level="13.4.2" data-path="provenance.html"><a href="provenance.html#provenance-ex-fair-test"><b>13.4.2</b> A FAIR test</a></li>
+<li class="chapter" data-level="13.4.3" data-path="provenance.html"><a href="provenance.html#provenance-ex-understand-project"><b>13.4.3</b> Evaluate a project’s data provenance</a></li>
+<li class="chapter" data-level="13.4.4" data-path="provenance.html"><a href="provenance.html#provenance-ex-eval-code"><b>13.4.4</b> Evaluate a project’s code provenance</a></li>
+<li class="chapter" data-level="13.4.5" data-path="provenance.html"><a href="provenance.html#provenance-ex-permanent-links"><b>13.4.5</b> Making permanent links</a></li>
+<li class="chapter" data-level="13.4.6" data-path="provenance.html"><a href="provenance.html#provenance-ex-release"><b>13.4.6</b> Create an archive of your Zipf’s analysis</a></li>
+<li class="chapter" data-level="13.4.7" data-path="provenance.html"><a href="provenance.html#provenance-ex-publish-code"><b>13.4.7</b> Publishing your code</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="provenance.html"><a href="provenance.html#publish-keypoints"><b>13.5</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="packaging.html"><a href="packaging.html"><b>14</b> Creating Packages with Python</a><ul>
+<li class="chapter" data-level="14.1" data-path="packaging.html"><a href="packaging.html#packaging-package"><b>14.1</b> Creating a Python Package</a></li>
+<li class="chapter" data-level="14.2" data-path="packaging.html"><a href="packaging.html#packaging-virtualenv"><b>14.2</b> Virtual Environments</a></li>
+<li class="chapter" data-level="14.3" data-path="packaging.html"><a href="packaging.html#packaging-installing"><b>14.3</b> Installing a Development Package</a></li>
+<li class="chapter" data-level="14.4" data-path="packaging.html"><a href="packaging.html#packaging-installation"><b>14.4</b> What Installation Does</a></li>
+<li class="chapter" data-level="14.5" data-path="packaging.html"><a href="packaging.html#packaging-distribute"><b>14.5</b> Distributing Packages</a></li>
+<li class="chapter" data-level="14.6" data-path="packaging.html"><a href="packaging.html#packaging-document"><b>14.6</b> Documenting Packages</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="packaging.html"><a href="packaging.html#packaging-readme"><b>14.6.1</b> Including package-level documentation in the <code>README</code></a></li>
+<li class="chapter" data-level="14.6.2" data-path="packaging.html"><a href="packaging.html#packaging-sphinx"><b>14.6.2</b> Creating a web page for documentation</a></li>
+<li class="chapter" data-level="14.6.3" data-path="packaging.html"><a href="packaging.html#packaging-rtd"><b>14.6.3</b> Hosting documentation online</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="packaging.html"><a href="packaging.html#packaging-software-journals"><b>14.7</b> Software Journals</a></li>
+<li class="chapter" data-level="14.8" data-path="packaging.html"><a href="packaging.html#packaging-summary"><b>14.8</b> Summary</a></li>
+<li class="chapter" data-level="14.9" data-path="packaging.html"><a href="packaging.html#exercises"><b>14.9</b> Exercises</a><ul>
+<li class="chapter" data-level="14.9.1" data-path="packaging.html"><a href="packaging.html#packaging-ex-metadata"><b>14.9.1</b> Package metadata</a></li>
+<li class="chapter" data-level="14.9.2" data-path="packaging.html"><a href="packaging.html#packaging-ex-separating-requirements"><b>14.9.2</b> Separating requirements</a></li>
+<li class="chapter" data-level="14.9.3" data-path="packaging.html"><a href="packaging.html#packaging-ex-software-review"><b>14.9.3</b> Software review</a></li>
+<li class="chapter" data-level="14.9.4" data-path="packaging.html"><a href="packaging.html#packaging-ex-pratchett"><b>14.9.4</b> Packaging quotations</a></li>
+</ul></li>
+<li class="chapter" data-level="14.10" data-path="packaging.html"><a href="packaging.html#packaging-keypoints"><b>14.10</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="finale.html"><a href="finale.html"><b>15</b> Finale</a><ul>
+<li class="chapter" data-level="15.1" data-path="finale.html"><a href="finale.html#why-we-wrote-this-book"><b>15.1</b> Why We Wrote This Book</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="solutions.html"><a href="solutions.html"><b>A</b> Solutions</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-basics">Chapter @ref(bash-basics)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-more-ls">Exercise @ref(bash-basics-ex-more-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-rt">Exercise @ref(bash-basics-ex-ls-rt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-paths">Exercise @ref(bash-basics-ex-paths)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-resolve-rel-path">Exercise @ref(bash-basics-ex-resolve-rel-path)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reading-ls">Exercise @ref(bash-basics-ex-reading-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-touch">Exercise @ref(bash-basics-ex-touch)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-safe-rm">Exercise @ref(bash-basics-ex-safe-rm)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-move-dot">Exercise @ref(bash-basics-ex-move-dot)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-renaming-files">Exercise @ref(bash-basics-ex-renaming-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-last-ls">Exercise @ref(bash-basics-ex-last-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-copy-multi">Exercise @ref(bash-basics-ex-copy-multi)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-match">Exercise @ref(bash-basics-ex-ls-match)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-organizing">Exercise @ref(bash-basics-ex-organizing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reproduce-structure">Exercise @ref(bash-basics-ex-reproduce-structure)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-wildcard-expressions">Exercise @ref(bash-basics-ex-wildcard-expressions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-remove-unneeded">Exercise @ref(bash-basics-ex-remove-unneeded)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-other-wildcards">Exercise @ref(bash-basics-ex-other-wildcards)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-tools">Chapter @ref(bash-tools)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-redirect-append">Exercise @ref(bash-tools-ex-redirect-append)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-append-data">Exercise @ref(bash-tools-ex-append-data)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-piping">Exercise @ref(bash-tools-ex-piping)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-uniq-adjacent">Exercise @ref(bash-tools-ex-uniq-adjacent)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-reading-pipes">Exercise @ref(bash-tools-ex-reading-pipes)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-pipe-construction">Exercise @ref(bash-tools-ex-pipe-construction)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-which-pipe">Exercise @ref(bash-tools-ex-which-pipe)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-dry-run">Exercise @ref(bash-tools-ex-loop-dry-run)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-variables">Exercise @ref(bash-tools-ex-loop-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-limiting-file-sets">Exercise @ref(bash-tools-ex-limiting-file-sets)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-save">Exercise @ref(bash-tools-ex-loop-save)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-history-order">Exercise @ref(bash-tools-ex-history-order)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-advanced">Chapter @ref(bash-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-cleaning-up">Exercise @ref(bash-advanced-ex-cleaning-up)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-script-variables">Exercise @ref(bash-advanced-ex-script-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-longest-with-extension">Exercise @ref(bash-advanced-ex-longest-with-extension)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-scripts">Exercise @ref(bash-advanced-ex-reading-scripts)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-using-grep">Exercise @ref(bash-advanced-ex-using-grep)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-year-script">Exercise @ref(bash-advanced-ex-year-script)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-sense-sensibility">Exercise @ref(bash-advanced-ex-sense-sensibility)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-match-subtract">Exercise @ref(bash-advanced-ex-match-subtract)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-find">Exercise @ref(bash-advanced-ex-reading-find)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-find-tests">Exercise @ref(bash-advanced-ex-find-tests)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refscripting">Chapter @ref(scripting)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-command-line">Exercise @ref(scripting-ex-command-line)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-glob-ls">Exercise @ref(scripting-ex-glob-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-sentence-endings">Exercise @ref(scripting-ex-sentence-endings)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-better-plotting">Exercise @ref(scripting-ex-better-plotting)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-cmdline">Chapter @ref(git-cmdline)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-places">Exercise @ref(git-cmdline-ex-places)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unsave">Exercise @ref(git-cmdline-ex-unsave)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-word-diff">Exercise @ref(git-cmdline-ex-word-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-commit">Exercise @ref(git-cmdline-ex-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-bio">Exercise @ref(git-cmdline-ex-bio)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-multiple">Exercise @ref(git-cmdline-ex-multiple)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-timestamp">Exercise @ref(git-cmdline-ex-timestamp)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-history">Exercise @ref(git-cmdline-ex-history)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-ignore-nested">Exercise @ref(git-cmdline-ex-ignore-nested)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-include">Exercise @ref(git-cmdline-ex-include)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-github-interface">Exercise @ref(git-cmdline-ex-github-interface)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-push-commit">Exercise @ref(git-cmdline-ex-push-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-boilerplate">Exercise @ref(git-cmdline-ex-boilerplate)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-recover">Exercise @ref(git-cmdline-ex-recover)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-diff">Exercise @ref(git-cmdline-ex-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unstage">Exercise @ref(git-cmdline-ex-unstage)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-blame">Exercise @ref(git-cmdline-ex-blame)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-advanced">Chapter @ref(git-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-explain-options">Exercise @ref(git-advanced-ex-explain-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-modify-prompt">Exercise @ref(git-advanced-ex-modify-prompt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-ignoring-files">Exercise @ref(git-advanced-ex-ignoring-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-create-twice">Exercise @ref(git-advanced-ex-create-twice)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-delete-unmerged">Exercise @ref(git-advanced-ex-delete-unmerged)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-trace-changes">Exercise @ref(git-advanced-ex-trace-changes)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refteams">Chapter @ref(teams)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-scavenger-hunt">Exercise @ref(teams-ex-scavenger-hunt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-coc">Exercise @ref(teams-ex-boilerplate-coc)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-license">Exercise @ref(teams-ex-boilerplate-license)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-contributing">Exercise @ref(teams-ex-contributing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-file-issue">Exercise @ref(teams-ex-file-issue)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-label">Exercise @ref(teams-ex-label)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-balancing">Exercise @ref(teams-ex-balancing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-invisible">Exercise @ref(teams-ex-invisible)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-members">Exercise @ref(teams-ex-members)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refautomate">Chapter @ref(automate)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-report-change">Exercise @ref(automate-ex-report-change)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-useful-options">Exercise @ref(automate-ex-useful-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-mkdir">Exercise @ref(automate-ex-mkdir)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-print">Exercise @ref(automate-ex-print)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-all-results">Exercise @ref(automate-ex-all-results)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-wildcard-perils">Exercise @ref(automate-ex-wildcard-perils)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-readable-docs">Exercise @ref(automate-ex-readable-docs)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-configuration">Exercise @ref(automate-ex-configuration)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refconfig">Chapter @ref(config)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-build-plotparams">Exercise @ref(config-ex-build-plotparams)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-style">Exercise @ref(config-ex-style)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-saveload">Exercise @ref(config-ex-saveload)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-ini">Exercise @ref(config-ex-ini)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-consistency">Exercise @ref(config-ex-consistency)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-reftesting">Chapter @ref(testing)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-explain-assertions">Exercise @ref(testing-ex-explain-assertions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-rectangles">Exercise @ref(testing-ex-rectangles)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-random">Exercise @ref(testing-ex-random)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-relative-error">Exercise @ref(testing-ex-relative-error)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-referrors">Chapter @ref(errors)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-set-level">Exercise @ref(errors-ex-set-level)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-logging-output">Exercise @ref(errors-ex-logging-output)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-exceptions">Exercise @ref(errors-ex-exceptions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-error-handling">Exercise @ref(errors-ex-error-handling)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-catalog">Exercise @ref(errors-ex-catalog)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-traceback">Exercise @ref(errors-ex-traceback)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refprovenance">Chapter @ref(provenance)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-get-orcid">Exercise @ref(provenance-ex-get-orcid)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-fair-test">Exercise @ref(provenance-ex-fair-test)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-understand-project">Exercise @ref(provenance-ex-understand-project)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-eval-code">Exercise @ref(provenance-ex-eval-code)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-permanent-links">Exercise @ref(provenance-ex-permanent-links)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-release">Exercise @ref(provenance-ex-release)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-publish-code">Exercise @ref(provenance-ex-publish-code)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refpackaging">Chapter @ref(packaging)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-metadata">Exercise @ref(packaging-ex-metadata)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-separating-requirements">Exercise @ref(packaging-ex-separating-requirements)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-software-review">Exercise @ref(packaging-ex-software-review)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-pratchett">Exercise @ref(packaging-ex-pratchett)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="objectives.html"><a href="objectives.html"><b>B</b> Learning Objectives</a><ul>
+<li class="chapter" data-level="B.1" data-path="objectives.html"><a href="objectives.html#getting-started-1"><b>B.1</b> Getting Started</a></li>
+<li class="chapter" data-level="B.2" data-path="objectives.html"><a href="objectives.html#the-basics-of-the-unix-shell"><b>B.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="B.3" data-path="objectives.html"><a href="objectives.html#building-tools-with-the-unix-shell"><b>B.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="B.4" data-path="objectives.html"><a href="objectives.html#going-further-with-the-unix-shell"><b>B.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="B.5" data-path="objectives.html"><a href="objectives.html#building-command-line-tools-with-python"><b>B.5</b> Building Command-Line Tools with Python</a></li>
+<li class="chapter" data-level="B.6" data-path="objectives.html"><a href="objectives.html#using-git-at-the-command-line"><b>B.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="B.7" data-path="objectives.html"><a href="objectives.html#going-further-with-git"><b>B.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="B.8" data-path="objectives.html"><a href="objectives.html#working-in-teams"><b>B.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="B.9" data-path="objectives.html"><a href="objectives.html#automating-analyses-with-make"><b>B.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="B.10" data-path="objectives.html"><a href="objectives.html#configuring-programs"><b>B.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="B.11" data-path="objectives.html"><a href="objectives.html#testing-software"><b>B.11</b> Testing Software</a></li>
+<li class="chapter" data-level="B.12" data-path="objectives.html"><a href="objectives.html#handling-errors"><b>B.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="B.13" data-path="objectives.html"><a href="objectives.html#tracking-provenance"><b>B.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="B.14" data-path="objectives.html"><a href="objectives.html#creating-packages-with-python"><b>B.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="keypoints.html"><a href="keypoints.html"><b>C</b> Key Points</a><ul>
+<li class="chapter" data-level="C.1" data-path="keypoints.html"><a href="keypoints.html#getting-started-2"><b>C.1</b> Getting Started</a></li>
+<li class="chapter" data-level="C.2" data-path="keypoints.html"><a href="keypoints.html#the-basics-of-the-unix-shell-1"><b>C.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="C.3" data-path="keypoints.html"><a href="keypoints.html#building-tools-with-the-unix-shell-1"><b>C.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="C.4" data-path="keypoints.html"><a href="keypoints.html#going-further-with-the-unix-shell-1"><b>C.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="C.5" data-path="keypoints.html"><a href="keypoints.html#building-command-line-programs-in-python"><b>C.5</b> Building Command-Line Programs in Python</a></li>
+<li class="chapter" data-level="C.6" data-path="keypoints.html"><a href="keypoints.html#using-git-at-the-command-line-1"><b>C.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="C.7" data-path="keypoints.html"><a href="keypoints.html#going-further-with-git-1"><b>C.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="C.8" data-path="keypoints.html"><a href="keypoints.html#working-in-teams-1"><b>C.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="C.9" data-path="keypoints.html"><a href="keypoints.html#automating-analyses-with-make-1"><b>C.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="C.10" data-path="keypoints.html"><a href="keypoints.html#configuring-programs-1"><b>C.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="C.11" data-path="keypoints.html"><a href="keypoints.html#testing-software-1"><b>C.11</b> Testing Software</a></li>
+<li class="chapter" data-level="C.12" data-path="keypoints.html"><a href="keypoints.html#handling-errors-1"><b>C.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="C.13" data-path="keypoints.html"><a href="keypoints.html#tracking-provenance-1"><b>C.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="C.14" data-path="keypoints.html"><a href="keypoints.html#creating-packages-with-python-1"><b>C.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="tree.html"><a href="tree.html"><b>D</b> Project Tree</a></li>
+<li class="chapter" data-level="E" data-path="ssh.html"><a href="ssh.html"><b>E</b> Working Remotely</a><ul>
+<li class="chapter" data-level="E.1" data-path="ssh.html"><a href="ssh.html#ssh-login"><b>E.1</b> Logging In</a></li>
+<li class="chapter" data-level="E.2" data-path="ssh.html"><a href="ssh.html#ssh-cp"><b>E.2</b> Copying Files</a></li>
+<li class="chapter" data-level="E.3" data-path="ssh.html"><a href="ssh.html#ssh-cmd"><b>E.3</b> Running Commands</a></li>
+<li class="chapter" data-level="E.4" data-path="ssh.html"><a href="ssh.html#ssh-keys"><b>E.4</b> Creating Keys</a></li>
+<li class="chapter" data-level="E.5" data-path="ssh.html"><a href="ssh.html#ssh-filedir"><b>E.5</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="style.html"><a href="style.html"><b>F</b> Writing Readable Code</a><ul>
+<li class="chapter" data-level="F.1" data-path="style.html"><a href="style.html#style-pep8"><b>F.1</b> Python Style</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="style.html"><a href="style.html#spacing"><b>F.1.1</b> Spacing</a></li>
+<li class="chapter" data-level="F.1.2" data-path="style.html"><a href="style.html#naming"><b>F.1.2</b> Naming</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="style.html"><a href="style.html#style-order"><b>F.2</b> Order</a></li>
+<li class="chapter" data-level="F.3" data-path="style.html"><a href="style.html#style-check"><b>F.3</b> Checking Style</a></li>
+<li class="chapter" data-level="F.4" data-path="style.html"><a href="style.html#style-refactor"><b>F.4</b> Refactoring</a><ul>
+<li class="chapter" data-level="F.4.1" data-path="style.html"><a href="style.html#do-not-repeat-values"><b>F.4.1</b> Do not repeat values</a></li>
+<li class="chapter" data-level="F.4.2" data-path="style.html"><a href="style.html#do-not-repeat-calculations-in-loops"><b>F.4.2</b> Do not repeat calculations in loops</a></li>
+<li class="chapter" data-level="F.4.3" data-path="style.html"><a href="style.html#replace-tests-with-flags-to-clarify-repeated-tests"><b>F.4.3</b> Replace tests with flags to clarify repeated tests</a></li>
+<li class="chapter" data-level="F.4.4" data-path="style.html"><a href="style.html#use-in-place-operators-to-avoid-duplicating-expression"><b>F.4.4</b> Use in-place operators to avoid duplicating expression</a></li>
+<li class="chapter" data-level="F.4.5" data-path="style.html"><a href="style.html#handle-special-cases-first"><b>F.4.5</b> Handle special cases first</a></li>
+<li class="chapter" data-level="F.4.6" data-path="style.html"><a href="style.html#use-functions-to-make-code-more-comprehensible"><b>F.4.6</b> Use functions to make code more comprehensible</a></li>
+<li class="chapter" data-level="F.4.7" data-path="style.html"><a href="style.html#combine-operations-in-functions"><b>F.4.7</b> Combine operations in functions</a></li>
+<li class="chapter" data-level="F.4.8" data-path="style.html"><a href="style.html#replace-code-with-data"><b>F.4.8</b> Replace code with data</a></li>
+</ul></li>
+<li class="chapter" data-level="F.5" data-path="style.html"><a href="style.html#style-review"><b>F.5</b> Code Reviews</a></li>
+<li class="chapter" data-level="F.6" data-path="style.html"><a href="style.html#style-features"><b>F.6</b> Python Features</a><ul>
+<li class="chapter" data-level="F.6.1" data-path="style.html"><a href="style.html#provide-default-values-for-parameters"><b>F.6.1</b> Provide default values for parameters</a></li>
+<li class="chapter" data-level="F.6.2" data-path="style.html"><a href="style.html#handle-a-variable-number-of-arguments"><b>F.6.2</b> Handle a variable number of arguments</a></li>
+<li class="chapter" data-level="F.6.3" data-path="style.html"><a href="style.html#unpacking-variable-arguments"><b>F.6.3</b> Unpacking variable arguments</a></li>
+<li class="chapter" data-level="F.6.4" data-path="style.html"><a href="style.html#use-destructuring-to-assign-multiple-values-at-once"><b>F.6.4</b> Use destructuring to assign multiple values at once</a></li>
+</ul></li>
+<li class="chapter" data-level="F.7" data-path="style.html"><a href="style.html#style-summary"><b>F.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="documentation.html"><a href="documentation.html"><b>G</b> Documenting Programs</a><ul>
+<li class="chapter" data-level="G.1" data-path="documentation.html"><a href="documentation.html#documentation-docstrings"><b>G.1</b> Writing Good Docstrings</a></li>
+<li class="chapter" data-level="G.2" data-path="documentation.html"><a href="documentation.html#documentation-audience"><b>G.2</b> Defining Your Audience</a></li>
+<li class="chapter" data-level="G.3" data-path="documentation.html"><a href="documentation.html#documentation-faq"><b>G.3</b> Creating an FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="H" data-path="yaml.html"><a href="yaml.html"><b>H</b> YAML</a></li>
+<li class="chapter" data-level="I" data-path="anaconda.html"><a href="anaconda.html"><b>I</b> Anaconda</a><ul>
+<li class="chapter" data-level="I.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-conda-package-management"><b>I.1</b> Package Management with conda</a><ul>
+<li class="chapter" data-level="I.1.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-cloud"><b>I.1.1</b> Anaconda Cloud</a></li>
+<li class="chapter" data-level="I.1.2" data-path="anaconda.html"><a href="anaconda.html#conda-forge"><b>I.1.2</b> conda-forge</a></li>
+</ul></li>
+<li class="chapter" data-level="I.2" data-path="anaconda.html"><a href="anaconda.html#anaconda-environments"><b>I.2</b> Environment Management with conda</a></li>
+</ul></li>
+<li class="chapter" data-level="J" data-path="glossary.html"><a href="glossary.html"><b>J</b> Glossary</a></li>
+<li class="chapter" data-level="K" data-path="references.html"><a href="references.html"><b>K</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Research Software Engineering with Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="scripting" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Building Command-Line Tools with Python</h1>
+<blockquote>
+<p>Multiple exclamation marks are a sure sign of a diseased mind.</p>
+<p>— Terry Pratchett</p>
+</blockquote>
+<p>The <a href="https://jupyter.org/">Jupyter Notebook</a>, PyCharm, and other graphical interfaces
+are great for prototyping code and exploring data,
+but eventually we may need to apply our code to thousands of data files,
+run it with many different parameters,
+or combine it with other programs as part of a data analysis pipeline.
+The easiest way to do this is often
+to turn our code into a standalone program that can be run in the Unix shell
+just like other command-line tools <span class="citation">(Taschuk and Wilson <a href="references.html#ref-Tasc2017" role="doc-biblioref">2017</a>)</span>.</p>
+<p>In this chapter we will develop some command-line Python programs
+that handle input and output in the same way as other shell commands,
+can be controlled by several option flags,
+and provide useful information when things go wrong.
+The result will have more scaffolding than useful application code,
+but that scaffolding stays more or less the same as programs get larger.</p>
+<p>After the previous chapters,
+our Zipf’s Law project should have the following files and directories:</p>
+<pre class="text"><code>zipf/
+├── bin
+│   └── book_summary.sh
+└── data
+    ├── README.md
+    ├── dracula.txt
+    ├── frankenstein.txt
+    ├── jane_eyre.txt
+    ├── moby_dick.txt
+    ├── sense_and_sensibility.txt
+    ├── sherlock_holmes.txt
+    └── time_machine.txt</code></pre>
+<blockquote>
+<p><strong>Python Style</strong></p>
+<p>When writing Python code there are many style choices to make.
+How many spaces should I put between functions?
+Should I use capital letters in variable names?
+How should I order all the different elements of a Python script?
+Fortunately,
+there are well established conventions and guidelines
+for good Python style.
+We follow those guidelines throughout this book
+and discuss them in detail in Appendix <a href="style.html#style">F</a>.</p>
+</blockquote>
+<div id="scripting-main" class="section level2">
+<h2><span class="header-section-number">5.1</span> Programs and Modules</h2>
+<p>To create a Python program that can run from the command line,
+the first thing we do is to add the following to the bottom of the file:</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb301-1"><a href="scripting.html#cb301-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span></code></pre></div>
+<p>This strange-looking check tells us
+whether the file is running as a standalone program
+or whether it is being imported as a module by some other program.
+When we import a Python file as a module in another program,
+the <code>__name__</code> variable is automatically set to the name of the file.
+When we run a Python file as a standalone program,
+on the other hand,
+<code>__name__</code> is always set to the special string <code>"__main__"</code>.
+To illustrate this,
+let’s consider a script named <code>print_name.py</code>
+that prints the value of the <code>__name__</code> variable:</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb302-1"><a href="scripting.html#cb302-1"></a><span class="bu">print</span>(<span class="va">__name__</span>)</span></code></pre></div>
+<p>When we run this file directly,
+it will print <code>__main__</code>:</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb303-1"><a href="scripting.html#cb303-1"></a>$ <span class="ex">python</span> print_name.py</span></code></pre></div>
+<pre class="text"><code>__main__</code></pre>
+<p>But if we import <code>print_name.py</code> from another file
+or from the Python interpreter,
+it will print the name of the file,
+i.e., <code>print_name</code>.</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb305-1"><a href="scripting.html#cb305-1"></a>$ <span class="ex">python</span></span></code></pre></div>
+<pre class="text"><code>Python 3.7.6 (default, Jan  8 2020, 13:42:34) 
+[Clang 4.0.1 (tags/RELEASE_401/final)] :: 
+Anaconda, Inc. on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot;
+for more information.</code></pre>
+<div class="sourceCode" id="cb307"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb307-1"><a href="scripting.html#cb307-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> print_name</span></code></pre></div>
+<pre class="text"><code>print_name</code></pre>
+<p>Checking the value of the variable <code>__name__</code>
+therefore tells us whether our file is the top-level program or not.
+If it is,
+we can handle command-line options, print help, or whatever else is appropriate;
+if it isn’t,
+we should assume that some other code is doing this.</p>
+<p>We could put the main program code directly under the <code>if</code> statement like this:</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb309-1"><a href="scripting.html#cb309-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb309-2"><a href="scripting.html#cb309-2"></a>    <span class="co"># code goes here</span></span></code></pre></div>
+<p>but that is considered poor practice,
+since it makes testing harder (Chapter <a href="testing.html#testing">11</a>).
+Instead,
+we put the high-level logic in a function,
+then call that function if our file is being run directly:</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb310-1"><a href="scripting.html#cb310-1"></a><span class="kw">def</span> main():</span>
+<span id="cb310-2"><a href="scripting.html#cb310-2"></a>    <span class="co"># code goes here</span></span>
+<span id="cb310-3"><a href="scripting.html#cb310-3"></a></span>
+<span id="cb310-4"><a href="scripting.html#cb310-4"></a></span>
+<span id="cb310-5"><a href="scripting.html#cb310-5"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb310-6"><a href="scripting.html#cb310-6"></a>    main()</span></code></pre></div>
+<p>This top-level function is usually called <code>main</code>,
+but we can use whatever name we want.</p>
+</div>
+<div id="scripting-options" class="section level2">
+<h2><span class="header-section-number">5.2</span> Handling Command-Line Options</h2>
+<p>The main function in a program usually starts by
+parsing any options the user gave on the command line.
+The most commonly used library for doing this in Python is <a href="https://docs.python.org/3/library/argparse.html"><code>argparse</code></a>,
+which can handle options with or without arguments,
+convert arguments from strings to numbers or other types,
+display help,
+and many other things.</p>
+<p>The simplest way to explain how <code>argparse</code> works is by example.
+Let’s create a short Python program called <code>script_template.py</code>:</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb311-1"><a href="scripting.html#cb311-1"></a><span class="im">import</span> argparse</span>
+<span id="cb311-2"><a href="scripting.html#cb311-2"></a></span>
+<span id="cb311-3"><a href="scripting.html#cb311-3"></a></span>
+<span id="cb311-4"><a href="scripting.html#cb311-4"></a><span class="kw">def</span> main(args):</span>
+<span id="cb311-5"><a href="scripting.html#cb311-5"></a>    <span class="bu">print</span>(<span class="st">&#39;Input file:&#39;</span>, args.infile)</span>
+<span id="cb311-6"><a href="scripting.html#cb311-6"></a>    <span class="bu">print</span>(<span class="st">&#39;Output file:&#39;</span>, args.outfile)</span>
+<span id="cb311-7"><a href="scripting.html#cb311-7"></a></span>
+<span id="cb311-8"><a href="scripting.html#cb311-8"></a></span>
+<span id="cb311-9"><a href="scripting.html#cb311-9"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb311-10"><a href="scripting.html#cb311-10"></a>    USAGE <span class="op">=</span> <span class="st">&#39;Brief description of what the script does.&#39;</span></span>
+<span id="cb311-11"><a href="scripting.html#cb311-11"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>USAGE)</span>
+<span id="cb311-12"><a href="scripting.html#cb311-12"></a>    parser.add_argument(<span class="st">&#39;infile&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>,</span>
+<span id="cb311-13"><a href="scripting.html#cb311-13"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Input file name&#39;</span>)</span>
+<span id="cb311-14"><a href="scripting.html#cb311-14"></a>    parser.add_argument(<span class="st">&#39;outfile&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>,</span>
+<span id="cb311-15"><a href="scripting.html#cb311-15"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output file name&#39;</span>)</span>
+<span id="cb311-16"><a href="scripting.html#cb311-16"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb311-17"><a href="scripting.html#cb311-17"></a>    main(args)</span></code></pre></div>
+<blockquote>
+<p><strong>Empty Lines, Again</strong></p>
+<p>As we discussed in the last chapter for shell scripts,
+remember to end your Python scripts in a newline character
+(which we view as an empty line).</p>
+</blockquote>
+<p>If <code>script_template.py</code> is run as a standalone program at the command line,
+then <code>__name__ == '__main__'</code> is true,
+so the program uses <code>argparse</code> to create an argument parser.
+It then specifies that it expects two command-line arguments:
+an input filename (<code>infile</code>) and an output filename (<code>outfile</code>).
+The program uses <code>parser.parse_args()</code> to parse the actual command-line arguments given by the user
+and stores the result in a variable called <code>args</code>,
+which it passes to <code>main</code>.
+That function can then get the values using the names specified
+in the <code>parser.add_argument</code> calls.</p>
+<blockquote>
+<p><strong>Specifying Types</strong></p>
+<p>We have passed <code>type=str</code> to <code>add_argument</code> to tell <code>argparse</code> that
+we want <code>infile</code> and <code>outfile</code> to be treated as strings.
+<code>str</code> is not quoted because it is not a string itself:
+instead,
+it is the built-in Python function that converts things to strings.
+As we will see below,
+we can pass in other functions like <code>int</code>
+if we want arguments converted to numbers.</p>
+</blockquote>
+<p>If we run <code>script_template.py</code> at the command line,
+the output shows us that <code>argparse</code> has successfully handled the arguments:</p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb312-1"><a href="scripting.html#cb312-1"></a>$ <span class="bu">cd</span> ~/zipf</span>
+<span id="cb312-2"><a href="scripting.html#cb312-2"></a>$ <span class="ex">python</span> script_template.py in.csv out.png</span></code></pre></div>
+<pre class="text"><code>Input file: in.csv
+Output file: out.png</code></pre>
+<p>It also displays an error message if we give the program invalid arguments:</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb314-1"><a href="scripting.html#cb314-1"></a>$ <span class="ex">python</span> script_template.py in.csv</span></code></pre></div>
+<pre class="text"><code>usage: script_template.py [-h] infile outfile
+script_template.py: error: the following arguments are
+  required: outfile</code></pre>
+<p>Finally,
+it automatically generates help information
+(which we can get using the <code>-h</code> option):</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb316-1"><a href="scripting.html#cb316-1"></a>$ <span class="ex">python</span> script_template.py -h</span></code></pre></div>
+<pre class="text"><code>usage: script_template.py [-h] infile outfile
+
+Brief description of what the script does.
+
+positional arguments:
+  infile      Input file name
+  outfile     Output file name
+
+optional arguments:
+  -h, --help  show this help message and exit</code></pre>
+</div>
+<div id="scripting-docstrings" class="section level2">
+<h2><span class="header-section-number">5.3</span> Documentation</h2>
+<p>Our program template is a good starting point,
+but we improve it right away
+by adding a bit of documentation.
+To demonstrate,
+let’s write a function that doubles a number:</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb318-1"><a href="scripting.html#cb318-1"></a><span class="kw">def</span> double(num):</span>
+<span id="cb318-2"><a href="scripting.html#cb318-2"></a>    <span class="co">&#39;Double the input.&#39;</span></span>
+<span id="cb318-3"><a href="scripting.html#cb318-3"></a>    <span class="cf">return</span> <span class="dv">2</span> <span class="op">*</span> num</span></code></pre></div>
+<p>The first line of this function is a string
+that isn’t assigned to a variable.
+Such a string is called a documentation string,
+or <a href="glossary.html#docstring">docstring</a> for short.
+If we call our function it does what we expect:</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb319-1"><a href="scripting.html#cb319-1"></a>double(<span class="dv">3</span>)</span></code></pre></div>
+<pre class="text"><code>6</code></pre>
+<p>However,
+we can also ask for the function’s documentation,
+which is stored in <code>double.__doc__</code>:</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb321-1"><a href="scripting.html#cb321-1"></a>double.__doc__</span></code></pre></div>
+<pre class="text"><code>&#39;Double the input.&#39;</code></pre>
+<p>Python creates the variable <code>__doc__</code> automatically for every function,
+just as it creates the variable <code>__name__</code> for every file.
+If we don’t write a docstring for a function,
+<code>__doc__</code>’s value is an empty string.
+We can put whatever text we want into a function’s docstring,
+but it is usually used to provide online documentation.</p>
+<p>We can also put a docstring at the start of a file,
+in which case it is assigned to a variable called <code>__doc__</code>
+that is visible inside the file.
+If we add documentation to our template,
+it becomes:</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb323-1"><a href="scripting.html#cb323-1"></a><span class="co">&quot;&quot;&quot;Brief description of what the script does.&quot;&quot;&quot;</span></span>
+<span id="cb323-2"><a href="scripting.html#cb323-2"></a></span>
+<span id="cb323-3"><a href="scripting.html#cb323-3"></a><span class="im">import</span> argparse</span>
+<span id="cb323-4"><a href="scripting.html#cb323-4"></a></span>
+<span id="cb323-5"><a href="scripting.html#cb323-5"></a></span>
+<span id="cb323-6"><a href="scripting.html#cb323-6"></a><span class="kw">def</span> main(args):</span>
+<span id="cb323-7"><a href="scripting.html#cb323-7"></a>    <span class="co">&quot;&quot;&quot;Run the program.&quot;&quot;&quot;</span></span>
+<span id="cb323-8"><a href="scripting.html#cb323-8"></a>    <span class="bu">print</span>(<span class="st">&#39;Input file:&#39;</span>, args.infile)</span>
+<span id="cb323-9"><a href="scripting.html#cb323-9"></a>    <span class="bu">print</span>(<span class="st">&#39;Output file:&#39;</span>, args.outfile)</span>
+<span id="cb323-10"><a href="scripting.html#cb323-10"></a></span>
+<span id="cb323-11"><a href="scripting.html#cb323-11"></a></span>
+<span id="cb323-12"><a href="scripting.html#cb323-12"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb323-13"><a href="scripting.html#cb323-13"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>__doc__)</span>
+<span id="cb323-14"><a href="scripting.html#cb323-14"></a>    parser.add_argument(<span class="st">&#39;infile&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>,</span>
+<span id="cb323-15"><a href="scripting.html#cb323-15"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Input file name&#39;</span>)</span>
+<span id="cb323-16"><a href="scripting.html#cb323-16"></a>    parser.add_argument(<span class="st">&#39;outfile&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>,</span>
+<span id="cb323-17"><a href="scripting.html#cb323-17"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output file name&#39;</span>)</span>
+<span id="cb323-18"><a href="scripting.html#cb323-18"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb323-19"><a href="scripting.html#cb323-19"></a>    main(args)</span></code></pre></div>
+<p>Note that docstrings are usually written using triple-quoted strings,
+since these can span multiple lines.
+Note also how we pass <code>description=__doc__</code> to <code>argparse.ArgumentParser</code>.
+This saves us from typing the same information twice,
+but more importantly ensures that
+the help message provided in response to the <code>-h</code> option
+will be the same as the interactive help.</p>
+<p>Let’s try this out in an interactive Python session.
+(Remember, do not type the <code>&gt;&gt;&gt;</code> prompt:
+Python provides this for us.)</p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb324-1"><a href="scripting.html#cb324-1"></a>$ <span class="ex">python</span></span></code></pre></div>
+<pre class="text"><code>Python 3.7.6 (default, Jan  8 2020, 13:42:34) 
+[Clang 4.0.1 (tags/RELEASE_401/final)] :: 
+Anaconda, Inc. on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot;
+for more information.</code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb326-1"><a href="scripting.html#cb326-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> script_template</span>
+<span id="cb326-2"><a href="scripting.html#cb326-2"></a><span class="op">&gt;&gt;&gt;</span> script_template.__doc__</span></code></pre></div>
+<pre class="text"><code>&#39;Brief description of what the script does.&#39;</code></pre>
+<div class="sourceCode" id="cb328"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb328-1"><a href="scripting.html#cb328-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">help</span>(script_template)</span></code></pre></div>
+<pre class="text"><code>Help on module script_template:
+
+NAME
+    script_template - Brief description of what the script does.
+
+FUNCTIONS
+    main(args)
+        Run the program.
+
+FILE
+    /Users/amira/script_template.py</code></pre>
+<p>As this example shows,
+if we ask for help on the module,
+Python formats and displays all of the docstrings for everything in the file.
+We talk more about what to put in a docstring in Appendix <a href="documentation.html#documentation">G</a>.</p>
+</div>
+<div id="scripting-wordcount" class="section level2">
+<h2><span class="header-section-number">5.4</span> Counting Words</h2>
+<p>Now that we have a template for command-line Python programs,
+we can use it to check Zipf’s Law for our collection of classic novels.
+We start by moving the template into the directory
+where we store our runnable programs (Section <a href="getting-started.html#getting-started-organize">1.1.2</a>):</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb330-1"><a href="scripting.html#cb330-1"></a>$ <span class="fu">mv</span> script_template.py bin</span></code></pre></div>
+<p>Next,
+let’s write a function that counts how often words appear in a file.
+Our function splits the text on <a href="glossary.html#whitespace">whitespace</a> characters
+(which is the default behavior of the string object’s <code>split</code> method),
+then strips leading and trailing punctuation.
+This isn’t completely correct—if two words are joined by a long dash
+like “correct” and “if” in this sentence, for example,
+they will be treated as one word—but given that long dashes are used relatively infrequently,
+it’s close enough to correct for our purposes.
+(We will submit a bug report about the long dash issue in Section <a href="teams.html#teams-bugs">8.6</a>).
+We also use the <code>Counter</code> class from the <code>collections</code> library
+to count how many times each word occurs.
+If we give <code>Counter</code> a list of words,
+the result is an object that contains
+the number of times each one appears in the list:</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb331-1"><a href="scripting.html#cb331-1"></a><span class="im">import</span> string</span>
+<span id="cb331-2"><a href="scripting.html#cb331-2"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb331-3"><a href="scripting.html#cb331-3"></a></span>
+<span id="cb331-4"><a href="scripting.html#cb331-4"></a></span>
+<span id="cb331-5"><a href="scripting.html#cb331-5"></a><span class="kw">def</span> count_words(reader):</span>
+<span id="cb331-6"><a href="scripting.html#cb331-6"></a>    <span class="co">&quot;&quot;&quot;Count the occurrence of each word in a string.&quot;&quot;&quot;</span></span>
+<span id="cb331-7"><a href="scripting.html#cb331-7"></a>    text <span class="op">=</span> reader.read()</span>
+<span id="cb331-8"><a href="scripting.html#cb331-8"></a>    chunks <span class="op">=</span> text.split()</span>
+<span id="cb331-9"><a href="scripting.html#cb331-9"></a>    npunc <span class="op">=</span> [word.strip(string.punctuation) <span class="cf">for</span> word <span class="kw">in</span> chunks] </span>
+<span id="cb331-10"><a href="scripting.html#cb331-10"></a>    word_list <span class="op">=</span> [word.lower() <span class="cf">for</span> word <span class="kw">in</span> npunc <span class="cf">if</span> word]</span>
+<span id="cb331-11"><a href="scripting.html#cb331-11"></a>    word_counts <span class="op">=</span> Counter(word_list)</span>
+<span id="cb331-12"><a href="scripting.html#cb331-12"></a>    <span class="cf">return</span> word_counts</span></code></pre></div>
+<p>Let’s try our function on <em>Dracula</em>:</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb332-1"><a href="scripting.html#cb332-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;data/dracula.txt&#39;</span>, <span class="st">&#39;r&#39;</span>) <span class="im">as</span> reader:</span>
+<span id="cb332-2"><a href="scripting.html#cb332-2"></a>    word_counts <span class="op">=</span> count_words(reader)</span>
+<span id="cb332-3"><a href="scripting.html#cb332-3"></a><span class="bu">print</span>(word_counts)</span></code></pre></div>
+<pre class="text"><code>Counter({&#39;the&#39;: 8036, &#39;and&#39;: 5896, &#39;i&#39;: 4712, &#39;to&#39;: 4540,
+         &#39;of&#39;: 3738, &#39;a&#39;: 2961, &#39;in&#39;: 2558, &#39;he&#39;: 2543,
+         &#39;that&#39;: 2455, &#39;it&#39;: 2141, &#39;was&#39;: 1877, &#39;as&#39;: 1581,
+         &#39;we&#39;: 1535, &#39;for&#39;: 1534, ...})</code></pre>
+<p>If we want the word counts in a format like CSV for easier processing,
+we can write another small function that takes our <code>Counter</code> object,
+orders its contents from most to least frequent,
+and then writes it to <a href="glossary.html#stdout">standard output</a> as CSV:</p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb334-1"><a href="scripting.html#cb334-1"></a><span class="im">import</span> sys</span>
+<span id="cb334-2"><a href="scripting.html#cb334-2"></a><span class="im">import</span> csv</span>
+<span id="cb334-3"><a href="scripting.html#cb334-3"></a></span>
+<span id="cb334-4"><a href="scripting.html#cb334-4"></a></span>
+<span id="cb334-5"><a href="scripting.html#cb334-5"></a><span class="kw">def</span> collection_to_csv(collection):</span>
+<span id="cb334-6"><a href="scripting.html#cb334-6"></a>    <span class="co">&quot;&quot;&quot;Write collection of items and counts in csv format.&quot;&quot;&quot;</span></span>
+<span id="cb334-7"><a href="scripting.html#cb334-7"></a>    collection <span class="op">=</span> collection.most_common()</span>
+<span id="cb334-8"><a href="scripting.html#cb334-8"></a>    writer <span class="op">=</span> csv.writer(sys.stdout)</span>
+<span id="cb334-9"><a href="scripting.html#cb334-9"></a>    writer.writerows(collection)</span></code></pre></div>
+<p>Running this would print all the distinct words in the book
+along with their counts.
+This list could well be several thousand lines long,
+so to make the output a little easier to view on our screen,
+we can add an option to limit the output to the most frequent words.
+We set its default value to <code>None</code>
+so that we can easily tell if the caller <em>hasn’t</em> specified a cutoff,
+in which case we display the whole collection:</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb335-1"><a href="scripting.html#cb335-1"></a><span class="kw">def</span> collection_to_csv(collection, num<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb335-2"><a href="scripting.html#cb335-2"></a>    <span class="co">&quot;&quot;&quot;Write collection of items and counts in csv format.&quot;&quot;&quot;</span></span>
+<span id="cb335-3"><a href="scripting.html#cb335-3"></a>    collection <span class="op">=</span> collection.most_common()</span>
+<span id="cb335-4"><a href="scripting.html#cb335-4"></a>    <span class="cf">if</span> num <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb335-5"><a href="scripting.html#cb335-5"></a>        num <span class="op">=</span> <span class="bu">len</span>(collection)</span>
+<span id="cb335-6"><a href="scripting.html#cb335-6"></a>    writer <span class="op">=</span> csv.writer(sys.stdout)</span>
+<span id="cb335-7"><a href="scripting.html#cb335-7"></a>    writer.writerows(collection[<span class="dv">0</span>:num])</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb336-1"><a href="scripting.html#cb336-1"></a>collection_to_csv(word_counts, num<span class="op">=</span><span class="dv">10</span>)</span></code></pre></div>
+<pre class="text"><code>the,8036
+and,5896
+i,4712
+to,4540
+of,3738
+a,2961
+in,2558
+he,2543
+that,2455
+it,2141</code></pre>
+<div style="page-break-after: always;"></div>
+<p>To make our <code>count_words</code> and <code>collection_to_csv</code> functions available at the command line,
+we need to insert them into our script template
+and call them from within the <code>main</code> function.
+Let’s call our program <code>countwords.py</code>
+and put it in the <code>bin</code> subdirectory of the <code>zipf</code> project:</p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb338-1"><a href="scripting.html#cb338-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb338-2"><a href="scripting.html#cb338-2"></a><span class="co">Count the occurrences of all words in a text</span></span>
+<span id="cb338-3"><a href="scripting.html#cb338-3"></a><span class="co">and output them in CSV format.</span></span>
+<span id="cb338-4"><a href="scripting.html#cb338-4"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb338-5"><a href="scripting.html#cb338-5"></a></span>
+<span id="cb338-6"><a href="scripting.html#cb338-6"></a><span class="im">import</span> sys</span>
+<span id="cb338-7"><a href="scripting.html#cb338-7"></a><span class="im">import</span> argparse</span>
+<span id="cb338-8"><a href="scripting.html#cb338-8"></a><span class="im">import</span> string</span>
+<span id="cb338-9"><a href="scripting.html#cb338-9"></a><span class="im">import</span> csv</span>
+<span id="cb338-10"><a href="scripting.html#cb338-10"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb338-11"><a href="scripting.html#cb338-11"></a></span>
+<span id="cb338-12"><a href="scripting.html#cb338-12"></a></span>
+<span id="cb338-13"><a href="scripting.html#cb338-13"></a><span class="kw">def</span> collection_to_csv(collection, num<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb338-14"><a href="scripting.html#cb338-14"></a>    <span class="co">&quot;&quot;&quot;Write collection of items and counts in csv format.&quot;&quot;&quot;</span></span>
+<span id="cb338-15"><a href="scripting.html#cb338-15"></a>    collection <span class="op">=</span> collection.most_common()</span>
+<span id="cb338-16"><a href="scripting.html#cb338-16"></a>    <span class="cf">if</span> num <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb338-17"><a href="scripting.html#cb338-17"></a>        num <span class="op">=</span> <span class="bu">len</span>(collection)</span>
+<span id="cb338-18"><a href="scripting.html#cb338-18"></a>    writer <span class="op">=</span> csv.writer(sys.stdout)</span>
+<span id="cb338-19"><a href="scripting.html#cb338-19"></a>    writer.writerows(collection[<span class="dv">0</span>:num])</span>
+<span id="cb338-20"><a href="scripting.html#cb338-20"></a></span>
+<span id="cb338-21"><a href="scripting.html#cb338-21"></a></span>
+<span id="cb338-22"><a href="scripting.html#cb338-22"></a><span class="kw">def</span> count_words(reader):</span>
+<span id="cb338-23"><a href="scripting.html#cb338-23"></a>    <span class="co">&quot;&quot;&quot;Count the occurrence of each word in a string.&quot;&quot;&quot;</span></span>
+<span id="cb338-24"><a href="scripting.html#cb338-24"></a>    text <span class="op">=</span> reader.read()</span>
+<span id="cb338-25"><a href="scripting.html#cb338-25"></a>    chunks <span class="op">=</span> text.split()</span>
+<span id="cb338-26"><a href="scripting.html#cb338-26"></a>    npunc <span class="op">=</span> [word.strip(string.punctuation) <span class="cf">for</span> word <span class="kw">in</span> chunks]</span>
+<span id="cb338-27"><a href="scripting.html#cb338-27"></a>    word_list <span class="op">=</span> [word.lower() <span class="cf">for</span> word <span class="kw">in</span> npunc <span class="cf">if</span> word]</span>
+<span id="cb338-28"><a href="scripting.html#cb338-28"></a>    word_counts <span class="op">=</span> Counter(word_list)</span>
+<span id="cb338-29"><a href="scripting.html#cb338-29"></a>    <span class="cf">return</span> word_counts</span>
+<span id="cb338-30"><a href="scripting.html#cb338-30"></a></span>
+<span id="cb338-31"><a href="scripting.html#cb338-31"></a></span>
+<span id="cb338-32"><a href="scripting.html#cb338-32"></a><span class="kw">def</span> main(args):</span>
+<span id="cb338-33"><a href="scripting.html#cb338-33"></a>    <span class="co">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span></span>
+<span id="cb338-34"><a href="scripting.html#cb338-34"></a>    <span class="cf">with</span> <span class="bu">open</span>(args.infile, <span class="st">&#39;r&#39;</span>) <span class="im">as</span> reader:</span>
+<span id="cb338-35"><a href="scripting.html#cb338-35"></a>        word_counts <span class="op">=</span> count_words(reader)</span>
+<span id="cb338-36"><a href="scripting.html#cb338-36"></a>    collection_to_csv(word_counts, num<span class="op">=</span>args.num)</span>
+<span id="cb338-37"><a href="scripting.html#cb338-37"></a></span>
+<span id="cb338-38"><a href="scripting.html#cb338-38"></a></span>
+<span id="cb338-39"><a href="scripting.html#cb338-39"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb338-40"><a href="scripting.html#cb338-40"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>__doc__)</span>
+<span id="cb338-41"><a href="scripting.html#cb338-41"></a>    parser.add_argument(<span class="st">&#39;infile&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>,</span>
+<span id="cb338-42"><a href="scripting.html#cb338-42"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Input file name&#39;</span>)</span>
+<span id="cb338-43"><a href="scripting.html#cb338-43"></a>    parser.add_argument(<span class="st">&#39;-n&#39;</span>, <span class="st">&#39;--num&#39;</span>,</span>
+<span id="cb338-44"><a href="scripting.html#cb338-44"></a>                        <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, default<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb338-45"><a href="scripting.html#cb338-45"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output n most frequent words&#39;</span>)</span>
+<span id="cb338-46"><a href="scripting.html#cb338-46"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb338-47"><a href="scripting.html#cb338-47"></a>    main(args)</span></code></pre></div>
+<p>Note that we have replaced the <code>'outfile'</code> argument from our template script
+with an optional <code>-n</code> (or <code>--num</code>) flag to control how much output is printed
+and modified <code>collection_to_csv</code> so that it always prints to standard output.
+If we want that output in a file,
+we can redirect with <code>&gt;</code>.</p>
+<p>Let’s take our program for a test drive:</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb339-1"><a href="scripting.html#cb339-1"></a>$ <span class="ex">python</span> bin/countwords.py data/dracula.txt -n 10</span></code></pre></div>
+<pre class="text"><code>the,8036
+and,5896
+i,4712
+to,4540
+of,3738
+a,2961
+in,2558
+he,2543
+that,2455
+it,2141</code></pre>
+</div>
+<div id="scripting-pipeline" class="section level2">
+<h2><span class="header-section-number">5.5</span> Pipelining</h2>
+<p>As discussed in Section <a href="bash-tools.html#bash-tools-stdio">3.2</a>,
+most Unix commands follow a useful convention:
+if the user doesn’t specify the names of any input files,
+they read from <a href="glossary.html#stdin">standard input</a>.
+Similarly,
+if no output file is specified,
+the command sends its results to <a href="glossary.html#stdout">standard output</a>.
+This makes it easy to use the command in a pipeline.</p>
+<p>Our program always sends its output to standard output;
+as noted above,
+we can always redirect it to a file with <code>&gt;</code>.
+If we want <code>countwords.py</code> to read from standard input,
+we only need to change the handling of <code>infile</code> in the argument parser
+and simplify <code>main</code> to match:</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb341-1"><a href="scripting.html#cb341-1"></a><span class="kw">def</span> main(args):</span>
+<span id="cb341-2"><a href="scripting.html#cb341-2"></a>    <span class="co">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span></span>
+<span id="cb341-3"><a href="scripting.html#cb341-3"></a>    word_counts <span class="op">=</span> count_words(args.infile)</span>
+<span id="cb341-4"><a href="scripting.html#cb341-4"></a>    collection_to_csv(word_counts, num<span class="op">=</span>args.num)</span>
+<span id="cb341-5"><a href="scripting.html#cb341-5"></a></span>
+<span id="cb341-6"><a href="scripting.html#cb341-6"></a></span>
+<span id="cb341-7"><a href="scripting.html#cb341-7"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb341-8"><a href="scripting.html#cb341-8"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>__doc__)</span>
+<span id="cb341-9"><a href="scripting.html#cb341-9"></a>    parser.add_argument(<span class="st">&#39;infile&#39;</span>, <span class="bu">type</span><span class="op">=</span>argparse.FileType(<span class="st">&#39;r&#39;</span>),</span>
+<span id="cb341-10"><a href="scripting.html#cb341-10"></a>                        nargs<span class="op">=</span><span class="st">&#39;?&#39;</span>, default<span class="op">=</span><span class="st">&#39;-&#39;</span>,</span>
+<span id="cb341-11"><a href="scripting.html#cb341-11"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Input file name&#39;</span>)</span>
+<span id="cb341-12"><a href="scripting.html#cb341-12"></a>    parser.add_argument(<span class="st">&#39;-n&#39;</span>, <span class="st">&#39;--num&#39;</span>,</span>
+<span id="cb341-13"><a href="scripting.html#cb341-13"></a>                        <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, default<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb341-14"><a href="scripting.html#cb341-14"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output n most frequent words&#39;</span>)</span>
+<span id="cb341-15"><a href="scripting.html#cb341-15"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb341-16"><a href="scripting.html#cb341-16"></a>    main(args)</span></code></pre></div>
+<p>There are two changes to how <code>add_argument</code> handles <code>infile</code>:</p>
+<ol style="list-style-type: decimal">
+<li><p>Setting <code>type=argparse.FileType('r')</code>
+tells <code>argparse</code> to treat the argument as a filename
+and open that file for reading.
+This is why we no longer need to call <code>open</code> ourselves,
+and why <code>main</code> can pass <code>args.infile</code> directly to <code>count_words</code>.</p></li>
+<li><p>The number of expected arguments (<code>nargs</code>) is set to <code>?</code>.
+This means that if an argument is given it will be used,
+but if none is provided,
+a default of <code>'-'</code> will be used instead.
+<code>argparse.FileType('r')</code> understands <code>'-'</code> to mean “read from standard input”;
+this is another Unix convention that many programs follow.</p></li>
+</ol>
+<p>After these changes,
+we can create a pipeline like this
+to count the words in the first 500 lines of a book:</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb342-1"><a href="scripting.html#cb342-1"></a>$ <span class="fu">head</span> -n 500 data/dracula.txt <span class="kw">|</span> <span class="ex">python</span> bin/countwords.py --n 10</span></code></pre></div>
+<pre class="text"><code>the,227
+and,121
+of,116
+i,98
+to,80
+in,58
+a,49
+it,45
+was,42
+that,41</code></pre>
+</div>
+<div id="scripting-positional-optional" class="section level2">
+<h2><span class="header-section-number">5.6</span> Positional and Optional Arguments</h2>
+<p>We have met two kinds of command-line arguments while writing <code>countwords.py</code>.
+<a href="glossary.html#optional_argument">Optional arguments</a>
+are defined using a leading <code>-</code> or <code>--</code> (or both),
+which means that all three of the following definitions are valid:</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb344-1"><a href="scripting.html#cb344-1"></a>parser.add_argument(<span class="st">&#39;-n&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Limit output&#39;</span>)</span>
+<span id="cb344-2"><a href="scripting.html#cb344-2"></a>parser.add_argument(<span class="st">&#39;--num&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Limit output&#39;</span>)</span>
+<span id="cb344-3"><a href="scripting.html#cb344-3"></a>parser.add_argument(<span class="st">&#39;-n&#39;</span>, <span class="st">&#39;--num&#39;</span>,</span>
+<span id="cb344-4"><a href="scripting.html#cb344-4"></a>                    <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Limit output&#39;</span>)</span></code></pre></div>
+<p>The convention is for <code>-</code> to precede
+a <a href="glossary.html#short_option">short</a> (single letter) option
+and <code>--</code> a <a href="glossary.html#long_option">long</a> (multi-letter) option.
+The user can provide optional arguments at the command line in any order they like.</p>
+<p><a href="glossary.html#positional_argument">Positional arguments</a>
+have no leading dashes and are not optional:
+the user must provide them at the command line
+in the order in which they are specified to <code>add_argument</code>
+(unless <code>nargs='?'</code> is provided to say that the value is optional).</p>
+</div>
+<div id="scripting-collate" class="section level2">
+<h2><span class="header-section-number">5.7</span> Collating Results</h2>
+<p>Ultimately,
+we want to save the word counts to a CSV file for further analysis and plotting.
+Let’s create a subdirectory to hold our results
+(following the structure described in Section <a href="getting-started.html#getting-started-structure">1.1</a>):</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb345-1"><a href="scripting.html#cb345-1"></a>$ <span class="fu">mkdir</span> results</span></code></pre></div>
+<p>and then save the counts for various files:</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb346-1"><a href="scripting.html#cb346-1"></a>$ <span class="ex">python</span> bin/countwords.py data/dracula.txt <span class="op">&gt;</span> results/dracula.csv</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb347-1"><a href="scripting.html#cb347-1"></a>$ <span class="ex">python</span> bin/countwords.py data/moby_dick.txt <span class="op">&gt;</span></span>
+<span id="cb347-2"><a href="scripting.html#cb347-2"></a>  <span class="ex">results/moby_dick.csv</span></span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb348-1"><a href="scripting.html#cb348-1"></a>$ <span class="ex">python</span> bin/countwords.py data/jane_eyre.txt <span class="op">&gt;</span></span>
+<span id="cb348-2"><a href="scripting.html#cb348-2"></a>  <span class="ex">results/jane_eyre.csv</span></span></code></pre></div>
+<p>As in the previous chapter,
+we’ve split long lines of code onto separate lines for formatting purposes;
+each of the three code chunks above should be run as a single line of code.</p>
+<p>Now that we can get word counts for individual books
+we can collate the counts for several books.
+This can be done using a loop that adds up the counts of a word
+from each of the CSV files created by <code>countwords.py</code>.
+Using the same template as before,
+we can write a program called <code>collate.py</code>:</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb349-1"><a href="scripting.html#cb349-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb349-2"><a href="scripting.html#cb349-2"></a><span class="co">Combine multiple word count CSV-files</span></span>
+<span id="cb349-3"><a href="scripting.html#cb349-3"></a><span class="co">into a single cumulative count.</span></span>
+<span id="cb349-4"><a href="scripting.html#cb349-4"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb349-5"><a href="scripting.html#cb349-5"></a></span>
+<span id="cb349-6"><a href="scripting.html#cb349-6"></a><span class="im">import</span> sys</span>
+<span id="cb349-7"><a href="scripting.html#cb349-7"></a><span class="im">import</span> csv</span>
+<span id="cb349-8"><a href="scripting.html#cb349-8"></a><span class="im">import</span> argparse</span>
+<span id="cb349-9"><a href="scripting.html#cb349-9"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb349-10"><a href="scripting.html#cb349-10"></a></span>
+<span id="cb349-11"><a href="scripting.html#cb349-11"></a></span>
+<span id="cb349-12"><a href="scripting.html#cb349-12"></a><span class="kw">def</span> collection_to_csv(collection, num<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb349-13"><a href="scripting.html#cb349-13"></a>    <span class="co">&quot;&quot;&quot;Write collection of items and counts in csv format.&quot;&quot;&quot;</span></span>
+<span id="cb349-14"><a href="scripting.html#cb349-14"></a>    collection <span class="op">=</span> collection.most_common()</span>
+<span id="cb349-15"><a href="scripting.html#cb349-15"></a>    <span class="cf">if</span> num <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb349-16"><a href="scripting.html#cb349-16"></a>        num <span class="op">=</span> <span class="bu">len</span>(collection)</span>
+<span id="cb349-17"><a href="scripting.html#cb349-17"></a>    writer <span class="op">=</span> csv.writer(sys.stdout)</span>
+<span id="cb349-18"><a href="scripting.html#cb349-18"></a>    writer.writerows(collection[<span class="dv">0</span>:num])</span>
+<span id="cb349-19"><a href="scripting.html#cb349-19"></a></span>
+<span id="cb349-20"><a href="scripting.html#cb349-20"></a></span>
+<span id="cb349-21"><a href="scripting.html#cb349-21"></a><span class="kw">def</span> update_counts(reader, word_counts):</span>
+<span id="cb349-22"><a href="scripting.html#cb349-22"></a>    <span class="co">&quot;&quot;&quot;Update word counts with data from another reader/file.&quot;&quot;&quot;</span></span>
+<span id="cb349-23"><a href="scripting.html#cb349-23"></a>    <span class="cf">for</span> word, count <span class="kw">in</span> csv.reader(reader):</span>
+<span id="cb349-24"><a href="scripting.html#cb349-24"></a>        word_counts[word] <span class="op">+=</span> <span class="bu">int</span>(count)</span>
+<span id="cb349-25"><a href="scripting.html#cb349-25"></a></span>
+<span id="cb349-26"><a href="scripting.html#cb349-26"></a></span>
+<span id="cb349-27"><a href="scripting.html#cb349-27"></a><span class="kw">def</span> main(args):</span>
+<span id="cb349-28"><a href="scripting.html#cb349-28"></a>    <span class="co">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span></span>
+<span id="cb349-29"><a href="scripting.html#cb349-29"></a>    word_counts <span class="op">=</span> Counter()</span>
+<span id="cb349-30"><a href="scripting.html#cb349-30"></a>    <span class="cf">for</span> fname <span class="kw">in</span> args.infiles:</span>
+<span id="cb349-31"><a href="scripting.html#cb349-31"></a>        <span class="cf">with</span> <span class="bu">open</span>(fname, <span class="st">&#39;r&#39;</span>) <span class="im">as</span> reader:</span>
+<span id="cb349-32"><a href="scripting.html#cb349-32"></a>            update_counts(reader, word_counts)</span>
+<span id="cb349-33"><a href="scripting.html#cb349-33"></a>    collection_to_csv(word_counts, num<span class="op">=</span>args.num)</span>
+<span id="cb349-34"><a href="scripting.html#cb349-34"></a></span>
+<span id="cb349-35"><a href="scripting.html#cb349-35"></a></span>
+<span id="cb349-36"><a href="scripting.html#cb349-36"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb349-37"><a href="scripting.html#cb349-37"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>__doc__)</span>
+<span id="cb349-38"><a href="scripting.html#cb349-38"></a>    parser.add_argument(<span class="st">&#39;infiles&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, nargs<span class="op">=</span><span class="st">&#39;*&#39;</span>,</span>
+<span id="cb349-39"><a href="scripting.html#cb349-39"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Input file names&#39;</span>)</span>
+<span id="cb349-40"><a href="scripting.html#cb349-40"></a>    parser.add_argument(<span class="st">&#39;-n&#39;</span>, <span class="st">&#39;--num&#39;</span>,</span>
+<span id="cb349-41"><a href="scripting.html#cb349-41"></a>                        <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, default<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb349-42"><a href="scripting.html#cb349-42"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output n most frequent words&#39;</span>)</span>
+<span id="cb349-43"><a href="scripting.html#cb349-43"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb349-44"><a href="scripting.html#cb349-44"></a>    main(args)</span></code></pre></div>
+<p>The loop in the <code>main</code> function iterates over each filename in <code>infiles</code>,
+opens the CSV file,
+and calls <code>update_counts</code> with the input stream as one parameter
+and the counter as the other.
+<code>update_counts</code> then iterates through all the words in the CSV files
+and increments the counts using the <code>+=</code> operator.</p>
+<p>Note that we have not used <code>type=argparse.FileType('r')</code> here.
+Instead,
+we have called the option <code>infiles</code> (plural)
+and specified <code>nargs='*'</code>
+to tell <code>argparse</code> that we will accept zero or more filenames.
+We must then open the files ourselves.</p>
+<p>Let’s give <code>collate.py</code> a try
+(using <code>-n 10</code> to limit the number of lines of output):</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb350-1"><a href="scripting.html#cb350-1"></a>$ <span class="ex">python</span> bin/collate.py results/dracula.csv</span>
+<span id="cb350-2"><a href="scripting.html#cb350-2"></a>  <span class="ex">results/moby_dick.csv</span> results/jane_eyre.csv -n 10</span></code></pre></div>
+<div style="page-break-after: always;"></div>
+<pre class="text"><code>the,30505
+and,18916
+of,14908
+to,14369
+i,13572
+a,12059
+in,9547
+that,6984
+it,6821
+he,6142</code></pre>
+</div>
+<div id="scripting-modules" class="section level2">
+<h2><span class="header-section-number">5.8</span> Writing Our Own Modules</h2>
+<p><code>countwords.py</code> and <code>collate.py</code> both now contain the function <code>collection_to_csv</code>.
+Having the same function in two or more places is a bad idea:
+if we want to improve it or fix a bug,
+we have to find and change every single script that contains a copy.</p>
+<p>The solution is to put the shared functions in a separate file
+and load that file as a module.
+Let’s create a file called <code>utilities.py</code> in the <code>bin</code> directory
+that looks like this:</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb352-1"><a href="scripting.html#cb352-1"></a><span class="co">&quot;&quot;&quot;Collection of commonly used functions.&quot;&quot;&quot;</span></span>
+<span id="cb352-2"><a href="scripting.html#cb352-2"></a></span>
+<span id="cb352-3"><a href="scripting.html#cb352-3"></a><span class="im">import</span> sys</span>
+<span id="cb352-4"><a href="scripting.html#cb352-4"></a><span class="im">import</span> csv</span>
+<span id="cb352-5"><a href="scripting.html#cb352-5"></a></span>
+<span id="cb352-6"><a href="scripting.html#cb352-6"></a></span>
+<span id="cb352-7"><a href="scripting.html#cb352-7"></a><span class="kw">def</span> collection_to_csv(collection, num<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb352-8"><a href="scripting.html#cb352-8"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb352-9"><a href="scripting.html#cb352-9"></a><span class="co">    Write out collection of items and counts in csv format.</span></span>
+<span id="cb352-10"><a href="scripting.html#cb352-10"></a></span>
+<span id="cb352-11"><a href="scripting.html#cb352-11"></a><span class="co">    Parameters</span></span>
+<span id="cb352-12"><a href="scripting.html#cb352-12"></a><span class="co">    ----------</span></span>
+<span id="cb352-13"><a href="scripting.html#cb352-13"></a><span class="co">    collection : collections.Counter</span></span>
+<span id="cb352-14"><a href="scripting.html#cb352-14"></a><span class="co">        Collection of items and counts</span></span>
+<span id="cb352-15"><a href="scripting.html#cb352-15"></a><span class="co">    num : int</span></span>
+<span id="cb352-16"><a href="scripting.html#cb352-16"></a><span class="co">        Limit output to N most frequent items</span></span>
+<span id="cb352-17"><a href="scripting.html#cb352-17"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb352-18"><a href="scripting.html#cb352-18"></a>    collection <span class="op">=</span> collection.most_common()</span>
+<span id="cb352-19"><a href="scripting.html#cb352-19"></a>    <span class="cf">if</span> num <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb352-20"><a href="scripting.html#cb352-20"></a>        num <span class="op">=</span> <span class="bu">len</span>(collection)</span>
+<span id="cb352-21"><a href="scripting.html#cb352-21"></a>    writer <span class="op">=</span> csv.writer(sys.stdout)</span>
+<span id="cb352-22"><a href="scripting.html#cb352-22"></a>    writer.writerows(collection[<span class="dv">0</span>:num])</span></code></pre></div>
+<p>Note that we have written a much more detailed docstring for <code>collection_to_csv</code>:
+as a rule,
+the more widely used code is,
+the more it’s worth explaining exactly what it does.</p>
+<p>We can now import our utilities into our programs
+just as we would import any other Python module
+using either <code>import utilities</code> (to get the whole thing)
+or something like <code>from utilities import collection_to_csv</code> (to get a single function).
+After making this change,
+<code>countwords.py</code> looks like this:</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb353-1"><a href="scripting.html#cb353-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb353-2"><a href="scripting.html#cb353-2"></a><span class="co">Count the occurrences of all words in a text</span></span>
+<span id="cb353-3"><a href="scripting.html#cb353-3"></a><span class="co">and write them to a CSV-file.</span></span>
+<span id="cb353-4"><a href="scripting.html#cb353-4"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb353-5"><a href="scripting.html#cb353-5"></a></span>
+<span id="cb353-6"><a href="scripting.html#cb353-6"></a><span class="im">import</span> argparse</span>
+<span id="cb353-7"><a href="scripting.html#cb353-7"></a><span class="im">import</span> string</span>
+<span id="cb353-8"><a href="scripting.html#cb353-8"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb353-9"><a href="scripting.html#cb353-9"></a></span>
+<span id="cb353-10"><a href="scripting.html#cb353-10"></a><span class="im">import</span> utilities <span class="im">as</span> util</span>
+<span id="cb353-11"><a href="scripting.html#cb353-11"></a></span>
+<span id="cb353-12"><a href="scripting.html#cb353-12"></a></span>
+<span id="cb353-13"><a href="scripting.html#cb353-13"></a><span class="kw">def</span> count_words(reader):</span>
+<span id="cb353-14"><a href="scripting.html#cb353-14"></a>    <span class="co">&quot;&quot;&quot;Count the occurrence of each word in a string.&quot;&quot;&quot;</span></span>
+<span id="cb353-15"><a href="scripting.html#cb353-15"></a>    text <span class="op">=</span> reader.read()</span>
+<span id="cb353-16"><a href="scripting.html#cb353-16"></a>    chunks <span class="op">=</span> text.split()</span>
+<span id="cb353-17"><a href="scripting.html#cb353-17"></a>    npunc <span class="op">=</span> [word.strip(string.punctuation) <span class="cf">for</span> word <span class="kw">in</span> chunks]</span>
+<span id="cb353-18"><a href="scripting.html#cb353-18"></a>    word_list <span class="op">=</span> [word.lower() <span class="cf">for</span> word <span class="kw">in</span> npunc <span class="cf">if</span> word]</span>
+<span id="cb353-19"><a href="scripting.html#cb353-19"></a>    word_counts <span class="op">=</span> Counter(word_list)</span>
+<span id="cb353-20"><a href="scripting.html#cb353-20"></a>    <span class="cf">return</span> word_counts</span>
+<span id="cb353-21"><a href="scripting.html#cb353-21"></a></span>
+<span id="cb353-22"><a href="scripting.html#cb353-22"></a></span>
+<span id="cb353-23"><a href="scripting.html#cb353-23"></a><span class="kw">def</span> main(args):</span>
+<span id="cb353-24"><a href="scripting.html#cb353-24"></a>    <span class="co">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span></span>
+<span id="cb353-25"><a href="scripting.html#cb353-25"></a>    word_counts <span class="op">=</span> count_words(args.infile)</span>
+<span id="cb353-26"><a href="scripting.html#cb353-26"></a>    util.collection_to_csv(word_counts, num<span class="op">=</span>args.num)</span>
+<span id="cb353-27"><a href="scripting.html#cb353-27"></a></span>
+<span id="cb353-28"><a href="scripting.html#cb353-28"></a></span>
+<span id="cb353-29"><a href="scripting.html#cb353-29"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb353-30"><a href="scripting.html#cb353-30"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>__doc__)</span>
+<span id="cb353-31"><a href="scripting.html#cb353-31"></a>    parser.add_argument(<span class="st">&#39;infile&#39;</span>, <span class="bu">type</span><span class="op">=</span>argparse.FileType(<span class="st">&#39;r&#39;</span>),</span>
+<span id="cb353-32"><a href="scripting.html#cb353-32"></a>                        nargs<span class="op">=</span><span class="st">&#39;?&#39;</span>, default<span class="op">=</span><span class="st">&#39;-&#39;</span>,</span>
+<span id="cb353-33"><a href="scripting.html#cb353-33"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Input file name&#39;</span>)</span>
+<span id="cb353-34"><a href="scripting.html#cb353-34"></a>    parser.add_argument(<span class="st">&#39;-n&#39;</span>, <span class="st">&#39;--num&#39;</span>,</span>
+<span id="cb353-35"><a href="scripting.html#cb353-35"></a>                        <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, default<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb353-36"><a href="scripting.html#cb353-36"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output n most frequent words&#39;</span>)</span>
+<span id="cb353-37"><a href="scripting.html#cb353-37"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb353-38"><a href="scripting.html#cb353-38"></a>    main(args)</span></code></pre></div>
+<p><code>collate.py</code> is now:</p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb354-1"><a href="scripting.html#cb354-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb354-2"><a href="scripting.html#cb354-2"></a><span class="co">Combine multiple word count CSV-files</span></span>
+<span id="cb354-3"><a href="scripting.html#cb354-3"></a><span class="co">into a single cumulative count.</span></span>
+<span id="cb354-4"><a href="scripting.html#cb354-4"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb354-5"><a href="scripting.html#cb354-5"></a></span>
+<span id="cb354-6"><a href="scripting.html#cb354-6"></a><span class="im">import</span> csv</span>
+<span id="cb354-7"><a href="scripting.html#cb354-7"></a><span class="im">import</span> argparse</span>
+<span id="cb354-8"><a href="scripting.html#cb354-8"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb354-9"><a href="scripting.html#cb354-9"></a></span>
+<span id="cb354-10"><a href="scripting.html#cb354-10"></a><span class="im">import</span> utilities <span class="im">as</span> util</span>
+<span id="cb354-11"><a href="scripting.html#cb354-11"></a></span>
+<span id="cb354-12"><a href="scripting.html#cb354-12"></a></span>
+<span id="cb354-13"><a href="scripting.html#cb354-13"></a><span class="kw">def</span> update_counts(reader, word_counts):</span>
+<span id="cb354-14"><a href="scripting.html#cb354-14"></a>    <span class="co">&quot;&quot;&quot;Update word counts with data from another reader/file.&quot;&quot;&quot;</span></span>
+<span id="cb354-15"><a href="scripting.html#cb354-15"></a>    <span class="cf">for</span> word, count <span class="kw">in</span> csv.reader(reader):</span>
+<span id="cb354-16"><a href="scripting.html#cb354-16"></a>        word_counts[word] <span class="op">+=</span> <span class="bu">int</span>(count)</span>
+<span id="cb354-17"><a href="scripting.html#cb354-17"></a></span>
+<span id="cb354-18"><a href="scripting.html#cb354-18"></a></span>
+<span id="cb354-19"><a href="scripting.html#cb354-19"></a><span class="kw">def</span> main(args):</span>
+<span id="cb354-20"><a href="scripting.html#cb354-20"></a>    <span class="co">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span></span>
+<span id="cb354-21"><a href="scripting.html#cb354-21"></a>    word_counts <span class="op">=</span> Counter()</span>
+<span id="cb354-22"><a href="scripting.html#cb354-22"></a>    <span class="cf">for</span> fname <span class="kw">in</span> args.infiles:</span>
+<span id="cb354-23"><a href="scripting.html#cb354-23"></a>        <span class="cf">with</span> <span class="bu">open</span>(fname, <span class="st">&#39;r&#39;</span>) <span class="im">as</span> reader:</span>
+<span id="cb354-24"><a href="scripting.html#cb354-24"></a>            update_counts(reader, word_counts)</span>
+<span id="cb354-25"><a href="scripting.html#cb354-25"></a>    util.collection_to_csv(word_counts, num<span class="op">=</span>args.num)</span>
+<span id="cb354-26"><a href="scripting.html#cb354-26"></a></span>
+<span id="cb354-27"><a href="scripting.html#cb354-27"></a></span>
+<span id="cb354-28"><a href="scripting.html#cb354-28"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb354-29"><a href="scripting.html#cb354-29"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>__doc__)</span>
+<span id="cb354-30"><a href="scripting.html#cb354-30"></a>    parser.add_argument(<span class="st">&#39;infiles&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>, nargs<span class="op">=</span><span class="st">&#39;*&#39;</span>,</span>
+<span id="cb354-31"><a href="scripting.html#cb354-31"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Input file names&#39;</span>)</span>
+<span id="cb354-32"><a href="scripting.html#cb354-32"></a>    parser.add_argument(<span class="st">&#39;-n&#39;</span>, <span class="st">&#39;--num&#39;</span>,</span>
+<span id="cb354-33"><a href="scripting.html#cb354-33"></a>                        <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, default<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb354-34"><a href="scripting.html#cb354-34"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output n most frequent words&#39;</span>)</span>
+<span id="cb354-35"><a href="scripting.html#cb354-35"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb354-36"><a href="scripting.html#cb354-36"></a>    main(args)</span></code></pre></div>
+<p>Any Python source file can be imported by any other.
+This is why Python files should be named using <a href="glossary.html#snake_case">snake case</a>
+(e.g., <code>some_thing</code>)
+instead of <a href="glossary.html#kebab_case">kebab case</a>
+(e.g., <code>some-thing</code>):
+an expression like <code>import some-thing</code> isn’t allowed
+because <code>some-thing</code> isn’t a legal variable name.
+When a file is imported,
+the statements in it are executed as it loads.
+Variables, functions, and items defined in the file are then available as <code>module.thing</code>,
+where <code>module</code> is the filename (without the <code>.py</code> extension)
+and <code>thing</code> is the name of the item.</p>
+<blockquote>
+<p><strong>The <code>__pycache__</code> Directory</strong></p>
+<p>When we import a file,
+Python translates the source code into instructions called <a href="glossary.html#byte_code">byte codes</a>
+that it can execute efficiently.
+Since the byte codes only change when the source changes,
+Python saves the byte code in a separate file,
+and reloads that file instead of re-translating the source code
+the next time it’s asked to import the file
+(unless the file has changed,
+in which case Python starts from the beginning).</p>
+<p>Python creates a subdirectory called <code>__pycache__</code>
+that holds the byte code for the files imported from that directory.
+We typically don’t want to put the files in <code>__pycache__</code> in version control,
+so we normally tell Git to ignore it as discussed in Section <a href="git-cmdline.html#git-cmdline-ignore">6.9</a>.</p>
+</blockquote>
+</div>
+<div id="scripting-plotting" class="section level2">
+<h2><span class="header-section-number">5.9</span> Plotting</h2>
+<p>The last thing for us to do is to plot the word count distribution.
+Recall that <a href="https://en.wikipedia.org/wiki/Zipf%27s_law">Zipf’s Law</a> states the second most common word in a body of text
+appears half as often as the most common,
+the third most common appears a third as often, and so on.
+Mathematically, this might be written as
+“word frequency is proportional to 1/rank.”</p>
+<p>The following code plots the word frequency against the inverse rank
+using the <a href="https://pandas.pydata.org/">pandas</a> library:</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb355-1"><a href="scripting.html#cb355-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb355-2"><a href="scripting.html#cb355-2"></a></span>
+<span id="cb355-3"><a href="scripting.html#cb355-3"></a></span>
+<span id="cb355-4"><a href="scripting.html#cb355-4"></a>input_csv <span class="op">=</span> <span class="st">&#39;results/jane_eyre.csv&#39;</span></span>
+<span id="cb355-5"><a href="scripting.html#cb355-5"></a>df <span class="op">=</span> pd.read_csv(input_csv, header<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb355-6"><a href="scripting.html#cb355-6"></a>                 names<span class="op">=</span>(<span class="st">&#39;word&#39;</span>, <span class="st">&#39;word_frequency&#39;</span>))</span>
+<span id="cb355-7"><a href="scripting.html#cb355-7"></a>df[<span class="st">&#39;rank&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;word_frequency&#39;</span>].rank(ascending<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb355-8"><a href="scripting.html#cb355-8"></a>                                       method<span class="op">=</span><span class="st">&#39;max&#39;</span>)</span>
+<span id="cb355-9"><a href="scripting.html#cb355-9"></a>df[<span class="st">&#39;inverse_rank&#39;</span>] <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> df[<span class="st">&#39;rank&#39;</span>]</span>
+<span id="cb355-10"><a href="scripting.html#cb355-10"></a>scatplot <span class="op">=</span> df.plot.scatter(x<span class="op">=</span><span class="st">&#39;word_frequency&#39;</span>,</span>
+<span id="cb355-11"><a href="scripting.html#cb355-11"></a>                           y<span class="op">=</span><span class="st">&#39;inverse_rank&#39;</span>,</span>
+<span id="cb355-12"><a href="scripting.html#cb355-12"></a>                           figsize<span class="op">=</span>[<span class="dv">12</span>, <span class="dv">6</span>],</span>
+<span id="cb355-13"><a href="scripting.html#cb355-13"></a>                           grid<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb355-14"><a href="scripting.html#cb355-14"></a>fig <span class="op">=</span> scatplot.get_figure()</span>
+<span id="cb355-15"><a href="scripting.html#cb355-15"></a>fig.savefig(<span class="st">&#39;results/jane_eyre.png&#39;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scripting-repl"></span>
+<img src="figures/scripting/jane-eyre.png" alt="Word frequency distribution for Jane Eyre." width="100%" />
+<p class="caption">
+Figure 5.1: Word frequency distribution for Jane Eyre.
+</p>
+</div>
+<p>You’ll build on this code to create a plotting script for your project
+in Exercise <a href="scripting.html#scripting-ex-better-plotting">5.11.4</a>.</p>
+</div>
+<div id="scripting-summary" class="section level2">
+<h2><span class="header-section-number">5.10</span> Summary</h2>
+<p>Why is building a simple command-line tool so complex?
+One answer is that the conventions for command-line programs
+have evolved over several decades,
+so libraries like <code>argparse</code> must now support several different generations of option handling.
+Another is that the things we want to do genuinely <em>are</em> complex:
+read from either standard input or a list of files,
+display help when asked to,
+respect parameters that might not be there,
+and so on.
+As with many other things in programming (and life),
+everyone wishes it was simpler,
+but no one can agree on what to throw away.</p>
+<p>The good news is that this complexity is a fixed cost:
+our template for command-line tools can be re-used for programs
+that are much larger than the examples shown in this chapter.
+Making tools that behave in ways people expect
+greatly increases the chances that others will find them useful.</p>
+</div>
+<div id="scripting-exercises" class="section level2">
+<h2><span class="header-section-number">5.11</span> Exercises</h2>
+<div id="scripting-ex-command-line" class="section level3">
+<h3><span class="header-section-number">5.11.1</span> Running Python statements from the command line</h3>
+<p>We don’t need to open the interactive interpreter to run Python code.
+Instead,
+we can invoke Python with the command flag <code>-c</code>
+and the statement we want to run:</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb356-1"><a href="scripting.html#cb356-1"></a>$ python <span class="op">-</span>c <span class="st">&quot;print(2+3)&quot;</span></span></code></pre></div>
+<pre class="text"><code>5</code></pre>
+<p>When and why is this useful?</p>
+</div>
+<div id="scripting-ex-glob-ls" class="section level3">
+<h3><span class="header-section-number">5.11.2</span> Listing files</h3>
+<p>A Python library called <a href="https://docs.python.org/3/library/glob.html">glob</a> can be used to create a list of files
+matching a pattern, much like the <code>ls</code> shell command.</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb358-1"><a href="scripting.html#cb358-1"></a>$ <span class="ex">python</span></span></code></pre></div>
+<pre class="text"><code>Python 3.7.6 (default, Jan  8 2020, 13:42:34) 
+[Clang 4.0.1 (tags/RELEASE_401/final)] :: 
+Anaconda, Inc. on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot;
+for more information.</code></pre>
+<div class="sourceCode" id="cb360"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb360-1"><a href="scripting.html#cb360-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> glob</span>
+<span id="cb360-2"><a href="scripting.html#cb360-2"></a><span class="op">&gt;&gt;&gt;</span> glob.glob(<span class="st">&#39;data/*.txt&#39;</span>)</span></code></pre></div>
+<pre class="text"><code>[&#39;data/moby_dick.txt&#39;, &#39;data/sense_and_sensibility.txt&#39;,
+&#39;data/sherlock_holmes.txt&#39;, &#39;data/time_machine.txt&#39;,
+&#39;data/frankenstein.txt&#39;, &#39;data/dracula.txt&#39;,
+&#39;data/jane_eyre.txt&#39;]</code></pre>
+<p>Using <code>script_template.py</code> as a guide,
+write a new script called <code>my_ls.py</code>
+that takes as input a directory and a suffix (e.g., py, txt, md, sh)
+and outputs a list of the files (sorted alphabetically)
+in that directory ending in that suffix.</p>
+<p>The help information for the new script should read as follows:</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb362-1"><a href="scripting.html#cb362-1"></a>$ <span class="ex">python</span> bin/my_ls.py -h</span></code></pre></div>
+<pre class="text"><code>usage: my_ls.py [-h] dir suffix
+
+List the files in a given directory with a given suffix.
+
+positional arguments:
+  dir         Directory
+  suffix      File suffix (e.g. py, sh)
+
+optional arguments:
+  -h, --help  show this help message and exit</code></pre>
+<div style="page-break-after: always;"></div>
+<p>and an example of the output would be:</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb364-1"><a href="scripting.html#cb364-1"></a>$ <span class="ex">python</span> bin/my_ls.py data/ txt</span></code></pre></div>
+<pre class="text"><code>data/dracula.txt
+data/frankenstein.txt
+data/jane_eyre.txt
+data/moby_dick.txt
+data/sense_and_sensibility.txt
+data/sherlock_holmes.txt
+data/time_machine.txt</code></pre>
+<p>Note: we will not be including this script in subsequent chapters.</p>
+</div>
+<div id="scripting-ex-sentence-endings" class="section level3">
+<h3><span class="header-section-number">5.11.3</span> Sentence ending punctuation</h3>
+<p>Our <code>countwords.py</code> script strips the punctuation from a text,
+which means it provides no information on sentence endings.
+Using <code>script_template.py</code> and <code>countwords.py</code> as a guide,
+write a new script called <code>sentence_endings.py</code> that counts
+the occurrence of full stops, question marks and exclamation points
+and prints that information to the screen.</p>
+<p>Hint: String objects have a <code>count</code> method:</p>
+<div class="sourceCode" id="cb366"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb366-1"><a href="scripting.html#cb366-1"></a>$ <span class="ex">python</span></span></code></pre></div>
+<pre class="text"><code>Python 3.7.6 (default, Jan  8 2020, 13:42:34) 
+[Clang 4.0.1 (tags/RELEASE_401/final)] :: 
+Anaconda, Inc. on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot;
+for more information.</code></pre>
+<div class="sourceCode" id="cb368"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb368-1"><a href="scripting.html#cb368-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="st">&quot;Hello! Are you ok?&quot;</span>.count(<span class="st">&#39;!&#39;</span>)</span></code></pre></div>
+<pre class="text"><code>1</code></pre>
+<p>When you’re done,
+the script should be able to accept an input file:</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb370-1"><a href="scripting.html#cb370-1"></a>$ <span class="ex">python</span> bin/sentence_endings.py data/dracula.txt</span></code></pre></div>
+<pre class="text"><code>Number of . is 8505
+Number of ? is 492
+Number of ! is 752</code></pre>
+<p>or standard input:</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb372-1"><a href="scripting.html#cb372-1"></a>$ <span class="fu">head</span> -n 500 data/dracula.txt <span class="kw">|</span> <span class="ex">python</span> bin/sentence_endings.py</span></code></pre></div>
+<pre class="text"><code>Number of . is 148
+Number of ? is 8
+Number of ! is 8</code></pre>
+<p>Note: we will not be including this script in subsequent chapters.</p>
+</div>
+<div id="scripting-ex-better-plotting" class="section level3">
+<h3><span class="header-section-number">5.11.4</span> A better plotting program</h3>
+<p>Using <code>script_template.py</code> as a guide,
+take the plotting code from Section <a href="scripting.html#scripting-plotting">5.9</a>
+and write a new Python program called <code>plotcounts.py</code>.
+The script should do the following:</p>
+<ol style="list-style-type: decimal">
+<li><p>Use the <code>type=argparse.FileType('r')</code>, <code>nargs='?'</code> and <code>default='-'</code> options
+for the input file argument (i.e., similar to the <code>countwords.py</code> script)
+so that <code>plotcounts.py</code> uses standard input if no CSV file is given.</p></li>
+<li><p>Include an optional <code>--outfile</code> argument for the name of the output image file.
+The default value should be <code>plotcounts.png</code>.</p></li>
+<li><p>Include an optional <code>--xlim</code> argument so that the user can change the x-axis bounds.</p></li>
+</ol>
+<p>When you are done,
+generate a plot for <em>Jane Eyre</em> by passing the word counts to <code>plotcounts.py</code>
+via a CSV file:</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb374-1"><a href="scripting.html#cb374-1"></a>$ <span class="ex">python</span> bin/plotcounts.py results/jane_eyre.csv</span>
+<span id="cb374-2"><a href="scripting.html#cb374-2"></a>  <span class="ex">--outfile</span> results/jane_eyre.png</span></code></pre></div>
+<p>and by standard input:</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb375-1"><a href="scripting.html#cb375-1"></a>$ <span class="ex">python</span> bin/countwords.py data/jane_eyre.txt <span class="kw">|</span> <span class="ex">python</span></span>
+<span id="cb375-2"><a href="scripting.html#cb375-2"></a>  <span class="ex">bin/plotcounts.py</span> --outfile results/jane_eyre.png</span></code></pre></div>
+<p>Note:
+the solution to this exercise is used in following chapters.</p>
+</div>
+</div>
+<div id="scripting-keypoints" class="section level2">
+<h2><span class="header-section-number">5.12</span> Key Points</h2>
+<ul>
+<li>Write command-line Python programs that can be run in the <a href="glossary.html#shell">Unix shell</a> like other command-line tools.</li>
+<li>If the user does not specify any input files, read from <a href="glossary.html#stdin">standard input</a>.</li>
+<li>If the user does not specify any output files, write to <a href="glossary.html#stdout">standard output</a>.</li>
+<li>Place all <code>import</code> statements at the start of a module.</li>
+<li>Use the value of <code>__name__</code> to determine if a file is being run directly or being loaded as a module.</li>
+<li>Use <a href="https://docs.python.org/3/library/argparse.html"><code>argparse</code></a> to handle command-line arguments in standard ways.</li>
+<li>Use <a href="glossary.html#short_option">short options</a> for common controls and <a href="glossary.html#long_option">long options</a> for less common or more complicated ones.</li>
+<li>Use <a href="glossary.html#docstring">docstrings</a> to document functions and scripts.</li>
+<li>Place functions that are used across multiple scripts in a separate file that those scripts can import.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="bash-advanced.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="git-cmdline.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/merely-useful/py-rse/edit/book/chapters/scripting.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/merely-useful/py-rse/blob/book/chapters/scripting.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

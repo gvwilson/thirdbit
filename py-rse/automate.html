@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Automating Analyses with Make | Research Software Engineering with Python</title>
+  <meta name="description" content="Chapter 9 Automating Analyses with Make | Research Software Engineering with Python" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Automating Analyses with Make | Research Software Engineering with Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="tugboats-800x600.jpg" />
+  
+  <meta name="github-repo" content="merely-useful/py-rse" />
+
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<meta name="author" content="Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="teams.html"/>
+<link rel="next" href="config.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link rel="shortcut icon" href="favicon.ico" />
+<script defer data-domain="merely-useful.tech" src="https://plausible.io/js/plausible.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="index.html">Merely Useful</a></strong></li>
+<li><img src="tugboats-800x600.jpg" width=267 height=200 style="padding-left:20px;"/></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html">Welcome</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intro-big-picture"><b>0.1</b> The Big Picture</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intro-personas"><b>0.2</b> Intended Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#intro-syllabus"><b>0.3</b> What You Will Learn</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#intro-using"><b>0.4</b> Using this Book</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#contributing-and-re-use"><b>0.5</b> Contributing and Re-Use</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#intro-ack"><b>0.6</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#dedications"><b>0.7</b> Dedications</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-structure"><b>1.1</b> Project Structure</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-boilerplate"><b>1.1.1</b> Standard information</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-organize"><b>1.1.2</b> Organizing project content</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-download-data"><b>1.2</b> Downloading the Data</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#getting-started-install-software"><b>1.3</b> Installing the Software</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#getting-started-summary"><b>1.4</b> Summary</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#getting-started-exercises"><b>1.5</b> Exercises</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-install"><b>1.5.1</b> Getting ready</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#getting-started-keypoints"><b>1.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bash-basics.html"><a href="bash-basics.html"><b>2</b> The Basics of the Unix Shell</a><ul>
+<li class="chapter" data-level="2.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-explore"><b>2.1</b> Exploring Files and Directories</a></li>
+<li class="chapter" data-level="2.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-navigate"><b>2.2</b> Moving Around</a></li>
+<li class="chapter" data-level="2.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-filedir"><b>2.3</b> Creating New Files and Directories</a></li>
+<li class="chapter" data-level="2.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-move"><b>2.4</b> Moving Files and Directories</a></li>
+<li class="chapter" data-level="2.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-copy"><b>2.5</b> Copying Files and Directories</a></li>
+<li class="chapter" data-level="2.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-rm"><b>2.6</b> Deleting Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-wildcard"><b>2.7</b> Wildcards</a></li>
+<li class="chapter" data-level="2.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-help"><b>2.8</b> Reading the Manual</a></li>
+<li class="chapter" data-level="2.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-summary"><b>2.9</b> Summary</a></li>
+<li class="chapter" data-level="2.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-exercises"><b>2.10</b> Exercises</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-more-ls"><b>2.10.1</b> Exploring more <code>ls</code> flags</a></li>
+<li class="chapter" data-level="2.10.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-rt"><b>2.10.2</b> Listing recursively and by time</a></li>
+<li class="chapter" data-level="2.10.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-paths"><b>2.10.3</b> Absolute and relative paths</a></li>
+<li class="chapter" data-level="2.10.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-resolve-rel-path"><b>2.10.4</b> Relative path resolution</a></li>
+<li class="chapter" data-level="2.10.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reading-ls"><b>2.10.5</b> <code>ls</code> reading comprehension</a></li>
+<li class="chapter" data-level="2.10.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-touch"><b>2.10.6</b> Creating files a different way</a></li>
+<li class="chapter" data-level="2.10.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-safe-rm"><b>2.10.7</b> Using <code>rm</code> safely</a></li>
+<li class="chapter" data-level="2.10.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-move-dot"><b>2.10.8</b> Moving to the current folder</a></li>
+<li class="chapter" data-level="2.10.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-renaming-files"><b>2.10.9</b> Renaming files</a></li>
+<li class="chapter" data-level="2.10.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-last-ls"><b>2.10.10</b> Moving and copying</a></li>
+<li class="chapter" data-level="2.10.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-copy-multi"><b>2.10.11</b> Copy with multiple filenames</a></li>
+<li class="chapter" data-level="2.10.12" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-match"><b>2.10.12</b> List filenames matching a pattern</a></li>
+<li class="chapter" data-level="2.10.13" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-organizing"><b>2.10.13</b> Organizing directories and files</a></li>
+<li class="chapter" data-level="2.10.14" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reproduce-structure"><b>2.10.14</b> Reproduce a directory structure</a></li>
+<li class="chapter" data-level="2.10.15" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-wildcard-expressions"><b>2.10.15</b> Wildcard expressions</a></li>
+<li class="chapter" data-level="2.10.16" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-remove-unneeded"><b>2.10.16</b> Removing unneeded files</a></li>
+<li class="chapter" data-level="2.10.17" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-other-wildcards"><b>2.10.17</b> Other wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-keypoints"><b>2.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bash-tools.html"><a href="bash-tools.html"><b>3</b> Building Tools with the Unix Shell</a><ul>
+<li class="chapter" data-level="3.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-pipe"><b>3.1</b> Combining Commands</a></li>
+<li class="chapter" data-level="3.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-stdio"><b>3.2</b> How Pipes Work</a></li>
+<li class="chapter" data-level="3.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-loops"><b>3.3</b> Repeating Commands on Many Files</a></li>
+<li class="chapter" data-level="3.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-meaningless"><b>3.4</b> Variable Names</a></li>
+<li class="chapter" data-level="3.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-history"><b>3.5</b> Redoing Things</a></li>
+<li class="chapter" data-level="3.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-autoname"><b>3.6</b> Creating New Filenames Automatically</a></li>
+<li class="chapter" data-level="3.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-summary"><b>3.7</b> Summary</a></li>
+<li class="chapter" data-level="3.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-exercises"><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-redirect-append"><b>3.8.1</b> What does <code>&gt;&gt;</code> mean?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-append-data"><b>3.8.2</b> Appending data</a></li>
+<li class="chapter" data-level="3.8.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-piping"><b>3.8.3</b> Piping commands</a></li>
+<li class="chapter" data-level="3.8.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-uniq-adjacent"><b>3.8.4</b> Why does <code>uniq</code> only remove adjacent duplicates?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-reading-pipes"><b>3.8.5</b> Pipe reading comprehension</a></li>
+<li class="chapter" data-level="3.8.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-pipe-construction"><b>3.8.6</b> Pipe construction</a></li>
+<li class="chapter" data-level="3.8.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-which-pipe"><b>3.8.7</b> Which pipe?</a></li>
+<li class="chapter" data-level="3.8.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-dry-run"><b>3.8.8</b> Doing a dry run</a></li>
+<li class="chapter" data-level="3.8.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-variables"><b>3.8.9</b> Variables in loops</a></li>
+<li class="chapter" data-level="3.8.10" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-limiting-file-sets"><b>3.8.10</b> Limiting sets of files</a></li>
+<li class="chapter" data-level="3.8.11" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-save"><b>3.8.11</b> Saving to a file in a loop</a></li>
+<li class="chapter" data-level="3.8.12" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-history-order"><b>3.8.12</b> Why does <code>history</code> record commands before running them?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-keypoints"><b>3.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bash-advanced.html"><a href="bash-advanced.html"><b>4</b> Going Further with the Unix Shell</a><ul>
+<li class="chapter" data-level="4.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-script"><b>4.1</b> Creating New Commands</a></li>
+<li class="chapter" data-level="4.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-params"><b>4.2</b> Making Scripts More Versatile</a></li>
+<li class="chapter" data-level="4.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-capture"><b>4.3</b> Turning Interactive Work into a Script</a></li>
+<li class="chapter" data-level="4.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-grep"><b>4.4</b> Finding Things in Files</a></li>
+<li class="chapter" data-level="4.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-find"><b>4.5</b> Finding Files</a></li>
+<li class="chapter" data-level="4.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-vars"><b>4.6</b> Configuring the Shell</a></li>
+<li class="chapter" data-level="4.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-summary"><b>4.7</b> Summary</a></li>
+<li class="chapter" data-level="4.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-exercises"><b>4.8</b> Exercises</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-cleaning-up"><b>4.8.1</b> Cleaning up</a></li>
+<li class="chapter" data-level="4.8.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-script-variables"><b>4.8.2</b> Variables in shell scripts</a></li>
+<li class="chapter" data-level="4.8.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-longest-with-extension"><b>4.8.3</b> Find the longest file with a given extension</a></li>
+<li class="chapter" data-level="4.8.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-scripts"><b>4.8.4</b> Script reading comprehension</a></li>
+<li class="chapter" data-level="4.8.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-using-grep"><b>4.8.5</b> Using <code>grep</code></a></li>
+<li class="chapter" data-level="4.8.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-year-script"><b>4.8.6</b> Tracking publication years</a></li>
+<li class="chapter" data-level="4.8.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-sense-sensibility"><b>4.8.7</b> Counting names</a></li>
+<li class="chapter" data-level="4.8.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-match-subtract"><b>4.8.8</b> Matching and subtracting</a></li>
+<li class="chapter" data-level="4.8.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-find"><b>4.8.9</b> <code>find</code> pipeline reading comprehension</a></li>
+<li class="chapter" data-level="4.8.10" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-find-tests"><b>4.8.10</b> Finding files with different properties</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-keypoints"><b>4.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="scripting.html"><a href="scripting.html"><b>5</b> Building Command-Line Tools with Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="scripting.html"><a href="scripting.html#scripting-main"><b>5.1</b> Programs and Modules</a></li>
+<li class="chapter" data-level="5.2" data-path="scripting.html"><a href="scripting.html#scripting-options"><b>5.2</b> Handling Command-Line Options</a></li>
+<li class="chapter" data-level="5.3" data-path="scripting.html"><a href="scripting.html#scripting-docstrings"><b>5.3</b> Documentation</a></li>
+<li class="chapter" data-level="5.4" data-path="scripting.html"><a href="scripting.html#scripting-wordcount"><b>5.4</b> Counting Words</a></li>
+<li class="chapter" data-level="5.5" data-path="scripting.html"><a href="scripting.html#scripting-pipeline"><b>5.5</b> Pipelining</a></li>
+<li class="chapter" data-level="5.6" data-path="scripting.html"><a href="scripting.html#scripting-positional-optional"><b>5.6</b> Positional and Optional Arguments</a></li>
+<li class="chapter" data-level="5.7" data-path="scripting.html"><a href="scripting.html#scripting-collate"><b>5.7</b> Collating Results</a></li>
+<li class="chapter" data-level="5.8" data-path="scripting.html"><a href="scripting.html#scripting-modules"><b>5.8</b> Writing Our Own Modules</a></li>
+<li class="chapter" data-level="5.9" data-path="scripting.html"><a href="scripting.html#scripting-plotting"><b>5.9</b> Plotting</a></li>
+<li class="chapter" data-level="5.10" data-path="scripting.html"><a href="scripting.html#scripting-summary"><b>5.10</b> Summary</a></li>
+<li class="chapter" data-level="5.11" data-path="scripting.html"><a href="scripting.html#scripting-exercises"><b>5.11</b> Exercises</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="scripting.html"><a href="scripting.html#scripting-ex-command-line"><b>5.11.1</b> Running Python statements from the command line</a></li>
+<li class="chapter" data-level="5.11.2" data-path="scripting.html"><a href="scripting.html#scripting-ex-glob-ls"><b>5.11.2</b> Listing files</a></li>
+<li class="chapter" data-level="5.11.3" data-path="scripting.html"><a href="scripting.html#scripting-ex-sentence-endings"><b>5.11.3</b> Sentence ending punctuation</a></li>
+<li class="chapter" data-level="5.11.4" data-path="scripting.html"><a href="scripting.html#scripting-ex-better-plotting"><b>5.11.4</b> A better plotting program</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="scripting.html"><a href="scripting.html#scripting-keypoints"><b>5.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="git-cmdline.html"><a href="git-cmdline.html"><b>6</b> Using Git at the Command Line</a><ul>
+<li class="chapter" data-level="6.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-setup"><b>6.1</b> Setting Up</a></li>
+<li class="chapter" data-level="6.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-repos"><b>6.2</b> Creating a New Repository</a></li>
+<li class="chapter" data-level="6.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-add-existing"><b>6.3</b> Adding Existing Work</a></li>
+<li class="chapter" data-level="6.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-commit-message"><b>6.4</b> Describing Commits</a></li>
+<li class="chapter" data-level="6.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-changes"><b>6.5</b> Saving and Tracking Changes</a></li>
+<li class="chapter" data-level="6.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-remotes"><b>6.6</b> Synchronizing with Other Repositories</a></li>
+<li class="chapter" data-level="6.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-history"><b>6.7</b> Exploring History</a></li>
+<li class="chapter" data-level="6.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-restore"><b>6.8</b> Restoring Old Versions of Files</a></li>
+<li class="chapter" data-level="6.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ignore"><b>6.9</b> Ignoring Files</a></li>
+<li class="chapter" data-level="6.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-summary"><b>6.10</b> Summary</a></li>
+<li class="chapter" data-level="6.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-exercises"><b>6.11</b> Exercises</a><ul>
+<li class="chapter" data-level="6.11.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-places"><b>6.11.1</b> Places to create Git repositories</a></li>
+<li class="chapter" data-level="6.11.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unsave"><b>6.11.2</b> Removing before saving</a></li>
+<li class="chapter" data-level="6.11.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-word-diff"><b>6.11.3</b> Viewing changes</a></li>
+<li class="chapter" data-level="6.11.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-commit"><b>6.11.4</b> Committing changes</a></li>
+<li class="chapter" data-level="6.11.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-bio"><b>6.11.5</b> Write your biography</a></li>
+<li class="chapter" data-level="6.11.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-multiple"><b>6.11.6</b> Committing multiple files</a></li>
+<li class="chapter" data-level="6.11.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-timestamp"><b>6.11.7</b> GitHub timestamps</a></li>
+<li class="chapter" data-level="6.11.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-history"><b>6.11.8</b> Workflow and history</a></li>
+<li class="chapter" data-level="6.11.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-ignore-nested"><b>6.11.9</b> Ignoring nested files</a></li>
+<li class="chapter" data-level="6.11.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-include"><b>6.11.10</b> Including specific files</a></li>
+<li class="chapter" data-level="6.11.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-github-interface"><b>6.11.11</b> Exploring the GitHub interface</a></li>
+<li class="chapter" data-level="6.11.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-push-commit"><b>6.11.12</b> Push versus commit</a></li>
+<li class="chapter" data-level="6.11.13" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-boilerplate"><b>6.11.13</b> License and README files</a></li>
+<li class="chapter" data-level="6.11.14" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-recover"><b>6.11.14</b> Recovering older versions of a file</a></li>
+<li class="chapter" data-level="6.11.15" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-diff"><b>6.11.15</b> Understanding <code>git diff</code></a></li>
+<li class="chapter" data-level="6.11.16" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unstage"><b>6.11.16</b> Getting rid of staged changes</a></li>
+<li class="chapter" data-level="6.11.17" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-blame"><b>6.11.17</b> Figuring out who did what</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-keypoints"><b>6.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-advanced.html"><a href="git-advanced.html"><b>7</b> Going Further with Git</a><ul>
+<li class="chapter" data-level="7.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-what"><b>7.1</b> What’s a Branch?</a></li>
+<li class="chapter" data-level="7.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-how"><b>7.2</b> Creating a Branch</a></li>
+<li class="chapter" data-level="7.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-theory"><b>7.3</b> What Curve Should We Fit?</a></li>
+<li class="chapter" data-level="7.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-zipf-verify"><b>7.4</b> Verifying Zipf’s Law</a></li>
+<li class="chapter" data-level="7.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-merge"><b>7.5</b> Merging</a></li>
+<li class="chapter" data-level="7.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-conflict"><b>7.6</b> Handling Conflicts</a></li>
+<li class="chapter" data-level="7.7" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-workflow"><b>7.7</b> A Branch-Based Workflow</a></li>
+<li class="chapter" data-level="7.8" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-fork"><b>7.8</b> Using Other People’s Work</a></li>
+<li class="chapter" data-level="7.9" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pull-requests"><b>7.9</b> Pull Requests</a></li>
+<li class="chapter" data-level="7.10" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pr-conflict"><b>7.10</b> Handling Conflicts in Pull Requests</a></li>
+<li class="chapter" data-level="7.11" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-summary"><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="7.12" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-exercises"><b>7.12</b> Exercises</a><ul>
+<li class="chapter" data-level="7.12.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-explain-options"><b>7.12.1</b> Explaining options</a></li>
+<li class="chapter" data-level="7.12.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-modify-prompt"><b>7.12.2</b> Modifying prompt</a></li>
+<li class="chapter" data-level="7.12.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-ignoring-files"><b>7.12.3</b> Ignoring files</a></li>
+<li class="chapter" data-level="7.12.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-create-twice"><b>7.12.4</b> Creating the same file twice</a></li>
+<li class="chapter" data-level="7.12.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-delete-unmerged"><b>7.12.5</b> Deleting a branch without merging</a></li>
+<li class="chapter" data-level="7.12.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-trace-changes"><b>7.12.6</b> Tracing changes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.13" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-keypoints"><b>7.13</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="teams.html"><a href="teams.html"><b>8</b> Working in Teams</a><ul>
+<li class="chapter" data-level="8.1" data-path="teams.html"><a href="teams.html#teams-scope"><b>8.1</b> What Is a Project?</a></li>
+<li class="chapter" data-level="8.2" data-path="teams.html"><a href="teams.html#teams-inclusive"><b>8.2</b> Include Everyone</a></li>
+<li class="chapter" data-level="8.3" data-path="teams.html"><a href="teams.html#teams-coc"><b>8.3</b> Establish a Code of Conduct</a></li>
+<li class="chapter" data-level="8.4" data-path="teams.html"><a href="teams.html#teams-license"><b>8.4</b> Include a License</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="teams.html"><a href="teams.html#teams-license-software"><b>8.4.1</b> Software</a></li>
+<li class="chapter" data-level="8.4.2" data-path="teams.html"><a href="teams.html#teams-license-other"><b>8.4.2</b> Data and reports</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="teams.html"><a href="teams.html#teams-planning"><b>8.5</b> Planning</a></li>
+<li class="chapter" data-level="8.6" data-path="teams.html"><a href="teams.html#teams-bugs"><b>8.6</b> Bug Reports</a></li>
+<li class="chapter" data-level="8.7" data-path="teams.html"><a href="teams.html#teams-labels"><b>8.7</b> Labeling Issues</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="teams.html"><a href="teams.html#teams-workflow"><b>8.7.1</b> Standardizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="teams.html"><a href="teams.html#teams-prioritize"><b>8.8</b> Prioritizing</a></li>
+<li class="chapter" data-level="8.9" data-path="teams.html"><a href="teams.html#teams-meetings"><b>8.9</b> Meetings</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="teams.html"><a href="teams.html#teams-fair"><b>8.9.1</b> Air time</a></li>
+<li class="chapter" data-level="8.9.2" data-path="teams.html"><a href="teams.html#teams-online"><b>8.9.2</b> Online meetings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="teams.html"><a href="teams.html#teams-martha"><b>8.10</b> Making Decisions</a></li>
+<li class="chapter" data-level="8.11" data-path="teams.html"><a href="teams.html#teams-documentation"><b>8.11</b> Make All This Obvious to Newcomers</a></li>
+<li class="chapter" data-level="8.12" data-path="teams.html"><a href="teams.html#teams-conflict"><b>8.12</b> Handling Conflict</a></li>
+<li class="chapter" data-level="8.13" data-path="teams.html"><a href="teams.html#teams-summary"><b>8.13</b> Summary</a></li>
+<li class="chapter" data-level="8.14" data-path="teams.html"><a href="teams.html#teams-exercises"><b>8.14</b> Exercises</a><ul>
+<li class="chapter" data-level="8.14.1" data-path="teams.html"><a href="teams.html#teams-ex-scavenger-hunt"><b>8.14.1</b> Finding information</a></li>
+<li class="chapter" data-level="8.14.2" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-coc"><b>8.14.2</b> Add a Code of Conduct to your project</a></li>
+<li class="chapter" data-level="8.14.3" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-license"><b>8.14.3</b> Add a license to your project</a></li>
+<li class="chapter" data-level="8.14.4" data-path="teams.html"><a href="teams.html#teams-ex-contributing"><b>8.14.4</b> Adding contribution guidelines</a></li>
+<li class="chapter" data-level="8.14.5" data-path="teams.html"><a href="teams.html#teams-ex-file-issue"><b>8.14.5</b> File an issue</a></li>
+<li class="chapter" data-level="8.14.6" data-path="teams.html"><a href="teams.html#teams-ex-label"><b>8.14.6</b> Label issues</a></li>
+<li class="chapter" data-level="8.14.7" data-path="teams.html"><a href="teams.html#teams-ex-balancing"><b>8.14.7</b> Balancing individual and team needs</a></li>
+<li class="chapter" data-level="8.14.8" data-path="teams.html"><a href="teams.html#teams-ex-invisible"><b>8.14.8</b> Crediting invisible contributions</a></li>
+<li class="chapter" data-level="8.14.9" data-path="teams.html"><a href="teams.html#teams-ex-members"><b>8.14.9</b> Who are you?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.15" data-path="teams.html"><a href="teams.html#teams-keypoints"><b>8.15</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="automate.html"><a href="automate.html"><b>9</b> Automating Analyses with Make</a><ul>
+<li class="chapter" data-level="9.1" data-path="automate.html"><a href="automate.html#automate-single-file"><b>9.1</b> Updating a Single File</a></li>
+<li class="chapter" data-level="9.2" data-path="automate.html"><a href="automate.html#automate-multiple"><b>9.2</b> Managing Multiple Files</a></li>
+<li class="chapter" data-level="9.3" data-path="automate.html"><a href="automate.html#automate-depend-programs"><b>9.3</b> Updating Files When Programs Change</a></li>
+<li class="chapter" data-level="9.4" data-path="automate.html"><a href="automate.html#automate-variables"><b>9.4</b> Reducing Repetition in a Makefile</a></li>
+<li class="chapter" data-level="9.5" data-path="automate.html"><a href="automate.html#automate-autovar"><b>9.5</b> Automatic Variables</a></li>
+<li class="chapter" data-level="9.6" data-path="automate.html"><a href="automate.html#automate-pattern"><b>9.6</b> Generic Rules</a></li>
+<li class="chapter" data-level="9.7" data-path="automate.html"><a href="automate.html#automate-functions"><b>9.7</b> Defining Sets of Files</a></li>
+<li class="chapter" data-level="9.8" data-path="automate.html"><a href="automate.html#automate-doc"><b>9.8</b> Documenting a Makefile</a></li>
+<li class="chapter" data-level="9.9" data-path="automate.html"><a href="automate.html#automate-pipeline"><b>9.9</b> Automating Entire Analyses</a></li>
+<li class="chapter" data-level="9.10" data-path="automate.html"><a href="automate.html#automate-summary"><b>9.10</b> Summary</a></li>
+<li class="chapter" data-level="9.11" data-path="automate.html"><a href="automate.html#automate-exercises"><b>9.11</b> Exercises</a><ul>
+<li class="chapter" data-level="9.11.1" data-path="automate.html"><a href="automate.html#automate-ex-report-change"><b>9.11.1</b> Report results that would change</a></li>
+<li class="chapter" data-level="9.11.2" data-path="automate.html"><a href="automate.html#automate-ex-useful-options"><b>9.11.2</b> Useful options</a></li>
+<li class="chapter" data-level="9.11.3" data-path="automate.html"><a href="automate.html#automate-ex-mkdir"><b>9.11.3</b> Make sure the output directory exists</a></li>
+<li class="chapter" data-level="9.11.4" data-path="automate.html"><a href="automate.html#automate-ex-print"><b>9.11.4</b> Print the title and author</a></li>
+<li class="chapter" data-level="9.11.5" data-path="automate.html"><a href="automate.html#automate-ex-all-results"><b>9.11.5</b> Create all results</a></li>
+<li class="chapter" data-level="9.11.6" data-path="automate.html"><a href="automate.html#automate-ex-wildcard-perils"><b>9.11.6</b> The perils of shell wildcards</a></li>
+<li class="chapter" data-level="9.11.7" data-path="automate.html"><a href="automate.html#automate-ex-readable-docs"><b>9.11.7</b> Making documentation more readable</a></li>
+<li class="chapter" data-level="9.11.8" data-path="automate.html"><a href="automate.html#automate-ex-configuration"><b>9.11.8</b> Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="automate.html"><a href="automate.html#automate-keypoints"><b>9.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="config.html"><a href="config.html"><b>10</b> Configuring Programs</a><ul>
+<li class="chapter" data-level="10.1" data-path="config.html"><a href="config.html#config-formats"><b>10.1</b> Configuration File Formats</a></li>
+<li class="chapter" data-level="10.2" data-path="config.html"><a href="config.html#config-matplotlib"><b>10.2</b> Matplotlib Configuration</a></li>
+<li class="chapter" data-level="10.3" data-path="config.html"><a href="config.html#config-global"><b>10.3</b> The Global Configuration File</a></li>
+<li class="chapter" data-level="10.4" data-path="config.html"><a href="config.html#config-user"><b>10.4</b> The User Configuration File</a></li>
+<li class="chapter" data-level="10.5" data-path="config.html"><a href="config.html#config-command-line"><b>10.5</b> Adding Command-Line Options</a></li>
+<li class="chapter" data-level="10.6" data-path="config.html"><a href="config.html#config-job-file"><b>10.6</b> A Job Control File</a></li>
+<li class="chapter" data-level="10.7" data-path="config.html"><a href="config.html#config-summary"><b>10.7</b> Summary</a></li>
+<li class="chapter" data-level="10.8" data-path="config.html"><a href="config.html#config-exercises"><b>10.8</b> Exercises</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="config.html"><a href="config.html#config-ex-build-plotparams"><b>10.8.1</b> Building with plotting parameters</a></li>
+<li class="chapter" data-level="10.8.2" data-path="config.html"><a href="config.html#config-ex-style"><b>10.8.2</b> Using different plot styles</a></li>
+<li class="chapter" data-level="10.8.3" data-path="config.html"><a href="config.html#config-ex-saveload"><b>10.8.3</b> Saving configurations</a></li>
+<li class="chapter" data-level="10.8.4" data-path="config.html"><a href="config.html#config-ex-ini"><b>10.8.4</b> Using INI syntax</a></li>
+<li class="chapter" data-level="10.8.5" data-path="config.html"><a href="config.html#config-ex-consistency"><b>10.8.5</b> Configuration consistency</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="config.html"><a href="config.html#config-keypoints"><b>10.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing.html"><a href="testing.html"><b>11</b> Testing Software</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing.html"><a href="testing.html#testing-assertions"><b>11.1</b> Assertions</a></li>
+<li class="chapter" data-level="11.2" data-path="testing.html"><a href="testing.html#testing-unit"><b>11.2</b> Unit Testing</a></li>
+<li class="chapter" data-level="11.3" data-path="testing.html"><a href="testing.html#testing-framework"><b>11.3</b> Testing Frameworks</a></li>
+<li class="chapter" data-level="11.4" data-path="testing.html"><a href="testing.html#testing-numeric"><b>11.4</b> Testing Floating-Point Values</a></li>
+<li class="chapter" data-level="11.5" data-path="testing.html"><a href="testing.html#testing-integration"><b>11.5</b> Integration Testing</a></li>
+<li class="chapter" data-level="11.6" data-path="testing.html"><a href="testing.html#testing-regression"><b>11.6</b> Regression Testing</a></li>
+<li class="chapter" data-level="11.7" data-path="testing.html"><a href="testing.html#testing-coverage"><b>11.7</b> Test Coverage</a></li>
+<li class="chapter" data-level="11.8" data-path="testing.html"><a href="testing.html#testing-ci"><b>11.8</b> Continuous Integration</a></li>
+<li class="chapter" data-level="11.9" data-path="testing.html"><a href="testing.html#testing-tdd"><b>11.9</b> When to Write Tests</a></li>
+<li class="chapter" data-level="11.10" data-path="testing.html"><a href="testing.html#testing-summary"><b>11.10</b> Summary</a></li>
+<li class="chapter" data-level="11.11" data-path="testing.html"><a href="testing.html#testing-exercises"><b>11.11</b> Exercises</a><ul>
+<li class="chapter" data-level="11.11.1" data-path="testing.html"><a href="testing.html#testing-ex-explain-assertions"><b>11.11.1</b> Explaining assertions</a></li>
+<li class="chapter" data-level="11.11.2" data-path="testing.html"><a href="testing.html#testing-ex-rectangles"><b>11.11.2</b> Rectangle normalization</a></li>
+<li class="chapter" data-level="11.11.3" data-path="testing.html"><a href="testing.html#testing-ex-random"><b>11.11.3</b> Testing with randomness</a></li>
+<li class="chapter" data-level="11.11.4" data-path="testing.html"><a href="testing.html#testing-ex-relative-error"><b>11.11.4</b> Testing with relative error</a></li>
+</ul></li>
+<li class="chapter" data-level="11.12" data-path="testing.html"><a href="testing.html#testing-keypoints"><b>11.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="errors.html"><a href="errors.html"><b>12</b> Handling Errors</a><ul>
+<li class="chapter" data-level="12.1" data-path="errors.html"><a href="errors.html#errors-exceptions"><b>12.1</b> Exceptions</a></li>
+<li class="chapter" data-level="12.2" data-path="errors.html"><a href="errors.html#errors-messages"><b>12.2</b> Writing Useful Error Messages</a></li>
+<li class="chapter" data-level="12.3" data-path="errors.html"><a href="errors.html#errors-testing"><b>12.3</b> Testing Error Handling</a></li>
+<li class="chapter" data-level="12.4" data-path="errors.html"><a href="errors.html#errors-logging"><b>12.4</b> Reporting Errors</a></li>
+<li class="chapter" data-level="12.5" data-path="errors.html"><a href="errors.html#errors-summary"><b>12.5</b> Summary</a></li>
+<li class="chapter" data-level="12.6" data-path="errors.html"><a href="errors.html#errors-exercises"><b>12.6</b> Exercises</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="errors.html"><a href="errors.html#errors-ex-set-level"><b>12.6.1</b> Set the logging level</a></li>
+<li class="chapter" data-level="12.6.2" data-path="errors.html"><a href="errors.html#errors-ex-logging-output"><b>12.6.2</b> Send the logging output to file</a></li>
+<li class="chapter" data-level="12.6.3" data-path="errors.html"><a href="errors.html#errors-ex-exceptions"><b>12.6.3</b> Handling exceptions</a></li>
+<li class="chapter" data-level="12.6.4" data-path="errors.html"><a href="errors.html#errors-ex-error-handling"><b>12.6.4</b> Testing error handling</a></li>
+<li class="chapter" data-level="12.6.5" data-path="errors.html"><a href="errors.html#errors-ex-catalog"><b>12.6.5</b> Error catalogs</a></li>
+<li class="chapter" data-level="12.6.6" data-path="errors.html"><a href="errors.html#errors-ex-traceback"><b>12.6.6</b> Tracebacks</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="errors.html"><a href="errors.html#errors-keypoints"><b>12.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="provenance.html"><a href="provenance.html"><b>13</b> Tracking Provenance</a><ul>
+<li class="chapter" data-level="13.1" data-path="provenance.html"><a href="provenance.html#provenance-data"><b>13.1</b> Data Provenance</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="provenance.html"><a href="provenance.html#provenance-data-fair"><b>13.1.1</b> The FAIR Principles</a></li>
+<li class="chapter" data-level="13.1.2" data-path="provenance.html"><a href="provenance.html#provenance-data-where"><b>13.1.2</b> Where to archive data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="provenance.html"><a href="provenance.html#provenance-code"><b>13.2</b> Code Provenance</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="provenance.html"><a href="provenance.html#provenance-code-environment"><b>13.2.1</b> Software environment</a></li>
+<li class="chapter" data-level="13.2.2" data-path="provenance.html"><a href="provenance.html#provenance-code-steps"><b>13.2.2</b> Data processing steps</a></li>
+<li class="chapter" data-level="13.2.3" data-path="provenance.html"><a href="provenance.html#provenance-code-scripts"><b>13.2.3</b> Analysis scripts</a></li>
+<li class="chapter" data-level="13.2.4" data-path="provenance.html"><a href="provenance.html#provenance-inspectability"><b>13.2.4</b> Reproducibility versus inspectability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="provenance.html"><a href="provenance.html#provenance-summary"><b>13.3</b> Summary</a></li>
+<li class="chapter" data-level="13.4" data-path="provenance.html"><a href="provenance.html#provenance-exercises"><b>13.4</b> Exercises</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="provenance.html"><a href="provenance.html#provenance-ex-get-orcid"><b>13.4.1</b> ORCID</a></li>
+<li class="chapter" data-level="13.4.2" data-path="provenance.html"><a href="provenance.html#provenance-ex-fair-test"><b>13.4.2</b> A FAIR test</a></li>
+<li class="chapter" data-level="13.4.3" data-path="provenance.html"><a href="provenance.html#provenance-ex-understand-project"><b>13.4.3</b> Evaluate a project’s data provenance</a></li>
+<li class="chapter" data-level="13.4.4" data-path="provenance.html"><a href="provenance.html#provenance-ex-eval-code"><b>13.4.4</b> Evaluate a project’s code provenance</a></li>
+<li class="chapter" data-level="13.4.5" data-path="provenance.html"><a href="provenance.html#provenance-ex-permanent-links"><b>13.4.5</b> Making permanent links</a></li>
+<li class="chapter" data-level="13.4.6" data-path="provenance.html"><a href="provenance.html#provenance-ex-release"><b>13.4.6</b> Create an archive of your Zipf’s analysis</a></li>
+<li class="chapter" data-level="13.4.7" data-path="provenance.html"><a href="provenance.html#provenance-ex-publish-code"><b>13.4.7</b> Publishing your code</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="provenance.html"><a href="provenance.html#publish-keypoints"><b>13.5</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="packaging.html"><a href="packaging.html"><b>14</b> Creating Packages with Python</a><ul>
+<li class="chapter" data-level="14.1" data-path="packaging.html"><a href="packaging.html#packaging-package"><b>14.1</b> Creating a Python Package</a></li>
+<li class="chapter" data-level="14.2" data-path="packaging.html"><a href="packaging.html#packaging-virtualenv"><b>14.2</b> Virtual Environments</a></li>
+<li class="chapter" data-level="14.3" data-path="packaging.html"><a href="packaging.html#packaging-installing"><b>14.3</b> Installing a Development Package</a></li>
+<li class="chapter" data-level="14.4" data-path="packaging.html"><a href="packaging.html#packaging-installation"><b>14.4</b> What Installation Does</a></li>
+<li class="chapter" data-level="14.5" data-path="packaging.html"><a href="packaging.html#packaging-distribute"><b>14.5</b> Distributing Packages</a></li>
+<li class="chapter" data-level="14.6" data-path="packaging.html"><a href="packaging.html#packaging-document"><b>14.6</b> Documenting Packages</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="packaging.html"><a href="packaging.html#packaging-readme"><b>14.6.1</b> Including package-level documentation in the <code>README</code></a></li>
+<li class="chapter" data-level="14.6.2" data-path="packaging.html"><a href="packaging.html#packaging-sphinx"><b>14.6.2</b> Creating a web page for documentation</a></li>
+<li class="chapter" data-level="14.6.3" data-path="packaging.html"><a href="packaging.html#packaging-rtd"><b>14.6.3</b> Hosting documentation online</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="packaging.html"><a href="packaging.html#packaging-software-journals"><b>14.7</b> Software Journals</a></li>
+<li class="chapter" data-level="14.8" data-path="packaging.html"><a href="packaging.html#packaging-summary"><b>14.8</b> Summary</a></li>
+<li class="chapter" data-level="14.9" data-path="packaging.html"><a href="packaging.html#exercises"><b>14.9</b> Exercises</a><ul>
+<li class="chapter" data-level="14.9.1" data-path="packaging.html"><a href="packaging.html#packaging-ex-metadata"><b>14.9.1</b> Package metadata</a></li>
+<li class="chapter" data-level="14.9.2" data-path="packaging.html"><a href="packaging.html#packaging-ex-separating-requirements"><b>14.9.2</b> Separating requirements</a></li>
+<li class="chapter" data-level="14.9.3" data-path="packaging.html"><a href="packaging.html#packaging-ex-software-review"><b>14.9.3</b> Software review</a></li>
+<li class="chapter" data-level="14.9.4" data-path="packaging.html"><a href="packaging.html#packaging-ex-pratchett"><b>14.9.4</b> Packaging quotations</a></li>
+</ul></li>
+<li class="chapter" data-level="14.10" data-path="packaging.html"><a href="packaging.html#packaging-keypoints"><b>14.10</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="finale.html"><a href="finale.html"><b>15</b> Finale</a><ul>
+<li class="chapter" data-level="15.1" data-path="finale.html"><a href="finale.html#why-we-wrote-this-book"><b>15.1</b> Why We Wrote This Book</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="solutions.html"><a href="solutions.html"><b>A</b> Solutions</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-basics">Chapter @ref(bash-basics)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-more-ls">Exercise @ref(bash-basics-ex-more-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-rt">Exercise @ref(bash-basics-ex-ls-rt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-paths">Exercise @ref(bash-basics-ex-paths)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-resolve-rel-path">Exercise @ref(bash-basics-ex-resolve-rel-path)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reading-ls">Exercise @ref(bash-basics-ex-reading-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-touch">Exercise @ref(bash-basics-ex-touch)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-safe-rm">Exercise @ref(bash-basics-ex-safe-rm)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-move-dot">Exercise @ref(bash-basics-ex-move-dot)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-renaming-files">Exercise @ref(bash-basics-ex-renaming-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-last-ls">Exercise @ref(bash-basics-ex-last-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-copy-multi">Exercise @ref(bash-basics-ex-copy-multi)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-match">Exercise @ref(bash-basics-ex-ls-match)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-organizing">Exercise @ref(bash-basics-ex-organizing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reproduce-structure">Exercise @ref(bash-basics-ex-reproduce-structure)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-wildcard-expressions">Exercise @ref(bash-basics-ex-wildcard-expressions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-remove-unneeded">Exercise @ref(bash-basics-ex-remove-unneeded)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-other-wildcards">Exercise @ref(bash-basics-ex-other-wildcards)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-tools">Chapter @ref(bash-tools)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-redirect-append">Exercise @ref(bash-tools-ex-redirect-append)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-append-data">Exercise @ref(bash-tools-ex-append-data)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-piping">Exercise @ref(bash-tools-ex-piping)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-uniq-adjacent">Exercise @ref(bash-tools-ex-uniq-adjacent)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-reading-pipes">Exercise @ref(bash-tools-ex-reading-pipes)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-pipe-construction">Exercise @ref(bash-tools-ex-pipe-construction)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-which-pipe">Exercise @ref(bash-tools-ex-which-pipe)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-dry-run">Exercise @ref(bash-tools-ex-loop-dry-run)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-variables">Exercise @ref(bash-tools-ex-loop-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-limiting-file-sets">Exercise @ref(bash-tools-ex-limiting-file-sets)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-save">Exercise @ref(bash-tools-ex-loop-save)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-history-order">Exercise @ref(bash-tools-ex-history-order)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-advanced">Chapter @ref(bash-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-cleaning-up">Exercise @ref(bash-advanced-ex-cleaning-up)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-script-variables">Exercise @ref(bash-advanced-ex-script-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-longest-with-extension">Exercise @ref(bash-advanced-ex-longest-with-extension)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-scripts">Exercise @ref(bash-advanced-ex-reading-scripts)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-using-grep">Exercise @ref(bash-advanced-ex-using-grep)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-year-script">Exercise @ref(bash-advanced-ex-year-script)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-sense-sensibility">Exercise @ref(bash-advanced-ex-sense-sensibility)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-match-subtract">Exercise @ref(bash-advanced-ex-match-subtract)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-find">Exercise @ref(bash-advanced-ex-reading-find)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-find-tests">Exercise @ref(bash-advanced-ex-find-tests)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refscripting">Chapter @ref(scripting)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-command-line">Exercise @ref(scripting-ex-command-line)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-glob-ls">Exercise @ref(scripting-ex-glob-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-sentence-endings">Exercise @ref(scripting-ex-sentence-endings)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-better-plotting">Exercise @ref(scripting-ex-better-plotting)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-cmdline">Chapter @ref(git-cmdline)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-places">Exercise @ref(git-cmdline-ex-places)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unsave">Exercise @ref(git-cmdline-ex-unsave)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-word-diff">Exercise @ref(git-cmdline-ex-word-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-commit">Exercise @ref(git-cmdline-ex-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-bio">Exercise @ref(git-cmdline-ex-bio)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-multiple">Exercise @ref(git-cmdline-ex-multiple)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-timestamp">Exercise @ref(git-cmdline-ex-timestamp)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-history">Exercise @ref(git-cmdline-ex-history)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-ignore-nested">Exercise @ref(git-cmdline-ex-ignore-nested)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-include">Exercise @ref(git-cmdline-ex-include)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-github-interface">Exercise @ref(git-cmdline-ex-github-interface)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-push-commit">Exercise @ref(git-cmdline-ex-push-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-boilerplate">Exercise @ref(git-cmdline-ex-boilerplate)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-recover">Exercise @ref(git-cmdline-ex-recover)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-diff">Exercise @ref(git-cmdline-ex-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unstage">Exercise @ref(git-cmdline-ex-unstage)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-blame">Exercise @ref(git-cmdline-ex-blame)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-advanced">Chapter @ref(git-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-explain-options">Exercise @ref(git-advanced-ex-explain-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-modify-prompt">Exercise @ref(git-advanced-ex-modify-prompt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-ignoring-files">Exercise @ref(git-advanced-ex-ignoring-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-create-twice">Exercise @ref(git-advanced-ex-create-twice)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-delete-unmerged">Exercise @ref(git-advanced-ex-delete-unmerged)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-trace-changes">Exercise @ref(git-advanced-ex-trace-changes)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refteams">Chapter @ref(teams)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-scavenger-hunt">Exercise @ref(teams-ex-scavenger-hunt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-coc">Exercise @ref(teams-ex-boilerplate-coc)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-license">Exercise @ref(teams-ex-boilerplate-license)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-contributing">Exercise @ref(teams-ex-contributing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-file-issue">Exercise @ref(teams-ex-file-issue)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-label">Exercise @ref(teams-ex-label)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-balancing">Exercise @ref(teams-ex-balancing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-invisible">Exercise @ref(teams-ex-invisible)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-members">Exercise @ref(teams-ex-members)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refautomate">Chapter @ref(automate)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-report-change">Exercise @ref(automate-ex-report-change)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-useful-options">Exercise @ref(automate-ex-useful-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-mkdir">Exercise @ref(automate-ex-mkdir)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-print">Exercise @ref(automate-ex-print)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-all-results">Exercise @ref(automate-ex-all-results)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-wildcard-perils">Exercise @ref(automate-ex-wildcard-perils)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-readable-docs">Exercise @ref(automate-ex-readable-docs)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-configuration">Exercise @ref(automate-ex-configuration)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refconfig">Chapter @ref(config)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-build-plotparams">Exercise @ref(config-ex-build-plotparams)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-style">Exercise @ref(config-ex-style)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-saveload">Exercise @ref(config-ex-saveload)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-ini">Exercise @ref(config-ex-ini)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-consistency">Exercise @ref(config-ex-consistency)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-reftesting">Chapter @ref(testing)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-explain-assertions">Exercise @ref(testing-ex-explain-assertions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-rectangles">Exercise @ref(testing-ex-rectangles)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-random">Exercise @ref(testing-ex-random)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-relative-error">Exercise @ref(testing-ex-relative-error)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-referrors">Chapter @ref(errors)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-set-level">Exercise @ref(errors-ex-set-level)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-logging-output">Exercise @ref(errors-ex-logging-output)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-exceptions">Exercise @ref(errors-ex-exceptions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-error-handling">Exercise @ref(errors-ex-error-handling)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-catalog">Exercise @ref(errors-ex-catalog)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-traceback">Exercise @ref(errors-ex-traceback)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refprovenance">Chapter @ref(provenance)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-get-orcid">Exercise @ref(provenance-ex-get-orcid)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-fair-test">Exercise @ref(provenance-ex-fair-test)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-understand-project">Exercise @ref(provenance-ex-understand-project)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-eval-code">Exercise @ref(provenance-ex-eval-code)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-permanent-links">Exercise @ref(provenance-ex-permanent-links)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-release">Exercise @ref(provenance-ex-release)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-publish-code">Exercise @ref(provenance-ex-publish-code)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refpackaging">Chapter @ref(packaging)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-metadata">Exercise @ref(packaging-ex-metadata)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-separating-requirements">Exercise @ref(packaging-ex-separating-requirements)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-software-review">Exercise @ref(packaging-ex-software-review)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-pratchett">Exercise @ref(packaging-ex-pratchett)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="objectives.html"><a href="objectives.html"><b>B</b> Learning Objectives</a><ul>
+<li class="chapter" data-level="B.1" data-path="objectives.html"><a href="objectives.html#getting-started-1"><b>B.1</b> Getting Started</a></li>
+<li class="chapter" data-level="B.2" data-path="objectives.html"><a href="objectives.html#the-basics-of-the-unix-shell"><b>B.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="B.3" data-path="objectives.html"><a href="objectives.html#building-tools-with-the-unix-shell"><b>B.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="B.4" data-path="objectives.html"><a href="objectives.html#going-further-with-the-unix-shell"><b>B.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="B.5" data-path="objectives.html"><a href="objectives.html#building-command-line-tools-with-python"><b>B.5</b> Building Command-Line Tools with Python</a></li>
+<li class="chapter" data-level="B.6" data-path="objectives.html"><a href="objectives.html#using-git-at-the-command-line"><b>B.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="B.7" data-path="objectives.html"><a href="objectives.html#going-further-with-git"><b>B.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="B.8" data-path="objectives.html"><a href="objectives.html#working-in-teams"><b>B.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="B.9" data-path="objectives.html"><a href="objectives.html#automating-analyses-with-make"><b>B.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="B.10" data-path="objectives.html"><a href="objectives.html#configuring-programs"><b>B.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="B.11" data-path="objectives.html"><a href="objectives.html#testing-software"><b>B.11</b> Testing Software</a></li>
+<li class="chapter" data-level="B.12" data-path="objectives.html"><a href="objectives.html#handling-errors"><b>B.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="B.13" data-path="objectives.html"><a href="objectives.html#tracking-provenance"><b>B.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="B.14" data-path="objectives.html"><a href="objectives.html#creating-packages-with-python"><b>B.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="keypoints.html"><a href="keypoints.html"><b>C</b> Key Points</a><ul>
+<li class="chapter" data-level="C.1" data-path="keypoints.html"><a href="keypoints.html#getting-started-2"><b>C.1</b> Getting Started</a></li>
+<li class="chapter" data-level="C.2" data-path="keypoints.html"><a href="keypoints.html#the-basics-of-the-unix-shell-1"><b>C.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="C.3" data-path="keypoints.html"><a href="keypoints.html#building-tools-with-the-unix-shell-1"><b>C.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="C.4" data-path="keypoints.html"><a href="keypoints.html#going-further-with-the-unix-shell-1"><b>C.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="C.5" data-path="keypoints.html"><a href="keypoints.html#building-command-line-programs-in-python"><b>C.5</b> Building Command-Line Programs in Python</a></li>
+<li class="chapter" data-level="C.6" data-path="keypoints.html"><a href="keypoints.html#using-git-at-the-command-line-1"><b>C.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="C.7" data-path="keypoints.html"><a href="keypoints.html#going-further-with-git-1"><b>C.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="C.8" data-path="keypoints.html"><a href="keypoints.html#working-in-teams-1"><b>C.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="C.9" data-path="keypoints.html"><a href="keypoints.html#automating-analyses-with-make-1"><b>C.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="C.10" data-path="keypoints.html"><a href="keypoints.html#configuring-programs-1"><b>C.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="C.11" data-path="keypoints.html"><a href="keypoints.html#testing-software-1"><b>C.11</b> Testing Software</a></li>
+<li class="chapter" data-level="C.12" data-path="keypoints.html"><a href="keypoints.html#handling-errors-1"><b>C.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="C.13" data-path="keypoints.html"><a href="keypoints.html#tracking-provenance-1"><b>C.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="C.14" data-path="keypoints.html"><a href="keypoints.html#creating-packages-with-python-1"><b>C.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="tree.html"><a href="tree.html"><b>D</b> Project Tree</a></li>
+<li class="chapter" data-level="E" data-path="ssh.html"><a href="ssh.html"><b>E</b> Working Remotely</a><ul>
+<li class="chapter" data-level="E.1" data-path="ssh.html"><a href="ssh.html#ssh-login"><b>E.1</b> Logging In</a></li>
+<li class="chapter" data-level="E.2" data-path="ssh.html"><a href="ssh.html#ssh-cp"><b>E.2</b> Copying Files</a></li>
+<li class="chapter" data-level="E.3" data-path="ssh.html"><a href="ssh.html#ssh-cmd"><b>E.3</b> Running Commands</a></li>
+<li class="chapter" data-level="E.4" data-path="ssh.html"><a href="ssh.html#ssh-keys"><b>E.4</b> Creating Keys</a></li>
+<li class="chapter" data-level="E.5" data-path="ssh.html"><a href="ssh.html#ssh-filedir"><b>E.5</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="style.html"><a href="style.html"><b>F</b> Writing Readable Code</a><ul>
+<li class="chapter" data-level="F.1" data-path="style.html"><a href="style.html#style-pep8"><b>F.1</b> Python Style</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="style.html"><a href="style.html#spacing"><b>F.1.1</b> Spacing</a></li>
+<li class="chapter" data-level="F.1.2" data-path="style.html"><a href="style.html#naming"><b>F.1.2</b> Naming</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="style.html"><a href="style.html#style-order"><b>F.2</b> Order</a></li>
+<li class="chapter" data-level="F.3" data-path="style.html"><a href="style.html#style-check"><b>F.3</b> Checking Style</a></li>
+<li class="chapter" data-level="F.4" data-path="style.html"><a href="style.html#style-refactor"><b>F.4</b> Refactoring</a><ul>
+<li class="chapter" data-level="F.4.1" data-path="style.html"><a href="style.html#do-not-repeat-values"><b>F.4.1</b> Do not repeat values</a></li>
+<li class="chapter" data-level="F.4.2" data-path="style.html"><a href="style.html#do-not-repeat-calculations-in-loops"><b>F.4.2</b> Do not repeat calculations in loops</a></li>
+<li class="chapter" data-level="F.4.3" data-path="style.html"><a href="style.html#replace-tests-with-flags-to-clarify-repeated-tests"><b>F.4.3</b> Replace tests with flags to clarify repeated tests</a></li>
+<li class="chapter" data-level="F.4.4" data-path="style.html"><a href="style.html#use-in-place-operators-to-avoid-duplicating-expression"><b>F.4.4</b> Use in-place operators to avoid duplicating expression</a></li>
+<li class="chapter" data-level="F.4.5" data-path="style.html"><a href="style.html#handle-special-cases-first"><b>F.4.5</b> Handle special cases first</a></li>
+<li class="chapter" data-level="F.4.6" data-path="style.html"><a href="style.html#use-functions-to-make-code-more-comprehensible"><b>F.4.6</b> Use functions to make code more comprehensible</a></li>
+<li class="chapter" data-level="F.4.7" data-path="style.html"><a href="style.html#combine-operations-in-functions"><b>F.4.7</b> Combine operations in functions</a></li>
+<li class="chapter" data-level="F.4.8" data-path="style.html"><a href="style.html#replace-code-with-data"><b>F.4.8</b> Replace code with data</a></li>
+</ul></li>
+<li class="chapter" data-level="F.5" data-path="style.html"><a href="style.html#style-review"><b>F.5</b> Code Reviews</a></li>
+<li class="chapter" data-level="F.6" data-path="style.html"><a href="style.html#style-features"><b>F.6</b> Python Features</a><ul>
+<li class="chapter" data-level="F.6.1" data-path="style.html"><a href="style.html#provide-default-values-for-parameters"><b>F.6.1</b> Provide default values for parameters</a></li>
+<li class="chapter" data-level="F.6.2" data-path="style.html"><a href="style.html#handle-a-variable-number-of-arguments"><b>F.6.2</b> Handle a variable number of arguments</a></li>
+<li class="chapter" data-level="F.6.3" data-path="style.html"><a href="style.html#unpacking-variable-arguments"><b>F.6.3</b> Unpacking variable arguments</a></li>
+<li class="chapter" data-level="F.6.4" data-path="style.html"><a href="style.html#use-destructuring-to-assign-multiple-values-at-once"><b>F.6.4</b> Use destructuring to assign multiple values at once</a></li>
+</ul></li>
+<li class="chapter" data-level="F.7" data-path="style.html"><a href="style.html#style-summary"><b>F.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="documentation.html"><a href="documentation.html"><b>G</b> Documenting Programs</a><ul>
+<li class="chapter" data-level="G.1" data-path="documentation.html"><a href="documentation.html#documentation-docstrings"><b>G.1</b> Writing Good Docstrings</a></li>
+<li class="chapter" data-level="G.2" data-path="documentation.html"><a href="documentation.html#documentation-audience"><b>G.2</b> Defining Your Audience</a></li>
+<li class="chapter" data-level="G.3" data-path="documentation.html"><a href="documentation.html#documentation-faq"><b>G.3</b> Creating an FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="H" data-path="yaml.html"><a href="yaml.html"><b>H</b> YAML</a></li>
+<li class="chapter" data-level="I" data-path="anaconda.html"><a href="anaconda.html"><b>I</b> Anaconda</a><ul>
+<li class="chapter" data-level="I.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-conda-package-management"><b>I.1</b> Package Management with conda</a><ul>
+<li class="chapter" data-level="I.1.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-cloud"><b>I.1.1</b> Anaconda Cloud</a></li>
+<li class="chapter" data-level="I.1.2" data-path="anaconda.html"><a href="anaconda.html#conda-forge"><b>I.1.2</b> conda-forge</a></li>
+</ul></li>
+<li class="chapter" data-level="I.2" data-path="anaconda.html"><a href="anaconda.html#anaconda-environments"><b>I.2</b> Environment Management with conda</a></li>
+</ul></li>
+<li class="chapter" data-level="J" data-path="glossary.html"><a href="glossary.html"><b>J</b> Glossary</a></li>
+<li class="chapter" data-level="K" data-path="references.html"><a href="references.html"><b>K</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Research Software Engineering with Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="automate" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Automating Analyses with Make</h1>
+<blockquote>
+<p>The three rules of the Librarians of Time and Space are:
+1) Silence;
+2) Books must be returned no later than the last date shown; and
+3) Do not interfere with the nature of causality.</p>
+<p>— Terry Pratchett</p>
+</blockquote>
+<p>It’s easy to run one program to process a single data file,
+but what happens when our analysis depends on many files,
+or when we need to re-do the analysis every time new data arrives?
+What should we do if the analysis has several steps
+that we have to do in a particular order?</p>
+<p>If we try to keep track of this ourselves,
+we will inevitably forget some crucial steps
+and it will be hard for other people to pick up our work.
+Instead,
+we should use a <a href="glossary.html#build_manager">build manager</a>
+to keep track of what depends on what
+and run our analysis programs automatically.
+These tools were invented to help programmers compile complex software,
+but can be used to automate any workflow.</p>
+<p>Our Zipf’s Law project currently includes these files:</p>
+<pre class="text"><code>zipf/
+├── .gitignore
+├── CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE.md
+├── README.md
+├── bin
+│   ├── book_summary.sh
+│   ├── collate.py
+│   ├── countwords.py
+│   ├── plotcounts.py
+│   ├── script_template.py
+│   └── utilities.py
+├── data
+│   ├── README.md
+│   ├── dracula.txt
+│   ├── frankenstein.txt
+│   └── ...
+└── results
+    ├── dracula.csv
+    ├── dracula.png
+    └── ...</code></pre>
+<p>Now that the project’s main building blocks are in place,
+we’re ready to automate our analysis using a build manager.
+We will use a program called <a href="https://www.gnu.org/software/make/">Make</a> to do this
+so that every time we add a new book to our data,
+we can create a new plot of the word count distribution with a single command.
+Make works as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Every time the <a href="glossary.html#operating_system">operating system</a> creates, reads, or changes a file,
+it updates a <a href="glossary.html#timestamp">timestamp</a> on the file to show when the operation took place.
+Make can compare these timestamps
+to figure out whether files are newer or older than one another.</p></li>
+<li><p>A user can describe which files depend on each other
+by writing <a href="glossary.html#build_rule">rules</a> in a <a href="glossary.html#makefile">Makefile</a>.
+For example,
+one rule could say that <code>results/moby_dick.csv</code> depends on <code>data/moby_dick.txt</code>,
+while another could say that the plot <code>results/comparison.png</code>
+depends on all of the CSV files in the <code>results</code> directory.</p></li>
+<li><p>Each rule also tells Make how to update an out-of-date file.
+For example,
+the rule for <em>Moby Dick</em> could tell Make to run <code>bin/countwords.py</code>
+if the result file is older than either the raw data file or the program.</p></li>
+<li><p>When the user runs Make,
+the program checks all of the rules in the Makefile
+and runs the commands needed to update any that are out of date.
+If there are <a href="glossary.html#transitive_dependency">transitive dependencies</a>—i.e.,
+if A depends on B and B depends on C—then Make will trace them through
+and run all of the commands it needs to in the right order.</p></li>
+</ol>
+<p>This chapter uses a version of Make called <a href="https://www.gnu.org/software/make/">GNU Make</a>.
+It comes with MacOS and Linux;
+please see Section <a href="getting-started.html#getting-started-install-software">1.3</a> for Windows installation instructions.</p>
+<blockquote>
+<p><strong>Keep Tracking with Version Control</strong></p>
+<p>We encourage you to use the Git workflow
+from Chapters <a href="git-cmdline.html#git-cmdline">6</a> and <a href="git-advanced.html#git-advanced">7</a>
+throughout the rest of this book,
+though we won’t continue to remind you.</p>
+</blockquote>
+<div id="automate-single-file" class="section level2">
+<h2><span class="header-section-number">9.1</span> Updating a Single File</h2>
+<p>To start automating our analysis,
+let’s create a file called <code>Makefile</code> in the root of our project
+and add the following:</p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb584-1"><a href="automate.html#cb584-1"></a><span class="co"># Regenerate results for &quot;Moby Dick&quot;</span></span>
+<span id="cb584-2"><a href="automate.html#cb584-2"></a><span class="dv">results/moby_dick.csv :</span><span class="dt"> data/moby_dick.txt</span></span>
+<span id="cb584-3"><a href="automate.html#cb584-3"></a>    python bin/countwords.py <span class="ch">\</span></span>
+<span id="cb584-4"><a href="automate.html#cb584-4"></a>        data/moby_dick.txt &gt; results/moby_dick.csv</span></code></pre></div>
+<p>As in the shell and many other programming languages,
+<code>#</code> indicates that the first line is a comment.
+The second and third lines form a <a href="glossary.html#build_rule">build rule</a>:
+the <a href="glossary.html#build_target">target</a> of the rule is <code>results/moby_dick.csv</code>,
+its single <a href="glossary.html#prerequisite">prerequisite</a> is the file <code>data/moby_dick.txt</code>,
+and the two are separated by a single colon <code>:</code>.
+There is no limit on the length of statement lines in Makefiles,
+but to aid readability we have used a backslash (<code>\</code>) character to split
+the lengthy third line in this example.</p>
+<p>The target and prerequisite tell Make what depends on what.
+The line below them describes the <a href="glossary.html#build_recipe">recipe</a>
+that will update the target if it is out of date.
+The recipe consists of one or more shell commands,
+each of which <em>must</em> be prefixed by a single tab character.
+Spaces cannot be used instead of tabs here,
+which can be confusing as they are interchangeable in most other programming languages.
+In the rule above,
+the recipe is “run <code>bin/countwords.py</code> on the raw data file
+and put the output in a CSV file in the <code>results</code> directory.”</p>
+<p>To test our rule, run this command in the shell:</p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb585-1"><a href="automate.html#cb585-1"></a>$ <span class="fu">make</span></span></code></pre></div>
+<p>Make automatically looks for a file called <code>Makefile</code>,
+follows the rules it contains,
+and prints the commands that were executed.
+In this case it displays:</p>
+<pre class="text"><code>python bin/countwords.py \
+  data/moby_dick.txt &gt; results/moby_dick.csv</code></pre>
+<blockquote>
+<p><strong>Indentation Errors</strong></p>
+<p>If a <code>Makefile</code> indents a rule with spaces rather than tabs,
+Make produces an error message like this:</p>
+<pre class="text"><code>Makefile:3: *** missing separator.  Stop.</code></pre>
+</blockquote>
+<p>When Make follows the rules in our Makefile,
+one of three things will happen:</p>
+<ol style="list-style-type: decimal">
+<li>If <code>results/moby_dick.csv</code> doesn’t exist,
+Make runs the recipe to create it.</li>
+<li>If <code>data/moby_dick.txt</code> is newer than <code>results/moby_dick.csv</code>,
+Make runs the recipe to update the results.</li>
+<li>If <code>results/moby_dick.csv</code> is newer than its prerequisite,
+Make does nothing.</li>
+</ol>
+<p>In the first two cases,
+Make prints the commands it runs,
+along with anything those commands print to the screen
+via <a href="glossary.html#stdout">standard output</a> or <a href="glossary.html#stderr">standard error</a>.
+There is no screen output in this case,
+so we only see the command.</p>
+<p>No matter what happened the first time we ran <code>make</code>,
+if we run it again right away it does nothing
+because our rule’s target is now up to date.
+It tells us this by displaying the message:</p>
+<pre class="text"><code>make: `results/moby_dick.csv&#39; is up to date.</code></pre>
+<p>We can check that it is telling the truth by listing the files with their timestamps,
+ordered by how recently they have been updated:</p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb589-1"><a href="automate.html#cb589-1"></a>$ <span class="fu">ls</span> -l -t data/moby_dick.txt results/moby_dick.csv</span></code></pre></div>
+<pre class="text"><code>-rw-r--r-- 1 amira staff  274967 Nov 29 12:58
+  results/moby_dick.csv
+-rw-r--r-- 1 amira staff 1253891 Nov 27 20:56
+  data/moby_dick.txt</code></pre>
+<div style="page-break-after: always;"></div>
+<p>As a further test:</p>
+<ol style="list-style-type: decimal">
+<li>Delete <code>results/moby_dick.csv</code> and run <code>make</code> again.
+This is case #1, so Make runs the recipe.</li>
+<li>Use <code>touch data/moby_dick.txt</code> to update the timestamp on the data file,
+then run <code>make</code>.
+This is case #2,
+so again,
+Make runs the recipe.</li>
+</ol>
+<blockquote>
+<p><strong>Managing Makefiles</strong></p>
+<p>We don’t have to call our file <code>Makefile</code>:
+if we prefer something like <code>workflows.mk</code>,
+we can tell Make to read recipes from that file using
+<code>make -f workflows.mk</code>.</p>
+</blockquote>
+</div>
+<div id="automate-multiple" class="section level2">
+<h2><span class="header-section-number">9.2</span> Managing Multiple Files</h2>
+<p>Our Makefile documents exactly how to reproduce one specific result.
+Let’s add another rule to reproduce another result:</p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb591-1"><a href="automate.html#cb591-1"></a><span class="co"># Regenerate results for &quot;Moby Dick&quot;</span></span>
+<span id="cb591-2"><a href="automate.html#cb591-2"></a><span class="dv">results/moby_dick.csv :</span><span class="dt"> data/moby_dick.txt</span></span>
+<span id="cb591-3"><a href="automate.html#cb591-3"></a>    python bin/countwords.py <span class="ch">\</span></span>
+<span id="cb591-4"><a href="automate.html#cb591-4"></a>        data/moby_dick.txt &gt; results/moby_dick.csv</span>
+<span id="cb591-5"><a href="automate.html#cb591-5"></a></span>
+<span id="cb591-6"><a href="automate.html#cb591-6"></a><span class="co"># Regenerate results for &quot;Jane Eyre&quot;</span></span>
+<span id="cb591-7"><a href="automate.html#cb591-7"></a><span class="dv">results/jane_eyre.csv :</span><span class="dt"> data/jane_eyre.txt</span></span>
+<span id="cb591-8"><a href="automate.html#cb591-8"></a>    python bin/countwords.py <span class="ch">\</span></span>
+<span id="cb591-9"><a href="automate.html#cb591-9"></a>        data/jane_eyre.txt &gt; results/jane_eyre.csv</span></code></pre></div>
+<p>When we run <code>make</code> it tells us:</p>
+<pre class="text"><code>make: `results/moby_dick.csv&#39; is up to date.</code></pre>
+<p>By default, Make only attempts to update the first target it finds in the Makefile,
+which is called the <a href="glossary.html#default_target">default target</a>.
+In this case,
+the first target is <code>results/moby_dick.csv</code>,
+which is already up to date.
+To update something else,
+we need to tell Make specifically what we want:</p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb593-1"><a href="automate.html#cb593-1"></a>$ <span class="fu">make</span> results/jane_eyre.csv</span></code></pre></div>
+<pre class="text"><code>python bin/countwords.py \
+  data/jane_eyre.txt &gt; results/jane_eyre.csv</code></pre>
+<p>If we have to run <code>make</code> once for each result,
+we’re right back where we started.
+However,
+we can add a rule to our Makefile to update all of our results at once.
+We do this by creating a <a href="glossary.html#phony_target">phony target</a>
+that doesn’t correspond to an actual file.
+Let’s add this line to the top of our Makefile:</p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb595-1"><a href="automate.html#cb595-1"></a><span class="co"># Regenerate all results.</span></span>
+<span id="cb595-2"><a href="automate.html#cb595-2"></a><span class="dv">all :</span><span class="dt"> results/moby_dick.csv results/jane_eyre.csv</span></span></code></pre></div>
+<p>There is no file called <code>all</code>,
+and this rule doesn’t have any recipes of its own,
+but when we run <code>make all</code>,
+Make finds everything that <code>all</code> depends on,
+then brings each of those prerequisites up to date (Figure <a href="automate.html#fig:automate-all">9.1</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:automate-all"></span>
+<img src="figures/automate/make-dependency-graph.png" alt="Dependency graph when making everything." width="60%" />
+<p class="caption">
+Figure 9.1: Dependency graph when making everything.
+</p>
+</div>
+<p>The order in which rules appear in the Makefile
+does not necessarily determine the order in which recipes are run.
+Make is free to run commands in any order
+so long as nothing is updated before its prerequisites are up to date.</p>
+<p>We can use phony targets to automate and document other steps in our workflow.
+For example,
+let’s add another target to our Makefile to delete all of the result files we have generated
+so that we can start afresh.
+By convention this target is called <code>clean</code>,
+and we’ll place it below the two existing targets:</p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb596-1"><a href="automate.html#cb596-1"></a><span class="co"># Remove all generated files.</span></span>
+<span id="cb596-2"><a href="automate.html#cb596-2"></a><span class="dv">clean :</span></span>
+<span id="cb596-3"><a href="automate.html#cb596-3"></a>    rm -f results/*.csv</span></code></pre></div>
+<p>The <code>-f</code> flag to <code>rm</code> means “force removal”:
+if it is present,
+<code>rm</code> won’t complain if the files we have told it to remove are already gone.
+If we now run:</p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb597-1"><a href="automate.html#cb597-1"></a>$ <span class="fu">make</span> clean</span></code></pre></div>
+<p>Make will delete any results files we have.
+This is a lot safer than typing <code>rm -f results/*.csv</code> at the command line each time,
+because if we mistakenly put a space before the <code>*</code>
+we would delete all of the CSV files in the project’s root directory.</p>
+<p>Phony targets are very useful,
+but there is a catch.
+Try doing this:</p>
+<div class="sourceCode" id="cb598"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb598-1"><a href="automate.html#cb598-1"></a>$ <span class="fu">mkdir</span> clean</span>
+<span id="cb598-2"><a href="automate.html#cb598-2"></a>$ <span class="fu">make</span> clean</span></code></pre></div>
+<pre class="text"><code>make: `clean&#39; is up to date.</code></pre>
+<p>Since there is a directory called <code>clean</code>,
+Make thinks the target <code>clean</code> in the Makefile refers to this directory.
+Since the rule has no prerequisites,
+it can’t be out of date,
+so no recipes are executed.</p>
+<p>We can unconfuse Make by putting this line at the top of Makefile
+to explicitly state which targets are phony:</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb600-1"><a href="automate.html#cb600-1"></a><span class="ot">.PHONY</span> <span class="ot">:</span><span class="dt"> all clean</span></span></code></pre></div>
+</div>
+<div id="automate-depend-programs" class="section level2">
+<h2><span class="header-section-number">9.3</span> Updating Files When Programs Change</h2>
+<p>Our current Makefile says that each result file depends on the corresponding data file.
+That’s not entirely true:
+each result also depends on the program used to generate it.
+If we change our program,
+we should regenerate our results.
+To get Make to do that,
+we can change our prerequisites to include the program:</p>
+<div class="sourceCode" id="cb601"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb601-1"><a href="automate.html#cb601-1"></a><span class="co"># Regenerate results for &quot;Moby Dick&quot;</span></span>
+<span id="cb601-2"><a href="automate.html#cb601-2"></a><span class="dv">results/moby_dick.csv :</span><span class="dt"> data/moby_dick.txt bin/countwords.py</span></span>
+<span id="cb601-3"><a href="automate.html#cb601-3"></a>    python bin/countwords.py <span class="ch">\</span></span>
+<span id="cb601-4"><a href="automate.html#cb601-4"></a>        data/moby_dick.txt &gt; results/moby_dick.csv</span>
+<span id="cb601-5"><a href="automate.html#cb601-5"></a></span>
+<span id="cb601-6"><a href="automate.html#cb601-6"></a><span class="co"># Regenerate results for &quot;Jane Eyre&quot;</span></span>
+<span id="cb601-7"><a href="automate.html#cb601-7"></a><span class="dv">results/jane_eyre.csv :</span><span class="dt"> data/jane_eyre.txt bin/countwords.py</span></span>
+<span id="cb601-8"><a href="automate.html#cb601-8"></a>    python bin/countwords.py <span class="ch">\</span></span>
+<span id="cb601-9"><a href="automate.html#cb601-9"></a>        data/jane_eyre.txt &gt; results/jane_eyre.csv</span></code></pre></div>
+<p>To run both of these rules,
+we can type <code>make all</code>.
+Alternatively,
+since <code>all</code> is the first target in our Makefile,
+Make will use it if we just type <code>make</code> on its own:</p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb602-1"><a href="automate.html#cb602-1"></a>$ <span class="fu">touch</span> bin/countwords.py</span>
+<span id="cb602-2"><a href="automate.html#cb602-2"></a>$ <span class="fu">make</span></span></code></pre></div>
+<pre class="text"><code>python bin/countwords.py \
+  data/moby_dick.txt &gt; results/moby_dick.csv
+python bin/countwords.py \
+  data/jane_eyre.txt &gt; results/jane_eyre.csv</code></pre>
+<p>The exercises will explore how we can write a rule
+to tell us whether our results will be different
+after a change to a program
+without actually updating them.
+Rules like this can help us test our programs:
+if we don’t think an addition or modification ought to affect the results,
+but it would,
+we may have some debugging to do.</p>
+</div>
+<div id="automate-variables" class="section level2">
+<h2><span class="header-section-number">9.4</span> Reducing Repetition in a Makefile</h2>
+<p>Our Makefile now mentions <code>bin/countwords.py</code> four times.
+If we ever change the name of the program or move it to a different location,
+we will have to find and replace each of those occurrences.
+More importantly,
+this redundancy makes our Makefile harder to understand,
+just as scattering <a href="glossary.html#magic_number">magic numbers</a> through programs
+makes them harder to understand.</p>
+<div style="page-break-after: always;"></div>
+<p>The solution is the same one we use in programs:
+define and use variables.
+Let’s modify the results regeneration code by
+creating targets for the word-counting script and the command used to run it.
+The entire file should now read:</p>
+<div class="sourceCode" id="cb604"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb604-1"><a href="automate.html#cb604-1"></a><span class="ot">.PHONY</span> <span class="ot">:</span><span class="dt"> all clean</span></span>
+<span id="cb604-2"><a href="automate.html#cb604-2"></a></span>
+<span id="cb604-3"><a href="automate.html#cb604-3"></a><span class="dt">COUNT</span><span class="ch">=</span><span class="st">bin/countwords.py</span></span>
+<span id="cb604-4"><a href="automate.html#cb604-4"></a><span class="dt">RUN_COUNT</span><span class="ch">=</span><span class="st">python </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb604-5"><a href="automate.html#cb604-5"></a></span>
+<span id="cb604-6"><a href="automate.html#cb604-6"></a><span class="co"># Regenerate all results.</span></span>
+<span id="cb604-7"><a href="automate.html#cb604-7"></a><span class="dv">all :</span><span class="dt"> results/moby_dick.csv results/jane_eyre.csv</span></span>
+<span id="cb604-8"><a href="automate.html#cb604-8"></a></span>
+<span id="cb604-9"><a href="automate.html#cb604-9"></a><span class="co"># Regenerate results for &quot;Moby Dick&quot;</span></span>
+<span id="cb604-10"><a href="automate.html#cb604-10"></a><span class="dv">results/moby_dick.csv :</span><span class="dt"> data/moby_dick.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb604-11"><a href="automate.html#cb604-11"></a>    <span class="ch">$(</span><span class="dt">RUN_COUNT</span><span class="ch">)</span> data/moby_dick.txt &gt; results/moby_dick.csv</span>
+<span id="cb604-12"><a href="automate.html#cb604-12"></a></span>
+<span id="cb604-13"><a href="automate.html#cb604-13"></a><span class="co"># Regenerate results for &quot;Jane Eyre&quot;</span></span>
+<span id="cb604-14"><a href="automate.html#cb604-14"></a><span class="dv">results/jane_eyre.csv :</span><span class="dt"> data/jane_eyre.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb604-15"><a href="automate.html#cb604-15"></a>    <span class="ch">$(</span><span class="dt">RUN_COUNT</span><span class="ch">)</span> data/jane_eyre.txt &gt; results/jane_eyre.csv</span>
+<span id="cb604-16"><a href="automate.html#cb604-16"></a></span>
+<span id="cb604-17"><a href="automate.html#cb604-17"></a><span class="co"># Remove all generated files.</span></span>
+<span id="cb604-18"><a href="automate.html#cb604-18"></a><span class="dv">clean :</span></span>
+<span id="cb604-19"><a href="automate.html#cb604-19"></a>    rm -f results/*.csv</span></code></pre></div>
+<p>Each definition takes the form <code>NAME=value</code>.
+Variables are written in upper case by convention
+so that they’ll stand out from filenames
+(which are usually in lower case),
+but Make doesn’t require this.
+What <em>is</em> required is using parentheses to refer to the variable,
+i.e.,
+to use <code>$(NAME)</code> and not <code>$NAME</code>.</p>
+<blockquote>
+<p><strong>Why the Parentheses?</strong></p>
+<p>For historical reasons,
+Make interprets <code>$NAME</code> to be a variable called <code>N</code> followed by the three characters “AME”.
+If no variable called <code>N</code> exists,
+<code>$NAME</code> becomes <code>AME</code>,
+which is almost certainly not what we want.</p>
+</blockquote>
+<p>As in programs,
+variables don’t just cut down on typing.
+They also tell readers that several things are always and exactly the same,
+which reduces <a href="glossary.html#cognitive_load">cognitive load</a>.</p>
+</div>
+<div id="automate-autovar" class="section level2">
+<h2><span class="header-section-number">9.5</span> Automatic Variables</h2>
+<p>We could add a third rule to analyze a third novel and a fourth to analyze a fourth,
+but that won’t scale to hundreds or thousands of novels.
+Instead,
+we can write a generic rule that does what we want for every one of our data files.</p>
+<p>To do this,
+we need to understand Make’s
+<a href="glossary.html#automatic_variable">automatic variables</a>.
+The first step is to use the very cryptic expression <code>$@</code> in the rule’s recipe
+to mean “the target of the rule.”
+It lets us turn this:</p>
+<div class="sourceCode" id="cb605"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb605-1"><a href="automate.html#cb605-1"></a><span class="co"># Regenerate results for &quot;Moby Dick&quot;</span></span>
+<span id="cb605-2"><a href="automate.html#cb605-2"></a><span class="dv">results/moby_dick.csv :</span><span class="dt"> data/moby_dick.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb605-3"><a href="automate.html#cb605-3"></a>    <span class="ch">$(</span><span class="dt">RUN_COUNT</span><span class="ch">)</span> data/moby_dick.txt &gt; results/moby_dick.csv</span></code></pre></div>
+<p>into this:</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb606-1"><a href="automate.html#cb606-1"></a><span class="co"># Regenerate results for &quot;Moby Dick&quot;</span></span>
+<span id="cb606-2"><a href="automate.html#cb606-2"></a><span class="dv">results/moby_dick.csv :</span><span class="dt"> data/moby_dick.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb606-3"><a href="automate.html#cb606-3"></a>    <span class="ch">$(</span><span class="dt">RUN_COUNT</span><span class="ch">)</span> data/moby_dick.txt &gt; <span class="ch">$@</span></span></code></pre></div>
+<p>Make defines a value of <code>$@</code> separately for each rule,
+so it always refers to that rule’s target.
+And yes,
+<code>$@</code> is an unfortunate name:
+something like <code>$TARGET</code> would have been easier to understand,
+but we’re stuck with it now.</p>
+<p>The next step is to replace the explicit list of prerequisites in the recipe
+with the automatic variable <code>$^</code>,
+which means “all the prerequisites in the rule”:</p>
+<div class="sourceCode" id="cb607"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb607-1"><a href="automate.html#cb607-1"></a><span class="co"># Regenerate results for &quot;Moby Dick&quot;</span></span>
+<span id="cb607-2"><a href="automate.html#cb607-2"></a><span class="dv">results/moby_dick.csv :</span><span class="dt"> data/moby_dick.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb607-3"><a href="automate.html#cb607-3"></a>    <span class="ch">$(</span><span class="dt">RUN_COUNT</span><span class="ch">)</span> <span class="ch">$^</span> &gt; <span class="ch">$@</span></span></code></pre></div>
+<p>However,
+this doesn’t work.
+The rule’s prerequisites are the novel and the word-counting program.
+When Make expands the recipe,
+the resulting command tries to process the program <code>bin/countwords.py</code>
+as if it was a data file:</p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb608-1"><a href="automate.html#cb608-1"></a><span class="ex">python</span> bin/countwords.py data/moby_dick.txt bin/countwords.py <span class="op">&gt;</span></span>
+<span id="cb608-2"><a href="automate.html#cb608-2"></a>  <span class="ex">results/moby_dick.csv</span></span></code></pre></div>
+<p>Make solves this problem with another automatic variable <code>$&lt;</code>,
+which means “only the first prerequisite”.
+Using it lets us rewrite our rule as:</p>
+<div class="sourceCode" id="cb609"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb609-1"><a href="automate.html#cb609-1"></a><span class="co"># Regenerate results for &quot;Moby Dick&quot;</span></span>
+<span id="cb609-2"><a href="automate.html#cb609-2"></a><span class="dv">results/moby_dick.csv :</span><span class="dt"> data/moby_dick.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb609-3"><a href="automate.html#cb609-3"></a>    <span class="ch">$(</span><span class="dt">RUN_COUNT</span><span class="ch">)</span> <span class="ch">$&lt;</span> &gt; <span class="ch">$@</span></span></code></pre></div>
+<p>If you use this approach,
+the rule for <em>Jane Eyre</em> should be updated as well.
+The next section,
+however,
+includes instructions for generalizing rules.</p>
+</div>
+<div id="automate-pattern" class="section level2">
+<h2><span class="header-section-number">9.6</span> Generic Rules</h2>
+<p><code>$&lt; &gt; $@</code> is even harder to read than <code>$@</code> on its own,
+but we can now replace all the rules for generating results files
+with one <a href="glossary.html#pattern_rule">pattern rule</a>
+using the <a href="glossary.html#wildcard">wildcard</a> <code>%</code>,
+which matches zero or more characters in a filename.
+Whatever matches <code>%</code> in the target also matches in the prerequisites,
+so the rule:</p>
+<div class="sourceCode" id="cb610"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb610-1"><a href="automate.html#cb610-1"></a><span class="dv">results/%.csv :</span><span class="dt"> data/%.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb610-2"><a href="automate.html#cb610-2"></a>    <span class="ch">$(</span><span class="dt">RUN_COUNT</span><span class="ch">)</span> <span class="ch">$&lt;</span> &gt; <span class="ch">$@</span></span></code></pre></div>
+<p>will handle <em>Jane Eyre</em>, <em>Moby Dick</em>, <em>The Time Machine</em>, and every other novel in the <code>data/</code> directory.
+<code>%</code> cannot be used in recipes,
+which is why <code>$&lt;</code> and <code>$@</code> are needed.</p>
+<p>With this rule in place, our entire Makefile is reduced to:</p>
+<div class="sourceCode" id="cb611"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb611-1"><a href="automate.html#cb611-1"></a><span class="ot">.PHONY:</span><span class="dt"> all clean</span></span>
+<span id="cb611-2"><a href="automate.html#cb611-2"></a></span>
+<span id="cb611-3"><a href="automate.html#cb611-3"></a><span class="dt">COUNT</span><span class="ch">=</span><span class="st">bin/countwords.py</span></span>
+<span id="cb611-4"><a href="automate.html#cb611-4"></a><span class="dt">RUN_COUNT</span><span class="ch">=</span><span class="st">python </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb611-5"><a href="automate.html#cb611-5"></a></span>
+<span id="cb611-6"><a href="automate.html#cb611-6"></a><span class="co"># Regenerate all results.</span></span>
+<span id="cb611-7"><a href="automate.html#cb611-7"></a><span class="dv">all :</span><span class="dt"> results/moby_dick.csv results/jane_eyre.csv </span><span class="ch">\</span></span>
+<span id="cb611-8"><a href="automate.html#cb611-8"></a><span class="dt">  results/time_machine.csv</span></span>
+<span id="cb611-9"><a href="automate.html#cb611-9"></a></span>
+<span id="cb611-10"><a href="automate.html#cb611-10"></a><span class="co"># Regenerate result for any book.</span></span>
+<span id="cb611-11"><a href="automate.html#cb611-11"></a><span class="dv">results/%.csv :</span><span class="dt"> data/%.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb611-12"><a href="automate.html#cb611-12"></a>    <span class="ch">$(</span><span class="dt">RUN_COUNT</span><span class="ch">)</span> <span class="ch">$&lt;</span> &gt; <span class="ch">$@</span></span>
+<span id="cb611-13"><a href="automate.html#cb611-13"></a></span>
+<span id="cb611-14"><a href="automate.html#cb611-14"></a><span class="co"># Remove all generated files.</span></span>
+<span id="cb611-15"><a href="automate.html#cb611-15"></a><span class="dv">clean :</span></span>
+<span id="cb611-16"><a href="automate.html#cb611-16"></a>    rm -f results/*.csv</span></code></pre></div>
+<p>We now have fewer lines of text,
+but we’ve also included a third book.
+To test our shortened Makefile,
+let’s delete all of the results files:</p>
+<div class="sourceCode" id="cb612"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb612-1"><a href="automate.html#cb612-1"></a>$ <span class="fu">make</span> clean</span></code></pre></div>
+<pre class="text"><code>rm -f results/*.csv</code></pre>
+<p>and then re-create them:</p>
+<div class="sourceCode" id="cb614"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb614-1"><a href="automate.html#cb614-1"></a>$ <span class="fu">make</span>  <span class="co"># Same as `make all` as &quot;all&quot; is the first target</span></span></code></pre></div>
+<pre class="text"><code>python bin/countwords.py data/moby_dick.txt &gt;
+  results/moby_dick.csv
+python bin/countwords.py data/jane_eyre.txt &gt;
+  results/jane_eyre.csv
+python bin/countwords.py data/time_machine.txt &gt;
+  results/time_machine.csv</code></pre>
+<p>We can still rebuild individual files if we want,
+since Make will take the target filename we give on the command line
+and see if a pattern rule matches it:</p>
+<div class="sourceCode" id="cb616"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb616-1"><a href="automate.html#cb616-1"></a>$ <span class="fu">touch</span> data/jane_eyre.txt</span>
+<span id="cb616-2"><a href="automate.html#cb616-2"></a>$ <span class="fu">make</span> results/jane_eyre.csv</span></code></pre></div>
+<pre class="text"><code>python bin/countwords.py data/jane_eyre.txt &gt;
+  results/jane_eyre.csv</code></pre>
+</div>
+<div id="automate-functions" class="section level2">
+<h2><span class="header-section-number">9.7</span> Defining Sets of Files</h2>
+<p>Our analysis is still not fully automated:
+if we add another book to <code>data</code>,
+we have to remember to add its name to the <code>all</code> target in the Makefile as well.
+Once again we will fix this in steps.</p>
+<p>To start,
+imagine that all the results files already exist
+and we just want to update them.
+We can define a variable called <code>RESULTS</code>
+to be a list of all the results files
+using the same wildcards we would use in the shell:</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb618-1"><a href="automate.html#cb618-1"></a><span class="dt">RESULTS</span><span class="ch">=</span><span class="st">results/*.csv</span></span></code></pre></div>
+<p>We can then rewrite <code>all</code> to depend on that list:</p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb619-1"><a href="automate.html#cb619-1"></a><span class="co"># Regenerate all results.</span></span>
+<span id="cb619-2"><a href="automate.html#cb619-2"></a><span class="dv">all :</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span></span></code></pre></div>
+<p>However,
+this only works if the results files already exist.
+If one doesn’t,
+its name won’t be included in <code>RESULTS</code>
+and Make won’t realize that we want to generate it.</p>
+<p>What we really want is to generate the list of results files
+based on the list of books in the <code>data/</code> directory.
+We can create that list using Make’s <code>wildcard</code> function:</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb620-1"><a href="automate.html#cb620-1"></a><span class="dt">DATA</span><span class="ch">=$(</span><span class="kw">wildcard</span><span class="st"> data/*.txt</span><span class="ch">)</span></span></code></pre></div>
+<p>This calls the function <code>wildcard</code> with the argument <code>data/*.txt</code>.
+The result is a list of all the text files in the <code>data</code> directory,
+just as we would get with <code>data/*.txt</code> in the shell.
+The syntax is odd because functions were added to Make long after it was first written,
+but at least they have readable names.</p>
+<p>To check that this line does the right thing,
+we can add another phony target called <code>settings</code>
+that uses the shell command <code>echo</code> to print the names and values of our variables:</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb621-1"><a href="automate.html#cb621-1"></a><span class="ot">.PHONY:</span><span class="dt"> all clean settings</span></span>
+<span id="cb621-2"><a href="automate.html#cb621-2"></a></span>
+<span id="cb621-3"><a href="automate.html#cb621-3"></a><span class="co"># ...everything else...</span></span>
+<span id="cb621-4"><a href="automate.html#cb621-4"></a></span>
+<span id="cb621-5"><a href="automate.html#cb621-5"></a><span class="co"># Show variables&#39; values.</span></span>
+<span id="cb621-6"><a href="automate.html#cb621-6"></a><span class="dv">settings :</span></span>
+<span id="cb621-7"><a href="automate.html#cb621-7"></a>    echo COUNT: <span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb621-8"><a href="automate.html#cb621-8"></a>    echo DATA: <span class="ch">$(</span><span class="dt">DATA</span><span class="ch">)</span></span></code></pre></div>
+<p>Let’s run this:</p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb622-1"><a href="automate.html#cb622-1"></a>$ <span class="fu">make</span> settings</span></code></pre></div>
+<pre class="text"><code>echo COUNT: bin/countwords.py
+COUNT: bin/countwords.py
+echo DATA: data/dracula.txt data/frankenstein.txt
+  data/jane_eyre.txt data/moby_dick.txt
+  data/sense_and_sensibility.txt
+  data/sherlock_holmes.txt data/time_machine.txt
+DATA: data/dracula.txt data/frankenstein.txt
+  data/jane_eyre.txt data/moby_dick.txt
+  data/sense_and_sensibility.txt data/sherlock_holmes.txt
+  data/time_machine.txt</code></pre>
+<p>The output appears twice
+because Make shows us the command it’s going to run before running it.
+Putting <code>@</code> before the command in the recipe prevents this,
+which makes the output easier to read:</p>
+<div class="sourceCode" id="cb624"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb624-1"><a href="automate.html#cb624-1"></a><span class="dv">settings :</span></span>
+<span id="cb624-2"><a href="automate.html#cb624-2"></a>    <span class="ch">@</span><span class="fu">echo COUNT: </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb624-3"><a href="automate.html#cb624-3"></a>    <span class="ch">@</span><span class="fu">echo DATA: </span><span class="ch">$(</span><span class="dt">DATA</span><span class="ch">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb625"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb625-1"><a href="automate.html#cb625-1"></a>$ <span class="fu">make</span> settings</span></code></pre></div>
+<pre class="text"><code>COUNT: bin/countwords.py
+DATA: data/dracula.txt data/frankenstein.txt
+  data/jane_eyre.txt data/moby_dick.txt
+  data/sense_and_sensibility.txt data/sherlock_holmes.txt
+  data/time_machine.txt
+</code></pre>
+<p>We now have the names of our input files.
+To create a list of corresponding output files,
+we use Make’s <code>patsubst</code> function
+(short for <strong>pat</strong>tern <strong>subst</strong>itution):</p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb627-1"><a href="automate.html#cb627-1"></a><span class="dt">RESULTS</span><span class="ch">=$(</span><span class="kw">patsubst</span><span class="st"> data/%.txt</span><span class="kw">,</span><span class="st">results/%.csv</span><span class="kw">,</span><span class="ch">$(</span><span class="dt">DATA</span><span class="ch">))</span></span></code></pre></div>
+<p>The first argument to <code>patsubst</code> is the pattern to look for,
+which in this case is a text file in the <code>data</code> directory.
+We use <code>%</code> to match the <a href="glossary.html#filename_stem">stem</a> of the file’s name,
+which is the part we want to keep.</p>
+<p>The second argument is the replacement we want.
+As in a pattern rule,
+Make replaces <code>%</code> in this argument with whatever matched <code>%</code> in the pattern,
+which creates the name of the result file we want.
+Finally,
+the third argument is what to do the substitution in,
+which is our list of books’ names.</p>
+<p>Let’s check the <code>RESULTS</code> variable by adding another command to the <code>settings</code> target:</p>
+<div class="sourceCode" id="cb628"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb628-1"><a href="automate.html#cb628-1"></a><span class="dv">settings :</span></span>
+<span id="cb628-2"><a href="automate.html#cb628-2"></a>    <span class="ch">@</span><span class="fu">echo COUNT: </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb628-3"><a href="automate.html#cb628-3"></a>    <span class="ch">@</span><span class="fu">echo DATA: </span><span class="ch">$(</span><span class="dt">DATA</span><span class="ch">)</span></span>
+<span id="cb628-4"><a href="automate.html#cb628-4"></a>    <span class="ch">@</span><span class="fu">echo RESULTS: </span><span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb629-1"><a href="automate.html#cb629-1"></a>$ <span class="fu">make</span> settings</span></code></pre></div>
+<pre class="text"><code>COUNT: bin/countwords.py
+DATA: data/dracula.txt data/frankenstein.txt data/jane_eyre.txt
+  data/moby_dick.txt data/sense_and_sensibility.txt
+  data/sherlock_holmes.txt data/time_machine.txt
+RESULTS: results/dracula.csv results/frankenstein.csv
+  results/jane_eyre.csv results/moby_dick.csv
+  results/sense_and_sensibility.csv
+  results/sherlock_holmes.csv results/time_machine.csv</code></pre>
+<p>Excellent:
+<code>DATA</code> has the names of the files we want to process
+and <code>RESULTS</code> automatically has the names of the corresponding result files.</p>
+<p>Why haven’t we included <code>RUN_COUNT</code> when assessing our variables’ values?
+This is another place we can streamline our script,
+by removing <code>RUN_COUNT</code> from the list of variables
+and changing our regeneration rule:</p>
+<div class="sourceCode" id="cb631"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb631-1"><a href="automate.html#cb631-1"></a><span class="co"># Regenerate result for any book.</span></span>
+<span id="cb631-2"><a href="automate.html#cb631-2"></a><span class="dv">results/%.csv :</span><span class="dt"> data/%.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb631-3"><a href="automate.html#cb631-3"></a>    python <span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span> <span class="ch">$&lt;</span> &gt; <span class="ch">$@</span></span></code></pre></div>
+<p>Since the phony target <code>all</code> depends on <code>$(RESULTS)</code>
+(i.e., all the files whose names appear in the variable <code>RESULTS</code>)
+we can regenerate all the results in one step:</p>
+<div class="sourceCode" id="cb632"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb632-1"><a href="automate.html#cb632-1"></a>$ <span class="fu">make</span> clean</span></code></pre></div>
+<pre class="text"><code>rm -f results/*.csv</code></pre>
+<div class="sourceCode" id="cb634"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb634-1"><a href="automate.html#cb634-1"></a>$ <span class="fu">make</span>  <span class="co"># Same as `make all` since &quot;all&quot; is the first target</span></span></code></pre></div>
+<pre class="text"><code>python bin/countwords.py data/dracula.txt &gt; results/dracula.csv
+python bin/countwords.py data/frankenstein.txt &gt;
+  results/frankenstein.csv
+python bin/countwords.py data/jane_eyre.txt &gt;
+  results/jane_eyre.csv
+python bin/countwords.py data/moby_dick.txt &gt;
+  results/moby_dick.csv
+python bin/countwords.py data/sense_and_sensibility.txt &gt;
+  results/sense_and_sensibility.csv
+python bin/countwords.py data/sherlock_holmes.txt &gt;
+  results/sherlock_holmes.csv
+python bin/countwords.py data/time_machine.txt &gt;
+  results/time_machine.csv</code></pre>
+<p>Our workflow is now just two steps:
+add a data file and run Make.
+This is a big improvement over running things manually,
+particularly as we start to add more steps like merging data files and generating plots.</p>
+</div>
+<div id="automate-doc" class="section level2">
+<h2><span class="header-section-number">9.8</span> Documenting a Makefile</h2>
+<p>Every well-behaved program should tell people how to use it <span class="citation">(Taschuk and Wilson <a href="references.html#ref-Tasc2017" role="doc-biblioref">2017</a>)</span>.
+If we run <code>make --help</code>,
+we get a (very) long list of options that Make understands,
+but nothing about our specific workflow.
+We could create another phony target called <code>help</code> that prints a list of available commands:</p>
+<div class="sourceCode" id="cb636"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb636-1"><a href="automate.html#cb636-1"></a><span class="ot">.PHONY:</span><span class="dt"> all clean help settings</span></span>
+<span id="cb636-2"><a href="automate.html#cb636-2"></a></span>
+<span id="cb636-3"><a href="automate.html#cb636-3"></a><span class="co"># ...other definitions...</span></span>
+<span id="cb636-4"><a href="automate.html#cb636-4"></a></span>
+<span id="cb636-5"><a href="automate.html#cb636-5"></a><span class="co"># Show help.</span></span>
+<span id="cb636-6"><a href="automate.html#cb636-6"></a><span class="dv">help :</span></span>
+<span id="cb636-7"><a href="automate.html#cb636-7"></a>    <span class="ch">@</span><span class="fu">echo </span><span class="st">&quot;all : regenerate all results.&quot;</span></span>
+<span id="cb636-8"><a href="automate.html#cb636-8"></a>    <span class="ch">@</span><span class="fu">echo </span><span class="st">&quot;results/*.csv : regenerate result for any book.&quot;</span></span>
+<span id="cb636-9"><a href="automate.html#cb636-9"></a>    <span class="ch">@</span><span class="fu">echo </span><span class="st">&quot;clean : remove all generated files.&quot;</span></span>
+<span id="cb636-10"><a href="automate.html#cb636-10"></a>    <span class="ch">@</span><span class="fu">echo </span><span class="st">&quot;settings : show variables&#39; values.&quot;</span></span>
+<span id="cb636-11"><a href="automate.html#cb636-11"></a>    <span class="ch">@</span><span class="fu">echo </span><span class="st">&quot;help : show this message.&quot;</span></span></code></pre></div>
+<p>but sooner or later
+we will add a target or rule and forget to update this list.</p>
+<p>A better approach is to format some comments in a special way
+and then extract and display those comments when asked to.
+We’ll use <code>##</code> (a double comment marker) to indicate the lines we want displayed
+and <code>grep</code> (Section <a href="bash-advanced.html#bash-advanced-find">4.5</a>) to pull these lines out of the file:</p>
+<div class="sourceCode" id="cb637"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb637-1"><a href="automate.html#cb637-1"></a><span class="ot">.PHONY:</span><span class="dt"> all clean help settings</span></span>
+<span id="cb637-2"><a href="automate.html#cb637-2"></a></span>
+<span id="cb637-3"><a href="automate.html#cb637-3"></a><span class="dt">COUNT</span><span class="ch">=</span><span class="st">bin/countwords.py</span></span>
+<span id="cb637-4"><a href="automate.html#cb637-4"></a><span class="dt">DATA</span><span class="ch">=$(</span><span class="kw">wildcard</span><span class="st"> data/*.txt</span><span class="ch">)</span></span>
+<span id="cb637-5"><a href="automate.html#cb637-5"></a><span class="dt">RESULTS</span><span class="ch">=$(</span><span class="kw">patsubst</span><span class="st"> data/%.txt</span><span class="kw">,</span><span class="st">results/%.csv</span><span class="kw">,</span><span class="ch">$(</span><span class="dt">DATA</span><span class="ch">))</span></span>
+<span id="cb637-6"><a href="automate.html#cb637-6"></a></span>
+<span id="cb637-7"><a href="automate.html#cb637-7"></a><span class="co">## all : regenerate all results.</span></span>
+<span id="cb637-8"><a href="automate.html#cb637-8"></a><span class="dv">all :</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span></span>
+<span id="cb637-9"><a href="automate.html#cb637-9"></a></span>
+<span id="cb637-10"><a href="automate.html#cb637-10"></a><span class="co">## results/%.csv : regenerate result for any book.</span></span>
+<span id="cb637-11"><a href="automate.html#cb637-11"></a><span class="dv">results/%.csv :</span><span class="dt"> data/%.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb637-12"><a href="automate.html#cb637-12"></a>    python <span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span> <span class="ch">$&lt;</span> &gt; <span class="ch">$@</span></span>
+<span id="cb637-13"><a href="automate.html#cb637-13"></a></span>
+<span id="cb637-14"><a href="automate.html#cb637-14"></a><span class="co">## clean : remove all generated files.</span></span>
+<span id="cb637-15"><a href="automate.html#cb637-15"></a><span class="dv">clean :</span></span>
+<span id="cb637-16"><a href="automate.html#cb637-16"></a>    rm -f results/*.csv</span>
+<span id="cb637-17"><a href="automate.html#cb637-17"></a></span>
+<span id="cb637-18"><a href="automate.html#cb637-18"></a><span class="co">## settings : show variables&#39; values.</span></span>
+<span id="cb637-19"><a href="automate.html#cb637-19"></a><span class="dv">settings :</span></span>
+<span id="cb637-20"><a href="automate.html#cb637-20"></a>    <span class="ch">@</span><span class="fu">echo COUNT: </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb637-21"><a href="automate.html#cb637-21"></a>    <span class="ch">@</span><span class="fu">echo DATA: </span><span class="ch">$(</span><span class="dt">DATA</span><span class="ch">)</span></span>
+<span id="cb637-22"><a href="automate.html#cb637-22"></a>    <span class="ch">@</span><span class="fu">echo RESULTS: </span><span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span></span>
+<span id="cb637-23"><a href="automate.html#cb637-23"></a></span>
+<span id="cb637-24"><a href="automate.html#cb637-24"></a><span class="co">## help : show this message.</span></span>
+<span id="cb637-25"><a href="automate.html#cb637-25"></a><span class="dv">help :</span></span>
+<span id="cb637-26"><a href="automate.html#cb637-26"></a>    <span class="ch">@</span><span class="fu">grep </span><span class="st">&#39;^##&#39;</span><span class="fu"> ./Makefile</span></span></code></pre></div>
+<p>Let’s test:</p>
+<div class="sourceCode" id="cb638"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb638-1"><a href="automate.html#cb638-1"></a>$ <span class="fu">make</span> help</span></code></pre></div>
+<pre class="text"><code>## all : regenerate all results.
+## results/%.csv : regenerate result for any book.
+## clean : remove all generated files.
+## settings : show variables&#39; values.
+## help : show this message.</code></pre>
+<p>The exercises will explore how to format this more readably.</p>
+</div>
+<div id="automate-pipeline" class="section level2">
+<h2><span class="header-section-number">9.9</span> Automating Entire Analyses</h2>
+<p>To finish our discussion of Make,
+let’s automatically generate a collated list of word frequencies.
+The target is a file called <code>results/collated.csv</code>
+that depends on the results generated by <code>countwords.py</code>.
+To create it,
+we add or change these lines in our Makefile:</p>
+<div class="sourceCode" id="cb640"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb640-1"><a href="automate.html#cb640-1"></a><span class="co"># ...phony targets and previous variable definitions...</span></span>
+<span id="cb640-2"><a href="automate.html#cb640-2"></a></span>
+<span id="cb640-3"><a href="automate.html#cb640-3"></a><span class="dt">COLLATE</span><span class="ch">=</span><span class="st">bin/collate.py</span></span>
+<span id="cb640-4"><a href="automate.html#cb640-4"></a></span>
+<span id="cb640-5"><a href="automate.html#cb640-5"></a><span class="co">## all : regenerate all results.</span></span>
+<span id="cb640-6"><a href="automate.html#cb640-6"></a><span class="dv">all :</span><span class="dt"> results/collated.csv</span></span>
+<span id="cb640-7"><a href="automate.html#cb640-7"></a></span>
+<span id="cb640-8"><a href="automate.html#cb640-8"></a><span class="co">## results/collated.csv : collate all results.</span></span>
+<span id="cb640-9"><a href="automate.html#cb640-9"></a><span class="dv">results/collated.csv :</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">COLLATE</span><span class="ch">)</span></span>
+<span id="cb640-10"><a href="automate.html#cb640-10"></a>    mkdir -p results</span>
+<span id="cb640-11"><a href="automate.html#cb640-11"></a>    python <span class="ch">$(</span><span class="dt">COLLATE</span><span class="ch">)</span> <span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span> &gt; <span class="ch">$@</span></span>
+<span id="cb640-12"><a href="automate.html#cb640-12"></a></span>
+<span id="cb640-13"><a href="automate.html#cb640-13"></a><span class="co"># ...other rules...</span></span>
+<span id="cb640-14"><a href="automate.html#cb640-14"></a></span>
+<span id="cb640-15"><a href="automate.html#cb640-15"></a><span class="co">## settings : show variables&#39; values.</span></span>
+<span id="cb640-16"><a href="automate.html#cb640-16"></a><span class="dv">settings :</span></span>
+<span id="cb640-17"><a href="automate.html#cb640-17"></a>    <span class="ch">@</span><span class="fu">echo COUNT: </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb640-18"><a href="automate.html#cb640-18"></a>    <span class="ch">@</span><span class="fu">echo DATA: </span><span class="ch">$(</span><span class="dt">DATA</span><span class="ch">)</span></span>
+<span id="cb640-19"><a href="automate.html#cb640-19"></a>    <span class="ch">@</span><span class="fu">echo RESULTS: </span><span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span></span>
+<span id="cb640-20"><a href="automate.html#cb640-20"></a>    <span class="ch">@</span><span class="fu">echo COLLATE: </span><span class="ch">$(</span><span class="dt">COLLATE</span><span class="ch">)</span></span>
+<span id="cb640-21"><a href="automate.html#cb640-21"></a></span>
+<span id="cb640-22"><a href="automate.html#cb640-22"></a><span class="co"># ...help rule...</span></span></code></pre></div>
+<p>The first two lines tell Make about the collation program,
+while the change to <code>all</code> tells it what the final target of our pipeline is.
+Since this target depends on the results files for single novels,
+<code>make all</code> will regenerate all of those automatically.</p>
+<p>The rule to regenerate <code>results/collated.csv</code> should look familiar by now:
+it tells Make that all of the individual results have to be up-to-date
+and that the final result should be regenerated if the program used to create it has changed.
+One difference between the recipe in this rule and the recipes we’ve seen before
+is that this recipe uses <code>$(RESULTS)</code> directly instead of an automatic variable.
+We have written the rule this way because
+there isn’t an automatic variable that means “all but the last prerequisite,”
+so there’s no way to use automatic variables that wouldn’t result in us trying to process our program.</p>
+<p>Likewise,
+we can also add the <code>plotcounts.py</code> script to this workflow
+and update the <code>all</code> and <code>settings</code> rules accordingly.
+Note that there is no <code>&gt;</code> needed before the <code>$@</code>
+because the default action of <code>plotcounts.py</code> is to write to a file
+rather than to standard output.</p>
+<div class="sourceCode" id="cb641"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb641-1"><a href="automate.html#cb641-1"></a><span class="co"># ...phony targets and previous variable definitions...</span></span>
+<span id="cb641-2"><a href="automate.html#cb641-2"></a></span>
+<span id="cb641-3"><a href="automate.html#cb641-3"></a><span class="dt">PLOT</span><span class="ch">=</span><span class="st">bin/plotcounts.py</span></span>
+<span id="cb641-4"><a href="automate.html#cb641-4"></a></span>
+<span id="cb641-5"><a href="automate.html#cb641-5"></a><span class="co">## all : regenerate all results.</span></span>
+<span id="cb641-6"><a href="automate.html#cb641-6"></a><span class="dv">all :</span><span class="dt"> results/collated.png</span></span>
+<span id="cb641-7"><a href="automate.html#cb641-7"></a></span>
+<span id="cb641-8"><a href="automate.html#cb641-8"></a><span class="co">## results/collated.png: plot the collated results.</span></span>
+<span id="cb641-9"><a href="automate.html#cb641-9"></a><span class="dv">results/collated.png :</span><span class="dt"> results/collated.csv</span></span>
+<span id="cb641-10"><a href="automate.html#cb641-10"></a>    python <span class="ch">$(</span><span class="dt">PLOT</span><span class="ch">)</span> <span class="ch">$&lt;</span> --outfile <span class="ch">$@</span></span>
+<span id="cb641-11"><a href="automate.html#cb641-11"></a></span>
+<span id="cb641-12"><a href="automate.html#cb641-12"></a><span class="co"># ...other rules...</span></span>
+<span id="cb641-13"><a href="automate.html#cb641-13"></a></span>
+<span id="cb641-14"><a href="automate.html#cb641-14"></a><span class="co">## settings : show variables&#39; values.</span></span>
+<span id="cb641-15"><a href="automate.html#cb641-15"></a><span class="dv">settings :</span></span>
+<span id="cb641-16"><a href="automate.html#cb641-16"></a>    <span class="ch">@</span><span class="fu">echo COUNT: </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb641-17"><a href="automate.html#cb641-17"></a>    <span class="ch">@</span><span class="fu">echo DATA: </span><span class="ch">$(</span><span class="dt">DATA</span><span class="ch">)</span></span>
+<span id="cb641-18"><a href="automate.html#cb641-18"></a>    <span class="ch">@</span><span class="fu">echo RESULTS: </span><span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span></span>
+<span id="cb641-19"><a href="automate.html#cb641-19"></a>    <span class="ch">@</span><span class="fu">echo COLLATE: </span><span class="ch">$(</span><span class="dt">COLLATE</span><span class="ch">)</span></span>
+<span id="cb641-20"><a href="automate.html#cb641-20"></a>    <span class="ch">@</span><span class="fu">echo PLOT: </span><span class="ch">$(</span><span class="dt">PLOT</span><span class="ch">)</span></span>
+<span id="cb641-21"><a href="automate.html#cb641-21"></a></span>
+<span id="cb641-22"><a href="automate.html#cb641-22"></a><span class="co"># ...help...</span></span></code></pre></div>
+<p>Running <code>make all</code> should now generate the new <code>collated.png</code> plot (Figure <a href="automate.html#fig:automate-collated">9.2</a>):</p>
+<div class="sourceCode" id="cb642"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb642-1"><a href="automate.html#cb642-1"></a>$ <span class="fu">make</span> all</span></code></pre></div>
+<pre class="text"><code>python bin/collate.py results/time_machine.csv
+  results/moby_dick.csv results/jane_eyre.csv
+  results/dracula.csv results/sense_and_sensibility.csv
+  results/sherlock_holmes.csv results/frankenstein.csv &gt;
+  results/collated.csv
+python bin/plotcounts.py results/collated.csv --outfile
+  results/collated.png
+alpha: 1.1712445413685917</code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:automate-collated"></span>
+<img src="figures/automate/collated.png" alt="Word count distribution for all books combined." width="100%" />
+<p class="caption">
+Figure 9.2: Word count distribution for all books combined.
+</p>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Finally,
+we can update the <code>clean</code> target
+to only remove files created by the Makefile.
+It is a good habit to do this rather than using the asterisk wildcard to remove all files,
+since you might manually place files in the results directory
+and forget that these will be cleaned up when you run <code>make clean</code>.</p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb644-1"><a href="automate.html#cb644-1"></a><span class="co"># ...phony targets and previous variable definitions...</span></span>
+<span id="cb644-2"><a href="automate.html#cb644-2"></a></span>
+<span id="cb644-3"><a href="automate.html#cb644-3"></a><span class="co">## clean : remove all generated files.</span></span>
+<span id="cb644-4"><a href="automate.html#cb644-4"></a><span class="dv">clean :</span></span>
+<span id="cb644-5"><a href="automate.html#cb644-5"></a>    rm <span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span> results/collated.csv results/collated.png</span></code></pre></div>
+</div>
+<div id="automate-summary" class="section level2">
+<h2><span class="header-section-number">9.10</span> Summary</h2>
+<p>Make’s reliance on shell commands instead of direct calls to functions in Python sometimes makes it clumsy to use.
+However,
+that also makes it very flexible:
+a single Makefile can run shell commands and programs written in a variety of languages,
+which makes it a great way to assemble pipelines out of whatever is lying around.</p>
+<p>Programmers have created many replacements for Make in the 45 years since it was first created—so many,
+in fact,
+that none have attracted enough users to displace it.
+If you would like to explore them,
+check out <a href="https://snakemake.readthedocs.io/">Snakemake</a> (for Python).
+If you want to go deeper,
+<span class="citation">Smith (<a href="references.html#ref-Smit2011" role="doc-biblioref">2011</a>)</span> describes the design and implementation of several build managers.</p>
+</div>
+<div id="automate-exercises" class="section level2">
+<h2><span class="header-section-number">9.11</span> Exercises</h2>
+<p>Our <code>Makefile</code> currently reads as follows:</p>
+<div class="sourceCode" id="cb645"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb645-1"><a href="automate.html#cb645-1"></a><span class="ot">.PHONY:</span><span class="dt"> all clean help settings</span></span>
+<span id="cb645-2"><a href="automate.html#cb645-2"></a></span>
+<span id="cb645-3"><a href="automate.html#cb645-3"></a><span class="dt">COUNT</span><span class="ch">=</span><span class="st">bin/countwords.py</span></span>
+<span id="cb645-4"><a href="automate.html#cb645-4"></a><span class="dt">COLLATE</span><span class="ch">=</span><span class="st">bin/collate.py</span></span>
+<span id="cb645-5"><a href="automate.html#cb645-5"></a><span class="dt">PLOT</span><span class="ch">=</span><span class="st">bin/plotcounts.py</span></span>
+<span id="cb645-6"><a href="automate.html#cb645-6"></a><span class="dt">DATA</span><span class="ch">=$(</span><span class="kw">wildcard</span><span class="st"> data/*.txt</span><span class="ch">)</span></span>
+<span id="cb645-7"><a href="automate.html#cb645-7"></a><span class="dt">RESULTS</span><span class="ch">=$(</span><span class="kw">patsubst</span><span class="st"> data/%.txt</span><span class="kw">,</span><span class="st">results/%.csv</span><span class="kw">,</span><span class="ch">$(</span><span class="dt">DATA</span><span class="ch">))</span></span>
+<span id="cb645-8"><a href="automate.html#cb645-8"></a></span>
+<span id="cb645-9"><a href="automate.html#cb645-9"></a><span class="co">## all : regenerate all results.</span></span>
+<span id="cb645-10"><a href="automate.html#cb645-10"></a><span class="dv">all :</span><span class="dt"> results/collated.png</span></span>
+<span id="cb645-11"><a href="automate.html#cb645-11"></a></span>
+<span id="cb645-12"><a href="automate.html#cb645-12"></a><span class="co">## results/collated.png: plot the collated results.</span></span>
+<span id="cb645-13"><a href="automate.html#cb645-13"></a><span class="dv">results/collated.png :</span><span class="dt"> results/collated.csv</span></span>
+<span id="cb645-14"><a href="automate.html#cb645-14"></a>    python <span class="ch">$(</span><span class="dt">PLOT</span><span class="ch">)</span> <span class="ch">$&lt;</span> --outfile <span class="ch">$@</span></span>
+<span id="cb645-15"><a href="automate.html#cb645-15"></a></span>
+<span id="cb645-16"><a href="automate.html#cb645-16"></a><span class="co">## results/collated.csv : collate all results.</span></span>
+<span id="cb645-17"><a href="automate.html#cb645-17"></a><span class="dv">results/collated.csv :</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">COLLATE</span><span class="ch">)</span></span>
+<span id="cb645-18"><a href="automate.html#cb645-18"></a>    <span class="ch">@</span><span class="fu">mkdir -p results</span></span>
+<span id="cb645-19"><a href="automate.html#cb645-19"></a>    python <span class="ch">$(</span><span class="dt">COLLATE</span><span class="ch">)</span> <span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span> &gt; <span class="ch">$@</span></span>
+<span id="cb645-20"><a href="automate.html#cb645-20"></a></span>
+<span id="cb645-21"><a href="automate.html#cb645-21"></a><span class="co">## results/%.csv : regenerate result for any book.</span></span>
+<span id="cb645-22"><a href="automate.html#cb645-22"></a><span class="dv">results/%.csv :</span><span class="dt"> data/%.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb645-23"><a href="automate.html#cb645-23"></a>    python <span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span> <span class="ch">$&lt;</span> &gt; <span class="ch">$@</span></span>
+<span id="cb645-24"><a href="automate.html#cb645-24"></a></span>
+<span id="cb645-25"><a href="automate.html#cb645-25"></a><span class="co">## clean : remove all generated files.</span></span>
+<span id="cb645-26"><a href="automate.html#cb645-26"></a><span class="dv">clean :</span></span>
+<span id="cb645-27"><a href="automate.html#cb645-27"></a>    rm <span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span> results/collated.csv results/collated.png</span>
+<span id="cb645-28"><a href="automate.html#cb645-28"></a></span>
+<span id="cb645-29"><a href="automate.html#cb645-29"></a><span class="co">## settings : show variables&#39; values.</span></span>
+<span id="cb645-30"><a href="automate.html#cb645-30"></a><span class="dv">settings :</span></span>
+<span id="cb645-31"><a href="automate.html#cb645-31"></a>    <span class="ch">@</span><span class="fu">echo COUNT: </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb645-32"><a href="automate.html#cb645-32"></a>    <span class="ch">@</span><span class="fu">echo DATA: </span><span class="ch">$(</span><span class="dt">DATA</span><span class="ch">)</span></span>
+<span id="cb645-33"><a href="automate.html#cb645-33"></a>    <span class="ch">@</span><span class="fu">echo RESULTS: </span><span class="ch">$(</span><span class="dt">RESULTS</span><span class="ch">)</span></span>
+<span id="cb645-34"><a href="automate.html#cb645-34"></a>    <span class="ch">@</span><span class="fu">echo COLLATE: </span><span class="ch">$(</span><span class="dt">COLLATE</span><span class="ch">)</span></span>
+<span id="cb645-35"><a href="automate.html#cb645-35"></a>    <span class="ch">@</span><span class="fu">echo PLOT: </span><span class="ch">$(</span><span class="dt">PLOT</span><span class="ch">)</span></span>
+<span id="cb645-36"><a href="automate.html#cb645-36"></a></span>
+<span id="cb645-37"><a href="automate.html#cb645-37"></a><span class="co">## help : show this message.</span></span>
+<span id="cb645-38"><a href="automate.html#cb645-38"></a><span class="dv">help :</span></span>
+<span id="cb645-39"><a href="automate.html#cb645-39"></a>    <span class="ch">@</span><span class="fu">grep </span><span class="st">&#39;^##&#39;</span><span class="fu"> ./Makefile</span></span></code></pre></div>
+<p>A number of the exercises below ask you to make further edits to <code>Makefile</code>.</p>
+<div id="automate-ex-report-change" class="section level3">
+<h3><span class="header-section-number">9.11.1</span> Report results that would change</h3>
+<p>How can you get <code>make</code> to show the commands it would run
+without actually running them?
+(Hint: look at the manual page.)</p>
+</div>
+<div id="automate-ex-useful-options" class="section level3">
+<h3><span class="header-section-number">9.11.2</span> Useful options</h3>
+<ol style="list-style-type: decimal">
+<li>What does Make’s <code>-B</code> option do and when is it useful?</li>
+<li>What about the <code>-C</code> option?</li>
+<li>What about the <code>-f</code> option?</li>
+</ol>
+</div>
+<div id="automate-ex-mkdir" class="section level3">
+<h3><span class="header-section-number">9.11.3</span> Make sure the output directory exists</h3>
+<p>One of our <a href="glossary.html#build_recipe">build recipes</a> includes <code>mkdir -p</code>.
+What does this do and why is it useful?</p>
+</div>
+<div id="automate-ex-print" class="section level3">
+<h3><span class="header-section-number">9.11.4</span> Print the title and author</h3>
+<p>The build rule for regenerating the result for any book is currently:</p>
+<div class="sourceCode" id="cb646"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb646-1"><a href="automate.html#cb646-1"></a><span class="co">## results/%.csv : regenerate result for any book.</span></span>
+<span id="cb646-2"><a href="automate.html#cb646-2"></a><span class="dv">results/%.csv :</span><span class="dt"> data/%.txt </span><span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span></span>
+<span id="cb646-3"><a href="automate.html#cb646-3"></a>    python <span class="ch">$(</span><span class="dt">COUNT</span><span class="ch">)</span> <span class="ch">$&lt;</span> &gt; <span class="ch">$@</span></span></code></pre></div>
+<p>Add an extra line to the recipe that uses the <code>book_summary.sh</code> script
+to print the title and author of the book to the screen.
+Use <code>@bash</code> so that the command itself isn’t printed to the screen
+and don’t forget to update the settings build rule to include the <code>book_summary.sh</code> script.</p>
+<p>If you’ve successfully made those changes,
+you should get the following output for <em>Dracula</em>:</p>
+<div class="sourceCode" id="cb647"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb647-1"><a href="automate.html#cb647-1"></a>$ <span class="fu">make</span> -B results/dracula.csv</span></code></pre></div>
+<pre class="text"><code>Title: Dracula
+Author: Bram Stoker
+python bin/countwords.py data/dracula.txt &gt; results/dracula.csv</code></pre>
+</div>
+<div id="automate-ex-all-results" class="section level3">
+<h3><span class="header-section-number">9.11.5</span> Create all results</h3>
+<p>The default target of our final <code>Makefile</code> re-creates <code>results/collated.csv</code>.
+Add a target to <code>Makefile</code>
+so that <code>make results</code> creates or updates any result files that are missing or out of date,
+but does <em>not</em> regenerate <code>results/collated.csv</code>.</p>
+</div>
+<div id="automate-ex-wildcard-perils" class="section level3">
+<h3><span class="header-section-number">9.11.6</span> The perils of shell wildcards</h3>
+<p>What is wrong with writing the rule for <code>results/collated.csv</code> like this:</p>
+<div class="sourceCode" id="cb649"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb649-1"><a href="automate.html#cb649-1"></a><span class="dv">results/collated.csv :</span><span class="dt"> results/*.csv</span></span>
+<span id="cb649-2"><a href="automate.html#cb649-2"></a>    python <span class="ch">$(</span><span class="dt">COLLATE</span><span class="ch">)</span> <span class="ch">$^</span> &gt; <span class="ch">$@</span></span></code></pre></div>
+<p>(The fact that the result no longer depends on the program used to create it
+isn’t the biggest problem.)</p>
+</div>
+<div id="automate-ex-readable-docs" class="section level3">
+<h3><span class="header-section-number">9.11.7</span> Making documentation more readable</h3>
+<p>We can format the documentation in our Makefile more readably using this command:</p>
+<div class="sourceCode" id="cb650"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb650-1"><a href="automate.html#cb650-1"></a><span class="co">## help : show all commands.</span></span>
+<span id="cb650-2"><a href="automate.html#cb650-2"></a><span class="dv">help :</span></span>
+<span id="cb650-3"><a href="automate.html#cb650-3"></a>    <span class="ch">@</span><span class="fu">grep -h -E </span><span class="st">&#39;^##&#39;</span><span class="fu"> </span><span class="ch">${</span><span class="dt">MAKEFILE_LIST</span><span class="ch">}</span><span class="fu"> | sed -e </span><span class="st">&#39;s/## //g&#39;</span><span class="fu"> </span><span class="ch">\</span></span>
+<span id="cb650-4"><a href="automate.html#cb650-4"></a><span class="fu">    | column -t -s </span><span class="st">&#39;:&#39;</span></span></code></pre></div>
+<p>Using <code>man</code> and online search,
+explain what every part of this recipe does.</p>
+</div>
+<div id="automate-ex-configuration" class="section level3">
+<h3><span class="header-section-number">9.11.8</span> Configuration</h3>
+<p>A next step in automating this analysis might include
+moving the definitions of the <code>COUNT</code>, <code>COLLATE</code>, and <code>PLOT</code> variables
+into a separate file called <code>config.mk</code>:</p>
+<div class="sourceCode" id="cb651"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb651-1"><a href="automate.html#cb651-1"></a><span class="dt">COUNT</span><span class="ch">=</span><span class="st">bin/countwords.py</span></span>
+<span id="cb651-2"><a href="automate.html#cb651-2"></a><span class="dt">COLLATE</span><span class="ch">=</span><span class="st">bin/collate.py</span></span>
+<span id="cb651-3"><a href="automate.html#cb651-3"></a><span class="dt">PLOT</span><span class="ch">=</span><span class="st">bin/plotcounts.py</span></span></code></pre></div>
+<p>and using the <code>include</code> command to access those definitions in the existing <code>Makefile</code>:</p>
+<div class="sourceCode" id="cb652"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb652-1"><a href="automate.html#cb652-1"></a><span class="ot">.PHONY:</span><span class="dt"> results all clean help settings</span></span>
+<span id="cb652-2"><a href="automate.html#cb652-2"></a></span>
+<span id="cb652-3"><a href="automate.html#cb652-3"></a><span class="kw">include</span> config.mk</span>
+<span id="cb652-4"><a href="automate.html#cb652-4"></a></span>
+<span id="cb652-5"><a href="automate.html#cb652-5"></a><span class="co"># ... the rest of the Makefile ...</span></span></code></pre></div>
+<p>Under what circumstances would this strategy be useful?</p>
+</div>
+</div>
+<div id="automate-keypoints" class="section level2">
+<h2><span class="header-section-number">9.12</span> Key Points</h2>
+<ul>
+<li><a href="https://www.gnu.org/software/make/">Make</a> is a widely used build manager.</li>
+<li>A <a href="glossary.html#build_manager">build manager</a> re-runs commands to update files that are out of date.</li>
+<li>A <a href="glossary.html#build_rule">build rule</a> has <a href="glossary.html#build_target">targets</a>, <a href="glossary.html#prerequisite">prerequisites</a>, and a <a href="glossary.html#build_recipe">recipe</a>.</li>
+<li>A target can be a file or a <a href="glossary.html#phony_target">phony target</a> that simply triggers an action.</li>
+<li>When a target is out of date with respect to its prerequisites, Make executes the recipe associated with its rule.</li>
+<li>Make executes as many rules as it needs to when updating files, but always respects prerequisite order.</li>
+<li>Make defines <a href="glossary.html#automatic_variable">automatic variables</a> such as <code>$@</code> (target), <code>$^</code> (all prerequisites), and <code>$&lt;</code> (first prerequisite).</li>
+<li><a href="glossary.html#pattern_rule">Pattern rules</a> can use <code>%</code> as a placeholder for parts of filenames.</li>
+<li>Makefiles can define variables using <code>NAME=value</code>.</li>
+<li>Make also has functions such as <code>$(wildcard...)</code> and <code>$(patsubst...)</code>.</li>
+<li>Use specially formatted comments to create self-documenting Makefiles.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="teams.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="config.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/merely-useful/py-rse/edit/book/chapters/automate.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/merely-useful/py-rse/blob/book/chapters/automate.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
