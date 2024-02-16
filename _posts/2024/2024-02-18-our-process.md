@@ -1,3 +1,9 @@
+---
+title: "Our Process"
+date: 2024-02-18
+year: 2024
+---
+
 Back in 2022 I wrote that there are two ways of looking at roles in a small-to-medium tech company:
 what people do, and [what risks they address][mitigation].
 Coincidentally,
@@ -34,8 +40,7 @@ but for the most part this is the ground for everything else described below.
 -   Responsible: executive team 
 -   Contributors: company leadership and technical experts at all levels
 -   Products:
-    -   Monthly business review
-    -   Annual all-hands meeting
+    -   Prioritized list of strategic goals and investment for the company as a whole
 
 ## Engineering Team
 
@@ -68,10 +73,12 @@ and P2 (it would be nice to have).
 -   Products:
     -   Prioritized list of objectives and key results
 
-> Note: we used to define more of these each quarter than we do now.
+> Note: we used to define thirty or more tasks each quarter
+> rather than a handful of OKRs.
 > The theory was that if we're meeting all of our targets,
 > our targets weren't ambitious enough.
-> We now realize that setting ourselves up for continual failure like that isn't actually helpful.
+> We now realize that setting ourselves up to fall short time and again
+> isn't actually helpful.
 
 ### Engineering OKR Reviews
 
@@ -90,6 +97,7 @@ and to summarize what we've learned so that we can do better next time.
 -   Responsible: VP Engineering
 -   Contributors: project leads and other team members
 -   Products:
+    -   One-line summary of progress on each OKR (hopefully "we finished it" but not always)
     -   Ranked list of things that worked well and things that didn't
     -   Ranked list of ideas for things to try to adopt, improve, or drop
 
@@ -128,6 +136,10 @@ a substantial minority live and/or work remotely.
 This meeting is where the VP of Engineering updates us all
 on things we might otherwise miss
 (both organizationally and technically).
+We also host guest speakers from other teams in the company
+so that we can can keep abreast of what they're doing,
+have AMA (ask me anything) meetings with senior management,
+or do a deep dive into new tools or processes we might want to adopt.
 
 -   Summary: Biweekly team sync to discuss company and/or engineering news
 -   Key Questions:
@@ -151,7 +163,8 @@ what alternatives there are,
 and what we're *not* going to do.
 Some designs go through two or three overhauls before work starts;
 in almost every case,
-checking our thinking like this has saved us pain downstream.
+checking our thinking like this has saved us
+the pain and delay of re-thinking, re-architecting, and re-writing halfway through implementation.
 
 -   Summary: Weekly sync to present and discuss technical proposals
 -   Key Questions:
@@ -189,7 +202,9 @@ It's a fun way to wrap up the week and remind ourselves that we're actually maki
 
 -   Summary: Weekly sync for team to share ongoing work and discoveries
 -   Key Questions:
-    -   It does *what*??
+    -   What problem does the thing being demo'd solve?
+    -   For whom?
+    -   How does it work?
 -   Frequency: weekly
 -   Responsible: volunteer engineer
 -   Contributors: entire engineering team
@@ -214,8 +229,10 @@ and what state it is actually in.
 -   Responsible: designated engineer (rotation)
 -   Contributors: team members as needed
 -   Products:
-    -   Happier users
-    -   Issues in the issue tracker
+    -   Happier users,
+        both because we've addressed their problems
+        and because they can see that we're trying to do so
+    -   Issues in the issue tracker (both "bugs to be fixed" and "ideas for future improvements")
 
 > The "issues" product deserves a bit more explanation.
 > The on-call engineer creates a new issue in our issue tracker (we use [Linear][linear])
@@ -244,6 +261,10 @@ and making this a regular activity makes the time easier to defend.
 -   Contributors: entire engineering team
 -   Products:
     -   Less technical debt
+    -   Happier engineers
+        (both because they have a chance to clean up things that have been annoying them
+	and because being given time to do so is a sign that
+	management is serious about prioritizing long-term productivity)
 
 ## Team Activities
 
@@ -270,8 +291,8 @@ and translate those needs into things for engineers to fix or build.
 -   Responsible: Product Manager
 -   Contributors: technical leads and selected users
 -   Products:
-    -   Prioritized lists of problems
-    -   Prioritized lists of features or fixes that would solve them
+    -   Prioritized lists of problems and opportunities,
+        i.e., a product roadmap
 
 ### Solution Discovery
 
@@ -291,7 +312,8 @@ this is where needs, constraints, and big-picture alternatives are formulated.
 -   Responsible: Product Manager and technical leads
 -   Contributors: users and engineering team members
 -   Products:
-    -   Designs for new features or applications
+    -   Prioritized lists of features or fixes that would solve them
+    -   Designs for those features that both the users and the developers believe in
 
 ### Engineering Needs
 
@@ -337,7 +359,9 @@ so that progress reports aren't "I'm working on it" several days in a row.
 -   Responsible: Scrum master and technical leads
 -   Contributors: engineering team members
 -   Products:
-    -   Labeled issues
+    -   Goals for the sprint (i.e., what we want to accomplish)
+    -   Prioritized issues that will achieve those goals
+        (i.e., what we have to do to get there)
 
 > I've worked on teams where issues had a "percent complete" field
 > that the people responsible for it were supposed to update daily.
@@ -347,6 +371,18 @@ so that progress reports aren't "I'm working on it" several days in a row.
 > Breaking milestones down into inch-pebbles
 > and marking the latter as "finished" or "not finished"
 > has proven much more useful.
+>
+> Separately,
+> it's worth highlighting again that
+> a big part of this process is making sure that
+> the people who are doing the work understand *why* they're doing it
+> so that they can make small judgment calls on their own
+> and know when to come back and ask for guidance.
+> You can tell a team has reached this point
+> if most people,
+> most of the time,
+> would make the same decision about something minor on their own,
+> and if they would mostly agree on when discussion is needed.
 
 ### Daily Standups
 
@@ -360,11 +396,6 @@ We try to enforce a three-sentence rule:
 if a discussion during individual updates goes on longer than that
 we defer it until after everyone has finished their initial report.
 
-The "output" from standups is course corrections.
-Should we try another approach to a problem?
-Did someone discover an issue that ought to go in the backlog for the next sprint,
-or something that's important enough to replace something planned for this sprint?
-
 -   Summary: Daily team sync
 -   Key Questions:
     -   What did you work on yesterday?
@@ -374,18 +405,10 @@ or something that's important enough to replace something planned for this sprin
 -   Responsible: technical leads
 -   Contributors: engineering team members
 -   Products:
-    -   Updated issues
+    -   In-team awareness of the progress everyone is making
+    -   Updated issues (reprioritized as necessary)
 
 ### Sprint Retros
-
-Just as the whole of engineering does a retrospective each quarter,
-each team does a short retrospective at the end of each sprint.
-Sometimes the output is "let's try doing something differently"
-(for a smaller value of "something" than would be discussed by the whole team in a quarterly retro);
-other times,
-the output is just,
-"Well done!"
-because it's as important to celebrate victories as it is to learn from defeats.
 
 -   Summary: Bi-weekly sync to reflect on the past sprint and identify possible improvements
 -   Key Questions:
@@ -396,56 +419,32 @@ because it's as important to celebrate victories as it is to learn from defeats.
 -   Responsible: Scrum master
 -   Contributors: engineering team members
 -   Products:
-    -   Updated issues and processes
+    -   As with quarterly retros,
+        a list of things that the team should keep doing
+	and a list of things to change
 
-### Feature Deployment
+> The suggestions coming out of sprint retros
+> tend to be smaller than those coming out of quarterly retros,
+> but big things do show up sometimes.
 
-We figured out what our users needed,
-we designed it,
-we built it,
-we tested it (more on that below),
-we did a few trial deployments:
-time to put it into production.
-As the list of key questions below shows,
-that's never as simple as restarting a server
-or pushing a new version of a package to our company's conda repository.
-We have to tell people the things they've been asking for are now available,
-and we have to check that they actually work in production.
+### Feature/Slice Deployment
 
 -   Summary: Testing, deployment, documentation, and communication of fixes and features
 -   Key Questions:
     -   Is the feature/fix/change working as expected?
     -   Is it well documented both from a technical and user-facing perspective?
-    -   Who needs to be aware of this change?
-    -   Is any training needed to enable use of this change?
+    -   Who needs to be aware of this change once pushed to production?
+    -   Is there any training needed to enable use of this change?
 -   Frequency: ongoing
 -   Responsible: technical leads
 -   Contributors: entire engineering team
--   Products:
-    -   (Hopefully) happy users
 
-## Reflection
+### Customer Feedback and Metrics
 
-We didn't adopt all these processes at once.
-It's taken two years to put them in place,
-and there are a few other things we tried that didn't survive.
-*This* is the real heart of any software development process:
-the willingness to experiment,
-to learn,
-and to adapt.
-As a previous boss once said to me,
-"If you're doing everything by the book, you're doing something wrong."
-
-We're not done,
-and I hope we never will be.
-Right now,
-for example,
-everyone is responsible for testing the features they develop.
-We do catch some of each other's mistakes in code review,
-but we're not testing service interoperability nearly as well as we should.
-Fixing that will require more than just setting up some more continuous integration tasks;
-we will almost certainly have to extend or amend our processes as well.
-We'll keep you posted...
+-   Summary: Measuring and assessing impact and identifying gaps or areas for improvement
+-   Frequency: ongoing
+-   Responsible: VP Engineering and Product Manager
+-   Contributors: entire engineering team
 
 [dottie]: https://www.linkedin.com/in/dottie-omino/
 [linear]: https://linear.app/
