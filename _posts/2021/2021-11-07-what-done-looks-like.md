@@ -10,7 +10,7 @@ and one of the questions that came up was,
 There are lots of answers elsewhere for the technical side
 [[1](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745),
 [2](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510),
-[3](https://merely-useful.tech/py-rse/)],
+[3]({{'/py-rse/' | relative_url}})],
 but what about project management and governance?
 Here's a first cut of the artifacts used to support those activities
 for a project with up to a couple of dozen contributors;

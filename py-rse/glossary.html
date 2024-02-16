@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>J Glossary | Research Software Engineering with Python</title>
+  <meta name="description" content="J Glossary | Research Software Engineering with Python" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="J Glossary | Research Software Engineering with Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="tugboats-800x600.jpg" />
+  
+  <meta name="github-repo" content="merely-useful/py-rse" />
+
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<meta name="author" content="Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="anaconda.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link rel="shortcut icon" href="favicon.ico" />
+<script defer data-domain="merely-useful.tech" src="https://plausible.io/js/plausible.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="index.html">Merely Useful</a></strong></li>
+<li><img src="tugboats-800x600.jpg" width=267 height=200 style="padding-left:20px;"/></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html">Welcome</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intro-big-picture"><b>0.1</b> The Big Picture</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intro-personas"><b>0.2</b> Intended Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#intro-syllabus"><b>0.3</b> What You Will Learn</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#intro-using"><b>0.4</b> Using this Book</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#contributing-and-re-use"><b>0.5</b> Contributing and Re-Use</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#intro-ack"><b>0.6</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#dedications"><b>0.7</b> Dedications</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-structure"><b>1.1</b> Project Structure</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-boilerplate"><b>1.1.1</b> Standard information</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-organize"><b>1.1.2</b> Organizing project content</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-download-data"><b>1.2</b> Downloading the Data</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#getting-started-install-software"><b>1.3</b> Installing the Software</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#getting-started-summary"><b>1.4</b> Summary</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#getting-started-exercises"><b>1.5</b> Exercises</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-install"><b>1.5.1</b> Getting ready</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#getting-started-keypoints"><b>1.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bash-basics.html"><a href="bash-basics.html"><b>2</b> The Basics of the Unix Shell</a><ul>
+<li class="chapter" data-level="2.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-explore"><b>2.1</b> Exploring Files and Directories</a></li>
+<li class="chapter" data-level="2.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-navigate"><b>2.2</b> Moving Around</a></li>
+<li class="chapter" data-level="2.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-filedir"><b>2.3</b> Creating New Files and Directories</a></li>
+<li class="chapter" data-level="2.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-move"><b>2.4</b> Moving Files and Directories</a></li>
+<li class="chapter" data-level="2.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-copy"><b>2.5</b> Copying Files and Directories</a></li>
+<li class="chapter" data-level="2.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-rm"><b>2.6</b> Deleting Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-wildcard"><b>2.7</b> Wildcards</a></li>
+<li class="chapter" data-level="2.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-help"><b>2.8</b> Reading the Manual</a></li>
+<li class="chapter" data-level="2.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-summary"><b>2.9</b> Summary</a></li>
+<li class="chapter" data-level="2.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-exercises"><b>2.10</b> Exercises</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-more-ls"><b>2.10.1</b> Exploring more <code>ls</code> flags</a></li>
+<li class="chapter" data-level="2.10.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-rt"><b>2.10.2</b> Listing recursively and by time</a></li>
+<li class="chapter" data-level="2.10.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-paths"><b>2.10.3</b> Absolute and relative paths</a></li>
+<li class="chapter" data-level="2.10.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-resolve-rel-path"><b>2.10.4</b> Relative path resolution</a></li>
+<li class="chapter" data-level="2.10.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reading-ls"><b>2.10.5</b> <code>ls</code> reading comprehension</a></li>
+<li class="chapter" data-level="2.10.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-touch"><b>2.10.6</b> Creating files a different way</a></li>
+<li class="chapter" data-level="2.10.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-safe-rm"><b>2.10.7</b> Using <code>rm</code> safely</a></li>
+<li class="chapter" data-level="2.10.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-move-dot"><b>2.10.8</b> Moving to the current folder</a></li>
+<li class="chapter" data-level="2.10.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-renaming-files"><b>2.10.9</b> Renaming files</a></li>
+<li class="chapter" data-level="2.10.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-last-ls"><b>2.10.10</b> Moving and copying</a></li>
+<li class="chapter" data-level="2.10.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-copy-multi"><b>2.10.11</b> Copy with multiple filenames</a></li>
+<li class="chapter" data-level="2.10.12" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-match"><b>2.10.12</b> List filenames matching a pattern</a></li>
+<li class="chapter" data-level="2.10.13" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-organizing"><b>2.10.13</b> Organizing directories and files</a></li>
+<li class="chapter" data-level="2.10.14" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reproduce-structure"><b>2.10.14</b> Reproduce a directory structure</a></li>
+<li class="chapter" data-level="2.10.15" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-wildcard-expressions"><b>2.10.15</b> Wildcard expressions</a></li>
+<li class="chapter" data-level="2.10.16" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-remove-unneeded"><b>2.10.16</b> Removing unneeded files</a></li>
+<li class="chapter" data-level="2.10.17" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-other-wildcards"><b>2.10.17</b> Other wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-keypoints"><b>2.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bash-tools.html"><a href="bash-tools.html"><b>3</b> Building Tools with the Unix Shell</a><ul>
+<li class="chapter" data-level="3.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-pipe"><b>3.1</b> Combining Commands</a></li>
+<li class="chapter" data-level="3.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-stdio"><b>3.2</b> How Pipes Work</a></li>
+<li class="chapter" data-level="3.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-loops"><b>3.3</b> Repeating Commands on Many Files</a></li>
+<li class="chapter" data-level="3.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-meaningless"><b>3.4</b> Variable Names</a></li>
+<li class="chapter" data-level="3.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-history"><b>3.5</b> Redoing Things</a></li>
+<li class="chapter" data-level="3.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-autoname"><b>3.6</b> Creating New Filenames Automatically</a></li>
+<li class="chapter" data-level="3.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-summary"><b>3.7</b> Summary</a></li>
+<li class="chapter" data-level="3.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-exercises"><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-redirect-append"><b>3.8.1</b> What does <code>&gt;&gt;</code> mean?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-append-data"><b>3.8.2</b> Appending data</a></li>
+<li class="chapter" data-level="3.8.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-piping"><b>3.8.3</b> Piping commands</a></li>
+<li class="chapter" data-level="3.8.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-uniq-adjacent"><b>3.8.4</b> Why does <code>uniq</code> only remove adjacent duplicates?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-reading-pipes"><b>3.8.5</b> Pipe reading comprehension</a></li>
+<li class="chapter" data-level="3.8.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-pipe-construction"><b>3.8.6</b> Pipe construction</a></li>
+<li class="chapter" data-level="3.8.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-which-pipe"><b>3.8.7</b> Which pipe?</a></li>
+<li class="chapter" data-level="3.8.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-dry-run"><b>3.8.8</b> Doing a dry run</a></li>
+<li class="chapter" data-level="3.8.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-variables"><b>3.8.9</b> Variables in loops</a></li>
+<li class="chapter" data-level="3.8.10" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-limiting-file-sets"><b>3.8.10</b> Limiting sets of files</a></li>
+<li class="chapter" data-level="3.8.11" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-save"><b>3.8.11</b> Saving to a file in a loop</a></li>
+<li class="chapter" data-level="3.8.12" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-history-order"><b>3.8.12</b> Why does <code>history</code> record commands before running them?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-keypoints"><b>3.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bash-advanced.html"><a href="bash-advanced.html"><b>4</b> Going Further with the Unix Shell</a><ul>
+<li class="chapter" data-level="4.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-script"><b>4.1</b> Creating New Commands</a></li>
+<li class="chapter" data-level="4.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-params"><b>4.2</b> Making Scripts More Versatile</a></li>
+<li class="chapter" data-level="4.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-capture"><b>4.3</b> Turning Interactive Work into a Script</a></li>
+<li class="chapter" data-level="4.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-grep"><b>4.4</b> Finding Things in Files</a></li>
+<li class="chapter" data-level="4.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-find"><b>4.5</b> Finding Files</a></li>
+<li class="chapter" data-level="4.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-vars"><b>4.6</b> Configuring the Shell</a></li>
+<li class="chapter" data-level="4.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-summary"><b>4.7</b> Summary</a></li>
+<li class="chapter" data-level="4.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-exercises"><b>4.8</b> Exercises</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-cleaning-up"><b>4.8.1</b> Cleaning up</a></li>
+<li class="chapter" data-level="4.8.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-script-variables"><b>4.8.2</b> Variables in shell scripts</a></li>
+<li class="chapter" data-level="4.8.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-longest-with-extension"><b>4.8.3</b> Find the longest file with a given extension</a></li>
+<li class="chapter" data-level="4.8.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-scripts"><b>4.8.4</b> Script reading comprehension</a></li>
+<li class="chapter" data-level="4.8.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-using-grep"><b>4.8.5</b> Using <code>grep</code></a></li>
+<li class="chapter" data-level="4.8.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-year-script"><b>4.8.6</b> Tracking publication years</a></li>
+<li class="chapter" data-level="4.8.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-sense-sensibility"><b>4.8.7</b> Counting names</a></li>
+<li class="chapter" data-level="4.8.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-match-subtract"><b>4.8.8</b> Matching and subtracting</a></li>
+<li class="chapter" data-level="4.8.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-find"><b>4.8.9</b> <code>find</code> pipeline reading comprehension</a></li>
+<li class="chapter" data-level="4.8.10" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-find-tests"><b>4.8.10</b> Finding files with different properties</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-keypoints"><b>4.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="scripting.html"><a href="scripting.html"><b>5</b> Building Command-Line Tools with Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="scripting.html"><a href="scripting.html#scripting-main"><b>5.1</b> Programs and Modules</a></li>
+<li class="chapter" data-level="5.2" data-path="scripting.html"><a href="scripting.html#scripting-options"><b>5.2</b> Handling Command-Line Options</a></li>
+<li class="chapter" data-level="5.3" data-path="scripting.html"><a href="scripting.html#scripting-docstrings"><b>5.3</b> Documentation</a></li>
+<li class="chapter" data-level="5.4" data-path="scripting.html"><a href="scripting.html#scripting-wordcount"><b>5.4</b> Counting Words</a></li>
+<li class="chapter" data-level="5.5" data-path="scripting.html"><a href="scripting.html#scripting-pipeline"><b>5.5</b> Pipelining</a></li>
+<li class="chapter" data-level="5.6" data-path="scripting.html"><a href="scripting.html#scripting-positional-optional"><b>5.6</b> Positional and Optional Arguments</a></li>
+<li class="chapter" data-level="5.7" data-path="scripting.html"><a href="scripting.html#scripting-collate"><b>5.7</b> Collating Results</a></li>
+<li class="chapter" data-level="5.8" data-path="scripting.html"><a href="scripting.html#scripting-modules"><b>5.8</b> Writing Our Own Modules</a></li>
+<li class="chapter" data-level="5.9" data-path="scripting.html"><a href="scripting.html#scripting-plotting"><b>5.9</b> Plotting</a></li>
+<li class="chapter" data-level="5.10" data-path="scripting.html"><a href="scripting.html#scripting-summary"><b>5.10</b> Summary</a></li>
+<li class="chapter" data-level="5.11" data-path="scripting.html"><a href="scripting.html#scripting-exercises"><b>5.11</b> Exercises</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="scripting.html"><a href="scripting.html#scripting-ex-command-line"><b>5.11.1</b> Running Python statements from the command line</a></li>
+<li class="chapter" data-level="5.11.2" data-path="scripting.html"><a href="scripting.html#scripting-ex-glob-ls"><b>5.11.2</b> Listing files</a></li>
+<li class="chapter" data-level="5.11.3" data-path="scripting.html"><a href="scripting.html#scripting-ex-sentence-endings"><b>5.11.3</b> Sentence ending punctuation</a></li>
+<li class="chapter" data-level="5.11.4" data-path="scripting.html"><a href="scripting.html#scripting-ex-better-plotting"><b>5.11.4</b> A better plotting program</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="scripting.html"><a href="scripting.html#scripting-keypoints"><b>5.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="git-cmdline.html"><a href="git-cmdline.html"><b>6</b> Using Git at the Command Line</a><ul>
+<li class="chapter" data-level="6.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-setup"><b>6.1</b> Setting Up</a></li>
+<li class="chapter" data-level="6.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-repos"><b>6.2</b> Creating a New Repository</a></li>
+<li class="chapter" data-level="6.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-add-existing"><b>6.3</b> Adding Existing Work</a></li>
+<li class="chapter" data-level="6.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-commit-message"><b>6.4</b> Describing Commits</a></li>
+<li class="chapter" data-level="6.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-changes"><b>6.5</b> Saving and Tracking Changes</a></li>
+<li class="chapter" data-level="6.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-remotes"><b>6.6</b> Synchronizing with Other Repositories</a></li>
+<li class="chapter" data-level="6.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-history"><b>6.7</b> Exploring History</a></li>
+<li class="chapter" data-level="6.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-restore"><b>6.8</b> Restoring Old Versions of Files</a></li>
+<li class="chapter" data-level="6.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ignore"><b>6.9</b> Ignoring Files</a></li>
+<li class="chapter" data-level="6.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-summary"><b>6.10</b> Summary</a></li>
+<li class="chapter" data-level="6.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-exercises"><b>6.11</b> Exercises</a><ul>
+<li class="chapter" data-level="6.11.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-places"><b>6.11.1</b> Places to create Git repositories</a></li>
+<li class="chapter" data-level="6.11.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unsave"><b>6.11.2</b> Removing before saving</a></li>
+<li class="chapter" data-level="6.11.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-word-diff"><b>6.11.3</b> Viewing changes</a></li>
+<li class="chapter" data-level="6.11.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-commit"><b>6.11.4</b> Committing changes</a></li>
+<li class="chapter" data-level="6.11.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-bio"><b>6.11.5</b> Write your biography</a></li>
+<li class="chapter" data-level="6.11.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-multiple"><b>6.11.6</b> Committing multiple files</a></li>
+<li class="chapter" data-level="6.11.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-timestamp"><b>6.11.7</b> GitHub timestamps</a></li>
+<li class="chapter" data-level="6.11.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-history"><b>6.11.8</b> Workflow and history</a></li>
+<li class="chapter" data-level="6.11.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-ignore-nested"><b>6.11.9</b> Ignoring nested files</a></li>
+<li class="chapter" data-level="6.11.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-include"><b>6.11.10</b> Including specific files</a></li>
+<li class="chapter" data-level="6.11.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-github-interface"><b>6.11.11</b> Exploring the GitHub interface</a></li>
+<li class="chapter" data-level="6.11.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-push-commit"><b>6.11.12</b> Push versus commit</a></li>
+<li class="chapter" data-level="6.11.13" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-boilerplate"><b>6.11.13</b> License and README files</a></li>
+<li class="chapter" data-level="6.11.14" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-recover"><b>6.11.14</b> Recovering older versions of a file</a></li>
+<li class="chapter" data-level="6.11.15" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-diff"><b>6.11.15</b> Understanding <code>git diff</code></a></li>
+<li class="chapter" data-level="6.11.16" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unstage"><b>6.11.16</b> Getting rid of staged changes</a></li>
+<li class="chapter" data-level="6.11.17" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-blame"><b>6.11.17</b> Figuring out who did what</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-keypoints"><b>6.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-advanced.html"><a href="git-advanced.html"><b>7</b> Going Further with Git</a><ul>
+<li class="chapter" data-level="7.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-what"><b>7.1</b> What’s a Branch?</a></li>
+<li class="chapter" data-level="7.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-how"><b>7.2</b> Creating a Branch</a></li>
+<li class="chapter" data-level="7.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-theory"><b>7.3</b> What Curve Should We Fit?</a></li>
+<li class="chapter" data-level="7.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-zipf-verify"><b>7.4</b> Verifying Zipf’s Law</a></li>
+<li class="chapter" data-level="7.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-merge"><b>7.5</b> Merging</a></li>
+<li class="chapter" data-level="7.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-conflict"><b>7.6</b> Handling Conflicts</a></li>
+<li class="chapter" data-level="7.7" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-workflow"><b>7.7</b> A Branch-Based Workflow</a></li>
+<li class="chapter" data-level="7.8" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-fork"><b>7.8</b> Using Other People’s Work</a></li>
+<li class="chapter" data-level="7.9" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pull-requests"><b>7.9</b> Pull Requests</a></li>
+<li class="chapter" data-level="7.10" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pr-conflict"><b>7.10</b> Handling Conflicts in Pull Requests</a></li>
+<li class="chapter" data-level="7.11" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-summary"><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="7.12" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-exercises"><b>7.12</b> Exercises</a><ul>
+<li class="chapter" data-level="7.12.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-explain-options"><b>7.12.1</b> Explaining options</a></li>
+<li class="chapter" data-level="7.12.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-modify-prompt"><b>7.12.2</b> Modifying prompt</a></li>
+<li class="chapter" data-level="7.12.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-ignoring-files"><b>7.12.3</b> Ignoring files</a></li>
+<li class="chapter" data-level="7.12.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-create-twice"><b>7.12.4</b> Creating the same file twice</a></li>
+<li class="chapter" data-level="7.12.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-delete-unmerged"><b>7.12.5</b> Deleting a branch without merging</a></li>
+<li class="chapter" data-level="7.12.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-trace-changes"><b>7.12.6</b> Tracing changes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.13" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-keypoints"><b>7.13</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="teams.html"><a href="teams.html"><b>8</b> Working in Teams</a><ul>
+<li class="chapter" data-level="8.1" data-path="teams.html"><a href="teams.html#teams-scope"><b>8.1</b> What Is a Project?</a></li>
+<li class="chapter" data-level="8.2" data-path="teams.html"><a href="teams.html#teams-inclusive"><b>8.2</b> Include Everyone</a></li>
+<li class="chapter" data-level="8.3" data-path="teams.html"><a href="teams.html#teams-coc"><b>8.3</b> Establish a Code of Conduct</a></li>
+<li class="chapter" data-level="8.4" data-path="teams.html"><a href="teams.html#teams-license"><b>8.4</b> Include a License</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="teams.html"><a href="teams.html#teams-license-software"><b>8.4.1</b> Software</a></li>
+<li class="chapter" data-level="8.4.2" data-path="teams.html"><a href="teams.html#teams-license-other"><b>8.4.2</b> Data and reports</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="teams.html"><a href="teams.html#teams-planning"><b>8.5</b> Planning</a></li>
+<li class="chapter" data-level="8.6" data-path="teams.html"><a href="teams.html#teams-bugs"><b>8.6</b> Bug Reports</a></li>
+<li class="chapter" data-level="8.7" data-path="teams.html"><a href="teams.html#teams-labels"><b>8.7</b> Labeling Issues</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="teams.html"><a href="teams.html#teams-workflow"><b>8.7.1</b> Standardizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="teams.html"><a href="teams.html#teams-prioritize"><b>8.8</b> Prioritizing</a></li>
+<li class="chapter" data-level="8.9" data-path="teams.html"><a href="teams.html#teams-meetings"><b>8.9</b> Meetings</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="teams.html"><a href="teams.html#teams-fair"><b>8.9.1</b> Air time</a></li>
+<li class="chapter" data-level="8.9.2" data-path="teams.html"><a href="teams.html#teams-online"><b>8.9.2</b> Online meetings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="teams.html"><a href="teams.html#teams-martha"><b>8.10</b> Making Decisions</a></li>
+<li class="chapter" data-level="8.11" data-path="teams.html"><a href="teams.html#teams-documentation"><b>8.11</b> Make All This Obvious to Newcomers</a></li>
+<li class="chapter" data-level="8.12" data-path="teams.html"><a href="teams.html#teams-conflict"><b>8.12</b> Handling Conflict</a></li>
+<li class="chapter" data-level="8.13" data-path="teams.html"><a href="teams.html#teams-summary"><b>8.13</b> Summary</a></li>
+<li class="chapter" data-level="8.14" data-path="teams.html"><a href="teams.html#teams-exercises"><b>8.14</b> Exercises</a><ul>
+<li class="chapter" data-level="8.14.1" data-path="teams.html"><a href="teams.html#teams-ex-scavenger-hunt"><b>8.14.1</b> Finding information</a></li>
+<li class="chapter" data-level="8.14.2" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-coc"><b>8.14.2</b> Add a Code of Conduct to your project</a></li>
+<li class="chapter" data-level="8.14.3" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-license"><b>8.14.3</b> Add a license to your project</a></li>
+<li class="chapter" data-level="8.14.4" data-path="teams.html"><a href="teams.html#teams-ex-contributing"><b>8.14.4</b> Adding contribution guidelines</a></li>
+<li class="chapter" data-level="8.14.5" data-path="teams.html"><a href="teams.html#teams-ex-file-issue"><b>8.14.5</b> File an issue</a></li>
+<li class="chapter" data-level="8.14.6" data-path="teams.html"><a href="teams.html#teams-ex-label"><b>8.14.6</b> Label issues</a></li>
+<li class="chapter" data-level="8.14.7" data-path="teams.html"><a href="teams.html#teams-ex-balancing"><b>8.14.7</b> Balancing individual and team needs</a></li>
+<li class="chapter" data-level="8.14.8" data-path="teams.html"><a href="teams.html#teams-ex-invisible"><b>8.14.8</b> Crediting invisible contributions</a></li>
+<li class="chapter" data-level="8.14.9" data-path="teams.html"><a href="teams.html#teams-ex-members"><b>8.14.9</b> Who are you?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.15" data-path="teams.html"><a href="teams.html#teams-keypoints"><b>8.15</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="automate.html"><a href="automate.html"><b>9</b> Automating Analyses with Make</a><ul>
+<li class="chapter" data-level="9.1" data-path="automate.html"><a href="automate.html#automate-single-file"><b>9.1</b> Updating a Single File</a></li>
+<li class="chapter" data-level="9.2" data-path="automate.html"><a href="automate.html#automate-multiple"><b>9.2</b> Managing Multiple Files</a></li>
+<li class="chapter" data-level="9.3" data-path="automate.html"><a href="automate.html#automate-depend-programs"><b>9.3</b> Updating Files When Programs Change</a></li>
+<li class="chapter" data-level="9.4" data-path="automate.html"><a href="automate.html#automate-variables"><b>9.4</b> Reducing Repetition in a Makefile</a></li>
+<li class="chapter" data-level="9.5" data-path="automate.html"><a href="automate.html#automate-autovar"><b>9.5</b> Automatic Variables</a></li>
+<li class="chapter" data-level="9.6" data-path="automate.html"><a href="automate.html#automate-pattern"><b>9.6</b> Generic Rules</a></li>
+<li class="chapter" data-level="9.7" data-path="automate.html"><a href="automate.html#automate-functions"><b>9.7</b> Defining Sets of Files</a></li>
+<li class="chapter" data-level="9.8" data-path="automate.html"><a href="automate.html#automate-doc"><b>9.8</b> Documenting a Makefile</a></li>
+<li class="chapter" data-level="9.9" data-path="automate.html"><a href="automate.html#automate-pipeline"><b>9.9</b> Automating Entire Analyses</a></li>
+<li class="chapter" data-level="9.10" data-path="automate.html"><a href="automate.html#automate-summary"><b>9.10</b> Summary</a></li>
+<li class="chapter" data-level="9.11" data-path="automate.html"><a href="automate.html#automate-exercises"><b>9.11</b> Exercises</a><ul>
+<li class="chapter" data-level="9.11.1" data-path="automate.html"><a href="automate.html#automate-ex-report-change"><b>9.11.1</b> Report results that would change</a></li>
+<li class="chapter" data-level="9.11.2" data-path="automate.html"><a href="automate.html#automate-ex-useful-options"><b>9.11.2</b> Useful options</a></li>
+<li class="chapter" data-level="9.11.3" data-path="automate.html"><a href="automate.html#automate-ex-mkdir"><b>9.11.3</b> Make sure the output directory exists</a></li>
+<li class="chapter" data-level="9.11.4" data-path="automate.html"><a href="automate.html#automate-ex-print"><b>9.11.4</b> Print the title and author</a></li>
+<li class="chapter" data-level="9.11.5" data-path="automate.html"><a href="automate.html#automate-ex-all-results"><b>9.11.5</b> Create all results</a></li>
+<li class="chapter" data-level="9.11.6" data-path="automate.html"><a href="automate.html#automate-ex-wildcard-perils"><b>9.11.6</b> The perils of shell wildcards</a></li>
+<li class="chapter" data-level="9.11.7" data-path="automate.html"><a href="automate.html#automate-ex-readable-docs"><b>9.11.7</b> Making documentation more readable</a></li>
+<li class="chapter" data-level="9.11.8" data-path="automate.html"><a href="automate.html#automate-ex-configuration"><b>9.11.8</b> Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="automate.html"><a href="automate.html#automate-keypoints"><b>9.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="config.html"><a href="config.html"><b>10</b> Configuring Programs</a><ul>
+<li class="chapter" data-level="10.1" data-path="config.html"><a href="config.html#config-formats"><b>10.1</b> Configuration File Formats</a></li>
+<li class="chapter" data-level="10.2" data-path="config.html"><a href="config.html#config-matplotlib"><b>10.2</b> Matplotlib Configuration</a></li>
+<li class="chapter" data-level="10.3" data-path="config.html"><a href="config.html#config-global"><b>10.3</b> The Global Configuration File</a></li>
+<li class="chapter" data-level="10.4" data-path="config.html"><a href="config.html#config-user"><b>10.4</b> The User Configuration File</a></li>
+<li class="chapter" data-level="10.5" data-path="config.html"><a href="config.html#config-command-line"><b>10.5</b> Adding Command-Line Options</a></li>
+<li class="chapter" data-level="10.6" data-path="config.html"><a href="config.html#config-job-file"><b>10.6</b> A Job Control File</a></li>
+<li class="chapter" data-level="10.7" data-path="config.html"><a href="config.html#config-summary"><b>10.7</b> Summary</a></li>
+<li class="chapter" data-level="10.8" data-path="config.html"><a href="config.html#config-exercises"><b>10.8</b> Exercises</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="config.html"><a href="config.html#config-ex-build-plotparams"><b>10.8.1</b> Building with plotting parameters</a></li>
+<li class="chapter" data-level="10.8.2" data-path="config.html"><a href="config.html#config-ex-style"><b>10.8.2</b> Using different plot styles</a></li>
+<li class="chapter" data-level="10.8.3" data-path="config.html"><a href="config.html#config-ex-saveload"><b>10.8.3</b> Saving configurations</a></li>
+<li class="chapter" data-level="10.8.4" data-path="config.html"><a href="config.html#config-ex-ini"><b>10.8.4</b> Using INI syntax</a></li>
+<li class="chapter" data-level="10.8.5" data-path="config.html"><a href="config.html#config-ex-consistency"><b>10.8.5</b> Configuration consistency</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="config.html"><a href="config.html#config-keypoints"><b>10.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing.html"><a href="testing.html"><b>11</b> Testing Software</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing.html"><a href="testing.html#testing-assertions"><b>11.1</b> Assertions</a></li>
+<li class="chapter" data-level="11.2" data-path="testing.html"><a href="testing.html#testing-unit"><b>11.2</b> Unit Testing</a></li>
+<li class="chapter" data-level="11.3" data-path="testing.html"><a href="testing.html#testing-framework"><b>11.3</b> Testing Frameworks</a></li>
+<li class="chapter" data-level="11.4" data-path="testing.html"><a href="testing.html#testing-numeric"><b>11.4</b> Testing Floating-Point Values</a></li>
+<li class="chapter" data-level="11.5" data-path="testing.html"><a href="testing.html#testing-integration"><b>11.5</b> Integration Testing</a></li>
+<li class="chapter" data-level="11.6" data-path="testing.html"><a href="testing.html#testing-regression"><b>11.6</b> Regression Testing</a></li>
+<li class="chapter" data-level="11.7" data-path="testing.html"><a href="testing.html#testing-coverage"><b>11.7</b> Test Coverage</a></li>
+<li class="chapter" data-level="11.8" data-path="testing.html"><a href="testing.html#testing-ci"><b>11.8</b> Continuous Integration</a></li>
+<li class="chapter" data-level="11.9" data-path="testing.html"><a href="testing.html#testing-tdd"><b>11.9</b> When to Write Tests</a></li>
+<li class="chapter" data-level="11.10" data-path="testing.html"><a href="testing.html#testing-summary"><b>11.10</b> Summary</a></li>
+<li class="chapter" data-level="11.11" data-path="testing.html"><a href="testing.html#testing-exercises"><b>11.11</b> Exercises</a><ul>
+<li class="chapter" data-level="11.11.1" data-path="testing.html"><a href="testing.html#testing-ex-explain-assertions"><b>11.11.1</b> Explaining assertions</a></li>
+<li class="chapter" data-level="11.11.2" data-path="testing.html"><a href="testing.html#testing-ex-rectangles"><b>11.11.2</b> Rectangle normalization</a></li>
+<li class="chapter" data-level="11.11.3" data-path="testing.html"><a href="testing.html#testing-ex-random"><b>11.11.3</b> Testing with randomness</a></li>
+<li class="chapter" data-level="11.11.4" data-path="testing.html"><a href="testing.html#testing-ex-relative-error"><b>11.11.4</b> Testing with relative error</a></li>
+</ul></li>
+<li class="chapter" data-level="11.12" data-path="testing.html"><a href="testing.html#testing-keypoints"><b>11.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="errors.html"><a href="errors.html"><b>12</b> Handling Errors</a><ul>
+<li class="chapter" data-level="12.1" data-path="errors.html"><a href="errors.html#errors-exceptions"><b>12.1</b> Exceptions</a></li>
+<li class="chapter" data-level="12.2" data-path="errors.html"><a href="errors.html#errors-messages"><b>12.2</b> Writing Useful Error Messages</a></li>
+<li class="chapter" data-level="12.3" data-path="errors.html"><a href="errors.html#errors-testing"><b>12.3</b> Testing Error Handling</a></li>
+<li class="chapter" data-level="12.4" data-path="errors.html"><a href="errors.html#errors-logging"><b>12.4</b> Reporting Errors</a></li>
+<li class="chapter" data-level="12.5" data-path="errors.html"><a href="errors.html#errors-summary"><b>12.5</b> Summary</a></li>
+<li class="chapter" data-level="12.6" data-path="errors.html"><a href="errors.html#errors-exercises"><b>12.6</b> Exercises</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="errors.html"><a href="errors.html#errors-ex-set-level"><b>12.6.1</b> Set the logging level</a></li>
+<li class="chapter" data-level="12.6.2" data-path="errors.html"><a href="errors.html#errors-ex-logging-output"><b>12.6.2</b> Send the logging output to file</a></li>
+<li class="chapter" data-level="12.6.3" data-path="errors.html"><a href="errors.html#errors-ex-exceptions"><b>12.6.3</b> Handling exceptions</a></li>
+<li class="chapter" data-level="12.6.4" data-path="errors.html"><a href="errors.html#errors-ex-error-handling"><b>12.6.4</b> Testing error handling</a></li>
+<li class="chapter" data-level="12.6.5" data-path="errors.html"><a href="errors.html#errors-ex-catalog"><b>12.6.5</b> Error catalogs</a></li>
+<li class="chapter" data-level="12.6.6" data-path="errors.html"><a href="errors.html#errors-ex-traceback"><b>12.6.6</b> Tracebacks</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="errors.html"><a href="errors.html#errors-keypoints"><b>12.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="provenance.html"><a href="provenance.html"><b>13</b> Tracking Provenance</a><ul>
+<li class="chapter" data-level="13.1" data-path="provenance.html"><a href="provenance.html#provenance-data"><b>13.1</b> Data Provenance</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="provenance.html"><a href="provenance.html#provenance-data-fair"><b>13.1.1</b> The FAIR Principles</a></li>
+<li class="chapter" data-level="13.1.2" data-path="provenance.html"><a href="provenance.html#provenance-data-where"><b>13.1.2</b> Where to archive data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="provenance.html"><a href="provenance.html#provenance-code"><b>13.2</b> Code Provenance</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="provenance.html"><a href="provenance.html#provenance-code-environment"><b>13.2.1</b> Software environment</a></li>
+<li class="chapter" data-level="13.2.2" data-path="provenance.html"><a href="provenance.html#provenance-code-steps"><b>13.2.2</b> Data processing steps</a></li>
+<li class="chapter" data-level="13.2.3" data-path="provenance.html"><a href="provenance.html#provenance-code-scripts"><b>13.2.3</b> Analysis scripts</a></li>
+<li class="chapter" data-level="13.2.4" data-path="provenance.html"><a href="provenance.html#provenance-inspectability"><b>13.2.4</b> Reproducibility versus inspectability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="provenance.html"><a href="provenance.html#provenance-summary"><b>13.3</b> Summary</a></li>
+<li class="chapter" data-level="13.4" data-path="provenance.html"><a href="provenance.html#provenance-exercises"><b>13.4</b> Exercises</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="provenance.html"><a href="provenance.html#provenance-ex-get-orcid"><b>13.4.1</b> ORCID</a></li>
+<li class="chapter" data-level="13.4.2" data-path="provenance.html"><a href="provenance.html#provenance-ex-fair-test"><b>13.4.2</b> A FAIR test</a></li>
+<li class="chapter" data-level="13.4.3" data-path="provenance.html"><a href="provenance.html#provenance-ex-understand-project"><b>13.4.3</b> Evaluate a project’s data provenance</a></li>
+<li class="chapter" data-level="13.4.4" data-path="provenance.html"><a href="provenance.html#provenance-ex-eval-code"><b>13.4.4</b> Evaluate a project’s code provenance</a></li>
+<li class="chapter" data-level="13.4.5" data-path="provenance.html"><a href="provenance.html#provenance-ex-permanent-links"><b>13.4.5</b> Making permanent links</a></li>
+<li class="chapter" data-level="13.4.6" data-path="provenance.html"><a href="provenance.html#provenance-ex-release"><b>13.4.6</b> Create an archive of your Zipf’s analysis</a></li>
+<li class="chapter" data-level="13.4.7" data-path="provenance.html"><a href="provenance.html#provenance-ex-publish-code"><b>13.4.7</b> Publishing your code</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="provenance.html"><a href="provenance.html#publish-keypoints"><b>13.5</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="packaging.html"><a href="packaging.html"><b>14</b> Creating Packages with Python</a><ul>
+<li class="chapter" data-level="14.1" data-path="packaging.html"><a href="packaging.html#packaging-package"><b>14.1</b> Creating a Python Package</a></li>
+<li class="chapter" data-level="14.2" data-path="packaging.html"><a href="packaging.html#packaging-virtualenv"><b>14.2</b> Virtual Environments</a></li>
+<li class="chapter" data-level="14.3" data-path="packaging.html"><a href="packaging.html#packaging-installing"><b>14.3</b> Installing a Development Package</a></li>
+<li class="chapter" data-level="14.4" data-path="packaging.html"><a href="packaging.html#packaging-installation"><b>14.4</b> What Installation Does</a></li>
+<li class="chapter" data-level="14.5" data-path="packaging.html"><a href="packaging.html#packaging-distribute"><b>14.5</b> Distributing Packages</a></li>
+<li class="chapter" data-level="14.6" data-path="packaging.html"><a href="packaging.html#packaging-document"><b>14.6</b> Documenting Packages</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="packaging.html"><a href="packaging.html#packaging-readme"><b>14.6.1</b> Including package-level documentation in the <code>README</code></a></li>
+<li class="chapter" data-level="14.6.2" data-path="packaging.html"><a href="packaging.html#packaging-sphinx"><b>14.6.2</b> Creating a web page for documentation</a></li>
+<li class="chapter" data-level="14.6.3" data-path="packaging.html"><a href="packaging.html#packaging-rtd"><b>14.6.3</b> Hosting documentation online</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="packaging.html"><a href="packaging.html#packaging-software-journals"><b>14.7</b> Software Journals</a></li>
+<li class="chapter" data-level="14.8" data-path="packaging.html"><a href="packaging.html#packaging-summary"><b>14.8</b> Summary</a></li>
+<li class="chapter" data-level="14.9" data-path="packaging.html"><a href="packaging.html#exercises"><b>14.9</b> Exercises</a><ul>
+<li class="chapter" data-level="14.9.1" data-path="packaging.html"><a href="packaging.html#packaging-ex-metadata"><b>14.9.1</b> Package metadata</a></li>
+<li class="chapter" data-level="14.9.2" data-path="packaging.html"><a href="packaging.html#packaging-ex-separating-requirements"><b>14.9.2</b> Separating requirements</a></li>
+<li class="chapter" data-level="14.9.3" data-path="packaging.html"><a href="packaging.html#packaging-ex-software-review"><b>14.9.3</b> Software review</a></li>
+<li class="chapter" data-level="14.9.4" data-path="packaging.html"><a href="packaging.html#packaging-ex-pratchett"><b>14.9.4</b> Packaging quotations</a></li>
+</ul></li>
+<li class="chapter" data-level="14.10" data-path="packaging.html"><a href="packaging.html#packaging-keypoints"><b>14.10</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="finale.html"><a href="finale.html"><b>15</b> Finale</a><ul>
+<li class="chapter" data-level="15.1" data-path="finale.html"><a href="finale.html#why-we-wrote-this-book"><b>15.1</b> Why We Wrote This Book</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="solutions.html"><a href="solutions.html"><b>A</b> Solutions</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-basics">Chapter @ref(bash-basics)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-more-ls">Exercise @ref(bash-basics-ex-more-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-rt">Exercise @ref(bash-basics-ex-ls-rt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-paths">Exercise @ref(bash-basics-ex-paths)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-resolve-rel-path">Exercise @ref(bash-basics-ex-resolve-rel-path)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reading-ls">Exercise @ref(bash-basics-ex-reading-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-touch">Exercise @ref(bash-basics-ex-touch)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-safe-rm">Exercise @ref(bash-basics-ex-safe-rm)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-move-dot">Exercise @ref(bash-basics-ex-move-dot)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-renaming-files">Exercise @ref(bash-basics-ex-renaming-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-last-ls">Exercise @ref(bash-basics-ex-last-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-copy-multi">Exercise @ref(bash-basics-ex-copy-multi)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-match">Exercise @ref(bash-basics-ex-ls-match)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-organizing">Exercise @ref(bash-basics-ex-organizing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reproduce-structure">Exercise @ref(bash-basics-ex-reproduce-structure)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-wildcard-expressions">Exercise @ref(bash-basics-ex-wildcard-expressions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-remove-unneeded">Exercise @ref(bash-basics-ex-remove-unneeded)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-other-wildcards">Exercise @ref(bash-basics-ex-other-wildcards)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-tools">Chapter @ref(bash-tools)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-redirect-append">Exercise @ref(bash-tools-ex-redirect-append)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-append-data">Exercise @ref(bash-tools-ex-append-data)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-piping">Exercise @ref(bash-tools-ex-piping)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-uniq-adjacent">Exercise @ref(bash-tools-ex-uniq-adjacent)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-reading-pipes">Exercise @ref(bash-tools-ex-reading-pipes)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-pipe-construction">Exercise @ref(bash-tools-ex-pipe-construction)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-which-pipe">Exercise @ref(bash-tools-ex-which-pipe)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-dry-run">Exercise @ref(bash-tools-ex-loop-dry-run)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-variables">Exercise @ref(bash-tools-ex-loop-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-limiting-file-sets">Exercise @ref(bash-tools-ex-limiting-file-sets)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-save">Exercise @ref(bash-tools-ex-loop-save)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-history-order">Exercise @ref(bash-tools-ex-history-order)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-advanced">Chapter @ref(bash-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-cleaning-up">Exercise @ref(bash-advanced-ex-cleaning-up)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-script-variables">Exercise @ref(bash-advanced-ex-script-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-longest-with-extension">Exercise @ref(bash-advanced-ex-longest-with-extension)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-scripts">Exercise @ref(bash-advanced-ex-reading-scripts)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-using-grep">Exercise @ref(bash-advanced-ex-using-grep)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-year-script">Exercise @ref(bash-advanced-ex-year-script)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-sense-sensibility">Exercise @ref(bash-advanced-ex-sense-sensibility)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-match-subtract">Exercise @ref(bash-advanced-ex-match-subtract)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-find">Exercise @ref(bash-advanced-ex-reading-find)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-find-tests">Exercise @ref(bash-advanced-ex-find-tests)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refscripting">Chapter @ref(scripting)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-command-line">Exercise @ref(scripting-ex-command-line)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-glob-ls">Exercise @ref(scripting-ex-glob-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-sentence-endings">Exercise @ref(scripting-ex-sentence-endings)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-better-plotting">Exercise @ref(scripting-ex-better-plotting)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-cmdline">Chapter @ref(git-cmdline)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-places">Exercise @ref(git-cmdline-ex-places)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unsave">Exercise @ref(git-cmdline-ex-unsave)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-word-diff">Exercise @ref(git-cmdline-ex-word-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-commit">Exercise @ref(git-cmdline-ex-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-bio">Exercise @ref(git-cmdline-ex-bio)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-multiple">Exercise @ref(git-cmdline-ex-multiple)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-timestamp">Exercise @ref(git-cmdline-ex-timestamp)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-history">Exercise @ref(git-cmdline-ex-history)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-ignore-nested">Exercise @ref(git-cmdline-ex-ignore-nested)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-include">Exercise @ref(git-cmdline-ex-include)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-github-interface">Exercise @ref(git-cmdline-ex-github-interface)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-push-commit">Exercise @ref(git-cmdline-ex-push-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-boilerplate">Exercise @ref(git-cmdline-ex-boilerplate)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-recover">Exercise @ref(git-cmdline-ex-recover)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-diff">Exercise @ref(git-cmdline-ex-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unstage">Exercise @ref(git-cmdline-ex-unstage)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-blame">Exercise @ref(git-cmdline-ex-blame)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-advanced">Chapter @ref(git-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-explain-options">Exercise @ref(git-advanced-ex-explain-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-modify-prompt">Exercise @ref(git-advanced-ex-modify-prompt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-ignoring-files">Exercise @ref(git-advanced-ex-ignoring-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-create-twice">Exercise @ref(git-advanced-ex-create-twice)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-delete-unmerged">Exercise @ref(git-advanced-ex-delete-unmerged)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-trace-changes">Exercise @ref(git-advanced-ex-trace-changes)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refteams">Chapter @ref(teams)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-scavenger-hunt">Exercise @ref(teams-ex-scavenger-hunt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-coc">Exercise @ref(teams-ex-boilerplate-coc)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-license">Exercise @ref(teams-ex-boilerplate-license)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-contributing">Exercise @ref(teams-ex-contributing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-file-issue">Exercise @ref(teams-ex-file-issue)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-label">Exercise @ref(teams-ex-label)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-balancing">Exercise @ref(teams-ex-balancing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-invisible">Exercise @ref(teams-ex-invisible)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-members">Exercise @ref(teams-ex-members)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refautomate">Chapter @ref(automate)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-report-change">Exercise @ref(automate-ex-report-change)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-useful-options">Exercise @ref(automate-ex-useful-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-mkdir">Exercise @ref(automate-ex-mkdir)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-print">Exercise @ref(automate-ex-print)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-all-results">Exercise @ref(automate-ex-all-results)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-wildcard-perils">Exercise @ref(automate-ex-wildcard-perils)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-readable-docs">Exercise @ref(automate-ex-readable-docs)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-configuration">Exercise @ref(automate-ex-configuration)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refconfig">Chapter @ref(config)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-build-plotparams">Exercise @ref(config-ex-build-plotparams)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-style">Exercise @ref(config-ex-style)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-saveload">Exercise @ref(config-ex-saveload)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-ini">Exercise @ref(config-ex-ini)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-consistency">Exercise @ref(config-ex-consistency)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-reftesting">Chapter @ref(testing)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-explain-assertions">Exercise @ref(testing-ex-explain-assertions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-rectangles">Exercise @ref(testing-ex-rectangles)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-random">Exercise @ref(testing-ex-random)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-relative-error">Exercise @ref(testing-ex-relative-error)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-referrors">Chapter @ref(errors)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-set-level">Exercise @ref(errors-ex-set-level)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-logging-output">Exercise @ref(errors-ex-logging-output)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-exceptions">Exercise @ref(errors-ex-exceptions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-error-handling">Exercise @ref(errors-ex-error-handling)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-catalog">Exercise @ref(errors-ex-catalog)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-traceback">Exercise @ref(errors-ex-traceback)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refprovenance">Chapter @ref(provenance)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-get-orcid">Exercise @ref(provenance-ex-get-orcid)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-fair-test">Exercise @ref(provenance-ex-fair-test)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-understand-project">Exercise @ref(provenance-ex-understand-project)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-eval-code">Exercise @ref(provenance-ex-eval-code)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-permanent-links">Exercise @ref(provenance-ex-permanent-links)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-release">Exercise @ref(provenance-ex-release)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-publish-code">Exercise @ref(provenance-ex-publish-code)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refpackaging">Chapter @ref(packaging)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-metadata">Exercise @ref(packaging-ex-metadata)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-separating-requirements">Exercise @ref(packaging-ex-separating-requirements)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-software-review">Exercise @ref(packaging-ex-software-review)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-pratchett">Exercise @ref(packaging-ex-pratchett)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="objectives.html"><a href="objectives.html"><b>B</b> Learning Objectives</a><ul>
+<li class="chapter" data-level="B.1" data-path="objectives.html"><a href="objectives.html#getting-started-1"><b>B.1</b> Getting Started</a></li>
+<li class="chapter" data-level="B.2" data-path="objectives.html"><a href="objectives.html#the-basics-of-the-unix-shell"><b>B.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="B.3" data-path="objectives.html"><a href="objectives.html#building-tools-with-the-unix-shell"><b>B.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="B.4" data-path="objectives.html"><a href="objectives.html#going-further-with-the-unix-shell"><b>B.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="B.5" data-path="objectives.html"><a href="objectives.html#building-command-line-tools-with-python"><b>B.5</b> Building Command-Line Tools with Python</a></li>
+<li class="chapter" data-level="B.6" data-path="objectives.html"><a href="objectives.html#using-git-at-the-command-line"><b>B.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="B.7" data-path="objectives.html"><a href="objectives.html#going-further-with-git"><b>B.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="B.8" data-path="objectives.html"><a href="objectives.html#working-in-teams"><b>B.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="B.9" data-path="objectives.html"><a href="objectives.html#automating-analyses-with-make"><b>B.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="B.10" data-path="objectives.html"><a href="objectives.html#configuring-programs"><b>B.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="B.11" data-path="objectives.html"><a href="objectives.html#testing-software"><b>B.11</b> Testing Software</a></li>
+<li class="chapter" data-level="B.12" data-path="objectives.html"><a href="objectives.html#handling-errors"><b>B.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="B.13" data-path="objectives.html"><a href="objectives.html#tracking-provenance"><b>B.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="B.14" data-path="objectives.html"><a href="objectives.html#creating-packages-with-python"><b>B.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="keypoints.html"><a href="keypoints.html"><b>C</b> Key Points</a><ul>
+<li class="chapter" data-level="C.1" data-path="keypoints.html"><a href="keypoints.html#getting-started-2"><b>C.1</b> Getting Started</a></li>
+<li class="chapter" data-level="C.2" data-path="keypoints.html"><a href="keypoints.html#the-basics-of-the-unix-shell-1"><b>C.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="C.3" data-path="keypoints.html"><a href="keypoints.html#building-tools-with-the-unix-shell-1"><b>C.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="C.4" data-path="keypoints.html"><a href="keypoints.html#going-further-with-the-unix-shell-1"><b>C.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="C.5" data-path="keypoints.html"><a href="keypoints.html#building-command-line-programs-in-python"><b>C.5</b> Building Command-Line Programs in Python</a></li>
+<li class="chapter" data-level="C.6" data-path="keypoints.html"><a href="keypoints.html#using-git-at-the-command-line-1"><b>C.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="C.7" data-path="keypoints.html"><a href="keypoints.html#going-further-with-git-1"><b>C.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="C.8" data-path="keypoints.html"><a href="keypoints.html#working-in-teams-1"><b>C.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="C.9" data-path="keypoints.html"><a href="keypoints.html#automating-analyses-with-make-1"><b>C.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="C.10" data-path="keypoints.html"><a href="keypoints.html#configuring-programs-1"><b>C.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="C.11" data-path="keypoints.html"><a href="keypoints.html#testing-software-1"><b>C.11</b> Testing Software</a></li>
+<li class="chapter" data-level="C.12" data-path="keypoints.html"><a href="keypoints.html#handling-errors-1"><b>C.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="C.13" data-path="keypoints.html"><a href="keypoints.html#tracking-provenance-1"><b>C.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="C.14" data-path="keypoints.html"><a href="keypoints.html#creating-packages-with-python-1"><b>C.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="tree.html"><a href="tree.html"><b>D</b> Project Tree</a></li>
+<li class="chapter" data-level="E" data-path="ssh.html"><a href="ssh.html"><b>E</b> Working Remotely</a><ul>
+<li class="chapter" data-level="E.1" data-path="ssh.html"><a href="ssh.html#ssh-login"><b>E.1</b> Logging In</a></li>
+<li class="chapter" data-level="E.2" data-path="ssh.html"><a href="ssh.html#ssh-cp"><b>E.2</b> Copying Files</a></li>
+<li class="chapter" data-level="E.3" data-path="ssh.html"><a href="ssh.html#ssh-cmd"><b>E.3</b> Running Commands</a></li>
+<li class="chapter" data-level="E.4" data-path="ssh.html"><a href="ssh.html#ssh-keys"><b>E.4</b> Creating Keys</a></li>
+<li class="chapter" data-level="E.5" data-path="ssh.html"><a href="ssh.html#ssh-filedir"><b>E.5</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="style.html"><a href="style.html"><b>F</b> Writing Readable Code</a><ul>
+<li class="chapter" data-level="F.1" data-path="style.html"><a href="style.html#style-pep8"><b>F.1</b> Python Style</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="style.html"><a href="style.html#spacing"><b>F.1.1</b> Spacing</a></li>
+<li class="chapter" data-level="F.1.2" data-path="style.html"><a href="style.html#naming"><b>F.1.2</b> Naming</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="style.html"><a href="style.html#style-order"><b>F.2</b> Order</a></li>
+<li class="chapter" data-level="F.3" data-path="style.html"><a href="style.html#style-check"><b>F.3</b> Checking Style</a></li>
+<li class="chapter" data-level="F.4" data-path="style.html"><a href="style.html#style-refactor"><b>F.4</b> Refactoring</a><ul>
+<li class="chapter" data-level="F.4.1" data-path="style.html"><a href="style.html#do-not-repeat-values"><b>F.4.1</b> Do not repeat values</a></li>
+<li class="chapter" data-level="F.4.2" data-path="style.html"><a href="style.html#do-not-repeat-calculations-in-loops"><b>F.4.2</b> Do not repeat calculations in loops</a></li>
+<li class="chapter" data-level="F.4.3" data-path="style.html"><a href="style.html#replace-tests-with-flags-to-clarify-repeated-tests"><b>F.4.3</b> Replace tests with flags to clarify repeated tests</a></li>
+<li class="chapter" data-level="F.4.4" data-path="style.html"><a href="style.html#use-in-place-operators-to-avoid-duplicating-expression"><b>F.4.4</b> Use in-place operators to avoid duplicating expression</a></li>
+<li class="chapter" data-level="F.4.5" data-path="style.html"><a href="style.html#handle-special-cases-first"><b>F.4.5</b> Handle special cases first</a></li>
+<li class="chapter" data-level="F.4.6" data-path="style.html"><a href="style.html#use-functions-to-make-code-more-comprehensible"><b>F.4.6</b> Use functions to make code more comprehensible</a></li>
+<li class="chapter" data-level="F.4.7" data-path="style.html"><a href="style.html#combine-operations-in-functions"><b>F.4.7</b> Combine operations in functions</a></li>
+<li class="chapter" data-level="F.4.8" data-path="style.html"><a href="style.html#replace-code-with-data"><b>F.4.8</b> Replace code with data</a></li>
+</ul></li>
+<li class="chapter" data-level="F.5" data-path="style.html"><a href="style.html#style-review"><b>F.5</b> Code Reviews</a></li>
+<li class="chapter" data-level="F.6" data-path="style.html"><a href="style.html#style-features"><b>F.6</b> Python Features</a><ul>
+<li class="chapter" data-level="F.6.1" data-path="style.html"><a href="style.html#provide-default-values-for-parameters"><b>F.6.1</b> Provide default values for parameters</a></li>
+<li class="chapter" data-level="F.6.2" data-path="style.html"><a href="style.html#handle-a-variable-number-of-arguments"><b>F.6.2</b> Handle a variable number of arguments</a></li>
+<li class="chapter" data-level="F.6.3" data-path="style.html"><a href="style.html#unpacking-variable-arguments"><b>F.6.3</b> Unpacking variable arguments</a></li>
+<li class="chapter" data-level="F.6.4" data-path="style.html"><a href="style.html#use-destructuring-to-assign-multiple-values-at-once"><b>F.6.4</b> Use destructuring to assign multiple values at once</a></li>
+</ul></li>
+<li class="chapter" data-level="F.7" data-path="style.html"><a href="style.html#style-summary"><b>F.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="documentation.html"><a href="documentation.html"><b>G</b> Documenting Programs</a><ul>
+<li class="chapter" data-level="G.1" data-path="documentation.html"><a href="documentation.html#documentation-docstrings"><b>G.1</b> Writing Good Docstrings</a></li>
+<li class="chapter" data-level="G.2" data-path="documentation.html"><a href="documentation.html#documentation-audience"><b>G.2</b> Defining Your Audience</a></li>
+<li class="chapter" data-level="G.3" data-path="documentation.html"><a href="documentation.html#documentation-faq"><b>G.3</b> Creating an FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="H" data-path="yaml.html"><a href="yaml.html"><b>H</b> YAML</a></li>
+<li class="chapter" data-level="I" data-path="anaconda.html"><a href="anaconda.html"><b>I</b> Anaconda</a><ul>
+<li class="chapter" data-level="I.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-conda-package-management"><b>I.1</b> Package Management with conda</a><ul>
+<li class="chapter" data-level="I.1.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-cloud"><b>I.1.1</b> Anaconda Cloud</a></li>
+<li class="chapter" data-level="I.1.2" data-path="anaconda.html"><a href="anaconda.html#conda-forge"><b>I.1.2</b> conda-forge</a></li>
+</ul></li>
+<li class="chapter" data-level="I.2" data-path="anaconda.html"><a href="anaconda.html#anaconda-environments"><b>I.2</b> Environment Management with conda</a></li>
+</ul></li>
+<li class="chapter" data-level="J" data-path="glossary.html"><a href="glossary.html"><b>J</b> Glossary</a></li>
+<li class="chapter" data-level="K" data-path="references.html"><a href="references.html"><b>K</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Research Software Engineering with Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="glossary" class="section level1">
+<h1><span class="header-section-number">J</span> Glossary</h1>
+<dl>
+<dt><strong>abandonware</strong><a id="abandonware"></a></dt>
+<dd>Software that is no longer being maintained.
+</dd>
+<dt><strong>absolute error</strong><a id="absolute_error"></a></dt>
+<dd>The absolute value of the difference between the observed and the correct value. Absolute error is usually less useful than <a href="glossary.html#relative_error">relative error</a>.
+</dd>
+<dt><strong>absolute import</strong><a id="absolute_import"></a></dt>
+<dd>In Python, an import that specifies the full location of the file to be imported.
+</dd>
+<dt><strong>absolute path</strong><a id="absolute_path"></a></dt>
+<dd>A path that points to the same location in the <a href="glossary.html#filesystem">filesystem</a> regardless of where it is evaluated. An absolute path is the equivalent of latitude and longitude in geography. See also: <a href="glossary.html#relative_path">relative path</a>
+</dd>
+<dt><strong>actual result (of test)</strong><a id="actual_result"></a></dt>
+<dd>The value generated by running code in a test. If this matches the <a href="glossary.html#expected_result">expected result</a>, the test <a href="glossary.html#pass_test">passes</a>; if the two are different, the test <a href="glossary.html#fail_test">fails</a>.
+</dd>
+<dt><strong>agile development</strong><a id="agile"></a></dt>
+<dd>A software development methodology that emphasizes lots of small steps and continuous feedback instead of up-front planning and long-term scheduling. <a href="glossary.html#exploratory_programming">Exploratory programming</a> is often agile.
+</dd>
+<dt><strong>ally</strong><a id="ally"></a></dt>
+<dd>Someone who actively promotes and supports inclusivity.
+</dd>
+<dt><strong>append mode</strong><a id="append_mode"></a></dt>
+<dd>To add data to the end of an existing file instead of overwriting the previous contents of that file. Overwriting is the default, so most programming languages require programs to be explicit about wanting to append instead.
+</dd>
+<dt><strong>assertion</strong><a id="assertion"></a></dt>
+<dd>A <a href="glossary.html#boolean">Boolean</a> expression that must be <a href="glossary.html#true">true</a> at a certain point in a program. Assertions may be built into the language (e.g., <a href="glossary.html#python">Python</a>’s <code>assert</code> statement) or provided as functions (e.g., <a href="glossary.html#r_language">R</a>’s <code>stopifnot</code>). They are often used in testing, but are also put in <a href="glossary.html#production_code">production code</a> to check that it is behaving correctly. In many languages, assertions should not be used to perform data validation as they may be silently dropped by compilers and interpreters under optimization conditions. Using assertions for data validation can therefore introduce security risks. Unlike many languages, R does not have an <code>assert</code> statement which can be disabled, and so use of a <a href="glossary.html#package">package</a> such as <code>assertr</code> for data validation does not create security holes.
+</dd>
+<dt><strong>authentic task</strong><a id="authentic_task"></a></dt>
+<dd>A task which contains important elements of things that learners would do in real life (non-classroom situations).
+</dd>
+<dt><strong>auto-completion</strong><a id="auto_completion"></a></dt>
+<dd>A feature that allows the user to finish a word or code quickly by pressing the TAB key to list possible words or code from which the user can select.
+</dd>
+<dt><strong>automatic variable</strong><a id="automatic_variable"></a></dt>
+<dd>A variable that is automatically given a value in a <a href="glossary.html#build_rule">build rule</a>. For example, Make automatically assigns the name of a rule’s <a href="glossary.html#build_target">target</a> to the automatic variable <code>$@</code>. Automatic variables are frequently used when writing <a href="glossary.html#pattern_rule">pattern rules</a>. See also: <a href="glossary.html#makefile">Makefile</a>
+</dd>
+<dt><strong>boilerplate</strong><a id="boilerplate"></a></dt>
+<dd>Standard text that is included in legal contracts, licenses, and so on.
+</dd>
+<dt><strong>branch-per-feature workflow</strong><a id="branch_per_feature_workflow"></a></dt>
+<dd>A common strategy for managing work with <a href="glossary.html#git">Git</a> and other <a href="glossary.html#version_control_system">version control systems</a> in which a separate <a href="glossary.html#git_branch">branch</a> is created for work on each new feature or each <a href="glossary.html#bug">bug</a> fix and merged when that work is completed. This isolates changes from one another until they are completed.
+</dd>
+<dt><strong>bug report</strong><a id="bug_report"></a></dt>
+<dd>A collection of files, <a href="glossary.html#log">logs</a>, or related information that describes either an unexpected output of some code or program, or an unexpected error or warning. This information is used to help find and fix a <a href="glossary.html#bug">bug</a> in the program or code.
+</dd>
+<dt><strong>bug tracker</strong><a id="bug_tracker"></a></dt>
+<dd>A system that tracks and manages <a href="glossary.html#bug_report">reported bugs</a> for a software program, to make it easier to address and fix the <a href="glossary.html#bug">bugs</a>.
+</dd>
+<dt><strong>build manager</strong><a id="build_manager"></a></dt>
+<dd>A program that keeps track of how files depend on one another and runs commands to update any files that are out-of-date. Build managers were invented to <a href="glossary.html#compile">compile</a> only those parts of programs that had changed, but are now often used to implement workflows in which plots depend on results files, which in turn depend on raw data files or configuration files. See also: <a href="glossary.html#build_rule">build rule</a>, <a href="glossary.html#makefile">Makefile</a>
+</dd>
+<dt><strong>build recipe</strong><a id="build_recipe"></a></dt>
+<dd>The part of a <a href="glossary.html#build_rule">build rule</a> that describes how to update something that has fallen out-of-date.
+</dd>
+<dt><strong>build rule</strong><a id="build_rule"></a></dt>
+<dd>A specification for a <a href="glossary.html#build_manager">build manager</a> that describes how some files depend on others and what to do if those files are out-of-date.
+</dd>
+<dt><strong>build target</strong><a id="build_target"></a></dt>
+<dd>The file(s) that a <a href="glossary.html#build_rule">build rule</a> will update if they are out-of-date compared to their <a href="glossary.html#dependency">dependencies</a>. See also: <a href="glossary.html#makefile">Makefile</a>, <a href="glossary.html#default_target">default target</a>
+</dd>
+<dt><strong>byte code</strong><a id="byte_code"></a></dt>
+<dd>A set of instructions designed to be executed efficiently by an <a href="glossary.html#interpreter">interpreter</a>.
+</dd>
+<dt><strong>call stack</strong><a id="call_stack"></a></dt>
+<dd>A data structure that stores information about the active subroutines executed.
+</dd>
+<dt><strong>camel case</strong><a id="camel_case"></a></dt>
+<dd>A style of writing code that involves naming variables and objects with no space, underscore (<code>_</code>), dot (<code>.</code>), or dash (<code>-</code>) characters, with each word being capitalized. Examples include <code>CalculateSum</code> and <code>findPattern</code>. See also: <a href="glossary.html#kebab_case">kebab case</a>, <a href="glossary.html#pothole_case">pothole case</a>
+</dd>
+<dt><strong>catch (an exception)</strong><a id="catch_exception"></a></dt>
+<dd>To accept responsibility for handling an error or other unexpected event. <a href="glossary.html#r_language">R</a> prefers “handling a condition” to “catching an exception.” <a href="glossary.html#python">Python</a>, on the other hand, encourages raising and catching exceptions, and in some situations, requires it.
+</dd>
+<dt><strong>Creative Commons license</strong><a id="cc_license"></a></dt>
+<dd>A set of <a href="glossary.html#license">licenses</a> that can be applied to published work. Each license is formed by concatenating one or more of <code>-BY</code> (Attribution): users must cite the original source; <code>-SA</code> (ShareAlike): users must share their own work under a similar license; <code>-NC</code> (NonCommercial): work may not be used for commercial purposes without the creator’s permission; <code>-ND</code> (NoDerivatives): no derivative works (e.g., translations) can be created without the creator’s permission. Thus, <code>CC-BY-NC</code> means “users must give attribution and cannot use commercially without permission.” The term <code>CC-0</code> (zero, not letter ‘O’) is sometimes used to mean “no restrictions,” i.e., the work is in the public domain.
+</dd>
+<dt><strong>checklist</strong><a id="checklist"></a></dt>
+<dd>A list of things to be checked or completed when doing a task.
+</dd>
+<dt><strong>command-line interface</strong><a id="cli"></a></dt>
+<dd>A user interface that relies solely on text for commands and output, typically running in a <a href="glossary.html#shell">shell</a>.
+</dd>
+<dt><strong>code coverage (in testing)</strong><a id="code_coverage"></a></dt>
+<dd>How much of a <a href="glossary.html#library">library</a> or program is executed when tests run. This is normally reported as a percentage of lines of code: for example, if 40 out of 50 lines in a file are run during testing, those tests have 80% code coverage.
+</dd>
+<dt><strong>code review</strong><a id="code_review"></a></dt>
+<dd>To check a program or a change to a program by inspecting its source code.
+</dd>
+<dt><strong>cognitive load</strong><a id="cognitive_load"></a></dt>
+<dd>The amount of working memory needed to accomplish a set of simultaneous tasks.
+</dd>
+<dt><strong>command history</strong><a id="command_history"></a></dt>
+<dd>An automatically created list of previously executed commands. Most read-eval-print loops (<a href="glossary.html#repl">REPLs</a>), including the <a href="glossary.html#shell">Unix shell</a>, record history and allow users to play back recent commands.
+</dd>
+<dt><strong>command-line argument</strong><a id="command_line_argument"></a></dt>
+<dd>A filename or control flag given to a command-line program when it is run.
+</dd>
+<dt><strong>command-line flag</strong><a id="command_line_flag"></a></dt>
+<dd>See <a href="glossary.html#command_line_argument">command-line argument</a>
+</dd>
+<dt><strong>command-line option</strong><a id="command_line_option"></a></dt>
+<dd>See <a href="glossary.html#command_line_argument">command-line argument</a>
+</dd>
+<dt><strong>command-line switch</strong><a id="command_line_switch"></a></dt>
+<dd>See <a href="glossary.html#command_line_argument">command-line argument</a>
+</dd>
+<dt><strong>comment</strong><a id="comment"></a></dt>
+<dd>Text written in a script that is not treated as code to be run, but rather as text that describes what the code is doing. These are usually short notes, often beginning with a <code>#</code> (in many programming languages).
+</dd>
+<dt><strong>commit</strong><a id="commit"></a></dt>
+<dd>As a verb, the act of saving a set of changes to a database or <a href="glossary.html#version_control_system">version control</a> <a href="glossary.html#repository">repository</a>. As a noun, the changes saved.
+</dd>
+<dt><strong>commit message</strong><a id="commit_message"></a></dt>
+<dd>A comment attached to a <a href="glossary.html#commit">commit</a> that explains what was done and why.
+</dd>
+<dt><strong>commons</strong><a id="commons"></a></dt>
+<dd>Something managed jointly by a community according to rules they themselves have evolved and adopted.
+</dd>
+<dt><strong>competent practitioner</strong><a id="competent_practitioner"></a></dt>
+<dd>Someone who can do normal tasks with normal effort under normal circumstances. See also: <a href="glossary.html#novice">novice</a>, <a href="glossary.html#expert">expert</a>
+</dd>
+<dt><strong>computational notebook</strong><a id="computational_notebook"></a></dt>
+<dd>A combination of a document format that allows users to mix prose and code in a single file, and an application that executes that code interactively and in place. The <a href="glossary.html#jupyter_notebook">Jupyter Notebook</a> and <a href="glossary.html#r_markdown">R Markdown</a> files are both examples of computational notebooks.
+</dd>
+<dt><strong>conditional expression</strong><a id="conditional_expression"></a></dt>
+<dd>A <a href="glossary.html#ternary_expression">ternary expression</a> that serves the role of an if/else statement. For example, C and similar languages use the syntax <code>test : ifTrue ? ifFalse</code> to mean “choose the value <code>ifTrue</code> if <code>test</code> is true, or the value <code>ifFalse</code> if it is not.”
+</dd>
+<dt><strong>confirmation bias</strong><a id="confirmation_bias"></a></dt>
+<dd>The tendency to analyze information or make decisions in ways that reinforce existing beliefs.
+</dd>
+<dt><strong>continuation prompt</strong><a id="continuation_prompt"></a></dt>
+<dd>A <a href="glossary.html#prompt">prompt</a> that indicates that the command currently being typed is not yet complete, and will not be run until it is.
+</dd>
+<dt><strong>continuous integration</strong><a id="continuous_integration"></a></dt>
+<dd>A software development practice in which changes are automatically merged as soon as they become available.
+</dd>
+<dt><strong>current working directory</strong><a id="current_working_directory"></a></dt>
+<dd>The <a href="glossary.html#folder">folder</a> or <a href="glossary.html#directory">directory</a> location in which the program operates. Any action taken by the program occurs relative to this directory.
+</dd>
+<dt><strong>data package</strong><a id="data_package"></a></dt>
+<dd>A software package that, mostly, contains only data. Is used to make it simpler to disseminate data for easier use.
+</dd>
+<dt><strong>default target</strong><a id="default_target"></a></dt>
+<dd>The <a href="glossary.html#build_target">build target</a> that is used when none is specified explicitly.
+</dd>
+<dt><strong>default value</strong><a id="default_value"></a></dt>
+<dd>A value assigned to a function <a href="glossary.html#parameter">parameter</a> when the caller does not specify a value. Default values are specified as part of the function’s definition.
+</dd>
+<dt><strong>defensive programming</strong><a id="defensive_programming"></a></dt>
+<dd>A set of programming practices that assumes mistakes will happen and either reports or corrects them, such as inserting <a href="glossary.html#assertion">assertions</a> to report situations that are not ever supposed to occur.
+</dd>
+<dt><strong>destructuring assignment</strong><a id="destructuring_assignment"></a></dt>
+<dd>Unpacking values from data structures and assigning them to multiple variables in a single statement.
+</dd>
+<dt><strong>dictionary</strong><a id="dictionary"></a></dt>
+<dd>A data structure that allows items to be looked up by value, sometimes called an <a href="glossary.html#associative_array">associative array</a>. Dictionaries are often implemented using <a href="glossary.html#hash_table">hash tables</a>.
+</dd>
+<dt><strong>docstring</strong><a id="docstring"></a></dt>
+<dd>Short for “documentation string,” a string appearing at the start of a module, class, or function in <a href="glossary.html#python">Python</a> that automatically becomes that object’s documentation.
+</dd>
+<dt><strong>documentation generator</strong><a id="documentation_generator"></a></dt>
+<dd>A software tool that extracts specially formatted comments or <a href="glossary.html#docstring">dostrings</a> from code and generates cross-referenced developer documentation.
+</dd>
+<dt><strong>Digital Object Identifier</strong><a id="doi"></a></dt>
+<dd>A unique persistent identifier for a book, paper, report, dataset, software release, or other digital artifact. See also: <a href="glossary.html#orcid">ORCID</a>
+</dd>
+<dt><strong>down-vote</strong><a id="down_vote"></a></dt>
+<dd>A vote against something. See also: <a href="glossary.html#up_vote">up-vote</a>
+</dd>
+<dt><strong>entry point</strong><a id="entry_point"></a></dt>
+<dd>Where a program or function starts executing, or the first commands in a file that run.
+</dd>
+<dt><strong>exception</strong><a id="exception"></a></dt>
+<dd>An object that stores information about an error or other unusual event in a program. One part of a program will create and <a href="glossary.html#raise_exception">raise an exception</a> to signal that something unexpected has happened; another part will <a href="glossary.html#catch_exception">catch</a> it.
+</dd>
+<dt><strong>expected result (of test)</strong><a id="expected_result"></a></dt>
+<dd>The value that a piece of software is supposed to produce when tested in a certain way, or the state in which it is supposed to leave the system. See also: <a href="glossary.html#actual_result">actual result (of test)</a>
+</dd>
+<dt><strong>expert</strong><a id="expert"></a></dt>
+<dd>Someone who can diagnose and handle unusual situations, knows when the usual rules do not apply, and tends to recognize solutions rather than reasoning to them. See also: <a href="glossary.html#competent_practitioner">competent practitioner</a>, <a href="glossary.html#novice">novice</a>
+</dd>
+<dt><strong>explicit relative import</strong><a id="explicit_relative_import"></a></dt>
+<dd>In Python, an import that specifies a path relative to the current location.
+</dd>
+<dt><strong>exploratory programming</strong><a id="exploratory_programming"></a></dt>
+<dd>A software development methodology in which requirements emerge or change as the software is being written, often in response to results from early runs.
+</dd>
+<dt><strong>export a variable</strong><a id="export_variable"></a></dt>
+<dd>To make a variable defined inside a <a href="glossary.html#shell_script">shell script</a> available outside that script.
+</dd>
+<dt><strong>external error</strong><a id="external_error"></a></dt>
+<dd>An error caused by something outside a program, such as trying to open a file that doesn’t exist.
+</dd>
+<dt><strong>false beginner</strong><a id="false_beginner"></a></dt>
+<dd>Someone whose previous knowledge allows them to learn (or re-learn) something more quickly. False beginners start at the same point as true beginners (i.e., a pre-test will show the same proficiency) but can move much more quickly.
+</dd>
+<dt><strong>Frequently Asked Questions</strong><a id="faq"></a></dt>
+<dd>A curated list of questions commonly asked about a subject, along with answers.
+</dd>
+<dt><strong>feature request</strong><a id="feature_request"></a></dt>
+<dd>A request to the maintainers or developers of a software program to add a specific functionality (a feature) to that program.
+</dd>
+<dt><strong>filename extension</strong><a id="filename_extension"></a></dt>
+<dd>The last part of a filename, usually following the ‘.’ symbol. Filename extensions are commonly used to indicate the type of content in the file, though there is no guarantee that this is correct.
+</dd>
+<dt><strong>filename stem</strong><a id="filename_stem"></a></dt>
+<dd>The part of the filename that does not include the <a href="glossary.html#filename_extension">extension</a>. For example, the stem of <code>glossary.yml</code> is <code>glossary</code>.
+</dd>
+<dt><strong>filesystem</strong><a id="filesystem"></a></dt>
+<dd>The part of the <a href="glossary.html#operating_system">operating system</a> that manages how files are stored and retrieved. Also used to refer to all of those files and <a href="glossary.html#directory">directories</a> or the specific way they are stored (as in “the Unix filesystem”).
+</dd>
+<dt><strong>filter</strong><a id="filter"></a></dt>
+<dd>As a verb, to choose a set of <a href="glossary.html#record">records</a> (i.e., rows of a table) based on the values they contain. As a noun, a command-line program that reads lines of text from files or <a href="glossary.html#stdin">standard input</a>, performs some operation on them (such as filtering), and writes to a file or <a href="glossary.html#stdout">stdout</a>.
+</dd>
+<dt><strong>fixture</strong><a id="fixture"></a></dt>
+<dd>The thing on which a test is run, such as the <a href="glossary.html#parameter">parameters</a> to the function being tested or the file being processed.
+</dd>
+<dt><strong>flag variable</strong><a id="flag_variable"></a></dt>
+<dd>A variable that changes state exactly once to show that something has happened that needs to be dealt with later.
+</dd>
+<dt><strong>folder</strong><a id="folder"></a></dt>
+<dd>Another term for a <a href="glossary.html#directory">directory</a>.
+</dd>
+<dt><strong>forge</strong><a id="forge"></a></dt>
+<dd>A website that integrates <a href="glossary.html#version_control">version control</a>, <a href="glossary.html#issue_tracking_system">issue tracking</a>, and other tools for software development.
+</dd>
+<dt><strong>full identifier (of a commit)</strong><a id="full_identifier_git"></a></dt>
+<dd>A unique 160-bit identifier for a <a href="glossary.html#commit">commit</a> in a <a href="glossary.html#git">Git</a> <a href="glossary.html#repository">repository</a>, usually written as a 20-character <a href="glossary.html#hexadecimal">hexadecimal</a> character <a href="glossary.html#string">string</a>.
+</dd>
+<dt><strong>Git</strong><a id="git"></a></dt>
+<dd>A <a href="glossary.html#version_control_system">version control tool</a> to record and manage changes to a project.
+</dd>
+<dt><strong>Git branch</strong><a id="git_branch"></a></dt>
+<dd>A snapshot of a version of a <a href="glossary.html#git">Git</a> <a href="glossary.html#repository">repository</a>. Multiple branches can capture multiple versions of the same repository.
+</dd>
+<dt><strong>Git clone</strong><a id="git_clone"></a></dt>
+<dd>Copies (and usually downloads) of a <a href="glossary.html#git">Git</a> <a href="glossary.html#remote_repository">remote repository</a> on a local computer.
+</dd>
+<dt><strong>Git conflict</strong><a id="git_conflict"></a></dt>
+<dd>A situation in which incompatible or overlapping changes have been made on different <a href="glossary.html#branch">branches</a> that are now being <a href="glossary.html#git_merge">merged</a>.
+</dd>
+<dt><strong>Git fork</strong><a id="git_fork"></a></dt>
+<dd>To make a new copy of a <a href="glossary.html#git">Git</a> <a href="glossary.html#repository">repository</a> on a <a href="glossary.html#server">server</a>, or the copy that is made. See also: <a href="glossary.html#git_clone">Git clone</a>
+</dd>
+<dt><strong>Git merge</strong><a id="git_merge"></a></dt>
+<dd>Merging branches in <a href="glossary.html#git">Git</a> incorporates development histories of two <a href="glossary.html#branch">branches</a> in one. If changes are made to similar parts of the branches on both branches, a <a href="glossary.html#git_conflict">conflict</a> will occur and this must be resolved before the merge will be completed.
+</dd>
+<dt><strong>Git pull</strong><a id="git_pull"></a></dt>
+<dd>Downloads and synchronizes changes between a <a href="glossary.html#remote_repository">remote repository</a> and a local <a href="glossary.html#repository">repository</a>.
+</dd>
+<dt><strong>Git push</strong><a id="git_push"></a></dt>
+<dd>Uploads and synchronizes changes between a local <a href="glossary.html#repository">repository</a> and a <a href="glossary.html#remote_repository">remote repository</a>.
+</dd>
+<dt><strong>Git remote</strong><a id="git_remote"></a></dt>
+<dd>A short name for a <a href="glossary.html#remote_repository">remote repository</a> (like a bookmark).
+</dd>
+<dt><strong>Git stage</strong><a id="git_stage"></a></dt>
+<dd>To put changes in a “holding area” from which they can be <a href="glossary.html#commit">committed</a>.
+</dd>
+<dt><strong>governance</strong><a id="governance"></a></dt>
+<dd>The process by which an organization manages itself, or the rules used to do so.
+</dd>
+<dt><strong>GNU Public License</strong><a id="gpl"></a></dt>
+<dd>A <a href="glossary.html#license">license</a> that allows people to re-use software as long as they distribute the source of their changes.
+</dd>
+<dt><strong>graphical user interface</strong><a id="gui"></a></dt>
+<dd>A user interface that relies on windows, menus, pointers, and other graphical elements, as opposed to a <a href="glossary.html#cli">command-line interface</a> or voice-driven interface.
+</dd>
+<dt><strong>hitchhiker</strong><a id="hitchhiker"></a></dt>
+<dd>Someone who is part of a project but does not actually do any work on it.
+</dd>
+<dt><strong>home directory</strong><a id="home_directory"></a></dt>
+<dd>A directory that contains a user’s files. Each user on a multi-user computer will have their own home directory; a personal computer will often only have one home directory.
+</dd>
+<dt><strong>impact/effort matrix</strong><a id="impact_effort_matrix"></a></dt>
+<dd>A tool for prioritizing work in which every task is placed according to its importance and the effort required to complete it.
+</dd>
+<dt><strong>implicit relative import</strong><a id="implicit_relative_import"></a></dt>
+<dd>In Python, an import that does not specify a path (and hence may be ambiguous).
+</dd>
+<dt><strong>impostor syndrome</strong><a id="impostor_syndrome"></a></dt>
+<dd>The <a href="glossary.html#false">false</a> belief that one’s successes are a result of accident or luck rather than ability.
+</dd>
+<dt><strong>in-place operator</strong><a id="in_place_operator"></a></dt>
+<dd>An operator that updates one of its operands. For example, the expression <code>x += 2</code> uses the in-place operator <code>+=</code> to add 2 to the current value of <code>x</code> and assign the result back to <code>x</code>.
+</dd>
+<dt><strong>inspectability</strong><a id="inspectability"></a></dt>
+<dd>The degree to which a third party can figure out what was done and why. Work can be <a href="glossary.html#reproducibility">reproducible</a> without being inspectable.
+</dd>
+<dt><strong>integration test</strong><a id="integration_test"></a></dt>
+<dd>A test that checks whether the parts of a system work properly when put together. See also: <a href="glossary.html#unit_test">unit test</a>
+</dd>
+<dt><strong>internal error</strong><a id="internal_error"></a></dt>
+<dd>An error caused by a fault in a program, such as trying to access elements beyond the end of an array.
+</dd>
+<dt><strong>interruption bingo</strong><a id="interruption_bingo"></a></dt>
+<dd>A technique for managing interruptions in meetings. Everyone’s name is placed on each row and each column of a grid; each time person A interrupts person B, a mark is added to the appropriate grid cell.
+</dd>
+<dt><strong>invariant</strong><a id="invariant"></a></dt>
+<dd>Something that must be <a href="glossary.html#true">true</a> at all times inside of a program or during the <a href="glossary.html#lifecycle">lifecycle</a> of an <a href="glossary.html#object">object</a>. Invariants are often expressed using <a href="glossary.html#assertion">assertions</a>. If an invariant expression is not true, this is indicative of a problem, and may result in failure or early termination of the program.
+</dd>
+<dt><strong>issue</strong><a id="issue"></a></dt>
+<dd>A <a href="glossary.html#bug_report">bug report</a>, feature request, or other to-do item associated with a project. Also called a <a href="glossary.html#ticket">ticket</a>.
+</dd>
+<dt><strong>label (an issue)</strong><a id="issue_label"></a></dt>
+<dd>A short textual tag associated with an <a href="glossary.html#issue">issue</a> to categorize it. Common labels include <code>bug</code> and <code>feature request</code>.
+</dd>
+<dt><strong>issue tracking system</strong><a id="issue_tracking_system"></a></dt>
+<dd>Similar to a <a href="glossary.html#bug_tracker">bug tracking system</a> in that it tracks <a href="glossary.html#issue">issues</a> made to a <a href="glossary.html#repository">repository</a>, usually in the form of <a href="glossary.html#feature_request">feature requests</a>, <a href="glossary.html#bug_report">bug reports</a>, or some other to-do item.
+</dd>
+<dt><strong>JavaScript Object Notation</strong><a id="json"></a></dt>
+<dd>A way to represent data by combining basic values like numbers and character strings in <a href="glossary.html#list">lists</a> and <a href="glossary.html#dictionary">key/value</a> structures. The acronym stands for “JavaScript Object Notation”; unlike better-defined standards like <a href="glossary.html#xml">XML</a>, it is unencumbered by a syntax for comments or ways to define a <a href="glossary.html#schema">schema</a>.
+</dd>
+<dt><strong>kebab case</strong><a id="kebab_case"></a></dt>
+<dd>A naming convention in which the parts of a name are separated with dashes, as in <code>first-second-third</code>. See also: <a href="glossary.html#camel_case">camel case</a>, <a href="glossary.html#pothole_case">pothole case</a>
+</dd>
+<dt><strong>LaTeX</strong><a id="latex"></a></dt>
+<dd>A typesetting system for document preparation that uses a specialized <a href="glossary.html#markup_language">markup language</a> to define a document structure (e.g., headings), stylize text, insert mathematical equations, and manage citations and cross-references. LaTeX is widely used in academia, in particular for scientific papers and theses in mathematics, physics, engineering, and computer science.
+</dd>
+<dt><strong>linter</strong><a id="linter"></a></dt>
+<dd>A program that checks for common problems in software, such as violations of indentation rules or variable naming conventions. The name comes from the first tool of its kind, called <code>lint</code>.
+</dd>
+<dt><strong>list comprehension</strong><a id="list_comprehension"></a></dt>
+<dd>In <a href="glossary.html#python">Python</a>, an expression that creates a new list in place. For example, <code>[2*x for x in values]</code> creates a new list whose items are the doubles of those in <code>values</code>.
+</dd>
+<dt><strong>logging framework</strong><a id="logging_framework"></a></dt>
+<dd>A software <a href="glossary.html#library">library</a> that manages internal reporting for programs.
+</dd>
+<dt><strong>logging level</strong><a id="logging_level"></a></dt>
+<dd>A setting that controls how much information is generated by a <a href="glossary.html#logging_framework">logging framework</a>. Typical logging levels include <code>DEBUG</code>, <code>WARNING</code>, and <code>ERROR</code>.
+</dd>
+<dt><strong>long option</strong><a id="long_option"></a></dt>
+<dd>A full-word identifier for a <a href="glossary.html#command_line_argument">command-line argument</a>. While most common flags are a single letter preceded by a dash, such as <code>-v</code>, long options typically use two dashes and a readable name, such as <code>--verbose</code>. See also: <a href="glossary.html#short_option">short option</a>
+</dd>
+<dt><strong>loop body</strong><a id="loop_body"></a></dt>
+<dd>The statement or statements executed by a loop.
+</dd>
+<dt><strong>magic number</strong><a id="magic_number"></a></dt>
+<dd>An unnamed numerical constant that appears in a program without explanation.
+</dd>
+<dt><strong>Makefile</strong><a id="makefile"></a></dt>
+<dd>A file containing commands for <a href="glossary.html#make">Make</a>, often actually called <code>Makefile</code>.
+</dd>
+<dt><strong>Martha’s Rules</strong><a id="marthas_rules"></a></dt>
+<dd>A simple set of rules for making decisions in small groups.
+</dd>
+<dt><strong>maximum likelihood estimation</strong><a id="maximum_likelihood_estimation"></a></dt>
+<dd>To choose the <a href="glossary.html#parameter">parameters</a> for a <a href="glossary.html#probability_distribution">probability distribution</a> in order to maximize the likelihood of obtaining observed data.
+</dd>
+<dt><strong>mental model</strong><a id="mental_model"></a></dt>
+<dd>A simplified representation of the key elements and relationships of some problem domain that is good enough to support problem solving.
+</dd>
+<dt><strong>milestone</strong><a id="milestone"></a></dt>
+<dd>A target that a project is trying to meet, often represented as a set of <a href="glossary.html#issue">issues</a> that all have to be resolved by a certain time.
+</dd>
+<dt><strong>MIT License</strong><a id="mit_license"></a></dt>
+<dd>A <a href="glossary.html#license">license</a> that allows people to re-use software with no restrictions.
+</dd>
+<dt><strong>Nano (editor)</strong><a id="nano_editor"></a></dt>
+<dd>A very simple text editor found on most Unix systems.
+</dd>
+<dt><strong>non-governmental organization</strong><a id="ngo"></a></dt>
+<dd>An organization that is not affiliated with the government, but does the sorts of public service work that governments often do.
+</dd>
+<dt><strong>novice</strong><a id="novice"></a></dt>
+<dd>Someone who has not yet built a usable mental model of a domain. See also: <a href="glossary.html#competent_practitioner">competent practitioner</a>, <a href="glossary.html#expert">expert</a>
+</dd>
+<dt><strong>object-oriented programming</strong><a id="oop"></a></dt>
+<dd>A style of programming in which functions and data are bound together in <a href="glossary.html#object">objects</a> that only interact with each other through well-defined interfaces.
+</dd>
+<dt><strong>open license</strong><a id="open_license"></a></dt>
+<dd>A <a href="glossary.html#license">license</a> that permits general re-use, such as the <a href="glossary.html#mit_license">MIT License</a> or <a href="glossary.html#gpl">GPL</a> for software and <a href="glossary.html#cc_by">CC-BY</a> or <a href="glossary.html#cc_0">CC-0</a> for data, prose, or other creative outputs.
+</dd>
+<dt><strong>open science</strong><a id="open_science"></a></dt>
+<dd>A generic term for making scientific software, data, and publications generally available.
+</dd>
+<dt><strong>operating system</strong><a id="operating_system"></a></dt>
+<dd>A program that provides a standard interface to whatever hardware it is running on. Theoretically, any program that only interacts with the operating system should run on any computer that operating system runs on.
+</dd>
+<dt><strong>oppression</strong><a id="oppression"></a></dt>
+<dd>A form of injustice in which one social group is marginalized or deprived while another is <a href="glossary.html#privilege">privileged</a>.
+</dd>
+<dt><strong>optional argument</strong><a id="optional_argument"></a></dt>
+<dd>An argument to a function or a command that may be omitted.
+</dd>
+<dt><strong>ORCID</strong><a id="orcid"></a></dt>
+<dd>An Open Researcher and Contributor ID that uniquely and persistently identifies an author of scholarly works. ORCIDs are for people what <a href="glossary.html#doi">DOIs</a> are for documents.
+</dd>
+<dt><strong>orthogonality</strong><a id="orthogonality"></a></dt>
+<dd>The ability to use various features of software in any order or combination. Orthogonal systems tend to be easier to understand, since features can be combined without worrying about unexpected interactions.
+</dd>
+<dt><strong>overlay configuration</strong><a id="overlay_configuration"></a></dt>
+<dd>A technique for configuring programs in which several layers of configuration are used, each overriding settings in the ones before.
+</dd>
+<dt><strong>pager</strong><a id="pager"></a></dt>
+<dd>A program that displays a few lines of text at a time.
+</dd>
+<dt><strong>parent directory</strong><a id="parent_directory"></a></dt>
+<dd>The <a href="glossary.html#directory">directory</a> that contains another directory of interest. Going from a directory to its parent, then its parent, and so on eventually leads to the <a href="glossary.html#root_directory">root directory</a> of the <a href="glossary.html#filesystem">filesystem</a>. See also: <a href="glossary.html#subdirectory">subdirectory</a>
+</dd>
+<dt><strong>patch</strong><a id="patch"></a></dt>
+<dd>A single file containing a set of changes to a set of files, separated by markers that indicate where each individual change should be applied.
+</dd>
+<dt><strong>path (in filesystem)</strong><a id="path"></a></dt>
+<dd>A <a href="glossary.html#string">string</a> that specifies a location in a <a href="glossary.html#filesystem">filesystem</a>. In Unix, the <a href="glossary.html#directory">directories</a> in a path are joined using <code>/</code>. See also: <a href="glossary.html#absolute_path">absolute path</a>, <a href="glossary.html#relative_path">relative path</a>
+</dd>
+<dt><strong>path coverage</strong><a id="path_coverage"></a></dt>
+<dd>The fraction of possible execution paths in a piece of software that have been executed by tests. Software can have complete <a href="glossary.html#code_coverage">code coverage</a> without having complete path coverage.
+</dd>
+<dt><strong>pattern rule</strong><a id="pattern_rule"></a></dt>
+<dd>A generic <a href="glossary.html#build_rule">build rule</a> that describes how to update any file whose name matches a pattern. Pattern rules often use <a href="glossary.html#automatic_variable">automatic variables</a> to represent the actual filenames.
+</dd>
+<dt><strong>phony target</strong><a id="phony_target"></a></dt>
+<dd>A <a href="glossary.html#build_target">build target</a> that does not correspond to an actual file. Phony targets are often used to store commonly used commands in a <a href="glossary.html#makefile">Makefile</a>.
+</dd>
+<dt><strong>pipe (in the Unix shell)</strong><a id="pipe_shell"></a></dt>
+<dd>The <code>|</code> used to make the output of one command the input of the next.
+</dd>
+<dt><strong>positional argument</strong><a id="positional_argument"></a></dt>
+<dd>An argument to a function that gets its value according to its place in the function’s definition, as opposed to a named argument that is explicitly matched by name.
+</dd>
+<dt><strong>postcondition</strong><a id="postcondition"></a></dt>
+<dd>Something that is guaranteed to be true after a piece of software finishes executing. See also: <a href="glossary.html#invariant">invariant</a>, <a href="glossary.html#precondition">precondition</a>
+</dd>
+<dt><strong>pothole case</strong><a id="pothole_case"></a></dt>
+<dd>A naming style that separates the parts of a name with underscores, as in <code>first_second_third</code>. See also: <a href="glossary.html#camel_case">camel case</a>, <a href="glossary.html#kebab_case">kebab case</a>
+</dd>
+<dt><strong>power law</strong><a id="power_law"></a></dt>
+<dd>A mathematical relationship in which one quantity changes in proportion to a constant raised to the power of another quantity.
+</dd>
+<dt><strong>precondition</strong><a id="precondition"></a></dt>
+<dd>Something that must be true before a piece of software runs in order for that software to run correctly. See also: <a href="glossary.html#invariant">invariant</a>, <a href="glossary.html#postcondition">postcondition</a>
+</dd>
+<dt><strong>prerequisite</strong><a id="prerequisite"></a></dt>
+<dd>Something that a <a href="glossary.html#build_target">build target</a> depends on.
+</dd>
+<dt><strong>privilege</strong><a id="privilege"></a></dt>
+<dd>An unearned advantage, typically as a result of belonging to a dominant social class or group.
+</dd>
+<dt><strong>pseudo-random number generator</strong><a id="prng"></a></dt>
+<dd>A function that can generate <a href="glossary.html#pseudo_random_number">pseudo-random numbers</a>. See also: <a href="glossary.html#seed">seed</a>
+</dd>
+<dt><strong>procedural programming</strong><a id="procedural_programming"></a></dt>
+<dd>A style of programming in which functions operate on data that is passed into them. The term is used in contrast to other programming styles, such as <a href="glossary.html#oop">object-oriented programming</a> and <a href="glossary.html#functional_programming">functional programming</a>.
+</dd>
+<dt><strong>process</strong><a id="process"></a></dt>
+<dd>An <a href="glossary.html#operating_system">operating system</a>’s representation of a running program. A process typically has some memory, the identity of the user who is running it, and a set of connections to open files.
+</dd>
+<dt><strong>product manager</strong><a id="product_manager"></a></dt>
+<dd>The person responsible for defining what features a product should have.
+</dd>
+<dt><strong>project manager</strong><a id="project_manager"></a></dt>
+<dd>The person responsible for ensuring that a project moves forward.
+</dd>
+<dt><strong>prompt</strong><a id="prompt"></a></dt>
+<dd>The text printed by an <a href="glossary.html#repl">REPL</a> or <a href="glossary.html#shell">shell</a> that indicates it is ready to accept another command. The default prompt in the Unix shell is usually <code>$</code>, while in <a href="glossary.html#python">Python</a> it is <code>&gt;&gt;&gt;</code>, and in <a href="glossary.html#r_language">R</a> it is <code>&gt;</code>. See also: <a href="glossary.html#continuation_prompt">continuation prompt</a>
+</dd>
+<dt><strong>provenance</strong><a id="provenance"></a></dt>
+<dd>A record of where data originally came from and what was done to process it.
+</dd>
+<dt><strong>pull request</strong><a id="pull_request"></a></dt>
+<dd>The request to merge a new feature or correction created on a user’s <a href="glossary.html#fork">fork</a> of a <a href="glossary.html#git">Git</a> <a href="glossary.html#repository">repository</a> into the <a href="glossary.html#upstream_repository">upstream repository</a>. The developer will be notified of the change, review it, make or suggest changes, and potentially <a href="glossary.html#git_merge">merge</a> it.
+</dd>
+<dt><strong>raise (an exception)</strong><a id="raise_exception"></a></dt>
+<dd>To signal that something unexpected or unusual has happened in a program by creating an <a href="glossary.html#exception">exception</a> and handing it to the <a href="glossary.html#error_handling">error-handling</a> system, which then tries to find a point in the program that will <a href="glossary.html#catch_exception">catch</a> it.
+</dd>
+<dt><strong>raster image</strong><a id="raster_image"></a></dt>
+<dd>An image stored as a matrix of pixels.
+</dd>
+<dt><strong>recursion</strong><a id="recursion"></a></dt>
+<dd>Calling a function from within a call to that function, or defining a term using a simpler version of the same term.
+</dd>
+<dt><strong>redirection</strong><a id="redirection"></a></dt>
+<dd>To send a request for a web page or web service to a different page or service.
+</dd>
+<dt><strong>refactoring</strong><a id="refactoring"></a></dt>
+<dd>Reorganizing software without changing its behavior.
+</dd>
+<dt><strong>regression testing</strong><a id="regression_testing"></a></dt>
+<dd>Testing software to ensure that things which used to work have not been broken.
+</dd>
+<dt><strong>regular expression</strong><a id="regular_expression"></a></dt>
+<dd>A pattern for matching text, written as text itself. Regular expressions are sometimes called “regexp”, “regex”, or “RE”, and are powerful tools for working with text.
+</dd>
+<dt><strong>relative error</strong><a id="relative_error"></a></dt>
+<dd>The absolute value of the difference between the actual and correct value divided by the correct value. For example, if the actual value is 9 and the correct value is 10, the relative error is 0.1. Relative error is usually more useful than <a href="glossary.html#absolute_error">absolute error</a>.
+</dd>
+<dt><strong>relative path</strong><a id="relative_path"></a></dt>
+<dd>A path whose destination is interpreted relative to some other location, such as the <a href="glossary.html#current_working_directory">current working directory</a>. A relative path is the equivalent of giving directions using terms like “straight” and “left”. See also: <a href="glossary.html#absolute_path">absolute path</a>
+</dd>
+<dt><strong>remote login</strong><a id="remote_login"></a></dt>
+<dd>Starting an interactive session on one computer from another computer, e.g., by using <a href="glossary.html#ssh">SSH</a>.
+</dd>
+<dt><strong>remote login server</strong><a id="remote_login_server"></a></dt>
+<dd>A process that handles requests to log in to a computer from other computers. See also: <a href="glossary.html#ssh_daemon">ssh daemon</a>
+</dd>
+<dt><strong>remote repository</strong><a id="remote_repository"></a></dt>
+<dd>A <a href="glossary.html#repository">repository</a> located on another computer. Tools such as <a href="glossary.html#git">Git</a> are designed to synchronize changes between local and remote repositories in order to share work.
+</dd>
+<dt><strong>read-eval-print loop</strong><a id="repl"></a></dt>
+<dd>An interactive program that reads a command typed in by a user, executes it, prints the result, and then waits patiently for the next command. REPLs are often used to explore new ideas, or for debugging.
+</dd>
+<dt><strong>repository</strong><a id="repository"></a></dt>
+<dd>A place where a <a href="glossary.html#version_control_system">version control system</a> stores the files that make up a project and the metadata that describes their history. See also: <a href="glossary.html#git">Git</a>
+</dd>
+<dt><strong>reprex</strong><a id="reprex"></a></dt>
+<dd>A reproducible example. When asking questions about coding problems online or filing issues on <a href="glossary.html#github">GitHub</a>, you should always include a reprex so others can reproduce your problem and help. The <a href="https://github.com/tidyverse/reprex">reprex</a> package can help!
+</dd>
+<dt><strong>reproducible research</strong><a id="reproducible_research"></a></dt>
+<dd>The practice of describing and documenting research results in such a way that another researcher or person can re-run the analysis code on the same data to obtain the same result.
+</dd>
+<dt><strong>reStructured Text</strong><a id="restructured_text"></a></dt>
+<dd>A plaintext <a href="glossary.html#markup_language">markup</a> format used primarily in <a href="glossary.html#python">Python</a> documentation.
+</dd>
+<dt><strong>revision</strong><a id="revision"></a></dt>
+<dd>See <a href="glossary.html#commit">commit</a>.
+</dd>
+<dt><strong>root directory</strong><a id="root_directory"></a></dt>
+<dd>The <a href="glossary.html#directory">directory</a> that contains everything else, either directly or indirectly. The root directory is written <code>/</code> (a bare forward slash).
+</dd>
+<dt><strong>rotating file</strong><a id="rotating_file"></a></dt>
+<dd>A set of files used to store recent information. For example, there might be one file with results for each day of the week, so that results from last Tuesday are overwritten this Tuesday.
+</dd>
+<dt><strong>research software engineer</strong><a id="rse"></a></dt>
+<dd>Someone whose primary responsibility is to build the specialized software that other researchers depend on.
+</dd>
+<dt><strong>script</strong><a id="script"></a></dt>
+<dd>Originally, a program written in a language too user-friendly for “real” programmers to take seriously; the term is now synonymous with program.
+</dd>
+<dt><strong>search path</strong><a id="search_path"></a></dt>
+<dd>The list of directories that a program searches to find something. For example, the Unix <a href="glossary.html#shell">shell</a> uses the search path stored in the <code>PATH</code> variable when trying to find a program whose name it has been given.
+</dd>
+<dt><strong>seed</strong><a id="seed"></a></dt>
+<dd>A value used to initialize a <a href="glossary.html#prng">pseudo-random number generator</a>.
+</dd>
+<dt><strong>semantic versioning</strong><a id="semantic_versioning"></a></dt>
+<dd>A standard for identifying software releases. In the version identifier <code>major.minor.patch</code>, <code>major</code> changes when a new version of software is incompatible with old versions, <code>minor</code> changes when new features are added to an existing version, and <code>patch</code> changes when small <a href="glossary.html#bug">bugs</a> are fixed.
+</dd>
+<dt><strong>sense vote</strong><a id="sense_vote"></a></dt>
+<dd>A preliminary vote used to determine whether further discussion is needed in a meeting. See also: <a href="glossary.html#marthas_rules">Martha’s Rules</a>
+</dd>
+<dt><strong>shebang</strong><a id="shebang"></a></dt>
+<dd>In Unix, a character sequence such as <code>#!/usr/bin/python</code> in the first line of an executable file that tells the <a href="glossary.html#shell">shell</a> what program to use to run that file.
+</dd>
+<dt><strong>shell</strong><a id="shell"></a></dt>
+<dd>A <a href="glossary.html#cli">command-line interface</a> that allows a user to interact with the <a href="glossary.html#operating_system">operating system</a>, such as Bash (for Unix and MacOS) or PowerShell (for Windows).
+</dd>
+<dt><strong>shell script</strong><a id="shell_script"></a></dt>
+<dd>A set of commands for the <a href="glossary.html#shell">shell</a> stored in a file so that they can be re-executed. A shell script is effectively a program.
+</dd>
+<dt><strong>shell variable</strong><a id="shell_variable"></a></dt>
+<dd>A variable set and used in the <a href="glossary.html#shell">Unix shell</a>. Commonly used shell variables include <code>HOME</code> (the user’s home directory) and <code>PATH</code> (their <a href="glossary.html#search_path">search path</a>).
+</dd>
+<dt><strong>short circuit test</strong><a id="short_circuit_test"></a></dt>
+<dd>A logical test that only evaluates as many arguments as it needs to. For example, if <code>A</code> is <a href="glossary.html#false">false</a>, then most languages never evaluate <code>B</code> in the expression <code>A and B</code>.
+</dd>
+<dt><strong>short identifier (of commit)</strong><a id="short_identifier_git"></a></dt>
+<dd>The first few characters of a <a href="glossary.html#full_identifier_git">full identifier</a>. Short identifiers are easy for people to type and say aloud, and are usually unique within a <a href="glossary.html#repository">repository's</a> recent history.
+</dd>
+<dt><strong>short option</strong><a id="short_option"></a></dt>
+<dd>A single-letter identifier for a <a href="glossary.html#command_line_argument">command-line argument</a>. Most common flags are a single letter preceded by a dash, such as <code>-v</code>. See also: <a href="glossary.html#long_option">long option</a>
+</dd>
+<dt><strong>snake case</strong><a id="snake_case"></a></dt>
+<dd>See <a href="glossary.html#pothole_case">pothole case</a>. See also: <a href="glossary.html#camel_case">camel case</a>, <a href="glossary.html#kebab_case">kebab case</a>
+</dd>
+<dt><strong>software distribution</strong><a id="software_distribution"></a></dt>
+<dd>A set of programs that are built, tested, and distributed as a collection so that they can run together.
+</dd>
+<dt><strong>source distribution</strong><a id="source_distribution"></a></dt>
+<dd>A <a href="glossary.html#software_distribution">software distribution</a> that includes the source code, typically so that programs can be recompiled on the target computer when they are installed.
+</dd>
+<dt><strong>sprint</strong><a id="sprint"></a></dt>
+<dd>A short, intense period of work on a project.
+</dd>
+<dt><strong>ssh daemon</strong><a id="ssh_daemon"></a></dt>
+<dd>A <a href="glossary.html#remote_login_server">remote login server</a> that handles <a href="glossary.html#ssh">SSH</a> connections.
+</dd>
+<dt><strong>SSH key</strong><a id="ssh_key"></a></dt>
+<dd>A string of random bits stored in a file that is used to identify a user for <a href="glossary.html#ssh">SSH</a>. Each SSH key has separate public and private parts; the public part can safely be shared, but if the private part becomes known, the key is compromised.
+</dd>
+<dt><strong>SSH protocol</strong><a id="ssh_protocol"></a></dt>
+<dd>A formal standard for exchanging encrypted messages between computers and for managing <a href="glossary.html#remote_login_server">remote logins</a>.
+</dd>
+<dt><strong>stack frame</strong><a id="stack_frame"></a></dt>
+<dd>A section of the <a href="glossary.html#call_stack">call stack</a> that records details of a single call to a specific function.
+</dd>
+<dt><strong>standard error</strong><a id="stderr"></a></dt>
+<dd>A predefined communication channel for a <a href="glossary.html#process">process</a>, typically used for error messages. See also: <a href="glossary.html#stdin">standard input</a>, <a href="glossary.html#stdout">standard output</a>
+</dd>
+<dt><strong>standard input</strong><a id="stdin"></a></dt>
+<dd>A predefined communication channel for a <a href="glossary.html#process">process</a>, typically used to read input from the keyboard or from the previous process in a <a href="glossary.html#pipe_shell">pipe</a>. See also: <a href="glossary.html#stderr">standard error</a>, <a href="glossary.html#stdout">standard output</a>
+</dd>
+<dt><strong>standard output</strong><a id="stdout"></a></dt>
+<dd>A predefined communication channel for a <a href="glossary.html#process">process</a>, typically used to send output to the screen or to the next process in a <a href="glossary.html#pipe_shell">pipe</a>. See also: <a href="glossary.html#stderr">standard error</a>, <a href="glossary.html#stdin">standard input</a>
+</dd>
+<dt><strong>stop word</strong><a id="stop_word"></a></dt>
+<dd>Common words that are filtered out of text before processing it, such as “the” and “an”.
+</dd>
+<dt><strong>subcommand</strong><a id="subcommand"></a></dt>
+<dd>A command that is part of a larger family of commands. For example, <code>git commit</code> is a subcommand of <a href="glossary.html#git">Git</a>.
+</dd>
+<dt><strong>subdirectory</strong><a id="subdirectory"></a></dt>
+<dd>A directory that is below another directory. See also: <a href="glossary.html#parent_directory">parent directory</a>
+</dd>
+<dt><strong>sustainable software</strong><a id="sustainable_software"></a></dt>
+<dd>Software that its users can afford to keep up to date. Sustainability depends on the quality of the software, the skills of the potential maintainers, and how much the community is willing to invest.
+</dd>
+<dt><strong>tag (in version control)</strong><a id="tag"></a></dt>
+<dd>A readable label attached to a specific <a href="glossary.html#commit">commit</a> so that it can easily be referred to later.
+</dd>
+<dt><strong>test-driven development</strong><a id="tdd"></a></dt>
+<dd>A programming practice in which tests are written before a new feature is added or a <a href="glossary.html#bug">bug</a> is fixed in order to clarify the goal.
+</dd>
+<dt><strong>ternary expression</strong><a id="ternary_expression"></a></dt>
+<dd>An expression that has three parts. <a href="glossary.html#conditional_expression">Conditional expressions</a> are the only ternary expressions in most languages.
+</dd>
+<dt><strong>test framework</strong><a id="test_framework"></a></dt>
+<dd>See <a href="glossary.html#test_runner">test runner</a>.
+</dd>
+<dt><strong>test runner</strong><a id="test_runner"></a></dt>
+<dd>A program that finds and runs software tests and reports their results.
+</dd>
+<dt><strong>three stickies</strong><a id="three_stickies"></a></dt>
+<dd>A technique for ensuring that everyone in a meeting gets a chance to speak. Everyone is given three sticky notes (or other tokens). Each time someone speaks, it costs them a sticky; when they are out of stickies they cannot speak until everyone has used at least one, at which point everyone gets all of their stickies back.
+</dd>
+<dt><strong>ticket</strong><a id="ticket"></a></dt>
+<dd>See <a href="glossary.html#issue">issue</a>.
+</dd>
+<dt><strong>ticketing system</strong><a id="ticketing_system"></a></dt>
+<dd>See <a href="glossary.html#issue_tracking_system">issue tracking system</a>.
+</dd>
+<dt><strong>timestamp</strong><a id="timestamp"></a></dt>
+<dd>A digital identifier showing the time at which something was created or accessed. Timestamps should use <a href="glossary.html#iso_date_format">ISO date format</a> for portability.
+</dd>
+<dt><strong>tolerance</strong><a id="tolerance"></a></dt>
+<dd>How closely the <a href="glossary.html#actual_result">actual result</a> of a test must agree with the <a href="glossary.html#expected_result">expected result</a> in order for the test to pass. Tolerances are usually expressed in terms of <a href="glossary.html#relative_error">relative error</a>.
+</dd>
+<dt><strong>traceback</strong><a id="traceback"></a></dt>
+<dd>In Python, an object that records where an <a href="glossary.html#exception">exception</a> was <a href="glossary.html#raise_exception">raised</a>, what <a href="glossary.html#stack_frame">stack frames</a> were on the <a href="glossary.html#call_stack">call stack</a>, and other details.
+</dd>
+<dt><strong>transitive dependency</strong><a id="transitive_dependency"></a></dt>
+<dd>If A depends on B and B depends on C, C is a transitive dependency of A.
+</dd>
+<dt><strong>triage</strong><a id="triage"></a></dt>
+<dd>To go through the <a href="glossary.html#issue">issues</a> associated with a project and decide which are currently priorities. Triage is one of the key responsibilities of a <a href="glossary.html#project_manager">project manager</a>.
+</dd>
+<dt><strong>tuple</strong><a id="tuple"></a></dt>
+<dd>A data type that has a fixed number of parts, such as the three color components of a red-green-blue color specification. Tuples are immutable (their values cannot be reset.)
+</dd>
+<dt><strong>unit test</strong><a id="unit_test"></a></dt>
+<dd>A test that exercises one function or feature of a piece of software and produces <a href="glossary.html#pass_test">pass</a>, <a href="glossary.html#fail_test">fail</a>, or <a href="glossary.html#error_test">error</a>. See also: <a href="glossary.html#integration_test">integration test</a>
+</dd>
+<dt><strong>up-vote</strong><a id="up_vote"></a></dt>
+<dd>A vote in favor of something. See also: <a href="glossary.html#down_vote">down-vote</a>
+</dd>
+<dt><strong>update operator</strong><a id="update_operator"></a></dt>
+<dd>See <a href="glossary.html#in_place_operator">in-place operator</a>.
+</dd>
+<dt><strong>validation</strong><a id="validation"></a></dt>
+<dd>Checking that a piece of software does what its users want, i.e., “are we building the right thing”? See also: <a href="glossary.html#verification">verification</a>
+</dd>
+<dt><strong>variable arguments</strong><a id="variable_arguments"></a></dt>
+<dd>In a function, the ability to take any number of arguments. <a href="glossary.html#r_language">R</a> uses <code>...</code> to capture the “extra” arguments. <a href="glossary.html#python">Python</a> uses <code>*args</code> and <code>**kwargs</code> to capture unnamed, and named, “extra” arguments, respectively.
+</dd>
+<dt><strong>verification</strong><a id="verification"></a></dt>
+<dd>Checking that a piece of software works as intended, i.e., “did we build the thing right?” See also: <a href="glossary.html#validation">validation</a>
+</dd>
+<dt><strong>version control system</strong><a id="version_control_system"></a></dt>
+<dd>A system for managing changes made to software during its development. See also: <a href="glossary.html#git">Git</a>
+</dd>
+<dt><strong>virtual environment</strong><a id="virtual_environment"></a></dt>
+<dd>In <a href="glossary.html#python">Python</a>, the <code>virtualenv</code> <a href="glossary.html#package">package</a> allows you to create virtual, disposable, <a href="glossary.html#python">Python</a> software environments containing only the packages and versions of packages you want to use for a particular project or task, and to install new packages into the environment without affecting other virtual environments, or the system-wide default environment.
+</dd>
+<dt><strong>virtual machine</strong><a id="virtual_machine"></a></dt>
+<dd>A program that pretends to be a computer. This may seem a bit redundant, but VMs are quick to create and start up, and changes made inside the virtual machine are contained within that VM so we can install new <a href="glossary.html#package">packages</a> or run a completely different operating system without affecting the underlying computer.
+</dd>
+<dt><strong>whitespace</strong><a id="whitespace"></a></dt>
+<dd>The space, newline, carriage return, and horizontal and vertical tab characters that take up space but do not create a visible mark. The name comes from their appearance on a printed page in the era of typewriters.
+</dd>
+<dt><strong>wildcard</strong><a id="wildcard"></a></dt>
+<dd>A character expression that can match text, such as the <code>*</code> in <code>*.csv</code> (which matches any filename whose name ends with <code>.csv</code>).
+</dd>
+<dt><strong>working memory</strong><a id="working_memory"></a></dt>
+<dd>The part of memory that briefly stores information that can be directly accessed by consciousness.
+</dd>
+</dl>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="anaconda.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/merely-useful/py-rse/edit/book/glossary/glossary.md",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/merely-useful/py-rse/blob/book/glossary/glossary.md",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

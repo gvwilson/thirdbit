@@ -12,7 +12,7 @@ but we hope it's enough to give an idea of what we think researchers who already
 ought to know about JavaScript.
 We would be very grateful for your feedback.
 
-I'm also pleased to announce Version 0.1 of [Still Magic](https://merely-useful.tech/py-rse/),
+I'm also pleased to announce Version 0.1 of [Still Magic]({{'/py-rse/' | relative_url}}),
 which is meant to cover next steps in software development
 for people who already know what's in [the Carpentries](https://carpentries.org/)' lessons.
 It covers:

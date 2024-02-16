@@ -37,7 +37,7 @@ please [reach out](mailto:{{site.author.email}}).
 [influential]: {{'/2020/07/09/acm-sigsoft-award/' | relative_url}}
 [js4ds]: {{'/js4ds/' | relative_url}}
 [mum]: {{'/2020/01/07/goodbye-mum/' | relative_url}}
-[rsepy]: https://merely-useful.tech/py-rse/
+[rsepy]: {{'/py-rse/' | relative_url}}
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}
 [shelves]: {{'/not-on-the-shelves/2024/' | relative_url}}

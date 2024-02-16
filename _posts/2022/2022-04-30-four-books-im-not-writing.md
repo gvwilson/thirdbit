@@ -115,6 +115,6 @@ Be well.
 [brain]: https://www.manning.com/books/the-programmers-brain
 [interpreters]: https://craftinginterpreters.com/
 [nwit]: https://neverworkintheory.org/
-[py-rse]: https://merely-useful.tech/py-rse/
+[py-rse]: {{'/py-rse/' | relative_url}}
 [sdgc]: {{ '/ideas/#what-i-would-write-if-i-was-smarter-than-i-am' | relative_url }}
 [sdxjs]: https://third-bit.com/sdxjs/index.html

@@ -23,7 +23,7 @@ but hope I'll be able to wrap up these side projects soon as well:
 
 - co-authoring an update to "[Software Carpentry: Lessons Learned](https://f1000research.com/articles/3-62)"
 
-- publicizing [*Research Software Engineering with Python*](https://merely-useful.tech/py-rse/)
+- publicizing [*Research Software Engineering with Python*]({{'/py-rse/' | relative_url}})
 
 - writing at least two new posts a week on empirical software engineering research
   for [It Will Never Work in Theory](https://neverworkintheory.org/)

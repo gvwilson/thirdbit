@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 14 Creating Packages with Python | Research Software Engineering with Python</title>
+  <meta name="description" content="Chapter 14 Creating Packages with Python | Research Software Engineering with Python" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 14 Creating Packages with Python | Research Software Engineering with Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="tugboats-800x600.jpg" />
+  
+  <meta name="github-repo" content="merely-useful/py-rse" />
+
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<meta name="author" content="Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="provenance.html"/>
+<link rel="next" href="finale.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link rel="shortcut icon" href="favicon.ico" />
+<script defer data-domain="merely-useful.tech" src="https://plausible.io/js/plausible.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="index.html">Merely Useful</a></strong></li>
+<li><img src="tugboats-800x600.jpg" width=267 height=200 style="padding-left:20px;"/></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html">Welcome</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intro-big-picture"><b>0.1</b> The Big Picture</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intro-personas"><b>0.2</b> Intended Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#intro-syllabus"><b>0.3</b> What You Will Learn</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#intro-using"><b>0.4</b> Using this Book</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#contributing-and-re-use"><b>0.5</b> Contributing and Re-Use</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#intro-ack"><b>0.6</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#dedications"><b>0.7</b> Dedications</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-structure"><b>1.1</b> Project Structure</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-boilerplate"><b>1.1.1</b> Standard information</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-organize"><b>1.1.2</b> Organizing project content</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-download-data"><b>1.2</b> Downloading the Data</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#getting-started-install-software"><b>1.3</b> Installing the Software</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#getting-started-summary"><b>1.4</b> Summary</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#getting-started-exercises"><b>1.5</b> Exercises</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-install"><b>1.5.1</b> Getting ready</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#getting-started-keypoints"><b>1.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bash-basics.html"><a href="bash-basics.html"><b>2</b> The Basics of the Unix Shell</a><ul>
+<li class="chapter" data-level="2.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-explore"><b>2.1</b> Exploring Files and Directories</a></li>
+<li class="chapter" data-level="2.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-navigate"><b>2.2</b> Moving Around</a></li>
+<li class="chapter" data-level="2.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-filedir"><b>2.3</b> Creating New Files and Directories</a></li>
+<li class="chapter" data-level="2.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-move"><b>2.4</b> Moving Files and Directories</a></li>
+<li class="chapter" data-level="2.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-copy"><b>2.5</b> Copying Files and Directories</a></li>
+<li class="chapter" data-level="2.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-rm"><b>2.6</b> Deleting Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-wildcard"><b>2.7</b> Wildcards</a></li>
+<li class="chapter" data-level="2.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-help"><b>2.8</b> Reading the Manual</a></li>
+<li class="chapter" data-level="2.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-summary"><b>2.9</b> Summary</a></li>
+<li class="chapter" data-level="2.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-exercises"><b>2.10</b> Exercises</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-more-ls"><b>2.10.1</b> Exploring more <code>ls</code> flags</a></li>
+<li class="chapter" data-level="2.10.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-rt"><b>2.10.2</b> Listing recursively and by time</a></li>
+<li class="chapter" data-level="2.10.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-paths"><b>2.10.3</b> Absolute and relative paths</a></li>
+<li class="chapter" data-level="2.10.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-resolve-rel-path"><b>2.10.4</b> Relative path resolution</a></li>
+<li class="chapter" data-level="2.10.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reading-ls"><b>2.10.5</b> <code>ls</code> reading comprehension</a></li>
+<li class="chapter" data-level="2.10.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-touch"><b>2.10.6</b> Creating files a different way</a></li>
+<li class="chapter" data-level="2.10.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-safe-rm"><b>2.10.7</b> Using <code>rm</code> safely</a></li>
+<li class="chapter" data-level="2.10.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-move-dot"><b>2.10.8</b> Moving to the current folder</a></li>
+<li class="chapter" data-level="2.10.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-renaming-files"><b>2.10.9</b> Renaming files</a></li>
+<li class="chapter" data-level="2.10.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-last-ls"><b>2.10.10</b> Moving and copying</a></li>
+<li class="chapter" data-level="2.10.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-copy-multi"><b>2.10.11</b> Copy with multiple filenames</a></li>
+<li class="chapter" data-level="2.10.12" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-match"><b>2.10.12</b> List filenames matching a pattern</a></li>
+<li class="chapter" data-level="2.10.13" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-organizing"><b>2.10.13</b> Organizing directories and files</a></li>
+<li class="chapter" data-level="2.10.14" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reproduce-structure"><b>2.10.14</b> Reproduce a directory structure</a></li>
+<li class="chapter" data-level="2.10.15" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-wildcard-expressions"><b>2.10.15</b> Wildcard expressions</a></li>
+<li class="chapter" data-level="2.10.16" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-remove-unneeded"><b>2.10.16</b> Removing unneeded files</a></li>
+<li class="chapter" data-level="2.10.17" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-other-wildcards"><b>2.10.17</b> Other wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-keypoints"><b>2.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bash-tools.html"><a href="bash-tools.html"><b>3</b> Building Tools with the Unix Shell</a><ul>
+<li class="chapter" data-level="3.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-pipe"><b>3.1</b> Combining Commands</a></li>
+<li class="chapter" data-level="3.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-stdio"><b>3.2</b> How Pipes Work</a></li>
+<li class="chapter" data-level="3.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-loops"><b>3.3</b> Repeating Commands on Many Files</a></li>
+<li class="chapter" data-level="3.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-meaningless"><b>3.4</b> Variable Names</a></li>
+<li class="chapter" data-level="3.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-history"><b>3.5</b> Redoing Things</a></li>
+<li class="chapter" data-level="3.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-autoname"><b>3.6</b> Creating New Filenames Automatically</a></li>
+<li class="chapter" data-level="3.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-summary"><b>3.7</b> Summary</a></li>
+<li class="chapter" data-level="3.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-exercises"><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-redirect-append"><b>3.8.1</b> What does <code>&gt;&gt;</code> mean?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-append-data"><b>3.8.2</b> Appending data</a></li>
+<li class="chapter" data-level="3.8.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-piping"><b>3.8.3</b> Piping commands</a></li>
+<li class="chapter" data-level="3.8.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-uniq-adjacent"><b>3.8.4</b> Why does <code>uniq</code> only remove adjacent duplicates?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-reading-pipes"><b>3.8.5</b> Pipe reading comprehension</a></li>
+<li class="chapter" data-level="3.8.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-pipe-construction"><b>3.8.6</b> Pipe construction</a></li>
+<li class="chapter" data-level="3.8.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-which-pipe"><b>3.8.7</b> Which pipe?</a></li>
+<li class="chapter" data-level="3.8.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-dry-run"><b>3.8.8</b> Doing a dry run</a></li>
+<li class="chapter" data-level="3.8.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-variables"><b>3.8.9</b> Variables in loops</a></li>
+<li class="chapter" data-level="3.8.10" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-limiting-file-sets"><b>3.8.10</b> Limiting sets of files</a></li>
+<li class="chapter" data-level="3.8.11" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-save"><b>3.8.11</b> Saving to a file in a loop</a></li>
+<li class="chapter" data-level="3.8.12" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-history-order"><b>3.8.12</b> Why does <code>history</code> record commands before running them?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-keypoints"><b>3.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bash-advanced.html"><a href="bash-advanced.html"><b>4</b> Going Further with the Unix Shell</a><ul>
+<li class="chapter" data-level="4.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-script"><b>4.1</b> Creating New Commands</a></li>
+<li class="chapter" data-level="4.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-params"><b>4.2</b> Making Scripts More Versatile</a></li>
+<li class="chapter" data-level="4.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-capture"><b>4.3</b> Turning Interactive Work into a Script</a></li>
+<li class="chapter" data-level="4.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-grep"><b>4.4</b> Finding Things in Files</a></li>
+<li class="chapter" data-level="4.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-find"><b>4.5</b> Finding Files</a></li>
+<li class="chapter" data-level="4.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-vars"><b>4.6</b> Configuring the Shell</a></li>
+<li class="chapter" data-level="4.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-summary"><b>4.7</b> Summary</a></li>
+<li class="chapter" data-level="4.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-exercises"><b>4.8</b> Exercises</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-cleaning-up"><b>4.8.1</b> Cleaning up</a></li>
+<li class="chapter" data-level="4.8.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-script-variables"><b>4.8.2</b> Variables in shell scripts</a></li>
+<li class="chapter" data-level="4.8.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-longest-with-extension"><b>4.8.3</b> Find the longest file with a given extension</a></li>
+<li class="chapter" data-level="4.8.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-scripts"><b>4.8.4</b> Script reading comprehension</a></li>
+<li class="chapter" data-level="4.8.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-using-grep"><b>4.8.5</b> Using <code>grep</code></a></li>
+<li class="chapter" data-level="4.8.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-year-script"><b>4.8.6</b> Tracking publication years</a></li>
+<li class="chapter" data-level="4.8.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-sense-sensibility"><b>4.8.7</b> Counting names</a></li>
+<li class="chapter" data-level="4.8.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-match-subtract"><b>4.8.8</b> Matching and subtracting</a></li>
+<li class="chapter" data-level="4.8.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-find"><b>4.8.9</b> <code>find</code> pipeline reading comprehension</a></li>
+<li class="chapter" data-level="4.8.10" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-find-tests"><b>4.8.10</b> Finding files with different properties</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-keypoints"><b>4.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="scripting.html"><a href="scripting.html"><b>5</b> Building Command-Line Tools with Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="scripting.html"><a href="scripting.html#scripting-main"><b>5.1</b> Programs and Modules</a></li>
+<li class="chapter" data-level="5.2" data-path="scripting.html"><a href="scripting.html#scripting-options"><b>5.2</b> Handling Command-Line Options</a></li>
+<li class="chapter" data-level="5.3" data-path="scripting.html"><a href="scripting.html#scripting-docstrings"><b>5.3</b> Documentation</a></li>
+<li class="chapter" data-level="5.4" data-path="scripting.html"><a href="scripting.html#scripting-wordcount"><b>5.4</b> Counting Words</a></li>
+<li class="chapter" data-level="5.5" data-path="scripting.html"><a href="scripting.html#scripting-pipeline"><b>5.5</b> Pipelining</a></li>
+<li class="chapter" data-level="5.6" data-path="scripting.html"><a href="scripting.html#scripting-positional-optional"><b>5.6</b> Positional and Optional Arguments</a></li>
+<li class="chapter" data-level="5.7" data-path="scripting.html"><a href="scripting.html#scripting-collate"><b>5.7</b> Collating Results</a></li>
+<li class="chapter" data-level="5.8" data-path="scripting.html"><a href="scripting.html#scripting-modules"><b>5.8</b> Writing Our Own Modules</a></li>
+<li class="chapter" data-level="5.9" data-path="scripting.html"><a href="scripting.html#scripting-plotting"><b>5.9</b> Plotting</a></li>
+<li class="chapter" data-level="5.10" data-path="scripting.html"><a href="scripting.html#scripting-summary"><b>5.10</b> Summary</a></li>
+<li class="chapter" data-level="5.11" data-path="scripting.html"><a href="scripting.html#scripting-exercises"><b>5.11</b> Exercises</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="scripting.html"><a href="scripting.html#scripting-ex-command-line"><b>5.11.1</b> Running Python statements from the command line</a></li>
+<li class="chapter" data-level="5.11.2" data-path="scripting.html"><a href="scripting.html#scripting-ex-glob-ls"><b>5.11.2</b> Listing files</a></li>
+<li class="chapter" data-level="5.11.3" data-path="scripting.html"><a href="scripting.html#scripting-ex-sentence-endings"><b>5.11.3</b> Sentence ending punctuation</a></li>
+<li class="chapter" data-level="5.11.4" data-path="scripting.html"><a href="scripting.html#scripting-ex-better-plotting"><b>5.11.4</b> A better plotting program</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="scripting.html"><a href="scripting.html#scripting-keypoints"><b>5.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="git-cmdline.html"><a href="git-cmdline.html"><b>6</b> Using Git at the Command Line</a><ul>
+<li class="chapter" data-level="6.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-setup"><b>6.1</b> Setting Up</a></li>
+<li class="chapter" data-level="6.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-repos"><b>6.2</b> Creating a New Repository</a></li>
+<li class="chapter" data-level="6.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-add-existing"><b>6.3</b> Adding Existing Work</a></li>
+<li class="chapter" data-level="6.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-commit-message"><b>6.4</b> Describing Commits</a></li>
+<li class="chapter" data-level="6.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-changes"><b>6.5</b> Saving and Tracking Changes</a></li>
+<li class="chapter" data-level="6.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-remotes"><b>6.6</b> Synchronizing with Other Repositories</a></li>
+<li class="chapter" data-level="6.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-history"><b>6.7</b> Exploring History</a></li>
+<li class="chapter" data-level="6.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-restore"><b>6.8</b> Restoring Old Versions of Files</a></li>
+<li class="chapter" data-level="6.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ignore"><b>6.9</b> Ignoring Files</a></li>
+<li class="chapter" data-level="6.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-summary"><b>6.10</b> Summary</a></li>
+<li class="chapter" data-level="6.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-exercises"><b>6.11</b> Exercises</a><ul>
+<li class="chapter" data-level="6.11.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-places"><b>6.11.1</b> Places to create Git repositories</a></li>
+<li class="chapter" data-level="6.11.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unsave"><b>6.11.2</b> Removing before saving</a></li>
+<li class="chapter" data-level="6.11.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-word-diff"><b>6.11.3</b> Viewing changes</a></li>
+<li class="chapter" data-level="6.11.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-commit"><b>6.11.4</b> Committing changes</a></li>
+<li class="chapter" data-level="6.11.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-bio"><b>6.11.5</b> Write your biography</a></li>
+<li class="chapter" data-level="6.11.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-multiple"><b>6.11.6</b> Committing multiple files</a></li>
+<li class="chapter" data-level="6.11.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-timestamp"><b>6.11.7</b> GitHub timestamps</a></li>
+<li class="chapter" data-level="6.11.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-history"><b>6.11.8</b> Workflow and history</a></li>
+<li class="chapter" data-level="6.11.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-ignore-nested"><b>6.11.9</b> Ignoring nested files</a></li>
+<li class="chapter" data-level="6.11.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-include"><b>6.11.10</b> Including specific files</a></li>
+<li class="chapter" data-level="6.11.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-github-interface"><b>6.11.11</b> Exploring the GitHub interface</a></li>
+<li class="chapter" data-level="6.11.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-push-commit"><b>6.11.12</b> Push versus commit</a></li>
+<li class="chapter" data-level="6.11.13" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-boilerplate"><b>6.11.13</b> License and README files</a></li>
+<li class="chapter" data-level="6.11.14" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-recover"><b>6.11.14</b> Recovering older versions of a file</a></li>
+<li class="chapter" data-level="6.11.15" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-diff"><b>6.11.15</b> Understanding <code>git diff</code></a></li>
+<li class="chapter" data-level="6.11.16" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unstage"><b>6.11.16</b> Getting rid of staged changes</a></li>
+<li class="chapter" data-level="6.11.17" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-blame"><b>6.11.17</b> Figuring out who did what</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-keypoints"><b>6.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-advanced.html"><a href="git-advanced.html"><b>7</b> Going Further with Git</a><ul>
+<li class="chapter" data-level="7.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-what"><b>7.1</b> What’s a Branch?</a></li>
+<li class="chapter" data-level="7.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-how"><b>7.2</b> Creating a Branch</a></li>
+<li class="chapter" data-level="7.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-theory"><b>7.3</b> What Curve Should We Fit?</a></li>
+<li class="chapter" data-level="7.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-zipf-verify"><b>7.4</b> Verifying Zipf’s Law</a></li>
+<li class="chapter" data-level="7.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-merge"><b>7.5</b> Merging</a></li>
+<li class="chapter" data-level="7.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-conflict"><b>7.6</b> Handling Conflicts</a></li>
+<li class="chapter" data-level="7.7" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-workflow"><b>7.7</b> A Branch-Based Workflow</a></li>
+<li class="chapter" data-level="7.8" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-fork"><b>7.8</b> Using Other People’s Work</a></li>
+<li class="chapter" data-level="7.9" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pull-requests"><b>7.9</b> Pull Requests</a></li>
+<li class="chapter" data-level="7.10" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pr-conflict"><b>7.10</b> Handling Conflicts in Pull Requests</a></li>
+<li class="chapter" data-level="7.11" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-summary"><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="7.12" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-exercises"><b>7.12</b> Exercises</a><ul>
+<li class="chapter" data-level="7.12.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-explain-options"><b>7.12.1</b> Explaining options</a></li>
+<li class="chapter" data-level="7.12.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-modify-prompt"><b>7.12.2</b> Modifying prompt</a></li>
+<li class="chapter" data-level="7.12.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-ignoring-files"><b>7.12.3</b> Ignoring files</a></li>
+<li class="chapter" data-level="7.12.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-create-twice"><b>7.12.4</b> Creating the same file twice</a></li>
+<li class="chapter" data-level="7.12.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-delete-unmerged"><b>7.12.5</b> Deleting a branch without merging</a></li>
+<li class="chapter" data-level="7.12.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-trace-changes"><b>7.12.6</b> Tracing changes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.13" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-keypoints"><b>7.13</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="teams.html"><a href="teams.html"><b>8</b> Working in Teams</a><ul>
+<li class="chapter" data-level="8.1" data-path="teams.html"><a href="teams.html#teams-scope"><b>8.1</b> What Is a Project?</a></li>
+<li class="chapter" data-level="8.2" data-path="teams.html"><a href="teams.html#teams-inclusive"><b>8.2</b> Include Everyone</a></li>
+<li class="chapter" data-level="8.3" data-path="teams.html"><a href="teams.html#teams-coc"><b>8.3</b> Establish a Code of Conduct</a></li>
+<li class="chapter" data-level="8.4" data-path="teams.html"><a href="teams.html#teams-license"><b>8.4</b> Include a License</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="teams.html"><a href="teams.html#teams-license-software"><b>8.4.1</b> Software</a></li>
+<li class="chapter" data-level="8.4.2" data-path="teams.html"><a href="teams.html#teams-license-other"><b>8.4.2</b> Data and reports</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="teams.html"><a href="teams.html#teams-planning"><b>8.5</b> Planning</a></li>
+<li class="chapter" data-level="8.6" data-path="teams.html"><a href="teams.html#teams-bugs"><b>8.6</b> Bug Reports</a></li>
+<li class="chapter" data-level="8.7" data-path="teams.html"><a href="teams.html#teams-labels"><b>8.7</b> Labeling Issues</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="teams.html"><a href="teams.html#teams-workflow"><b>8.7.1</b> Standardizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="teams.html"><a href="teams.html#teams-prioritize"><b>8.8</b> Prioritizing</a></li>
+<li class="chapter" data-level="8.9" data-path="teams.html"><a href="teams.html#teams-meetings"><b>8.9</b> Meetings</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="teams.html"><a href="teams.html#teams-fair"><b>8.9.1</b> Air time</a></li>
+<li class="chapter" data-level="8.9.2" data-path="teams.html"><a href="teams.html#teams-online"><b>8.9.2</b> Online meetings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="teams.html"><a href="teams.html#teams-martha"><b>8.10</b> Making Decisions</a></li>
+<li class="chapter" data-level="8.11" data-path="teams.html"><a href="teams.html#teams-documentation"><b>8.11</b> Make All This Obvious to Newcomers</a></li>
+<li class="chapter" data-level="8.12" data-path="teams.html"><a href="teams.html#teams-conflict"><b>8.12</b> Handling Conflict</a></li>
+<li class="chapter" data-level="8.13" data-path="teams.html"><a href="teams.html#teams-summary"><b>8.13</b> Summary</a></li>
+<li class="chapter" data-level="8.14" data-path="teams.html"><a href="teams.html#teams-exercises"><b>8.14</b> Exercises</a><ul>
+<li class="chapter" data-level="8.14.1" data-path="teams.html"><a href="teams.html#teams-ex-scavenger-hunt"><b>8.14.1</b> Finding information</a></li>
+<li class="chapter" data-level="8.14.2" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-coc"><b>8.14.2</b> Add a Code of Conduct to your project</a></li>
+<li class="chapter" data-level="8.14.3" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-license"><b>8.14.3</b> Add a license to your project</a></li>
+<li class="chapter" data-level="8.14.4" data-path="teams.html"><a href="teams.html#teams-ex-contributing"><b>8.14.4</b> Adding contribution guidelines</a></li>
+<li class="chapter" data-level="8.14.5" data-path="teams.html"><a href="teams.html#teams-ex-file-issue"><b>8.14.5</b> File an issue</a></li>
+<li class="chapter" data-level="8.14.6" data-path="teams.html"><a href="teams.html#teams-ex-label"><b>8.14.6</b> Label issues</a></li>
+<li class="chapter" data-level="8.14.7" data-path="teams.html"><a href="teams.html#teams-ex-balancing"><b>8.14.7</b> Balancing individual and team needs</a></li>
+<li class="chapter" data-level="8.14.8" data-path="teams.html"><a href="teams.html#teams-ex-invisible"><b>8.14.8</b> Crediting invisible contributions</a></li>
+<li class="chapter" data-level="8.14.9" data-path="teams.html"><a href="teams.html#teams-ex-members"><b>8.14.9</b> Who are you?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.15" data-path="teams.html"><a href="teams.html#teams-keypoints"><b>8.15</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="automate.html"><a href="automate.html"><b>9</b> Automating Analyses with Make</a><ul>
+<li class="chapter" data-level="9.1" data-path="automate.html"><a href="automate.html#automate-single-file"><b>9.1</b> Updating a Single File</a></li>
+<li class="chapter" data-level="9.2" data-path="automate.html"><a href="automate.html#automate-multiple"><b>9.2</b> Managing Multiple Files</a></li>
+<li class="chapter" data-level="9.3" data-path="automate.html"><a href="automate.html#automate-depend-programs"><b>9.3</b> Updating Files When Programs Change</a></li>
+<li class="chapter" data-level="9.4" data-path="automate.html"><a href="automate.html#automate-variables"><b>9.4</b> Reducing Repetition in a Makefile</a></li>
+<li class="chapter" data-level="9.5" data-path="automate.html"><a href="automate.html#automate-autovar"><b>9.5</b> Automatic Variables</a></li>
+<li class="chapter" data-level="9.6" data-path="automate.html"><a href="automate.html#automate-pattern"><b>9.6</b> Generic Rules</a></li>
+<li class="chapter" data-level="9.7" data-path="automate.html"><a href="automate.html#automate-functions"><b>9.7</b> Defining Sets of Files</a></li>
+<li class="chapter" data-level="9.8" data-path="automate.html"><a href="automate.html#automate-doc"><b>9.8</b> Documenting a Makefile</a></li>
+<li class="chapter" data-level="9.9" data-path="automate.html"><a href="automate.html#automate-pipeline"><b>9.9</b> Automating Entire Analyses</a></li>
+<li class="chapter" data-level="9.10" data-path="automate.html"><a href="automate.html#automate-summary"><b>9.10</b> Summary</a></li>
+<li class="chapter" data-level="9.11" data-path="automate.html"><a href="automate.html#automate-exercises"><b>9.11</b> Exercises</a><ul>
+<li class="chapter" data-level="9.11.1" data-path="automate.html"><a href="automate.html#automate-ex-report-change"><b>9.11.1</b> Report results that would change</a></li>
+<li class="chapter" data-level="9.11.2" data-path="automate.html"><a href="automate.html#automate-ex-useful-options"><b>9.11.2</b> Useful options</a></li>
+<li class="chapter" data-level="9.11.3" data-path="automate.html"><a href="automate.html#automate-ex-mkdir"><b>9.11.3</b> Make sure the output directory exists</a></li>
+<li class="chapter" data-level="9.11.4" data-path="automate.html"><a href="automate.html#automate-ex-print"><b>9.11.4</b> Print the title and author</a></li>
+<li class="chapter" data-level="9.11.5" data-path="automate.html"><a href="automate.html#automate-ex-all-results"><b>9.11.5</b> Create all results</a></li>
+<li class="chapter" data-level="9.11.6" data-path="automate.html"><a href="automate.html#automate-ex-wildcard-perils"><b>9.11.6</b> The perils of shell wildcards</a></li>
+<li class="chapter" data-level="9.11.7" data-path="automate.html"><a href="automate.html#automate-ex-readable-docs"><b>9.11.7</b> Making documentation more readable</a></li>
+<li class="chapter" data-level="9.11.8" data-path="automate.html"><a href="automate.html#automate-ex-configuration"><b>9.11.8</b> Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="automate.html"><a href="automate.html#automate-keypoints"><b>9.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="config.html"><a href="config.html"><b>10</b> Configuring Programs</a><ul>
+<li class="chapter" data-level="10.1" data-path="config.html"><a href="config.html#config-formats"><b>10.1</b> Configuration File Formats</a></li>
+<li class="chapter" data-level="10.2" data-path="config.html"><a href="config.html#config-matplotlib"><b>10.2</b> Matplotlib Configuration</a></li>
+<li class="chapter" data-level="10.3" data-path="config.html"><a href="config.html#config-global"><b>10.3</b> The Global Configuration File</a></li>
+<li class="chapter" data-level="10.4" data-path="config.html"><a href="config.html#config-user"><b>10.4</b> The User Configuration File</a></li>
+<li class="chapter" data-level="10.5" data-path="config.html"><a href="config.html#config-command-line"><b>10.5</b> Adding Command-Line Options</a></li>
+<li class="chapter" data-level="10.6" data-path="config.html"><a href="config.html#config-job-file"><b>10.6</b> A Job Control File</a></li>
+<li class="chapter" data-level="10.7" data-path="config.html"><a href="config.html#config-summary"><b>10.7</b> Summary</a></li>
+<li class="chapter" data-level="10.8" data-path="config.html"><a href="config.html#config-exercises"><b>10.8</b> Exercises</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="config.html"><a href="config.html#config-ex-build-plotparams"><b>10.8.1</b> Building with plotting parameters</a></li>
+<li class="chapter" data-level="10.8.2" data-path="config.html"><a href="config.html#config-ex-style"><b>10.8.2</b> Using different plot styles</a></li>
+<li class="chapter" data-level="10.8.3" data-path="config.html"><a href="config.html#config-ex-saveload"><b>10.8.3</b> Saving configurations</a></li>
+<li class="chapter" data-level="10.8.4" data-path="config.html"><a href="config.html#config-ex-ini"><b>10.8.4</b> Using INI syntax</a></li>
+<li class="chapter" data-level="10.8.5" data-path="config.html"><a href="config.html#config-ex-consistency"><b>10.8.5</b> Configuration consistency</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="config.html"><a href="config.html#config-keypoints"><b>10.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing.html"><a href="testing.html"><b>11</b> Testing Software</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing.html"><a href="testing.html#testing-assertions"><b>11.1</b> Assertions</a></li>
+<li class="chapter" data-level="11.2" data-path="testing.html"><a href="testing.html#testing-unit"><b>11.2</b> Unit Testing</a></li>
+<li class="chapter" data-level="11.3" data-path="testing.html"><a href="testing.html#testing-framework"><b>11.3</b> Testing Frameworks</a></li>
+<li class="chapter" data-level="11.4" data-path="testing.html"><a href="testing.html#testing-numeric"><b>11.4</b> Testing Floating-Point Values</a></li>
+<li class="chapter" data-level="11.5" data-path="testing.html"><a href="testing.html#testing-integration"><b>11.5</b> Integration Testing</a></li>
+<li class="chapter" data-level="11.6" data-path="testing.html"><a href="testing.html#testing-regression"><b>11.6</b> Regression Testing</a></li>
+<li class="chapter" data-level="11.7" data-path="testing.html"><a href="testing.html#testing-coverage"><b>11.7</b> Test Coverage</a></li>
+<li class="chapter" data-level="11.8" data-path="testing.html"><a href="testing.html#testing-ci"><b>11.8</b> Continuous Integration</a></li>
+<li class="chapter" data-level="11.9" data-path="testing.html"><a href="testing.html#testing-tdd"><b>11.9</b> When to Write Tests</a></li>
+<li class="chapter" data-level="11.10" data-path="testing.html"><a href="testing.html#testing-summary"><b>11.10</b> Summary</a></li>
+<li class="chapter" data-level="11.11" data-path="testing.html"><a href="testing.html#testing-exercises"><b>11.11</b> Exercises</a><ul>
+<li class="chapter" data-level="11.11.1" data-path="testing.html"><a href="testing.html#testing-ex-explain-assertions"><b>11.11.1</b> Explaining assertions</a></li>
+<li class="chapter" data-level="11.11.2" data-path="testing.html"><a href="testing.html#testing-ex-rectangles"><b>11.11.2</b> Rectangle normalization</a></li>
+<li class="chapter" data-level="11.11.3" data-path="testing.html"><a href="testing.html#testing-ex-random"><b>11.11.3</b> Testing with randomness</a></li>
+<li class="chapter" data-level="11.11.4" data-path="testing.html"><a href="testing.html#testing-ex-relative-error"><b>11.11.4</b> Testing with relative error</a></li>
+</ul></li>
+<li class="chapter" data-level="11.12" data-path="testing.html"><a href="testing.html#testing-keypoints"><b>11.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="errors.html"><a href="errors.html"><b>12</b> Handling Errors</a><ul>
+<li class="chapter" data-level="12.1" data-path="errors.html"><a href="errors.html#errors-exceptions"><b>12.1</b> Exceptions</a></li>
+<li class="chapter" data-level="12.2" data-path="errors.html"><a href="errors.html#errors-messages"><b>12.2</b> Writing Useful Error Messages</a></li>
+<li class="chapter" data-level="12.3" data-path="errors.html"><a href="errors.html#errors-testing"><b>12.3</b> Testing Error Handling</a></li>
+<li class="chapter" data-level="12.4" data-path="errors.html"><a href="errors.html#errors-logging"><b>12.4</b> Reporting Errors</a></li>
+<li class="chapter" data-level="12.5" data-path="errors.html"><a href="errors.html#errors-summary"><b>12.5</b> Summary</a></li>
+<li class="chapter" data-level="12.6" data-path="errors.html"><a href="errors.html#errors-exercises"><b>12.6</b> Exercises</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="errors.html"><a href="errors.html#errors-ex-set-level"><b>12.6.1</b> Set the logging level</a></li>
+<li class="chapter" data-level="12.6.2" data-path="errors.html"><a href="errors.html#errors-ex-logging-output"><b>12.6.2</b> Send the logging output to file</a></li>
+<li class="chapter" data-level="12.6.3" data-path="errors.html"><a href="errors.html#errors-ex-exceptions"><b>12.6.3</b> Handling exceptions</a></li>
+<li class="chapter" data-level="12.6.4" data-path="errors.html"><a href="errors.html#errors-ex-error-handling"><b>12.6.4</b> Testing error handling</a></li>
+<li class="chapter" data-level="12.6.5" data-path="errors.html"><a href="errors.html#errors-ex-catalog"><b>12.6.5</b> Error catalogs</a></li>
+<li class="chapter" data-level="12.6.6" data-path="errors.html"><a href="errors.html#errors-ex-traceback"><b>12.6.6</b> Tracebacks</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="errors.html"><a href="errors.html#errors-keypoints"><b>12.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="provenance.html"><a href="provenance.html"><b>13</b> Tracking Provenance</a><ul>
+<li class="chapter" data-level="13.1" data-path="provenance.html"><a href="provenance.html#provenance-data"><b>13.1</b> Data Provenance</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="provenance.html"><a href="provenance.html#provenance-data-fair"><b>13.1.1</b> The FAIR Principles</a></li>
+<li class="chapter" data-level="13.1.2" data-path="provenance.html"><a href="provenance.html#provenance-data-where"><b>13.1.2</b> Where to archive data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="provenance.html"><a href="provenance.html#provenance-code"><b>13.2</b> Code Provenance</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="provenance.html"><a href="provenance.html#provenance-code-environment"><b>13.2.1</b> Software environment</a></li>
+<li class="chapter" data-level="13.2.2" data-path="provenance.html"><a href="provenance.html#provenance-code-steps"><b>13.2.2</b> Data processing steps</a></li>
+<li class="chapter" data-level="13.2.3" data-path="provenance.html"><a href="provenance.html#provenance-code-scripts"><b>13.2.3</b> Analysis scripts</a></li>
+<li class="chapter" data-level="13.2.4" data-path="provenance.html"><a href="provenance.html#provenance-inspectability"><b>13.2.4</b> Reproducibility versus inspectability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="provenance.html"><a href="provenance.html#provenance-summary"><b>13.3</b> Summary</a></li>
+<li class="chapter" data-level="13.4" data-path="provenance.html"><a href="provenance.html#provenance-exercises"><b>13.4</b> Exercises</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="provenance.html"><a href="provenance.html#provenance-ex-get-orcid"><b>13.4.1</b> ORCID</a></li>
+<li class="chapter" data-level="13.4.2" data-path="provenance.html"><a href="provenance.html#provenance-ex-fair-test"><b>13.4.2</b> A FAIR test</a></li>
+<li class="chapter" data-level="13.4.3" data-path="provenance.html"><a href="provenance.html#provenance-ex-understand-project"><b>13.4.3</b> Evaluate a project’s data provenance</a></li>
+<li class="chapter" data-level="13.4.4" data-path="provenance.html"><a href="provenance.html#provenance-ex-eval-code"><b>13.4.4</b> Evaluate a project’s code provenance</a></li>
+<li class="chapter" data-level="13.4.5" data-path="provenance.html"><a href="provenance.html#provenance-ex-permanent-links"><b>13.4.5</b> Making permanent links</a></li>
+<li class="chapter" data-level="13.4.6" data-path="provenance.html"><a href="provenance.html#provenance-ex-release"><b>13.4.6</b> Create an archive of your Zipf’s analysis</a></li>
+<li class="chapter" data-level="13.4.7" data-path="provenance.html"><a href="provenance.html#provenance-ex-publish-code"><b>13.4.7</b> Publishing your code</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="provenance.html"><a href="provenance.html#publish-keypoints"><b>13.5</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="packaging.html"><a href="packaging.html"><b>14</b> Creating Packages with Python</a><ul>
+<li class="chapter" data-level="14.1" data-path="packaging.html"><a href="packaging.html#packaging-package"><b>14.1</b> Creating a Python Package</a></li>
+<li class="chapter" data-level="14.2" data-path="packaging.html"><a href="packaging.html#packaging-virtualenv"><b>14.2</b> Virtual Environments</a></li>
+<li class="chapter" data-level="14.3" data-path="packaging.html"><a href="packaging.html#packaging-installing"><b>14.3</b> Installing a Development Package</a></li>
+<li class="chapter" data-level="14.4" data-path="packaging.html"><a href="packaging.html#packaging-installation"><b>14.4</b> What Installation Does</a></li>
+<li class="chapter" data-level="14.5" data-path="packaging.html"><a href="packaging.html#packaging-distribute"><b>14.5</b> Distributing Packages</a></li>
+<li class="chapter" data-level="14.6" data-path="packaging.html"><a href="packaging.html#packaging-document"><b>14.6</b> Documenting Packages</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="packaging.html"><a href="packaging.html#packaging-readme"><b>14.6.1</b> Including package-level documentation in the <code>README</code></a></li>
+<li class="chapter" data-level="14.6.2" data-path="packaging.html"><a href="packaging.html#packaging-sphinx"><b>14.6.2</b> Creating a web page for documentation</a></li>
+<li class="chapter" data-level="14.6.3" data-path="packaging.html"><a href="packaging.html#packaging-rtd"><b>14.6.3</b> Hosting documentation online</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="packaging.html"><a href="packaging.html#packaging-software-journals"><b>14.7</b> Software Journals</a></li>
+<li class="chapter" data-level="14.8" data-path="packaging.html"><a href="packaging.html#packaging-summary"><b>14.8</b> Summary</a></li>
+<li class="chapter" data-level="14.9" data-path="packaging.html"><a href="packaging.html#exercises"><b>14.9</b> Exercises</a><ul>
+<li class="chapter" data-level="14.9.1" data-path="packaging.html"><a href="packaging.html#packaging-ex-metadata"><b>14.9.1</b> Package metadata</a></li>
+<li class="chapter" data-level="14.9.2" data-path="packaging.html"><a href="packaging.html#packaging-ex-separating-requirements"><b>14.9.2</b> Separating requirements</a></li>
+<li class="chapter" data-level="14.9.3" data-path="packaging.html"><a href="packaging.html#packaging-ex-software-review"><b>14.9.3</b> Software review</a></li>
+<li class="chapter" data-level="14.9.4" data-path="packaging.html"><a href="packaging.html#packaging-ex-pratchett"><b>14.9.4</b> Packaging quotations</a></li>
+</ul></li>
+<li class="chapter" data-level="14.10" data-path="packaging.html"><a href="packaging.html#packaging-keypoints"><b>14.10</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="finale.html"><a href="finale.html"><b>15</b> Finale</a><ul>
+<li class="chapter" data-level="15.1" data-path="finale.html"><a href="finale.html#why-we-wrote-this-book"><b>15.1</b> Why We Wrote This Book</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="solutions.html"><a href="solutions.html"><b>A</b> Solutions</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-basics">Chapter @ref(bash-basics)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-more-ls">Exercise @ref(bash-basics-ex-more-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-rt">Exercise @ref(bash-basics-ex-ls-rt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-paths">Exercise @ref(bash-basics-ex-paths)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-resolve-rel-path">Exercise @ref(bash-basics-ex-resolve-rel-path)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reading-ls">Exercise @ref(bash-basics-ex-reading-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-touch">Exercise @ref(bash-basics-ex-touch)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-safe-rm">Exercise @ref(bash-basics-ex-safe-rm)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-move-dot">Exercise @ref(bash-basics-ex-move-dot)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-renaming-files">Exercise @ref(bash-basics-ex-renaming-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-last-ls">Exercise @ref(bash-basics-ex-last-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-copy-multi">Exercise @ref(bash-basics-ex-copy-multi)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-match">Exercise @ref(bash-basics-ex-ls-match)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-organizing">Exercise @ref(bash-basics-ex-organizing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reproduce-structure">Exercise @ref(bash-basics-ex-reproduce-structure)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-wildcard-expressions">Exercise @ref(bash-basics-ex-wildcard-expressions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-remove-unneeded">Exercise @ref(bash-basics-ex-remove-unneeded)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-other-wildcards">Exercise @ref(bash-basics-ex-other-wildcards)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-tools">Chapter @ref(bash-tools)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-redirect-append">Exercise @ref(bash-tools-ex-redirect-append)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-append-data">Exercise @ref(bash-tools-ex-append-data)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-piping">Exercise @ref(bash-tools-ex-piping)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-uniq-adjacent">Exercise @ref(bash-tools-ex-uniq-adjacent)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-reading-pipes">Exercise @ref(bash-tools-ex-reading-pipes)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-pipe-construction">Exercise @ref(bash-tools-ex-pipe-construction)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-which-pipe">Exercise @ref(bash-tools-ex-which-pipe)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-dry-run">Exercise @ref(bash-tools-ex-loop-dry-run)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-variables">Exercise @ref(bash-tools-ex-loop-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-limiting-file-sets">Exercise @ref(bash-tools-ex-limiting-file-sets)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-save">Exercise @ref(bash-tools-ex-loop-save)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-history-order">Exercise @ref(bash-tools-ex-history-order)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-advanced">Chapter @ref(bash-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-cleaning-up">Exercise @ref(bash-advanced-ex-cleaning-up)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-script-variables">Exercise @ref(bash-advanced-ex-script-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-longest-with-extension">Exercise @ref(bash-advanced-ex-longest-with-extension)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-scripts">Exercise @ref(bash-advanced-ex-reading-scripts)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-using-grep">Exercise @ref(bash-advanced-ex-using-grep)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-year-script">Exercise @ref(bash-advanced-ex-year-script)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-sense-sensibility">Exercise @ref(bash-advanced-ex-sense-sensibility)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-match-subtract">Exercise @ref(bash-advanced-ex-match-subtract)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-find">Exercise @ref(bash-advanced-ex-reading-find)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-find-tests">Exercise @ref(bash-advanced-ex-find-tests)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refscripting">Chapter @ref(scripting)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-command-line">Exercise @ref(scripting-ex-command-line)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-glob-ls">Exercise @ref(scripting-ex-glob-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-sentence-endings">Exercise @ref(scripting-ex-sentence-endings)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-better-plotting">Exercise @ref(scripting-ex-better-plotting)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-cmdline">Chapter @ref(git-cmdline)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-places">Exercise @ref(git-cmdline-ex-places)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unsave">Exercise @ref(git-cmdline-ex-unsave)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-word-diff">Exercise @ref(git-cmdline-ex-word-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-commit">Exercise @ref(git-cmdline-ex-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-bio">Exercise @ref(git-cmdline-ex-bio)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-multiple">Exercise @ref(git-cmdline-ex-multiple)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-timestamp">Exercise @ref(git-cmdline-ex-timestamp)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-history">Exercise @ref(git-cmdline-ex-history)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-ignore-nested">Exercise @ref(git-cmdline-ex-ignore-nested)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-include">Exercise @ref(git-cmdline-ex-include)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-github-interface">Exercise @ref(git-cmdline-ex-github-interface)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-push-commit">Exercise @ref(git-cmdline-ex-push-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-boilerplate">Exercise @ref(git-cmdline-ex-boilerplate)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-recover">Exercise @ref(git-cmdline-ex-recover)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-diff">Exercise @ref(git-cmdline-ex-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unstage">Exercise @ref(git-cmdline-ex-unstage)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-blame">Exercise @ref(git-cmdline-ex-blame)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-advanced">Chapter @ref(git-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-explain-options">Exercise @ref(git-advanced-ex-explain-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-modify-prompt">Exercise @ref(git-advanced-ex-modify-prompt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-ignoring-files">Exercise @ref(git-advanced-ex-ignoring-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-create-twice">Exercise @ref(git-advanced-ex-create-twice)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-delete-unmerged">Exercise @ref(git-advanced-ex-delete-unmerged)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-trace-changes">Exercise @ref(git-advanced-ex-trace-changes)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refteams">Chapter @ref(teams)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-scavenger-hunt">Exercise @ref(teams-ex-scavenger-hunt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-coc">Exercise @ref(teams-ex-boilerplate-coc)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-license">Exercise @ref(teams-ex-boilerplate-license)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-contributing">Exercise @ref(teams-ex-contributing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-file-issue">Exercise @ref(teams-ex-file-issue)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-label">Exercise @ref(teams-ex-label)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-balancing">Exercise @ref(teams-ex-balancing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-invisible">Exercise @ref(teams-ex-invisible)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-members">Exercise @ref(teams-ex-members)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refautomate">Chapter @ref(automate)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-report-change">Exercise @ref(automate-ex-report-change)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-useful-options">Exercise @ref(automate-ex-useful-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-mkdir">Exercise @ref(automate-ex-mkdir)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-print">Exercise @ref(automate-ex-print)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-all-results">Exercise @ref(automate-ex-all-results)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-wildcard-perils">Exercise @ref(automate-ex-wildcard-perils)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-readable-docs">Exercise @ref(automate-ex-readable-docs)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-configuration">Exercise @ref(automate-ex-configuration)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refconfig">Chapter @ref(config)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-build-plotparams">Exercise @ref(config-ex-build-plotparams)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-style">Exercise @ref(config-ex-style)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-saveload">Exercise @ref(config-ex-saveload)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-ini">Exercise @ref(config-ex-ini)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-consistency">Exercise @ref(config-ex-consistency)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-reftesting">Chapter @ref(testing)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-explain-assertions">Exercise @ref(testing-ex-explain-assertions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-rectangles">Exercise @ref(testing-ex-rectangles)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-random">Exercise @ref(testing-ex-random)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-relative-error">Exercise @ref(testing-ex-relative-error)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-referrors">Chapter @ref(errors)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-set-level">Exercise @ref(errors-ex-set-level)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-logging-output">Exercise @ref(errors-ex-logging-output)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-exceptions">Exercise @ref(errors-ex-exceptions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-error-handling">Exercise @ref(errors-ex-error-handling)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-catalog">Exercise @ref(errors-ex-catalog)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-traceback">Exercise @ref(errors-ex-traceback)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refprovenance">Chapter @ref(provenance)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-get-orcid">Exercise @ref(provenance-ex-get-orcid)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-fair-test">Exercise @ref(provenance-ex-fair-test)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-understand-project">Exercise @ref(provenance-ex-understand-project)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-eval-code">Exercise @ref(provenance-ex-eval-code)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-permanent-links">Exercise @ref(provenance-ex-permanent-links)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-release">Exercise @ref(provenance-ex-release)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-publish-code">Exercise @ref(provenance-ex-publish-code)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refpackaging">Chapter @ref(packaging)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-metadata">Exercise @ref(packaging-ex-metadata)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-separating-requirements">Exercise @ref(packaging-ex-separating-requirements)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-software-review">Exercise @ref(packaging-ex-software-review)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-pratchett">Exercise @ref(packaging-ex-pratchett)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="objectives.html"><a href="objectives.html"><b>B</b> Learning Objectives</a><ul>
+<li class="chapter" data-level="B.1" data-path="objectives.html"><a href="objectives.html#getting-started-1"><b>B.1</b> Getting Started</a></li>
+<li class="chapter" data-level="B.2" data-path="objectives.html"><a href="objectives.html#the-basics-of-the-unix-shell"><b>B.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="B.3" data-path="objectives.html"><a href="objectives.html#building-tools-with-the-unix-shell"><b>B.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="B.4" data-path="objectives.html"><a href="objectives.html#going-further-with-the-unix-shell"><b>B.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="B.5" data-path="objectives.html"><a href="objectives.html#building-command-line-tools-with-python"><b>B.5</b> Building Command-Line Tools with Python</a></li>
+<li class="chapter" data-level="B.6" data-path="objectives.html"><a href="objectives.html#using-git-at-the-command-line"><b>B.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="B.7" data-path="objectives.html"><a href="objectives.html#going-further-with-git"><b>B.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="B.8" data-path="objectives.html"><a href="objectives.html#working-in-teams"><b>B.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="B.9" data-path="objectives.html"><a href="objectives.html#automating-analyses-with-make"><b>B.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="B.10" data-path="objectives.html"><a href="objectives.html#configuring-programs"><b>B.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="B.11" data-path="objectives.html"><a href="objectives.html#testing-software"><b>B.11</b> Testing Software</a></li>
+<li class="chapter" data-level="B.12" data-path="objectives.html"><a href="objectives.html#handling-errors"><b>B.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="B.13" data-path="objectives.html"><a href="objectives.html#tracking-provenance"><b>B.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="B.14" data-path="objectives.html"><a href="objectives.html#creating-packages-with-python"><b>B.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="keypoints.html"><a href="keypoints.html"><b>C</b> Key Points</a><ul>
+<li class="chapter" data-level="C.1" data-path="keypoints.html"><a href="keypoints.html#getting-started-2"><b>C.1</b> Getting Started</a></li>
+<li class="chapter" data-level="C.2" data-path="keypoints.html"><a href="keypoints.html#the-basics-of-the-unix-shell-1"><b>C.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="C.3" data-path="keypoints.html"><a href="keypoints.html#building-tools-with-the-unix-shell-1"><b>C.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="C.4" data-path="keypoints.html"><a href="keypoints.html#going-further-with-the-unix-shell-1"><b>C.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="C.5" data-path="keypoints.html"><a href="keypoints.html#building-command-line-programs-in-python"><b>C.5</b> Building Command-Line Programs in Python</a></li>
+<li class="chapter" data-level="C.6" data-path="keypoints.html"><a href="keypoints.html#using-git-at-the-command-line-1"><b>C.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="C.7" data-path="keypoints.html"><a href="keypoints.html#going-further-with-git-1"><b>C.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="C.8" data-path="keypoints.html"><a href="keypoints.html#working-in-teams-1"><b>C.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="C.9" data-path="keypoints.html"><a href="keypoints.html#automating-analyses-with-make-1"><b>C.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="C.10" data-path="keypoints.html"><a href="keypoints.html#configuring-programs-1"><b>C.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="C.11" data-path="keypoints.html"><a href="keypoints.html#testing-software-1"><b>C.11</b> Testing Software</a></li>
+<li class="chapter" data-level="C.12" data-path="keypoints.html"><a href="keypoints.html#handling-errors-1"><b>C.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="C.13" data-path="keypoints.html"><a href="keypoints.html#tracking-provenance-1"><b>C.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="C.14" data-path="keypoints.html"><a href="keypoints.html#creating-packages-with-python-1"><b>C.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="tree.html"><a href="tree.html"><b>D</b> Project Tree</a></li>
+<li class="chapter" data-level="E" data-path="ssh.html"><a href="ssh.html"><b>E</b> Working Remotely</a><ul>
+<li class="chapter" data-level="E.1" data-path="ssh.html"><a href="ssh.html#ssh-login"><b>E.1</b> Logging In</a></li>
+<li class="chapter" data-level="E.2" data-path="ssh.html"><a href="ssh.html#ssh-cp"><b>E.2</b> Copying Files</a></li>
+<li class="chapter" data-level="E.3" data-path="ssh.html"><a href="ssh.html#ssh-cmd"><b>E.3</b> Running Commands</a></li>
+<li class="chapter" data-level="E.4" data-path="ssh.html"><a href="ssh.html#ssh-keys"><b>E.4</b> Creating Keys</a></li>
+<li class="chapter" data-level="E.5" data-path="ssh.html"><a href="ssh.html#ssh-filedir"><b>E.5</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="style.html"><a href="style.html"><b>F</b> Writing Readable Code</a><ul>
+<li class="chapter" data-level="F.1" data-path="style.html"><a href="style.html#style-pep8"><b>F.1</b> Python Style</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="style.html"><a href="style.html#spacing"><b>F.1.1</b> Spacing</a></li>
+<li class="chapter" data-level="F.1.2" data-path="style.html"><a href="style.html#naming"><b>F.1.2</b> Naming</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="style.html"><a href="style.html#style-order"><b>F.2</b> Order</a></li>
+<li class="chapter" data-level="F.3" data-path="style.html"><a href="style.html#style-check"><b>F.3</b> Checking Style</a></li>
+<li class="chapter" data-level="F.4" data-path="style.html"><a href="style.html#style-refactor"><b>F.4</b> Refactoring</a><ul>
+<li class="chapter" data-level="F.4.1" data-path="style.html"><a href="style.html#do-not-repeat-values"><b>F.4.1</b> Do not repeat values</a></li>
+<li class="chapter" data-level="F.4.2" data-path="style.html"><a href="style.html#do-not-repeat-calculations-in-loops"><b>F.4.2</b> Do not repeat calculations in loops</a></li>
+<li class="chapter" data-level="F.4.3" data-path="style.html"><a href="style.html#replace-tests-with-flags-to-clarify-repeated-tests"><b>F.4.3</b> Replace tests with flags to clarify repeated tests</a></li>
+<li class="chapter" data-level="F.4.4" data-path="style.html"><a href="style.html#use-in-place-operators-to-avoid-duplicating-expression"><b>F.4.4</b> Use in-place operators to avoid duplicating expression</a></li>
+<li class="chapter" data-level="F.4.5" data-path="style.html"><a href="style.html#handle-special-cases-first"><b>F.4.5</b> Handle special cases first</a></li>
+<li class="chapter" data-level="F.4.6" data-path="style.html"><a href="style.html#use-functions-to-make-code-more-comprehensible"><b>F.4.6</b> Use functions to make code more comprehensible</a></li>
+<li class="chapter" data-level="F.4.7" data-path="style.html"><a href="style.html#combine-operations-in-functions"><b>F.4.7</b> Combine operations in functions</a></li>
+<li class="chapter" data-level="F.4.8" data-path="style.html"><a href="style.html#replace-code-with-data"><b>F.4.8</b> Replace code with data</a></li>
+</ul></li>
+<li class="chapter" data-level="F.5" data-path="style.html"><a href="style.html#style-review"><b>F.5</b> Code Reviews</a></li>
+<li class="chapter" data-level="F.6" data-path="style.html"><a href="style.html#style-features"><b>F.6</b> Python Features</a><ul>
+<li class="chapter" data-level="F.6.1" data-path="style.html"><a href="style.html#provide-default-values-for-parameters"><b>F.6.1</b> Provide default values for parameters</a></li>
+<li class="chapter" data-level="F.6.2" data-path="style.html"><a href="style.html#handle-a-variable-number-of-arguments"><b>F.6.2</b> Handle a variable number of arguments</a></li>
+<li class="chapter" data-level="F.6.3" data-path="style.html"><a href="style.html#unpacking-variable-arguments"><b>F.6.3</b> Unpacking variable arguments</a></li>
+<li class="chapter" data-level="F.6.4" data-path="style.html"><a href="style.html#use-destructuring-to-assign-multiple-values-at-once"><b>F.6.4</b> Use destructuring to assign multiple values at once</a></li>
+</ul></li>
+<li class="chapter" data-level="F.7" data-path="style.html"><a href="style.html#style-summary"><b>F.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="documentation.html"><a href="documentation.html"><b>G</b> Documenting Programs</a><ul>
+<li class="chapter" data-level="G.1" data-path="documentation.html"><a href="documentation.html#documentation-docstrings"><b>G.1</b> Writing Good Docstrings</a></li>
+<li class="chapter" data-level="G.2" data-path="documentation.html"><a href="documentation.html#documentation-audience"><b>G.2</b> Defining Your Audience</a></li>
+<li class="chapter" data-level="G.3" data-path="documentation.html"><a href="documentation.html#documentation-faq"><b>G.3</b> Creating an FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="H" data-path="yaml.html"><a href="yaml.html"><b>H</b> YAML</a></li>
+<li class="chapter" data-level="I" data-path="anaconda.html"><a href="anaconda.html"><b>I</b> Anaconda</a><ul>
+<li class="chapter" data-level="I.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-conda-package-management"><b>I.1</b> Package Management with conda</a><ul>
+<li class="chapter" data-level="I.1.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-cloud"><b>I.1.1</b> Anaconda Cloud</a></li>
+<li class="chapter" data-level="I.1.2" data-path="anaconda.html"><a href="anaconda.html#conda-forge"><b>I.1.2</b> conda-forge</a></li>
+</ul></li>
+<li class="chapter" data-level="I.2" data-path="anaconda.html"><a href="anaconda.html#anaconda-environments"><b>I.2</b> Environment Management with conda</a></li>
+</ul></li>
+<li class="chapter" data-level="J" data-path="glossary.html"><a href="glossary.html"><b>J</b> Glossary</a></li>
+<li class="chapter" data-level="K" data-path="references.html"><a href="references.html"><b>K</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Research Software Engineering with Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="packaging" class="section level1">
+<h1><span class="header-section-number">Chapter 14</span> Creating Packages with Python</h1>
+<blockquote>
+<p>Another response of the wizards,
+when faced with a new and unique situation,
+was to look through their libraries to see if it had ever happened before.
+This was…a good survival trait.
+It meant that in times of danger you spent the day sitting very quietly
+in a building with very thick walls.</p>
+<p>— Terry Pratchett</p>
+</blockquote>
+<p>The more software we write,
+the more we come to think of programming languages as a way to build and combine libraries.
+Every widely used language now has an online repository
+from which people can download and install those libraries.
+This lesson shows you how to use Python’s tools to create and share libraries of your own.</p>
+<p>We will continue with our Zipf’s Law project,
+which should include the following files:</p>
+<pre class="text"><code>zipf/
+├── .gitignore
+├── .travis.yml
+├── CONDUCT.md
+├── CONTRIBUTING.md
+├── KhanVirtanen2020.md
+├── LICENSE.md
+├── Makefile
+├── README.md
+├── environment.yml
+├── requirements.txt
+├── bin
+│   ├── book_summary.sh
+│   ├── collate.py
+│   ├── countwords.py
+│   ├── plotcounts.py
+│   ├── plotparams.yml
+│   ├── script_template.py
+│   ├── test_zipfs.py
+│   └── utilities.py
+├── data
+│   ├── README.md
+│   ├── dracula.txt
+│   └── ...
+├── results
+│   ├── dracula.csv
+│   ├── dracula.png
+│   └── ...
+└── test_data
+    ├── random_words.txt
+    └── risk.txt</code></pre>
+<div id="packaging-package" class="section level2">
+<h2><span class="header-section-number">14.1</span> Creating a Python Package</h2>
+<p>A package consists of one or more Python source files
+in a specific directory structure
+combined with installation instructions for the computer.
+Python packages can come from various sources:
+some are distributed with Python itself as part of the language’s <a href="https://docs.python.org/3/library/">standard library</a>,
+but anyone can create one,
+and there are thousands that can be downloaded and installed from online repositories.</p>
+<blockquote>
+<p><strong>Terminology</strong></p>
+<p>People sometimes refer to packages as modules.
+Strictly speaking,
+a module is a single source file,
+while a package is a directory structure that contains one or more modules.</p>
+</blockquote>
+<p>A generic package folder hierarchy looks like this:</p>
+<pre class="text"><code>pkg_name
+├── pkg_name
+│   ├── module1.py
+│   └── module2.py
+├── README.md
+└── setup.py</code></pre>
+<div style="page-break-after: always;"></div>
+<p>The top-level directory is named after the package.
+It contains a directory that is also named after the package,
+and that contains the package’s source files.
+It is initially a little confusing to have two directories with the same name,
+but most Python projects follow this convention because
+it makes it easier to set up the project for installation.</p>
+<blockquote>
+<p><strong><code>__init__.py</code></strong></p>
+<p>Python packages often contain a file with a special name:
+<code>__init__.py</code>
+(two underscores before and after <code>init</code>).
+Just as importing a module file executes the code in the module,
+importing a package executes the code in <code>__init__.py</code>.
+Packages <em>had</em> to have this file before Python 3.3,
+even if it was empty,
+but since Python 3.3 it is only needed
+if we want to run some code as the package is being imported.</p>
+</blockquote>
+<p>If we want to make our Zipf’s Law software available as a Python package,
+we need to follow the generic folder hierarchy.
+A quick search of the <a href="https://pypi.org/">Python Package Index (PyPI)</a>
+reveals that the package name <code>zipf</code> is already taken,
+so we will need to use something different.
+Let’s use <code>pyzipf</code> and update our directory names accordingly:</p>
+<div class="sourceCode" id="cb782"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb782-1"><a href="packaging.html#cb782-1"></a>$ <span class="fu">mv</span> ~/zipf ~/pyzipf</span>
+<span id="cb782-2"><a href="packaging.html#cb782-2"></a>$ <span class="bu">cd</span> ~/pyzipf</span>
+<span id="cb782-3"><a href="packaging.html#cb782-3"></a>$ <span class="fu">mv</span> bin pyzipf</span></code></pre></div>
+<blockquote>
+<p><strong>Updating GitHub’s Repository Name</strong></p>
+<p>We won’t do it in this case
+(because it would break links/references from earlier in the book),
+but now that we’ve decided to name our package <code>pyzipf</code>,
+we would normally update the name of our GitHub repository to match.
+After changing the name at the GitHub website,
+we would need to update our <code>git remote</code> so that our
+local repository could still be synchronized with GitHub:</p>
+<div class="sourceCode" id="cb783"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb783-1"><a href="packaging.html#cb783-1"></a>$ <span class="fu">git</span> remote set-url origin </span>
+<span id="cb783-2"><a href="packaging.html#cb783-2"></a>  <span class="ex">https</span>://github.com/amira-khan/pyzipf.git  </span></code></pre></div>
+</blockquote>
+<div style="page-break-after: always;"></div>
+<p>Python has several ways to build an installable package.
+We will show how to use <a href="https://setuptools.readthedocs.io/"><code>setuptools</code></a>,
+which is the lowest common denominator
+and will allow everyone,
+regardless of what Python distribution they have,
+to use our package.
+To use <code>setuptools</code>,
+we must create a file called <code>setup.py</code> in the directory <em>above</em> the root directory of the package.
+(This is why we require the two-level directory structure described earlier.)
+<code>setup.py</code> must have exactly that name,
+and must contain lines like these:</p>
+<div class="sourceCode" id="cb784"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb784-1"><a href="packaging.html#cb784-1"></a><span class="im">from</span> setuptools <span class="im">import</span> setup</span>
+<span id="cb784-2"><a href="packaging.html#cb784-2"></a></span>
+<span id="cb784-3"><a href="packaging.html#cb784-3"></a></span>
+<span id="cb784-4"><a href="packaging.html#cb784-4"></a>setup(</span>
+<span id="cb784-5"><a href="packaging.html#cb784-5"></a>    name<span class="op">=</span><span class="st">&#39;pyzipf&#39;</span>,</span>
+<span id="cb784-6"><a href="packaging.html#cb784-6"></a>    version<span class="op">=</span><span class="st">&#39;0.1.0&#39;</span>,</span>
+<span id="cb784-7"><a href="packaging.html#cb784-7"></a>    author<span class="op">=</span><span class="st">&#39;Amira Khan&#39;</span>,</span>
+<span id="cb784-8"><a href="packaging.html#cb784-8"></a>    packages<span class="op">=</span>[<span class="st">&#39;pyzipf&#39;</span>])</span></code></pre></div>
+<p>The <code>name</code> and <code>author</code> parameters are self-explanatory.
+Most software projects use <a href="glossary.html#semantic_versioning">semantic versioning</a>
+for software releases.
+A version number consists of three integers X.Y.Z,
+where X is the major version,
+Y is the minor version,
+and Z is the <a href="glossary.html#patch">patch</a> version.
+Major version zero (0.Y.Z) is for initial development, so we have started with 0.1.0.
+The first stable public release would be version 1.0.0,
+and in general, the version number is incremented as follows:</p>
+<ul>
+<li>Increment <code>major</code> every time there’s an incompatible externally visible change.</li>
+<li>Increment <code>minor</code> when adding new functionality in a backwards-compatible manner
+(i.e., without breaking any existing code).</li>
+<li>Increment <code>patch</code> for backwards-compatible bug fixes that don’t add any new features.</li>
+</ul>
+<p>Finally,
+we specify the name of the directory
+containing the code to be packaged with the <code>packages</code> parameter.
+This is straightforward in our case because we only have a single package directory.
+For more complex projects,
+the <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#using-find-packages"><code>find_packages</code></a> function from <code>setuptools</code>
+can automatically find all packages by recursively searching the current directory.</p>
+</div>
+<div id="packaging-virtualenv" class="section level2">
+<h2><span class="header-section-number">14.2</span> Virtual Environments</h2>
+<p>We can add additional information to our package later,
+but this is enough to be able to build it for testing purposes.
+Before we do that,
+though,
+we should create a <a href="glossary.html#virtual_environment">virtual environment</a>
+to test how our package installs
+without breaking anything in our main Python installation.
+We exported details of our environment in Chapter <a href="provenance.html#provenance">13</a>
+as a way to document the software we’re using;
+in this section,
+we’ll use environments to make the software we’re creating more robust.</p>
+<p>A virtual environment is a layer on top of an existing Python installation.
+Whenever Python needs to find a package,
+it looks in the virtual environment before checking the main Python installation.
+This gives us a place to install packages that only some projects need
+without affecting other projects.</p>
+<p>Virtual environments also help with package development:</p>
+<ul>
+<li>We want to be able to easily test install and uninstall our package,
+without affecting the entire Python environment.</li>
+<li>We want to answer problems people have with our package with something more helpful than
+“I don’t know, it works for me.”
+By installing and running our package in a completely empty environment,
+we can ensure that we’re not accidentally relying on other packages being installed.</li>
+</ul>
+<p>We can manage virtual environments using <a href="https://conda.io/"><code>conda</code></a> (Appendix <a href="anaconda.html#anaconda">I</a>).
+To create a new virtual environment called <code>pyzipf</code> we run <code>conda create</code>,
+specifying the environment’s name with the <code>-n</code> or <code>--name</code> flag
+and including <code>pip</code> and our current version of Python in the new environment:</p>
+<div class="sourceCode" id="cb785"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb785-1"><a href="packaging.html#cb785-1"></a>$ <span class="ex">conda</span> create -n pyzipf pip python=3.7.6</span></code></pre></div>
+<pre class="text"><code>Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/amira/anaconda3/envs/pyzipf
+
+  added / updated specs:
+    - pip
+    - python=3.7.6
+
+
+The following packages will be downloaded:
+...list of packages...
+
+The following NEW packages will be INSTALLED:
+...list of packages...
+
+Proceed ([y]/n)? y
+
+...
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate pyzipf
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate</code></pre>
+<p><code>conda</code> creates the directory <code>/Users/amira/anaconda3/envs/pyzipf</code>,
+which contains the subdirectories needed for a minimal Python installation,
+such as <code>bin</code> and <code>lib</code>.
+It also creates <code>/Users/amira/anaconda3/envs/pyzipf/bin/python</code>,
+which checks for packages in these directories before checking the main installation.</p>
+<blockquote>
+<p><strong><code>conda</code> Variations</strong></p>
+<p>As with many of the other tools we’ve explored in this book,
+the behavior of some <code>conda</code> commands differ depending on the operating system.
+There are multiple ways to accomplish some of the tasks we present in this chapter.
+The options we present here represent the approaches most likely to work across multiple platforms.</p>
+<p>Additionally, the path for Anaconda differs among operating systems.
+Our examples show the default path for Anaconda installed via the Unix shell
+on MacOS (<code>/Users/amira/anaconda3</code>),
+but for the MacOS graphical installer it is <code>/Users/amira/opt/anaconda3</code>,
+for Linux it is <code>/home/amira/anaconda3</code>,
+and on Windows it is <code>C:\Users\amira\Anaconda3</code>.
+During the installation process, users can also choose a custom location
+if they like (Section <a href="getting-started.html#getting-started-install-software">1.3</a>).</p>
+</blockquote>
+<p>We can switch to the <code>pyzipf</code> environment by running:</p>
+<div class="sourceCode" id="cb787"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb787-1"><a href="packaging.html#cb787-1"></a>$ <span class="ex">conda</span> activate pyzipf</span></code></pre></div>
+<p>Once we have done this,
+the <code>python</code> command runs the interpreter in <code>pyzipf/bin</code>:</p>
+<div class="sourceCode" id="cb788"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb788-1"><a href="packaging.html#cb788-1"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="fu">which</span> python</span></code></pre></div>
+<pre class="text"><code>/Users/amira/anaconda3/envs/pyzipf/bin/python</code></pre>
+<p>Notice that every shell command displays <code>(pyzipf)</code> when that virtual environment is active.
+Between Git branches and virtual environments,
+it can be very easy to lose track of what exactly we are working on and with.
+Prompts like this can make it a little less confusing;
+using virtual environment names that match the names of your projects
+(and branches, if you’re testing different environments on different branches)
+quickly becomes essential.</p>
+<p>We can now install packages safely.
+Everything we install will go into the <code>pyzipf</code> virtual environment
+without affecting the underlying Python installation.
+When we are done,
+we can switch back to the default environment using <code>conda deactivate</code>:</p>
+<div class="sourceCode" id="cb790"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb790-1"><a href="packaging.html#cb790-1"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="ex">conda</span> deactivate</span></code></pre></div>
+<div class="sourceCode" id="cb791"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb791-1"><a href="packaging.html#cb791-1"></a>$ <span class="fu">which</span> python</span></code></pre></div>
+<pre class="text"><code>/usr/bin/python</code></pre>
+</div>
+<div id="packaging-installing" class="section level2">
+<h2><span class="header-section-number">14.3</span> Installing a Development Package</h2>
+<p>Let’s install our package in this virtual environment.
+First we re-activate it:</p>
+<div class="sourceCode" id="cb793"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb793-1"><a href="packaging.html#cb793-1"></a>$ <span class="ex">conda</span> activate pyzipf</span></code></pre></div>
+<p>Next,
+we go into the upper <code>pyzipf</code> directory that contains our <code>setup.py</code> file
+and install our package:</p>
+<div class="sourceCode" id="cb794"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb794-1"><a href="packaging.html#cb794-1"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="bu">cd</span> ~/pyzipf</span>
+<span id="cb794-2"><a href="packaging.html#cb794-2"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="ex">pip</span> install -e .</span></code></pre></div>
+<pre class="text"><code>Obtaining file:///Users/amira/pyzipf
+Installing collected packages: pyzipf
+  Running setup.py develop for pyzipf
+Successfully installed pyzipf</code></pre>
+<p>The <code>-e</code> option indicates that we want to install the package in “editable” mode,
+which means that any changes we make in the package code are directly available to use
+without having to reinstall the package;
+the <code>.</code> means “install from the current directory.”</p>
+<p>If we look in the location containing package installations
+(e.g., <code>/Users/amira/anaconda3/envs/pyzipf/lib/python3.7/site-packages/</code>),
+we can see the <code>pyzipf</code> package beside all the other locally installed packages.
+If we try to use the package at this stage,
+though,
+Python will complain that some of the packages it depends on,
+such as <code>pandas</code>,
+are not installed.
+We could install these manually,
+but it is more reliable to automate this process
+by listing everything that our package depends on
+using the <code>install_requires</code> parameter in <code>setup.py</code>:</p>
+<div class="sourceCode" id="cb796"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb796-1"><a href="packaging.html#cb796-1"></a><span class="im">from</span> setuptools <span class="im">import</span> setup</span>
+<span id="cb796-2"><a href="packaging.html#cb796-2"></a></span>
+<span id="cb796-3"><a href="packaging.html#cb796-3"></a></span>
+<span id="cb796-4"><a href="packaging.html#cb796-4"></a>setup(</span>
+<span id="cb796-5"><a href="packaging.html#cb796-5"></a>    name<span class="op">=</span><span class="st">&#39;pyzipf&#39;</span>,</span>
+<span id="cb796-6"><a href="packaging.html#cb796-6"></a>    version<span class="op">=</span><span class="st">&#39;0.1&#39;</span>,</span>
+<span id="cb796-7"><a href="packaging.html#cb796-7"></a>    author<span class="op">=</span><span class="st">&#39;Amira Khan&#39;</span>,</span>
+<span id="cb796-8"><a href="packaging.html#cb796-8"></a>    packages<span class="op">=</span>[<span class="st">&#39;pyzipf&#39;</span>],</span>
+<span id="cb796-9"><a href="packaging.html#cb796-9"></a>    install_requires<span class="op">=</span>[</span>
+<span id="cb796-10"><a href="packaging.html#cb796-10"></a>        <span class="st">&#39;matplotlib&#39;</span>,</span>
+<span id="cb796-11"><a href="packaging.html#cb796-11"></a>        <span class="st">&#39;pandas&#39;</span>,</span>
+<span id="cb796-12"><a href="packaging.html#cb796-12"></a>        <span class="st">&#39;scipy&#39;</span>,</span>
+<span id="cb796-13"><a href="packaging.html#cb796-13"></a>        <span class="st">&#39;pyyaml&#39;</span>,</span>
+<span id="cb796-14"><a href="packaging.html#cb796-14"></a>        <span class="st">&#39;pytest&#39;</span>])</span></code></pre></div>
+<p>We don’t have to list <code>numpy</code> explicitly
+because it will be installed as a dependency for <code>pandas</code> and <code>scipy</code>.</p>
+<blockquote>
+<p><strong>Versioning Dependencies</strong></p>
+<p>It is good practice to specify the versions of our dependencies
+and even better to specify version ranges.
+For example, if we have only tested our package on pandas version 1.1.2,
+we could put <code>pandas==1.1.2</code> or <code>pandas&gt;=1.1.2</code> instead of just <code>pandas</code>
+in the list argument passed to the <code>install_requires</code> parameter.</p>
+</blockquote>
+<p>Next,
+we can install our package using the modified <code>setup.py</code> file:</p>
+<div class="sourceCode" id="cb797"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb797-1"><a href="packaging.html#cb797-1"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="bu">cd</span> ~/pyzipf</span>
+<span id="cb797-2"><a href="packaging.html#cb797-2"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="ex">pip</span> install -e .</span></code></pre></div>
+<pre class="text"><code>Obtaining file:///Users/amira/pyzipf
+Collecting matplotlib
+  Downloading matplotlib-3.3.3-cp37-cp37m-macosx_10_9_x86_64.whl
+     |████████████████████████████████| 8.5 MB 3.1 MB/s 
+Collecting cycler&gt;=0.10
+  Using cached cycler-0.10.0-py2.py3-none-any.whl
+Collecting kiwisolver&gt;=1.0.1
+  Downloading kiwisolver-1.3.1-cp37-cp37m-macosx_10_9_x86_64.whl 
+     |████████████████████████████████| 61 kB 2.0 MB/s 
+Collecting numpy&gt;=1.15
+  Downloading numpy-1.19.4-cp37-cp37m-macosx_10_9_x86_64.whl
+     |████████████████████████████████| 15.3 MB 8.9 MB/s 
+Collecting pillow&gt;=6.2.0
+  Downloading Pillow-8.0.1-cp37-cp37m-macosx_10_10_x86_64.whl
+     |████████████████████████████████| 2.2 MB 6.3 MB/s 
+Collecting pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3
+  Using cached pyparsing-2.4.7-py2.py3-none-any.whl
+Collecting python-dateutil&gt;=2.1
+  Using cached python_dateutil-2.8.1-py2.py3-none-any.whl
+Collecting six
+  Using cached six-1.15.0-py2.py3-none-any.whl
+Collecting pandas
+  Downloading pandas-1.1.5-cp37-cp37m-macosx_10_9_x86_64.whl
+     |████████████████████████████████| 10.0 MB 1.4 MB/s 
+Collecting pytz&gt;=2017.2
+  Using cached pytz-2020.4-py2.py3-none-any.whl
+Collecting pytest
+  Using cached pytest-6.2.1-py3-none-any.whl
+Collecting attrs&gt;=19.2.0
+  Using cached attrs-20.3.0-py2.py3-none-any.whl
+Collecting importlib-metadata&gt;=0.12
+  Downloading importlib_metadata-3.3.0-py3-none-any.whl
+Collecting pluggy&lt;1.0.0a1,&gt;=0.12
+  Using cached pluggy-0.13.1-py2.py3-none-any.whl
+Collecting py&gt;=1.8.2
+  Using cached py-1.10.0-py2.py3-none-any.whl
+Collecting typing-extensions&gt;=3.6.4
+  Downloading typing_extensions-3.7.4.3-py3-none-any.whl
+Collecting zipp&gt;=0.5
+  Downloading zipp-3.4.0-py3-none-any.whl
+Collecting iniconfig
+  Using cached iniconfig-1.1.1-py2.py3-none-any.whl
+Collecting packaging
+  Using cached packaging-20.8-py2.py3-none-any.whl
+Collecting pyyaml
+  Using cached PyYAML-5.3.1.tar.gz
+Collecting scipy
+  Downloading scipy-1.5.4-cp37-cp37m-macosx_10_9_x86_64.whl
+     |████████████████████████████████| 28.7 MB 10.7 MB/s 
+Collecting toml
+  Using cached toml-0.10.2-py2.py3-none-any.whl
+Building wheels for collected packages: pyyaml
+  Building wheel for pyyaml (setup.py) ... done
+  Created wheel for pyyaml:
+    filename=PyYAML-5.3.1-cp37-cp37m-macosx_10_9_x86_64.whl
+    size=44626
+    sha256=5a59ccf08237931e7946ec6b526922e4
+           f0c8ee903d43671f50289431d8ee689d
+  Stored in directory: /Users/amira/Library/Caches/pip/wheels/
+    5e/03/1e/e1e954795d6f35dfc7b637fe2277bff021303bd9570ecea653
+Successfully built pyyaml
+Installing collected packages: zipp, typing-extensions, six,
+pyparsing, importlib-metadata, toml, pytz, python-dateutil, py,
+pluggy, pillow, packaging, numpy, kiwisolver, iniconfig, cycler,
+attrs, scipy, pyyaml, pytest, pandas, matplotlib, pyzipf
+  Attempting uninstall: pyzipf
+    Found existing installation: pyzipf 0.1.0
+    Uninstalling pyzipf-0.1.0:
+      Successfully uninstalled pyzipf-0.1.0
+  Running setup.py develop for pyzipf
+Successfully installed attrs-20.3.0 cycler-0.10.0
+importlib-metadata-3.3.0 iniconfig-1.1.1 kiwisolver-1.3.1
+matplotlib-3.3.3 numpy-1.19.4 packaging-20.8 pandas-1.1.5
+pillow-8.0.1 pluggy-0.13.1 py-1.10.0 pyparsing-2.4.7
+pytest-6.2.1 python-dateutil-2.8.1 pytz-2020.4 pyyaml-5.3.1
+pyzipf scipy-1.5.4 six-1.15.0 toml-0.10.2
+typing-extensions-3.7.4.3 zipp-3.4.0</code></pre>
+<p>(The precise output of this command will change
+depending on which versions of our dependencies get installed.)</p>
+<p>We can now import our package in a script or a <a href="https://jupyter.org/">Jupyter notebook</a>
+just as we would any other package.
+For example,
+to use the function in <code>utilities</code>,
+we would write:</p>
+<div class="sourceCode" id="cb799"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb799-1"><a href="packaging.html#cb799-1"></a><span class="im">from</span> pyzipf <span class="im">import</span> utilities <span class="im">as</span> util</span>
+<span id="cb799-2"><a href="packaging.html#cb799-2"></a></span>
+<span id="cb799-3"><a href="packaging.html#cb799-3"></a></span>
+<span id="cb799-4"><a href="packaging.html#cb799-4"></a>util.collection_to_csv(...)</span></code></pre></div>
+<p>To allow our functions to continue accessing <code>utilities.py</code>,
+we need to change that line in both <code>countwords.py</code> and <code>collate.py</code>.</p>
+<p>However,
+the useful command-line scripts that we used to count and plot word counts
+are no longer accessible directly from the Unix shell.
+Fortunately there is an alternative to changing the function import
+as described above.
+The <code>setuptools</code> package allows us to install programs along with the package.
+These programs are placed beside those of other packages.
+We tell <code>setuptools</code> to do this by defining
+<a href="glossary.html#entry_point">entry points</a> in <code>setup.py</code>:</p>
+<div class="sourceCode" id="cb800"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb800-1"><a href="packaging.html#cb800-1"></a><span class="im">from</span> setuptools <span class="im">import</span> setup</span>
+<span id="cb800-2"><a href="packaging.html#cb800-2"></a></span>
+<span id="cb800-3"><a href="packaging.html#cb800-3"></a></span>
+<span id="cb800-4"><a href="packaging.html#cb800-4"></a>setup(</span>
+<span id="cb800-5"><a href="packaging.html#cb800-5"></a>    name<span class="op">=</span><span class="st">&#39;pyzipf&#39;</span>,</span>
+<span id="cb800-6"><a href="packaging.html#cb800-6"></a>    version<span class="op">=</span><span class="st">&#39;0.1&#39;</span>,</span>
+<span id="cb800-7"><a href="packaging.html#cb800-7"></a>    author<span class="op">=</span><span class="st">&#39;Amira Khan&#39;</span>,</span>
+<span id="cb800-8"><a href="packaging.html#cb800-8"></a>    packages<span class="op">=</span>[<span class="st">&#39;pyzipf&#39;</span>],</span>
+<span id="cb800-9"><a href="packaging.html#cb800-9"></a>    install_requires<span class="op">=</span>[</span>
+<span id="cb800-10"><a href="packaging.html#cb800-10"></a>        <span class="st">&#39;matplotlib&#39;</span>,</span>
+<span id="cb800-11"><a href="packaging.html#cb800-11"></a>        <span class="st">&#39;pandas&#39;</span>,</span>
+<span id="cb800-12"><a href="packaging.html#cb800-12"></a>        <span class="st">&#39;scipy&#39;</span>,</span>
+<span id="cb800-13"><a href="packaging.html#cb800-13"></a>        <span class="st">&#39;pyyaml&#39;</span>,</span>
+<span id="cb800-14"><a href="packaging.html#cb800-14"></a>        <span class="st">&#39;pytest&#39;</span>],</span>
+<span id="cb800-15"><a href="packaging.html#cb800-15"></a>    entry_points<span class="op">=</span>{</span>
+<span id="cb800-16"><a href="packaging.html#cb800-16"></a>        <span class="st">&#39;console_scripts&#39;</span>: [</span>
+<span id="cb800-17"><a href="packaging.html#cb800-17"></a>            <span class="st">&#39;countwords = pyzipf.countwords:main&#39;</span>,</span>
+<span id="cb800-18"><a href="packaging.html#cb800-18"></a>            <span class="st">&#39;collate = pyzipf.collate:main&#39;</span>,</span>
+<span id="cb800-19"><a href="packaging.html#cb800-19"></a>            <span class="st">&#39;plotcounts = pyzipf.plotcounts:main&#39;</span>]})</span></code></pre></div>
+<p>The right side of the <code>=</code> operator is the location of a function,
+written as <code>package.module:function</code>;
+the left side is the name we want to use to call this function from the command line.
+In this case we want to call each module’s <code>main</code> function;
+right now, it requires an input argument <code>args</code>
+containing the command-line arguments given by the user (Section <a href="scripting.html#scripting-options">5.2</a>).
+For example,
+the relevant section of our <code>countwords.py</code> program is:</p>
+<div class="sourceCode" id="cb801"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb801-1"><a href="packaging.html#cb801-1"></a><span class="kw">def</span> main(args):</span>
+<span id="cb801-2"><a href="packaging.html#cb801-2"></a>    <span class="co">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span></span>
+<span id="cb801-3"><a href="packaging.html#cb801-3"></a>    word_counts <span class="op">=</span> count_words(args.infile)</span>
+<span id="cb801-4"><a href="packaging.html#cb801-4"></a>    util.collection_to_csv(word_counts, num<span class="op">=</span>args.num)</span>
+<span id="cb801-5"><a href="packaging.html#cb801-5"></a></span>
+<span id="cb801-6"><a href="packaging.html#cb801-6"></a></span>
+<span id="cb801-7"><a href="packaging.html#cb801-7"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb801-8"><a href="packaging.html#cb801-8"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>__doc__)</span>
+<span id="cb801-9"><a href="packaging.html#cb801-9"></a>    parser.add_argument(<span class="st">&#39;infile&#39;</span>, <span class="bu">type</span><span class="op">=</span>argparse.FileType(<span class="st">&#39;r&#39;</span>),</span>
+<span id="cb801-10"><a href="packaging.html#cb801-10"></a>                        nargs<span class="op">=</span><span class="st">&#39;?&#39;</span>, default<span class="op">=</span><span class="st">&#39;-&#39;</span>,</span>
+<span id="cb801-11"><a href="packaging.html#cb801-11"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Input file name&#39;</span>)</span>
+<span id="cb801-12"><a href="packaging.html#cb801-12"></a>    parser.add_argument(<span class="st">&#39;-n&#39;</span>, <span class="st">&#39;--num&#39;</span>,</span>
+<span id="cb801-13"><a href="packaging.html#cb801-13"></a>                        <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, default<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb801-14"><a href="packaging.html#cb801-14"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output n most frequent words&#39;</span>)</span>
+<span id="cb801-15"><a href="packaging.html#cb801-15"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb801-16"><a href="packaging.html#cb801-16"></a>    main(args)</span></code></pre></div>
+<p>We can’t pass any arguments to <code>main</code> when we define entry points in our <code>setup.py</code> file,
+so we need to change our script slightly:</p>
+<div class="sourceCode" id="cb802"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb802-1"><a href="packaging.html#cb802-1"></a><span class="kw">def</span> parse_command_line():</span>
+<span id="cb802-2"><a href="packaging.html#cb802-2"></a>    <span class="co">&quot;&quot;&quot;Parse the command line for input arguments.&quot;&quot;&quot;</span></span>
+<span id="cb802-3"><a href="packaging.html#cb802-3"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>__doc__)</span>
+<span id="cb802-4"><a href="packaging.html#cb802-4"></a>    parser.add_argument(<span class="st">&#39;infile&#39;</span>, <span class="bu">type</span><span class="op">=</span>argparse.FileType(<span class="st">&#39;r&#39;</span>),</span>
+<span id="cb802-5"><a href="packaging.html#cb802-5"></a>                        nargs<span class="op">=</span><span class="st">&#39;?&#39;</span>, default<span class="op">=</span><span class="st">&#39;-&#39;</span>,</span>
+<span id="cb802-6"><a href="packaging.html#cb802-6"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Input file name&#39;</span>)</span>
+<span id="cb802-7"><a href="packaging.html#cb802-7"></a>    parser.add_argument(<span class="st">&#39;-n&#39;</span>, <span class="st">&#39;--num&#39;</span>,</span>
+<span id="cb802-8"><a href="packaging.html#cb802-8"></a>                        <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, default<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb802-9"><a href="packaging.html#cb802-9"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output n most frequent words&#39;</span>)</span>
+<span id="cb802-10"><a href="packaging.html#cb802-10"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb802-11"><a href="packaging.html#cb802-11"></a>    <span class="cf">return</span> args</span>
+<span id="cb802-12"><a href="packaging.html#cb802-12"></a></span>
+<span id="cb802-13"><a href="packaging.html#cb802-13"></a></span>
+<span id="cb802-14"><a href="packaging.html#cb802-14"></a><span class="kw">def</span> main():</span>
+<span id="cb802-15"><a href="packaging.html#cb802-15"></a>    <span class="co">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span></span>
+<span id="cb802-16"><a href="packaging.html#cb802-16"></a>    args <span class="op">=</span> parse_command_line()</span>
+<span id="cb802-17"><a href="packaging.html#cb802-17"></a>    word_counts <span class="op">=</span> count_words(args.infile)</span>
+<span id="cb802-18"><a href="packaging.html#cb802-18"></a>    util.collection_to_csv(word_counts, num<span class="op">=</span>args.num)</span>
+<span id="cb802-19"><a href="packaging.html#cb802-19"></a></span>
+<span id="cb802-20"><a href="packaging.html#cb802-20"></a></span>
+<span id="cb802-21"><a href="packaging.html#cb802-21"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb802-22"><a href="packaging.html#cb802-22"></a>    main()</span></code></pre></div>
+<p>The new <code>parse_command_line</code> function handles the command-line arguments,
+so that <code>main()</code> no longer requires any input arguments.</p>
+<p>Once we have made the corresponding change in <code>collate.py</code> and <code>plotcounts.py</code>,
+we can re-install our package:</p>
+<div class="sourceCode" id="cb803"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb803-1"><a href="packaging.html#cb803-1"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="ex">pip</span> install -e .</span></code></pre></div>
+<pre class="text"><code>Defaulting to user installation because normal site-packages is
+  not writeable
+Obtaining file:///Users/amira/pyzipf
+Requirement already satisfied: matplotlib in
+  /usr/lib/python3.7/site-packages (from pyzipf==0.1) (3.2.1)
+Requirement already satisfied: pandas in
+  /Users/amira/.local/lib/python3.7/site-packages
+  (from pyzipf==0.1) (1.0.3)
+Requirement already satisfied: scipy in
+  /usr/lib/python3.7/site-packages (from pyzipf==0.1) (1.4.1)
+Requirement already satisfied: pyyaml in
+  /usr/lib/python3.7/site-packages (from pyzipf==0.1) (5.3.1)
+Requirement already satisfied: cycler&gt;=0.10 in
+  /usr/lib/python3.7/site-packages
+  (from matplotlib-&gt;pyzipf==0.1) (0.10.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in
+  /usr/lib/python3.7/site-packages
+  (from matplotlib-&gt;pyzipf==0.1) (1.1.0)
+Requirement already satisfied: numpy&gt;=1.11 in
+  /usr/lib/python3.7/site-packages
+  (from matplotlib-&gt;pyzipf==0.1) (1.18.2)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,
+!=2.1.6,&gt;=2.0.1 in
+  /usr/lib/python3.7/site-packages
+  (from matplotlib-&gt;pyzipf==0.1) (2.4.6)
+Requirement already satisfied: python-dateutil&gt;=2.1 in
+  /usr/lib/python3.7/site-packages
+  (from matplotlib-&gt;pyzipf==0.1) (2.8.1)
+Requirement already satisfied: pytz&gt;=2017.2 in
+  /usr/lib/python3.7/site-packages
+  (from pandas-&gt;pyzipf==0.1) (2019.3)
+Requirement already satisfied: six in
+  /usr/lib/python3.7/site-packages
+  (from cycler&gt;=0.10-&gt;matplotlib-&gt;pyzipf==0.1) (1.14.0)
+Requirement already satisfied: setuptools in
+  /usr/lib/python3.7/site-packages
+  (from kiwisolver&gt;=1.0.1-&gt;matplotlib-&gt;pyzipf==0.1) (46.1.3)
+Installing collected packages: pyzipf
+  Running setup.py develop for pyzipf
+Successfully installed pyzipf</code></pre>
+<p>The output looks slightly different than the first run
+because <code>pip</code> could re-use some packages saved locally by the previous install
+rather than re-fetching them from online repositories.
+(If we hadn’t used the <code>-e</code> option to make the package immediately editable,
+we would have to uninstall it before reinstalling it during development.)</p>
+<p>We can now use our commands directly from the Unix shell
+without writing the full path to the file
+and without prefixing it with <code>python</code>.</p>
+<div class="sourceCode" id="cb805"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb805-1"><a href="packaging.html#cb805-1"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="ex">countwords</span> data/dracula.txt -n 5</span></code></pre></div>
+<pre class="text"><code>the,8036
+and,5896
+i,4712
+to,4540
+of,3738</code></pre>
+<blockquote>
+<p><strong>Tracking <code>pyzipf.egg-info</code>?</strong></p>
+<p>Using <code>setuptools</code> automatically creates a new folder
+in your project directory named <code>pyzipf.egg-info</code>.
+This folder is <a href="https://github.com/github/gitignore">another example</a> of information generated by a script
+that is also included in the repository,
+so it should be included in the <code>.gitignore</code> file to avoid tracking with Git.</p>
+</blockquote>
+</div>
+<div id="packaging-installation" class="section level2">
+<h2><span class="header-section-number">14.4</span> What Installation Does</h2>
+<p>Now that we have created and installed a Python package,
+let’s explore what actually happens during installation.
+The short version is that
+the contents of the package are copied into a directory that Python will search
+when it imports things.
+In theory we can “install” packages by manually copying source code into the right places,
+but it’s much more efficient and safer to use a tool specifically made for this purpose,
+such as <code>conda</code> or <code>pip</code>.</p>
+<p>Most of the time,
+these tools copy packages into the Python installation’s <code>site-packages</code> directory,
+but this is not the only place Python searches.
+Just as the <code>PATH</code> environment in the shell contains a list of directories
+that the shell searches for programs it can execute (Section <a href="bash-advanced.html#bash-advanced-vars">4.6</a>),
+the Python variable <code>sys.path</code> contains a list of the directories it searches (Section <a href="testing.html#testing-unit">11.2</a>).
+We can look at this list inside the interpreter:</p>
+<div class="sourceCode" id="cb807"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb807-1"><a href="packaging.html#cb807-1"></a><span class="im">import</span> sys</span>
+<span id="cb807-2"><a href="packaging.html#cb807-2"></a>sys.path</span></code></pre></div>
+<pre class="text"><code>[&#39;&#39;,
+&#39;/Users/amira/anaconda3/envs/pyzipf/lib/python37.zip&#39;,
+&#39;/Users/amira/anaconda3/envs/pyzipf/lib/python3.7&#39;,
+&#39;/Users/amira/anaconda3/envs/pyzipf/lib/python3.7/lib-dynload&#39;,
+&#39;/Users/amira/.local/lib/python3.7/site-packages&#39;,
+&#39;/Users/amira/anaconda3/envs/pyzipf/lib/python3.7/
+site-packages&#39;,
+&#39;/Users/amira/pyzipf&#39;]</code></pre>
+<p>The empty string at the start of the list means “the current directory.”
+The rest are system paths for our Python installation,
+and will vary from computer to computer.</p>
+</div>
+<div id="packaging-distribute" class="section level2">
+<h2><span class="header-section-number">14.5</span> Distributing Packages</h2>
+<blockquote>
+<p><strong>Look but Don’t Execute</strong></p>
+<p>In this section we upload the <code>pyzipf</code> package
+to TestPyPI and PyPI:</p>
+<p><a href="https://test.pypi.org/project/pyzipf" class="uri">https://test.pypi.org/project/pyzipf</a></p>
+<p><a href="https://pypi.org/project/pyzipf/" class="uri">https://pypi.org/project/pyzipf/</a></p>
+<p>You won’t be able to execute the <code>twine upload</code>
+commands below exactly as shown
+(because Amira has already uploaded the <code>pyzipf</code> package),
+but the general sequence of commands in this section
+is an excellent resource to refer to when you are
+uploading your own packages.
+If you want to try uploading your own <code>pyzipf</code> package via <code>twine</code>,
+you could edit the project name to include your name (e.g., <code>pyzipf-yourname</code>)
+and use the TestPyPI repository for the upload.</p>
+</blockquote>
+<p>An installable package is most useful
+if we distribute it so that anyone who wants it
+can run <code>pip install pyzipf</code>
+and get it.
+To make this possible,
+we need to use <code>setuptools</code> to create
+a <a href="glossary.html#source_distribution">source distribution</a>
+(known as an <code>sdist</code> in Python packaging jargon):</p>
+<div class="sourceCode" id="cb809"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb809-1"><a href="packaging.html#cb809-1"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="ex">python</span> setup.py sdist</span></code></pre></div>
+<pre class="text"><code>running sdist
+running egg_info
+creating pyzipf.egg-info
+writing pyzipf.egg-info/PKG-INFO
+writing dependency_links to pyzipf.egg-info/dependency_links.txt
+writing entry points to pyzipf.egg-info/entry_points.txt
+writing requirements to pyzipf.egg-info/requires.txt
+writing top-level names to pyzipf.egg-info/top_level.txt
+writing manifest file &#39;pyzipf.egg-info/SOURCES.txt&#39;
+package init file &#39;pyzipf/__init__.py&#39; not found
+(or not a regular file)
+reading manifest file &#39;pyzipf.egg-info/SOURCES.txt&#39;
+writing manifest file &#39;pyzipf.egg-info/SOURCES.txt&#39;
+running check
+warning: check: missing required meta-data: url
+
+warning: check: missing meta-data: if &#39;author&#39; supplied, 
+                &#39;author_email&#39; must be supplied too
+
+creating pyzipf-0.1
+creating pyzipf-0.1/pyzipf
+creating pyzipf-0.1/pyzipf.egg-info
+copying files to pyzipf-0.1...
+copying README.md -&gt; pyzipf-0.1
+copying setup.py -&gt; pyzipf-0.1
+copying pyzipf/collate.py -&gt;
+  pyzipf-0.1/pyzipf
+copying pyzipf/countwords.py -&gt;
+  pyzipf-0.1/pyzipf
+copying pyzipf/plotcounts.py -&gt;
+  pyzipf-0.1/pyzipf
+copying pyzipf/script_template.py -&gt;
+  pyzipf-0.1/pyzipf
+copying pyzipf/test_zipfs.py -&gt;
+  pyzipf-0.1/pyzipf
+copying pyzipf/utilities.py -&gt;
+  pyzipf-0.1/pyzipf
+copying pyzipf.egg-info/PKG-INFO -&gt;
+  pyzipf-0.1/pyzipf.egg-info
+copying pyzipf.egg-info/SOURCES.txt -&gt;
+  pyzipf-0.1/pyzipf.egg-info
+copying pyzipf.egg-info/dependency_links.txt -&gt;
+  pyzipf-0.1/pyzipf.egg-info
+copying pyzipf.egg-info/entry_points.txt -&gt;
+  pyzipf-0.1/pyzipf.egg-info
+copying pyzipf.egg-info/requires.txt -&gt;
+  pyzipf-0.1/pyzipf.egg-info
+copying pyzipf.egg-info/top_level.txt -&gt;
+  pyzipf-0.1/pyzipf.egg-info
+Writing pyzipf-0.1/setup.cfg
+creating dist
+Creating tar archive
+removing &#39;pyzipf-0.1&#39; (and everything under it)</code></pre>
+<p>This creates a file named <code>pyzipf-0.1.tar.gz</code>,
+located in a new directory in our project, <code>dist/</code>
+(another directory to add to <a href="https://github.com/github/gitignore"><code>.gitignore</code></a>).
+These distribution files can now be distributed via <a href="https://pypi.org/">PyPI</a>,
+the standard repository for Python packages.
+Before doing that,
+though,
+we can put <code>pyzipf</code> on <a href="https://test.pypi.org">TestPyPI</a>,
+which lets us test the distribution of our package
+without having things appear in the main PyPI repository.
+We must have an account,
+but they are free to create.</p>
+<p>The preferred tool for uploading packages to PyPI is called <a href="https://twine.readthedocs.io/en/latest/">twine</a>,
+which we can install with:</p>
+<div class="sourceCode" id="cb811"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb811-1"><a href="packaging.html#cb811-1"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="ex">pip</span> install twine</span></code></pre></div>
+<p>Following the <a href="https://packaging.python.org/guides/using-testpypi/">Python Packaging User Guide</a>,
+we upload our distribution from the <code>dist/</code> folder
+using the <code>--repository</code> option to specify the TestPyPI repository:</p>
+<div class="sourceCode" id="cb812"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb812-1"><a href="packaging.html#cb812-1"></a>$ <span class="ex">twine</span> upload --repository testpypi dist/*</span></code></pre></div>
+<pre class="text"><code>Uploading distributions to https://test.pypi.org/legacy/</code></pre>
+<div class="sourceCode" id="cb814"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb814-1"><a href="packaging.html#cb814-1"></a><span class="ex">Enter</span> your username: amira-khan</span>
+<span id="cb814-2"><a href="packaging.html#cb814-2"></a><span class="ex">Enter</span> your password: *********</span></code></pre></div>
+<pre class="text"><code>Uploading pyzipf-0.1.0.tar.gz
+100%|█████████████████| 5.59k/5.59k [00:01&lt;00:00, 3.27kB/s]
+
+View at:
+https://test.pypi.org/project/pyzipf/0.1/</code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:packaging-testpypi"></span>
+<img src="figures/packaging/testpypi.png" alt="Our new project on TestPyPI." width="100%" />
+<p class="caption">
+Figure 14.1: Our new project on TestPyPI.
+</p>
+</div>
+<p>and view the results at the new test project webpage
+(Figure <a href="packaging.html#fig:packaging-testpypi">14.1</a>).
+In the exercises,
+we will explore additional metadata that can be added to <code>setup.py</code>
+so that it appears on the project webpage.</p>
+<p>We can test that everything works as expected
+by creating a virtual environment
+and installing our package from TestPyPI
+(the <code>--extra-index-url</code> reference to PyPI below accounts for the fact that
+not all of our package dependencies are available on TestPyPI):</p>
+<div class="sourceCode" id="cb816"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb816-1"><a href="packaging.html#cb816-1"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="ex">conda</span> create -n pyzipf-test pip python=3.7.6</span>
+<span id="cb816-2"><a href="packaging.html#cb816-2"></a><span class="kw">(</span><span class="ex">pyzipf</span><span class="kw">)</span>$ <span class="ex">conda</span> activate pyzipf-test </span>
+<span id="cb816-3"><a href="packaging.html#cb816-3"></a><span class="kw">(</span><span class="ex">pyzipf-test</span><span class="kw">)</span>$ <span class="ex">pip</span> install --index-url</span>
+<span id="cb816-4"><a href="packaging.html#cb816-4"></a>  <span class="ex">https</span>://test.pypi.org/simple </span>
+<span id="cb816-5"><a href="packaging.html#cb816-5"></a>  <span class="ex">--extra-index-url</span> https://pypi.org/simple pyzipf</span></code></pre></div>
+<div style="page-break-after: always;"></div>
+<pre class="text"><code>Looking in indexes: https://test.pypi.org/simple,
+                    https://pypi.org/simple
+Collecting pyzipf
+  Downloading pyzipf-0.1.tar.gz (5.5 kB)
+Collecting matplotlib
+ Using cached matplotlib-3.3.3-cp37-cp37m-macosx_10_9_x86_64.whl
+...collecting other packages...
+Building wheels for collected packages: pyzipf
+  Building wheel for pyzipf (setup.py) ... done
+  Created wheel for pyzipf:
+    filename=pyzipf-0.1-py3-none-any.whl
+    size=6836
+    sha256=62a23715379b71ad5a6b124444fab194
+           596d094c7df293c4019d33bdd648aff1
+  Stored in directory: /Users/amira/Library/Caches/pip/wheels/
+   c6/d6/08/f16cf80ec82a9c70ab8a5d9c8acc7ab35c9a01009539aeb2be
+Successfully built pyzipf
+Installing collected packages: zipp, typing-extensions, six,
+pyparsing, importlib-metadata, toml, pytz, python-dateutil, py,
+pluggy, pillow, packaging, numpy, kiwisolver, iniconfig, cycler,
+attrs, scipy, pyyaml, pytest, pandas, matplotlib, pyzipf
+Successfully installed attrs-20.3.0 cycler-0.10.0
+importlib-metadata-3.3.0 iniconfig-1.1.1 kiwisolver-1.3.1
+matplotlib-3.3.3 numpy-1.19.4 packaging-20.8 pandas-1.1.5
+pillow-8.0.1 pluggy-0.13.1 py-1.10.0 pyparsing-2.4.7
+pytest-6.2.1 python-dateutil-2.8.1 pytz-2020.4 pyyaml-5.3.1
+pyzipf-0.1 scipy-1.5.4 six-1.15.0 toml-0.10.2
+typing-extensions-3.7.4.3 zipp-3.4.0</code></pre>
+<p>Once again,
+<code>pip</code> takes advantage of the fact that some packages already existing on our system
+(e.g., they are cached from our previous installs)
+and doesn’t download them again.
+Once we are happy with our package at TestPyPI,
+we can go through the same process to put it on the main <a href="https://pypi.org/">PyPI</a> repository.</p>
+<blockquote>
+<p><strong>Python Wheels</strong></p>
+<p>When we installed our package from TestPyPI,
+the output said that it collected our source distribution
+and then used it to build a <a href="glossary.html#wheel">wheel</a> for <code>pyzipf</code>.
+This build takes time (especially for large, complex packages),
+so it can be a good idea for package authors to create and upload wheel files (<code>.whl</code>)
+to PyPI along with the source distribution.
+<code>pip</code> will use the appropriate wheel file if it’s available at PyPI
+instead of building it from the source distribution,
+which makes the installation process faster and more efficient.
+Check out the <a href="https://realpython.com/python-wheels/">Real Python guide to wheels</a> for details.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>conda</code> Installation Packages</strong></p>
+<p>Given the widespread use of <a href="https://conda.io/"><code>conda</code></a> for package management,
+it can be a good idea to post a <code>conda</code> installation package to
+<a href="https://anaconda.org/">Anaconda Cloud</a>.
+The <code>conda</code> documentation has <a href="https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html">instructions</a> for quickly building
+a <code>conda</code> package for a Python module that is already available on PyPI.
+See Appendix <a href="anaconda.html#anaconda">I</a> for more information about <code>conda</code> and Anaconda Cloud.</p>
+</blockquote>
+</div>
+<div id="packaging-document" class="section level2">
+<h2><span class="header-section-number">14.6</span> Documenting Packages</h2>
+<p>Now that our package has been distributed,
+we need to think about whether we have provided sufficient documentation.
+Docstrings (Section <a href="scripting.html#scripting-docstrings">5.3</a>) and READMEs
+are sufficient to describe most simple packages,
+but as our code base grows larger,
+we will want to complement these manually written sections with automatically generated content,
+references between functions,
+and search functionality.
+For most large Python packages,
+such documentation is generated using a <a href="glossary.html#documentation_generator">documentation generator</a>
+called <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>,
+which is often used in combination with a free online hosting service called
+<a href="https://docs.readthedocs.io/en/latest/">Read the Docs</a>.
+In this section we will update our README file with some basic package-level documentation,
+before using Sphinx and Read the Docs to host that information online
+along with more detailed function-level documentation.
+For further advice on writing documentation for larger and more complex packages,
+see Appendix <a href="documentation.html#documentation">G</a>.</p>
+<div id="packaging-readme" class="section level3">
+<h3><span class="header-section-number">14.6.1</span> Including package-level documentation in the <code>README</code></h3>
+<p>When a user first encounters a package,
+they usually want to know what the package is meant to do,
+instructions on how to install it,
+and examples of how to use it.
+We can include these elements in the <code>README.md</code> file we started in Chapter <a href="git-advanced.html#git-advanced">7</a>.
+At the moment it reads as follows:</p>
+<div class="sourceCode" id="cb818"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb818-1"><a href="packaging.html#cb818-1"></a>$ <span class="fu">cat</span> README.md</span></code></pre></div>
+<pre class="text"><code># Zipf&#39;s Law
+
+These Zipf&#39;s Law scripts tally the occurrences of words in text
+files and plot each word&#39;s rank versus its frequency.
+
+...</code></pre>
+<p>This file is currently written in <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>,
+but Sphinx uses a format called <a href="glossary.html#restructured_text">reStructuredText</a> (reST),
+so we will switch to that.
+Like Markdown,
+reST is a plain-text markup format
+that can be rendered into HTML or PDF documents
+with complex indices and cross-links.
+GitHub recognizes files ending in <code>.rst</code> as reST files and displays them nicely,
+so our first task is to rename our existing file:</p>
+<div class="sourceCode" id="cb820"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb820-1"><a href="packaging.html#cb820-1"></a>$ <span class="fu">git</span> mv README.md README.rst</span></code></pre></div>
+<p>We then make a few edits to the file formatting:
+titles are underlined and overlined,
+section headings are underlined,
+and code blocks are set off with two colons (<code>::</code>) and indented.
+We can also add some context about why to use the package,
+as well as updated information about package installation:</p>
+<div class="sourceCode" id="cb821"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb821-1"><a href="packaging.html#cb821-1"></a>The `<span class="bn">`pyzipf`</span>` package tallies the occurrences of words in text</span>
+<span id="cb821-2"><a href="packaging.html#cb821-2"></a>files and plots each word&#39;s rank versus its frequency together </span>
+<span id="cb821-3"><a href="packaging.html#cb821-3"></a>with a line for the theoretical distribution for Zipf&#39;s Law.</span>
+<span id="cb821-4"><a href="packaging.html#cb821-4"></a></span>
+<span id="cb821-5"><a href="packaging.html#cb821-5"></a>Motivation</span>
+<span id="cb821-6"><a href="packaging.html#cb821-6"></a>----------</span>
+<span id="cb821-7"><a href="packaging.html#cb821-7"></a></span>
+<span id="cb821-8"><a href="packaging.html#cb821-8"></a>Zipf&#39;s Law is often stated as an observational pattern in the</span>
+<span id="cb821-9"><a href="packaging.html#cb821-9"></a>relationship between the frequency and rank of words in a text:</span>
+<span id="cb821-10"><a href="packaging.html#cb821-10"></a></span>
+<span id="cb821-11"><a href="packaging.html#cb821-11"></a>`&quot;…the most frequent word will occur approximately twice as</span>
+<span id="cb821-12"><a href="packaging.html#cb821-12"></a>often as the second most frequent word,</span>
+<span id="cb821-13"><a href="packaging.html#cb821-13"></a>three times as often as the third most</span>
+<span id="cb821-14"><a href="packaging.html#cb821-14"></a>frequent word, etc.&quot;`</span>
+<span id="cb821-15"><a href="packaging.html#cb821-15"></a>— <span class="bn">`wikipedia &lt;https://en.wikipedia.org/wiki/Zipf%27s_law&gt;`</span>_</span>
+<span id="cb821-16"><a href="packaging.html#cb821-16"></a></span>
+<span id="cb821-17"><a href="packaging.html#cb821-17"></a>Many books are available to download in plain text format</span>
+<span id="cb821-18"><a href="packaging.html#cb821-18"></a>from sites such as</span>
+<span id="cb821-19"><a href="packaging.html#cb821-19"></a><span class="bn">`Project Gutenberg &lt;https://www.gutenberg.org/&gt;`</span>_,</span>
+<span id="cb821-20"><a href="packaging.html#cb821-20"></a>so we created this package to qualitatively explore how well</span>
+<span id="cb821-21"><a href="packaging.html#cb821-21"></a>different books align with the word frequencies predicted by</span>
+<span id="cb821-22"><a href="packaging.html#cb821-22"></a>Zipf&#39;s Law.</span>
+<span id="cb821-23"><a href="packaging.html#cb821-23"></a></span>
+<span id="cb821-24"><a href="packaging.html#cb821-24"></a>Installation</span>
+<span id="cb821-25"><a href="packaging.html#cb821-25"></a>------------</span>
+<span id="cb821-26"><a href="packaging.html#cb821-26"></a></span>
+<span id="cb821-27"><a href="packaging.html#cb821-27"></a>`<span class="bn">`pip install pyzipf`</span>`</span>
+<span id="cb821-28"><a href="packaging.html#cb821-28"></a></span>
+<span id="cb821-29"><a href="packaging.html#cb821-29"></a>Usage</span>
+<span id="cb821-30"><a href="packaging.html#cb821-30"></a>-----</span>
+<span id="cb821-31"><a href="packaging.html#cb821-31"></a></span>
+<span id="cb821-32"><a href="packaging.html#cb821-32"></a>After installing this package, the following three commands will</span>
+<span id="cb821-33"><a href="packaging.html#cb821-33"></a>be available from the command line</span>
+<span id="cb821-34"><a href="packaging.html#cb821-34"></a></span>
+<span id="cb821-35"><a href="packaging.html#cb821-35"></a>- <span class="st">`</span><span class="bn">`countwords`</span><span class="st">` for counting the occurrences of words in a text</span></span>
+<span id="cb821-36"><a href="packaging.html#cb821-36"></a><span class="st">- `</span><span class="bn">`collate`</span><span class="st">` for collating multiple word count files together</span></span>
+<span id="cb821-37"><a href="packaging.html#cb821-37"></a><span class="st">- `</span><span class="bn">`plotcounts`</span><span class="st">` for visualizing the word counts</span></span>
+<span id="cb821-38"><a href="packaging.html#cb821-38"></a></span>
+<span id="cb821-39"><a href="packaging.html#cb821-39"></a>A typical usage scenario would include running the following</span>
+<span id="cb821-40"><a href="packaging.html#cb821-40"></a>from your terminal::</span>
+<span id="cb821-41"><a href="packaging.html#cb821-41"></a></span>
+<span id="cb821-42"><a href="packaging.html#cb821-42"></a><span class="bn">    countwords dracula.txt &gt; dracula.csv</span></span>
+<span id="cb821-43"><a href="packaging.html#cb821-43"></a><span class="bn">    countwords moby_dick.txt &gt; moby_dick.csv</span></span>
+<span id="cb821-44"><a href="packaging.html#cb821-44"></a><span class="bn">    collate dracula.csv moby_dick.csv &gt; collated.csv</span></span>
+<span id="cb821-45"><a href="packaging.html#cb821-45"></a><span class="bn">    plotcounts collated.csv --outfile zipf-drac-moby.jpg</span></span>
+<span id="cb821-46"><a href="packaging.html#cb821-46"></a></span>
+<span id="cb821-47"><a href="packaging.html#cb821-47"></a>Additional information on each function</span>
+<span id="cb821-48"><a href="packaging.html#cb821-48"></a>can be found in their docstrings and appending the `<span class="bn">`-h`</span>` flag,</span>
+<span id="cb821-49"><a href="packaging.html#cb821-49"></a>e.g., `<span class="bn">`countwords -h`</span>`.</span>
+<span id="cb821-50"><a href="packaging.html#cb821-50"></a></span>
+<span id="cb821-51"><a href="packaging.html#cb821-51"></a>Contributing</span>
+<span id="cb821-52"><a href="packaging.html#cb821-52"></a>------------</span>
+<span id="cb821-53"><a href="packaging.html#cb821-53"></a></span>
+<span id="cb821-54"><a href="packaging.html#cb821-54"></a>Interested in contributing?</span>
+<span id="cb821-55"><a href="packaging.html#cb821-55"></a>Check out the CONTRIBUTING.md</span>
+<span id="cb821-56"><a href="packaging.html#cb821-56"></a>file for guidelines on how to contribute.</span>
+<span id="cb821-57"><a href="packaging.html#cb821-57"></a>Please note that this project is released with a</span>
+<span id="cb821-58"><a href="packaging.html#cb821-58"></a>Contributor Code of Conduct (CONDUCT.md).</span>
+<span id="cb821-59"><a href="packaging.html#cb821-59"></a>By contributing to this project,</span>
+<span id="cb821-60"><a href="packaging.html#cb821-60"></a>you agree to abide by its terms.</span>
+<span id="cb821-61"><a href="packaging.html#cb821-61"></a>Both of these files can be found in our</span>
+<span id="cb821-62"><a href="packaging.html#cb821-62"></a><span class="bn">`GitHub repository. &lt;https://github.com/amira-khan/zipf&gt;`</span>_</span></code></pre></div>
+</div>
+<div id="packaging-sphinx" class="section level3">
+<h3><span class="header-section-number">14.6.2</span> Creating a web page for documentation</h3>
+<p>Now that we’ve added package-level documentation to our README file,
+we need to think about function-level documentation.
+We want to provide users with a list of all the functions available in our package
+along with a short description of what they do and how to use them.
+We could achieve this by manually cutting and pasting function names and docstrings
+from our Python modules (i.e., <code>countwords.py</code>, <code>plotcounts.py</code>, etc.),
+but that would be a time-consuming process prone to errors as more functions are added over time.
+Instead, we can use a <a href="glossary.html#documentation_generator">documentation generator</a>
+called <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>
+that is capable of scanning Python code for function names and docstrings
+and can export that information to HTML format for hosting on the web.</p>
+<p>To start, let’s install Sphinx and create a <code>docs/</code> directory at the top of our repository:</p>
+<div class="sourceCode" id="cb822"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb822-1"><a href="packaging.html#cb822-1"></a>$ <span class="ex">pip</span> install sphinx</span>
+<span id="cb822-2"><a href="packaging.html#cb822-2"></a>$ <span class="fu">mkdir</span> docs</span>
+<span id="cb822-3"><a href="packaging.html#cb822-3"></a>$ <span class="bu">cd</span> docs</span></code></pre></div>
+<p>We can then run Sphinx’s <code>quickstart</code> tool to create a minimal set of documentation
+that includes the package-level information in the <code>README.rst</code> file we just created
+and the function-level information in the docstrings we’ve written along the way.
+It asks us to specify the project’s name,
+the name of the project’s author,
+and a release;
+we can use the default settings for everything else.</p>
+<div class="sourceCode" id="cb823"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb823-1"><a href="packaging.html#cb823-1"></a>$ <span class="ex">sphinx-quickstart</span></span></code></pre></div>
+<pre class="text"><code>Welcome to the Sphinx 3.1.1 quickstart utility.
+
+Please enter values for the following settings (just press Enter
+to accept a default value, if one is given in brackets).
+
+Selected root path: .
+
+You have two options for placing the build directory for Sphinx
+output. Either, you use a directory &quot;_build&quot; within the root
+path, or you separate &quot;source&quot; and &quot;build&quot; directories within
+the root path.</code></pre>
+<div class="sourceCode" id="cb825"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb825-1"><a href="packaging.html#cb825-1"></a><span class="op">&gt;</span> <span class="ex">Separate</span> source and build directories (y/n) [<span class="ex">n</span>]: n</span></code></pre></div>
+<pre class="text"><code>The project name will occur in several places in the built
+documentation.</code></pre>
+<div class="sourceCode" id="cb827"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb827-1"><a href="packaging.html#cb827-1"></a><span class="op">&gt;</span> <span class="ex">Project</span> name: pyzipf</span>
+<span id="cb827-2"><a href="packaging.html#cb827-2"></a><span class="op">&gt;</span> <span class="ex">Author</span> name(s)<span class="bu">:</span> Amira Khan</span>
+<span id="cb827-3"><a href="packaging.html#cb827-3"></a><span class="op">&gt;</span> <span class="ex">Project</span> release []: 0.1</span></code></pre></div>
+<pre class="text"><code>If the documents are to be written in a language other than
+English, you can select a language here by its language code.
+Sphinx will then translate text that it generates into that
+language.
+
+For a list of supported codes, see
+https://www.sphinx-doc.org/en/master/usage/configuration.html</code></pre>
+<div class="sourceCode" id="cb829"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb829-1"><a href="packaging.html#cb829-1"></a><span class="op">&gt;</span> <span class="ex">Project</span> language [en]:</span></code></pre></div>
+<pre class="text"><code>Creating file /Users/amira/pyzipf/docs/conf.py.
+Creating file /Users/amira/pyzipf/docs/index.rst.
+Creating file /Users/amira/pyzipf/docs/Makefile.
+Creating file /Users/amira/pyzipf/docs/make.bat.
+
+Finished: An initial directory structure has been created.
+
+You should now populate your master file
+/Users/amira/pyzipf/docs/index.rst and create other documentation
+source files. Use the Makefile to build the docs, like so:
+   make builder
+where &quot;builder&quot; is one of the supported builders, e.g. HTML,
+LaTeX or linkcheck.</code></pre>
+<p><code>quickstart</code> creates a file called <code>conf.py</code> in the <code>docs</code> directory that configures Sphinx.
+We will make two changes to that file
+so that another tool called <code>autodoc</code> can find our modules (and their docstrings).
+The first change relates to the “path setup” section near the head of the file:</p>
+<pre class="text"><code># -- Path setup -----------------------------------------------
+
+# If extensions (or modules to document with autodoc) are in
+# another directory, add these directories to sys.path here. If
+# the directory is relative to the documentation root, use
+# os.path.abspath to make it absolute, like shown here.</code></pre>
+<p>Relative to the <code>docs/</code> directory,
+our modules (i.e., <code>countwords.py</code>, <code>utilities.py</code>, etc.) are located in the <code>../pyzipf</code> directory.
+We therefore need to uncomment the relevant lines of the path setup section in <code>conf.py</code>
+to tell Sphinx where those modules are:</p>
+<div class="sourceCode" id="cb832"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb832-1"><a href="packaging.html#cb832-1"></a><span class="im">import</span> os</span>
+<span id="cb832-2"><a href="packaging.html#cb832-2"></a><span class="im">import</span> sys</span>
+<span id="cb832-3"><a href="packaging.html#cb832-3"></a>sys.path.insert(<span class="dv">0</span>, os.path.abspath(<span class="st">&#39;../pyzipf&#39;</span>))</span></code></pre></div>
+<p>We will also change the “general configuration” section
+to add <code>autodoc</code> to the list of Sphinx extensions we want:</p>
+<div class="sourceCode" id="cb833"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb833-1"><a href="packaging.html#cb833-1"></a>extensions <span class="op">=</span> [<span class="st">&#39;sphinx.ext.autodoc&#39;</span>]</span></code></pre></div>
+<div style="page-break-after: always;"></div>
+<p>With those edits complete,
+we can now generate a Sphinx <code>autodoc</code> script
+that generates information about each of our modules
+and puts it in corresponding <code>.rst</code> files in the <code>docs/source</code> directory:</p>
+<div class="sourceCode" id="cb834"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb834-1"><a href="packaging.html#cb834-1"></a><span class="ex">sphinx-apidoc</span> -o source/ ../pyzipf</span></code></pre></div>
+<pre class="text"><code>Creating file source/collate.rst.
+Creating file source/countwords.rst.
+Creating file source/plotcounts.rst.
+Creating file source/test_zipfs.rst.
+Creating file source/utilities.rst.
+Creating file source/modules.rst.</code></pre>
+<p>At this point, we are ready to generate our webpage.
+The <code>docs</code> sub-directory contains a Makefile that was generated by <code>sphinx-quickstart</code>.
+If we run <code>make html</code> and open <code>docs/_build/index.html</code> in a web browser,
+we’ll have a landing page with minimal documentation (Figure <a href="packaging.html#fig:packaging-sphinx-landing-page-original">14.2</a>).
+If we click on the <code>Module Index</code> link we can access the documentation for the individual modules
+(Figures <a href="packaging.html#fig:packaging-sphinx-module-list">14.3</a> and <a href="packaging.html#fig:packaging-sphinx-module-countwords">14.4</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:packaging-sphinx-landing-page-original"></span>
+<img src="figures/packaging/landing-page-original.png" alt="The default website landing page." width="100%" />
+<p class="caption">
+Figure 14.2: The default website landing page.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:packaging-sphinx-module-list"></span>
+<img src="figures/packaging/module-index.png" alt="The module index." width="100%" />
+<p class="caption">
+Figure 14.3: The module index.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:packaging-sphinx-module-countwords"></span>
+<img src="figures/packaging/module-countwords.png" alt="The countwords documentation." width="100%" />
+<p class="caption">
+Figure 14.4: The countwords documentation.
+</p>
+</div>
+<p>The landing page for the website is the perfect place for the content of our README file,
+so we can add the line <code>.. include:: ../README.rst</code> to the <code>docs/index.rst</code> file to insert it:</p>
+<div class="sourceCode" id="cb836"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb836-1"><a href="packaging.html#cb836-1"></a>Welcome to pyzipf&#39;s documentation!</span>
+<span id="cb836-2"><a href="packaging.html#cb836-2"></a>==================================</span>
+<span id="cb836-3"><a href="packaging.html#cb836-3"></a></span>
+<span id="cb836-4"><a href="packaging.html#cb836-4"></a>.. include:: ../README.rst</span>
+<span id="cb836-5"><a href="packaging.html#cb836-5"></a></span>
+<span id="cb836-6"><a href="packaging.html#cb836-6"></a>.. toctree::</span>
+<span id="cb836-7"><a href="packaging.html#cb836-7"></a>   :maxdepth: 2</span>
+<span id="cb836-8"><a href="packaging.html#cb836-8"></a>   :caption: Contents:</span>
+<span id="cb836-9"><a href="packaging.html#cb836-9"></a></span>
+<span id="cb836-10"><a href="packaging.html#cb836-10"></a>Indices and tables</span>
+<span id="cb836-11"><a href="packaging.html#cb836-11"></a>==================</span>
+<span id="cb836-12"><a href="packaging.html#cb836-12"></a></span>
+<span id="cb836-13"><a href="packaging.html#cb836-13"></a>* <span class="st">:ref:</span><span class="bn">`genindex`</span></span>
+<span id="cb836-14"><a href="packaging.html#cb836-14"></a><span class="st">* :ref:</span><span class="bn">`modindex`</span></span>
+<span id="cb836-15"><a href="packaging.html#cb836-15"></a><span class="st">* :ref:</span><span class="bn">`search`</span></span></code></pre></div>
+<p>If we re-run <code>make html</code>,
+we now get an updated set of web pages that
+re-uses our README as the introduction to the documentation (Figure <a href="packaging.html#fig:packaging-sphinx-landing-page">14.5</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:packaging-sphinx-landing-page"></span>
+<img src="figures/packaging/landing-page.png" alt="The new landing page showing the contents of README.rst." width="100%" />
+<p class="caption">
+Figure 14.5: The new landing page showing the contents of README.rst.
+</p>
+</div>
+<p>Before going on,
+note that Sphinx is not included in the installation requirements in <code>requirements.txt</code> (Section <a href="testing.html#testing-ci">11.8</a>).
+Sphinx isn’t needed to run, develop, or even test our package,
+but it is needed for building the documentation.
+To note this requirement,
+but without requiring everyone installing the package to install Sphinx,
+let’s create a <code>requirements_docs.txt</code> file that contains this line
+(where the version number is found by running <code>pip freeze</code>):</p>
+<pre class="text"><code>Sphinx&gt;=1.7.4</code></pre>
+<p>Anyone wanting to build the documentation (including us, on another computer)
+now only needs run <code>pip install -r requirements_docs.txt</code></p>
+</div>
+<div id="packaging-rtd" class="section level3">
+<h3><span class="header-section-number">14.6.3</span> Hosting documentation online</h3>
+<p>Now that we have generated our package documentation,
+we need to host it online.
+A common option for Python projects is <a href="https://docs.readthedocs.io/en/latest/">Read the Docs</a>,
+which is a community-supported site that hosts software documentation free of charge.</p>
+<p>Just as continuous integration systems automatically re-test things (Section <a href="testing.html#testing-ci">11.8</a>),
+Read the Docs integrates with GitHub
+so that documentation is automatically re-built
+every time updates are pushed to the project’s GitHub repository.
+If we register for Read the Docs with our GitHub account,
+we can log in at the Read the Docs website and
+import a project from our GitHub repository.
+Read the Docs will then build the documentation
+(using <code>make html</code> as we did earlier)
+and host the resulting files.</p>
+<p>For this to work,
+all of the source files generated by Sphinx
+need to be checked into your GitHub repository:
+in our case,
+this means <code>docs/source/*.rst</code>,
+<code>docs/Makefile</code>,
+<code>docs/conf.py</code>,
+and <code>docs/index.rst</code>.
+We also need to create and save a
+<a href="https://docs.readthedocs.io/en/stable/config-file/v2.html">Read the Docs configuration file</a>
+in the root directory of our <code>pyzipf</code> package:</p>
+<div class="sourceCode" id="cb838"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb838-1"><a href="packaging.html#cb838-1"></a>$ <span class="bu">cd</span> ~/pyzipf</span>
+<span id="cb838-2"><a href="packaging.html#cb838-2"></a>$ <span class="fu">cat</span> .readthedocs.yml</span></code></pre></div>
+<pre class="text"><code># .readthedocs.yml
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html
+# for details
+
+# Required
+version: 2
+
+# Build documentation in the docs/ directory with Sphinx
+sphinx:
+  configuration: docs/conf.py
+
+# Optionally set the version of Python and requirements required
+# to build your docs
+python:
+  version: 3.7
+  install:
+    - requirements: requirements.txt</code></pre>
+<p>The configuration file uses the now-familiar <a href="glossary.html#yaml">YAML</a> format
+(Section <a href="config.html#config-formats">10.1</a> and Appendix <a href="yaml.html#yaml">H</a>)
+to specify the location of the Sphinx configuration script (<code>docs/conf.py</code>)
+and the dependencies for our package (<code>requirements.txt</code>).</p>
+<p>Amira has gone through this process and the documentation is now available at:</p>
+<p><a href="https://pyzipf.readthedocs.io/" class="uri">https://pyzipf.readthedocs.io/</a></p>
+</div>
+</div>
+<div id="packaging-software-journals" class="section level2">
+<h2><span class="header-section-number">14.7</span> Software Journals</h2>
+<p>As a final step to releasing our new package,
+we might want to give it a <a href="glossary.html#doi">DOI</a>
+so that it can be cited by researchers.
+As we saw in Section <a href="provenance.html#provenance-code-scripts">13.2.3</a>,
+GitHub <a href="https://guides.github.com/activities/citable-code/">integrates with Zenodo</a>
+for precisely this purpose.</p>
+<p>While creating a DOI using a site like Zenodo
+is often the end of the software publishing process,
+there is the option of publishing
+a journal paper to describe the software in detail.
+Some research disciplines have journals devoted
+to describing particular types of software
+(e.g., <a href="https://www.geoscientific-model-development.net/"><em>Geoscientific Model Development</em></a>),
+and there are also a number of generic software journals such as the
+<a href="https://openresearchsoftware.metajnl.com/"><em>Journal of Open Research Software</em></a> and
+the <a href="https://joss.theoj.org/"><em>Journal of Open Source Software</em></a>.
+Packages submitted to these journals are typically assessed against a range of criteria
+relating to how easy the software is to install
+and how well it is documented,
+so the peer review process can be a great way to get critical feedback
+from people who have seen many research software packages come and go over the years.</p>
+<p>Once you have obtained a DOI and possibly published with a software journal,
+the last step is to tell users how to cite your new software package.
+This is traditionally done by adding a <code>CITATION</code> file
+to the associated GitHub repository
+(alongside <code>README</code>, <code>LICENSE</code>, <code>CONDUCT</code> and similar files discussed in Section <a href="getting-started.html#getting-started-boilerplate">1.1.1</a>),
+containing a plain text citation that can be copied and pasted into email
+as well as entries formatted for various bibliographic systems like <a href="http://www.bibtex.org/">BibTeX</a>.</p>
+<div class="sourceCode" id="cb840"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb840-1"><a href="packaging.html#cb840-1"></a>$ <span class="fu">cat</span> CITATION.md</span></code></pre></div>
+<pre class="text"><code># Citation
+
+If you use the pyzipf package for work/research presented in a
+publication, we ask that you please cite:
+
+Khan A and Virtanen S, 2020. pyzipf: A Python package for word
+count analysis. *Journal of Important Software*, 5(51), 2317,
+https://doi.org/10.21105/jois.02317
+
+### BibTeX entry
+
+@article{Khan2020,
+    title={pyzipf: A Python package for word count analysis.},
+    author={Khan, Amira and Virtanen, Sami},
+    journal={Journal of Important Software},
+    volume={5},
+    number={51},
+    eid={2317},
+    year={2020},
+    doi={10.21105/jois.02317},
+    url={https://doi.org/10.21105/jois.02317},
+}</code></pre>
+</div>
+<div id="packaging-summary" class="section level2">
+<h2><span class="header-section-number">14.8</span> Summary</h2>
+<p>Thousands of people have helped write the software that our Zipf’s Law example relies on,
+but their work is only useful because they packaged it
+and documented how to use it.
+Doing this is increasingly recognized as a credit-worthy activity
+by universities, government labs, and other organizations,
+particularly for research software engineers.
+It is also deeply satisfying to make strangers’ lives better,
+if only in small ways.</p>
+</div>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">14.9</span> Exercises</h2>
+<div id="packaging-ex-metadata" class="section level3">
+<h3><span class="header-section-number">14.9.1</span> Package metadata</h3>
+<p>In a number of places on our TestPyPI webpage,
+it says that no project description was provided (Figure <a href="packaging.html#fig:packaging-testpypi">14.1</a>).
+How could we edit our <code>setup.py</code> file to include a description?
+What other metadata would you add?</p>
+<p>Hint: The <a href="https://packaging.python.org/guides/distributing-packages-using-setuptools/#setup-args"><code>setup() args</code> documentation</a> might be useful.</p>
+</div>
+<div id="packaging-ex-separating-requirements" class="section level3">
+<h3><span class="header-section-number">14.9.2</span> Separating requirements</h3>
+<p>As well as <code>requirements_docs.txt</code>,
+developers often create a <code>requirements_dev.txt</code> file
+to list packages that are not needed by the package’s users,
+but are required for its development and testing.
+Pull <code>pytest</code> out of <code>requirements.txt</code> and put it in a new <code>requirements_dev.txt</code> file.</p>
+</div>
+<div id="packaging-ex-software-review" class="section level3">
+<h3><span class="header-section-number">14.9.3</span> Software review</h3>
+<p>The <a href="https://joss.theoj.org/"><em>Journal of Open Source Software</em></a> has a <a href="https://joss.readthedocs.io/en/latest/review_checklist.html">checklist</a>
+that reviewers must follow when assessing a submitted software paper.
+Run through the checklist (skipping the criteria related to the software paper)
+and see how the Zipf’s Law package would rate on each criteria.</p>
+</div>
+<div id="packaging-ex-pratchett" class="section level3">
+<h3><span class="header-section-number">14.9.4</span> Packaging quotations</h3>
+<p>Each chapter in this book opens with a quote from the British author Terry Pratchett.
+This script <code>quotes.py</code> contains a function <code>random_quote</code> which prints a random Pratchett quote:</p>
+<div class="sourceCode" id="cb842"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb842-1"><a href="packaging.html#cb842-1"></a><span class="im">import</span> random</span>
+<span id="cb842-2"><a href="packaging.html#cb842-2"></a></span>
+<span id="cb842-3"><a href="packaging.html#cb842-3"></a></span>
+<span id="cb842-4"><a href="packaging.html#cb842-4"></a>quote_list <span class="op">=</span> [<span class="st">&quot;It&#39;s still magic even if you know how it&#39;s done.&quot;</span>,</span>
+<span id="cb842-5"><a href="packaging.html#cb842-5"></a>              <span class="st">&quot;Everything starts somewhere, &quot;</span>\</span>
+<span id="cb842-6"><a href="packaging.html#cb842-6"></a>              <span class="st">&quot;though many physicists disagree.&quot;</span>,</span>
+<span id="cb842-7"><a href="packaging.html#cb842-7"></a>              <span class="st">&quot;Ninety percent of most magic merely consists &quot;</span>\</span>
+<span id="cb842-8"><a href="packaging.html#cb842-8"></a>              <span class="st">&quot;of knowing one extra fact.&quot;</span>,</span>
+<span id="cb842-9"><a href="packaging.html#cb842-9"></a>              <span class="st">&quot;Wisdom comes from experience. &quot;</span>\</span>
+<span id="cb842-10"><a href="packaging.html#cb842-10"></a>              <span class="st">&quot;Experience is often a result of lack of wisdom.&quot;</span>,</span>
+<span id="cb842-11"><a href="packaging.html#cb842-11"></a>              <span class="st">&quot;There isn&#39;t a way things should be. &quot;</span>\</span>
+<span id="cb842-12"><a href="packaging.html#cb842-12"></a>              <span class="st">&quot;There&#39;s just what happens, and what we do.&quot;</span>,</span>
+<span id="cb842-13"><a href="packaging.html#cb842-13"></a>              <span class="st">&quot;Multiple exclamation marks are a sure sign &quot;</span>\</span>
+<span id="cb842-14"><a href="packaging.html#cb842-14"></a>              <span class="st">&quot;of a diseased mind.&quot;</span>,</span>
+<span id="cb842-15"><a href="packaging.html#cb842-15"></a>              <span class="st">&quot;+++ Divide By Cucumber Error. &quot;</span>\</span>
+<span id="cb842-16"><a href="packaging.html#cb842-16"></a>              <span class="st">&quot;Please Reinstall Universe And Reboot +++&quot;</span>,</span>
+<span id="cb842-17"><a href="packaging.html#cb842-17"></a>              <span class="st">&quot;It&#39;s got three keyboards and a hundred extra &quot;</span>\</span>
+<span id="cb842-18"><a href="packaging.html#cb842-18"></a>              <span class="st">&quot;knobs, including twelve with ‘?&#39; on them.&quot;</span>,</span>
+<span id="cb842-19"><a href="packaging.html#cb842-19"></a>             ]</span>
+<span id="cb842-20"><a href="packaging.html#cb842-20"></a></span>
+<span id="cb842-21"><a href="packaging.html#cb842-21"></a></span>
+<span id="cb842-22"><a href="packaging.html#cb842-22"></a><span class="kw">def</span> random_quote():</span>
+<span id="cb842-23"><a href="packaging.html#cb842-23"></a>    <span class="co">&quot;&quot;&quot;Print a random Pratchett quote.&quot;&quot;&quot;</span></span>
+<span id="cb842-24"><a href="packaging.html#cb842-24"></a>    <span class="bu">print</span>(random.choice(quote_list))</span></code></pre></div>
+<p>Create a new <code>conda</code> development environment called <code>pratchett</code>
+and use <code>pip</code> to install a new package called <code>pratchett</code> into that environment.
+The package should contain <code>quotes.py</code>,
+and once the package has been installed the user should be able to run:</p>
+<div class="sourceCode" id="cb843"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb843-1"><a href="packaging.html#cb843-1"></a><span class="im">from</span> pratchett <span class="im">import</span> quotes</span>
+<span id="cb843-2"><a href="packaging.html#cb843-2"></a></span>
+<span id="cb843-3"><a href="packaging.html#cb843-3"></a></span>
+<span id="cb843-4"><a href="packaging.html#cb843-4"></a>quotes.random_quote()</span></code></pre></div>
+</div>
+</div>
+<div id="packaging-keypoints" class="section level2">
+<h2><span class="header-section-number">14.10</span> Key Points</h2>
+<ul>
+<li>Use <a href="https://setuptools.readthedocs.io/"><code>setuptools</code></a> to build and distribute Python packages.</li>
+<li>Create a directory named <code>mypackage</code> containing a <code>setup.py</code> script with a subdirectory also called <code>mypackage</code> containing the package’s source files.</li>
+<li>Use <a href="glossary.html#semantic_versioning">semantic versioning</a> for software releases.</li>
+<li>Use a <a href="glossary.html#virtual_environment">virtual environment</a> to test how your package installs without disrupting your main Python installation.</li>
+<li>Use <a href="https://pypi.org/project/pip/"><code>pip</code></a> to install Python packages.</li>
+<li>The default repository for Python packages is <a href="https://pypi.org/">PyPI</a>.</li>
+<li>Use <a href="https://test.pypi.org">TestPyPI</a> to test the distribution of your package.</li>
+<li>Use a README file for package-level documentation.</li>
+<li>Use <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> to generate documentation for a package.</li>
+<li>Use <a href="https://docs.readthedocs.io/en/latest/">Read the Docs</a> to host package documentation online.</li>
+<li>Create a <a href="glossary.html#doi">DOI</a> for your package using <a href="https://guides.github.com/activities/citable-code/">GitHub’s Zenodo integration</a>.</li>
+<li>Publish details of your package in a software journal so others can cite it.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="provenance.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="finale.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/merely-useful/py-rse/edit/book/chapters/packaging.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/merely-useful/py-rse/blob/book/chapters/packaging.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

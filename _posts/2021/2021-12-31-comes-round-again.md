@@ -13,7 +13,7 @@ Another year over; what have I learned?
   but decided to self-publish a novel called *Beneath Coriandel*;
   I hope you like it.
 
-- *[Research Software Engineering with Python](https://merely-useful.tech/py-rse/)* was published.
+- *[Research Software Engineering with Python]({{'/py-rse/' | relative_url}})* was published.
   It took a lot longer than originally planned,
   but I'm very grateful to have worked with Damien, Kate, Luke, Joel, and Charlotte.
 

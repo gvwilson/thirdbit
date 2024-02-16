@@ -4,7 +4,7 @@ date: 2021-01-07
 year: 2021
 ---
 
-Our book <a href="https://merely-useful.tech/py-rse/"><em>Research Software Engineering with Python</em></a>
+Our book <a href="{{'/py-rse/' | relative_url}}"><em>Research Software Engineering with Python</em></a>
 has finally gone to the publisher.
 We will undoubtedly still have to make revisions,
 but the ideas and examples are complete.
@@ -41,7 +41,7 @@ the verification of [Zipf's Law](https://en.wikipedia.org/wiki/Zipf%27s_law)
 using a set of classic English novels
 in an open, reproducible, and sustainable way.
 (People often conflate these three ideas,
-but [they are distinct](https://merely-useful.tech/py-rse/index.html#intro-big-picture)).
+but they are distinct.
 To do that,
 we teach readers to do these things:
 

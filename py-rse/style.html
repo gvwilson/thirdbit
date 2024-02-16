@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>F Writing Readable Code | Research Software Engineering with Python</title>
+  <meta name="description" content="F Writing Readable Code | Research Software Engineering with Python" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="F Writing Readable Code | Research Software Engineering with Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="tugboats-800x600.jpg" />
+  
+  <meta name="github-repo" content="merely-useful/py-rse" />
+
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<meta name="author" content="Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ssh.html"/>
+<link rel="next" href="documentation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link rel="shortcut icon" href="favicon.ico" />
+<script defer data-domain="merely-useful.tech" src="https://plausible.io/js/plausible.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="index.html">Merely Useful</a></strong></li>
+<li><img src="tugboats-800x600.jpg" width=267 height=200 style="padding-left:20px;"/></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html">Welcome</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intro-big-picture"><b>0.1</b> The Big Picture</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intro-personas"><b>0.2</b> Intended Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#intro-syllabus"><b>0.3</b> What You Will Learn</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#intro-using"><b>0.4</b> Using this Book</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#contributing-and-re-use"><b>0.5</b> Contributing and Re-Use</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#intro-ack"><b>0.6</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#dedications"><b>0.7</b> Dedications</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-structure"><b>1.1</b> Project Structure</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-boilerplate"><b>1.1.1</b> Standard information</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-organize"><b>1.1.2</b> Organizing project content</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-download-data"><b>1.2</b> Downloading the Data</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#getting-started-install-software"><b>1.3</b> Installing the Software</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#getting-started-summary"><b>1.4</b> Summary</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#getting-started-exercises"><b>1.5</b> Exercises</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-install"><b>1.5.1</b> Getting ready</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#getting-started-keypoints"><b>1.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bash-basics.html"><a href="bash-basics.html"><b>2</b> The Basics of the Unix Shell</a><ul>
+<li class="chapter" data-level="2.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-explore"><b>2.1</b> Exploring Files and Directories</a></li>
+<li class="chapter" data-level="2.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-navigate"><b>2.2</b> Moving Around</a></li>
+<li class="chapter" data-level="2.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-filedir"><b>2.3</b> Creating New Files and Directories</a></li>
+<li class="chapter" data-level="2.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-move"><b>2.4</b> Moving Files and Directories</a></li>
+<li class="chapter" data-level="2.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-copy"><b>2.5</b> Copying Files and Directories</a></li>
+<li class="chapter" data-level="2.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-rm"><b>2.6</b> Deleting Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-wildcard"><b>2.7</b> Wildcards</a></li>
+<li class="chapter" data-level="2.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-help"><b>2.8</b> Reading the Manual</a></li>
+<li class="chapter" data-level="2.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-summary"><b>2.9</b> Summary</a></li>
+<li class="chapter" data-level="2.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-exercises"><b>2.10</b> Exercises</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-more-ls"><b>2.10.1</b> Exploring more <code>ls</code> flags</a></li>
+<li class="chapter" data-level="2.10.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-rt"><b>2.10.2</b> Listing recursively and by time</a></li>
+<li class="chapter" data-level="2.10.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-paths"><b>2.10.3</b> Absolute and relative paths</a></li>
+<li class="chapter" data-level="2.10.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-resolve-rel-path"><b>2.10.4</b> Relative path resolution</a></li>
+<li class="chapter" data-level="2.10.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reading-ls"><b>2.10.5</b> <code>ls</code> reading comprehension</a></li>
+<li class="chapter" data-level="2.10.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-touch"><b>2.10.6</b> Creating files a different way</a></li>
+<li class="chapter" data-level="2.10.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-safe-rm"><b>2.10.7</b> Using <code>rm</code> safely</a></li>
+<li class="chapter" data-level="2.10.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-move-dot"><b>2.10.8</b> Moving to the current folder</a></li>
+<li class="chapter" data-level="2.10.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-renaming-files"><b>2.10.9</b> Renaming files</a></li>
+<li class="chapter" data-level="2.10.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-last-ls"><b>2.10.10</b> Moving and copying</a></li>
+<li class="chapter" data-level="2.10.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-copy-multi"><b>2.10.11</b> Copy with multiple filenames</a></li>
+<li class="chapter" data-level="2.10.12" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-match"><b>2.10.12</b> List filenames matching a pattern</a></li>
+<li class="chapter" data-level="2.10.13" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-organizing"><b>2.10.13</b> Organizing directories and files</a></li>
+<li class="chapter" data-level="2.10.14" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reproduce-structure"><b>2.10.14</b> Reproduce a directory structure</a></li>
+<li class="chapter" data-level="2.10.15" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-wildcard-expressions"><b>2.10.15</b> Wildcard expressions</a></li>
+<li class="chapter" data-level="2.10.16" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-remove-unneeded"><b>2.10.16</b> Removing unneeded files</a></li>
+<li class="chapter" data-level="2.10.17" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-other-wildcards"><b>2.10.17</b> Other wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-keypoints"><b>2.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bash-tools.html"><a href="bash-tools.html"><b>3</b> Building Tools with the Unix Shell</a><ul>
+<li class="chapter" data-level="3.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-pipe"><b>3.1</b> Combining Commands</a></li>
+<li class="chapter" data-level="3.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-stdio"><b>3.2</b> How Pipes Work</a></li>
+<li class="chapter" data-level="3.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-loops"><b>3.3</b> Repeating Commands on Many Files</a></li>
+<li class="chapter" data-level="3.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-meaningless"><b>3.4</b> Variable Names</a></li>
+<li class="chapter" data-level="3.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-history"><b>3.5</b> Redoing Things</a></li>
+<li class="chapter" data-level="3.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-autoname"><b>3.6</b> Creating New Filenames Automatically</a></li>
+<li class="chapter" data-level="3.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-summary"><b>3.7</b> Summary</a></li>
+<li class="chapter" data-level="3.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-exercises"><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-redirect-append"><b>3.8.1</b> What does <code>&gt;&gt;</code> mean?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-append-data"><b>3.8.2</b> Appending data</a></li>
+<li class="chapter" data-level="3.8.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-piping"><b>3.8.3</b> Piping commands</a></li>
+<li class="chapter" data-level="3.8.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-uniq-adjacent"><b>3.8.4</b> Why does <code>uniq</code> only remove adjacent duplicates?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-reading-pipes"><b>3.8.5</b> Pipe reading comprehension</a></li>
+<li class="chapter" data-level="3.8.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-pipe-construction"><b>3.8.6</b> Pipe construction</a></li>
+<li class="chapter" data-level="3.8.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-which-pipe"><b>3.8.7</b> Which pipe?</a></li>
+<li class="chapter" data-level="3.8.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-dry-run"><b>3.8.8</b> Doing a dry run</a></li>
+<li class="chapter" data-level="3.8.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-variables"><b>3.8.9</b> Variables in loops</a></li>
+<li class="chapter" data-level="3.8.10" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-limiting-file-sets"><b>3.8.10</b> Limiting sets of files</a></li>
+<li class="chapter" data-level="3.8.11" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-save"><b>3.8.11</b> Saving to a file in a loop</a></li>
+<li class="chapter" data-level="3.8.12" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-history-order"><b>3.8.12</b> Why does <code>history</code> record commands before running them?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-keypoints"><b>3.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bash-advanced.html"><a href="bash-advanced.html"><b>4</b> Going Further with the Unix Shell</a><ul>
+<li class="chapter" data-level="4.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-script"><b>4.1</b> Creating New Commands</a></li>
+<li class="chapter" data-level="4.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-params"><b>4.2</b> Making Scripts More Versatile</a></li>
+<li class="chapter" data-level="4.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-capture"><b>4.3</b> Turning Interactive Work into a Script</a></li>
+<li class="chapter" data-level="4.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-grep"><b>4.4</b> Finding Things in Files</a></li>
+<li class="chapter" data-level="4.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-find"><b>4.5</b> Finding Files</a></li>
+<li class="chapter" data-level="4.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-vars"><b>4.6</b> Configuring the Shell</a></li>
+<li class="chapter" data-level="4.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-summary"><b>4.7</b> Summary</a></li>
+<li class="chapter" data-level="4.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-exercises"><b>4.8</b> Exercises</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-cleaning-up"><b>4.8.1</b> Cleaning up</a></li>
+<li class="chapter" data-level="4.8.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-script-variables"><b>4.8.2</b> Variables in shell scripts</a></li>
+<li class="chapter" data-level="4.8.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-longest-with-extension"><b>4.8.3</b> Find the longest file with a given extension</a></li>
+<li class="chapter" data-level="4.8.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-scripts"><b>4.8.4</b> Script reading comprehension</a></li>
+<li class="chapter" data-level="4.8.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-using-grep"><b>4.8.5</b> Using <code>grep</code></a></li>
+<li class="chapter" data-level="4.8.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-year-script"><b>4.8.6</b> Tracking publication years</a></li>
+<li class="chapter" data-level="4.8.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-sense-sensibility"><b>4.8.7</b> Counting names</a></li>
+<li class="chapter" data-level="4.8.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-match-subtract"><b>4.8.8</b> Matching and subtracting</a></li>
+<li class="chapter" data-level="4.8.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-find"><b>4.8.9</b> <code>find</code> pipeline reading comprehension</a></li>
+<li class="chapter" data-level="4.8.10" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-find-tests"><b>4.8.10</b> Finding files with different properties</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-keypoints"><b>4.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="scripting.html"><a href="scripting.html"><b>5</b> Building Command-Line Tools with Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="scripting.html"><a href="scripting.html#scripting-main"><b>5.1</b> Programs and Modules</a></li>
+<li class="chapter" data-level="5.2" data-path="scripting.html"><a href="scripting.html#scripting-options"><b>5.2</b> Handling Command-Line Options</a></li>
+<li class="chapter" data-level="5.3" data-path="scripting.html"><a href="scripting.html#scripting-docstrings"><b>5.3</b> Documentation</a></li>
+<li class="chapter" data-level="5.4" data-path="scripting.html"><a href="scripting.html#scripting-wordcount"><b>5.4</b> Counting Words</a></li>
+<li class="chapter" data-level="5.5" data-path="scripting.html"><a href="scripting.html#scripting-pipeline"><b>5.5</b> Pipelining</a></li>
+<li class="chapter" data-level="5.6" data-path="scripting.html"><a href="scripting.html#scripting-positional-optional"><b>5.6</b> Positional and Optional Arguments</a></li>
+<li class="chapter" data-level="5.7" data-path="scripting.html"><a href="scripting.html#scripting-collate"><b>5.7</b> Collating Results</a></li>
+<li class="chapter" data-level="5.8" data-path="scripting.html"><a href="scripting.html#scripting-modules"><b>5.8</b> Writing Our Own Modules</a></li>
+<li class="chapter" data-level="5.9" data-path="scripting.html"><a href="scripting.html#scripting-plotting"><b>5.9</b> Plotting</a></li>
+<li class="chapter" data-level="5.10" data-path="scripting.html"><a href="scripting.html#scripting-summary"><b>5.10</b> Summary</a></li>
+<li class="chapter" data-level="5.11" data-path="scripting.html"><a href="scripting.html#scripting-exercises"><b>5.11</b> Exercises</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="scripting.html"><a href="scripting.html#scripting-ex-command-line"><b>5.11.1</b> Running Python statements from the command line</a></li>
+<li class="chapter" data-level="5.11.2" data-path="scripting.html"><a href="scripting.html#scripting-ex-glob-ls"><b>5.11.2</b> Listing files</a></li>
+<li class="chapter" data-level="5.11.3" data-path="scripting.html"><a href="scripting.html#scripting-ex-sentence-endings"><b>5.11.3</b> Sentence ending punctuation</a></li>
+<li class="chapter" data-level="5.11.4" data-path="scripting.html"><a href="scripting.html#scripting-ex-better-plotting"><b>5.11.4</b> A better plotting program</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="scripting.html"><a href="scripting.html#scripting-keypoints"><b>5.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="git-cmdline.html"><a href="git-cmdline.html"><b>6</b> Using Git at the Command Line</a><ul>
+<li class="chapter" data-level="6.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-setup"><b>6.1</b> Setting Up</a></li>
+<li class="chapter" data-level="6.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-repos"><b>6.2</b> Creating a New Repository</a></li>
+<li class="chapter" data-level="6.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-add-existing"><b>6.3</b> Adding Existing Work</a></li>
+<li class="chapter" data-level="6.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-commit-message"><b>6.4</b> Describing Commits</a></li>
+<li class="chapter" data-level="6.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-changes"><b>6.5</b> Saving and Tracking Changes</a></li>
+<li class="chapter" data-level="6.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-remotes"><b>6.6</b> Synchronizing with Other Repositories</a></li>
+<li class="chapter" data-level="6.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-history"><b>6.7</b> Exploring History</a></li>
+<li class="chapter" data-level="6.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-restore"><b>6.8</b> Restoring Old Versions of Files</a></li>
+<li class="chapter" data-level="6.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ignore"><b>6.9</b> Ignoring Files</a></li>
+<li class="chapter" data-level="6.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-summary"><b>6.10</b> Summary</a></li>
+<li class="chapter" data-level="6.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-exercises"><b>6.11</b> Exercises</a><ul>
+<li class="chapter" data-level="6.11.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-places"><b>6.11.1</b> Places to create Git repositories</a></li>
+<li class="chapter" data-level="6.11.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unsave"><b>6.11.2</b> Removing before saving</a></li>
+<li class="chapter" data-level="6.11.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-word-diff"><b>6.11.3</b> Viewing changes</a></li>
+<li class="chapter" data-level="6.11.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-commit"><b>6.11.4</b> Committing changes</a></li>
+<li class="chapter" data-level="6.11.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-bio"><b>6.11.5</b> Write your biography</a></li>
+<li class="chapter" data-level="6.11.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-multiple"><b>6.11.6</b> Committing multiple files</a></li>
+<li class="chapter" data-level="6.11.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-timestamp"><b>6.11.7</b> GitHub timestamps</a></li>
+<li class="chapter" data-level="6.11.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-history"><b>6.11.8</b> Workflow and history</a></li>
+<li class="chapter" data-level="6.11.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-ignore-nested"><b>6.11.9</b> Ignoring nested files</a></li>
+<li class="chapter" data-level="6.11.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-include"><b>6.11.10</b> Including specific files</a></li>
+<li class="chapter" data-level="6.11.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-github-interface"><b>6.11.11</b> Exploring the GitHub interface</a></li>
+<li class="chapter" data-level="6.11.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-push-commit"><b>6.11.12</b> Push versus commit</a></li>
+<li class="chapter" data-level="6.11.13" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-boilerplate"><b>6.11.13</b> License and README files</a></li>
+<li class="chapter" data-level="6.11.14" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-recover"><b>6.11.14</b> Recovering older versions of a file</a></li>
+<li class="chapter" data-level="6.11.15" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-diff"><b>6.11.15</b> Understanding <code>git diff</code></a></li>
+<li class="chapter" data-level="6.11.16" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unstage"><b>6.11.16</b> Getting rid of staged changes</a></li>
+<li class="chapter" data-level="6.11.17" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-blame"><b>6.11.17</b> Figuring out who did what</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-keypoints"><b>6.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-advanced.html"><a href="git-advanced.html"><b>7</b> Going Further with Git</a><ul>
+<li class="chapter" data-level="7.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-what"><b>7.1</b> What’s a Branch?</a></li>
+<li class="chapter" data-level="7.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-how"><b>7.2</b> Creating a Branch</a></li>
+<li class="chapter" data-level="7.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-theory"><b>7.3</b> What Curve Should We Fit?</a></li>
+<li class="chapter" data-level="7.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-zipf-verify"><b>7.4</b> Verifying Zipf’s Law</a></li>
+<li class="chapter" data-level="7.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-merge"><b>7.5</b> Merging</a></li>
+<li class="chapter" data-level="7.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-conflict"><b>7.6</b> Handling Conflicts</a></li>
+<li class="chapter" data-level="7.7" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-workflow"><b>7.7</b> A Branch-Based Workflow</a></li>
+<li class="chapter" data-level="7.8" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-fork"><b>7.8</b> Using Other People’s Work</a></li>
+<li class="chapter" data-level="7.9" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pull-requests"><b>7.9</b> Pull Requests</a></li>
+<li class="chapter" data-level="7.10" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pr-conflict"><b>7.10</b> Handling Conflicts in Pull Requests</a></li>
+<li class="chapter" data-level="7.11" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-summary"><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="7.12" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-exercises"><b>7.12</b> Exercises</a><ul>
+<li class="chapter" data-level="7.12.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-explain-options"><b>7.12.1</b> Explaining options</a></li>
+<li class="chapter" data-level="7.12.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-modify-prompt"><b>7.12.2</b> Modifying prompt</a></li>
+<li class="chapter" data-level="7.12.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-ignoring-files"><b>7.12.3</b> Ignoring files</a></li>
+<li class="chapter" data-level="7.12.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-create-twice"><b>7.12.4</b> Creating the same file twice</a></li>
+<li class="chapter" data-level="7.12.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-delete-unmerged"><b>7.12.5</b> Deleting a branch without merging</a></li>
+<li class="chapter" data-level="7.12.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-trace-changes"><b>7.12.6</b> Tracing changes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.13" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-keypoints"><b>7.13</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="teams.html"><a href="teams.html"><b>8</b> Working in Teams</a><ul>
+<li class="chapter" data-level="8.1" data-path="teams.html"><a href="teams.html#teams-scope"><b>8.1</b> What Is a Project?</a></li>
+<li class="chapter" data-level="8.2" data-path="teams.html"><a href="teams.html#teams-inclusive"><b>8.2</b> Include Everyone</a></li>
+<li class="chapter" data-level="8.3" data-path="teams.html"><a href="teams.html#teams-coc"><b>8.3</b> Establish a Code of Conduct</a></li>
+<li class="chapter" data-level="8.4" data-path="teams.html"><a href="teams.html#teams-license"><b>8.4</b> Include a License</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="teams.html"><a href="teams.html#teams-license-software"><b>8.4.1</b> Software</a></li>
+<li class="chapter" data-level="8.4.2" data-path="teams.html"><a href="teams.html#teams-license-other"><b>8.4.2</b> Data and reports</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="teams.html"><a href="teams.html#teams-planning"><b>8.5</b> Planning</a></li>
+<li class="chapter" data-level="8.6" data-path="teams.html"><a href="teams.html#teams-bugs"><b>8.6</b> Bug Reports</a></li>
+<li class="chapter" data-level="8.7" data-path="teams.html"><a href="teams.html#teams-labels"><b>8.7</b> Labeling Issues</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="teams.html"><a href="teams.html#teams-workflow"><b>8.7.1</b> Standardizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="teams.html"><a href="teams.html#teams-prioritize"><b>8.8</b> Prioritizing</a></li>
+<li class="chapter" data-level="8.9" data-path="teams.html"><a href="teams.html#teams-meetings"><b>8.9</b> Meetings</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="teams.html"><a href="teams.html#teams-fair"><b>8.9.1</b> Air time</a></li>
+<li class="chapter" data-level="8.9.2" data-path="teams.html"><a href="teams.html#teams-online"><b>8.9.2</b> Online meetings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="teams.html"><a href="teams.html#teams-martha"><b>8.10</b> Making Decisions</a></li>
+<li class="chapter" data-level="8.11" data-path="teams.html"><a href="teams.html#teams-documentation"><b>8.11</b> Make All This Obvious to Newcomers</a></li>
+<li class="chapter" data-level="8.12" data-path="teams.html"><a href="teams.html#teams-conflict"><b>8.12</b> Handling Conflict</a></li>
+<li class="chapter" data-level="8.13" data-path="teams.html"><a href="teams.html#teams-summary"><b>8.13</b> Summary</a></li>
+<li class="chapter" data-level="8.14" data-path="teams.html"><a href="teams.html#teams-exercises"><b>8.14</b> Exercises</a><ul>
+<li class="chapter" data-level="8.14.1" data-path="teams.html"><a href="teams.html#teams-ex-scavenger-hunt"><b>8.14.1</b> Finding information</a></li>
+<li class="chapter" data-level="8.14.2" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-coc"><b>8.14.2</b> Add a Code of Conduct to your project</a></li>
+<li class="chapter" data-level="8.14.3" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-license"><b>8.14.3</b> Add a license to your project</a></li>
+<li class="chapter" data-level="8.14.4" data-path="teams.html"><a href="teams.html#teams-ex-contributing"><b>8.14.4</b> Adding contribution guidelines</a></li>
+<li class="chapter" data-level="8.14.5" data-path="teams.html"><a href="teams.html#teams-ex-file-issue"><b>8.14.5</b> File an issue</a></li>
+<li class="chapter" data-level="8.14.6" data-path="teams.html"><a href="teams.html#teams-ex-label"><b>8.14.6</b> Label issues</a></li>
+<li class="chapter" data-level="8.14.7" data-path="teams.html"><a href="teams.html#teams-ex-balancing"><b>8.14.7</b> Balancing individual and team needs</a></li>
+<li class="chapter" data-level="8.14.8" data-path="teams.html"><a href="teams.html#teams-ex-invisible"><b>8.14.8</b> Crediting invisible contributions</a></li>
+<li class="chapter" data-level="8.14.9" data-path="teams.html"><a href="teams.html#teams-ex-members"><b>8.14.9</b> Who are you?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.15" data-path="teams.html"><a href="teams.html#teams-keypoints"><b>8.15</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="automate.html"><a href="automate.html"><b>9</b> Automating Analyses with Make</a><ul>
+<li class="chapter" data-level="9.1" data-path="automate.html"><a href="automate.html#automate-single-file"><b>9.1</b> Updating a Single File</a></li>
+<li class="chapter" data-level="9.2" data-path="automate.html"><a href="automate.html#automate-multiple"><b>9.2</b> Managing Multiple Files</a></li>
+<li class="chapter" data-level="9.3" data-path="automate.html"><a href="automate.html#automate-depend-programs"><b>9.3</b> Updating Files When Programs Change</a></li>
+<li class="chapter" data-level="9.4" data-path="automate.html"><a href="automate.html#automate-variables"><b>9.4</b> Reducing Repetition in a Makefile</a></li>
+<li class="chapter" data-level="9.5" data-path="automate.html"><a href="automate.html#automate-autovar"><b>9.5</b> Automatic Variables</a></li>
+<li class="chapter" data-level="9.6" data-path="automate.html"><a href="automate.html#automate-pattern"><b>9.6</b> Generic Rules</a></li>
+<li class="chapter" data-level="9.7" data-path="automate.html"><a href="automate.html#automate-functions"><b>9.7</b> Defining Sets of Files</a></li>
+<li class="chapter" data-level="9.8" data-path="automate.html"><a href="automate.html#automate-doc"><b>9.8</b> Documenting a Makefile</a></li>
+<li class="chapter" data-level="9.9" data-path="automate.html"><a href="automate.html#automate-pipeline"><b>9.9</b> Automating Entire Analyses</a></li>
+<li class="chapter" data-level="9.10" data-path="automate.html"><a href="automate.html#automate-summary"><b>9.10</b> Summary</a></li>
+<li class="chapter" data-level="9.11" data-path="automate.html"><a href="automate.html#automate-exercises"><b>9.11</b> Exercises</a><ul>
+<li class="chapter" data-level="9.11.1" data-path="automate.html"><a href="automate.html#automate-ex-report-change"><b>9.11.1</b> Report results that would change</a></li>
+<li class="chapter" data-level="9.11.2" data-path="automate.html"><a href="automate.html#automate-ex-useful-options"><b>9.11.2</b> Useful options</a></li>
+<li class="chapter" data-level="9.11.3" data-path="automate.html"><a href="automate.html#automate-ex-mkdir"><b>9.11.3</b> Make sure the output directory exists</a></li>
+<li class="chapter" data-level="9.11.4" data-path="automate.html"><a href="automate.html#automate-ex-print"><b>9.11.4</b> Print the title and author</a></li>
+<li class="chapter" data-level="9.11.5" data-path="automate.html"><a href="automate.html#automate-ex-all-results"><b>9.11.5</b> Create all results</a></li>
+<li class="chapter" data-level="9.11.6" data-path="automate.html"><a href="automate.html#automate-ex-wildcard-perils"><b>9.11.6</b> The perils of shell wildcards</a></li>
+<li class="chapter" data-level="9.11.7" data-path="automate.html"><a href="automate.html#automate-ex-readable-docs"><b>9.11.7</b> Making documentation more readable</a></li>
+<li class="chapter" data-level="9.11.8" data-path="automate.html"><a href="automate.html#automate-ex-configuration"><b>9.11.8</b> Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="automate.html"><a href="automate.html#automate-keypoints"><b>9.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="config.html"><a href="config.html"><b>10</b> Configuring Programs</a><ul>
+<li class="chapter" data-level="10.1" data-path="config.html"><a href="config.html#config-formats"><b>10.1</b> Configuration File Formats</a></li>
+<li class="chapter" data-level="10.2" data-path="config.html"><a href="config.html#config-matplotlib"><b>10.2</b> Matplotlib Configuration</a></li>
+<li class="chapter" data-level="10.3" data-path="config.html"><a href="config.html#config-global"><b>10.3</b> The Global Configuration File</a></li>
+<li class="chapter" data-level="10.4" data-path="config.html"><a href="config.html#config-user"><b>10.4</b> The User Configuration File</a></li>
+<li class="chapter" data-level="10.5" data-path="config.html"><a href="config.html#config-command-line"><b>10.5</b> Adding Command-Line Options</a></li>
+<li class="chapter" data-level="10.6" data-path="config.html"><a href="config.html#config-job-file"><b>10.6</b> A Job Control File</a></li>
+<li class="chapter" data-level="10.7" data-path="config.html"><a href="config.html#config-summary"><b>10.7</b> Summary</a></li>
+<li class="chapter" data-level="10.8" data-path="config.html"><a href="config.html#config-exercises"><b>10.8</b> Exercises</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="config.html"><a href="config.html#config-ex-build-plotparams"><b>10.8.1</b> Building with plotting parameters</a></li>
+<li class="chapter" data-level="10.8.2" data-path="config.html"><a href="config.html#config-ex-style"><b>10.8.2</b> Using different plot styles</a></li>
+<li class="chapter" data-level="10.8.3" data-path="config.html"><a href="config.html#config-ex-saveload"><b>10.8.3</b> Saving configurations</a></li>
+<li class="chapter" data-level="10.8.4" data-path="config.html"><a href="config.html#config-ex-ini"><b>10.8.4</b> Using INI syntax</a></li>
+<li class="chapter" data-level="10.8.5" data-path="config.html"><a href="config.html#config-ex-consistency"><b>10.8.5</b> Configuration consistency</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="config.html"><a href="config.html#config-keypoints"><b>10.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing.html"><a href="testing.html"><b>11</b> Testing Software</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing.html"><a href="testing.html#testing-assertions"><b>11.1</b> Assertions</a></li>
+<li class="chapter" data-level="11.2" data-path="testing.html"><a href="testing.html#testing-unit"><b>11.2</b> Unit Testing</a></li>
+<li class="chapter" data-level="11.3" data-path="testing.html"><a href="testing.html#testing-framework"><b>11.3</b> Testing Frameworks</a></li>
+<li class="chapter" data-level="11.4" data-path="testing.html"><a href="testing.html#testing-numeric"><b>11.4</b> Testing Floating-Point Values</a></li>
+<li class="chapter" data-level="11.5" data-path="testing.html"><a href="testing.html#testing-integration"><b>11.5</b> Integration Testing</a></li>
+<li class="chapter" data-level="11.6" data-path="testing.html"><a href="testing.html#testing-regression"><b>11.6</b> Regression Testing</a></li>
+<li class="chapter" data-level="11.7" data-path="testing.html"><a href="testing.html#testing-coverage"><b>11.7</b> Test Coverage</a></li>
+<li class="chapter" data-level="11.8" data-path="testing.html"><a href="testing.html#testing-ci"><b>11.8</b> Continuous Integration</a></li>
+<li class="chapter" data-level="11.9" data-path="testing.html"><a href="testing.html#testing-tdd"><b>11.9</b> When to Write Tests</a></li>
+<li class="chapter" data-level="11.10" data-path="testing.html"><a href="testing.html#testing-summary"><b>11.10</b> Summary</a></li>
+<li class="chapter" data-level="11.11" data-path="testing.html"><a href="testing.html#testing-exercises"><b>11.11</b> Exercises</a><ul>
+<li class="chapter" data-level="11.11.1" data-path="testing.html"><a href="testing.html#testing-ex-explain-assertions"><b>11.11.1</b> Explaining assertions</a></li>
+<li class="chapter" data-level="11.11.2" data-path="testing.html"><a href="testing.html#testing-ex-rectangles"><b>11.11.2</b> Rectangle normalization</a></li>
+<li class="chapter" data-level="11.11.3" data-path="testing.html"><a href="testing.html#testing-ex-random"><b>11.11.3</b> Testing with randomness</a></li>
+<li class="chapter" data-level="11.11.4" data-path="testing.html"><a href="testing.html#testing-ex-relative-error"><b>11.11.4</b> Testing with relative error</a></li>
+</ul></li>
+<li class="chapter" data-level="11.12" data-path="testing.html"><a href="testing.html#testing-keypoints"><b>11.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="errors.html"><a href="errors.html"><b>12</b> Handling Errors</a><ul>
+<li class="chapter" data-level="12.1" data-path="errors.html"><a href="errors.html#errors-exceptions"><b>12.1</b> Exceptions</a></li>
+<li class="chapter" data-level="12.2" data-path="errors.html"><a href="errors.html#errors-messages"><b>12.2</b> Writing Useful Error Messages</a></li>
+<li class="chapter" data-level="12.3" data-path="errors.html"><a href="errors.html#errors-testing"><b>12.3</b> Testing Error Handling</a></li>
+<li class="chapter" data-level="12.4" data-path="errors.html"><a href="errors.html#errors-logging"><b>12.4</b> Reporting Errors</a></li>
+<li class="chapter" data-level="12.5" data-path="errors.html"><a href="errors.html#errors-summary"><b>12.5</b> Summary</a></li>
+<li class="chapter" data-level="12.6" data-path="errors.html"><a href="errors.html#errors-exercises"><b>12.6</b> Exercises</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="errors.html"><a href="errors.html#errors-ex-set-level"><b>12.6.1</b> Set the logging level</a></li>
+<li class="chapter" data-level="12.6.2" data-path="errors.html"><a href="errors.html#errors-ex-logging-output"><b>12.6.2</b> Send the logging output to file</a></li>
+<li class="chapter" data-level="12.6.3" data-path="errors.html"><a href="errors.html#errors-ex-exceptions"><b>12.6.3</b> Handling exceptions</a></li>
+<li class="chapter" data-level="12.6.4" data-path="errors.html"><a href="errors.html#errors-ex-error-handling"><b>12.6.4</b> Testing error handling</a></li>
+<li class="chapter" data-level="12.6.5" data-path="errors.html"><a href="errors.html#errors-ex-catalog"><b>12.6.5</b> Error catalogs</a></li>
+<li class="chapter" data-level="12.6.6" data-path="errors.html"><a href="errors.html#errors-ex-traceback"><b>12.6.6</b> Tracebacks</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="errors.html"><a href="errors.html#errors-keypoints"><b>12.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="provenance.html"><a href="provenance.html"><b>13</b> Tracking Provenance</a><ul>
+<li class="chapter" data-level="13.1" data-path="provenance.html"><a href="provenance.html#provenance-data"><b>13.1</b> Data Provenance</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="provenance.html"><a href="provenance.html#provenance-data-fair"><b>13.1.1</b> The FAIR Principles</a></li>
+<li class="chapter" data-level="13.1.2" data-path="provenance.html"><a href="provenance.html#provenance-data-where"><b>13.1.2</b> Where to archive data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="provenance.html"><a href="provenance.html#provenance-code"><b>13.2</b> Code Provenance</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="provenance.html"><a href="provenance.html#provenance-code-environment"><b>13.2.1</b> Software environment</a></li>
+<li class="chapter" data-level="13.2.2" data-path="provenance.html"><a href="provenance.html#provenance-code-steps"><b>13.2.2</b> Data processing steps</a></li>
+<li class="chapter" data-level="13.2.3" data-path="provenance.html"><a href="provenance.html#provenance-code-scripts"><b>13.2.3</b> Analysis scripts</a></li>
+<li class="chapter" data-level="13.2.4" data-path="provenance.html"><a href="provenance.html#provenance-inspectability"><b>13.2.4</b> Reproducibility versus inspectability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="provenance.html"><a href="provenance.html#provenance-summary"><b>13.3</b> Summary</a></li>
+<li class="chapter" data-level="13.4" data-path="provenance.html"><a href="provenance.html#provenance-exercises"><b>13.4</b> Exercises</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="provenance.html"><a href="provenance.html#provenance-ex-get-orcid"><b>13.4.1</b> ORCID</a></li>
+<li class="chapter" data-level="13.4.2" data-path="provenance.html"><a href="provenance.html#provenance-ex-fair-test"><b>13.4.2</b> A FAIR test</a></li>
+<li class="chapter" data-level="13.4.3" data-path="provenance.html"><a href="provenance.html#provenance-ex-understand-project"><b>13.4.3</b> Evaluate a project’s data provenance</a></li>
+<li class="chapter" data-level="13.4.4" data-path="provenance.html"><a href="provenance.html#provenance-ex-eval-code"><b>13.4.4</b> Evaluate a project’s code provenance</a></li>
+<li class="chapter" data-level="13.4.5" data-path="provenance.html"><a href="provenance.html#provenance-ex-permanent-links"><b>13.4.5</b> Making permanent links</a></li>
+<li class="chapter" data-level="13.4.6" data-path="provenance.html"><a href="provenance.html#provenance-ex-release"><b>13.4.6</b> Create an archive of your Zipf’s analysis</a></li>
+<li class="chapter" data-level="13.4.7" data-path="provenance.html"><a href="provenance.html#provenance-ex-publish-code"><b>13.4.7</b> Publishing your code</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="provenance.html"><a href="provenance.html#publish-keypoints"><b>13.5</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="packaging.html"><a href="packaging.html"><b>14</b> Creating Packages with Python</a><ul>
+<li class="chapter" data-level="14.1" data-path="packaging.html"><a href="packaging.html#packaging-package"><b>14.1</b> Creating a Python Package</a></li>
+<li class="chapter" data-level="14.2" data-path="packaging.html"><a href="packaging.html#packaging-virtualenv"><b>14.2</b> Virtual Environments</a></li>
+<li class="chapter" data-level="14.3" data-path="packaging.html"><a href="packaging.html#packaging-installing"><b>14.3</b> Installing a Development Package</a></li>
+<li class="chapter" data-level="14.4" data-path="packaging.html"><a href="packaging.html#packaging-installation"><b>14.4</b> What Installation Does</a></li>
+<li class="chapter" data-level="14.5" data-path="packaging.html"><a href="packaging.html#packaging-distribute"><b>14.5</b> Distributing Packages</a></li>
+<li class="chapter" data-level="14.6" data-path="packaging.html"><a href="packaging.html#packaging-document"><b>14.6</b> Documenting Packages</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="packaging.html"><a href="packaging.html#packaging-readme"><b>14.6.1</b> Including package-level documentation in the <code>README</code></a></li>
+<li class="chapter" data-level="14.6.2" data-path="packaging.html"><a href="packaging.html#packaging-sphinx"><b>14.6.2</b> Creating a web page for documentation</a></li>
+<li class="chapter" data-level="14.6.3" data-path="packaging.html"><a href="packaging.html#packaging-rtd"><b>14.6.3</b> Hosting documentation online</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="packaging.html"><a href="packaging.html#packaging-software-journals"><b>14.7</b> Software Journals</a></li>
+<li class="chapter" data-level="14.8" data-path="packaging.html"><a href="packaging.html#packaging-summary"><b>14.8</b> Summary</a></li>
+<li class="chapter" data-level="14.9" data-path="packaging.html"><a href="packaging.html#exercises"><b>14.9</b> Exercises</a><ul>
+<li class="chapter" data-level="14.9.1" data-path="packaging.html"><a href="packaging.html#packaging-ex-metadata"><b>14.9.1</b> Package metadata</a></li>
+<li class="chapter" data-level="14.9.2" data-path="packaging.html"><a href="packaging.html#packaging-ex-separating-requirements"><b>14.9.2</b> Separating requirements</a></li>
+<li class="chapter" data-level="14.9.3" data-path="packaging.html"><a href="packaging.html#packaging-ex-software-review"><b>14.9.3</b> Software review</a></li>
+<li class="chapter" data-level="14.9.4" data-path="packaging.html"><a href="packaging.html#packaging-ex-pratchett"><b>14.9.4</b> Packaging quotations</a></li>
+</ul></li>
+<li class="chapter" data-level="14.10" data-path="packaging.html"><a href="packaging.html#packaging-keypoints"><b>14.10</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="finale.html"><a href="finale.html"><b>15</b> Finale</a><ul>
+<li class="chapter" data-level="15.1" data-path="finale.html"><a href="finale.html#why-we-wrote-this-book"><b>15.1</b> Why We Wrote This Book</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="solutions.html"><a href="solutions.html"><b>A</b> Solutions</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-basics">Chapter @ref(bash-basics)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-more-ls">Exercise @ref(bash-basics-ex-more-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-rt">Exercise @ref(bash-basics-ex-ls-rt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-paths">Exercise @ref(bash-basics-ex-paths)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-resolve-rel-path">Exercise @ref(bash-basics-ex-resolve-rel-path)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reading-ls">Exercise @ref(bash-basics-ex-reading-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-touch">Exercise @ref(bash-basics-ex-touch)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-safe-rm">Exercise @ref(bash-basics-ex-safe-rm)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-move-dot">Exercise @ref(bash-basics-ex-move-dot)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-renaming-files">Exercise @ref(bash-basics-ex-renaming-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-last-ls">Exercise @ref(bash-basics-ex-last-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-copy-multi">Exercise @ref(bash-basics-ex-copy-multi)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-match">Exercise @ref(bash-basics-ex-ls-match)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-organizing">Exercise @ref(bash-basics-ex-organizing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reproduce-structure">Exercise @ref(bash-basics-ex-reproduce-structure)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-wildcard-expressions">Exercise @ref(bash-basics-ex-wildcard-expressions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-remove-unneeded">Exercise @ref(bash-basics-ex-remove-unneeded)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-other-wildcards">Exercise @ref(bash-basics-ex-other-wildcards)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-tools">Chapter @ref(bash-tools)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-redirect-append">Exercise @ref(bash-tools-ex-redirect-append)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-append-data">Exercise @ref(bash-tools-ex-append-data)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-piping">Exercise @ref(bash-tools-ex-piping)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-uniq-adjacent">Exercise @ref(bash-tools-ex-uniq-adjacent)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-reading-pipes">Exercise @ref(bash-tools-ex-reading-pipes)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-pipe-construction">Exercise @ref(bash-tools-ex-pipe-construction)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-which-pipe">Exercise @ref(bash-tools-ex-which-pipe)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-dry-run">Exercise @ref(bash-tools-ex-loop-dry-run)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-variables">Exercise @ref(bash-tools-ex-loop-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-limiting-file-sets">Exercise @ref(bash-tools-ex-limiting-file-sets)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-save">Exercise @ref(bash-tools-ex-loop-save)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-history-order">Exercise @ref(bash-tools-ex-history-order)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-advanced">Chapter @ref(bash-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-cleaning-up">Exercise @ref(bash-advanced-ex-cleaning-up)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-script-variables">Exercise @ref(bash-advanced-ex-script-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-longest-with-extension">Exercise @ref(bash-advanced-ex-longest-with-extension)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-scripts">Exercise @ref(bash-advanced-ex-reading-scripts)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-using-grep">Exercise @ref(bash-advanced-ex-using-grep)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-year-script">Exercise @ref(bash-advanced-ex-year-script)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-sense-sensibility">Exercise @ref(bash-advanced-ex-sense-sensibility)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-match-subtract">Exercise @ref(bash-advanced-ex-match-subtract)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-find">Exercise @ref(bash-advanced-ex-reading-find)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-find-tests">Exercise @ref(bash-advanced-ex-find-tests)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refscripting">Chapter @ref(scripting)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-command-line">Exercise @ref(scripting-ex-command-line)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-glob-ls">Exercise @ref(scripting-ex-glob-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-sentence-endings">Exercise @ref(scripting-ex-sentence-endings)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-better-plotting">Exercise @ref(scripting-ex-better-plotting)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-cmdline">Chapter @ref(git-cmdline)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-places">Exercise @ref(git-cmdline-ex-places)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unsave">Exercise @ref(git-cmdline-ex-unsave)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-word-diff">Exercise @ref(git-cmdline-ex-word-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-commit">Exercise @ref(git-cmdline-ex-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-bio">Exercise @ref(git-cmdline-ex-bio)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-multiple">Exercise @ref(git-cmdline-ex-multiple)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-timestamp">Exercise @ref(git-cmdline-ex-timestamp)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-history">Exercise @ref(git-cmdline-ex-history)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-ignore-nested">Exercise @ref(git-cmdline-ex-ignore-nested)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-include">Exercise @ref(git-cmdline-ex-include)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-github-interface">Exercise @ref(git-cmdline-ex-github-interface)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-push-commit">Exercise @ref(git-cmdline-ex-push-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-boilerplate">Exercise @ref(git-cmdline-ex-boilerplate)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-recover">Exercise @ref(git-cmdline-ex-recover)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-diff">Exercise @ref(git-cmdline-ex-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unstage">Exercise @ref(git-cmdline-ex-unstage)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-blame">Exercise @ref(git-cmdline-ex-blame)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-advanced">Chapter @ref(git-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-explain-options">Exercise @ref(git-advanced-ex-explain-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-modify-prompt">Exercise @ref(git-advanced-ex-modify-prompt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-ignoring-files">Exercise @ref(git-advanced-ex-ignoring-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-create-twice">Exercise @ref(git-advanced-ex-create-twice)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-delete-unmerged">Exercise @ref(git-advanced-ex-delete-unmerged)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-trace-changes">Exercise @ref(git-advanced-ex-trace-changes)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refteams">Chapter @ref(teams)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-scavenger-hunt">Exercise @ref(teams-ex-scavenger-hunt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-coc">Exercise @ref(teams-ex-boilerplate-coc)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-license">Exercise @ref(teams-ex-boilerplate-license)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-contributing">Exercise @ref(teams-ex-contributing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-file-issue">Exercise @ref(teams-ex-file-issue)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-label">Exercise @ref(teams-ex-label)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-balancing">Exercise @ref(teams-ex-balancing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-invisible">Exercise @ref(teams-ex-invisible)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-members">Exercise @ref(teams-ex-members)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refautomate">Chapter @ref(automate)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-report-change">Exercise @ref(automate-ex-report-change)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-useful-options">Exercise @ref(automate-ex-useful-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-mkdir">Exercise @ref(automate-ex-mkdir)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-print">Exercise @ref(automate-ex-print)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-all-results">Exercise @ref(automate-ex-all-results)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-wildcard-perils">Exercise @ref(automate-ex-wildcard-perils)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-readable-docs">Exercise @ref(automate-ex-readable-docs)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-configuration">Exercise @ref(automate-ex-configuration)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refconfig">Chapter @ref(config)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-build-plotparams">Exercise @ref(config-ex-build-plotparams)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-style">Exercise @ref(config-ex-style)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-saveload">Exercise @ref(config-ex-saveload)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-ini">Exercise @ref(config-ex-ini)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-consistency">Exercise @ref(config-ex-consistency)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-reftesting">Chapter @ref(testing)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-explain-assertions">Exercise @ref(testing-ex-explain-assertions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-rectangles">Exercise @ref(testing-ex-rectangles)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-random">Exercise @ref(testing-ex-random)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-relative-error">Exercise @ref(testing-ex-relative-error)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-referrors">Chapter @ref(errors)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-set-level">Exercise @ref(errors-ex-set-level)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-logging-output">Exercise @ref(errors-ex-logging-output)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-exceptions">Exercise @ref(errors-ex-exceptions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-error-handling">Exercise @ref(errors-ex-error-handling)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-catalog">Exercise @ref(errors-ex-catalog)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-traceback">Exercise @ref(errors-ex-traceback)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refprovenance">Chapter @ref(provenance)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-get-orcid">Exercise @ref(provenance-ex-get-orcid)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-fair-test">Exercise @ref(provenance-ex-fair-test)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-understand-project">Exercise @ref(provenance-ex-understand-project)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-eval-code">Exercise @ref(provenance-ex-eval-code)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-permanent-links">Exercise @ref(provenance-ex-permanent-links)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-release">Exercise @ref(provenance-ex-release)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-publish-code">Exercise @ref(provenance-ex-publish-code)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refpackaging">Chapter @ref(packaging)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-metadata">Exercise @ref(packaging-ex-metadata)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-separating-requirements">Exercise @ref(packaging-ex-separating-requirements)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-software-review">Exercise @ref(packaging-ex-software-review)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-pratchett">Exercise @ref(packaging-ex-pratchett)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="objectives.html"><a href="objectives.html"><b>B</b> Learning Objectives</a><ul>
+<li class="chapter" data-level="B.1" data-path="objectives.html"><a href="objectives.html#getting-started-1"><b>B.1</b> Getting Started</a></li>
+<li class="chapter" data-level="B.2" data-path="objectives.html"><a href="objectives.html#the-basics-of-the-unix-shell"><b>B.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="B.3" data-path="objectives.html"><a href="objectives.html#building-tools-with-the-unix-shell"><b>B.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="B.4" data-path="objectives.html"><a href="objectives.html#going-further-with-the-unix-shell"><b>B.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="B.5" data-path="objectives.html"><a href="objectives.html#building-command-line-tools-with-python"><b>B.5</b> Building Command-Line Tools with Python</a></li>
+<li class="chapter" data-level="B.6" data-path="objectives.html"><a href="objectives.html#using-git-at-the-command-line"><b>B.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="B.7" data-path="objectives.html"><a href="objectives.html#going-further-with-git"><b>B.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="B.8" data-path="objectives.html"><a href="objectives.html#working-in-teams"><b>B.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="B.9" data-path="objectives.html"><a href="objectives.html#automating-analyses-with-make"><b>B.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="B.10" data-path="objectives.html"><a href="objectives.html#configuring-programs"><b>B.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="B.11" data-path="objectives.html"><a href="objectives.html#testing-software"><b>B.11</b> Testing Software</a></li>
+<li class="chapter" data-level="B.12" data-path="objectives.html"><a href="objectives.html#handling-errors"><b>B.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="B.13" data-path="objectives.html"><a href="objectives.html#tracking-provenance"><b>B.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="B.14" data-path="objectives.html"><a href="objectives.html#creating-packages-with-python"><b>B.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="keypoints.html"><a href="keypoints.html"><b>C</b> Key Points</a><ul>
+<li class="chapter" data-level="C.1" data-path="keypoints.html"><a href="keypoints.html#getting-started-2"><b>C.1</b> Getting Started</a></li>
+<li class="chapter" data-level="C.2" data-path="keypoints.html"><a href="keypoints.html#the-basics-of-the-unix-shell-1"><b>C.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="C.3" data-path="keypoints.html"><a href="keypoints.html#building-tools-with-the-unix-shell-1"><b>C.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="C.4" data-path="keypoints.html"><a href="keypoints.html#going-further-with-the-unix-shell-1"><b>C.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="C.5" data-path="keypoints.html"><a href="keypoints.html#building-command-line-programs-in-python"><b>C.5</b> Building Command-Line Programs in Python</a></li>
+<li class="chapter" data-level="C.6" data-path="keypoints.html"><a href="keypoints.html#using-git-at-the-command-line-1"><b>C.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="C.7" data-path="keypoints.html"><a href="keypoints.html#going-further-with-git-1"><b>C.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="C.8" data-path="keypoints.html"><a href="keypoints.html#working-in-teams-1"><b>C.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="C.9" data-path="keypoints.html"><a href="keypoints.html#automating-analyses-with-make-1"><b>C.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="C.10" data-path="keypoints.html"><a href="keypoints.html#configuring-programs-1"><b>C.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="C.11" data-path="keypoints.html"><a href="keypoints.html#testing-software-1"><b>C.11</b> Testing Software</a></li>
+<li class="chapter" data-level="C.12" data-path="keypoints.html"><a href="keypoints.html#handling-errors-1"><b>C.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="C.13" data-path="keypoints.html"><a href="keypoints.html#tracking-provenance-1"><b>C.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="C.14" data-path="keypoints.html"><a href="keypoints.html#creating-packages-with-python-1"><b>C.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="tree.html"><a href="tree.html"><b>D</b> Project Tree</a></li>
+<li class="chapter" data-level="E" data-path="ssh.html"><a href="ssh.html"><b>E</b> Working Remotely</a><ul>
+<li class="chapter" data-level="E.1" data-path="ssh.html"><a href="ssh.html#ssh-login"><b>E.1</b> Logging In</a></li>
+<li class="chapter" data-level="E.2" data-path="ssh.html"><a href="ssh.html#ssh-cp"><b>E.2</b> Copying Files</a></li>
+<li class="chapter" data-level="E.3" data-path="ssh.html"><a href="ssh.html#ssh-cmd"><b>E.3</b> Running Commands</a></li>
+<li class="chapter" data-level="E.4" data-path="ssh.html"><a href="ssh.html#ssh-keys"><b>E.4</b> Creating Keys</a></li>
+<li class="chapter" data-level="E.5" data-path="ssh.html"><a href="ssh.html#ssh-filedir"><b>E.5</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="style.html"><a href="style.html"><b>F</b> Writing Readable Code</a><ul>
+<li class="chapter" data-level="F.1" data-path="style.html"><a href="style.html#style-pep8"><b>F.1</b> Python Style</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="style.html"><a href="style.html#spacing"><b>F.1.1</b> Spacing</a></li>
+<li class="chapter" data-level="F.1.2" data-path="style.html"><a href="style.html#naming"><b>F.1.2</b> Naming</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="style.html"><a href="style.html#style-order"><b>F.2</b> Order</a></li>
+<li class="chapter" data-level="F.3" data-path="style.html"><a href="style.html#style-check"><b>F.3</b> Checking Style</a></li>
+<li class="chapter" data-level="F.4" data-path="style.html"><a href="style.html#style-refactor"><b>F.4</b> Refactoring</a><ul>
+<li class="chapter" data-level="F.4.1" data-path="style.html"><a href="style.html#do-not-repeat-values"><b>F.4.1</b> Do not repeat values</a></li>
+<li class="chapter" data-level="F.4.2" data-path="style.html"><a href="style.html#do-not-repeat-calculations-in-loops"><b>F.4.2</b> Do not repeat calculations in loops</a></li>
+<li class="chapter" data-level="F.4.3" data-path="style.html"><a href="style.html#replace-tests-with-flags-to-clarify-repeated-tests"><b>F.4.3</b> Replace tests with flags to clarify repeated tests</a></li>
+<li class="chapter" data-level="F.4.4" data-path="style.html"><a href="style.html#use-in-place-operators-to-avoid-duplicating-expression"><b>F.4.4</b> Use in-place operators to avoid duplicating expression</a></li>
+<li class="chapter" data-level="F.4.5" data-path="style.html"><a href="style.html#handle-special-cases-first"><b>F.4.5</b> Handle special cases first</a></li>
+<li class="chapter" data-level="F.4.6" data-path="style.html"><a href="style.html#use-functions-to-make-code-more-comprehensible"><b>F.4.6</b> Use functions to make code more comprehensible</a></li>
+<li class="chapter" data-level="F.4.7" data-path="style.html"><a href="style.html#combine-operations-in-functions"><b>F.4.7</b> Combine operations in functions</a></li>
+<li class="chapter" data-level="F.4.8" data-path="style.html"><a href="style.html#replace-code-with-data"><b>F.4.8</b> Replace code with data</a></li>
+</ul></li>
+<li class="chapter" data-level="F.5" data-path="style.html"><a href="style.html#style-review"><b>F.5</b> Code Reviews</a></li>
+<li class="chapter" data-level="F.6" data-path="style.html"><a href="style.html#style-features"><b>F.6</b> Python Features</a><ul>
+<li class="chapter" data-level="F.6.1" data-path="style.html"><a href="style.html#provide-default-values-for-parameters"><b>F.6.1</b> Provide default values for parameters</a></li>
+<li class="chapter" data-level="F.6.2" data-path="style.html"><a href="style.html#handle-a-variable-number-of-arguments"><b>F.6.2</b> Handle a variable number of arguments</a></li>
+<li class="chapter" data-level="F.6.3" data-path="style.html"><a href="style.html#unpacking-variable-arguments"><b>F.6.3</b> Unpacking variable arguments</a></li>
+<li class="chapter" data-level="F.6.4" data-path="style.html"><a href="style.html#use-destructuring-to-assign-multiple-values-at-once"><b>F.6.4</b> Use destructuring to assign multiple values at once</a></li>
+</ul></li>
+<li class="chapter" data-level="F.7" data-path="style.html"><a href="style.html#style-summary"><b>F.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="documentation.html"><a href="documentation.html"><b>G</b> Documenting Programs</a><ul>
+<li class="chapter" data-level="G.1" data-path="documentation.html"><a href="documentation.html#documentation-docstrings"><b>G.1</b> Writing Good Docstrings</a></li>
+<li class="chapter" data-level="G.2" data-path="documentation.html"><a href="documentation.html#documentation-audience"><b>G.2</b> Defining Your Audience</a></li>
+<li class="chapter" data-level="G.3" data-path="documentation.html"><a href="documentation.html#documentation-faq"><b>G.3</b> Creating an FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="H" data-path="yaml.html"><a href="yaml.html"><b>H</b> YAML</a></li>
+<li class="chapter" data-level="I" data-path="anaconda.html"><a href="anaconda.html"><b>I</b> Anaconda</a><ul>
+<li class="chapter" data-level="I.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-conda-package-management"><b>I.1</b> Package Management with conda</a><ul>
+<li class="chapter" data-level="I.1.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-cloud"><b>I.1.1</b> Anaconda Cloud</a></li>
+<li class="chapter" data-level="I.1.2" data-path="anaconda.html"><a href="anaconda.html#conda-forge"><b>I.1.2</b> conda-forge</a></li>
+</ul></li>
+<li class="chapter" data-level="I.2" data-path="anaconda.html"><a href="anaconda.html#anaconda-environments"><b>I.2</b> Environment Management with conda</a></li>
+</ul></li>
+<li class="chapter" data-level="J" data-path="glossary.html"><a href="glossary.html"><b>J</b> Glossary</a></li>
+<li class="chapter" data-level="K" data-path="references.html"><a href="references.html"><b>K</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Research Software Engineering with Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="style" class="section level1">
+<h1><span class="header-section-number">F</span> Writing Readable Code</h1>
+<p>Nothing in biology makes sense except in light of evolution <span class="citation">(Dobzhansky <a href="references.html#ref-Dobz1973" role="doc-biblioref">1973</a>)</span>.
+Similarly,
+nothing in software development makes sense except in light of human psychology.
+This is particularly true when we look at programming style.
+Computers don’t need to understand programs in order to execute them,
+but people do if they are to create, debug, and extend them.</p>
+<p>Throughout this book we have written code to analyze word counts in classic novels
+using good Python style.
+This appendix discusses the style choices we made,
+presents guidelines for good Python programming style,
+and introduces some language features that can make programs more flexible and more readable.</p>
+<div id="style-pep8" class="section level2">
+<h2><span class="header-section-number">F.1</span> Python Style</h2>
+<p>The single most important rule of style is to be consistent,
+both internally and with other programs <span class="citation">(Kernighan and Pike <a href="references.html#ref-Kern1999" role="doc-biblioref">1999</a>)</span>.
+Python’s standard style is called <a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>;
+the acronym “PEP” is short for “Python Enhancement Proposal,”
+and PEP-8 lays out the rules that Python’s own libraries use.
+Some of its rules are listed below,
+along with others borrowed from “<a href="https://github.com/jennybc/code-smells-and-feels">Code Smells and Feels</a>.”</p>
+<div id="spacing" class="section level3">
+<h3><span class="header-section-number">F.1.1</span> Spacing</h3>
+<p><strong>Always indent code blocks using 4 spaces, and use spaces instead of tabs.</strong></p>
+<p>Python doesn’t actually require consistent indentation
+so long as each block is indented the same amount,
+which means that this is legal:</p>
+<div class="sourceCode" id="cb970"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb970-1"><a href="style.html#cb970-1"></a><span class="kw">def</span> transpose(original):</span>
+<span id="cb970-2"><a href="style.html#cb970-2"></a>  result <span class="op">=</span> Matrix(original.numRow, original.numCol)</span>
+<span id="cb970-3"><a href="style.html#cb970-3"></a>  <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(original.numRow):</span>
+<span id="cb970-4"><a href="style.html#cb970-4"></a>              <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">range</span>(original.numCol):</span>
+<span id="cb970-5"><a href="style.html#cb970-5"></a>               result[row, col] <span class="op">=</span> original[col, row]</span>
+<span id="cb970-6"><a href="style.html#cb970-6"></a>  <span class="cf">return</span> result</span></code></pre></div>
+<p>The same block of code is much more readable when written as:</p>
+<div class="sourceCode" id="cb971"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb971-1"><a href="style.html#cb971-1"></a><span class="kw">def</span> transpose(original):</span>
+<span id="cb971-2"><a href="style.html#cb971-2"></a>    result <span class="op">=</span> Matrix(original.numRow, original.numCol)</span>
+<span id="cb971-3"><a href="style.html#cb971-3"></a>    <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(original.numRow):</span>
+<span id="cb971-4"><a href="style.html#cb971-4"></a>        <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">range</span>(original.numCol):</span>
+<span id="cb971-5"><a href="style.html#cb971-5"></a>            result[row, col] <span class="op">=</span> original[col, row]</span>
+<span id="cb971-6"><a href="style.html#cb971-6"></a>    <span class="cf">return</span> result</span></code></pre></div>
+<p>The use of 4 spaces is a compromise between 2
+(which we find perfectly readable, but some people find too crowded)
+and 8
+(which most people agree uses up too much horizontal space).
+As for the use of spaces rather than tabs,
+the original reason was that the most common interpretation of tabs
+by the editors of the 1980s was 8 spaces,
+which again was more than most people felt necessary.
+Today,
+almost all editors will auto-indent or auto-complete when the tab key is pressed
+(or insert spaces, if configured to do so),
+but the legacy of those ancient times lives on.</p>
+<p><strong>Do not put spaces inside parentheses.</strong></p>
+<p>Write <code>(1+2)</code> instead of <code>( 1+2 )</code>.
+This applies to function calls as well:
+write <code>max(a, b)</code> rather than <code>max( a, b )</code>.
+(We will see a related rule when we discuss default parameter values
+in Section <a href="style.html#style-features">F.6</a>.)</p>
+<p><strong>Always use spaces around comparisons like <code>&gt;</code> and <code>&lt;=</code>.</strong></p>
+<p>Python automatically interprets <code>a+b&lt;c+d</code> as <code>(a+b)&lt;(c+d)</code>,
+but that’s a lot of punctuation crowded together.
+Using spaces around comparison operators makes it easier to see
+what’s being compared to what.
+However,
+we should use our own judgment for spacing around arithmetic operators like <code>+</code> and <code>/</code>.
+For example,
+<code>a+b+c</code> is perfectly readable,
+but</p>
+<div class="sourceCode" id="cb972"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb972-1"><a href="style.html#cb972-1"></a>substrate[i, j] <span class="op">+</span> overlay[i, j]</span></code></pre></div>
+<p>is easier for the eye to follow than the spaceless:</p>
+<div class="sourceCode" id="cb973"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb973-1"><a href="style.html#cb973-1"></a>substrate[i, j]<span class="op">+</span>overlay[i, j]</span></code></pre></div>
+<p>Most programmers would also write:</p>
+<div class="sourceCode" id="cb974"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb974-1"><a href="style.html#cb974-1"></a>a<span class="op">*</span>b <span class="op">+</span> c<span class="op">*</span>d</span></code></pre></div>
+<p>instead of:</p>
+<div class="sourceCode" id="cb975"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb975-1"><a href="style.html#cb975-1"></a>a<span class="op">*</span>b<span class="op">+</span>c<span class="op">*</span>d</span></code></pre></div>
+<p>or:</p>
+<div class="sourceCode" id="cb976"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb976-1"><a href="style.html#cb976-1"></a>(a<span class="op">*</span>b)<span class="op">+</span>(c<span class="op">*</span>d)</span></code></pre></div>
+<p>Adding spaces makes simple expressions more readable,
+but does not change the way Python interprets them—when it encounters <code>a * b+c</code>,
+for example,
+Python still does the multiplication before the addition.</p>
+<p><strong>Put two blank lines between each function definition.</strong></p>
+<p>This helps the eye see where one ends and the next begins,
+though the fact that functions always start in the first column helps as well.</p>
+<p><strong>Add an empty line at the end of the script.</strong></p>
+<p>Ending a file in a newline character is required for some other programming languages.
+Although it’s not required for Python code to function,
+it does make it easier to view and edit code.</p>
+</div>
+<div id="naming" class="section level3">
+<h3><span class="header-section-number">F.1.2</span> Naming</h3>
+<p><strong>Use <code>ALL_CAPS_WITH_UNDERSCORES</code> for global variables.</strong></p>
+<p>This convention is inherited from C,
+which was used to write the first version of Python.
+In that language,
+upper case was used to indicate a constant whose value couldn’t be modified;
+Python doesn’t enforce that rule,
+but <code>SHOUTING_AT_PROGRAMMERS</code> helps remind them that
+some things shouldn’t be messed with.</p>
+<p><strong>Use <code>lower_case_with_underscores</code> for the names of functions and variables.</strong></p>
+<p>Research on naming conventions has produced mixed results <span class="citation">(Binkley et al. <a href="references.html#ref-Bink2012" role="doc-biblioref">2012</a>; Schankin et al. <a href="references.html#ref-Scha2018" role="doc-biblioref">2018</a>)</span>
+but Python has (mostly) settled on underscored names for most things.
+This style is called <a href="glossary.html#snake_case">snake case</a> or <a href="glossary.html#pothole_case">pothole case</a>;
+we should only use <a href="glossary.html#camel_case">CamelCase</a> for classes,
+which are outside the scope of this lesson.</p>
+<p><strong>Avoid abbreviations in function and variable names.</strong></p>
+<p>Abbreviations and acronyms can be ambiguous
+(does <code>xcl</code> mean “Excel”, “exclude”, or “excellent”?),
+and can be hard for non-native speakers to understand.
+Following this rule doesn’t necessarily require more typing:
+a good programming editor will <a href="glossary.html#auto_completion">auto-complete</a> names for us.</p>
+<p><strong>Use short names for short-lived local variables and longer names for things with wider scope.</strong></p>
+<p>Using <code>i</code> and <code>j</code> for loop indices is perfectly readable
+provided the loop is only a few lines long <span class="citation">(Beniamini et al. <a href="references.html#ref-Beni2017" role="doc-biblioref">2017</a>)</span>.
+Anything that is used at a greater distance
+or whose purpose isn’t immediately clear
+(such as a function) should have a longer name.</p>
+<p><strong>Do not comment and uncomment sections of code to change behavior.</strong></p>
+<p>If we need to do something in some runs of the program and not in others,
+use an <code>if</code> statement to enable or disable that block of code:
+it eliminates the risk of accidentally commenting out one too many lines.
+If the lines we were removing or commenting out print debugging information,
+we should replace them with logging calls (Section <a href="errors.html#errors-logging">12.4</a>).
+If they are operations that we want to execute,
+we can add a configuration option (Chapter <a href="config.html#config">10</a>),
+and if we are sure we don’t need the code,
+we should take it out completely:
+we can always get it back from version control
+(Section <a href="git-cmdline.html#git-cmdline-ex-recover">6.11.14</a>).</p>
+</div>
+</div>
+<div id="style-order" class="section level2">
+<h2><span class="header-section-number">F.2</span> Order</h2>
+<p>The order of items in each file should be:</p>
+<ul>
+<li>The <a href="glossary.html#shebang">shebang</a> line (because it has to be first to work).</li>
+<li>The file’s documentation string (Section <a href="scripting.html#scripting-docstrings">5.3</a>).</li>
+<li>All of the <code>import</code> statements, one per line.</li>
+<li>Global variable definitions
+(especially things that would be constants in languages that support them).</li>
+<li>Function definitions.</li>
+<li>If the file can be run as a program,
+the <code>if __name__ == '__main__'</code> statement discussed in
+Section <a href="scripting.html#scripting-main">5.1</a>.</li>
+</ul>
+<p>That much is clear,
+but programmers disagree (strongly) on whether high-level functions should come first or last,
+i.e.,
+whether <code>main</code> should be the first function in the file or the last one.
+Our scripts put it last,
+so that it is immediately before the check on <code>__name__</code>.
+Wherever it goes,
+<code>main</code> tends to follow one of three patterns:</p>
+<ol style="list-style-type: decimal">
+<li>Figure out what the user has asked it to do (Chapter <a href="config.html#config">10</a>).</li>
+<li>Read all input data.</li>
+<li>Process it.</li>
+<li>Write output.</li>
+</ol>
+<p>or:</p>
+<ol style="list-style-type: decimal">
+<li>Figure out what the user has asked for.</li>
+<li>For each input file:
+<ol style="list-style-type: decimal">
+<li>Read.</li>
+<li>Process.</li>
+<li>Write file-specific output (if any).</li>
+</ol></li>
+<li>Write summary output (if any).</li>
+</ol>
+<p>or:</p>
+<ol style="list-style-type: decimal">
+<li>Figure out what the user has asked for.</li>
+<li>Repeatedly:
+<ol style="list-style-type: decimal">
+<li>Wait for user input.</li>
+<li>Do what the user has asked.</li>
+</ol></li>
+<li>Exit when a “stop” command of some sort is received.</li>
+</ol>
+<p>Each step in each of the outlines above usually becomes a function.
+Those functions depend on others,
+some of which are written to break code into comprehensible chunks and are then called just once,
+others of which are utilities that may be called many times from many different places.</p>
+<p>We put all of the single-use functions in the first half of the file
+in the order in which they are likely to be called,
+and then put all of the multi-use utility functions in the bottom of the file in alphabetical order.
+If any of those utility functions are used by other scripts or programs,
+they should go in a file of their own (Section <a href="scripting.html#scripting-modules">5.8</a>).</p>
+<p>In fact,
+this is a good practice even if those functions are only used by one program,
+since it signals even more clearly which are specific to this program
+and which are likely to be reused elsewhere.
+This is why we create <code>collate.py</code> in Section <a href="scripting.html#scripting-collate">5.7</a>:
+we could have kept all of our code in <code>countwords.py</code>,
+but collating felt like something we might want to do separately.</p>
+</div>
+<div id="style-check" class="section level2">
+<h2><span class="header-section-number">F.3</span> Checking Style</h2>
+<p>Checking that code conforms to guidelines like PEP-8 would be time consuming
+if we had to do it manually,
+but most languages have tools that will check style rules for us.
+These tools are often called <a href="glossary.html#linter">linters</a>,
+after an early tool called <a href="https://en.wikipedia.org/wiki/Lint_(software)"><code>lint</code></a> that found lint (or fluff) in C code.</p>
+<p>Python’s linter used to be called <code>pep8</code> and is now called <code>pycodestyle</code>.
+To see how it works,
+let’s look at this program,
+which is supposed to count the number of <a href="glossary.html#stop_word">stop words</a> in a document:</p>
+<div class="sourceCode" id="cb977"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb977-1"><a href="style.html#cb977-1"></a>stops <span class="op">=</span> [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;A&#39;</span>, <span class="st">&#39;the&#39;</span>, <span class="st">&#39;The&#39;</span>, <span class="st">&#39;and&#39;</span>]</span>
+<span id="cb977-2"><a href="style.html#cb977-2"></a></span>
+<span id="cb977-3"><a href="style.html#cb977-3"></a><span class="kw">def</span> count(ln):</span>
+<span id="cb977-4"><a href="style.html#cb977-4"></a>    n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb977-5"><a href="style.html#cb977-5"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(ln)):</span>
+<span id="cb977-6"><a href="style.html#cb977-6"></a>        line <span class="op">=</span> ln[i]</span>
+<span id="cb977-7"><a href="style.html#cb977-7"></a>        stuff <span class="op">=</span> line.split()</span>
+<span id="cb977-8"><a href="style.html#cb977-8"></a>        <span class="cf">for</span> word <span class="kw">in</span> stuff:</span>
+<span id="cb977-9"><a href="style.html#cb977-9"></a>            <span class="co"># print(word)</span></span>
+<span id="cb977-10"><a href="style.html#cb977-10"></a>            j <span class="op">=</span> stops.count(word)</span>
+<span id="cb977-11"><a href="style.html#cb977-11"></a>            <span class="cf">if</span> (j <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb977-12"><a href="style.html#cb977-12"></a>                n <span class="op">=</span> n <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb977-13"><a href="style.html#cb977-13"></a>    <span class="cf">return</span> n</span>
+<span id="cb977-14"><a href="style.html#cb977-14"></a></span>
+<span id="cb977-15"><a href="style.html#cb977-15"></a><span class="im">import</span> sys</span>
+<span id="cb977-16"><a href="style.html#cb977-16"></a></span>
+<span id="cb977-17"><a href="style.html#cb977-17"></a>lines <span class="op">=</span> sys.stdin.readlines()</span>
+<span id="cb977-18"><a href="style.html#cb977-18"></a><span class="co"># print(&#39;number of lines&#39;, len(lines))</span></span>
+<span id="cb977-19"><a href="style.html#cb977-19"></a>n <span class="op">=</span> count(lines)</span>
+<span id="cb977-20"><a href="style.html#cb977-20"></a><span class="bu">print</span>(<span class="st">&#39;number&#39;</span>, n)</span></code></pre></div>
+<p>When we run:</p>
+<div class="sourceCode" id="cb978"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb978-1"><a href="style.html#cb978-1"></a>$ <span class="ex">pycodestyle</span> count_stops.py</span></code></pre></div>
+<p>it prints:</p>
+<pre class="text"><code>src/style/count_stops_before.py:3:1:
+E302 expected 2 blank lines, found 1
+src/style/count_stops_before.py:11:24:
+E712 comparison to True should be
+&#39;if cond is True:&#39; or &#39;if cond:&#39;
+src/style/count_stops_before.py:12:13:
+E101 indentation contains mixed spaces and tabs
+src/style/count_stops_before.py:12:13:
+W191 indentation contains tabs
+src/style/count_stops_before.py:15:1:
+E305 expected 2 blank lines after class or function definition,
+  found 1
+src/style/count_stops_before.py:15:1:
+E402 module level import not at top of file</code></pre>
+<p>which tells us that:</p>
+<ul>
+<li>We should use two blank lines before the function definition on line 3
+and after it on line 15.</li>
+<li>Using <code>== True</code> or <code>== False</code> is redundant
+(because <code>x == True</code> is the same as <code>x</code>
+and <code>x == False</code> is the same as <code>not x</code>).</li>
+<li>Line 12 uses tabs instead of just spaces.</li>
+<li>The <code>import</code> on line 15 should be at the top of the file.</li>
+</ul>
+<p>Fixing these issues gives us:</p>
+<div class="sourceCode" id="cb980"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb980-1"><a href="style.html#cb980-1"></a><span class="im">import</span> sys</span>
+<span id="cb980-2"><a href="style.html#cb980-2"></a></span>
+<span id="cb980-3"><a href="style.html#cb980-3"></a></span>
+<span id="cb980-4"><a href="style.html#cb980-4"></a>stops <span class="op">=</span> [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;A&#39;</span>, <span class="st">&#39;the&#39;</span>, <span class="st">&#39;The&#39;</span>, <span class="st">&#39;and&#39;</span>]</span>
+<span id="cb980-5"><a href="style.html#cb980-5"></a></span>
+<span id="cb980-6"><a href="style.html#cb980-6"></a></span>
+<span id="cb980-7"><a href="style.html#cb980-7"></a><span class="kw">def</span> count(ln):</span>
+<span id="cb980-8"><a href="style.html#cb980-8"></a>    n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb980-9"><a href="style.html#cb980-9"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(ln)):</span>
+<span id="cb980-10"><a href="style.html#cb980-10"></a>        line <span class="op">=</span> ln[i]</span>
+<span id="cb980-11"><a href="style.html#cb980-11"></a>        stuff <span class="op">=</span> line.split()</span>
+<span id="cb980-12"><a href="style.html#cb980-12"></a>        <span class="cf">for</span> word <span class="kw">in</span> stuff:</span>
+<span id="cb980-13"><a href="style.html#cb980-13"></a>            <span class="co"># print(word)</span></span>
+<span id="cb980-14"><a href="style.html#cb980-14"></a>            j <span class="op">=</span> stops.count(word)</span>
+<span id="cb980-15"><a href="style.html#cb980-15"></a>            <span class="cf">if</span> j <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb980-16"><a href="style.html#cb980-16"></a>                n <span class="op">=</span> n <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb980-17"><a href="style.html#cb980-17"></a>    <span class="cf">return</span> n</span>
+<span id="cb980-18"><a href="style.html#cb980-18"></a></span>
+<span id="cb980-19"><a href="style.html#cb980-19"></a></span>
+<span id="cb980-20"><a href="style.html#cb980-20"></a>lines <span class="op">=</span> sys.stdin.readlines()</span>
+<span id="cb980-21"><a href="style.html#cb980-21"></a><span class="co"># print(&#39;number of lines&#39;, len(lines))</span></span>
+<span id="cb980-22"><a href="style.html#cb980-22"></a>n <span class="op">=</span> count(lines)</span>
+<span id="cb980-23"><a href="style.html#cb980-23"></a><span class="bu">print</span>(<span class="st">&#39;number&#39;</span>, n)</span></code></pre></div>
+</div>
+<div id="style-refactor" class="section level2">
+<h2><span class="header-section-number">F.4</span> Refactoring</h2>
+<p>Once a program gets a clean bill of health from <code>pycodestyle</code>,
+it’s worth having a human being look it over and suggest improvements.
+To <a href="glossary.html#refactoring">refactor</a> code
+means to change its structure without changing what it does,
+like simplifying an equation.
+It is just as much a part of programming as writing code in the first place:
+nobody gets things right the first time <span class="citation">(Brand <a href="references.html#ref-Bran1995" role="doc-biblioref">1995</a>)</span>,
+and needs or insights can change over time.</p>
+<p>Most discussions of refactoring focus on <a href="glossary.html#oop">object-oriented programming</a>,
+but many patterns can and should be used to clean up <a href="glossary.html#procedural_programming">procedural</a> code.
+Knowing a few of these patterns helps us create better software
+and makes it easier to communicate with our peers.</p>
+<div id="do-not-repeat-values" class="section level3">
+<h3><span class="header-section-number">F.4.1</span> Do not repeat values</h3>
+<p>The first and simplest refactoring is “replace value with name.”
+It tells us to replace magic numbers with names,
+i.e., to define constants.
+This can seem ridiculous in simple cases
+(why define and use <code>inches_per_foot</code> instead of just writing 12?).
+However,
+what may be obvious to us when we’re writing code won’t be obvious to the next person,
+particularly if they are working in a different context
+(most of the world uses the metric system and doesn’t know how many inches are in a foot).
+It is also a matter of habit:
+if we write numbers without explanation in our code for simple cases,
+we are more likely to do so in complex cases,
+and more likely to regret it afterward.</p>
+<div style="page-break-after: always;"></div>
+<p>Using names instead of raw values also makes it easier to understand code when we read it aloud,
+which is always a good test of its style.
+Finally,
+a single value defined in one place is much easier to change
+than a bunch of numbers scattered throughout our program.
+We may not think we will have to change it,
+but then people want to use our software on Mars and we discover that constants aren’t <span class="citation">(Mak <a href="references.html#ref-Mak2006" role="doc-biblioref">2006</a>)</span>.</p>
+<div class="sourceCode" id="cb981"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb981-1"><a href="style.html#cb981-1"></a><span class="co"># ...before...</span></span>
+<span id="cb981-2"><a href="style.html#cb981-2"></a>seconds_elapsed <span class="op">=</span> num_days <span class="op">*</span> <span class="dv">24</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span></span></code></pre></div>
+<div class="sourceCode" id="cb982"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb982-1"><a href="style.html#cb982-1"></a><span class="co"># ...after...</span></span>
+<span id="cb982-2"><a href="style.html#cb982-2"></a>SECONDS_PER_DAY <span class="op">=</span> <span class="dv">24</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">60</span></span>
+<span id="cb982-3"><a href="style.html#cb982-3"></a><span class="co"># ...other code...</span></span>
+<span id="cb982-4"><a href="style.html#cb982-4"></a>seconds_elapsed <span class="op">=</span> num_days <span class="op">*</span> SECONDS_PER_DAY</span></code></pre></div>
+</div>
+<div id="do-not-repeat-calculations-in-loops" class="section level3">
+<h3><span class="header-section-number">F.4.2</span> Do not repeat calculations in loops</h3>
+<p>It’s inefficient to calculate the same value over and over again.
+It also makes code less readable:
+if a calculation is inside a loop or a function,
+readers will assume that it might change each time the code is executed.</p>
+<p>Our second refactoring,
+“hoist repeated calculation out of loop,”
+tells us to move the repeated calculation out of the loop or function.
+Doing this signals that its value is always the same.
+And naming that common value helps readers understand what its purpose is.</p>
+<div class="sourceCode" id="cb983"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb983-1"><a href="style.html#cb983-1"></a><span class="co"># ...before...</span></span>
+<span id="cb983-2"><a href="style.html#cb983-2"></a><span class="cf">for</span> sample <span class="kw">in</span> signals:</span>
+<span id="cb983-3"><a href="style.html#cb983-3"></a>    output.append(<span class="dv">2</span> <span class="op">*</span> pi <span class="op">*</span> sample <span class="op">/</span> weight)</span></code></pre></div>
+<div class="sourceCode" id="cb984"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb984-1"><a href="style.html#cb984-1"></a><span class="co"># ...after...</span></span>
+<span id="cb984-2"><a href="style.html#cb984-2"></a>scaling <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> pi <span class="op">/</span> weight</span>
+<span id="cb984-3"><a href="style.html#cb984-3"></a><span class="cf">for</span> sample <span class="kw">in</span> signals:</span>
+<span id="cb984-4"><a href="style.html#cb984-4"></a>    output.append(sample <span class="op">*</span> scaling)</span></code></pre></div>
+</div>
+<div id="replace-tests-with-flags-to-clarify-repeated-tests" class="section level3">
+<h3><span class="header-section-number">F.4.3</span> Replace tests with flags to clarify repeated tests</h3>
+<p>Novice programmers frequently write conditional tests like this:</p>
+<div class="sourceCode" id="cb985"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb985-1"><a href="style.html#cb985-1"></a><span class="cf">if</span> (a <span class="op">&gt;</span> b) <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb985-2"><a href="style.html#cb985-2"></a>    <span class="co"># ...do something...</span></span></code></pre></div>
+<p>The comparison to <code>True</code> is unnecessary because <code>a &gt; b</code> is a Boolean value
+that is itself either <code>True</code> or <code>False</code>.
+Like any other value,
+Booleans can be assigned to variables,
+and those variables can then be used directly in tests:</p>
+<div class="sourceCode" id="cb986"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb986-1"><a href="style.html#cb986-1"></a>was_greater <span class="op">=</span> estimate <span class="op">&gt;</span> <span class="fl">0.0</span></span>
+<span id="cb986-2"><a href="style.html#cb986-2"></a><span class="co"># ...other code that might change estimate...</span></span>
+<span id="cb986-3"><a href="style.html#cb986-3"></a><span class="cf">if</span> was_greater:</span>
+<span id="cb986-4"><a href="style.html#cb986-4"></a>    <span class="co"># ...do something...</span></span></code></pre></div>
+<p>This refactoring is “replace repeated test with flag.”
+Again,
+there is no need to write <code>if was_greater == True</code>:
+that always produces the same result as <code>if was_greater</code>.
+Similarly,
+the equality tests in <code>if was_greater == False</code> is redundant:
+the expression can simply be written <code>if not was_greater</code>.
+Creating and using a <a href="glossary.html#flag_variable">flag</a> instead of repeating the test
+is therefore like moving a calculation out of a loop:
+even if that value is only used once,
+it makes our intention clearer.</p>
+<div class="sourceCode" id="cb987"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb987-1"><a href="style.html#cb987-1"></a><span class="co"># ...before...</span></span>
+<span id="cb987-2"><a href="style.html#cb987-2"></a><span class="kw">def</span> process_data(data, scaling):</span>
+<span id="cb987-3"><a href="style.html#cb987-3"></a>    <span class="cf">if</span> <span class="bu">len</span>(data) <span class="op">&gt;</span> THRESHOLD:</span>
+<span id="cb987-4"><a href="style.html#cb987-4"></a>        scaling <span class="op">=</span> sqrt(scaling)</span>
+<span id="cb987-5"><a href="style.html#cb987-5"></a>    <span class="co"># ...process data to create score...</span></span>
+<span id="cb987-6"><a href="style.html#cb987-6"></a>    <span class="cf">if</span> <span class="bu">len</span>(data) <span class="op">&gt;</span> THRESHOLD:</span>
+<span id="cb987-7"><a href="style.html#cb987-7"></a>        score <span class="op">=</span> score <span class="op">**</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb988"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb988-1"><a href="style.html#cb988-1"></a><span class="co"># ...after...</span></span>
+<span id="cb988-2"><a href="style.html#cb988-2"></a><span class="kw">def</span> process_data(data, scaling):</span>
+<span id="cb988-3"><a href="style.html#cb988-3"></a>    is_large_data <span class="op">=</span> <span class="bu">len</span>(data) <span class="op">&gt;</span> THRESHOLD</span>
+<span id="cb988-4"><a href="style.html#cb988-4"></a>    <span class="cf">if</span> is_large_data:</span>
+<span id="cb988-5"><a href="style.html#cb988-5"></a>        scaling <span class="op">=</span> sqrt(scaling)</span>
+<span id="cb988-6"><a href="style.html#cb988-6"></a>    <span class="co"># ...process data to create score...</span></span>
+<span id="cb988-7"><a href="style.html#cb988-7"></a>    <span class="cf">if</span> is_large_data:</span>
+<span id="cb988-8"><a href="style.html#cb988-8"></a>        score <span class="op">=</span> score <span class="op">**</span> <span class="dv">2</span></span></code></pre></div>
+<p>If it takes many lines of code to process data and create a score,
+and the test then needs to change from <code>&gt;</code> to <code>&gt;=</code>,
+we are more likely to get the refactored version right the first time,
+since the test only appears in one place and its result is given a name.</p>
+</div>
+<div id="use-in-place-operators-to-avoid-duplicating-expression" class="section level3">
+<h3><span class="header-section-number">F.4.4</span> Use in-place operators to avoid duplicating expression</h3>
+<p>An <a href="glossary.html#in_place_operator">in-place operator</a>,
+sometimes called an <a href="glossary.html#update_operator">update operator</a>,
+does a calculation with two values
+and overwrites one of the values.
+For example,
+instead of writing:</p>
+<div class="sourceCode" id="cb989"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb989-1"><a href="style.html#cb989-1"></a>step <span class="op">=</span> step <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
+<p>we can write:</p>
+<div class="sourceCode" id="cb990"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb990-1"><a href="style.html#cb990-1"></a>step <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<p>In-place operators save us some typing.
+They also make the intention clearer,
+and most importantly,
+they make it harder to get complex assignments wrong.
+For example:</p>
+<div class="sourceCode" id="cb991"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb991-1"><a href="style.html#cb991-1"></a>samples[least_factor,</span>
+<span id="cb991-2"><a href="style.html#cb991-2"></a>        <span class="bu">max</span>(current_offset, offset_limit)] <span class="op">*=</span> scaling_factor</span></code></pre></div>
+<p>is less difficult to read than the equivalent expression:</p>
+<div class="sourceCode" id="cb992"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb992-1"><a href="style.html#cb992-1"></a>samples[least_factor, <span class="bu">max</span>(current_offset, offset_limit)] <span class="op">=</span> <span class="op">\</span></span>
+<span id="cb992-2"><a href="style.html#cb992-2"></a>    scaling_factor <span class="op">*</span> samples[least_factor,</span>
+<span id="cb992-3"><a href="style.html#cb992-3"></a>                             <span class="bu">max</span>(current_limit,</span>
+<span id="cb992-4"><a href="style.html#cb992-4"></a>                                 offset_limit)]</span></code></pre></div>
+<p>(The proof of this claim is that you probably didn’t notice
+that the long form uses different expressions to index <code>samples</code>
+on the left and right of the assignment.)
+The refactoring “use in-place operator” does what its name suggests:
+converts normal assignments into their briefer equivalents.</p>
+<div class="sourceCode" id="cb993"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb993-1"><a href="style.html#cb993-1"></a><span class="co"># ...before...</span></span>
+<span id="cb993-2"><a href="style.html#cb993-2"></a><span class="cf">for</span> least_factor <span class="kw">in</span> all_factors:</span>
+<span id="cb993-3"><a href="style.html#cb993-3"></a>    samples[least_factor] <span class="op">=</span> <span class="op">\</span></span>
+<span id="cb993-4"><a href="style.html#cb993-4"></a>        samples[least_factor] <span class="op">*</span> bayesian_scaling</span></code></pre></div>
+<div class="sourceCode" id="cb994"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb994-1"><a href="style.html#cb994-1"></a><span class="co"># ...after...</span></span>
+<span id="cb994-2"><a href="style.html#cb994-2"></a><span class="cf">for</span> least_factor <span class="kw">in</span> all_factors:</span>
+<span id="cb994-3"><a href="style.html#cb994-3"></a>    samples[least_factor] <span class="op">*=</span> bayesian_scaling</span></code></pre></div>
+</div>
+<div id="handle-special-cases-first" class="section level3">
+<h3><span class="header-section-number">F.4.5</span> Handle special cases first</h3>
+<p>A <a href="glossary.html#short_circuit_test">short circuit test</a> is a quick check to handle a special case,
+such as checking the length of a list of values
+and returning <code>math.nan</code> for the average if the list is empty.
+“Place short circuits early” tells us to put short-circuit tests near the start of functions
+so that readers can mentally remove special cases from their thinking
+while reading the code that handles the usual case.</p>
+<div class="sourceCode" id="cb995"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb995-1"><a href="style.html#cb995-1"></a><span class="co"># ...before...</span></span>
+<span id="cb995-2"><a href="style.html#cb995-2"></a><span class="kw">def</span> rescale_by_average(values, factors, weights):</span>
+<span id="cb995-3"><a href="style.html#cb995-3"></a>    a <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb995-4"><a href="style.html#cb995-4"></a>    <span class="cf">for</span> (f, w) <span class="kw">in</span> <span class="bu">zip</span>(factors, weights):</span>
+<span id="cb995-5"><a href="style.html#cb995-5"></a>        a <span class="op">+=</span> f <span class="op">*</span> w</span>
+<span id="cb995-6"><a href="style.html#cb995-6"></a>    <span class="cf">if</span> a <span class="op">==</span> <span class="fl">0.0</span>:</span>
+<span id="cb995-7"><a href="style.html#cb995-7"></a>        <span class="cf">return</span></span>
+<span id="cb995-8"><a href="style.html#cb995-8"></a>    a <span class="op">/=</span> <span class="bu">len</span>(f)</span>
+<span id="cb995-9"><a href="style.html#cb995-9"></a>    <span class="cf">if</span> <span class="kw">not</span> values:</span>
+<span id="cb995-10"><a href="style.html#cb995-10"></a>        <span class="cf">return</span></span>
+<span id="cb995-11"><a href="style.html#cb995-11"></a>    <span class="cf">else</span>:</span>
+<span id="cb995-12"><a href="style.html#cb995-12"></a>        <span class="cf">for</span> (i, v) <span class="kw">in</span> <span class="bu">enumerate</span>(values):</span>
+<span id="cb995-13"><a href="style.html#cb995-13"></a>            values[i] <span class="op">=</span> v <span class="op">/</span> a</span></code></pre></div>
+<div class="sourceCode" id="cb996"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb996-1"><a href="style.html#cb996-1"></a><span class="co"># ...after...</span></span>
+<span id="cb996-2"><a href="style.html#cb996-2"></a><span class="kw">def</span> rescale_by_average(values, factors, weights):</span>
+<span id="cb996-3"><a href="style.html#cb996-3"></a>    <span class="cf">if</span> (<span class="kw">not</span> values) <span class="kw">or</span> (<span class="kw">not</span> factors) <span class="kw">or</span> (<span class="kw">not</span> weights):</span>
+<span id="cb996-4"><a href="style.html#cb996-4"></a>        <span class="cf">return</span></span>
+<span id="cb996-5"><a href="style.html#cb996-5"></a>    a <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb996-6"><a href="style.html#cb996-6"></a>    <span class="cf">for</span> (f, w) <span class="kw">in</span> <span class="bu">zip</span>(factors, weights):</span>
+<span id="cb996-7"><a href="style.html#cb996-7"></a>        a <span class="op">+=</span> f <span class="op">*</span> w</span>
+<span id="cb996-8"><a href="style.html#cb996-8"></a>    a <span class="op">/=</span> <span class="bu">len</span>(f)</span>
+<span id="cb996-9"><a href="style.html#cb996-9"></a>    <span class="cf">for</span> (i, v) <span class="kw">in</span> <span class="bu">enumerate</span>(values):</span>
+<span id="cb996-10"><a href="style.html#cb996-10"></a>        values[i] <span class="op">=</span> v <span class="op">/</span> a</span></code></pre></div>
+<blockquote>
+<p><strong>Return Consistently</strong></p>
+<p>PEP-8 says, “Be consistent in <code>return</code> statements,”
+and goes on to say that either all <code>return</code> statements in a function should return a value,
+or none of them should.
+If a function contains any explicit <code>return</code> statements at all,
+it should end with one as well.</p>
+</blockquote>
+<p>A related refactoring pattern is “default and override.”
+To use it,
+assign a default or most common value to a variable unconditionally,
+and then override it in a special case.
+The result is fewer lines of code and clearer control flow;
+however,
+it does mean executing two assignments instead of one,
+so it shouldn’t be used if the common case is expensive
+(e.g., involves a database lookup or a web request).</p>
+<div class="sourceCode" id="cb997"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb997-1"><a href="style.html#cb997-1"></a><span class="co"># ...before..</span></span>
+<span id="cb997-2"><a href="style.html#cb997-2"></a><span class="cf">if</span> configuration[<span class="st">&#39;threshold&#39;</span>] <span class="op">&gt;</span> UPPER_BOUND:</span>
+<span id="cb997-3"><a href="style.html#cb997-3"></a>    scale <span class="op">=</span> <span class="fl">0.8</span></span>
+<span id="cb997-4"><a href="style.html#cb997-4"></a><span class="cf">else</span>:</span>
+<span id="cb997-5"><a href="style.html#cb997-5"></a>    scale <span class="op">=</span> <span class="fl">1.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb998"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb998-1"><a href="style.html#cb998-1"></a><span class="co"># ...after...</span></span>
+<span id="cb998-2"><a href="style.html#cb998-2"></a>scale <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb998-3"><a href="style.html#cb998-3"></a><span class="cf">if</span> configuration[<span class="st">&#39;threshold&#39;</span>] <span class="op">&gt;</span> UPPER_BOUND:</span>
+<span id="cb998-4"><a href="style.html#cb998-4"></a>    scale <span class="op">=</span> <span class="fl">0.8</span></span></code></pre></div>
+<p>In simple cases,
+people will sometimes put the test and assignment on a single line:</p>
+<div class="sourceCode" id="cb999"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb999-1"><a href="style.html#cb999-1"></a>scale <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb999-2"><a href="style.html#cb999-2"></a><span class="cf">if</span> configuration[<span class="st">&#39;threshold&#39;</span>] <span class="op">&gt;</span> UPPER_BOUND: scale <span class="op">=</span> <span class="fl">0.8</span></span></code></pre></div>
+<div style="page-break-after: always;"></div>
+<p>Some programmers take this even further
+and use a <a href="glossary.html#conditional_expression">conditional expression</a>:</p>
+<div class="sourceCode" id="cb1000"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1000-1"><a href="style.html#cb1000-1"></a>scale <span class="op">=</span> <span class="fl">0.8</span> <span class="cf">if</span> configuration[<span class="st">&#39;threshold&#39;</span>] <span class="op">&gt;</span> UPPER_BOUND <span class="cf">else</span> <span class="fl">1.0</span></span></code></pre></div>
+<p>However,
+this puts the default last instead of first,
+which is less clear.</p>
+<blockquote>
+<p><strong>A Little Jargon</strong></p>
+<p><code>X if test else Y</code> is called a <a href="glossary.html#ternary_expression">ternary expression</a>.
+Just as a binary expression like <code>A + B</code> has two parts,
+a ternary expression has three.
+Conditional expressions are the only ternary expressions in most programming languages.</p>
+</blockquote>
+</div>
+<div id="use-functions-to-make-code-more-comprehensible" class="section level3">
+<h3><span class="header-section-number">F.4.6</span> Use functions to make code more comprehensible</h3>
+<p>Functions were created so that programmers could re-use common operations,
+but moving code into functions also reduces <a href="glossary.html#cognitive_load">cognitive load</a>
+by reducing the number of things that have to be understood simultaneously.</p>
+<p>A common rule of thumb is that
+no function should be longer than a printed page (about 80 lines)
+or have more than four levels of indentation because of nested loops and conditionals.
+Anything longer or more deeply nested is hard for readers to understand,
+so we should move pieces of long functions into small ones.</p>
+<div class="sourceCode" id="cb1001"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1001-1"><a href="style.html#cb1001-1"></a><span class="co"># ...before...</span></span>
+<span id="cb1001-2"><a href="style.html#cb1001-2"></a><span class="kw">def</span> check_neighbors(grid, point):</span>
+<span id="cb1001-3"><a href="style.html#cb1001-3"></a>    <span class="cf">if</span> (<span class="dv">0</span> <span class="op">&lt;</span> point.x) <span class="kw">and</span> (point.x <span class="op">&lt;</span> grid.width<span class="dv">-1</span>) <span class="kw">and</span> <span class="op">\</span></span>
+<span id="cb1001-4"><a href="style.html#cb1001-4"></a>       (<span class="dv">0</span> <span class="op">&lt;</span> point.y) <span class="kw">and</span> (point.y <span class="op">&lt;</span> grid.height<span class="dv">-1</span>):</span>
+<span id="cb1001-5"><a href="style.html#cb1001-5"></a>        <span class="co"># ...look at all four neighbors</span></span></code></pre></div>
+<div class="sourceCode" id="cb1002"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1002-1"><a href="style.html#cb1002-1"></a><span class="co"># ...after..</span></span>
+<span id="cb1002-2"><a href="style.html#cb1002-2"></a><span class="kw">def</span> check_neighbors(grid, point):</span>
+<span id="cb1002-3"><a href="style.html#cb1002-3"></a>    <span class="cf">if</span> in_interior(grid, point):</span>
+<span id="cb1002-4"><a href="style.html#cb1002-4"></a>        <span class="co"># ...look at all four neighbors...</span></span>
+<span id="cb1002-5"><a href="style.html#cb1002-5"></a></span>
+<span id="cb1002-6"><a href="style.html#cb1002-6"></a><span class="kw">def</span> in_interior(grid, point):</span>
+<span id="cb1002-7"><a href="style.html#cb1002-7"></a>    <span class="cf">return</span> <span class="op">\</span></span>
+<span id="cb1002-8"><a href="style.html#cb1002-8"></a>    (<span class="dv">0</span> <span class="op">&lt;</span> point.x) <span class="kw">and</span> (point.x <span class="op">&lt;</span> grid.width<span class="dv">-1</span>) <span class="kw">and</span> <span class="op">\</span></span>
+<span id="cb1002-9"><a href="style.html#cb1002-9"></a>    (<span class="dv">0</span> <span class="op">&lt;</span> point.y) <span class="kw">and</span> (point.y <span class="op">&lt;</span> grid.height<span class="dv">-1</span>)</span></code></pre></div>
+<p>We should <em>always</em> extract functions when code can be re-used.
+Even if they are only used once,
+multi-part conditionals,
+long equations,
+and the bodies of loops are good candidates for extraction.
+If we can’t think of a plausible name,
+or if a lot of data has to be passed into the function after it’s extracted,
+the code should probably be left where it is.
+Finally,
+it’s often helpful to keep using the original variable names as parameter names during refactoring
+to reduce typing.</p>
+</div>
+<div id="combine-operations-in-functions" class="section level3">
+<h3><span class="header-section-number">F.4.7</span> Combine operations in functions</h3>
+<p>“Combine functions” is the opposite of “extract function.”
+If operations are always done together,
+it can sometimes be be more efficient to do them together,
+and might be easier to understand.
+However,
+combining functions often reduces their reusability and readability.
+(One sign that functions shouldn’t have been combined is
+people using the combination and throwing some of the result away.)</p>
+<p>The fragment below shows how two functions can be combined:</p>
+<div class="sourceCode" id="cb1003"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1003-1"><a href="style.html#cb1003-1"></a><span class="co"># ...before...</span></span>
+<span id="cb1003-2"><a href="style.html#cb1003-2"></a><span class="kw">def</span> count_vowels(text):</span>
+<span id="cb1003-3"><a href="style.html#cb1003-3"></a>    num <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1003-4"><a href="style.html#cb1003-4"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb1003-5"><a href="style.html#cb1003-5"></a>        <span class="cf">if</span> char <span class="kw">in</span> VOWELS:</span>
+<span id="cb1003-6"><a href="style.html#cb1003-6"></a>            num <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1003-7"><a href="style.html#cb1003-7"></a>    <span class="cf">return</span> num</span>
+<span id="cb1003-8"><a href="style.html#cb1003-8"></a></span>
+<span id="cb1003-9"><a href="style.html#cb1003-9"></a><span class="kw">def</span> count_consonants(text):</span>
+<span id="cb1003-10"><a href="style.html#cb1003-10"></a>    num <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1003-11"><a href="style.html#cb1003-11"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb1003-12"><a href="style.html#cb1003-12"></a>        <span class="cf">if</span> char <span class="kw">in</span> CONSONANTS:</span>
+<span id="cb1003-13"><a href="style.html#cb1003-13"></a>            num <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1003-14"><a href="style.html#cb1003-14"></a>    <span class="cf">return</span> num</span></code></pre></div>
+<div class="sourceCode" id="cb1004"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1004-1"><a href="style.html#cb1004-1"></a><span class="co"># ...after...</span></span>
+<span id="cb1004-2"><a href="style.html#cb1004-2"></a><span class="kw">def</span> count_vowels_and_consonants(text):</span>
+<span id="cb1004-3"><a href="style.html#cb1004-3"></a>    num_vowels <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1004-4"><a href="style.html#cb1004-4"></a>    num_consonants <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1004-5"><a href="style.html#cb1004-5"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb1004-6"><a href="style.html#cb1004-6"></a>        <span class="cf">if</span> char <span class="kw">in</span> VOWELS:</span>
+<span id="cb1004-7"><a href="style.html#cb1004-7"></a>            num_vowels <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1004-8"><a href="style.html#cb1004-8"></a>        <span class="cf">elif</span> char <span class="kw">in</span> CONSONANTS:</span>
+<span id="cb1004-9"><a href="style.html#cb1004-9"></a>            num_consonants <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1004-10"><a href="style.html#cb1004-10"></a>    <span class="cf">return</span> num_vowels, num_consonants</span></code></pre></div>
+</div>
+<div id="replace-code-with-data" class="section level3">
+<h3><span class="header-section-number">F.4.8</span> Replace code with data</h3>
+<p>It is easier to understand and maintain lookup tables than complicated conditionals,
+so the “create lookup table” refactoring tells us to turn the latter into the former:</p>
+<div class="sourceCode" id="cb1005"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1005-1"><a href="style.html#cb1005-1"></a><span class="co"># ...before..</span></span>
+<span id="cb1005-2"><a href="style.html#cb1005-2"></a><span class="kw">def</span> count_vowels_and_consonants(text):</span>
+<span id="cb1005-3"><a href="style.html#cb1005-3"></a>    num_vowels <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1005-4"><a href="style.html#cb1005-4"></a>    num_consonants <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1005-5"><a href="style.html#cb1005-5"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb1005-6"><a href="style.html#cb1005-6"></a>        <span class="cf">if</span> char <span class="kw">in</span> VOWELS:</span>
+<span id="cb1005-7"><a href="style.html#cb1005-7"></a>            num_vowels <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1005-8"><a href="style.html#cb1005-8"></a>        <span class="cf">elif</span> char <span class="kw">in</span> CONSONANTS:</span>
+<span id="cb1005-9"><a href="style.html#cb1005-9"></a>            num_consonants <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1005-10"><a href="style.html#cb1005-10"></a>    <span class="cf">return</span> num_vowels, num_consonants</span></code></pre></div>
+<div class="sourceCode" id="cb1006"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1006-1"><a href="style.html#cb1006-1"></a><span class="co"># ...after...</span></span>
+<span id="cb1006-2"><a href="style.html#cb1006-2"></a>IS_VOWEL <span class="op">=</span> {<span class="st">&#39;a&#39;</span> : <span class="dv">1</span>, <span class="st">&#39;b&#39;</span> : <span class="dv">0</span>, <span class="st">&#39;c&#39;</span> : <span class="dv">0</span>, ... }</span>
+<span id="cb1006-3"><a href="style.html#cb1006-3"></a>IS_CONSONANT <span class="op">=</span> {<span class="st">&#39;a&#39;</span> : <span class="dv">0</span>, <span class="st">&#39;b&#39;</span> : <span class="dv">1</span>, <span class="st">&#39;c&#39;</span> : <span class="dv">1</span>, ... }</span>
+<span id="cb1006-4"><a href="style.html#cb1006-4"></a></span>
+<span id="cb1006-5"><a href="style.html#cb1006-5"></a><span class="kw">def</span> count_vowels_and_consonants(text):</span>
+<span id="cb1006-6"><a href="style.html#cb1006-6"></a>    num_vowels <span class="op">=</span> num_consonants <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1006-7"><a href="style.html#cb1006-7"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb1006-8"><a href="style.html#cb1006-8"></a>        num_vowels <span class="op">+=</span> IS_VOWEL[char]</span>
+<span id="cb1006-9"><a href="style.html#cb1006-9"></a>        num_consonants <span class="op">+=</span> IS_CONSONANT[char]</span>
+<span id="cb1006-10"><a href="style.html#cb1006-10"></a>    <span class="cf">return</span> num_vowels, num_consonants</span></code></pre></div>
+<p>The more cases there are,
+the greater the advantage lookup tables have over multi-part conditionals.
+Those advantages multiply when items can belong to more than one category,
+in which case the table is often best written as a dictionary with items as keys
+and sets of categories as values:</p>
+<div class="sourceCode" id="cb1007"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1007-1"><a href="style.html#cb1007-1"></a>LETTERS <span class="op">=</span> {</span>
+<span id="cb1007-2"><a href="style.html#cb1007-2"></a>    <span class="st">&#39;A&#39;</span> : {<span class="st">&#39;vowel&#39;</span>, <span class="st">&#39;upper_case&#39;</span>},</span>
+<span id="cb1007-3"><a href="style.html#cb1007-3"></a>    <span class="st">&#39;B&#39;</span> : {<span class="st">&#39;consonant&#39;</span>, <span class="st">&#39;upper_case&#39;</span>},</span>
+<span id="cb1007-4"><a href="style.html#cb1007-4"></a>    <span class="co"># ...other upper-case letters...</span></span>
+<span id="cb1007-5"><a href="style.html#cb1007-5"></a>    <span class="st">&#39;a&#39;</span> : {<span class="st">&#39;vowel&#39;</span>, <span class="st">&#39;lower_case&#39;</span>},</span>
+<span id="cb1007-6"><a href="style.html#cb1007-6"></a>    <span class="st">&#39;b&#39;</span> : {<span class="st">&#39;consonant&#39;</span>, <span class="st">&#39;lower_case&#39;</span>},</span>
+<span id="cb1007-7"><a href="style.html#cb1007-7"></a>    <span class="co"># ...other lower-case letters...</span></span>
+<span id="cb1007-8"><a href="style.html#cb1007-8"></a>    <span class="st">&#39;+&#39;</span> : {<span class="st">&#39;punctuation&#39;</span>},</span>
+<span id="cb1007-9"><a href="style.html#cb1007-9"></a>    <span class="st">&#39;@&#39;</span> : {<span class="st">&#39;punctuation&#39;</span>},</span>
+<span id="cb1007-10"><a href="style.html#cb1007-10"></a>    <span class="co"># ...other punctuation...</span></span>
+<span id="cb1007-11"><a href="style.html#cb1007-11"></a>}</span>
+<span id="cb1007-12"><a href="style.html#cb1007-12"></a></span>
+<span id="cb1007-13"><a href="style.html#cb1007-13"></a><span class="kw">def</span> count_vowels_and_consonants(text):</span>
+<span id="cb1007-14"><a href="style.html#cb1007-14"></a>    num_vowels <span class="op">=</span> num_consonants <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1007-15"><a href="style.html#cb1007-15"></a>    <span class="cf">for</span> char <span class="kw">in</span> text:</span>
+<span id="cb1007-16"><a href="style.html#cb1007-16"></a>        num_vowels <span class="op">+=</span> <span class="bu">int</span>(<span class="st">&#39;vowel&#39;</span> <span class="kw">in</span> LETTERS[char])</span>
+<span id="cb1007-17"><a href="style.html#cb1007-17"></a>        num_consonants <span class="op">+=</span> <span class="bu">int</span>(<span class="st">&#39;consonant&#39;</span> <span class="kw">in</span> LETTERS[char])</span>
+<span id="cb1007-18"><a href="style.html#cb1007-18"></a>    <span class="cf">return</span> num_vowels, num_consonants</span></code></pre></div>
+<p>The expressions used to update <code>num_vowels</code> and <code>num_consonants</code> make use of the fact that
+<code>in</code> produces either <code>True</code> or <code>False</code>,
+which the function <code>int</code> converts to either 1 or 0.
+We will explore ways of making this code more readable in the exercises.</p>
+</div>
+</div>
+<div id="style-review" class="section level2">
+<h2><span class="header-section-number">F.5</span> Code Reviews</h2>
+<p>At the end of Section <a href="style.html#style-check">F.3</a>,
+our stop-word program looked like this:</p>
+<div class="sourceCode" id="cb1008"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1008-1"><a href="style.html#cb1008-1"></a><span class="im">import</span> sys</span>
+<span id="cb1008-2"><a href="style.html#cb1008-2"></a></span>
+<span id="cb1008-3"><a href="style.html#cb1008-3"></a></span>
+<span id="cb1008-4"><a href="style.html#cb1008-4"></a>stops <span class="op">=</span> [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;A&#39;</span>, <span class="st">&#39;the&#39;</span>, <span class="st">&#39;The&#39;</span>, <span class="st">&#39;and&#39;</span>]</span>
+<span id="cb1008-5"><a href="style.html#cb1008-5"></a></span>
+<span id="cb1008-6"><a href="style.html#cb1008-6"></a></span>
+<span id="cb1008-7"><a href="style.html#cb1008-7"></a><span class="kw">def</span> count(ln):</span>
+<span id="cb1008-8"><a href="style.html#cb1008-8"></a>    n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1008-9"><a href="style.html#cb1008-9"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(ln)):</span>
+<span id="cb1008-10"><a href="style.html#cb1008-10"></a>        line <span class="op">=</span> ln[i]</span>
+<span id="cb1008-11"><a href="style.html#cb1008-11"></a>        stuff <span class="op">=</span> line.split()</span>
+<span id="cb1008-12"><a href="style.html#cb1008-12"></a>        <span class="cf">for</span> word <span class="kw">in</span> stuff:</span>
+<span id="cb1008-13"><a href="style.html#cb1008-13"></a>            <span class="co"># print(word)</span></span>
+<span id="cb1008-14"><a href="style.html#cb1008-14"></a>            j <span class="op">=</span> stops.count(word)</span>
+<span id="cb1008-15"><a href="style.html#cb1008-15"></a>            <span class="cf">if</span> j <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1008-16"><a href="style.html#cb1008-16"></a>                n <span class="op">=</span> n <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1008-17"><a href="style.html#cb1008-17"></a>    <span class="cf">return</span> n</span>
+<span id="cb1008-18"><a href="style.html#cb1008-18"></a></span>
+<span id="cb1008-19"><a href="style.html#cb1008-19"></a></span>
+<span id="cb1008-20"><a href="style.html#cb1008-20"></a>lines <span class="op">=</span> sys.stdin.readlines()</span>
+<span id="cb1008-21"><a href="style.html#cb1008-21"></a><span class="co"># print(&#39;number of lines&#39;, len(lines))</span></span>
+<span id="cb1008-22"><a href="style.html#cb1008-22"></a>n <span class="op">=</span> count(lines)</span>
+<span id="cb1008-23"><a href="style.html#cb1008-23"></a><span class="bu">print</span>(<span class="st">&#39;number&#39;</span>, n)</span></code></pre></div>
+<p>This passes a PEP-8 style check,
+but based on our coding guidelines and our discussion of refactoring,
+these things should be changed:</p>
+<ul>
+<li><p>The commented-out <code>print</code> statements should either be removed
+or turned into logging statements (Section <a href="errors.html#errors-logging">12.4</a>).</p></li>
+<li><p>The variables <code>ln</code>, <code>i</code>, and <code>j</code> should be given clearer names.</p></li>
+<li><p>The outer loop in <code>count</code> loops over the indices of the line list
+rather than over the lines.
+It should do the latter
+(which will allow us to get rid of the variable <code>i</code>).</p></li>
+<li><p>Rather than counting how often a word occurs in the list of stop words with <code>stops.count</code>,
+we can turn the stop words into a set and use <code>in</code> to check words.
+This will be more readable <em>and</em> more efficient.</p></li>
+<li><p>There’s no reason to store the result of <code>line.split</code> in a temporary variable:
+the inner loop of <code>count</code> can use it directly.</p></li>
+<li><p>Since the set of stop words is a global variable,
+it should be written in upper case.</p></li>
+<li><p>We should use <code>+=</code> to increment the counter <code>n</code>.</p></li>
+<li><p>Rather than reading the input into a list of lines and then looping over that,
+we can give <code>count</code> a stream and have it process the lines one by one.</p></li>
+<li><p>Since we might want to use <code>count</code> in other programs someday,
+we should put the two lines at the bottom that handle input into a conditional
+so that they aren’t executed when this script is imported.</p></li>
+</ul>
+<p>After making all these changes,
+our program looks like this:</p>
+<div class="sourceCode" id="cb1009"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1009-1"><a href="style.html#cb1009-1"></a><span class="im">import</span> sys</span>
+<span id="cb1009-2"><a href="style.html#cb1009-2"></a></span>
+<span id="cb1009-3"><a href="style.html#cb1009-3"></a></span>
+<span id="cb1009-4"><a href="style.html#cb1009-4"></a>STOPS <span class="op">=</span> {<span class="st">&#39;a&#39;</span>, <span class="st">&#39;A&#39;</span>, <span class="st">&#39;the&#39;</span>, <span class="st">&#39;The&#39;</span>, <span class="st">&#39;and&#39;</span>}</span>
+<span id="cb1009-5"><a href="style.html#cb1009-5"></a></span>
+<span id="cb1009-6"><a href="style.html#cb1009-6"></a></span>
+<span id="cb1009-7"><a href="style.html#cb1009-7"></a><span class="kw">def</span> count(reader):</span>
+<span id="cb1009-8"><a href="style.html#cb1009-8"></a>    n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1009-9"><a href="style.html#cb1009-9"></a>    <span class="cf">for</span> line <span class="kw">in</span> reader:</span>
+<span id="cb1009-10"><a href="style.html#cb1009-10"></a>        <span class="cf">for</span> word <span class="kw">in</span> line.split():</span>
+<span id="cb1009-11"><a href="style.html#cb1009-11"></a>            <span class="cf">if</span> word <span class="kw">in</span> STOPS:</span>
+<span id="cb1009-12"><a href="style.html#cb1009-12"></a>                n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1009-13"><a href="style.html#cb1009-13"></a>    <span class="cf">return</span> n</span>
+<span id="cb1009-14"><a href="style.html#cb1009-14"></a></span>
+<span id="cb1009-15"><a href="style.html#cb1009-15"></a></span>
+<span id="cb1009-16"><a href="style.html#cb1009-16"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb1009-17"><a href="style.html#cb1009-17"></a>    n <span class="op">=</span> count(sys.stdin)</span>
+<span id="cb1009-18"><a href="style.html#cb1009-18"></a>    <span class="bu">print</span>(<span class="st">&#39;number&#39;</span>, n)</span></code></pre></div>
+<p>Reading code in order to find bugs and suggest improvements like these
+is called <a href="glossary.html#code_review">code review</a>.
+Multiple studies over more than 40 years have shown that
+code review is the most effective way to find bugs in software
+<span class="citation">(Fagan <a href="references.html#ref-Faga1976" role="doc-biblioref">1976</a>, <a href="references.html#ref-Faga1986" role="doc-biblioref">1986</a>; Cohen <a href="references.html#ref-Cohe2010" role="doc-biblioref">2010</a>; Bacchelli and Bird <a href="references.html#ref-Bacc2013" role="doc-biblioref">2013</a>)</span>.
+It is also a great way to transfer knowledge between programmers:
+reading someone else’s code critically will give us lots of ideas about what we could do better,
+and highlight things that we should probably stop doing as well.</p>
+<p>Despite this,
+code review still isn’t common in research software development.
+This is partly a chicken-and-egg problem:
+people don’t do it because other people don’t do it <span class="citation">(Segal <a href="references.html#ref-Sega2005" role="doc-biblioref">2005</a>)</span>.
+Code review is also more difficult to do in specialized scientific fields:
+in order for review to be useful,
+reviewers need to understand the problem domain well enough to comment on algorithms and design choices
+rather than indentation and variable naming,
+and the number of people who can do that for a research project is often very small <span class="citation">(Petre and Wilson <a href="references.html#ref-Petr2014" role="doc-biblioref">2014</a>)</span>.</p>
+<p>Section <a href="git-advanced.html#git-advanced-pull-requests">7.9</a> explained how to create and merge pull requests.
+How we review these is just as important as what we look for:
+being dismissive or combative are good ways to ensure that people don’t pay attention to our reviews,
+or avoid having us review their work <span class="citation">(Bernhardt <a href="references.html#ref-Bern2018" role="doc-biblioref">2018</a>)</span>.
+Equally,
+being defensive when someone offers suggestions politely and sincerely is very human,
+but can stunt our development as a programmer.</p>
+<p>Lots of people have written guidelines for doing reviews that avoid these traps <span class="citation">(Quenneville <a href="references.html#ref-Quen2018" role="doc-biblioref">2018</a>; Sankarram <a href="references.html#ref-Sank2018" role="doc-biblioref">2018</a>)</span>.
+A few common points are:</p>
+<dl>
+<dt>Work in small increments.</dt>
+<dd>As <span class="citation">Cohen (<a href="references.html#ref-Cohe2010" role="doc-biblioref">2010</a>)</span> and others have found,
+code review is most effective when done in short bursts.
+That means that change requests should also be short:
+anything that’s more than a couple of screens long
+should be broken into smaller pieces.
+</dd>
+<dt>Look for algorithmic problems first.</dt>
+<dd>Code review isn’t just (or even primarily) about style:
+its real purpose is to find bugs before they can affect anyone.
+The first pass over any change should therefore look for algorithmic problems.
+Are the calculations right?
+Are any rare cases going to be missed?
+Are errors being caught and handled (Chapter <a href="errors.html#errors">12</a>)?
+Using a consistent style helps reviewers focus on these issues.
+</dd>
+<dt>Use a checklist.</dt>
+<dd>Linters are great,
+but can’t decide when someone should have used a lookup table instead of conditionals.
+A list of things to check for can make review faster and more comprehensible,
+especially when we can copy-and-paste or drag-and-drop specific comments
+onto specific lines
+(something that GitHub unfortunately doesn’t yet support).
+</dd>
+<dt>Ask for clarification.</dt>
+<dd>If we don’t understand something,
+or don’t understand why the author did it,
+we should ask.
+(When the author explains it,
+we might suggest that the explanation should be documented somewhere.)
+</dd>
+<dt>Offer alternatives.</dt>
+<dd>Telling authors that something is wrong is helpful;
+telling them what they might do instead is more so.
+</dd>
+<dt>Don’t be sarcastic or disparaging.</dt>
+<dd>“Did you maybe think about <em>testing</em> this garbage?”
+is a Code of Conduct violation in any well-run project.
+</dd>
+<dt>Don’t present opinions as facts.</dt>
+<dd>“Nobody uses X anymore” might be true.
+If it is,
+the person making the claim ought to be able to point at download statistics
+or a Google Trends search;
+if they can’t,
+they should say,
+“I don’t think we use X anymore” and explain why they think that.
+</dd>
+<dt>Don’t feign surprise or pass judgment.</dt>
+<dd>“Gosh, didn’t you know [some obscure fact]?” isn’t helpful;
+neither is, “Geez, why don’t you [some clever trick] here?”
+</dd>
+<dt>Don’t overwhelm people with details.</dt>
+<dd>If someone has used the letter <code>x</code> as a variable name in several places,
+and they shouldn’t have,
+comment on the first two or three and simply put a check beside the others—the reader
+won’t need the comment repeated.
+</dd>
+<dt>Don’t try to sneak in feature requests.</dt>
+<dd>Nobody enjoys fixing bugs and style violations.
+Asking them to add entirely new functionality while they’re at it is rude.
+</dd>
+</dl>
+<p>How we respond to reviews is just as important:</p>
+<dl>
+<dt>Be specific in replies to reviewers.</dt>
+<dd>If someone has suggested a better variable name,
+we can probably simply fix it.
+If someone has suggested a major overhaul to an algorithm,
+we should reply to their comment to point at the commit that includes the fix.
+</dd>
+<dt>Thank our reviewers.</dt>
+<dd>If someone has taken the time to read our code carefully,
+thank them for doing it.
+</dd>
+</dl>
+<p>And finally:</p>
+<p><strong>Don’t let anyone break these rules just because they’re frequent contributors or in positions of power.</strong>
+As <span class="citation">Gruenert and Whitaker (<a href="references.html#ref-Grue2015" role="doc-biblioref">2015</a>)</span> says,
+the culture of any organization is shaped by the worst behavior it is willing to tolerate.
+The main figures in a project should be <em>more</em> respectful than everyone else
+in order to show what standards everyone else is expected to meet.</p>
+</div>
+<div id="style-features" class="section level2">
+<h2><span class="header-section-number">F.6</span> Python Features</h2>
+<p><a href="glossary.html#working_memory">Working memory</a> can only hold a few items at once:
+initial estimates in the 1950s put the number at 7±2 <span class="citation">(Miller <a href="references.html#ref-Mill1956" role="doc-biblioref">1956</a>)</span>,
+and more recent estimates put it as low as 4 or 5.
+High-level languages from Fortran to Python
+are essentially a way to reduce the number of things programmers have to think about at once
+so that they can fit what the computer is doing into this limited space.
+The sections below describe some of these features;
+as we become more comfortable with Python we will find and use others.</p>
+<p>But beware:
+the things that make programs more compact and comprehensible for experienced programmers
+can make them less comprehensible for novices.
+For example,
+suppose we want to create this matrix as a list of lists:</p>
+<div class="sourceCode" id="cb1010"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1010-1"><a href="style.html#cb1010-1"></a>[[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb1010-2"><a href="style.html#cb1010-2"></a> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>],</span>
+<span id="cb1010-3"><a href="style.html#cb1010-3"></a> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb1010-4"><a href="style.html#cb1010-4"></a> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>],</span>
+<span id="cb1010-5"><a href="style.html#cb1010-5"></a> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>]]</span></code></pre></div>
+<p>One way is to use loops:</p>
+<div class="sourceCode" id="cb1011"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1011-1"><a href="style.html#cb1011-1"></a>matrix <span class="op">=</span> []</span>
+<span id="cb1011-2"><a href="style.html#cb1011-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb1011-3"><a href="style.html#cb1011-3"></a>    row <span class="op">=</span> []</span>
+<span id="cb1011-4"><a href="style.html#cb1011-4"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb1011-5"><a href="style.html#cb1011-5"></a>        row.append(i<span class="op">+</span>j)</span>
+<span id="cb1011-6"><a href="style.html#cb1011-6"></a>    matrix.append(row)</span></code></pre></div>
+<p>Another is to use a nested <a href="glossary.html#list_comprehension">list comprehension</a>:</p>
+<div class="sourceCode" id="cb1012"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1012-1"><a href="style.html#cb1012-1"></a>[[i<span class="op">+</span>j <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)]</span></code></pre></div>
+<p>An experienced programmer might recognize what the latter is doing;
+the rest of us are probably better off reading and writing the more verbose solution.</p>
+<div id="provide-default-values-for-parameters" class="section level3">
+<h3><span class="header-section-number">F.6.1</span> Provide default values for parameters</h3>
+<p>If our function requires two dozen parameters,
+the odds are very good that users will frequently forget them
+or put them in the wrong order.
+One solution is to bundle parameters together so that (for example)
+people pass three <code>point</code> objects instead of nine separate <code>x</code>, <code>y</code>, and <code>z</code> values.</p>
+<p>A second approach (which can be combined with the previous one)
+is to specify <a href="glossary.html#default_value">default values</a> for some of the parameters.
+Doing this gives users control over everything
+while also allowing them to ignore details;
+it also indicates what we consider “normal” for the function.</p>
+<p>For example,
+suppose we are comparing images to see if they are the same or different.
+We can specify two kinds of tolerance:
+how large a difference in color value to notice,
+and how many differences above that threshold to tolerate
+as a percentage of the total number of pixels.
+By default,
+any color difference is considered significant,
+and only 1% of pixels are allowed to differ:</p>
+<div class="sourceCode" id="cb1013"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1013-1"><a href="style.html#cb1013-1"></a><span class="kw">def</span> image_diff(left, right, per_pixel<span class="op">=</span><span class="dv">0</span>, fraction<span class="op">=</span><span class="fl">0.01</span>):</span>
+<span id="cb1013-2"><a href="style.html#cb1013-2"></a>    <span class="co"># ...implementation...</span></span></code></pre></div>
+<p>When this function is called using <code>image_diff(old, new)</code>,
+those default values apply.
+However,
+it can also be called like this:</p>
+<ul>
+<li><code>image_diff(old, new, per_pixel=2)</code>
+allows pixels to differ slightly without those differences being significant.</li>
+<li><code>image_diff(old, new, fraction=0.05)</code> allows more pixels to differ.</li>
+<li><code>image_diff(old, new, per_pixel=1, fraction=0.005)</code>
+raises the per-pixel threshold but decreases number of allowed differences.</li>
+</ul>
+<p>Note that we do not put spaces around the <code>=</code> when defining a default parameter value.
+This is consistent with PEP-8’s rules about spacing in function definitions and calls
+(Section <a href="style.html#style-pep8">F.1</a>).</p>
+<p>Default parameter values make code easier to understand and use,
+but there is a subtle trap.
+When Python executes a function definition like this:</p>
+<div class="sourceCode" id="cb1014"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1014-1"><a href="style.html#cb1014-1"></a><span class="kw">def</span> collect(new_value, accumulator<span class="op">=</span><span class="bu">set</span>()):</span>
+<span id="cb1014-2"><a href="style.html#cb1014-2"></a>    accumulator.add(new_value)</span>
+<span id="cb1014-3"><a href="style.html#cb1014-3"></a>    <span class="cf">return</span> accumulator</span></code></pre></div>
+<p>it calls <code>set()</code> to create a new empty set
+<em>when it is reading the function definition</em>,
+and then uses that set as the default value for <code>accumulator</code>
+every time the function is called.
+It does <em>not</em> call <code>set()</code> once for each call,
+so all calls using the default will share the same set:</p>
+<div class="sourceCode" id="cb1015"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1015-1"><a href="style.html#cb1015-1"></a><span class="op">&gt;&gt;&gt;</span> collect(<span class="st">&#39;first&#39;</span>)</span>
+<span id="cb1015-2"><a href="style.html#cb1015-2"></a>{<span class="st">&#39;first&#39;</span>}</span>
+<span id="cb1015-3"><a href="style.html#cb1015-3"></a><span class="op">&gt;&gt;&gt;</span> collect(<span class="st">&#39;second&#39;</span>)</span>
+<span id="cb1015-4"><a href="style.html#cb1015-4"></a>{<span class="st">&#39;first&#39;</span>, <span class="st">&#39;second&#39;</span>}</span></code></pre></div>
+<p>A common way to avoid this is to pass <code>None</code> to the function
+to signal that the user didn’t provide a value:</p>
+<div class="sourceCode" id="cb1016"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1016-1"><a href="style.html#cb1016-1"></a><span class="kw">def</span> collect(new_value, accumulator<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb1016-2"><a href="style.html#cb1016-2"></a>    <span class="cf">if</span> accumulator <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb1016-3"><a href="style.html#cb1016-3"></a>        accumulator <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb1016-4"><a href="style.html#cb1016-4"></a>    accumulator.add(new_value)</span>
+<span id="cb1016-5"><a href="style.html#cb1016-5"></a>    <span class="cf">return</span> accumulator</span></code></pre></div>
+</div>
+<div id="handle-a-variable-number-of-arguments" class="section level3">
+<h3><span class="header-section-number">F.6.2</span> Handle a variable number of arguments</h3>
+<p>We can often make programs simpler by writing functions that take
+<a href="glossary.html#variable_arguments">a variable number of arguments</a>,
+just like <code>print</code> and <code>max</code>.
+One way is to require users to stuff those arguments into a list,
+e.g.,
+to write <code>find_limits([a, b, c, d])</code>.
+However,
+Python can do this for us.
+If we declare a single argument whose name starts with a single <code>*</code>,
+Python will put all “extra” arguments into a <a href="glossary.html#tuple">tuple</a>
+and pass that as the argument.
+By convention,
+this argument is called <code>args</code>:</p>
+<div class="sourceCode" id="cb1017"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1017-1"><a href="style.html#cb1017-1"></a><span class="kw">def</span> find_limits(<span class="op">*</span>args):</span>
+<span id="cb1017-2"><a href="style.html#cb1017-2"></a>    <span class="bu">print</span>(args)</span>
+<span id="cb1017-3"><a href="style.html#cb1017-3"></a></span>
+<span id="cb1017-4"><a href="style.html#cb1017-4"></a>find_limits(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span></code></pre></div>
+<pre class="text"><code>(1, 3, 5, 2, 4)</code></pre>
+<p>This catch-all parameter can be used with regular parameters,
+but must come last in the parameter list to avoid ambiguity:</p>
+<div class="sourceCode" id="cb1019"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1019-1"><a href="style.html#cb1019-1"></a><span class="kw">def</span> select_outside(low, high, <span class="op">*</span>values):</span>
+<span id="cb1019-2"><a href="style.html#cb1019-2"></a>    result <span class="op">=</span> []</span>
+<span id="cb1019-3"><a href="style.html#cb1019-3"></a>    <span class="cf">for</span> v <span class="kw">in</span> values:</span>
+<span id="cb1019-4"><a href="style.html#cb1019-4"></a>        <span class="cf">if</span> (v <span class="op">&lt;</span> low) <span class="kw">or</span> (v <span class="op">&gt;</span> high):</span>
+<span id="cb1019-5"><a href="style.html#cb1019-5"></a>            result.add(v)</span>
+<span id="cb1019-6"><a href="style.html#cb1019-6"></a>    <span class="cf">return</span> result</span>
+<span id="cb1019-7"><a href="style.html#cb1019-7"></a></span>
+<span id="cb1019-8"><a href="style.html#cb1019-8"></a><span class="bu">print</span>(select_outside(<span class="dv">0</span>, <span class="fl">1.0</span>, <span class="fl">0.3</span>, <span class="fl">-0.2</span>, <span class="fl">-0.5</span>, <span class="fl">0.4</span>, <span class="fl">1.7</span>))</span></code></pre></div>
+<pre class="text"><code>[-0.2, -0.5, 1.7]</code></pre>
+<p>An equivalent special form exists for <a href="glossary.html#keyword_arguments">keyword arguments</a>:
+the catch-all variable’s name is prefixed with <code>**</code> (i.e., two asterisks instead of one),
+and it is conventionally called <code>kwargs</code> (for “keyword arguments”).
+When this is used,
+the function is given a <a href="glossary.html#dictionary">dictionary</a> of names and values
+rather than a list:</p>
+<div class="sourceCode" id="cb1021"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1021-1"><a href="style.html#cb1021-1"></a><span class="kw">def</span> set_options(tag, <span class="op">**</span>kwargs):</span>
+<span id="cb1021-2"><a href="style.html#cb1021-2"></a>    result <span class="op">=</span> <span class="ss">f&#39;&lt;</span><span class="sc">{</span>tag<span class="sc">}</span><span class="ss">&#39;</span></span>
+<span id="cb1021-3"><a href="style.html#cb1021-3"></a>    <span class="cf">for</span> key <span class="kw">in</span> kwargs:</span>
+<span id="cb1021-4"><a href="style.html#cb1021-4"></a>        result <span class="op">+=</span> <span class="ss">f&#39; </span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">=&quot;</span><span class="sc">{</span>kwargs[key]<span class="sc">}</span><span class="ss">&quot;&#39;</span></span>
+<span id="cb1021-5"><a href="style.html#cb1021-5"></a>    result <span class="op">+=</span> <span class="st">&#39;/&gt;&#39;</span></span>
+<span id="cb1021-6"><a href="style.html#cb1021-6"></a>    <span class="cf">return</span> result</span>
+<span id="cb1021-7"><a href="style.html#cb1021-7"></a></span>
+<span id="cb1021-8"><a href="style.html#cb1021-8"></a><span class="bu">print</span>(set_options(<span class="st">&#39;h1&#39;</span>, color<span class="op">=</span><span class="st">&#39;blue&#39;</span>))</span>
+<span id="cb1021-9"><a href="style.html#cb1021-9"></a><span class="bu">print</span>(set_options(<span class="st">&#39;p&#39;</span>, align<span class="op">=</span><span class="st">&#39;center&#39;</span>, size<span class="op">=</span><span class="st">&#39;150%&#39;</span>))</span></code></pre></div>
+<pre class="text"><code>&lt;h1 color=&quot;blue&quot;/&gt;
+&lt;p align=&quot;center&quot; size=&quot;150%&quot;/&gt;</code></pre>
+<p>Notice that the names of parameters are not quoted:
+we pass <code>color='blue'</code> to the function,
+not <code>'color'='blue'</code>.</p>
+</div>
+<div id="unpacking-variable-arguments" class="section level3">
+<h3><span class="header-section-number">F.6.3</span> Unpacking variable arguments</h3>
+<p>We can use the inverse of <code>*args</code> and <code>**kwargs</code> to match a list of values to arguments.
+In this case,
+we put the <code>*</code> in front of a list and <code>**</code> in front of a dictionary when <em>calling</em> the function,
+rather than in front of the parameter when <em>defining</em> it:</p>
+<div class="sourceCode" id="cb1023"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1023-1"><a href="style.html#cb1023-1"></a><span class="kw">def</span> trim_value(data, low, high):</span>
+<span id="cb1023-2"><a href="style.html#cb1023-2"></a>    <span class="bu">print</span>(data, <span class="st">&quot;with&quot;</span>, low, <span class="st">&quot;and&quot;</span>, high)</span>
+<span id="cb1023-3"><a href="style.html#cb1023-3"></a></span>
+<span id="cb1023-4"><a href="style.html#cb1023-4"></a>parameters <span class="op">=</span> [<span class="st">&#39;some matrix&#39;</span>, <span class="st">&#39;lower bound&#39;</span>]</span>
+<span id="cb1023-5"><a href="style.html#cb1023-5"></a>named_parameters <span class="op">=</span> {<span class="st">&#39;high&#39;</span>: <span class="st">&#39;upper bound&#39;</span>}</span>
+<span id="cb1023-6"><a href="style.html#cb1023-6"></a>trim_value(<span class="op">*</span>parameters, <span class="op">**</span>named_parameters)</span></code></pre></div>
+<pre class="text"><code>some matrix with lower bound and upper bound</code></pre>
+</div>
+<div id="use-destructuring-to-assign-multiple-values-at-once" class="section level3">
+<h3><span class="header-section-number">F.6.4</span> Use destructuring to assign multiple values at once</h3>
+<p>One last feature of Python is
+<a href="glossary.html#destructuring_assignment">destructuring assignment</a>.
+Suppose we have a nested list such as <code>[1, [2, 3]]</code>,
+and we want to assign its numbers to three variables
+called <code>first</code>, <code>second</code>, and <code>third</code>.
+Instead of writing this:</p>
+<div class="sourceCode" id="cb1025"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1025-1"><a href="style.html#cb1025-1"></a>first <span class="op">=</span> values[<span class="dv">0</span>]</span>
+<span id="cb1025-2"><a href="style.html#cb1025-2"></a>second <span class="op">=</span> values[<span class="dv">1</span>][<span class="dv">0</span>]</span>
+<span id="cb1025-3"><a href="style.html#cb1025-3"></a>third <span class="op">=</span> values[<span class="dv">1</span>][<span class="dv">1</span>]</span></code></pre></div>
+<p>we can write this:</p>
+<div class="sourceCode" id="cb1026"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1026-1"><a href="style.html#cb1026-1"></a>[first, [second, third]] <span class="op">=</span> [<span class="dv">1</span>, [<span class="dv">2</span>, <span class="dv">3</span>]]</span></code></pre></div>
+<p>In general,
+if the variables on the left are arranged in the same way as the values on the right,
+Python will automatically unpack the values and assign them correctly.
+This is particularly useful when looping over lists of structured values:</p>
+<div class="sourceCode" id="cb1027"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1027-1"><a href="style.html#cb1027-1"></a>people <span class="op">=</span> [</span>
+<span id="cb1027-2"><a href="style.html#cb1027-2"></a>    [[<span class="st">&#39;Kay&#39;</span>, <span class="st">&#39;McNulty&#39;</span>], <span class="st">&#39;mcnulty@eniac.org&#39;</span>],</span>
+<span id="cb1027-3"><a href="style.html#cb1027-3"></a>    [[<span class="st">&#39;Betty&#39;</span>, <span class="st">&#39;Jennings&#39;</span>], <span class="st">&#39;jennings@eniac.org&#39;</span>],</span>
+<span id="cb1027-4"><a href="style.html#cb1027-4"></a>    [[<span class="st">&#39;Marlyn&#39;</span>, <span class="st">&#39;Wescoff&#39;</span>], <span class="st">&#39;mwescoff@eniac.org&#39;</span>]</span>
+<span id="cb1027-5"><a href="style.html#cb1027-5"></a>]</span>
+<span id="cb1027-6"><a href="style.html#cb1027-6"></a><span class="cf">for</span> [[first, last], email] <span class="kw">in</span> people:</span>
+<span id="cb1027-7"><a href="style.html#cb1027-7"></a>    <span class="bu">print</span>(<span class="st">&#39;</span><span class="sc">{first}</span><span class="st"> </span><span class="sc">{last}</span><span class="st"> &lt;</span><span class="sc">{email}</span><span class="st">&gt;&#39;</span>)</span></code></pre></div>
+<pre class="text"><code>Kay McNulty &lt;mcnulty@eniac.org&gt;
+Betty Jennings &lt;jennings@eniac.org&gt;
+Marlyn Wescoff &lt;mwescoff@eniac.org&gt;</code></pre>
+</div>
+</div>
+<div id="style-summary" class="section level2">
+<h2><span class="header-section-number">F.7</span> Summary</h2>
+<p>George Orwell laid out <a href="https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules">six rules for good writing</a>,
+the last and most important of which is,
+“Break any of these rules sooner than say anything outright barbarous.”
+PEP-8 conveys <a href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">the same message</a>:
+there will always be cases where your code will be easier to understand
+if you <em>don’t</em> do the things described in this lesson,
+but there are probably fewer of them than you think.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ssh.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="documentation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/merely-useful/py-rse/edit/book/chapters/style.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/merely-useful/py-rse/blob/book/chapters/style.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

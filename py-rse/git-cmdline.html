@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Using Git at the Command Line | Research Software Engineering with Python</title>
+  <meta name="description" content="Chapter 6 Using Git at the Command Line | Research Software Engineering with Python" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Using Git at the Command Line | Research Software Engineering with Python" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="tugboats-800x600.jpg" />
+  
+  <meta name="github-repo" content="merely-useful/py-rse" />
+
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<meta name="author" content="Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson" />
+
+
+<meta name="date" content="2021-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="scripting.html"/>
+<link rel="next" href="git-advanced.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link rel="shortcut icon" href="favicon.ico" />
+<script defer data-domain="merely-useful.tech" src="https://plausible.io/js/plausible.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="index.html">Merely Useful</a></strong></li>
+<li><img src="tugboats-800x600.jpg" width=267 height=200 style="padding-left:20px;"/></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html">Welcome</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#intro-big-picture"><b>0.1</b> The Big Picture</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intro-personas"><b>0.2</b> Intended Audience</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#intro-syllabus"><b>0.3</b> What You Will Learn</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#intro-using"><b>0.4</b> Using this Book</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#contributing-and-re-use"><b>0.5</b> Contributing and Re-Use</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#intro-ack"><b>0.6</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#dedications"><b>0.7</b> Dedications</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><b>1</b> Getting Started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-structure"><b>1.1</b> Project Structure</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-boilerplate"><b>1.1.1</b> Standard information</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-organize"><b>1.1.2</b> Organizing project content</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-download-data"><b>1.2</b> Downloading the Data</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#getting-started-install-software"><b>1.3</b> Installing the Software</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#getting-started-summary"><b>1.4</b> Summary</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#getting-started-exercises"><b>1.5</b> Exercises</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started.html"><a href="getting-started.html#getting-started-install"><b>1.5.1</b> Getting ready</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#getting-started-keypoints"><b>1.6</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bash-basics.html"><a href="bash-basics.html"><b>2</b> The Basics of the Unix Shell</a><ul>
+<li class="chapter" data-level="2.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-explore"><b>2.1</b> Exploring Files and Directories</a></li>
+<li class="chapter" data-level="2.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-navigate"><b>2.2</b> Moving Around</a></li>
+<li class="chapter" data-level="2.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-filedir"><b>2.3</b> Creating New Files and Directories</a></li>
+<li class="chapter" data-level="2.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-move"><b>2.4</b> Moving Files and Directories</a></li>
+<li class="chapter" data-level="2.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-copy"><b>2.5</b> Copying Files and Directories</a></li>
+<li class="chapter" data-level="2.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-rm"><b>2.6</b> Deleting Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-wildcard"><b>2.7</b> Wildcards</a></li>
+<li class="chapter" data-level="2.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-help"><b>2.8</b> Reading the Manual</a></li>
+<li class="chapter" data-level="2.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-summary"><b>2.9</b> Summary</a></li>
+<li class="chapter" data-level="2.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-exercises"><b>2.10</b> Exercises</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-more-ls"><b>2.10.1</b> Exploring more <code>ls</code> flags</a></li>
+<li class="chapter" data-level="2.10.2" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-rt"><b>2.10.2</b> Listing recursively and by time</a></li>
+<li class="chapter" data-level="2.10.3" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-paths"><b>2.10.3</b> Absolute and relative paths</a></li>
+<li class="chapter" data-level="2.10.4" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-resolve-rel-path"><b>2.10.4</b> Relative path resolution</a></li>
+<li class="chapter" data-level="2.10.5" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reading-ls"><b>2.10.5</b> <code>ls</code> reading comprehension</a></li>
+<li class="chapter" data-level="2.10.6" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-touch"><b>2.10.6</b> Creating files a different way</a></li>
+<li class="chapter" data-level="2.10.7" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-safe-rm"><b>2.10.7</b> Using <code>rm</code> safely</a></li>
+<li class="chapter" data-level="2.10.8" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-move-dot"><b>2.10.8</b> Moving to the current folder</a></li>
+<li class="chapter" data-level="2.10.9" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-renaming-files"><b>2.10.9</b> Renaming files</a></li>
+<li class="chapter" data-level="2.10.10" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-last-ls"><b>2.10.10</b> Moving and copying</a></li>
+<li class="chapter" data-level="2.10.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-copy-multi"><b>2.10.11</b> Copy with multiple filenames</a></li>
+<li class="chapter" data-level="2.10.12" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-ls-match"><b>2.10.12</b> List filenames matching a pattern</a></li>
+<li class="chapter" data-level="2.10.13" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-organizing"><b>2.10.13</b> Organizing directories and files</a></li>
+<li class="chapter" data-level="2.10.14" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-reproduce-structure"><b>2.10.14</b> Reproduce a directory structure</a></li>
+<li class="chapter" data-level="2.10.15" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-wildcard-expressions"><b>2.10.15</b> Wildcard expressions</a></li>
+<li class="chapter" data-level="2.10.16" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-remove-unneeded"><b>2.10.16</b> Removing unneeded files</a></li>
+<li class="chapter" data-level="2.10.17" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-ex-other-wildcards"><b>2.10.17</b> Other wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="bash-basics.html"><a href="bash-basics.html#bash-basics-keypoints"><b>2.11</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bash-tools.html"><a href="bash-tools.html"><b>3</b> Building Tools with the Unix Shell</a><ul>
+<li class="chapter" data-level="3.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-pipe"><b>3.1</b> Combining Commands</a></li>
+<li class="chapter" data-level="3.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-stdio"><b>3.2</b> How Pipes Work</a></li>
+<li class="chapter" data-level="3.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-loops"><b>3.3</b> Repeating Commands on Many Files</a></li>
+<li class="chapter" data-level="3.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-meaningless"><b>3.4</b> Variable Names</a></li>
+<li class="chapter" data-level="3.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-history"><b>3.5</b> Redoing Things</a></li>
+<li class="chapter" data-level="3.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-autoname"><b>3.6</b> Creating New Filenames Automatically</a></li>
+<li class="chapter" data-level="3.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-summary"><b>3.7</b> Summary</a></li>
+<li class="chapter" data-level="3.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-exercises"><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-redirect-append"><b>3.8.1</b> What does <code>&gt;&gt;</code> mean?</a></li>
+<li class="chapter" data-level="3.8.2" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-append-data"><b>3.8.2</b> Appending data</a></li>
+<li class="chapter" data-level="3.8.3" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-piping"><b>3.8.3</b> Piping commands</a></li>
+<li class="chapter" data-level="3.8.4" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-uniq-adjacent"><b>3.8.4</b> Why does <code>uniq</code> only remove adjacent duplicates?</a></li>
+<li class="chapter" data-level="3.8.5" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-reading-pipes"><b>3.8.5</b> Pipe reading comprehension</a></li>
+<li class="chapter" data-level="3.8.6" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-pipe-construction"><b>3.8.6</b> Pipe construction</a></li>
+<li class="chapter" data-level="3.8.7" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-which-pipe"><b>3.8.7</b> Which pipe?</a></li>
+<li class="chapter" data-level="3.8.8" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-dry-run"><b>3.8.8</b> Doing a dry run</a></li>
+<li class="chapter" data-level="3.8.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-variables"><b>3.8.9</b> Variables in loops</a></li>
+<li class="chapter" data-level="3.8.10" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-limiting-file-sets"><b>3.8.10</b> Limiting sets of files</a></li>
+<li class="chapter" data-level="3.8.11" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-loop-save"><b>3.8.11</b> Saving to a file in a loop</a></li>
+<li class="chapter" data-level="3.8.12" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-ex-history-order"><b>3.8.12</b> Why does <code>history</code> record commands before running them?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="bash-tools.html"><a href="bash-tools.html#bash-tools-keypoints"><b>3.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bash-advanced.html"><a href="bash-advanced.html"><b>4</b> Going Further with the Unix Shell</a><ul>
+<li class="chapter" data-level="4.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-script"><b>4.1</b> Creating New Commands</a></li>
+<li class="chapter" data-level="4.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-params"><b>4.2</b> Making Scripts More Versatile</a></li>
+<li class="chapter" data-level="4.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-capture"><b>4.3</b> Turning Interactive Work into a Script</a></li>
+<li class="chapter" data-level="4.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-grep"><b>4.4</b> Finding Things in Files</a></li>
+<li class="chapter" data-level="4.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-find"><b>4.5</b> Finding Files</a></li>
+<li class="chapter" data-level="4.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-vars"><b>4.6</b> Configuring the Shell</a></li>
+<li class="chapter" data-level="4.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-summary"><b>4.7</b> Summary</a></li>
+<li class="chapter" data-level="4.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-exercises"><b>4.8</b> Exercises</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-cleaning-up"><b>4.8.1</b> Cleaning up</a></li>
+<li class="chapter" data-level="4.8.2" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-script-variables"><b>4.8.2</b> Variables in shell scripts</a></li>
+<li class="chapter" data-level="4.8.3" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-longest-with-extension"><b>4.8.3</b> Find the longest file with a given extension</a></li>
+<li class="chapter" data-level="4.8.4" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-scripts"><b>4.8.4</b> Script reading comprehension</a></li>
+<li class="chapter" data-level="4.8.5" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-using-grep"><b>4.8.5</b> Using <code>grep</code></a></li>
+<li class="chapter" data-level="4.8.6" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-year-script"><b>4.8.6</b> Tracking publication years</a></li>
+<li class="chapter" data-level="4.8.7" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-sense-sensibility"><b>4.8.7</b> Counting names</a></li>
+<li class="chapter" data-level="4.8.8" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-match-subtract"><b>4.8.8</b> Matching and subtracting</a></li>
+<li class="chapter" data-level="4.8.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-reading-find"><b>4.8.9</b> <code>find</code> pipeline reading comprehension</a></li>
+<li class="chapter" data-level="4.8.10" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-ex-find-tests"><b>4.8.10</b> Finding files with different properties</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="bash-advanced.html"><a href="bash-advanced.html#bash-advanced-keypoints"><b>4.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="scripting.html"><a href="scripting.html"><b>5</b> Building Command-Line Tools with Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="scripting.html"><a href="scripting.html#scripting-main"><b>5.1</b> Programs and Modules</a></li>
+<li class="chapter" data-level="5.2" data-path="scripting.html"><a href="scripting.html#scripting-options"><b>5.2</b> Handling Command-Line Options</a></li>
+<li class="chapter" data-level="5.3" data-path="scripting.html"><a href="scripting.html#scripting-docstrings"><b>5.3</b> Documentation</a></li>
+<li class="chapter" data-level="5.4" data-path="scripting.html"><a href="scripting.html#scripting-wordcount"><b>5.4</b> Counting Words</a></li>
+<li class="chapter" data-level="5.5" data-path="scripting.html"><a href="scripting.html#scripting-pipeline"><b>5.5</b> Pipelining</a></li>
+<li class="chapter" data-level="5.6" data-path="scripting.html"><a href="scripting.html#scripting-positional-optional"><b>5.6</b> Positional and Optional Arguments</a></li>
+<li class="chapter" data-level="5.7" data-path="scripting.html"><a href="scripting.html#scripting-collate"><b>5.7</b> Collating Results</a></li>
+<li class="chapter" data-level="5.8" data-path="scripting.html"><a href="scripting.html#scripting-modules"><b>5.8</b> Writing Our Own Modules</a></li>
+<li class="chapter" data-level="5.9" data-path="scripting.html"><a href="scripting.html#scripting-plotting"><b>5.9</b> Plotting</a></li>
+<li class="chapter" data-level="5.10" data-path="scripting.html"><a href="scripting.html#scripting-summary"><b>5.10</b> Summary</a></li>
+<li class="chapter" data-level="5.11" data-path="scripting.html"><a href="scripting.html#scripting-exercises"><b>5.11</b> Exercises</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="scripting.html"><a href="scripting.html#scripting-ex-command-line"><b>5.11.1</b> Running Python statements from the command line</a></li>
+<li class="chapter" data-level="5.11.2" data-path="scripting.html"><a href="scripting.html#scripting-ex-glob-ls"><b>5.11.2</b> Listing files</a></li>
+<li class="chapter" data-level="5.11.3" data-path="scripting.html"><a href="scripting.html#scripting-ex-sentence-endings"><b>5.11.3</b> Sentence ending punctuation</a></li>
+<li class="chapter" data-level="5.11.4" data-path="scripting.html"><a href="scripting.html#scripting-ex-better-plotting"><b>5.11.4</b> A better plotting program</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="scripting.html"><a href="scripting.html#scripting-keypoints"><b>5.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="git-cmdline.html"><a href="git-cmdline.html"><b>6</b> Using Git at the Command Line</a><ul>
+<li class="chapter" data-level="6.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-setup"><b>6.1</b> Setting Up</a></li>
+<li class="chapter" data-level="6.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-repos"><b>6.2</b> Creating a New Repository</a></li>
+<li class="chapter" data-level="6.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-add-existing"><b>6.3</b> Adding Existing Work</a></li>
+<li class="chapter" data-level="6.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-commit-message"><b>6.4</b> Describing Commits</a></li>
+<li class="chapter" data-level="6.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-changes"><b>6.5</b> Saving and Tracking Changes</a></li>
+<li class="chapter" data-level="6.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-remotes"><b>6.6</b> Synchronizing with Other Repositories</a></li>
+<li class="chapter" data-level="6.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-history"><b>6.7</b> Exploring History</a></li>
+<li class="chapter" data-level="6.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-restore"><b>6.8</b> Restoring Old Versions of Files</a></li>
+<li class="chapter" data-level="6.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ignore"><b>6.9</b> Ignoring Files</a></li>
+<li class="chapter" data-level="6.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-summary"><b>6.10</b> Summary</a></li>
+<li class="chapter" data-level="6.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-exercises"><b>6.11</b> Exercises</a><ul>
+<li class="chapter" data-level="6.11.1" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-places"><b>6.11.1</b> Places to create Git repositories</a></li>
+<li class="chapter" data-level="6.11.2" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unsave"><b>6.11.2</b> Removing before saving</a></li>
+<li class="chapter" data-level="6.11.3" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-word-diff"><b>6.11.3</b> Viewing changes</a></li>
+<li class="chapter" data-level="6.11.4" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-commit"><b>6.11.4</b> Committing changes</a></li>
+<li class="chapter" data-level="6.11.5" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-bio"><b>6.11.5</b> Write your biography</a></li>
+<li class="chapter" data-level="6.11.6" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-multiple"><b>6.11.6</b> Committing multiple files</a></li>
+<li class="chapter" data-level="6.11.7" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-timestamp"><b>6.11.7</b> GitHub timestamps</a></li>
+<li class="chapter" data-level="6.11.8" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-history"><b>6.11.8</b> Workflow and history</a></li>
+<li class="chapter" data-level="6.11.9" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-ignore-nested"><b>6.11.9</b> Ignoring nested files</a></li>
+<li class="chapter" data-level="6.11.10" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-include"><b>6.11.10</b> Including specific files</a></li>
+<li class="chapter" data-level="6.11.11" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-github-interface"><b>6.11.11</b> Exploring the GitHub interface</a></li>
+<li class="chapter" data-level="6.11.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-push-commit"><b>6.11.12</b> Push versus commit</a></li>
+<li class="chapter" data-level="6.11.13" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-boilerplate"><b>6.11.13</b> License and README files</a></li>
+<li class="chapter" data-level="6.11.14" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-recover"><b>6.11.14</b> Recovering older versions of a file</a></li>
+<li class="chapter" data-level="6.11.15" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-diff"><b>6.11.15</b> Understanding <code>git diff</code></a></li>
+<li class="chapter" data-level="6.11.16" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-unstage"><b>6.11.16</b> Getting rid of staged changes</a></li>
+<li class="chapter" data-level="6.11.17" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-ex-blame"><b>6.11.17</b> Figuring out who did what</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="git-cmdline.html"><a href="git-cmdline.html#git-cmdline-keypoints"><b>6.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-advanced.html"><a href="git-advanced.html"><b>7</b> Going Further with Git</a><ul>
+<li class="chapter" data-level="7.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-what"><b>7.1</b> What’s a Branch?</a></li>
+<li class="chapter" data-level="7.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-branch-how"><b>7.2</b> Creating a Branch</a></li>
+<li class="chapter" data-level="7.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-theory"><b>7.3</b> What Curve Should We Fit?</a></li>
+<li class="chapter" data-level="7.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-zipf-verify"><b>7.4</b> Verifying Zipf’s Law</a></li>
+<li class="chapter" data-level="7.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-merge"><b>7.5</b> Merging</a></li>
+<li class="chapter" data-level="7.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-conflict"><b>7.6</b> Handling Conflicts</a></li>
+<li class="chapter" data-level="7.7" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-workflow"><b>7.7</b> A Branch-Based Workflow</a></li>
+<li class="chapter" data-level="7.8" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-fork"><b>7.8</b> Using Other People’s Work</a></li>
+<li class="chapter" data-level="7.9" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pull-requests"><b>7.9</b> Pull Requests</a></li>
+<li class="chapter" data-level="7.10" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-pr-conflict"><b>7.10</b> Handling Conflicts in Pull Requests</a></li>
+<li class="chapter" data-level="7.11" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-summary"><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="7.12" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-exercises"><b>7.12</b> Exercises</a><ul>
+<li class="chapter" data-level="7.12.1" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-explain-options"><b>7.12.1</b> Explaining options</a></li>
+<li class="chapter" data-level="7.12.2" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-modify-prompt"><b>7.12.2</b> Modifying prompt</a></li>
+<li class="chapter" data-level="7.12.3" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-ignoring-files"><b>7.12.3</b> Ignoring files</a></li>
+<li class="chapter" data-level="7.12.4" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-create-twice"><b>7.12.4</b> Creating the same file twice</a></li>
+<li class="chapter" data-level="7.12.5" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-delete-unmerged"><b>7.12.5</b> Deleting a branch without merging</a></li>
+<li class="chapter" data-level="7.12.6" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-ex-trace-changes"><b>7.12.6</b> Tracing changes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.13" data-path="git-advanced.html"><a href="git-advanced.html#git-advanced-keypoints"><b>7.13</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="teams.html"><a href="teams.html"><b>8</b> Working in Teams</a><ul>
+<li class="chapter" data-level="8.1" data-path="teams.html"><a href="teams.html#teams-scope"><b>8.1</b> What Is a Project?</a></li>
+<li class="chapter" data-level="8.2" data-path="teams.html"><a href="teams.html#teams-inclusive"><b>8.2</b> Include Everyone</a></li>
+<li class="chapter" data-level="8.3" data-path="teams.html"><a href="teams.html#teams-coc"><b>8.3</b> Establish a Code of Conduct</a></li>
+<li class="chapter" data-level="8.4" data-path="teams.html"><a href="teams.html#teams-license"><b>8.4</b> Include a License</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="teams.html"><a href="teams.html#teams-license-software"><b>8.4.1</b> Software</a></li>
+<li class="chapter" data-level="8.4.2" data-path="teams.html"><a href="teams.html#teams-license-other"><b>8.4.2</b> Data and reports</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="teams.html"><a href="teams.html#teams-planning"><b>8.5</b> Planning</a></li>
+<li class="chapter" data-level="8.6" data-path="teams.html"><a href="teams.html#teams-bugs"><b>8.6</b> Bug Reports</a></li>
+<li class="chapter" data-level="8.7" data-path="teams.html"><a href="teams.html#teams-labels"><b>8.7</b> Labeling Issues</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="teams.html"><a href="teams.html#teams-workflow"><b>8.7.1</b> Standardizing workflows</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="teams.html"><a href="teams.html#teams-prioritize"><b>8.8</b> Prioritizing</a></li>
+<li class="chapter" data-level="8.9" data-path="teams.html"><a href="teams.html#teams-meetings"><b>8.9</b> Meetings</a><ul>
+<li class="chapter" data-level="8.9.1" data-path="teams.html"><a href="teams.html#teams-fair"><b>8.9.1</b> Air time</a></li>
+<li class="chapter" data-level="8.9.2" data-path="teams.html"><a href="teams.html#teams-online"><b>8.9.2</b> Online meetings</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="teams.html"><a href="teams.html#teams-martha"><b>8.10</b> Making Decisions</a></li>
+<li class="chapter" data-level="8.11" data-path="teams.html"><a href="teams.html#teams-documentation"><b>8.11</b> Make All This Obvious to Newcomers</a></li>
+<li class="chapter" data-level="8.12" data-path="teams.html"><a href="teams.html#teams-conflict"><b>8.12</b> Handling Conflict</a></li>
+<li class="chapter" data-level="8.13" data-path="teams.html"><a href="teams.html#teams-summary"><b>8.13</b> Summary</a></li>
+<li class="chapter" data-level="8.14" data-path="teams.html"><a href="teams.html#teams-exercises"><b>8.14</b> Exercises</a><ul>
+<li class="chapter" data-level="8.14.1" data-path="teams.html"><a href="teams.html#teams-ex-scavenger-hunt"><b>8.14.1</b> Finding information</a></li>
+<li class="chapter" data-level="8.14.2" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-coc"><b>8.14.2</b> Add a Code of Conduct to your project</a></li>
+<li class="chapter" data-level="8.14.3" data-path="teams.html"><a href="teams.html#teams-ex-boilerplate-license"><b>8.14.3</b> Add a license to your project</a></li>
+<li class="chapter" data-level="8.14.4" data-path="teams.html"><a href="teams.html#teams-ex-contributing"><b>8.14.4</b> Adding contribution guidelines</a></li>
+<li class="chapter" data-level="8.14.5" data-path="teams.html"><a href="teams.html#teams-ex-file-issue"><b>8.14.5</b> File an issue</a></li>
+<li class="chapter" data-level="8.14.6" data-path="teams.html"><a href="teams.html#teams-ex-label"><b>8.14.6</b> Label issues</a></li>
+<li class="chapter" data-level="8.14.7" data-path="teams.html"><a href="teams.html#teams-ex-balancing"><b>8.14.7</b> Balancing individual and team needs</a></li>
+<li class="chapter" data-level="8.14.8" data-path="teams.html"><a href="teams.html#teams-ex-invisible"><b>8.14.8</b> Crediting invisible contributions</a></li>
+<li class="chapter" data-level="8.14.9" data-path="teams.html"><a href="teams.html#teams-ex-members"><b>8.14.9</b> Who are you?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.15" data-path="teams.html"><a href="teams.html#teams-keypoints"><b>8.15</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="automate.html"><a href="automate.html"><b>9</b> Automating Analyses with Make</a><ul>
+<li class="chapter" data-level="9.1" data-path="automate.html"><a href="automate.html#automate-single-file"><b>9.1</b> Updating a Single File</a></li>
+<li class="chapter" data-level="9.2" data-path="automate.html"><a href="automate.html#automate-multiple"><b>9.2</b> Managing Multiple Files</a></li>
+<li class="chapter" data-level="9.3" data-path="automate.html"><a href="automate.html#automate-depend-programs"><b>9.3</b> Updating Files When Programs Change</a></li>
+<li class="chapter" data-level="9.4" data-path="automate.html"><a href="automate.html#automate-variables"><b>9.4</b> Reducing Repetition in a Makefile</a></li>
+<li class="chapter" data-level="9.5" data-path="automate.html"><a href="automate.html#automate-autovar"><b>9.5</b> Automatic Variables</a></li>
+<li class="chapter" data-level="9.6" data-path="automate.html"><a href="automate.html#automate-pattern"><b>9.6</b> Generic Rules</a></li>
+<li class="chapter" data-level="9.7" data-path="automate.html"><a href="automate.html#automate-functions"><b>9.7</b> Defining Sets of Files</a></li>
+<li class="chapter" data-level="9.8" data-path="automate.html"><a href="automate.html#automate-doc"><b>9.8</b> Documenting a Makefile</a></li>
+<li class="chapter" data-level="9.9" data-path="automate.html"><a href="automate.html#automate-pipeline"><b>9.9</b> Automating Entire Analyses</a></li>
+<li class="chapter" data-level="9.10" data-path="automate.html"><a href="automate.html#automate-summary"><b>9.10</b> Summary</a></li>
+<li class="chapter" data-level="9.11" data-path="automate.html"><a href="automate.html#automate-exercises"><b>9.11</b> Exercises</a><ul>
+<li class="chapter" data-level="9.11.1" data-path="automate.html"><a href="automate.html#automate-ex-report-change"><b>9.11.1</b> Report results that would change</a></li>
+<li class="chapter" data-level="9.11.2" data-path="automate.html"><a href="automate.html#automate-ex-useful-options"><b>9.11.2</b> Useful options</a></li>
+<li class="chapter" data-level="9.11.3" data-path="automate.html"><a href="automate.html#automate-ex-mkdir"><b>9.11.3</b> Make sure the output directory exists</a></li>
+<li class="chapter" data-level="9.11.4" data-path="automate.html"><a href="automate.html#automate-ex-print"><b>9.11.4</b> Print the title and author</a></li>
+<li class="chapter" data-level="9.11.5" data-path="automate.html"><a href="automate.html#automate-ex-all-results"><b>9.11.5</b> Create all results</a></li>
+<li class="chapter" data-level="9.11.6" data-path="automate.html"><a href="automate.html#automate-ex-wildcard-perils"><b>9.11.6</b> The perils of shell wildcards</a></li>
+<li class="chapter" data-level="9.11.7" data-path="automate.html"><a href="automate.html#automate-ex-readable-docs"><b>9.11.7</b> Making documentation more readable</a></li>
+<li class="chapter" data-level="9.11.8" data-path="automate.html"><a href="automate.html#automate-ex-configuration"><b>9.11.8</b> Configuration</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="automate.html"><a href="automate.html#automate-keypoints"><b>9.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="config.html"><a href="config.html"><b>10</b> Configuring Programs</a><ul>
+<li class="chapter" data-level="10.1" data-path="config.html"><a href="config.html#config-formats"><b>10.1</b> Configuration File Formats</a></li>
+<li class="chapter" data-level="10.2" data-path="config.html"><a href="config.html#config-matplotlib"><b>10.2</b> Matplotlib Configuration</a></li>
+<li class="chapter" data-level="10.3" data-path="config.html"><a href="config.html#config-global"><b>10.3</b> The Global Configuration File</a></li>
+<li class="chapter" data-level="10.4" data-path="config.html"><a href="config.html#config-user"><b>10.4</b> The User Configuration File</a></li>
+<li class="chapter" data-level="10.5" data-path="config.html"><a href="config.html#config-command-line"><b>10.5</b> Adding Command-Line Options</a></li>
+<li class="chapter" data-level="10.6" data-path="config.html"><a href="config.html#config-job-file"><b>10.6</b> A Job Control File</a></li>
+<li class="chapter" data-level="10.7" data-path="config.html"><a href="config.html#config-summary"><b>10.7</b> Summary</a></li>
+<li class="chapter" data-level="10.8" data-path="config.html"><a href="config.html#config-exercises"><b>10.8</b> Exercises</a><ul>
+<li class="chapter" data-level="10.8.1" data-path="config.html"><a href="config.html#config-ex-build-plotparams"><b>10.8.1</b> Building with plotting parameters</a></li>
+<li class="chapter" data-level="10.8.2" data-path="config.html"><a href="config.html#config-ex-style"><b>10.8.2</b> Using different plot styles</a></li>
+<li class="chapter" data-level="10.8.3" data-path="config.html"><a href="config.html#config-ex-saveload"><b>10.8.3</b> Saving configurations</a></li>
+<li class="chapter" data-level="10.8.4" data-path="config.html"><a href="config.html#config-ex-ini"><b>10.8.4</b> Using INI syntax</a></li>
+<li class="chapter" data-level="10.8.5" data-path="config.html"><a href="config.html#config-ex-consistency"><b>10.8.5</b> Configuration consistency</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="config.html"><a href="config.html#config-keypoints"><b>10.9</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="testing.html"><a href="testing.html"><b>11</b> Testing Software</a><ul>
+<li class="chapter" data-level="11.1" data-path="testing.html"><a href="testing.html#testing-assertions"><b>11.1</b> Assertions</a></li>
+<li class="chapter" data-level="11.2" data-path="testing.html"><a href="testing.html#testing-unit"><b>11.2</b> Unit Testing</a></li>
+<li class="chapter" data-level="11.3" data-path="testing.html"><a href="testing.html#testing-framework"><b>11.3</b> Testing Frameworks</a></li>
+<li class="chapter" data-level="11.4" data-path="testing.html"><a href="testing.html#testing-numeric"><b>11.4</b> Testing Floating-Point Values</a></li>
+<li class="chapter" data-level="11.5" data-path="testing.html"><a href="testing.html#testing-integration"><b>11.5</b> Integration Testing</a></li>
+<li class="chapter" data-level="11.6" data-path="testing.html"><a href="testing.html#testing-regression"><b>11.6</b> Regression Testing</a></li>
+<li class="chapter" data-level="11.7" data-path="testing.html"><a href="testing.html#testing-coverage"><b>11.7</b> Test Coverage</a></li>
+<li class="chapter" data-level="11.8" data-path="testing.html"><a href="testing.html#testing-ci"><b>11.8</b> Continuous Integration</a></li>
+<li class="chapter" data-level="11.9" data-path="testing.html"><a href="testing.html#testing-tdd"><b>11.9</b> When to Write Tests</a></li>
+<li class="chapter" data-level="11.10" data-path="testing.html"><a href="testing.html#testing-summary"><b>11.10</b> Summary</a></li>
+<li class="chapter" data-level="11.11" data-path="testing.html"><a href="testing.html#testing-exercises"><b>11.11</b> Exercises</a><ul>
+<li class="chapter" data-level="11.11.1" data-path="testing.html"><a href="testing.html#testing-ex-explain-assertions"><b>11.11.1</b> Explaining assertions</a></li>
+<li class="chapter" data-level="11.11.2" data-path="testing.html"><a href="testing.html#testing-ex-rectangles"><b>11.11.2</b> Rectangle normalization</a></li>
+<li class="chapter" data-level="11.11.3" data-path="testing.html"><a href="testing.html#testing-ex-random"><b>11.11.3</b> Testing with randomness</a></li>
+<li class="chapter" data-level="11.11.4" data-path="testing.html"><a href="testing.html#testing-ex-relative-error"><b>11.11.4</b> Testing with relative error</a></li>
+</ul></li>
+<li class="chapter" data-level="11.12" data-path="testing.html"><a href="testing.html#testing-keypoints"><b>11.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="errors.html"><a href="errors.html"><b>12</b> Handling Errors</a><ul>
+<li class="chapter" data-level="12.1" data-path="errors.html"><a href="errors.html#errors-exceptions"><b>12.1</b> Exceptions</a></li>
+<li class="chapter" data-level="12.2" data-path="errors.html"><a href="errors.html#errors-messages"><b>12.2</b> Writing Useful Error Messages</a></li>
+<li class="chapter" data-level="12.3" data-path="errors.html"><a href="errors.html#errors-testing"><b>12.3</b> Testing Error Handling</a></li>
+<li class="chapter" data-level="12.4" data-path="errors.html"><a href="errors.html#errors-logging"><b>12.4</b> Reporting Errors</a></li>
+<li class="chapter" data-level="12.5" data-path="errors.html"><a href="errors.html#errors-summary"><b>12.5</b> Summary</a></li>
+<li class="chapter" data-level="12.6" data-path="errors.html"><a href="errors.html#errors-exercises"><b>12.6</b> Exercises</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="errors.html"><a href="errors.html#errors-ex-set-level"><b>12.6.1</b> Set the logging level</a></li>
+<li class="chapter" data-level="12.6.2" data-path="errors.html"><a href="errors.html#errors-ex-logging-output"><b>12.6.2</b> Send the logging output to file</a></li>
+<li class="chapter" data-level="12.6.3" data-path="errors.html"><a href="errors.html#errors-ex-exceptions"><b>12.6.3</b> Handling exceptions</a></li>
+<li class="chapter" data-level="12.6.4" data-path="errors.html"><a href="errors.html#errors-ex-error-handling"><b>12.6.4</b> Testing error handling</a></li>
+<li class="chapter" data-level="12.6.5" data-path="errors.html"><a href="errors.html#errors-ex-catalog"><b>12.6.5</b> Error catalogs</a></li>
+<li class="chapter" data-level="12.6.6" data-path="errors.html"><a href="errors.html#errors-ex-traceback"><b>12.6.6</b> Tracebacks</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="errors.html"><a href="errors.html#errors-keypoints"><b>12.7</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="provenance.html"><a href="provenance.html"><b>13</b> Tracking Provenance</a><ul>
+<li class="chapter" data-level="13.1" data-path="provenance.html"><a href="provenance.html#provenance-data"><b>13.1</b> Data Provenance</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="provenance.html"><a href="provenance.html#provenance-data-fair"><b>13.1.1</b> The FAIR Principles</a></li>
+<li class="chapter" data-level="13.1.2" data-path="provenance.html"><a href="provenance.html#provenance-data-where"><b>13.1.2</b> Where to archive data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="provenance.html"><a href="provenance.html#provenance-code"><b>13.2</b> Code Provenance</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="provenance.html"><a href="provenance.html#provenance-code-environment"><b>13.2.1</b> Software environment</a></li>
+<li class="chapter" data-level="13.2.2" data-path="provenance.html"><a href="provenance.html#provenance-code-steps"><b>13.2.2</b> Data processing steps</a></li>
+<li class="chapter" data-level="13.2.3" data-path="provenance.html"><a href="provenance.html#provenance-code-scripts"><b>13.2.3</b> Analysis scripts</a></li>
+<li class="chapter" data-level="13.2.4" data-path="provenance.html"><a href="provenance.html#provenance-inspectability"><b>13.2.4</b> Reproducibility versus inspectability</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="provenance.html"><a href="provenance.html#provenance-summary"><b>13.3</b> Summary</a></li>
+<li class="chapter" data-level="13.4" data-path="provenance.html"><a href="provenance.html#provenance-exercises"><b>13.4</b> Exercises</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="provenance.html"><a href="provenance.html#provenance-ex-get-orcid"><b>13.4.1</b> ORCID</a></li>
+<li class="chapter" data-level="13.4.2" data-path="provenance.html"><a href="provenance.html#provenance-ex-fair-test"><b>13.4.2</b> A FAIR test</a></li>
+<li class="chapter" data-level="13.4.3" data-path="provenance.html"><a href="provenance.html#provenance-ex-understand-project"><b>13.4.3</b> Evaluate a project’s data provenance</a></li>
+<li class="chapter" data-level="13.4.4" data-path="provenance.html"><a href="provenance.html#provenance-ex-eval-code"><b>13.4.4</b> Evaluate a project’s code provenance</a></li>
+<li class="chapter" data-level="13.4.5" data-path="provenance.html"><a href="provenance.html#provenance-ex-permanent-links"><b>13.4.5</b> Making permanent links</a></li>
+<li class="chapter" data-level="13.4.6" data-path="provenance.html"><a href="provenance.html#provenance-ex-release"><b>13.4.6</b> Create an archive of your Zipf’s analysis</a></li>
+<li class="chapter" data-level="13.4.7" data-path="provenance.html"><a href="provenance.html#provenance-ex-publish-code"><b>13.4.7</b> Publishing your code</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="provenance.html"><a href="provenance.html#publish-keypoints"><b>13.5</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="packaging.html"><a href="packaging.html"><b>14</b> Creating Packages with Python</a><ul>
+<li class="chapter" data-level="14.1" data-path="packaging.html"><a href="packaging.html#packaging-package"><b>14.1</b> Creating a Python Package</a></li>
+<li class="chapter" data-level="14.2" data-path="packaging.html"><a href="packaging.html#packaging-virtualenv"><b>14.2</b> Virtual Environments</a></li>
+<li class="chapter" data-level="14.3" data-path="packaging.html"><a href="packaging.html#packaging-installing"><b>14.3</b> Installing a Development Package</a></li>
+<li class="chapter" data-level="14.4" data-path="packaging.html"><a href="packaging.html#packaging-installation"><b>14.4</b> What Installation Does</a></li>
+<li class="chapter" data-level="14.5" data-path="packaging.html"><a href="packaging.html#packaging-distribute"><b>14.5</b> Distributing Packages</a></li>
+<li class="chapter" data-level="14.6" data-path="packaging.html"><a href="packaging.html#packaging-document"><b>14.6</b> Documenting Packages</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="packaging.html"><a href="packaging.html#packaging-readme"><b>14.6.1</b> Including package-level documentation in the <code>README</code></a></li>
+<li class="chapter" data-level="14.6.2" data-path="packaging.html"><a href="packaging.html#packaging-sphinx"><b>14.6.2</b> Creating a web page for documentation</a></li>
+<li class="chapter" data-level="14.6.3" data-path="packaging.html"><a href="packaging.html#packaging-rtd"><b>14.6.3</b> Hosting documentation online</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="packaging.html"><a href="packaging.html#packaging-software-journals"><b>14.7</b> Software Journals</a></li>
+<li class="chapter" data-level="14.8" data-path="packaging.html"><a href="packaging.html#packaging-summary"><b>14.8</b> Summary</a></li>
+<li class="chapter" data-level="14.9" data-path="packaging.html"><a href="packaging.html#exercises"><b>14.9</b> Exercises</a><ul>
+<li class="chapter" data-level="14.9.1" data-path="packaging.html"><a href="packaging.html#packaging-ex-metadata"><b>14.9.1</b> Package metadata</a></li>
+<li class="chapter" data-level="14.9.2" data-path="packaging.html"><a href="packaging.html#packaging-ex-separating-requirements"><b>14.9.2</b> Separating requirements</a></li>
+<li class="chapter" data-level="14.9.3" data-path="packaging.html"><a href="packaging.html#packaging-ex-software-review"><b>14.9.3</b> Software review</a></li>
+<li class="chapter" data-level="14.9.4" data-path="packaging.html"><a href="packaging.html#packaging-ex-pratchett"><b>14.9.4</b> Packaging quotations</a></li>
+</ul></li>
+<li class="chapter" data-level="14.10" data-path="packaging.html"><a href="packaging.html#packaging-keypoints"><b>14.10</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="finale.html"><a href="finale.html"><b>15</b> Finale</a><ul>
+<li class="chapter" data-level="15.1" data-path="finale.html"><a href="finale.html#why-we-wrote-this-book"><b>15.1</b> Why We Wrote This Book</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="solutions.html"><a href="solutions.html"><b>A</b> Solutions</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-basics">Chapter @ref(bash-basics)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-more-ls">Exercise @ref(bash-basics-ex-more-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-rt">Exercise @ref(bash-basics-ex-ls-rt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-paths">Exercise @ref(bash-basics-ex-paths)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-resolve-rel-path">Exercise @ref(bash-basics-ex-resolve-rel-path)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reading-ls">Exercise @ref(bash-basics-ex-reading-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-touch">Exercise @ref(bash-basics-ex-touch)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-safe-rm">Exercise @ref(bash-basics-ex-safe-rm)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-move-dot">Exercise @ref(bash-basics-ex-move-dot)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-renaming-files">Exercise @ref(bash-basics-ex-renaming-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-last-ls">Exercise @ref(bash-basics-ex-last-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-copy-multi">Exercise @ref(bash-basics-ex-copy-multi)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-ls-match">Exercise @ref(bash-basics-ex-ls-match)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-organizing">Exercise @ref(bash-basics-ex-organizing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-reproduce-structure">Exercise @ref(bash-basics-ex-reproduce-structure)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-wildcard-expressions">Exercise @ref(bash-basics-ex-wildcard-expressions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-remove-unneeded">Exercise @ref(bash-basics-ex-remove-unneeded)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-basics-ex-other-wildcards">Exercise @ref(bash-basics-ex-other-wildcards)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-tools">Chapter @ref(bash-tools)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-redirect-append">Exercise @ref(bash-tools-ex-redirect-append)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-append-data">Exercise @ref(bash-tools-ex-append-data)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-piping">Exercise @ref(bash-tools-ex-piping)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-uniq-adjacent">Exercise @ref(bash-tools-ex-uniq-adjacent)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-reading-pipes">Exercise @ref(bash-tools-ex-reading-pipes)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-pipe-construction">Exercise @ref(bash-tools-ex-pipe-construction)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-which-pipe">Exercise @ref(bash-tools-ex-which-pipe)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-dry-run">Exercise @ref(bash-tools-ex-loop-dry-run)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-variables">Exercise @ref(bash-tools-ex-loop-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-limiting-file-sets">Exercise @ref(bash-tools-ex-limiting-file-sets)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-loop-save">Exercise @ref(bash-tools-ex-loop-save)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-tools-ex-history-order">Exercise @ref(bash-tools-ex-history-order)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refbash-advanced">Chapter @ref(bash-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-cleaning-up">Exercise @ref(bash-advanced-ex-cleaning-up)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-script-variables">Exercise @ref(bash-advanced-ex-script-variables)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-longest-with-extension">Exercise @ref(bash-advanced-ex-longest-with-extension)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-scripts">Exercise @ref(bash-advanced-ex-reading-scripts)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-using-grep">Exercise @ref(bash-advanced-ex-using-grep)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-year-script">Exercise @ref(bash-advanced-ex-year-script)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-sense-sensibility">Exercise @ref(bash-advanced-ex-sense-sensibility)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-match-subtract">Exercise @ref(bash-advanced-ex-match-subtract)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-reading-find">Exercise @ref(bash-advanced-ex-reading-find)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refbash-advanced-ex-find-tests">Exercise @ref(bash-advanced-ex-find-tests)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refscripting">Chapter @ref(scripting)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-command-line">Exercise @ref(scripting-ex-command-line)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-glob-ls">Exercise @ref(scripting-ex-glob-ls)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-sentence-endings">Exercise @ref(scripting-ex-sentence-endings)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refscripting-ex-better-plotting">Exercise @ref(scripting-ex-better-plotting)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-cmdline">Chapter @ref(git-cmdline)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-places">Exercise @ref(git-cmdline-ex-places)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unsave">Exercise @ref(git-cmdline-ex-unsave)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-word-diff">Exercise @ref(git-cmdline-ex-word-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-commit">Exercise @ref(git-cmdline-ex-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-bio">Exercise @ref(git-cmdline-ex-bio)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-multiple">Exercise @ref(git-cmdline-ex-multiple)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-timestamp">Exercise @ref(git-cmdline-ex-timestamp)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-history">Exercise @ref(git-cmdline-ex-history)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-ignore-nested">Exercise @ref(git-cmdline-ex-ignore-nested)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-include">Exercise @ref(git-cmdline-ex-include)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-github-interface">Exercise @ref(git-cmdline-ex-github-interface)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-push-commit">Exercise @ref(git-cmdline-ex-push-commit)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-boilerplate">Exercise @ref(git-cmdline-ex-boilerplate)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-recover">Exercise @ref(git-cmdline-ex-recover)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-diff">Exercise @ref(git-cmdline-ex-diff)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-unstage">Exercise @ref(git-cmdline-ex-unstage)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-cmdline-ex-blame">Exercise @ref(git-cmdline-ex-blame)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refgit-advanced">Chapter @ref(git-advanced)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-explain-options">Exercise @ref(git-advanced-ex-explain-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-modify-prompt">Exercise @ref(git-advanced-ex-modify-prompt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-ignoring-files">Exercise @ref(git-advanced-ex-ignoring-files)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-create-twice">Exercise @ref(git-advanced-ex-create-twice)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-delete-unmerged">Exercise @ref(git-advanced-ex-delete-unmerged)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refgit-advanced-ex-trace-changes">Exercise @ref(git-advanced-ex-trace-changes)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refteams">Chapter @ref(teams)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-scavenger-hunt">Exercise @ref(teams-ex-scavenger-hunt)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-coc">Exercise @ref(teams-ex-boilerplate-coc)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-boilerplate-license">Exercise @ref(teams-ex-boilerplate-license)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-contributing">Exercise @ref(teams-ex-contributing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-file-issue">Exercise @ref(teams-ex-file-issue)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-label">Exercise @ref(teams-ex-label)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-balancing">Exercise @ref(teams-ex-balancing)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-invisible">Exercise @ref(teams-ex-invisible)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refteams-ex-members">Exercise @ref(teams-ex-members)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refautomate">Chapter @ref(automate)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-report-change">Exercise @ref(automate-ex-report-change)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-useful-options">Exercise @ref(automate-ex-useful-options)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-mkdir">Exercise @ref(automate-ex-mkdir)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-print">Exercise @ref(automate-ex-print)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-all-results">Exercise @ref(automate-ex-all-results)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-wildcard-perils">Exercise @ref(automate-ex-wildcard-perils)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-readable-docs">Exercise @ref(automate-ex-readable-docs)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refautomate-ex-configuration">Exercise @ref(automate-ex-configuration)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refconfig">Chapter @ref(config)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-build-plotparams">Exercise @ref(config-ex-build-plotparams)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-style">Exercise @ref(config-ex-style)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-saveload">Exercise @ref(config-ex-saveload)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-ini">Exercise @ref(config-ex-ini)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refconfig-ex-consistency">Exercise @ref(config-ex-consistency)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-reftesting">Chapter @ref(testing)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-explain-assertions">Exercise @ref(testing-ex-explain-assertions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-rectangles">Exercise @ref(testing-ex-rectangles)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-random">Exercise @ref(testing-ex-random)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-reftesting-ex-relative-error">Exercise @ref(testing-ex-relative-error)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-referrors">Chapter @ref(errors)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-set-level">Exercise @ref(errors-ex-set-level)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-logging-output">Exercise @ref(errors-ex-logging-output)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-exceptions">Exercise @ref(errors-ex-exceptions)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-error-handling">Exercise @ref(errors-ex-error-handling)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-catalog">Exercise @ref(errors-ex-catalog)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-referrors-ex-traceback">Exercise @ref(errors-ex-traceback)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refprovenance">Chapter @ref(provenance)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-get-orcid">Exercise @ref(provenance-ex-get-orcid)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-fair-test">Exercise @ref(provenance-ex-fair-test)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-understand-project">Exercise @ref(provenance-ex-understand-project)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-eval-code">Exercise @ref(provenance-ex-eval-code)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-permanent-links">Exercise @ref(provenance-ex-permanent-links)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-release">Exercise @ref(provenance-ex-release)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refprovenance-ex-publish-code">Exercise @ref(provenance-ex-publish-code)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#chapter-refpackaging">Chapter @ref(packaging)</a><ul>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-metadata">Exercise @ref(packaging-ex-metadata)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-separating-requirements">Exercise @ref(packaging-ex-separating-requirements)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-software-review">Exercise @ref(packaging-ex-software-review)</a></li>
+<li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#exercise-refpackaging-ex-pratchett">Exercise @ref(packaging-ex-pratchett)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="objectives.html"><a href="objectives.html"><b>B</b> Learning Objectives</a><ul>
+<li class="chapter" data-level="B.1" data-path="objectives.html"><a href="objectives.html#getting-started-1"><b>B.1</b> Getting Started</a></li>
+<li class="chapter" data-level="B.2" data-path="objectives.html"><a href="objectives.html#the-basics-of-the-unix-shell"><b>B.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="B.3" data-path="objectives.html"><a href="objectives.html#building-tools-with-the-unix-shell"><b>B.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="B.4" data-path="objectives.html"><a href="objectives.html#going-further-with-the-unix-shell"><b>B.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="B.5" data-path="objectives.html"><a href="objectives.html#building-command-line-tools-with-python"><b>B.5</b> Building Command-Line Tools with Python</a></li>
+<li class="chapter" data-level="B.6" data-path="objectives.html"><a href="objectives.html#using-git-at-the-command-line"><b>B.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="B.7" data-path="objectives.html"><a href="objectives.html#going-further-with-git"><b>B.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="B.8" data-path="objectives.html"><a href="objectives.html#working-in-teams"><b>B.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="B.9" data-path="objectives.html"><a href="objectives.html#automating-analyses-with-make"><b>B.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="B.10" data-path="objectives.html"><a href="objectives.html#configuring-programs"><b>B.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="B.11" data-path="objectives.html"><a href="objectives.html#testing-software"><b>B.11</b> Testing Software</a></li>
+<li class="chapter" data-level="B.12" data-path="objectives.html"><a href="objectives.html#handling-errors"><b>B.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="B.13" data-path="objectives.html"><a href="objectives.html#tracking-provenance"><b>B.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="B.14" data-path="objectives.html"><a href="objectives.html#creating-packages-with-python"><b>B.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="keypoints.html"><a href="keypoints.html"><b>C</b> Key Points</a><ul>
+<li class="chapter" data-level="C.1" data-path="keypoints.html"><a href="keypoints.html#getting-started-2"><b>C.1</b> Getting Started</a></li>
+<li class="chapter" data-level="C.2" data-path="keypoints.html"><a href="keypoints.html#the-basics-of-the-unix-shell-1"><b>C.2</b> The Basics of the Unix Shell</a></li>
+<li class="chapter" data-level="C.3" data-path="keypoints.html"><a href="keypoints.html#building-tools-with-the-unix-shell-1"><b>C.3</b> Building Tools with the Unix Shell</a></li>
+<li class="chapter" data-level="C.4" data-path="keypoints.html"><a href="keypoints.html#going-further-with-the-unix-shell-1"><b>C.4</b> Going Further with the Unix Shell</a></li>
+<li class="chapter" data-level="C.5" data-path="keypoints.html"><a href="keypoints.html#building-command-line-programs-in-python"><b>C.5</b> Building Command-Line Programs in Python</a></li>
+<li class="chapter" data-level="C.6" data-path="keypoints.html"><a href="keypoints.html#using-git-at-the-command-line-1"><b>C.6</b> Using Git at the Command Line</a></li>
+<li class="chapter" data-level="C.7" data-path="keypoints.html"><a href="keypoints.html#going-further-with-git-1"><b>C.7</b> Going Further with Git</a></li>
+<li class="chapter" data-level="C.8" data-path="keypoints.html"><a href="keypoints.html#working-in-teams-1"><b>C.8</b> Working in Teams</a></li>
+<li class="chapter" data-level="C.9" data-path="keypoints.html"><a href="keypoints.html#automating-analyses-with-make-1"><b>C.9</b> Automating Analyses with Make</a></li>
+<li class="chapter" data-level="C.10" data-path="keypoints.html"><a href="keypoints.html#configuring-programs-1"><b>C.10</b> Configuring Programs</a></li>
+<li class="chapter" data-level="C.11" data-path="keypoints.html"><a href="keypoints.html#testing-software-1"><b>C.11</b> Testing Software</a></li>
+<li class="chapter" data-level="C.12" data-path="keypoints.html"><a href="keypoints.html#handling-errors-1"><b>C.12</b> Handling Errors</a></li>
+<li class="chapter" data-level="C.13" data-path="keypoints.html"><a href="keypoints.html#tracking-provenance-1"><b>C.13</b> Tracking Provenance</a></li>
+<li class="chapter" data-level="C.14" data-path="keypoints.html"><a href="keypoints.html#creating-packages-with-python-1"><b>C.14</b> Creating Packages with Python</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="tree.html"><a href="tree.html"><b>D</b> Project Tree</a></li>
+<li class="chapter" data-level="E" data-path="ssh.html"><a href="ssh.html"><b>E</b> Working Remotely</a><ul>
+<li class="chapter" data-level="E.1" data-path="ssh.html"><a href="ssh.html#ssh-login"><b>E.1</b> Logging In</a></li>
+<li class="chapter" data-level="E.2" data-path="ssh.html"><a href="ssh.html#ssh-cp"><b>E.2</b> Copying Files</a></li>
+<li class="chapter" data-level="E.3" data-path="ssh.html"><a href="ssh.html#ssh-cmd"><b>E.3</b> Running Commands</a></li>
+<li class="chapter" data-level="E.4" data-path="ssh.html"><a href="ssh.html#ssh-keys"><b>E.4</b> Creating Keys</a></li>
+<li class="chapter" data-level="E.5" data-path="ssh.html"><a href="ssh.html#ssh-filedir"><b>E.5</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="style.html"><a href="style.html"><b>F</b> Writing Readable Code</a><ul>
+<li class="chapter" data-level="F.1" data-path="style.html"><a href="style.html#style-pep8"><b>F.1</b> Python Style</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="style.html"><a href="style.html#spacing"><b>F.1.1</b> Spacing</a></li>
+<li class="chapter" data-level="F.1.2" data-path="style.html"><a href="style.html#naming"><b>F.1.2</b> Naming</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="style.html"><a href="style.html#style-order"><b>F.2</b> Order</a></li>
+<li class="chapter" data-level="F.3" data-path="style.html"><a href="style.html#style-check"><b>F.3</b> Checking Style</a></li>
+<li class="chapter" data-level="F.4" data-path="style.html"><a href="style.html#style-refactor"><b>F.4</b> Refactoring</a><ul>
+<li class="chapter" data-level="F.4.1" data-path="style.html"><a href="style.html#do-not-repeat-values"><b>F.4.1</b> Do not repeat values</a></li>
+<li class="chapter" data-level="F.4.2" data-path="style.html"><a href="style.html#do-not-repeat-calculations-in-loops"><b>F.4.2</b> Do not repeat calculations in loops</a></li>
+<li class="chapter" data-level="F.4.3" data-path="style.html"><a href="style.html#replace-tests-with-flags-to-clarify-repeated-tests"><b>F.4.3</b> Replace tests with flags to clarify repeated tests</a></li>
+<li class="chapter" data-level="F.4.4" data-path="style.html"><a href="style.html#use-in-place-operators-to-avoid-duplicating-expression"><b>F.4.4</b> Use in-place operators to avoid duplicating expression</a></li>
+<li class="chapter" data-level="F.4.5" data-path="style.html"><a href="style.html#handle-special-cases-first"><b>F.4.5</b> Handle special cases first</a></li>
+<li class="chapter" data-level="F.4.6" data-path="style.html"><a href="style.html#use-functions-to-make-code-more-comprehensible"><b>F.4.6</b> Use functions to make code more comprehensible</a></li>
+<li class="chapter" data-level="F.4.7" data-path="style.html"><a href="style.html#combine-operations-in-functions"><b>F.4.7</b> Combine operations in functions</a></li>
+<li class="chapter" data-level="F.4.8" data-path="style.html"><a href="style.html#replace-code-with-data"><b>F.4.8</b> Replace code with data</a></li>
+</ul></li>
+<li class="chapter" data-level="F.5" data-path="style.html"><a href="style.html#style-review"><b>F.5</b> Code Reviews</a></li>
+<li class="chapter" data-level="F.6" data-path="style.html"><a href="style.html#style-features"><b>F.6</b> Python Features</a><ul>
+<li class="chapter" data-level="F.6.1" data-path="style.html"><a href="style.html#provide-default-values-for-parameters"><b>F.6.1</b> Provide default values for parameters</a></li>
+<li class="chapter" data-level="F.6.2" data-path="style.html"><a href="style.html#handle-a-variable-number-of-arguments"><b>F.6.2</b> Handle a variable number of arguments</a></li>
+<li class="chapter" data-level="F.6.3" data-path="style.html"><a href="style.html#unpacking-variable-arguments"><b>F.6.3</b> Unpacking variable arguments</a></li>
+<li class="chapter" data-level="F.6.4" data-path="style.html"><a href="style.html#use-destructuring-to-assign-multiple-values-at-once"><b>F.6.4</b> Use destructuring to assign multiple values at once</a></li>
+</ul></li>
+<li class="chapter" data-level="F.7" data-path="style.html"><a href="style.html#style-summary"><b>F.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="documentation.html"><a href="documentation.html"><b>G</b> Documenting Programs</a><ul>
+<li class="chapter" data-level="G.1" data-path="documentation.html"><a href="documentation.html#documentation-docstrings"><b>G.1</b> Writing Good Docstrings</a></li>
+<li class="chapter" data-level="G.2" data-path="documentation.html"><a href="documentation.html#documentation-audience"><b>G.2</b> Defining Your Audience</a></li>
+<li class="chapter" data-level="G.3" data-path="documentation.html"><a href="documentation.html#documentation-faq"><b>G.3</b> Creating an FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="H" data-path="yaml.html"><a href="yaml.html"><b>H</b> YAML</a></li>
+<li class="chapter" data-level="I" data-path="anaconda.html"><a href="anaconda.html"><b>I</b> Anaconda</a><ul>
+<li class="chapter" data-level="I.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-conda-package-management"><b>I.1</b> Package Management with conda</a><ul>
+<li class="chapter" data-level="I.1.1" data-path="anaconda.html"><a href="anaconda.html#anaconda-cloud"><b>I.1.1</b> Anaconda Cloud</a></li>
+<li class="chapter" data-level="I.1.2" data-path="anaconda.html"><a href="anaconda.html#conda-forge"><b>I.1.2</b> conda-forge</a></li>
+</ul></li>
+<li class="chapter" data-level="I.2" data-path="anaconda.html"><a href="anaconda.html#anaconda-environments"><b>I.2</b> Environment Management with conda</a></li>
+</ul></li>
+<li class="chapter" data-level="J" data-path="glossary.html"><a href="glossary.html"><b>J</b> Glossary</a></li>
+<li class="chapter" data-level="K" data-path="references.html"><a href="references.html"><b>K</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Research Software Engineering with Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="git-cmdline" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Using Git at the Command Line</h1>
+<blockquote>
+<p>+++ Divide By Cucumber Error. Please Reinstall Universe And Reboot +++</p>
+<p>— Terry Pratchett</p>
+</blockquote>
+<p>A <a href="glossary.html#version_control_system">version control system</a> tracks changes to files
+and helps people share those changes with each other.
+These things can be done by emailing files to colleagues
+or by using Microsoft Word and Google Docs,
+but version control does both more accurately and efficiently.
+Originally developed to support software development,
+over the past fifteen years it has become the cornerstone
+of <a href="glossary.html#reproducible_research">reproducible research</a>.</p>
+<p>Version control works by storing a master copy of your code in a repository,
+which you can’t edit directly.
+Instead, you check out a working copy of the code,
+edit that code, then commit changes back to the repository.
+In this way, version control records a complete revision history (i.e., of every commit),
+so that you can retrieve and compare previous versions at any time.
+This is useful from an individual viewpoint,
+because you don’t need to store multiple (but slightly different) copies of the same script
+(Figure <a href="git-cmdline.html#fig:git-cmdline-phdcomics">6.1</a>).
+It’s also useful from a collaboration viewpoint,
+because the system keeps a record of who made what changes and when.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:git-cmdline-phdcomics"></span>
+<img src="figures/git-cmdline/phd-comics.png" alt="Managing different versions of a file without version control." width="100%" />
+<p class="caption">
+Figure 6.1: Managing different versions of a file without version control.
+</p>
+</div>
+<p>There are many different version control systems,
+such as CVS, Subversion, and Mercurial,
+but the most widely used version control system today is <a href="glossary.html#git">Git</a>.
+Many people first encounter it through a GUI like <a href="https://www.gitkraken.com/">GitKraken</a>
+or <a href="https://www.rstudio.com/products/rstudio/">the RStudio IDE</a>.
+However,
+these tools are actually wrappers around Git’s original command-line interface,
+which gives us access to all of Git’s features.
+This lesson describes how to perform fundamental operations using that interface;
+Chapter <a href="git-advanced.html#git-advanced">7</a> then introduces more advanced operations
+that can be used to implement a smoother research workflow.</p>
+<p>To show how Git works,
+we will apply it to the Zipf’s Law project.
+Our project directory should currently include:</p>
+<pre class="text"><code>zipf/
+├── bin
+│   ├── book_summary.sh
+│   ├── collate.py
+│   ├── countwords.py
+│   ├── plotcounts.py
+│   ├── script_template.py
+│   └── utilities.py
+├── data
+│   ├── README.md
+│   ├── dracula.txt
+│   ├── frankenstein.txt
+│   └── ...
+└── results
+    ├── dracula.csv
+    ├── jane_eyre.csv
+    ├── jane_eyre.png
+    └── moby_dick.csv</code></pre>
+<p><code>bin/plotcounts.py</code> is the solution to Exercise <a href="scripting.html#scripting-ex-better-plotting">5.11.4</a>;
+over the course of this chapter
+we will edit it to produce more informative plots.
+Initially,
+it looks like this:</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb377-1"><a href="git-cmdline.html#cb377-1"></a><span class="co">&quot;&quot;&quot;Plot word counts.&quot;&quot;&quot;</span></span>
+<span id="cb377-2"><a href="git-cmdline.html#cb377-2"></a></span>
+<span id="cb377-3"><a href="git-cmdline.html#cb377-3"></a><span class="im">import</span> argparse</span>
+<span id="cb377-4"><a href="git-cmdline.html#cb377-4"></a></span>
+<span id="cb377-5"><a href="git-cmdline.html#cb377-5"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb377-6"><a href="git-cmdline.html#cb377-6"></a></span>
+<span id="cb377-7"><a href="git-cmdline.html#cb377-7"></a></span>
+<span id="cb377-8"><a href="git-cmdline.html#cb377-8"></a><span class="kw">def</span> main(args):</span>
+<span id="cb377-9"><a href="git-cmdline.html#cb377-9"></a>    <span class="co">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span></span>
+<span id="cb377-10"><a href="git-cmdline.html#cb377-10"></a>    df <span class="op">=</span> pd.read_csv(args.infile, header<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb377-11"><a href="git-cmdline.html#cb377-11"></a>                     names<span class="op">=</span>(<span class="st">&#39;word&#39;</span>, <span class="st">&#39;word_frequency&#39;</span>))</span>
+<span id="cb377-12"><a href="git-cmdline.html#cb377-12"></a>    df[<span class="st">&#39;rank&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;word_frequency&#39;</span>].rank(ascending<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb377-13"><a href="git-cmdline.html#cb377-13"></a>                                           method<span class="op">=</span><span class="st">&#39;max&#39;</span>)</span>
+<span id="cb377-14"><a href="git-cmdline.html#cb377-14"></a>    df[<span class="st">&#39;inverse_rank&#39;</span>] <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> df[<span class="st">&#39;rank&#39;</span>]</span>
+<span id="cb377-15"><a href="git-cmdline.html#cb377-15"></a>    ax <span class="op">=</span> df.plot.scatter(x<span class="op">=</span><span class="st">&#39;word_frequency&#39;</span>,</span>
+<span id="cb377-16"><a href="git-cmdline.html#cb377-16"></a>                         y<span class="op">=</span><span class="st">&#39;inverse_rank&#39;</span>,</span>
+<span id="cb377-17"><a href="git-cmdline.html#cb377-17"></a>                         figsize<span class="op">=</span>[<span class="dv">12</span>, <span class="dv">6</span>],</span>
+<span id="cb377-18"><a href="git-cmdline.html#cb377-18"></a>                         grid<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb377-19"><a href="git-cmdline.html#cb377-19"></a>                         xlim<span class="op">=</span>args.xlim)</span>
+<span id="cb377-20"><a href="git-cmdline.html#cb377-20"></a>    ax.figure.savefig(args.outfile)</span>
+<span id="cb377-21"><a href="git-cmdline.html#cb377-21"></a></span>
+<span id="cb377-22"><a href="git-cmdline.html#cb377-22"></a></span>
+<span id="cb377-23"><a href="git-cmdline.html#cb377-23"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb377-24"><a href="git-cmdline.html#cb377-24"></a>    parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span>__doc__)</span>
+<span id="cb377-25"><a href="git-cmdline.html#cb377-25"></a>    parser.add_argument(<span class="st">&#39;infile&#39;</span>, <span class="bu">type</span><span class="op">=</span>argparse.FileType(<span class="st">&#39;r&#39;</span>),</span>
+<span id="cb377-26"><a href="git-cmdline.html#cb377-26"></a>                        nargs<span class="op">=</span><span class="st">&#39;?&#39;</span>, default<span class="op">=</span><span class="st">&#39;-&#39;</span>,</span>
+<span id="cb377-27"><a href="git-cmdline.html#cb377-27"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Word count csv file name&#39;</span>)</span>
+<span id="cb377-28"><a href="git-cmdline.html#cb377-28"></a>    parser.add_argument(<span class="st">&#39;--outfile&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">str</span>,</span>
+<span id="cb377-29"><a href="git-cmdline.html#cb377-29"></a>                        default<span class="op">=</span><span class="st">&#39;plotcounts.png&#39;</span>,</span>
+<span id="cb377-30"><a href="git-cmdline.html#cb377-30"></a>                        <span class="bu">help</span><span class="op">=</span><span class="st">&#39;Output image file name&#39;</span>)</span>
+<span id="cb377-31"><a href="git-cmdline.html#cb377-31"></a>    parser.add_argument(<span class="st">&#39;--xlim&#39;</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">float</span>, nargs<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb377-32"><a href="git-cmdline.html#cb377-32"></a>                        metavar<span class="op">=</span>(<span class="st">&#39;XMIN&#39;</span>, <span class="st">&#39;XMAX&#39;</span>),</span>
+<span id="cb377-33"><a href="git-cmdline.html#cb377-33"></a>                        default<span class="op">=</span><span class="va">None</span>, <span class="bu">help</span><span class="op">=</span><span class="st">&#39;X-axis limits&#39;</span>)</span>
+<span id="cb377-34"><a href="git-cmdline.html#cb377-34"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb377-35"><a href="git-cmdline.html#cb377-35"></a>    main(args)</span></code></pre></div>
+<div id="git-cmdline-setup" class="section level2">
+<h2><span class="header-section-number">6.1</span> Setting Up</h2>
+<p>We write Git commands as <code>git verb options</code>,
+where the <a href="glossary.html#subcommand">subcommand</a> <code>verb</code> tells Git what we want to do
+and <code>options</code> provide whatever additional information that subcommand needs.
+Using this syntax,
+the first thing we need to do is configure Git.</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb378-1"><a href="git-cmdline.html#cb378-1"></a>$ <span class="fu">git</span> config --global user.name <span class="st">&quot;Amira Khan&quot;</span></span>
+<span id="cb378-2"><a href="git-cmdline.html#cb378-2"></a>$ <span class="fu">git</span> config --global user.email <span class="st">&quot;amira@zipf.org&quot;</span></span></code></pre></div>
+<p>(Please use your own name and email address instead of the one shown.)
+Here,
+<code>config</code> is the verb
+and the rest of the command are options.
+We put the name in quotation marks because it contains a space;
+we don’t actually need to quote the email address,
+but do so for consistency.
+Since we are going to be using GitHub,
+the email address should be the same as you have or intend to use
+when setting up your GitHub account.</p>
+<p>The <code>--global</code> option tells Git to use the settings for all of our projects on this computer,
+so these two commands only need to be run once.
+However,
+we can re-run them any time if we want to change our details.
+We can also check our settings using the <code>--list</code> option:</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb379-1"><a href="git-cmdline.html#cb379-1"></a>$ <span class="fu">git</span> config --list</span></code></pre></div>
+<pre class="text"><code>user.name=Amira Khan
+user.email=amira@zipf.org
+core.autocrlf=input
+core.editor=nano
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.ignorecase=true
+...</code></pre>
+<p>Depending on your operating system and version of Git,
+your configuration list may look a bit different.
+Most of these differences shouldn’t matter right now,
+as long as your username and email are accurate.</p>
+<blockquote>
+<p><strong>Git Help and Manual</strong></p>
+<p>If we forget a Git command,
+we can list which ones are available using <code>--help</code>:</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb381-1"><a href="git-cmdline.html#cb381-1"></a>$ <span class="fu">git</span> --help</span></code></pre></div>
+<p>This option also gives us more information about specific commands:</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb382-1"><a href="git-cmdline.html#cb382-1"></a>$ <span class="fu">git</span> config --help</span></code></pre></div>
+</blockquote>
+</div>
+<div id="git-cmdline-repos" class="section level2">
+<h2><span class="header-section-number">6.2</span> Creating a New Repository</h2>
+<p>Once Git is configured,
+we can use it to track work on our Zipf’s Law project.
+Let’s make sure we are in the top-level directory of our project:</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb383-1"><a href="git-cmdline.html#cb383-1"></a>$ <span class="bu">cd</span> ~/zipf</span>
+<span id="cb383-2"><a href="git-cmdline.html#cb383-2"></a>$ <span class="fu">ls</span></span></code></pre></div>
+<pre class="text"><code> bin       data      results</code></pre>
+<p>We want to make this directory a <a href="glossary.html#repository">repository</a>,
+i.e.,
+a place where Git can store versions of our files.
+We do this using the <code>init</code> command with <code>.</code> to mean “the current directory”:</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb385-1"><a href="git-cmdline.html#cb385-1"></a>$ <span class="fu">git</span> init .</span></code></pre></div>
+<pre class="text"><code>Initialized empty Git repository in /Users/amira/zipf/.git/</code></pre>
+<p><code>ls</code> seems to show that nothing has changed:</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb387-1"><a href="git-cmdline.html#cb387-1"></a>$ <span class="fu">ls</span></span></code></pre></div>
+<pre class="text"><code>bin     data    results</code></pre>
+<p>but if we add the <code>-a</code> flag to show everything,
+we can see that Git has created a hidden directory within <code>zipf</code> called <code>.git</code>:</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb389-1"><a href="git-cmdline.html#cb389-1"></a>$ <span class="fu">ls</span> -a</span></code></pre></div>
+<pre class="text"><code>.       ..      .git    bin     data    results</code></pre>
+<p>Git stores information about the project in this special subdirectory.
+If we ever delete it,
+we will lose that history.</p>
+<p>We can check that everything is set up correctly
+by asking Git to tell us the status of our project:</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb391-1"><a href="git-cmdline.html#cb391-1"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<pre class="text"><code>On branch master
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be
+  committed)
+
+        bin/
+        data/
+        results/
+
+nothing added to commit but untracked files
+present (use &quot;git add&quot; to track)</code></pre>
+<p>“No commits yet” means that Git hasn’t recorded any history yet,
+while “Untracked files” means Git has noticed that
+there are things in <code>bin/</code>, <code>data/</code> and <code>results/</code>
+that it is not yet keeping track of.</p>
+</div>
+<div id="git-cmdline-add-existing" class="section level2">
+<h2><span class="header-section-number">6.3</span> Adding Existing Work</h2>
+<p>Now that our project is a repository,
+we can tell Git to start recording its history.
+To do this,
+we add things to the list of things Git is tracking using <code>git add</code>.
+We can do this for single files:</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb393-1"><a href="git-cmdline.html#cb393-1"></a>$ <span class="fu">git</span> add bin/countwords.py</span></code></pre></div>
+<p>or entire directories:</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb394-1"><a href="git-cmdline.html#cb394-1"></a>$ <span class="fu">git</span> add bin</span></code></pre></div>
+<p>The easiest thing to do with an existing project
+is to tell Git to add everything in the current directory using <code>.</code>:</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb395-1"><a href="git-cmdline.html#cb395-1"></a>$ <span class="fu">git</span> add .</span></code></pre></div>
+<p>We can then check the repository’s status to see what files have been added:</p>
+<div class="sourceCode" id="cb396"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb396-1"><a href="git-cmdline.html#cb396-1"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<pre class="text"><code>On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+      new file:   bin/book_summary.sh
+      new file:   bin/collate.py
+      new file:   bin/countwords.py
+      new file:   bin/plotcounts.py
+      new file:   bin/script_template.py
+      new file:   bin/utilities.py
+      new file:   data/README.md
+      new file:   data/dracula.txt
+      new file:   data/frankenstein.txt
+      new file:   data/jane_eyre.txt
+      new file:   data/moby_dick.txt
+      new file:   data/sense_and_sensibility.txt
+      new file:   data/sherlock_holmes.txt
+      new file:   data/time_machine.txt
+      new file:   results/dracula.csv
+      new file:   results/jane_eyre.csv
+      new file:   results/jane_eyre.png
+      new file:   results/moby_dick.csv</code></pre>
+<p>Adding all of our existing files this way is easy,
+but we can accidentally add things that should never be in version control,
+such as files containing passwords or other sensitive information.
+The output of <code>git status</code> tells us that
+we can remove such files from the list of things to be saved
+using <code>git rm --cached</code>;
+we will practice this in Exercise <a href="git-cmdline.html#git-cmdline-ex-unsave">6.11.2</a>.</p>
+<blockquote>
+<p><strong>What to Save</strong></p>
+<p>We always want to save programs, manuscripts,
+and everything else we have created by hand
+in version control.
+In this project,
+we have also chosen to save our data files
+and the results we have generated
+(including our plots).
+This is a project-specific decision:
+if these files are very large,
+for example,
+we may decide to save them elsewhere,
+while if they are easy to re-create,
+we may not save them at all.
+We will explore this issue further in Chapter <a href="provenance.html#provenance">13</a>.</p>
+</blockquote>
+<p>We no longer have any untracked files,
+but the tracked files haven’t been <a href="glossary.html#commit">committed</a>
+(i.e., saved permanently in our project’s history).
+We can do this using <code>git commit</code>:</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb398-1"><a href="git-cmdline.html#cb398-1"></a>$ <span class="fu">git</span> commit -m <span class="st">&quot;Add scripts, novels, word counts, and plots&quot;</span></span></code></pre></div>
+<pre class="text"><code>[master (root-commit) 173222b] Add scripts, novels, word 
+    counts, and plots
+ 18 files changed, 145296 insertions(+)
+ create mode 100644 bin/book_summary.sh
+ create mode 100644 bin/collate.py
+ create mode 100644 bin/countwords.py
+ create mode 100644 bin/plotcounts.py
+ create mode 100644 bin/script_template.py
+ create mode 100644 bin/utilities.py
+ create mode 100644 data/README.md
+ create mode 100644 data/dracula.txt
+ create mode 100644 data/frankenstein.txt
+ create mode 100644 data/jane_eyre.txt
+ create mode 100644 data/moby_dick.txt
+ create mode 100644 data/sense_and_sensibility.txt
+ create mode 100644 data/sherlock_holmes.txt
+ create mode 100644 data/time_machine.txt
+ create mode 100644 results/dracula.csv
+ create mode 100644 results/jane_eyre.csv
+ create mode 100644 results/jane_eyre.png
+ create mode 100644 results/moby_dick.csv</code></pre>
+<p><code>git commit</code> takes everything we have told Git to save using <code>git add</code>
+and stores a copy permanently inside the repository’s <code>.git</code> directory.
+This permanent copy is called a <a href="glossary.html#commit">commit</a> or a <a href="glossary.html#revision">revision</a>.
+Git gives is a unique identifier,
+and the first line of output from <code>git commit</code> displays
+its <a href="glossary.html#short_identifier_git">short identifier</a> <code>2dc78f0</code>,
+which is the first few characters of that unique label.</p>
+<p>We use the <code>-m</code> option (short for <strong>m</strong>essage)
+to record a short comment with the commit
+to remind us later what we did and why.
+(Once again,
+we put it in double quotes because it contains spaces.)
+If we run <code>git status</code> now:</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb400-1"><a href="git-cmdline.html#cb400-1"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<p>the output tells us that
+all of our existing work is tracked and up to date:</p>
+<pre class="text"><code>On branch master
+nothing to commit, working tree clean</code></pre>
+<p>This first commit becomes the starting point of our project’s history:
+we won’t be able to see changes made before this point.
+This implies that we should make our project a Git repository
+as soon as we create it
+rather than after we have done some work.</p>
+</div>
+<div id="git-cmdline-commit-message" class="section level2">
+<h2><span class="header-section-number">6.4</span> Describing Commits</h2>
+<p>If we run <code>git commit</code> <em>without</em> the <code>-m</code> option,
+Git opens a text editor
+so that we can write a longer <a href="glossary.html#commit_message">commit message</a>.
+In this message,
+the first line is referred to as the “subject”
+and the rest as the “body”,
+just as in an email.</p>
+<p>When we use <code>-m</code>,
+we are only writing the subject line;
+this makes things easier in the short run,
+but if our project’s history fills up with one-liners like
+“Fixed problem” or “Updated”,
+our future self will wish that we had taken a few extra seconds
+to explain things in a little more detail.
+Following <a href="https://chris.beams.io/posts/git-commit/">these guidelines</a> will help:</p>
+<ol style="list-style-type: decimal">
+<li>Separate the subject from the body with a blank line
+so that it is easy to spot.</li>
+<li>Limit subject lines to 50 characters so that they are easy to scan.</li>
+<li>Write the subject line in Title Case (like a section heading).</li>
+<li>Do not end the subject line with a period.</li>
+<li>Write as if giving a command
+(e.g., “Make each plot half the width of the page”).</li>
+<li>Wrap the body
+(i.e., insert line breaks to format text as paragraphs
+rather than relying on editors to wrap lines automatically).</li>
+<li>Use the body to explain what and why rather than how.</li>
+</ol>
+<blockquote>
+<p><strong>Which Editor?</strong></p>
+<p>The default editor in the Unix shell is called Vim.
+It has many useful features,
+but no one has ever claimed that its interface is intuitive.
+(“How do I exit the Vim editor?”
+is one of the most frequently read questions on Stack Overflow.)</p>
+<p>To configure Git to use the <code>nano</code> editor
+introduced in Chapter <a href="bash-basics.html#bash-basics">2</a> instead,
+execute the following command:</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb402-1"><a href="git-cmdline.html#cb402-1"></a>$ <span class="fu">git</span> config --global core.editor <span class="st">&quot;nano -w&quot;</span></span></code></pre></div>
+</blockquote>
+</div>
+<div id="git-cmdline-changes" class="section level2">
+<h2><span class="header-section-number">6.5</span> Saving and Tracking Changes</h2>
+<p>Our initial commit gave us a starting point.
+The process to build on top of it is similar:
+first add the file, then commit changes.
+Let’s check that we’re in the right directory:</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb403-1"><a href="git-cmdline.html#cb403-1"></a>$ <span class="bu">pwd</span></span></code></pre></div>
+<pre class="text"><code>/Users/amira/zipf</code></pre>
+<p>Let’s use <code>plotcounts.py</code> to plot the word counts in <code>results/dracula.csv</code>:</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb405-1"><a href="git-cmdline.html#cb405-1"></a>$ <span class="ex">python</span> bin/plotcounts.py results/dracula.csv --outfile</span>
+<span id="cb405-2"><a href="git-cmdline.html#cb405-2"></a>  <span class="ex">results/dracula.png</span></span></code></pre></div>
+<p>If we check the status of our repository again,
+Git tells us that we have a new file:</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb406-1"><a href="git-cmdline.html#cb406-1"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<pre class="text"><code>On branch master
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be
+  committed)
+    results/dracula.png
+
+nothing added to commit but untracked files
+present (use &quot;git add&quot; to track)</code></pre>
+<p>Git isn’t tracking this file yet because we haven’t told it to.
+Let’s do that with <code>git add</code> and then commit our change:</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb408-1"><a href="git-cmdline.html#cb408-1"></a>$ <span class="fu">git</span> add results/dracula.png</span>
+<span id="cb408-2"><a href="git-cmdline.html#cb408-2"></a>$ <span class="fu">git</span> commit -m <span class="st">&quot;Add plot of word counts for &#39;Dracula&#39;&quot;</span></span></code></pre></div>
+<pre class="text"><code>[master 851d590] Add plot of word counts for &#39;Dracula&#39;
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 results/dracula.png</code></pre>
+<p>If we want to know what we’ve done recently,
+we can display the project’s history using <code>git log</code>:</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb410-1"><a href="git-cmdline.html#cb410-1"></a>$ <span class="fu">git</span> log</span></code></pre></div>
+<pre class="text"><code>commit 851d590a214c7859eafa0998c6c951f8e0eb359b (HEAD -&gt; master)
+Author: Amira Khan &lt;amira@zipf.org&gt;
+Date:   Sat Dec 19 09:32:41 2020 -0800
+
+    Add plot of word counts for &#39;Dracula&#39;
+
+commit 173222bf90216b408c8997f4e143572b99637750
+Author: Amira Khan &lt;amira@zipf.org&gt;
+Date:   Sat Dec 19 09:30:23 2020 -0800
+
+    Add scripts, novels, word counts, and plots</code></pre>
+<p><code>git log</code> lists all commits made to a repository in reverse chronological order.
+The listing for each commit includes
+the commit’s <a href="glossary.html#full_identifier_git">full identifier</a>
+(which starts with the same characters as the short identifier printed by <code>git commit</code>),
+the commit’s author,
+when it was created,
+and the commit message that we wrote.</p>
+<blockquote>
+<p><strong>Scrolling through Logs</strong></p>
+<p>Our log this time isn’t very long,
+so you were likely able to see it printed to your screen without needing to scroll.
+When you begin working with longer logs
+(like later in this chapter),
+you’ll notice that the commits are shown in a pager program,
+as you saw in Section <a href="bash-basics.html#bash-basics-help">2.8</a> with manual pages.
+You can apply the same keystrokes to scroll through the log
+and exit the paging program.</p>
+</blockquote>
+<p>The plot we have made is shown in Figure <a href="git-cmdline.html#fig:git-cmdline-initial-plot">6.2</a>.
+It could be better:
+most of the visual space is devoted to a few very common words,
+which makes it hard to see what is happening with the other ten thousand or so words.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:git-cmdline-initial-plot"></span>
+<img src="figures/git-cmdline/plot-initial.png" alt="Inverse rank versus word frequency for *Dracula*." width="100%" />
+<p class="caption">
+Figure 6.2: Inverse rank versus word frequency for <em>Dracula</em>.
+</p>
+</div>
+<p>An alternative way to visually evaluate Zipf’s Law is
+to plot the word frequency against rank on log-log axes.
+Let’s change the section:</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb412-1"><a href="git-cmdline.html#cb412-1"></a>    ax <span class="op">=</span> df.plot.scatter(x<span class="op">=</span><span class="st">&#39;word_frequency&#39;</span>,</span>
+<span id="cb412-2"><a href="git-cmdline.html#cb412-2"></a>                         y<span class="op">=</span><span class="st">&#39;inverse_rank&#39;</span>,</span>
+<span id="cb412-3"><a href="git-cmdline.html#cb412-3"></a>                         figsize<span class="op">=</span>[<span class="dv">12</span>, <span class="dv">6</span>],</span>
+<span id="cb412-4"><a href="git-cmdline.html#cb412-4"></a>                         grid<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb412-5"><a href="git-cmdline.html#cb412-5"></a>                         xlim<span class="op">=</span>args.xlim)</span></code></pre></div>
+<p>to put <code>'rank'</code> on the y-axis and add <code>loglog=True</code>:</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb413-1"><a href="git-cmdline.html#cb413-1"></a>    ax <span class="op">=</span> df.plot.scatter(x<span class="op">=</span><span class="st">&#39;word_frequency&#39;</span>,</span>
+<span id="cb413-2"><a href="git-cmdline.html#cb413-2"></a>                         y<span class="op">=</span><span class="st">&#39;rank&#39;</span>, loglog<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb413-3"><a href="git-cmdline.html#cb413-3"></a>                         figsize<span class="op">=</span>[<span class="dv">12</span>, <span class="dv">6</span>],</span>
+<span id="cb413-4"><a href="git-cmdline.html#cb413-4"></a>                         grid<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb413-5"><a href="git-cmdline.html#cb413-5"></a>                         xlim<span class="op">=</span>args.xlim)</span></code></pre></div>
+<p>When we check our status again,
+it prints:</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb414-1"><a href="git-cmdline.html#cb414-1"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<pre class="text"><code>On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be 
+  committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in
+  working directory)
+      modified:   bin/plotcounts.py
+
+no changes added to commit (use &quot;git add&quot; or &quot;git commit -a&quot;)</code></pre>
+<p>The last line tells us that
+a file Git already knows about has been modified.</p>
+<blockquote>
+<p><strong>Hints from Git</strong></p>
+<p>After executing Git commands,
+you may see output that differs slightly from what is shown here.
+For example,
+you may see a suggestion for <code>git checkout</code>
+in place of <code>git restore</code> after executing the code above,
+which means you’re running a different version of Git.
+As with most tasks in coding,
+there are often multiple commands to accomplish the same action with Git.
+This chapter will show output from Git version 2.29.
+If you see something different in your Git output,
+you can try the commands we present here,
+or follow the suggestions included in the output you see.
+When in doubt,
+check the documentation (e.g., <code>git checkout --help</code>)
+if you get stuck.</p>
+</blockquote>
+<p>To save those changes in the repository’s history,
+we must <code>git add</code> and then <code>git commit</code>.
+Before we do,
+though,
+let’s review the changes using <code>git diff</code>.
+This command shows us the differences between the current state of our repository
+and the most recently saved version:</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb416-1"><a href="git-cmdline.html#cb416-1"></a>$ <span class="fu">git</span> diff</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb417-1"><a href="git-cmdline.html#cb417-1"></a><span class="kw">diff --git a/bin/plotcounts.py b/bin/plotcounts.py</span></span>
+<span id="cb417-2"><a href="git-cmdline.html#cb417-2"></a>index f274473..c4c5b5a 100644</span>
+<span id="cb417-3"><a href="git-cmdline.html#cb417-3"></a><span class="dt">--- a/bin/plotcounts.py</span></span>
+<span id="cb417-4"><a href="git-cmdline.html#cb417-4"></a><span class="dt">+++ b/bin/plotcounts.py</span></span>
+<span id="cb417-5"><a href="git-cmdline.html#cb417-5"></a><span class="dt">@@ -13,7 +13,7 @@ def main(args):</span></span>
+<span id="cb417-6"><a href="git-cmdline.html#cb417-6"></a>                                            method=&#39;max&#39;)</span>
+<span id="cb417-7"><a href="git-cmdline.html#cb417-7"></a>     df[&#39;inverse_rank&#39;] = 1 / df[&#39;rank&#39;]</span>
+<span id="cb417-8"><a href="git-cmdline.html#cb417-8"></a>     ax = df.plot.scatter(x=&#39;word_frequency&#39;,</span>
+<span id="cb417-9"><a href="git-cmdline.html#cb417-9"></a><span class="st">-                         y=&#39;inverse_rank&#39;,</span></span>
+<span id="cb417-10"><a href="git-cmdline.html#cb417-10"></a><span class="va">+                         y=&#39;rank&#39;, loglog=True,</span></span>
+<span id="cb417-11"><a href="git-cmdline.html#cb417-11"></a>                          figsize=[12, 6],</span>
+<span id="cb417-12"><a href="git-cmdline.html#cb417-12"></a>                          grid=True,</span>
+<span id="cb417-13"><a href="git-cmdline.html#cb417-13"></a>                          xlim=args.xlim)</span></code></pre></div>
+<p>The output is cryptic,
+even by the standards of the Unix command line,
+because it is actually a series of commands telling editors and other tools
+how to turn the file we <em>had</em> into the file we <em>have</em>.
+If we break it down into pieces:</p>
+<ol style="list-style-type: decimal">
+<li>The first line tells us that Git is producing output
+in the format of the Unix <code>diff</code> command.</li>
+<li>The second line tells exactly which versions of the file Git is comparing:
+<code>f274473</code> and <code>c4c5b5a</code> are the short identifiers for those versions.</li>
+<li>The third and fourth lines once again show the name of the file being changed;
+the name appears twice in case we are renaming a file as well as modifying it.</li>
+<li>The remaining lines show us the changes and the lines on which they occur.
+A minus sign <code>-</code> in the first column indicates a line that is being removed,
+while a plus sign <code>+</code> shows a line that is being added. Lines without either
+plus or minus signs have not been changed, but are provided around the lines
+that have been changed to add context.</li>
+</ol>
+<p>Git’s default is to compare line by line,
+but it can be instructive to instead compare word by word
+using the <code>--word-diff</code> or <code>--color-words</code> options.
+These are particularly useful when running <code>git diff</code> on prose rather than code.</p>
+<p>After reviewing our change
+we can commit it just as we did before:</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb418-1"><a href="git-cmdline.html#cb418-1"></a>$ <span class="fu">git</span> commit -m <span class="st">&quot;Plot frequency against rank on log-log axes&quot;</span></span></code></pre></div>
+<pre class="text"><code>On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be 
+  committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in 
+  working directory)
+      modified:   bin/plotcounts.py
+
+no changes added to commit (use &quot;git add&quot; or &quot;git commit -a&quot;)</code></pre>
+<p>Whoops:
+we forgot to add the file to the set of things we want to commit.
+Let’s do that and then try the commit again:</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb420-1"><a href="git-cmdline.html#cb420-1"></a>$ <span class="fu">git</span> add bin/plotcounts.py</span>
+<span id="cb420-2"><a href="git-cmdline.html#cb420-2"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<pre class="text"><code>On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+      modified:   bin/plotcounts.py</code></pre>
+<div class="sourceCode" id="cb422"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb422-1"><a href="git-cmdline.html#cb422-1"></a>$ <span class="fu">git</span> commit -m <span class="st">&quot;Plot frequency against rank on log-log axes&quot;</span></span></code></pre></div>
+<pre class="text"><code>[master 582f7f6] Plot frequency against rank on log-log axes
+1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
+<blockquote>
+<p><strong>The Staging Area</strong></p>
+<p>Git insists that we add files to the set we want to commit before actually committing anything.
+This allows us to commit our changes in stages and capture changes in logical portions
+rather than only large batches.
+For example,
+suppose we add a few citations to the introduction of our thesis,
+which is in the file <code>introduction.tex</code>.
+We might want to commit those additions
+but not commit the changes to <code>conclusion.tex</code> (which we haven’t finished writing yet).
+To allow for this,
+Git has a special <a href="glossary.html#git_stage">staging area</a>
+where it keeps track of things
+that have been added to the current changeset but not yet committed
+(Figure <a href="git-cmdline.html#fig:git-cmdline-staging-area">6.3</a>).</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:git-cmdline-staging-area"></span>
+<img src="figures/git-cmdline/staging-area.png" alt="The staging area in Git." width="100%" />
+<p class="caption">
+Figure 6.3: The staging area in Git.
+</p>
+</div>
+<p>Let’s take a look at our new plot (Figure <a href="git-cmdline.html#fig:git-cmdline-loglog-plot">6.4</a>):</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb424-1"><a href="git-cmdline.html#cb424-1"></a>$ <span class="ex">python</span> bin/plotcounts.py results/dracula.csv --outfile</span>
+<span id="cb424-2"><a href="git-cmdline.html#cb424-2"></a>  <span class="ex">results/dracula.png</span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:git-cmdline-loglog-plot"></span>
+<img src="figures/git-cmdline/plot-loglog.png" alt="Rank versus word frequency on log-log axes for 'Dracula'." width="100%" />
+<p class="caption">
+Figure 6.4: Rank versus word frequency on log-log axes for ‘Dracula’.
+</p>
+</div>
+<blockquote>
+<p><strong>Interpreting Our Plot</strong></p>
+<p>If Zipf’s Law holds,
+we should still see a linear relationship,
+although now it will be negative, rather than positive
+(since we’re plotting the rank instead of the reverse rank).
+The low-frequency words (below about 120 instances)
+seem to follow a straight line very closely,
+but we currently have to make this evaluation by eye.
+In the next chapter,
+we’ll write code to fit and add a line to our plot.</p>
+</blockquote>
+<p>Running <code>git status</code> again shows that our plot has been modified:</p>
+<pre class="text"><code>On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be
+  committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in
+  working directory)
+      modified:   results/dracula.png
+
+no changes added to commit (use &quot;git add&quot; or &quot;git commit -a&quot;)</code></pre>
+<p>Since <code>results/dracula.png</code> is a binary file rather than text,
+<code>git diff</code> can’t show what has changed.
+It therefore simply tells us that the new file is different from the old one:</p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb426-1"><a href="git-cmdline.html#cb426-1"></a><span class="kw">diff --git a/results/dracula.png b/results/dracula.png</span></span>
+<span id="cb426-2"><a href="git-cmdline.html#cb426-2"></a>index c1f62fd..57a7b70 100644</span>
+<span id="cb426-3"><a href="git-cmdline.html#cb426-3"></a>Binary files a/results/dracula.png and </span>
+<span id="cb426-4"><a href="git-cmdline.html#cb426-4"></a>b/results/dracula.png differ</span></code></pre></div>
+<p>This is one of the biggest weaknesses of Git
+(and other version control systems):
+they are built to handle text.
+They can track changes to images, PDFs, and other formats,
+but they cannot do as much to show or merge differences.
+In a better world than ours,
+programmers fixed this years ago.</p>
+<p>If we are sure we want to save all of our changes,
+we can add and commit in a single command
+by giving <code>git commit</code> the <code>-a</code> option:</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb427-1"><a href="git-cmdline.html#cb427-1"></a>$ <span class="fu">git</span> commit -a -m <span class="st">&quot;Update dracula plot&quot;</span></span></code></pre></div>
+<pre class="text"><code>[master ee8684c] Update dracula plot
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rewrite results/dracula.png (99%)</code></pre>
+<p>The Git commands we’ve covered so far (<code>git add</code>, <code>git commit</code>, <code>git diff</code>)
+represent the tasks you perform in a basic Git workflow in a local repository
+(Figure <a href="git-cmdline.html#fig:git-cmdline-remote">6.5</a>a).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:git-cmdline-remote"></span>
+<img src="figures/git-cmdline/git-remote.png" alt="Commands included in basic Git workflows." width="100%" />
+<p class="caption">
+Figure 6.5: Commands included in basic Git workflows.
+</p>
+</div>
+</div>
+<div id="git-cmdline-remotes" class="section level2">
+<h2><span class="header-section-number">6.6</span> Synchronizing with Other Repositories</h2>
+<p>Sooner or later our computer will experience a hardware failure,
+be stolen,
+or be thrown in the lake by someone who thinks that
+we shouldn’t spend the entire vacation working on our thesis.
+Even before that happens
+we will probably want to collaborate with others,
+which we can do by linking our local repository
+to one stored on a hosting service such as <a href="https://github.com">GitHub</a>.</p>
+<blockquote>
+<p><strong>Where’s My Repository?</strong></p>
+<p>So far we’ve worked with repositories located on your own computer,
+which we’ll also refer to as local or desktop repositories.
+The alternative is hosting repositories on GitHub or another server,
+which we’ll refer to as a remote or GitHub repository.</p>
+</blockquote>
+<p>The first steps are to create an account on GitHub,
+and then select the option there to create a new remote repository
+to synchronize with our local repository.
+Select the option on GitHub to create a new repository,
+then add the requested information for your Zipf’s Law project.
+The remote repository doesn’t have to have the same name as the local one,
+but we will probably get confused if they are different,
+so the repository we create on GitHub will also be called <code>zipf</code>.
+The other default options are likely appropriate for your remote repository.
+Because we are synchronizing with an existing repository,
+do not add a README, <code>.gitignore</code>, or license;
+we’ll discuss these additions in other chapters.</p>
+<div style="page-break-after: always;"></div>
+<p>Next,
+we need to connect our desktop repository with the one on GitHub.
+We do this by making the GitHub repository a <a href="glossary.html#remote_repository">remote</a>
+of the local repository.
+The home page of our new repository on GitHub includes the string we need to identify it
+(Figure <a href="git-cmdline.html#fig:git-cmdline-repo-link">6.6</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:git-cmdline-repo-link"></span>
+<img src="figures/git-cmdline/repo-link.png" alt="Find the link for a GitHub repository." width="100%" />
+<p class="caption">
+Figure 6.6: Find the link for a GitHub repository.
+</p>
+</div>
+<p>We can click on “HTTPS” to change the URL from SSH to HTTPS
+and then copy that URL.</p>
+<blockquote>
+<p><strong>HTTPS vs. SSH</strong></p>
+<p>We use HTTPS here because it does not require additional configuration.
+If we want to set up SSH access so that we do not have to type in our password as often,
+the tutorials from <a href="https://help.github.com/articles/generating-ssh-keys">GitHub</a>,
+<a href="https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html">BitBucket</a>,
+or <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">GitLab</a>
+explain the steps required.</p>
+</blockquote>
+<p>Next,
+let’s go into the local <code>zipf</code> repository and run this command:</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb429-1"><a href="git-cmdline.html#cb429-1"></a>$ <span class="bu">cd</span> ~/zipf</span>
+<span id="cb429-2"><a href="git-cmdline.html#cb429-2"></a>$ <span class="fu">git</span> remote add origin https://github.com/amira-khan/zipf.git</span></code></pre></div>
+<div style="page-break-after: always;"></div>
+<p>Make sure to use the URL for your repository instead of the one shown:
+the only difference should be that it includes your username instead of <code>amira-khan</code>.</p>
+<p>A Git remote is like a bookmark:
+it gives a short name to a URL.
+In this case the remote’s name is <code>origin</code>;
+we could use anything we want,
+but <code>origin</code> is Git’s default,
+so we will stick with it.
+We can check that the command has worked by running <code>git remote -v</code>
+(where the <code>-v</code> option is short for <strong>v</strong>erbose):</p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb430-1"><a href="git-cmdline.html#cb430-1"></a>$ <span class="fu">git</span> remote -v</span></code></pre></div>
+<pre class="text"><code>origin  https://github.com/amira-khan/zipf.git (fetch)
+origin  https://github.com/amira-khan/zipf.git (push)</code></pre>
+<p>Git displays two lines because it’s actually possible to set up a remote
+to download from one URL but upload to another.
+Sensible people don’t do this,
+so we won’t explore this possibility any further.</p>
+<p>Now that we have configured a remote,
+we can <a href="glossary.html#git_push">push</a> the work we have done so far
+to the repository on GitHub:</p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb432-1"><a href="git-cmdline.html#cb432-1"></a>$ <span class="fu">git</span> push origin master</span></code></pre></div>
+<p>This may prompt us to enter our username and password;
+once we do that,
+Git prints a few lines of administrative information:</p>
+<pre class="text"><code>Enumerating objects: 35, done.
+Counting objects: 100% (35/35), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (35/35), done.
+Writing objects: 100% (35/35), 2.17 MiB | 602.00 KiB/s, done.
+Total 35 (delta 7), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (7/7), done.
+To https://github.com/amira-khan/zipf.git
+ * [new branch]      master -&gt; master</code></pre>
+<p>If we view our GitHub repository in the browser,
+it now includes all of our project files,
+along with all of the commits we have made so far (Figure <a href="git-cmdline.html#fig:git-cmdline-history">6.7</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:git-cmdline-history"></span>
+<img src="figures/git-cmdline/repo-history.png" alt="Viewing the repository's history on GitHub." width="100%" />
+<p class="caption">
+Figure 6.7: Viewing the repository’s history on GitHub.
+</p>
+</div>
+<div style="page-break-after: always;"></div>
+<p>We can also <a href="glossary.html#git_pull">pull</a> changes
+from the remote repository to the local one:</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb434-1"><a href="git-cmdline.html#cb434-1"></a>$ <span class="fu">git</span> pull origin master</span></code></pre></div>
+<pre class="text"><code>From https://github.com/amira-khan/zipf
+ * branch            master     -&gt; FETCH_HEAD
+Already up-to-date.</code></pre>
+<p>Pulling has no effect in this case
+because the two repositories are already synchronized.</p>
+<blockquote>
+<p><strong>Fetching</strong></p>
+<p>The second line in the remote configuration we viewed earlier is labeled <code>push</code>,
+which makes sense given the command we used (<code>git push</code>)
+to upload changes from our local to remote repositories.
+Why is the other line labeled <code>fetch</code> instead of <code>pull</code>?
+Fetching and pulling both download new data from a remote repository,
+but only pulling integrates those changes into your local repository’s version history.
+Because <code>git fetch</code> doesn’t alter your local files,
+it’s used to view changes between local and remote versions.</p>
+</blockquote>
+<p>The Git commands we’ve covered in this section (<code>git pull</code>, <code>git push</code>)
+are the main tasks associated with incorporating remote repositories into your workflow
+(Figure <a href="git-cmdline.html#fig:git-cmdline-remote">6.5</a>b).</p>
+<blockquote>
+<p><strong>Amira’s Repository</strong></p>
+<p>Amira’s repository referenced in this section
+exists on GitHub at <a href="https://github.com/amira-khan/zipf">amira-khan/zipf</a>;
+you may find it a useful reference point
+when proceeding through the rest of the book.</p>
+</blockquote>
+</div>
+<div id="git-cmdline-history" class="section level2">
+<h2><span class="header-section-number">6.7</span> Exploring History</h2>
+<p>Git lets us look at previous versions of files
+and restore specific files to earlier states if we want to.
+In order to do these things,
+we need to identify the versions we want.</p>
+<p>The two ways to do this
+are analogous to <a href="glossary.html#absolute_path">absolute</a> and <a href="glossary.html#relative_path">relative</a> paths.
+The “absolute” version is the unique identifier that Git gives to each commit.
+These identifiers are 40 characters long,
+but in most situations Git will let us use just the first half dozen characters or so.
+For example,
+if we run <code>git log</code> right now,
+it shows us something like this:</p>
+<pre class="text"><code>commit ee8684ca123e1e829fc995d672e3d7e4b00f2610
+(HEAD -&gt; master, origin/master)
+Author: Amira Khan &lt;amira@zipf.org&gt;
+Date:   Sat Dec 19 09:52:04 2020 -0800
+
+    Update dracula plot
+
+commit 582f7f6f536d520b1328c04c9d41e24b54170656
+Author: Amira Khan &lt;amira@zipf.org&gt;
+Date:   Sat Dec 19 09:37:25 2020 -0800
+
+    Plot frequency against rank on log-log axes
+
+commit 851d590a214c7859eafa0998c6c951f8e0eb359b
+Author: Amira Khan &lt;amira@zipf.org&gt;
+Date:   Sat Dec 19 09:32:41 2020 -0800
+
+    Add plot of word counts for &#39;Dracula&#39;
+
+commit 173222bf90216b408c8997f4e143572b99637750
+Author: Amira Khan &lt;amira@zipf.org&gt;
+Date:   Sat Dec 19 09:30:23 2020 -0800
+
+    Add scripts, novels, word counts, and plots</code></pre>
+<p>The commit in which we changed <code>plotcounts.py</code>
+has the absolute identifier <code>582f7f6f536d520b1328c04c9d41e24b54170656</code>,
+but we can use <code>582f7f6</code> to reference it in almost all situations.</p>
+<p>While <code>git log</code> includes the commit message,
+it doesn’t tell us exactly what changes were made in each commit.
+If we add the <code>-p</code> option (short for <strong>p</strong>atch),
+we get the same kind of details <code>git diff</code> provides
+to describe the changes in each commit:</p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb437-1"><a href="git-cmdline.html#cb437-1"></a>$ <span class="fu">git</span> log -p</span></code></pre></div>
+<p>The first part of the output is shown below;
+we have truncated the rest,
+since it is very long:</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb438-1"><a href="git-cmdline.html#cb438-1"></a>commit ee8684ca123e1e829fc995d672e3d7e4b00f2610</span>
+<span id="cb438-2"><a href="git-cmdline.html#cb438-2"></a>(HEAD -&gt; master, origin/master)</span>
+<span id="cb438-3"><a href="git-cmdline.html#cb438-3"></a>Author: Amira Khan &lt;amira@zipf.org&gt;</span>
+<span id="cb438-4"><a href="git-cmdline.html#cb438-4"></a>Date:   Sat Dec 19 09:52:04 2020 -0800</span>
+<span id="cb438-5"><a href="git-cmdline.html#cb438-5"></a></span>
+<span id="cb438-6"><a href="git-cmdline.html#cb438-6"></a>    Update dracula plot</span>
+<span id="cb438-7"><a href="git-cmdline.html#cb438-7"></a></span>
+<span id="cb438-8"><a href="git-cmdline.html#cb438-8"></a><span class="kw">diff --git a/results/dracula.png b/results/dracula.png</span></span>
+<span id="cb438-9"><a href="git-cmdline.html#cb438-9"></a>index c1f62fd..57a7b70 100644</span>
+<span id="cb438-10"><a href="git-cmdline.html#cb438-10"></a>Binary files a/results/dracula.png and </span>
+<span id="cb438-11"><a href="git-cmdline.html#cb438-11"></a>b/results/dracula.png differ</span>
+<span id="cb438-12"><a href="git-cmdline.html#cb438-12"></a>...</span></code></pre></div>
+<p>Alternatively,
+we can use <code>git diff</code> directly
+to examine the differences between files at any stage in the repository’s history.
+Let’s explore this with the <code>plotcounts.py</code> file.
+We no longer need the line of code in <code>plotcounts.py</code>
+that calculates the inverse rank:</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb439-1"><a href="git-cmdline.html#cb439-1"></a>df[<span class="st">&#39;inverse_rank&#39;</span>] <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> df[<span class="st">&#39;rank&#39;</span>]</span></code></pre></div>
+<p>If we delete that line from <code>bin/plotcounts.py</code>,
+<code>git diff</code> on its own will show
+the difference between the file as it is now and the most recent version:</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb440-1"><a href="git-cmdline.html#cb440-1"></a><span class="kw">diff --git a/bin/plotcounts.py b/bin/plotcounts.py</span></span>
+<span id="cb440-2"><a href="git-cmdline.html#cb440-2"></a>index c4c5b5a..c511da1 100644</span>
+<span id="cb440-3"><a href="git-cmdline.html#cb440-3"></a><span class="dt">--- a/bin/plotcounts.py</span></span>
+<span id="cb440-4"><a href="git-cmdline.html#cb440-4"></a><span class="dt">+++ b/bin/plotcounts.py</span></span>
+<span id="cb440-5"><a href="git-cmdline.html#cb440-5"></a><span class="dt">@@ -11,7 +11,6 @@ def main(args):</span></span>
+<span id="cb440-6"><a href="git-cmdline.html#cb440-6"></a>                      names=(&#39;word&#39;, &#39;word_frequency&#39;))</span>
+<span id="cb440-7"><a href="git-cmdline.html#cb440-7"></a>     df[&#39;rank&#39;] = df[&#39;word_frequency&#39;].rank(ascending=False,</span>
+<span id="cb440-8"><a href="git-cmdline.html#cb440-8"></a>                                            method=&#39;max&#39;)</span>
+<span id="cb440-9"><a href="git-cmdline.html#cb440-9"></a><span class="st">-    df[&#39;inverse_rank&#39;] = 1 / df[&#39;rank&#39;]</span></span>
+<span id="cb440-10"><a href="git-cmdline.html#cb440-10"></a>     ax = df.plot.scatter(x=&#39;word_frequency&#39;,</span>
+<span id="cb440-11"><a href="git-cmdline.html#cb440-11"></a>                          y=&#39;rank&#39;, loglog=True,</span>
+<span id="cb440-12"><a href="git-cmdline.html#cb440-12"></a>                          figsize=[12, 6],</span></code></pre></div>
+<p><code>git diff 582f7f6</code>,
+on the other hand,
+shows the difference between the current state
+and the commit referenced by the short identifier:</p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb441-1"><a href="git-cmdline.html#cb441-1"></a><span class="kw">diff --git a/bin/plotcounts.py b/bin/plotcounts.py</span></span>
+<span id="cb441-2"><a href="git-cmdline.html#cb441-2"></a>index c4c5b5a..c511da1 100644</span>
+<span id="cb441-3"><a href="git-cmdline.html#cb441-3"></a><span class="dt">--- a/bin/plotcounts.py</span></span>
+<span id="cb441-4"><a href="git-cmdline.html#cb441-4"></a><span class="dt">+++ b/bin/plotcounts.py</span></span>
+<span id="cb441-5"><a href="git-cmdline.html#cb441-5"></a><span class="dt">@@ -11,7 +11,6 @@ def main(args):</span></span>
+<span id="cb441-6"><a href="git-cmdline.html#cb441-6"></a>                      names=(&#39;word&#39;, &#39;word_frequency&#39;))</span>
+<span id="cb441-7"><a href="git-cmdline.html#cb441-7"></a>     df[&#39;rank&#39;] = df[&#39;word_frequency&#39;].rank(ascending=False,</span>
+<span id="cb441-8"><a href="git-cmdline.html#cb441-8"></a>                                            method=&#39;max&#39;)</span>
+<span id="cb441-9"><a href="git-cmdline.html#cb441-9"></a><span class="st">-    df[&#39;inverse_rank&#39;] = 1 / df[&#39;rank&#39;]</span></span>
+<span id="cb441-10"><a href="git-cmdline.html#cb441-10"></a>     ax = df.plot.scatter(x=&#39;word_frequency&#39;,</span>
+<span id="cb441-11"><a href="git-cmdline.html#cb441-11"></a>                          y=&#39;rank&#39;, loglog=True,</span>
+<span id="cb441-12"><a href="git-cmdline.html#cb441-12"></a>                          figsize=[12, 6],</span>
+<span id="cb441-13"><a href="git-cmdline.html#cb441-13"></a><span class="kw">diff --git a/results/dracula.png b/results/dracula.png</span></span>
+<span id="cb441-14"><a href="git-cmdline.html#cb441-14"></a>index c1f62fd..57a7b70 100644</span>
+<span id="cb441-15"><a href="git-cmdline.html#cb441-15"></a>Binary files a/results/dracula.png and </span>
+<span id="cb441-16"><a href="git-cmdline.html#cb441-16"></a>b/results/dracula.png differ</span></code></pre></div>
+<p>Note that you will need to reference your <code>git log</code> to replace <code>582f7f6</code> in the code above,
+since Git assigned your commit a different unique identifier.
+Note also that we have <em>not</em> committed the last change to <code>plotcounts.py</code>;
+we will look at ways of undoing it in the next section.</p>
+<p>The “relative” version of history relies on a special identifier called <code>HEAD</code>,
+which always refers to the most recent version in the repository.
+<code>git diff HEAD</code> therefore shows the same thing as <code>git diff</code>,
+but instead of typing in a version identifier to back up one commit,
+we can use <code>HEAD~1</code> (where <code>~</code> is the tilde symbol).
+This shorthand is read “HEAD minus one,”
+and gives us the difference to the previous saved version.
+<code>git diff HEAD~2</code> goes back two revisions and so on.
+We can also look at the differences between two saved versions
+by separating their identifiers with two dots <code>..</code> like this:</p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb442-1"><a href="git-cmdline.html#cb442-1"></a>$ <span class="fu">git</span> diff HEAD~1..HEAD~2</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb443-1"><a href="git-cmdline.html#cb443-1"></a><span class="kw">diff --git a/bin/plotcounts.py b/bin/plotcounts.py</span></span>
+<span id="cb443-2"><a href="git-cmdline.html#cb443-2"></a>index c4c5b5a..f274473 100644</span>
+<span id="cb443-3"><a href="git-cmdline.html#cb443-3"></a><span class="dt">--- a/bin/plotcounts.py</span></span>
+<span id="cb443-4"><a href="git-cmdline.html#cb443-4"></a><span class="dt">+++ b/bin/plotcounts.py</span></span>
+<span id="cb443-5"><a href="git-cmdline.html#cb443-5"></a><span class="dt">@@ -13,7 +13,7 @@ def main(args):</span></span>
+<span id="cb443-6"><a href="git-cmdline.html#cb443-6"></a>                                            method=&#39;max&#39;)</span>
+<span id="cb443-7"><a href="git-cmdline.html#cb443-7"></a>     df[&#39;inverse_rank&#39;] = 1 / df[&#39;rank&#39;]</span>
+<span id="cb443-8"><a href="git-cmdline.html#cb443-8"></a>     ax = df.plot.scatter(x=&#39;word_frequency&#39;,</span>
+<span id="cb443-9"><a href="git-cmdline.html#cb443-9"></a><span class="st">-                         y=&#39;rank&#39;, loglog=True,</span></span>
+<span id="cb443-10"><a href="git-cmdline.html#cb443-10"></a><span class="va">+                         y=&#39;inverse_rank&#39;,</span></span>
+<span id="cb443-11"><a href="git-cmdline.html#cb443-11"></a>                          figsize=[12, 6],</span>
+<span id="cb443-12"><a href="git-cmdline.html#cb443-12"></a>                          grid=True,</span>
+<span id="cb443-13"><a href="git-cmdline.html#cb443-13"></a>                          xlim=args.xlim)</span></code></pre></div>
+<p>If we want to see the changes made in a particular commit,
+we can use <code>git show</code>
+with an identifier and a filename:</p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb444-1"><a href="git-cmdline.html#cb444-1"></a>$ <span class="fu">git</span> show HEAD~1 bin/plotcounts.py</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb445-1"><a href="git-cmdline.html#cb445-1"></a>commit 582f7f6f536d520b1328c04c9d41e24b54170656</span>
+<span id="cb445-2"><a href="git-cmdline.html#cb445-2"></a>Author: Amira Khan &lt;amira@zipf.org&gt;</span>
+<span id="cb445-3"><a href="git-cmdline.html#cb445-3"></a>Date:   Sat Dec 19 09:37:25 2020 -0800</span>
+<span id="cb445-4"><a href="git-cmdline.html#cb445-4"></a></span>
+<span id="cb445-5"><a href="git-cmdline.html#cb445-5"></a>    Plot frequency against rank on log-log axes</span>
+<span id="cb445-6"><a href="git-cmdline.html#cb445-6"></a></span>
+<span id="cb445-7"><a href="git-cmdline.html#cb445-7"></a><span class="kw">diff --git a/bin/plotcounts.py b/bin/plotcounts.py</span></span>
+<span id="cb445-8"><a href="git-cmdline.html#cb445-8"></a>index f274473..c4c5b5a 100644</span>
+<span id="cb445-9"><a href="git-cmdline.html#cb445-9"></a><span class="dt">--- a/bin/plotcounts.py</span></span>
+<span id="cb445-10"><a href="git-cmdline.html#cb445-10"></a><span class="dt">+++ b/bin/plotcounts.py</span></span>
+<span id="cb445-11"><a href="git-cmdline.html#cb445-11"></a><span class="dt">@@ -13,7 +13,7 @@ def main(args):</span></span>
+<span id="cb445-12"><a href="git-cmdline.html#cb445-12"></a>                                            method=&#39;max&#39;)</span>
+<span id="cb445-13"><a href="git-cmdline.html#cb445-13"></a>     df[&#39;inverse_rank&#39;] = 1 / df[&#39;rank&#39;]</span>
+<span id="cb445-14"><a href="git-cmdline.html#cb445-14"></a>     ax = df.plot.scatter(x=&#39;word_frequency&#39;,</span>
+<span id="cb445-15"><a href="git-cmdline.html#cb445-15"></a><span class="st">-                         y=&#39;inverse_rank&#39;,</span></span>
+<span id="cb445-16"><a href="git-cmdline.html#cb445-16"></a><span class="va">+                         y=&#39;rank&#39;, loglog=True,</span></span>
+<span id="cb445-17"><a href="git-cmdline.html#cb445-17"></a>                          figsize=[12, 6],</span>
+<span id="cb445-18"><a href="git-cmdline.html#cb445-18"></a>                          grid=True,</span>
+<span id="cb445-19"><a href="git-cmdline.html#cb445-19"></a>                          xlim=args.xlim)</span></code></pre></div>
+<p>If we wanted to view the contents of a file
+at a given point in the version history,
+we could use the same command,
+but separating the identifier and file with a colon:</p>
+<pre class="shell"><code>$ git show HEAD~1:bin/plotcounts.py</code></pre>
+<p>This allows us to look through the file using a paging program.</p>
+</div>
+<div id="git-cmdline-restore" class="section level2">
+<h2><span class="header-section-number">6.8</span> Restoring Old Versions of Files</h2>
+<p>We can see what we changed,
+but how can we restore it?
+Suppose we change our mind about the last update to <code>bin/plotcounts.py</code>
+(removing <code>df['inverse_rank'] = 1 / df['rank']</code>)
+before we add or commit it.
+<code>git status</code> tells us that the file has been changed,
+but those changes haven’t been <a href="glossary.html#git_stage">staged</a>:</p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb447-1"><a href="git-cmdline.html#cb447-1"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<pre class="text"><code>On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be 
+  committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in 
+  working directory)
+    modified:   bin/plotcounts.py
+
+no changes added to commit (use &quot;git add&quot; or &quot;git commit -a&quot;)</code></pre>
+<p>We can put things back the way they were in the last saved revision
+using <code>git restore</code>,
+as the screen output suggests:</p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb449-1"><a href="git-cmdline.html#cb449-1"></a>$ <span class="fu">git</span> restore bin/plotcounts.py</span>
+<span id="cb449-2"><a href="git-cmdline.html#cb449-2"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<pre class="text"><code>On branch master
+nothing to commit, working tree clean</code></pre>
+<p>As its name suggests,
+<code>git restore</code> restores an earlier version of a file.
+In this case,
+we used it to recover the version of the file in the most recent commit.</p>
+<blockquote>
+<p><strong>Checking Out with Git</strong></p>
+<p>If you’re running a different version of Git,
+you may see a suggestion for <code>git checkout</code> instead of <code>git restore</code>.
+As of Git version 2.29,
+<code>git restore</code> is still an experimental command,
+and operates as a specialized form of <code>git checkout</code>.
+<code>git checkout HEAD bin/plotcounts.py</code> is equivalent to the last command run.</p>
+</blockquote>
+<p>We can confirm the file has been restored
+by printing the relevant lines of the file:</p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb451-1"><a href="git-cmdline.html#cb451-1"></a>$ <span class="fu">head</span> -n 19 bin/plotcounts.py <span class="kw">|</span> <span class="fu">tail</span> -n 8</span></code></pre></div>
+<pre class="text"><code>    df[&#39;rank&#39;] = df[&#39;word_frequency&#39;].rank(ascending=False,
+                                           method=&#39;max&#39;)
+    df[&#39;inverse_rank&#39;] = 1 / df[&#39;rank&#39;]
+    ax = df.plot.scatter(x=&#39;word_frequency&#39;,
+                         y=&#39;rank&#39;, loglog=True,
+                         figsize=[12, 6],
+                         grid=True,
+                         xlim=args.xlim)</code></pre>
+<p>Because <code>git restore</code> is designed to restore working files,
+we’ll need to use <code>git checkout</code> to revert to earlier versions of files.
+We can use a specific commit identifier rather than <code>HEAD</code> to go back as far as we want:</p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb453-1"><a href="git-cmdline.html#cb453-1"></a>$ <span class="fu">git</span> checkout 851d590 bin/plotcounts.py</span></code></pre></div>
+<pre class="text"><code>Updated 1 path from c8d6a33</code></pre>
+<p>Doing this does not change the history:
+<code>git log</code> still shows our four commits.
+Instead,
+it replaces the content of the file with the old content:</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb455-1"><a href="git-cmdline.html#cb455-1"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<pre class="text"><code>On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+      modified:   bin/plotcounts.py</code></pre>
+<div class="sourceCode" id="cb457"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb457-1"><a href="git-cmdline.html#cb457-1"></a>$ <span class="fu">head</span> -n 19 bin/plotcounts.py <span class="kw">|</span> <span class="fu">tail</span> -n 8</span></code></pre></div>
+<pre class="text"><code>    df[&#39;rank&#39;] = df[&#39;word_frequency&#39;].rank(ascending=False,
+                                           method=&#39;max&#39;)
+    df[&#39;inverse_rank&#39;] = 1 / df[&#39;rank&#39;]
+    ax = df.plot.scatter(x=&#39;word_frequency&#39;,
+                         y=&#39;inverse_rank&#39;,
+                         figsize=[12, 6],
+                         grid=True,
+                         xlim=args.xlim)</code></pre>
+<p>If we change our mind again,
+we can use the suggestion in the output to restore the earlier version.
+Because checking out the changes added them to the staging area,
+we need to first remove them from the staging area:</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb459-1"><a href="git-cmdline.html#cb459-1"></a>$ <span class="fu">git</span> restore --staged bin/plotcounts.py</span></code></pre></div>
+<p>However,
+the changes have been unstaged but still exist in the file.
+We can return the file to the state of the most recent commit:</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb460-1"><a href="git-cmdline.html#cb460-1"></a>$ <span class="fu">git</span> restore bin/plotcounts.py</span>
+<span id="cb460-2"><a href="git-cmdline.html#cb460-2"></a>$ <span class="fu">git</span> status</span></code></pre></div>
+<pre class="text"><code>On branch master
+nothing to commit, working tree clean</code></pre>
+<div class="sourceCode" id="cb462"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb462-1"><a href="git-cmdline.html#cb462-1"></a>$ <span class="fu">head</span> -n 19 bin/plotcounts.py <span class="kw">|</span> <span class="fu">tail</span> -n 8</span></code></pre></div>
+<pre class="text"><code>    df[&#39;rank&#39;] = df[&#39;word_frequency&#39;].rank(ascending=False,
+                                           method=&#39;max&#39;)
+    df[&#39;inverse_rank&#39;] = 1 / df[&#39;rank&#39;]
+    ax = df.plot.scatter(x=&#39;word_frequency&#39;,
+                         y=&#39;rank&#39;, loglog=True,
+                         figsize=[12, 6],
+                         grid=True,
+                         xlim=args.xlim)</code></pre>
+<p>We have restored the most recent commit.
+Since we didn’t commit the change
+that removed the line that calculates the inverse rank,
+that work is now lost:
+Git can only go back and forth between committed versions of files.</p>
+<p>This section has demonstrated a few different ways to view differences among versions,
+and to work with those changes (Figure <a href="git-cmdline.html#fig:git-cmdline-remote">6.5</a>c).
+These commands can operate on either individual files or entire commits,
+and the behavior of them can sometimes differ based on your version of Git.
+Remember to reference documentation,
+and use <code>git status</code> and <code>git log</code> frequently to understand your workflow.</p>
+</div>
+<div id="git-cmdline-ignore" class="section level2">
+<h2><span class="header-section-number">6.9</span> Ignoring Files</h2>
+<p>We don’t always want Git to track every file’s history.
+For example,
+we might want to track text files with names ending in <code>.txt</code>
+but not data files with names ending in <code>.dat</code>.</p>
+<p>To stop Git from telling us about these files every time we call <code>git status</code>,
+we can create a file in the root directory of our project called <code>.gitignore</code>.
+This file can contain filenames like <code>thesis.pdf</code>
+or <a href="glossary.html#wildcard">wildcard</a> patterns like <code>*.dat</code>.
+Each must be on a line of its own,
+and Git will ignore anything that matches any of these lines.
+For now we only need one entry in our <code>.gitignore</code> file:</p>
+<pre class="text"><code>__pycache__</code></pre>
+<p>which tells Git to ignore any <code>__pycache__</code> directory created by Python
+(Section <a href="scripting.html#scripting-modules">5.8</a>).</p>
+<blockquote>
+<p><strong>Remember to Ignore</strong></p>
+<p>Don’t forget to commit <code>.gitignore</code> to your repository
+so that Git knows to use it.</p>
+</blockquote>
+</div>
+<div id="git-cmdline-summary" class="section level2">
+<h2><span class="header-section-number">6.10</span> Summary</h2>
+<p>The biggest benefit of version control for individual research is that
+we can always go back to the precise set of files
+that we used to produce a particular result.
+While Git is complex <span class="citation">(Perez De Rosso and Jackson <a href="references.html#ref-Pere2013" role="doc-biblioref">2013</a>)</span>,
+being able to back up our changes on sites like GitHub
+with just a few keystrokes can save us a lot of pain,
+and some of Git’s advanced features make it even more powerful.
+We will explore these in the next chapter.</p>
+</div>
+<div id="git-cmdline-exercises" class="section level2">
+<h2><span class="header-section-number">6.11</span> Exercises</h2>
+<div id="git-cmdline-ex-places" class="section level3">
+<h3><span class="header-section-number">6.11.1</span> Places to create Git repositories</h3>
+<p>Along with information about the Zipf’s Law project,
+Amira would also like to keep some notes on <a href="https://en.wikipedia.org/wiki/Heaps%27_law">Heaps’ Law</a>.
+Despite her colleagues’ concerns,
+Amira creates a <code>heaps-law</code> project inside her <code>zipf</code> project as follows:</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb465-1"><a href="git-cmdline.html#cb465-1"></a>$ <span class="bu">cd</span> ~/zipf</span>
+<span id="cb465-2"><a href="git-cmdline.html#cb465-2"></a>$ <span class="fu">mkdir</span> heaps-law</span>
+<span id="cb465-3"><a href="git-cmdline.html#cb465-3"></a>$ <span class="bu">cd</span> heaps-law</span>
+<span id="cb465-4"><a href="git-cmdline.html#cb465-4"></a>$ <span class="fu">git</span> init heaps-law</span></code></pre></div>
+<p>Is the <code>git init</code> command that she runs inside the <code>heaps-law</code> subdirectory
+required for tracking files stored there?</p>
+</div>
+<div id="git-cmdline-ex-unsave" class="section level3">
+<h3><span class="header-section-number">6.11.2</span> Removing before saving</h3>
+<p>If you’re working on an older version of Git,
+you may see an output from <code>git status</code> suggesting
+you can take files out of the staging area
+using <code>git rm --cached</code>.
+Try this out:</p>
+<ol style="list-style-type: decimal">
+<li>Create a new file in an initialized Git repository called <code>example.txt</code>.</li>
+<li>Use <code>git add example.txt</code> to add this file.</li>
+<li>Use <code>git status</code> to check that Git has noticed it.</li>
+<li>Use <code>git rm --cached example.txt</code> to remove it from the list of things to be saved.</li>
+</ol>
+<p>What does <code>git status</code> now show?
+What (if anything) has happened to the file?</p>
+</div>
+<div id="git-cmdline-ex-word-diff" class="section level3">
+<h3><span class="header-section-number">6.11.3</span> Viewing changes</h3>
+<p>Make a few changes to a file in a Git repository,
+then view those differences using both <code>git diff</code>
+and <code>git diff --word-diff</code>.
+Which output do you find easiest to understand?</p>
+<p>Note: If you performed this exercise in your Zipf’s Law project,
+we recommend discarding (not committing)
+your changes made to a file.</p>
+</div>
+<div id="git-cmdline-ex-commit" class="section level3">
+<h3><span class="header-section-number">6.11.4</span> Committing changes</h3>
+<p>Which command(s) below would save changes to <code>myfile.txt</code> to a local Git repository?</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb466-1"><a href="git-cmdline.html#cb466-1"></a><span class="co"># Option 1</span></span>
+<span id="cb466-2"><a href="git-cmdline.html#cb466-2"></a>$ <span class="fu">git</span> commit -m <span class="st">&quot;Add recent changes&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb467-1"><a href="git-cmdline.html#cb467-1"></a><span class="co"># Option 2</span></span>
+<span id="cb467-2"><a href="git-cmdline.html#cb467-2"></a>$ <span class="fu">git</span> init myfile.txt</span>
+<span id="cb467-3"><a href="git-cmdline.html#cb467-3"></a>$ <span class="fu">git</span> commit -m <span class="st">&quot;Add recent changes&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb468-1"><a href="git-cmdline.html#cb468-1"></a><span class="co"># Option 3</span></span>
+<span id="cb468-2"><a href="git-cmdline.html#cb468-2"></a>$ <span class="fu">git</span> add myfile.txt</span>
+<span id="cb468-3"><a href="git-cmdline.html#cb468-3"></a>$ <span class="fu">git</span> commit -m <span class="st">&quot;Add recent changes&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb469-1"><a href="git-cmdline.html#cb469-1"></a><span class="co"># Option 4</span></span>
+<span id="cb469-2"><a href="git-cmdline.html#cb469-2"></a>$ <span class="fu">git</span> commit -m myfile.txt <span class="st">&quot;Add recent changes&quot;</span></span></code></pre></div>
+</div>
+<div id="git-cmdline-ex-bio" class="section level3">
+<h3><span class="header-section-number">6.11.5</span> Write your biography</h3>
+<ol style="list-style-type: decimal">
+<li>Create a new Git repository on your computer called <code>bio</code>.
+Make sure the directory containing this repository is outside your <code>zipf</code> project directory!</li>
+<li>Write a three-line biography for yourself in a file called <code>me.txt</code> and commit your changes.</li>
+<li>Modify one line and add a fourth line.</li>
+<li>Display the differences between the file’s original state and its updated state.</li>
+</ol>
+</div>
+<div id="git-cmdline-ex-multiple" class="section level3">
+<h3><span class="header-section-number">6.11.6</span> Committing multiple files</h3>
+<p>The staging area can hold changes from any number of files
+that you want to commit as a single snapshot.
+From your new <code>bio</code> directory,
+following after the previous exercise (wich leaves you with uncommitted changes to <code>me.txt</code>):</p>
+<ol style="list-style-type: decimal">
+<li><p>Create another new file <code>employment.txt</code>
+and add the details of your most recent job.</p></li>
+<li><p>Add the new changes to both <code>me.txt</code> and <code>employment.txt</code> to the staging area
+and commit those changes.</p></li>
+</ol>
+</div>
+<div id="git-cmdline-ex-timestamp" class="section level3">
+<h3><span class="header-section-number">6.11.7</span> GitHub timestamps</h3>
+<ol style="list-style-type: decimal">
+<li>Create a remote repository on GitHub for your new <code>bio</code> repository.</li>
+<li>Push the contents of your local repository to the remote.</li>
+<li>Make a change to your local repository
+(e.g., edit <code>me.txt</code> or <code>employment.txt</code>)
+and push these changes as well.</li>
+<li>Go to the repo you just created on GitHub and check the timestamps of the files.</li>
+</ol>
+<p>How does GitHub record times, and why?</p>
+</div>
+<div id="git-cmdline-ex-history" class="section level3">
+<h3><span class="header-section-number">6.11.8</span> Workflow and history</h3>
+<p>Assume you made the following changes in your <code>bio</code> repository.
+What is the output of the last command in the sequence below?</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb470-1"><a href="git-cmdline.html#cb470-1"></a>$ <span class="bu">echo</span> <span class="st">&quot;Sharing information about myself.&quot;</span> <span class="op">&gt;</span> motivation.txt</span>
+<span id="cb470-2"><a href="git-cmdline.html#cb470-2"></a>$ <span class="fu">git</span> add motivation.txt</span>
+<span id="cb470-3"><a href="git-cmdline.html#cb470-3"></a>$ <span class="bu">echo</span> <span class="st">&quot;Documenting major milestones.&quot;</span> <span class="op">&gt;</span> motivation.txt</span>
+<span id="cb470-4"><a href="git-cmdline.html#cb470-4"></a>$ <span class="fu">git</span> commit -m <span class="st">&quot;Motivate project&quot;</span></span>
+<span id="cb470-5"><a href="git-cmdline.html#cb470-5"></a>$ <span class="fu">git</span> restore motivation.txt</span>
+<span id="cb470-6"><a href="git-cmdline.html#cb470-6"></a>$ <span class="fu">cat</span> motivation.txt</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li><p><code>Sharing information about myself.</code></p></li>
+<li><p><code>Documenting major milestones.</code></p></li>
+<li></li>
+</ol>
+<pre class="text"><code>Sharing information about myself.
+Documenting major milestones.</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>An error message because we have changed <code>motivation.txt</code> without committing first.</li>
+</ol>
+</div>
+<div id="git-cmdline-ex-ignore-nested" class="section level3">
+<h3><span class="header-section-number">6.11.9</span> Ignoring nested files</h3>
+<p>Suppose our project has a directory <code>results</code> with two subdirectories called <code>data</code> and <code>plots</code>.
+How would we ignore all of the files in <code>results/plots</code>
+but not ignore files in <code>results/data</code>?</p>
+</div>
+<div id="git-cmdline-ex-include" class="section level3">
+<h3><span class="header-section-number">6.11.10</span> Including specific files</h3>
+<p>How would you ignore all <code>.dat</code> files in your root directory except for <code>final.dat</code>?
+(Hint: find out what the exclamation mark <code>!</code> means in a <code>.gitignore</code> file.)</p>
+</div>
+<div id="git-cmdline-ex-github-interface" class="section level3">
+<h3><span class="header-section-number">6.11.11</span> Exploring the GitHub interface</h3>
+<p>Browse to your <code>zipf</code> repository on GitHub.
+Under the <code>Code</code> tab,
+find and click on the text that says “NN commits” (where “NN” is some number).
+Hover over and click on the three buttons to the right of each commit.
+What information can you gather/explore from these buttons?
+How would you get that same information in the shell?</p>
+</div>
+<div id="git-cmdline-ex-push-commit" class="section level3">
+<h3><span class="header-section-number">6.11.12</span> Push versus commit</h3>
+<p>Explain in one or two sentences how <code>git push</code> is different from <code>git commit</code>.</p>
+</div>
+<div id="git-cmdline-ex-boilerplate" class="section level3">
+<h3><span class="header-section-number">6.11.13</span> License and README files</h3>
+<p>When we initialized our remote <code>zipf</code> GitHub repo,
+we didn’t add a <code>README.md</code> or license file.
+If we had,
+what would have happened when we tried to link our local and remote repositories?</p>
+</div>
+<div id="git-cmdline-ex-recover" class="section level3">
+<h3><span class="header-section-number">6.11.14</span> Recovering older versions of a file</h3>
+<p>Amira made changes this morning to a shell script called <code>data_cruncher.sh</code>
+that she has been working on for weeks.
+Her changes broke the script,
+and she has now spent an hour trying to get it back in working order.
+Luckily,
+she has been keeping track of her project’s versions using Git.
+Which of the commands below can she use
+to recover the last committed version of her script?</p>
+<ol style="list-style-type: decimal">
+<li><code>$ git checkout HEAD</code></li>
+<li><code>$ git checkout HEAD data_cruncher.sh</code></li>
+<li><code>$ git checkout HEAD~1 data_cruncher.sh</code></li>
+<li><code>$ git checkout &lt;unique ID of last commit&gt; data_cruncher.sh</code></li>
+<li><code>$ git restore data_cruncher.sh</code></li>
+<li><code>$ git restore HEAD</code></li>
+</ol>
+</div>
+<div id="git-cmdline-ex-diff" class="section level3">
+<h3><span class="header-section-number">6.11.15</span> Understanding <code>git diff</code></h3>
+<p>Using your <code>zipf</code> project directory:</p>
+<ol style="list-style-type: decimal">
+<li>What would the command <code>git diff HEAD~9 bin/plotcounts.py</code> do if we run it?</li>
+<li>What does it actually do?</li>
+<li>What does <code>git diff HEAD bin/plotcounts.py</code> do?</li>
+</ol>
+</div>
+<div id="git-cmdline-ex-unstage" class="section level3">
+<h3><span class="header-section-number">6.11.16</span> Getting rid of staged changes</h3>
+<p><code>git checkout</code> can be used to restore a previous commit when unstaged changes have been made,
+but will it also work for changes that have been staged but not committed?
+To find out,
+use your <code>zipf</code> project directory to:</p>
+<ol style="list-style-type: decimal">
+<li>Change <code>bin/plotcounts.py</code>.</li>
+<li>Use <code>git add</code> on those changes to <code>bin/plotcounts.py</code>.</li>
+<li>Use <code>git checkout</code> to see if you can remove your change.</li>
+</ol>
+<p>Does it work?</p>
+</div>
+<div id="git-cmdline-ex-blame" class="section level3">
+<h3><span class="header-section-number">6.11.17</span> Figuring out who did what</h3>
+<p>We never committed the last edit that removes the calculation of inverse rank.
+Remove this line from <code>plotcounts.py</code>,
+then commit the change:</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb472-1"><a href="git-cmdline.html#cb472-1"></a>df[<span class="st">&#39;inverse_rank&#39;</span>] <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> df[<span class="st">&#39;rank&#39;</span>]</span></code></pre></div>
+<p>Run the command <code>git blame bin/plotcounts.py</code>.
+What does each line of the output show?</p>
+</div>
+</div>
+<div id="git-cmdline-keypoints" class="section level2">
+<h2><span class="header-section-number">6.12</span> Key Points</h2>
+<ul>
+<li>Use <code>git config</code> with the <code>--global</code> option to configure your username,
+email address, and other preferences once per machine.</li>
+<li><code>git init</code> initializes a <a href="glossary.html#repository">repository</a>.</li>
+<li>Git stores all repository management data in the <code>.git</code> subdirectory of the repository’s root directory.</li>
+<li><code>git status</code> shows the status of a repository.</li>
+<li><code>git add</code> puts files in the repository’s staging area.</li>
+<li><code>git commit</code> saves the staged content as a new commit in the local repository.</li>
+<li><code>git log</code> lists previous commits.</li>
+<li><code>git diff</code> shows the difference between two versions of the repository.</li>
+<li>Synchronize your local repository with a <a href="glossary.html#remote_repository">remote repository</a>
+on a <a href="glossary.html#forge">forge</a> such as <a href="https://github.com">GitHub</a>.</li>
+<li><code>git remote</code> manages bookmarks pointing at remote repositories.</li>
+<li><code>git push</code> copies changes from a local repository to a remote repository.</li>
+<li><code>git pull</code> copies changes from a remote repository to a local repository.</li>
+<li><code>git restore</code> and <code>git checkout</code> recover old versions of files.</li>
+<li>The <code>.gitignore</code> file tells Git what files to ignore.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="scripting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="git-advanced.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/merely-useful/py-rse/edit/book/chapters/git-cmdline.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/merely-useful/py-rse/blob/book/chapters/git-cmdline.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
