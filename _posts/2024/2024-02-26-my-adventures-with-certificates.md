@@ -4,6 +4,11 @@ date: 2024-02-26
 year: 2024
 ---
 
+> Update: thanks to the generosity of [Matt Panaro][panaro-matt],
+> I now have [a working example][https-example].
+> I don't fully understand it yet,
+> but it runs on Ubuntu and macOS.
+
 I'm putting together a tutorial on safe computing for data scientists.
 As part of that,
 I want to show learners how HTTPS actually works:
@@ -154,5 +159,7 @@ and thank you in advance.
 [arentz-stefan]: https://www.linkedin.com/in/stefanarentz/
 [certifi]: https://pypi.org/project/certifi/
 [cloudflare]: https://technedigitale.com/archives/639
+[https-example]: https://github.com/gvwilson/https_example
 [inessential]: https://www.harihareswara.net/posts/2014/inessential-weirdnesses-in-open-source/
 [issue]: https://github.com/gvwilson/thirdbit/issues/130
+[panaro-matt]: https://github.com/panarom
