@@ -1,6 +1,7 @@
 ---
-title: "Ideas"
-layout: page
+title: "My Last To-Don't List"
+date: 2024-02-25
+year: 2024
 ---
 
 The best productivity tip I ever got
@@ -8,21 +9,17 @@ was to keep a "to don't" list of
 things that you are *not* going to do
 because life is too short
 and you already have too much on the go.
-The ones I'd like to tackle most would be fun to do
-and would make the world a better place:
+The ones I would most have liked to do were:
 
-- [Sex and Drugs and Guns and Code](./sdgc/)
-- [Leadership Skills for Open Science](./leadership/)
-- [Software Engineering: Compassion, Evidence, Process, and Tools](./secept/)
-- [Harper-Lite: Simple Lesson Discovery and Aggregation](./harper/)
+- [Sex and Drugs and Guns and Code]({{ '/ideas/sdgc/' | relative_url }})
+- [Leadership Skills for Open Science]({{ '/ideas/leadership/' | relative_url }})
+- [Software Engineering: Compassion, Evidence, Process, and Tools]({{ '/ideas/secept/' | relative_url }})
+- [Harper-Lite: Simple Lesson Discovery and Aggregation]({{ '/ideas/harper/' | relative_url }})
+- [Software Engineering Research Ideas]({{ '/ideas/research/' | relative_url }})
 
-Others are described below,
-in [my list of unwritten books][unwritten],
-and in [this summary of software engineering research ideas](./research/).
-If you are already working on any of these,
-please let me know.
-
-## What I Won't Build
+Others are described below and in [my list of unwritten books][unwritten];
+if you ever have a chance to tackle any of them,
+I hope they bring you joy.
 
 A browser-based drag-and-drop tool for data analytics.
 :   The [TidyBlocks][tidyblocks-repo] project [ground to a halt][tidyblocks-post]
