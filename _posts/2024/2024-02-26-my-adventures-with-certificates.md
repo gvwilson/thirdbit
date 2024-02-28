@@ -161,5 +161,5 @@ and thank you in advance.
 [cloudflare]: https://technedigitale.com/archives/639
 [https-example]: https://github.com/gvwilson/https_example
 [inessential]: https://www.harihareswara.net/posts/2014/inessential-weirdnesses-in-open-source/
-[issue]: https://github.com/gvwilson/thirdbit/issues/130
+[issue]: https://github.com/gvwilson/safety-tutorial/issues/7
 [panaro-matt]: https://github.com/panarom
