@@ -1,0 +1,35 @@
+digraph select {
+  "select" -> "chooses";
+  "chooses" -> "rows";
+  "chooses" -> "columns";
+  "columns" -> "specified by";
+  "specified by" -> "names";
+  "specified by" -> "calculations";
+  "specified by" -> "* (for all)";
+  "columns" -> "from";
+  "rows" -> "from";
+  "from" -> "table";
+  "table" -> "identified by";
+  "identified by" -> "name";
+  "rows" -> "can be paged with";
+  "rows" -> "can be filtered by";
+  "can be paged with" -> "limit";
+  "can be paged with" -> "offset";
+  "can be filtered by" -> "condition";
+  "condition" -> "evaluated for each";
+  "evaluated for each" -> "rows";
+  "condition" -> "must be";
+  "must be" -> "Boolean";
+  "select" [shape=box];
+  "rows" [shape=box];
+  "columns" [shape=box];
+  "names" [shape=box];
+  "calculations" [shape=box];
+  "* (for all)" [shape=box];
+  "table" [shape=box];
+  "name" [shape=box];
+  "limit" [shape=box];
+  "offset" [shape=box];
+  "condition" [shape=box];
+  "Boolean" [shape=box];
+}
