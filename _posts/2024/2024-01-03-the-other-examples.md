@@ -55,7 +55,17 @@ though,
 I think they would help a lot of people.
 I'm always [happy to chat][email].
 
-*Later: see [the next post in this series][fourth-example].*
+Later: In response to this post,
+someone suggested a fourth option:
+*Software Debugging by Example*.
+Each chapter would present an application large enough to require a bit of study
+(say, 100–200 lines long),
+point out a bug,
+and then walk through the process of fixing it
+as a way to introduce techniques for fault localization,
+program repair,
+and so on.
+I *really* wish I knew enough to write this book…
 
 [email]: mailto:{{site.author.email}}
 [fourth-example]:  {{'/2024/01/04/the-fourth-example/' | relative_url}}
