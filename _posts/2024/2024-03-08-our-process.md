@@ -1,6 +1,6 @@
 ---
 title: "Our Process"
-date: 2024-02-18
+date: 2024-03-08
 year: 2024
 ---
 
@@ -288,7 +288,7 @@ and translate those needs into things for engineers to fix or build.
     -   What would accelerate their work?
     -   Which of these needs is most pressing to solve?
 -   Frequency: ongoing
--   Responsible: Product Manager
+-   Responsible: product manager
 -   Contributors: technical leads and selected users
 -   Products:
     -   Prioritized lists of problems and opportunities,
@@ -309,7 +309,7 @@ this is where needs, constraints, and big-picture alternatives are formulated.
     -   What risks and assumptions are inherent to these solutions?
     -   What is the fastest, cheapest way to validate these solutions?
 -   Frequency: ongoing
--   Responsible: Product Manager and technical leads
+-   Responsible: product manager and technical leads
 -   Contributors: users and engineering team members
 -   Products:
     -   Prioritized lists of features or fixes that would solve them
@@ -339,7 +339,7 @@ what would make *our* lives better.
 OK,
 we've agreed on what we're going to build—now we actually have to build it.
 Every two weeks,
-the Scrum master and the project's technical lead
+the product manager and the project's technical lead
 create issues for new work
 and (if necessary) relabel old issues
 to define what we're going to try to accomplish in this sprint.
@@ -356,7 +356,7 @@ so that progress reports aren't "I'm working on it" several days in a row.
     -   What key bugs should we prioritize?
     -   What tech debt needs to be addressed?
 -   Frequency: biweekly
--   Responsible: Scrum master and technical leads
+-   Responsible: product manager and technical leads
 -   Contributors: engineering team members
 -   Products:
     -   Goals for the sprint (i.e., what we want to accomplish)
@@ -443,7 +443,7 @@ we defer it until after everyone has finished their initial report.
 
 -   Summary: Measuring and assessing impact and identifying gaps or areas for improvement
 -   Frequency: ongoing
--   Responsible: VP Engineering and Product Manager
+-   Responsible: VP Engineering and product manager
 -   Contributors: entire engineering team
 
 [dottie]: https://www.linkedin.com/in/dottie-omino/
