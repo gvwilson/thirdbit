@@ -9,7 +9,7 @@ you can read the content online
 or order a hard copy at <https://www.routledge.com/9781032725215>;
 if you do the latter,
 please use the code "SMA22" to get 20% off.
-All royalties will go to support [Rainbow Railroad][rr].
+All royalties will go to support the [Red Door Family Shelter][red-door] in Toronto.
 
 <div class="row">
   <div class="col-6 center">
@@ -20,5 +20,5 @@ All royalties will go to support [Rainbow Railroad][rr].
   </div>
 </div>
 
-[rr]: https://www.rainbowrailroad.org/
+[red-door]: https://www.reddoorshelter.ca/
 [sdxpy]: {{'/sdxpy/' | relative_url}}
