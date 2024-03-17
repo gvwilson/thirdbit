@@ -12,6 +12,12 @@ permalink: "/bib/"
 
 <div class="bibliography">
 
+<p id="Wilson2024">
+Greg Wilson:
+<a href="{{'/sdxpy/' | relative_url}}"><em>Software Design by Example: A Tool-Based Introduction with Python</em></a>.
+CRC Press/Taylor and Francis, 2024.
+ISBN 978-1032725215.</p>
+
 <p id="Haberman2023">
 Jess Haberman and Greg Wilson:
 Ten simple rules for writing a technical book.
