@@ -38,7 +38,7 @@ Twelve quick tips for software design.
 
 <p id="Irving2021">
 Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson:
-<a href="https://merely-useful.tech/py-rse/"><em>Research Software Engineering with Python: Building Software that Makes Research Possible</em></a>.
+<a href="https://third-bit.com/py-rse/"><em>Research Software Engineering with Python: Building Software that Makes Research Possible</em></a>.
 CRC Press/Taylor and Francis, 2021.
 ISBN 978-0367698348.</p>
 
