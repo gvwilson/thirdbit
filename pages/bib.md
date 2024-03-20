@@ -12,11 +12,17 @@ permalink: "/bib/"
 
 <div class="bibliography">
 
-<p id="Wilson2024">
+<p id="Wilson2024b">
 Greg Wilson:
 <a href="{{'/sdxpy/' | relative_url}}"><em>Software Design by Example: A Tool-Based Introduction with Python</em></a>.
 CRC Press/Taylor and Francis, 2024.
 ISBN 978-1032725215.</p>
+
+<p id="Wilson2024a">
+Greg Wilson, Jorge Aranda, Michael Hoye, and Brittany Johnson:
+It Will Never Work in Theory.
+<em>IEEE Software</em>, 2024.
+<a href="https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6">doi:10.1109/MS.2024.3362649</a>, <a href="{{'/files/bib/Wilson2024a.pdf' | relative_url}}">PDF</a>.</p>
 
 <p id="Haberman2023">
 Jess Haberman and Greg Wilson:
