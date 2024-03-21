@@ -78,7 +78,7 @@ favorite: true
     I didn't get a Shuttleworth Foundation fellowship.
   </li>
   <li>
-    I bet you haven't read And Then…
+    I bet you haven't read <em>And Then…</em>
     or <em>Still</em>,
     and I haven't even finished <em>Madica</em>
     or <em>Beneath Coriandel</em>.
