@@ -1,12 +1,10 @@
 ---
 layout: page
-title: Maddy Roo
+title: "Maddy Roo"
 fiction: true
 ---
 
-<div class="flex-col">
-  <ol id="toc"></ol>
-</div>
+<ol id="toc"></ol>
 
 <section markdown="1">
 
@@ -839,9 +837,9 @@ and someone shrieked, "Bots! Bots!"*
 Tendrils of black dizzysmoke drifted between the lampposts.
 Half a dozen people lay on the ground,
 unconscious or too weak from inhaling the smoke to stand.
-The rest of Rusty Bridge was fleeing in all directions.
+The rest of Rusty Bridge was fleeing in all directions.*
 
-A hauler bot on tractor treads rumbled and chugged near the center of the square.
+*A hauler bot on tractor treads rumbled and chugged near the center of the square.
 Maddy watched in horror as two smaller bots picked up a fallen goat
 and slung him into the back of the hauler.*
 
@@ -5730,7 +5728,7 @@ not just odds and ends like the mayor's zap gun."
 "Improbable events have occurred with surprising frequency."
 
 "Well, this calls for a toast," Mama Roo said.
-She went into the house and emerged a moment later with a bottle of sweet peach juice in one hand,
+She went into the house and emerged a moment later with a bottle of peach juice in one hand,
 four glasses in the other,
 and a small rectangle tucked under her arm.
 She passed the glasses around
@@ -5758,8 +5756,8 @@ Dockety turned back to the roos.
 it said.
 "It is with the other prisoners in Heck."
 
-<div class="center">
+<center>
 <em>To be continued…</em>
-</div>
+</center>
 
 </section>

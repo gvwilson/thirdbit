@@ -35,6 +35,26 @@ drafts:
 
 ## ----
 
+## status: create table showing status
+.PHONY: status
+status:
+	@python bin/status.py --chart fiction/status.svg --info _data/info.csv --status _data/status.csv
+
+## count: count words
+.PHONY: count
+ifeq (${book},)
+count:
+	@echo "'book' not defined"
+else ifeq (${base},)
+count:
+	@python bin/count.py --details --status _data/status.csv fiction/$${book}/index.md
+else
+count:
+	@python bin/count.py --details fiction/$${book}/index.md ${base}
+endif
+
+## ----
+
 ## validate: check the generated HTML
 validate:
 	@html5validator --root _site \

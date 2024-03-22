@@ -4,9 +4,7 @@ title: Cherne
 fiction: true
 ---
 
-<div class="flex-col">
-  <ol id="toc"></ol>
-</div>
+<ol id="toc"></ol>
 
 <div class="centered">
   <a href="./terrain.png"><img src="./terrain.png" width="80%" /></a>

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "The Bookster's Apprentice"
+fiction: true
 ---
 
 <div align="center">
