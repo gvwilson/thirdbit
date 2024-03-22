@@ -693,7 +693,7 @@ The newcomer cocked his head,
 looking at Iffy as if she was some strange machine brought in for repair.
 
 "Well, if you two are done comparin' notes,
-there's a coupla places I can point you at,"
+there's a couple o' places I can point you at,"
 Big Mrs. Sandhu cut in briskly.
 "Can't promise they'll be cheap,
 but they're clean,
@@ -792,7 +792,7 @@ Uncle Jack pulled it roughly from her hand.
 squinting at the rod
 before thrusting it back at her.
 
-"I just asked her to pick up a coupla things,"
+"I just asked her to pick up a couple o' things,"
 Aunt Naggie said,
 sticking her head up through an open hatch
 like a turtle cautiously checking that the world outside its shell was safe.
@@ -4203,7 +4203,7 @@ De bumped der hip against Iffy's,
 der tone turning serious as de nodded at the Marine cutter under repair beside them.
 "That must be why we got th' ganky to finish up this 'un double time.
 'Cuz my First,
-de thought we had a coupla weeks f'r it,
+de thought we had a couple o' weeks f'r it,
 but th' Blues come along day b'fore last an' said we gotta crannup."
 
 Iffy swallowed.
@@ -4459,7 +4459,7 @@ He leaned over and said, "Ratty wanna cracker?"
 "Idjit!" the rat squeaked back. "Yer an idjit!"
 
 "See?" the man said proudly.
-"You can teach 'em a coupla hunnert words, easy!"
+"You can teach 'em a couple o' hunnert words, easy!"
 
 "I know," Iffy said wistfully, a sudden pang in her heart.
 She held her finger in front of one of the cages.
@@ -5292,7 +5292,7 @@ She messaged Honesty's olders a couple of times,
 but all they could say was, "We're awe waitin' to hear back."
 She finally broke down and messaged Jeep.
 
-- *coupla days an' i was on my feet, but that bit's all mud.
+- *couple o' days an' i was on my feet, but that bit's all mud.
   couple more days 'til anythin' i can remember clearly*
 
 Iffy hesitated.
@@ -6687,7 +6687,7 @@ Iñacio nodded.
 "An'—did you really know my olders?"
 
 He nodded again.
-"Only met 'em a coupla times,
+"Only met 'em a couple o' times,
 'long by Port Progress.
 Was just First an' Second then,
 crewin' on the *Rushin Doll* before Cap'n Wang passed
@@ -7842,7 +7842,7 @@ Iñacio tossed his hand wraps into the wicker bin they used for laundry.
 "Not everyone wears an exo,"
 he said.
 "An' once you got th' hang o' this,
-I'll teach you a coupla things about bots."
+I'll teach you a couple o' things about bots."
 
 Seven days after they climbed down into the shelter,
 Iñacio declared it was safe to open the hatch.
@@ -7927,8 +7927,6 @@ she noticed,
 and even when he was pointing out the painted initials of some long ago survey,
 he always kept one eye on the sky.
 
-<span id="2024-03-21-a"></span>
-
 He paused as they neared the top of yet another ridge.
 "You ever see th' geothermal plant inland from Halley?" he asked.
 
@@ -7965,21 +7963,36 @@ then hesitated and withdrew it.
 he said reverently.
 "Tweaked ten ways from sundown,
 an' we still gotta feed 'em through the winter,
-but there's a coupla dozen colonies here now.
+but there's a couple o' dozen colonies here now.
 Come on, I'll show you."
+
+<span id="2024-03-22-a"></span>
 
 It took half an hour to reach the stream
 that snaked along the bottom of the valley.
 Iñacio talked the whole way.
 The land was rebounding as the ice retreated.
 That meant thousands of microquakes every year,
-which meant fractures in the rock,
-which made it a lot easier to put in pipes for geothermal power
-or to just drill a few extra holes for hot springs.
-Bots were doing most of the work—he pointed at one
-recharging itself from a power outlet set into a speckled wall of granite—but
-the living were helping too.
-The valley was only a couple of degrees warmer than the land around it,
+which fractured the rock,
+which made it easier to put in pipes for geothermal power
+or drill holes for hot springs.
+The result was only a couple of degrees warmer than the land around it,
 but that was enough to make it an oasis.
+
+The Ecologist was as happy as a gull in a pile of garbage.
+Look—that piece of rock was actually a bot recharging itself from a power outlet hidden in a wall of granite.
+And there—he took her arm to stop her from stepping on leaf.
+"Just wait," he said.
+Sure enough,
+a moment later it scuttled across the path
+and disappeared into a patch of white-tufted heather.
+"Ants,"
+he said proudly.
+"Took a couple o' tweaks to get 'em to hibernate through the winter,
+but they seem pretty happy now."
+
+"So do you,"
+Iffy said,
+which made him grin even more broadly.
 
 </section>
