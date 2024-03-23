@@ -8088,8 +8088,6 @@ he said,
 pulling his feet out of his boots with a happy sigh.
 "We can start work in th' mornin'."
 
-<span id="2024-03-23-a"></span>
-
 Iffy sat on the nearest cot
 and bounced up and down to test it,
 but didn't take off her coat or boots.
@@ -8122,7 +8120,7 @@ Iñacio shook his head when Iffy asked about curry powder.
 "Might be some around somewhere,
 but it won't have any o' your medicine in it.
 Nearest place for that's gonna be Halley,
-an' that's three weeks away, maybe more."
+an' even by bike that's three weeks away, maybe more."
 He stirred the noodles and vegetables in the battered steel wok
 he had fished out of a cupboard beneath one of the raised beds,
 sniffed,
@@ -8159,7 +8157,105 @@ or the governors and their politics.
 She just wanted to see Aunt Naggie and Honesty again
 and flip through her picture book and go to sleep on her own mattress.
 
+<span id="2024-03-23-b"></span>
+
 Her eyelids were just starting to lose their battle with gravity
 when an alarm began to bleat.
+Iñacio was on his feet and in his jacket
+before she finished sitting up.
+"Somethin's comin'," he said,
+frowning at the app in his hand.
+"Del that—there's a whole bunch o' somethin's coming."
+
+"More o' those crab bots?"
+Iffy asked,
+struggling to lace her boots
+with fingers that felt like they were made of tofu.
+
+The Ecologist didn't answer.
+"Iñacio?"
+she asked,
+then jumped as he swore explosively.
+
+"It's the Marines.
+Couple o' dozen at least,
+headin' straight for us."
+He swore again.
+"Th' herd's gonna try t' slow 'em down,
+but we gotta go."
+
+"Go where?"
+Iffy asked,
+pulling on her coat.
+
+Iñacio locked eyes with her.
+"Anywhere but here.
+They ain't never come into th' valley before,
+but—Iffy,
+this is sacred ground.
+You unnerstand?
+I gotta choose between this place an' you—"
+
+Iffy held his gaze.
+"You do what you gotta do,"
+she said,
+hoping she sounded braver than she felt.
+"We can sort out th' compost 'n' all that some other time."
+
+Two minutes later she was on a bicycle
+pedalling hard and breathing harder.
+Aunt Naggie had insisted she learn how to ride, "Just in case."
+She was pretty sure her foster mother's "in case"
+hadn't included this situation,
+but there was no time to think about that,
+no time to think about whether Iñacio had a plan
+because even downhill on the world's best highway
+there was no way they could move as fast as the Marines.
+
+Up, down, up again—the forest disappeared behind them
+as the track climbed the valley's eastern wall.
+There was no sign of pursuit,
+just her breathing and the burning in her legs
+and a heart-stopping moment of panic
+each time the bike hit a pothole or a particularly large rock
+and nearly but never actually sent her tumbling
+onto gravel that looked a lot sharper from the seak of the bike
+than it had when she was walking on it.
+
+Iñacio skidded to a stop as they reached the top of a ridge
+and swung around to look back into the valley.
+Iffy stopped beside him,
+lungs heaving.
+"Wha— wha's happenin'?"
+she gasped as he pulled his app out of his coat.
+
+He stared at it, stricken.
+"They're killin' 'em.
+Affin' griefers, they're killin' the herd!"
+
+Iffy craned her neck.
+Images tumbled past each other on the app.
+A musk ox on its side,
+eyes open and lifeless.
+Another charging a Marine,
+only to have its target step aside at the last moment
+and snap a kick that broke the ox's leg.
+
+The app flashed.
+The images froze for a moment, then disappeared.
+"Mother Yanina, Mother Pao, forgive our crimes and arrogance,"
+Iñacio whispered.
+
+And then Iffy heard it,
+the thrumming roar of a hovercraft moving fast over rough ground.
+There!
+East of them,
+blurred but visible as its camouflage struggled and failed
+to match the ground beneath it.
+"Who th' hell is that?"
+Iñacio demanded as he unslung his rifle.
+
+Iffy stared at him.
+"How th' hell would I know?"
 
 </section>
