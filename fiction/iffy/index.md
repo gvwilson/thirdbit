@@ -7995,4 +7995,98 @@ but they seem pretty happy now."
 Iffy said,
 which made him grin even more broadly.
 
+*«commence»*
+
+Iffy stumbled as the thought appeared fully-formed in her head.
+"What's wrong?" Iñacio asked,
+but she was too busy fighting a sudden wave of nausea to answer.
+
+*«exchange of value / binding agreement / commence»*
+
+*I can't yet,*
+she shot back,
+squeezing her eyes shut and swallowing hard to stop herself from throwing up.
+*I don't have any tools or, or anything!
+I don't even know where I am!*
+
+*«78.1742° south / 85.1728° west / binding agreement / commence»*
+
+"I *can't*!" she said angrily.
+Someone took her arm.
+She tried to pull away,
+but the trip tightened.
+
+"Iffy! Iffy! Affin' hell, what have you done?"
+Something *clicked* beside her.
+She swallowed again and opened her eyes
+to see Iñacio pointing his rifle at two, no, three crab-like bots
+whose arms ended in multitools and manipulators instead of claws
+but were no less frightening for that.
+
+"They're tryin' to talk to me again,"
+she mumbled.
+
+"Aright, well, you tell 'em we'll give 'em a shout back as soon as we can,"
+he said levelly,
+his aim shifting from one bot to the next.
+"Oh,
+an' remind 'em this place is s'posed to be off limits.
+There's agreements an' such."
+
+As quickly as it had come
+the pressure in her head was gone.
+She wiped her nose and checked her glove for blood—there wasn't any—then
+stepped aside to let the bots scuttle up the path
+the way she and Iñacio had come.
+
+"I'm sorry,"
+she said dully.
+
+The Ecologist slung his rifle over his shoulder once again.
+"Nothin' to be sorry for.
+Come on,
+it's not much further."
+
+Their destination was a scattering of greenhouses
+not quite hidden in half a hectare of narrow pines.
+Iffy slowed as they approached the trees.
+"Aint' never been in a forest before,"
+she confessed when Iñacio looked at her quizzically.
+
+He nodded and held out his hand.
+She hesitated a moment,
+then took it.
+Somehow it didn't feel foolish.
+
+"They all have names,"
+he said quietly as they made their way to the nearest greenhouse.
+"Folk that helped make this place or stopped other folk tearin' 'em all down."
+
+"Are there any for my olders?"
+she asked after a few steps.
+
+He nodded.
+"Not here, but yeah, there are.
+Hope you get t' see 'em some day."
+He squeezed her hand before letting it go.
+
+The greenhouse had double walls and an airlock door.
+Inside was dry and warm.
+Row upon row of shelves held square pots of heather,
+moss,
+and pine seedlings,
+all connected to sensors and watering pipes.
+A dozen cots, a kitchen, and an incongruous blue toilet stall
+stood together in the middle
+as if they had wandered into the wrong party
+and weren't quite sure if it would be polite to leave.
+
+Iñacio paused for a moment before a hand-painted picture of Saint Yanina
+hanging by the cots
+to say a brief prayer under his breath,
+then shrugged off his pack and unzipped his jacket.
+"Make yourself comfortable,"
+he said,
+pulling his feet out of his boots with a happy sigh.
+
 </section>
