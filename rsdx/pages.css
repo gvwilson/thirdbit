@@ -1,0 +1,78 @@
+/* Extra CSS for pages */
+
+:root {
+    --page-width: 60rem;
+    --body-size: large;
+    --code-size: medium;
+    --image-width: 80%;
+
+    --hanging-indent: 1rem;
+    --hanging-outdent: -1rem;
+    --shadow-spacing: 15px 28px 25px -18px;
+}
+
+/* Overall appearance */
+html {
+    font-size: var(--body-size);
+}
+
+body {
+    max-width: var(--page-width);
+}
+
+/*
+ * Adjust apparent width of h1 title element to fill the empty div column.
+ * This solution reached in collaboration with ChatGPT 4 on 2023-11-24.
+ */
+.col-10 h1 {
+  margin-right: -10%;
+  padding-right: 10%;
+  background-color: var(--stamp-blue-light);
+}
+
+/* Chapter taglines */
+span.tagline {
+    font-style: italic;
+}
+
+/* Callouts */
+div.callout {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    padding-top: 0rem;
+    background-color: var(--light-gray);
+}
+
+div.callout h3 {
+    background-color: var(--light-gray);
+}
+
+/* Bottom footer */
+footer {
+    margin-top: var(--medium-spacing);
+    border-top: solid var(--light-gray) var(--medium-border);
+    padding-top: var(--small-spacing);
+    text-align: center;
+}
+
+/* Table of contents */
+ol.toc {}
+
+/* Syllabus listing at start of chapter */
+ul.syllabus {
+    background-color: var(--light-gray);
+    padding-top: var(--medium-spacing);
+    padding-bottom: var(--medium-spacing);
+    border: solid var(--medium-border) var(--dark-gray);
+}
+
+/* Code */
+code {
+    font-size: var(--code-size);
+}
+
+/* Bibliography entries */
+div.bibliography p {
+    padding-left: var(--hanging-indent);
+    text-indent: var(--hanging-outdent);
+}

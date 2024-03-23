@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="repo" content="https://github.com/gvwilson/rsdx">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <title>Research Software Design by Example: Syllabus</title>
+  <link rel="stylesheet" href="../tango.css">
+<link rel="stylesheet" href="../mccole.css">
+
+<link rel="stylesheet" href="../pages.css">
+
+
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']]
+    }
+  };
+</script>
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+  
+
+</head>
+
+  <body>
+    <main data-slug="syllabus">
+      <div class="row title">
+  <div class="col-1 left">
+    <p>
+      <a href="../"><img src="../codebender-logo.svg" alt="logo" class="logo"/></a>
+    </p>
+  </div>
+  <div class="col-10 center">
+    <h1>Syllabus</h1>
+  </div>
+  <div class="col-1"></div>
+</div>
+
+
+
+      <h2 id="syllabus-intro"><a href="../intro">Introduction</a> (<a href="../intro/slides.html">slides</a>)</h2>
+<ul>
+<li>Assume you know how to program.</li>
+<li>Want to learn how to design pieces of software that are reliable and reusable.</li>
+<li>Best way is through examples: principles don&rsquo;t make sense unless you know how to translate them into specifics.</li>
+</ul>
+<h2 id="syllabus-parse"><a href="../parse">Parse Raw Data</a> (<a href="../parse/slides.html">slides</a>)</h2>
+<ul>
+<li>Writing command-line tools that respect <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412">Taschuk&rsquo;s Rules</a>.</li>
+<li>Creating a data manifest (and why you want one).</li>
+<li>Using regular expressions if you have to, but an out-of-the-box parser if one is available.</li>
+</ul>
+<h2 id="syllabus-plugin"><a href="../plugin">A Plugin Architecture</a> (<a href="../plugin/slides.html">slides</a>)</h2>
+<ul>
+<li>Using a plugin architecture to load modules dynamically.</li>
+<li>Finding, installing, and figuring out how to use open source packages.</li>
+<li>Using <a href="https://geopy.readthedocs.io/"><code>geopy</code></a> to handle geocoded data.</li>
+<li>Plotting (and the challenge of testing visualization code).</li>
+<li>Connecting to a database from Python.</li>
+<li>Embedding SQL queries in Python and reading results.</li>
+<li>Creating classes with <a href="https://ponyorm.org/">Pony</a> ORM to mirror database tables.</li>
+<li>Writing queries in Python rather than as embedded SQL strings.</li>
+<li>Cross-validating implementations.</li>
+<li>Big benefit of ORM is avoiding transposition errors with integer values.</li>
+</ul>
+<h2 id="syllabus-refactor"><a href="../refactor">Refactor</a> (<a href="../refactor/slides.html">slides</a>)</h2>
+<ul>
+<li>Break code into comprehensible chunks.</li>
+<li>Create classes and class hierarchies.</li>
+<li>Write docstrings and generating documentation pages.</li>
+<li>Validate implementations against one another.</li>
+</ul>
+<h2 id="syllabus-test"><a href="../test">Unit Tests</a> (<a href="../test/slides.html">slides</a>)</h2>
+<ul>
+<li>A quick review of <a href="https://docs.pytest.org/">`pytest</a>.</li>
+<li>Deciding what tests to write.</li>
+<li>Creating and using mock objects.</li>
+<li>Making &ldquo;random&rdquo; reproducible.</li>
+<li>Using <a href="https://coverage.readthedocs.io/">coverage</a> to determine what is and isn&rsquo;t being tested.</li>
+</ul>
+<h2 id="syllabus-perf"><a href="../perf">Measure Performance</a> (<a href="../perf/slides.html">slides</a>)</h2>
+<ul>
+<li>Introduce Python type annotations.</li>
+<li>Define <a href="https://docs.python.org/3/library/dataclasses.html">dataclasses</a> to represent parameters for profiling runs.</li>
+<li>Using <a href="https://docs.python.org/3/library/profile.html"><code>cProfile</code></a> to determine which parts are expensive.</li>
+<li>Tuning code does not solve algorithmic problems like quadratic growth in runtime.</li>
+</ul>
+<h2 id="syllabus-lazy"><a href="../lazy">A Lazy Algorithm</a> (<a href="../lazy/slides.html">slides</a>)</h2>
+<ul>
+<li>Estimating algorithm performance with big-oh.</li>
+<li>Extending a class hierarchy to accommodate new features.</li>
+<li>Adapting tools written earlier to make all of this simpler to run, test, and document.</li>
+</ul>
+<h2 id="syllabus-scale"><a href="../scale">Scale Up</a> (<a href="../scale/slides.html">slides</a>)</h2>
+<ul>
+<li>Describing workflows as directed acyclic graphs.</li>
+<li>Expressing DAGs in code with <a href="https://metaflow.org/">Metaflow</a>.</li>
+<li>Use <a href="https://docs.python.org/3/library/logging.html">logging</a> instead of <code>print</code> statements for debugging.</li>
+<li>Use <a href="https://dvc.org/">DVC</a> to store data remotely.</li>
+</ul>
+<h2 id="syllabus-package"><a href="../package">A Python Package</a> (<a href="../package/slides.html">slides</a>)</h2>
+<ul>
+<li>Creating an installable package is the best way to share your code with other people.</li>
+<li>Python&rsquo;s packaging tools are a complex mess.</li>
+<li>The first step in creating a package is to write a manifest describing its contents and how to build it.</li>
+<li>Packages can be installed locally for testing purposes before being distributed.</li>
+<li>Always use virtual environments when building and using packages.</li>
+</ul>
+<h2 id="syllabus-mutate"><a href="../mutate">Synthetic Data</a> (<a href="../mutate/slides.html">slides</a>)</h2>
+<ul>
+<li>Use a statistical model of single nucleotide polymorphisms (SNPs) to synthesize genomic data.</li>
+<li>Use another model to combine that data with geocoded samples to generate snail sizes.</li>
+<li>Build a program to analyze and visualize the synthetic data to test the analysis pipeline.</li>
+</ul>
+<h2 id="syllabus-search"><a href="../search">Search</a> (<a href="../search/slides.html">slides</a>)</h2>
+<ul>
+<li>Create a table of term occurrences and calculate TF-IDF scores to support search.</li>
+<li>Caching the lookup index rather than recalculating it on the fly.</li>
+<li>Handling different character sets.</li>
+<li>How the way we clean our data determines the results we get.</li>
+</ul>
+<h2 id="syllabus-lims"><a href="../lims">Laboratory Information Management System</a> (<a href="../lims/slides.html">slides</a>)</h2>
+<ul>
+<li>Check the existence, structure, content, and consistency of data in that order.</li>
+<li>Separate quality control checks from reports.</li>
+<li>Use models, views, and controllers to build interactive applications.</li>
+<li>Never pass user data directly in a database query.</li>
+</ul>
+<h2 id="syllabus-website"><a href="../website">A Static Web Site</a> (<a href="../website/slides.html">slides</a>)</h2>
+<ul>
+<li>How page templates are expanded.</li>
+<li>Using configuration data in a site.</li>
+<li>More about <a href="https://jinja.palletsprojects.com/">Jinja</a> templates.</li>
+<li>Adding extensions to <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a> to display scientific data.</li>
+<li>Figuring out how to build extensions for third-party software.</li>
+</ul>
+<h2 id="syllabus-scrape"><a href="../scrape">Scrape Web Data</a> (<a href="../scrape/slides.html">slides</a>)</h2>
+<ul>
+<li>How HTTP requests work.</li>
+<li>Using <a href="https://requests.readthedocs.io/">requests</a> to fetch web pages.</li>
+<li>How HTML is represented as DOM.</li>
+<li>Using <a href="https://beautiful-soup-4.readthedocs.io/">Beautiful Soup</a> to parse HTML.</li>
+<li>Using query selectors to find elements in DOM.</li>
+</ul>
+<h2 id="syllabus-serve"><a href="../serve">A Web Service</a> (<a href="../serve/slides.html">slides</a>)</h2>
+<ul>
+<li>Routing HTTP requests to functions.</li>
+<li>Separating routing from model.</li>
+<li>Creating HTML pages from <a href="https://jinja.palletsprojects.com/">Jinja</a> templates.</li>
+<li>Serving static files (and what that means).</li>
+<li>The difference between data as HTML and data for machine consumption.</li>
+</ul>
+<h2 id="syllabus-finale"><a href="../finale">Conclusion</a> (<a href="../finale/slides.html">slides</a>)</h2>
+<ul>
+<li>Summarize key ideas.</li>
+</ul>
+    </main>
+    <footer>
+  <div class="row">
+    <div class="col-1 left">
+      <a href="../conduct/">&lArr;</a>
+    </div>
+    <div class="col-10 center">
+      <a href="../">Home</a>
+      &middot;
+      <a href="../license/">License</a>
+      &middot;
+      <a href="https://github.com/gvwilson/rsdx">Repository</a>
+    </div>
+    <div class="col-1 right">
+      <a href="../credits/">&rArr;</a>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

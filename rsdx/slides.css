@@ -1,0 +1,90 @@
+/* Extra CSS for slides. */
+/* Inspired by https://yihui.org/en/2023/09/snap-slides/ */
+
+/* Ensure box sizing */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Snap-scrolling for paging through slides */
+html {
+    scroll-snap-type: y mandatory;
+}
+
+/* Get rid of scrollbars */
+html:fullscreen::-webkit-scrollbar {
+    display: none;
+}
+
+html:fullscreen {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Overall appearance */
+body {
+    max-width: 60rem;
+    margin: auto;
+    padding: 0;
+    line-height: 1.5;
+    box-sizing: border-box;
+    font-size: 175%;
+}
+
+/* Slide elements */
+.slide {
+    padding: 0.5em;
+    position: relative;
+    min-height: 100vh;
+    scroll-snap-align: start;
+    border: solid var(--light-border) var(--light-gray);
+}
+
+.slide > h2, .slide > h3 {
+    margin-top: unset;
+}
+
+/* Special kinds of slides */
+.exercise h2::before {
+    content: "\270E "; /* pencil */
+}
+.exercise h2 {
+    background-color: var(--stamp-orange-light);
+}
+
+.aside h2::before {
+    content: "\2606 "; /* star */
+}
+.aside h2 {
+    background-color: var(--stamp-orange-light);
+}
+
+/* Overview */
+.overview {
+  font-size: 1em;
+}
+
+.overview .slide {
+  min-height: unset;
+  scroll-snap-align: unset;
+}
+
+.overview .slide-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.overview .slide-container .slide {
+  width: var(--slide-width);
+  border: 1px dotted #ccc;
+  margin-bottom: 0.5em;
+}
+
+/* Page numbers */
+.page-number {
+    opacity: .5;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

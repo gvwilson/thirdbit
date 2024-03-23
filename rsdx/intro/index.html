@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="repo" content="https://github.com/gvwilson/rsdx">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <title>Research Software Design by Example: Introduction</title>
+  <link rel="stylesheet" href="../tango.css">
+<link rel="stylesheet" href="../mccole.css">
+
+<link rel="stylesheet" href="../pages.css">
+
+
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']]
+    }
+  };
+</script>
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+  
+
+</head>
+
+  <body>
+    <main data-slug="intro">
+      <div class="row title">
+  <div class="col-1 left">
+    <p>
+      <a href="../"><img src="../codebender-logo.svg" alt="logo" class="logo"/></a>
+    </p>
+  </div>
+  <div class="col-10 center">
+    <h1>Introduction</h1>
+  </div>
+  <div class="col-1"></div>
+</div>
+
+
+<div class="row notex">
+  <div class="col-1 left">
+    
+  </div>
+  <div class="col-10 center">
+    <span class="tagline">An overview of where we&rsquo;re going and why.</span>
+  </div>
+  <div class="col-1 right">
+    <a href="../parse/">&rArr;</a>
+  </div>
+</div>
+<ul class="syllabus">
+<li>Assume you know how to program.</li>
+<li>Want to learn how to design pieces of software that are reliable and reusable.</li>
+<li>Best way is through examples: principles don&rsquo;t make sense unless you know how to translate them into specifics.</li>
+</ul>
+
+
+      <p>The best way to learn design in any field
+is to study examples <span class="bib-ref">[<a class="bib-ref" href="../bib/#Schon1984">Schon1984</a>, <a class="bib-ref" href="../bib/#Petre2016">Petre2016</a>]</span>,
+and the most approachable examples are based on
+problems that learners are already familiar with.
+These lessons therefore solve scaled-down versions
+of programs that researchers build every day
+to show how experienced software designers think.
+Along the way,
+they introduce some fundamental ideas
+that many self-taught programmers haven&rsquo;t encountered.
+We hope these lessons will help you design better software yourself
+and help you pass on what you know to others.</p>
+<h2 id="intro-audience">Audience</h2>
+<p>This learner persona <span class="bib-ref">[<a class="bib-ref" href="../bib/#Wilson2019">Wilson2019</a>]</span> describes who this book is for:</p>
+<blockquote>
+<p class="continue"><em>Ning has a master&rsquo;s degree in genomics.
+She knows enough Python to analyze data from her experiments,
+but wants to tackle bigger problems,
+have more confidence that she&rsquo;s getting the right answers,
+and write code that other people can use.
+These lessons will show her how to design, build, and test large programs
+in less time and with less pain.</em></p>
+</blockquote>
+<p class="continue">Like Ning, you should be able to:</p>
+<ul>
+<li>
+<p>Write Python programs using lists, loops, conditionals, dictionaries, and functions
+    and puzzle your way through Python programs that use classes and exceptions.
+    (<a href="https://swcarpentry.github.io/python-novice-inflammation/">The Carpentries lesson on Python</a> covers everything you will need.)</p>
+</li>
+<li>
+<p>Run Unix shell commands like <code>ls</code>, <code>mkdir</code>, <code>grep</code>, and <code>find</code>,
+    use wildcards to match filenames,
+    and write <code>for</code> loops to process multiple files.
+    (<a href="https://swcarpentry.github.io/shell-novice/">The Carpentries lesson on the shell</a> covers everything you will need.)</p>
+</li>
+<li>
+<p>Use <a href="https://git-scm.com/">Git</a> to save and share files.
+    (<a href="https://swcarpentry.github.io/shell-novice/">The Carpentries lesson on Git</a> covers everything you will need.)</p>
+</li>
+<li>
+<p>Read and write a little bit of HTML.</p>
+</li>
+</ul>
+<p>This material will also help another persona:</p>
+<blockquote>
+<p class="continue"><em>Yim teaches an introduction to data science for biologists.
+They would like to teach a more advanced course
+to people who have mastered the basics,
+but doesn&rsquo;t have the time to build a curriculum themself
+and isn&rsquo;t really sure what they would include.
+This book will give them material they can use immediately
+and starting points for course projects.</em></p>
+</blockquote>
+<h2 id="intro-ideas">The Big Ideas</h2>
+<p>Our approach to design is based on three big ideas.
+First,
+as the number of components in a system grows,
+the complexity of the system increases rapidly
+(<a class="fig-ref" href="#intro-complexity">Figure&nbsp;1</a>).
+However,
+the number of things we can hold in working memory at any time
+is fixed and fairly small <span class="bib-ref">[<a class="bib-ref" href="../bib/#Hermans2021">Hermans2021</a>]</span>.
+If we want to build large programs that we can understand,
+we therefore need to construct them out of pieces
+that interact in a small number of ways.
+Figuring out what those pieces and interactions should be
+is the core of what we call &ldquo;design&rdquo;.</p>
+<figure id="intro-complexity">
+<img src="./complexity.svg" alt="Complexity and size"/>
+<figcaption markdown="1">Figure&nbsp;1: How complexity grows with size.</figcaption>
+</figure>
+
+<p>Second,
+&ldquo;making sense&rdquo; depends on who we are.
+When we use a low-level language,
+we incur the <a class="gl-ref" href="../glossary/#gl:cognitive_load" markdown="1">cognitive load</a>
+of assembling micro-steps into something more meaningful.
+When we use a high-level language,
+on the other hand,
+we incur a similar load translating functions of functions
+into actual operations on actual data.</p>
+<p>More experienced programmers are more capable at both ends of the curve,
+but that&rsquo;s not the only thing that changes.
+If a novice&rsquo;s comprehension curve looks like the lower one in <a class="fig-ref" href="#intro-comprehension">Figure&nbsp;2</a>,
+then an expert&rsquo;s looks like the upper one.
+Experts don&rsquo;t just understand more at all levels of abstraction;
+their <em>preferred</em> level has also shifted
+so they find \( \sqrt{x^2 + y^2} \) easier to read
+than the Medieval equivalent
+&ldquo;the side of the square whose area is the sum of the areas of the two squares
+whose sides are given by the first part and the second part&rdquo;.
+This curve means that for any given task,
+the code that is quickest for a novice to comprehend
+will almost certainly be different from the code that
+an expert can understand most quickly.</p>
+<figure id="intro-comprehension">
+<img src="./comprehension.svg" alt="Comprehension curves"/>
+<figcaption markdown="1">Figure&nbsp;2: Novice and expert comprehension curves.</figcaption>
+</figure>
+
+<p>Our third big idea is testing research applications is hard
+because we often don&rsquo;t know what the right answer actually is.
+(If we did,
+we would already have published and moved on.)
+However,
+that doesn&rsquo;t mean such applications can&rsquo;t be tested:
+if we think about how we&rsquo;re going to check the code as we design it,
+we can make it as trustworthy as a physical experiment.</p>
+<h2 id="intro-layout">Formatting</h2>
+<p>We display Python source code like this:</p>
+<div class="code-sample lang-py" title="python_sample.py">
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="s2">&quot;example&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p class="continue">and Unix shell commands like this:</p>
+<div class="code-sample lang-sh" title="shell_sample.sh">
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>filename<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.dat
+<span class="k">do</span>
+<span class="w">    </span>cut<span class="w"> </span>-d<span class="w"> </span>,<span class="w"> </span>-f<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="nv">$filename</span>
+<span class="k">done</span>
+</code></pre></div>
+</div>
+<p class="continue">Data files and program output are shown like this:</p>
+<div class="code-sample lang-yml" title="data_sample.yml">
+<div class="highlight"><pre><span></span><code>- name: read
+  params:
+  - sample_data.csv
+</code></pre></div>
+</div>
+<div class="code-sample lang-out" title="output_sample.out">
+<div class="highlight"><pre><span></span><code>alpha
+beta
+gamma
+delta
+</code></pre></div>
+</div>
+<p>We use <code>...</code> to show where lines have been omitted,
+and occasionally break lines in unnatural ways to make them fit on the page.
+Where we do this,
+we end all but the last line with a single backslash <code>\</code>.
+Finally,
+we show glossary entries in <strong>bold text</strong>
+and write functions as <code>function_name</code> rather than <code>function_name()</code>.
+The latter is more common,
+but the empty parentheses makes it hard to tell
+whether we&rsquo;re talking about the function itself
+or a call to the function with no parameters.</p>
+<h2 id="intro-use">Usage</h2>
+<p>The source for this book is available in <a href="https://github.com/gvwilson/rsdx/">our Git repository</a>
+and all of it can be read on <a href="https://third-bit.com/rsdx/">our website</a>.
+All of the written material in this book
+is licensed under the <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons - Attribution - NonCommercial 4.0 International license</a>
+(CC-BY-NC-4.0),
+while the software is covered by the <a href="https://firstdonoharm.dev/">Hippocratic License</a>.
+The first license allows you to use and remix this material for noncommercial purposes,
+as-is or in adapted form,
+provided you cite its original source;
+if you want to sell copies or make money from this material in any other way,
+you must <a href="mailto:gvwilson@third-bit.com">contact us</a> and obtain permission first.
+The second license allows you to use and remix the software on this site
+provided you do not violate international agreements governing human rights;
+please see Appendix&nbsp;A for details.</p>
+<p>If you would like to improve what we have,
+add new material,
+or ask questions,
+please file an issue in <a href="https://github.com/gvwilson/rsdx/">our GitHub repository</a>
+or <a href="mailto:gvwilson@third-bit.com">send an email</a>.
+All contributors are required to abide by our Code of Conduct
+(Appendix&nbsp;C).</p>
+<h2 id="intro-acknowledgments">Acknowledgments</h2>
+<p>Like <span class="bib-ref">[<a class="bib-ref" href="../bib/#Wilson2024">Wilson2024</a>, <a class="bib-ref" href="../bib/#Wilson2022">Wilson2022</a>]</span>,
+this book was inspired by <span class="bib-ref">[<a class="bib-ref" href="../bib/#Kamin1990">Kamin1990</a>, <a class="bib-ref" href="../bib/#Kernighan1979">Kernighan1979</a>, <a class="bib-ref" href="../bib/#Kernighan1981">Kernighan1981</a>, <a class="bib-ref" href="../bib/#Kernighan1983">Kernighan1983</a>, <a class="bib-ref" href="../bib/#Kernighan1988">Kernighan1988</a>, <a class="bib-ref" href="../bib/#Oram2007">Oram2007</a>, <a class="bib-ref" href="../bib/#Wirth1976">Wirth1976</a>]</span> and by:</p>
+<ul>
+<li><a href="https://aosabook.org/"><em>The Architecture of Open Source Applications</em></a> series
+    <span class="bib-ref">[<a class="bib-ref" href="../bib/#Brown2011">Brown2011</a>, <a class="bib-ref" href="../bib/#Brown2012">Brown2012</a>, <a class="bib-ref" href="../bib/#Armstrong2013">Armstrong2013</a>, <a class="bib-ref" href="../bib/#Brown2016">Brown2016</a>]</span>;</li>
+<li>the posts and <a href="https://wizardzines.com/">zines</a> created by <a href="https://jvns.ca/">Julia Evans</a>;
+    and</li>
+<li>everyone who helped write <span class="bib-ref">[<a class="bib-ref" href="../bib/#Irving2021">Irving2021</a>]</span>
+    or ever contributed to a <a href="https://carpentries.org/">Carpentries</a> lesson.</li>
+</ul>
+<p><span class="fixme" markdown="1">add thanks</span></p>
+<p>I am also grateful to Shashi Kumar for help with LaTeX,
+and to the creators of
+<a href="https://glosario.carpentries.org/">Glosario</a>,
+<a href="https://www.gnu.org/software/make/">GNU Make</a>,
+<a href="https://www.dmulholl.com/docs/ark/main/">ark</a>,
+<a href="https://www.latex-project.org/">LaTeX</a>,
+<a href="https://pip.pypa.io/">pip</a>,
+<a href="https://www.python.org/">Python</a>,
+<a href="https://docs.astral.sh/ruff/">Ruff</a>,
+<a href="https://wave.webaim.org/">WAVE</a>,
+and many other open source tools:
+if we all give a little,
+we all get a lot.</p>
+<p>All royalties from this book will go to the <a href="https://www.reddoorshelter.ca/">Red Door Family Shelter</a> in Toronto.</p>
+<h2 id="intro-exercises">Exercises</h2>
+<p><span class="fixme" markdown="1">fill in exercises for introduction</span></p>
+    </main>
+    <footer>
+  <div class="row">
+    <div class="col-1 left">
+      
+    </div>
+    <div class="col-10 center">
+      <a href="../">Home</a>
+      &middot;
+      <a href="../license/">License</a>
+      &middot;
+      <a href="https://github.com/gvwilson/rsdx">Repository</a>
+    </div>
+    <div class="col-1 right">
+      <a href="../parse/">&rArr;</a>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="repo" content="https://github.com/gvwilson/rsdx">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <title>Research Software Design by Example: Unit Tests</title>
+  <link rel="stylesheet" href="../tango.css">
+<link rel="stylesheet" href="../mccole.css">
+
+<link rel="stylesheet" href="../pages.css">
+
+
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']]
+    }
+  };
+</script>
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+  
+
+</head>
+
+  <body>
+    <main data-slug="test">
+      <div class="row title">
+  <div class="col-1 left">
+    <p>
+      <a href="../"><img src="../codebender-logo.svg" alt="logo" class="logo"/></a>
+    </p>
+  </div>
+  <div class="col-10 center">
+    <h1>Unit Tests</h1>
+  </div>
+  <div class="col-1"></div>
+</div>
+
+
+<div class="row notex">
+  <div class="col-1 left">
+    <a href="../refactor/">&lArr;</a>
+  </div>
+  <div class="col-10 center">
+    <span class="tagline">Use mocks to test programs that rely on pseudo-randomness.</span>
+  </div>
+  <div class="col-1 right">
+    <a href="../perf/">&rArr;</a>
+  </div>
+</div>
+<ul class="syllabus">
+<li>A quick review of <a href="https://docs.pytest.org/">`pytest</a>.</li>
+<li>Deciding what tests to write.</li>
+<li>Creating and using mock objects.</li>
+<li>Making &ldquo;random&rdquo; reproducible.</li>
+<li>Using <a href="https://coverage.readthedocs.io/">coverage</a> to determine what is and isn&rsquo;t being tested.</li>
+</ul>
+
+
+      <ul>
+<li>Use <code>GridList</code> and <code>GridArray</code> from Chapter&nbsp;4.</li>
+<li><code>test_grid_start.py</code> tests that grids can be initialized.<ul>
+<li>But we don&rsquo;t know if we&rsquo;re getting the actual values from the grid because they&rsquo;re random.</li>
+<li>And repeating the test for different classes is annoying.</li>
+</ul>
+</li>
+<li>Create a new class <code>GridListRandomizer</code> that takes a number generator as a constructor parameter.<ul>
+<li>Generate a grid filled with known values for testing.</li>
+<li>But we&rsquo;re no longer testing our actual grid class.</li>
+<li>Could add extra arguments for all sorts of things to all our classes, but that&rsquo;s a lot of work.</li>
+</ul>
+</li>
+<li><code>test_grid_mock.py</code> patches the random number generator without modifying the grid class.</li>
+<li><code>test_grid_parametrize.py</code> parameterizes the test across both classes.</li>
+<li><code>grid_filled.py</code> defines <code>GridFilled</code>, which we can populate with known data.<ul>
+<li>Exercise: refactor other grid classes so that we have a patchable method instead.</li>
+</ul>
+</li>
+<li><code>test_grid_filled.py</code> starts by testing that filling is working correctly.</li>
+<li>Add test for filling grid by creating deterministic filling path.</li>
+<li>But suddenly realize: what happens when several fillable cells have the same value?<ul>
+<li><code>fill_grid</code> always chooses the first one it encounters.</li>
+<li>So filling has a bias toward the (0, 0) corner of the grid.</li>
+</ul>
+</li>
+</ul>
+    </main>
+    <footer>
+  <div class="row">
+    <div class="col-1 left">
+      <a href="../refactor/">&lArr;</a>
+    </div>
+    <div class="col-10 center">
+      <a href="../">Home</a>
+      &middot;
+      <a href="../license/">License</a>
+      &middot;
+      <a href="https://github.com/gvwilson/rsdx">Repository</a>
+    </div>
+    <div class="col-1 right">
+      <a href="../perf/">&rArr;</a>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
