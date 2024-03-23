@@ -7966,8 +7966,6 @@ an' we still gotta feed 'em through the winter,
 but there's a couple o' dozen colonies here now.
 Come on, I'll show you."
 
-<span id="2024-03-22-a"></span>
-
 It took half an hour to reach the stream
 that snaked along the bottom of the valley.
 Iñacio talked the whole way.
@@ -8084,9 +8082,84 @@ and weren't quite sure if it would be polite to leave.
 Iñacio paused for a moment before a hand-painted picture of Saint Yanina
 hanging by the cots
 to say a brief prayer under his breath,
-then shrugged off his pack and unzipped his jacket.
+then shrugged off his pack and unzipped his coat.
 "Make yourself comfortable,"
 he said,
 pulling his feet out of his boots with a happy sigh.
+"We can start work in th' mornin'."
+
+<span id="2024-03-23-a"></span>
+
+Iffy sat on the nearest cot
+and bounced up and down to test it,
+but didn't take off her coat or boots.
+"What kind o' work?"
+
+"Saints' work," Iñacio said.
+"Been a month since anyone was here, maybe more.
+There's trees 'n' all to re-pot,
+a couple o' composters to turn over,
+pipes to check—th' bots could do it all,
+but that would be the easy road,
+and the easy road leads to an empty world."
+He looked away as if suddenly aware of the fervor in his voice
+and embarrassed by it.
+
+Iffy scrunched her toes inside her boots,
+then bent over to unlace them.
+"Dunno anythin' about pots or compost,
+but checkin' pipes sounds like my kind o' thing."
+
+There were carrots,
+real carrots for Iffy to pull out of a raised bed and rinse off.
+There were onions too,
+and something Iñacio called "basil" that Iffy thought she could learn to like
+if given a chance.
+The ginger was long past fresh,
+but the noodles were exactly the same as the ones the Sandhus sold.
+
+Iñacio shook his head when Iffy asked about curry powder.
+"Might be some around somewhere,
+but it won't have any o' your medicine in it.
+Nearest place for that's gonna be Halley,
+an' that's three weeks away, maybe more."
+He stirred the noodles and vegetables in the battered steel wok
+he had fished out of a cupboard beneath one of the raised beds,
+sniffed,
+and pronounced good enough for camp cooking.
+
+Iffy cradled her tea.
+Iñacio had plucked leaves off a plant and put them in the pot to steep
+as if it was the most natural thing in the world,
+and the result almost tasted too good to drink.
+"I don't think th' machines are gonna give me that long,"
+she said quietly.
+
+He nodded soberly.
+"Yeah,
+well,
+how about we eat first an' figure the rest out later?
+Here."
+He scoop-poured a bowl of noodles for her and a second for himself.
+"Mind the little red bits.
+Not sure what they are,
+but they'll blow your head off."
+
+Iffy lay in her cot and stared up at the sky
+after they cleaned up and turned in.
+Even the tallest pines hadn't grown enough to reach the peak of the greenhouse's roof,
+but the blue bowl above her was hazed by fog
+where the warm, moist air rising from the valley
+met the cold of the outside world.
+It took her a moment to realize that the ticklish feeling on her temples was tears.
+She was in a forest—an actual *forest*—and it was amazing,
+but she missed the sea.
+The hell with what the machines wanted
+or the governors and their politics.
+She just wanted to see Aunt Naggie and Honesty again
+and flip through her picture book and go to sleep on her own mattress.
+
+Her eyelids were just starting to lose their battle with gravity
+when an alarm began to bleat.
 
 </section>
