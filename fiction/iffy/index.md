@@ -8157,8 +8157,6 @@ or the governors and their politics.
 She just wanted to see Aunt Naggie and Honesty again
 and flip through her picture book and go to sleep on her own mattress.
 
-<span id="2024-03-23-b"></span>
-
 Her eyelids were just starting to lose their battle with gravity
 when an alarm began to bleat.
 Iñacio was on his feet and in his jacket
@@ -8178,7 +8176,7 @@ she asked,
 then jumped as he swore explosively.
 
 "It's the Marines.
-Couple o' dozen at least,
+Couple o' dozen,
 headin' straight for us."
 He swore again.
 "Th' herd's gonna try t' slow 'em down,
@@ -8242,7 +8240,8 @@ only to have its target step aside at the last moment
 and snap a kick that broke the ox's leg.
 
 The app flashed.
-The images froze for a moment, then disappeared.
+The images froze as whatever had been transmitting went offline,
+perhaps forever.
 "Mother Yanina, Mother Pao, forgive our crimes and arrogance,"
 Iñacio whispered.
 
@@ -8250,12 +8249,116 @@ And then Iffy heard it,
 the thrumming roar of a hovercraft moving fast over rough ground.
 There!
 East of them,
-blurred but visible as its camouflage struggled and failed
-to match the ground beneath it.
+blurred but visible as its camouflage struggled to match the ground beneath it.
 "Who th' hell is that?"
-Iñacio demanded as he unslung his rifle.
+Iñacio demanded.
+
+<span id="2024-03-24-a"></span>
 
 Iffy stared at him.
-"How th' hell would I know?"
+"How th' hell would I know?
+But they brought a friend."
+She pointed at a dot in the sky
+flying parallel to the hovercraft's course.
+
+Iñacio thrust the app into her hands and unslung his rifle.
+"Get back on your bike," he ordered,
+raising it to take aim at the drone.
+"There's a shelter about thirty klicks further on—the app's got a map an' a pass code.
+You hole up there an' someone will come find you."
+
+"Are you cracked?" Iffy shot back.
+"I can't outrun a bunch o' Marines!
+And I *surely* can't outrun that thing."
+
+He adjusted the sight on his rifle.
+"You won't have to,"
+he said without looking at her.
+"Like I told you,
+this is sacred ground.
+The governors 'n' all haven't stayed away all this time 'cuz we asked nicely."
+
+The app vibrated in Iffy's hand.
+"What's it say?"
+the Ecologist asked.
+
+Navy blue dots moved across a map in pairs and threes,
+each cluster surrounded by a scattering of green dots.
+"The Marines are in the valley.
+They're almost at the greenhouses."
+
+A red dot appeared on the map,
+blinked,
+expanded into a circle that swallowed three of the blue dots.
+A moment later Iffy heard a sharp *crack!* and a roll of thunder.
+As the circle faded away,
+two of the blue dots blinked and went out.
+
+More red dots bloomed on the map
+as one geothermal drill hole after another hit critical pressure and exploded.
+"Saints and their mercies," Iffy whispered.
+
+The distant thunder became a steady rumble.
+The green dots swarmed the remaining blue dots.
+Gunfire rattled and whined in the distance,
+but the ballistic shots and EMP pulses that snuffed out the green dots in waves
+weren't enough to turn the tide.
+
+Nineteen and five… Sixteen and eight… Fourteen and ten…
+The numbers in the corner of the map showed the number of blue dots remaining
+and the number that had gone dark.
+At twelve and twelve the remaining Marines began to fall back.
+The green dots kept pace but let them go.
+
+"How bad is it?" Iñacio asked,
+his eyes still on the approaching hovercraft.
+
+Iffy swallowed.
+The whole battle had taken less than thirty seconds.
+"Half o' them are down.
+The others are pullin' out."
+
+"Never mind them," he snapped.
+"How bad's the damage?"
+
+She tapped the app to bring up a dozen tiled camera views.
+Steam jetted out of the ground in some.
+Others showed shattered rock and fallen trees.
+And one—
+"One o' the greenhouses got hit," she said.
+"Looks like a tree came down on it."
+
+Iñacio let out a long breath.
+"Praise the saints.
+That coulda been a lot worse."
+
+Iffy stared at the video tile that showed a lifeless Marine not much older than her,
+his exoskeleton twitching as it tried and failed to get him on his feet.
+A crab bot climbed onto his chest and—
+She bent over and threw up.
+*Please let none o' them be Honesty,* she thought desperately.
+
+"Y'aright?" Iñacio asked as she straightened up.
+
+"No!
+No, I'm not affin' aright!"
+She spat the last of the sour vomit out of her mouth.
+"There's folk *dead* back there!"
+
+He didn't answer.
+"Don't that bother you?" she demanded,
+anger making her voice shake.
+
+"'Course it does,"
+he said brusquely.
+"I grieve for every death that comes before its time.
+I grieve for them as were made into soldiers against their wishes,
+an' for the trees that were a hundred years in growin'
+an' coulda lived a thousand more,
+an' for every single thing we've torn up or burned down or poisoned or starved,
+but right now there ain't time to think about any o' that
+because those Marines ain't quit,
+they're just comin' round th' long way,
+an' we still got this other lot t' worry about."
 
 </section>
