@@ -8262,8 +8262,7 @@ She pointed at a dot in the sky
 flying parallel to the hovercraft's course.
 
 Iñacio thrust the app into her hands and unslung his rifle.
-"Get back on your bike," he ordered,
-raising it to take aim at the drone.
+"Get back on your bike," he ordered.
 "There's a shelter about thirty klicks further on—the app's got a map an' a pass code.
 You hole up there an' someone will come find you."
 
@@ -8290,7 +8289,7 @@ They're almost at the greenhouses."
 A red dot appeared on the map,
 blinked,
 expanded into a circle that swallowed three of the blue dots.
-A moment later Iffy heard a sharp *crack!* and a roll of thunder.
+A second later Iffy heard a sharp *crack!* and a roll of thunder.
 As the circle faded away,
 two of the blue dots blinked and went out.
 
@@ -8360,5 +8359,104 @@ but right now there ain't time to think about any o' that
 because those Marines ain't quit,
 they're just comin' round th' long way,
 an' we still got this other lot t' worry about."
+
+<span id="2024-03-24-b"></span>
+
+*«assistance / possibility / negotiate»*
+
+"Wait!"
+Iffy grabbed Iñacio's shoulder as he took aim at the approaching drone.
+"I think they're maybe on our side."
+
+"Your voices tellin' you that?"
+the Ecologist asked skeptically.
+
+"I think so.
+It's complicated,"
+she added apologetically.
+
+He hesitated before lowering his rifle
+and slinging it over his shoulder.
+"I hope you're right,"
+he said,
+taking the app from her and tapping in commands.
+"Because we are well an' truly mulched if you're not."
+He held it up to show a dozen blue dots converting on the blinking white star
+that marked their position.
+
+Moments later they were on their bikes
+skidding down the ridge toward the oncoming hovercraft.
+The cold air stung Iffy's cheeks,
+and if the bumps and potholes on the climb up the ridge had been frightening,
+going over them downhill at three times the speed was terrifying.
+There wasn't time to be scared, though,
+or to think about how quickly the Marines were closing in on them.
+There was just staying upright as she followed Iñacio around the next turn
+and trying not to go head-first over her handlebars
+each time her front tire hit a rock.
+
+Flat ground,
+or at least flatter.
+She struggled to change gears as Iñacio pulled ahead,
+her hands clumsied by her gloves.
+The hovercraft was a roaring blur in the distance,
+still too far away to help.
+She glanced up.
+Where was the drone?
+
+And then the bike went one way and she want another
+and she was falling
+just for a heartbeat
+everything happened so fast
+her knee hit the ground
+pain shot up her spine
+she put out her arm
+but she was still falling
+her hand hit the ground
+pain again like a grenade going off in her shoulder.
+
+The bike clattered on the ground,
+trapping her leg.
+She lay there for a moment in shock,
+then cried out as she struggled to get up.
+Her knee—her shoulder—it was like someone was using one of Mister Mishra's drills on her.
+
+She kicked free of the bike with her uninjured leg
+and cried out as she tried and failed to stand.
+Iñacio braked,
+fishtailed,
+and raced back to her.
+"I'm sorry, I'm sorry," she repeated
+as he leapt off his bike and helped her up.
+
+"Sh, sh, sh."
+He helped her sit in the shelter of a lichened outcrop of granite.
+"Ya did great.
+Ya did great.
+Nagatha would be proud o' you.
+Now,
+keep yer head down.
+This is gonna get a bit noisy."
+He raised his rifle and took aim.
+
+Iffy felt an explosion through the outcrop.
+"Affin' hell," Iñacio swore,
+ducking his head.
+"That was their drone."
+
+A rock two meters away jumped and splintered
+before Iffy could ask if the drone had been shot down
+or had turned itself into a missile.
+Iñacio pulled his app out of his coat and swore again.
+"They've jammed up all th' sensors.
+We're blind."
+
+"Citizens!"
+The amplified voice echoed off the rock.
+"Surrender yourselves immediately!
+We cannot ensure your safety if you do not comply!"
+
+Iñacio caught Iffy's eye and grinned.
+"I always thought they sounded pretty stupid when they talked like that."
 
 </section>
