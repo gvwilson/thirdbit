@@ -1,0 +1,37 @@
+---
+title: "Software Design by Example in Python 3: Finding Duplicate Files"
+date: 2024-04-04
+year: 2024
+---
+
+The [first chapter][sdxpy_obj_class] of [*Software Design by Example*][sdxpy] looks inward
+at Python itself
+to show how objects and classes are really just fancy dictionaries
+(for some large value of "just").
+The [second chapter][sdxpy_find_dup] looks outward at the problems Python is used to solve,
+and in doing so,
+introduces some ideas about hashing,
+systems programming,
+and the conventions that Unix command-line tools are expected to respect.
+
+The first and third of these ideas are well-defined,
+but "systems programming" turned out to be a slippery concept.
+For me,
+it means "doing things with a program that you'd normally do in the shell",
+like making directories and renaming files or changing their permissions,
+but I discovered that other people reserve the term for more advanced problems
+like authentication and network configuration.
+I'm now working sporadically on a [new tutorial][sys_tutorial]
+to figure out where I think the topic's boundaries are,
+which is proof yet again that every lesson leads to three others.
+
+<img class="centered" src="{{'/sdxpy/dup/concept_map.svg' | relative_url}}" alt="Concept map for finding duplicate files"/>
+
+> Terms defined: big-oh notation, binary mode, bucket, collision (in hashing), cryptographic hash function, hash code, hash function, hexadecimal, SHA-256 (hash function), streaming API, time complexity.
+
+<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+
+[sdxpy]: {{'/sdxpy/' | relative_url}}
+[sdxpy_find_dup]: {{'/sdxpy/dup/' | relative_url}}
+[sdxpy_obj_class]: {{'/sdxpy/oop/' | relative_url}}
+[sys_tutorial]: https://gvwilson.github.io/sys-tutorial/
