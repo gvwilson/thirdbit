@@ -1,6 +1,6 @@
 ---
 title: "Software Design by Example in Python 1: Objects and Classes"
-date: 2024-04-02
+date: 2024-04-03
 year: 2024
 ---
 
