@@ -76,7 +76,7 @@ you can file issues in [in the book's GitHub repository][book_repo].
 I hope you find the material useful,
 and I'm happy to answer questions [by email][contact].
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" class="centered">
+<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 
 I am grateful to the creators of [diagrams.net][diagrams_net],
 [Black][black],

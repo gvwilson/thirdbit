@@ -1,5 +1,5 @@
 ---
-title: "Software Design by Example in Python 1: Objects and Classes"
+title: "Software Design by Example in Python 2: Objects and Classes"
 date: 2024-04-03
 year: 2024
 ---
@@ -34,10 +34,10 @@ from passing functions as parameters
 to loading modules dynamically or walking abstract syntax trees,
 it comes up in program after program.
 
-<img class="center" src="{{'/sdxpy/oop/concept_map.svg' | relative_url}}" alt="Concept map for objects and classes"/>
+<img class="centered" src="{{'/sdxpy/oop/concept_map.svg' | relative_url}}" alt="Concept map for objects and classes"/>
 
 > Terms defined: alias, argument, cache, class method, constructor, derived class, design by contract, monkey patching, multiple inheritance, object-oriented programming, parameter, polymorphism, recursion, spread, static method, upcall, varargs.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" class="centered">
+<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 
 [sdxpy_obj_class]: {{'/sdxpy/oop/' | relative_url}}

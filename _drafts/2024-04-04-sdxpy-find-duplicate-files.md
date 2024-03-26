@@ -1,6 +1,6 @@
 ---
-title: "Software Design by Example in Python 2: Finding Duplicate Files"
-date: 2024-04-03
+title: "Software Design by Example in Python 3: Finding Duplicate Files"
+date: 2024-04-04
 year: 2024
 ---
 
@@ -25,11 +25,11 @@ I'm now working sporadically on a [new tutorial][sys_tutorial]
 to figure out where I think the topic's boundaries are,
 which is proof yet again that every lesson leads to three others.
 
-<img class="center" src="{{'/sdxpy/dup/concept_map.svg' | relative_url}}" alt="Concept map for finding duplicate files"/>
+<img class="centered" src="{{'/sdxpy/dup/concept_map.svg' | relative_url}}" alt="Concept map for finding duplicate files"/>
 
 > Terms defined: big-oh notation, binary mode, bucket, collision (in hashing), cryptographic hash function, hash code, hash function, hexadecimal, SHA-256 (hash function), streaming API, time complexity.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="40%" class="centered">
+<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 
 [sdxpy]: {{'/sdxpy/' | relative_url}}
 [sdxpy_find_dup]: {{'/sdxpy/dup/' | relative_url}}
