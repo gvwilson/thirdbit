@@ -1,6 +1,6 @@
 ---
 title: "Software Design by Example in Python 5: Parsing Text"
-date: 2024-04-08
+date: 2024-04-06
 year: 2024
 ---
 

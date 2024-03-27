@@ -8253,8 +8253,6 @@ blurred but visible as its camouflage struggled to match the ground beneath it.
 "Who th' hell is that?"
 Iñacio demanded.
 
-<span id="2024-03-24-a"></span>
-
 Iffy stared at him.
 "How th' hell would I know?
 But they brought a friend."
@@ -8360,8 +8358,6 @@ because those Marines ain't quit,
 they're just comin' round th' long way,
 an' we still got this other lot t' worry about."
 
-<span id="2024-03-24-b"></span>
-
 *«assistance / possibility / negotiate»*
 
 "Wait!"
@@ -8439,17 +8435,18 @@ keep yer head down.
 This is gonna get a bit noisy."
 He raised his rifle and took aim.
 
+<span id="2024-03-27-a"></span>
+
 Iffy felt an explosion through the outcrop.
 "Affin' hell," Iñacio swore,
 ducking his head.
 "That was their drone."
 
-A rock two meters away jumped and splintered
-before Iffy could ask if the drone had been shot down
-or had turned itself into a missile.
+A rock two meters away jumped and splintered.
 Iñacio pulled his app out of his coat and swore again.
-"They've jammed up all th' sensors.
-We're blind."
+"They've jammed up all th' sensors,
+but there's a satellite comin' up overhead.
+We just gotta hang on 'til then."
 
 "Citizens!"
 The amplified voice echoed off the rock.
@@ -8458,5 +8455,59 @@ We cannot ensure your safety if you do not comply!"
 
 Iñacio caught Iffy's eye and grinned.
 "I always thought they sounded pretty stupid when they talked like that."
+And then he twisted a button on his cuff
+to make the camouflage on his jacket jerk and swirl through not-quite random patterns
+designed to confuse the Marines' targeting algorithms,
+twisted around and up onto one knee,
+and began firing.
+He got off two shots before an impact in his chest sent him tumbling backward down the slope.
+
+"Iñacio!" Iffy screamed.
+The Ecologist slid downhill another meter and came to a rest,
+his legs splayed awkwardly and the rifle still in his hands.
+
+"Citizen!
+Remain where you are!
+Medical assistance will be provided shortly!"
+Boots crunched on gravel uphill,
+the steps stretched apart unnaturally by the exoskeletons' long strides.
+
+Iffy got her legs underneath her,
+biting back a whimper as pain spiked through her knee again.
+She had to help Iñacio.
+She had to run,
+but there was nowhere to go
+and she'd be lucky if she could walk.
+
+*Crack! Crack! Crack!*
+Iñacio's rifle jumped a little with each shot.
+Iffy heard an indistinct shout of surprise—inducted or not,
+the Marines were human enough to swear.
+Iñacio rolled sideways back into the lee of the outcrop
+as shots peppered the ground where he'd been lying.
+
+"Stay there!" he snapped as Iffy started to rise.
+He tossed his rifle aside,
+its ammunition spent,
+and scuttled uphill and sat beside her,
+his back against the outcrop.
+
+"Citizens!"
+The Marine sounded more disappointed than angry.
+"Such action will only worsen the charges against you.
+For your own safety,
+we urge you to surrender."
+
+Iñacio looked at Iffy.
+"Any ideas?"
+
+She forced a smile that she hoped looked as confident as his grin.
+"Reset this sim an' start over?"
+As he started to laugh,
+a thought appeared in her head.
+
+*«assistance / confirmed»*
+
+
 
 </section>
