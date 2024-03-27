@@ -8506,8 +8506,46 @@ She forced a smile that she hoped looked as confident as his grin.
 As he started to laugh,
 a thought appeared in her head.
 
-*«assistance / confirmed»*
+*«assistance»*
 
+One moment the sky was blue.
+The next,
+it was slashed by a pair of brilliant laser-straight lines
+as the hypersonic harpoons fired by the hovercraft tore the air apart.
+The missiles burst over Iffy's head before she had time to flinch.
+Dozens of EMP grenades,
+each the size of a pebble,
+ended their existence in brief bursts of plasma.
+Feedback shrieked as the micromotors in a dozen exoskeletons overloaded and fused solid.
 
+Iñacio pulled Iffy to her feet.
+"Come on!"
+
+One hand clutching his collar,
+the other swinging wildly for balance,
+she limp-walked down the gravel slope toward the oncoming hovercraft.
+It had turned off its camouflage,
+and as it gunned its engines to brake itself
+she realized that it was taller than she was
+and as long and broad as the *Guinevere*.
+
+"Citizens! Stop!"
+The voice behind them was no longer amplified.
+"You don't know what you are doing!"
+
+Cold air washed over Iffy as the hovercraft settled onto the ground.
+Two sentry bots dropped from its steeply-angled side
+and raced past her and Iñacio
+to stand guard between them and the fallen Marines.
+
+A hatch opened on the hovercraft's leading edge just as they reached it.
+Something bulbous poked out.
+Iffy thought it was another bot,
+but then he removed his helmet.
+She gasped.
+
+"Well,"
+said the governor.
+"Isn't this a fine mess?"
 
 </section>
