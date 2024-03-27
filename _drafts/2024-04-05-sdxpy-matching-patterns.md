@@ -42,7 +42,7 @@ which isn't bad for a one-hour lesson.
 
 <img class="centered" src="{{'/sdxpy/glob/concept_map.svg' | relative_url}}" alt="Concept map for pattern matching"/>
 
-> Terms defined: Chain of Responsibility pattern, child class, Extract Parent Class refactoring, globbing, greedy matching, helper method, inheritance, lazy matching, literal (in parsing), Null Object pattern, refactor, regular expression, signature, technical debt, test-driven development
+> Terms defined: Chain of Responsibility pattern, child class, Extract Parent Class refactoring, globbing, greedy matching, helper method, inheritance, lazy matching, literal (in parsing), Null Object pattern, refactor, regular expression, signature, technical debt, test-driven development.
 
 <img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 
