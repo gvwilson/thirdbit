@@ -26,7 +26,7 @@ without being too obvious.
 
 <img class="centered" src="{{'/sdxpy/check/concept_map.svg' | relative_url}}" alt="Concept map for an HTML validator"/>
 
->  Terms defined: attribute, child (in a tree), closing tag, DOM, DOM tree, element (in HTML), HTML, node, opening tag, self-closing tag, tag (in HTML), tree, Visitor pattern.
+> Terms defined: attribute, child (in a tree), closing tag, DOM, DOM tree, element (in HTML), HTML, node, opening tag, self-closing tag, tag (in HTML), tree, Visitor pattern.
 
 <img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 
