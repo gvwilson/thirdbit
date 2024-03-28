@@ -3001,7 +3001,7 @@ and her pure white hair
 was pulled back into a complicated bun
 that Iffy had only ever seen in history lessons.
 "Hello," the face said.
-"You must be Miz Kwan.
+"You must be Citizen Kwan.
 I'm Doctor Johel.
 I'm looking forward to meeting you."
 
@@ -3198,7 +3198,7 @@ The tiny woman's expression didn't soften.
 And even if we did,
 Intelligence might not share that information."
 
-"And Miz Kwan," she continued smoothly,
+"And Citizen Kwan," she continued smoothly,
 turning to Iffy and holding out her hand again.
 "A pleasure to meet you as well.
 I'm grateful to you for helping Mister Wales get here in one piece."
@@ -6268,7 +6268,7 @@ and we can't do it without you."
 "What—?" Iffy and Aunt Naggie started
 as two Marines stepped into the room.
 
-"Miz Kwan?"
+"Citizen Kwan?"
 the first one said,
 back straight and voice formal.
 "Under Section Twenty Four of the Permanent Emergency Act,
@@ -6442,13 +6442,13 @@ Why did it all have to be so hard?
 *Click.*
 She swung her legs around and sat up as the door opened.
 
-"Good morning, Miz, um, Kwan?"
+"Good morning, Citizen, um, Kwan?"
 Iñacio the Ecologist was wearing a simple gray tunic and trousers
 instead of brown and green,
 but his trim little beard was unchanged.
 He looked up from the app in his hands
 with professional disinterest on his face.
-"You are Miz Kwan, from the *Guinevere*?"
+"You are Citizen Kwan, from the *Guinevere*?"
 His fingers made the handcode signs for "surveillance",
 "help",
 and "breakfast"—no,
@@ -7430,7 +7430,7 @@ and then assemble them in shielded underground caverns.
 As the rest of the world takes arms against machines
 you turn yours loose.*
 
-*"Protect" is their only immutable instruction.
+*"Protect" is these shepherds only immutable instruction.
 Protect the flocks,
 protect the herds,
 protect the fragile new-born forests taking root as the ice retreats.
@@ -8435,8 +8435,6 @@ keep yer head down.
 This is gonna get a bit noisy."
 He raised his rifle and took aim.
 
-<span id="2024-03-27-a"></span>
-
 Iffy felt an explosion through the outcrop.
 "Affin' hell," Iñacio swore,
 ducking his head.
@@ -8542,10 +8540,93 @@ A hatch opened on the hovercraft's leading edge just as they reached it.
 Something bulbous poked out.
 Iffy thought it was another bot,
 but then he removed his helmet.
-She gasped.
 
 "Well,"
-said the governor.
+said the governor conversationally.
 "Isn't this a fine mess?"
+
+<span id="2024-03-28-a"></span>
+
+"Halley?"
+Iñacio demanded incredulously.
+
+Even from ten meters away Iffy felt the temperature drop.
+"Paddington South, actually," he corrected
+in the same clipped accent that the Marines used.
+"Although I suspect that's rather a matter for debate right now,
+to tell you the truth.
+All I'm sure I've governor of is this craft and a few odds and ends like it."
+He patted the hovercraft's hull as if it was an old dog asleep at his feet.
+
+"And you must be Citizen Kwan,"
+he continued,
+shifting his gaze.
+"You've caused quite a ruckus, young citizen.
+My others' schemes are completely upside down—thank you for that—and
+the machines are in some sort of tizzy
+and you seem to be the center of all of it.
+I'm sure it will give us plenty to talk about on our way."
+
+Iñacio put a cautioning hand on Iffy's shoulder.
+"Appreciate you helpin' out with th' Marines an' all,
+but we're fine t' make our own way along by th' coast."
+
+"Mm."
+The governor nodded as if agreeing.
+"How far do you think you'll get, exactly?
+And how much of your precious herd will die along the way?
+How many trees will burn, Ecologist,
+and how much difference do you think any of it will make?"
+
+"You sure talk pretty,"
+Iffy said in the silence that followed.
+
+The governor chuckled.
+"Well, I *have* had a lot of practice.
+But I'm afraid we can't dawdle any further.
+Citizen Corrales,
+you and Citizen Kwan can come aboard of your own accord or not as you choose,
+but you *are* coming with me."
+
+One—two—three more sentry bots blurred out of invisibility
+in front of Iffy and Iñacio.
+Mechanical feet scuffed on gravel behind her
+as the two she had seen moved closer.
+
+Iñacio puffed out his cheeks and exhaled slowly.
+"You know I can't do that," he said.
+
+The governor put his hand on his chest.
+"You have my solemn pledge that you will not be interfered with.
+I have no desire at all to pick a fight with the Shepherds.
+Whatever secrets or access codes you have will remain yours and yours alone."
+
+"Yeah."
+Iñacio sighed.
+"I wish I believed you,
+but your record ain't exactly positive,
+an' you just havin' been kicked outta your home,
+well,
+that's gotta make you a little desperate."
+
+He turned to Iffy and wrapped his arms around her in a fierce hug.
+"I'm sorry,"
+he whispered in her ear.
+"I'm so sorry.
+Tell Nagatha—tell her I was thinkin' of her, aright?"
+
+He stepped back and made a fist.
+As the governor shouted, "Wait!"
+Iñacio pressed it against his temple.
+
+Feedback shrieked through the sentry bots' motors
+as the Ecologist's head snapped back.
+He fell to the ground like a puppet whose strings had been cut.
+
+"No!" Iffy shouted.
+She fell to her knees and shook him.
+He just stared at the sky,
+his eyes as empty as his mind now was,
+all his secrets safe forever.
 
 </section>
