@@ -1,6 +1,6 @@
 ---
-title: "Software Design by Example in Python 9: Functions and Closures"
-date: 2024-04-09
+title: "Software Design by Example in Python 8: Functions and Closures"
+date: 2024-04-08
 year: 2024
 ---
 

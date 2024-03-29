@@ -1,6 +1,6 @@
 ---
 title: "Software Design by Example in Python 6: Running Tests"
-date: 2024-04-07
+date: 2024-04-06
 year: 2024
 ---
 

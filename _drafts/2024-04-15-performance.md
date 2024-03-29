@@ -1,10 +1,10 @@
 ---
-title: "Software Design by Example in Python 14: Performance Profiling"
+title: "Software Design by Example in Python 15: Performance Profiling"
 date: 2024-04-15
 year: 2024
 ---
 
-After previous chapters on [template expansion][sdxpy_template] and [linting][sdxpy_lint],
+After previous chapters webbish things,
 [this one][sdxpy_perf] sets off in a new direction.
 There are basically two ways to store a dataframe:
 as heterogeneous rows or as homogeneous columns.
@@ -34,13 +34,11 @@ if I was in charge of curriculum,
 a senior undergraduate course on performance profiling and optimization would be my second addition
 because of what can be learned about computers by doing it.
 
-<img class="centered" src="{{'/sdxpy/lint/concept_map.svg' | relative_url}}" alt="Concept map for a code linter"/>
+<img class="centered" src="{{'/sdxpy/perf/concept_map.svg' | relative_url}}" alt="Concept map for performance profiling"/>
 
 > Terms defined: batch processing, benchmark, column-wise storage, data engineer, dataframe, docstring, immutable, index (a database), join (tables), online analytical processing, online transaction processing, parameter sweeping, profiling, row-wise storage.
 
 <img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 
 [sdxpy]: {{'/sdxpy/' | relative_url}}
-[sdxpy_lint]: {{'/sdxpy/lint/' | relative_url}}
 [sdxpy_perf]: {{'/sdxpy/perf/' | relative_url}}
-[sdxpy_template]: {{'/sdxpy/template/' | relative_url}}

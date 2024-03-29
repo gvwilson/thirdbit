@@ -1,6 +1,6 @@
 ---
 title: "Software Design by Example in Python 2: Objects and Classes"
-date: 2024-04-03
+date: 2024-04-02
 year: 2024
 ---
 
@@ -10,7 +10,7 @@ i.e.,
 on the ability of running programs to ask,
 "What do I contain?"
 In order to show newcomers how this works,
-[Chapter 1: Objects and Classes][sdxpy_obj_class]
+[Chapter 1: Objects and Classes][sdxpy_oop]
 shows learners that objects and classes are "just" dictionaries.
 In particular,
 it demonstrates that:
@@ -40,4 +40,4 @@ it comes up in program after program.
 
 <img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 
-[sdxpy_obj_class]: {{'/sdxpy/oop/' | relative_url}}
+[sdxpy_oop]: {{'/sdxpy/oop/' | relative_url}}

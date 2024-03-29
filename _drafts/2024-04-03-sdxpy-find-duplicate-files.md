@@ -1,14 +1,14 @@
 ---
 title: "Software Design by Example in Python 3: Finding Duplicate Files"
-date: 2024-04-04
+date: 2024-04-03
 year: 2024
 ---
 
-The [first chapter][sdxpy_obj_class] of [*Software Design by Example*][sdxpy] looks inward
+The [first chapter][sdxpy_oop] of [*Software Design by Example*][sdxpy] looks inward
 at Python itself
 to show how objects and classes are really just fancy dictionaries
 (for some large value of "just").
-The [second chapter][sdxpy_find_dup] looks outward at the problems Python is used to solve,
+The [second chapter][sdxpy_dup] looks outward at the problems Python is used to solve,
 and in doing so,
 introduces some ideas about hashing,
 systems programming,
@@ -32,6 +32,6 @@ which is proof yet again that every lesson leads to three others.
 <img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 
 [sdxpy]: {{'/sdxpy/' | relative_url}}
-[sdxpy_find_dup]: {{'/sdxpy/dup/' | relative_url}}
-[sdxpy_obj_class]: {{'/sdxpy/oop/' | relative_url}}
+[sdxpy_dup]: {{'/sdxpy/dup/' | relative_url}}
+[sdxpy_oop]: {{'/sdxpy/oop/' | relative_url}}
 [sys_tutorial]: https://gvwilson.github.io/sys-tutorial/

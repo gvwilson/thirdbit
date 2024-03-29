@@ -1,6 +1,6 @@
 ---
 title: "Software Design by Example in Python 4: Matching Patterns"
-date: 2024-04-05
+date: 2024-04-04
 year: 2024
 ---
 

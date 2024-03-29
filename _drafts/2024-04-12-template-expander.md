@@ -1,6 +1,6 @@
 ---
 title: "Software Design by Example in Python 12: A Template Expander"
-date: 2024-04-13
+date: 2024-04-12
 year: 2024
 ---
 
@@ -37,7 +37,7 @@ The resulting syntax isn't something I'd want to use:
 
 but it does the job well enough.
 
-<img class="centered" src="{{'/sdxpy/check/concept_map.svg' | relative_url}}" alt="Concept map for an HTML validator"/>
+<img class="centered" src="{{'/sdxpy/template/concept_map.svg' | relative_url}}" alt="Concept map for a template expander"/>
 
 > Terms defined: abstract class, abstract method, Application Programming Interface, Boolean expression, static site generator, truthy.
 

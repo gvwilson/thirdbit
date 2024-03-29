@@ -1,6 +1,6 @@
 ---
 title: "Software Design by Example in Python 9: Protocols"
-date: 2024-04-10
+date: 2024-04-09
 year: 2024
 ---
 

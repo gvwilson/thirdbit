@@ -1,6 +1,6 @@
 ---
 title: "Software Design by Example in Python 10: A File Archiver"
-date: 2024-04-11
+date: 2024-04-10
 year: 2024
 ---
 

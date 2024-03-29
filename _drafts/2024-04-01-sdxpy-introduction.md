@@ -1,6 +1,6 @@
 ---
 title: "Software Design by Example in Python 1: Introduction"
-date: 2024-04-02
+date: 2024-04-01
 year: 2024
 ---
 
@@ -118,7 +118,6 @@ Any errors, omissions, or misunderstandings that remain are entirely my fault.
 [remark]: https://remarkjs.com/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}
-[sdxpy_intro]: {{'/2023/01/01/sdxpy-introduction/' | relative_url}}
 [sdxpy_glossary]: {{'/sdxpy/glossary/' | relative_url}}
 [t3_personas]: https://teachtogether.tech/en/index.html#s:process-personas
 [third_bit]: {{'/' | relative_url}}
