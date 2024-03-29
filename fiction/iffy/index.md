@@ -8545,8 +8545,6 @@ but then he removed his helmet.
 said the governor conversationally.
 "Isn't this a fine mess?"
 
-<span id="2024-03-28-a"></span>
-
 "Halley?"
 Iñacio demanded incredulously.
 
@@ -8628,5 +8626,88 @@ She fell to her knees and shook him.
 He just stared at the sky,
 his eyes as empty as his mind now was,
 all his secrets safe forever.
+
+</section>
+
+<section markdown="1">
+
+<span id="2024-03-29-a"></span>
+
+## Chapter 10
+
+There were Marines on board Governor Stern's hovercraft,
+all apparently imprinted with the same taciturn personality.
+Two of them loaded Iñacio onto a stretcher
+while the governor breezily explained that the Ecologist would be all right eventually,
+more or less.
+"It's not at all what you see in a sim,"
+he told Iffy.
+Deep memories would survive the EMP pulse,
+just as a person's original personality survived imprinting.
+More recent events, on the other hand—well.
+The Shepherds had undoubtedly changed their access codes already,
+and as for their network of shelters and greenhouses,
+they weren't actually as secret as all that.
+
+Iffy expected to be locked in a cell.
+Instead,
+a Marine ushered her up laddered Steps to the hovercraft's bridge.
+The governor stood as she came in,
+beaming,
+but didn't offer a hand for her to refuse to shake.
+"Welcome aboard," he said,
+gesturing at the padded chair to the left of the one he had been sitting in.
+"Oh, and please, do up your seat belt.
+This old thing was built for speed, not comfort."
+
+Iffy limped over to the chair and lowered herself onto it, wincing.
+The governor clucked his tongue.
+"I'll have someone take a look at that for you later."
+Seating himself,
+he buckled harness straps across his chest
+and laid his hands on the apps set into the arms of his chair.
+
+The display in front of them came to life.
+A dozen views of the tundra around them
+nestled between status displays like those Iffy had grown up with on the *Guinevere*.
+Temperatures and battery reserves,
+the rotational speeds of idling engines,
+weather reports,
+and projections from a hundred independent simulations of the next few moments
+waited for attention
+like courtiers waiting on a king.
+
+"Where're we goin'?" Iffy asked sullenly.
+She had loosened the straps of her harness so that she could wriggle out if she needed to,
+but the straps had re-tightened themselves
+as soon as she snapped the buckle closed.
+
+"That's an excellent question,"
+Governor Stern replied absently
+as he rearranged the display with a few flicks of his fingers.
+"Where *are* we going?
+My others have never had much of an answer.
+Truth be told,
+I suspect they've never really believed one was needed.
+Now, don't mind the noise, I'm sure you'll get used to it."
+
+The engines beneath them rumbled.
+The hovercraft rose like a ship being lifted by a wave,
+rotating smoothly on its self-made cushion of air.
+Orange status lights blinked and turned green
+as the sentry bots climbed back aboard.
+"All accounted for, sir,"
+said the Marine seated beside Iffy.
+
+"Right, then, tally ho."
+The governor flicked his fingers again
+and the hovercraft shot forward like a startled seagull.
+
+Acceleration pushed Iffy back in her seat.
+Fifty klicks an hour, a hundred… two hundred…
+At two hundred and fifty the numbers on the display stopped climbing
+and the pressure lifted from her chest.
+She took a deep breath and watched the world race by
+as the hovercraft bumped and shook toward the horizon.
 
 </section>
