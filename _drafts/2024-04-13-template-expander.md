@@ -43,10 +43,8 @@ but it does the job well enough.
 
 <img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 
-[outline]: https://third-bit.com/sdxpy/intro/#intro-syllabus
+[outline]: {{'/sdxpy/intro/#intro-syllabus' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}
-[sdxpy_check]: https://third-bit.com/sdxpy/check/
-[sdxpy_interp]: https://third-bit.com/sdxpy/interp/
-[sdxpy_template]: https://third-bit.com/sdxpy/template/
-
-
+[sdxpy_check]: {{'/sdxpy/check/' | relative_url}}
+[sdxpy_interp]: {{'/sdxpy/interp/' | relative_url}}
+[sdxpy_template]: {{'/sdxpy/template/' | relative_url}}
