@@ -8471,7 +8471,7 @@ Boots crunched on gravel uphill,
 the steps stretched apart unnaturally by the exoskeletons' long strides.
 
 Iffy got her legs underneath her,
-biting back a whimper as pain spiked through her knee again.
+biting back a whimper as pain lanced through her knee again.
 She had to help Iñacio.
 She had to run,
 but there was nowhere to go
@@ -8607,68 +8607,92 @@ an' you just havin' been kicked outta your home,
 well,
 that's gotta make you a little desperate."
 
+<span id="2024-03-30-a"></span>
+
 He turned to Iffy and wrapped his arms around her in a fierce hug.
 "I'm sorry,"
 he whispered in her ear.
 "I'm so sorry.
-Tell Nagatha—tell her I was thinkin' of her, aright?"
+I know I said I'd carry you,
+but I can't let 'im have what's in my head.
+Tell Nagatha I was thinkin' of her, aright?"
 
 He stepped back and made a fist.
-As the governor shouted, "Wait!"
-Iñacio pressed it against his temple.
+Without warning,
+a schematic flashed into Iffy's mind.
+Wires and a tiny battery embedded in his hand
+that would look prosthetic to a casual scan.
+A matching mesh of micro-fine filaments under his skull.
+Clench the hand like *this*,
+hold it *there*,
+and—
 
-Feedback shrieked through the sentry bots' motors
-as the Ecologist's head snapped back.
-He fell to the ground like a puppet whose strings had been cut.
+As Iñacio raised his hand the governor shouted, "Wait!"
+Iffy tackled the Ecologist,
+grabbing his arm and knocking him clumsily to the ground.
+The EMP that was supposed to scramble his brain
+sent feedback shrieking through the sentry bots' motors instead.
 
-"No!" Iffy shouted.
-She fell to her knees and shook him.
-He just stared at the sky,
-his eyes as empty as his mind now was,
-all his secrets safe forever.
+Iñacio scrambled back onto his feet.
+"No! No, Iffy, whattaya done?"
+
+"Affin' hell!" she swore,
+trying, failing, and trying again to stand
+despite the spike of pain in her knee.
+"You made me a promise an' I'm holdin' you to it.
+If you want someone to tell Aunt Naggie that you went an' got simple,
+you can do it yourself!"
+
+She glared at him.
+The sentry bots and the downed Marines and the hovercraft and the governor
+and the miracle in the valley behind them
+might as well have been a world away.
+"I lost my others.
+I lost Honesty.
+I ain't losin' you."
 
 </section>
 
 <section markdown="1">
 
-<span id="2024-03-29-a"></span>
-
 ## Chapter 10
 
 There were Marines on board Governor Stern's hovercraft,
 all apparently imprinted with the same taciturn personality.
-Two of them loaded Iñacio onto a stretcher
-while the governor breezily explained that the Ecologist would be all right eventually,
-more or less.
-"It's not at all what you see in a sim,"
-he told Iffy.
+Two of them flanked Iñacio
+as he disappeared stone-faced into the belly of the hovercraft
+while the governor breezily explained to Iffy
+that he was a man of his word
+and that the Ecologist would be fine.
+"Anyway,
+it's not as if what he tried to do would actually have worked,"
+he said.
+Brainwipes worked very differently in real life
+than they did in sims.
 Deep memories would survive the EMP pulse,
 just as a person's original personality survived imprinting.
-More recent events, on the other hand—well.
-The Shepherds had undoubtedly changed their access codes already,
-and as for their network of shelters and greenhouses,
-they weren't actually as secret as all that.
+As for more recent knowledge,
+well,
+the Shepherds had undoubtedly changed their access codes already,
+and their network of shelters and greenhouses weren't actually as secret as they thought.
 
-Iffy expected to be locked in a cell.
+Iffy expected to be locked in a cell next to Iñacio.
 Instead,
-a Marine ushered her up laddered Steps to the hovercraft's bridge.
-The governor stood as she came in,
-beaming,
-but didn't offer a hand for her to refuse to shake.
-"Welcome aboard," he said,
+a Marine ushered her up steeply-laddered steps to the hovercraft's bridge.
+"Have a seat," the governor said,
 gesturing at the padded chair to the left of the one he had been sitting in.
-"Oh, and please, do up your seat belt.
+"Oh, and please, do buckle up.
 This old thing was built for speed, not comfort."
 
-Iffy limped over to the chair and lowered herself onto it, wincing.
+Iffy limped over to the chair
+and lowered herself onto it with a wince.
 The governor clucked his tongue.
 "I'll have someone take a look at that for you later."
-Seating himself,
-he buckled harness straps across his chest
-and laid his hands on the apps set into the arms of his chair.
+Seating himself and snapping harness straps together across his chest,
+he laid his hands on the apps set into the arms of his chair.
 
 The display in front of them came to life.
-A dozen views of the tundra around them
+A dozen views of the surrounding tundra
 nestled between status displays like those Iffy had grown up with on the *Guinevere*.
 Temperatures and battery reserves,
 the rotational speeds of idling engines,
@@ -8689,7 +8713,8 @@ as he rearranged the display with a few flicks of his fingers.
 My others have never had much of an answer.
 Truth be told,
 I suspect they've never really believed one was needed.
-Now, don't mind the noise, I'm sure you'll get used to it."
+Now, don't mind the noise.
+I'm sure you'll get used to it."
 
 The engines beneath them rumbled.
 The hovercraft rose like a ship being lifted by a wave,
@@ -8709,5 +8734,59 @@ At two hundred and fifty the numbers on the display stopped climbing
 and the pressure lifted from her chest.
 She took a deep breath and watched the world race by
 as the hovercraft bumped and shook toward the horizon.
+The only people in the world going faster than her at that preciese moment
+were either on trains
+or desperate enough to take to the air
+and hope the machines' satellites didn't spot them.
+
+The novelty wore off quickly.
+
+Someone did show up
+to give Iffy a patch to dull the pain in her knee and shoulder
+and speed their healing.
+Her eyelids grew heavy
+as the drugs and timed retroviral accelerators seeped through her skin.
+Even a mug of something thick and sweet that the governor called "chocolate"
+wasn't enough to keep them from closing.
+
+At least,
+that's what she hoped whoever was watching her would believe.
+She had learned how to keep sleep at bay on night watches long ago.
+Right now,
+she had some thinking to do
+and she didn't want to be disturbed.
+
+*Wireframes swam in the darkness.
+The hovercraft had been built as a blockade runner in Tashkent
+before the start of the machine wars.
+Its heart was a reactor originally designed for use in a submarine—she
+took a moment to admire the sleek, single-minded recklessness of its design—and
+the motors that created its cushion of air
+would have pumped fuel at hypersonic speeds
+in orbital booster rockets
+if history had unfolded just a little bit differently.
+The hull plating was angled to deflect the energy of ballistic attacks
+and threaded with microfilaments not unlike those in Iñacio's skull
+to handle electronic ones.
+Ventilation tubes,
+triple-redundant optical wiring,
+and plumbing liberated from a luxury hotel
+slithered between bulkheads.*
+
+*She flipped the wireframe upside down and rightside up,
+flew through it,
+spun it around.
+Any of a dozen rooms or holds could have been repurposed as a cell.
+For one moment she thought about reaching out to the hovercraft's core,
+but no,
+it would be better protected than the railgun back on the pier had been
+and anyway,
+she still didn't know how she had done that.
+She needed a plan if she was going to rescue Iñacio.*
+
+She yawned widely.
+The images slipped away as her concentration finally conceded
+to the painkillers and reconstructives.
+A moment later she began to snore softly.
 
 </section>
