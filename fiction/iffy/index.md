@@ -8678,7 +8678,7 @@ and their network of shelters and greenhouses weren't actually as secret as they
 
 Iffy expected to be locked in a cell next to Iñacio.
 Instead,
-a Marine ushered her up steeply-laddered steps to the hovercraft's bridge.
+a Marine ushered her up steeply-laddered steps to the hovercraft's cockpit.
 "Have a seat," the governor said,
 gesturing at the padded chair to the left of the one he had been sitting in.
 "Oh, and please, do buckle up.
@@ -8788,5 +8788,86 @@ She yawned widely.
 The images slipped away as her concentration finally conceded
 to the painkillers and reconstructives.
 A moment later she began to snore softly.
+
+<span id="2024-03-31-a"></span>
+
+She woke to the smell of curried noodles,
+and for a disoriented few seconds she thought she was back on the *Guinevere*
+and late for her watch.
+But no,
+she was still buckled into her chair in the cockpit of the hovercraft.
+She took the plate that the expressionless man in a Marine-blue jumpsuit offered her
+and fumbled with the chopsticks
+while she waited for her mind to catch up with the rest of her.
+
+The governor was gone,
+but the gently undulating tundra on the screens around her looked the same as it had.
+Their speed hadn't changed either,
+she noticed,
+or their heading.
+She did a quick calculation in her head.
+If they had stayed on their original course,
+they must be nearing the coast.
+If they followed it east through the Shackletons
+it would take them another ten hours to reach Halley,
+if in fact that was where they were going.
+If they turned right it would take them half again as long to get to
+the crater that marked where McMurdo had once been,
+and if they headed straight for Paddington South—
+
+She shook her head and scooped some noodles into her mouth,
+blowing around them as she realized they were hot *and* spicy.
+Going to Halley didn't make any sense,
+but since it gave her the least time it was probably what was going to happen.
+
+She chewed thoughtfully,
+then looked up at the Marine.
+"It's really good,
+but can I please have some more onions on it?
+An' some more o' that chocolate stuff from earlier?
+If that's aright,"
+she added hastily.
+
+The Marine looked at her,
+his expression still as empty as the tundra.
+"Good morning,
+Citizen Kwan,"
+the governor said pleasantly from a speaker somewhere in the cockpit.
+"I'm glad to see you have an appetite."
+
+"It's really good," she said truthfully.
+"I'm just used t' more onions."
+
+"Mm.
+And of course you'd like to see more of the *Henry Lion*,
+I assume."
+
+She shrugged.
+"Not much else t' do,
+'less you're aright with me talkin' to Iñacio for a bit."
+
+"I'm afraid that's out of the question for now,"
+the governor said briskly.
+"All right.
+Private Norbu will take you down to the galley
+and then show you to your cabin.
+May I please ask you to forebear any dramatics?"
+
+"What?"
+she asked,
+fumbling to undo the buckles on her harness.
+
+The governor's voice sighed faintly.
+"Don't do anything foolish?"
+
+"Ah.
+Sure,
+aright."
+She wriggled out of the straps without spilling any of her noodles,
+then stood up and tested her knee.
+Whatever had been in the patch seemed to have set it right.
+If she had to run,
+she could.
+The trick now was having somewhere to run *to*.
 
 </section>
