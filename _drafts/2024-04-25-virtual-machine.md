@@ -20,7 +20,8 @@ there is always Nystrom's excellent [*Crafting Interpreters*][crafting_interpret
 
 > Terms defined: Application Binary Interface, assembler, assembly code, bytecode, conditional jump, disassembler, instruction pointer, instruction set, label (of address in memory), op code, register (in hardware), virtual machine, word (of memory).
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [crafting_interpreters]: https://craftinginterpreters.com/
 [sdxpy]: {{'/sdxpy/' | relative_url}}

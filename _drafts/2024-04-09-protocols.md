@@ -28,7 +28,8 @@ I'd [welcome feedback](mailto:{{site.author.email}}).
 
 > Terms defined: append mode, context manager, decorator, infinite recursion, iterator, Iterator pattern, mock object, protocol.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [func_post]: {{'/2024/04/09/functions-closures/' | relative_url}}
 [mop]: https://en.wikipedia.org/wiki/Metaobject

@@ -37,7 +37,8 @@ I hope I've managed to pass on just a little of my long-ago sense of wonder.
 
 > Terms defined: buffer (of text), delayed construction, enumeration, factory method, log file, synthetic data, viewport.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [sdxpy_undo]: {{'/sdxpy/undo/' | relative_url}}
 [sdxpy_viewer]: {{'/sdxpy/viewer/' | relative_url}}

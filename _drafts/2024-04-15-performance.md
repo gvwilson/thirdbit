@@ -38,7 +38,8 @@ because of what can be learned about computers by doing it.
 
 > Terms defined: batch processing, benchmark, column-wise storage, data engineer, dataframe, docstring, immutable, index (a database), join (tables), online analytical processing, online transaction processing, parameter sweeping, profiling, row-wise storage.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [sdxpy]: {{'/sdxpy/' | relative_url}}
 [sdxpy_perf]: {{'/sdxpy/perf/' | relative_url}}

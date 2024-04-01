@@ -26,7 +26,8 @@ in order to set up the next chapter on implementing undo and redo.
 
 > Terms defined: buffer (of text), delayed construction, enumeration, factory method, log file, synthetic data, viewport.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [lorgat]: https://wasimlorgat.com/
 [lorgat_tutorial]: https://wasimlorgat.com/posts/editor.html

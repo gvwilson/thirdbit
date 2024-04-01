@@ -30,7 +30,8 @@ it's one of the few times I haven't felt uncomfortable using multiple inheritanc
 
 > Terms defined: client, deadlock, Domain Name System, Internet Protocol, IP address, port, server, socket, test fidelity, Transmission Control Protocol.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [layout_post]: {{'/2024/04/14/page-layout/' | relative_url}}
 [sdxpy_ftp]: {{'/sdxpy/ftp/' | relative_url}}

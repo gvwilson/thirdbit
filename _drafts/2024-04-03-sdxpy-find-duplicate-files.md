@@ -29,7 +29,8 @@ which is proof yet again that every lesson leads to three others.
 
 > Terms defined: big-oh notation, binary mode, bucket, collision (in hashing), cryptographic hash function, hash code, hash function, hexadecimal, SHA-256 (hash function), streaming API, time complexity.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [sdxpy]: {{'/sdxpy/' | relative_url}}
 [sdxpy_dup]: {{'/sdxpy/dup/' | relative_url}}

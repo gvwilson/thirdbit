@@ -41,7 +41,8 @@ but it does the job well enough.
 
 > Terms defined: abstract class, abstract method, Application Programming Interface, Boolean expression, static site generator, truthy.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [outline]: {{'/sdxpy/intro/#intro-syllabus' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}

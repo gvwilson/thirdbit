@@ -27,7 +27,8 @@ but I'm grateful to have had an excuse to dive into it.
 
 > Terms defined: accumulator, backward-compatible, Boolean value, combinatorial explosion, cross product, model, patch, Recursive Enumeration pattern, scoring function, search space, semantic versioning.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [sdxpy_db]: {{'/sdxpy/db/' | relative_url}}
 [sdxpy_pack]: {{'/sdxpy/pack/' | relative_url}}

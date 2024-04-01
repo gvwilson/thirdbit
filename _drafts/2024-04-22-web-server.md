@@ -23,7 +23,8 @@ I suppose there's always the next life…
 
 > Terms defined: body (of HTTP request or response), header (of HTTP request or response), HTTP, HTTP method, HTTP protocol version, HTTP request, HTTP response, HTTP status code, path resolution, query parameter, throw low, catch high, Universal Resource Locator.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [certificates]: {{'/2024/02/26/my-adventures-with-certificates/' | relative_url}}
 [layout_post]: {{'/2024/04/14/page-layout/' | relative_url}}

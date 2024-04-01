@@ -23,7 +23,8 @@ was the main goal of this book and [its predecessor][sdxjs].
 
 > Terms defined: actual result (of test), assertion, dynamic typing, error (result of test), exception, expected result (of test), failure (result of test), fixture, global, local, pass (result of test), pretty print, raise (an exception), register (in code), scope, unit test.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [pytest]: https://docs.pytest.org/
 [sdxjs]: {{'/sdxjs/' | relative_url}}

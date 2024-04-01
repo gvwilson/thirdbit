@@ -44,7 +44,8 @@ which isn't bad for a one-hour lesson.
 
 > Terms defined: Chain of Responsibility pattern, child class, Extract Parent Class refactoring, globbing, greedy matching, helper method, inheritance, lazy matching, literal (in parsing), Null Object pattern, refactor, regular expression, signature, technical debt, test-driven development.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [bc]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
 [chain]: https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern

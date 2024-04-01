@@ -29,7 +29,8 @@ I hope to include it.
 
 > Terms defined: atomic operation, base class, compression (of file), Coordinated Universal Time, data migration, file locking, helper function, manifest, race condition, successive refinement, time of check - time of use, timestamp, top-down design, version control system.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [bc]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
 [building_git]: https://shop.jcoglan.com/building-git/

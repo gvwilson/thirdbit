@@ -32,7 +32,8 @@ that the problem is much harder than it first appears.
 
 > Terms defined: accidental complexity, block (on page), confirmation bias, easy mode, intrinsic complexity, layout engine, Liskov Substitution Principle, mixin class, z-buffering.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [browser]: http://browser.engineering/
 [post_interp]: {{'/2024/04/07/an-interpreter/' | relative_url}}

@@ -38,6 +38,7 @@ it comes up in program after program.
 
 > Terms defined: alias, argument, cache, class method, constructor, derived class, design by contract, monkey patching, multiple inheritance, object-oriented programming, parameter, polymorphism, recursion, spread, static method, upcall, varargs.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [sdxpy_oop]: {{'/sdxpy/oop/' | relative_url}}

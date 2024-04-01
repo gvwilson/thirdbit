@@ -24,7 +24,8 @@ of the times their authors have taught the material to a live audience.
 
 > Terms defined: abstract syntax tree, concrete class, CSV, grammar, JSON, operator overloading, parser, token, tokenizer, YAML.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [sdxjs_parse]: {{'/sdxjs/regex-parser/' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}

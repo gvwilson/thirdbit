@@ -28,7 +28,8 @@ is a sign that I've put topics in the right (or "a" right) order.
 
 > Terms defined: false negative, linter.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [ruff]: https://docs.astral.sh/ruff/
 [sdxpy]: {{'/sdxpy/' | relative_url}}

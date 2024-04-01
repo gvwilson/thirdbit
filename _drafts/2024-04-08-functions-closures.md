@@ -23,6 +23,7 @@ when they're trying to debug Python's more advanced features.
 
 > Terms defined: anonymous function, call stack, closure, dynamic scoping, eager evaluation, extensibility, lambda expression, lazy evaluation, lexical scoping, name collision, stack frame, variable capture.
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 [sdxpy]: {{'/sdxpy/' | relative_url}}
