@@ -19,9 +19,8 @@ to the ground station software for the Mars Rover,
 but the breadth that made them fun to read
 also meant they weren't particularly useful for teaching.
 
-To fix that,
 Amy Brown, Tavish Armstrong, Mike Dibernardo, and I
-edited a four-book series called [*The Architecture of Open Source Applications*][aosa]
+then edited a four-book series called [*The Architecture of Open Source Applications*][aosa]
 in which the creators of various open source projects described their systems' designs.
 These books were closer to what a junior programmer would need,
 but each author used the programming language of their choice
@@ -31,13 +30,14 @@ So last year I published
 [*Software Design by Example: A Tool-Based Introduction with JavaScript*][sdxjs],
 which I think is finally the book I needed twenty years ago.
 This year I'm proud to announce the sequel:
-[*Software Design by Example: A Tool-Based Introduction with Python*][sdxpy];
-in it,
-I built tiny versions of Git, Mocha, the JavaScript VM, and other tools
-both to show how they work
-and to show how experienced programmers think about software design.
+[*Software Design by Example: A Tool-Based Introduction with Python*][sdxpy].
+In it,
+I build tiny versions of Git, pytest, the Python VM, and other tools
+to show how they work
+and how experienced programmers think about software design.
 
-I had two [learner personas][t3_personas] in mind as I wrote this book:
+I had two [learner personas][t3_personas] in mind as I wrote this book.
+The first is a student:
 
 > *Maya has a master's degree in genomics.
 > She knows enough Python to analyze data from her experiments,
@@ -46,17 +46,7 @@ I had two [learner personas][t3_personas] in mind as I wrote this book:
 > in less time and with less pain.*
 > {: .continue}
 
-Like Maya, you should be able to:
-{: .continue}
-
--   Write Python programs using lists, loops, conditionals, dictionaries, and functions.
--   Puzzle your way through Python programs that use classes and exceptions.
--   Run basic Unix shell commands like `ls` and `mkdir`.
--   Read and write a little bit of HTML.
--   Use Git to save and share files.
-    (It's OK not to know [the more obscure commands][git_man_page_generator].)
-
-The other audience is:
+The other is the instructor I was twenty years ago:
 
 > *Yim teaches two college courses on software development.
 > They are frustrated that so many books talk about details but not about design
@@ -66,7 +56,7 @@ The other audience is:
 > {: .continue}
 
 As with its predecessor,
-all the material is available under open licenses,
+all the material from *SDXPY* is available under open licenses,
 and all royalties from book sales go to support the [Red Door Family Shelter][red_door] in Toronto.
 
 I hope to blog about one chapter each day for the next few weeks.
@@ -74,9 +64,10 @@ Feedback is always welcome;
 while I've had to disable comments on this blog because of trolls,
 you can file issues in [in the book's GitHub repository][book_repo].
 I hope you find the material useful,
-and I'm happy to answer questions [by email][contact].
+and I'm happy to answer questions [by email](mailto:{{site.author.email}}).
 
-<img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 I am grateful to the creators of [diagrams.net][diagrams_net],
 [Black][black],
@@ -103,12 +94,10 @@ Any errors, omissions, or misunderstandings that remain are entirely my fault.
 [bc]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
 [black]: https://black.readthedocs.io/
 [book_repo]: https://github.com/gvwilson/sdxpy/
-[contact]: mailto:{{site.author.email}}
 [diagrams_net]: https://www.diagrams.net/
 [emacs]: https://www.gnu.org/software/emacs/
 [flake8]: https://flake8.pycqa.org/
 [glosario]: https://github.com/carpentries/glosario
-[git_man_page_generator]: https://git-man-page-generator.lokaltog.net/
 [gnu_make]: https://www.gnu.org/software/make/
 [isort]: https://pycqa.github.io/isort/
 [latex]: https://www.latex-project.org/
@@ -118,7 +107,6 @@ Any errors, omissions, or misunderstandings that remain are entirely my fault.
 [remark]: https://remarkjs.com/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}
-[sdxpy_glossary]: {{'/sdxpy/glossary/' | relative_url}}
 [t3_personas]: https://teachtogether.tech/en/index.html#s:process-personas
 [third_bit]: {{'/' | relative_url}}
 [webaim_wave]: https://wave.webaim.org/
