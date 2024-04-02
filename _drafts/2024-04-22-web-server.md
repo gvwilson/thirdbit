@@ -5,7 +5,8 @@ year: 2024
 ---
 
 Having shown learners how to [transfer files][sdxpy_ftp] over TCP,
-the next step is to explain [how a web server works][sdxpy_http].
+the next step is to explain how an HTTP server works
+in [Chapter 22: Serving Web Pages][sdxpy_http].
 The full story would fill several books,
 so I focused on the fact that requests and responses are just formatted text
 and on how to test a web server.

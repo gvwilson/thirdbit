@@ -17,7 +17,7 @@ and everything suddenly became a whole lot easier.
 Lorgat starts with nothing more than `import curses`
 and builds up a Nano-style editor one step at a time,
 carefully explaining each trap someone might stumble into along the way.
-[My chapter][sdxpy_viewer] recapitulates the first half of his lesson,
+[Chapter 23: A File Viewer][sdxpy_viewer] recapitulates the first half of his lesson,
 adding some commentary on models versus views
 and tracing the order of operations during startup in more detail
 in order to set up the next chapter on implementing undo and redo.

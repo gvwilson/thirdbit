@@ -4,7 +4,8 @@ date: 2024-04-24
 year: 2024
 ---
 
-[This chapter][sdxpy_undo] is a direct continuation of [the previous one][sdxpy_viewer],
+[Chapter 24: Undo and Redo][sdxpy_undo]
+is a direct continuation of [the previous one][sdxpy_viewer],
 which felt a bit like cheating on my "one hour per topic" rule
 but was unavoidable.
 Having created a curses-based file viewer,

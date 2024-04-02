@@ -13,7 +13,7 @@ relies on networks,
 so understanding how they work is at least as important as
 understanding register allocation.
 
-[This chapter][sdxpy_ftp] therefore has three parts:
+[Chapter 21: Transferring Files][sdxpy_ftp] therefore has three parts:
 
 1.  How to transfer a file using TCP/IP.
 2.  How to break large transfers into chunks.

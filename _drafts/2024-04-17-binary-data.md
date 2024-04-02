@@ -4,12 +4,12 @@ date: 2024-04-17
 year: 2024
 ---
 
-[Packing and unpacking binary data][sdxpy_binary] is a well-trodden path
+Packing and unpacking binary data is a well-trodden path
 and a natural follow-on to [object persistence][sdxpy_persist].
 After explaining how integers are stored in memory,
 what bitwise operations do,
 and UTF-8 character encoding,
-the chapter shows how to create self-describing binary records
+[Chapter 17: Binary Data][sdxpy_binary] shows how to create self-describing binary records
 whose first few bytes describe the format of the rest.
 It's a lot for one chapter,
 and I was pleasantly surprised that people who'd never encountered the material before

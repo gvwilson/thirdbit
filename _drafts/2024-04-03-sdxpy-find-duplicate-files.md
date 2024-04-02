@@ -8,7 +8,7 @@ The [first chapter][sdxpy_oop] of [*Software Design by Example*][sdxpy] looks in
 at Python itself
 to show how objects and classes are really just fancy dictionaries
 (for some large value of "just").
-The [second chapter][sdxpy_dup] looks outward at the problems Python is used to solve,
+[Chapter 2: Finding Duplicate Files][sdxpy_dup] looks outward at the problems Python is used to solve,
 and in doing so,
 introduces some ideas about hashing,
 systems programming,

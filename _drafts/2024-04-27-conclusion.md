@@ -4,7 +4,7 @@ date: 2024-04-27
 year: 2024
 ---
 
-Consider the bicycle:
+[Consider the bicycle][sdxpy_finale]:
 more specifically,
 the De Rosa SK Pininfarina.
 I think it's beautiful,
@@ -52,3 +52,5 @@ Until then:
 
 <a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
+
+[sdxpy_finale]: {{'/sdxpy/finale/' | relative_url}}

@@ -16,7 +16,7 @@ providing a way to write generic rules:
 it felt a lot like humming along to a song I've known since high school.
 
 However,
-this chapter fell flat when I taught it last year.
+[Chapter 19: A Build Manager][sdxpy_build] fell flat when I taught it last year.
 Looking back,
 I think the problem was that
 most of my learners didn't have a need for such a tool.

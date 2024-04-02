@@ -9,7 +9,8 @@ if you've never written a compiler or an interpeter,
 you don't really understand how computers work.
 The fact that many people who haven't routinely create great software
 doesn't seem to shake their belief,
-but I decided to include [a simple tree-walking interpreter][sdxpy_interp] to show (once again)
+but I decided to include a simple tree-walking interpreter
+in [Chapter 7: An Interpreter][sdxpy_interp] to show (once again)
 that programs are just data
 and so that learners understand how things like operator overloading work.
 In my experience,

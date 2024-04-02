@@ -5,7 +5,7 @@ year: 2024
 ---
 
 After previous chapters webbish things,
-[this one][sdxpy_perf] sets off in a new direction.
+[Chapter 15: Performance Profiling][sdxpy_perf] sets off in a new direction.
 There are basically two ways to store a dataframe:
 as heterogeneous rows or as homogeneous columns.
 Which one performs better depends on the mix of operations in your program.
@@ -15,7 +15,7 @@ If you are selecting columns,
 on the other hand,
 the column-wise representation imposes almost no overhead at all.
 
-[Chapter 15][sdxpy_perf] builds on earlier exposition of the difference between interface and implementation
+This chapter builds on earlier exposition of the difference between interface and implementation
 to create two simple dataframe classes with identical interfaces,
 then shows how to use a synthetic benchmark to compare their performance
 on a mix of operations.

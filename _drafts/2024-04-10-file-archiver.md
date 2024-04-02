@@ -17,7 +17,7 @@ but two specific things spurred me to finally write it and [its JavaScript prede
 The book addresses the second of these near its end,
 but once learners understand how mock objects actually work,
 they can understand how to build *and test* a little version control system.
-It was fun to write;
+[Chapter 10: A File Archiver][sdxpy_archive] was fun to write;
 my only regret is that I dodged the problem of atomic operations on multiple files,
 which turned out to be a lot harder than I knew.
 Coglan's book tackles it,
@@ -37,3 +37,4 @@ I hope to include it.
 [gitlet]: http://gitlet.maryrosecook.com/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}
+[sdxpy_archive]: {{'/sdxpy/archive/' | relative_url}}

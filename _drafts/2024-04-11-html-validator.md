@@ -5,7 +5,9 @@ year: 2024
 ---
 
 [This book][sdxpy] teaches software design by building scale models of tools that programmers actually use.
-It therefore seemed fitting to spend a chapter on a tool that I built for the book itself:
+It therefore seemed fitting to spend
+[Chapter 11: An HTML Validator][sdxpy_check]
+on a tool that I built for the book itself:
 one that compares the structure of its HTML pages
 to a specification of what elements are allowed and what attributes they can have.
 I've written several such tools over the years
@@ -32,4 +34,5 @@ without being too obvious.
 </a>
 
 [sdxpy]: {{'/sdxpy/' | relative_url}}
+[sdxpy_check]: {{'/sdxpy/check/' | relative_url}}
 [ssg]: https://en.wikipedia.org/wiki/Static_site_generator

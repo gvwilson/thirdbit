@@ -7,7 +7,7 @@ year: 2024
 In the end, you return to the beginning.
 [This book][sdxpy] started
 by showing learners how to implement objects and classes as dictionaries.
-[The penultimate chapter][sdxpy_vm] shows how to build a virtual machine
+[Chapter 25: A Virtual Machine][sdxpy_vm] shows how to build a VM
 and translate assembly code into binary instructions for it.
 I don't try to explain how those instructions might be implemented in hardware,
 but I hope anyone who has stuck with me this far

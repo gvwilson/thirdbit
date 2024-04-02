@@ -4,7 +4,7 @@ date: 2024-04-08
 year: 2024
 ---
 
-I didn't initially plan to write this chapter,
+I didn't initially plan to write [Chapter 8: Functions and Closures][sdxpy_func],
 but the puzzled looks on my learners' faces the first few times I tried to teach decorators
 convinced me it was necessary.
 If Python's decorators treated their first argument specially
@@ -27,3 +27,4 @@ when they're trying to debug Python's more advanced features.
 </a>
 
 [sdxpy]: {{'/sdxpy/' | relative_url}}
+[sdxpy_func]: {{'/sdxpy/func/' | relative_url}}

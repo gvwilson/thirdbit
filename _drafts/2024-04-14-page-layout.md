@@ -19,7 +19,7 @@ caching,
 and accessibility.
 
 I couldn't possibly cover all of that,
-so [this chapter][sdxpy_layout] focused on one small problem:
+so [Chapter 14: Page Layout][sdxpy_layout] focused on one small problem:
 how to decide what is displayed where on a page.
 That question led to the most intensely algorithmic chapter of the book,
 as row-and-column layout with elastic constraints

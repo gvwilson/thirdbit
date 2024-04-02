@@ -8,7 +8,8 @@ Having written a bunch of tests while building [the parser][sdxpy_parse] and [pa
 in the previous chapters,
 it was long past time to show learners how to build a testing framework like [pytest][pytest].
 In particular,
-this chapter was another opportunity to show that a program is just another kind of data,
+[Chapter 6: Running Tests][sdxpy_test] was another opportunity to show that
+a program is just another kind of data,
 and that introspection can make a lot of things easier to build but harder to understand.
 Finding functions dynamically ensures that we don't ever write tests but forget to run them;
 however,

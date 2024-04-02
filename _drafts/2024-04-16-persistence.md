@@ -4,10 +4,9 @@ date: 2024-04-16
 year: 2024
 ---
 
-I don't know how many times I've written code to
-[save and load data structures][sdxpy_persist],
+I don't know how many times I've written code to save and load data structures,
 but I've done it enough that
-writing this chapter felt like visiting an old friend.
+writing [Chapter 16: Object Persistence][sdxpy_persist] felt like visiting an old friend.
 Atomic types and a handful of built-in containers like lists and dictionaries are easy;
 handling user-defined types is also straightforward
 *if* you assume that the code that's loading the data

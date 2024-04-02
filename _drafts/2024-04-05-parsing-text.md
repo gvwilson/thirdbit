@@ -4,7 +4,7 @@ date: 2024-04-05
 year: 2024
 ---
 
-[This chapter][sdxpy_parse] of [*Software Design by Example*][sdxpy] shows how to write a parser
+[Chapter 5: Parsing Text][sdxpy_parse] shows how to write a parser
 by building one for the filename globbing expressions introduced in [the previous chapter][sdxpy_glob].
 It makes the usual distinction between tokenizing and constructing an abstract syntax tree;
 the latter concept comes up several times later,

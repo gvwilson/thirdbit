@@ -6,12 +6,13 @@ year: 2024
 
 When I was [outlining the content][outline] for [*Software Design by Example*][sdxpy],
 there were two natural follow-ons to [the HTML checker][sdxpy_check].
-One was a [template expander][sdxpy_template] of the sort used in static site generators
+One was a template expander of the sort used in static site generators
 like the one that created the page you'r reading right now.
 I chose to tackle it first because it calls back to
 [the simple interpreter][sdxpy_interp] built earlier
 with its variables, loops, and conditionals.
-As this chapter says,
+
+As [Chapter 12: A Template Expander][sdxpy_template] says,
 there are basically three approaches to HTML templating:
 
 > 1.  Mix commands in an existing language such as JavaScript with the HTML or Markdown

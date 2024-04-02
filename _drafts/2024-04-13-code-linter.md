@@ -7,14 +7,14 @@ year: 2024
 As I wrote [yesterday][template_post],
 the [HTML validator example][sdxpy_check] has two natural follow-ons:
 a [template expander][sdxpy_template]
-and a [linter][sdxpy_lint] that checks whether the source of a Python program
+and a linter that checks whether the source of a Python program
 obeys a set of rules.
 Of these,
 I think the second is more important:
 the original `lint` utility on Unix helped me learn how to write C properly,
 and I now set up [ruff][ruff] before writing the first line of Python in a new project.
 
-One thing that surprised me as I was writing this chapter
+One thing that surprised me as I was writing [Chapter 13: A Code Linter][sdxpy_lint]
 was how few new ideas it needed to introduce.
 By this point in the book,
 readers understand that a program is just a data structure in memory

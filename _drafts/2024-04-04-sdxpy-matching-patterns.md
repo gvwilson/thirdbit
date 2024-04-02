@@ -10,7 +10,7 @@ every piece of technical writing I've ever done has been shaped by the work of
 His books didn't just teach me how to design software;
 the clarity of his explanations gave me a model to imitate and a standard to strive for.
 
-It was therefore one of the proudest moments of my life
+It was therefore one of the proudest moments of my professional life
 when Kernighan agreed to contribute a chapter on matching regular expressions to [*Beautiful Code*][bc] in 2006.
 His short C program only matched the patterns shown below,
 but as Kernighan wrote,
@@ -31,7 +31,7 @@ it easily accounts for 95 percent of all instances."
 </div>
 
 After teaching this material last spring,
-I decided that [this chapter][sdxpy_glob] would cover the patterns use in globbing filenames
+I decided that [Chapter 4: Matching Patterns][sdxpy_glob] would cover the patterns use in globbing filenames
 rather than the subset of regular expressions for text in [the JavaScript version][sdxjs_regex].
 Re-implementing this still turned out to be
 a natural way to introduce the [Open-Closed Principle][open_closed],

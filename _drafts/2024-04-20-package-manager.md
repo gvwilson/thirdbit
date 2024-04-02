@@ -4,7 +4,7 @@ date: 2024-04-20
 year: 2024
 ---
 
-I had to learn almost as much to write [this chapter on package managers][sdxpy_pack]
+I had to learn almost as much to write [Chapter 20: A Package Manager][sdxpy_pack]
 as I did to write [the chapter on databases][sdxpy_db].
 Recursively enumerating all possible combinations of packages
 to find ones that were compatible with each other

@@ -8,11 +8,13 @@ As I wrote [yesterday][func_post]
 I didn't want to spend an entire chapter of [*Software Design by Example*][sdxpy] on closures,
 but I needed to be sure learners understood them
 before presenting mock objects, `with` statements, and how `for` loops use iterators.
-What ties these together is the idea of a *protocol*:
+What I try to show in [Chapter 9: Protocols][sdxpy_protocols]
+is that these are all examples of a *protocol*:
 if a program has feature X,
 then language feature Y will make use of it.
 
-I'm a little embarrassed to admit how long it took me to realize that protocols like this are everywhere in modern languages.
+I'm a little embarrassed to admit how long it took me to realize that
+protocols like this are everywhere in modern languages.
 Constructors?
 That's a protocol.
 Operator overloading?
@@ -34,3 +36,4 @@ I'd [welcome feedback](mailto:{{site.author.email}}).
 [func_post]: {{'/2024/04/09/functions-closures/' | relative_url}}
 [mop]: https://en.wikipedia.org/wiki/Metaobject
 [sdxpy]: {{'/sdxpy/' | relative_url}}
+[sdxpy_protocols]: {{'/sdxpy/protocols/' | relative_url}}
