@@ -8607,8 +8607,6 @@ an' you just havin' been kicked outta your home,
 well,
 that's gotta make you a little desperate."
 
-<span id="2024-03-30-a"></span>
-
 He turned to Iffy and wrapped his arms around her in a fierce hug.
 "I'm sorry,"
 he whispered in her ear.
@@ -8789,8 +8787,6 @@ The images slipped away as her concentration finally conceded
 to the painkillers and reconstructives.
 A moment later she began to snore softly.
 
-<span id="2024-03-31-a"></span>
-
 She woke to the smell of curried noodles,
 and for a disoriented few seconds she thought she was back on the *Guinevere*
 and late for her watch.
@@ -8869,5 +8865,84 @@ Whatever had been in the patch seemed to have set it right.
 If she had to run,
 she could.
 The trick now was having somewhere to run *to*.
+
+<span id="2024-04-02-a"></span>
+
+As she stepped past Private Norbu
+she slipped the metal button cover she had pried off her chair
+into her pocket.
+
+The galley was twice the size of the *Guinevere*'s
+but much noisier.
+The schematic in her head showed her the pipes,
+drive shafts,
+and optical cables
+crammed into the half meter between its floor
+and the foamed steel armor on the hovercraft's belly.
+She could see three different ways to make trouble if she could reach them,
+but she had no way to do that.
+Even if she did,
+they all had backups that had backups of their own.
+The hovercraft was tough by design:
+someone could punch a dozen shots from a heavy-duty railgun right through it
+without slowing it down.
+
+Private Norbu stood near the galley door and watched her eat.
+She ignored him the same way she had learned to ignore shopkeepers
+who didn't think an orphan dredger had any place in their store.
+She thought briefly about trying to steal her chopsticks,
+but by the time she finished her chocolate she had decided it was too risky.
+They felt like aluminum,
+and she could do a lot with a couple of aluminum rods,
+but Private Norbu was right there
+and there were probably cameras she couldn't see as well.
+No,
+the chopsticks were almost certainly a dead end.
+The loose screw on the underside of the table,
+on the other hand…
+
+Her cabin had a fold-up bunk
+and a single shallow drawer set into the bulkhead.
+She picked up the app that lay on the neatly-dressed bunk
+as Private Norbu closed and locked the door behind her.
+It was the same model she had used as a child,
+but completely locked down:
+she couldn't even get the weather on it,
+much less use it connect to Hell.
+
+She kicked off her boots and lay down.
+"Lights," she said after a moment.
+The room dutifully went dark.
+
+She closed her eyes.
+There was no way she had the plans for every piece of hardware on the planet
+stuck in her head.
+Even if she did,
+that wouldn't explain how she was able to talk to the machines
+or how they were able to plant ideas in her mind.
+She took slow, steady breaths to slow her pulse,
+then tried to visualize herself.
+
+Nothing happened at first,
+or rather,
+hundreds of things that weren't her formed, flew apart, and re-formed behind her eyes.
+She saw something that looked like a mechanical musk ox
+designed to hide in the herd,
+and marvelled for a moment at
+the ingenious way it emulated its organic namesake's digestive processes.
+This was the *Guinevere* as she had been the day she first sailed.
+That was French Henry in pieces on a workbench in Halley,
+and for a moment she saw how the bot had once fitted into
+an attack craft not unlike the hovercraft she was in.
+
+And that—right there—was her.
+She forgot to breathe for a moment as the image rotated slowly,
+panning and zooming as her attention shifted.
+In her spine,
+along her nerves,
+laced through her brain:
+they weren't wires—those would be too easy for a scanner to spot—but rather
+tiny fractalized patches of cells arranged in precisely the right way
+to make her a living antenna.
 
 </section>
