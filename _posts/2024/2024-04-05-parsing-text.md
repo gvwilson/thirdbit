@@ -24,7 +24,7 @@ of the times their authors have taught the material to a live audience.
 
 And on a personal note,
 today is my last day at Deep Genomics.
-I have three weeks to work on [some][sql_tutorial] [side][sys_tutorial] [projects][rsdx_tutorial],
+I have three weeks to work on [some][sql_tutorial] [side][sys_tutorial] [projects][rsdx],
 and then I will start work at [Plotly][plotly] on April 29.
 
 > Terms defined: abstract syntax tree, concrete class, CSV, grammar, JSON, operator overloading, parser, token, tokenizer, YAML.
