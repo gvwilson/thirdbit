@@ -22,13 +22,22 @@ of the times their authors have taught the material to a live audience.
 
 <img class="centered" src="{{'/sdxpy/parse/concept_map.svg' | relative_url}}" alt="Concept map for parsing text"/>
 
+And on a personal note,
+today is my last day at Deep Genomics.
+I have three weeks to work on [some][sql_tutorial] [side][sys_tutorial] [projects][rsdx],
+and then I will start work at [Plotly][plotly] on April 29.
+
 > Terms defined: abstract syntax tree, concrete class, CSV, grammar, JSON, operator overloading, parser, token, tokenizer, YAML.
 
 <a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
+[plotly]: https://plotly.com/
+[rsdx]: https://gvwilson.github.io/rsdx/
 [sdxjs_parse]: {{'/sdxjs/regex-parser/' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}
 [sdxpy_glob]: {{'/sdxpy/glob/' | relative_url}}
 [sdxpy_parse]: {{'/sdxpy/parse/' | relative_url}}
+[sql_tutorial]: https://gvwilson.github.io/sql-tutorial
+[sys_tutorial]: https://gvwilson.github.io/sys-tutorial
 [t3]: https://teachtogether.tech/
