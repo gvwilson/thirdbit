@@ -8866,8 +8866,6 @@ If she had to run,
 she could.
 The trick now was having somewhere to run *to*.
 
-<span id="2024-04-02-a"></span>
-
 As she stepped past Private Norbu
 she slipped the metal button cover she had pried off her chair
 into her pocket.
@@ -8944,5 +8942,63 @@ laced through her brain:
 they weren't wires—those would be too easy for a scanner to spot—but rather
 tiny fractalized patches of cells arranged in precisely the right way
 to make her a living antenna.
+
+<span id="2024-04-05-a"></span>
+
+And any antenna that could receive a signal could send one.
+
+It only took her a minute to find an opening in the hovercraft's systems.
+It took her another to find one that wasn't a trap,
+and another hour to convince herself that she was right.
+Fifteen years ago,
+just a few days after she had been born,
+a tech in Paddington South had replaced a reactor coolant pump
+with one salvaged from an Aussie submarine
+that had suffered a catastrophic loss of containment.
+(Her hand twitched as if swiping an app
+to toss aside the insurance reports and obituaries
+that thought called up.)
+The tech had cut corners to meet a deadline
+(another twitch dispelled performance reviews and der eventual dismissal).
+One of those corners had been a software shim
+to connect the monitor's century-old software
+to the hovercraft's merely elderly systems.
+
+She studied the code tangled around the hardware
+like nerves and veins around bones.
+The pump's core was dumber than a seagull:
+if she nudged it there and there and *there*,
+it would believe that the hovercraft's reactor was going critical
+and bypass its own safeties
+to try to prevent disaster.
+When the other pumps asked it what the hell it thought it was doing,
+the long-ago tech's shoddy work would let her persuade them
+that they had been ordered to shut down for maintenance.
+
+She smiled,
+not caring who might be watching through a hidden camera,
+then rolled on her side and brought her hand to her mouth
+as if to stifle a yawn.
+
+The metal button cover she had stolen was stronger than she had expected.
+For a moment she thought she might crack a tooth,
+but then it bent enough for her to bite down and flatten it.
+She spat the half-circle of metal with its two precious points
+back into her hand,
+rolled over again to cover the motion of slipping it back into her pocket,
+and *pushed* with her mind.
+
+Eleven point two meters away,
+a pump whirred into overdrive.
+Exactly three seconds later
+its partners queried it,
+compared the answers they received,
+and powered down.
+Iffy squelched the notifications they sent to the hovercraft's core
+moments before they would have set off an alarm.
+*Sleep well,* she thought giddily.
+She had never ridden a high-speed multi-ton atomic bomb before.
+She wondered how many people had,
+and how many of them had lived to tell the tale.
 
 </section>
