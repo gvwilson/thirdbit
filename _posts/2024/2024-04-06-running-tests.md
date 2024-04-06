@@ -24,10 +24,22 @@ was the main goal of this book and [its predecessor][sdxjs].
 
 > Terms defined: actual result (of test), assertion, dynamic typing, error (result of test), exception, expected result (of test), failure (result of test), fixture, global, local, pass (result of test), pretty print, raise (an exception), register (in code), scope, unit test.
 
+And now a request:
+if you have experience implementing support for dark mode in browsers
+and can submit a PR to change the CSS for [this project][repo],
+I'd be very grateful for your help.
+I believe the solution is going to involve a media query,
+redefining some colors,
+and using the CSS `invert` function to make the SVG diagrams white-on-black,
+but I've never done this and need to focus on other work right now.
+If you can spare the time,
+thank you in advance.
+
 <a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
 [pytest]: https://docs.pytest.org/
+[repo]: https://github.com/gvwilson/sdxpy/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}
 [sdxpy_glob]: {{'/sdxpy/glob/' | relative_url}}
