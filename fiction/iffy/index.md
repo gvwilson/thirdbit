@@ -9080,7 +9080,95 @@ I'll be right behind you."
 He took her wrists and placed her hands on the grips built into the seat.
 "One… two… *three*."
 
+<span id="2024-04-06-b"></span>
+
 She screamed into the mouthpiece as hovercraft fired the ejection seat into the air
 like an old-fashioned artillery shell.
+Daylight blinded her.
+Ice-cold wind instantly numbed her cheeks.
+Tiny gyros whined to stabilize the chair
+long enough for the explosive bolts in its back to fire.
+A translucent parawing snapped open.
+The surge of deceleration threw her against her harness
+and then she was swinging like a pendulum
+as the parawing's tiny core picked a safe landing spot
+and turned toward it.
+
+The ground below her was covered with snow.
+The harsh white reached from horizon to horizon,
+interrupted only by a few dark boulders
+and the camouflaged rectangular bulk of the hovercraft
+that was already several hundred meters away.
+It must have turned inland toward the pole,
+but Iffy didn't have time to think about that.
+She was flying,
+really actually flying,
+except it was going to be over in a few seconds
+and if the chair hit the ground the wrong way
+she might tumble and snap her neck.
+The gyros were supposed to prevent that,
+but she had seen their specs when she was planning her escape
+and they had last been serviced by the same tech
+who had screwed up the coolant pump.
+
+A flash of light at the rear of the hovercraft
+threw a black dot into the seamless blue sky.
+A hundred meters above the ground it jerked suddenly
+as its parawing deployed.
+Iffy's fumbling fingers finally found the catch on the harness buckle.
+It bleeped and flashed,
+unhappy about being unfastened while in the air,
+but she jammed her thumb down hard to force it open.
+
+Snow raced away beneath her far too fast for safety.
+She was headed straight for a boulder.
+She was going to hit it.
+She was going to hit it,
+but the parawing cupped the air to brake,
+throwing her hard against the straps as if to punish her for breaking its rules.
+
+The chair landed on the snow with a crunch.
+Iffy spat out the mouthpiece,
+pulled off her goggles,
+wriggled out of the straps,
+tripped,
+and fell face-first into the little snowbank thrown up by the chair's impact.
+Ice crystals stung her face and hands.
+It was cold,
+she realized,
+really cold.
+They must have come a long way inland.
+
+The chair bleeped.
+Panels popped off its bulky arms
+to reveal a featherweight windproof parka rolled up
+to be not much larger than a lunch-sized roti on one side
+and a waistpack with a tiny first aid kid,
+a ruggedized app,
+and three high-energy snack bars on the other.
+The specs had shown four,
+and as she strapped the waistpack on
+she wondered if that long-ago tech had gotten hungry while he was working.
+
+It took her three tries to clamber up the boulder.
+Her nosebleed had stopped,
+leaving bits of red crust on her lip,
+but she was still lightheaded.
+She shielded her eyes with her hand.
+There—Iñacio's chair had just landed a few hundred meters away.
+The governor and his Marines had undoubtedly retaken control of the hovercraft,
+only to discover that all three coolant pumps had burned out
+and would need to be replaced
+before it move again.
+If his Marines had the same exoskeletons as the ones in Halley and Rothera,
+it would take them about twenty minutes to make their way back
+to their ex-prisoners.
+
+"Hey!"
+She waved both arms.
+Iñacio waved back and started toward her.
+She slipped off the boulder,
+made her way back to the chair,
+and got to work.
 
 </section>
