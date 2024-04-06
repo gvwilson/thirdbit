@@ -8943,8 +8943,6 @@ they weren't wires—those would be too easy for a scanner to spot—but rather
 tiny fractalized patches of cells arranged in precisely the right way
 to make her a living antenna.
 
-<span id="2024-04-05-a"></span>
-
 And any antenna that could receive a signal could send one.
 
 It only took her a minute to find an opening in the hovercraft's systems.
@@ -9000,5 +8998,89 @@ moments before they would have set off an alarm.
 She had never ridden a high-speed multi-ton atomic bomb before.
 She wondered how many people had,
 and how many of them had lived to tell the tale.
+
+<span id="2024-04-06-a"></span>
+
+She didn't realize her nose was bleeding
+until an alarm klaxon began to blare
+and she tried to stand up.
+She had expected the alarm—in fact,
+she was counting on it—but
+she hadn't counted on being so lightheaded that
+the room went distant and swam around her.
+She bent over,
+her elbows on the bunk and her face pressed against her forearms.
+
+"Shad," she swore weakly.
+There was a lot of blood,
+even more than the time Akumé had punched her in the face
+for calling der a thief
+(which de had been,
+but the other kids on the pier had been too smart or too afraid of der to say it).
+Wiping her face with a handful of bedsheet didn't stop the steady red drip.
+
+Iffy laughed weakly.
+She had been so worried that someone would notice her stealing the button cover,
+and now it turned out she needn't have bothered.
+She wouldn't have to scratch herself to get a few red cells
+to fool the hovercraft's genetic sensors:
+she had as many as she could possibly want.
+
+She straightened up and worked her tongue in her mouth.
+It still felt like someone had replaced it with a piece of pressed jellyfish,
+but the room no longer felt like an endlessly-receding tunnel from a horror sim.
+She focused on the app lying on the bunk and pushed with her mind once again.
+Something inside the door clicked and it slid aside.
+
+Two minutes later she stood in front of another cabin door
+and pressed her sticky hand against the contact place beside it.
+
+"Affin' heck, girl, what happened t' you?" Iñacio asked as he stood.
+
+"You should see the other guy," she said
+grinning woozily.
+"Any idea where our gear is?"
+
+He shook his head.
+"Prolly in a recycler by now anyway.
+So whatta we do now?"
+
+She jerked her chin toward the stern.
+"Back an' out an' then figure th' rest out from there."
+
+Someone was banging against one of the doors they passed.
+They were shouting, too.
+Iffy thought it was funny but didn't have enough energy to laugh.
+At some point Iñacio had put his arm around her to help her stay upright.
+He had picked up a fire extinguisher as well,
+a compact red cylinder with a silver handle
+whose basic design hadn't changed in centuries.
+She blinked away the specs that flashed into her mind.
+*Not now,* she thought.
+Her nose was still dripping.
+Anyone who wanted to find them could just follow the trail of drops and streaks on the floor.
+
+"Here," she mumbled.
+"…straps…"
+
+"'Saright, 'saright, I got it,"
+Iñacio said soothingly.
+He turned her around and lowered her onto the molded plastic seat,
+then buckled the harness across her chest
+and pulled a bulky pair of goggles down over her eyes and nose.
+"Bite on this,"
+he told her,
+pushing a mouthpiece against her lips.
+
+Cold air filled her lungs as she breathed in.
+"Ready?
+No,
+don' worry,
+I'll be right behind you."
+He took her wrists and placed her hands on the grips built into the seat.
+"One… two… *three*."
+
+She screamed into the mouthpiece as hovercraft fired the ejection seat into the air
+like an old-fashioned artillery shell.
 
 </section>
