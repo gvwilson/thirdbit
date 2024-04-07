@@ -9156,18 +9156,18 @@ leaving bits of red crust on her lip,
 but she was still lightheaded.
 She shielded her eyes with her hand.
 There—Iñacio's chair had just landed a few hundred meters away.
-The governor and his Marines had undoubtedly retaken control of the hovercraft,
+The governor had undoubtedly retaken control of the hovercraft,
 only to discover that all three coolant pumps had burned out
 and would need to be replaced
-before it move again.
+before it could move again.
 If his Marines had the same exoskeletons as the ones in Halley and Rothera,
-it would take them about twenty minutes to make their way back
-to their ex-prisoners.
+she and Iñacio had about twenty minutes before they arrived
+to recapture their ex-prisoners.
 
 "Hey!"
 She waved both arms.
 Iñacio waved back and started toward her.
-She slipped off the boulder,
+Iffy slipped off the boulder,
 made her way back to the chair,
 and got to work.
 
