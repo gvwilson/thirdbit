@@ -5,18 +5,23 @@ year: 2024
 ---
 
 A lot of people who have done computer science degrees believe that
-if you've never written a compiler or an interpeter,
+if you have never written a compiler or an interpeter,
 you don't really understand how computers work.
-The fact that many people who haven't routinely create great software
+The fact that many people who haven't done this routinely create great software
 doesn't seem to shake their belief,
 but I decided to include a simple tree-walking interpreter
-in [Chapter 7: An Interpreter][sdxpy_interp] to show (once again)
-that programs are just data
-and so that learners understand how things like operator overloading work.
+in [Chapter 7: An Interpreter][sdxpy_interp] so that
+the next time someone is the target of this kind of gatekeeping
+they can say, "Sure, I've done that,"
+and move the conversation back to more useful topics.
+
+As a bonus,
+this chapter also shows how things like operator overloading work.
 In my experience,
 telling people that "'+' is just a function"
-doesn't work as well as showing people that operations are just functions in a lookup table
-and we can look up something else if we want to.
+doesn't work as well as showing people that those things we have special notation for
+are looked up in tables like other operations
+and that we can look up something else if we want to.
 
 <img class="centered" src="{{'/sdxpy/interp/concept_map.svg' | relative_url}}" alt="Concept map for an interpreter"/>
 
