@@ -8999,8 +8999,6 @@ She had never ridden a high-speed multi-ton atomic bomb before.
 She wondered how many people had,
 and how many of them had lived to tell the tale.
 
-<span id="2024-04-06-a"></span>
-
 She didn't realize her nose was bleeding
 until an alarm klaxon began to blare
 and she tried to stand up.
@@ -9080,8 +9078,6 @@ I'll be right behind you."
 He took her wrists and placed her hands on the grips built into the seat.
 "One… two… *three*."
 
-<span id="2024-04-06-b"></span>
-
 She screamed into the mouthpiece as hovercraft fired the ejection seat into the air
 like an old-fashioned artillery shell.
 Daylight blinded her.
@@ -9145,6 +9141,7 @@ to reveal a featherweight windproof parka rolled up
 to be not much larger than a lunch-sized roti on one side
 and a waistpack with a tiny first aid kid,
 a ruggedized app,
+a pair of multitools,
 and three high-energy snack bars on the other.
 The specs had shown four,
 and as she strapped the waistpack on
@@ -9161,7 +9158,7 @@ only to discover that all three coolant pumps had burned out
 and would need to be replaced
 before it could move again.
 If his Marines had the same exoskeletons as the ones in Halley and Rothera,
-she and Iñacio had about twenty minutes before they arrived
+she and Iñacio only had a few minutes before they arrived
 to recapture their ex-prisoners.
 
 "Hey!"
@@ -9170,5 +9167,31 @@ Iñacio waved back and started toward her.
 Iffy slipped off the boulder,
 made her way back to the chair,
 and got to work.
+
+<span id="2024-04-08-a"></span>
+
+The upper back plate on the ejection seat had six screws.
+The lower plate only had four.
+The schematic in her head didn't need them,
+but she pocketed them anyway as she took them out.
+"No such thing as scrap," she muttered under her breath.
+It was one of Mister Mishra's favorite sayings,
+but there wasn't time to think about him or Jeep
+because she had to tighten the spigot valve on the seat's tiny fuel line all the way
+before prying out the fist-sized tank of high-test peroxide
+or she and her escape were both going to be very short-lived.
+
+Iñacio's boots crunched on the snow a minute later.
+"What're you—oh no.
+No no no,
+you can't be serious."
+
+She grinned madly and pointed at the parasail
+without looking up from the vernier motor she was crimping into place.
+"Straighten that out if you can
+an' then get the straps outta the chair.
+We're gonna have t' double up."
+
+
 
 </section>
