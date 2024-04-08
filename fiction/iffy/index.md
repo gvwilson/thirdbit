@@ -9186,12 +9186,68 @@ Iñacio's boots crunched on the snow a minute later.
 No no no,
 you can't be serious."
 
-She grinned madly and pointed at the parasail
+She grinned madly and pointed at the parawing
 without looking up from the vernier motor she was crimping into place.
 "Straighten that out if you can
-an' then get the straps outta the chair.
+an' then get the straps off th' chair.
 We're gonna have t' double up."
 
+Another minute, another minute—there.
+Iñacio handed her the ends of the parawing's tether lines.
+She clipped them onto the harness and handed it back to him.
+"I can't carry you, so you gotta carry me," she said,
+cutting off his protests.
 
+The snow field dipped gently on the far side of the boulder.
+It wasn't much,
+but it would have to do.
+"Ready?" she asked.
+
+Iñacio shook his head.
+"Nope."
+He bent over like a sprinter and started to run.
+
+Iffy waited for the lines to go nearly taut before shouting,
+"Now!"
+and yanking the edge of the parawing up as hard as she could.
+The makeshift rocket strapped to Iñacio's back flared,
+kicking him forward.
+For an instant Iffy thought it wasn't going to work,
+but the core she had pulled out of the chair wasn't smart enough to wonder
+how or why its world had changed.
+It just knew its wing was out of position.
+Tiny motors whirred,
+frantically adjusting the parawing's shape
+so that it cut the air at just the right angle
+to lift Iñacio into the air.
+
+He whooped,
+his feet still pedalling as they left the ground.
+Iffy ran back and scrambled up the boulder and shielded her eyes,
+her heart pounding.
+Four black dots had come over the horizon.
+She counted seconds under her breath.
+The snow was slowing them down, but not much.
+
+"Over here!" she shouted,
+waving as Iñacio banked in a wide, clumsy turn.
+One moment he was over *there*
+and the next he was coming straight at her,
+wide-eyed and shouting something she couldn't hear.
+She took a deep breath and spread her arms wide.
+
+Iñacio hit her with a thump that cracked her spine.
+His hands scrabbled for purchase on her parka,
+but the fabric was too slippery,
+it was designed to shed water and he couldn't get a grip
+but that was aright,
+she had grabbed hold of the straps
+and her feet were kicking at nothing but air.
+
+She twisted around as far as she dared as he whooped again.
+The rocket on his back flared again,
+lifting them higher.
+*It's me, it's just me,* she thought frantically,
+hoping that whatever faraway machine was responsible for this part of the world was listening.
 
 </section>
