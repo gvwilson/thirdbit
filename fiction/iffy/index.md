@@ -9398,6 +9398,85 @@ and it will only be a matter of time before tornadoes appear.
 You may not be able to guarantee that your laborers will return with their memories intact,
 but you will of course do your utmost to ensure that they do return.
 Deeply dug and well provisioned,
-your bunkers will allow they to wait out the worst the southern continent can throw at them in comfort.*
+your bunkers will allow them to wait out the worst the southern continent can throw at them in comfort.*
+
+<span id="2024-04-08-d"></span>
+
+Iñacio insisted on climbing down the ladder ahead of Iffy,
+so he was the first one to realize that something bad had happened in the shelter
+many years ago.
+"You might not wanna come down here,"
+he called up to her.
+
+*Ain't like a got a lot o' choices,*
+she thought but didn't say.
+The Marines could reach them in a couple of hours if they pushed their exoskeletons to their limits,
+but the governor was sure to have other tools at his disposal.
+If they couldn't find something in the shelter they could be trapped,
+and a siege would only end one way.
+
+The smell hit her halfway down.
+It wasn't rank like the week-dead seagull she had once found in a storage bin behind the Sandhus' store,
+trapped by a lid closing behind it as it scrounged for scraps.
+Instead,
+the smell was tired and a little bit sour.
+
+"Core woulda shut off power after he died,"
+Iñacio said as they studied the mummified body
+lying a stride away from the bottom of the ladder.
+"Cold an' dry air—coulda happened last year,
+coulda been a hundred years ago."
+
+"More likely a hundred,"
+Iffy replied,
+feeling oddly detached.
+Whoever he had been,
+he'd had long dark hair and a beard.
+The inside of his parka was silvered like hers,
+and if he had brought any gear,
+it had either been taken by whoever shot him
+or was lying on the shelves that lined the shelter's walls.
+
+She shook herself.
+"C'mon.
+Let's see what we got."
+
+What they had turned out to be weapons,
+dried food that had either spoiled or mummified like the corpse,
+several camouflage snowsuits with boots and breathing masks
+(she puzzled over this for a bit),
+and a small workshop stocked with tools and spare parts that made her hands itch.
+"Looks like they were buildin' bots,"
+she told Iñacio,
+turning a laser cutter over in her hands.
+
+"Or takin' 'em apart."
+He pulled a tarp off something that looked like
+an oversized version of the sentry bots she was familiar with.
+One of its side panels was folded back to reveal its motors and cables.
+Another tarp revealed a second bot with the same bulky body and limbs
+but a cluster of cameras and antennas where its head should have been.
+The mod had clearly been made in haste:
+the welds joining the additions to the bot's neck looked messy and unfinished,
+and a handful of string-thin optical cables dangled from the opening.
+
+Iffy looked around the shelter's single large room a second time.
+Something didn't make sense.
+"How were th' bots gonna get out?" she asked suddenly.
+"No way they could make it up th' ladder."
+
+Iñacio nodded,
+putting the short-barrelled thump gun he had picked up
+back on its shelf.
+"I'll check th' walls.
+You wanna see if you can get anythin' outta that?"
+He pointed at the desktop near the two bots.
+
+She nodded and sat on the stool in front of it.
+The faint scum of dust on the app felt gritty under
+the finger she swiped across it.
+"Aright,"
+she muttered.
+"What have you got t' show me?"
 
 </section>
