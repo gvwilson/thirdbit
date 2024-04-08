@@ -8302,8 +8302,8 @@ but the ballistic shots and EMP pulses that snuffed out the green dots in waves
 weren't enough to turn the tide.
 
 Nineteen and five… Sixteen and eight… Fourteen and ten…
-The numbers in the corner of the map showed the number of blue dots remaining
-and the number that had gone dark.
+The numbers in the corner of the map showed how many blue dots remained
+and how many had gone dark.
 At twelve and twelve the remaining Marines began to fall back.
 The green dots kept pace but let them go.
 
@@ -9248,6 +9248,96 @@ She twisted around as far as she dared as he whooped again.
 The rocket on his back flared again,
 lifting them higher.
 *It's me, it's just me,* she thought frantically,
-hoping that whatever faraway machine was responsible for this part of the world was listening.
+hoping that whatever faraway machine she had made her bargain with was listening.
+
+<span id="2024-04-08-b"></span>
+
+"So what now?"
+Iñacio had to shout to be heard over the wind in their ears.
+
+"I gave it a heading,"
+Iffy shouted back.
+"Figure we got about half an hour in the air.
+We'll have to walk the rest o' the way."
+The snow field below her looked exactly like a sim but was completely different.
+She finally understood why so many people wrote poetry about flying,
+and why they said that of all the machines had taken away from humanity,
+this was the one whose loss hurt the most.
+
+In the end the little rocket only lasted ten minutes,
+but that was enough to get them high enough to catch the wind.
+Antarctica rolled away behind them.
+Iffy's shoulders began to ache,
+then to burn.
+The straps they were tangled in dug in to her triceps.
+She'd have bruises,
+but she'd had worse,
+and the view—whatever else happened,
+she swore she would find a way to fly again.
+
+After one last lift from a thermal rising off a stretch of exposed rock
+they began a long, slow descent.
+"Get ready!" Iñacio shouted.
+Iffy grabbed the strap with one numb hand and let go with the other
+so that she was half beside and half behind him.
+The parawing's little motors whined in protest as they reshaped it
+to adjust for the shift in weight.
+Ten seconds…
+Five…
+As her boots grazed the snow she tried to run,
+but her toe caught on a crust of ice.
+She let go of Iñacio and sprawled face-forward.
+
+His landing was more graceful.
+
+"Well," he said,
+helping her to her feet
+as the parawing carried the harness away.
+"Can't wait to tell Nagatha about *that*."
+
+She wiped ice and snow off her face and returned his grin.
+"Sure was somethin'.
+C'mon,
+we still got some walkin' t' do."
+
+Two snack bars and several mouthfuls of lukewarm water later,
+they reached an outcropping of rock too regular to be natural.
+Iñacio ran his hands over the pipe shafts drilled into its laser-cut top.
+"Old weather station?" he hazarded.
+"Looks like it was salvaged a long time gone."
+
+"Mm hm."
+Iffy pointed at the shadow on the horizon.
+"You know what that is?"
+
+Iñacio laughed.
+"Girl,
+I have no idea where I am right now.
+You could tell me that was the Andes an' I'd believe you."
+
+"That's Mount Tyree."
+Iffy's voice was more serious than she'd intended.
+"The secret base Wales an' th' machines an' everyone have been goin' on about?
+It's halfway 'round to your right an' just shy o' the peak.
+I figure that's where th' governor was takin' us."
+
+Iñacio nodded slowly.
+"Long way off."
+
+"Yeah, well."
+Iffy studied the dark rock in front of them.
+"Dunno what kind o' sims you play,
+but my favorites?
+Nobody puts a secret base in 'em without puttin' a bunch of other stuff around it,
+so I had a poke around the governor's backups while you were lazin' around on th' hovercraft."
+
+There.
+She pulled off her glove,
+scraped some dried blood out of her nostril,
+and stuck her finger in one of the drill holes.
+The rock thought for a second and then opened with a faint click.
+
+She grinned at Iñacio.
+"Welcome to *my* hideaway."
 
 </section>
