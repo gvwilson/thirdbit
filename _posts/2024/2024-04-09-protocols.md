@@ -33,7 +33,7 @@ I'd [welcome feedback](mailto:{{site.author.email}}).
 <a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
-[func_post]: {{'/2024/04/09/functions-closures/' | relative_url}}
+[func_post]: {{'/2024/04/08/functions-closures/' | relative_url}}
 [mop]: https://en.wikipedia.org/wiki/Metaobject
 [sdxpy]: {{'/sdxpy/' | relative_url}}
 [sdxpy_protocols]: {{'/sdxpy/protocols/' | relative_url}}
