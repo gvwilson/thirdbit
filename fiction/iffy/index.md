@@ -9571,3 +9571,101 @@ Yeah, I do."
 Somehow she wasn't surprised to see Johnson Wales looking back at her.
 
 </section>
+
+<section markdown="1">
+
+<span id="2024-04-09-b"></span>
+
+## Chapter 11
+
+There were no other recordings,
+at least not that Iffy could find,
+but there were maps and schematics.
+The maps showed a network of maintenance tunnels
+just big enough for centipede-shaped bots
+that reminded Iffy of French Henry.
+She would be able to fit her arm into one of them,
+but no more,
+and some of them ran (or had run) for tens of kilometers.
+
+There were other tunnels too, though,
+big enough for heavy equipment.
+Some were dense with red flags that showed collapse,
+flooding,
+or chronic instability.
+She puzzled over that for a second before dismissing it.
+Reasons weren't important:
+a blocked tunnel was no use to them.
+
+Iffy had expected the web of tunnels to be centered on the Niobium base.
+Instead,
+the center was a kilometer further south
+on the slope of Mount Tyree instead of at its peak.
+Iñacio shrugged when she pointed this out.
+"Wouldn't be surprised if th' real whatever is somewhere else again."
+He jerked his head toward Severin's remains,
+which he had wrapped in the tarp he had pulled off the sentry bot.
+"Folks like this never thought in straight lines.
+Whatever you can see ain't real,
+and whatever's real,
+they'll have hidden under three different kinds o' camouflage."
+
+But the mystery of what was actually buried under Mount Tyree
+wasn't what made Iffy chew her lips
+the way she had when she was first learning algebra.
+That was the schematics' fault.
+They made no sense.
+She could think of a hundred uses for a superconducting ring
+large enough to sail the *Guinevere* through,
+but why put a bamboo rat cage at its center?
+And if you had a yottahertz laser capable of vaporizing steel from orbit,
+why would you point it directly at an identical laser,
+and why would you leave just enough space between them for
+one (1) adult with arctic-rated camping equipment
+and a month's worth of high-energy rations?
+
+She sat back,
+stretched,
+and yawned so widely that her jaw clicked.
+The only explanation that made sense was that
+the app's records had been deliberately scrambled and polluted
+when things went skew.
+It didn't matter now:
+if the governor had sent Marines,
+they would arrive in an hour,
+maybe less.
+She had done her best to wipe the shelter from the hovercraft's memory,
+but they would have other records.
+Even if they didn't,
+they would have to be blind to miss the parawing and bootprints,
+and they wouldn't have come all this way
+without something that could cut through
+the rock concealing the entrance.
+
+"I don't like it,"
+Iñacio said,
+studying the route she had sketched on the map
+that filled half the app.
+
+Iffy shrugged.
+"Every other way I can find has a big chunk o' walkin' in it.
+This might too if there's been more cave-ins,
+but there's no way o' knowin' 'til we get there."
+
+The Ecologist exhaled and nodded.
+"Aright.
+You get th' bots back online.
+I'll see what I can do about wheels."
+He studied the sketch she had thrown together
+on the other half of the app
+and shook his head.
+"Folks ever tell you you're a bit sideways from normal?"
+
+Iffy shrugged again.
+"Most never get t' know me well enough to find out."
+
+He snorted,
+then put his hand on her shoulder and gave her a gentle shake.
+"I'm glad I have."
+
+</section>
