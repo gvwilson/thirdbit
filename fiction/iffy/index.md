@@ -9168,8 +9168,6 @@ Iffy slipped off the boulder,
 made her way back to the chair,
 and got to work.
 
-<span id="2024-04-08-a"></span>
-
 The upper back plate on the ejection seat had six screws.
 The lower plate only had four.
 The schematic in her head didn't need them,
@@ -9249,8 +9247,6 @@ The rocket on his back flared again,
 lifting them higher.
 *It's me, it's just me,* she thought frantically,
 hoping that whatever faraway machine she had made her bargain with was listening.
-
-<span id="2024-04-08-b"></span>
 
 "So what now?"
 Iñacio had to shout to be heard over the wind in their ears.
@@ -9340,8 +9336,6 @@ The rock thought for a second and then opened with a faint click.
 She grinned at Iñacio.
 "Welcome to *my* secret lair."
 
-<span id="2024-04-08-c"></span>
-
 *Suppose the world is ending
 and you want to build a secret research facility—a place
 completely cut off from what's left of the world's governments
@@ -9399,8 +9393,6 @@ You may not be able to guarantee that your laborers will return with their memor
 but you will of course do your utmost to ensure that they do return.
 Deeply dug and well provisioned,
 your bunkers will allow them to wait out the worst the southern continent can throw at them in comfort.*
-
-<span id="2024-04-08-d"></span>
 
 Iñacio insisted on climbing down the ladder ahead of Iffy,
 so he was the first one to realize that something bad had happened in the shelter
@@ -9477,6 +9469,105 @@ The faint scum of dust on the app felt gritty under
 the finger she swiped across it.
 "Aright,"
 she muttered.
-"What have you got t' show me?"
+"What have you got for me?"
+
+<span id="2024-04-09-a"></span>
+
+Five minutes later she smacked the app in frustration.
+"I can't find a way in," she sulked,
+slumping down in the chair.
+
+"Here."
+Iñacio tossed her a thumb-sized key on a thin chain.
+"It was around his neck,"
+he explained as she stooped over to pick it up.
+
+The key fit into a slot on the edge of the app.
+Its screen went a deep blue.
+A single icon appeared,
+waiting patiently to be tapped.
+
+Iffy bit her lip.
+"Could be some kind o' malware.
+Like, a trap or somethin' to fry anyone that looks at it."
+
+Iñacio nodded.
+"Could be."
+Without warning he spun her around
+and pushed hard on the back of her chair.
+
+"Hey!" she squawked as she rolled away.
+"What are you—"
+
+"—a chance to hear this,
+but if you do,
+I'm sorry, love.
+I'm so, so sorry."
+The recorded voice was a man,
+and sounded tired and frightened and brave all at once.
+"I thought we could fix things,
+but we've only made them worse."
+
+Iñacio turned and beckoned her to join him as the recording continued.
+"Suyin left this morning with the last of the shielding."
+The voice chuckled or choked back a sob—it was impossible to tell which.
+"She said she thought she might be able to make it to the machine
+if she cycled the algorithm rapidly enough,
+but I think she just wanted to be with Georgia,
+wherever the hell she is now.
+None of the other shelters are answering any more,
+not even Johnson's team."
+
+Iffy reached for Iñacio's hand.
+He squeezed hers back.
+"I've disabled two of the guard robots—at least I think I have—but
+number three is still roaming around in the auxiliary tunnels.
+I know we all agreed that—that the project needed a failsafe,
+but…"
+The voice paused for a heartbreaking moment.
+"But I never thought we'd need it.
+I never thought we'd—oh crap."
+
+Iffy jumped at the sharp *crack!*
+Iñacio squeezed her hand again at the sound of something heavy hitting the floor.
+A moment later metal clicked on concrete
+as something approached the app,
+and then the recording ended with a soft, cheerful *ding*.
+
+"Well."
+Iñacio gently pulled his hand free and swiped the app.
+"Doctor Arno Severin,"
+he read aloud as Iffy lowered herself back into her chair.
+"Doesn't say who it was for,
+but I'm guessin' these two were Suyin an' Georgia."
+He paused.
+"Oh.
+Well,
+ain't this a surprise."
+He looked at her over his shoulder.
+"I think you're gonna wanna see this."
+
+Iffy nodded but didn't stand.
+She knew the Marines were getting closer every moment,
+but all of a sudden she just felt tired.
+
+"Iffy?
+Y'aright?"
+
+"Yeah."
+She pulled herself to her feet.
+
+Two dozen smiling, confident faces were arranged on the app
+in eight rows of three.
+The top row contained a man with long dark hair and a beard
+and two women who looked like clones of each other.
+
+"Recognize him?" Iñacio asked,
+pointing.
+
+Iffy nodded slowly.
+"Yeah.
+Yeah, I do."
+Somehow she wasn't surprised to see Johnson Wales looking back at her.
 
 </section>
