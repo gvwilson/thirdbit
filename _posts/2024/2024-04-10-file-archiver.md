@@ -4,7 +4,7 @@ date: 2024-04-10
 year: 2024
 ---
 
-I can trace [*Software Design by Example*][sdxpy] back to [*Beautiful Code*][bc],
+[*Software Design by Example*][sdxpy] began as a response to the shortcomings of [*Beautiful Code*][bc],
 but two specific things spurred me to finally write it and [its JavaScript predecessor][sdxjs]:
 
 1.  Mary Rose Cook's [Gitlet][gitlet],
@@ -14,9 +14,15 @@ but two specific things spurred me to finally write it and [its JavaScript prede
 
 2.  The seemingly simple question, "How does a debugger actually work?"
 
-The book addresses the second of these near its end,
+The book addresses the second of these [near its end][sdxpy_debugger],
 but once learners understand how mock objects actually work,
 they can understand how to build *and test* a little version control system.
+The latter is as important as the former:
+I was in my forties when I learned that
+I could replace the entire filesystem for testing purposes
+using something like [pyfakefs][pyfakefs],
+and I don't think other people should have to wait that long.
+
 [Chapter 10: A File Archiver][sdxpy_archive] was fun to write;
 my only regret is that I dodged the problem of atomic operations on multiple files,
 which turned out to be a lot harder than I knew.
@@ -35,6 +41,8 @@ I hope to include it.
 [bc]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
 [building_git]: https://shop.jcoglan.com/building-git/
 [gitlet]: http://gitlet.maryrosecook.com/
+[pyfakefs]: https://pytest-pyfakefs.readthedocs.io/
 [sdxjs]: {{'/sdxjs/' | relative_url}}
 [sdxpy]: {{'/sdxpy/' | relative_url}}
 [sdxpy_archive]: {{'/sdxpy/archive/' | relative_url}}
+[sdxpy_debugger]: {{'/sdxpy/debugger/' | relative_url}}
