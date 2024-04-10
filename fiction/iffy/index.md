@@ -9471,8 +9471,6 @@ the finger she swiped across it.
 she muttered.
 "What have you got for me?"
 
-<span id="2024-04-09-a"></span>
-
 Five minutes later she smacked the app in frustration.
 "I can't find a way in," she sulked,
 slumping down in the chair.
@@ -9574,8 +9572,6 @@ Somehow she wasn't surprised to see Johnson Wales looking back at her.
 
 <section markdown="1">
 
-<span id="2024-04-09-b"></span>
-
 ## Chapter 11
 
 There were no other recordings,
@@ -9647,25 +9643,100 @@ Iñacio said,
 studying the route she had sketched on the map
 that filled half the app.
 
+<span id="2024-04-10-a"></span>
+
 Iffy shrugged.
 "Every other way I can find has a big chunk o' walkin' in it.
 This might too if there's been more cave-ins,
-but there's no way o' knowin' 'til we get there."
+but there's no way o' knowin' 'til we get there.
+'Sides,
+more chance o' meetin' some actual monsters this way.
+Be a waste t' be down here an' not run into any."
 
-The Ecologist exhaled and nodded.
-"Aright.
-You get th' bots back online.
-I'll see what I can do about wheels."
-He studied the sketch she had thrown together
-on the other half of the app
-and shook his head.
+The Ecologist snorted.
 "Folks ever tell you you're a bit sideways from normal?"
 
 Iffy shrugged again.
-"Most never get t' know me well enough to find out."
+"Most never get t' know me well enough to find out,"
+she admitted.
 
-He snorted,
-then put his hand on her shoulder and gave her a gentle shake.
-"I'm glad I have."
+Iñacio put his hand on her shoulder and gave her a gentle shake.
+"I'm glad I have.
+You get th' bots back online.
+I'll see what I can do about wheels."
+He studied the sketch she had thrown together
+on the other half of the app,
+shook his head,
+and began rummaging through the shelves of equipment that lined the shelter's wall.
+
+It took Iffy ten minutes to fix the damage done to the sentry bots
+and another ten to convince herself they were safe to power on.
+Their optical sensors didn't glow red—that only happened in sims—but
+she did take an involuntary step back
+when their heads turned in unison toward her.
+
+"Sit," she ordered.
+One lowered itself to the concrete.
+The other studied her
+while its core tried to decide whether her voice patterns
+matched those in its memory closely enough.
+
+"I said *sit*," she repeated as firmly as she could.
+The bot took a step toward her,
+hesitated,
+and crouched beside its twin.
+
+Iffy swallowed drily.
+The problem wasn't that the bots' programming was too complex for her to figure out.
+The problem was that it was too simple to fool easily.
+She didn't know if that was because they were old enough
+that their code didn't have anything from the machine wars mixed into it,
+or whether they had been built that way deliberately for safety.
+Mister Mishra was fond of saying that there was no way to fool a hammer.
+Just this once she hoped he was wrong.
+
+"You just about done?"
+She jumped at Iñacio's voice.
+
+"Hope so," she said briskly,
+promising herself mentally that she would never watch another horror sim again.
+"Let's hook 'em up."
+
+Long before there were buses and hovercraft there were ox-carts and chariots.
+Iffy didn't know if anyone had ever built one to be pulled by two sentry robots,
+but if so,
+she was pretty sure they hadn't made it out of
+a heavy-duty dolly and fiber optic cables.
+She nudged it skeptically with her boot.
+The frictionless bearings in its wheels were undamaged,
+so it would roll enough,
+but even without the schematics in her head
+she could see that it would want to slip, tip, or flip
+at every bump and corner.
+
+Iñacio took a moment to say a few quiet words over what was left of Arno Severin,
+then lowered himself gingerly onto the dolly beside her.
+A plastic crate full of tools sat beside her,
+and another one with weapons and spare parts for the bots nestled under his elbow.
+None of the weapons had responded to their touch,
+but they would still add useful weight.
+
+The Ecologist looked at her and grinned.
+She grinned back.
+"Yip yip!" she said,
+snapping the cables she had rigged as reins.
+("So that I'll have somethin' t' hold onto,"
+she had told Iñacio,
+who had nodded straight-faced in response.)
+
+The bots didn't move.
+Iffy sighed.
+"Forward one quarter speed," she ordered.
+The dolly jerked beneath her as the bots set off at a trot into the tunnel.
+Iñacio thumbed a handlight and pointed it ahead of them.
+
+"Increase speed to one half."
+The dolly jerked again,
+its wheels making a sizzling sound as they rolled into the unknown.
 
 </section>
