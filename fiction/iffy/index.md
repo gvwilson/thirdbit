@@ -9736,7 +9736,92 @@ The dolly jerked beneath her as the bots set off at a trot into the tunnel.
 Iñacio thumbed a handlight and pointed it ahead of them.
 
 "Increase speed to one half."
-The dolly jerked again,
-its wheels making a sizzling sound as they rolled into the unknown.
+The dolly's wheels made a sizzling sound as they rolled faster into the unknown.
+
+<span id="2024-04-10-b"></span>
+
+Iffy had expected the tunnel to be level,
+but instead it rose and fell with a kilometer-long rhythm.
+"For drainage?" Iñacio hazarded,
+though the floor was desert dry.
+
+After half an hour her back was aching and her backside had gone numb.
+She was about to suggest that they stop to stretch
+when the two sentry bots pulled up short.
+"Whoa!" she squawked as the dolly smacked hard into their hind legs.
+
+The bots ignored her.
+Their heads twitched this way and that in an almost birdlike way.
+The one that had hesitated before accepting her orders took a step and stopped.
+Without warning a panel on its back flipped open
+and something stubby and lethal looking popped up.
+
+Iñacio swore under his breath and reached for the crate beside him.
+The gun on the bot's back spun around to point at him.
+"Aright, aright," the Ecologist said,
+raising both hands.
+
+He caught Iffy's eye and jerked his head backward.
+She nodded,
+then swivelled slowly to the side and put her boots on the concrete.
+When Neither of the bots moved
+she slid forward and slowly stood up.
+
+Metal clicked on concrete somewhere in the darkness ahead of them.
+The bot's gun spun around again.
+"Easy, easy," Iñacio said soothingly as he got to his feet as well.
+"I'll just get all this off you an'—nope, nope, ne'er mind."
+He let go of the cables he had gathered up in one hand and stepped back.
+The bot's gun tracked his motion for one extra warning second
+before spinning around to point into the darkness once again.
+
+"I think—" Iffy started,
+biting off her words when Iñacio flashed the flat-palmed handsign that meant "quiet".
+*I think it's the other bot,*
+she finished in her head.
+She closed her eyes and tried to slow her breathing.
+Nothing:
+no images flashed into her mind
+and no thoughts suddenly emerged fully-formed.
+
+Metal clicked on concrete again.
+Her eyes snapped open.
+The sound was *behind* them this time.
+
+She and Iñacio turned in unison.
+The light in the Ecologist's hand reflected off two—no, three—bots
+like the pair that had been pulling the dolly.
+One was missing part of a foreleg.
+Another's side was deeply dented
+as if something had tried to punch right through it,
+and all three bore more scratches and scars than Iffy could count.
+
+The lead bot took a step toward them.
+"Hey now," Iñacio cautioned.
+"We ain't lookin' for trouble."
+
+"Ssh."
+Iffy studied the bot.
+"I don't think it wants t' hurt us.
+Matter o' fact…"
+She raised both her hands,
+turned around slowly,
+and reached into the crate of tools she had packed earlier.
+
+"F'real?" Iñacio muttered disbelievingly.
+
+"You got a better idea?" she shot back under her breath.
+An adjustable wrench,
+a screw jack that might be able to outdent the bot's side—what she really needed
+was Mister Mishra's shop and Johnson Wales' toolbox,
+but these would have to do.
+
+She turned around to face the bots and held the tools out.
+"Aright?" she asked.
+
+None of the bots moved.
+For one panicked moment Iffy thought she had guessed wrong,
+but then the bot that had stepped forward took two more steps toward her
+and lowered itself into a crouch.
 
 </section>
