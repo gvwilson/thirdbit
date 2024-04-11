@@ -9643,8 +9643,6 @@ Iñacio said,
 studying the route she had sketched on the map
 that filled half the app.
 
-<span id="2024-04-10-a"></span>
-
 Iffy shrugged.
 "Every other way I can find has a big chunk o' walkin' in it.
 This might too if there's been more cave-ins,
@@ -9738,8 +9736,6 @@ Iñacio thumbed a handlight and pointed it ahead of them.
 "Increase speed to one half."
 The dolly's wheels made a sizzling sound as they rolled faster into the unknown.
 
-<span id="2024-04-10-b"></span>
-
 Iffy had expected the tunnel to be level,
 but instead it rose and fell with a kilometer-long rhythm.
 "For drainage?" Iñacio hazarded,
@@ -9789,12 +9785,12 @@ Her eyes snapped open.
 The sound was *behind* them this time.
 
 She and Iñacio turned in unison.
-The light in the Ecologist's hand reflected off two—no, three—bots
+The light in the Ecologist's hand reflected off three—no, four—bots
 like the pair that had been pulling the dolly.
 One was missing part of a foreleg.
 Another's side was deeply dented
 as if something had tried to punch right through it,
-and all three bore more scratches and scars than Iffy could count.
+and all four bore more scratches and scars than Iffy could count.
 
 The lead bot took a step toward them.
 "Hey now," Iñacio cautioned.
@@ -9823,5 +9819,105 @@ None of the bots moved.
 For one panicked moment Iffy thought she had guessed wrong,
 but then the bot that had stepped forward took two more steps toward her
 and lowered itself into a crouch.
+
+<span id="2024-04-11-a"></span>
+
+"We don't have time for this,"
+Iñacio said quietly a moment later.
+
+"Tell them that,"
+Iffy replied absently.
+These bots had been built to be scouts and guards and weapons.
+The blunt claws on the ends of their legs could pick up a rock
+or grab hold of someone's arm,
+but were no good for delicate work.
+Scratches and dents on the bot's inner frame showed
+where they had tried to repair each other anyway.
+
+"Gimme the crate,"
+she said over her shoulder.
+"Please."
+Iñacio lifted it off the dolly and set it down beside her without comment.
+
+Wire,
+a crimping tool that she could use to cut it,
+a screwdriver with a torsion readout built into its handle—there.
+She patted the bot's back.
+"Good as new."
+Which was a lie,
+but felt like the right thing to say.
+
+The bot stood,
+braced its legs,
+and shivered through a rapid self-test.
+When the reflex capacitor that Iffy had just wired into place didn't rattle
+it made a soft, incongruous *ping*
+and stepped aside to make room for another member of its pack.
+
+Iffy put her tools back in the crate and stood.
+"I'm sorry,"
+she said.
+"We gotta keep movin',
+but if you wanna come with us
+I'll fix you when we get somewhere safe."
+
+The bots didn't move.
+"We really gotta go,"
+Iff said,
+turning to pick up her crate.
+
+A clawed foreleg closed around her arm.
+"Hey!"
+She smacked it with her hand.
+"None o' that, aright?"
+
+The bot released her but didn't back up.
+She glanced at the two still in harness and frowned.
+"Pass me a cable,"
+she said to Iñacio.
+"I have an idea."
+
+The bots didn't have collars,
+but a lifetime at sea had taught Iffy dozens of ways to tie a knot.
+She left plenty of slack so that the bots could pull their heads out if they needed to.
+
+When she was done,
+the three bots that had all of their legs waited patiently in a line behind the dolly,
+the cable loops around their necks.
+Iñacio shook his head.
+"Nagatha's never gonna believe this."
+
+Iffy grinned.
+"Come on, you," she said to the fourth bot.
+"Up you get."
+She put her hand where its neck would have been and tugged it forward.
+Limping,
+it clambered up onto the dolly and crouched down
+where Iffy and Iñacio had been sitting.
+
+"Nope, nope, not there."
+She tugged it again,
+then sighed when it didn't move.
+"Aright,
+stay there if you want to—we'll get a better view up front anyway."
+
+"Can we go now?"
+Iñacio asked testily.
+
+Iffy nodded.
+"Yip yip!"
+The bots in front of them didn't move.
+"Worth a try," she muttered.
+
+"Forward one quarter speed,"
+Iñacio ordered.
+A moment later they were rolling through the tunnel once again
+with three of the new bots following single file behind them.
+
+Iffy leaned back gingerly.
+The crippled bot on the dolly rotated its head to study her.
+After a moment she draped an arm over its back to steady herself.
+It wasn't actually more comfortable than just sitting upright,
+but it was somehow more comforting.
 
 </section>
