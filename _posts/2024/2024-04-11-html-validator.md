@@ -10,12 +10,12 @@ It therefore seemed fitting to spend
 on a tool that I built for the book itself:
 one that compares the structure of its HTML pages
 to a specification of what elements are allowed and what attributes they can have.
-I've written several such tools over the years
+I have written several such tools over the years
 to check the output of various [static site generators][ssg].
 Each time,
-I've wished that I had started earlier and been more thorough,
-both so that the generated pages actually match the CSS I've created for them
-and so that HTML-to-LaTeX conversion will work correctly.
+I wished that I had started earlier and been more thorough,
+both so that the generated pages actually matched my CSS
+and so that HTML-to-LaTeX conversion would work correctly.
 
 This chapter was also an opportunity to introduce the Visitor pattern.
 It comes up several times later on,
