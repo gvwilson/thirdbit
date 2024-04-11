@@ -3242,7 +3242,7 @@ was the most natural thing in the world.
 "Show-off," Uncle Jack grumbled.
 "Treatin' that thing like it's some kind o' pet rat."
 
-"She actually trained its core on a sim of a guard dog she once had,"
+"She actually trained its core on a guard dog she once had,"
 Wales said drily.
 He picked up his toolbox and nudged Iffy with his elbow.
 "Come on.
@@ -9919,5 +9919,94 @@ The crippled bot on the dolly rotated its head to study her.
 After a moment she draped an arm over its back to steady herself.
 It wasn't actually more comfortable than just sitting upright,
 but it was somehow more comforting.
+
+<span id="2024-04-11-b"></span>
+
+She didn't notice the extra clattering at first.
+Or rather,
+she wasn't the first to notice that
+there was more sound behind them than there should be.
+
+She snapped out of her daze when the three sentry bots
+trotting in step in the dolly's wake pulled up short.
+"Shad!"
+The dolly smacked hard into the hind legs of the ones in front,
+who had stopped two mechanical strides later.
+Six boxy clusters of sensors and cameras swivelled
+to point back the way they had come.
+
+That's when Iffy heard it:
+the rhythmic *clunk clunk clunk* of exoskeletoned feet on concrete.
+Iñacio was already on his feet
+with something that looked like a high-pressure paint sprayer in his hands.
+"Only thing that doesn't have a lock-out,"
+he said.
+
+Iffy was already unlooping the cables around the bots' necks.
+"Listen,"
+she said,
+squatting in front of the one she had repaired
+so that her head and its sensors were on the same level.
+"I know we're not who you were s'posed t' be guardin',
+but those folk back there?
+They're *really* not s'posed t' be here."
+She fished the screwdriver out of her pocket and held it up.
+"You fix that an' I promise,
+I'll do my best t' fix you all."
+
+She had no reason to believe the bot could understand her.
+Its core had probably been imprinted with a dog's mind
+like Doctor Johel's armored G-80 back in Rothera.
+There was no telling what strange loops it might have formed
+in the century it had spent patrolling these abandoned tunnels.
+For all she knew it would take one look at the Marines
+and decide they were its true masters.
+
+The bot took a step forward and to butted her gently with its head,
+then turned and disappeared into the darkness
+with its two companions at its heels.
+
+The fourth bot rose onto its three good legs.
+It didn't make a sound,
+but Iffy imagined that if it could have whined it would have.
+"They'll be aright,"
+she told it as she took her seat on the dolly,
+wishing she believed her own words.
+
+The first explosion echoed through the tunnel a few minutes later.
+"Increase speed to full,"
+Iñacio snapped at the harnessed bots.
+Gunfire chattered behind them—Iffy couldn't tell how far away—and then
+the sound-shock of another explosion rolled past them.
+
+"Get down!" she ordered
+The three-legged bot had risen to its feet again,
+its body swaying slightly as its algorithms steadied its misbalanced weight
+atop the dolly.
+
+"I said get—affin' heck, look out!"
+Iffy ducked
+as the three-legged bot jumped over her.
+The dolly slewed wildly,
+skidded,
+and straightened out.
+
+The tunnel was climbing now,
+a long steady incline that Iffy hoped would lead to
+the surface or the secret Niobium base
+or whatever it had been built to distract from.
+The first painted stripe on the wall flew past so quickly that
+she wasn't sure she had seen it.
+A second, then a third with a six-digit number stenciled next to it,
+and then the tunnel leveled out and automatic lights came on over their heads,
+turning everything the dark red she associated with night watches.
+
+The bots slowed and stopped
+as the dolly rolled into a bunker twice the size of the one they had started from.
+Metal scraped on stone behind them
+as a blast door slid into place
+for the first time in a century.
+Wherever they were going,
+they had arrived.
 
 </section>
