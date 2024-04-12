@@ -4,10 +4,10 @@ date: 2024-04-12
 year: 2024
 ---
 
-When I was [outlining the content][outline] for [*Software Design by Example*][sdxpy],
+When I was [outlining the content][outline] for [*Software Design by Example*][sdxpy]
 there were two natural follow-ons to [the HTML checker][sdxpy_check].
 One was a template expander of the sort used in static site generators
-like the one that created the page you'r reading right now.
+(like the one that created the page you'r reading right now).
 I chose to tackle it first because it calls back to
 [the simple interpreter][sdxpy_interp] built earlier
 with its variables, loops, and conditionals.
@@ -15,17 +15,17 @@ with its variables, loops, and conditionals.
 As [Chapter 12: A Template Expander][sdxpy_template] says,
 there are basically three approaches to HTML templating:
 
-> 1.  Mix commands in an existing language such as JavaScript with the HTML or Markdown
->     using some kind of marker to indicate which parts are commands
->     and which parts are to be taken as-is.
->
-> 2.  Create a mini-language with its own commands like Jekyll.
->     Mini-languages are appealing because they are smaller and safer than general-purpose languages,
->     but eventually they acquire most of the features of a general-purpose language.
->
-> 3.  Put directives in specially-named attributes in the HTML.
->     This approach is the least popular,
->     but it eliminates the need for a special parser.
+1.  Mix commands in an existing language such as JavaScript with the HTML or Markdown
+    using some kind of marker to indicate which parts are commands
+    and which parts are to be taken as-is.
+
+2.  Create a mini-language with its own commands like Jekyll.
+    Mini-languages are appealing because they are smaller and safer than general-purpose languages,
+    but eventually they acquire most of the features of a general-purpose language.
+
+3.  Put directives in specially-named attributes in the HTML.
+    This approach is the least popular,
+    but it eliminates the need for a special parser.
 
 I chose #3 to avoid having to write, test, debug, and explain another parser.
 The resulting syntax isn't something I'd want to use:
@@ -36,7 +36,15 @@ The resulting syntax isn't something I'd want to use:
 </ul>
 ```
 
-but it does the job well enough.
+but it works well enough to illustrate the key ideas.
+
+If there is ever a sequel to [this book][sdxpy],
+I would really like to take this a step further
+and show how to build a computational notebook
+that re-executes code and captures its output.
+I did make a start at that,
+but realized that concurrency and process management are hard enough
+that they need an entire book of their own.
 
 <img class="centered" src="{{'/sdxpy/template/concept_map.svg' | relative_url}}" alt="Concept map for a template expander"/>
 
