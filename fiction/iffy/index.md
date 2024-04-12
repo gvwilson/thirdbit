@@ -10077,8 +10077,8 @@ and ran a finger along one of the unopened cylinders.
 The crippled bot on the dolly surged to its feet.
 The panel on its back flipped open.
 A stubby needle gun popped up.
-A targeting laser drew a thin red line through the air
-to connect the gun to a squat four-wheeled service bot
+Its targeting laser drew a thin red line through the air
+to a squat four-wheeled service bot
 that had just rolled into view from somewhere further back in the chamber.
 
 The service bot froze and made a warbling sound.
@@ -10088,5 +10088,128 @@ The laser blinked off,
 but the sentry bot stayed on its feet
 as the service bot began to wipe down the nearest cylinder
 with a brush whose bristles had long since worn away.
+
+<span id="2024-04-12-b"></span>
+
+Iñacio swiped an app set into a work table next to one of the cylinders
+and studied the displays that appeared.
+"Reconciliation Team Beta,"
+he read aloud.
+"Alpha's in a shelter east o' here
+an' Gamma 'n' Delta are 'round th' other way."
+He frowned.
+"This doesn't make any sense.
+They all have cryogenization an' the same date,
+but then decryogenization on different dates."
+
+"So they all got unfrozen at different times,"
+Iffy said,
+shrugging.
+
+Iñacio shook his head.
+"That's what's weird about it.
+Accordin' to this,
+they all got unfrozen *before* they were frozen, not after."
+He cleared his throat.
+"And,
+um,
+those five?
+They all got a flag beside their names that says 'nonviable'.
+Only one marked green is Johnson."
+
+Iffy hunched her shoulders inside her parka and shivered.
+She was hungry and needed a bathroom
+and she was tired of being in places where people were dead.
+"That thing show you a way outta here?"
+
+The Ecologist shrugged.
+"Th' tunnel that way gets us to Alpha,
+or we can go th' other way to Gamma.
+There's another one into th' Niobium thing,
+an' from there we can get to whatever's in th' middle of all this.
+'Scuse me."
+He stepped aside to let the service bot roll past him on its rounds.
+
+He looked as tired as she felt,
+Iffy realized,
+and felt a pang for not having thought about it before.
+"Maybe there's bunks in back or somethin'?" she hazarded.
+
+"Nah."
+Iñacio shook his head.
+"This place wasn't for workin' or livin'.
+This was a warehouse.
+An' anyway,
+we gotta keep movin'.
+Those bots mighta slowed th' Marines down,
+but they won't'a stopped 'em."
+
+Iffy *really* wanted a bathroom,
+but she had once stood an eight-hour watch on the *Guinevere*
+when Aunt Naggie was sick
+without a single break
+despite six cups of tea.
+"Th' hell with whatever they were doin' down here,"
+she said.
+"Let's get to th' base and figure out a way outta this mess."
+
+The service bot pivoted on its wheels to face her.
+"The way out is simple, Miz Kwan,"
+a familiar voice said.
+"All you have to do is stay where you are
+so that my team can collect you without any more theatrics.
+Your friend goes about his business,
+you help me with mine,
+and we all get a happy ending."
+
+Iñacio hefted the sprayer and aimed it at the bot.
+"Now, now,"
+the governor's voice chided.
+"I have no idea if that still works and neither do you.
+Even if it does,
+you're sixty meters underground and breathing recycled air.
+Do you really want to set things on fire?"
+
+Iñacio hesitated.
+"I s'pose not," he said,
+setting it down beside the dolly.
+And then casually,
+as if it was the most natural thing in the world,
+he slipped the loops of cables off the two sentry bots harnessed that had been pulling them
+and shouted,
+"Get 'em!"
+
+The bots didn't move.
+
+The governor's voice chuckled.
+"Did you really think that would—"
+
+"Target!"
+Iffy snapped,
+pointing.
+The gun on the back of the three-legged bot barked twice.
+The first shot punched a hole through the service bot.
+The second caught it off-center and sent it spinning across the floor.
+
+"What—"
+Iñacio started.
+
+"You just gotta know how t' talk to 'em,"
+Iffy said,
+grabbing a couple of tools out of her crate and stuffing them into her pockets.
+"C'mon.
+We gotta get a leg on."
+
+The tunnel at the other end of the bunker had a blast door
+like the one that had closed behind them.
+Iffy closed her eyes and rooted around in her not-memories of this place.
+There.
+She traced a shape on a contact pad beside the door,
+then gasped as it slid open to reveal a pair of Marines,
+their gun-arms pointed straight at her and Iñacio.
+
+"Oh rabbit,"
+the governor said through a speaker in one of the Marines' shoulders.
+"Did you really think any hole was deep enough that you could hide from *me*?"
 
 </section>
