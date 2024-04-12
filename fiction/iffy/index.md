@@ -9820,8 +9820,6 @@ For one panicked moment Iffy thought she had guessed wrong,
 but then the bot that had stepped forward took two more steps toward her
 and lowered itself into a crouch.
 
-<span id="2024-04-11-a"></span>
-
 "We don't have time for this,"
 Iñacio said quietly a moment later.
 
@@ -9920,8 +9918,6 @@ After a moment she draped an arm over its back to steady herself.
 It wasn't actually more comfortable than just sitting upright,
 but it was somehow more comforting.
 
-<span id="2024-04-11-b"></span>
-
 She didn't notice the extra clattering at first.
 Or rather,
 she wasn't the first to notice that
@@ -10002,11 +9998,95 @@ and then the tunnel leveled out and automatic lights came on over their heads,
 turning everything the dark red she associated with night watches.
 
 The bots slowed and stopped
-as the dolly rolled into a bunker twice the size of the one they had started from.
-Metal scraped on stone behind them
-as a blast door slid into place
-for the first time in a century.
-Wherever they were going,
-they had arrived.
+as the dolly rolled into a dimly-lit space several times larger
+than the bunker they had left.
+A blast door slid closed behind them,
+metal scraping on stone for the first time in a century.
+They had arrived.
+
+<span id="2024-04-12-a"></span>
+
+"Lights on?" Iñacio said after a moment.
+"*Acendé luz?*
+*Lampo roshan kon?*"
+
+The three-legged bot made a high-pitched whining sound.
+Iffy squinted as clinically-white strips in the walls and ceiling obediently lit up,
+then sucked in her breath.
+She had hoped they would find a workshop
+and feared it would be a graveyard,
+but this—she hadn't expected this.
+
+Six thick cylinders lay on their sides in two rows of three,
+each one surrounded by pipes and machinery.
+A bulky mass made of meter-square bricks loomed in the background.
+The three-armed logo painted on its side was redundant:
+even before schematics took shape in her head
+she recognized the reactor for what it was.
+
+One of the cylinders had been opened.
+She and Iñacio exchanged looks.
+He nodded as if to answer a question she hadn't asked,
+then hefted the thing that looked like a paint sprayer
+and edged forward cautiously.
+
+She held her breath as he neared the cylinder,
+only letting it out when he glanced inside and lowered the sprayer.
+"'S empty," he said,
+sounding as relieved as she felt.
+"An' look—one o' th' suits is missin' too."
+He gestured at the wall to their left
+where five silvered body suits hung from swing-out racks
+in front of matching boots and helmets.
+
+"Stay here,"
+Iffy told the bots.
+Singh, Velikov, DiOrio, Yuen, Boghosian—and Johnson.
+The label above the missing suit read "Johnson",
+but what did "High Medina" mean,
+and where had she seen that logo before?
+A red circle with a green crescent set into it,
+a four-pointed white star…
+
+"They were Martians!" she blurted.
+"It was in one o' my history sims.
+Some trillionaire gave up on fixin' th' world
+an' wanted t' run away t' Mars.
+They got a few rockets up b'fore space got affed up
+an' then—"
+She shrugged,
+slightly embarrassed by how excited she had momentarily sounded.
+Honesty had teased her once about being a space geek
+and she had never mentioned it to der again.
+"Th' machine wars started an' nobody ever heard anythin' more from them."
+
+Iñacio nodded, stony-faced.
+"I know th' story.
+Coulda saved a million trees or a million lives
+with what they spent tryin' t' get away from what they'd done."
+He hefted the sprayer again,
+and for a moment she thought he might use it on the empty cylinder.
+"You ever meet any o' my folk an' they call you an astronaut,
+it ain't a compliment."
+
+"But what're they doin' here?"
+Iffy walked past the motionless bots harnessed to the dolly
+and ran a finger along one of the unopened cylinders.
+"An' who's been cleanin' this all these years?"
+
+The crippled bot on the dolly surged to its feet.
+The panel on its back flipped open.
+A stubby needle gun popped up.
+A targeting laser drew a thin red line through the air
+to connect the gun to a squat four-wheeled service bot
+that had just rolled into view from somewhere further back in the chamber.
+
+The service bot froze and made a warbling sound.
+The three-legged bot tilted its head toward Iffy.
+"Um, sure," she said helplessly.
+The laser blinked off,
+but the sentry bot stayed on its feet
+as the service bot began to wipe down the nearest cylinder
+with a brush whose bristles had long since worn away.
 
 </section>
