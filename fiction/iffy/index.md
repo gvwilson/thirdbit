@@ -10281,4 +10281,90 @@ An armored hand brushed gently against her cheek.
 Her last thought before all her thoughts went away was,
 *Honesty?*
 
+<span id="2024-04-13-b"></span>
+
+She woke in a bed—an actual bed with sheets,
+not a cot or a bunk or her sleeping bag.
+Gray light came through a small window set high in the wall.
+It was probably too small for her to get through anyway,
+she thought dully.
+She frowned.
+Why would she need to—oh.
+
+She sat up and winced.
+Someone had replaced her clothes with gray cotton shorts
+and a matching tank top.
+The bandage stuck to her stomach,
+on the other hand,
+was a brighty, shiny blue.
+She slid her hand gingerly around to her back
+and felt a matching square there.
+
+A pair of slippers waited patiently on the floor.
+She turned,
+wincing again,
+and slid her feet into them.
+Could she stand?
+Yes.
+She wasn't even light-headed,
+though she was as thirsty as she'd ever been.
+And she didn't need a bathroom nearly as much as she had
+before she'd been shot,
+which made her wonder about exactly what kind of care she might have received
+while she was unconscious.
+
+A dressing gown hung on the back of the door.
+It was locked,
+of course,
+but even if it hadn't been
+she wasn't quite ready to face whatever lay on its other side.
+She had been *shot*.
+She could have died,
+and—
+
+She sniffled angrily and wiped her face on the dressing gown.
+She really had thought they could escape,
+and now she just felt stupid.
+
+She lay back down on the bed (carefully) and closed her eyes.
+A moment later she squeezed her lids shut more tightly,
+but it didn't help.
+The schematic of herself wasn't there any more.
+Nothing was,
+not even a simple wireframe of a hammer.
+All she could see was the dots and swirls that everyone saw behind their eyelids.
+
+Something cold stirred in her belly.
+Maybe the loss was temporary.
+Maybe things had just gone back to the way they were
+and images would appear when they wanted to instead of on demand.
+Or maybe it was gone for good and she could get on with her life,
+though she knew it couldn't ever be what it had been.
+She had wanted so much to move on,
+to go somewhere and be someone and have an adventure,
+and now that it had actually happened she still wanted all of that,
+she just wanted a choice
+instead of having things happen to her.
+Mysteries,
+it turned out,
+were a lot more fun in sims.
+
+She didn't know who to expect when the door opened.
+The governor?
+If so, which one?
+Not that it seemed to matter much.
+Would it be Iñacio,
+looking worried,
+or Johnson Wales with an apology?
+Or would it be Honesty?
+She was pretty sure the Marine who had given her first aid
+hadn't actually been Honesty,
+just another teenager with a narrow chin and button nose
+temporarily possessed by someone who had been dead longer than
+the people frozen in the bunker had been waiting for someone to defrost their remains.
+
+She was still thirsty,
+but she was tired too,
+so she closed her eyes and let sleep take her away.
+
 </section>
