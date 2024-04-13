@@ -10004,8 +10004,6 @@ A blast door slid closed behind them,
 metal scraping on stone for the first time in a century.
 They had arrived.
 
-<span id="2024-04-12-a"></span>
-
 "Lights on?" Iñacio said after a moment.
 "*Acendé luz?*
 *Lampo roshan kon?*"
@@ -10088,8 +10086,6 @@ The laser blinked off,
 but the sentry bot stayed on its feet
 as the service bot began to wipe down the nearest cylinder
 with a brush whose bristles had long since worn away.
-
-<span id="2024-04-12-b"></span>
 
 Iñacio swiped an app set into a work table next to one of the cylinders
 and studied the displays that appeared.
@@ -10201,15 +10197,88 @@ grabbing a couple of tools out of her crate and stuffing them into her pockets.
 We gotta get a leg on."
 
 The tunnel at the other end of the bunker had a blast door
-like the one that had closed behind them.
+to match the one that had closed behind them.
 Iffy closed her eyes and rooted around in her not-memories of this place.
 There.
 She traced a shape on a contact pad beside the door,
 then gasped as it slid open to reveal a pair of Marines,
 their gun-arms pointed straight at her and Iñacio.
 
+<span id="2024-04-13-a"></span>
+
 "Oh rabbit,"
-the governor said through a speaker in one of the Marines' shoulders.
-"Did you really think any hole was deep enough that you could hide from *me*?"
+the governor's voice said,
+and for a moment Iffy could almost believe the sympathy in his voice was genuine.
+"Did you really think you could find a hole deep enough to hide from *me*?"
+
+Iffy felt rather than saw the three-legged bot begin to move.
+"No!" she shouted,
+lunging to stop it
+as if it was a pet rat or a drone she had just spent hours building out of spare parts.
+Its gun fired twice
+but it was already falling as the Marines' auto-targeted shots
+hit the knee joint in its remaining front leg.
+
+She was falling too.
+Something had knocked the breath out of her.
+She was lying on the concrete and it *hurt*,
+it hurt so much that she couldn't even cry out,
+not yet,
+because the shot had gone right through her
+just above her hip
+and when she tried to breathe it felt like someone was kneeling on her back
+and squeezing all the air out of her.
+
+Iñacio was shouting her name.
+She was pretty sure it was Iñacio.
+She could hear the governor's voice barking order too.
+"No, don't," she tried to say
+as exoskeletoned arms picked her up,
+but the words came out as a gasp
+and now she could breathe again
+and the hurt spread through her like milk poured into tea.
+
+Her head lolled to the side as the Marine placed her on a nearby work table.
+Iñacio was shouting and struggling to free himself from the other Marine's grip,
+which was working about as well as the time
+she had tried to pull herself free from Aunt Naggie
+after having her first and only temper tantrum outside the Sandhus' shop
+when she was eight years old.
+She couldn't remember what she had wanted so badly,
+but it didn't matter.
+
+The Marine who had picked her up had put a patch on her arm
+to take the pain away
+except it was more like taking her away from the pain.
+She floated inside her own body as if it was a warm bath
+while the Marine sliced open her parka with a very sharp knife
+and squeezed cold pink goo into the hole der needle gun had made.
+She supposed she was lucky it had been an armor-piercing round.
+She didn't think the Marine would have enough goo to fill
+the hole that the other kind would have made.
+
+*«unanticipated / unforeseen»*
+
+"Oh there you are."
+She didn't know if she had said the words out loud or not.
+*Are you going to shoot me too?*
+
+*«inspection»*
+
+The machine thought was clouded and soft-edged instead of crystal clear.
+Without warning she was suspended beside a schematic of herself,
+alone in a pocket universe constructed solely for this temporary purpose.
+The fractalized patches of cells scattered through her body glistened blue-white,
+but there and there and there they were red,
+red for danger,
+red like the blood on the work table underneath her.
+They would heal—the tweaks in her genes were quadruply redundant to make sure of that—but
+healing would take time
+and that was something she/they/the world didn't have enough of right now.
+
+"Sh sh sh," the Marine said softly.
+An armored hand brushed gently against her cheek.
+Her last thought before all her thoughts went away was,
+*Honesty?*
 
 </section>
