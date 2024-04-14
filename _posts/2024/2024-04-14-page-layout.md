@@ -5,28 +5,27 @@ year: 2024
 ---
 
 As I said [a week ago][post_interp],
-some people think that if you haven't written a compiler,
-you don't really understand how computers work.
+some people think you don't really understand how computers work
+unless you've written a compiler.
 My rejoinder these days is that
-(a) that's snobbish gatekeeping and
-(b) writing a web browser will teach you a lot more about modern computer systems
-than writing a compiler.
+writing a web browser will teach you a lot more about modern computer systems.
 Panchekha and Harrelson's [*Web Browser Engineering*][browser]
 covers everything from downloading HTML and constructing a DOM tree
 to keeping data private,
 scheduling tasks,
 caching,
 and accessibility.
-
 I couldn't possibly cover all of that,
 so [Chapter 14: Page Layout][sdxpy_layout] focused on one small problem:
 how to decide what is displayed where on a page.
+
 That question led to the most intensely algorithmic chapter of the book,
 as row-and-column layout with elastic constraints
 requires a bit of tricksy recursion.
-I don't actually get very far,
+The chapter doesn't get very far,
 but I hope that by the end readers will understand
-that the problem is much harder than it first appears.
+that the problem is much harder than it first appears
+and that CSS is every bit as much a programming language as Lisp or C++.
 
 <img class="centered" src="{{'/sdxpy/layout/concept_map.svg' | relative_url}}" alt="Concept map for page layout"/>
 
