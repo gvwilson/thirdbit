@@ -10150,7 +10150,7 @@ she said.
 "Let's get to th' base and figure out a way outta this mess."
 
 The service bot pivoted on its wheels to face her.
-"The way out is simple, Miz Kwan,"
+"The way out is simple, Citizen Kwan,"
 a familiar voice said.
 "All you have to do is stay where you are
 so that my team can collect you without any more theatrics.
@@ -10370,11 +10370,11 @@ rather than her sleeping bag on the *Guinevere*.
 Gray light came through a small window high in the wall.
 She sat up and winced.
 Someone had dressed her in gray cotton shorts and a matching tank top.
-The bandage stuck to her stomach was brighty blue.
+The bandage stuck to her stomach was bright blue.
 She felt on her back,
 somehow already knowing she would find a matching one there.
 
-She slid her feet into the slippers waiting on the flor
+She slid her feet into the slippers waiting on the floor
 and frowned as she took the dressing gown from the back of the door
 and slid her arms into the sleeves.
 She had never worn slippers or a dressing gown in her life—she only knew them
@@ -10443,5 +10443,103 @@ The room inside was identical to the one she had woken up in,
 right down to the rumpled sheet on the bed.
 All of a sudden she was tired as well as thirsty,
 so she lay down on it and closed her eyes and let sleep take her away.
+
+<span id="2024-04-14-b"></span>
+
+She woke in an actual bed with sheets.
+Gray light came through a small window.
+The bandage stuck to her stomach under her gray cotton tank top was bright blue.
+Its twin tugged at the skin on her back
+as she kicked the slippers on the floor aside and opened the door.
+The hall outside was tiled with slate-colored linoleum squares.
+*Just like the Sandhus',* she thought.
+The light came from nowhere in particular,
+painting the walls and ceiling iceberg gray.
+
+The door behind her closed with a faint click.
+There was lettering on the door opposite her,
+but opening it felt—she lowered her hand.
+She and Jeep had played hive a few times.
+The thought of opening the door gave her the same feeling as
+the thought of placing a piece exactly where her opponent wanted her to.
+
+The corridor stretched away to infinity in both directions.
+Waves shushed in the distance
+and the tang of salt water tickled her nose
+as she considered her options.
+It all seemed familiar.
+How many times had she been here before?
+How many of these doors had she opened,
+only to find herself back in the room she had left?
+
+Sometimes the only way to win was not to play.
+She sat on the floor with her back against the wall and closed her eyes.
+Phosphenes danced behind her eyelids.
+She hugged herself so that her hands were hidden in her armpits
+and pinched hard.
+That felt real,
+but that didn't mean anything.
+If this was some kind of virtual reality,
+whatever machine she was plugged into could simulate a pinch
+just as easily as it could make her believe
+there was a wall behind her back
+or that she was thirsty.
+
+"I ain't playin' no more," she said aloud.
+The corridor swallowed her words without even a trace of an echo.
+She wrapped her arms around her knees and put her head down on her knees to wait.
+
+Her shoulders tensed involuntarily when she heard a door open somewhere in the distance.
+She kept her head down as footsteps approached.
+Fabric rustled as someone sat opposite her.
+
+"You really are quite extraordinary,"
+the governor said without preamble.
+"If circumstances were different I would probably offer you a job of some sort."
+He chuckled.
+"I suspect that if I did that,
+I would be working for *you* in rather short order."
+
+Iffy didn't move.
+
+"I'm not actually a villain,"
+the governor continued gently.
+"I admit I've done some terrible things,
+but every single one of them was absolutely necessary.
+Things are getting worse,
+Citizen Kwan,
+and we still can't see the bottom of the pit.
+Every time we think we've patched a hole in the world,
+entropy breaks through in a dozen other places.
+Your ecologist and his friends think they can save enough to start over,
+but simulation after simulation says they're wrong.
+Even the machines seem to be afraid these days,
+though what they seem to be afraid of most,
+surprisingly,
+is you."
+
+Fabric rustled again as he stood.
+"For what it's worth,
+I'm sorry.
+If there was another way to do this—"
+
+Iffy waited for him to finish his sentence.
+The moment stretched and stretched.
+"Are you gonna kill me?"
+she asked,
+her voice muffled by her knees.
+
+"No,"
+the governor said neutrally.
+"You're just not going to be yourself for a while."
+He sighed.
+"Quite a long while, in fact.
+Goodbye, Citizen Kwan.
+Believe it or not,
+it has been a pleasure."
+
+Without warning her thirst was back,
+more powerful than ever before.
+She was almost grateful as she fell into something deeper and darker than sleep.
 
 </section>
