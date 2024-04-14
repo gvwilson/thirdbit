@@ -10204,8 +10204,6 @@ She traced a shape on a contact pad beside the door,
 then gasped as it slid open to reveal a pair of Marines,
 their gun-arms pointed straight at her and Iñacio.
 
-<span id="2024-04-13-a"></span>
-
 "Oh rabbit,"
 the governor's voice said,
 and for a moment Iffy could almost believe the sympathy in his voice was genuine.
@@ -10281,8 +10279,6 @@ An armored hand brushed gently against her cheek.
 Her last thought before all her thoughts went away was,
 *Honesty?*
 
-<span id="2024-04-13-b"></span>
-
 She woke in a bed—an actual bed with sheets,
 not a cot or a bunk or her sleeping bag.
 Gray light came through a small window set high in the wall.
@@ -10296,7 +10292,7 @@ Someone had replaced her clothes with gray cotton shorts
 and a matching tank top.
 The bandage stuck to her stomach,
 on the other hand,
-was a brighty, shiny blue.
+was a bright, shiny blue.
 She slid her hand gingerly around to her back
 and felt a matching square there.
 
@@ -10349,7 +10345,7 @@ Mysteries,
 it turned out,
 were a lot more fun in sims.
 
-She didn't know who to expect when the door opened.
+She didn't know who to expect if the door opened.
 The governor?
 If so, which one?
 Not that it seemed to matter much.
@@ -10366,5 +10362,86 @@ the people frozen in the bunker had been waiting for someone to defrost their re
 She was still thirsty,
 but she was tired too,
 so she closed her eyes and let sleep take her away.
+
+<span id="2024-04-14-a"></span>
+
+She woke in an actual bed with sheets
+rather than her sleeping bag on the *Guinevere*.
+Gray light came through a small window high in the wall.
+She sat up and winced.
+Someone had dressed her in gray cotton shorts and a matching tank top.
+The bandage stuck to her stomach was brighty blue.
+She felt on her back,
+somehow already knowing she would find a matching one there.
+
+She slid her feet into the slippers waiting on the flor
+and frowned as she took the dressing gown from the back of the door
+and slid her arms into the sleeves.
+She had never worn slippers or a dressing gown in her life—she only knew them
+from Aunt Naggie's romance sims.
+But it all felt somehow familiar,
+as did her thirst.
+
+She sat back down on the bed and closed her eyes,
+willing a schematic of herself to appear.
+Nothing happened.
+All she could see was the dots and swirls that everyone saw.
+
+*Phosphenes,* she thought.
+They were called phosphenes,
+but how did she know that?
+Panic roiled in her gut,
+cold and slippery as if she had somehow swallowed a live jellyfish.
+
+That thought pulled her back to her feet.
+She knew the door would be locked,
+but she tested the handle anyway.
+"Well shad," she said aloud as it opened with a faint click.
+
+The hall outside was as featureless as her room.
+The floor was tiled with squares of slate-colored linoleum
+just like the ones in the Sandhus' store.
+The walls and ceiling were iceberg gray.
+She couldn't see where the light was coming from
+or how far the corridor went:
+it seemed to stretch away forever in both directions.
+The doors were rectangular outlines with handles
+identical to the one that had just closed behind her with another faint click.
+
+"Hello?"
+She took a step, then hesitated.
+She was sure the lettering on the door opposite her hadn't been there a moment before.
+Was it motion-sensitive?
+She stepped back:
+the letters stayed visible.
+They definitely *were* letters,
+so why couldn't she read them?
+
+"Hello?" she said again.
+Her words disappeared without an echo as if she had never spoken,
+but now she could hear something in the distance
+like the steady *shush shush shush* of waves against the side of a ship.
+That sound had been a constant background in her life
+for as long as she could remember,
+just like the smell of the sea.
+
+The smell.
+She could smell the ocean.
+Wherever she was,
+she was close to salt water.
+Halley?
+Rothera?
+Another secret hideout somewhere?
+There seemed to be a surprising number of those scattered around Antarctica,
+although to be honest,
+she wasn't really sure how many would have been unsurprising.
+
+She hesitated again before grasping the handle in front of her.
+It resisted for a moment, then turned with a click and pulled it open.
+
+The room inside was identical to the one she had woken up in,
+right down to the rumpled sheet on the bed.
+All of a sudden she was tired as well as thirsty,
+so she lay down on it and closed her eyes and let sleep take her away.
 
 </section>
