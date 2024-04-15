@@ -10714,4 +10714,122 @@ Sandrine shook her head.
 The Marine stepped aside and gestured at the door.
 "After you?"
 
+<span id="2024-04-15-c"></span>
+
+Less had changed in a hundred years than Sandrine had expected.
+She wondered if that was because of the machines' restrictions on new inventions
+or whether there just weren't a lot of ways to improve on
+the design of an underground secret base.
+Corridors painted in neutral colors with cryptic labels painted on the walls,
+grilled stairs that echoed under her boots,
+the metal-on-metal whine of a saw in a machine shop as she passed a half-open door—it
+was all very familiar.
+She couldn't have said how she knew she was underground
+any more than she could have explained how she had known that her heart wasn't her own.
+She just accepted it as part of her mission,
+wondering as Sergeant Vassilenko rapped his knuckles on a door
+how many copies of hers had accepted it before.
+
+"Enter."
+The sergeant opened the door and nodded for her to go through,
+turning to stand at attention in the hall as it swung close.
+
+"Hello again, corporal.
+This will just take a moment."
+The governor gestured at a comfortable-looking chair opposite his desk
+without looking up from the app in his hands.
+
+She sat on the edge of the seat,
+her back straight and her hands folded neatly in her lap.
+"What do you know about the Niobium project?" the governor asked.
+
+Sandrine shook her head.
+"Never heard of it, sir."
+
+"Mm.
+Not surprising—it was just getting started in your time.
+Here."
+He swiped a scene from his app onto the wall beside them.
+"Low Earth orbit was a disaster area.
+There was so much shrapnel from old satellites and what-not that
+people basically gave up on trying to plot routes through it.
+They just threw armor on everything and billed for the extra weight.
+But up here, up past geosynchronous orbit in retrograde space, well…"
+Green curves formed around the slowly-turning globe,
+safely outside the sparkling chaff closer in.
+
+The governor sighed.
+"They planned a hundred and ninety two satellites.
+As far as we know,
+only half were built before things fell apart.
+The machines tried to take them over,
+but even they were locked out."
+
+"And you believe Citizen Kwan can unlock them?"
+Sandrine asked after a moment of silence.
+
+"What?
+Oh no,
+I doubt it."
+The governor chuckled and swiped the display into oblivion.
+"I mean,
+it would be rather nice if she could,
+but that's not what we need from her—or from you,
+I should say.
+You see,
+as big as it was,
+Niobium was just a cover for something else—something
+that has the machines and my clones all rather worried."
+
+Sandrine filed the mention of clones away.
+"Then may I ask, sir, how I can be of service?"
+
+Another swipe on the app put a human form on the wall.
+Short,
+skinny,
+female,
+with a recent puncture wound through her abdomen highlighted in red
+and something else scattered through her,
+something blobbish and silvery like spilled mercury.
+
+"Citizen Kwan—she prefers Iffy, by the way—well,
+she has some rather interesting modifications to her genome.
+The first clone in her lineage seems to have been born
+just as Niobium was picking up speed,
+and then of course there's this."
+
+Another swipe,
+another image,
+this one a hologram of six cryogenic capsules in a domed chamber.
+The word "nonviable" floated over five of them.
+A man's face hovered beside the sixth.
+"It's all rather a mystery,"
+the governor mused,
+resting his chin on his steepled hands.
+"What I'd like you to do is unravel it for me."
+
+"I'm afraid I'm not much good at puzzles, sir,"
+Sandrine said.
+"Volleyball was more my thing."
+
+"Mm, yes, of course."
+The governor straightened up.
+"But that was when you were *you*,
+as it were.
+Right now,
+you're in a body that seems to be able to pull information out of thin air.
+I'm hoping that if you can master that ability,
+you'll be able to get the answers I need."
+
+"Yes sir."
+Sandrine nodded as if she understood.
+"And how will I do that, sir?"
+
+"Oh, yes."
+The governor sighed.
+"I'm afraid that's the unpleasant part.
+We don't actually know,
+and we're rather short on time,
+so we're going to have to give you a bit of a push."
+
 </section>
