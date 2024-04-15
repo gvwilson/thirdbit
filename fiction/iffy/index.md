@@ -10638,4 +10638,80 @@ After a moment's hesitation,
 Sandrine reached over the waist-high bot waiting patiently to examine her
 and took it from him.
 
+<span id="2024-04-15-b"></span>
+
+There wasn't much on the app,
+but she hadn't really expected there would be.
+It said the machine wars had ended in a draw,
+though the list of things humanity was no longer allowed to do
+made it pretty clear who had actually won.
+No flying.
+(She would miss that,
+assuming she lasted in this body long enough to miss things.)
+No one could manufacture new cores smarter than—she tapped the description—smarter than parrots or monkeys.
+She felt a brief pang as a second layer of popups informed her that
+both were now extinct,
+but pushed it away.
+That wasn't part of her mission unless and until someone told her it was,
+and anyway,
+she had only ever seen either in videos.
+
+An animated map showed the retreat of the ice cap in Greenland and Antarctica
+and the corresponding inward creep of shorelines elsewhere in the world.
+Some of the atolls they had used as staging posts during the war
+were now completely under water,
+but all that extra water hadn't stopped forests from turning into plains
+and plains into deserts.
+She started to zoom in on Melbourne,
+then closed the map
+and tried doing a few pushups.
+Her muscles was in pretty good shape,
+but her body was so skinny—whatever had made Ang Kwan special
+didn't seem to have included eating three square meals a day.
+
+She felt a gut-deep sense of relief when a Marine showed up a few minutes later
+with a bowl full of noodles and a freshly-printed uniform for her to wear.
+The fleshy yellow chunks on the noodles weren't any kind of mango she recognized,
+but the food was warm and filling
+and the uniform fit perfectly.
+
+"It suits you," the Marine said as she tucked the cuffs of her trousers
+into the tops of her socks.
+
+"Thank you, sergeant."
+She twisted from side to side to crack her spine.
+"May I ask…?"
+
+"Paolo Vassilenko," the Marine said.
+"I was imprinted three months ago.
+It took well—I can access most of my host's original memories when I need to,
+and there haven't been any stutters or seizures to speak of."
+
+Sandrine nodded.
+"How long do they think you'll last?"
+
+The Marine shrugged.
+"Call-up is supposed to be a year,
+but some of the others have been re-imprinted a couple of times.
+They check us pretty carefully before doing it,"
+he added hastily.
+"If the host is showing any distress they're done and out."
+
+Sandrine nodded again.
+"Anyone around that you knew your first time around?"
+
+The man who was currently Paola Vassilenko smiled.
+"Yeah, I got lucky.
+Nobody plays chess any more,
+but a couple of the guys I served with in Newfoundland are in body right now,
+so we get together and have a few games whenever we can.
+I don't suppose you play?"
+
+Sandrine shook her head.
+"Sorry."
+
+"No worries—maybe in the next life."
+The Marine stepped aside and gestured at the door.
+"After you?"
+
 </section>
