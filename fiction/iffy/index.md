@@ -6163,9 +6163,9 @@ Iffy's mind spun.
 "I'm fine, thank you."
 The smile on Honesty's face was as bright as the Antarctic sun.
 "They warned me that I might find being Corporal Kibbens somewhat awkward at first,
-but he served with distinction in the Fourth Augmented Infantry during the evacuation of Hawai'i,
+but she served with distinction in the Fourth Augmented Infantry during the evacuation of Hawai'i,
 and was decorated posthumously twice during the defense of Auckland.
-He was an outstanding soldier, and I am proud to be his inductee."
+She was an outstanding soldier, and I am proud to be her inductee."
 
 Iffy took a step forward,
 some part of her thinking that if only she took Honesty by the shoulders and shook der hard enough
@@ -10363,8 +10363,6 @@ She was still thirsty,
 but she was tired too,
 so she closed her eyes and let sleep take her away.
 
-<span id="2024-04-14-a"></span>
-
 She woke in an actual bed with sheets
 rather than her sleeping bag on the *Guinevere*.
 Gray light came through a small window high in the wall.
@@ -10443,8 +10441,6 @@ The room inside was identical to the one she had woken up in,
 right down to the rumpled sheet on the bed.
 All of a sudden she was tired as well as thirsty,
 so she lay down on it and closed her eyes and let sleep take her away.
-
-<span id="2024-04-14-b"></span>
 
 She woke in an actual bed with sheets.
 Gray light came through a small window.
@@ -10541,5 +10537,105 @@ it has been a pleasure."
 Without warning her thirst was back,
 more powerful than ever before.
 She was almost grateful as she fell into something deeper and darker than sleep.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 12
+
+<span id="2024-04-15-a"></span>
+
+Sandrine Kibbens woke up in a hospital bed.
+The room was unfamiliar,
+but the tech supervising her transcription had warned her that would be the case.
+"Take a few moments to collect yourself,"
+de had said,
+so that's what Sandrine did.
+She had been following orders ever since she joined the Augmented Infantry,
+and to her surprise she had found that
+she enjoyed letting other people make decisions for her.
+
+Core, then peripherals:
+she had learned that the first time she had donned an exoskeleton.
+Her heartbeat was steady,
+even though it wasn't really hers.
+She couldn't explain the difference,
+but something deep in the back of her brain knew that
+the muscle thudding in her chest wasn't the one she had known all her life.
+
+She drew a deep breath,
+held it,
+and exhaled slowly.
+Her lungs seemed fine,
+though she could feel a recent injury in her abdomen.
+Through and through,
+if she wasn't mistaken,
+just like the one that had killed her for the first time in Auckland.
+
+Sandrine scrunched her toes.
+They felt stubby—was this body really that much smaller than her original?
+She pushed the question aside,
+grateful that she didn't appear to have any spinal injuries,
+and drummed her fingers against her thighs.
+One two three four,
+thumb,
+one four two three,
+thumb—good.
+She had lost some fine motor control the second time she died.
+It was nice to have it back.
+
+The monitoring cuff around her wrist was wireless,
+so she rolled onto her side.
+This body was definitely female,
+but also definitely young.
+And it—she—was thirsty and needed a bathroom.
+
+Sandrine sat up.
+"Hello?" she called.
+
+The door slid open.
+Without thinking she rolled sideways,
+tossing the sheet into the air for whatever momentary distraction it might provide
+and dropping into a fighting crouch.
+
+"At ease, corporal," said the elderly man standing in the doorway
+behind the bot that had just rolled into her room.
+"It's all right—this one's safe.
+It's just going to check your vitals.
+Here."
+He held out a cup of something that she desperately hoped was actually chocolate.
+"And if you need the necessary,
+it's…"
+He gestured at a panel on the wall beside her.
+
+Sandrine straightened up.
+"Sorry, sir.
+Old habit."
+He was wearing civilian clothes—a formal black turtleneck and a matching black kameez
+over loose-fitting trousers—but "sir" seemed safest for now.
+
+The old man nodded.
+"Completely understandable.
+I'm Governor Stern, by the way,
+and you're in Antarctica.
+It's been a little over a hundred years since you were recorded,
+so you'll have a lot to catch up on.
+There's an app on the table there,
+and I'll have some mango noodles sent down when you're ready."
+
+"Thank you, sir."
+Sandrine hesitated.
+"If I may ask—who am I sharing with right now?"
+
+"Mm."
+The governor pursed his lips.
+"Her name is Ang Kwang—Fifth Ang Kwan, to be precise—and
+she is a much more complicated person than I first realized.
+I'm hoping you can help with that."
+He held out the cup of chocolate again.
+After a moment's hesitation,
+Sandrine reached over the waist-high bot waiting patiently to examine her
+and took it from him.
 
 </section>
