@@ -10830,6 +10830,113 @@ The governor sighed.
 "I'm afraid that's the unpleasant part.
 We don't actually know,
 and we're rather short on time,
-so we're going to have to give you a bit of a push."
+so we're going to have to give you a bit of help."
+
+<span id="2024-04-15-d"></span>
+
+Years and lifetimes ago,
+Sandrine had been taught that torture was ineffective as well as evil.
+She therefore wasn't surprised that when
+Sergeant Vassilenko led her downstairs and strapped her into a chair,
+what followed was a simple injection
+rather than something involving clubs, canvas bags, and electrodes.
+
+The panic that followed was very real, though.
+She knew it was just the effect of whatever drug she had been given,
+but the word "just" didn't really feel appropriate.
+She panted for breath as if she had just been running through the desert under fire.
+She had to get away.
+She knew she was safe,
+but "she" wasn't in control any longer.
+
+Her heart—no, it wasn't hers, it was Ang Kwan's, but that didn't matter—it
+was pounding inside her chest.
+She looked wide-eyed at Sergeant Vassilenko.
+"What am I supposed to do now?"
+
+He shrugged apologetically.
+"I'm sorry,
+I wasn't told.
+It should wear off in a few minutes."
+He consulted the app on the stand beside the chair,
+which wasn't as comfortable as the one in the governor's office
+even though it reclined.
+She tried to focus on that,
+and on other little details in the room,
+just like she had been trained to.
+How many drawers in the stainless steel cabinet on her left?
+Four.
+How many light panels above her?
+Two,
+one of which should probably be replaced.
+She drummed her fingers against her thighs.
+One two three four,
+thumb,
+one four—was two three or three two next?
+Start over.
+One two three four—no.
+Focus.
+One two—
+
+The whining sound she was hearing was coming from her,
+she realized.
+She swallowed hard to stop it,
+but that interrupted her breathing
+and now she was panting again.
+She couldn't fill her lungs.
+She needed to get her arms out of the straps.
+She needed to run away,
+run away from all of it,
+but she couldn't.
+
+"Aaand that's time."
+Sergeant Vassilenko peeled the back off a patch
+and pressed it against her neck.
+Her heart began to slow almost immediately.
+
+Sandrine took a deep breath,
+then another.
+After the third,
+she squeezed her hands into fists and slowly, deliberately relaxed them.
+"Can I please have some water, sergeant?"
+she asked once she was sure her voice would be under her control.
+
+Wordlessly,
+Sergeant Vassilenko held a bottle to her lips.
+She sucked a mouthful through the straw,
+swished it around,
+and swallowed.
+She tugged her arms against the straps.
+"Don't suppose you can undo these?"
+
+"I'm afraid not, corporal."
+The governor's voice seemed to come from nowhere.
+He really was just like the villain from *The Last Days of Cairo*,
+she thought giddily.
+Did anyone else still remember that show?
+
+"May I—"
+She coughed and tried again.
+"May I ask why not, sir?"
+
+"We imprint a little more deeply here than most places,"
+the governor said briskly.
+"For security, you understand—having original personalities surface at the wrong moment
+could be quite problematic.
+Unfortunately,
+that's going to make it quite a bit harder for you
+to access Citizen Kwan's memories and, um, abilities.
+As I said,
+we're rather short on time,
+so we can't afford the mental equivalent of a long siege.
+But you've taken part in frontal assaults before—I'm confident
+that you will survive this one."
+
+"Thank you, sir."
+It seemed a completely inadequate response,
+but what else was she going to say?
+
+She caught Sergeant Vassilenko's eye.
+"Ready when you are," she lied.
 
 </section>
