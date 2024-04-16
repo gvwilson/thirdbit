@@ -10544,8 +10544,6 @@ She was almost grateful as she fell into something deeper and darker than sleep.
 
 ## Chapter 12
 
-<span id="2024-04-15-a"></span>
-
 Sandrine Kibbens woke up in a hospital bed.
 The room was unfamiliar,
 but the tech supervising her transcription had warned her that would be the case.
@@ -10638,8 +10636,6 @@ After a moment's hesitation,
 Sandrine reached over the waist-high bot waiting patiently to examine her
 and took it from him.
 
-<span id="2024-04-15-b"></span>
-
 There wasn't much on the app,
 but she hadn't really expected there would be.
 It said the machine wars had ended in a draw,
@@ -10713,8 +10709,6 @@ Sandrine shook her head.
 "No worries—maybe in the next life."
 The Marine stepped aside and gestured at the door.
 "After you?"
-
-<span id="2024-04-15-c"></span>
 
 Less had changed in a hundred years than Sandrine had expected.
 She wondered if that was because of the machines' restrictions on new inventions
@@ -10832,8 +10826,6 @@ We don't actually know,
 and we're rather short on time,
 so we're going to have to give you a bit of help."
 
-<span id="2024-04-15-d"></span>
-
 Years and lifetimes ago,
 Sandrine had been taught that torture was ineffective as well as evil.
 She therefore wasn't surprised that when
@@ -10922,7 +10914,8 @@ She coughed and tried again.
 "We imprint a little more deeply here than most places,"
 the governor said briskly.
 "For security, you understand—having original personalities surface at the wrong moment
-could be quite problematic.
+could be quite problematic at a facility like this,
+particularly in the present circumstances.
 Unfortunately,
 that's going to make it quite a bit harder for you
 to access Citizen Kwan's memories and, um, abilities.
@@ -10938,5 +10931,81 @@ but what else was she going to say?
 
 She caught Sergeant Vassilenko's eye.
 "Ready when you are," she lied.
+
+<span id="2024-04-16-a"></span>
+
+The governor didn't bother to check in after the next session,
+or after any of those that followed it.
+Finally,
+several hours later,
+whoever or whatever was monitoring Sandrine told Sergeant Vassilenko to stop.
+"How are you doing?" he asked
+as he undid the straps and handed her a bottle of water.
+
+"I've been better,"
+she said.
+"I imagine I've been worse, too."
+She wondered if he knew how many times she had been imprinted
+and what had happened to those temporary copies of her.
+There had been stories when she was alive
+of entire battalions made up of just one person,
+and imprints that had gone wrong in a dozen different ways,
+each more cinematic than the last.
+
+She handed back the now-empty bottle and stood.
+The patches on Ang Kwan's injury tugged at her skin,
+but everything else felt fine.
+She was going to have bruises from the straps,
+though,
+and her uniform smelled of sweat.
+
+"There's plenty of hot water,"
+Sergeant Vassilenko said as if he had read her mind.
+"If you want to clean up,
+I'll see if I can get you something more interesting than noodles for dinner."
+
+She stood in the shower for a long time,
+enjoying the feeling of water against the stubble on her scalp.
+Dinner was grilled tofu in an unidentifiable citrus sauce,
+bok choi,
+broccoli,
+and potatoes.
+She chewed each mouthful a dozen times
+as she swiped through videos of volleyball games on the little app in her room.
+It wasn't quite the game she remembered—players were apparently now allowed
+to use their feet as well as their hands—but it was the distraction she needed.
+
+Later,
+lying in the dark as she waited for sleep to come,
+she realized that she hadn't ever asked what had happened to her
+after she had been recorded.
+
+*got married an' raised sheep an' a family on th' south island*
+
+The thought didn't appear out of nowhere.
+It was just *there* in her head as if it always had been.
+Noticing it felt like realizing that the socks or keys she had been searching for
+had been on the table in front of her the whole time.
+
+*Citizen Kwan?* she thought cautiously.
+Nothing happened.
+
+*Ang? Iffy?*
+She tried to visualize the face she now wore,
+then relaxed her hands,
+which had balled themselves into fists.
+If you wanted to see something in dim light,
+you couldn't look straight at it.
+You had to look a little to the side.
+
+She rolled onto her side and ran a hand over her scalp.
+She would have to shave soon,
+though if she was going to be around for more than a few days
+she could try letting it grow out.
+She had worn her hair down past her shoulderblades when she was Iffy's age.
+She and her friends had braided it in ever-more-complicated ways,
+cursing each other good-naturedly for the tangles they made.
+
+*musta been nice t' have friends like that*
 
 </section>
