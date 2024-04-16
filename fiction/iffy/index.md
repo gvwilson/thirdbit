@@ -10973,7 +10973,7 @@ and potatoes.
 She chewed each mouthful a dozen times
 as she swiped through videos of volleyball games on the little app in her room.
 It wasn't quite the game she remembered—players were apparently now allowed
-to use their feet as well as their hands—but it was the distraction she needed.
+to use bats as well as their hands—but it was the distraction she needed.
 
 Later,
 lying in the dark as she waited for sleep to come,
@@ -11007,5 +11007,88 @@ She and her friends had braided it in ever-more-complicated ways,
 cursing each other good-naturedly for the tangles they made.
 
 *musta been nice t' have friends like that*
+
+<span id="2024-04-16-b"></span>
+
+It had been.
+Her family had been relocated to Hobart
+when storms battering Brisbane went from a monthly to a weekly occurrence.
+"Temporarily" became "for the duration of the emergency",
+and by the time she was old enough to ride her treasured bamboo bicycle to school
+everyone had stopped pretending the emergency was ever going to end.
+The children who had grown up there called them "cane toads" or worse
+until they banded together and made it clear that
+if you shoved one of them in the hallway
+you had better be prepared to face half a dozen of them the next day.
+
+*got called names but never had anyone stand with me like that*
+
+The psych that had screened her when she first joined up
+had called it a common pattern.
+"Cane toads versus hobies" had turned into "soldiers versus pirates"
+and then "humans versus machines".
+Her side of the equation had always been plural—had always been an "us".
+
+*it was just me an' Aunt Naggie*
+
+Sandrine hesitated.
+She remembered being with the Fourth Augmented and before that with her school friends,
+but she couldn't remember any specific people.
+Or her parents—she tried and failed to imagine their faces.
+She could see the kitchen of the house her family had shared with two others in Hobart,
+though,
+and the blue and white bamboo bicycle that Akumé had stolen and then crashed.
+
+*Akumé din't steal your bike de stole my scarf*
+
+Sandrine unclenched her hands again.
+It was a good thing Iffy chewed her nails—she would have
+dug gouges out of her palms by now otherwise.
+Back to the beginning.
+Hobart.
+School.
+The smell of the automatic disinfectant spray at the entrance
+and the stern looks the guard gave anyone who tried to run through it
+instead of pausing to count to five.
+The awe she felt seeing a tiger pace back and forth in an enclsoure at the zoo.
+
+*you never*
+
+She—the tiger was a female—was a clone,
+of course,
+and smaller than Sandrine had expected.
+She moved with loose swing of her limbs
+that made something in the back of her mind want to freeze and run away
+at the same time.
+She had half a hectare to herself,
+but spent her time patrolling the fence that separated her
+from those who had created and then caged her.
+She was the proudest and saddest thing Sandrine had ever seen.
+
+*she's beautiful*
+
+*Yes she was,*
+Sandrine thought absently.
+If you wanted to speak with someone without scaring them away,
+you couldn't talk straight at them.
+You had to say things a little to the side.
+
+*didja ever see a giraffe?*
+
+*No,
+but I think there were still a few somewhere.*
+She hesitated again.
+*I don't really remember.*
+
+*guess they din't record that 'cause they din't think you'd need it*
+came back quick and clear.
+
+*I guess not.
+I wish they'd recorded my parents, though.
+Or my friends from school.
+It feels strange remembering about them without being able to actually remember them.*
+
+Iffy's amusement brushed against her like a gentle, sarcastic breeze.
+*you think that feels strange try tradin' places with me*
 
 </section>
