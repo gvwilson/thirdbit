@@ -10932,8 +10932,6 @@ but what else was she going to say?
 She caught Sergeant Vassilenko's eye.
 "Ready when you are," she lied.
 
-<span id="2024-04-16-a"></span>
-
 The governor didn't bother to check in after the next session,
 or after any of those that followed it.
 Finally,
@@ -11007,8 +11005,6 @@ She and her friends had braided it in ever-more-complicated ways,
 cursing each other good-naturedly for the tangles they made.
 
 *musta been nice t' have friends like that*
-
-<span id="2024-04-16-b"></span>
 
 It had been.
 Her family had been relocated to Hobart
@@ -11090,5 +11086,108 @@ It feels strange remembering about them without being able to actually remember 
 
 Iffy's amusement brushed against her like a gentle, sarcastic breeze.
 *you think that feels strange try tradin' places with me*
+
+<span id="2024-04-17-a"></span>
+
+Panic hadn't worked,
+so on the second day they tried emptiness.
+The patch Sergeant Vassilenko put on Sandrine's neck made everything fade away.
+Sight, sound, the feel of her uniform against her skin,
+her breathing and heartbeat—one by one they vanished
+until she was suspended in nothingness.
+It wasn't dark because darkness is a color.
+It wasn't warm or cold or anything in between because it was *nothing*.
+
+She tried recalling what the tiger had looked like
+and the first time she had kissed someone
+and a dozen other things.
+None of them brought Iffy out of hiding.
+She remembered someone telling her that sometimes you just had to be patient,
+though she couldn't remember who had said it when or why.
+
+She surprised herself by crying when the world came back.
+"It's all right, everyone does it,"
+the Marine watching over her said.
+De wore a body younger and more heavily built than Sergeant Vassilenko's
+and smelled faintly of soap and curry.
+
+Sandrine sniffled and nodded.
+"How long was I under?"
+
+"Almsot an hour."
+De handed Sandrine a towel and a mug of tea
+and looked away as her tears started again.
+An hour?
+She thought it had been a day or even longer.
+An hour meant there would be another session and another after that,
+and even then it would only be lunchtime.
+
+"Anything to report?"
+the Marine asked,
+eyes fixed on the app in der hand.
+
+Sandrine shooked her head.
+"Sorry."
+She hadn't told anyone about her exchange with Iffy the night before.
+At first she told herself it was because she wasn't sure it had actually happened,
+but at some point during her isolation she admitted to herself that
+she had't because she was afraid.
+Would they still need her once they had what they wanted
+or would they de-imprint her?
+Or something worse?
+
+The Marine held out der hand.
+Sandrine belatedly slurped her tea and gave der back the the mug and towel.
+"Round two?" de asked.
+
+"Ready when you are," she lied,
+leaning back in her chair.
+
+She flinched slightly as de applied the patch to her neck.
+*At least there aren't any straps this time,*
+she thought as the world began to fade away.
+
+*'course there are you just can't see 'em*
+
+"Mmng?"
+Sandrine grunted,
+or tried to,
+as the thought appeared in her head.
+
+*my head*
+Iffy's possessive was immediate and fierce.
+*can't kick you out but that don't make it yours*
+
+*I know.*
+The light was gone,
+and the sensation of the padded armrests under her forearms.
+Sandrine took a deep breath and counted slowly.
+By eleven,
+she could no longer feel the stretch of her ribs—no,
+of Iffy's ribs.
+
+*For what it's worth, I'm sorry,*
+she thought.
+*It's just my mission.*
+
+*yeah i bet you been sorry lotsa times but still done stuff anyway*
+A second thought appeared almost on top of the first.
+*bein' sorry don't make it right*
+
+*It's my mission,*
+Sandrine repeated stubbornly.
+
+*uh uh I bet th' copy o' you that's on th' other side o' this
+is sayin' 'zactly th' same thing right now*
+
+Sandrine froze.
+*What?*
+
+*your name's kibbens right?
+well there's a corporal kibbens stuck in th' head o' my friend honesty
+back in halley right now
+workin' for one o' th' other governors
+an' i bet if de was here right now
+th' two o' you would be shootin' at each other.*
 
 </section>
