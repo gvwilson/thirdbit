@@ -12,8 +12,12 @@ and UTF-8 character encoding,
 [Chapter 17: Binary Data][sdxpy_binary] shows how to create self-describing binary records
 whose first few bytes describe the format of the rest.
 It's a lot for one chapter,
-and I was pleasantly surprised that people who'd never encountered the material before
+and I was pleased that people who'd never encountered the ideas before
 could get through it in an hour.
+In particular,
+I remember feeling, "That can't possibly work," when I first ran into self-describing data.
+It still feels a bit like magic,
+but I'm comfortable with that now.
 
 <img class="centered" src="{{'/sdxpy/binary/concept_map.svg' | relative_url}}" alt="Concept map for binary data"/>
 
