@@ -11087,10 +11087,8 @@ It feels strange remembering about them without being able to actually remember 
 Iffy's amusement brushed against her like a gentle, sarcastic breeze.
 *you think that feels strange try tradin' places with me*
 
-<span id="2024-04-17-a"></span>
-
 Panic hadn't worked,
-so on the second day they tried emptiness.
+so on the second day they tried nothing.
 The patch Sergeant Vassilenko put on Sandrine's neck made everything fade away.
 Sight, sound, the feel of her uniform against her skin,
 her breathing and heartbeat—one by one they vanished
@@ -11189,5 +11187,95 @@ back in halley right now
 workin' for one o' th' other governors
 an' i bet if de was here right now
 th' two o' you would be shootin' at each other.*
+
+<span id="2024-04-18-a"></span>
+
+Iffy's anger was like red-hot metal fresh out of a forge.
+Her hurt was like an old injury reawakened—a knee sprained and half-healed
+and then bent the wrong way again
+to bring back familiar pain
+made worse by knowing how long it would last.
+*Do you love her?* Sandrine asked.
+
+*i dunno maybe*
+Iffy brushed Sandrine's thought away.
+*but it ain't about that it's about someone else usin' you
+like you were just a remote an' not a person*
+
+*I'm sorry this was necessary.
+I truly am.*
+Sandrine put all the sincerity into the thought that she could.
+*But difficult times—*
+
+Iffy fired back something whose pronunciation had obviously changed
+but whose meaning had not.
+*what'd they tell you this was necessary for?
+governor's losin' a war with his clones
+an' figures I might be some sort o' super weapon
+or maybe get th' machines t' do his fightin' for him*
+
+Sandrine shook her head,
+or thought she did.
+She had no way of telling if Iffy's body was obeying her right now or not.
+*That can't be right.
+Every persona recording has keys and lockouts.
+Only authorized personnel can—"
+
+*this feel authorized t' you?"
+Iffy snapped.
+*they picked you 'cuz they know you'll do whatever someone in a uniform tells you t' do*
+The contempt in the thought rolled over Sandrine
+like a wave of dirty harbor water.
+*here lemme show you*
+
+Without warning Sandrine was inside
+Iffy's memory of swiping through old news reports on a hand-held app
+while lying on a cot somewhere underground
+waiting for it to be safe to go outside.
+Someone was asleep on another cot nearby,
+and for some reason the memory was tinged with a musky smell
+that reminded Sandrine of large farm animals.
+There was a picture of her,
+older by years than the "her" that had been recorded,
+raising a hand as her name was called at her trial.
+She was wearing civilian clothes,
+or at least something that wasn't a uniform,
+and her hair was pulled back in a complicated braid,
+but her back was as straight as ever.
+
+Atrocity.
+Brutality.
+Extenuating circumstances.
+Exonerated.
+The words scrolled by,
+embedded in details that made her feel nauseous.
+Was this really who she had become all those years ago?
+
+*i wanted t' see what was gonna happen t' honesty*
+Iffy's thought was quiet and tinged with sadness.
+*jeep ain't been right since his time
+cuz o' what got mixed into him
+an' i wanted t' know what you might be leavin' behind*
+
+*That's not me.*
+Sandrine didn't know which of them she was trying to convince.
+*That's not who I was when I was recorded
+so that's not who I am right now.
+I wouldn't—*
+She stopped.
+She wouldn't do those things,
+but clearly she would.
+All of a sudden she was tired.
+She wished she could just lie down and close her eyes
+and let sleep take her away.
+
+*can if you want*
+
+*But I can't,*
+Sandrine replied wearily.
+*I have a mission.*
+And then she took everything she had absorbed from Iffy
+and turned it into a missile in her mind
+and fired.
 
 </section>
