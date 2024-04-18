@@ -11305,7 +11305,7 @@ if you don't think it's safe for me to have scissors."
 
 "Yes,
 well,
-unfortunately the sergeant is no longer with us.
+unfortunately the sergeant isn't available right now.
 Another thing our models failed to predict,"
 he added sourly.
 Light sparkled briefly in his eyes.
@@ -11366,5 +11366,221 @@ and marched out without a backward glance,
 wondering as she left whether this was how her older self had felt
 leaving the courtroom
 all those years ago.
+
+<span id="2024-04-18-c"></span>
+
+The governor turned what she had built over in his hands.
+"It seems simpler than I expected,"
+he said cautiously.
+
+Sandrine shrugged.
+"Simple is good.
+Here, let me show you."
+She took it from him and cranked its cardboard tail around and around,
+counting to fifty in her head,
+then set it down.
+With one slow, swinging step after another,
+the cardboard giraffe began striding toward the edge of the desk,
+its head bobbing in counterpoint each time a leg swung forward.
+
+"Well done.
+I think that's all the proof—"
+
+"Excuse me, sir."
+Sandrine raised a finger.
+"If you'll just give it a moment please?"
+
+The governor sat back and steepled his fingers under his chin.
+*I really wish he'd stop doing that,*
+Sandrine thought.
+Five steps, ten—when it reached the edge of the desk
+the giraffe put one foot into empty air and stopped.
+Its head continued bobbing up and down,
+but its legs no longer propelled it forward.
+
+"I say,"
+the governor said admiringly.
+"That's quite the trick."
+
+"I figured out a way to make a Hoye latch out of tinfoil, sir.
+It only has one, though.
+If I started it further ahead or behind and its left leg went over first,
+it wouldn't have worked."
+
+The governor smiled as if at a clever quip.
+"So, a nice bit of engineering and a bit of the old razzle dazzle, eh?"
+He wiggled his fingers in the air.
+
+"Yes, sir."
+
+"Well."
+He picked up the giraffe,
+turned it over,
+and held it out to her once again.
+"For good luck,"
+he explained when she hesitated.
+"I'm afraid your next assignment is going to be a little more complicated.
+And a bit riskier.
+Private… um…?"
+
+"Leung, sir,"
+the Marine behind her said.
+
+"Private Leung will escort you downstairs.
+We've set up an isolation area with the usual precautions.
+Please do check with him before making any modifications—we really would like to avoid
+any misunderstandings."
+
+"Of course, sir."
+She tapped her fingers on the giraffe's cardboard body,
+one two three four thumb,
+one four two three thumb.
+"May I ask what I'll be making, sir?"
+
+"Oh yes, of course.
+Silly of me to forget."
+*Which you didn't,*
+Sandrine thought.
+*You just wanted me to ask.*
+
+The governor swiped an image of a four-legged sentry bot onto the wall.
+"We've been trying to get into the main chamber
+of whatever the Niobium project was a cover for.
+It has proven to be quite stubborn—whenever we get past its outer defenses
+it starts warning us about thermonuclear this and quantum implosion that.
+Our models tell us that subterfuge might work better.
+Sneaking in,"
+he explained as she opened her mouth.
+"We recovered one of these bots along with Citizen Kwan.
+If you can put some sensors in it that the base can't detect,
+well,
+that would certainly be a step in the right direction."
+
+"Of course, sir, I'll do my best."
+She hesitated.
+"May I ask please, is there a timeline?"
+
+The governor cocked an eyebrow.
+"What do you mean?"
+
+"Is there a deadline of any sort, sir?"
+It was as close as Sandrine dared come to asking
+if they had to beat the other governors
+that she probably wasn't supposed to know about.
+
+"Well,
+sooner is always better,"
+the governor said briskly.
+Light sparkled in his eyes.
+"Now if you'll forgive me,
+I really must take this call.
+Good luck."
+
+"Thank you, sir."
+He waved a hand in her direction as she saluted and left,
+his attention already elsewhere.
+
+<span id="2024-04-18-d"></span>
+
+The "isolation area" turned out to be the middle of
+what Sandrine guessed had until yesterday been a cafeteria.
+Six tables pushed together were her workbench.
+Together,
+they were the center square in a tic-tac-toe grid.
+The other eight squares were empty except for
+the cameras, fire extinguishers, EMPs, and needle guns bolted to the walls.
+She knew they were there in case whatever she built got out of hand,
+but they still made the space between her shoulderblades itch
+the way it sometimes did—or had—when she was in the field.
+
+The sentry bot was laid out in pieces across three of the tables.
+One leg was missing,
+but that would be easy to replace.
+Its core,
+on the other hand—she held it up in front of a circular UV light.
+The tiny imperfections that allowed this piece of crystal to think
+sparkled like the tech in the governor's eyes.
+She carefully put it back in its gold-lined neutralite case and set it aside.
+Mechanicals first,
+then she could worry about the safeties and failsafes that were sure to be hidden in its programming.
+
+Private Leung sat on a stool by the door
+and watched her work
+with the patience of someone who had been on watch just as often as she had.
+"Sorry,"
+he said when she asked if he could help her turn over the bot's torso.
+"Orders are to keep my distance, just in case."
+He patted the gauss gun in his lap.
+
+"No worries."
+In truth the bot was lighter than it looked,
+in part thanks to the absence of ammunition.
+Asking the private to help had mostly been the equivalent of
+sending a drone over unknown territory
+to see what she was up against.
+
+He did pass on her request for a ladder,
+a pulley,
+and some cable,
+though.
+"Oh g'day," Sandrine said as the door opened
+and Sergeant Vassilenko carried them in.
+
+The sergeant didn't even glance at her as he set down his load.
+"Don't mind him,"
+Private Leung said after he left.
+"Just got a refresh last night.
+He'll be back to normal in a day or two."
+
+"Refresh?"
+Sandrine asked as casually as she could
+as she opened the ladder's legs
+and positioned it beside the bot's torso.
+
+"Yeah."
+Leung shrugged.
+"We're not lasting as long as we used to.
+Apparently we start to go wonky after a couple or three weeks now.
+The sergeant started talking about Bharati again
+so they had to do another imprint."
+
+Sandrine froze for a moment with the pulley in her hands
+before climbing the ladder.
+Private Leung gave no sign of having noticed.
+"What's a Bharati?" she asked as she began looping wire around the rafter.
+
+The soldier shrugged his host's shoulders again.
+"Some place further up the coast.
+Some op went skew there twenty years ago.
+Apparently our suits are all off-book orphans from that."
+He pointed a thumb at his chest to make it clear what he meant by "suits".
+
+"Not this one,"
+Sandrine grunted
+as she lifted the pulley into place.
+The wires tightened but held when she put weight on the pulley,
+so she threaded the cable around the wheel and climbed back down.
+One end of the cable crimped into a carabiner
+that clipped onto the bot's back.
+She hauled on the other to lift its weight,
+then stooped and duck-walked under the table.
+
+"Hey!"
+Private Leung stood up and levelled the gauss gun in her direction.
+"Come out of there!"
+
+"Give me a second,"
+she called.
+"I just have to—mmph—I just have to tie this off."
+
+"I said come out,"
+he barked.
+"Now!"
+
+"All right, all right, don't get your frontal lobes in a twist."
+She stood and raised her hands.
+"See?"
+The bot swayed gently from side to side beside her.
+"Now I can get the legs back on."
 
 </section>
