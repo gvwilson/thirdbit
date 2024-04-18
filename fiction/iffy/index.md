@@ -10576,10 +10576,8 @@ They felt stubby—was this body really that much smaller than her original?
 She pushed the question aside,
 grateful that she didn't appear to have any spinal injuries,
 and drummed her fingers against her thighs.
-One two three four,
-thumb,
-one four two three,
-thumb—good.
+One two three four thumb,
+one four two three thumb—good.
 She had lost some fine motor control the second time she died.
 It was nice to have it back.
 
@@ -10862,8 +10860,7 @@ How many light panels above her?
 Two,
 one of which should probably be replaced.
 She drummed her fingers against her thighs.
-One two three four,
-thumb,
+One two three four thumb,
 one four—was two three or three two next?
 Start over.
 One two three four—no.
@@ -11277,5 +11274,97 @@ Sandrine replied wearily.
 And then she took everything she had absorbed from Iffy
 and turned it into a missile in her mind
 and fired.
+
+<span id="2024-04-18-b"></span>
+
+An hour later
+Sandrine stood at attention in the governor's windowless office.
+"Yes sir, I believe so,"
+she said,
+eyes fixed on a tiny spot on the wall above his head.
+
+"Mm."
+He steepled his hands under his chin.
+"That's quite a bit faster than our models predicted."
+
+"Thank you, sir."
+One two three four thumb,
+one four two three thumb—she forced the hands clasped behind her back
+to be still.
+
+"Mm,"
+the governor repeated skeptically.
+"We will of course have to do some tests to be sure."
+
+"Of course, sir."
+She lowered her gaze to meet his eyes.
+"May I suggest cardboard, sir?
+And perhaps some string?
+Sergeant Vassilenko can do whatever cutting is needed
+if you don't think it's safe for me to have scissors."
+
+"Yes,
+well,
+unfortunately the sergeant is no longer with us.
+Another thing our models failed to predict,"
+he added sourly.
+Light sparkled briefly in his eyes.
+"But no matter.
+Cardboard and string sounds perfect for a first outing,
+and I'm sure we can trust you with scissors
+as long as you promise not to run with them."
+
+"Sir?"
+Sandrine asked after a moment.
+
+Governor Stern waved a hand.
+"An old joke.
+Here."
+He pulled a flimsy of freshly-printed paper out of a slot in his desk
+and handed it to her.
+"Start with that and see what else you can do.
+Surprise me, if you can."
+
+She saluted as she heard the door open behind her.
+"Yes, sir.
+Thank you, sir."
+
+Her Marine escort—one beside, one behind—said nothing
+as they marched her to an office on the floor below
+that appeared identical to the governor's
+except for the small mound of hastily-collected craft supplies on the desk.
+One of the Marines handed her a pair of blunt-ended scissors
+as solemnly as de would have handed her a loaded gauss gun.
+She heard the lock in the door click as she sat down
+and studied the flimsy in her hand.
+
+Sandrine lost track of time as she measured, cut, shaped, and tied.
+They had only given her six rubber bands:
+she stretched each one to its limit
+before deciding to tie them together as they were
+rather than trying to splice them.
+The cardboard wasn't as rigid as she would have liked,
+but some origami folds took care of that
+and there were two different weights of aluminum foil to stiffen the result with.
+
+Her sudden yawn surprised her.
+How long had she been sitting there?
+The noise her spine made when she twisted from side to side
+suggested it had been hours—real hours,
+not the stretched out un-time she had gone through that morning.
+She looked down at what she had made.
+It was a far cry from what the governor had asked her to build,
+but that was the point.
+She just wished they had given her some paint so that she could finish it off properly.
+
+"All right,"
+she said under her breath,
+standing to stretch once more
+before knocking briskly on the door.
+She picked up her creation as it opened
+and marched out without a backward glance,
+wondering as she left whether this was how her older self had felt
+leaving the courtroom
+all those years ago.
 
 </section>
