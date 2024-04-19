@@ -11269,7 +11269,7 @@ and let sleep take her away.
 *But I can't,*
 Sandrine replied wearily.
 *I have a mission.*
-And then she took everything she had absorbed from Iffy
+And then she took everything she had learned about Iffy
 and turned it into a missile in her mind
 and fired.
 
@@ -11677,5 +11677,109 @@ She whistled as she struggled back to her feet.
 She smiled,
 though it would be more accurate to say she bared her teeth,
 and charged.
+
+<span id="2024-04-19-b"></span>
+
+*go back twelve hours…*
+
+*"Can if you want," Iffy thought.
+
+*"But I can't",
+Sandrine replied wearily.
+"I have a mission."
+And then she took everything she had learned about her host
+and turned it into a missile in her mind
+and fired.*
+
+*Iffy absorbed it without missing a beat.
+"You stopped havin' missions a long time ago.
+Look."
+And once again Sandrine was inside Iffy's memory,
+scrolling through old news stories
+until she reached an obituary.
+Corporal Sandrine Kibbens,
+formerly of the Fourth Augmented Infantry,
+had died for the last and final time in the Dobson Valley.
+Heavy storms…
+an earthquake…
+a mudslide that had swallowed a hundred homes…
+The military government had declared that
+they couldn't spare resources for a rescue mission.
+Sandrine had stolen a hovertruck and gone to save people anyway.
+Thirty-eight people owed her their lives,
+and if it hadn't been for a second mudslide the number would have been higher.*
+
+*"Folks that had a right t' give you missions are long gone,"
+Iffy thought at her.
+"You're just a useful piece o' salvage t' th' governor an' his others,
+but you still got a choice.
+You can decide which one o' her you want t' be."*
+
+*There was a moment neither of them shared with the other.
+"I wish I could remember my mum and dad," Sandrine finally thought.*
+
+*"I know," Iffy replied gently.
+"All I got o' mine is how they ended.
+I wouldn't give that up,
+but I'd give just about anythin' else t' have more."*
+
+*Another moment passed.
+"All right," Sandrine thought.
+"What's your plan?"*
+
+</section>
+
+<section markdown="1">
+
+## Chapter 13
+
+They only got to deploy four of their home-made EMPs,
+but that was enough to get them to the top floor.
+They used the fifth to knock someone off-balance long enough
+for the sentry bot to knock der out of the way.
+When they rounded a corner and ran headlong into a couple of Marines
+they shouted, "Grenade!" and pitched the last one underhand,
+then fled in the opposite direction
+as the pair ducked into a nearby doorway for shelter.
+
+Sergeant Vassilenko,
+or whoever was in the body he'd been wearing when they first met him,
+was on guard by the exit.
+His mouth worked as he tried to yell at her to stop,
+but his imprint still hadn't fully taken hold.
+
+*Let me do this,* Sandrine thought.
+He was bigger than they were,
+but his punches and kicks were jerky and uncoordinated.
+Hers were not:
+she blocked,
+blocked again,
+punched hard,
+and then swept his feet out from under him.
+
+The exit was locked.
+The hinges were on the inside
+and big enough for the sentry bot to grasp.
+Outside was colder than they expected and shadowed instead of sunshine-bright.
+
+They shielded their eyes with the palm of their hand.
+"What the hell?" Sandrine said.
+The buildings around them were burned-out shells.
+Soot and scorch marks had been faded by time,
+but that just made them even uglier.
+
+*It's Bharati,* Iffy thought.
+*There was a fire here.
+Whole bunch o' people died.*
+
+"Not all of them,"
+Sandrine muttered.
+"How much time do we have?"
+
+*Couple more minutes 'til everythin's back online.
+We gotta go that way.*
+Their arm jerked to point.
+With the sentry bot loping along at her heels,
+they set off at a run.
 
 </section>
