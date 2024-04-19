@@ -17,22 +17,22 @@ I can't reach too far ahead if I do the latter,
 which makes tool selection a balancing act.
 I'd be grateful for [feedback](mailto:{{site.author.email}}) on the list below.
 
-| Old                | New                  | Because                                                 |
-| ------------------ | -------------------- | ------------------------------------------------------- |
-| [Bash][bash]       | [Nushell][nushell]   | risky, but [Fish][fish] feels too conservative          |
-| [Git][git]         | sadly, still Git     | I really wish [Gitless][gitless] had taken off…         |
-| [Make][make]       | ???                  | none of the (many) alternatives are a clear winner      |
-| [SQLite][sqlite]   | [DuckDB][duckdb]     | a better choice for data science?                       |
-| [Python][python]   | still Python         | people need to be able to get real work done            |
-| [Pandas][pandas]   | [Polars][polars]     | better ergonomics and performance                       |
-| [Seaborn][seaborn] | [Plotly][plotly]     | I like it so much that I joined the company :-)         |
-| [Jupyter][jupyter] | [Marimo][marimo]     | also risky, but it really does feel like a step forward |
-| [LaTeX][latex]     | ???                  | maybe [Typst][typst] if they open source the GUI?       |
-| —                  | [Metaflow][metaflow] | the most Pythonic option available                      |
-| —                  | [DVC][dvc]           | preferred to [Git-LFS][git-lfs]                         |
-| —                  | [Ark][ark]           | the best little Python SSG I've found                   |
-| —                  | [VSCode][vscode]     | mostly for the debugger                                 |
-| —                  | [Docker][docker]     | as ubiquitous as Git but much less user-hostile         |
+| Old                | New                  | Because                                                 | Modified   |
+| ------------------ | -------------------- | ------------------------------------------------------- | ---------- |
+| [Bash][bash]       | [Nushell][nushell]   | risky, but [Fish][fish] feels too conservative          |            |
+| [Git][git]         | sadly, still Git     | I really wish [Gitless][gitless] had taken off…         |            |
+| [Make][make]       | [Just][just]         | finally, a better build tool I can believe in           | 2024-04-19 |
+| [SQLite][sqlite]   | [DuckDB][duckdb]     | a better choice for data science?                       |            |
+| [Python][python]   | still Python         | people need to be able to get real work done            |            |
+| [Pandas][pandas]   | [Polars][polars]     | better ergonomics and performance                       |            |
+| [Seaborn][seaborn] | [Plotly][plotly]     | I like it so much that I joined the company :-)         |            |
+| [Jupyter][jupyter] | [Marimo][marimo]     | also risky, but it really does feel like a step forward |            |
+| [LaTeX][latex]     | ???                  | maybe [Typst][typst] if they open source the GUI?       |            |
+| —                  | [Metaflow][metaflow] | the most Pythonic option available                      |            |
+| —                  | [DVC][dvc]           | preferred to [Git-LFS][git-lfs]                         |            |
+| —                  | [Ark][ark]           | the best little Python SSG I've found                   |            |
+| —                  | [VSCode][vscode]     | mostly for the debugger                                 |            |
+| —                  | [Docker][docker]     | as ubiquitous as Git but much less user-hostile         |            |
 
 What's missing:
 
@@ -65,6 +65,7 @@ What's missing:
 [htmx]: https://htmx.org
 [js]: https://en.wikipedia.org/wiki/JavaScript
 [jupyter]: https://jupyter.org
+[just]: https://just.systems/
 [latex]: https://www.latex-project.org
 [make]: https://www.gnu.org/software/make/
 [marimo]: https://marimo.io
