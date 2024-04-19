@@ -11185,8 +11185,6 @@ workin' for one o' th' other governors
 an' i bet if de was here right now
 th' two o' you would be shootin' at each other.*
 
-<span id="2024-04-18-a"></span>
-
 Iffy's anger was like red-hot metal fresh out of a forge.
 Her hurt was like an old injury reawakened—a knee sprained and half-healed
 and then bent the wrong way again
@@ -11274,8 +11272,6 @@ Sandrine replied wearily.
 And then she took everything she had absorbed from Iffy
 and turned it into a missile in her mind
 and fired.
-
-<span id="2024-04-18-b"></span>
 
 An hour later
 Sandrine stood at attention in the governor's windowless office.
@@ -11366,8 +11362,6 @@ and marched out without a backward glance,
 wondering as she left whether this was how her older self had felt
 leaving the courtroom
 all those years ago.
-
-<span id="2024-04-18-c"></span>
 
 The governor turned what she had built over in his hands.
 "It seems simpler than I expected,"
@@ -11480,8 +11474,6 @@ Good luck."
 He waved a hand in her direction as she saluted and left,
 his attention already elsewhere.
 
-<span id="2024-04-18-d"></span>
-
 The "isolation area" turned out to be the middle of
 what Sandrine guessed had until yesterday been a cafeteria.
 Six tables pushed together were her workbench.
@@ -11582,5 +11574,108 @@ She stood and raised her hands.
 "See?"
 The bot swayed gently from side to side beside her.
 "Now I can get the legs back on."
+
+<span id="2024-04-19-a"></span>
+
+She didn't do that right away, though.
+If everything went according to plan it would be the last step but one.
+Humming quietly under her breath,
+she measured and cut a section of honeycomb steel,
+mounted it on a slow lathe,
+and carefully wrapped it with copper wire.
+"Crap,"
+she muttered as she tested its inductance with a hand-held meter.
+Her instincts were good,
+but this wasn't her body—her hands had wound the wire just a little too loosely.
+
+Her second attempt was good enough,
+and the three after that were even better.
+"Can I get something to eat?" she asked Private Leung.
+He nodded and spoke into his collar
+as she swept bits of scrap into a box
+and started dismantling the laser sight on the bot's gun.
+The laser went into a clamp that spun and tilted at her command.
+The gnat-sized camera that accompanied it went into another, smaller clamp
+that began jerking from one position to another,
+seemingly at random,
+as she sucked the first welcome mouthful of mango-flavored protein slurry
+from the bottle Private Leung handed her.
+If anyone had asked
+she would have told them that she was recalibrating the camera,
+but no one asked
+and she knew enough not to volunteer the information.
+Innocent people didn't feel like they needed to tell stories,
+so she wasn't going to tell hers.
+
+Building a fourth leg for the bot was easier and harder than she expected:
+easier because someone had already printed most of the parts she needed,
+but harder because they fit together in ways that only made sense to other machines.
+Eccentric gears whose teeth only fit together in exactly one way
+had to be connected to cables twisted a precise number of times
+to maximize the tensile recoil of mechanical ankles and knees.
+The tiny auxiliary motors in the thigh each had four different kinds of ratchet,
+but each of those ratchets had to be tilted at a particular angle
+to distribute their weight correctly.
+
+Her humming turned to muttering and then curses as she assembled the parts.
+By the time the leg was finished there was nothing left of her lunch
+except a scum of chalky sludge in the bottom of the bottle.
+"Can I get another of these?" she asked,
+starting a count in her head.
+
+The last one had taken two minutes—she hoped that would be enough time.
+The camera she had taken from the bot's gunsight
+had managed to find four tiny lenses:
+two in the walls,
+one in the ceiling,
+and one in the door itself.
+Their coordinates were buried in the schematic of the bot's torso
+that she had redrawn a dozen times throughout the morning.
+Four targets plus one,
+and she hoped Private Leung would forgive her.
+
+One two three four thumb.
+One four two three thumb.
+She heard footsteps in the corridor.
+"Take a deep breath and find the center of the storm,"
+a long-ago voice said in her head.
+It was now or never.
+
+She reached up and cut the cable.
+The sentry bot dropped to the floor with a thud.
+"What—" Private Leung started to say,
+and then he shouted and clutched his face
+as the laser sight pivoted and fired at his eyes.
+The meds would be able to repair the damage—at least Sandrine hoped they would—but
+for the next few minutes at least he was out of action.
+
+The laser pivoted again,
+firing and firing to blind the hidden cameras
+as the door opened.
+The Marine bringing her second lunch shouted
+as the sentry bot leaped at him,
+knocking him back and blocking the door from closing.
+Sandrine slung the half-dozen little EMPs she had made over her shoulder and ran.
+
+*right go right go right*
+Iffy said in her head.
+*up there on the wall the recharge slot for the cleaning bot plug it in there*
+
+Sandrine dropped to one knee and fumbled the first EMP into place.
+She felt it shiver
+when she stuck the two bare copper ends of the coil she had made
+into the outlet in the wall.
+All around her the lights went out
+and the alarm that had been blaring fell silent.
+
+*aright one down five to go but you gotta move faster*
+
+*Yeah, well, maybe you should've gotten more exercise,*
+Sandrine shot back.
+She whistled as she struggled back to her feet.
+"Front," she ordered the bot as it trotted up beside her.
+She smiled,
+though it would be more accurate to say she bared her teeth,
+and charged.
 
 </section>
