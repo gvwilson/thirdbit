@@ -6,14 +6,14 @@ year: 2024
 
 Having had to learn almost everything that went into [the previous chapter][sdxpy_db] from scratch,
 it was a relief to explain some code that I got right (almost) the first time.
-I've been using tools like Make for forty years,
+I've been using Make for forty years,
 and have implemented graph-based dependency managers at least twice
-when off-the-shelf tools wouldn't do what was needed.
+when off-the-shelf tools wouldn't do what I needed.
 Representing dependencies,
 checking for circularity,
 sorting topologically,
 providing a way to write generic rules:
-it felt a lot like humming along to a song I've known since high school.
+it felt a lot like humming along to an old, familiar song.
 
 However,
 [Chapter 19: A Build Manager][sdxpy_build] fell flat when I taught it last year.
