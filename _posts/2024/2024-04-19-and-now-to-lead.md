@@ -82,6 +82,20 @@ and training that actually changes behavior.
 With respect to everyone's good intentions,
 I'm only interested in the latter.*
 
+*Also note:
+I now own eight books published in the last six years
+on how to be a software engineering manager and/or lead software development teams.
+Almost all of their content can be summarized as,
+"This worked for me,"
+and/or,
+"This works if everyone is mature and sincere and their goals are aligned."
+None of those books have professional ethics or social responsibility in their index,
+and only two of them even mention the fact that
+people from marginalized backgrounds usually have a very different experience as first-time managers
+than straight, cis, white or Asian, physically able, economically secure men like me.
+As you may already have guessed,
+I haven't found those books particularly useful…*
+
 [dobbins-kalev]: https://hbr.org/2016/07/why-diversity-programs-fail
 [meeting-talk]: https://docs.google.com/presentation/d/1HSdgVQjq0d3UYh-aA4uWHXxYYpySn_xXwfn_M4Ms8Ts/
 [new-stack]: {{'/2024/04/18/a-new-stack/' | relative_url}}
