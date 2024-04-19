@@ -11680,7 +11680,7 @@ and charged.
 
 <span id="2024-04-19-b"></span>
 
-*go back twelve hours…*
+*twelve hours earlier…*
 
 *"Can if you want," Iffy thought.
 
@@ -11773,7 +11773,9 @@ but that just made them even uglier.
 Whole bunch o' people died.*
 
 "Not all of them,"
-Sandrine muttered.
+Sandrine muttered,
+thinking about what Private Leung had said about Sergeant Vassilenko.
+Both of their bodies were the right age to have been children twenty years ago.
 "How much time do we have?"
 
 *Couple more minutes 'til everythin's back online.
@@ -11781,5 +11783,83 @@ We gotta go that way.*
 Their arm jerked to point.
 With the sentry bot loping along at her heels,
 they set off at a run.
+
+<span id="2024-04-19-c"></span>
+
+She had never been to Bharati before,
+or if she had,
+it had been a different copy of her,
+but it was immediately familiar.
+The long cindered arc across the front of that building—that
+was a Gatling laser tracking a fast-moving target.
+The shattered remains of a concrete wall spread across the road a block later
+had the half-melted edges left by a high-temperature blast.
+She had used weapons like that herself against both people and machines.
+The rectangular tread marks spaced at half-meter intervals under her running feet
+had been left by something heavy.
+The crater where they ended told her what its fate had been.
+
+*They'll have exos an' drones back online any second.*
+Iffy thought.
+
+Sandrine nodded.
+*That still feels weird,* Iffy thought.
+
+"Sorry," Sandrine puffed.
+She ducked into what might once have been a neighborhood temple and crouched down.
+The sentry bot came to a stop beside her.
+"Your turn."
+
+If someone had asked,
+Sandrine would have said that she stepped back and let Iffy take over.
+It wasn't like that, though.
+It was more like fading away a little so that Iffy could become more real.
+As their hands opened the side of the sentry bot and made a few adjustments,
+she wondered if this was what it would be like as her imprint subsided.
+Would she feel more and more transparent until there was no trace of her left?
+How many times had copies of her gone through that?
+
+"I don't think it's like that most o' the time."
+It was Iffy's turn to speak aloud.
+She sounded distracted to Sandrine,
+which might have had something to do with the red warning label
+on the power supply in the sentry bot's torso
+that she was tweaking with a screwdriver,
+a shim of metal bent on itself to make tweezers,
+and enough muttered curses to supply an entire brigade of Marines.
+
+"Jeep an' others,
+it's like bits o' them got put in storage an' replaced with bits o' you for a while.
+I figure th' two of us bein' like this is down to whatever's in me
+that th' governor's so excited t' get his hands on."
+She reattached the last of the wires she had pulled free
+and took a deep breath.
+"Wasn't sure that would work," she confessed.
+"I mean,
+not blow us up."
+
+*It's your body if you do,* Sandrine thought,
+and then,
+*I'm sorry.
+That they did this to you, I mean.
+They shouldn't have.*
+
+"Weren't your fault," Iffy grunted,
+straightening up.
+"An' t' tell you th' truth,
+I'm glad I got t' meet you.
+I figure if you're who's in Honesty's head,
+she'll be aright.
+Now,
+let's go blow stuff up."
+
+She patted the sentry bot's back and pointed back the way they had come.
+"Go."
+As the bot loped away she said,
+"Aright, your watch."
+
+*Thanks.*
+Sandrine rolled her/their/Iffy's head from side to side
+and started running.
 
 </section>
