@@ -5,24 +5,14 @@ year: 2024
 ---
 
 I'm tired of teaching tools that are older than most of the people learning them,
-but:
-
-1.  if I teach something that isn't (yet) widely used,
-    my learners won't be able to collaborate with their colleagues,
-    and
-
-2.  most new tools will never catch on.
-
+butif I teach something that isn't (yet) widely used
+my learners won't be able to collaborate with their colleagues,
+and most new tools will never catch on.
 That said,
 people don't seem to be excited by
 the outline I've sketched for [*Research Software Design by Example*][rsdx],
-so I can either:
-
-1.  add it to my ever-growing list of books I've started but not finished,
-    or
-
-2.  make it more exciting by using a new set of tools.
-
+so I can either add it to my ever-growing list of books I've started but not finished
+or make it more exciting by using a new set of tools.
 I can't reach too far ahead if I do the latter,
 which makes tool selection a balancing act.
 I'd be grateful for [feedback](mailto:{{site.author.email}}) on the list below.
@@ -35,7 +25,7 @@ I'd be grateful for [feedback](mailto:{{site.author.email}}) on the list below.
 | [SQLite][sqlite]   | [DuckDB][duckdb]     | a better choice for data science?                       |
 | [Python][python]   | still Python         | people need to be able to get real work done            |
 | [Pandas][pandas]   | [Polars][polars]     | better ergonomics and performance                       |
-| [Seaborn][seaborn] | [Plotly][plotly]      | I like it so much that I joined the company :-)         |
+| [Seaborn][seaborn] | [Plotly][plotly]     | I like it so much that I joined the company :-)         |
 | [Jupyter][jupyter] | [Marimo][marimo]     | also risky, but it really does feel like a step forward |
 | [LaTeX][latex]     | ???                  | maybe [Typst][typst] if they open source the GUI?       |
 | —                  | [Metaflow][metaflow] | the most Pythonic option available                      |
