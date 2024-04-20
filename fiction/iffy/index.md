@@ -11575,8 +11575,6 @@ She stood and raised her hands.
 The bot swayed gently from side to side beside her.
 "Now I can get the legs back on."
 
-<span id="2024-04-19-a"></span>
-
 She didn't do that right away, though.
 If everything went according to plan it would be the last step but one.
 Humming quietly under her breath,
@@ -11678,8 +11676,6 @@ She smiled,
 though it would be more accurate to say she bared her teeth,
 and charged.
 
-<span id="2024-04-19-b"></span>
-
 *twelve hours earlier…*
 
 *"Can if you want," Iffy thought.
@@ -11733,7 +11729,7 @@ but I'd give just about anythin' else t' have more."*
 
 ## Chapter 13
 
-They only got to deploy four of their home-made EMPs,
+They only had to deploy four of their home-made EMPs,
 but that was enough to get them to the top floor.
 They used the fifth to knock someone off-balance long enough
 for the sentry bot to knock der out of the way.
@@ -11783,8 +11779,6 @@ We gotta go that way.*
 Their arm jerked to point.
 With the sentry bot loping along at her heels,
 they set off at a run.
-
-<span id="2024-04-19-c"></span>
 
 She had never been to Bharati before,
 or if she had,
@@ -11858,8 +11852,92 @@ She patted the sentry bot's back and pointed back the way they had come.
 As the bot loped away she said,
 "Aright, your watch."
 
+<span id="2024-04-20-a"></span>
+
 *Thanks.*
 Sandrine rolled her/their/Iffy's head from side to side
 and started running.
+They didn't have much time,
+and that hovercraft wasn't going to steal itself.
+
+The scientists and engineers who erected the first building at Bharati Station
+played a single game of cricket in the snow
+so that they could send pictures of it back to their families.
+As the temperature and other buildings both went up in the years and decades that followed,
+those games became a regular fixture of station life.
+And when people began bringing their families with them
+to escape the droughts, floods, and communal warfare of their homeland,
+the proposal to build a proper cricket pitch
+went from a standing joke to a unanimously-approved item in the town plan.
+
+Sandrine doubted the stadium's architects had realized that
+such a large, covered space would be a perfect place to hide an oversized hovercraft
+from passing satellites.
+She was more concerned with how sketchy Iffy's plan for pirating it was.
+She had heard,
+"We'll figure it out when we get there,"
+before several missions when she was herself.
+None of them had gone well,
+but it was too late for second thoughts now.
+
+*Boom!*
+They felt the explosion as much as they heard it.
+Somewhere behind them,
+the sentry bot's power cells had reached their limit and then some.
+She doubted it would slow their pursuers down by much,
+but every second counted.
+
+There were no guards at the stadium.
+Why would there be?
+They were hundreds of kilometers from the nearest settlement,
+and anyone capable of crossing that expanse
+would not have been slowed down by a couple of shivering Marines.
+
+*What if they haven't fixed the coolant pumps?*
+Sandrine thought
+as Iffy took control of her/their body
+and slithered underneath the hovercraft's armored ground-effect skirt.
+
+"Then we better hope th' governor has a sense o' humor,"
+Iffy grunted.
+With a screwdriver in one hand and something that looked like
+a cross between a ratchet wrench and a tuning fork in the other,
+she set to work.
+
+Moments later a panel barely wider than her/their shoulders clanged open.
+*That's for maintenance drones, isn't it?*
+
+"Yup,"
+Iffy said aloud as she tucked her tools back into her/their pockets.
+"Hope you don't mind a squeeze."
+
+The duct was just wide enough to wriggle through.
+They were stuck at a corner for one terrifying moment,
+and in another spot they had to slide forward,
+roll over,
+stuff their legs into a side duct,
+and roll over again in order to be able to move forward.
+There was no light,
+of course,
+and everything smelled of metal and machine oil.
+Sandrine did her best to fade into the background
+so that Iffy could find them a path through the schematic in her head.
+
+*Aright,* Iffy finally thought.
+*You ready?*
+
+*Yes sir.*
+One two three four thumb,
+one four two three thumb.
+Yes, she was ready.
+
+*I ain't no 'sir',*
+Iffy fired back.
+
+Sandrine grinned in the darkness.
+"I think you would have made a fine officer.
+Here we go."
+She kicked out the grill at her/their feet
+and dropped into the hovercraft's auxiliary control room.
 
 </section>
