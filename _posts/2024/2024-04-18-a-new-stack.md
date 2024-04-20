@@ -23,16 +23,38 @@ I'd be grateful for [feedback](mailto:{{site.author.email}}) on the list below.
 | [Git][git]         | sadly, still Git     | I really wish [Gitless][gitless] had taken off…         |            |
 | [Make][make]       | [Just][just]         | finally, a better build tool I can believe in           | 2024-04-19 |
 | [SQLite][sqlite]   | [DuckDB][duckdb]     | a better choice for data science?                       |            |
-| [Python][python]   | still Python         | people need to be able to get real work done            |            |
+| [Python][python]   | still Python         | despite the mess that is Python packaging               |            |
 | [Pandas][pandas]   | [Polars][polars]     | better ergonomics and performance                       |            |
 | [Seaborn][seaborn] | [Plotly][plotly]     | I like it so much that I joined the company :-)         |            |
 | [Jupyter][jupyter] | [Marimo][marimo]     | also risky, but it really does feel like a step forward |            |
-| [LaTeX][latex]     | ???                  | maybe [Typst][typst] if they open source the GUI?       |            |
+| [LaTeX][latex]     | ???                  | maybe [Typst][typst] but see below                      |            |
 | —                  | [Metaflow][metaflow] | the most Pythonic option available                      |            |
 | —                  | [DVC][dvc]           | preferred to [Git-LFS][git-lfs]                         |            |
 | —                  | [Ark][ark]           | the best little Python SSG I've found                   |            |
 | —                  | [VSCode][vscode]     | mostly for the debugger                                 |            |
 | —                  | [Docker][docker]     | as ubiquitous as Git but much less user-hostile         |            |
+
+A few notes:
+
+-   Several of these tools are implemented in [Rust][rust] rather than C,
+    which makes me hope that Rust is on the same slow-but-steady growth curve as [Python][python].
+
+-   I really like where [Nushell][nushell] is going with structured data,
+    and being built in [Rust][rust] is a plus,
+    but my first few experiments with it did leave me feeling that it still has a lot of rough edges.
+
+-   [Typst][typst] seems to be a plausible post-TeX typesetting tool,
+    but (a) I wish they had used an existing scripting language
+    (e.g., one of the [Rust][rust]-based implementations of [Lua][lua])
+    instead of creating a new one,
+    and (b) it looks like their GUI is web-only and closed source,
+    both of which make me very nervous.
+
+-   [VSCode][vscode] and the various [JetBrains][jetbrains] IDEs are far too heavy for my liking,
+    but there doesn't seem to be anything else out there
+    that supports multiple languages well.
+    (Yes, I'm very familiar with [Emacs][emacs];
+    no, I don't think it's the right answer.)
 
 What's missing:
 
@@ -58,15 +80,18 @@ What's missing:
 [duckdb]: https://duckdb.org
 [dvc]: https://dvc.org
 [elm]: https://elm-lang.org
+[emacs]: https://www.gnu.org/software/emacs/
 [fish]: https://fishshell.com
 [git]: https://git-scm.com
 [git-lfs]: https://git-lfs.com
 [gitless]: https://gitless.com
 [htmx]: https://htmx.org
+[jetbrains]: https://www.jetbrains.com/
 [js]: https://en.wikipedia.org/wiki/JavaScript
 [jupyter]: https://jupyter.org
 [just]: https://just.systems/
 [latex]: https://www.latex-project.org
+[lua]: https://www.lua.org/
 [make]: https://www.gnu.org/software/make/
 [marimo]: https://marimo.io
 [metaflow]: https://metaflow.org
@@ -77,6 +102,7 @@ What's missing:
 [python]: https://www.python.org
 [react]: https://react.dev
 [rsdx]: https://gvwilson.github.io/rsdx/
+[rust]: https://www.rust-lang.org/
 [seaborn]: https://seaborn.pydata.org
 [sqlite]: https://sqlite.org
 [typst]: https://typst.app

@@ -15,8 +15,8 @@ that it seems like I've always known).
 Using a theorem prover to do this more efficiently,
 on the other hand,
 was brand new.
-I worked on a theorem prover for modal logics for my master's degree,
-but it used a completely different approach and was thirty-nine years ago.
+(I worked on a theorem prover for modal logics for my master's degree,
+but it used a completely different approach and that was thirty-nine years ago.)
 I almost gave up on [Z3][z3] several times—its documenation is terrible—but
 then I stumbled across [this talk by Andreas Zeller][zeller_talk]
 and things started to make sense.
