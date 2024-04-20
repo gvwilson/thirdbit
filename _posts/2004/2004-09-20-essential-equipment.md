@@ -3,7 +3,7 @@ title: "Essential Equipment"
 date: 2004-09-20 14:19:03
 year: 2004
 ---
-<p>In an <a href="">earlier posting</a>, I listed the programming tools I use.  As part of setting up at the <a href="">Blueprint Organization</a> (who have kindly given me desk space for the next few months), I've realized that a complete working environment needs more than just software.</p>
+<p>In an earlier posting, I listed the programming tools I use.  As part of setting up at the Blueprint Organization (who have kindly given me desk space for the next few months), I've realized that a complete working environment needs more than just software.</p>
 
 <dl>
 

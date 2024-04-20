@@ -5,7 +5,7 @@ original: swc
 title: Top Ten Why Nots
 ---
 <p>We've had quite a few firsts and successes in the past ten months, but our biggest failure continues to be the lack of contributions from users and educators: while quite a few people are using our material, only one person has (so far) volunteered to create material for us. If that doesn't change, Software Carpentry will stagnate as soon as I have to move on to other things (which, given my lack of success in raising another round of funding, will probably happen this spring).</p>
-<p>Coincidentally, Wynn Netherland recently posted a list titled "<a href="http://thechangelog.com/post/3032074343/top-ten-reasons-why-i-wont-use-your-open-source-project">Top ten reasons why I won't use your open source project</a>". It's not about contributing per se–I'll have to go back to Karl Fogel's excellent <a href="http://producingoss.com"><em>Producing Open Source Software</em></a> to start figuring that out–but it's still worth going through.</p>
+<p>Coincidentally, Wynn Netherland recently posted a list titled <a href="http://thechangelog.com/post/3032074343/top-ten-reasons-why-i-wont-use-your-open-source-project">Top ten reasons why I won't use your open source project</a>. It's not about contributing per se–I'll have to go back to Karl Fogel's excellent <a href="http://producingoss.com"><em>Producing Open Source Software</em></a> to start figuring that out–but it's still worth going through.</p>
 <ol>
 <li><strong>You don't have a README.</strong> We have an explanation of who this course is for and what it's about, but nothing that explains how to contribute.</li>
 <li><strong>You don't include tests, specs, features, examples.</strong> Doesn't really apply.</li>

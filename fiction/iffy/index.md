@@ -11938,6 +11938,130 @@ Sandrine grinned in the darkness.
 "I think you would have made a fine officer.
 Here we go."
 She kicked out the grill at her/their feet
-and dropped into the hovercraft's auxiliary control room.
+and dropped into the hovercraft's auxiliary engineering station.
+
+<span id="2024-04-20-b"></span>
+
+The station was bigger than the duct they had just been crawling through,
+but not by much.
+Apps were securely bolted onto three walls,
+and a harness hung on the door behind them.
+There was a helmet too,
+in case the ride got so bumpy that concussion might be an issue.
+Iffy buckled herself in and closed her eyes.
+
+Schematics appeared,
+red and blue and sizzling-bright white,
+each surrounded by a swirling flock of information.
+She grinned at Sandrine's double-take.
+*Still feels that way m'self,* she thought as she dove in.
+There and there and there—outer hatches locked as engines rumbled to life.
+Two people were in the cockpit and a third was already on der way to her station
+with a handgun and—an ax?
+Really?
+Why would anyone have an ax on board a hovercraft?
+
+It didn't matter.
+No one had thought to grab a breathing mask,
+so she told the hovercraft's core that every single corridor was engulfed in flames.
+Choking and swearing,
+the tech who had been headed her way retreated into a cabin
+whose door locked a moment before de realized der mistake.
+
+The two in the cockpit were going to be more of a problem.
+There were manual overrides in case anyone did
+exactly what she was now doing,
+but she would worry about them later.
+A dozen tiled views in the app on her left told her that the Marines had arrived.
+Unlike the tech who was now trying to break through the door to der cabin,
+they had thought ahead:
+two were carrying heavy cylinders
+that both she and the app's overlays identified as rocket launchers.
+
+The hovercraft lifted and slid sideways as its turbines came to life.
+"Here we go!" Iffy shouted.
+The acceleration threw her forward against her harness straps
+and sent a sharp stab through her abdomen.
+Marines threw themselves out of the hovercraft's way
+as it lurched backward out of the stadium,
+knocked a bit of concrete off a pillar that had clearly seen worse,
+spun,
+and roared out of town.
+
+*Drones at four o'clock,* Sandrine thought.
+
+"What?" Iffy glanced at the clock in the corner of the app.
+"It's only—"
+
+*Back and right.*
+Sandrine nudged Iffy's eyes to a tile showing the sky behind them.
+
+"Yeah, well, good luck to 'em,"
+Iffy said distractedly.
+Image after image flashed across the app in front of her.
+There—that one.
+She fired a rapid stream of instructions at the hovercraft
+and unbuckled her harness.
+
+And promptly collapsed.
+*We're bleeding,* Sandrine thought calmly.
+*And our blood pressure—wait, no, don't try to stand up.*
+
+"Gotta…"
+Iffy struggled and then slumped back onto the deck.
+She felt nauseous and so, so tired
+and there was something wet on her face,
+something dripping.
+
+*Nosebleed,* Sandrine confirmed.
+*And if our heart beats any faster we're probably going to pass out.
+Let me take over.*
+
+Iffy shook her head.
+"Ow," she whimpered.
+
+*Let me do this,* Sandrine urged.
+Without waiting for an answer she poured herself into Iffy's arms and legs
+and grabbed hold of the harness
+to haul herself/themself onto her/their feet.
+No,
+her feet,
+she was the one standing.
+She had walked home from school one day with a fever
+as yet another mutant flu swept across the world.
+The teacher had passed out at his desk,
+wheezing with each sweaty breath.
+She remembered one of her classmates saying they should stay
+and wait for someone to tell them what to do,
+but somehow she had known that no one was coming.
+
+Open the door.
+Steady yourself on the frame.
+Come on, soldier, you have a mission.
+Left foot, right foot, left right left.
+Open the door.
+No,
+don't bother to close it behind you.
+There is no "behind".
+There's only forward to the next door,
+the one that matters.
+Open it.
+Fall into the waiting chair.
+Straps—I know, I know,
+your hands feel like a bunch of bananas
+(*You had bananas?*)
+but you have to do up the straps.
+Button—there's a button you need to push.
+Which button?
+That one's big and red and right there.
+You missed.
+Come *on* soldier, you can do this.
+Try again.
+Make a fist.
+Up and…down.
+
+Weight on her chest pressed her into the chair.
+There was sunlight all around her
+and then her head lolled forward as she passed out.
 
 </section>
