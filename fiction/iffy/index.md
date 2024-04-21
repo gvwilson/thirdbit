@@ -12145,8 +12145,89 @@ and—
 
 "Aright, aright, thank you."
 Iffy shook her head.
-"Could'na done it without you.
-Now if you can keep up th' good work
-I'll try t' figure out what th' affin' hell I'm gonna do next."
+"Could'na done it without you,
+an' if you can keep up th' good work
+I'll try t' figure out what th' hell I'm gonna do next."
+
+<span id="2024-04-21-b"></span>
+
+Half-way between Bharati and Halley
+the escape pod startled a small herd of shaggy brown caribou.
+The map zoomed in automatically to show
+the red dots that appeared without warning
+as the animals scrambled to their feet and gallopped away on long, ungainly legs.
+"Disable targeting," Iffy snapped
+as ranges and elevations blossomed on the app.
+They couldn't hurt her.
+
+The caribou made her think about Iñacio,
+and thinking about Iñacio made her feel sad.
+She and Sandrine had tried to come up with a two-person escape plan,
+but without knowing where he was…
+
+The comm system chose that moment to bleeble.
+"Wide-channel transmission accept Y/N" appeared on the app.
+Feeling reckless,
+Iffy swiped to accept.
+
+"Citizens of Antarctica,"
+the governor's voice said warmly over a montage of images
+from Halley and Rothera and other, smaller settlements.
+"I know the recent turmoil has been difficult for all of us,
+but thanks to the assistance provided by our friends from the Federated Republics,
+I am pleased to say that order has now been restored in most districts.
+I deeply regret the loss of life and property,
+and I promise there will be a full inquiry as soon as conditions permit."
+
+His voice hardened as "92% confidence" scrolled across the bottom of the app.
+"Unfortunately,
+our troubles are not yet completely behind us.
+While the former governor of Halley chose to turn himself in
+to order to avoid further strife,
+the former governor of Paddington South is still at large.
+We believe he is now working with a machine collaborator named Fifth Ang Kwan."
+The pictures of cobbled streets vanished
+and were replaced by stills and videos of Iffy.
+
+"This person is extremely dangerous,"
+the governor went on,
+oblivious to the shock and outrage on Iffy's face.
+"She has been implicated in several acts of sabotage,
+and may be able to control or subvert any sentient machinery in her vicinity."
+The video of French Henry twitching and shaking on damp gray cobblestones
+appeared in an inset on one side of the app.
+In another,
+a scanner bot knocked one Marine off der feet while a sentry bot tangled itself
+in another Marine's exoskelton.
+
+"If you see her,
+do not approach her yourself!
+For your own safety and the safety of others,
+please contact the authorities.
+We will do everything in our power to apprehend her without further loss of life."
+
+He went on a little longer about standing together
+and how the brave spirit that all Antarticans shared
+could never be extinguished,
+but Iffy was too angry to pay attention.
+Too angry and then suddenly afraid as well.
+What had they done to Aunt Naggie?
+
+*Do y' know where she is?* she thought desperately,
+but the machines didn't reply,
+not even when she added *please*.
+
+The escape pod's engines thrummed a deeper note for a few minutes
+as it raced along a stream.
+Iffy wiped her face on her sleeve.
+The pod had two little drones,
+each the size of her fist.
+She could afford to use one to get a message out
+without giving away her position.
+The thought of what she had to say left an ugly taste in her mouth,
+but all her choices were behind her now.
+
+"Record for playback," she ordered the pod's app,
+then said what she needed to say.
 
 </section>
