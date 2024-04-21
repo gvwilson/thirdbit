@@ -11852,8 +11852,6 @@ She patted the sentry bot's back and pointed back the way they had come.
 As the bot loped away she said,
 "Aright, your watch."
 
-<span id="2024-04-20-a"></span>
-
 *Thanks.*
 Sandrine rolled her/their/Iffy's head from side to side
 and started running.
@@ -11939,8 +11937,6 @@ Sandrine grinned in the darkness.
 Here we go."
 She kicked out the grill at her/their feet
 and dropped into the hovercraft's auxiliary engineering station.
-
-<span id="2024-04-20-b"></span>
 
 The station was bigger than the duct they had just been crawling through,
 but not by much.
@@ -12060,8 +12056,97 @@ Try again.
 Make a fist.
 Up and…down.
 
+<span id="2024-04-21-a"></span>
+
 Weight on her chest pressed her into the chair.
-There was sunlight all around her
-and then her head lolled forward as she passed out.
+There was sunlight all around her.
+Her last thought before slipped away into nothingness was,
+"Good luck, kid—say hi the next time you see me."
+
+Iffy felt an upside-down ache in her chest when she finally regained consciousness
+and knew immediately that Sandrine was gone.
+"Thank you," she whispered.
+She wiped tears, snot, and blood off her face and looked dully out the escape pod's windows
+at the tundra racing by.
+
+It wasn't technically an escape pod—the hovercraft's schematics labeled it
+a PN-420 single-seat rapid reconnaissance vehicle—but
+that's what Sandrine had called it when Iffy pulled it up in her head.
+"Figures,"
+the Marine had said.
+"Someone like the governor is always going to have a back door in case they need it."
+And then she had whistled.
+"Looks like a nice ride, too."
+
+And it was,
+though it was noisier than Iffy had expected.
+Two fuel cells,
+a motor,
+a ground-effect skirt made of blast-resistant material,
+a well-cushioned seat beneath a curved plastic window,
+three independent communication systems in place of weapons,
+and a double helping of rations and first-aid supplies
+made it feel like something out of a sim.
+All she needed was a mask, a cape, a catchy name,
+and a loyal combat bot as a butler slash love interest
+and she'd be ready to save the world.
+
+The first step,
+apparently,
+was to clean her face.
+Nobody ever had to do that in a sim,
+Iffy thought as she fumbled in the medical kit for something absorbent.
+People got shot,
+people bled,
+but no one ever got *messy*.
+
+She brought up a map on the navigation app in front of her.
+A blue dot in the center was her location.
+Elevation lines and a dusty sparkling overlay showed
+the foothills ahead
+and the clouds above her.
+She thought briefly about connecting to the drones circling Bharati
+to check for pursuit,
+but no.
+The governor would have made the pod as close to unfindable as he could.
+Even the gentlest ping would give its location away.
+
+"Shad."
+She shook her head.
+Of *course* the pod didn't have a toilet.
+She tossed the bloodied wipe into the recycler,
+closed her eyes,
+and let her head fall forward again.
+
+The next time she woke
+she was almost three hundred kilometers closer to Halley.
+The map showed an unfinished road bed up ahead.
+*Too obvious,* she imagined Sandrine saying in her head,
+so she drew a line on the app with her finger
+to steer the pod toward the coast.
+It wouldn't be stable on ocean waves,
+but a beach or calm inshore water would be doable,
+and all of a sudden she missed the ocean.
+
+*«status interrogative update compliance»*
+
+"Shut up," she muttered.
+"I'm doin' my best.
+An' anyway,
+where were you when I needed you?"
+
+A floor plan of the governor's hidden base in Bharati appeared behind her eyes.
+Symbols skittered this way and that
+leaving phosphorescent lines of probability in their wake.
+A clogged drain meant this Marine was too far away to intervene
+when Iffy made her escape.
+Imprinting glitches made two others too shaky to help with the pursuit,
+and—
+
+"Aright, aright, thank you."
+Iffy shook her head.
+"Could'na done it without you.
+Now if you can keep up th' good work
+I'll try t' figure out what th' affin' hell I'm gonna do next."
 
 </section>
