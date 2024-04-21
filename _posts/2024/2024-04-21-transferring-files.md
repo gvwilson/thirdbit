@@ -4,12 +4,11 @@ date: 2024-04-21
 year: 2024
 ---
 
-I wrote [a week ago][layout_post] that
+[A week ago][layout_post] I wrote that
 learning how to write a web browser
 will teach you more about modern computer systems
 than learning how to write a compiler.
-One reason for that is that almost everything people use computers for today
-relies on networks,
+One reason for that is that almost modern application relies on networks,
 so understanding how they work is at least as important as
 understanding register allocation.
 
@@ -21,10 +20,9 @@ understanding register allocation.
 
 Of these,
 I think the third is the hardest and therefore the most important.
-My approach in this chapter is to stub out the client when testing the server and vice versa,
-but that reduces the fidelity of the tests.
-On the bright side,
-it's one of the few times I haven't felt uncomfortable using multiple inheritance.
+My approach in this chapter is to stub out the client when testing the server and vice versa;
+it reduces the fidelity of the tests,
+but it's one of the few times I haven't felt uncomfortable using multiple inheritance.
 
 <img class="centered" src="{{'/sdxpy/ftp/concept_map.svg' | relative_url}}" alt="Concept map for transferring files"/>
 
