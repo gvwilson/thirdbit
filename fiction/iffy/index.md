@@ -12260,7 +12260,8 @@ but to her surprise it actually felt better than nothing.
 An hour went by.
 She saw two birds in the distance,
 though they might just have been spotter drones searching for her,
-and something the size of a rabbit scurried from one tuft of grass to another at one point.
+and something the size of an arctic hare
+scurried from one tuft of grass to another at one point.
 When the pod's app finally pinged she stood up,
 tossed another piece of gravel at the blotch on the cliff
 she had decided was the governor's face,
@@ -12310,5 +12311,72 @@ Livin' when you didn't an' all th' shad Aunt Naggie's put up with
 an' what happened to Jeep an' Honesty an', an' Sandrine—if I don't try,
 none of it mattered.
 Now shut up an' let me sleep.*
+
+<span id="2024-04-22-b"></span>
+
+The pod woke her five hours later.
+She yawned and stretched as well as she could in her chair,
+wrinkling her nose at her own muggy smell.
+The next time she risked her life to save the world,
+or whatever,
+she was going to make sure showers were available.
+Real showers,
+not just the stinging mist she had grown up with on the *Guinevere*.
+And toilets and fresh vegetables and a galley and a machine shop
+and big, firm slaps of foam to sleep on instead of cots and padded chairs.
+
+A swipe and a couple of taps brought up a map of her surroundings.
+The train from Rothera to Zhongshan would pass through Buhr in fifty-eight minutes.
+It would slow down briefly just east of her
+where the track bent in a long arc around the old mining pit.
+There would be drones overhead:
+even if nobody was looking for her,
+scavs and jackers were a constant low-level headache for long-haul freight.
+Her pod's dazzle wouldn't be able to hide it
+if it tried to match speed with the train,
+so it was a good thing it wouldn't have to.
+She swallowed the last mouthful of a sugary high-protein ration bar,
+thought wistfully again about the *Guinevere*'s galley
+and Aunt Naggie's noodles,
+and told the pod to start its engines.
+
+*As the hovercraft lifted, pivoted, and began to accelerate,
+something the size and shape of an arctic
+raised its head cautiously from its hiding place behind a tuft of grass.
+Sunlight glinted off its head
+where an old scrape had torn false fur away from its metal skull.
+One glass eye tracked the visitor's departure,
+and then it disappeared back into its hole to wait for its next mission.
+If its little core had been sophisticated enough for emotion
+it might have felt a sense of satisfaction for having done its duty.
+The fact that nothing had been listening to its broadcasts for decades
+would have been irrelevant.*
+
+The pod would have steered a course parallel to the train track.
+A half-memory of a sim she had once played prompted Iffy
+to make it randomize their path instead.
+She didn't think it would actually make a difference,
+but it took her mind off things for a few moments.
+She was more nervous than she had been escaping from Bharati.
+Some of it was not having Sandrine there to talk to,
+but what if—
+
+*Uh uh.*
+She shoved her worries into a mental locker as firmly as she could.
+A thousand things could go wrong and at least a couple probably would.
+There was nothing she could do about any of them right now.
+
+Ten minutes.
+There were lots of places to hide in the grass-grown wasteland
+of the old mining pit,
+but that was too obvious to be safe.
+The train's drones would have recorded every tuft and pebble
+each time they passed by.
+Even the slightest change would be flagged and investigated.
+
+The same was true of Buhr itself,
+but the little stream that ran alongside the tracks was another matter.
+The soil around it was loose enough for minor slumps and potholes to be a regular occurrence.
+She parked the pod next to a particularly unstable-looking arc of sand and started a countdown.
 
 </section>
