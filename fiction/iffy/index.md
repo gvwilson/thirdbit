@@ -12082,7 +12082,7 @@ Two fuel cells,
 a motor,
 a ground-effect skirt made of blast-resistant material,
 a well-cushioned seat beneath a curved plastic window,
-three independent communication systems in place of weapons,
+three independent communication systems in place of the weapons it would usually carry,
 and a double helping of rations and first-aid supplies
 made it feel like something out of a sim.
 All she needed was a mask, a cape, a catchy name,
@@ -12374,9 +12374,112 @@ The train's drones would have recorded every tuft and pebble
 each time they passed by.
 Even the slightest change would be flagged and investigated.
 
+<span id="2024-04-22-c"></span>
+
 The same was true of Buhr itself,
 but the little stream that ran alongside the tracks was another matter.
-The soil around it was loose enough for minor slumps and potholes to be a regular occurrence.
-She parked the pod next to a particularly unstable-looking arc of sand and started a countdown.
+The soil around it was loose enough to make minor slumps and potholes a regular occurrence.
+With luck,
+those frequent changes would convince whoever or whatever might be watching
+that her camouflaged pod was just another bit of entropy.
+She set down next to a particularly unstable-looking arc of sand and started a countdown.
+
+Two minutes.
+The pod's vibration sensor painted a green trace on the map
+that solidified as the core became more certain of its epicenter.
+Sixty seconds.
+If she climbed out of the pod and stood on top of it
+she would be able to see a dot on the horizon.
+She stayed put.
+One two three four thumb,
+one four two three thumb.
+She grinned as she caught herself tapping
+the rhythm Sandrine used to calm herself.
+
+Thirty seconds.
+The pod's speakers relayed the quiet shush of the approaching train.
+Twenty.
+Ten,
+and suddenly it was loud enough to drown out conversation,
+just for a count of five,
+and then the train had passed
+leaving just a final dwindling shush in its wake.
+
+Aright.
+If this was a sim it would be the perfect time for the main character to deliver
+a punchy catchphrase.
+Too bad it was her real life.
+She slid back the plastic windshield and climbed out of the pod
+with a blocky remote in one hand
+and a bottle of water in the other.
+
+Three hundred and eighty kilometers an hour was just over a hundred meters per second,
+which meant that even with precise timing
+the person she was looking for
+could be a kilometer in either direction.
+This stretch of tundra was flat enough that she could see much further than that,
+so the real problem would be how camouflaged he was.
+
+"Hi."
+Iffy jumped and whirled around at the voice behind her
+just in time to see Johnson Wales straighten up and brush dirt off his hands.
+
+"Sorry,"
+he said.
+"I didn't mean to startle you."
+
+"Yes you affin' did,"
+Iffy snapped.
+"No, wait, stay right there."
+She raised her her remote and bottle.
+"Come any closer an' I'll dose us both."
+
+Wales frowned.
+The tech in his temples sparkled for a moment.
+"That's just water."
+
+Iffy grinned savagely.
+"Thank you—I worked hard on that.
+Now show me what you brought."
+
+"I think we should—" Wales began.
+
+"Lemme see you right affin' now or we're both goin' t' sleep!"
+She shook her bottle menacingly.
+
+"All right."
+The air beside him flickered and solidified to reveal a familiar toolbox.
+
+"Open it up."
+Wales nodded,
+undid the catches,
+and flipped back the lid
+to reveal tools and parts packed so tightly together
+that it was hard to see where each one ended and the next began.
+
+"Aright."
+Iffy jerked her chin to point.
+"Town's that way.
+Pretty sure they'll spot you long b'fore you get there,
+but it's still a ways.
+You best get movin'."
+
+"I'm not going anywhere until we've had a chance to talk,"
+Wales said calmly,
+tucking his hands into his parka's pockets.
+
+"Keep 'em out where I can see 'em!" Iffy snapped.
+"An' I don't think you got much t' say that I wanna hear,
+so how about you save yer breath an' my time both?"
+
+Wales sighed.
+"For what it's worth, I'm sorry.
+I am,"
+he continued as Iffy opened her mouth.
+"I did what I thought was right at the time.
+I'd probably do the same thing again in the same situation,
+but the situation has changed."
+He spread his hands.
+"We can still save the world if you want to."
 
 </section>
