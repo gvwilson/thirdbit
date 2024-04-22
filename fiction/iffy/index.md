@@ -12056,8 +12056,6 @@ Try again.
 Make a fist.
 Up and…down.
 
-<span id="2024-04-21-a"></span>
-
 Weight on her chest pressed her into the chair.
 There was sunlight all around her.
 Her last thought before slipped away into nothingness was,
@@ -12149,8 +12147,6 @@ Iffy shook her head.
 an' if you can keep up th' good work
 I'll try t' figure out what th' hell I'm gonna do next."
 
-<span id="2024-04-21-b"></span>
-
 Half-way between Bharati and Halley
 the escape pod startled a small herd of shaggy brown caribou.
 The map zoomed in automatically to show
@@ -12229,5 +12225,90 @@ but all her choices were behind her now.
 
 "Record for playback," she ordered the pod's app,
 then said what she needed to say.
+
+<span id="2024-04-22-a"></span>
+
+The sign outside Buhr called it "the best little town south of 60".
+Someone had added, "Population: 0" decades ago
+when the mine closed down
+and the handful of people still hanging on
+were relocated to other settlements.
+Iffy knew she couldn't stop there—by  now,
+anything marked on the map would be under surveillance—but
+it was the closest spot to her with a name.
+
+She did her best to park the escape pod in the shadows beneath a small cliff,
+wincing when its side scraped against stone.
+"Camouflage full," she told its little core,
+then lifted the plastic windshield on its hydraulic hinges and clambered out
+as the pod did its best to make itself invisible.
+
+The ground was sandy and slightly damp.
+A few tufts of grass had managed to colonize it,
+but they already turned brown and stiff.
+Winter was coming.
+She shivered and wished she dared to light a fire.
+She felt more alone on the tundra than she ever had at sea,
+and she missed Sandrine.
+
+*«delivery confirmed»*
+
+"Thanks," she said aloud.
+Machine thoughts appearing in her mind wasn't the same as having someone to talk to,
+but to her surprise it actually felt better than nothing.
+
+An hour went by.
+She saw two birds in the distance,
+though they might just have been spotter drones searching for her,
+and something the size of a rabbit scurried from one tuft of grass to another at one point.
+When the pod's app finally pinged she stood up,
+tossed another piece of gravel at the blotch on the cliff
+she had decided was the governor's face,
+and wriggled back into her seat.
+
+A single word waited for her: "agreed".
+The trace attached to it showed that
+those six letters had been scrambled using the key she had sent in her message
+and scattered across fifteen different airborne and orbital relays
+in order to reach her.
+It wasn't a guarantee,
+but as Uncle Jack reminded people,
+there weren't any in this life and even fewer in the next.
+
+She checked the time.
+She had six hours.
+She wasn't interested in any of the pod's sims,
+she didn't have any tools,
+and she had satisfied her craving for a toilet an hour ago,
+so she closed her eyes and let herself float away from her exhausted body.
+
+*She was on deck.
+The sky was a perfect blue,
+and her olders were stuffing her into her ecosuit.
+"Just in case, love," Second said, forcing a smile.*
+
+*"No," Iffy said fiercely, wriggling free.
+"I can help!"*
+
+*"It's too late," Second said sadly.
+"It's always been too late, love."*
+
+*Iñacio nodded and patted the six-legged bot bumping its camera array against his knee.
+"You can't fix the world, Iffy.
+Nobody can."*
+
+*"We can try!" she said fiercely.
+"Th' governor an' th' machines an', an' everybody,
+they wouldn't be chasin' me like this if they din't think there was a chance
+I could do somethin'.
+An' even if I can't—"*
+
+She knew she was dreaming,
+but even in her dreams she'd never dared to say this before.
+*Even if I can't, I gotta make it mean somethin'.
+Livin' when you didn't an' all th' shad Aunt Naggie's put up with
+an' what happened to Jeep an' Honesty an', an' Sandrine—if I don't try,
+none of it mattered.
+Now shut up an' let me sleep.*
 
 </section>
