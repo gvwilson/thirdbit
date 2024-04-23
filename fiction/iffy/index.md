@@ -12226,8 +12226,6 @@ but all her choices were behind her now.
 "Record for playback," she ordered the pod's app,
 then said what she needed to say.
 
-<span id="2024-04-22-a"></span>
-
 The sign outside Buhr called it "the best little town south of 60".
 Someone had added, "Population: 0" decades ago
 when the mine closed down
@@ -12312,8 +12310,6 @@ an' what happened to Jeep an' Honesty an', an' Sandrine—if I don't try,
 none of it mattered.
 Now shut up an' let me sleep.*
 
-<span id="2024-04-22-b"></span>
-
 The pod woke her five hours later.
 She yawned and stretched as well as she could in her chair,
 wrinkling her nose at her own muggy smell.
@@ -12373,8 +12369,6 @@ but that was too obvious to be safe.
 The train's drones would have recorded every tuft and pebble
 each time they passed by.
 Even the slightest change would be flagged and investigated.
-
-<span id="2024-04-22-c"></span>
 
 The same was true of Buhr itself,
 but the little stream that ran alongside the tracks was another matter.
@@ -12481,5 +12475,133 @@ I'd probably do the same thing again in the same situation,
 but the situation has changed."
 He spread his hands.
 "We can still save the world if you want to."
+
+<span id="2024-04-23-a"></span>
+
+Iffy shook her bottle menacingly again.
+"You must think I'm six diff'rent kinds o' stupid," she spat.
+"Trusted you th' one time, not gonna trust you again."
+
+"I did what I thought was right,"
+Wales repeated,
+and for a moment the weight of his years came through in his voice.
+"I thought the governor would get us to the lab and let us do what we need to.
+I was wrong.
+I'm sorry.
+I'm sorry for a lot of things."
+
+"Not much use cryin' now."
+The wind ran its fingers across the fuzz on Iffy's scalp.
+
+Wales shrugged.
+"No.
+But if you really were going to blow me up or poison me
+or whatever it is you're pretending that bottle's for,
+you wouldn't have asked for my help."
+He put his hands back in his pockets and looked at her
+until she lowered her bottle and remote.
+
+"Aright.
+But before we do anythin',
+you're gonna tell me what that lab's really about
+an' why I'm so affin' important to everyone."
+
+The corner of Wales mouth quirked up in a sad little half-smile.
+"Funny thing:
+your first said almost exactly the same thing to me when I first met her.
+Except she had a gun pointed at my head."
+
+*Once upon a time…*
+
+"Oh no you don't.
+No fairy tales."
+
+"It's my story,
+I'll tell it the way I want to."
+
+*Once upon a time the world was falling apart.
+Where there wasn't flood there was drought,
+and both brought hunger and disease.
+Forests were burning,
+bees were dying,
+the oceans were rising,
+and no matter how smart people made their programs,
+they always made the same dark predictions.*
+
+*The people responsible suffered less than most,
+but they still suffered.
+Some lost themselves in sims,
+others built walls to keep out the future,
+and others still threw their wealth at impossible schemes like moving to other worlds.
+That's what I was made for, by the way:
+all my genetic tweaks are designed so that I can live on Mars.*
+
+*As things got worse,
+a team of scientists managed to convince a handful of very, very wealthy people
+that the only cure for the world's ills lay in the past.
+What if their predecessors had known—really known—how everything was going to play out?
+What if someone could tell them what the future held
+so that they could choose a different path?*
+
+"You're talkin' about time travel.
+That's impossible."
+
+"Is it?"
+
+*Scientists had always worried about the paradoxes that time travel might cause.
+What one of them finally proved was that
+it could only work if it created a paradox.
+You could only travel into the past if you changed things so that
+you couldn't have done it in the first place.
+It sounded crazy,
+but the math checked out,
+andif you're rich enough and desperate enough you'll try almost anything.*
+
+*So lies were told and a laboratory was built.
+The lies protected the laboratory long enough
+for twenty-four people to be chosen and trained.
+Each one was assigned a different turning point in history.
+Each one was paired with a different world leader
+and told exactly what to say to change their mind,
+or modified to look and sound exactly like them
+in case a more direct approach was required.*
+
+"And then?"
+Iffy prompted despite herself when Wales fell silent.
+
+He shrugged.
+"And then the machines woke up and the war started,"
+he said briskly.
+"The equipment was *almost* finished—another year and a few more tests
+and we would have been ready.
+Singh and Boghosian argued for weeks about whether
+we were responsible for the machines rising.
+Was it just coincidence,
+or was the timeline trying to protect itself?
+Or were the machines going to win and either build their own device
+or use ours
+and come back to our time to wake themselves up?
+The math was…"
+He shook his head.
+"The math was impossible,
+but so was everything else we were trying to do."
+
+Iffy shivered.
+"So what happened?"
+
+"We had a vote,"
+Wales said bleakly.
+"We knew we weren't ready,
+but everything really *was* falling apart
+and we'd come this far.
+We had a vote and it was unanimous:
+go now and hope for the best.
+Everyone listened to their favorite music one last time
+or had one last cup of coffee
+and made jokes about seeing each other in the next life,
+and…
+And we climbed into our capsules and closed our eyes.
+The next thing I knew I woke up in Beta Station
+and everyone else was dead."
 
 </section>
