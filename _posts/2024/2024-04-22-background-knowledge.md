@@ -112,6 +112,12 @@ particularly if you want to avoid skipping things that you have known for so lon
 that you forget they needed to be learned.
 As always, [your thoughts are appreciated](mailto:{{site.author.email}}).
 
+> The solution to #1 is that the program has to be called `pre-commit` not `pre-commit.sh`.
+> This makes sense once you know it,
+> but so does the Fundamental Theorem of Calculus.
+> What would someone have to know in order to figure this out on their own,
+> and what examples will motivate them to learn those things before they need them in this case?
+
 [git-hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 [stack-overflow]: https://stackoverflow.com/questions/49912695/git-pre-and-post-commit-hooks-not-running
 [sys-tutorial]: https://gvwilson.github.io/sys-tutorial
