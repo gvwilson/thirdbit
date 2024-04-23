@@ -13,7 +13,7 @@ than I do with user interfaces,
 so the learning I'd have to do myself was daunting.
 
 Then I stumbled over [this tutorial][lorgat_tutorial] by [Wasim Lorgat][lorgat]
-and everything suddenly became a whole lot easier.
+and everything became a whole lot easier.
 Lorgat starts with nothing more than `import curses`
 and builds up a Nano-style editor one step at a time,
 carefully explaining each trap someone might stumble into along the way.
