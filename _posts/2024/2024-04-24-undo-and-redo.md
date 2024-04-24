@@ -5,7 +5,7 @@ year: 2024
 ---
 
 [Chapter 24: Undo and Redo][sdxpy_undo]
-is a direct continuation of [the previous one][sdxpy_viewer],
+is a direct continuation of [Chapter 23][sdxpy_viewer],
 which felt a bit like cheating on my "one hour per topic" rule
 but was unavoidable.
 Having created a curses-based file viewer,
@@ -32,7 +32,7 @@ but wanting to know how it worked was,
 quite seriously,
 one of the things that made me become a programmer.
 Forty-three years later,
-I hope I've managed to pass on just a little of my long-ago sense of wonder.
+I hope I've managed to pass on how magical it once felt.
 
 <img class="centered" src="{{'/sdxpy/undo/concept_map.svg' | relative_url}}" alt="Concept map for undo and redo"/>
 
