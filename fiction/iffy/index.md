@@ -12476,19 +12476,19 @@ but the situation has changed."
 He spread his hands.
 "We can still save the world if you want to."
 
-<span id="2024-04-23-a"></span>
+<span id="2024-04-24-a"></span>
 
 Iffy shook her bottle menacingly again.
 "You must think I'm six diff'rent kinds o' stupid," she spat.
 "Trusted you th' one time, not gonna trust you again."
 
 "I did what I thought was right,"
-Wales repeated,
-and for a moment the weight of his years came through in his voice.
+Wales repeated.
 "I thought the governor would get us to the lab and let us do what we need to.
 I was wrong.
-I'm sorry.
-I'm sorry for a lot of things."
+I'm sorry."
+For a moment the weight of his years came through in his voice.
+"I'm sorry for a lot of things."
 
 "Not much use cryin' now."
 The wind ran its fingers across the fuzz on Iffy's scalp.
@@ -12502,106 +12502,112 @@ He put his hands back in his pockets and looked at her
 until she lowered her bottle and remote.
 
 "Aright.
-But before we do anythin',
-you're gonna tell me what that lab's really about
-an' why I'm so affin' important to everyone."
+But before we go anywhere you're gonna tell me what that lab's really about
+an' why everyone's so in'rested in me."
 
-The corner of Wales mouth quirked up in a sad little half-smile.
-"Funny thing:
-your first said almost exactly the same thing to me when I first met her.
-Except she had a gun pointed at my head."
-
-*Once upon a time…*
+The corner of Wales mouth quirked up.
+"Your first said almost exactly the same thing to me when I first met her,
+except she had an actual gun pointed at my head.
+So, once upon a time…"
 
 "Oh no you don't.
 No fairy tales."
 
 "It's my story,
 I'll tell it the way I want to."
+He closed the lid of his toolbox and sat down on it,
+patting a spot beside him.
+Iffy just glared at him.
 
-*Once upon a time the world was falling apart.
+Wales shrugged and leaned forward to put his elbows on his knees.
+"Once upon a time the world was falling apart.
 Where there wasn't flood there was drought,
 and both brought hunger and disease.
 Forests were burning,
-bees were dying,
 the oceans were rising,
-and no matter how smart people made their programs,
-they always made the same dark predictions.*
+species were disappearing every day,
+and no matter what people did,
+their models kept making the same dark predictions."
 
-*The people responsible suffered less than most,
+"The people responsible suffered less than most,
+of course,
 but they still suffered.
-Some lost themselves in sims,
-others built walls to keep out the future,
+Some lost themselves in sims.
+Others built walls to protect their little kingdoms,
 and others still threw their wealth at impossible schemes like moving to other worlds.
-That's what I was made for, by the way:
-all my genetic tweaks are designed so that I can live on Mars.*
+As things got worse,
+a few of us managed to convince some of them
+that the only solution was to move to Hell."
 
-*As things got worse,
-a team of scientists managed to convince a handful of very, very wealthy people
-that the only cure for the world's ills lay in the past.
-What if their predecessors had known—really known—how everything was going to play out?
-What if someone could tell them what the future held
-so that they could choose a different path?*
+"Upload themselves?"
+Iffy scoffed.
+"An' then what,
+you take their money while they're all bein' torn apart by malware?"
 
-"You're talkin' about time travel.
-That's impossible."
-
-"Is it?"
-
-*Scientists had always worried about the paradoxes that time travel might cause.
-What one of them finally proved was that
-it could only work if it created a paradox.
-You could only travel into the past if you changed things so that
-you couldn't have done it in the first place.
-It sounded crazy,
-but the math checked out,
-andif you're rich enough and desperate enough you'll try almost anything.*
-
-*So lies were told and a laboratory was built.
-The lies protected the laboratory long enough
-for twenty-four people to be chosen and trained.
-Each one was assigned a different turning point in history.
-Each one was paired with a different world leader
-and told exactly what to say to change their mind,
-or modified to look and sound exactly like them
-in case a more direct approach was required.*
-
-"And then?"
-Iffy prompted despite herself when Wales fell silent.
-
+Wales shook his head.
+"No.
+I mean,
+I wouldn't have cried if that happened.
+Trust me,
+anyone that rich makes the governor look like a saint.
+No,
+the idea was that we would imprint ourselves on the entire global network
+so that we could fix the things no one else could.
+People had tried it before,
+but…"
 He shrugged.
-"And then the machines woke up and the war started,"
-he said briskly.
-"The equipment was *almost* finished—another year and a few more tests
-and we would have been ready.
-Singh and Boghosian argued for weeks about whether
-we were responsible for the machines rising.
-Was it just coincidence,
-or was the timeline trying to protect itself?
-Or were the machines going to win and either build their own device
-or use ours
-and come back to our time to wake themselves up?
-The math was…"
-He shook his head.
-"The math was impossible,
-but so was everything else we were trying to do."
+"We thought we had a couple of new angles,
+and we were desperate."
 
-Iffy shivered.
+He stared past her at the horizon.
+"So we did the whole mad scientist thing with a secret underground lair
+and a double-secret lab underneath that
+and locked the door behind us.
+Nothing in, nothing out, just two dozen of the smartest human beings alive
+and enough equipment to settle on Mars."
+He chuckled and pointed at his chest.
+"Did I ever tell you that's actually what I was supposed to do?
+All my genetic tweaks and this stuff in my head—it's all left over
+from some previous bunch of mad scientists and *their* plan for saving the world."
+
 "So what happened?"
+Iffy asked despite herself after a few moments of silence.
 
 "We had a vote,"
 Wales said bleakly.
-"We knew we weren't ready,
-but everything really *was* falling apart
-and we'd come this far.
-We had a vote and it was unanimous:
-go now and hope for the best.
+"We weren't ready,
+but honestly,
+we didn't know if we ever would be,
+and things were getting worse faster than anyone had predicted.
+We argued for a couple of days
+and finally decided to go for it and hope for the best.
 Everyone listened to their favorite music one last time
 or had one last cup of coffee
 and made jokes about seeing each other in the next life,
-and…
-And we climbed into our capsules and closed our eyes.
-The next thing I knew I woke up in Beta Station
-and everyone else was dead."
+and then we climbed into our capsules and closed our eyes.
+The next thing I knew I was on the floor of Beta Station
+and everyone else was dead.
+Everyone except you."
+
+Iffy stared at him.
+"Me?"
+she asked,
+but somehow she already knew what he was going to say next.
+
+"Mm hm."
+He took a small app out of his pocket and swiped.
+"Don't worry,
+it's completely off the network.
+Here."
+
+He turned it around and held it out.
+An older version of her own face looked back at her.
+"Your first's name wasn't Ang Kwan,"
+he said quietly.
+"It was Jing-mei Yuen.
+And while all of us were working on our project
+you somehow found a way to work on one of your own.
+You're the only other person from the team who survived,
+and I think you're the reason the machines woke up."
 
 </section>
