@@ -12715,3 +12715,123 @@ one four two three thumb.
 "Let's go save th' affin' world."
 
 </section>
+
+<section markdown="1">
+
+<span id="2024-04-25-b"></span>
+
+## Chapter 14
+
+It took half an hour to collect the other two bags that Wales had thrown off the train.
+Iffy didn't ask how he had snuck aboard without being detected,
+or how he had managed to get off.
+As they trudged back to the waiting escape pod her thoughts were on her First.
+Third had mostly looked after her with Fourth's occasional grudging help.
+Iffy could remember an old woman with dark eyes and a sun-wrinkled face,
+but that was about all.
+
+Dinner was a double helping of cold ration bars.
+*At least these ones taste diff'rent,*
+Iffy thought as she chewed and swallowed.
+
+Wales waited until she was done before giving her the rest of his news.
+Halley's governor was locked away somewhere,
+Paddington's was missing,
+Brazilian ships were patrolling the coast,
+and the *Guinevere* was still docked in Rothera.
+"As bait," he shrugged.
+
+She nodded and gave him an abbreviated version of her escape with Iñacio
+and what had happened in Bharati.
+His expression soured when she described the imprinted soldiers she had encountered.
+"I've always wondered what actually happened.
+But yours is just…gone?"
+
+Iffy shrugged.
+"I think so.
+Can't talk t' her no more,
+an' I don't think I got any o' her skills.
+Tell you th' truth,
+I kinda miss her.
+It was like havin' a big sister or somethin'."
+She hesitated.
+"Any chance you seen Aunt Naggie or Honesty?
+De got der call-up just before things blew up."
+
+"You can blame the governor for that," Wales said.
+"When Rothera's core told him you two were a thing
+he thought he could der for leverage.
+I'm sorry I didn't—"
+
+"Stop sayin' that."
+Iffy crumpled the ration bar's wrapper into a ball
+and stuffed it into the little recycler Wales had unpacked.
+"Stop sayin' you're sorry about this an' you regret that an' whatever.
+It don't fix anything."
+
+"Sorry,"
+Wales said after a moment's pause,
+then spread his hands when Iffy glared at him.
+
+He stood and stretched.
+"We probably shouldn't stay here much longer.
+How about I rig myself a seat on this crash bucket of yours
+while you figure out what we're going to do next?"
+
+"I already know th' what,"
+she said.
+"What I gotta figure out is how."
+She hesitated,
+remembering what had happened when she and Sandrine had stolen the hovercraft.
+"Don't s'pose you brought any o' my medicine with you?"
+
+Wales shook his head.
+"Sorry, but—okay, okay, um,
+*unfortunately* it would have been too risky.
+As far as I know the only supply in Rothera is on board your ship,
+and if I'd tried to get it…"
+He shrugged,
+not needing to finish his sentence.
+
+"Yeah."
+Iffy rummaged around for a moment,
+then pulled a sterile wipe out of the escape pod's medical kit,
+tore it in half,
+and stuffed the pieces in her nostrils.
+"Here we go."
+
+*Imagine being born with cataracts in your eyes,
+unable to see anything more than blurs of light.
+Now imagine that one day someone removed them.
+You would still only see blurs
+because your brain would never have had a chance to learn that
+this pattern is a wall
+and this other pattern is a chair.
+People might have told you that things looked smaller if they were far away,
+but the words alone wouldn't mean anything.
+It would be weeks or months before you could make sense of
+the signals your eyes were now able to send to your brain,
+but it would get easier with practice.*
+
+*Later,
+lying in a sleeping bag in a tent two hundred kilometers away
+while Wales spread a net of thermally superconductive cables around them
+to hide the heat of their bodies from infrared sensors,
+Iffy wondered whether talking to the machines was getting easier
+because she had been doing it more often
+or because of her time with Sandrine
+or because she now knew where her ability had come from.
+In the end she decided it didn't matter.
+What mattered was that diving into that other world of information
+felt more like opening her eyes
+each time she did it.
+Finding what she wanted was no more difficult now than reaching for a cup of tea,
+and what had once seemed as chaotic as the Dance Hall market in Rothera
+was now full of currents and rhythms and poetry.
+She didn't understand it yet,
+but for the first time she felt that she might.*
+
+*And for the first time,
+she had a plan.*
+
+</section>
