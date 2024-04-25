@@ -12476,8 +12476,6 @@ but the situation has changed."
 He spread his hands.
 "We can still save the world if you want to."
 
-<span id="2024-04-24-a"></span>
-
 Iffy shook her bottle menacingly again.
 "You must think I'm six diff'rent kinds o' stupid," she spat.
 "Trusted you th' one time, not gonna trust you again."
@@ -12506,7 +12504,7 @@ But before we go anywhere you're gonna tell me what that lab's really about
 an' why everyone's so in'rested in me."
 
 The corner of Wales mouth quirked up.
-"Your first said almost exactly the same thing to me when I first met her,
+"Your First said almost exactly the same thing to me when I first met her,
 except she had an actual gun pointed at my head.
 So, once upon a time…"
 
@@ -12600,14 +12598,120 @@ He took a small app out of his pocket and swiped.
 it's completely off the network.
 Here."
 
+<span id="2024-04-25-a"></span>
+
 He turned it around and held it out.
 An older version of her own face looked back at her.
-"Your first's name wasn't Ang Kwan,"
+"Her name wasn't Ang Kwan,"
 he said quietly.
 "It was Jing-mei Yuen.
 And while all of us were working on our project
-you somehow found a way to work on one of your own.
-You're the only other person from the team who survived,
-and I think you're the reason the machines woke up."
+she somehow found a way to work on one of her own.
+She's the only other person from the team who survived.
+Your First was a tweaked clone of her,
+and I think she's the reason the machines woke up."
+
+She burst out laughing.
+After a moment Wales began to chuckle too.
+"Well, it's not quite the reaction I was expecting,"
+he started.
+
+"You—you—"
+Iffy hiccupped.
+"You're skew.
+D'you seriously 'spect me t' b'lieve that?"
+She lowered her voice.
+"Oh, Iffy, you're th' chosen one.
+Only you can save th' world."
+
+"Your First said pretty much the same thing before she shot me,"
+Wales observed drily,
+tapping his chest with one finger.
+"It took me twenty years to track her down.
+I don't know how she got to Cape Town or what happened to Jing-mei.
+All I know is that she had the same talent you do.
+Somehow she could—"
+He took a deep breath.
+"Somehow *you* can talk to them and get them to talk back.
+Not just trade deals and warnings about no-go zones but actual conversations."
+
+"So that makes th' machine wars my fault?"
+Iffy shot back angrily.
+
+Wales cocked his head.
+"How old were you when you started seeing things?
+Eight?
+Nine?
+If your First got her abilities at the same age,
+that would be almost exactly the time the machines woke up.
+It's quite a coincidence."
+
+"And there's another thing,"
+he continued as she opened her mouth to protest.
+"I'm good with tech—really good by most people's standards—and
+the people and cores working for the governors are at least as good.
+We should have been able to track you and your elders down in minutes,
+but somehow you all managed to stay hidden."
+
+He looked up at the sky as if he could see the machines' satellites orbiting overhead.
+For all Iffy knew, he actually could.
+"Someone up there likes you, Iffy.
+Someone or something has been looking out for you your whole life."
+
+A lifetime of hurt and anger boiled up inside Iffy.
+"Go t' hell,"
+she spat.
+"Wasn't anyone lookin' out for th' *Guinevere* when she went under
+an' everyone drowned.
+Wasn't anyone lookin' out for me 'cept Aunt Naggie when we were in dock
+an' th' other kids knocked me around 'cuz I was bad luck.
+What I got,
+I got 'cuz o' *me*,
+not some— some—"
+She wiped her sleeve angrily across her face.
+
+"I'm sorry,"
+Wales said for the third time.
+"I wish I'd been there."
+
+For a minute the only sound was the wind and the distant *skee-rawk* of a lonely gull.
+"Why'd she shoot you?"
+Iffy finally asked.
+
+Wales shrugged.
+"I didn't give her a chance to get to know me
+before I dumped the whole save-the-world thing on her shoulders.
+And when she said no,
+I tried to make her do it anyway.
+That was a mistake."
+
+Something clicked in Iffy's head.
+"So bumpin' into me at th' Sandhus…"
+
+"Wasn't exactly by chance, no.
+But the drugs you've been getting?
+Those are straight from the machines.
+I stole a few grains once when you were younger, and—"
+He shrugged again.
+"Like I said, I'm pretty good with tech,
+but I have no idea what it does or how the tweaks inside you work.
+All I know is that I'm a hundred and forty-one years old
+and I'm tired of making things worse."
+
+He patted the toolbox.
+"I brought everything you asked for.
+What happens now is up to you.
+If you want my help, it's yours.
+If you want me to walk away and let you do this yourself,
+I'll do that instead.
+People like me and the governors,
+we've had our chance.
+It's your turn now."
+
+Iffy drummed her fingers on the palm of her hand.
+One two three four thumb,
+one four two three thumb.
+"Aright," she said.
+"Let's go save th' affin' world."
 
 </section>
