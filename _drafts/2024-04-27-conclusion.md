@@ -56,11 +56,13 @@ Until then:
 > co-written three,
 > and edited or co-edited six.
 > One was moderately popular,
-> but it's pretty clear that the era of the programming book has passed.
-> There are other ways to teach;
-> I hope you'll explore some of them with me in the years to come.
+> but I may have learned more from writing the others than all their readers put together.
+> There's [one more book][btt] I want to revise;
+> if you'd like to help,
+> please [get in touch](mailto:{{site.author.email}}).
 
 <a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
+[btt]: {{'/btt/' | relative_url}}
 [sdxpy_finale]: {{'/sdxpy/finale/' | relative_url}}

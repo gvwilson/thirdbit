@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../logo.svg">
+<link rel="stylesheet" href="../tango.css" type="text/css">
+<link rel="stylesheet" href="../mccole.css" type="text/css">
+<title>Building Tech Together &middot; Research</title>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']]
+    }
+  };
+</script>
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </head>
+  <body>
+    <main>
+      <div class="row notex">
+  <div class="col-12 center">
+    
+      <h1>Research</h1>
+    
+  </div>
+</div>
+
+      
+<nav class="row-always notex">
+  <div class="col-1 left">
+    <a href="../process/" title="previous" class="undecorated">&#8678;</a>
+  </div>
+  <div class="col-10 center">
+    <a href="../" title="home" class="undecorated">&#9737;</a>
+  </div>
+  <div class="col-1 right">
+    <a href="../fairness/" title="next" class="undecorated">&#8680;</a>
+  </div>
+</nav>
+
+
+      
+      <p class="terms">Terms defined: 
+<a class="gl-ref" href="../glossary/#gl:brooks_law" markdown="1">Brook's Law</a>, <a class="gl-ref" href="../glossary/#gl:code_metric" markdown="1">code metric</a>, <a class="gl-ref" href="../glossary/#gl:cognitive_bias" markdown="1">cognitive bias</a>, <a class="gl-ref" href="../glossary/#gl:cognitive_dimensions" markdown="1">cognitive dimensions of notation</a>, <a class="gl-ref" href="../glossary/#gl:dead_code" markdown="1">dead code</a>, <a class="gl-ref" href="../glossary/#gl:fmri" markdown="1">functional magnetic resonance imaging</a>, <a class="gl-ref" href="../glossary/#gl:gqm" markdown="1">goal-question-metric</a>, <a class="gl-ref" href="../glossary/#gl:myers_briggs" markdown="1">Myers-Briggs Type Indicator</a>, <a class="gl-ref" href="../glossary/#gl:ocean_model" markdown="1">OCEAN model</a>, <a class="gl-ref" href="../glossary/#gl:root_cause" markdown="1">root cause</a>, <a class="gl-ref" href="../glossary/#gl:scottish_verdict" markdown="1">Scottish verdict</a>
+</p>
+      <p>Researchers have been studying programs and programmers since at least the
+1960s; while there are many unknowns, they have learned a lot about what works
+and what doesn&rsquo;t.  Sadly, most people in industry still don&rsquo;t know what we know
+or even what kinds of questions we have answers for. One reason is their belief
+that software engineering research is divorced from real-world problems; another
+is that many programmers haven&rsquo;t done any science themselves since high school.
+The average biology students does thirty to forty experiments during their
+undergraduate degree; the average computer science student may only do one, so
+it&rsquo;s not surprising that computer science graduates don&rsquo;t understand or value
+the scientific method.</p>
+<p>A third reason is that many people would rather fail than change. People cling
+to creationism, refuse to accept the reality of anthropogenic climate change, or
+insist that vaccines cause autism. Given that, it&rsquo;s not surprising that many
+programmers continue to act as if a couple of quotations from a tech
+entrepreneur who struck it lucky constitute &ldquo;proof&rdquo;.</p>
+<p>This chapter therefore presents a few evidence-based results that are relevant
+to the kind of work you may be doing in your project and that your instructor
+might want to incorporate into your course <span class="bib-ref">[<a class="bib-ref" href="../bib/#Fagerholm2017">Fagerholm2017</a>]</span>.  If you
+find them interesting and want to dig further, <a href="../methods/">Appendix&nbsp;B</a> describes the
+methods software engineering researchers use.  As with all research, though,
+some caution is required when interpreting results:</p>
+<dl>
+<dt>Theories change as more data becomes available.</dt>
+<dd>Software engineering is a comparatively young discipline—the term itself
+wasn&rsquo;t used until 1968—so it would be surprising if everything we think
+we know turned out to be true.</dd>
+<dt>Most of these studies&rsquo; subjects are WEIRD.</dt>
+<dd>They are from Western, Education, Industrialized, Rich, and Democratic
+societies <span class="bib-ref">[<a class="bib-ref" href="../bib/#Henrich2010">Henrich2010</a>]</span>, and may not be representative of the
+other 99% of humanity.</dd>
+<dt>The data we have doesn&rsquo;t capture everything.</dt>
+<dd><span class="bib-ref">[<a class="bib-ref" href="../bib/#Aranda2009">Aranda2009</a>]</span> found that in every one of the bugs they traced,
+some key insight or action wasn&rsquo;t captured digitally. Similarly,
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Herzig2013">Herzig2013</a>]</span> carefully examined thousands of bug reports from
+several projects and found that many mis-report themselves in ways that will
+inevitably skew the results of simplistic analysis.</dd>
+</dl>
+<p>Historically, juries in Scotland were allowed to return one of <a class="gl-ref" href="../glossary/#gl:scottish_verdict" markdown="1">three verdicts</a>: innocent,
+guilty, or not proven.  The world would be a better place if we were all more
+comfortable saying, &ldquo;I don&rsquo;t know,&rdquo; and with changing our minds as new evidence
+comes in.</p>
+<h2>What Do We Know About Programmer Productivity?</h2>
+<p>Let&rsquo;s start our exploration of research results with the often-repeated claim
+that some programmers are ten times more
+productive than others.  Is it actually true?  The short answer is, &ldquo;It&rsquo;s
+complicated.&rdquo;  As <span class="bib-ref">[<a class="bib-ref" href="../bib/#Prechelt2019">Prechelt2019</a>]</span> shows, the answer depends on what
+exactly the question is intended to mean. Looking at exactly the same data, you
+could conclude that some programmers are 105 times more productive than
+others—except this doesn&rsquo;t take into account whether people&rsquo;s code actually
+works or what language they were using.</p>
+<p>If you only look at one language, the ratio goes down to 17:1, but that&rsquo;s still
+comparing the very best to the very worst.  Now the discussion starts to get
+statistical: if you compare the median of the slower half of programmers with
+the median of the top 10%, the ratio is 5:1 or 11:1, depending on whether you
+use everyone in the sample or restrict it to those who used the same language
+respectively.</p>
+<p><span class="bib-ref">[<a class="bib-ref" href="../bib/#Sadowski2019a">Sadowski2019a</a>]</span> summarizes of what we know, and more importantly, how
+to think about the problem.  The chapter <span class="bib-ref">[<a class="bib-ref" href="../bib/#Sadowski2019b">Sadowski2019b</a>]</span> lays out a
+three-axis framework for discussion based on the
+<a class="gl-ref" href="../glossary/#gl:gqm" markdown="1">goal-question-metric</a> approach.
+The more recent SPACE framework looks at
+Satisfaction, Performance, Activity, Communication, and Efficiency
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Forsgren2018">Forsgren2018</a>, <a class="bib-ref" href="../bib/#Forsgren2021">Forsgren2021</a>]</span>.  However productivity is measured, it&rsquo;s
+important to remember <a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">Goodhart&rsquo;s
+Law</a>: as soon as you use some measure to evaluate people it
+ceases to be a good measure because people will start to game the system.  For
+example, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Gitinabard2020">Gitinabard2020</a>]</span> reports that it&rsquo;s possible to classify
+student software teams as collaborative, cooperative, or solo-submit by
+analyzing the history of their version control repositories. If these measures
+are ever used for grading, students will immediately start making extra commits
+(or fewer, or whatever else is needed) in order to get the &ldquo;right&rdquo; profile.</p>
+<p>Another thing to keep in mind is the way that privilege defines performance.
+People naturally value the things they&rsquo;re good at, so the people who define the
+criteria for high performance tend to emphasize things that just happen to give
+them high scores.  As Kenneth Wesson wrote in <span class="bib-ref">[<a class="bib-ref" href="../bib/#Littky2004">Littky2004</a>]</span>, &ldquo;If poor
+inner-city children consistently outscored children from wealthy suburban homes
+on standardized tests, is anyone naïve enough to believe that we would still
+insist on using these tests as indicators of success?&rdquo;</p>
+<div class="callout">
+<h3>What don&rsquo;t you want to know?</h3>
+<p><span class="bib-ref">[<a class="bib-ref" href="../bib/#Begel2014">Begel2014</a>]</span> asked one set of developers what questions they most
+wanted researchers to answer, then asked another set of developers to rate those
+questions.  Respondents favored questions about how customers typically use
+their applications, but were opposed questions related to assessing the
+performance of individual employees or comparing them with one another;
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Huijgens2020">Huijgens2020</a>]</span> found that data scientists viewed most possible
+research topics the same way.</p>
+</div>
+<h2>What Do We Know About Programming Style?</h2>
+<p>As we mentioned in <a href="../tooling/">Chapter&nbsp;16</a>, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Stefik2013">Stefik2013</a>]</span> found that
+languages like C, Java, and Perl were as hard for people to learn as a language with a
+randomly designed syntax, while languages like Ruby and
+Python were significantly easier to learn. This result
+is one of several showing that a programming language is a user interface that
+can be studied and evaluated like any other.</p>
+<p>For example, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Stylos2007">Stylos2007</a>]</span> assessed how programmers use APIs with
+required parameters in objects&rsquo; constructors as opposed to parameterless default
+constructors. They hypothesized that required parameters would create more
+usable and self-documenting APIs by guiding programmers toward the correct use
+of objects and preventing errors. Contrary to expectations, programmers strongly
+preferred and were more effective with APIs that did not require constructor
+parameters.  They then analyzed subjects&rsquo; behavior using the
+<a class="gl-ref" href="../glossary/#gl:cognitive_dimensions" markdown="1">cognitive dimensions</a>
+framework, which showed that that requiring constructor parameters interfered
+with common learning strategies.</p>
+<p><span class="bib-ref">[<a class="bib-ref" href="../bib/#Binkley2012">Binkley2012</a>]</span> reported that reading and
+understanding code is fundamentally different from reading prose: &ldquo;…the more
+formal structure and syntax of source code allows programmers to assimilate and
+comprehend parts of the code quite rapidly independent of style.  In
+particular…beacons and program plans play a large role in comprehension.&rdquo;  It
+also found that experienced developers are relatively unaffected by identifier
+style, so just to use consistent style in all examples.  Since most languages
+have style guides (e.g., <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> for Python) and tools to check that code follows
+these guidelines.  In contrast, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Schankin2018">Schankin2018</a>]</span> found that:</p>
+<blockquote>
+<p>With descriptive identifier names, developers spent more time in the lines of
+code before the actual defect occurred and changed their reading direction less
+often, finding the semantic defect about 14% faster than with shorter but less
+descriptive identifier names. These effects disappeared when developers searched
+for a syntax error, i.e., when no in-depth understanding of the code was
+required. Interestingly, the style of identifier names had a clear impact on
+program comprehension for more experienced developers but not for less
+experienced developers.</p>
+</blockquote>
+<p>More recently, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Floyd2017">Floyd2017</a>, <a class="bib-ref" href="../bib/#Krueger2020">Krueger2020</a>, <a class="bib-ref" href="../bib/#Peitek2021">Peitek2021</a>]</span> have used
+<a class="gl-ref" href="../glossary/#gl:fmri" markdown="1">fMRI</a> to look at what programmers&rsquo;
+brain do when they are reading or writing code. The main findings are that
+reading code is cognitively different from reading prose, but that the more
+experienced programmers are, the less of a difference there is. This
+corroborates earlier work with eye
+tracking like <span class="bib-ref">[<a class="bib-ref" href="../bib/#Hansen2013">Hansen2013</a>]</span>, which also found that experience
+increases performance in most cases, but can actually <em>hurt</em> performance when
+assumptions about what code is supposed to do are violated (i.e., when the eye
+sees what the brain expects).</p>
+<p><span class="bib-ref">[<a class="bib-ref" href="../bib/#Kernighan1999">Kernighan1999</a>]</span> wrote, &ldquo;Programmers are often encouraged to use long
+variable names regardless of context.  This is a mistake: clarity is often
+achieved through brevity.&rdquo;  Lots of programmers believe this, but
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Hofmeister2017">Hofmeister2017</a>]</span> found that using full words in variable names led to an
+average of 19% faster comprehension compared to letters and abbreviations.  In
+contrast, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Beniamini2017">Beniamini2017</a>]</span> found that using single-letter variable
+names didn&rsquo;t affect novices&rsquo; ability to modify code.  This may be because their
+programs are shorter than professionals&rsquo; or because some single-letter variable
+names have implicit types and meanings.  For example, most programmers assume
+that <code>i</code>, <code>j</code>, and <code>n</code> are integers and that <code>s</code> is a string, while <code>x</code>, <code>y</code>,
+and <code>z</code> are either floating-point numbers or integers more or less equally.</p>
+<p>Similarly, programmers have argued for decades about whether variables&rsquo; data types should have to
+be declared or not, usually based on their personal experience as professionals
+rather than on any kind of data.
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Hanenberg2013">Hanenberg2013</a>, <a class="bib-ref" href="../bib/#Endrikat2014">Endrikat2014</a>, <a class="bib-ref" href="../bib/#Fischer2015">Fischer2015</a>]</span> found that requiring
+variable type declarations does add some complexity to programs, but it pays off
+by acting as documentation for a method&rsquo;s use—in particular, by forestalling
+questions about what&rsquo;s available and how to use it. <span class="bib-ref">[<a class="bib-ref" href="../bib/#Gao2017">Gao2017</a>]</span> looked
+at how many bugs in JavaScript programs would have been caught if the code had
+been written in TypeScript (which adds types), and came up with a figure of 15%, which is
+either low (one in seven) or high (sales tax) depending on how you want to look
+at it.</p>
+<h2>What Can We Learn From Analyzing Code?</h2>
+<p>If engineering is applied science, then <span class="bib-ref">[<a class="bib-ref" href="../bib/#Eichberg2015">Eichberg2015</a>]</span> is a great
+example of software engineering.  In it, the authors show that it&rsquo;s possible to
+identify a wide range of problems in code by comparing the actual flow graph (which is the set of all possible paths through
+the program) with the abstract
+interpretation flow graph (which is the set of all paths once possible
+data values are taken into account).  To make this more concrete, the control
+flow graph for:</p>
+<div class="language-py" title="flow_graph.py">
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># 01</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># 02</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># 03</span>
+</code></pre></div>
+</div>
+<p>includes the statement on line 3, but the abstract interpretation flow graph
+doesn&rsquo;t, because there&rsquo;s no way it could ever be executed given the possible
+value(s) of <code>x</code>.  Code paths that are never executed signal
+<a class="gl-ref" href="../glossary/#gl:dead_code" markdown="1">dead code</a>, which in turn usually signals logic errors, such
+as use of <code>and</code> instead of <code>or</code> in a logical test.  The results from this kind
+of analysis are impressive: the authors found that a lot of code in widely-used
+libraries is littered with unnecessary <code>null</code> checks, and that even experienced
+developers don&rsquo;t seem to understand Boolean operators as well as they should.</p>
+<p>Program analysis can tell us many other things as well, all of which should
+influence the design of future systems. For example, Python, JavaScript, and
+many other languages are dynamically
+typed, while statically
+typed languages like Java that restrict variables to particular types of
+data. <span class="bib-ref">[<a class="bib-ref" href="../bib/#Akerblom2015">Akerblom2015</a>]</span> looked at how often Python programs actually
+rely on dynamic typing, and found that it was taken advantage of in only 2.5% of
+cases. Adding generics (i.e., type declarations like <code>Array&lt;int&gt;</code>) only makes
+half a percent of difference.  This doesn&rsquo;t mean that languages shouldn&rsquo;t
+include more complex type systems, but it does (or should) mean that the onus is
+on their designers to show that the complexity is worthwhile.</p>
+<p>Meanwhile, lots of people say that copy-pasting code is bad practice: if you
+find yourself creating code clones, you should put
+the repeated code in its own method and call it from all the original copies
+(<a href="../design/">Chapter&nbsp;11</a>).  But when <span class="bib-ref">[<a class="bib-ref" href="../bib/#Kapser2008">Kapser2008</a>]</span> explored <em>why</em>
+developers create code clones, they found that code clones are OK in some cases:</p>
+<blockquote>
+<p>…the results of the case study identify a set of patterns that are most often
+harmful, namely <em>verbatim snippets</em> and <em>parameterized code</em>. While there were
+several examples of good usage of these clone patterns, the majority were deemed
+harmful. This may be an indication that developers should avoid this form of
+cloning. On the other hand several patterns were found to be mostly good:
+<em>boiler-plating</em>, <em>replicate and specialize</em>, and <em>cross-cutting
+concerns</em>. While not always good, when used with care (as with any form of
+design or implementation decision) these patterns are more likely to achieve an
+overall beneficial effect on the software system.</p>
+</blockquote>
+<h2>What Do We Know About the Quality of Software?</h2>
+<p>The answer to the question in this section&rsquo;s title is, &ldquo;A lot, and it&rsquo;s not good
+news.&rdquo; For example, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Nakshatri2016">Nakshatri2016</a>]</span> looked at how exceptions are actually used in Java
+programs.  Rather than being used to make software more robust, exceptions are
+either ignored or used as a debugging aid.  For example, the most common <code>catch</code>
+block is one that logs the error rather than trying to recover from it; the next
+most common are to do nothing at all (20% of cases), or to convert the checked
+exception into an unchecked exception so that it can be ignored.  Similarly,
+most programmers ignore Java&rsquo;s elaborate exception hierarchy and simply catch
+<code>Exception</code> (78%) or <code>Throwable</code> (84%) rather than any of their more specific
+subclasses.</p>
+<p>In a similar vein, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Yuan2015">Yuan2015</a>]</span> analyzed the <a class="gl-ref" href="../glossary/#gl:root_cause" markdown="1">root cause</a> of around 200 confirmed failures
+in large distributed systems. They report many findings, but the key one is that
+92% of the catastrophic system failures are the result of incorrect handling of
+non-fatal errors explicitly signaled in software, i.e., the software said,
+&ldquo;Something&rsquo;s wrong,&rdquo; but nothing was in place to handle the error. In 58% of
+those cases, the underlying faults could easily have been detected through
+simple testing of error-handling code.  The lesson is clear: make sure your
+tests check that your program does the right thing when things go wrong.</p>
+<p>One reason things go wrong is that developers don&rsquo;t make use of the tools they
+have. <span class="bib-ref">[<a class="bib-ref" href="../bib/#Beller2019">Beller2019</a>]</span> monitored 2,443 software engineers over the course
+of 2.5 years in four IDEs. They found
+that:</p>
+<blockquote>
+<p>…half of the developers in our study does not test; developers rarely run their
+tests in the IDE; only once they start testing, do they do it heftily; most
+programming sessions end without any test execution; only a quarter of test
+cases is responsible for three quarters of all test failures; 12% of tests show
+flaky behavior; Test-Driven Development is not widely practiced; and software
+developers only spend a quarter of their time engineering tests, whereas they
+think they test half of their time.</p>
+</blockquote>
+<p>Another factor that affects quality is how comprehensible the software is: in
+particular, how easy or difficult it is to set it up.  <span class="bib-ref">[<a class="bib-ref" href="../bib/#Xu2015">Xu2015</a>]</span>
+looked at how often various configuration
+parameters are actually used, and how correctly; they report that:</p>
+<ul>
+<li>
+<p>Only a small percentage (6.1%-16.7%) of configuration parameters are set by
+    the majority of users; a significant percentage (up to 54.1%) of parameters
+    are rarely set by any user.</p>
+</li>
+<li>
+<p>A small percentage (1.8%-7.8%) of parameters are configured by more than 90%
+    of the users.</p>
+</li>
+<li>
+<p>A significant percentage (up to 47.4%) of numeric parameters have no more than
+    five distinct settings among all the users&rsquo; settings.  Similarly, for
+    enumerative parameters with many options, typically only two to three of the
+    options are actually used by the users, indicating once again the
+    over-designed flexibility.</p>
+</li>
+<li>
+<p>Too many knobs do come with a cost: users encounter tremendous difficulties in
+    knowing which parameters should be set among the large configuration
+    space. This is reflected by the following two facts: (1) a significant
+    percentage (up to 48.5%) of configuration issues are about users&rsquo;
+    difficulties in finding or setting the parameters to obtain the intended
+    system behavior; (2) a significant percentage (up to 53.3%) of configuration
+    errors are introduced due to users&rsquo; staying with default values incorrectly.</p>
+</li>
+</ul>
+<p>That said, most software actually <em>does</em> run despite the fact that programmers
+don&rsquo;t do things the &ldquo;right&rdquo; way. One possible reason comes from the study of
+trivial packages reported in <span class="bib-ref">[<a class="bib-ref" href="../bib/#Abdalkareem2017">Abdalkareem2017</a>]</span>, which looked at
+230,000 NPM packages and 38,000 JavaScript applications. It turns out that less
+than half of the trivial packages include tests; instead, they are &ldquo;deployment
+tested&rdquo;, i.e., their authors fix the breakages that users report, so that while
+they might not work in all situations, they work in all situations that matter.</p>
+<div class="callout">
+<h3>What <em>can&rsquo;t</em> we learn?</h3>
+<p>Many people have put forward
+<a class="gl-ref" href="../glossary/#gl:code_metric" markdown="1">code metrics</a>
+that are supposed to measure the
+complexity or likely number of bugs in a piece of software. However,
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#ElEmam2001">ElEmam2001</a>]</span> found that these metrics are no better at predicting
+things than simply counting the number of lines of code, because the longer the
+program is, the more likely it is to contain whatever kinds of problems those
+more sophisticated metrics are looking for.</p>
+</div>
+<h2>What Do We Know About Software Projects?</h2>
+<p>If there is one &ldquo;law&rdquo; of software development that most practitioners have heard
+of, it is <a class="gl-ref" href="../glossary/#gl:brooks_law" markdown="1">Brooks&rsquo; Law</a>: adding people
+to a late project makes it later. <span class="bib-ref">[<a class="bib-ref" href="../bib/#Meneely2011">Meneely2011</a>]</span> explores the
+correlation between adding people to a team and the quality of the software the
+team works on.  The paper reports that adding people is correlated with a later
+increase in software quality, but adding them too quickly (that is, at a faster
+pace than in previous months) is correlated with a <em>decrease</em> in quality.  This
+is puzzling because theoretically, adding people to a project increases its
+coordination costs, which in turn should impact all metrics of team success
+negatively, including quality.</p>
+<p><span class="bib-ref">[<a class="bib-ref" href="../bib/#Meneely2011">Meneely2011</a>]</span> isn&rsquo;t an isolated finding: <span class="bib-ref">[<a class="bib-ref" href="../bib/#Mockus2010">Mockus2010</a>]</span>
+found that more newcomers are not correlated with more defects, which supports
+this finding. One possibility is that newcomers are assigned easy tasks, and so
+they can&rsquo;t really break things too dramatically or in a way that won&rsquo;t get
+caught internally in time. Another possibility is that the product has matured
+over time—that software quality would go up no matter the team size simply
+because there&rsquo;s less new functionality added as time goes on.</p>
+<p><span class="bib-ref">[<a class="bib-ref" href="../bib/#Posnett2011">Posnett2011</a>]</span> present an interesting twist on this. In the open
+source projects they studied, they found that although code changes in general
+are associated with future defect fixing activity, as we might expect, those
+changes that correspond to new feature development and to code improvements are
+<em>not</em>. That&rsquo;s interesting and counter-intuitive—one would expect new feature
+code commits to be among the buggiest. The authors offer a possible explanation:
+well-established open source projects tend to be quite conservative, and new
+feature code is heavily scrutinized, so that most defects are found and sorted
+out before the code is integrated.</p>
+<p>Another surprising result comes from <span class="bib-ref">[<a class="bib-ref" href="../bib/#Khomh2012">Khomh2012</a>]</span>. They examined the
+effects of Mozilla&rsquo;s switch from a yearly (or longer) release cycle to a much
+more frequent cycle. Their raw material is bug and crash data; their conclusions
+are:</p>
+<ol>
+<li>
+<p>Users experience crashes earlier during the execution of versions developed
+    following a rapid release model.</p>
+</li>
+<li>
+<p>The Firefox rapid release model fixes bugs faster than using the traditional
+    model, but fixes proportionally less bugs.</p>
+</li>
+<li>
+<p>With a rapid release model, users adopt new versions faster compared to the
+    traditional release model.</p>
+</li>
+</ol>
+<p>The third is good news; the second is (mostly) good, but the first is a puzzle
+for which the authors don&rsquo;t have an explanation.</p>
+<p>One of the many reasons software projects fail is poor estimation, and one of
+the reasons people estimate badly is that they don&rsquo;t keep track of what&rsquo;s
+happened before. <span class="bib-ref">[<a class="bib-ref" href="../bib/#McIntosh2011">McIntosh2011</a>]</span> provides a baseline for both how much
+effort is required to keep the build system in working order, and how much those
+figures can be improved:</p>
+<blockquote>
+<p>…despite the difference in scale, the build system churn rate is comparable to
+that of the source code, and build changes induce more relative churn on the
+build system than source code changes induce on the source code. Furthermore,
+build maintenance yields up to a 27% overhead on source code development and a
+44% overhead on test development. Up to 79% of source code developers and 89%
+of test code developers are significantly impacted by build maintenance, yet
+investment in build experts can reduce the proportion of impacted developers
+to 22% of source code developers and 24% of test code developers.</p>
+</blockquote>
+<p>How reliable are results like these?  To find out, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Anda2009">Anda2009</a>]</span> had
+four teams build the same software independently and in parallel so that they
+could look at which outcomes were reproducible and which were not:</p>
+<ul>
+<li>
+<p>High reproducibility: actual lead time and usability</p>
+</li>
+<li>
+<p>Medium reproducibility: planned development process and cost</p>
+</li>
+<li>
+<p>Low reproducibility: firm price, planned schedule, schedule overrun,
+    reliability, and maintainability</p>
+</li>
+</ul>
+<p>Putting something in the &ldquo;low&rdquo; category here doesn&rsquo;t mean that it was uniformly
+poor.  Instead, it means that there was wide variation, i.e., that results were
+unpredictable.  Their results match software engineering folklore, and are a
+guide to what research should focus on improving.</p>
+<h2>What Do We Know About the Psychology of Programming?</h2>
+<p>Do happy programmers produce better code?
+If they do, then focusing on their tools may be missing the point: it may be
+their environment and colleagues that matter more.  Unfortunately, researchers
+haven&rsquo;t yet discovered how to induce happiness, so a randomized controlled trial
+isn&rsquo;t an option. Instead, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Graziotin2014">Graziotin2014</a>]</span> measured emotional state
+using a questionnaire developed by psychology researchers.  They divided up the
+study participants into positive and non-positive groups, then looked at how
+those groups performed on an analytical task and a creative task.  The positive
+group did better at the analytic task, but there was no statistically
+significant difference on the creative task.</p>
+<p>The broader topic of
+personality also comes up in discussions of pair programming: do you need
+to be an extrovert to reap its benefits, is the contrast in personality with
+your peer important, and so on. Several studies have addressed these questions;
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Hannay2010">Hannay2010</a>]</span> is a good place to start reading about them.  As they
+say, &ldquo;We found no strong indications that personality affects pair programming
+performance or pair gain in a consistent manner.&rdquo; They go on to suggest that
+industry and research should &ldquo;focus on other predictors of performance,
+including expertise and task complexity&rdquo; instead, as these factors overshadow
+any personality effects.</p>
+<div class="callout">
+<h3>Myers-Briggs and other danger signs</h3>
+<p>The <a class="gl-ref" href="../glossary/#gl:myers_briggs" markdown="1">Myers-Briggs Type Indicator</a>
+advertises itself as personality profiling tool.  It is popular on dating sites
+and some companies use it as part of their interview process—despite the fact
+that it is complete bullshit.  Half or more of people who repeat the test within
+a few weeks get a different personality classification, it fails to predict job
+performance, and its categories are based on outdated (and very Western-centric)
+psychological theories.  If a potential employer asks you to do it as part of
+the interview process, ask them if they would like a horoscope as well.</p>
+<p>Myers-Briggs has given the whole notion of personality profiling a bad
+reputation, but there are models of personality that have a scientific basis and
+are repeatable and cross-cultural.  For example, the <a class="gl-ref" href="../glossary/#gl:ocean_model" markdown="1">OCEAN
+model</a> has five dimensions: Openness to experience, Conscientiousness,
+Extraversion, Agreeableness, and Neuroticism. Studies of twins and other
+research has found that about half of personality variation comes from genetics
+and about half from environment, and work like <span class="bib-ref">[<a class="bib-ref" href="../bib/#Hannay2010">Hannay2010</a>]</span> has used
+this model in studies of programmers.</p>
+</div>
+<h2>What Do We Know About Innate Ability?</h2>
+<p>The most important result in this chapter comes from <span class="bib-ref">[<a class="bib-ref" href="../bib/#Patitsas2016">Patitsas2016</a>]</span>.
+Its abstract is worth repeating in
+full:</p>
+<blockquote>
+<p>Although it has never been rigourously demonstrated, there is a common belief
+that CS grades are bimodal. We statistically analyzed 778 distributions of final
+course grades from a large research university, and found only 5.8% of the
+distributions passed tests of multimodality. We then devised a psychology
+experiment to understand why CS educators believe their grades to be bimodal.</p>
+<p>We showed 53 CS professors a series of histograms displaying ambiguous
+distributions and asked them to categorize the distributions. A random half of
+participants were primed to think about the fact that CS grades are commonly
+thought to be bimodal; these participants were more likely to label ambiguous
+distributions as bimodal. Participants were also more likely to label
+distributions as bimodal if they believed that some students are innately
+predisposed to do better at CS. These results suggest that bimodal grades are
+instructional folklore in CS, caused by confirmation bias and instructor beliefs
+about their students.</p>
+</blockquote>
+<p>In plain language, if some people are born programmers and others aren&rsquo;t, there
+ought to be two humps in the grade distribution. There isn&rsquo;t, but if people
+believe some people are &ldquo;just better&rdquo; at coding, they&rsquo;re more likely to <em>see</em>
+two humps. These beliefs matter because they are a self-fulfilling prophecy
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Brophy1983">Brophy1983</a>]</span>: if a teacher believes that student A is more likely to
+succeed than student B, they will give student A more attention, which <em>makes</em>
+them more likely to succeed, which confirms the teacher&rsquo;s bias.</p>
+<h2>Where Should We Go Next?</h2>
+<p>Some of the most interesting work in software engineering today is coming from
+people studying how we think when we program and how the ways we think should
+shape the tools we build. For example, <span class="bib-ref">[<a class="bib-ref" href="../bib/#Johnson2020">Johnson2020</a>]</span> reverse
+engineers the cognitive foundations of user interface guidelines, while
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Chattopadhyay2020">Chattopadhyay2020</a>]</span> found that roughly 70% of the actions programmers
+later undo could be attributed to <a class="gl-ref" href="../glossary/#gl:cognitive_bias" markdown="1">cognitive bias</a>.</p>
+<p>You don&rsquo;t have to do a PhD to do this kind of research: you can gather and
+analyze data on your own, or collaborate with people in academia.  It takes time
+and there are frequent setbacks, but the same is true of programming, and being
+the first person in the world to understand something is a feeling like no
+other.</p>
+    </main>
+    <footer>
+  © 2024 <a href="https://third-bit.com/">Greg Wilson</a>
+  &middot;
+  <a href="../">home</a>
+  &middot;
+  <a href="https://github.com/gvwilson/buildtogether.tech">repository</a>
+  &middot;
+  <a href="../license/">license</a>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../logo.svg">
+<link rel="stylesheet" href="../tango.css" type="text/css">
+<link rel="stylesheet" href="../mccole.css" type="text/css">
+<title>Building Tech Together &middot; Using Git Together</title>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']]
+    }
+  };
+</script>
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </head>
+  <body>
+    <main>
+      <div class="row notex">
+  <div class="col-12 center">
+    
+      <h1>Using Git Together</h1>
+    
+  </div>
+</div>
+
+      
+<nav class="row-always notex">
+  <div class="col-1 left">
+    <a href="../git-solo/" title="previous" class="undecorated">&#8678;</a>
+  </div>
+  <div class="col-10 center">
+    <a href="../" title="home" class="undecorated">&#9737;</a>
+  </div>
+  <div class="col-1 right">
+    <a href="../ip/" title="next" class="undecorated">&#8680;</a>
+  </div>
+</nav>
+
+
+      
+      <p class="terms">Terms defined: 
+<a class="gl-ref" href="../glossary/#gl:code_review" markdown="1">code review</a>, <a class="gl-ref" href="../glossary/#gl:feigning_surprise" markdown="1">feigning surprise</a>, <a class="gl-ref" href="../glossary/#gl:fork_git" markdown="1">fork</a>, <a class="gl-ref" href="../glossary/#gl:pull_request" markdown="1">pull request</a>
+</p>
+      <p>Version control really comes into
+its own when we are working with other people.  People can share work through a
+Git repository in one of two ways <span class="bib-ref">[<a class="bib-ref" href="../bib/#Irving2021">Irving2021</a>]</span>:</p>
+<ol>
+<li>
+<p>Everyone has read and write access to a single shared
+    repository.</p>
+</li>
+<li>
+<p>Everyone can read from the project&rsquo;s main repository, but only a few people
+    can commit changes to it.  The project&rsquo;s other contributors
+    <a class="gl-ref" href="../glossary/#gl:fork_git" markdown="1">fork</a>
+    the main repository to create one that they own,
+    do their work in that, and then submit their changes to the main repository.</p>
+</li>
+</ol>
+<p>The first approach works well for teams of up to half a dozen people, so we will
+focus on it. If the project is larger, or if contributors are worried that they
+might make a mess in the <code>main</code> branch, the second approach is safer.</p>
+<div class="callout">
+<h3>When to commit</h3>
+<p>When you&rsquo;re working on your own, it&rsquo;s natural to fall into a rhythm of updating
+your laptop from your repository in the morning and committing whatever you&rsquo;ve
+managed to accomplish when you wrap up for the day. You need to break this habit
+when you become part of a team. Instead, you should commit when you finish a chunk of work that moves the
+project forward or is fit for someone else to review. A good rule is &ldquo;never
+break the build&rdquo; (<a href="../automation/">Chapter&nbsp;15</a>), i.e., never commit anything that
+doesn&rsquo;t run well enough to pass all existing tests.</p>
+</div>
+<h2>Using Git Together</h2>
+<p>Suppose Amira and Sami are working together on a course.  They decided at the
+start of semester that Sami would host the project repository in her GitHub
+account, so they created <code>https://github.com/sami/bst</code> and gave Amira permission
+to push to it. They have both cloned that repository to their laptops to start
+work on homework 5.</p>
+<p>We will modify Amira&rsquo;s prompt to include her desktop user ID (<code>amira</code>) and
+working directory (initially <code>~</code>, meaning &ldquo;home directory&rdquo;) to make it easier to
+follow what&rsquo;s happening.  First, she updates her desktop repository to make sure
+she is starting with the most recent set of files:</p>
+<div class="language-sh" title="git_pull.sh">
+<div class="highlight"><pre><span></span><code>amira:~<span class="w"> </span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>bst
+amira:~/bst<span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+amira:~/bst<span class="w"> </span>$<span class="w"> </span>ls
+</code></pre></div>
+</div>
+<div class="language-out" title="git_pull.out">
+<div class="highlight"><pre><span></span><code>LICENSE.md   README.md    hw1/    hw2/    hw3/    hw4/
+</code></pre></div>
+</div>
+<p>Amira creates a new directory for homework 5 and adds a copy of the assignment spec:</p>
+<div class="language-sh" title="first_commit.sh">
+<div class="highlight"><pre><span></span><code>amira:~/bst<span class="w"> </span>$<span class="w"> </span>mkdir<span class="w"> </span>hw5
+amira:~/bst<span class="w"> </span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>hw5
+amira:~/bst<span class="w"> </span>$<span class="w"> </span>cp<span class="w"> </span>~/Downloads/Assignment5.txt<span class="w"> </span>hw5/spec.txt
+amira:~/bst<span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
+amira:~/bst<span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Adding homework 5 spec&quot;</span>
+</code></pre></div>
+</div>
+<div class="language-out" title="first_commit.out">
+<div class="highlight"><pre><span></span><code>[main f5f7d30] Adding homework 5 spec
+ 1 files changed, 132 insertions(+)
+</code></pre></div>
+</div>
+<p>She then pushes her changes to the shared repository:</p>
+<div class="language-sh" title="first_push.sh">
+<div class="highlight"><pre><span></span><code>amira:~/bst<span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+</div>
+<div class="language-out" title="first_push.out">
+<div class="highlight"><pre><span></span><code>Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 485 bytes | 485.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:sami/bst.git
+   f5f7d30..433a2d5  main -&gt; main
+</code></pre></div>
+</div>
+<p>And no, Git&rsquo;s
+output here isn&rsquo;t particularly useful to anyone except people who are
+debugging Git&rsquo;s internals.</p>
+<p>Amira&rsquo;s changes are now on her desktop computer and in the GitHub repository but
+not on Sami&rsquo;s laptop. They can get them by running:</p>
+<div class="language-sh" title="second_pull.sh">
+<div class="highlight"><pre><span></span><code>sami:~/bst<span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+</div>
+<p>But what if Sami is working on some changes to homework 4 (which homework 5
+builds on)? She could just make her changes and push, but that would lead to a
+lot of merge conflicts.  Instead, almost everyone uses
+<a class="gl-ref" href="../glossary/#gl:pull_request" markdown="1">pull requests</a> (PR).
+A PR is essentially a note saying, &ldquo;Someone would like to merge branch A into branch B&rdquo;.
+The PR does not contain the changes, but instead points at two particular
+branches.  That way, the difference displayed is always up to date if either
+branch changes.</p>
+<p>But a PR can store more than just the source and destination branches: it can
+also store comments people have made
+about the proposed merge.  Users can comment on the PR as a whole, or on
+particular lines, and mark comments as out of date if the author of the PR
+updates the code that the comment is attached to.  Complex changes can go
+through several rounds of review and revision before being merged, which makes
+PRs the review system we all wish journals actually had.</p>
+<p>To see this in action, suppose Sami wants to add their email address to
+<code>README.md</code>.  They create a new branch and switch to it:</p>
+<div class="language-sh" title="create_branch.sh">
+<div class="highlight"><pre><span></span><code>sami:~/bst<span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>adding-email
+</code></pre></div>
+</div>
+<p>then make a change and commit it:</p>
+<div class="language-sh" title="commit_branch.sh">
+<div class="highlight"><pre><span></span><code>sami:~/bst<span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Adding my email address&quot;</span>
+</code></pre></div>
+</div>
+<p>(Notice that Sami uses the <code>-a</code> option to <code>git commit</code> to add all changes and
+commit them in a single step. This is both convenient and dangerous.)</p>
+<p>Sami&rsquo;s changes are only in their local repository.  They cannot create a pull
+request until those changes are on GitHub, so they push their new branch to
+their repository on GitHub:</p>
+<div class="language-sh" title="git_push_branch.sh">
+<div class="highlight"><pre><span></span><code>sami:~/bst<span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>adding-email
+</code></pre></div>
+</div>
+<p>When Sami views their repository in the browser, GitHub notices that they have
+just pushed a new branch and asks them if they want to create a PR.  When they
+click on the button, GitHub displays a page showing the default source and
+destination of the PR and a pair of editable boxes for the pull request&rsquo;s title
+and a longer comment.</p>
+<p>If they scroll down, Sami can see a summary of the changes that will be in the
+PR.  When they click &ldquo;Create Pull Request&rdquo;, Git gives it a unique serial number.  This is <em>not</em> a commit ID;
+instead, each PR in a particular repository is given a sequential ID.</p>
+<p>Clicking on the &ldquo;Pull requests&rdquo; tab in the repository brings up a list of PRs
+and clicking on the PR link itself displays its details.  Since there are no
+conflicts in this PR, GitHub will let Sami or Amira merge it immediately using
+the &ldquo;Merge pull request&rdquo; button.  They could also discard or reject it without
+merging using the &ldquo;Close pull request&rdquo; button.</p>
+<p>But instead, the next time Amira has a few minutes to work on the assignment she
+clicks the &ldquo;Files changed&rdquo; tab in the PR to see what Sami has changed. She can
+review the changes line-by-line and suggest changes; we&rsquo;ll discuss this more in
+the next section. Once they are both happy with the changes, either of them can
+merge the PR into the main branch. They can both then update their local copies
+and be sure that they are synchronized.</p>
+<p>If there are any conflicts along the way, Sami and Amira can resolve them just
+as they would resolve conflicts between branches in a single repository.  GitHub
+and other portals do allow people to merge conflicts through their browser-based
+interfaces, but doing it on our desktop means we can use our favorite editor to
+resolve the conflict.  It also means that if the change affects the project&rsquo;s
+code, we can run everything to make sure it still works.</p>
+<p>But what if Sami merges another PR while Amira is resolving this one?  In theory
+this cycle could go on forever; in
+practice, it reveals a communication problem that the team needs to address.  If
+two or more people are constantly making incompatible changes to the same files,
+they should discuss who&rsquo;s supposed to be doing what, or rearrange the project&rsquo;s
+contents so that they aren&rsquo;t stepping on each other&rsquo;s toes.</p>
+<div class="callout">
+<h3>Trust but verify</h3>
+<p><a href="../automation/">Chapter&nbsp;15</a> describes how to configure Git to run tests each time
+someone tries to commit a change.  The commit only takes effect if those tests
+pass, so the team can ensure that the software is always as good as its tests.</p>
+</div>
+<h2>Commit Messages</h2>
+<p>A <a href="https://duckduckgo.com/">DuckDuckGo</a> search for &ldquo;how to write a good commit message&rdquo; turns up several thousand articles. Most are
+variations on the sample shown below; as with programming style
+(<a href="../research/">Chapter&nbsp;18</a>), the most important thing is being consistent rather than the
+particular rules you follow.</p>
+<div class="language-txt" title="commit_message.txt">
+<div class="highlight"><pre><span></span><code>One-line summary
+
+Detailed explanatory text separated from the summary by a blank line.  (If you
+do this, many tools will treat the first line like the subject of an email and
+the rest of the text as the body.)
+
+Be brief but specific and write your message in the imperative voice, i.e.,
+&quot;Handle indentation in configuration files correctly&quot; rather than &quot;Config file
+indentation.&quot;
+
+- Bullet points are OK (GitHub will format them as a list).  Some other Markdown
+  conventions work too.
+
+If this commit fixes an open issue, refer to it like as shown below. GitHub
+automatically turns things like `#123` into links.
+
+Closes: #123
+</code></pre></div>
+</div>
+<p>The most important thing to remember when writing a commit message is that its
+purpose is to make work easier to find and understand in the future. You
+shouldn&rsquo;t transcribe large chunks of code or duplicate whatever documentation or
+tests you wrote for the feature you added; instead, you should give people
+enough information to figure out whether this is the commit they&rsquo;re looking for
+or not.</p>
+<h2>Code Reviews</h2>
+<p>There&rsquo;s no point creating PRs if they are all merged as-is. The reason they
+exist is to allow <a class="gl-ref" href="../glossary/#gl:code_review" markdown="1">code review</a>.  One study after another since the mid-1970s has proven that code
+review is the most cost-effective way to find bugs in software
+<span class="bib-ref">[<a class="bib-ref" href="../bib/#Cohen2010">Cohen2010</a>]</span>. It is also the most effective way to share knowledge
+between team members: if you read someone else&rsquo;s code, you have a chance to
+learn all the things that you didn&rsquo;t know to ask and they didn&rsquo;t realize they
+should tell you.</p>
+<div class="callout">
+<h3>Do more eyes make for fewer bugs?</h3>
+<p>Some people have claimed that many eyes make all bugs shallow (i.e., easy to
+find), but the evidence doesn&rsquo;t support that claim: <span class="bib-ref">[<a class="bib-ref" href="../bib/#Meneely2014">Meneely2014</a>]</span>
+reports that, &ldquo;…source code files reviewed by more developers are,
+counter-intuitively, more likely to be vulnerable (even after accounting for
+file size). However, files are less likely to be vulnerable if they were
+reviewed by developers who had experience participating on prior
+vulnerability-fixing reviews.&rdquo; In short, <em>whose</em> eyes matters more than how
+many.</p>
+</div>
+<p>There are lots of guides online for doing code reviews, most of them based on
+their authors&rsquo; personal experience. A notable exception is the <a href="https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/">SmartBear
+guide</a>, which draws on a large study of code review in
+industry. The rules below present some of
+their findings with modifications for students&rsquo; situations.</p>
+<dl>
+<dt>Have the instructor do a demonstration review.</dt>
+<dd>Even if you have done code reviews before, you may not know what&rsquo;s expected
+for this class. The instructor can show you by putting up some sample code
+and going through it, thinking aloud as they notice things worth commenting
+on so that you have an idea of how much detail they expected.</dd>
+<dt>Authors should clean up code before review.</dt>
+<dd>If the person creating the PR goes through and adds some more comments,
+cleans up some variable names, and does a bit of refactoring (<a href="../design/">Chapter&nbsp;11</a>), they won&rsquo;t just make
+reviewing easier: the odds are very good that they will find and fix a few
+problems on their own.</dd>
+<dt>Review at most 200 lines of a code at a time.</dt>
+<dd>The SmartBear guide recommends reviewing at most 400 lines at a time, which
+should take 60&ndash;90 minutes. You will probably get there eventually, but in
+our experience it&rsquo;s better to start with something smaller and work up to
+that.  A corollary of this rule is that no PR should be more than 200 lines
+long.  If one is, the odds are that reviewers won&rsquo;t be able to hold it all
+in their head at once (<a href="../thinking/">Appendix&nbsp;A</a>) and so will miss things.</dd>
+<dt>Use checklists.</dt>
+<dd><span class="bib-ref">[<a class="bib-ref" href="../bib/#Gawande2011">Gawande2011</a>]</span> popularized the idea that using
+checklists improves results even
+for experts.  While <span class="bib-ref">[<a class="bib-ref" href="../bib/#Hatton2008">Hatton2008</a>]</span> found no evidence that they made
+a difference to code reviews by professionals, I have found them very useful
+as a starter for students.  If you are new to code reviews, ask the
+instructor for a list of the dozen most common problems to check for, since
+anything more than that is likely to be overwhelming.  (The code quality
+rubric developed in <span class="bib-ref">[<a class="bib-ref" href="../bib/#Stegeman2014">Stegeman2014</a>, <a class="bib-ref" href="../bib/#Stegeman2016">Stegeman2016</a>]</span> is a good
+starting point.)  If you and your teammates have been working together for a
+while, look at your own code reviews and make a list of the things that keep
+coming up.  Having the list will make you more aware of the issues while
+you&rsquo;re coding, which in turn will make you less likely to keep making the
+same mistakes.</dd>
+<dt>Look for algorithmic problems first.</dt>
+<dd>Code review isn&rsquo;t just (or even primarily) about style: its real purpose is
+to find bugs before they can affect anyone.  The first pass over any change
+should therefore look for algorithmic problems.  Are the calculations right?
+Are any rare cases going to be missed?  Are errors being caught and handled?
+Using a consistent style helps reviewers focus on these issues.</dd>
+<dt>Offer alternatives.</dt>
+<dd>Telling authors that something is wrong is helpful; telling them what they
+might do instead is more so.</dd>
+<dt>Don&rsquo;t <a class="gl-ref" href="../glossary/#gl:feigning_surprise" markdown="1">feign surprise</a> or pass judgment.</dt>
+<dd>&ldquo;Gosh, didn&rsquo;t you know [some obscure fact]?&rdquo; isn&rsquo;t helpful; neither is,
+&ldquo;Geez, why don&rsquo;t you [some clever trick] here?&rdquo;</dd>
+<dt>Don&rsquo;t overwhelm people with details.</dt>
+<dd>If someone has used the letter <code>x</code> as a variable name in several places, and
+they shouldn&rsquo;t have, comment on the first two or three and simply put a
+check beside the others—the reader won&rsquo;t need the comment repeated.</dd>
+<dt>Don&rsquo;t try to sneak in feature requests.</dt>
+<dd>Nobody enjoys fixing bugs and style violations.  Asking them to add entirely
+new functionality while they&rsquo;re at it is rude.</dd>
+<dt>Follow up.</dt>
+<dd>The author of the code doesn&rsquo;t have to accept every suggestion, but should
+have a better reason than &ldquo;I don&rsquo;t want to&rdquo; for rejecting any of them.
+GitHub and other platforms allow people to create discussion threads for
+each comment, and will mark threads as being out of date when the pull
+request is updated. Whoever did the review should then scan the changes to
+make sure their points have been addressed, and to give themselves a chance
+to learn a few more things from the author.</dd>
+<dt>Don&rsquo;t tolerate rudeness.</dt>
+<dd>Most code review guidelines say, &ldquo;Be respectful.&rdquo;  The problem is that if
+you are, you probably don&rsquo;t need to be told that, and if you aren&rsquo;t, those
+two works alone won&rsquo;t change your behavior. What <em>will</em> is teammates
+defending the victims of rudeness by telling the offender, &ldquo;That&rsquo;s not how
+we speak to each other.&rdquo;  We&rsquo;ll talk about this more in
+<a href="../fairness/">Chapter&nbsp;19</a>.</dd>
+</dl>
+<p>How we respond to reviews is just as
+important:</p>
+<dl>
+<dt>Be specific in replies to reviewers.</dt>
+<dd>If someone has suggested a better variable name, you can probably simply fix
+it.  If someone has suggested a major overhaul to an algorithm, you should
+reply to their comment to point at the commit that includes the fix.</dd>
+<dt>Thank your reviewers.</dt>
+<dd>If someone has taken the time to read your code carefully, thank them for
+doing it.</dd>
+</dl>
+<p>So what does a code review actually look like? Here&rsquo;s a Python program that
+searches for duplicated files. <a class="tbl-ref" href="../git-team/#collaborate-code-review">Table&nbsp;7.1</a> shows the
+comments I left when reviewing it.</p>
+<div class="language-py" title="dup.py">
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python                                       # 01</span>
+<span class="c1"># 02</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>  <span class="c1"># 05</span>
+<span class="kn">import</span> <span class="nn">os</span>  <span class="c1"># 04</span>
+<span class="kn">import</span> <span class="nn">sys</span>  <span class="c1"># 03</span>
+
+<span class="c1"># 06</span>
+<span class="n">IGNORES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;.git&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;node_modules&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.cache&quot;</span><span class="p">,</span>  <span class="c1"># 07</span>
+    <span class="s2">&quot;.DS_Store&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.dropbox&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Thumbs.db&quot;</span><span class="p">,</span>
+<span class="p">]</span>  <span class="c1"># 08</span>
+<span class="n">SENSES</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;--unique&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;--duplicate&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>  <span class="c1"># 09</span>
+<span class="c1"># 10</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>  <span class="c1"># 11</span>
+    <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;--unique&quot;</span><span class="p">:</span>  <span class="c1"># 12</span>
+        <span class="n">unique</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># 13</span>
+    <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;--duplicate&quot;</span><span class="p">:</span>  <span class="c1"># 14</span>
+        <span class="n">unique</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># 15</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># 16</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unknown sense&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 17</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 18</span>
+        <span class="c1"># 19</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>  <span class="c1"># 20</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">roots</span><span class="p">:</span>  <span class="c1"># 21</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">]</span>  <span class="c1"># 22</span>
+        <span class="c1"># 23</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># 24</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 25</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">:</span>  <span class="c1"># 26</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>  <span class="c1"># 27</span>
+        <span class="c1"># 28</span>
+    <span class="n">report</span><span class="p">(</span><span class="n">unique</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>  <span class="c1"># 29</span>
+    <span class="c1"># 30</span>
+    <span class="c1"># 31</span>
+
+
+<span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>  <span class="c1"># 32</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">filenames</span><span class="p">)</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>  <span class="c1"># 33</span>
+        <span class="n">ignore</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># 34</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">IGNORES</span><span class="p">:</span>  <span class="c1"># 35</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dirpath</span><span class="p">:</span>  <span class="c1"># 36</span>
+                <span class="n">ignore</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># 37</span>
+        <span class="k">if</span> <span class="n">ignore</span><span class="p">:</span>  <span class="c1"># 38</span>
+            <span class="k">continue</span>  <span class="c1"># 39</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># 40</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 41</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>  <span class="c1"># 42</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>  <span class="c1"># 43</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>  <span class="c1"># 44</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>  <span class="c1"># 45</span>
+                <span class="k">continue</span>  <span class="c1"># 46</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>  <span class="c1"># 47</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># 48</span>
+                <span class="n">digest</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>  <span class="c1"># 49</span>
+                <span class="k">if</span> <span class="n">digest</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">found</span><span class="p">:</span>  <span class="c1"># 50</span>
+                    <span class="n">found</span><span class="p">[</span><span class="n">digest</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># 51</span>
+                <span class="n">found</span><span class="p">[</span><span class="n">digest</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># 52</span>
+    <span class="k">return</span> <span class="n">count</span>  <span class="c1"># 53</span>
+    <span class="c1"># 54</span>
+    <span class="c1"># 55</span>
+
+
+<span class="k">def</span> <span class="nf">report</span><span class="p">(</span><span class="n">unique</span><span class="p">,</span> <span class="n">found</span><span class="p">):</span>  <span class="c1"># 56</span>
+    <span class="k">for</span> <span class="n">digest</span> <span class="ow">in</span> <span class="n">found</span><span class="p">:</span>  <span class="c1"># 57</span>
+        <span class="n">paths</span> <span class="o">=</span> <span class="n">found</span><span class="p">[</span><span class="n">digest</span><span class="p">]</span>  <span class="c1"># 58</span>
+        <span class="k">if</span> <span class="n">unique</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># 59</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">paths</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>  <span class="c1"># 60</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="ow">not</span> <span class="n">unique</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># 61</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">paths</span><span class="p">)))</span>  <span class="c1"># 62</span>
+            <span class="c1"># 63</span>
+            <span class="c1"># 64</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># 65</span>
+    <span class="n">main</span><span class="p">()</span>  <span class="c1"># 66</span>
+</code></pre></div>
+</div>
+<table id="collaborate-code-review"><caption>Table&nbsp;7.1: Code Review</caption>
+<thead>
+<tr>
+<th>Line(s)</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>02</td>
+<td>Add a [%g docstring &ldquo;docstring&rdquo; %] describing the program.</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Put imports in alphabetical order.</td>
+</tr>
+<tr>
+<td>07</td>
+<td>Use a set instead of a list for faster lookup.</td>
+</tr>
+<tr>
+<td></td>
+<td>One entry per line will be easier to read.</td>
+</tr>
+<tr>
+<td>09</td>
+<td><code>SENSES</code> isn&rsquo;t used anywhere: delete.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Add a docstring describing this function.</td>
+</tr>
+<tr>
+<td>12-22</td>
+<td>Use <code>argparse</code> to handle options.</td>
+</tr>
+<tr>
+<td>12-22</td>
+<td>Put option handling in its own function.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Print error message to <code>sys.stderr</code>.</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Add a docstring describing this function.</td>
+</tr>
+<tr>
+<td>34-39</td>
+<td>Use <code>any</code> instead of a loop to check this.</td>
+</tr>
+<tr>
+<td>41</td>
+<td>[%g magic_number &ldquo;Magic number&rdquo; %] 10.</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Provide option to control progress reporting.</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Use <code>'rb'</code> to read files as binary.</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Add a docstring describing this function.</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Why <code>paths.pop()</code>?</td>
+</tr>
+</tbody>
+</table>
+    </main>
+    <footer>
+  © 2024 <a href="https://third-bit.com/">Greg Wilson</a>
+  &middot;
+  <a href="../">home</a>
+  &middot;
+  <a href="https://github.com/gvwilson/buildtogether.tech">repository</a>
+  &middot;
+  <a href="../license/">license</a>
+</footer>
+
+  </body>
+</html>
