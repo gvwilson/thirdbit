@@ -50,6 +50,16 @@ Until then:
 <p>Help who you can.</p>
 </div>
 
+> Postscript:
+> It's been a good run.
+> Since 1991 I have written five technical books,
+> co-written three,
+> and edited or co-edited six.
+> One was moderately popular,
+> but it's pretty clear that the era of the programming book has passed.
+> There are other ways to teach;
+> I hope you'll explore some of them with me in the years to come.
+
 <a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
 </a>
 
