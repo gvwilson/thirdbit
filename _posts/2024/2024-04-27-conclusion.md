@@ -36,33 +36,35 @@ but when asked to explain,
 we run out of meaning long before any reasonably intelligent industrial designer
 runs out of things to say about the design of a toenail clipper.
 
-In retrospect,
-this is what I have been groping toward for the last twenty-five years.
+In retrospect this is what I have been groping toward for the last twenty-five years.
 I haven't succeeded,
 but I hope this book will help us get a little closer.
-I hope that some day we'll be able to talk about the beauty of software,
+I hope that some day we'll be able to talk meaningfully about the beauty of software,
 because it *is* beautiful and we deserve to have ways to say that.
 Until then:
 
 <div class="center">
-<p>Start where you are.</p>
-<p>Use what you have.</p>
-<p>Help who you can.</p>
+<p>
+Start where you are.
+<br>
+Use what you have.
+<br>
+Help who you can.
+</p>
 </div>
+
+<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a>
 
 > Postscript:
 > It's been a good run.
 > Since 1991 I have written five technical books,
 > co-written three,
-> and edited or co-edited six.
-> One was moderately popular,
-> but I may have learned more from writing the others than all their readers put together.
-> There's [one more book][btt] I want to revise;
+> and edited or co-edited six,
+> one of them was moderately popular.
+> I'd like to finish [one more book][btt] before they go out of fashion entirely;
 > if you'd like to help,
 > please [get in touch](mailto:{{site.author.email}}).
-
-<a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="{{'/sdxpy/sdxpy-cover.png' | relative_url}}" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
-</a>
 
 [btt]: {{'/btt/' | relative_url}}
 [sdxpy_finale]: {{'/sdxpy/finale/' | relative_url}}
