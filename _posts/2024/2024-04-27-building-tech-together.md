@@ -1,6 +1,6 @@
 ---
 title: "Building Tech Together"
-date: 2024-04-28
+date: 2024-04-27
 year: 2024
 ---
 
@@ -29,14 +29,19 @@ to newcomers who weren't yet sure it would be useful.
 The second point was and is important.
 [Software Carpentry][carpentries],
 [It Will Never Work in Theory][nwit],
-and [*Teaching Tech Together*][t3] all gave learners
-a [ball-and-stick model][balls-and-sticks] that would help them understand the world *right away*;
-If that meant cutting corners and simplifying things,
-so be it.
-What I wanted was [Scratch for the social sciences][scratch-social-sciences],
-but people who already understood these ideas in depth
-were as dismissive of dumbing them down [sic]
-as programmers are of tools like Scratch.
+and [*Teaching Tech Together*][t3] all succeeded because
+they aimed to give learners a [ball-and-stick model][balls-and-sticks]
+rather than teaching them quantum chemistry.
+What I wanted,
+in effect,
+was [Scratch for the social sciences][scratch-social-sciences],
+but the people who could write it seemed to fall into three camps:
+
+1.  They didn't know programmers well enough to talk to them.
+2.  They didn't see why they should dumb down their work
+    (which is like programmers who look down on tools like Scratch because it's not "real").
+3.  They were (justifiably) afraid that if they simplified and cut corners,
+    their colleagues in Group 2 would tear strips off them for being sloppy and unserious.
 
 Six years, four books, and one pandemic later,
 I think it's more important than ever to find a way to explain how the world works
@@ -44,19 +49,22 @@ to [privileged young men who are mostly OK with the present arrangements][seeing
 I know how to get them to parrot back what they need to say in order to get a grade,
 but [that's just going to annoy them][dobbins-kalev].
 
-Which brings us to [*Building Tech Together*][btt].
+Which brings us to the latest version of that guide I wrote,
+which I have tentatively titled [*Building Tech Together*][btt].
 It is currently an uncomfortable and out-of-touch mix of
 technology ("how to use Git with other people"),
 process ("how to run an effective meeting"),
-and polemic ("how preparatory privilege keeps power in the hands of those who have it").
-It doesn't draw nearly enough on recent research on [developer thriving][thriving]
+and polemic ("how preparatory privilege keeps power in the hands of those who already have it").
+It doesn't draw nearly enough on recent research on [developer thriving][thriving],
+much less the work reported at [NWIT][nwit],
 and doesn't even try to describe alternatives to Silicon Valley's [self-justifying bullshit][leadership-bs].
 
 It could, though.
-I think that (for example) an explanation of how to run more effective meetings
+For example,
+I think that an explanation of how to run more effective meetings
 could segue into a discussion of the way that [who interrupts whom][interruptions]
 depends on perceived or desired social status,
-which would in turn give students tools for looking at other social situations more clearly.
+which could in turn give students tools for thinking about who has power and how it is manifested.
 The same ["bait-and-switch for good" approach][first-six-questions]
 has a better chance of getting [the unconverted][unconverted]
 to pay attention than anything else I can think of.
@@ -85,13 +93,9 @@ It's been a privilege to spend so many years thinking and writing about [teachin
 but I think that with great privilege comes great responsibility,
 and that if I don't accept that responsibility,
 [I'm the asshole][aita].
-I don't know what to do next,
-but if you'd like to help,
+I don't know what to do next;
+if you do,
 [I'd like to hear from you](mailto:{{site.author.email}}).
-
-Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
 
 [aita]: https://en.wikipedia.org/wiki/R/AmItheAsshole
 [and-now-to-lead]: {{'/2024/04/19/and-now-to-lead/' | relative_url}}
