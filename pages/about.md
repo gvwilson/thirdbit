@@ -12,10 +12,11 @@ including [*Beautiful Code*][bc],
 [*Making Software*][ms],
 [*The Architecture of Open Source Applications*][aosabook],
 [*Teaching Tech Together*][t3],
-and most recently [*Software Design by Example*][sdxjs].
+and most recently [*Software Design by Example in JavaScript*][sdxjs]
+and [*Software Design by Example in Python*][sdxpy].
 Greg is a member of the [Python Software Foundation][psf]
 and a recipient of [ACM SIGSOFT][sigsoft]'s Influential Educator of the Year award,
-and currently works as a software engineering manager at [Deep Genomics][dg].
+and currently works as a software engineering manager at [Plotly][plotly].
 
 ---
 
@@ -57,14 +58,14 @@ who I'm proud to say [fired me in 2018][datacamp].
 
 More recently I developed an [instructor training and certification program][rstudio-trainers] for RStudio (now Posit)
 and was briefly Head of Education for [Metabase][metabase]
-before becoming a software engineering manager at [Deep Genomics][dg].
+before working as a software engineering manager at [Deep Genomics][dg] and now [Plotly][plotly].
 In my free time I helped build TidyBlocks and [Glosario][glosario]
 and wrote or co-wrote [*Teaching Tech Together*][t3],
 [*JavaScript for Data Science*][js4ds],
 [*Research Software Engineering with Python*][rse-py],
 and a pair of books called *Software Design by Example* in [JavaScript][sdxjs] and [Python][sdxpy].
 if you'd like to chat,
-please [drop me a line](mailto:gvwilson@third-bit.com).
+please [drop me a line](mailto:{{site.author.email}}).
 
 CV (<a href="{{ '/cv/gvwilson.pdf' | relative_url }}">PDF</a>, <a href="{{ '/cv/' | relative_url }}">HTML</a>)
 <br>
@@ -84,6 +85,7 @@ CV (<a href="{{ '/cv/gvwilson.pdf' | relative_url }}">PDF</a>, <a href="{{ '/cv/
 [ms]: https://www.oreilly.com/library/view/making-software/9780596808310/
 [mscac]: https://mscac.utoronto.ca/
 [new-sci]: https://www.newscientist.com/
+[plotly]: https://plotly.com/
 [psf]: https://www.python.org/psf-landing/
 [queens]: http://www.queensu.ca
 [rangle]: http://rangle.io
