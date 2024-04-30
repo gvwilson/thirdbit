@@ -32,7 +32,7 @@ I'd be grateful for [feedback](mailto:{{site.author.email}}) on the list below.
 | —                  | [DVC][dvc]           | preferred to [Git-LFS][git-lfs]                         |            |
 | —                  | [Ark][ark]           | the best little Python SSG I've found                   |            |
 | —                  | [VSCode][vscode]     | mostly for the debugger                                 |            |
-| —                  | [Docker][docker]     | as ubiquitous as Git but much less user-hostile         |            |
+| —                  | [Docker][docker]     | as ubiquitous as Git but <strike>much</strike> less user-hostile |            |
 
 A few notes:
 
