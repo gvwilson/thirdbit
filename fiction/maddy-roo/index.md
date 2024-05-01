@@ -8,7 +8,154 @@ fiction: true
 
 <section markdown="1">
 
+## Prolog
+
+"You keep saying you want us to let you do more,"
+Maddy's father said in his reasonable tone.
+"Well, this is more."
+
+"I didn't mean look after Sindy," she protested,
+knowing that the argument was already lost.
+
+Her father tousled her ears.
+He was wearing his best waistcoat,
+the one with the fireworks embroidered on it,
+and Maddy's mother had brushed his fur and used a dab of beeswax pomade to hold it in place.
+She was upstairs singing Sindy a lullaby.
+Everyone knew Mayor Lupus was going to be re-elected,
+but the vote was still an occasion,
+and occasions were rare enough in Rusty Bridge that people liked to make the most of each one.
+
+"I'll tell you what," Papa Roo said,
+"You do a good job looking after Sindy tonight,
+and the next time I go to Three Posts you can come with me.
+We'll make a day of it, just the two of us.
+Deal?"
+
+Maddy swished her tail and sighed. "Aright."
+
+"That's my girl," Papa Roo chuckled, hugging her.
+"Oh, and now who's this marvel?"
+
+"Hush yourself," Mama Roo said as she came down the stairs
+as quietly as she could.
+She had brushed her own fur until it gleamed
+and was wearing a string of dark beads over her white cotton blouse.
+When Papa Roo offered her his arm and she took it,
+Maddy felt like her heart was swelling in her chest.
+
+After they left,
+Maddy settled into her father's chair with her latest book.
+It was a collection of folk tales about specials and bots.
+The specials were always heroes.
+Some of the bots were wise counselors,
+but most were fickle allies or wicked adversaries,
+and each story ended with the words,
+"And only the stars can tell the rest."
+
+She didn't remember falling asleep—no one ever does—but
+the thud of the book hitting the floor woke her.
+She stretched and yawned.
+*How long was I out?* she wondered, wiping her eyes.
+She had better look in on Sindy.
+
+But her sister was gone.
+Maddy yanked the blanket right off the little bed to look for her,
+then pulled the blanket off the floor to look beneath it.
+Sindy wasn't there.
+She wasn't under the bed either,
+or in the closet or under the dresser,
+which were the two places she always hid when they played hide and seek.
+
+"Sindy!" Maddy called,
+panic rising in her throat.
+"Sindy, where are you? You come out right now!"
+Their parents' bedroom? No.
+Maddy's room? No.
+The hall closet where Mama Roo kept winter clothes in summer and summer clothes in winter?
+No.
+Downstairs?
+Maddy raced through the house,
+frantically calling her sister's name,
+but there was no sign of her.
+
+"No no no no," she moaned.
+How could she have fallen asleep?
+And where could Sindy have—
+
+A faint breeze brushed across her tail.
+She ran to the kitchen.
+The back door was open.
+She was sure she had closed it after bringing in the laundry that afternoon.
+Sindy must have snuck out the back way to follow her parents to the village square.
+
+"You little monster," Maddy said under her breath.
+She crossed the back garden in four long strides
+and hopped over the gate with a single bound.
+She had no idea how much head start Sindy had,
+but Maddy had to catch her before their parents saw her.
+
+She was almost at the main square when a horn blared,
+harsh and mechanical,
+and someone shrieked, "Bots! Bots!"
+
+Maddy raced around the corner of the nearest house and ran straight into chaos.
+Tendrils of black dizzysmoke drifted between the lampposts.
+Half a dozen people lay on the ground,
+unconscious from inhaling the smoke
+or too weakened by it to stand.
+The rest of Rusty Bridge was fleeing in all directions.
+
+A hauler bot on tractor treads rumbled and chugged near the center of the square.
+Maddy watched in horror as two smaller bots picked up a fallen goat
+and slung him into the back of the hauler.
+
+"Sindy!" Papa Roo shouted.
+Maddy's sister lay unconscious on the cobblestones in her nightdress,
+her favorite stuffed spaceman still in her arms.
+One of the bots scooped her up—
+
+—and staggered as Papa Roo jump-kicked it
+right on the swivel joint where its pipestem legs connected to its torso.
+The bot dropped Sindy and spun around.
+Crack!
+One of its arms connected with Papa Roo's head.
+He dropped like a sack of potatoes.
+
+"Papa!" Maddy's scream was lost in the sound of a wolf howling.
+Pikes and axes in their paws,
+the village militia poured into the square.
+
+A bolo whipped over Maddy's head
+and tangled around the head of the bot that had struck her father.
+The bot tore it away
+and tossed her father into the back of the hauler
+with a single mighty heave.
+Metal rang on metal as it knocked aside a pike thrust.
+
+The horn blared again.
+Something with rotors roared by overhead.
+Another canister of dizzysmoke hit the cobblestones,
+forcing the militia to fall back as the bots made their escape.
+
+Everyone told Maddy afterward that it wasn't her fault.
+The ox and the goat who had been on guard duty that night had vanished,
+no doubt the first to be taken as the bots snuck up on the village.
+Three others had been thrown into the hauler along with Maddy's father.
+It would all have happened even if she hadn't fallen asleep,
+even if she hadn't let Sindy wander off.
+If she had tried to help her father,
+she would just have been taken too.
+Everyone told her that,
+but it didn't make any difference.
+
+</section>
+
+<section markdown="1">
+
 ## Salvage
+
+*Two years later…*
 
 Maddy was trying to sketch the willow tree in the village square
 when Gumption showed up with a couple of books under his arm.
@@ -412,8 +559,15 @@ Gumption bumped her hip with his.
 He pointed at the river.
 
 Maddy gasped.
-Salvage!
-And not just a few scraps either,
+There was salvage in the water!
+
+</section>
+
+<section markdown="1">
+
+## Targets Acquired
+
+It wasn't just a few scraps either,
 but a couple of what looked like solar panels
 and some machinery
 and—
@@ -504,12 +658,6 @@ he wouldn't be able to keep his head above water!
 "Danger! Extricate! Extricate!"
 A battered bot burst out of the trees
 and hurtled down the gravel toward them!
-
-</section>
-
-<section markdown="1">
-
-## Targets Acquired
 
 Maddy shrieked and stumbled backwards.
 Her feet slipped on a submerged patch of weeds.
@@ -742,145 +890,6 @@ Maddy demanded.
 
 The bot's lenses rotated again.
 "Tonight."
-
-*Two years earlier…*
-
-*"You keep saying you want us to let you do more," Maddy's father said in his reasonable tone.
-"Well, this is more."*
-
-*"I didn't mean look after Sindy," she protested,
-knowing that the argument was already lost.*
-
-*Her father tousled her ears.
-He was wearing his best waistcoat,
-the one with the fireworks embroidered on it,
-and Maddy's mother had brushed his fur and used a dab of beeswax pomade to hold it in place.
-She was upstairs singing Sindy a lullaby.
-Everyone knew that Mayor Lupus was going to be re-elected,
-but the vote was still an occasion,
-and occasions were rare enough in Rusty Bridge that people liked to make the most of each one.*
-
-*"I'll tell you what," Papa Roo said,
-"You do a good job looking after Sindy tonight,
-and the next time I go to Three Posts you can come with me.
-We'll make a day of it, just the two of us.
-Deal?"*
-
-*Maddy sighed. "Aright."*
-
-*"That's my girl," Papa Roo chuckled, hugging her.
-"Oh, and now who's this marvel?"*
-
-*"Hush yourself," Mama Roo said as she came down the stairs
-as quietly as she could.
-She had brushed her own fur until it gleamed
-and was wearing a string of dark beads over her white cotton blouse.
-When Papa Roo offered her his arm and she took it,
-Maddy felt like her heart was swelling in her chest.*
-
-*After they left,
-Maddy settled into her father's chair with her latest book.
-It was a collection of folk tales about specials and bots.
-The specials were always heroes.
-Some of the bots were wise counselors,
-but most were fickle allies or wicked adversaries,
-and each story ended with the words,
-"And only the stars can tell the rest.".*
-
-*She didn't remember falling asleep—no one ever does—but
-the thud of the book hitting the floor woke her.
-She stretched and yawned.
-How much time had passed? she wondered, wiping her eyes.
-She had better look in on Sindy.*
-
-*But her sister was gone.
-Maddy pulled the blanket right off the little bed to look for her,
-then pulled the blanket off the floor to look under it.
-Sindy wasn't there.
-She wasn't under the bed either,
-or in the closet or under the dresser,
-which were the two places she always hid when they played hide and seek.*
-
-*"Sindy!" Maddy called,
-panic rising in her throat.
-"Sindy, where are you? You come out right now!"
-Their parents' bedroom? No.
-Maddy's room? No.
-The hall closet where Mama Roo kept winter clothes in summer and summer clothes in winter?
-No.
-Downstairs?
-Maddy raced through the house,
-frantically calling her sister's name,
-but there was no sign of her.*
-
-*"No no no no," she moaned.
-How could she have fallen asleep?
-And where could Sindy have—*
-
-*A faint breeze brushed across her tail.
-She ran to the kitchen.
-The back door was open.
-She was sure she had closed it after bringing in the laundry that afternoon.
-Sindy must have snuck out the back way to follow her parents to the village square.*
-
-*"You little monster," Maddy said under her breath.
-She crossed the back garden in four long strides
-and hopped over the gate with a single bouncing leap.
-She had no idea how much head start Sindy had,
-but Maddy had to catch her before their parents saw her.*
-
-*She was almost at the main square when a horn blared,
-harsh and mechanical,
-and someone shrieked, "Bots! Bots!"*
-
-*Maddy raced around the corner of the nearest house and ran straight into chaos.
-Tendrils of black dizzysmoke drifted between the lampposts.
-Half a dozen people lay on the ground,
-unconscious or too weak from inhaling the smoke to stand.
-The rest of Rusty Bridge was fleeing in all directions.*
-
-*A hauler bot on tractor treads rumbled and chugged near the center of the square.
-Maddy watched in horror as two smaller bots picked up a fallen goat
-and slung him into the back of the hauler.*
-
-*"Sindy!" Papa Roo shouted.
-Maddy's sister lay unconscious on the cobblestones in her nightdress,
-her favorite stuffed spaceman still in her arms.
-One of the bots scooped her up—*
-
-*—and staggered as Papa Roo's jump-kicked it
-right on the swivel joint where its pipestem legs connected to its torso.
-The bot dropped Sindy and spun around.
-Crack!
-One of its arms connected with Papa Roo's head.
-He dropped like a sack of potatoes.*
-
-*"Papa!" Maddy's scream was lost in the sound of the village wolves howling.
-Pikes and axes in their paws,
-the village militia poured into the square.*
-
-*A bolo whipped over Maddy's head
-and tangled around the head of the bot that had struck her father.
-The bot tore it away
-and tossed her father into the back of the hauler
-with a single mighty heave.
-Metal rang on metal as it knocked aside a pike thrust.*
-
-*The horn blared again.
-Something with rotors roared by overhead.
-Another canister of dizzysmoke hit the cobblestones,
-forcing the militia to fall back as the bots made their escape.*
-
-*Everyone told Maddy afterward that it wasn't her fault.
-The ox and the goat who had been on guard duty that night had vanished,
-no doubt the first to be taken as the bots snuck up on the village.
-Three others had been thrown into the hauler as well as Maddy's father.
-It would all have happened even if she hadn't fallen asleep,
-even if she hadn't let Sindy wander off.
-If she had tried to help her father,
-she would just have been taken too.
-Everyone told her that,
-but it didn't make any difference.*
 
 </section>
 
