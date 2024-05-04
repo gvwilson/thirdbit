@@ -11,24 +11,25 @@ fiction: true
 ## Prolog
 
 "You keep saying you want us to let you do more,"
-Maddy's father said in his reasonable tone.
+Papa Roo said in his reasonable voice.
 "Well, this is more."
 
-"I didn't mean look after Sindy," she protested,
+"I didn't mean look after Sindy," Maddy protested,
 knowing that the argument was already lost.
 
 Her father tousled her ears.
 He was wearing his best waistcoat,
 the one with the fireworks embroidered on it,
-and Maddy's mother had brushed his fur and used a dab of beeswax pomade to hold it in place.
-She was upstairs singing Sindy a lullaby.
-Everyone knew Mayor Lupus was going to be re-elected,
+and he had brushed his fur
+and used a dab of beeswax pomade to hold it in place.
+Everyone knew Mayor Lupus would be re-elected,
 but the vote was still an occasion,
-and occasions were rare enough in Rusty Bridge that people liked to make the most of each one.
+and occasions were rare enough in Rusty Bridge
+that people liked to make the most of each one.
 
 "I'll tell you what," Papa Roo said,
 "You do a good job looking after Sindy tonight,
-and the next time I go to Three Posts you can come with me.
+and the next time I go to Sandy Bend you can come with me.
 We'll make a day of it, just the two of us.
 Deal?"
 
@@ -45,8 +46,8 @@ When Papa Roo offered her his arm and she took it,
 Maddy felt like her heart was swelling in her chest.
 
 After they left,
-Maddy settled into her father's chair with her latest book.
-It was a collection of folk tales about specials and bots.
+Maddy settled into her father's chair to read by lamplight.
+Her book was a collection of folk tales about specials and bots.
 The specials were always heroes.
 Some of the bots were wise counselors,
 but most were fickle allies or wicked adversaries,
@@ -75,7 +76,7 @@ Maddy's room? No.
 The hall closet where Mama Roo kept winter clothes in summer and summer clothes in winter?
 No.
 Downstairs?
-Maddy raced through the house,
+Maddy hopped through the house,
 frantically calling her sister's name,
 but there was no sign of her.
 
@@ -87,19 +88,20 @@ A faint breeze brushed across her tail.
 She ran to the kitchen.
 The back door was open.
 She was sure she had closed it after bringing in the laundry that afternoon.
-Sindy must have snuck out the back way to follow her parents to the village square.
+Sindy must have snuck out the back way to follow her parents into the village.
 
 "You little monster," Maddy said under her breath.
 She crossed the back garden in four long strides
 and hopped over the gate with a single bound.
 She had no idea how much head start Sindy had,
-but Maddy had to catch her before their parents saw her.
+but if Maddy didn't catch her before she reached their parents,
+she'd be cleaning paintbrushes for a month.
 
 She was almost at the main square when a horn blared,
 harsh and mechanical,
 and someone shrieked, "Bots! Bots!"
-
 Maddy raced around the corner of the nearest house and ran straight into chaos.
+
 Tendrils of black dizzysmoke drifted between the lampposts.
 Half a dozen people lay on the ground,
 unconscious from inhaling the smoke
@@ -108,7 +110,7 @@ The rest of Rusty Bridge was fleeing in all directions.
 
 A hauler bot on tractor treads rumbled and chugged near the center of the square.
 Maddy watched in horror as two smaller bots picked up a fallen goat
-and slung him into the back of the hauler.
+and slung him into the cage on the hauler's back.
 
 "Sindy!" Papa Roo shouted.
 Maddy's sister lay unconscious on the cobblestones in her nightdress,
@@ -118,17 +120,18 @@ One of the bots scooped her up—
 —and staggered as Papa Roo jump-kicked it
 right on the swivel joint where its pipestem legs connected to its torso.
 The bot dropped Sindy and spun around.
-Crack!
-One of its arms connected with Papa Roo's head.
+*Crack!*
+Its arm struck Papa Roo's head.
 He dropped like a sack of potatoes.
 
-"Papa!" Maddy's scream was lost in the sound of a wolf howling.
+"Papa!"
+Maddy's scream was lost in the sound of Mayor Lupus howling.
 Pikes and axes in their paws,
 the village militia poured into the square.
 
-A bolo whipped over Maddy's head
+A bolo whipped over Maddy
 and tangled around the head of the bot that had struck her father.
-The bot tore it away
+The bot tore it off
 and tossed her father into the back of the hauler
 with a single mighty heave.
 Metal rang on metal as it knocked aside a pike thrust.
@@ -182,7 +185,6 @@ the way the pictures in Special Leaf's books did.
 
 She closed her sketchbook with a sigh.
 Gumption had a fresh food stain on his shirt,
-she noticed,
 and if he had combed his brown-and-white fur that morning,
 someone or something had uncombed it since.
 She nodded at the books he had set down between them.
@@ -191,38 +193,34 @@ She nodded at the books he had set down between them.
 The goat boy shrugged.
 "They were aright. A lot of…you know."
 He rolled his eyes in a way that meant
-"too much romance, not enough last-second escapes from villainous bots".
+"too much romance, not enough villainous bots".
 
 "Yeah," Maddy agreed.
 She stood up and tucked her sketchbook and pencil
 into the worn blue canvas satchel her father had made for her.
-"Come on—let's see if he has anything new."
+"Come on—let's see if Special Leaf has anything we haven't already read."
 
-Once upon a time,
-the village of Rusty Bridge had been nothing more than
+Years ago,
+Rusty Bridge had been nothing more than
 a figure eight of two-story buildings around a pair of cobblestone squares
 where travellers could park their wagons overnight.
 All of the buildings' windows had faced the two squares:
 the outer walls had been blank and double-thick
 to keep people safe from roving bandits and rogue bots.
 
-Over the years,
-though,
-more houses had sprouted around the original ones:
-smaller,
-less well-ordered,
-and built for comfort rather than defense.
+More houses had sprouted as time passed,
+smaller ones built for comfort rather than defense.
 One of these belonged to Special Leaf,
 the only tortoise within a hundred kays and the village's oldest resident by far.
 
-Maddy would never forget the first time her mother and father took her to the Special's house.
+Maddy would never forget
+the first time her mother and father took her to the Special's house.
 "Don't be afraid," they told her,
-not realizing that she hadn't been until they said that.
-But when Special Leaf opened his front door
-and she saw the books stacked on his shelves,
-her nervousness vanished.
+though she hadn't been until they said that.
 
-"Are they *real*?" she asked in wonder.
+But then Special Leaf opened his front door
+and she saw the books stacked on his shelves.
+"Are they *real*?" she breathed.
 
 The old tortoise chuckled.
 Like all reptile people he was completely bald,
@@ -231,31 +229,32 @@ but his smile was as warm as a freshly-baked biscuit.
 Here, hold this a moment."
 He took a dull cube of glass off a side table and handed it to her.
 Perplexed,
-Maddy opened her mouth to ask what she was supposed to do,
-but before she could he said,
+Maddy opened her mouth to ask what she was supposed to do.
+Before she could he said,
 "Oh, here it is,"
 and replaced the glass with a tattered old picture book
 from a stack on a rocking chair that looked even older than him.
 "Would you like to borrow this one?
 If not,
 there are lots of others."
-She walked out of the house with an armload of books and stars in her eyes,
-then sat down on his porch and started to read the first one
-while her parents vainly tried to persuade the old tortoise to take a jar of home-made jam as a thank-you.
 
-Gumption had started coming by a few months later.
-His family hadn't brought him—the village goats weren't bookish people—and
-at first Maddy had resented him intruding into her magical world of stories and long-ago science.
+She walked out of the house with half a dozen books in her arms and stars in her eyes.
+While her parents vainly tried to persuade the old tortoise
+to take a jar of home-made jam as a thank-you,
+sat down on his porch and lost herself in the first one
+
+Gumption had started visiting Special Leaf by a few months later.
+His family hadn't brought him—the village goats weren't bookish people.
+At first Maddy had resented him intruding
+into her magical world of stories and long-ago science.
 But they started talking one day about the relative merits of mysteries versus adventures
 and hadn't stopped since.
 Now they swapped their borrowed books back and forth
 so that they at least had someone to roll their eyes with over the mushy bits.
 
 Special Leaf's house smelled like paper and old sweaters and fresh cabbage.
-Sometimes,
-if Maddy closed her eyes,
-she could almost imagine that her father was there with her.
-The old tortoise was snoring in his rocking chair when they arrived,
+As usual,
+the old tortoise was snoring in his rocking chair when Maddy and Gumption arrived,
 so they placed their books quietly on the table beside him
 and picked two more each from the shelves.
 Maddy glowered at Gumption when he pointed at the top shelf
@@ -263,7 +262,7 @@ that held things the Special said they weren't old enough to read yet.
 "Kidding," he mouthed silently.
 Maddy swished her tail in annoyance and shooed him outside.
 
-Her heart sank as soon as she stepped outside.
+Her heart sank.
 Her sister Sindy was sitting on the porch
 in an embroidered brown overall that had once been Maddy's,
 tangling and untangling a piece of string around her fingers.
@@ -274,14 +273,13 @@ Heya, Gumption!"
 she finished brightly.
 
 "Heya," Gumption grunted,
-very carefully *not* looking at Maddy.
+very carefully not looking at Maddy.
 
 "Does mama know you're here?" Maddy demanded.
 
 Sindy bounced up and down a couple of times.
 "Not exactly," she admitted.
 "But she said I could play with you and you weren't home
-so the only way I could do that was to come and find you
 and I figured this would be the best place to look and—"
 
 "Aright!" Maddy snapped.
@@ -310,8 +308,8 @@ The trio walked back to the village square without speaking.
 A few grownups nodded or said hello as they passed.
 Maddy nodded back,
 but was too busy being annoyed to do any more than that.
-It had been two years since the bots had taken her father.
-She had helped her mother every day since then:
+She had helped her mother every single day
+since the bots had taken her father:
 cleaning the house,
 mixing paint for portraits and signs,
 and most of all,
@@ -326,9 +324,10 @@ and it wasn't fair of Sindy to—
 
 "Hey," Gumption said, elbowing her.
 Maddy blinked.
-They had passed through the houses on the other side of the square
-and reached the smaller square that courting couples *didn't* sit in on warm summer evenings.
-An ageless black glass pillar stood in its center,
+They had passed through the houses on the other side of the main square
+and reached the village's other square,
+the one that courting couples didn't sit in this one on warm summer evenings.
+TheAn ageless black glass pillar in its center,
 half again the height of anyone Maddy knew
 and as big around as a rain barrel.
 The few friendly bots who came through Rusty Bridge used it to recharge.
@@ -342,7 +341,7 @@ Even if she knew how to capture that feeling in a drawing,
 she didn't want to.
 
 The pillar wasn't the only thing in the square, though.
-Bluster and Bravo Gruff were sitting on the low brick wall that surrounded the pillar
+Bluster and Bravo Gruff were sitting on the low brick wall that surrounded the pillar,
 pitching pebbles at it with their usual sullen expressions on their faces.
 They were a head taller than Gumption,
 and the nubs of their horns had just started to show through their fur.
@@ -350,7 +349,7 @@ and the nubs of their horns had just started to show through their fur.
 For a moment Maddy thought the goats would let them pass without comment,
 but then Bluster nudged his twin brother with his elbow.
 Maddy took her sister's misshapen paw in her own.
-"You just stay hushed," she cautioned quietly,
+"You stay hushed," she cautioned quietly,
 squeezing to show she meant it.
 She hitched her satchel up onto her shoulder with her other paw
 and tried to ignore the dryness in her mouth.
@@ -380,12 +379,12 @@ and if the parents were different
 their children took after one or the other.
 Every once in a while,
 though,
-someone like Sindy was born.
-No tail,
+children like Sindy was born.
+She had no tail,
 no scales,
-no fur except for a wiry black tuft on the top of her head
+and no fur except for a wiry black tuft on the top of her head
 that defeated all but the most stubborn combing,
-and useless little claws on the ends of her skinny fingers.
+and her skinny fingers ended in useless little nails instead of claws.
 Adults were careful not to feel sorry for her in public,
 but other children weren't always as nice,
 and children like Bluster and Bravo *never* were.
@@ -402,19 +401,18 @@ his brother Bravo echoed,
 cracking his knuckles.
 
 "I don't think glue would be particularly appetizing, do you?"
-Special Leaf asked calmly.
+a voice asked calmly.
 Maddy jumped.
-Somehow the old tortoise had come up silently behind them.
+Somehow Special Leaf had come up silently behind them.
 He looked as peaceful as a log floating down river
 with his little round glasses perched on his nose,
 but the goat brothers unclenched their paws.
 
 The Special held a sheet of paper out to Maddy.
-"I think you dropped this."
+"You missed this one."
 
-"Thank you," Maddy said.
-She squeezed Sindy's paw before letting go of it
-to take back the sketch she had dropped.
+"Thank you," Maddy said gratefully,
+taking back the sketch she had dropped.
 
 "You're getting much better,"
 the tortoise continued.
@@ -445,8 +443,7 @@ The ground floor had been built by a rhino
 who had dreamed of opening a tavern in Rusty Bridge,
 only to discover that there wasn't enough traffic on the ancient highway
 to keep one going.
-A family of wolves had added a second story after he moved on,
-its hallway and three bedrooms built on a smaller scale.
+After he moved on a family of wolves had added a second story.
 Papa Roo had taken one look and decided it was the perfect place to start a family.
 Mama Roo had rolled her eyes and reminded him that
 he'd called the previous three towns they had visited perfect too.
@@ -457,14 +454,13 @@ Maddy had heard that story almost every night when she was little.
 She remembered it each time she opened the bigger-than-usual front door
 and entered the house's larger-than-most-people front hall.
 "Mama!" she called.
-"We're home!
-And Special Leaf's come with!"
+"Special Leaf's come to call!"
 
 Mama Roo poked her head out of the kitchen.
 "Heya, Special. Heya, Gumption."
 
 "Ma'am." "Heya, Mama Roo." they answered
-as Sindy bounced down the hallway for a hug.
+as Sindy bounded down the hallway for a hug.
 
 "Careful," Mama Roo cautioned her youngest.
 "I've got paint on me."
@@ -489,14 +485,13 @@ The young goat cleared his throat.
 
 "Some other time, then," Mama Roo said brightly.
 There wasn't much call for sign painting and portraiture in Rusty Bridge.
-Between people paying just a little more than they needed to
-and the mending and housecleaning Mama Roo took on
-the family was managing to get by,
+The family was managing to get by
+on the mending and housecleaning Mama Roo took on,
 but Maddy knew that dinner for two extra people tonight
-would have meant no lunch for her mother the next day.
+would mean no lunch for her mother the next day.
 Mama Roo would have insisted if it was almost anyone else—she
 was as proud as a lion when it came to keeping house—but
-Gumption was practically almost family
+Gumption was practically family
 and Special Leaf somehow always made people feel comfortable.
 
 "Can I walk Gumption home?"
@@ -507,7 +502,7 @@ Maddy asked her mother as casually as she could.
 but you be home before dark."
 
 Sindy sniffled and pulled her face out of her mother's apron.
-"I want to come too!"
+"I want to go too!"
 
 "I don't see why—um."
 Mama Roo stopped herself at a pleading glance from her older daughter.
@@ -534,18 +529,19 @@ The river was higher and faster than it had been during the summer
 when they had come down here with their other friends to splash and swim and avoid chores.
 "So if you could have had anything, what would you have wanted?"
 Gumption asked out of nowhere.
+
 He didn't have to say "have any kind of tech".
 Like every child in Rusty Bridge
 they had hoped that as their teenage changes came on
-they would discover they were special—that
+they would discover they were specials—that
 they could control some piece of the Makers' ancient technology.
 It hadn't happened,
-but as Gumption had observed more than once,
+but as Gumption had pointed out more than once,
 at least Bluster and Bravo hadn't turned out to be special either.
 
-"I'd want a mover," Maddy replied,
+"I'd want some kind of mover gadget," Maddy replied,
 relieved to have something to talk about.
-"Like Special Leaf,
+"Like Special Leaf's,
 but for little things like my pencils,
 so I could draw while I was eating."
 
@@ -560,16 +556,8 @@ He pointed at the river.
 
 Maddy gasped.
 There was salvage in the water!
-
-</section>
-
-<section markdown="1">
-
-## Targets Acquired
-
 It wasn't just a few scraps either,
-but a couple of what looked like solar panels
-and some machinery
+but a couple of solar panels and some machinery
 and—
 "Wait, what are you doing?
 Gumption, get back here!"
@@ -578,10 +566,10 @@ Gumption, get back here!"
 "Come on!"
 
 Maddy only hesitated for a moment.
-Most of what washed down the river through the Mire from Heck was scrap,
+Most of what washed down the river from the bot city of Heck was scrap,
 but even scrap could be sold for blacksmithing.
-And tech like those solar panels—just one of those
-would fetch enough to feed her family for a *year*.
+And just one of those solar panels
+would fetch enough to feed her family for months.
 Her family and Gumption's,
 she corrected guiltily in her head
 as she scrambled down the riverbank,
@@ -598,41 +586,37 @@ they managed to work it free and slide it up onto the sandbar.
 It was lighter than Maddy had expected,
 but its edges were as sharp as broken glass.
 
-She and Gumption stood side by side for a moment to catch their breath.
-"What do you think it is?" he asked,
-jerking his chin at the mess of rods and flywheels
-that lay in the water.
+She and Gumption paused for a moment to catch their breath.
+"What do you think all that is?" Gumption asked,
+jerking his chin at a mess of rods and flywheels
+that lay next to the panels.
 
 Maddy shook her head.
-"Just junk, maybe?"
-She glanced sideways at him.
-"I think we ought to leave it.
+"No idea.
+But maybe we ought to leave it.
 For the grownups to get," she added hastily.
 "We can get the other panel,
 but I don't think we can lift that."
 *And I don't want to try,* she added to herself.
 The machinery in the water didn't look dangerous,
-and it was pretty clearly broken,
-but it was still a machine,
-and machines couldn't be trusted.
+but whenever someone said that in a book the story proved them wrong.
 
-"I guess," Gumption said.
+"I suppose," Gumption said doubtfully.
 "But see that bit?"
 He pointed at a rectangle of crystal circuitry bobbing gently up and down,
-attached to the rest of the machine by only a few wires.
+attached to the rest of the salvage by a few wires.
 "I bet I can yank that off."
 Without waiting for her to answer he waded back in,
 grabbed hold of the circuitry,
 and pulled.
 
-The wires that connected it to the rest of the wreckage went taut but didn't come free.
+The wires connecting it to the rest of the wreckage went taut.
 "Mmph! Come *on*!"
 Gumption braced one foot against the machinery and heaved.
 
-"Look out!" Maddy exclaimed as the wires suddenly pulled free.
-The foot Gumption's weight was on slipped out from under him.
-As it slid across the riverbed it knocked a few crucial stones out of the way.
-The machinery shifted, trapping his foot.
+"Look out!" Maddy exclaimed as the wires suddenly snapped.
+As Gumption lost his footing the machinery shifted,
+trapping his foot.
 
 "Argh! Maddy! Help!"
 He windmilled his arms frantically,
@@ -658,6 +642,12 @@ he wouldn't be able to keep his head above water!
 "Danger! Extricate! Extricate!"
 A battered bot burst out of the trees
 and hurtled down the gravel toward them!
+
+</section>
+
+<section markdown="1">
+
+## Targets Acquired
 
 Maddy shrieked and stumbled backwards.
 Her feet slipped on a submerged patch of weeds.
