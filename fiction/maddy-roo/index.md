@@ -42,7 +42,7 @@ Maddy swished her tail and sighed. "Aright."
 as quietly as she could.
 She had brushed her own fur until it gleamed
 and was wearing a string of dark beads over her white cotton blouse.
-When Papa Roo offered her his arm and she took it,
+When she took Papa Roo's arm,
 Maddy felt like her heart was swelling in her chest.
 
 After they left,
@@ -73,7 +73,7 @@ panic rising in her throat.
 "Sindy, where are you? You come out right now!"
 Their parents' bedroom? No.
 Maddy's room? No.
-The hall closet where Mama Roo kept winter clothes in summer and summer clothes in winter?
+The hall closet?
 No.
 Downstairs?
 Maddy hopped through the house,
@@ -144,7 +144,7 @@ forcing the militia to fall back as the bots made their escape.
 Everyone told Maddy afterward that it wasn't her fault.
 The ox and the goat who had been on guard duty that night had vanished,
 no doubt the first to be taken as the bots snuck up on the village.
-Three others had been thrown into the hauler along with Maddy's father.
+Three others had been thrown into the hauler with Maddy's father.
 It would all have happened even if she hadn't fallen asleep,
 even if she hadn't let Sindy wander off.
 If she had tried to help her father,
@@ -652,6 +652,7 @@ and hurtled down the gravel toward them!
 Maddy shrieked and stumbled backwards.
 Her feet slipped on a submerged patch of weeds.
 She half-fell clumsily in the knee-deep water.
+
 "Get away! Get away from me! Help!" Gumption yelled in panic
 as the bot strode toward them with long clanking strides.
 
@@ -672,20 +673,20 @@ Its head swiveled.
 "Targets acquired."
 
 "Run!" Maddy shouted.
-Gumption didn't need to be told twice.
 They splashed up onto the sandbar and sprinted toward shore.
 
 But the bot's legs were longer than theirs
 and its motors were more powerful than living muscles.
-It easily blocked their path and reached out to grab them.
+It blocked their path in three quick strides
+and reached out to grab them.
 
 Maddy yelped and ducked under the bot's arm.
-Gumption ducked as well but was half a moment too slow.
-A cold metal manipulator clamped around his arm!
+Gumption ducked as well, but half a moment too slow.
+A cold metal manipulator clamped around his arm.
 "Target acquired!" the bot intoned.
 
-"Acquire this!" Maddy yelled
-and launched herself into the air.
+"Acquire this!" Maddy yelled,
+launching herself into the air.
 
 Roos are peaceful people, mostly.
 They don't mind jokes about their big feet and bulky tails,
@@ -702,14 +703,14 @@ If this wasn't "in case", Maddy didn't know what would be.
 
 As her feet hit the bot squarely in its midsection
 she kicked as hard as she could.
-The force of the blow toppled the bot backward into the river
-and sent her tumbling awkwardly in the other direction.
-She landed with a splash that soaked whatever parts of her had still been dry.
+The bot let go of Gumption and flailed its arms
+as the blow toppled it backward into the river.
 
+Maddy landed with a splash that soaked the parts of her that had still been dry.
 "Maddy!" Gumption yelled,
 running over to help her to her feet.
 
-"Run!" she shouted at him again.
+"Run!" she shouted again.
 The bot was already righting itself.
 There was no way they could—
 
@@ -761,11 +762,9 @@ He lifted the rock over his head—
 The lenses on the front of its head rotated a quarter turn and then back
 as if it was blinking.
 "Please maintain a firm grip on the object you are holding.
-It appears to be heavy.
-You could inadvertently injure yourself."
+It appears to be heavy."
 
-Gumption glanced at Maddy with a bewildered expression on his face.
-The moment his head turned
+As Gumption glanced at Maddy with a bewildered expression on his face,
 the bot surged to its feet and plucked the rock from his paws.
 "It is safer to carry heavy objects in this fashion," it told the young goat,
 holding the rock in front of its midsection.
@@ -776,7 +775,7 @@ holding the rock in front of its midsection.
 "Put it against the stuff in the water so it won't move around any more,"
 Maddy improvised hastily.
 
-"A sensible plan," the bot said approvingly.
+"A sensible plan," the bot said.
 One leg whirred quietly with each step as the bot walked back to the sunken machinery
 and wedged the rock against it to hold it in place.
 
@@ -785,9 +784,9 @@ Gumption nudged Maddy.
 "Look," he whispered.
 A black rectangle the size of Special Leaf's treasured dictionary
 was screwed onto the bot's rust-streaked back.
-The setting sun's reflection showed the dent
+The setting sun reflected off the dent
 where the runaway solar panel had struck it,
-bending it out of shape just enough to let water reach its innards.
+bending it just enough to let water reach its innards.
 The little round antenna that sprouted from its top
 swung back and forth loosely
 each time the bot moved
@@ -827,7 +826,7 @@ and most of 'em are rogues,
 but you don't act like any rogue I ever heard of."
 
 "This is not 'rogue'," the bot said so primly
-that Maddy could actually hear the quotes around the word "rogue".
+that Maddy could actually hear the quotes around the word.
 "Aberrant units are reprogrammed or recycled immediately in— in—"
 It froze again.
 "This is unable to complete its sentence."
@@ -848,7 +847,7 @@ Curious."
 Without any more warning than that it reached up
 and plucked one of its lenses out of its head.
 "Eww," Maddy said involuntarily
-as the bot twisted it arm around to point the lens at its back.
+as the bot twisted its arm around to point the lens at its back.
 
 The thin coiled wire that ran between the lens and the bot's head stretched taut.
 "Confirmed," the bot said.
@@ -859,13 +858,12 @@ It placed its lens back in its head
 and stuck out its manipulator.
 "Thank you."
 
-"Um…"
-Maddy and Gumption glanced at each other.
-Maddy reached out hesitantly and shook the bot's manipulator,
+Maddy and Gumption glanced at each other,
+then Maddy reached out hesitantly and shook the bot's manipulator,
 grateful that it was the one with the fingers
 rather than the clamp.
-"You're welcome?
-But—what are you doing here?"
+"Um, you're welcome?
+But what are you doing here?"
 
 "This is supposed to be part of a sneak attack on Location Six Bitty One,
 locally referred to as 'Rusty Bridge',"
@@ -4108,8 +4106,8 @@ Maddy realized as they hurried through it,
 Dockety led the way.
 Left,
 right,
-straight through a four-way junction—Maddy traced their path as well as she could
-on her father's map.
+straight through a four-way junction:
+Maddy traced their path as well as she could on her father's map.
 
 Finally they were one short dash away from the 'X' on the map.
 The door in front of them looked no different from any of the others,
