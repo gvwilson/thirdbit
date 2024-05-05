@@ -327,7 +327,7 @@ Maddy blinked.
 They had passed through the houses on the other side of the main square
 and reached the village's other square,
 the one that courting couples didn't sit in this one on warm summer evenings.
-TheAn ageless black glass pillar in its center,
+An ageless black glass pillar stood in its center,
 half again the height of anyone Maddy knew
 and as big around as a rain barrel.
 The few friendly bots who came through Rusty Bridge used it to recharge.
@@ -1372,7 +1372,7 @@ to pick up the wheel and snap it back in place.
 "Get them out of here!" Special Leaf wheezed to Mama Roo.
 "I can't keep this up much longer!"
 
-"We're not leavin' you!" Maddy cried,
+"We're not leaving you!" Maddy cried,
 but her mother was pulling her,
 saying, "Come on! Come on!"
 as the huge hauler bot batted away a clump of flying earth and rumbled forward once again.
@@ -1424,7 +1424,7 @@ lashing out with a tentacle
 to catch Maddy across her thighs.
 The touch sent a jolt up her spine.
 All of a sudden her mouth tasted like tin foil
-and everything was surrounded by multicolored haloes.
+and everything was surrounded by multicolored halos.
 
 "Maddy!"
 Gumption caught her as she toppled over.
@@ -1901,12 +1901,10 @@ Her legs swung to the side and dangled over the highway.
 
 Sindy scrambled to her feet.
 "Maddy! Maddy! I'm here! I'm here!"
-The goats on either side of her shouted,
-but the wind snatched their words away.
 
 "Hang on!"
 Maddy shouted back.
-"We're going to get you out of there!"
+"I'm going to get you out of there!"
 
 Dockety raced forward and body-checked another raider bot
 that had ratcheted up on its wheeled legs and was reaching for Maddy.
@@ -1915,15 +1913,13 @@ as the cart hit a bump.
 She could see the lock on the cage door,
 but how was she going to break it open without her rock?
 
-And then the cargo bot hauling the cage realized she was there.
-Its massive square head turned all the way around like an owl's.
+And then the cargo bot' massive square head turned all the way around like an owl's.
 "Error,"
 it pronounced in a scraping gravelly voice.
 
 "Error yourself!"
 Maddy shouted defiantly.
-Without giving herself time to be frightened
-she pulled herself back up on top of the cage,
+She pulled herself back up on top of the cage,
 swung around,
 and lowered herself onto the narrow triangular hitch
 that connected it to the bot.
@@ -1947,9 +1943,9 @@ and leave the unhitched cage cart rolling along the highway behind it.
 Instead,
 there a loud crash
 as Dockety and the wheeled raider bot slammed into the side of the cage,
-their manipulators grappling for holds on each other.
+grappling with each other.
 
-Maddy and the three captives screamed in unison as the cart careened off the road.
+Maddy and the three captives screamed as the cart careened off the road.
 A wheel bumped over a stone,
 throwing Maddy off the hitch and into a scratchy patch of brambles.
 The trio inside the cart screamed again
@@ -1960,7 +1956,7 @@ Maddy scrambled to her feet and ran after it.
 The cart slid to a halt just a few paces from the water's edge.
 Rusty scraps of old machinery stuck up out of the mucky ground.
 Maddy grabbed one end of a metal bar and pulled with all her might.
-The bar came free with a disgusting *shlurp*.
+The bar came free with a *shlurp*.
 
 She ran over to the cart,
 which had miraculously landed door side up.
@@ -2031,7 +2027,6 @@ Maddy held her breath.
 It was the biggest bot she'd ever seen.
 Maybe if it came after them
 it would get stuck in the mud and they could escape.
-
 *And then we'd only have all the other bots to deal with,*
 she finished in her head.
 She wished she knew where Dockety was.
@@ -2053,30 +2048,29 @@ A moment later the goat twins followed them.
 
 *Shlurp shlurp shlurp…*
 At first Maddy tried to pick her way from rock to rock,
-but her feet were so muddy after just a few steps
+but after a few steps her feet were so muddy
 that she gave up and trudged in as straight a line as she could.
 It wasn't very straight:
 the river was wide and shallow in the Mire,
 and any three people would have had four different opinions
-about where its bank actually was,
-or whether even it had one.
+about where its bank was or whether even it had one.
 
-The smell of damp vegetation was almost overpowering.
+The smell of rotting vegetation was almost overpowering.
 A sharp chemical tang came and went,
 reminding Maddy of the turpentine she used to clean her paintbrushes
 or the greasy black poison her mother sponged onto the porch every spring
 to keep the termites away.
-If they got back to Rusty Bridge,
-she was going to take the longest, soapiest bath of her entire life.
+If they ever got back to Rusty Bridge,
+she was going to take the longest, soapiest bath of her life.
 
 They stopped twice when they heard motors revving in the distance,
-crouching behind whatever bushes were handy until the sound faded.
-After a few minutes they reached a stand of trees,
-fingerling willows no taller than Maddy
-and a few larger ones whose branches bent in elegant sad arcs.
-Some had leaves that shimmered metallically in the moonlight
+crouching behind whatever bushes were nearby until the sound faded.
+After a few minutes they reached a stand of fingerling willows,
+some no taller than Maddy
+and a few larger ones whose branches bent in sad arcs.
+Their leaves shimmered metallically in the moonlight
 and tinkled faintly in the breeze.
-The foursome steered clear of those.
+The foursome steered clear of them.
 
 They had been walking for about half an hour
 when a patch of rotten bark came off a fallen tree
@@ -2115,15 +2109,15 @@ Maddy straightened up.
 "Just do the best you can, aright?"
 The goat nodded.
 
-They went more slowly after that.
-Bravo leaned on Bluster and Sindy needed rest more and more frequently.
+They traveled slowly after that.
+Bravo leaned on Bluster, and Sindy needed rest more and more frequently.
 Maddy bit her tongue to stop herself from telling them all to hurry up.
 It would take them days to get back to Rusty Bridge at this speed,
 but there was nothing she could do about it
 except hope that Gumption had convinced the mayor to send a rescue party.
 
 A particularly squelchy patch of land
-sent them in a wide arc that brought them nearer the highway than Maddy liked.
+sent them in a wide arc that brought them closer to the highway than Maddy liked.
 *Just 'til we're past that tall tree,*
 she promised herself.
 
@@ -2143,8 +2137,7 @@ Drawn by the horn and the searchlight,
 another bot was grinding toward them on treads,
 revving an oversized chainsaw on the end of one arm.
 
-"There's another one on the river!" Bluster shouted
-with panic in his voice
+"There's another one on the river!" Bluster shouted in panic
 as the stiltbot's searchlight swept over a flatboat
 being steered by something that looked like a cross between a bucket and a crab.
 It was an ambush!
@@ -2192,13 +2185,14 @@ The goats didn't need to be told twice.
 Bluster raced across the mud and threw himself onto the boat
 as the stiltbot toppled over into the river.
 "Come on!" he yelled at his twin brother
-as Bravo ran-hopped, ran-hopped, and grabbed Bluster's outstretched paw.
+as Bravo ran-hopped and grabbed Bluster's outstretched paw.
 
 But Maddy and Sindy were too slow.
 The chainsaw bot blocked their way,
 its arm whizzing angrily.
+They were going to be caught!
 
-And then something rocketed out of nowhere,
+Something rocketed out of nowhere,
 bounced into the air,
 and slammed into the sawbot at just the right spot.
 The sawbot tipped and tilted and fell on its side,
@@ -4501,7 +4495,7 @@ knowing they couldn't hear.
 *Thump!*
 *Thud!*
 The third shot hit them.
-The net was made of the rough brown twince people used in their gardens.
+The net was made of the rough brown twine people used in their gardens.
 It wrapped around them,
 cutting through the fur on Maddy's cheek.
 The weights on its fringes clattered against Dockety's back.
