@@ -1213,7 +1213,7 @@ and rang the alarm bell.
 "Oh bother," the old tortoise said mildly,
 reaching up into the bell to pull a sock off the clapper.
 "I know it can be loud when the wind blows,
-but I keep telling the mayor she really shouldn't do that."
+but the mayor really shouldn't do that."
 
 He pulled the cord again.
 *Dong! Dong! Dong!*
@@ -1221,7 +1221,6 @@ This time the bell rang true,
 its peals echoing off the buildings around the square to fill the sky.
 *Dong! Dong! Dong!*
 Three and a pause to signal an attack.
-Three and a pause to bring Maddy's memories of the worst night of her life rushing back.
 
 Windows opened.
 People poked their heads out,
@@ -1229,7 +1228,7 @@ fearful or annoyed according to their natures.
 "What's happening? What's going on?"
 
 "Bots!"
-the goat yelled through cupped paws.
+the goat yelled through cupped hooves.
 "Raiders!
 Whole bunch of 'em comin' up along the main road!"
 
@@ -1240,13 +1239,15 @@ Mama Roo grabbed Maddy's arm.
 
 "You'll do as I say, young lady!"
 Fear made her mother's voice stern.
-"Sindy, you go with your sister.
-You gotta run, both of you, fast as you can."
+"Sindy,
+you go with your sister and you *run*,
+both of you,
+you run as fast as you can."
 
 "I'm not going 'less you are!" Sindy said stubbornly.
 She was crying,
 Maddy realized,
-only then realizing that there were tears on her own cheeks as well.
+only then realizing that she was too.
 
 "Go with them,"
 Special Leaf urged Mama Roo.
@@ -1256,7 +1257,7 @@ Special Leaf urged Mama Roo.
 
 Special Leaf smiled a wrinkly smile.
 "No.
-I am tortoise,
+I am a tortoise,
 and tortoises don't run from fights.
 Mostly because we can't,"
 he added,
@@ -1267,21 +1268,20 @@ A tricycle bot roared into the square,
 waving its twig-thin arms to keep its balance
 as one of its rear wheels came up in the air.
 
-"Get outta here, you!" shouted the goat who had sounded the alarm.
-Shirt tails flapping,
-he waved his arms at the bot as if trying to scare a goose back to its flock.
+"Get outta here, you!" shouted the goat,
+picking up a rock and hurling it at the tricycle bot.
 
-Black dizzysmoke began spewing out of the canister on the tricycle bot's back.
+Black dizzysmoke began spewing out of
+the canister on the tricycle bot's back.
 "Look out!" Maddy yelled.
 
 The goat didn't hear,
 or was too angry or too frightened to pay attention.
 He grabbed a rake that someone had left propped against a wall
 and charged at the bot.
-
 The bot reversed,
 tires squealing on the cobblestones.
-A belch of greasy black smoke rolled over the goat.
+A belch of black smoke rolled over the goat.
 He stumbled,
 looked around as if the whole world had suddenly gone strange,
 and fell to the ground unconscious.
@@ -1298,19 +1298,17 @@ and tortoises were cold-blooded creatures.
 
 Maddy grabbed Sindy,
 spun around,
-and shrieked as the biggest bot she had ever seen rumbled into the square.
-It was practically a slab of metal,
-with blocky legs as wide as the double doors of the mayor's house
-and arms like tree trunks.
+and shrieked as the biggest bot she had ever seen
+rumbled into the square.
+Its arms were like tree trunks
+and its blocky legs were as wide as
+the double doors of the mayor's house.
 Each leg ended in a pair of tractor treads,
-and as it rolled forward
-she saw that it was dragging a cage cart behind it.
+and it was dragging a cage cart behind it.
 
-"Oh no," she moaned.
-That cart could only mean one thing.
-The bots weren't here for salvage.
-They were here to take people,
-just like they had taken her father!
+"Oh no," Maddy moaned
+as her memories of the worst night of her life
+came rushing back.
 
 "Not today, clunker," Special Leaf said loudly.
 He planted his feet firmly on the cobblestones,
@@ -1352,8 +1350,10 @@ One! He missed.
 Two! The second stone clanked off the bot's casing
 just as half a dozen more bots roared into the square.
 
-Special Leaf used a word Maddy was sure she wasn't supposed to know.
-She felt a pressure wave roll over her as he *pushed* with the Maker tech on his arms.
+Special Leaf muttered under his breath
+and widened his stance.
+Maddy felt a wave of pressure roll over her
+as he *pushed* with the Maker tech on his arms.
 The smallest of the new arrivals flew backward through the air
 and hit the front of a building with a crash.
 
@@ -1378,7 +1378,7 @@ saying, "Come on! Come on!"
 as the huge hauler bot batted away a clump of flying earth and rumbled forward once again.
 
 "Arrooo! Arrooo!"
-Wolf howls sent shivers up Maddie's fur.
+Wolf howls sent shivers up Maddy's fur.
 In mismatched helmets and salvaged armor,
 the village militia charged around the corner to hit the bots from behind.
 Some carried weighted axes meant for hacking through metal joints.
@@ -1411,19 +1411,20 @@ Two bots had circled around the village and come in behind them!
 A bolt of electricity from her zap gun hit the bot.
 As it sparked and shuddered,
 the one behind it wrapped a mechanical tentacle around its midriff.
-The purple glow raced up the tentacle and into the second bot.
-The second bot's four eyes glowed for an instant,
+The purple glow from the zap gun
+raced up the tentacle into the second bot.
+Its eyes glowed for an instant,
 and then the bot that had been zapped was moving again.
 
 But so was Maddy.
-She jumped and kicked with all her might.
-The lead bot staggered back.
-
-The second bot skittered around it on crab-like legs.
-A tentacle lashed out,
-catching Maddy across her thighs and sending a jolt up her spine.
-For a moment her mouth tasted like tin foil
-and everything had a halo swimming around it.
+She jumped and kicked the lead bot's chassis with all her might.
+It staggered back.
+The second bot skittered around it on crab-like legs,
+lashing out with a tentacle
+to catch Maddy across her thighs.
+The touch sent a jolt up her spine.
+All of a sudden her mouth tasted like tin foil
+and everything was surrounded by multicolored haloes.
 
 "Maddy!"
 Gumption caught her as she toppled over.
@@ -1444,20 +1445,25 @@ Stones clattered against the crab bot,
 some of them big enough to make dents.
 "Ouch! Withdraw! Ouch! Withdraw!"
 Its amplified command made Maddy's head ring.
-Holding Sindy's limp body in one tentacle
+Holding Sindy's limp body in one tentacle,
 it scuttled across the square to the huge cargo bot.
 Two limp goats lay on the floor of the cage.
-The crab bot tossed Sindy in on top of them and slammed the cage door closed.
+The crab bot tossed Sindy in on top of them
+and slammed the cage door closed.
+
+"No!" Maddy screamed.
+She pulled free of Gumption and immediately fell to her knees
+as the world swam around her.
 
 *BZZZP!*
-The blast from the zap gun hit it in the torso.
-It spun around and aimed its tentacles at the militia.
+The blast from the zap gun hit the tentacled in the torso.
+It spun around and aimed its tentacles at its attackers.
 *BZZZP!*
 *BZZZP!*
-Two bursts of purple electricity shot out of them and struck the militia.
-They toppled over.
+Bursts of purple electricity struck two of the militia.
 
-The big bot rumbled away into the darkness with its three prisoners
+As they toppled over,
+the big bot rumbled away into the darkness with its prisoners
 leaving chaos in the village square behind it.
 Half of the militia lay on the ground,
 dazed by dizzysmoke or shocked by the crab bot's final blast.
@@ -1466,7 +1472,8 @@ but was too exhausted to make the stones obey him.
 Scattered plates of armor and parts of broken mechanical limbs
 proved that the bots had paid a heavy price for their victory,
 but as Mama Roo wrapped Gumption and Maddy in a hug
-all Maddy could think was that her little sister was gone—gone just like her father.
+all Maddy could think was that
+her little sister was gone just like her father.
 
 </section>
 
@@ -2356,7 +2363,7 @@ I bet Mama's scared too.
 Oops!
 Sorry!"
 
-Dockety had stopped so abruptly that Maddie walked right into it.
+Dockety had stopped so abruptly that Maddy walked right into it.
 Its lasers skittered across the ground for a second.
 "There is a path here," it said.
 "Processing.
