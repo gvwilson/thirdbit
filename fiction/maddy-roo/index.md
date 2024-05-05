@@ -1485,7 +1485,7 @@ her little sister was gone just like her father.
 Mama Roo shouted.
 "They have my *daughter*!"
 Maddy had never imagined that her mother could be so fierce,
-but in that moment she would have frightened a tiger.
+but in that moment her glare would have frightened a tiger.
 
 The mayor shook her head.
 "I'm sorry, Cedilia, you know I am.
@@ -1518,14 +1518,13 @@ Mama Roo's arm tightened around Maddy's shoulders.
 The old wolf sighed.
 "I am truly sorry, Cedilia.
 I'll come by later to look in on you.
-Right now I have to find out who those two goats were that they grabbed,
-and then start figuring out how they managed to sneak up on us like that."
+Right now I have to find out who those goats were that they grabbed."
 
-"It was the twins,"
+"It was Bluster and Bravo,"
 Special Leaf said,
 opening his eyes.
 He struggled to his feet,
-holding the steps' wooden banister to steady himself
+holding the banister to steady himself
 and waving off the mayor as she came over to help.
 "The one that had legs like a stork chased them
 right into the arms of the big one hauling the cage.
@@ -1542,13 +1541,12 @@ Looked like a damn hailstorm.
 Never seen anything like it."
 
 "I didn't do that," Special Leaf protested,
-but the mayor had already turned away to bark orders at the militia.
+but the mayor had already turned away to bark orders at the militia:
 Salvage the scraps of armor that had been knocked off the bots during the fight.
 Pick up anyone who was still unconscious and get them indoors.
-And someone—no, not just one person, best it be two together—had to get across to the Gruff family farm
-and let them know their boys had been taken.
+And someone had to go tell Gruff family that their boys had been taken.
 
-"I should go too," Gumption said awkwardly.
+"I should go with them," Gumption said awkwardly.
 "They're my cousins,
 and my mama will be worrying about me.
 I'm really sorry about Sindy."
@@ -1556,9 +1554,9 @@ I'm really sorry about Sindy."
 Maddy nodded,
 not trusting herself to speak.
 If she had run away when her mother told her too,
-or if she had somehow *made* the mayor believe that the ambush was coming,
-her sister would still be with them.
-If only the bot they had warned them had come with them to warn everyone else.
+or had somehow made the mayor believe the ambush was coming,
+Sindy would still be with them.
+If only the bot from the river had come with them.
 
 She froze.
 The bot!
@@ -1571,9 +1569,8 @@ The goat's eyes widened.
 
 "Please," Maddy pleaded.
 
-Gumption swallowed whatever he'd been about to say and nodded.
-"We should, uh, go help folk clean up," he said loudly,
-rolling his eyes at the mayor.
+Gumption swallowed whatever he was about to say and nodded.
+"We should, uh, go help folk clean up," he said loudly.
 
 "Good idea," Maddy replied, raising her voice.
 "Mama, Gumption and I are gonna…"
@@ -1596,7 +1593,7 @@ not really listening.
 The two teenagers walked toward the stones Maddy had pointed at
 and then just kept walking.
 It was a tactic they had used more than once to get out of picking potatoes.
-As long as they acted as if they were doing something they were supposed to be doing,
+As long as they acted like they were doing something they were supposed to be doing,
 most grownups wouldn't pay them any attention.
 
 Two minutes later they were in the small square
@@ -1609,7 +1606,7 @@ He waited until the bear was out of earshot before whispering,
 "So where do we start?"
 
 "I dunno,"
-Maddy said despairingly.
+Maddy said helplessly.
 The recharging pillar was the only place she could think the bot might go.
 Tears welled up in her eyes.
 She wiped them angrily on her sleeve.
@@ -1625,8 +1622,7 @@ Maddy sniffled,
 nodded,
 and fell into step beside him.
 
-Once upon a time
-the river had been wider and deeper,
+Years ago the river had been wider and deeper
 and the Makers' road had run along its bank.
 But many years had passed since then,
 and the river's course had changed many times.
@@ -1636,11 +1632,10 @@ with its former companion just a soft sound in the distance.
 
 Another black glass recharging pillar stood guard
 where the road bent back toward the river.
-Only grass and moss and a few brave flowers grew near it.
+Only grass, moss, and a few brave flowers grew near it.
 
 Maddy glared at the pillar.
-"This is *hopeless*," she said again,
-angrily wiping the dampness away from the fur on her cheeks.
+"This is *hopeless*," she said again.
 
 "Wait!"
 Gumption pointed at the soft ground near the pillar.
@@ -1662,8 +1657,8 @@ She opened her mouth to say,
 "Maybe we should go back,"
 but what came out instead was,
 "Ulp,"
-as the bot from the river stepped out of the trees,
-a rock in each of its mechanical hands.
+as the bot from the river stepped out of the trees
+with a rock in each hand.
 
 The kangaroo and the goat looked at the bot.
 The bot looked back.
@@ -1724,13 +1719,14 @@ This one agrees."
 It stuck out its three-fingered manipulator.
 
 "Um…" Gumption started,
-but Maddy stepped forward and shook the bot's hand.
+but Maddy stepped forward to shake the bot's hand.
 If there was any chance at all of getting Sindy back,
 she had no other choice.
 
 "So what should I call you?"
 she asked,
-taking her paw back and massaging her new bruises.
+taking her paw back and massaging the bruises
+the bot's firm mechanical grip had given her.
 
 "This one's serial number is Dockety-One Forty-Bee,"
 the bot replied.
@@ -1744,12 +1740,12 @@ That is the highway through the contaminated zone.
 We must depart immediately if we are to intercept them."
 
 "Who's Lasertaste?"
-Gumption interrupted.
+Gumption asked.
 
 "Laser *case*," Dockety corrected.
 "It leads the substitute worker acquisition team.
 This one feels strong antipathy toward it,"
-the bot added.
+it added.
 
 "Was it the one with the tentacles?"
 Maddy asked with a sinking feeling.
@@ -1777,11 +1773,11 @@ And even with one, safety will be compromised."
 
 Sometimes you have choices.
 Other times it feels like you have no more control over what you do next
-than a rock has over whether or not it's going to fall after someone has thrown it.
+than rain has over whether or not it's going to fall.
 Maddy hugged Gumption,
 a real strong hug that she hoped said
-all the things she hadn't found the courage to say for the past few weeks
-every time they'd been alone together.
+all the things she had never found the courage to say
+when they had been alone together.
 "Go tell mama what I'm doing," she said in his ear.
 "And tell her I'm coming back, all right?
 Because I am."
@@ -1799,11 +1795,11 @@ the carousel ride at the fair in Three Posts.
 She closed her eyes,
 but that just made it worse,
 so she opened them,
-which made it even worser.
+which made it worse still.
 
 "Where's this base of yours?" she asked,
 half-shouting to be heard over wind of their passage,
-the bot's roaring motor,
+Dockety's roaring motor,
 and the rattles coming from inside its torso
 that she really hoped were normal.
 
@@ -1817,15 +1813,12 @@ The ancient black surface beneath them was cracked in places,
 and Dockety had to swerve around fallen branches
 and clumps of weeds tough enough to have broken through the road,
 but for the first time in her life Maddy felt her fur blown back by speed.
-"Woo hoo!" she whooped.
-It was too big to be afraid of.
 
 Thin green lines of light suddenly lanced out from either side of Dockety's eyes.
 The bot began snapping its head from side to side,
 left-right-left-right,
 sweeping the lasers across the pavement
-to trace a picture of its bumps and cracks in the darkness.
-It reminded Maddy of the rubbings her father used to make.
+to trace its bumps and cracks in the darkness.
 
 As the stars came out they passed under a line of ruined arches
 that stretched from one horizon to the other.
