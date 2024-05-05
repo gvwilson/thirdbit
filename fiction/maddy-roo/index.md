@@ -885,8 +885,9 @@ The bot's lenses rotated again.
 
 ## You Gotta Listen!
 
-"Wait—a sneak attack?"
-Maddy demanded.
+Maddy's heart skipped a beat.
+"What?"
+she demanded.
 "When?"
 
 The bot's lenses rotated in a mechanical blink.
@@ -906,14 +907,15 @@ You're attacking Rusty Bridge *tonight*?"
 "Negative," the bot said firmly.
 "This one will not be attacking at all.
 It does not have to now that its regulator has been rendered inoperative."
-Without warning it twisted its long arms around at an angle no living thing could have matched.
-A high-pitched whine was followed by a tinny *clink!*
-as a screw dropped and bounced off a stone.
+It twisted its long arms around at an angle no living thing could have matched.
 
+A high-pitched whine was followed by a tinny *clink!*
+A screw dropped and bounced off a stone.
 Whine-*clink!*
 Whine-*clink!*
 Whine-*clink!*
 Three more screws fell to the ground.
+
 "There."
 The bot held up the black box that had been fastened to its back,
 studied it for a moment,
@@ -924,8 +926,8 @@ Gumption grabbed Maddy's sleeve.
 
 Maddy nodded, her mind whirling.
 She took two steps then pulled up short and turned back to the bot.
-"You gotta come with us," she said.
-"They won't believe us if it's just us.
+"You have to come with us," she said.
+"They won't believe us on our own.
 You gotta come with us and tell them."
 
 "This one does not 'gotta' do anything," the bot replied firmly.
@@ -948,8 +950,7 @@ Maddy shook herself.
 "It doesn't matter.
 We gotta tell people.
 Here."
-She picked up the black regulator that the bot had discarded
-and handed it to Gumption.
+She picked up the regulator and handed it to Gumption.
 "Let's show this to my mama.
 If we can convince her,
 maybe she can convince everyone else."
@@ -1021,22 +1022,23 @@ when people's lives might be at stake.
 
 The mayor's house was the only three-story building in Rusty Bridge,
 and also the only one with a balcony.
-Mayor Lupus only used it for official pronouncements, though.
 That evening,
 like most evenings,
 she sat or stood on the veranda to chat with passers-by,
 her elbows on the railing and a glass of red wine in her paw.
 "It's the closest thing to actual blood I allow myself,"
 she always joked,
-baring her wolf teeth just a little when she smiled.
-Maddy had once heard her father say that the mayor was a *very* alpha female,
-and while some townspeople might grumble that
-it was time someone with hooves or scales had a turn running things,
-everyone expected that the mayor would still be occupying that house
-long after all of her fur had finished turning gray.
+baring her wolf teeth just a little as she smiled.
 
-"Mayor Lupus! Mayor Lupus!" Mama Roo called
-as she hurried across the square with the three children behind her.
+An old bell hung on an enormous curlicue hook on the mayor's veranda.
+Generations of village children had whispered to one another that
+it was made from the plating of a scavenger bot
+that had lurked beneath Rusty Bridge when there still was a bridge.
+They stopped believing the story when they got older,
+not knowing that it was true.
+
+"Mayor Lupus! Mayor Lupus!" Mama Roo called,
+hurrying across the square with the three children behind her.
 "We gotta talk to you.
 There's bots coming!"
 
@@ -1058,13 +1060,12 @@ each time her weight came down on her stiff mechanical leg.
 If you kids can't sort out your problems, you should—"
 
 "They haven't been fighting with each other,"
-Mama Roo interrupted loudly.
-The mayor insisted she wasn't going deaf,
-but would allow to friends that she was grateful when people didn't mumble.
+Mama Roo interrupted.
 "They had a fight with a bot down by the river.
 It told them there's more on the way—a sneak attack."
 
-The mayor frowned.
+The mayor frowned,
+the ear she still had left folding down to match her eyebrows.
 "What were you doing down by the river?
 And why would it tell you there was gonna be a sneak attack?
 Kind of takes away the sneak, if you see my point."
@@ -1072,58 +1073,52 @@ Kind of takes away the sneak, if you see my point."
 The story spilled out of Maddy and Gumption
 like paint out of a pair of dropped buckets.
 They'd been walking home—Gumption's home, not Maddy's, but that wasn't important—and
-they'd gone after some salvage they'd spotted,
-and they'd yanked a part right off some kind of machine
-(Maddy fished the circuit board out of her pocket to show everyone)
+they'd gone after some salvage in the river,
 and then a bot had come after them
-but they knocked it down and its regulator came off
-and then it didn't have to follow orders and it told them about the attack.
+but they knocked its regulator off
+so it didn't have to follow orders
+and it told them about the attack.
 
 "What in the Makers' name is a 'regulator'?"
 the mayor grumbled,
-turning the black box over in her paws and sniffing it
+sniffing the black box they'd given her
 before handing it back to Gumption.
 
 "I don't know,"
 Maddy confessed.
-"But it sure acted strange once it was busted.
+"But the bot sure acted strange once it was busted.
 Like it was waking up from a bad dream or something."
 
-"Hm."
-The ear that the mayor hadn't lost in a long-ago fight twitched.
-"I never heard anyone say bots could dream.
-And I never heard of rogues or raiders giving folks any warning that they were coming."
+"Hm.
+I never heard anyone say bots could dream.
+And I never heard of rogues or raiders giving folks any warning they were coming."
 She looked at Mama Roo.
 "You see this bot of theirs yourself?"
 
 Mama Roo shook her head.
 "I was at home.
 But they were in a mighty panic when they told me,
-and I don't think they'd leave salvage without a good reason."
+and I don't think they'd make up a story like this."
 
 "Hm," the mayor grunted again.
-"All right, I'll get a couple of folk up from their dinners to go have a look."
+"Still sounds like something out of one of those books you both read,
+but I'll get a couple of folk up from their dinners to go have a look."
 
 "What? No, Mayor Lupus, you gotta warn people.
 You gotta ring the bell!"
 Maddy said desperately.
-The old bell hung on an enormous curlicue hook on the mayor's veranda.
-Generations of village children had whispered to one another that
-it was made from the plating of a scavenger bot
-that had lurked beneath Rusty Bridge when there still was a bridge.
-They stopped believing the story when they got older,
-not knowing that it was true.
 
 "Nope," the mayor said.
-She cut Maddy and Gumption off with a single sharp wave of her paw.
+She cut Maddy off with a single sharp wave of her paw.
 "I'm not saying I don't believe you,
 but I want to know what I'm howling about before I start to howl.
 Now you all stay right here while I go ruin the Ox brothers' dinner."
 
-Crestfallen,
-Maddy watched the mayor stump away,
+The mayor stumped away,
 her cane and artificial leg going *whirr-thump*, *whirr-thump*.
-"She doesn't believe us."
+"She doesn't believe you,"
+Sindy said,
+crestfallen.
 
 "Nope," Gumption agreed,
 setting the boxy regulator down on the porch steps with a sigh.
@@ -1131,10 +1126,11 @@ setting the boxy regulator down on the porch steps with a sigh.
 
 "Now you hush,"
 Mama Roo said firmly,
-putting a reassuring paw on her younger daughter's shoulder.
+squeezing Sindy's hand reassuringly.
 
 "Sorry,"
-Gumption said guiltily, scuffing the ground with his hoof.
+Gumption said guiltily,
+scuffing the ground with his hoof.
 "I didn't mean…"
 
 "It's aright," Maddy said,
