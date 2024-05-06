@@ -2225,8 +2225,8 @@ Bravo shouted through cupped paws.
 "But we'll get help!"
 
 Moments later they vanished into the night,
-leaving the two young roos alone in the Mire
-with a dented bot for company
+leaving Maddy in the Mire
+with her sister and a dented bot
 and no idea how to get home.
 
 </section>
@@ -2236,7 +2236,7 @@ and no idea how to get home.
 ## …And Into the Mire
 
 "Thank you for saving us,"
-Maddy belatedly said to Dockety once the boat was out of sight.
+Maddy said to Dockety once the goats were out of sight.
 "They would have had us for sure."
 
 "Zome of theze onez were *click*,"
@@ -2257,11 +2257,11 @@ Moonlight gleamed through a break in the clouds.
 The river gurgled quietly beside them.
 "More botz will come," Dockety finally said.
 "We zhould not be here when they do."
-Something scraped and creaked as it turned to go.
+Something inside the bot scraped and creaked as it turned to go.
 
 "Wait—you're hurt!"
-Maddy exclaimed as she saw the dent in the bot's side.
-It had hit the sawbot so hard that one of its torso plates had bent inward,
+Maddy exclaimed as she saw the dent in Dockety's chassis.
+It had hit the sawbot so hard that one of its plates had bent inward,
 leaving a small gap like a wound.
 
 "Thiz one doez not feel 'hurt'.
@@ -2278,22 +2278,21 @@ She scooped a piece of metal off the ground and held it out to Dockety.
 The bot took it from her.
 Its lasers flashed green as it scanned the curved place.
 "It zhould be zuffizient," it acknowledged.
-With no more ceremony than that it unscrewed the bent plate,
+It unscrewed the bent plate,
 tossed it aside,
 and fastened the salvaged one in its place.
 
 *Eww*, Maddy thought,
-slightly queasy at the sight of the impromptu surgery,
+slightly queasy at the impromptu surgery,
 but Dockety's lenses rotated.
-"That is better," it pronounced,
-its voice back to normal.
+"That is better," it pronounced in its normal voice.
 
 Maddy nudged her sister with her shoulder.
 "Good on you."
 
 Even as she spoke something hooted in the distance.
 "How are we going to get *home*, Maddy?"
-her sister asked in a hopeless little voice.
+her sister asked hopelessly.
 
 "I don't know,"
 Maddy confessed.
@@ -2304,17 +2303,17 @@ Another answered it.
 Maddy asked.
 
 "There are worse things here than bots,"
-Dockety said darkly.
+Dockety said.
 "We must go."
 
-They set off west toward their distant home.
+They set off westward toward home.
 Dockety took the lead,
 scanning the ground with its lasers
 and occasionally waving them around bubbling sinkholes
 or gloopy bits of especially swampy ground.
 Maddy brought up the rear
 so that she could be sure Sindy didn't fall behind.
-She tried humming a tune for a while,
+She tried humming a tune for a while in time with her hopping,
 the way their mother did when they all went for a walk,
 but it just made the scraggly trees around them seem more ominous.
 
@@ -2329,13 +2328,13 @@ but judging from the volume—"
 
 *Sploosh.*
 "Judging from the volume,
-and the fact that the frogs have all stopped burping,
+and the fact that the frogs have fallen silent and are attempting to flee,
 it is probably both large and dangerous.
 We should adjust course."
 
 They picked their way hurriedly toward higher ground.
 It brought them closer to the highway,
-but Maddy decided wearily that she was less afraid of Lasercase and the other bots
+but Maddy was less afraid of Lasercase and the other bots
 than she was of anything that could survive in the polluted river.
 
 "I'm hungry," Sindy whined.
@@ -2369,7 +2368,7 @@ Most of it was still covered in mud and stunted grasses,
 but one entire wall was now visible in the moonlight.
 
 There was a door in the bunker's side,
-a door as thick as her fingers could spread wide,
+as thick as her hand was wide,
 and it was open.
 
 Sindy took Maddy's paw.
@@ -2386,7 +2385,7 @@ The bot's lenses rotated.
 "Unlikely.
 Very little is safe in this region.
 But its absence from this one's database suggests that
-Lasercase will not think to look for us here."
+Lasercase will not look for us here."
 
 Maddy took a deep breath and let it out.
 "All right."
@@ -2403,7 +2402,7 @@ she said into the patch of fur on top of Sindy's head.
 "And if there are spiders,
 Dockety can squish them for us.
 Aright?"
-She felt rather than saw Sindy nod her head.
+She felt Sindy nod her head.
 "Good girl."
 
 The bunker didn't look any less scary as they got closer to it.
@@ -2427,15 +2426,14 @@ and brightened once again
 to cast a comforting white light on the ground in front of them.
 
 The bot was only barely able to squeeze through the doorway.
-Maddy and Sindy waited,
-hearts pounding,
-until they heard Dockety say,
+Maddy and Sindy held their breath until they heard Dockety say,
 "It appears unoccupied."
 Maddy shooed her sister inside and then followed her.
 
 They found themselves in a large, empty room.
 The walls and roof were bare concrete blocks,
-and the floor was blanketed with dried mud and blown leaves.
+the floor was blanketed with dried mud and blown leaves,
+and the air was damp and still.
 Dockety turned to shine its chest light on a rust-streaked sign
 fastened opposite the door that read,
 "Emergency Defenses Control Station".
@@ -2461,14 +2459,13 @@ as Sindy stretched out beside her and put her head in Maddy's lap.
 This one will reduce operational status as well."
 The bot's flashlight started to dim.
 
-"Wait—can you…"
+"Can—can you please leave that on?"
 Maddy asked.
 
 "Of course."
 The light steadied,
 not as bright as before but still comforting.
-Maddy closed her eyes and was instantly as lost to the world
-as her gently snoring sister.
+Maddy closed her eyes and fell almost instantly into an exhausted sleep.
 
 She woke a few moments or an hour later.
 Her head felt like it was stuffed with dirty laundry,
@@ -2505,17 +2502,20 @@ A long mechanical tentacle slid through the door like a snake,
 bits of slimy river weed still clinging to it in places.
 
 "Mmph?"
-Sindy struggled in Maddy's lap.
+Sindy rolled over,
+her head still in Maddy's lap.
 
-"Ssh ssh ssh," Maddy breathed in her sister's ear.
+"Ssh ssh ssh,"
+Maddy breathed in her sister's ear,
+her heart pounding.
 "Quiet. Be quiet. And don't… move…"
 
-The tentacle curled to the left,
+The tentacle curled slowly to the left,
 groping through the leaves toward the wall.
-Dockety waited until it almost touched him,
-then stepped over it.
+Dockety waited until the last oment,
+then carefully stepped over it.
 
-The tentacle began curling the other way.
+The tentacle began to curl the other way.
 As Dockety stepped over it again,
 Maddy got to her feet as quietly as she could
 and pulled Sindy up beside her.
@@ -2552,7 +2552,8 @@ Sindy grabbed the edge of the door and strained to pull it open.
 Without waiting to see what the bot did
 she grabbed a pawful of mud and threw it at the tentacle.
 "Hah! Whoa!"
-She ducked under it and rolled away as it slapped the ground.
+She ducked and rolled away as it slapped the ground,
+making a moist dent in the mud.
 
 Dockety took hold of the inner door with its claw manipulator
 and placed one metal foot on the wall.
@@ -2560,8 +2561,7 @@ Its motors whined.
 The door scraped across the floor.
 
 "Go! Go! Go!" Maddy shouted,
-throwing dry leaves at the tentacle
-and jumping as it swept across the floor again.
+jumping as the tentacle swept across the floor again.
 
 Sindy ran through the door.
 "Make haste," Dockety said,
