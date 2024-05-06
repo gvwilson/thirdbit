@@ -2578,11 +2578,11 @@ something cold and mechanical grabbed her ankle!
 
 ## Underground
 
-"Leg go!"
+"Let go!"
 Maddy shouted.
 She tried to pull her leg free,
-bu the tentacle's grip was iron-strong.
-She flung pawfuls of dirt and dead leaves at the tentacle
+but the tentacle's grip was iron-strong.
+She flung pawfuls of dry mud and dead leaves at the tentacle
 as it dragged her across the floor.
 
 Dockety scraped back through the door behind her.
@@ -2612,7 +2612,7 @@ She pulled one end of the lace loose and hastily undid the rest of the knot.
 
 "Pull!" she yelled at Dockety.
 "Pull hard!"
-The bot hauled back on the tentacle.
+The bot hauled on the tentacle.
 Maddy braced the heel of her other boot against it
 and yanked her trapped foot free.
 
@@ -2635,10 +2635,10 @@ Rumbling and grinding,
 the outer door began to close.
 
 The tentacle lashed out one last time
-before slithering back so that it wouldn't be cut in half.
+before slithering back so that it wouldn't be trapped as the door closed.
 "Go!" Maddy ordered Sindy.
 With Dockety behind them,
-they squeezed through the inner door.
+they squeezed through the narrowing gap.
 
 They found themselves on a small platform
 at the top of a flight of broad concrete stairs.
@@ -2657,7 +2657,7 @@ She kissed the top of her sister's head.
 "But it's like Mama always says.
 If you can't give up, you have to keep going.
 Come on."
-She squelched her foot back into her boot and took her sister's paw.
+She squelched her muddy foot back into her boot and took her sister's hand.
 Side by side,
 they descended into the unknown.
 
@@ -2751,7 +2751,7 @@ Maddy gulped.
 "Sure," she said as bravely as she could.
 
 Sixty steps, seventy…
-Seventy-two steps below where they had started
+Seventy-two steps below their starting point
 they reached a corridor made of the same featureless gray concrete as the stairs.
 There were no doors,
 no side passages,
@@ -2760,8 +2760,8 @@ that might give a hint what the complex was for or who had built it.
 Small glass panels were set into the ceiling.
 but the light they might once have cast had long since dimmed and gone out.
 
-Maddy tapped her thumb against her fingers to keep count.
-Fifty steps, then another fifty, then another.
+Maddy tapped her thumb against her fingers to keep count:
+fifty steps, then another fifty, then another.
 "I don't suppose any more of your memories have come back?"
 she asked Dockety to fill the silence.
 
@@ -2777,20 +2777,21 @@ but Dockety took one extra step.
 
 She grabbed its arm and pulled as hard as she could.
 The bot was heavy—much heavier than a person would be.
-Its motors whined as it fought for balance on hole's edge.
+Its motors whined as it fought for balance on the hole's edge.
 
 *Crack!*
 The floor tile under the bot's foot snapped in half.
-Dockety fell awkwardly.
-Its torso hit the floor with a *clunk!*
+Dockety fell awkwardly,
+its torso hitting the floor with a *clunk!*
 For one terrifying moment Maddy was sure it was gone,
-but somehow its manipulators found purchase on the concrete.
+but somehow its manipulators kept their grip on the concrete.
 
 Sindy stumbled backward to get out of the way.
 Her paw hit a patch of wall directly beneath one of the darkened lighting panels.
 Something *clicked*.
-Above their heads and all along the corridor,
-the lights flickered and came to life.
+Lights flickered and came to life
+above their heads and all along the corridor,
+making it look small and ordinary and grubby.
 
 Maddy helped Dockety back to its feet.
 Its lenses rotated rapidly.
