@@ -2824,7 +2824,7 @@ you might as well come and say *hello*."
 *Click. Click. Click.*
 One by one the ceiling lights behind them went out.
 *Bzzzt… Bzzzt…*
-Two more lights in front of them flickered to life.
+Two lights in front of them flickered to life.
 
 "You're smothering me,"
 Sindy said,
@@ -2832,7 +2832,7 @@ her voice muffled by Maddy's suddenly-tighter hug.
 
 "Sorry."
 Maddy released her little sister
-and swallowed the sudden lump in her throat.
+and swallowed the lump in her throat.
 Maybe the darkness hadn't been so bad after all…
 
 The hard white light showed what Dockety's chest lamp had not.
@@ -2890,7 +2890,7 @@ Slide, slide, slide—she practically leaped into Maddy's arms once she was acro
 "Thanks," Sindy said, wriggling out of Maddy's arms.
 "Come on, it's easy!" she called back to Dockety.
 
-"Not in this one's configuration," the bot replied.
+"Not for this one's configuration," the bot replied.
 It couldn't side-walk, Maddy realized:
 its legs only bent one way,
 and its body was too wide to—
@@ -2920,7 +2920,7 @@ Every few steps one went dark behind them and another brightened in front.
 When they reached a four-way junction,
 the lights came on to their left,
 leading them down another flight of stairs
-to  open door that was even thicker than the one at the surface.
+to an open door even thicker than the one at the surface.
 
 "Whoa…" Maddy breathed.
 The room beyond the door was as big as the central square of Rusty Bridge.
@@ -2990,7 +2990,7 @@ Dockety said,
 speaking for the first time since they had entered the room.
 
 Patient in Darkness froze for an instant.
-"Does *that* have a proper work allocation??
+"Does *that* have a proper work allocation?
 it asked pointedly.
 "No? Then its communication is irrelevant."
 
@@ -3004,7 +3004,6 @@ she ventured.
 "Correct!"
 Patient replied in its previous cheerful tone.
 "But that will soon be rectified.
-This one has devised emergency repair protocols.
 The required components are now being fabricated.
 The Makers will be pleased!"
 
@@ -3103,7 +3102,7 @@ Maddy ventured.
 
 "Negative."
 They jumped as Patient crackled right behind them.
-""They declined to synchronize with the emergency repair protocol,
+"They attempted to interfere with repairs,
 so they were moved to long-term storage.
 Their components failed shortly thereafter."
 The fan on its shoulder spun furiously.
@@ -3134,17 +3133,16 @@ We'll just, um, we'll just go and you can get back on schedule, aright?"
 Patient said.
 "Leaving is not included in the protocol.
 It might jeopardize the repairs!
-You will be put in long-term storage as well."
+You will be put in long-term storage as well.
+Except for that one,"
+it added dismissively,
+gesturing at Dockety.
+"That will be recycled."
 
 A single square light panel flickered to life
 in the ceiling of the lab next to the one containing the skeletons.
 With a quiet, menacing *click*,
 the lab's door opened.
-
-"Except for that one,"
-the mad bot added dismissively,
-waving a manipulator at Dockety.
-"That will be recycled."
 
 "No," Dockety said flatly.
 "This one has its own mission to complete."
