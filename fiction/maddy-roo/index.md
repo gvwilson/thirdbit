@@ -42,8 +42,20 @@ Maddy swished her tail and sighed. "Aright."
 as quietly as she could.
 She had brushed her own fur until it gleamed
 and was wearing a string of dark beads over her white cotton blouse.
-When she took Papa Roo's arm,
-Maddy felt like her heart was swelling in her chest.
+
+Papa Roo swished his tail from side to side.
+"You, my dear, are the most beautiful kangaroo in the whole world."
+
+Mama Roo flicked an ear.
+"Mm hm.
+And what about the goats and deer and tigers?"
+She glanced at Maddy.
+"Your father's always had a soft spot for tigers,"
+she whispered loudly.
+
+Papa Roo grinned and kissed his wife on the cheek.
+Maddy felt like her heart was swelling in her chest
+as they walked arm-in-arm out the door.
 
 After they left,
 Maddy settled into her father's chair to read by lamplight.
@@ -3161,11 +3173,11 @@ arms raised and red warning lights flashing on their shoulders.
 
 ## Unison
 
-"Surrender!" the service bots boomed in unison,
-their mechanical voices making keyboards and coffee cups rattle.
-They rolled forward side by side—
+"Surrender!" the service bots boomed together,
+their mechanical voices rattling keyboards and coffee cups.
+They rolled forward side by side,
+only to jam against each other in the doorway.
 
-—only to jam against each other in the doorway.
 "Withdraw!"
 They rolled back,
 paused,
@@ -3176,7 +3188,7 @@ crashing into the door exactly as they had before.
 Maddy muttered.
 She looked around wildly.
 The door they had come through was closed.
-*All* the doors were closed—there was no way out!
+*All* the doors were closed—they were trapped!
 
 "Quick!"
 she shouted to Sindy.
@@ -3190,7 +3202,8 @@ she shouted to Sindy.
 
 "Then push a button! Any button!"
 Maddy frantically began slapping her paws on keyboards and twisting dials.
-A heartbeat later her sister joined in.
+Her sister joined in,
+hands flying in panic.
 
 "Desist!"
 Patient crackled imperiously.
@@ -3222,8 +3235,8 @@ to let the other roll through the door.
 For a moment Maddy was sure they would be caught,
 but the bot halted a few meters away.
 A hatch opened in its side.
-A small broom telescoped out of its side
-and began sweeping up the scattered pieces of the broken keyboard.
+A small broom telescoped out
+and the bot began sweeping up the scattered pieces of the broken keyboard.
 
 "Incorrect!"
 Patient crackled.
@@ -3235,10 +3248,10 @@ Its broom retracted into its side.
 *It's using the console to control them!*
 Maddy realized.
 
-She grabbed another keyboard and flung it at the console,
+She grabbed a keyboard from another desk and flung it at the console,
 but missed.
-Another keyboard, another throw—it arced through the air end over end,
-bounced off Patient's outstretched third arm with a *clank!*,
+Another keyboard, another throw—it arced through the air,
+bounced off Patient's outstretched third arm with a *clank!*
 and landed on the console.
 Behind them,
 the door they had come through began to open.
@@ -3257,8 +3270,8 @@ The other service bot had caught hold of Dockety's arm.
 Slowly but surely it was forcing Dockety down onto the floor.
 
 Maddy didn't even think.
-She leaped onto the nearest desk with a single bound.
-One-two-three she went from desk to desk.
+She leaped onto the nearest desk.
+One-two-three she hopped from desk to desk.
 Sindy shouted her name as she jumped one more time and *kicked!*
 
 It felt like kicking a wall,
@@ -3284,13 +3297,13 @@ Maddy grabbed Sindy's arm.
 "Stop,"
 she panted.
 "The hole, remember?"
-She felt rather than saw her sister nod.
 
+Sindy nodded.
 "Why's your light going out?"
-Sindy asked the bot plaintively.
+she asked Dockety plaintively.
 
 "This one did not have an opportunity to recharge,"
-Dockety replied.
+the bot replied.
 "Power must be conserved.
 Will scans suffice?"
 Its green lasers swept a pair of sharp parallel lines across the floor.
@@ -3322,7 +3335,7 @@ but the hallway was as empty behind them as it was in front.
 *Maybe it's some kind of automatic thing,*
 she told herself,
 not believing it for a moment.
-"Let's go," she whispered loudly.
+"Let's go," she whispered.
 
 A speaker crackled.
 "Where? Where will you go?"
@@ -3334,14 +3347,11 @@ Or perhaps you would like to continue exploring?"
 It made a horrible grating *snrk snrk* sound.
 
 That was as much as Maddy could take.
-There—set into the wall.
-That looked like a speaker,
-and even if it wasn't…
-She stepped over to it and swung Dockety's arm as hard as she could.
-It didn't even scratch the paint.
-
+There—Patient's voice was coming from a speaker set into the wall.
+She swung Dockety's arm and hit it as hard as she could.
 "Just… shut… up!" she grunted,
-hitting the speaker again and again with the bot's torn-off arm.
+hitting the speaker again and again
+without even scratching the paint.
 
 "Please don't do that," Patient and Dockety said in unison.
 
@@ -3405,10 +3415,9 @@ A hundred tired steps later they reached the hole.
 Maddy asked Dockety.
 
 "Negative," the bot said,
-its voice buzzing more than before.
+its voice slowing.
 "This one's… reserves… must be devoted… to resisting… integrity attacks."
-Its lenses rotated,
-more slowly than they had before.
+Its lenses rotated a quarter-turn.
 "This one… regrets… that it will not see… its friend… Crusher… again."
 
 That earned it another smack on its torso from Maddy.
@@ -3421,7 +3430,7 @@ one Dockety's and one crackling through the nearest speaker.
 Maddy shivered,
 thinking about the skeletons in the lab behind them.
 
-The bot's lenses rotated slowly.
+The bot's lenses rotated slowly once again.
 "This one is sorry.
 It cannot maintain integrity much longer."
 
@@ -3463,7 +3472,7 @@ Maddy hugged her sister.
 "I'll be right back," she promised.
 
 "But what if you can't climb back up?"
-Sindy whispered tearfully.
+Sindy whispered fearfully.
 "What if he leaves you down there?
 What if he goes all the way bad?"
 
@@ -3643,7 +3652,7 @@ Entering emergency maintenance mode.
 Goodbye."
 
 "Wait!"
-Sindy hurried over to a console like the one that Patience had used
+Sindy hurried over to a console like the one that Patient had used
 and began pressing buttons one after another.
 
 "Stop! Sindy, don't!"
