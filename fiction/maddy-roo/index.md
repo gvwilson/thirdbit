@@ -3500,11 +3500,11 @@ and slid down it into the unknown.
 Maddy had never seen the ocean, but she had read about it in Special Leaf's books.
 She knew that it was as deep as the tallest mountains were high,
 and that its bottom was darker than an overcast moonless night.
-Strange creatures lives there:
+Strange creatures lived there:
 fish whose mouths were half the size of their bodies,
-wriggling things like glowing ribbons
-and bots that looked like lobsters on stilts,
-all of them waiting patiently to consume whatever came to them from above.
+wriggling things like glowing ribbons,
+and bots that looked like lobsters on stilts.
+All of them waited patiently to consume whatever came to them from above.
 
 As she slid down Dockety's detached arm,
 she wished her imagination would shut up.
@@ -3529,11 +3529,12 @@ She stretched even more.
 Maybe?
 
 She let go of the arm,
-and then let out her breath as her feet landed on a floor
+and then let out her breath as she landed on a floor
 that felt so wonderfully solid she could have hugged it.
-"It's aright!" she called up.
+"It's aright!" she called up
+as a red emergency light came on in the ceiling above her.
 
-Sindy slithered down next.
+Sindy slid down next.
 Maddy caught hold of her sister's ankles
 as she frantically swung her legs.
 "Don't—I'm—just—whoops!"
@@ -3542,8 +3543,7 @@ nearly knocking her over,
 then slithered out of Maddy's hug.
 
 "It's colder down here,"
-Sindy shivered,
-then squeaked as a red emergency light came on in the ceiling above them.
+Sindy shivered.
 
 "Yeah."
 Maddy cleared her throat.
@@ -3560,7 +3560,8 @@ Maddy caught his detached arm
 and watched as he lowered himself as far as he could with the other
 and then extended his wheel.
 "You still have about a meter to—never mind,"
-she said as Dockety dropped and bounced on his wheel.
+she said as Dockety dropped,
+bouncing up and down a couple of times.
 
 "Ouch,"
 he said in a toneless voice.
@@ -3577,7 +3578,8 @@ to study the square red emergency light in the ceiling.
 "The interference has stopped," it announced.
 "The miscreant is no longer attempting to subvert this one's systems."
 
-"Well that's good news."
+"Well,
+that's good news."
 Maddy patted the bot's plating awkwardly.
 "Come on, let's see if we can find you somewhere to recharge."
 
@@ -3588,11 +3590,11 @@ by trial and error they found they only lit up when Sindy said something.
 Maddy joked,
 brushing away her sister's half-hearted punch.
 
-A double hundred steps later they came to a door.
+A double hundred steps later they came to a gray steel door.
 "Armory Number Four," Maddy read aloud,
 tracing the faded words with her finger.
-She glanced at Dockety,
-who had been moving slower and slower.
+She glanced back at Dockety,
+who was moving ever more slowly.
 "Maybe we can find you a new arm here," she said,
 trying to make it a joke.
 
@@ -3603,8 +3605,7 @@ The younger Roo pressed her hand against a square plate in the the door.
 *Click.*
 The door slid to the side.
 
-White lights in the ceiling,
-proper big beautiful white lights,
+Big, beautiful white lights in the ceiling
 revealed a room filled with rows of metal shelves taller than Maddy.
 Most of them were empty,
 but one entire side of the room still held
@@ -3614,18 +3615,17 @@ canisters with three-armed caution labels stenciled on their sides.
 Sindy said,
 pointing to a corner.
 It too opened when she pressed the square plate
-where its handle would normally have been.
+where a handle would normally have been,
+revealing yet another corridor and yet another set of red emergency lights.
 
-Maddy sighed
-Another corridor and another set of red emergency lights
-meant more walking.
+Maddy sighed.
 "How are you doing?"
 she asked Dockety.
 
 The bot took a moment to answer.
-When it did,
-its voice was even slower and raspier than before.
 "Power reserves at two percent."
+it said,
+its voice even slower and raspier than before.
 Maddy didn't know what "percent" was,
 but "two" didn't sound like very many.
 
@@ -3650,6 +3650,7 @@ There was no emotion in the bot's voice.
 "Power reserves now at one percent.
 Entering emergency maintenance mode.
 Goodbye."
+The lights behind its lenses dimmed again.
 
 "Wait!"
 Sindy hurried over to a console like the one that Patient had used
@@ -3662,7 +3663,8 @@ Maddy reached for her.
 "What if I *don't*?"
 Sindy shot back.
 *Click click click,*
-and then there was a deep hum so low that they felt it more than they heard.
+and then there was a deep hum so low that
+they felt it in their bones more than they heard it.
 The lights above them flickered and steadied.
 
 "Power on," Dockety said.
@@ -3671,7 +3673,7 @@ Its head swivelled.
 "Thank you.
 This one will recharge faster if it shuts down its other functions.
 Full operation will resume… shortly…"
-The lights behind its lenses dimmed.
+The lights behind its lenses dimmed again.
 
 "Dockety?" Sindy asked hesitantly.
 
@@ -3682,11 +3684,12 @@ The lights behind its lenses dimmed.
 let's see what we can find."
 
 It only took them a few minutes to realize that the answer was "not much".
-Desks bigger than their beds,
+There were desks bigger than their beds,
 chairs that definitely hadn't been made for people with tails,
 flat screens coated in a fine layer of gritty dust,
-panels full of buttons that Maddy told Sindy she wasn't allowed to press—there was nothing
-they could eat,
+and panels full of buttons that Maddy told Sindy she wasn't allowed to press.
+There was nothing they could eat,
+though,
 and nothing that told them how to get home.
 
 "Lie down and take a nap,"
@@ -3697,7 +3700,7 @@ Sindy nodded,
 climbed onto a desk,
 stretched out,
 and was snoring softly in seconds.
-When Maddy patted her shoulder softly,
+When Maddy gently patted her shoulder,
 she rolled onto her side and pulled her legs up to her chest,
 just as she did in bed in the morning when she didn't want to get up.
 "I'll get you home,"
@@ -3726,7 +3729,8 @@ Maddy crouched down to see how the bot was lifting them.
 *Thud.*
 The desk came back down suddenly.
 The bot rolled back like a startled rabbit.
-"Whoa whoa whoa," Maddy said coaxingly.
+"Whoa whoa whoa," Maddy said,
+patting the air with her paws.
 "It's aright.
 You don't have to be afraid."
 
@@ -3737,7 +3741,8 @@ Could it even see her?
 "I don't suppose you know the way out?"
 
 The bot spun in a circle and rolled away.
-When Maddy didn't follow it rolled back and spun in another circle.
+When Maddy didn't follow,
+it rolled back and spun in another circle.
 "Aright," she said,
 straightening up.
 "I'll come look."
@@ -3759,19 +3764,19 @@ She lifted out a sketchbook bound in dark green canvas and brushed it off.
 
 She opened the sketchbook with trembling paws,
 already knowing what she would see.
-Deft lines and cross-hatching,
-all done in pencil by a sure and loving paw.
-There was her mother's face, smiling.
-There was Sindy holding a ball.
+There was her mother,
+her smile made of deft lines and cross-hatching.
+There was Sindy holding a ball,
+drawn in pencil by a sure and loving paw.
 And there was *her*,
-frowning slightly in concentration as she read a book that the artist hadn't finished drawing.
+frowning slightly in concentration as she read a book that the artist hadn't finished sketching.
 It was her father's book,
 the one he always carried in a pocket in his overalls in case inspiration struck.
 
-She flipped through it.
+She wiped her tears with her sleeve and then flipped through it.
 Two pages had been torn out.
-After that all the drawings were floor plans and bots,
-crowded around with notes in his tiny, precise lettering.
+After that the drawings were floor plans and bots,
+with notes crowded around them in his tiny, precise lettering.
 He had been here,
 right *here*,
 and judging from his notes
@@ -3792,9 +3797,9 @@ They were definitely too old.
 They had to be.
 
 She opened the book again.
-One of the last pages had the word "Surveillance" written at the top and underlined.
+The last page had the word "Surveillance" written at the top and underlined.
 Beneath it was a drawing of the control panel she was standing in front of.
-Arrows labeled "1", "2", "3", and "4" pointed at buttons that had been colored in.
+Arrows labeled "1", "2", "3", and "4" pointed at buttons.
 She took a deep breath and looked down at the little cleaning bot.
 "May I?" she asked.
 
@@ -3829,7 +3834,8 @@ They were in the square, arguing.
 The button that had brought that screen to life was blinking.
 She pressed it.
 
-"We have to go get them!" her mother's voice said.
+"We have to go get them!" her mother said,
+as clearly as if she had been right there in the room with Maddy.
 
 "They were taken by bots, Cedilia."
 Mayor Lupus was sympathetic but firm.
@@ -3847,8 +3853,9 @@ You know the stories."
 "I will go."
 The hidden camera scanned left to reveal Special Leaf
 and a handful of the village militia.
-Bluster and Bravo were there too, she saw.
-They had made it home.
+Bluster and Bravo were there too.
+*At least someone made it home,*
+Maddy thought sourly.
 
 "I will go look for them,"
 the old tortoise repeated.
