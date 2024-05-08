@@ -5176,7 +5176,7 @@ She let out her breath with a whoosh,
 then fumbled for a moment to undo the belt buckle
 so she could slither out of the harness.
 She was back in the Mire,
-right beside the hole they had escaped through just an hour before.
+standing right beside the hole they had escaped through just an hour before.
 She had to get back inside,
 but how?
 She couldn't just jump in—the fall would break her legs, or worse.
@@ -5199,15 +5199,14 @@ and it shot away into the sky.
 "Wait!" she said, but it was too late—the flying machine was gone.
 
 She looked up.
-There!
-Two dots, approaching fast.
+There—two dots, approaching fast.
 She sprinted for the nearest clump of weeds and threw herself into it.
 
 The drones that had dropped dizzysmoke canisters on the village
 arrived moments later.
 They slowed,
 pivoted,
-and slowly descended through the opening in the ground.
+and descended through the opening in the ground.
 With a heavy *clunk*,
 the hatch closed behind them.
 Heart sinking,
@@ -5239,17 +5238,20 @@ If Patient had disabled it or locked the door she would have been doomed,
 but it was still open.
 She scraped through it a heartbeat before the tentacle would have grabbed her.
 
-Maddy stumbled down the first few steps and doubled over to catch her breath.
-Down the stairs, into the darkness.
-She could do that.
+Maddy stumbled down the first dozen steps
+before she had to stop to catch her breath—catch her breath,
+and wait for her heart to stop pounding.
+"Come *on*," she muttered angrily at herself.
+She had done this before.
+She could do it again.
 She *had* to.
 
 Once again the lights came on automatically when she reached the corridor.
 If Patient didn't already know she was there,
 it would soon.
 When she reached the hole in the floor she crouched down,
-turned around,
 slid her legs into it,
+turned around,
 and lowered herself as far as she could before letting go.
 
 *Thump.*
@@ -5282,7 +5284,7 @@ spun around,
 and disappeared back into its hiding place.
 A moment later it reappeared.
 The flap in its top opened
-and its tiny arm handed Maddy a flashlight no larger than her thumb.
+and its tiny arm handed Maddy a flashlight the size of her thumb.
 
 Maddy swallowed.
 What if she was wrong?
@@ -5290,8 +5292,8 @@ What if she was wrong?
 turning it on and off again.
 "Do you have anything else?"
 
-Into its slot and back.
-This time the bot handed her the string bracelet she had given it.
+After another quick trip to its hiding place,
+the bot handed her the string bracelet she had given it.
 "Thank you," Maddy said.
 "But that was for you to keep.
 I—I was hoping you'd have something special.
@@ -5302,8 +5304,8 @@ The bot sat motionless.
 "It's hard to know what the right thing to do is.
 But I think he would have wanted you to give it to me."
 
-The bot rolled into its hiding place one last time.
-One heartbeat, two…
+The bot rolled into its hiding place once more.
+One breath, two…
 It came out and handed Maddy the strangely-shaped key
 that her father had drawn on the piece of paper he had tucked into his sketchbook.
 "Thank you," she said.
@@ -5312,10 +5314,9 @@ She patted the bot gently.
 It rocked back and forth a couple of times
 before disappearing back into its den.
 
-Maddy's adventure nearly ended a few moments later.
-She carried a chair from the control room back to the hole and stood on it,
+Maddy carried a chair from the control room back to the hole and stood on it,
 but it didn't get her high enough,
-so she cleared stuff off a small table and dragged it into the corridor as well.
+so she grabbed a small table and dragged it into the corridor as well.
 Grunting,
 she got the chair up onto it—
 
@@ -5346,11 +5347,11 @@ It zipped through the first service bot's treads
 and skidded to a stop right in front of the second one.
 
 The second service bot froze.
-An orange light blinked on its shoulder.
-A high-pitched *beep beep beep* noise came from somewhere inside it
+An orange light began blinking on its shoulder.
+It made a high-pitched *beep beep beep*
 as it backed up like an elephant startled by a mouse.
 When it tried to roll forward again,
-he cleaner bot zipped in front of it once more,
+the cleaner bot darted in front of it once more,
 zigging and zagging angrily.
 
 Without thinking
@@ -5364,7 +5365,7 @@ She scrabbled for purchase
 and somehow managed to pull herself back up into the corridor above.
 
 "This is not authorized,"
-Patient crackled over the speakers.
+Patient's voice crackled over the speakers.
 Maddy made a rude gesture at the empty air
 as she raced back toward the bunker entrance.
 "And *that* is not *protocol*,"
@@ -5374,9 +5375,9 @@ She slowed to a jog.
 She had a stitch in her side,
 one of her feet hurt with every step,
 and she needed a bathroom.
-*Are real adventures always like this?* she wondered giddily.
+*Are real adventures always like this?* she wondered.
 Did the people in the books she borrowed from Special Leaf
-wonder if they'd be able to sew up the holes they'd torn in their sleeves?
+worry about whether they would be able to sew up the holes they'd torn in their sleeves?
 
 She reached the stairs.
 Up, up, and up,
@@ -5384,12 +5385,12 @@ back to the half-open door.
 She paused to take a deep breath,
 then squeezed through,
 turned on the flashlight the cleaner bot had given her,
-and tossed underhand across the room and out the other door.
+and tossed it underhand across the room and out the other door.
 
 The tentacle had been waiting for her.
 As it slithered back to chase the light,
 Maddy slipped through the door and faced the panel beside the two levers.
-The instructions tucked into her father's sketchbook had been been very clear.
+The instructions tucked into her father's sketchbook had been been clear.
 It was too late for her to have doubts now.
 
 She pushed the key into the slot below panel and turned it.
@@ -5420,11 +5421,11 @@ clambering back to her feet.
 "The Makers will never know this happened,"
 Patient snapped.
 "By the time they return,
-all trace of this will have been erased.
+all trace of this event will have been erased.
 All irregularities will have been regularized!"
 
 "And everyone will get an extra piece of pie on New Year's Eve,"
-Maddy said sarcastically.
+Maddy snapped.
 
 "Pie is not protocol!"
 Patient said angrily.
@@ -5442,11 +5443,11 @@ The hands swung from side to side,
 sending scraps of concrete flying as they bashed the hole wider.
 
 "That is sufficient," Patient said,
-except this time its voice didn't come through the speaker in the roof.
-It stood on the ground outside the bunker beside Crusher.
+except this time its voice didn't come through the speaker in the ceiling.
+The hodgepodge bot stood on the ground outside the bunker beside Crusher.
 Lasercase stood on the cargo hauler's other side,
 its tentacles twisting this way and that
-like miniaturized versions of the security system.
+like miniaturize versions of the security system.
 Half a dozen other bots stood in a half-circle behind the trio,
 whirling blades and drills and sharp-fingered mechanical hands at the ready.
 
@@ -5474,7 +5475,7 @@ Maddy smiled her fiercest smile.
 and she spun around and turned the key the other way.
 
 The orange light overhead flickered.
-"Rebooding nedwork," the automated voice
+"Rebooting network," the automated voice
 as the lights on all of the bots' regulators went out.
 
 </section>
