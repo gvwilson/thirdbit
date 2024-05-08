@@ -3904,18 +3904,18 @@ Sindy scrunched up her face.
 "I don' wanna get up," she whined.
 
 "You have to,"
-Maddy said as gently as she could.
+Maddy said as calmly as she could.
 "Look."
 She pointed at the screens two meters away.
 
 Whimpering,
-Sindy sat up and rubbed her eyes again.
+Sindy sat up and rubbed her eyes.
 "It's Lasercase and the other bots,"
 Maddy explained.
 "They're going back to Rusty Bridge."
 
 Sindy stared at the screens for a moment
-and began to cry quietly and hopelessly.
+and began crying hopelessly.
 "It's not fair.
 No, don't!"
 She pushed away Maddy's hug.
@@ -3935,7 +3935,6 @@ teardrops glistening on her furless cheeks.
 "It's not my fault that happened."
 
 "I didn't mean—" Maddy began,
-startled,
 but her sister wasn't finished.
 
 "I don't know why the levers worked for me when they didn't work for you.
@@ -4121,7 +4120,7 @@ as if cracking its knuckles.
 "Be prepared," it said quietly.
 "We may encounter opposition."
 
-"You mean another fight?" Sindy asked resignedly.
+"You mean another fight?" Sindy asked wearily.
 
 "Possibly.
 If that occurs,
@@ -4153,9 +4152,9 @@ while a few were even bigger than
 the cargo bot that had hauled Sindy and the goats away from Rusty Bridge.
 
 There were shelves too,
-long rows of shelves that were taller than the mayor's house back home
-but still didn't reach as high as the arched ceiling
-barely visible above them.
+long rows of them taller than the mayor's house back home.
+As tall as they were,
+they still didn't reach as high as the arched ceiling above them.
 
 Boxes and drums and coils of cable,
 arms and legs and wheels and tentacles…
@@ -4204,7 +4203,7 @@ its green lasers scanning it carefully.
 "Yes," it said, almost reverently.
 "This is a very good thing."
 
-And then all the lights went out.
+Without warning the lights went out.
 Heavy machinery began to rumble all around them.
 "You should not take things that are not yours… yours… yours…,"
 Patient's voice crackled from a hundred speakers
@@ -4221,7 +4220,8 @@ Dockety's head spun from side to side.
 "Delay them,"
 it ordered.
 
-"How!?" Maddy asked.
+"How!?" Maddy asked,
+pulling Sindy close.
 At least a dozen bots stood in the circle around them.
 Some were bulky haulers like the two from the control room.
 Others had once been cranes designed to stack and unstack tall shelves,
@@ -4237,7 +4237,7 @@ Its manipulator clacked as it calculated.
 You must delay them."
 
 "But *how*?"
-Maddy almost wailed
+Maddy wailed
 as one of the bots revved its engine menacingly.
 
 Dockety's lenses rotated.
@@ -4272,7 +4272,8 @@ broken only by the sound of Dockety unscrewing things from the windmill one-hand
 Patient said.
 "You are attempting to induce undesirable behavior!"
 
-Maddy smiles wickedly, her heart pounding.
+Maddy forced a smile,
+hoping that Patient couldn't hear her heart pounding.
 "You mean it's a lie?
 Nope.
 I'm a roo,
@@ -4286,7 +4287,7 @@ Static crackled on the speakers.
 Patient said indignantly.
 
 "Then your database is incomplete,"
-Maddy improvised wildly,
+Maddy improvised,
 looking from bot to bot
 the way she had seen Mayor Lupus look from person to person
 when speaking to a crowd.
@@ -4305,7 +4306,7 @@ and held it up.
 A crane bot turned on a spotlight welded to its single long arm
 and shone a beam of bright white light on Maddy's upraised paw.
 A moment later it rolled back a step in surprise.
-The bots around her began to rattle quietly.
+The bots around her began rattling quietly.
 
 "That is not yours,"
 Patient said.
@@ -4367,8 +4368,8 @@ They felt really, really strong—she was *sure*
 she had absolutely nothing to worry about.
 
 *Bing! Bing! Bing!*
-The bots that surrounded them chimed musically.
-Their lights began to flicker as they woke up.
+The bots that surrounded them chimed musically,
+their lights flickering as they woke up.
 "Aright,"
 Maddy said breathlessly.
 "Let's go."
