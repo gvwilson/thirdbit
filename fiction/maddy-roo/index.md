@@ -5487,7 +5487,7 @@ as the lights on all of the bots' regulators went out.
 Maddy grabbed a chunk of concrete from one of the broken bunker blocks
 and charged the bots.
 *Jump* and she was over Patient.
-*Jump* and she was up on Crusher's tread.
+*Jump* and she was on Crusher's tread.
 She bashed the regulator over and over,
 grunting with each blow.
 If her father's notes were correct,
@@ -5502,28 +5502,28 @@ rock upraised.
 "Uh oh."
 
 "Ah ha ha ha!"
-Patient said triumphantly as Crusher's engines began to rumble.
+Patient crowed as Crusher's engines rumbled.
 "Your strategy has proven ineffective!"
 
 The big bot reached for her.
 She dodged left, then right,
 easily ducking its big, clumsy arms.
-The bot began rocking from side to side to shake her off.
+The bot rocked from side to side to shake her off.
 "Disassemble her! Disassemble her!" Patient shouted manically.
 
 Lasercase scuttled forward,
 snapping its tentacles at her.
 "Wait! Stop!"
-Maddy said desperately.
+Maddy pleaded.
 "I can free you!"
 
 "I *am* free!" Lasercase buzzed.
-As one tentacle whipped past her head,
+As one of its tentacle whipped past her head,
 another grabbed her ankle.
 She hit it with her rock,
 but couldn't even make a dent.
 
-And then the tentacle from the river raised itself out of the grass
+And at that moment the giant tentacle from the river raised itself out of the grass
 and slapped down on Lasercase
 like a flyswatter.
 The bot raised its own smaller tentacles to defend itself.
@@ -5554,7 +5554,7 @@ it was gone.
 
 Maddy stood up.
 "All right, let's try this again,"
-she muttered angrily.
+she muttered under her breath.
 She grabbed her chunk of concrete,
 scrambled back onto Crusher,
 and struck the regulator with all her might.
@@ -5593,7 +5593,7 @@ and drove up the hill toward the opening the flying bots had used.
 
 They crested the hill and drove straight into chaos.
 In the few moments when the network was down,
-half a dozen bots had managed to break their own regulators.
+half a dozen bots had broken their regulators.
 Others hadn't been quick enough or strong enough or just couldn't reach.
 They were now back under Patient's control,
 and the two sides were at war.
@@ -5693,7 +5693,7 @@ He placed it in her palm.
 With a faint hum it began to glow.
 
 "Whoa," Sindy breathed.
-"It is supposed to do that?"
+"Is it supposed to do that?"
 
 "Only for Makers,"
 the old tortoise said.
@@ -5731,7 +5731,7 @@ She went into the house and emerged a moment later with a bottle of peach juice 
 four glasses in the other,
 and a small rectangle tucked under her arm.
 She passed the glasses around
-(apologizing to the bots for not bring them any),
+(apologizing to the bots for not bringing them any),
 set the bottle on the table,
 and then hesitated.
 
