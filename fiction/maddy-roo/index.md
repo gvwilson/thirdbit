@@ -4403,7 +4403,7 @@ With a roar they raced through into the honey-warm light of dawn.
 ## Crash Landing
 
 Maddy's initial fright at being airborne
-was instantly replaced by full-blown terror.
+instantly gave way to full-blown terror.
 There was just enough light for her to see how high they were
 and how far they'd fall if one of the straps broke
 or the windmill on Dockety's back stopped working or—
@@ -4423,11 +4423,12 @@ Green bubbles swelled and burst here and there in little splattery burps.
 
 Dockety banked in a long curve and straightened out again,
 taking them away from the road and river.
-Maddy had to squint against the wind of their passage.
+Maddy squinted against the wind made by their speed.
 She had no idea how fast they were going,
 but it was fast enough and loud enough to send birds fleeing from their nests.
 
-"How long 'til we're home?" she shouted.
+"How long 'til we're home?"
+Maddy had to yell to make herself heard.
 
 "Unknown," Dockety replied.
 "This one has disabled the autopilot to forestall any attempts at subversion,
@@ -4436,13 +4437,13 @@ so maps are not available."
 Without warning the bot went into a dive,
 shallow at first and then steeper.
 Maddy clutched her sister's arm.
-"What's happening?" she shouted.
+"What's happening?"
 
 "We are being pursued,"
 Dockety said as it leveled off frighteningly close to the treetops.
 
 Maddy twisted around as far as she could in her harness
-but couldn't see anything.
+but couldn't see anything except empty sky.
 "They're right behind us!" Sindy shouted,
 looking upside-down through her own legs.
 
@@ -4452,8 +4453,7 @@ For a moment everything went dizzy
 as the forest became her ceiling and the sky—she swallowed hard.
 *Don't throw up,* she pleaded with her stomach.
 
-Two dark shapes were flying side by side behind them
-parallel to their course.
+Two dark shapes were flying side by side behind them.
 They had wings instead of rotors
 and were carrying canisters
 like the ones that had been stacked on the shelves in the armory.
@@ -4462,7 +4462,7 @@ like the ones that had been stacked on the shelves in the armory.
 she shouted.
 
 "Agreed."
-Dockety banked around a particularly tall stand of pine trees.
+The rotors on Dockety's back whined as it dodged a particularly tall stand of pine trees.
 "They are part of the attack."
 
 Maddy clenched her paws.
@@ -4494,7 +4494,7 @@ pointing.
 *Thump!*
 Something black shot into the air just in front of them.
 For a moment Maddy thought it was a flock of startled crows,
-but it was a net,
+but it was a net made of the sturdy brown twine people used in their gardens,
 spreading as it spun through the air.
 
 *Thump!*
@@ -4502,7 +4502,6 @@ spreading as it spun through the air.
 she shouted needlessly
 as Dockety banked away from a second shot.
 The militia must have set up the tangle cannon after the previous attack!
-They didn't know Dockety was on their side!
 
 "Behind us!
 Look behind us!" she yelled at the people on the ground,
@@ -4511,26 +4510,25 @@ knowing they couldn't hear.
 *Thump!*
 *Thud!*
 The third shot hit them.
-The net was made of the rough brown twine people used in their gardens.
-It wrapped around them,
+The net wrapped around them,
 cutting through the fur on Maddy's cheek.
 The weights on its fringes clattered against Dockety's back.
 
 The windmill rotor stuttered and whined as the string tangled around it
 and suddenly they were falling,
 they were *falling*,
-they were going to crash and all she could think was that
+they were going to crash and all Maddy could think was that
 she hoped her father's sketchbook would survive
 so her mother would know that they'd found him or almost.
 
 The rotor stuttered to life again.
 *Whirr… whirr…*
-She smelled burned string and hot metal.
+She smelled burnt string and hot metal.
 Dockety spiralled down,
 spinning faster and faster as the rotor struggled to tear itself free.
 
 At the last possible moment the bot cut the rotor and jerked backward
-to land on its feet on the roof of the mayor's house.
+to land feet-first on the roof of the mayor's house.
 They slid and tumbled.
 Dockety caught the gutter with one manipulator just enough to slow them a little.
 They crashed onto the cobbles,
@@ -4552,8 +4550,7 @@ too sore for words,
 and then,
 "Sindy! Sindy, are you aright?"
 
-Her little sister was tugging feebly at the buckles
-on the straps that still tied her to Dockety.
+Her little sister tugged feebly at the straps that still tied her to Dockety.
 "Ow," she whimpered.
 "Yeah, I'm aright.
 Did we make it?"
@@ -4564,10 +4561,10 @@ and then pulling her into a hug.
 "We're home."
 
 *Sshhzorp… Bzzt… Bzzat-at-at.*
-Dockety's speakers crackled,
-making the villagers around them jump.
-One of the bears raised her ax.
+Dockety's speakers crackled.
+The villagers around them jump as they realized the bot was still operational.
 
+One of the bears raised her ax.
 "No! Wait, don't!"
 Maddy scrambled to her feet.
 "It rescued us.
@@ -4634,9 +4631,9 @@ A mother pushing through a crowd
 to hug the daughters she feared she might never see again
 is one of them.
 Mama Roo put her arms around Sindy and Maddy
-and squeezed them so tight that Maddy could barely breathe.
+and squeezed them so tightly that Maddy could barely breathe.
 She didn't care—she could breathe later.
-Just then the familiar warm smell of her mother's fur
+In that moment the familiar warm smell of her mother's fur
 was all she needed.
 
 "Don't you ever scare me like that again, either of you,"
@@ -4659,13 +4656,16 @@ Their mother looked like she was about to burst into tears.
 
 She handed the sketchbook to her mother.
 Emotions chased one another across her face:
-confusion, shock, dumbstruck wonder,
+confusion,
+shock,
 and then something Maddy hadn't seen in far too long—hope.
 "Where did you get this?"
-she whispered.
+Mama Roo whispered.
 
-"In this kind of bunker thing.
-I'll tell you all about it,
+"In this, this kind of a bunker place,"
+Maddy said.
+Where could she even start?
+"I'll tell you all about it,
 but listen,
 you gotta listen,
 there's bots coming,
@@ -4709,7 +4709,7 @@ and I'm not in the mood for taking chances."
 
 "That only seems sensible," Special Leaf said,
 putting his hand on Maddy's arm before she could object again.
-"I am very glad you're back,"
+"I am glad you're back,"
 he continued.
 "I was afraid we'd never see you again.
 What you did was very brave."
