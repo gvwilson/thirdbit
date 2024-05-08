@@ -4742,11 +4742,10 @@ as a dozen engines rumbled in the distance.
 ## The Battle of Rusty Bridge
 
 *Dong! Dong! Dong!*
-The alarm bell rang cold and clear,
-three peals and three again.
+The alarm bell rang cold and clear.
 "Get those things out of here!"
 Mayor Lupus yelled,
-waving her zap gun at the smoking canisters.
+waving her zap gun at the canisters spewing dizzysmoke.
 
 The ox with the hammer lowered her head and charged.
 With a mighty bellow she swung her hammer.
@@ -4772,9 +4771,8 @@ She whirled around.
 It was Gumption!
 For a moment she thought he was going to hug her,
 but he pulled up short.
-His fur was matted with mud
-and there was a leaf stuck to his leg
-and she didn't care.
+His fur was matted with mud and there was a leaf stuck to his leg.
+She didn't care.
 She threw her arms around him and hugged him close.
 
 "Um…" he said,
@@ -4797,7 +4795,7 @@ Maddy and Gumption knelt and helped it stand.
 Maddy repeated urgently.
 Another few seconds and the dizzysmoke would reach them.
 
-But Dockety pushed them away and limped back to the flying harness
+Dockety pushed them away and limped back to the flying harness
 that lay where they had fallen.
 Its joints squealed in protest as it tried to pick it up.
 
@@ -4813,12 +4811,12 @@ to blow the dizzysmoke away.
 
 "Aright!" Gumption shouted,
 then, "Oh no!"
-as Dockety's feet screeched across the cobbles like fingernails on a blackboard.
+as Dockety's feet screeched across the cobbles.
 The flying machine was so powerful that it was pushing Dockety backward!
 
 Maddy and Gumption braced their shoulders against the bot's back.
 Their boots scrabbled on the cobblestones.
-The bot's whole body was vibrating so much
+The bot's whole body vibrated so much
 that Maddy expected parts to start falling off,
 but it was working—the wind from the rotor was clearing the smoke!
 
@@ -4834,7 +4832,7 @@ The mayor fired her zap gun twice, then swore.
 Leaf-you gotta slow 'em down!"
 
 Special Leaf nodded grimly.
-He pulled up his sweaters' sleeves to reveal the gleaming tech bracelet on each arm,
+He pulled up his sweater's sleeves to reveal the gleaming tech bracelet on each arm,
 braced his feet,
 and swept his arms in a circle.
 The earth split in a ragged arc in front of the cargo hauler
@@ -4846,7 +4844,7 @@ A goat dropped her pike and ran to help him.
 
 *Clang! Thwack!*
 All around the square militia and bots battled each other.
-As the last of the dizzysmoke wafted away
+As the last of the dizzysmoke wafted away,
 Dockety switched off the rotor and dropped it on the cobblestones.
 "Bzzt brrzzzt crackle," it said,
 pointing at the mayor's house and pushing Maddy toward it.
@@ -4895,22 +4893,20 @@ It scuttled toward Maddy,
 tentacles raised.
 
 "Ooph!"
-Gumption tackled her to the ground.
+Gumption tackled Maddy to the ground.
 The bot's tentacles whipped over her head.
 The circuit board skittered across the cobblestones.
 
 "Got it!"
 Gumption grabbed the circuit board,
 rolled over,
-stood up—
-
-—just in time for a tentacle to club him in the ribs.
+and stood up just in time for a tentacle to club him in the ribs.
 "No!" Maddy shouted again
 as the young goat landed in a heap beside her.
 "Gumption!"
 
 Lasercase snatched up the circuit board.
-A bullhorn popped out of a hatch on its back and blared loudly.
+A bullhorn popped out of a hatch on its back and blared.
 The bots immediately began to retreat,
 but Maddy barely noticed.
 "Gumption! Gumption!"
@@ -4922,7 +4918,7 @@ He twitched and coughed.
 
 "Not… much… chance… of… that…"
 he gasped.
-His eyes closed and he went loose in her arms.
+His eyes closed and he went limp in her arms.
 
 "Help us! Help us, please, someone!"
 Maddy cried,
@@ -4932,12 +4928,11 @@ The next thing she knew
 Mama Roo was gently loosening her arms and pulling her to her feet.
 "Let them help him,"
 her mother said as Maddy tried half-heartedly to push her away.
-One of the oxen and a young wolf—Wilbur, Maddy though dazedly,
-his name was Wilbur,
+One of the oxen and a young wolf—Wilbur, Maddy thought dazedly,
 he was the mayor's grandson—placed Gumption on a stretcher.
 
 "He's going to be all right, isn't he?"
-Sindy asked in a very small voice.
+Sindy asked in a small voice.
 
 Mama Roo squeezed her daughters.
 "They'll fix him up," she promised.
@@ -4945,7 +4940,7 @@ Mama Roo squeezed her daughters.
 Zeke the bear lumbered over,
 his ax on his shoulder.
 "Wait!"
-Maddy her mother away and stepped between the bear and Dockety.
+Maddy pushed her mother away and stepped between the bear and Dockety.
 "What are you doing?"
 
 The bear hefted his ax.
@@ -4956,7 +4951,7 @@ Didn't you see?"
 Maddy glanced down at Dockety's motionless form.
 A single lonely light blinked on and off in the corner of the screen on its chest.
 It looked like it needed a mechanic just as badly as Gumption needed a doctor,
-but the nearest bot mech was—Maddy didn't even know.
+but the nearest bot tech Maddy knew of was in Sandy Bend a day away.
 
 "Don't listen to her,"
 a harsh voice said.
@@ -4969,8 +4964,8 @@ Maddy snapped.
 "Upstairs hidin' when everyone else was down here?"
 
 Bluster's paws bunched into fists.
-For a moment Maddy was sure he was going to swing at her,
-but instead he pulled the ax out of Zeke's confused grip.
+For a moment Maddy was sure he was going to take a swing at her,
+but instead he took the ax from Zeke.
 "Only good bot is a scrapped bot.
 If you won't fix this, I will."
 He raised the ax,
@@ -4984,8 +4979,8 @@ but his glare was as bright as Dockety's lasers
 and the arm pointed at Bluster was as steady as a mountain.
 
 Bluster scrambled to his feet.
-He looked back and forth between the special and the bot,
-then spat on the cobblestones and walked away without saying a word.
+He looked back and forth between Special Leaf and the bot,
+then spat on the cobblestones and stalked away.
 
 "Thanks," Maddy said to the old tortoise,
 helping him sit down.
@@ -4996,7 +4991,7 @@ his old face more gray than green.
 
 Maddy shook her head.
 "I don't know.
-It rebooted the ones back in the bunker,
+It rebooted the bots back in the bunker,
 but it didn't seem to work on Lasercase."
 
 "They seemed to want it pretty bad,"
@@ -5078,7 +5073,7 @@ She blinked and reached for it,
 frowning.
 The thump had knocked a folded piece of paper loose
 from its hiding place inside the back cover.
-She gentled tugged it free and unfolded it.
+She gently tugged it free and unfolded it.
 
 A chill ran up her spine.
 She stared at the familiar handwriting on the page for a moment,
