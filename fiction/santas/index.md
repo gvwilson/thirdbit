@@ -10,16 +10,14 @@ fiction: true
 
 ## A Warning
 
-*You probably think this is a Christmas story because of the santas,
-but it's not.
-It's about right and wrong and revolution,
-about true love and the other kinds,
-and about how by the time you go home it isn't really home any more.*
-
-*There's one kiss and several explosions.
-The footnotes are there to lighten things up,
-but if you need a someone to hold your hand during the scary bits
-you're out of luck—I'm just a book, and we don't have hands.*
+You probably think this is a Christmas story because of the santas,
+but it's not:
+it's about right and wrong and figuring out who you are
+and how when one door opens another closes and vice versa.
+There are many footnotes and explosions but only one kiss.
+Oh,
+and if you need someone to hold your hand during the scary bits
+you're out of luck—I'm just a book, and we don't have hands.
 
 </section>
 
