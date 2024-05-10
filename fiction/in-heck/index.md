@@ -12,7 +12,7 @@ fiction: true
 - Rusty River: runs through the Mire
 - Sandy Bend: another town (not visited but mentioned)
 
-- Regulators: constabulary (never explain political structure or who they report to)
+- Regulators: constabulary (never explain who they report to)
 
 ## Characters
 
@@ -35,6 +35,7 @@ fiction: true
   - Now coaching Sindy Roo as she explores her talent
 - Mayor Lupus: the female wolf mayor of Rusty Bridge
   - A very alpha female
+- Mama Tumbly: a deer who wants to be mayor
 - Dockety: fully, "Dockety-One Forty-Bee"
   - Unofficial leader of the refugee bots
   - Close friends with Crusher
@@ -51,3 +52,19 @@ fiction: true
   - Doing maintenance until the Makers return
 - Patient in Darkness: the villain from the first book
   - Winds up taking over Central
+
+## Outline
+
+- Pairs
+  - Maddy and Gumption (alternating narrators)
+  - Special Leaf vs. Special Blazes
+  - Patient in Darkness vs. Central
+
+### Chapter 1: The Regulators
+
+- Maddy is waiting on mail (that doesn't arrive)
+- Dockety brings the twins to town
+- Mama Tumbly runs after Able and gives it a hastily written note
+- The Regulators arrive a couple of days later
+  - Gumption shows up breathless at Maddy's house to announce their arrival
+  - They assume it's about Sindy, but it's about the twins
