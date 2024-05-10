@@ -48,6 +48,7 @@ fiction: true
 - Thoughtful Rabbit: sharpshooter Regulator
 - Bee Six Vee: six-legged mule bot
 - Mouse: a small maintenance bot from Patient's lair
+  - Now under Central's control
 - Central: the computer that runs Heck
   - Doing maintenance until the Makers return
 - Patient in Darkness: the villain from the first book
@@ -60,11 +61,44 @@ fiction: true
   - Special Leaf vs. Special Blazes
   - Patient in Darkness vs. Central
 
-### Chapter 1: The Regulators
+### Chapter 1: Neighbors
 
 - Maddy is waiting on mail (that doesn't arrive)
 - Dockety brings the twins to town
 - Mama Tumbly runs after Able and gives it a hastily written note
+
+### Chapter 2: The Regulators
+
 - The Regulators arrive a couple of days later
   - Gumption shows up breathless at Maddy's house to announce their arrival
   - They assume it's about Sindy, but it's about the twins
+
+### Chapter 3
+
+### Chapter 4
+
+### Chapter 5
+
+### Chapter 6
+
+### Chapter 7
+
+### Chapter 8
+
+### Chapter 9
+
+### Chapter 10
+
+### Chapter 11
+
+### Chapter 11
+
+### Chapter 12
+
+### Chapter 13
+
+### Chapter 14
+
+### Chapter 15
+
+### Chapter 16
