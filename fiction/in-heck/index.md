@@ -6,7 +6,7 @@ fiction: true
 
 <section markdown="1">
 
-## The Regulators
+## Mail
 
 Maddy was sketching the willow tree in the main square of the village
 when one of the Ox brothers hollered,
@@ -57,7 +57,8 @@ and there wasn't a dull pair of scissors in town.
 
 "Maybe,
 but taking charity from a bot still makes me uncomfortable,"
-Mama Tumbly sighed loudly.
+Miz Tumbly sighed loudly,
+shaking her graying mane.
 
 Mayor Lupus tipped the dregs of her tea into the planter by her elbow.
 "I reckon lettin' 'em settle in beside us is payment enough,"
@@ -68,7 +69,7 @@ And if any trouble shows up, well…"
 She rapped her gnarlywood cane against her mechanical leg.
 "Fightin' bots is a lot easier when you have a few on your side."
 
-Mama Tumbly's whiskers twitched slightly under the rebuke.
+Miz Tumbly's whiskers twitched slightly under the rebuke.
 She had put herself forward for election the year before,
 but had garnered even fewer votes than the mayor's previous challenger.
 "A lot of folks think it's time for a change,"
@@ -145,7 +146,7 @@ Its companion Crusher brought up the rear on heavy treads,
 and in between—
 
 "Are those boys *tied up*?"
-Mama Tumbly gasped,
+Miz Tumbly gasped,
 her ears folding down in shock.
 
 "Quiet down," Mayor Lupus said sharply.
@@ -208,7 +209,7 @@ gesturing at Crusher.
 "But if we are able to repair it,
 we will use it only for defensive purposes."
 
-"Says *you*," Mama Tumbly said just loudly enough to be heard.
+"Says *you*," Miz Tumbly said just loudly enough to be heard.
 
 Mayor Lupus scowled.
 "Would have been neighborly of you to let us know you had that."
@@ -254,13 +255,13 @@ Maddy demanded hotly.
 
 "I didn't say that!"
 Gumption protested.
-"But—Mama Tumbly was by for tea yesterday,
+"But—Miz Tumbly was by for tea yesterday,
 and she and my ma and pa were all saying that
 we don't really know much about them.
 I'm not not saying I agree,"
 he added hastily,
 anticipating Maddy's outrage.
-"But she said—Mama Tumbly, I mean—that they call us 'breathers'."
+"But she said—Miz Tumbly, I mean—that they call us 'breathers'."
 
 "Well, we call 'em a lot worse than that,"
 Maddy snapped.
@@ -272,7 +273,13 @@ I'm just saying a lot of folks aren't as quick with change as you."
 
 Whatever Maddy might have said next was cut off
 by a familiar pair of voices.
-"Regulators! There's Regulators comin'!"
+"Regulators! The Regulators are here!"
+
+</section>
+
+<section markdown="1">
+
+## The Regulators
 
 "What now?"
 Mayor Lupus asked,
@@ -285,16 +292,15 @@ Bravo panted,
 straightening up.
 "We saw 'em just past the school."
 
-Even as he spoke,
-four travelers came around the corner into the square,
-each looking more dangerous than the one before.
-The rabbit at the front had a long rifle on her shoulder
-and a slouch hat pulled down low over her ears.
-The six-legged mulebot beside her had a squat turret for a head
-and armor that put Special Leaf's shell to shame.
+Even as Bravo spoke,
+Gumption saw four travelers come around the corner into the square.
+Each looked more dangerous than the one before.
+The rabbit had a long rifle on her shoulder
+and a slouch hat pulled down over her ears.
+The armor on the six-legged mulebot beside her put Special Leaf's shell to shame.
 Behind them was a tiger with a black patch over one eye and a sword slung on his hip.
-A bear carrying almost as many weapons as the mulebot brought up the rear.
-She wore the same dark green jackets with black collars and cuffs
+A bear carrying almost as much gear as the mulebot brought up the rear.
+She wore the same dark green jacket with black collar and cuffs
 as the rabbit and tiger,
 while the mulebot was painted in matching camouflage.
 
@@ -304,10 +310,17 @@ short and sharp.
 The Regulators took two more steps each and halted in perfect time.
 A low murmur ran through the townspeople.
 
+"Nice," Gumption muttered admiringly.
+
+"Hush," Maddy snapped back.
+
+*Hush yourself,*
+Gumption thought but, for the hundredth time, didn't say.
+
 "Mornin'," Mayor Lupus said,
 inclining her head.
 "And welcome to Rusty Bridge.
-If I'd known you were comin' I'd have put on a pot of tea."
+If I'd known you were comin' I'd have put on some tea."
 
 "My apologies on that, Mayor Lupus,"
 the tiger replied cordially,
@@ -324,16 +337,16 @@ the tiger replied,
 doffing his hat.
 
 The crowd let out its collective breath.
-"I *told* you," someone said,
-just loud enough to be heard.
+"I *knew* it," Gumption said under his breath,
+ignoring another withering look from Maddy.
 
-Maddy swallowed hard,
 Special Blazes was *famous*.
 Every story in the newspaper about his exploits said so:
 "The famous Special Blazes has triumphed again!"
 The Case of the Snorkeling Smugglers,
 the Shootout at Half-Heart Pass,
-his year-long pursuit of the villainous Mattock sisters—she and Gumption had devoured them all.
+his year-long pursuit of the villainous Mattock sisters—Gumption had devoured them all
+despite Maddy's disdain for "sensationalism".
 
 "Well,
 Special,
@@ -342,17 +355,15 @@ Mayor Lupus said.
 "Oh,
 and may I introduce Special Leaf?"
 
-The elderly tortoise had somehow made his way through the crowd without anyone noticing.
+The elderly tortoise had somehow made his way through the crowd without Gumption noticing.
 He was wearing a shapeless gray sweater
 that Mama Bear had knit for him the winter before last,
 and had an old blue scarf wrapped around his neck as well.
 He peered at the Regulators through his little round glasses
 as if trying to decide whether they were books that needed re-shelving.
 
-Special Blazes dipped his head deferentially.
+The rabbit doffed her hat as Special Blazes dipped his head deferentially.
 "It's an honor, Special, truly an honor" he rumbled.
-Beside him,
-the rabbit doffed her hat and dipped her head as well.
 
 "Thank you,"
 Special Leaf said in a slightly fuddled tone.
@@ -371,11 +382,12 @@ but what we'd like most right now is a chance to wash up."
 
 The mulebot made a grinding noise.
 The corner of Special Blazes' mouth quirked.
-"Or a wipe down and a bit of oil, if there's any to be had,"
+"Or in Bee Six Vee's case,
+a bit of oil,"
 he amended.
 "And miz mayor,
 if you can spare a bit of time for conversation,
-we'd be grateful for that as well."
+I'd be grateful for that as well."
 
 Mayor Lupus waved the three flesh-and-blood Regulators inside
 while the mulebot followed Zeke around to the back of the house.
@@ -383,23 +395,23 @@ The townspeople dithered and buzzed for a few moments,
 then decided in ones and twos that their chores weren't going to do themselves
 and headed for home.
 
-"You ever seen a Regulator before?"
+"You ever seen Regulators before?"
 Gumption asked Special Leaf.
 
-The Special nodded.
+The old tortoise nodded.
 "Not in some years," he said quietly,
 all traces of fuddlement gone from his voice.
 
 "Why do you think they're here?"
 
-The old tortoise nodded toward a small group of people still gossiping nearby.
-"I think we should have that conversation somewhere private."
-
-</section>
-
-<section markdown="1">
-
-## Eavesdropping
+Special Leaf shook his head.
+"I wish I knew.
+But please,
+be very, very careful what you say,
+especially around Blazes.
+He is every bit as smart as the stories say,
+and the less he knows about Sindy,
+the better."
 
 The threesome walked back to Special Leaf's house in silence.
 "Done for the day?"
@@ -411,20 +423,31 @@ Sindy said without looking up from her book.
 
 "You're welcome to take it with you,"
 Special Leaf said gently.
-The tortoise's eyes were still bright behind his little round glasses,
-but the battle with the bots had added more wrinkles to his green-gray hide.
+The battle with the bots had added more wrinkles to Special Leaf's green-gray hide,
+but his eyes were still bright behind his little round glasses.
 
 "But this is the most exciting part!
 Please?"
 Sindy pleaded.
 
 Maddy looked at Gumption, who shrugged.
-"Five minutes,"
-Maddy said sternly.
-Special Leaf caught her eye and nodded toward the kitchen.
+"I don't mind."
+He was supposed to spend the day weeding his family's vegetable garden.
+It wasn't the worst job in the world,
+but even if he wore his father's waxed cotton slicker
+his fur would get soaked and muddy,
+and stooping over would make his mended ribs ache.
+On the other hand,
+at least Maddy had asked before making a decision.
 
-The two teenagers followed him into the other room.
-"How's she doing?" she asked.
+"Five minutes,"
+Maddy told her sister sternly.
+
+Special Leaf nodded toward the kitchen.
+The two teenagers followed him into it.
+"How's she doing?" Maddy asked
+as Gumption plopped himself down in his usual chair,
+then winced at a twinge in his ribs.
 
 "Very well,"
 the old tortoise said.
@@ -438,18 +461,15 @@ he confided.
 "They were from the book she was reading.
 It was like it read her mind."
 
-"That's great," Maddy said,
-though she wasn't completely sure it was.
+"That's great," Gumption said when Maddy didn't respond.
 Her sister was one of those rare people with no tail,
 no whiskers or scales,
 and no fur except for the wiry black tuft on her head.
 When other children wanted to be cruel they called her a throwback,
 but every piece of tech she touched responded to her.
-Every time Maddy thought about
-how the rest of the village would react if they found out about that
-she felt queasy.
 
-Gumption elbowed her.
+Every time Maddy thought about what that might mean it scared her,
+Gumption elbowed her in the ribs to take her mind off it.
 "Aren't you going to tell him?"
 
 Special Leaf wrinkled his forehead,
@@ -492,5 +512,408 @@ Woo!"
 She hugged Gumption impulsively,
 then turned to Special Leaf with a grin as wide as a sunrise on her face.
 "Congratulations," he said as she took an enormous bite out of the cookie.
+
+Later that night,
+Gumption lay in his narrow cot
+and listened to the evening's raindrops drip off on the cottonwood outside his attic bedroom.
+The sound matched his mood perfectly.
+He was happy for Maddy,
+he really was.
+Having one of her drawing published in a newspaper
+mattered almost as much to her
+as saving Rusty Bridge from a band of marauding bots.
+
+It was great news,
+but it also meant she was that much closer
+to leaving for somewhere better with people as smart and as talented as she was.
+He'd known since their first conversation about books at Special Leaf's house
+that she would go some day.
+He just wished that day wasn't getting closer quite so fast.
+
+He nearly fell out of bed when something rapped softly on his window.
+"'Bout time," he muttered,
+getting quietly to his feet.
+He had oiled the shutter after dinner to prevent it squeaking,
+and the nearest branch of the cottonwood was an easy stretch away.
+
+Dockety waited patiently for him at the base of the tree.
+"Thank you again for warning this one about your cousins' plan,"
+it said without preamble.
+
+"You're welcome."
+Gumption hesitated.
+"So what did you find out?"
+
+The bot's lenses rotated back and forth.
+"He is still alive."
+
+Gumption swallowed hard.
+It was what he'd hoped to hear, but—
+"Are you sure?"
+
+"No,
+but he is the right age, gender, and body shape,
+and Central's record of him starts at the right time."
+A single drip from its leaves trickled down the bot's head as it spoke.
+"It will be difficult to obtain more information.
+We can only communicate when—"
+Dockety paused.
+"You do not have the words.
+There are little moons above this world,
+placed in the sky by the Makers.
+We can only communicate with central records when they are in the right positions,
+and trying to send a message would be far too dangerous."
+
+Gumption shook his head.
+He didn't understand the part about "little moons",
+but that didn't matter.
+"Is he aright?"
+
+"He is—"
+Dockety paused again as if searching for the right word.
+"He is functional, but not optimal.
+Heck was not designed to sustain organics.
+There are machines in the facility that only work for organic operators.
+This is why Central takes your people,
+but they usually do not last this long."
+
+A sudden thought struck him.
+"What about the Regulators?" he asked excitedly.
+"They must know *tons* about sneaking into places like this!
+I can bring 'em out here to meet you and—"
+
+"No!"
+Dockety's voice was sharp.
+"Not them.
+They hunt our kind.
+They disconnect us.
+They disassemble us.
+They *destroy* us.
+You must not trust them."
+
+"Yeah,
+that's basically what Special Leaf said."
+Gumption sighed.
+"Aright.
+Thank you for findin' out."
+
+As he reached for a branch of the cottonwood Dockety asked,
+"What are you going to tell Miz Roo?"
+
+"Dunno yet,"
+Gumption grunted.
+A sharp pain stabbed his side as he pulled himself up into the tree.
+
+</section>
+
+<section markdown="1">
+
+## School
+
+"Sorry, Miz Tumbly,"
+Maddy said the next morning.
+She and Sindy had gotten to school
+just as Rusty Bridge's other children were finishing
+a ragged rendition of the Plea to the Makers.
+Miz Tumbly scolded them more sternly than usual
+as they slipped into their usual seats.
+
+The reason quickly became apparent.
+"Class,
+we have a special treat today.
+How many of you know what a Regulator is?"
+Every hand shot into the air.
+"And how many of you know that
+we actually have some Regulators here in Rusty Bridge *right now*?"
+Hands strained to reach even higher
+as an excited murmur rippled through the room.
+
+"Well,"
+Miz Tumbly said indulgently,
+"If you all promise to be *very good*,
+we have a special treat today.
+Everybody find a partner.
+No,
+Jessamyn,
+you can't be your own partner,
+just—yes, anyone will do.
+All right?
+Two by two,
+then,
+let's go outside for our surprise!"
+She sighed as twenty-two children scrambled for the door,
+their partners forgotten.
+
+Gumption was the last one through the door.
+"Oh wow," he breathed,
+then added,
+"Sorry,"
+when Maddy shot him a look.
+There,
+in the center of the more-or-less rectangular field behind the school,
+stood Special Blazes and the bear who had arrived with him.
+Both wore their uniform trousers,
+but instead of their jackets they were in plain tunics
+no different from a farm hand's.
+
+"Get outta-come on, I wanna see."
+Bluster and Bravo shouldered their way through the other children
+to stand front and center.
+
+"I missed you in class today,"
+Miz Tumbly said curtly.
+
+"Doin' chores,"
+Bluster lied without looking at her.
+He elbowed his twin.
+"Look at the size of 'em!"
+
+The tiger's ear twitched.
+Without warning he crouched and roared.
+Everyone jumped,
+and a few of the smaller children squeaked.
+
+Special Blazes straightened and bared his teeth in a smile.
+"Good morning.
+Who can tell me what we just learned?"
+
+"That you're really scary!"
+Bluster called,
+scowling when Bravo made a kissing sound beside him.
+
+"I try,"
+Special Blazes said modestly.
+"But the real lesson is surprise.
+If you're ever in trouble—if you're ever attacked
+by bots or anyone else—try to surprise them.
+Do something unexpected.
+Like this!"
+
+He scooped up a wooden baton from the grass by his feet
+and swung it at his companion's head.
+Maddy heard it cut the air,
+but the bear was faster.
+She twisted sideways to avoid the first blow,
+ducked to avoid the second,
+then threw a punch that would have knocked the tiger halfway across the field
+if it had landed.
+
+It didn't.
+Instead,
+the tiger spun the baton around to knock the blow aside,
+then stepped in close and brought his hand up to the bear's throat.
+"Aaaand you're dead," he said pleasantly.
+
+Some of the children clapped.
+"Oh come now,"
+Special Blazes said,
+"You can do better than that for my friend Meribeth,
+can't you?"
+
+Gumption joined the applause,
+but stopped at a sour look from Maddy.
+"So here's the second lesson,"
+the tiger said.
+"Training wins.
+Training beats size and speed and everything else you can think of."
+
+"What about tech?"
+Bluster asked.
+
+"Even tech,"
+Meribeth rasped.
+Her voice was as rough as sandpaper on rust.
+She took the baton from Special Blazes,
+spun it around,
+and settled into fighting stance.
+
+The tiger stepped back,
+raised his fists,
+and winked at the children as his fists burst into flame.
+The flurry of punches, kicks, and whirlwind baton strikes that followed
+was too fast for Gumption to follow.
+Special Blazes threw one fireball after another.
+The bear batted them aside,
+somehow finding time to strike at her opponent in between.
+
+And then Meribeth threw the baton at Special Blazes' head.
+As he ducked,
+she reached forward and grabbed the front of his shirt.
+"Gotcha," she growled.
+
+Nobody had to prompt the children to applaud this time.
+"Woo hoo!" Bluster whooped.
+"That was *amazing*!"
+
+Miz Tumbly stepped forward.
+"All right, um, thank you,
+thank you very much for, um, for that demonstration" she said.
+"Now how about we all line up and go *back into the classroom*
+and we can ask the Regulators about
+all the *other* things they know how to do?"
+
+Gumption and Maddy found themselves in line behind the goat twins.
+"We *got* to be Regulators," Bluster told his twin excitedly.
+"Did you see how they—blam! blam!"
+He threw a couple of punches at the air.
+
+"It was all right,"
+Bravo allowed.
+
+"I bet they rehearsed the whole thing,"
+Maddy muttered.
+
+"Better than drawin' stupid little pictures,"
+Bluster shot back.
+Gumption put his hand on Maddy's arm and squeezed to stop her from replying.
+
+The children settled into their seats.
+Special Blazes stood at the front of the class
+with his hands clasped behind his back.
+"Now, who has questions?" Miz Tumbly asked.
+
+Hands shot into the air.
+How old had Special Blazes been when he became a Regulator?
+Eighteen, but he'd joined a troop of Junior Regulators when he was twelve.
+Oh, really?
+There wasn't one in Rusty Bridge?
+Well, they'd have to fix that, wouldn't they?
+
+Could they see his tech?
+Special Blazes looked at Miz Tumbly and tapped his chest.
+When she nodded,
+he pulled up his shirt.
+The children ooh'ed and aah'ed at the glassy lozenge strapped to his chest.
+"It lets me make fireballs with my feet too," he said as he pulled down his shirt,
+"But they're pretty hard on my boots."
+
+Had he ever killed anyone?
+"Bluster!"
+Miz Tumbly scolded.
+
+"No, no, it's a fair question," Special Blazes said.
+"And unfortunately, the answer is 'yes'.
+I never set out to,
+but sometimes…"
+He shrugged, his face solemn.
+"Sometimes you have to choose between one life and many."
+
+"What about bots?"
+Maddy asked loudly.
+
+"Miz Roo, I presume?"
+the tiger said drily.
+"Pleased to make your acquaintance."
+
+"And yours,"
+Maddy replied stiffly.
+"So if you don't mind me asking…?"
+
+"Too many," the Regulator replied levelly.
+"And I hope I've never *decommissioned* any that I didn't have to.
+But you of all people should know how dangerous rogue bots can be."
+His stern gaze swept the classroom.
+"Our job is to keep people safe.
+Any bot that respects that has nothing to fear from me or any other Regulator."
+
+There were more questions,
+but finally Miz Tumbly said,
+"All right, everyone,
+that's all the time we have today."
+Twenty-two children minus one groaned.
+"You all go out and run around for a bit
+and we'll do some arithmetic practice after, aright?"
+After another round of groans,
+these ones more habitual than sincere,
+the children stood and headed for the door,
+chattering with excitement.
+
+"Miz Roo?
+Could stay behind a moment, please?"
+Special Blazes turned to the teacher.
+"If it's all right,
+I'd like a word with her in private."
+
+"Oh—um, of course."
+Miz Tumbly glanced sidelong at Maddy.
+"I'll be right outside.
+Come along, Gumption Goat, 'private' doesn't include you."
+
+Kangaroos and older sisters are both naturally stubborn.
+Put the two together,
+and you have someone who can wait out a tiger.
+After a few moments the corner of Special Blazes' mouth quirked up.
+"Miz Room,
+I want you to know that I would trust Bee Six Vee with my life.
+I have in fact done so many times."
+
+"And I trust Dockety and Crusher the same way,"
+Maddy retorted sharply.
+"My sister would be in Heck right now if they hadn't fought for us.
+Makers' Names,
+we might *all* be there!"
+
+"I don't think there's any need for that kind of language,"
+Special Blazes shot back.
+Then he sighed.
+"Listen,
+Miz Roo,
+I know they're your friends,
+and I know what you and this town owe them.
+But from what Miz Tumbly tells me,
+there's more of them every day out at that camp of theirs,
+and—"
+
+"Miz Tumbly?"
+Maddy interrupted incredulously.
+"That's who you been listening to?
+Special,
+she's as sour as ten-year-old cider!"
+
+The Regulator snorted.
+"She is that," he allowed.
+"But that doesn't mean she's wrong.
+There's been more traffic in and out of Heck since your little adventure
+than anyone can remember.
+The bots getting busy,
+well,
+that never goes well for the living.
+I'm not asking you to spy on them,"
+he continued before Maddy could interrupt again.
+"I just think it would be best for everyone if you'd be mindful of what you see and hear."
+
+Gumption was waiting for her
+when she hopped angrily out the door a moment later.
+"Do you know what he wanted me to do?"
+she asked.
+
+"Spy on Dockety an' the others,"
+Gumption said.
+"I was up in the rafters listenin',"
+he added with a non-apologetic shrug.
+
+"They've done nothing wrong!
+They've *helped* people!
+It's folk like Miz Tumbly that are the problem!"
+
+Gumption didn't bother trying to shush her.
+It would just have made her angrier,
+and anyway,
+nobody was paying them the least bit of attention.
+Half the children were either pretending to throw fireballs at each other,
+while the others were speculating on how many people the Regulators had killed
+had found sticks and were waving them around like batons.
+"Somebody's gonna stick somebody in the eye,"
+he observed.
+
+"Well at least then they'd have something to talk about for real,"
+Maddy grumbled.
+She reached into her satchel for her sketchbook
+just as Sindy came running over.
+
+"We gotta go talk to Special Leaf,"
+the younger Roo said breathlessly,
+grabbing her sister's hand and tugging at her.
+"We gotta go *right now*."
 
 </section>

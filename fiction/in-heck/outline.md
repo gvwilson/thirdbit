@@ -35,7 +35,7 @@ fiction: true
   - Now coaching Sindy Roo as she explores her talent
 - Mayor Lupus: the female wolf mayor of Rusty Bridge
   - A very alpha female
-- Mama Tumbly: a deer who wants to be mayor
+- Miz Tumbly: a deer who wants to be mayor
   - School teacher
 - Dockety: fully, "Dockety-One Forty-Bee"
   - Unofficial leader of the refugee bots
@@ -56,14 +56,13 @@ fiction: true
 - Patient in Darkness: the villain from the first book
   - Winds up taking over Central
 
-## Outline
+## Notes
 
 - Pairs
   - Maddy and Gumption (alternating narrators)
   - Special Leaf vs. Special Blazes
   - Patient in Darkness vs. Central
-
-- Plot
+- Points
   - The Regulators aren't just to keep a lid on bots
   - Their real job is to control throwbacks who might become too powerful
   - Special Blazes finds out about Sindy and has an argument with Special Leaf
@@ -78,18 +77,21 @@ fiction: true
   - How do they escape from Central?
   - Finale: the recharging posts light up to signal the Makers' return
 
-### Chapter 1: Neighbors
+## Plot
 
-- Maddy is waiting on mail (that doesn't arrive)
-- Dockety brings the twins to town
-- Mama Tumbly runs after Able and gives it a hastily written note
+### Chapter 1: Mail
+
+- Maddy is waiting on mail
+- Exchange between Mayor Lupus and Miz Tumbly shows tension in Rusty Bridge over the bots
+- Parallel by tension between Gumption and Maddy
+- Dockety and Crusher bring in Bluster and Bravo
+- Cliffhanger: regulators arrive
 
 ### Chapter 2: The Regulators
 
-- The Regulators arrive a couple of days later
-  - Gumption shows up breathless at Maddy's house to announce their arrival
-  - They assume it's about Sindy, but it's about the twins
-- Scene at the school
+- The four Regulators arrive
+- Special Leaf's warning
+- Conversation at Special Leaf's house
 
 ### Chapter 3
 
