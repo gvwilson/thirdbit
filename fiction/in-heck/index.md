@@ -6,7 +6,7 @@ fiction: true
 
 <section markdown="1">
 
-## Mail
+## Mail (Maddy)
 
 Maddy was sketching the willow tree in the main square of the village
 when one of the Ox brothers hollered,
@@ -279,7 +279,7 @@ by a familiar pair of voices.
 
 <section markdown="1">
 
-## The Regulators
+## The Regulators (Gumption)
 
 "What now?"
 Mayor Lupus asked,
@@ -608,7 +608,7 @@ A sharp pain stabbed his side as he pulled himself up into the tree.
 
 <section markdown="1">
 
-## School
+## School (Maddy)
 
 "Sorry, Miz Tumbly,"
 Maddy said the next morning.
@@ -896,24 +896,14 @@ he added with a non-apologetic shrug.
 They've *helped* people!
 It's folk like Miz Tumbly that are the problem!"
 
-Gumption didn't bother trying to shush her.
-It would just have made her angrier,
-and anyway,
-nobody was paying them the least bit of attention.
-Half the children were either pretending to throw fireballs at each other,
-while the others were speculating on how many people the Regulators had killed
-had found sticks and were waving them around like batons.
-"Somebody's gonna stick somebody in the eye,"
-he observed.
+She half-hoped Gumption would shush her
+so she could let out some of her anger.
+All the other children crowded around Meribeth Bear and Special Blazes,
+pestering them with questions.
 
-"Well at least then they'd have something to talk about for real,"
+"You're welcome to them,"
 Maddy grumbled.
-She reached into her satchel for her sketchbook
-just as Sindy came running over.
-
-"We gotta go talk to Special Leaf,"
-the younger Roo said breathlessly,
-grabbing her sister's hand and tugging at her.
-"We gotta go *right now*."
+Just as she reached into her satchel for her sketchbook,
+Miz Tumbly screamed as a ball of flame shot into the sky.
 
 </section>
