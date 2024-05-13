@@ -901,9 +901,22 @@ so she could let out some of her anger.
 All the other children crowded around Meribeth Bear and Special Blazes,
 pestering them with questions.
 
-"You're welcome to them,"
+"They're all yours,"
 Maddy grumbled.
 Just as she reached into her satchel for her sketchbook,
-Miz Tumbly screamed as a ball of flame shot into the sky.
+a ball of flame shot into the sky.
+
+Miz Tumbly shrieked,
+and so did some of the children.
+Others when, "Whoa!"
+and one even started to clap.
+
+Maddy sprang to her feet.
+Special Blazes was crouched low,
+claws out and ready to slash.
+Meribeth Bear's hand on his shoulder might have been
+the only thing stopping him.
+"I'm sorry, I'm sorry," Sindy repeated,
+holding out the glass lozenge of tech that Special Blazes had been wearing.
 
 </section>
