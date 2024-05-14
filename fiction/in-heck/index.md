@@ -913,10 +913,121 @@ and one even started to clap.
 
 Maddy sprang to her feet.
 Special Blazes was crouched low,
-claws out and ready to slash.
+teeth bared and claws out.
 Meribeth Bear's hand on his shoulder might have been
-the only thing stopping him.
-"I'm sorry, I'm sorry," Sindy repeated,
-holding out the glass lozenge of tech that Special Blazes had been wearing.
+the only thing stopping him from attacking.
+"I'm sorry, I'm sorry," Sindy repeated fearfully,
+Special Blazes' lozenge of tech glowing in her hands.
+
+</section>
+
+<section markdown="1">
+
+## Departures (Gumption)
+
+Gumption stood in in the Roos' kitchen door
+with his hands in his pockets.
+He hadn't exactly been invited,
+but no one had told him to leave.
+He had tried leaning against the doorframe,
+but it felt disrespectful next to
+the tearful conversation at the kitchen table.
+
+"Everyone was trying it,
+and I thought—"
+Sindy hiccupped.
+"I thought folk would notice more if I *didn't* take a turn,
+and then it just—it just—"
+
+Tears rolled down her furless cheeks.
+"I didn't *want* to," she sobbed.
+"It just kind of woke up."
+
+"Sh sh sh."
+Mama Roo put an arm around her daughter's shoulders and pulled her close.
+"It's aright.
+You didn't do anything wrong."
+
+"But now they're going to take me *away*!"
+
+"Nobody's taking you anywhere,"
+Maddy said in a tone that put fireballs to shame.
+
+"But Special Blazes said I had to!
+And Miz Tumbly said it too."
+She leaned into her mother and sniffled.
+"I have to go to and be tested
+and they're going to find out about,"
+hiccup,
+"About *everything*."
+
+"Maybe it wouldn't be such a bad thing,"
+Gumption ventured.
+
+"I beg your pardon?"
+Maddy said icily.
+
+Gumption shrugged.
+"My Aunt Dorilee says that if folks are gonna talk about you,
+the smart move is to pick something you don't mind 'em talking about.
+If Sindy goes for testing and she fizzles,
+that'll be the only story anyone remembers."
+
+Maddy snorted.
+"That's the dumbest thing I've ever heard."
+
+Gumption leaned against the doorframe,
+balling his hands into fists in his pockets.
+He was sure he'd had dumber ideas,
+but this didn't seem like the time to point that out.
+
+"Maddy, please, be polite,"
+Mama Roo chided.
+She squeezed Sindy once more and straightened up in her chair.
+There were gray hairs in her fur,
+Gumption noticed.
+When had that happened?
+
+"We don't have make any decisions right now,"
+Mama Roo said.
+"And we definitely shouldn't decide anything on empty stomachs.
+Sindy,
+if you'd like to get some carrots—no,
+don't make that face.
+I know we had them last night—"
+
+"And the night before,"
+Sindy muttered.
+
+"—but we'll put some salt and rosemary on them this time
+and they'll taste brand new."
+Mama Roo stood up,
+brisk and confident now that she had something to do.
+"Maddy,
+can you get a squash out of the pantry?
+And Gumption,
+you're very welcome to stay if you want."
+
+"Thank you,
+but I oughta be gettin' home."
+He tousled Sindy's hair.
+"You'll be aright."
+
+He wasn't sure if he wanted Maddy to walk part-way with him or not,
+but she just said,
+"See you tomorrow,"
+so he nodded and said,
+"See ya,"
+and showed himself out.
+He really should head home,
+but instead he hopped over the split cedar fence
+that marked the back of the Roos' yard.
+A crow scolded him from a tree
+as he swung himself over another fence
+onto the dirt path that ran through the trees to the bots' camp.
+It was muddy from the overnight rain but he didn't slow down,
+not even when his feet almost went out from under him
+on a slippery patch near a stream so small
+that even the children didn't have a name for it.
 
 </section>
