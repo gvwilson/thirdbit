@@ -1024,10 +1024,89 @@ but instead he hopped over the split cedar fence
 that marked the back of the Roos' yard.
 A crow scolded him from a tree
 as he swung himself over another fence
-onto the dirt path that ran through the trees to the bots' camp.
+onto a dirt path that ran through the trees.
 It was muddy from the overnight rain but he didn't slow down,
 not even when his feet almost went out from under him
 on a slippery patch near a stream so small
 that even the children didn't have a name for it.
+
+Nobody in Rusty Bridge knew quite what to call
+the home that Dockety and its fellow bots had built themselves.
+Was "camp" the right word for buildings with stone floors and proper roofs?
+Gumption had overheard people refer to it as "Botsburg" and "Botsville",
+but none of those names felt right.
+For now,
+it was just a place—just a dozen structures ranging in size
+from a garden shed to something half the size of the Roos' house
+arranged in a circle around a black charging post.
+
+Docker was using a heavy brush to clean the muck out of Crusher's treads when he arrived.
+"It says you are better at this than any bot,"
+Dockety told Gumption.
+"Even better than this one."
+
+"Yeah?
+Well, I'm glad I'm good at something."
+He took the brush from Dockety and patted Crusher's side.
+"Got a right mess of muck in here.
+Been clearing brush with Zeke again?"
+
+"Confirmed," the hauler bot flashed on its screen.
+The word dissolved into happy sparkles
+when Gumption began scrubbing mud and leaves out of its treads.
+
+As he worked,
+he told Dockety what had happened to Sindy.
+"Young Miz Roo is right," the bot said when he finished.
+"Your regulations require her to be assessed.
+Her only alternative is to run away,
+but the Regulators will be prepared for that."
+
+"Have you ever had a run-in with 'em?"
+Gumption asked,
+flipping the brush over to pry a rock out of Crusher's treads with its handle.
+
+Dockety's lenses rotated.
+"This one has not.
+With high probability,
+if that was not the case,
+we would not be having this conversation."
+
+Gumption nodded and went back to brushing.
+Sparkles drifted across Crusher's screen with each scrape.
+If the hauler bot had been a cat,
+Gumption would have said it was purring.
+
+He was almost done by the time Dockety spoke again.
+"You could be better at that."
+
+Gumption shrugged.
+"Probably,"
+he admitted.
+
+"But to be better you would require training,"
+Dockety continued.
+"There is a school for mechanics in Sandy Bend.
+We could make the journey at the same time as the Regulators take Miz Roo for evaluation.
+That would be—"
+It hesitated.
+"Innocuous,"
+it finally said.
+
+Gumption straightened up patted Crusher's side.
+"That's a good idea,
+but I can't afford any kind o' Sandy Bend school."
+
+"It is unlikely that you would be accepted,"
+Dockety said neutrally.
+"But if that occurred, we would pay your fee."
+
+Gumption shook his head.
+"I can't ask you to do that.
+Not even for Sindy."
+
+"You do not have to ask."
+Dockety hesitated again.
+"But you will have to explain the plan to Maddy."
 
 </section>
