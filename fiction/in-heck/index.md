@@ -1109,4 +1109,139 @@ Not even for Sindy."
 Dockety hesitated again.
 "But you will have to explain the plan to Maddy."
 
+It was a good plan,
+and it might have worked
+if Gumption's parents hadn't been worried about his ribs
+and hadn't said that he needed to finish school in Rusty Bridge
+before he could go anywhere.
+Voices were raised after that
+and a younger brother was sent next door
+to ask Gumption's grandma to come by and talk some sense into him.
+Once half a dozen relatives were arguing on the porch
+he slipped away unnoticed and headed for Maddy's.
+
+"They're taking her tomorrow,"
+she said without preamble.
+The fur on her cheeks was matted with wiped-away tears.
+"Zeke Bear is running the produce wagon up to Half-Dome tomorrow,
+and Special Blazes said they could call a stage down from Sandy Bend to collect them there.
+Mama is trying to calm her down and get her packed at the same time."
+
+"And what about you?"
+Gumption asked.
+
+Maddy sniffled.
+"I ought to be up there helping, but I can't.
+I just can't."
+
+The young goat shook his head.
+"'S not what I mean.
+Are you packed?"
+
+"What?"
+Maddy stared at him uncomprehendingly.
+
+"Are… you… packed?"
+he repeated slowly.
+"I figure a change of clothes an' your sketchbook
+an' that letter from the newspaper is all you need."
+
+"Aren't you listening?
+We can't go with them!"
+
+"We don't have to.
+We… don't… have… to!"
+he repeated as Maddy started to speak.
+"We just have to *arrive* with them."
+
+A few hours later
+he and Maddy lay next to each other
+in the bottom of a wagon full of cabbages and corn
+in the barn on the edge of town.
+It had taken them an hour to unload enough boxes
+to make a space for themselves,
+an hour filled with whispered admonishments to each other not to drop things.
+
+Once they had made room for themselves and their knapsacks,
+they wrestled a board into place to serve as a roof for their little cave
+and re-packed everything on top of it.
+After some more whispers of,
+"No, not that one, *that* one,"
+and,
+"The other way around!"
+the wagon's contents looked more or less as they had at the start.
+
+There was just enough room for them to wriggle into their hiding place.
+They lay on their backs and braced their feet against the board above them.
+With a, "One, two, three,"
+they shifted it over to close the gap.
+
+"Well, that was fun,"
+Gumption whispered.
+
+Maddy elbowed him.
+After a moment of silence,
+she said,
+"It's a lot easier in stories, isn't it?
+Hiding and stowing away and all that—folk just do it.
+Nobody ever says it's hard work."
+
+"Yeah,
+and nobody ever talks about the smell,"
+Gumption agreed.
+
+"The what?"
+A moment later she said, "Eww!
+Gumption Goat, you're disgusting!"
+
+"Sorry," he whispered cheerfully.
+"Mama made chili for dinner, and you know she makes a powerful chili."
+
+"Ssh!"
+Maddy elbowed him again.
+"Go to sleep.
+And don't do that again.
+The Mire's going to be stinky enough."
+
+Silence,
+and then Gumption asked quietly,
+"She's gonna be aright, you know.
+Your sister, I mean."
+
+"I know who you mean."
+She found his hand in the darkness and squeezed it.
+"Thanks for coming with me."
+
+Gumption squeezed back.
+"Thanks for bringing me.
+I'd be stuck at home otherwise,
+and,
+well,
+everybody had the same chili I did."
+
+Maddy let go of his hand.
+"Do you ever take *anything* seriously?" she asked.
+
+Gumption shrugged,
+very aware of how warm she was beside him
+and of how clean her fur smelled.
+"Always taken *you* seriously," he said.
+"'Cept for that time you tried skating on Weaver's Pond.
+You remember that?"
+He tsk'ed.
+"That was truly spectacular."
+
+He rolled onto his side and propped his head up on his arm.
+"But other than that,
+and the time you tried make double-dip cookies but forgot the salt,
+and maybe a couple of other things,
+I've pretty much always taken you seriously.
+So don't worry—we'll make sure Sindy's aright,
+an' then we'll figure out what to do about your pa.
+Now get some sleep—we got a lot in front of us."
+
+He lay back down.
+When Maddy said, "Eww!" again a moment later,
+he smiled in the darkness.
+
 </section>
