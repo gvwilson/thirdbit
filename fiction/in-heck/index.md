@@ -1576,3 +1576,256 @@ he said urgently.
 "Three uglies airborne an' comin' fast!"
 
 </section>
+
+<section markdown="1">
+
+## Ambush (Gumption)
+
+Special Blazes put two fingers in his mouth and whistled loudly.
+Meribeth jerked upright.
+"Wuzza?"
+
+"Wake it up,"
+Special Blazes ordered crisply,
+pointing at Bee Six Vee.
+"Then get these three into the trees and sit on them."
+He turned to the Gumption and the Roo sisters.
+"You do *exactly* what she says.
+Understood?"
+
+"And you."
+He pointed at Dockety.
+"Back down to the main road.
+No, no, no arguing.
+Down to the main road and eyes wide.
+You see anything bigger than a butterfly
+you get back up here and let us know.
+Being ambushed would truly ruin my day."
+
+"Wait!"
+Gumption protested.
+"I can fight!
+I've been practicin'!"
+
+The tiger and Special Leaf exchanged looks.
+When the old tortoise spoke,
+there was a hardness there that Maddy had never heard before.
+"This isn't a story, Gumption.
+Go find cover and do exactly what the Regulator tells you to."
+
+The tech on his arms lit up as he pulled back his sleeves.
+The ground rumbled and heaved itself into a trench,
+waist-deep with a mounded wall in front of it.
+Special Blazes clapped him on the shoulder.
+Thoughtful touched the brim of his hat in salute and slid in,
+his rifle cradled in his arms.
+
+Crouching behind a stand of dwarf larch trees a few moments later,
+still burning with shame,
+Gumption could smell dry earth under his feet,
+Meribeth's sweaty fur,
+and the soap that Mama Roo used on her children.
+The bear had a small cannon in her hands
+and a pair of wicked-looking hatchets on her belt.
+Her scowl told Gumption that questions wouldn't be welcome
+even if he had any more sensible than,
+"will we be aright?"
+
+The flying bots' rotors whined and then shrieked as they dove at the camp.
+Bright sparks danced across their bellies.
+Gumption heard the *rat a tat tat* of their guns a moment later.
+Puffs of dirt spattered from the ground.
+
+*Chonk!*
+A white streak shot up from the trench Special Leaf had made.
+Thoughtful's shot went straight through one of the attackers.
+The bot tumbled end over end before breaking apart.
+"That's one,"
+Meribeth muttered as the smoldering fragments fell.
+
+The two remaining bots shot away in different directions,
+circled around,
+and came in for a second pass at right angles to each other.
+The earth rumbled again as Special Leaf heaved another protective wall out of the ground.
+
+*Chonk!*
+Thoughtful's second shot nicked one of the bots off center.
+Its rotors whined as it vainly tried to right itself
+before crashing into the trees
+and exploding with a muffled *whump!*
+
+"That's two!" Gumption whooped.
+
+But even as he spoke,
+Dockety came racing back up the road on its single wheel.
+"Alarm! Alarm!" it blared.
+"Marauders approach!
+We shall soon be under further attack!"
+
+"Knew it,"
+Meribeth growled,
+hefting her little cannon.
+"They always—"
+
+She stopped mid-sentence and sniffed the air.
+"Makers' names,"
+she cursed.
+"If it ain't one thing."
+
+The acrid tang of smoke tickled Gumption's nose.
+The bot that had just crashed had set the dry brush alight!
+"The water tank!"
+Gumption pointed at the wagon.
+"I'll see if there's a bucket!"
+
+"You stay right where you are!"
+Meribeth snapped.
+"If we're still here in five minutes
+we can worry about the fire then."
+
+The third flying bot raced away.
+The earth split under the force of Special Leaf's tech.
+Zig-zag cracks appeared in the hard-packed road.
+*He can't keep doing this,* Gumption thought,
+but the old tortoise didn't let up.
+He swept his arms from side to side,
+each slow pass creating dips and hummocks in the ground.
+
+One breath, two, and a fresh wave of attackers came around the corner.
+These weren't rag-tag machines
+like the ones Patient in Darkness had cobbled together out of spare parts.
+These were weapons.
+The small six-wheeled scouts in front were almost as fast as the flying bots.
+The two behind them were almost as large as Crusher,
+squat and heavily armored,
+with four wheeled legs for speed
+and two crab arms for fighting.
+
+*Chonk!*
+Thoughtful's shot pinged off one of the crab tanks.
+*Chonk!*
+His second shot knocked one of the little scout bots into the air.
+It hit the ground,
+righted itself,
+and rejoined the attack.
+
+The ground shook and split.
+The lead crab tank braked hard but couldn't stop itself.
+It tumbled head-first into the fissure Special Leaf had made.
+The earth shook again as the fissure closed on it.
+
+Almost immediately one of its armored claws punched up out of the ground.
+The second claw followed.
+The crab tank heaved itself back into the world,
+pulling its legs free one by one.
+It shook itself like a wet cat and rolled implacably forward.
+
+*Crack!*
+A scout bot exploded as Special Blazes' fireball hit it,
+throwing scraps of metal in all directions.
+The other scouts scattered like startled chickens.
+
+But "in all directions" meant "toward the trees".
+Gumption grabbed Maddy's arm and was about to yell, "Run!"
+when Meribeth fired her hand cannon.
+
+*Boom!*
+A wire spiderweb burst wide in the air and wrapped around the scout bot.
+The wires sparked and sizzled.
+The bot careened off course,
+crashed into a tree,
+and toppled over on its side to lie still.
+
+*Szzt!*
+Special Blazes' second fireball missed its target.
+It bounced across the broken ground and evaporated unnoticed.
+Another fireball,
+then another,
+and then the first crab tank was climbing the mounded wall
+that Special Leaf had made.
+
+*We're done for!*
+Gumption thought,
+panic rising in his throat.
+
+But he had reckoned without Bee Six Vee.
+The mulebot slammed into the attacker's side
+with a clang he was sure they must have heard
+all the way back in Rusty Bridge.
+As the crab tank scrabbled to regain its footing,
+Special Blazes flung a stream of fire straight into its joints.
+
+One second, two…
+Smoke and flame burst out of the rear of the crab tank.
+Bee Six Vee rammed it again.
+Its legs crumpled beneath it and it lay still.
+
+*Boom!*
+Meribeth fired again,
+bringing down a scout that Maddy hadn't even seen.
+"Stay here!"
+the bear bellowed,
+sprinting into the clearing
+to press herself against the back of the wagon.
+She kicked the blocks away from its rear wheels,
+put her shoulder against the backboard,
+and pushed.
+
+The wagon began to roll forward slowly—too slowly.
+Swallowing hard,
+Gumption ran forward and put his shoulder against the backboard.
+The wagon begain picking up speed as he and the bear pushed.
+Meribeth tossed her hand cannon into the back,
+pulled one of the hatchets off her belt,
+and brought it down hard into the back of a scout bot
+as it charged at her.
+
+*Chonk!*
+*Crack!*
+Shots and fireballs kept the remaining scouts at bay,
+but not the second crab tank.
+It grabbed Bee Six Vee and staggered around
+to put the mulebot between it and Special Blazes.
+Metal shrieked as the crab tank's claws tightened.
+The mulebot's legs left gouges in the ground as it was pushed back,
+closer and closer to the defenders' trench.
+
+*Thud!*
+A pillar of earth punched up out of the ground
+directly beneath the crab tank.
+It was only airborne for a moment,
+but a moment was all Bee Six Vee needed.
+The mulebot rolled to the side,
+flipping the crab tank onto its back.
+Special Blazes poured fire into its joints.
+
+Gumption whooped as the last of the scout bots fled.
+"Did you see that!?" he yelled to Maddy and Sindy.
+
+Meribeth's hand came down on his shoulder.
+"Somethin's wrong,"
+she said,
+pointing at the trench.
+
+Gumption reached it a few moments after her.
+Special Leaf blinked up at him.
+"It's… not as bad… as it looks," the old tortoise wheezed.
+
+"No it ain't,"
+Thoughtful said,
+folding a length of linen bandage
+and pressing it against the spreading red stain on Special Leaf's chest.
+"It's worse."
+
+Special Blazes swore under his breath.
+"Do what you can,"
+he said curtly.
+"Bee! Meri! Load up!
+Looks like we're turning around after all."
+He glared at the nearest crab bot.
+"What in the Makers' names were they doing this far out?"
+
+And that was when Gumption heard Maddy say,
+"Where's Sindy?"
+
+</section>
