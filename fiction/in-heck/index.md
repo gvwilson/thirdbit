@@ -363,7 +363,7 @@ He peered at the Regulators through his little round glasses
 as if trying to decide whether they were books that needed re-shelving.
 
 The rabbit doffed her hat as Special Blazes dipped his head deferentially.
-"It's an honor, Special, truly an honor" he rumbled.
+"It's an honor, Special, truly an honor" the tiger rumbled.
 
 "Thank you,"
 Special Leaf said in a slightly fuddled tone.
@@ -1123,7 +1123,7 @@ he slipped away unnoticed and headed for Maddy's.
 "They're taking her tomorrow,"
 she said without preamble.
 The fur on her cheeks was matted with wiped-away tears.
-"Zeke Bear is running the produce wagon up to Half-Dome tomorrow,
+"Crusher is hauling produce up to Half-a-Hat tomorrow,
 and Special Blazes said they could call a stage down from Sandy Bend to collect them there.
 Mama is trying to calm her down and get her packed at the same time."
 
@@ -1243,5 +1243,336 @@ Now get some sleep—we got a lot in front of us."
 He lay back down.
 When Maddy said, "Eww!" again a moment later,
 he smiled in the darkness.
+
+</section>
+
+<section markdown="1">
+
+## The Observatory (Maddy)
+
+Maddy woke a few hours later as the wagon rolled out of the barn.
+A bump knocked her sideways onto Gumption.
+"Mmph?" the goat mumbled.
+
+"Ssh!"
+She clamped her hand over his mouth.
+Her mouth tasted *awful*,
+and her neck—she realized that she had never really appreciated pillows properly before.
+
+Gumption wriggled out from under her
+and peered between the boxes that hid them.
+"I can't see anything,"
+he whispered.
+"Oh wait, there's Mama Tumbly an' a couple of other folk.
+An' there's your ma."
+He glanced at Maddy.
+"She looks pretty upset."
+
+A voice rumbled at the front of the wagon—Meribeth's, she guessed.
+She caught her breath at the soundy of Sindy replying.
+She couldn't make out the words,
+but from the tone,
+she could imagine what her sister was saying.
+Where had Maddy been?
+Why hadn't she been there to see Sindy off?
+
+Gumption rolled onto his back and pillowed his arms beneath his head.
+A moment later he was asleep.
+Maddy sighed.
+"Don't worry, I'll wake us up when we get somewhere,"
+she grumbled.
+She settled down beside Gumption.
+"Or if they stop for a toilet break,"
+she added.
+
+An hour out of town
+the dirt road they were on joined the Makers' road.
+The ancient black surface of the highway was cracked in places,
+and the wagon had to swerve around fallen branches
+and clumps of weeds tough enough to have broken through the road,
+but even so,
+Crusher hauled them fast enough that Maddy could feel their speed.
+It reminded her of her first time on the road,
+when she and Dockety had chased the raiders who had kidnapped Sindy.
+
+They passed under a row of ruined arches that marched from one horizon to the other,
+crumbling but still solid.
+A half-sunken metal sphere as big as a house was next,
+and then a tangle of concrete and bent bars
+that the villagers just called "the thing".
+
+The ground on either side of the highway began to grow damp.
+The twin smells of rust and rotting vegetation filled Maddy's nose
+as they entered the polluted swamp known as the Mire.
+Somewhere out there was the bunker
+where Patient in Darkness had kept her father and other prisoners—where
+she and Sindy had almost wound up as prisoners too.
+Dockety and the other free bots had tried once to salvage some of its riches,
+but its tentacled guard had made the task too risky.
+
+*And now papa's somewhere a hundred times worse,*
+Maddy thought despondently.
+She *really* needed a toilet break.
+
+The sun was high when they turned off the Makers' road onto a smaller one.
+What had once been two smooth lanes with knee-high concrete barriers on each side
+was now a stream bed in some places
+and a jigsaw puzzle in others.
+The road climbed, dipped, and climbed again
+until they reached the summit of a tall hill overlooking the Mire.
+
+A single building stood there,
+its domed metal roof stained with rust but still intact.
+The ground around it was filled with scattered stands of larch and pine.
+The waist-high bushes between them were dry and brittle,
+and the grass below them brown instead of green.
+
+"Whoa up!"
+Meribeth called.
+Crusher slowed and stopped.
+Meribeth and Thoughtful hopped down from their seats at the front of the wagon.
+Pressing her face against a gap in the slats,
+Maddy saw Special Blazes climb down from atop Bee Six Vee.
+
+The tiger arched his back and rolled his head from side to side,
+then consulted a heavy pocket watch.
+"Four hours," he declared.
+"Thoughtful, you take first watch.
+Everyone else,
+eat up or recharge as you need.
+He turned to someone Maddy couldn't see.
+"If you wouldn't mind setting up?"
+
+"Agreed,"
+Dockety replied in its buzzing voice.
+Maddy shrank back reflexively as the bot came into view,
+walking straight toward the wagon.
+It paused right in front of her.
+
+"Stay hidden,"
+it said quietly
+before extending its legs
+so that it could reach the solar panels stacked in the back of the wagon.
+
+Maddy gave Gumption a wide-eyed look.
+"What?" he mouthed silently.
+
+She pulled him close.
+"Dockety knows we're here," she whispered in his ear.
+
+Gumption stared at her for a moment,
+then shrugged helplessly.
+
+It only took the travelers a minute to settle in.
+Dockety laid out the solar panels in a line,
+connecting one cable to itself and others to Crusher and Bee Six Vee.
+Thoughtful unfolded a camp chair
+and took a moment to assemble a long-barrelled rifle on a tripod,
+then sat down and began scanning the road below them
+through its telescopic sight
+in smooth, unhurried sweeps.
+Maddy couldn't see where Meribeth and Special Blazes went,
+but the bear's snoring told her they hadn't gone far.
+
+She held on as long as she could,
+but finally whispered to Gumption,
+"I gotta get out for a minute."
+
+"Yes please," he said, grimacing.
+
+Slowly,
+wincing with every slight bump and scrape,
+they pulled one of the boards to the side
+and unfastened the loose slat on the back of the wagon.
+Maddy looked at the narrow gap despondently.
+She would have to slither out head first
+and hope that she could somehow right herself
+before she fell on the ground.
+On the bright side,
+there was a thick stand of bushes just a few strides away.
+
+She poked her head out cautiously.
+No one was in sight.
+Digging her elbows into the boards,
+she dragged herself forward until she could reach the hitch
+at the back of the wagon.
+If she braced herself on that—
+
+"Would you like a hand getting down?"
+Special Blazes asked,
+coming around the corner with a freshly-brewed cup of tea in his hand.
+He nodded,
+solemn-faced,
+at Maddy's polite,
+"No thank you,"
+and sipped his tea as she lowered herself awkwardly to the ground,
+stood,
+and brushed her skirt back into place.
+
+"Must've been mighty warm in there,"
+he observed.
+
+"It wasn't so bad.
+Um, if you'll excuse me a moment…?"
+
+"By all means."
+The Regulator stepped aside.
+
+Back straight and head held high,
+Maddy got three steps toward the bushes when a small voice said,
+"Can I go too please?
+'Cuz I *really* need to."
+
+Maddy opened and closed her mouth as her sister walked past,
+her expression saying more clearly than words
+how angry she was.
+Maddy sighed.
+This day couldn't get any worse.
+
+Five minutes later she, Sindy, and Gumption had joined the rest of the party,
+who were sitting or standing near the front of the wagon
+depending on their inclination and body shape.
+"Your choice is reckless.
+You will not be safe.
+You must return home."
+Dockety sounded as angry as Maddy had ever heard it.
+
+"I agree with my friend here,"
+Special Leaf said,
+looking even older than usual.
+"We should turn back."
+
+Special Blazes shook his head.
+"I've already called ahead for our ride.
+These two can ride with us to Half-a-Hat,
+then you and your friends can get 'em home."
+He jerked his chin toward Dockety and Crusher.
+
+*He knew we were there all along,*
+Maddy thought.
+*He's using us to get rid of Special Leaf and Dockety.*
+
+Special Leaf took off his glasses and breathed on them.
+"Well, since we're here, I might as well give them the tour,"
+he said,
+nodding at the domed building nearby
+as he wiped his glasses with the tail of his shirt.
+"It was solid enough the last time I passed through."
+
+Meribeth growled.
+"Makers' work ain't for the likes of children."
+
+"We're not children,"
+Maddy started to protest,
+but Special Blazes nodded.
+
+A sign stood in front of the building,
+but time and weather had long since made it mute.
+There was just enough room between its double doors for Special Leaf to squeeze through.
+The children followed single file.
+
+Special Leaf took a small glowball from his pocket and held it up.
+Its cool blue-white light threw sharp shadows.
+Maddy shivered.
+The last place like this that she had been in
+had been Patient's bunker in the Mire.
+The air here was cool and dry instead of dank,
+but her steps echoed exactly the same way on the tiled floor.
+
+"This way,"
+Special Leaf said.
+"I want to show you something."
+He led them along the corridor
+past rooms with broken-down doors
+whose contents had long since been salvaged.
+Every few paces they passed pillars
+that Maddy realized must once have been display cases.
+
+The corridor took them to a broad flight of stairs.
+Up they went into a room that filled the entire second story of the building.
+Daylight poured through a wide gap in the domed roof
+to reveal something that looked like a metal log lying on the floor.
+Someone had swept the scattering of dry leaves and twigs around it into piles.
+
+"What is that?"
+Maddy asked.
+
+"It was a telescope,"
+Special Leaf explained.
+"The Makers used to like to look at the stars.
+Here, you see?"
+He walked around to one end.
+"Once upon a time there would have been a lens in there,
+so if you sat in the chair back there
+you could look at the whole sky"
+He sighed.
+"It must have been quite something.
+But that's not what I wanted to show you.
+Look here."
+
+He picked his way past the piled-up leaves
+to a window positioned under the gap in the roof.
+A boxy wooden bench stood beneath the window.
+With a grunt,
+Special Leaf lifted the bench seat and propped it open,
+then reached inside and pulled out a cylinder the length of his arm.
+A few moments later,
+the telescope that had been waiting inside the cylinder
+stood on a little tripod.
+
+"You've been here before, haven't you?"
+Maddy said as Special Leaf pointed the telescope through the broken window
+and fiddled with the lens on the viewing end.
+
+"Been a lot of places,"
+he replied absently.
+"Here, have a look."
+
+It took Maddy a moment to line her eye up with the lens properly.
+She gasped.
+In the distance she could see dozens of windowless brick building connected by elevated walkways.
+Pipes and cables ran here and there,
+and every third building seemed to have an antenna,
+cooling tower,
+or incomprehensible piece of machinery on its roof.
+She was looking at Heck.
+
+"Where are all the bots?"
+she asked as Gumption took his turn.
+
+Special Leaf shrugged.
+"They don't need to go to school or go shopping or the like—surprising how much rushing around
+you don't have to do
+if you don't have to do any of that."
+
+"I thought it'd be smoky an' all,"
+Gumption offered,
+relinquishing the telescope to Sindy.
+"Like in the stories."
+
+Special Leaf shrugged again.
+"Some people say the Makers left because the world had become too dirty for them to live in.
+Others say the Makers were the ones who made it that way.
+Whichever story you like,
+the bots they left behind tend to like things tidy."
+
+They each took another turn,
+but the empty streets were too unnerving to watch for long.
+*Papa's down there somewhere,* Maddy thought despondently.
+*I hope he's aright.*
+
+They made their way back to the others in silence.
+As they approached,
+Special Blazes held up a kettle.
+"Just boiled if you want some,"
+he said.
+
+Before they could answer,
+Thoughtful's foot thumped against the ground in a rapid *pat-a-tat-tat*.
+He swung his long rifle back a few degrees,
+then let loose a string of profanity that set Maddy's ears back against her head.
+"Trouble, boss,"
+he said urgently.
+"Three uglies airborne an' comin' fast!"
 
 </section>
