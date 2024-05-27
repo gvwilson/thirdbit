@@ -8,7 +8,7 @@ fiction: true
 
 ## Mail (Maddy)
 
-Maddy was sketching the willow tree in the main square of the village
+Maddy was sketching the willow tree in the main square of Rusty Bridge
 when one of the Ox brothers hollered,
 "Mail's coming!"
 *Finally*, she thought,
@@ -17,7 +17,7 @@ The branches were in the right places,
 but somehow the lines on the page didn't capture
 the drooping greenery in front of her.
 
-She sighed and tucked her sketchbook and pencil into
+She sighed and tucked her sketchbook into
 the blue canvas satchel her father had made for her tenth birthday.
 A lot had happened since then,
 but at least now she knew he might still be alive.
@@ -26,57 +26,52 @@ but at least now she knew he might still be alive.
 a familiar voice drawled behind her.
 
 Maddy jumped, startled.
-Mayor Lupus smiled down from the porch behind her,
+Mayor Lupus smiled down at her,
 a mug of tea in her hand.
 It was a kindly smile,
 but it still showed a lot of teeth.
 "Mama sent off for some seeds," Maddy said.
 "And my chores were all done, and—"
 
-"—and it's a beautiful sunny day so why not sit for a bit?"
+"—and it's a beautiful day so why not sit for a bit?"
 the old wolf finished, nodding agreeably.
 She jerked her chin toward Maddy's bag.
-"You're getting a lot better.
+"You're gettin' a lot better.
 Your pa would be pleased."
 
 "Thank you," Maddy mumbled.
-Mayor Lupus had a way of looking at people
-that made them feel like she could read their minds.
-That was a big part of why the village kept re-electing her:
-almost everyone who might have run against
-her felt guilty just thinking about it.
+Mayor Lupus had a way of looking at someone
+that made them feel like she could read their mind.
+That was part of why the village kept electing her:
+most people felt guilty just thinking about running against her.
 
-A double handful of people gathered
-to share small talk as they waited for the mail.
-Zeke Bear had finally finished fixing the smokehouse
-that had been knocked down during the bot attack a few months ago.
-He might not be happy that the bots who had helped save them were building homes nearby,
-but even he would admit they were useful.
+A double handful of people gathered to gossip as they waited for the mail.
+Zeke Bear had finally fixed the smokehouse
+that had been knocked down during the attack a few months ago.
+He might not especially like the bots who had helped save them,
+but he would allow that they were useful.
 The apple orchard was draining properly for the first time in forever,
 and there wasn't a dull pair of scissors in town.
 
-"Maybe,
-but taking charity from a bot still makes me uncomfortable,"
+"Still, owing a bot favors makes me uncomfortable,"
 Miz Tumbly sighed loudly,
 shaking her graying mane.
 
-Mayor Lupus tipped the dregs of her tea into the planter by her elbow.
+Mayor Lupus tipped the dregs of her tea into a planter.
 "I reckon lettin' 'em settle in beside us is payment enough,"
 she said conversationally.
-"Between that and gettin' first look at whatever salvage comes down the river,
-they have a lot more than they used to.
-And if any trouble shows up, well…"
+"And if any trouble shows up, well…"
 She rapped her gnarlywood cane against her mechanical leg.
 "Fightin' bots is a lot easier when you have a few on your side."
 
-Miz Tumbly's whiskers twitched slightly under the rebuke.
+Miz Tumbly's whiskers twitched slightly at the rebuke.
 She had put herself forward for election the year before,
 but had garnered even fewer votes than the mayor's previous challenger.
 "A lot of folks think it's time for a change,"
 Mama Roo had explained to Maddy afterward,
 "But if she's the change, they'd rather wait."
 
-"Anyway, there it is, right on time,"
+"Aaaaand right on time,"
 Mayor Lupus said as the mailbot came into view.
 Eighty-Eight Able-Six ("but call me Able") looked like three metal boxes
 perched on top of one another
@@ -84,28 +79,29 @@ with a single small wheel up front
 and two spoked cartwheels in the rear.
 It only had one arm,
 and like many of the refugee bots it had patches and welds from years of mending,
-but someone had made a blue hat with a little tin badge for it,
-and Maddy thought it might just be the happiest bot in the world.
+but someone had made it a blue hat with a little tin badge,
+and it was the most cheerful bot Maddie had ever met.
 
-Able bumped across the cobblestones and doffed its hat.
+Able rolled to a halt and doffed its hat.
 "Good morning, one and all," it said jauntily,
-replacing its hat and reaching around to open a hatch in its side.
+replacing its hat and then opening a hatch in its side.
 "Got letters, got parcels, even got a newspaper from Sandy Bend."
-Its periscope cameras swivelled one way and another as it began handing out what it had brought.
+Its periscope cameras swivelled from side to side
+as it handed out what it had brought.
 
 Someone bumped Maddy's elbow.
 "Hey,"
 Gumption said.
 
 "Hey," she said back.
-He had slicked back his fur again like some of the older goats.
+He had slicked down his fur again the way some of the older goats did.
 It made them look tough,
 but on Gumption—she stifled a sigh.
-It had taken him months to heal after the attack.
-Once he was back on his feet he'd started using the punching bag
-in the yard beside the village school
+It had taken him a long time to heal after the attack.
+Once he was back on his feet he had started using the punching bag
+in Zeke Bear's barn
 and doing militia drills with an old pike.
-She had hoped this would be the summer they went blackberry picking together,
+She had hoped they would spend time together that summer,
 just the two of them,
 but "together" seemed to be the last thing on his mind.
 
@@ -113,11 +109,11 @@ Gumption jerked his chin at the mailbot.
 "Anything for you?"
 
 She was about to say, "No," when Able called her name.
-She traded a glass penny for a letter in a plain brown envelope.
-"Miz Madalena Roo, Resident in Rusty Bridge" was written in strong square letters on its front.
+She traded a glass penny for a letter in a plain brown envelope
+with "Miz Madalena Roo, Resident in Rusty Bridge" written in strong square letters on its front.
 
-Maddy took a deep breath.
-"Well? You going to open it?"
+Maddy took a slow breath.
+"Well? Aren't you gonna open it?"
 Gumption asked.
 
 She shook her head.
@@ -130,7 +126,7 @@ Has he got Sindy doin' magic tricks again?"
 
 "Ssh!"
 Maddy glanced around involuntarily.
-Special Leaf was adamant that they keep her sister's special abilities secret.
+Special Leaf insisted that they keep her sister's abilities secret.
 
 Gumption shrugged again.
 "Sorry," he muttered,
@@ -153,36 +149,37 @@ her ears folding down in shock.
 The crowd parted to let her through,
 her cane clicking on the cobblestones.
 
-"Morning," she said.
+"Morning," she said to Dockety.
 "I thought Able had brought all the mail,
 but it seems you have somethin' for us too."
 
-The lenses on the front of Dockety's head rotated a quarter turn
+The lenses on the front of Dockety's head rotated a quarter turn and back
 with a faint *zick zick*.
 "These ones were apprehended
 while attempting to take possession of items that do not belong to them,"
 it said,
 its voice buzzing slightly.
-"We request punitive measures be applied to deter further attempts."
+"We request punitive measures to deter further attempts."
 
 Mayor Lupus sucked in her cheeks.
 "Is that right, boys?
 Were you stealin'?"
 
 "We wasn't!"
-Bluster said vehemently.
-"We were just tryin' to find out if they've been hidin' stuff from everyone,
+Bluster Goat said vehemently.
+"We were just tryin' to find out if they been hidin' stuff,
 and we did!
 They got weapons stashed away!
 All kinds of them!"
 
-"I said quiet down!" Mayor Lupus snapped as people began muttering.
-"That's a pretty serious accusation, Bluster Goat.
+"I said quiet down!"
+Mayor Lupus snapped as people began muttering.
+"That's a pretty serious accusation.
 You best be sure of your ground."
 
 "Bravo seen 'em too," Bluster said.
 His twin brother nodded vigorously.
-"Big pile of stuff laid out in a shed."
+"Big pile o' stuff laid out in a shed."
 
 "Those are not weapons,"
 Dockety buzzed.
@@ -198,67 +195,67 @@ the mayor asked.
 Her tone was still light,
 her ears had flattened too.
 
-The bot's lenses rotated back and forth.
-"These possess several saw blades," the bot acknowledged,
-gesturing at Crusher.
+"These possess several saw blades," the bot acknowledged.
+It gestured at Crusher.
 "This one has been using them to clear brush."
 
 "And the zap gun?"
 
-"It is not operational," Dockety said.
+"It is not operational."
+The bot's lenses rotated back and forth again.
 "But if we are able to repair it,
 we will use it only for defensive purposes."
 
-"Says *you*," Miz Tumbly said just loudly enough to be heard.
+"Says *you*,"
+Miz Tumbly said just loudly enough to be heard.
 
 Mayor Lupus scowled.
-"Would have been neighborly of you to let us know you had that."
+"Would have been neighborly to let us know you had that."
 
-"Noted," Dockety said.
+"Understood," Dockety said.
 "These will do so in future."
 
 "And you two,"
 the mayor continued,
 turning to the goat twins.
-"It's not your business to be poking around like that.
+"It's not your place to be pokin' around like that.
 No,
 don't interrupt me,
 that's just going to make me cranky.
 You're both on ditch duty for the next month,
-an' if you do somethin' lump stupid like this again
+and if you do somethin' lump stupid like this again
 you'll be lookin' back on ditches like they were apple pie.
 You got that?"
 
 Bluster opened his mouth to protest,
-but snapped it shut when Bravo kicked the side of his leg.
-"Yes'm," they said sullenly.
+but snapped it shut when his twin kicked his leg.
+"Yes'm," they said in sullen unison.
 
 "All right, then."
-Mayor Lupus nodded at Dockety.
+Mayor Lupus nodded at Dockety to untie them.
 
 "Let's get out of here," Blsuter snapped at his brother
-once Dockety untied them.
-They stalked off side by side,
+once they were free.
+They stalked away side by side,
 their boots clomping on the cobblestones.
 
 "Those boys make me *so* mad!"
-Maddy grouched to Gumption as Dockety and Crusher left as well.
+Maddy grouched to Gumption.
 "They'd be chained up in Heck or worse
 if it weren't for Dockety."
 
 "I guess,"
-Gumption said noncommittally,
-scuffing his boot on the cobblestones.
+Gumption said noncommittally.
 
 "You don't think so?"
 Maddy demanded hotly.
 
 "I didn't say that!"
 Gumption protested.
-"But—Miz Tumbly was by for tea yesterday,
-and she and my ma and pa were all saying that
+"But Miz Tumbly was by for tea yesterday,
+and she and my ma and pa were all sayin'
 we don't really know much about them.
-I'm not not saying I agree,"
+I like havin' 'em here,"
 he added hastily,
 anticipating Maddy's outrage.
 "But she said—Miz Tumbly, I mean—that they call us 'breathers'."
@@ -268,8 +265,9 @@ Maddy snapped.
 
 Gumption threw up his hands.
 "I don't!
-I like having 'em here, you know that.
-I'm just saying a lot of folks aren't as quick with change as you."
+I like 'em better than I like a lot o' people,
+you know that!
+I'm just sayin' a lot of folks aren't as quick with change as you."
 
 Whatever Maddy might have said next was cut off
 by a familiar pair of voices.
