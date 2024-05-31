@@ -2,7 +2,6 @@
 title: "Teaching in the Third Dimension"
 date: 2022-12-14
 year: 2022
-favorite: true
 ---
 
 I've been blogging recently about teaching tools I want,

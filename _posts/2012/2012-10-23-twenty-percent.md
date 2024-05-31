@@ -31,5 +31,5 @@ favorite: true
 </tr>
 </tbody>
 </table>
-<p>which means the probability that <em>none</em> of a paper's reviewers will ask the right questions is 0.1×0.8<sup>2</sup> + 0.4×0.8<sup>3</sup> + 0.4×0.8<sup>4</sup> + 0.1×0.8<sup>5</sup> = 46.5%. It's a grossly simplistic model, but at least it gives us something to shoot for.</p>
+<p>which means the probability that at least one of a paper's reviewers will ask the right questions is 53.5%. It's a grossly simplistic model, but it gives us something to shoot for.</p>
 

@@ -2,7 +2,6 @@
 date: 2018-12-27 02:00
 year: 2018
 title: "Use Case Maps Revisited"
-favorite: true
 ---
 
 Back when I was struggling to teach a meaningful course on software architecture at the University of Toronto,
