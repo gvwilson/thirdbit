@@ -594,8 +594,7 @@ Dockety paused.
 "You do not have the words.
 There are little moons above this world,
 placed in the sky by the Makers.
-We can only communicate with central records when they are in the right positions,
-and trying to send a message would be far too dangerous."
+We can only inspect Central's records when they are in the right positions."
 
 Gumption shook his head.
 He didn't understand the part about "little moons",
@@ -616,12 +615,11 @@ A sudden thought struck him.
 I can bring 'em out here to meet you and—"
 
 "No!"
-Dockety's voice was sharp.
+Dockety's voice buzzed sharply.
 "Not them.
 They hunt our kind.
 They disconnect us.
-They disassemble us.
-They *destroy* us.
+They *disassemble* us.
 You must not trust them."
 
 "Yeah,
@@ -633,9 +631,9 @@ Thank you for findin' out."
 As he reached for a branch of the cottonwood Dockety asked,
 "What are you going to tell Miz Roo?"
 
-"Dunno yet,"
-Gumption grunted.
-A sharp pain stabbed his side as he pulled himself up into the tree.
+"Dunno yet."
+Gumption grunted
+at the sharp pain in his side as he pulled himself up into the tree.
 
 </section>
 
@@ -1092,7 +1090,7 @@ As he worked,
 he told Dockety what had happened to Sindy.
 "Young Miz Roo is right," the bot said when he finished.
 "Your regulations require her to be assessed.
-Her only alternative is to run away,
+Her only alternative is to flee,
 but the Regulators will be prepared for that."
 
 "Have you ever had a run-in with 'em?"
@@ -1102,8 +1100,7 @@ flipping the brush over to pry a rock out of Crusher's treads with its handle.
 Dockety's lenses rotated.
 "This one has not.
 With high probability,
-if that was not the case,
-we would not be having this conversation."
+we would not be having this conversation otherwise."
 
 Gumption nodded and went back to brushing.
 Sparkles drifted across Crusher's screen with each scrape.
@@ -1111,13 +1108,13 @@ If the hauler bot had been a cat,
 Gumption would have said it was purring.
 
 He was almost done by the time Dockety spoke again.
-"You could be better at that."
+"You could perform that task more efficiently."
 
-Gumption shrugged.
 "Probably,"
-he admitted.
+Gumption admitted,
+feeling stung.
 
-"But to be better you would require training,"
+"But you would require training,"
 Dockety continued.
 "There is a school for mechanics in Sandy Bend.
 We could make the journey at the same time as the Regulators take Miz Roo for evaluation.
@@ -1132,7 +1129,8 @@ but I can't afford any kind o' Sandy Bend school."
 
 "It is unlikely that you would be accepted,"
 Dockety said neutrally.
-"But if that occurred, we would pay your fee."
+"But if you were,
+we would offer salvage to compensate the school."
 
 Gumption shook his head.
 "I can't ask you to do that.
@@ -1153,12 +1151,12 @@ to ask Gumption's grandma to come by and talk some sense into him.
 Once half a dozen relatives were arguing on the porch
 he slipped away unnoticed and headed for Maddy's.
 
-"They're taking her tomorrow,"
+"They're taking Sindy tomorrow,"
 she said without preamble.
 The fur on her cheeks was matted with wiped-away tears.
-"Crusher is hauling produce up to Half-a-Hat tomorrow,
+"Crusher is hauling produce up to Half-a-Hat,
 and Special Blazes said they could call a stage down from Sandy Bend to collect them there.
-Mama is trying to calm her down and get her packed at the same time."
+Mama's trying to calm her down and get her packed at the same time."
 
 "And what about you?"
 Gumption asked.
@@ -1176,16 +1174,8 @@ Maddy stared at him uncomprehendingly.
 
 "Are… you… packed?"
 he repeated slowly.
-"I figure a change of clothes an' your sketchbook
-an' that letter from the newspaper is all you need."
-
-"Aren't you listening?
-We can't go with them!"
-
-"We don't have to.
-We… don't… have… to!"
-he repeated as Maddy started to speak.
-"We just have to *arrive* with them."
+"I figure you'll want a change of clothes an' your sketchbook.
+Oh, an' that letter from the newspaper."
 
 A few hours later
 he and Maddy lay next to each other
@@ -1476,13 +1466,13 @@ looking even older than usual.
 "We should turn back."
 
 Special Blazes shook his head.
-"I've already called ahead for our ride.
+"I've already called ahead to Sandy Bend for a stage.
 These two can ride with us to Half-a-Hat,
 then you and your friends can get 'em home."
 He jerked his chin toward Dockety and Crusher.
 
 *He knew we were there all along,*
-Maddy thought.
+Maddy realized angrily.
 *He's using us to get rid of Special Leaf and Dockety.*
 
 Special Leaf took off his glasses and breathed on them.
@@ -1606,7 +1596,7 @@ He swung his long rifle back a few degrees,
 then let loose a string of profanity that set Maddy's ears back against her head.
 "Trouble, boss,"
 he said urgently.
-"Three uglies airborne an' comin' fast!"
+"Three airborne comin' fast!"
 
 </section>
 
@@ -1618,20 +1608,20 @@ Special Blazes put two fingers in his mouth and whistled loudly.
 Meribeth jerked upright.
 "Wuzza?"
 
-"Wake it up,"
+"Wake 'em up,"
 Special Blazes ordered crisply,
-pointing at Bee Six Vee.
+pointing at Crusher and Bee Six Vee.
 "Then get these three into the trees and sit on them."
 He turned to the Gumption and the Roo sisters.
 "You do *exactly* what she says.
 Understood?"
 
 "And you."
-He pointed at Dockety.
+He pointed at Dockety without waiting for the teenagers to answer.
 "Back down to the main road.
-No, no, no arguing.
-Down to the main road and eyes wide.
-You see anything bigger than a butterfly
+No, no arguing.
+You get down to the main road,
+and if you see anything bigger than a butterfly
 you get back up here and let us know.
 Being ambushed would truly ruin my day."
 
@@ -1641,28 +1631,29 @@ Gumption protested.
 I've been practicin'!"
 
 The tiger and Special Leaf exchanged looks.
-When the old tortoise spoke,
-there was a hardness there that Maddy had never heard before.
-"This isn't a story, Gumption.
-Go find cover and do exactly what the Regulator tells you to."
+"This isn't a story, Gumption,"
+the old tortoise said.
+There was a hardness there that Maddy had never heard before.
+"You stay with Maddy and Sindy and do exactly what the Regulator says."
 
-The tech on his arms lit up as he pulled back his sleeves.
-The ground rumbled and heaved itself into a trench,
-waist-deep with a mounded wall in front of it.
+The tech on his arms lit up as he rolled up his sleeves
+and swept his arms from side to side.
+The ground rumbled and heaved itself into awaist-deep trench
+with a mounded wall in front of it.
 Special Blazes clapped him on the shoulder.
 Thoughtful touched the brim of his hat in salute and slid in,
-his rifle cradled in his arms.
+cradling his rifle.
 
 Crouching behind a stand of dwarf larch trees a few moments later,
-still burning with shame,
 Gumption could smell dry earth under his feet,
 Meribeth's sweaty fur,
-and the soap that Mama Roo used on her children.
+the soap that Mama Roo used on her children,
+and the shame boiling off his cheeks.
 The bear had a small cannon in her hands
 and a pair of wicked-looking hatchets on her belt.
 Her scowl told Gumption that questions wouldn't be welcome
 even if he had any more sensible than,
-"will we be aright?"
+"Are we gonna be aright?"
 
 The flying bots' rotors whined and then shrieked as they dove at the camp.
 Bright sparks danced across their bellies.
@@ -1703,16 +1694,16 @@ hefting her little cannon.
 She stopped mid-sentence and sniffed the air.
 "Makers' names,"
 she cursed.
-"If it ain't one thing."
+"If it ain't one thing it's another."
 
 The acrid tang of smoke tickled Gumption's nose.
-The bot that had just crashed had set the dry brush alight!
+The crashed bots had set the dry brush alight.
 "The water tank!"
 Gumption pointed at the wagon.
-"I'll see if there's a bucket!"
 
 "You stay right where you are!"
-Meribeth snapped.
+Meribeth snapped,
+grabbing the back of his overalls and hauling him back.
 "If we're still here in five minutes
 we can worry about the fire then."
 
@@ -1781,21 +1772,22 @@ that Special Leaf had made.
 Gumption thought,
 panic rising in his throat.
 
-But he had reckoned without Bee Six Vee.
-The mulebot slammed into the attacker's side
+But he had reckoned without Crusher and Bee Six Vee.
+The hauler slammed into the attacker's side
 with a clang he was sure they must have heard
 all the way back in Rusty Bridge.
 As the crab tank scrabbled to regain its footing,
+Bee Six Vee rammed it as well.
 Special Blazes flung a stream of fire straight into its joints.
 
 One second, two…
 Smoke and flame burst out of the rear of the crab tank.
-Bee Six Vee rammed it again.
+The two big bots rammed it together.
 Its legs crumpled beneath it and it lay still.
 
 *Boom!*
 Meribeth fired again,
-bringing down a scout that Maddy hadn't even seen.
+knocking over a scout bot that Maddy hadn't even seen.
 "Stay here!"
 the bear bellowed,
 sprinting into the clearing
@@ -1827,38 +1819,37 @@ closer and closer to the defenders' trench.
 A pillar of earth punched up out of the ground
 directly beneath the crab tank.
 It was only airborne for a moment,
-but a moment was all Bee Six Vee needed.
-The mulebot rolled to the side,
-flipping the crab tank onto its back.
-Special Blazes poured fire into its joints.
+but a moment was all Crusher needed.
+It grabbed the crab tank with its brawny arms
+and flipped it over
+for Special Blazes to finish off.
 
 Gumption whooped as the last of the scout bots fled.
-"Did you see that!?" he yelled to Maddy and Sindy.
-
 Meribeth's hand came down on his shoulder.
-"Somethin's wrong,"
-she said,
-pointing at the trench.
+"Somethin's wrong."
+She pointed at the trench.
 
-Gumption reached it a few moments after her.
-Special Leaf blinked up at him.
+Special Leaf blinked up at him a moment later.
 "It's… not as bad… as it looks," the old tortoise wheezed.
 
-"No it ain't,"
+"No, it's worse,"
 Thoughtful said,
 folding a length of linen bandage
-and pressing it against the spreading red stain on Special Leaf's chest.
-"It's worse."
+and pressing it against the stain spreading red on Special Leaf's chest.
 
 Special Blazes swore under his breath.
 "Do what you can,"
 he said curtly.
 "Bee! Meri! Load up!
 Looks like we're turning around after all."
-He glared at the nearest crab bot.
+He glared at the burned-out crab bot.
 "What in the Makers' names were they doing this far out?"
 
-And that was when Gumption heard Maddy say,
-"Where's Sindy?"
+And that was when Gumption heard Maddy scream,
+"Sindy!"
+He whirled around just in time to see
+the flying bot that had escaped earlier
+shoot into the sky
+with the younger Roo sister dangling beneath it.
 
 </section>
