@@ -80,7 +80,7 @@ and two spoked cartwheels in the rear.
 It only had one arm,
 and like many of the refugee bots it had patches and welds from years of mending,
 but someone had made it a blue hat with a little tin badge,
-and it was the most cheerful bot Maddie had ever met.
+and it was the most cheerful bot Maddy had ever met.
 
 Able rolled to a halt and doffed its hat.
 "Good morning, one and all," it said jauntily,
@@ -270,8 +270,8 @@ you know that!
 I'm just sayin' a lot of folks aren't as quick with change as you."
 
 Whatever Maddy might have said next was cut off
-by a familiar pair of voices.
-"Regulators! The Regulators are here!"
+by a pair of voices shouting,
+"Fight! Fight!"
 
 </section>
 
@@ -282,57 +282,72 @@ by a familiar pair of voices.
 "What now?"
 Mayor Lupus asked,
 exasperated,
-as Bluster and Bravo ran back into the square.
+as the twins ran back into the square.
 
-The twins bent over and put their elbows on his knees to catch their breath.
-"There's Regulators comin',"
-Bravo panted,
-straightening up.
-"We saw 'em just past the school."
+Bluster bent over and put his elbows on his knees to catch his breath.
+"Some travelers just come off the road!"
+Bravo panted.
+"An' the bots are fightin' with 'em!
+They got guns an' tech an' everythin'!"
 
-Even as Bravo spoke,
-Gumption saw four travelers come around the corner into the square.
-Each looked more dangerous than the one before.
+Whatever Mayor Lupus might have said next was cut off
+by a sizzle and a sharp *crack!*
+A fireball shot into the air
+from the other side of the blacksmith's,
+leaving a trail of smoke behind it.
+
+"You!" Mayor Lupus barked,
+jabbing a finger at Maddy.
+"Fast as you can,
+go an' get Special Leaf!
+The rest of you, stay here!"
+She shouldered past the gaping onlookers and trotted back the way the twins had come
+as another fireball followed the first into the sky.
+People hesitated,
+exchanged looks,
+and followed after her.
+
+Gumption looked around
+just as Maddy rounded the corner on her way to Special Leaf's.
+He took one step to follow her,
+swore,
+and chased after the crowd instead.
+
+He caught up with them in time to hear Mayor Lupus shout, "Enough!"
+Dockety and Crusher stood side by side on the street facing four strangers,
+each looking more dangerous than the one before.
 The rabbit had a long rifle on her shoulder
 and a slouch hat pulled down over her ears.
 The armor on the six-legged mulebot beside her put Special Leaf's shell to shame.
-Behind them was a tiger with a black patch over one eye and a sword slung on his hip.
+Behind them was a tiger with a black patch over one eye,
+his hands raised as if to throw rocks.
 A bear carrying almost as much gear as the mulebot brought up the rear.
 She wore the same dark green jacket with black collar and cuffs
 as the rabbit and tiger,
 while the mulebot was painted in matching camouflage.
 
-When they were ten steps away from the steps of the mayor's house
-the tiger whistled,
-short and sharp.
-The Regulators took two more steps each and halted in perfect time.
-A low murmur ran through the townspeople.
+"Regulators," Gumption breathed.
 
-"Nice," Gumption muttered admiringly.
+"No kidding."
+Bluster elbowed him hard,
+but his eyes were just as wide as Gumption's.
 
-"Hush," Maddy snapped back.
+"Anyone mind explainin' what's goin' on here?"
+Mayor Lupus said,
+her tone making it clear that "no thank you" wasn't an acceptable answer.
 
-*Hush yourself,*
-Gumption thought but, for the hundredth time, didn't say.
-
-"Mornin'," Mayor Lupus said,
-inclining her head.
-"And welcome to Rusty Bridge.
-If I'd known you were comin' I'd have put on some tea."
-
-"My apologies on that, Mayor Lupus,"
-the tiger replied cordially,
+"My apologies, Mayor Lupus,"
+the tiger replied,
 lisping slightly around his fangs.
-"Too many places to be and too few of us to be in them all.
-You know how it is."
+"These two friends of yours?"
 
-"No apologies needed."
+"They're neighbors."
 She flicked an ear.
 "But you do have me at a disadvantage."
 
 "Special Blazes at your service,"
 the tiger replied,
-doffing his hat.
+tapping a finger against the brim of his hat.
 
 The crowd let out its collective breath.
 "I *knew* it," Gumption said under his breath,
@@ -353,7 +368,8 @@ Mayor Lupus said.
 "Oh,
 and may I introduce Special Leaf?"
 
-The elderly tortoise had somehow made his way through the crowd without Gumption noticing.
+The elderly tortoise had arrived without Gumption noticing,
+Maddy two steps behind him.
 He was wearing a shapeless gray sweater
 that Mama Bear had knit for him the winter before last,
 and had an old blue scarf wrapped around his neck as well.
@@ -361,22 +377,42 @@ He peered at the Regulators through his little round glasses
 as if trying to decide whether they were books that needed re-shelving.
 
 The rabbit doffed her hat as Special Blazes dipped his head deferentially.
-"It's an honor, Special, truly an honor" the tiger rumbled.
+"It's an honor" the tiger rumbled.
 
 "Thank you,"
 Special Leaf said in a slightly fuddled tone.
-"If you,
-um,
-well,
-as the mayor said,
-it's an honor.
-If you'd like tea at some point,
+"As the mayor says,
+Crusher and Dockety are neighbors.
+I'm sure they didn't mean to scare you."
+
+The bear behind Special Blazes muttered something
+that may or may not have been,
+"We weren't scared."
+The tiger inclined his head.
+
+"Glad to hear it.
+My apologies if we overreacted."
+
+Mayor Lupus turned her head.
+"Dockety?" she said as the moment stretched.
+"Anything you'd like to stay to the Special?"
+
+The bot's lenses rotated.
+"Welcome to Rusty Bridge."
+It warbled at Crusher,
+who lowered its massive arms reluctantly.
+
+"Well,
+I'm glad that's sorted,"
+Special Leaf said brightly.
+"If you'd like some tea,
 you'd be very, um…"
 He gestured vaguely in the direction of his house.
 
 Special Blazes dipped his head again.
 "Thank you,
-but what we'd like most right now is a chance to wash up."
+but what we'd like most right now is a chance to wash up
+and chat with the mayor."
 
 The mulebot made a grinding noise.
 The corner of Special Blazes' mouth quirked.
@@ -387,8 +423,7 @@ he amended.
 if you can spare a bit of time for conversation,
 I'd be grateful for that as well."
 
-Mayor Lupus waved the three flesh-and-blood Regulators inside
-while the mulebot followed Zeke around to the back of the house.
+Mayor Lupus waved the three flesh-and-blood Regulators toward the square.
 The townspeople dithered and buzzed for a few moments,
 then decided in ones and twos that their chores weren't going to do themselves
 and headed for home.
