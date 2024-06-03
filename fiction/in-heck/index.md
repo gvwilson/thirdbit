@@ -1134,9 +1134,10 @@ we would offer salvage to compensate the school."
 
 Gumption shook his head.
 "I can't ask you to do that.
-Not even for Sindy."
+You need it for repairs an' stuff."
 
-"You do not have to ask."
+"You do not have to ask.
+You are this one's friend."
 Dockety hesitated again.
 "But you will have to explain the plan to Maddy."
 
@@ -1845,11 +1846,11 @@ Looks like we're turning around after all."
 He glared at the burned-out crab bot.
 "What in the Makers' names were they doing this far out?"
 
-And that was when Gumption heard Maddy scream,
-"Sindy!"
+And that was when Gumption heard Sindy scream,
+"Maddy!"
 He whirled around just in time to see
 the flying bot that had escaped earlier
 shoot into the sky
-with the younger Roo sister dangling beneath it.
+with the older Roo sister dangling in its claws.
 
 </section>

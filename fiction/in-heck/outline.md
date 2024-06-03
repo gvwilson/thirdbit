@@ -79,7 +79,7 @@ fiction: true
 
 ## Plot
 
-### Chapter 1: Mail
+### Chapter 1: Mail (Maddy)
 
 - Maddy is waiting on mail
 - Exchange between Mayor Lupus and Miz Tumbly shows tension in Rusty Bridge over the bots
@@ -87,19 +87,33 @@ fiction: true
 - Dockety and Crusher bring in Bluster and Bravo
 - Cliffhanger: regulators arrive
 
-### Chapter 2: The Regulators
+### Chapter 2: The Regulators (Gumption)
 
 - The four Regulators arrive
 - Special Leaf's warning
 - Conversation at Special Leaf's house
 
-### Chapter 3
+### Chapter 3: School (Maddy)
 
-### Chapter 4
+- The Regulators win over the children
+- But Sindy reveals her power
 
-### Chapter 5
+### Chapter 4: Departures (Gumption)
 
-### Chapter 6
+- Gumption has a conversation with Dockety
+- Maddy and Gumption stow away in the wagon bound for Half-a-Hat and Sandy Bend
+
+### Chapter 5: The Observatory (Maddy)
+
+- Maddy and Gumption are discovered
+- Special Leaf uses the telescope in the old observatory to show them Heck
+- They are attacked by bots
+
+### Chapter 6: Ambush (Gumption)
+
+- The travelers battle Heck's bots
+- Special Leaf is badly injured
+- Maddy is taken
 
 ### Chapter 7
 
