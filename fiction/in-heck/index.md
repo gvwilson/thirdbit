@@ -1854,3 +1854,86 @@ shoot into the sky
 with the older Roo sister dangling in its claws.
 
 </section>
+
+<section markdown="1">
+
+## A Familiar Voice (Maddy)
+
+Maddy had flown twice before:
+once when she, Dockety, and Sindy escaped from
+the bunker where Patient in Darkness had enslaved so many bots,
+and once on her own when she went back to free them.
+She had been terrified both times.
+Kangaroos didn't like heights.
+She didn't even climb trees except on a dare
+or when Sindy had taken her sketchbook and wouldn't give it back.
+
+Dangling beneath a copter bot that was clearly struggling with her weight
+didn't make the experience any better.
+She had only struggled for a moment
+when its mechanical claws took her by the shoulders.
+After that,
+she was already too high to think that freeing herself would be a good idea.
+Instead,
+she grabbed onto the bot's wrists and shouted,
+"Put me down! Put me down!"
+over and over.
+
+They zoomed over the highway a few moments later.
+To Maddy's surprise the bot headed for the Mire instead of Heck.
+Were they—no.
+No,
+they couldn't be going back to Patient's lair.
+It was behind them.
+
+A few minutes more and the bot began to descend.
+Maddy gulped as something long and supple splashed in the river
+as they passed over it.
+Down, down, down—there.
+A two-story cylinder of stained concrete stood a stone's throw from the riverbank.
+Trees grew thickly around it,
+their branches intertwined to hide the tower from ground-level passers-by.
+A fairy tale about an antelope princess who had hit her thumb with a hammer
+and fallen into a hundred-year sleep in a tower surrounded by thorns flashed through Maddy's mind,
+and then the copter bot slowed,
+hovered,
+and released her.
+
+She landed clumsily amid the windblown sticks and leaves on the tower's roof.
+"Ow!"
+she exclaimed as twigs jabbed her through her skirt.
+
+"Hey!
+What am I supposed to do now?"
+Maddy shouted at the bot hovering above her.
+Instead of answering
+it spun around and zoomed away again.
+
+"Oh, great."
+Maddy brushed dirt and leaves off her skirt
+and shaded her eyes with her hand.
+She could just make out a bump on one of the distant hills
+that might have been the observatory.
+She didn't know how powerful the sight on Thoughtful's rifle was,
+but she had nothing to lose.
+
+"Hey! I'm here! I'm here!"
+She waved her arms,
+then froze as something glooped in the river.
+She'd had nightmares about the tentacled thing that lurked near Patient's bunker.
+Anyway,
+the trees that hid the tower almost certainly hid her too.
+She would have to find another way to—
+
+*Creeeaaak.*
+Maddy jumped and whirled around at the sound of metal scraping on metal behind her.
+As a hatch opened in the roof of the tower,
+she realized that the leaves on top of it were actually bits of plastic sewn onto a blanket.
+
+Three quick steps took her to the nearest tree.
+She actually *hated* climbing—her feet were too big for it—but
+she could if she had to.
+Or could she?
+The branches were woven together so tightly that she couldn't fit through them.
+
+</section>
