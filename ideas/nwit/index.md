@@ -179,5 +179,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1. Uyaguari et al: "Relevant information in TDD experiment reporting" Studies of test-driven development exemplify both the promise of empirical software engineering research (does this widely-advocated technique actually make a difference?) and the field's shortcomings (many published studies are shaky, and few practitioners know they exist). Careful, cautious, incremental papers like this won't make Hacker News, but are essential precisely because of that. <https://arxiv.org/abs/2406.06405>
 
+1.  Baltes & Ralph 2024: "Teaching Literature Reviewing for Software Engineering Research" <https://arxiv.org/abs/2406.08369> and Treude 2024: "Qualitative Data Analysis in Software Engineering: Techniques and Teaching Insights" <https://arxiv.org/abs/2406.08228> - I wish I'd had these 15 years ago when I had graduate students.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
