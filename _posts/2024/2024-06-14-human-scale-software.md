@@ -1,7 +1,9 @@
 ---
-title: "Human-Scale Web Apps"
+title: "Human-Scale Software"
 date: 2024-06-14
 year: 2024
+redirect_from:
+  - /2024/06/14/human-scale-web-apps/
 ---
 
 I recently posted on Mastodon:
@@ -119,6 +121,25 @@ This book will probably never happen,
 but probably isn't the same as definitely.
 If you think of anything else that ought to be included,
 please [let me know](mailto:{{site.author.email}}).
+
+Later:
+
+-   Irving Reid pointed out that running the application is as important as building it,
+    and suggested the lessons should include creating and restoring backups,
+    deploying updates,
+    and observability
+    (which involves more than creating log messages that are findable, comprehensible, and informative,
+    but that would be a good start).
+
+-   Someone else (name unknown) felt that dependency maintenance should be on the list as well,
+    i.e.,
+    that there should be a lesson about vulnerability scans and automating checks for dependency updates.
+
+-   Someone else (name also unknown) suggested that there ought to be a lesson on debugging full-stack applications,
+    and that the lessons should show how to create good pull requests and how to review them.
+    I strongly agree,
+    but teaching verbs is a lot harder than teaching nouns,
+    and this is already far too ambitious for something that would already take a year of unpaid work.
 
 [alpine]: https://alpinejs.dev/
 [aosa]: https://aosabook.org/
