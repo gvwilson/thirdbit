@@ -181,5 +181,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Baltes & Ralph 2024: "Teaching Literature Reviewing for Software Engineering Research" <https://arxiv.org/abs/2406.08369> and Treude 2024: "Qualitative Data Analysis in Software Engineering: Techniques and Teaching Insights" <https://arxiv.org/abs/2406.08228> - I wish I'd had these 15 years ago when I had graduate students.
 
+1.  Straubinger et al 2024: "Acknowledging Good Java Code with Code Perfumes" <https://arxiv.org/abs/2406.16348> Instead of a tool that complains about code smells, the authors use one that praises things students have done well. "Our evaluation shows…programs with more code perfume instances tend to have better functionality and readability [and] students who incorporate more code perfumes tend to achieve higher grades. Thus, code perfumes serve as a valuable tool to acknowledge learners' successes…"
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
