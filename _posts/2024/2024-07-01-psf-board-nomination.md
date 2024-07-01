@@ -1,12 +1,13 @@
 ---
 title: "Python Software Foundation Board Nomination"
-date: 2024-06-23
+date: 2024-07-01
 year: 2024
 ---
 
-I have put myself forward as a candidate for election to the board of the Python Software Foundation.
+I have put myself forward as a candidate for election to the board of
+the [Python Software Foundation](https://www.python.org/psf-landing/).
 My pitch is below;
-win or lose,
+no matter what happens,
 I hope I'll be able to continue to serve the community that has given me so much over so many years.
 
 > Python has been an important part of my life for a quarter of a century,
