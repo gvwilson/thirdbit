@@ -428,7 +428,7 @@ ISBN 978-3540196648.</p>
 
 <p id="Wilson2021">
 Greg Wilson:
-And should I fall behind.
+And Should I Fall Behind.
 <em>On Spec</em>, Winter 2021.</p>
 
 <p id="Wilson2010">
@@ -444,7 +444,7 @@ ISBN 978-0779183784.</p>
 
 <p id="Wilson2007a">
 Greg Wilson:
-…but with a whimper.
+…But With a Whimper.
 <em>On Spec</em>, Fall 2007.</p>
 
 <p id="Wilson2007b">
