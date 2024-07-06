@@ -2,6 +2,7 @@
 title: "I Don't Think It's Going to Be Better"
 date: 2023-07-27
 year: 2023
+anecdote: true
 ---
 
 Many years ago

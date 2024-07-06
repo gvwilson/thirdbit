@@ -2,6 +2,7 @@
 date: 2024-01-20
 year: 2024
 title: "The Moon and Tears"
+anecdote: true
 ---
 
 A few minutes before 8:00 pm on Sunday, July 20, 1969,
@@ -26,8 +27,8 @@ when the CBC announced that [Terry Fox](https://en.wikipedia.org/wiki/Terry_Fox)
 I wish sometimes that I'd known him as he was then—when he read Clarke and Asimov in paperback
 and watched *Star Trek* (but only when no other adults were in the room)
 and believed,
-as so many of his generation believed,
-that his children could build a better world and reach the stars.
+as so many of his generation did,
+that his children could reach the stars.
 
 Time to make another cup of tea.
 If you came in peace, be welcome;

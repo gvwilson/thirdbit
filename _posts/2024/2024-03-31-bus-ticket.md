@@ -2,6 +2,7 @@
 title: "A Bus Ticket"
 date: 2024-03-31
 year: 2024
+anecdote: true
 ---
 
 It's December 4, 1982.
