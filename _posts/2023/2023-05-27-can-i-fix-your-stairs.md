@@ -2,6 +2,7 @@
 title: "Can I Fix Your Stairs?"
 date: 2023-05-27
 year: 2023
+anecdote: true
 ---
 
 Back in the 90s I knew a woman who lived in a medium-sized town here in Ontario.

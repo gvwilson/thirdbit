@@ -280,7 +280,7 @@ have any of your other patients ever…?"
 
 The nurse shook her head,
 fingering the green-gray stone that hung on a silver chain around her neck.
-She dropped her hand when she noticed him looking at it.
+She dropped her hand when she noticed George looking at it.
 "I'm sure it will pass."
 
 "Thanks,"

@@ -2,6 +2,7 @@
 title: "Is There a Word for That?"
 date: 2024-01-14
 year: 2024
+anecdote: true
 ---
 
 I did judo for a few years at the University of Edinburgh—I never got very far,

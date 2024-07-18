@@ -2,6 +2,7 @@
 title: "A Hike on the Isle of Skye"
 date: 2023-07-29
 year: 2023
+anecdote: true
 ---
 
 Many years ago I went for a hike with some friends on the Isle of Skye.

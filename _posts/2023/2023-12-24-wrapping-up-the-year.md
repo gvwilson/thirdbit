@@ -104,9 +104,6 @@ So what about 2024?
     and if I don't make an effort,
     I worry that the trend will continue downward.
 
-Time to make another cup of tea;
-if you came in peace, be welcome.
-
 [directions]: {{'/2023/10/15/directions/' | relative_url}}
 [carpentries]: https://carpentries.org/
 [embedded]: https://embedded.fm/

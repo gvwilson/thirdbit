@@ -34,7 +34,3 @@ Who had kept this from me, and why?
 And I wonder now,
 will people growing up with LLM-generated code and LLM-recycled explanations feel the same way
 if they ever stumble across something written by a human being?
-
-Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.

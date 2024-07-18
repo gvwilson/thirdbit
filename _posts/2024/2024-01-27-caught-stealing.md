@@ -2,6 +2,7 @@
 date: 2024-01-27
 year: 2024
 title: "Caught Stealing"
+anecdote: true
 ---
 
 When I was eleven,

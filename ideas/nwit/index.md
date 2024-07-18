@@ -183,6 +183,8 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Straubinger et al 2024: "Acknowledging Good Java Code with Code Perfumes" <https://arxiv.org/abs/2406.16348> Instead of a tool that complains about code smells, the authors use one that praises things students have done well. "Our evaluation shows…programs with more code perfume instances tend to have better functionality and readability [and] students who incorporate more code perfumes tend to achieve higher grades. Thus, code perfumes serve as a valuable tool to acknowledge learners' successes…"
 
+1.  Syukron et al: "A Comprehensive Study of Disaster Support Mobile Apps" <https://arxiv.org/abs/2407.08145> "We identified 13 key features in these apps and categorised them in to the 4 stages of disaster life cycle. We provide a set of practical recommendations for future disaster app developers."
+
 1.  Castor 2024: "Estimating the Energy Footprint of Software Systems: a Primer" <https://arxiv.org/abs/2407.11611> "We talk about how the energy footprint of a software system can be estimated to support Green Software Development. Our focus is on general concepts and approaches and not on specific tools, although we do refer to some of them to make explanations more concrete. This document aims to be a starting point for researchers who want to start conducting work in this area."
 
 [nwit]: https://neverworkintheory.org/

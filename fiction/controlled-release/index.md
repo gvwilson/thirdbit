@@ -348,7 +348,7 @@ way back to your cubicle, noting the curiosity and respect on their
 faces. You are from the third floor now. You can use that.
 
 You take a bagel from the tray outside the coffee room, lathered in
-cream cheese, grabbed a double espresso, and sit down in your cube. You
+cream cheese, grab a double espresso, and sit down in your cube. You
 close your eyes and replay the footage in your mind. There it is in your
 gut: that *feeling* again. Fear, revulsion–it doesn't matter what it
 is. For the first time, you *feel* something, and you want more.
