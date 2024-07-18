@@ -187,5 +187,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Castor 2024: "Estimating the Energy Footprint of Software Systems: a Primer" <https://arxiv.org/abs/2407.11611> "We talk about how the energy footprint of a software system can be estimated to support Green Software Development. Our focus is on general concepts and approaches and not on specific tools, although we do refer to some of them to make explanations more concrete. This document aims to be a starting point for researchers who want to start conducting work in this area."
 
+1.  Gordillo & López-Fernández 2024: "Are Educational Escape Rooms More Effective Than Traditional Lectures for Teaching Software Engineering? A Randomized Controlled Trial" <https://arxiv.org/abs/2407.12355> "…students who learned software modeling through the educational escape room had very positive perceptions toward this activity, significantly increased their knowledge, and outperformed those students who learned through a traditional lecture in terms of knowledge acquisition."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
