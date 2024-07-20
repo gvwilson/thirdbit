@@ -4,6 +4,8 @@ date: 2024-07-01
 year: 2024
 ---
 
+*Update: congratulations to Tania Allard, KwonHan Bae, and Cristián Maureira-Fredes on being elected to the PSF Board.*
+
 I have put myself forward as a candidate for election to the board of
 the [Python Software Foundation](https://www.python.org/psf-landing/).
 My pitch is below;
