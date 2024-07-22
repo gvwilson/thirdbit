@@ -189,5 +189,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Gordillo & López-Fernández 2024: "Are Educational Escape Rooms More Effective Than Traditional Lectures for Teaching Software Engineering? A Randomized Controlled Trial" <https://arxiv.org/abs/2407.12355> "…students who learned software modeling through the educational escape room had very positive perceptions toward this activity, significantly increased their knowledge, and outperformed those students who learned through a traditional lecture in terms of knowledge acquisition."
 
+1.  Brown & Cusati 2024: "Exploring the Evidence-Based Beliefs and Behaviors of LLM-Based Programming Assistants" <https://arxiv.org/abs/2407.13900> "We investigate 17 evidence-based claims by empirical SE research across five LLM-based programming assistants. Our findings show that [they] have ambiguous beliefs regarding research claims, lack credible evidence to support responses, and are incapable of adopting practices demonstrated by empirical SE research to support development tasks."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
