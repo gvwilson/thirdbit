@@ -191,5 +191,8 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Brown & Cusati 2024: "Exploring the Evidence-Based Beliefs and Behaviors of LLM-Based Programming Assistants" <https://arxiv.org/abs/2407.13900> "We investigate 17 evidence-based claims by empirical SE research across five LLM-based programming assistants. Our findings show that [they] have ambiguous beliefs regarding research claims, lack credible evidence to support responses, and are incapable of adopting practices demonstrated by empirical SE research to support development tasks."
 
+1.  Shaw & Petre: "Design Spaces and How Software Designers Use Them: a sampler" <https://arxiv.org/abs/2407.18502> Two of my favorite software engineering researchers present, "…a sampling of what designers, especially software designers, mean when they say "design space" and provide examples of the roles their design spaces serve in their design activity."
+
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
