@@ -2796,7 +2796,7 @@ shoulder. "Is there another way out?" she asked desperately.
 "Not in one piece," the cat rumbled.
 
 Madica swallowed a sudden lump in her throat. "Of course not," she
-said. Beneath her, the zombie robots were turning thesmselves into a
+said. Beneath her, the zombie robots were turning themselves into a
 giant living net. Hands held ankles, claws held paws, tentacles wrapped
 around each other, and as each zombie added itself, they got closer and
 closer to the fairy, the cat, and the sniffling dinosaur floating near
