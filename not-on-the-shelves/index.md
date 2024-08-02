@@ -4,7 +4,7 @@ title: "Not on the Shelves"
 ---
 
 <div class="center" markdown="1">
-  Please see [this page](./2024/) for the current list of unwritten books.
+  Please see [the 2024 edition of this page](./2024/) for my current list of unwritten books.
 </div>
 
 *From the introduction to the [first version](./1997/):*
@@ -51,7 +51,9 @@ please give me a shout;
 if you'd like to write one,
 please get in touch as well---I'd be happy to help if I can.
 
-Past Versions:
+Versions:
+[2024](./2024/)
+&middot;
 [2019](./2019/)
 &middot;
 [2017](./2017/)
