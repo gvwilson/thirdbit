@@ -3068,7 +3068,7 @@ me."
 
 "He's trying to tell you that I don't have any cameras in the
 hallways," Mr. Poudell said smugly. "Which means you could, oh, I
-don't know, sneak awak while your ninja friend tries to distract me
+don't know, sneak away while your ninja friend tries to distract me
 with witty banter. But you see, that's not going to work."
 
 "And why is that?" the cat asked, after shooting one last exasperated
