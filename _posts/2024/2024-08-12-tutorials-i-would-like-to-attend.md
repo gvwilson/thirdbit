@@ -43,6 +43,13 @@ please [get in touch](mailto:{{site.author.email}}).
     or using something like [bitarray][bitarray] or the [array][array] module from Python's standard library
     to be more accessible.
 
+1.  And speaking of Rust,
+    *Rust for Python Programmers* is an introduction to a language that might,
+    if its community can shed its cryptocurrency baggage,
+    be the most important systems programming language of the next twenty years.
+    This workshop culminates with participants building a small Python extension in Rust
+    and turning it into a shareable package.
+
 1.  *What Every Data Scientist Needs to Know About Deploying an Application*
     addresses the same need as [this unfinished tutorial][sys-tutorial]:
     what do people who *aren't* sys admins need to know in order to put an application into production?
