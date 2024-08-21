@@ -193,7 +193,11 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Shaw & Petre: "Design Spaces and How Software Designers Use Them: a sampler" <https://arxiv.org/abs/2407.18502> Two of my favorite software engineering researchers present, "…a sampling of what designers, especially software designers, mean when they say "design space" and provide examples of the roles their design spaces serve in their design activity."
 
-1. Frattini et al 2024: "Crossover Designs in Software Engineering Experiments: Review of the State of Analysis" <https://arxiv.org/abs/2408.07594> "…despite the explicit guidelines, only 29.5% of all threats to validity were addressed properly."
+1.  Frattini et al 2024: "Crossover Designs in Software Engineering Experiments: Review of the State of Analysis" <https://arxiv.org/abs/2408.07594> "…despite the explicit guidelines, only 29.5% of all threats to validity were addressed properly."
+
+1.  Zhong et al 2024: "An Empirical Study on Package-Level Deprecation in Python Ecosystem" <https://arxiv.org/abs/2408.10327> "75.4% of inactive package developers have no intention of releasing deprecation declarations for various reasons, while 89.5% of users express a desire to be notified about the deprecation"
+
+1.  Sáinz-Pardo Díaz & López García 2024: "An Open Source Python Library for Anonymizing Sensitive Data" <https://arxiv.org/abs/2408.10766> (package at <https://pypi.org/project/anjana/>) I'm not qualified to assess their statistics, but I'm grateful to see work like this.
 
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
