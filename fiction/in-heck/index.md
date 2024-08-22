@@ -277,7 +277,7 @@ by a pair of voices shouting,
 
 <section markdown="1">
 
-## The Regulators (Gumption)
+## The Operators (Gumption)
 
 "What now?"
 Mayor Lupus asked,
@@ -326,7 +326,7 @@ She wore the same dark green jacket with black collar and cuffs
 as the rabbit and tiger,
 while the mulebot was painted in matching camouflage.
 
-"Regulators," Gumption breathed.
+"Operators," Gumption breathed.
 
 "No kidding."
 Bluster elbowed him hard,
@@ -373,7 +373,7 @@ Maddy two steps behind him.
 He was wearing a shapeless gray sweater
 that Mama Bear had knit for him the winter before last,
 and had an old blue scarf wrapped around his neck as well.
-He peered at the Regulators through his little round glasses
+He peered at the Operators through his little round glasses
 as if trying to decide whether they were books that needed re-shelving.
 
 The rabbit doffed her hat as Special Blazes dipped his head deferentially.
@@ -423,12 +423,12 @@ he amended.
 if you can spare a bit of time for conversation,
 I'd be grateful for that as well."
 
-Mayor Lupus waved the three flesh-and-blood Regulators toward the square.
+Mayor Lupus waved the three flesh-and-blood Operators toward the square.
 The townspeople dithered and buzzed for a few moments,
 then decided in ones and twos that their chores weren't going to do themselves
 and headed for home.
 
-"You ever seen Regulators before?"
+"You ever seen Operators before?"
 Gumption asked Special Leaf.
 
 The old tortoise nodded.
@@ -610,7 +610,7 @@ This is why Central takes your people,
 but they usually do not last this long."
 
 A sudden thought struck him.
-"What about the Regulators?" he asked excitedly.
+"What about the Operators?" he asked excitedly.
 "They must know *tons* about sneaking into places like this!
 I can bring 'em out here to meet you and—"
 
@@ -652,10 +652,10 @@ as they slipped into their usual seats.
 The reason quickly became apparent.
 "Class,
 we have a special treat today.
-How many of you know what a Regulator is?"
+How many of you know what a Operator is?"
 Every hand shot into the air.
 "And how many of you know that
-we actually have some Regulators here in Rusty Bridge *right now*?"
+we actually have some Operators here in Rusty Bridge *right now*?"
 Hands strained to reach even higher
 as an excited murmur rippled through the room.
 
@@ -780,11 +780,11 @@ Miz Tumbly stepped forward.
 "All right, um, thank you,
 thank you very much for, um, for that demonstration" she said.
 "Now how about we all line up and go *back into the classroom*
-and we can ask the Regulators about
+and we can ask the Operators about
 all the *other* things they know how to do?"
 
 Gumption and Maddy found themselves in line behind the goat twins.
-"We *got* to be Regulators," Bluster told his twin excitedly.
+"We *got* to be Operators," Bluster told his twin excitedly.
 "Did you see how they—blam! blam!"
 He threw a couple of punches at the air.
 
@@ -804,8 +804,8 @@ with his hands clasped behind his back.
 "Now, who has questions?" Miz Tumbly asked.
 
 Hands shot into the air.
-How old had Special Blazes been when he became a Regulator?
-Eighteen, but he'd joined a troop of Junior Regulators when he was twelve.
+How old had Special Blazes been when he became a Operator?
+Eighteen, but he'd joined a troop of Junior Operators when he was twelve.
 Oh, really?
 There wasn't one in Rusty Bridge?
 Well, they'd have to fix that, wouldn't they?
@@ -840,12 +840,12 @@ the tiger said drily.
 Maddy replied stiffly.
 "So if you don't mind me asking…?"
 
-"Too many," the Regulator replied levelly.
+"Too many," the Operator replied levelly.
 "And I hope I've never *decommissioned* any that I didn't have to.
 But you of all people should know how dangerous rogue bots can be."
 His stern gaze swept the classroom.
 "Our job is to keep people safe.
-Any bot that respects that has nothing to fear from me or any other Regulator."
+Any bot that respects that has nothing to fear from me or any other Operator."
 
 There were more questions,
 but finally Miz Tumbly said,
@@ -901,7 +901,7 @@ Maddy interrupted incredulously.
 Special,
 she's as sour as ten-year-old cider!"
 
-The Regulator snorted.
+The Operator snorted.
 "She is that," he allowed.
 "But that doesn't mean she's wrong.
 There's been more traffic in and out of Heck since your little adventure
@@ -1091,7 +1091,7 @@ he told Dockety what had happened to Sindy.
 "Young Miz Roo is right," the bot said when he finished.
 "Your regulations require her to be assessed.
 Her only alternative is to flee,
-but the Regulators will be prepared for that."
+but the Operators will be prepared for that."
 
 "Have you ever had a run-in with 'em?"
 Gumption asked,
@@ -1117,7 +1117,7 @@ feeling stung.
 "But you would require training,"
 Dockety continued.
 "There is a school for mechanics in Sandy Bend.
-We could make the journey at the same time as the Regulators take Miz Roo for evaluation.
+We could make the journey at the same time as the Operators take Miz Roo for evaluation.
 That would be—"
 It hesitated.
 "Innocuous,"
@@ -1440,7 +1440,7 @@ he observed.
 Um, if you'll excuse me a moment…?"
 
 "By all means."
-The Regulator stepped aside.
+The Operator stepped aside.
 
 Back straight and head held high,
 Maddy got three steps toward the bushes when a small voice said,
@@ -1635,7 +1635,7 @@ The tiger and Special Leaf exchanged looks.
 "This isn't a story, Gumption,"
 the old tortoise said.
 There was a hardness there that Maddy had never heard before.
-"You stay with Maddy and Sindy and do exactly what the Regulator says."
+"You stay with Maddy and Sindy and do exactly what the Operator says."
 
 The tech on his arms lit up as he rolled up his sleeves
 and swept his arms from side to side.
@@ -1931,7 +1931,7 @@ As a hatch opened in the roof of the tower,
 she realized that the leaves on top of it were actually bits of plastic sewn onto a blanket.
 
 Three quick steps took her to the nearest tree.
-She actually *hated* climbing—her feet were too big for it—but
+She *hated* climbing—her feet were too big for it—but
 she could if she had to.
 Or could she?
 The branches were woven together so tightly that she couldn't fit through them.

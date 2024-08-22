@@ -12,7 +12,7 @@ fiction: true
 - Rusty River: runs through the Mire
 - Sandy Bend: another town (not visited but mentioned)
 
-- Regulators: constabulary (never explain who they report to)
+- Operators: constabulary (never explain who they report to)
 
 ## Characters
 
@@ -44,10 +44,10 @@ fiction: true
   - Dockety's close friend
 - Bluster and Bravo Goat: twin bullies
 - Special Blazes: has pyrotechnic tech
-  - Leads the Regulators who come to Rusty Bridge
+  - Leads the Operators who come to Rusty Bridge
   - Scornful of Special Leaf's decision to lead a quiet life
-- Meribeth Bear: a Regulator with a fondness for explosives
-- Thoughtful Rabbit: sharpshooter Regulator
+- Meribeth Bear: a Operator with a fondness for explosives
+- Thoughtful Rabbit: sharpshooter Operator
 - Bee Six Vee: six-legged mule bot
 - Mouse: a small maintenance bot from Patient's lair
   - Now under Central's control
@@ -63,16 +63,13 @@ fiction: true
   - Special Leaf vs. Special Blazes
   - Patient in Darkness vs. Central
 - Points
-  - The Regulators aren't just to keep a lid on bots
-  - Their real job is to control throwbacks who might become too powerful
+  - The Operators aren't just to keep a lid on bots
+    - Their other (secret) task is to control throwbacks who might become too powerful
   - Special Blazes finds out about Sindy and has an argument with Special Leaf
   - Maddy and Gumption overhear the argument and think Special Leaf is selling Sindy out
-  - Run away with Dockety's help
-  - Chased by the Regulators and Special Leaf
-    - They think Special Leaf is working with the Regulators
-    - He's afraid Dockety and the other bots are working for Central
-  - They are captured by Patient at the old launch station
-    - An offering for Central
+    - They think Special Leaf is working with the Operators
+    - Who are afraid Dockety and the other bots are working for Central
+  - Dockety goes with the party because it knows it'll be blamed for things going wrong if it doesn't
   - When/how do they find Papa Roo?
   - How do they escape from Central?
   - Finale: the recharging posts light up to signal the Makers' return
@@ -85,18 +82,18 @@ fiction: true
 - Exchange between Mayor Lupus and Miz Tumbly shows tension in Rusty Bridge over the bots
 - Parallel by tension between Gumption and Maddy
 - Dockety and Crusher bring in Bluster and Bravo
-- Cliffhanger: regulators arrive
+- Cliffhanger: Operators arrive
 
-### Chapter 2: The Regulators (Gumption)
+### Chapter 2: The Operators (Gumption)
 
-- The four Regulators arrive
+- The four Operators arrive
 - Special Leaf's warning
 - Conversation at Special Leaf's house
 
 ### Chapter 3: School (Maddy)
 
-- The Regulators win over the children
-- But Sindy reveals her power
+- The Operators win over the children
+- But Sindy accidentally reveals her power
 
 ### Chapter 4: Departures (Gumption)
 
@@ -115,24 +112,41 @@ fiction: true
 - Special Leaf is badly injured
 - Maddy is taken
 
-### Chapter 7
+### Chapter 7: A Familiar Voice (Maddy)
 
-### Chapter 8
+- Maddy's kidnapper drops her on top of an old tower
 
-### Chapter 9
+### Chapter 8 (Gumption)
 
-### Chapter 10
+### Chapter 9 (Maddy)
 
-### Chapter 11
+### Chapter 10 (Gumption)
 
-### Chapter 11
+### Chapter 11 (Maddy)
 
-### Chapter 12
+### Chapter 11 (Gumption)
 
-### Chapter 13
+### Chapter 12 (Maddy)
 
-### Chapter 14
+### Chapter 13 (Gumption)
 
-### Chapter 15
+### Chapter 14 (Maddy)
 
-### Chapter 16
+### Chapter 15 (Gumption)
+
+### Chapter 16 (Maddy)
+
+### Chapter 17 (Gumption)
+
+### Chapter 18 (Maddy)
+
+- Back in Rusty Bridge as the surviving Operators prepare to depart
+  - Blazes: "Special Leaf was a good person"
+  - Gumption: "You're not"
+  - Maddy: "Well, don't you sound brave all of a sudden?"
+  - Gumption (bashful but determined): "Doesn't seem to be much point being anything else"
+  - Gumption (changing the subject): "Do you think Patient got its signal out?"
+  - Maddy: "Dunno, but speaking of signal..." (first kiss)
+- Commotion in the square and for a brief moment Maddy thought someone had seen them
+- People pointing at the night sky as a light moves slowly against the stars
+- It's the Makers' ship returning
