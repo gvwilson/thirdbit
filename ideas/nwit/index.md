@@ -199,5 +199,9 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Sáinz-Pardo Díaz & López García 2024: "An Open Source Python Library for Anonymizing Sensitive Data" <https://arxiv.org/abs/2408.10766> (package at <https://pypi.org/project/anjana/>) I'm not qualified to assess their statistics, but I'm grateful to see work like this.
 
+1.  Bhatia et al 2024: "Data Quality Antipatterns for Software Analytics" <https://arxiv.org/abs/2408.12560> "We identified 8 types and 14 sub-types of ML-specific data quality antipatterns  [and] conducted experiments to determine the prevalence of these antipatterns, assess how cleaning order affects model performance, evaluate the impact of antipattern removal on performance, and examine the consistency of interpretation from models built with different antipatterns."
+
+1.  Aranda et al 2024: "Effect of Requirements Analyst Experience on Elicitation Effectiveness" <https://arxiv.org/abs/2408.12538> "In unfamiliar domains, interview, requirements, development, and professional experience does not influence analyst effectiveness. In familiar domains, effectiveness varies depending on the type of experience. Interview experience has a strong positive effect, whereas professional experience has a moderate negative effect."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
