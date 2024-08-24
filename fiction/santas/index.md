@@ -4,26 +4,23 @@ title: "All the Other Santas"
 fiction: true
 ---
 
+> **A Warning**
+>
+> You probably think this is a Christmas story because of the santas,
+> but it's not:
+> it's about right and wrong and figuring out who you are
+> and how when one door opens another closes and vice versa.
+> There are many footnotes and explosions but only one kiss.
+> Oh,
+> and if you need someone to hold your hand during the scary bits
+> you're out of luck.
+> I'm just a book, and we don't have hands.
+
 <ol id="toc"></ol>
 
 <section markdown="1">
 
-## A Warning
-
-You probably think this is a Christmas story because of the santas,
-but it's not:
-it's about right and wrong and figuring out who you are
-and how when one door opens another closes and vice versa.
-There are many footnotes and explosions but only one kiss.
-Oh,
-and if you need someone to hold your hand during the scary bits
-you're out of luck—I'm just a book, and we don't have hands.
-
-</section>
-
-<section markdown="1">
-
-## Episode 1: We Meet Our Protagonist
+## We Meet Our Protagonist
 
 Once upon a time,
 in a world halfway between yours and mine,
@@ -34,7 +31,7 @@ when she was not much bigger than a wombat herself,
 while his father started helping with deliveries
 as soon as he was reliably out of diapers.[^reliably]
 
-[^reliably]: There's a story behind the word "reliably" in that sentence, but it's best told some other time.
+[^reliably]: There's a story behind that word "reliably", but it's best told some other time.
 
 Everyone could tell that Finner was a santa the moment he was born:
 people said his tiny little beard was the cutest thing they'd ever seen.
@@ -213,7 +210,7 @@ and into the rest of his life.
 </section>
 <section markdown="1">
 
-## Episode 2: A Door Opens
+## A Door Opens
 
 Finner had never actually been in Gran-Granna's house before,
 but he'd heard stories.
@@ -472,7 +469,7 @@ and then everything went a little bit nuts.
 
 <section markdown="1">
 
-## Episode 3: A Moderate Amount of Mayhem
+## A Moderate Amount of Mayhem
 
 The second santa pulled a grenade out of her sack,
 drew the pin with her teeth,
@@ -725,7 +722,7 @@ We're trying to save the worlds."
 
 <section markdown="1">
 
-## Episode 4: Some Introductions
+## Some Introductions
 
 Zombies and mummies are similar in many ways—the shambling gait,
 the moaning,
@@ -738,6 +735,7 @@ while zombies tend to have been idiots who went into the basement after dark
 despite the strange sounds they heard
 or didn't run fast enough when someone shouted,
 "Look out, they're coming!"
+
 Second,
 mummies are created through a complex multi-step process
 during which the internal organs and the brain are removed,
@@ -771,7 +769,7 @@ were strictly vegan:
 since they didn't eat at all.
 "Though…
 we do…
-like a…
+enjoy a…
 nice cup…
 of tea,"
 the mummy added wistfully.
@@ -1068,7 +1066,7 @@ where they fell screaming to their deaths.
 
 <section markdown="1">
 
-## Episode 5: A Last-Minute Rescue
+## A Last-Minute Rescue
 
 At least,
 that's what Finner expected would happen
@@ -1179,8 +1177,8 @@ and then three things happened more or less simultaneously:[^simultaneously]
 2.  The edge of Santa Greenwood's ax brushed against the dinghy's rubber gunwale.
 
 3.  There was a sharp *crack!*
-like someone snapping a piece of wood over their knee
-and a cannonball whistled over their heads.
+    like someone snapping a piece of wood over their knee
+    and a cannonball whistled over their heads.
 
 "Look out!" Finner shouted instinctively as:
 
@@ -1205,7 +1203,7 @@ hefting his ax again.
 "I'm out!" Santa Hood,
 her arm deeper in her sack than basic physics should have allowed.[^basic-physics]
 
-[^basic-physics]: Basic physics was actually quite uncomfortable about this, but nobody thought to ask it. Quantum physics would have just been, "Like, whatever, dude."
+[^basic-physics]: Basic physics was actually quite uncomfortable about this, but nobody thought to ask it. Quantum physics would have just been, "Like, whatever."
 
 "Look!" Finner shouted
 as a wooden ship crested the horizon.
@@ -1261,8 +1259,8 @@ Santa Greenwood's face fell.
 The black ship came up beside them.
 Rope ladders were already draped over her side,
 each with a sailor hanging from it with their arm out.
-One, two, and *three* (Santa Greenwood being rather heavy)
-and the dinghy was left empty in the ship's wake.[^empty-dinghy]
+With a one, two, and *three* (Santa Greenwood being rather heavy)
+the dinghy was left empty in the ship's wake.[^empty-dinghy]
 
 [^empty-dinghy]: The dinghy rather appreciated having some time to itself, what with the first few minutes of its inflated existence being so full of new experiences. Then it sank, which only goes to show—something.
 
@@ -1313,7 +1311,7 @@ until Santa Greenwood sighed heavily and gestured at Captain Clausbeard.
 
 <section markdown="1">
 
-## Episode 6: Some Explanations
+## Some Explanations
 
 A few busy minutes later,
 Finner was sitting in a slightly cramped cabin
@@ -1348,7 +1346,7 @@ but folk figured there was no harm in lettin' them talk."
 
 "A handful of misguided santas,"
 Santa Hood's muffled voice said from under the blanket.
-"People get odd notions sometimes,
+"People get notions sometimes,
 especially on the worlds where there's only a few of them or even just one.
 The loneliness gets to them after a while
 and they go a little odd."
@@ -1389,19 +1387,16 @@ if a present went into a sack without being wrapped made his stomach do flip-flo
 
 Santa Hood pulled her blanket down enough for her head to be visible.
 "Once they got going
-it turned out that a lot of people agreed with them—a *lot* more.
-Pretty soon it wasn't just a handful of santas
-from backwater worlds—dozens joined in."
+it turned out that a lot of people agreed with them.
+Pretty soon it wasn't just a handful of santas from backwater worlds—there were hundreds of them!"
 
 "Hundreds!"
 Santa Greenwood grunted.
 
-"After a while, yes,"
-Santa Hood agreed.
+Santa Hood shrugged under her blanket.
 "And just when everyone thought they couldn't do anything worse,
 they let all their elves out of their basements.
 Or you know, their caves or wherever."
-She shrugged under her blanket.
 
 Finner's mouth went dry
 the way it always did when he thought about elves.
@@ -1474,15 +1469,14 @@ because I for one have had *enough*!"
 He thumped his meaty fist on the deck,
 making Captain Clausbeard's parrot[^parrot] squawk.
 
-[^parrot]: The parrot would have been somewhat offended by this phrasing, as she thought of the captain as being hers. Luckily for our story, the parrot found turning pages so difficult that it never bothered to read books.
+[^parrot]: The parrot would have been somewhat offended by this phrasing, as she thought of the captain as being hers. Luckily for our story, the parrot found turning pages so difficult that she never bothered to read books.
 
 Whatever the captain might have said in reply to that
 was cut off by a cry from the crow's nest.
 "Smoke, cap'n!
 We got smoke on the horizon!
 North by nor'west,
-a couple o' hundred fathoms up,
-and it's headed our way!"
+a hundred fathoms up an' headed our way!"
 
 The humor dropped from Captain Clausbeard's face like spilled porridge.
 "Well, lad, are ye fit to fight?" he asked.
@@ -1505,7 +1499,7 @@ his peg leg thumping on the deck.
 "Avast, ye scallywags!" he bellowed.
 The door closed behind him.
 
-[^eyebrow-no-shiver]: Which, funnily enough, didn't send a shiver down Finner's spine.
+[^eyebrow-no-shiver]: Which, funnily enough, *didn't* send a shiver down Finner's spine.
 
 Santa Greenwood hefted his ax.
 "Don't worry about us,"
@@ -1549,7 +1543,7 @@ which just happened to be aimed at his chest.
 
 <section markdown="1">
 
-## Episode 7: An Airborne Attack
+## An Airborne Attack
 
 Finner's hands put themselves up.[^hands-up]
 "I'm Finner!" he exclaimed.
@@ -1631,7 +1625,7 @@ then tossed the ray gun onto the desk as if it had just bitten him.
 "Wuzza?" Santa Hood grunted in her sleep.
 Finner held his breath until she rolled over under blankets
 and started snoring again.
-The ray run just lay there the whole time
+The ray gun just lay there the whole time
 like an unopened note for his parents from his writing teacher.[^writing-teacher]
 
 [^writing-teacher]: The first time Finner had to bring home a note from that teacher, his parents let it sit on the dinner table *until dinner* before opening it. They didn't mention it or even look at it, which of course meant Finner couldn't think about anything else. It turned out to be a reminder about an overdue book addressed to another student, which left Finner feeling somehow cheated out of a calamity.
@@ -1675,13 +1669,13 @@ and stepped out into chaos.
 [^unfortunate-incident]: Which admittedly wouldn't be all that much safer if there was what his writing teacher would probably have referred to as "an unfortunate incident".
 
 Half a dozen sailors were firing rifles and crossbows into the air.
-Half a dozen others were reloading the ship's two cannons
+Half a dozen others were reloading the ship's cannons
 as Captain Clausbeard and his parrot[^parrot-time]
 bellowed orders.
 In between them,
 Santa Greenbeard was hacking at an enormous black tentacle with his ax.
 No, not a tentacle—it was a metal cable as thick as Finner's arm,
-and it hung down from the blue-and-gray airship that was right above the ship.
+and it hung down from the blue-and-gray airship that was now above the ship.
 
 [^parrot-time]: Sorry, sorry—the parrot that usually chose to spend time with the captain.
 
@@ -1794,7 +1788,7 @@ including him.
 
 <section markdown="1">
 
-## Episode 8: Shelves Full of Arms and Legs
+## Shelves Full of Arms and Legs
 
 When Finner was next aware of his own existence,
 his head was several feet away from his body.
@@ -2030,7 +2024,7 @@ It was Gran-Granna Tumbly.
 
 <section markdown="1">
 
-## Episode 9: An Escape of Sorts
+## An Escape of Sorts
 
 People sometimes say, "Their jaw dropped,"
 but that's not what actually happens,
@@ -2293,7 +2287,7 @@ and used exactly the same word Finner had used moments before.
 
 <section markdown="1">
 
-## Episode 10: Cold That Seeps Into Your Soul
+## Cold That Seeps Into Your Soul
 
 You have probably been cold at some point in your life.
 Maybe you wriggled out from under your blanket as a baby on a chilly night
@@ -2539,7 +2533,7 @@ It seems we have a spy in our midst!"
 
 <section markdown="1">
 
-## Episode 11: Santasaurus Rex
+## Santasaurus Rex
 
 You have probably never been imprisoned.[^imprisoned-baby]
 If you have,
@@ -2805,7 +2799,7 @@ began to blink.
 
 <section markdown="1">
 
-## Episode 12: Rescue and Return
+## Rescue and Return
 
 Depending on how you count it,
 the next few minutes were the third, fourth, or possibly even fifth time
@@ -3031,7 +3025,7 @@ and what you've done with my grand-grandson?"
 
 <section markdown="1">
 
-## Episode 13: It Doesn't *Feel* Normal
+## It Doesn't *Feel* Normal
 
 If you have led a quiet life—a life in which
 it is relatively rare for people to point firearms of any kind at one another—you
@@ -3309,7 +3303,7 @@ She'll know what to do."
 
 <section markdown="1">
 
-## Episode 14: The Building
+## The Building
 
 Nobody called The Building a prison except the people who weren't allowed to leave.
 The staff sometimes used the word "hospital",
@@ -3552,7 +3546,7 @@ There was only one way to find out.
 
 <section markdown="1">
 
-## Episode 15: Not All Bars Are On Windows
+## Not All Bars Are On Windows
 
 "Psst!"
 
@@ -3876,7 +3870,7 @@ sprouting chainsaws and flamethrowers in their place.
 
 <section markdown="1">
 
-## Episode 16: The Recording
+## The Recording
 
 Finner managed to push two more buttons,
 with no visible effect,
@@ -4147,7 +4141,7 @@ and once again he was somewhere else.
 
 <section markdown="1">
 
-## Episode 17: The Subway
+## The Subway
 
 > Hellscape (n.): short for "hellish landscape".
 > Used to describe a harsh or extremely unpleasant locale.
@@ -4396,7 +4390,7 @@ and swallowed.
 
 <section markdown="1">
 
-## Episode 18: Elephants and Airships
+## Elephants and Airships
 
 It took a week to finish fixing the subway train
 and despite the cold showers and cold food,
