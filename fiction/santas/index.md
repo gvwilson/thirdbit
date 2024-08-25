@@ -4,6 +4,29 @@ title: "All the Other Santas"
 fiction: true
 ---
 
+<div class="row">
+  <div class="col-3">
+    <p>
+      <img src="./clausbeard.png" alt="Clausbeard" class="image centered" >
+    </p>
+  </div>
+  <div class="col-3">
+    <p>
+      <img src="./robo-santa.png" alt="RoboSanta" class="image centered" >
+    </p>
+  </div>
+  <div class="col-3">
+    <p>
+      <img src="./santasaurus.png" alt="Santasaurus Rex" class="image centered" >
+    </p>
+  </div>
+  <div class="col-3">
+    <p>
+      <img src="./zombie-claus.png" alt="Zombie Claus" class="image centered" >
+    </p>
+  </div>
+</div>
+
 > **A Warning**
 >
 > You probably think this is a Christmas story because of the santas,
