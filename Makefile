@@ -45,12 +45,9 @@ status:
 ifeq (${book},)
 count:
 	@echo "'book' not defined"
-else ifeq (${base},)
-count:
-	@python bin/count.py --details --status _data/status.csv fiction/$${book}/index.md
 else
 count:
-	@python bin/count.py --details fiction/$${book}/index.md ${base}
+	@python bin/count.py fiction/$${book}/index.md
 endif
 
 ## ----
