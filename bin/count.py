@@ -25,7 +25,7 @@ def chapters(args, text):
     title = ""
     count = 0
     total = 0
-    number = 1
+    number = 0
 
     for line in lines:
         line = line.strip()
@@ -40,6 +40,7 @@ def chapters(args, text):
 
         elif line.startswith(SECTION_END):
             in_chapter = False
+            number += 1
             if count > 0:
                 if title:
                     title = f": {title}"
@@ -47,7 +48,6 @@ def chapters(args, text):
                     print(f"{number:02d}){count:5d}{title}")
                 total += count
             count = 0
-            number += 1
 
         elif in_chapter:
             count += len(line.replace("—", " ").replace("…", " ").split())
@@ -55,7 +55,7 @@ def chapters(args, text):
         else:
             pass
 
-    print(f"{total:6d}")
+    print(f"{total:6d} (ave {(total // number):d})")
 
 
 def sections(args, text, base):
