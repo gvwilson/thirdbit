@@ -5061,7 +5061,7 @@ bag."
 
 Erileine hesitated, "Bookster?  What do you think is happening?"
 
-His teacher smoothed his *deel*.  "The same thing you do.  I think the
+Her teacher smoothed his *deel*.  "The same thing you do.  I think the
 mountain is being invaded."
 
 The little office they had used the previous evening lay down the
