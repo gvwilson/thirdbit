@@ -4,7 +4,7 @@ date: 2024-03-14
 year: 2024
 ---
 
-The Python version of '*Software Design by Example*][sdxpy] will be out Real Soon:
+The Python version of [*Software Design by Example*][sdxpy] will be out Real Soon:
 you can read the content online
 or order a hard copy at <https://www.routledge.com/9781032725215>;
 if you do the latter,

@@ -71,7 +71,7 @@ I hope it's useful.
             in the header of the Markdown file or as a command-line argument
     -   Then ask the template to take the HTML produced from the Markdown
         and stuff it into the HTML template we just loaded
-        -   `page.html` has a placeholder `{{content}}` to show where
+        -   `page.html` has a placeholder to show where
 
 -   We could stop here, but we want to fix up the generated HTML a bit
     -   So we parse the HTML produced by Jinja2 using Beautiful Soup
