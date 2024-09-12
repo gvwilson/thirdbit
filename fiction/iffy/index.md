@@ -1563,9 +1563,9 @@ He pulled a money out of his jacket and thrust it at Uncle Jack.
 Uncle Jack turned the black plastic rectangle over in his hands suspiciously.
 "What's it worth?"
 
-"Six thousand rand," Wales said.
+"Sixty thousand rand," Wales said.
 
-"Six *thousand*?"
+"Sixty *thousand*?"
 Uncle Jack pressed his thumb on the corner of the money.
 His eyes widened at the blinking figures it displayed,
 then narrowed again as he looked Wales up and down.
@@ -1674,7 +1674,7 @@ The cabin door flew open.
 Uncle Jack stepped out onto deck,
 glaring at his wife and foster daughter on principle.
 "That's what I said," he told the empty air impatiently.
-"Six thousand rand.
+"Fifty thousand rand.
 I'll have it in a week.
 What?
 Never you mind how, but that'll more'n put us square.
@@ -1854,22 +1854,22 @@ It took her a long time to fall asleep again.
 ## Chapter 3
 
 It was four days to Rothera across the Weddell Sea.
-Once upon a time their route would have taken them over a solid sheet of ice.
-During the Melt they would have had to thread their way between cakes and bergs,
+Once upon a time their route would have been a solid sheet of ice.
+During the Melt they would have had to thread their way through cakes and bergs,
 but those days were long gone too.
 There was nothing between them and their destination except
 floating plastic,
 the inevitable gulls,
 and the waves.
 
-In no time at all Halley had fallen below the horizon.
-After motoring for an hour under thin, high clouds,
+Halley quickly fell below the horizon.
+After motoring for an hour under high, thin clouds,
 Uncle Jack ordered the *Guinevere* to raise her sails.
 The ship's tiny core obediently ran mis-matched gossamer sheets up her twin Y-masts.
 Waves a meter high made the *Guinevere* rock from side to side in a rhythm
 that Iffy knew as well as she knew her own heartbeat.
 
-"Best stay outta his way," Aunt Naggie advised
+"Best stay outta the way," Aunt Naggie advised
 when her foster daughter clambered down into the galley to get tea.
 "He ain't used t' havin' folk on board, but I 'spect he'll settle in."
 It sounded more like a prayer than a prediction,
@@ -1894,12 +1894,11 @@ and what the wind and the currents around them were doing.
 
 The most important display was the sonar.
 Every captain kept a close eye on that if they wanted to make it home.
-At the first sign of gas bubbling up from the ocean floor,
+At the first sign of gas bubbling up from the thawing ocean floor,
 they would fire up the engine and run.
 
 Uncle Jack jerked a thumb at a panel highlighted in orange.
-"You get that backstay cable mended soonish if you want lunch,"
-he growled.
+"You get that backstay cable mended soonish if you want lunch."
 
 "Yessir," Iffy said obediently.
 He'd been drinking again, she realized.
@@ -1940,14 +1939,12 @@ He sighed.
 "It must have broken her heart to up like this."
 
 "I guess," Iffy said to fill the silence that followed.
-"Can't imagine how I'd feel if somethin' like that happened to th' *Ginny*.
-Or to me,"
-she added after a moment's thought.
+"Can't imagine how I'd feel if somethin' like that happened to th' *Ginny*."
 
 Wales shook his head to clear it.
 "Let's hope you never have to find out," he said,
 suddenly brisk.
-"Now, where's this cable we're supposed to splice?"
+"Now, where's this cable we're supposed to mend?"
 
 Iffy had hoped that Wales would bring out his toolboxes—she
 was itching to examine their contents in detail—but instead,
@@ -2121,7 +2118,8 @@ He stabbed another piece of mushroom.
 
 Iffy ate in silence, head down.
 The safest thing to do when Uncle Jack got a money-making idea
-was to wait for it to pass—pointing out the holes was the surest way to make him actually do it,
+was to wait for it to pass.
+Pointing out the holes was the surest way to make him actually do it,
 just to prove that no one could tell *him* which way was up.
 And while she still knew next to nothing about their passenger,
 she had the feeling that double-crossing Wales
@@ -2139,7 +2137,7 @@ if Uncle Jack'll let him take a crack at it."
 
 "Oh now, wouldn't that be nice?" Aunt Naggie sighed wistfully.
 "No more sittin' up in th' middle of th' night
-wonderin' if the ship's gonna get a notion to head for Argentina or somethin'."
+wonderin' if the ship's gonna get a notion to head for Patagonia."
 
 "But then when would you knit?" Iffy asked,
 nudging her foster mother with her elbow.
@@ -2285,7 +2283,7 @@ That evening, though, the subject was history.
 Iffy turned the interaction speed to maximum as the sim unfolded.
 People burned coal,
 then oil,
-then coal again even when they knew what it was doing to the world.
+then coal again even though they knew what it was doing to the world.
 Forests were cut down or worn to nothing by drought as the winds shifted…
 Fish disappeared as pollution and warming took their toll,
 replaced by the jellyfish that now choked the seas.
@@ -2367,7 +2365,7 @@ Uncle Jack bellowed.
 "We'll be worse than sinking if we don't change course," Wales said,
 tapping the tech in his temple.
 "A ship just glitched out of stealth about thirty kay behind us.
-She's still throwing up a lot of dazzle,
+She's throwing up a lot of dazzle,
 but she's moving fast,
 and she's definitely not here for the jellyfish."
 
@@ -2462,10 +2460,8 @@ Wales shook his head as he took the toolbox from her.
 "She hasn't changed course.
 Either she doesn't know we've spotted her or she doesn't care."
 
-"Or she's just waitin' 'til we're in closer to shore,"
+"Or she's just waitin' 'til we're up against the rocks,"
 Uncle Jack growled.
-"She's got dazzle enough to cover th' both of us
-if she gets us up against the rocks."
 He swiped two fingers across the control panel
 in an angry, futile attempt
 to squeeze a little more speed out of the *Guinevere*'s struggling engine.
@@ -2838,7 +2834,7 @@ And if you ever lay hands to me again on *my* ship, I'll—"
 
 *BOOM!*
 Yellow-red flame burst from the *Taroona*'s side.
-Iffy shrieked as a second blurred streak hit the Aussie ship,
+Iffy shrieked as a second blur hit the Aussie ship,
 then a third,
 each striking right at the waterline.
 As the *Taroona* shuddered under the force of the blows,
@@ -2879,15 +2875,15 @@ The earth's self-appointed defenders would sacrifice everything
 to undo the damage humanity had done to the Earth.
 Whenever a shaft in a coal mine collapsed
 people blamed Zillion saboteurs.
-When a mutant fungus turned the contents of a greenhouse into sludge,
+If a mutant fungus turned the contents of a greenhouse into sludge,
 all its owner had to do was say,
 "It musta been Zillions!"
 for people to demand that the governors *do* something.
 And when a Zillion trader was brave enough or stupid enough
-to go more than a block or two from Halley's market by themself
+to go more than a block or two from Halley's market by derself
 and woke up in hospital,
 everyone just nodded at the Marines' straight-faced apologies
-for the inexplicable glitch in their drones' recordings
+for the inexplicable glitch in their recording equipment
 that left them unable to identify anyone who might have been involved.
 
 Even as they watched,
@@ -2899,8 +2895,7 @@ then it too was gone.
 Why'd they kill 'em?"
 
 "Because they could," Wales replied wearily.
-"There's no way they could get past the *Taroona*'s defenses
-when she was running at spec,
+"There's no way they could hit her when she was running at spec,
 but knocked off balance the way she was…"
 He shrugged.
 "They saw a shot and they took it."
