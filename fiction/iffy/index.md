@@ -731,9 +731,10 @@ dodging around the people and occasional bots going about their chores
 in Halley's narrow cobblestone streets.
 "*Gardez-vous!* *Gardez-vous!*"
 scolded the centipede-shaped fixit bot everyone called French Henry.
-She squeezed between its rust-streaked frame
-and a rack of insulating moss someone had set out to dry in the sun
-and kept running.
+A pair of modified raccoons gabbled back at it
+from atop a rack of insulating moss someone had set out to dry in the sun,
+the tech in the back of their heads glinting silver in the sun.
+Iffy ignored them all and kept running.
 
 The barnacle farmers were still bent over their work when she reached the pier.
 She stopped and put her hands on her knees to catch her breath.
@@ -1048,7 +1049,7 @@ glaring at the Marine sergeant,
 the crowd,
 and everything else in sight for good measure.
 
-"Kappa, cap'n," the first woman growled.
+"Joey, cap'n," the first woman growled.
 "Just 'splainin' t' these lot that there ain't nothin' here needs corra look-in."
 
 "With respect, citizen," the sergeant said,
@@ -1267,21 +1268,23 @@ Her vision disappeared
 as French Henry's slender manipulator folded back into its housing.
 "*Merci beaucoup,*" it said,
 rocking back and forth in what might have been the mechanical equivalent of a dog wagging its tail
-before rolling away toward the docks
-saying, "*Gardez-vous! Gardez-vous!*" once more.
+before rolling away toward the docks.
 
 "What was *that* all about?"
-Iffy demanded.
+Iffy demanded
+as the pair of raccoons she had seen earlier scampered after it.
 
 Wales shrugged.
 "Just a hard-to-find part to help an old friend," he said,
 sounding fond and sad at the same time
-as the bot disappear around the corner.
+as the bot and its furry entourage disappeared around the corner.
 "Come on—we should get going."
 
-"Uh huh.
-Must be pretty affin' special for it to take a chance on bein' scrapped
+"Uh huh,"
+Iffy said without moving.
+"Must be pretty affin' special for it to take a chance on bein' scrapped
 for scarin' people like it did back there."
+
 When Wales didn't answer she prodded the case next to her with her boot again.
 "So was that you? The 'splosion back there?"
 
@@ -1305,7 +1308,7 @@ and raised an eyebrow.
 
 Wales smiled briefly.
 "Sorry.
-Arra kappa t' carry at down s'far we go long?"
+Arra joey t' carry at down s'far we go long?"
 
 Iffy made a face.
 "That was *terrible*," she judged witheringly.
@@ -1403,7 +1406,7 @@ Wales sighed.
 Even if they *did* blow up the quarantine building,
 the *Taroona* and the rest of the Australian fleet
 are the only thing stopping the Brazilians from walking in here.
-Odds are the captain and her crew will be back on the dock by morning,"
+Odds are the captain and her crew will out by morning,"
 he continued,
 speaking to himself as much as to the frowning tween beside him.
 "Which is another reason I need to talk to your uncle."
@@ -1418,7 +1421,7 @@ Wales nodded.
 Ten minutes later Uncle Jack shouted,
 "No affin' way!
 We're a jelly dredger,
-not an affin' ferryboat!
+not a ferryboat!
 You wanna hitch up along Rothera,
 get yourself three piers over an' buy a ticket."
 
@@ -1441,7 +1444,7 @@ if she bothered to go and look.
 Or no—you can do magic tricks an' turn jellyfish into gold."
 
 "Almost," Wales nodded.
-"Except it isn't magic, and gold will be all yours."
+"Except it isn't magic, and the gold will be all yours."
 He tapped the tech in his temple.
 "This is a satellite uplink.
 A *fully functional* satellite uplink,"
@@ -1575,7 +1578,7 @@ Wales said crisply.
 
 Uncle Jack pocketed the card and grunted something unintelligible.
 "Thank you," Wales said. "I'll be quick."
-He turned to go, then stopped himself and tapped the tech in his temple.
+He turned to go, then stopped himself and tapped his temple again.
 "Just so you know, this is still switched on.
 So if you try to call the Marines, I'll know."
 
@@ -1594,8 +1597,8 @@ that carried him along the pier and into town.
 He leaned his elbows on the taffrail,
 cleared his throat,
 and spat again into the water below.
-There was more gray in his beard than there used to be,
-Iffy thought,
+There were more lines on his face than there used to be,
+Iffy noticed,
 and the three-day fuzz on his shaved scalp
 had crept further and further away from his forehead.
 
@@ -1617,8 +1620,8 @@ an' French Henry got into it, and…"
 *And all of a sudden I know how to tag someone twice my size,*
 she almost added but didn't.
 Bots weren't the only ones infected with malware during the war.
-Talking about her visions with anyone—even Aunt Naggie—would mean
-opening a door she would rather stay closed.
+Talking about her visions with anyone—even Aunt Naggie—would open a door
+she would rather keep closed.
 
 But something in her expression caught Aunt Naggie's eye.
 She put her hand on Iffy's forehead.
@@ -1715,9 +1718,7 @@ Then she gasped.
 "You're bleeding!"
 
 "Still?"
-Wales pulled a rag out of his pocket,
-dabbed at his nose,
-and studied the red blotch a moment.
+Wales pulled a rag out of his pocket and dabbed at a cut on his wrist.
 "So I am."
 He put the rag back in his pocket and limped toward the *Guinevere*.
 
@@ -1731,9 +1732,7 @@ An' what's wrong with your leg?"
 "Oh, everything was mostly sorted out by the time I got there,"
 Wales said vaguely.
 "And my leg's bothered me for years.
-I keep meaning to get it looked at,
-but I never seem to have time.
-There's just never enough time," he repeated.
+I really should get it looked at."
 
 Uncle Jack didn't wait for Wales to stow his belongings
 before hauling in the gangplank and casting off.
@@ -4751,7 +4750,7 @@ Any night Honesty called her "dingus" was a good night.
 - *yeah* iffy hesitated. *saw it happen*
 - *tay bangle. y'aright for reals?*
 - *yeah* iffy hesitated again. *how bout you? tomorrow 'n' all*
-- *aff, i'll be kappa. but second says i still gotta do chores. you be safe heart*
+- *aff, i'll be joey. but second says i still gotta do chores. you be safe heart*
 - *you too*
 
 She waited a moment for a reply,
@@ -4778,9 +4777,9 @@ and Aunt Naggie was stuffing her into her ecosuit.
 She wasn't going to go through this again.
 She struggled to pull her arms out of the ecosuit.*
 
-*"It's kappa," Honesty said beside her, already in der suit.
-"Everythin's gonna be kappa.
-We're gonna __make__ it kappa. You'll see."
+*"It's joey," Honesty said beside her, already in der suit.
+"Everythin's gonna be joey.
+We're gonna __make__ it joey. You'll see."
 With a barely perceptible whir
 der head detached from the rest of der body and rose into the air.
 Beneath them,
@@ -5150,7 +5149,7 @@ She was a beautiful little thing."
 "'s not your fault," Iffy muttered.
 She started picking up the leftover gears and rods
 but had to stop because she couldn't see properly.
-"I'm kappa," she lied angrily,
+"I'm joey," she lied angrily,
 wiping her eyes on her sleeve as Wales handed her a paper towel.
 "I just…"
 
