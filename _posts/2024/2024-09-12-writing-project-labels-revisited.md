@@ -1,8 +1,10 @@
 ---
 title: "Labels for Technical Writing Projects"
-date: 2024-09-02
+date: 2024-09-12
 year: 2024
 ---
+
+*(Originally posted in the [rOpenSci blog][ropensci]—my thanks to [Yanina Bellini Saibene][yanina] for editing.)*
 
 Over the past thirty years I have written five technical books,
 co-written three others,
@@ -90,5 +92,7 @@ if you'd like to start a conversation.
 
 [cc]: https://creativecommons.org/
 [labels-1]: {{'/2024/03/07/labels/' | relative_url}}
+[ropensci]: https://ropensci.org/blog/2024/09/12/labels-writing-projects/
 [sql-tutorial-license]: https://github.com/gvwilson/sql-tutorial/blob/main/LICENSE.md
 [swc]: https://carpentries.org/
+[yanina]: https://yabellini.netlify.app/
