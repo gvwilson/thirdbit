@@ -90,9 +90,27 @@ In more detail:
 I'd enjoy hearing about what you're using—please [email me](mailto:{{site.author.email}})
 if you'd like to start a conversation.
 
+> Later: someone mailed to ask why I use the "NC" (non-commercial) clause in my license.
+> The answer is that I don't think it's sustainable for companies to take lesson material that people have made public
+> and profit from it without compensating the authors of that material.
+> If you, as an academic, want to re-use my notes and slides, you are very welcome to do so;
+> if Elsevier wants to bundle them up in a book and charge students €60 for it,
+> I want to be able to say "no",
+> or to say, "yes, but you have to give me some of that so that I can keep producing this material".
+> 
+> The NC clause is also part of my deal with my publisher (CRC Press):
+> they are OK with me putting an HTML version of [*Software Design by Example*][sdxpy] and other books online
+> for people to read for free,
+> but would _not_ be OK with some other for-profit publisher taking that and republishing it without permission.
+> I think that's a fair bargain:
+> people who can't afford to buy the book can read it,
+> and the publisher can make money from the printed, PDF, and EPUB versions
+> as compensation for the effort they put into editing and publicizing the book.
+
 [cc]: https://creativecommons.org/
 [labels-1]: {{'/2024/03/07/labels/' | relative_url}}
 [ropensci]: https://ropensci.org/blog/2024/09/12/labels-writing-projects/
+[sdxpy]: https://third-bit.com/sdxpy/
 [sql-tutorial-license]: https://github.com/gvwilson/sql-tutorial/blob/main/LICENSE.md
 [swc]: https://carpentries.org/
 [yanina]: https://yabellini.netlify.app/
