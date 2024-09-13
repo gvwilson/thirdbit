@@ -729,9 +729,7 @@ Pleased to meet you too."
 Iffy ran all the way back to the pier,
 dodging around the people and occasional bots going about their chores
 in Halley's narrow cobblestone streets.
-"*Gardez-vous!* *Gardez-vous!*"
-scolded the centipede-shaped fixit bot everyone called French Henry.
-A pair of modified raccoons gabbled back at it
+A pair of accelerated raccoons gabbled at her
 from atop a rack of insulating moss someone had set out to dry in the sun,
 the tech in the back of their heads glinting silver in the sun.
 Iffy ignored them all and kept running.
@@ -1171,17 +1169,20 @@ and could knock people aside instead of going around them
 or pushing in between them and what had just happened?
 How could she have seen what she needed to do like that?
 
-Just as one of the sailors yelled, "Gotcha!" another voice shouted "*Gardez-vous!*"
-Iffy yelped as a familiar rust-stained bot reared up in front of her.
-The sailor behind her skidded to a halt on the cobblestones
-and was knocked sprawling as her partner slammed into her from behind.
+Just as one of the sailors yelled, "Gotcha!"
+a dirty gray shape darted out from behind a barrel.
+The sailor tripped over the raccoon and fell to the cobblestones
+with a surprised curse.
+The sailor behind her skidded to a halt on the cobblestones,
+only to be sent staggering as the third one plowed into her from behind.
 
-"Rogue! Rogue!"
-the second sailor shouted,
-dodging back as French Henry clacked a manipulator at her.
+"Get off me!"
+the first sailor shouted as a second raccoon scampered across her back.
+A third and then a fourth emerged from their hiding places,
+growing and hissing at the sailors.
 
 "Come on!"
-Wales pulled her away.
+Wales pulled Iffy away.
 
 For a few moments all Iffy could do was try not to stumble and fall.
 Just when she couldn't hold onto the case any longer
@@ -1229,64 +1230,53 @@ as a snowball in Aunt Naggie's frying pan.
 Aunt Naggie had explained after one of Uncle Jack's misadventures.
 "Sometimes tryin' is the only kind of winnin' you can hope for."
 
-"*Mon ami! Mon ami!*"
-She jumped and squawked as French Henry clattered around the corner,
-its dented optics swinging from side to side.
-The fixit bot skittered to a halt a few meters away.
-"*Ça va bien!*" it announced proudly.
-"*Ça va tres bien!*"
+She jumped and squawked as a raccoon poked its head up out of a drain near her feet.
+The tech under its fur sparkled briefly as it gabbled at Wales.
 
 "What's it sayin'?" Iffy whispered loudly,
 unconsciously backing up a step.
-Halley tolerated a handful of free bots for the jobs they could do,
-but there were too many stories of machines driven mad by malware left over from the war
-for anyone to ever be truly comfortable around something as big as French Henry.
+Halley tolerated a handful of accelerated animals for the jobs they could do,
+but there were too many stories of them being driven mad by malware left over from the war
+for anyone to ever be truly comfortable around them.
 
 Wales didn't seem bothered in the least.
-"*Merci beaucoup, mon vieux.*"
+"Thank you, my friend."
 He pulled something that looked like a little gray waffle out of his pocket.
-"*Ici. C'est à vous.*"
+"Here. This is for you."
 
-A hatch on the fixit bot's front panel popped open.
-A slender manipulator as long as Iffy's arm unfolded
-to pluck the object from in Wales' hand.
+The raccoon stood on its back feet and plucked the object from Wales' hand.
 It was a heat exchanger,
 Iffy realized,
 a tiny sibling of one that Mister Mishra had repaired for her
 the last time the *Guinevere* was in dock.
 
 A blueprint materialized in her head.
-The heat exchanger belonged *there*
-in the housing around the fixit bot's quantum core.
-Except it hadn't actually been designed to do maintenance.
-It was an infiltrator designed to worm its way through sewers and outflow pipes.
-Half its parts had been replaced by mis-matched odds and ends taken from other bots
-or hacked together out of scrap metal when the tech to make the real thing had been lost,
-but its original design was still there beneath the patchwork.
+The heat exchanger belonged in the housing around a quantum relay
+of the kind creatures like the raccoon would use to communicate with each other.
+With that came the realization that the creatures were infiltrators
+designed to worm their way through pipes and narrow spaces without being detected.
+The tech in the raccoon's back was made of scraps recycled many times over,
+but the original design was still there beneath the patchwork.
 
 Her vision disappeared
-as French Henry's slender manipulator folded back into its housing.
-"*Merci beaucoup,*" it said,
-rocking back and forth in what might have been the mechanical equivalent of a dog wagging its tail
-before rolling away toward the docks.
+as the raccoon tucked the heat exchanger into a pouch strapped to its belly.
+It gabbled again before disappearing back into the drain.
 
 "What was *that* all about?"
-Iffy demanded
-as the pair of raccoons she had seen earlier scampered after it.
+Iffy demanded.
 
 Wales shrugged.
 "Just a hard-to-find part to help an old friend," he said,
-sounding fond and sad at the same time
-as the bot and its furry entourage disappeared around the corner.
+sounding fond and sad at the same time.
 "Come on—we should get going."
 
 "Uh huh,"
 Iffy said without moving.
 "Must be pretty affin' special for it to take a chance on bein' scrapped
-for scarin' people like it did back there."
+for blowin' stuff up like that."
 
 When Wales didn't answer she prodded the case next to her with her boot again.
-"So was that you? The 'splosion back there?"
+"That *was* you, wasn't it? The 'splosion back there?"
 
 Wales blinked.
 "Why on earth would you think that was me?"
@@ -1616,7 +1606,7 @@ Aunt Naggie and Iffy whooshed out their breath at the same time.
 Iffy shrugged helplessly.
 "I dunno, auntie, true I don't.
 There was a jammer up along by quarantine,
-an' French Henry got into it, and…"
+an' some raccoons got into it, and…"
 *And all of a sudden I know how to tag someone twice my size,*
 she almost added but didn't.
 Bots weren't the only ones infected with malware during the war.
