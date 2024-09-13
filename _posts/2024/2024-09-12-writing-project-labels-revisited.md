@@ -67,7 +67,7 @@ So here's what I'm using in my current writing projects:
 
 | Name             | Purpose                               |
 | ---------------- | ------------------------------------- |
-| add              | request for new feature               |
+| add              | (request for) new feature             |
 | change           | exists but could be better            |
 | code             | in software                           |
 | discussion       | questions and conversations           |
@@ -107,7 +107,19 @@ if you'd like to start a conversation.
 > and the publisher can make money from the printed, PDF, and EPUB versions
 > as compensation for the effort they put into editing and publicizing the book.
 
+> Later: a collaborator pointed out an interesting inconsistency.
+> I follow [Conventional Commits][conventional] style in my Git commit messages,
+> so the title line of each commit starts with a single word like "fix",
+> "feat" (short for "feature"),
+> or "publish" (when all I'm doing is rebuilding the HTML version of the lesson).
+> These words don't line up with the labels I use for issues and PRs:
+> I don't have a label for "publish",
+> and I use "feat" instead of "add" for something new.
+> I'm embarrassed that I didn't notice this before,
+> and now I need to think about what to do about it…
+
 [cc]: https://creativecommons.org/
+[conventional]: https://www.conventionalcommits.org/
 [labels-1]: {{'/2024/03/07/labels/' | relative_url}}
 [ropensci]: https://ropensci.org/blog/2024/09/12/labels-writing-projects/
 [sdxpy]: https://third-bit.com/sdxpy/
