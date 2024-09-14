@@ -1,4 +1,4 @@
-JEKYLL=bundle exec jekyll
+JEKYLL=jekyll
 SITE=./_site
 
 CONFIG=_config.yml
