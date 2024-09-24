@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: For Each, Replace</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>For Each, Replace</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2008/05/21/why-dont-we-do-this/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2008-05-23" class="post-date">2008-05-23</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2008/05/25/interviewed-by-jon-udell/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>My greatest weakness as a programmer (other than impatience) is how little I know about relational databases. I know how it happened—I spent my twenties working in high-performance scientific computing, before very large scientific databases became common, and there was always somebody else to worry about that side of things for the projects I was on in my thirties—but it trips me up with ever-increasing frequency.</p>
+<p>So, having told my students many times not to be ashamed of not knowing things, I figure I should set a good example and parade my own ignorance in public. The entries in this blog are stored in a PostgreSQL database as chunks of text. I&rsquo;ve discovered that different entries represent characters in different ways: the long dash, for example, is usually a triple dash &ldquo;—&rdquo;, but is also sometimes represented as either a two-byte or three-byte sequence (depending, I presume, on what machine I was on the day I wrote the entry—I sometimes compose in a regular editor, then paste the entry into the blog). I&rsquo;d like to clean up these inconsistencies, which means doing search/replace on approximately 1450 database entries. As I see it, my options are:</p>
+<ol>
+  <li>Write a shell script that uses the command-line PostgreSQL client to pull entries in turn, run them through sed(1), and push the results back into the database.</li>
+  <li>Write a Python script that connects to the database, pulls the entries, does string substitution, and pushes the results.</li>
+  <li>Learn a little more SQL and do this with a query of some kind.</li>
+</ol>
+<h1>3 is where I&rsquo;m stuck. I know how to find the offending entries: &ldquo;select entry from table where  entry like chars&rdquo;. I even think I know how to do string substitution. My question is, how do I push the results back into the table? I clearly want to replace each entry with the update of itself; is there a way to do this, or do I insert a new bunch of rows into the table, then delete the old rows? How? And why?</h1><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

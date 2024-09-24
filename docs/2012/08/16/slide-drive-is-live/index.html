@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Slide-Drive is Live</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Slide-Drive is Live</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2012/08/15/is-this-really-necessary/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2012-08-16" class="post-date">2012-08-16</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2012/08/16/alpha-test-of-drivers-license-exam/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I had the privilege this summer of working with <a href="http://slidedrive.wordpress.com/">Jeremy Banks</a>, a <a href="http://code.google.com/soc/">Google Summer of Code</a> student whose project, <a href="https://github.com/dseif/slide-drive">Slide-Drive</a>, explored what a web-native presentation tool might be. Jeremy&rsquo;s work, which is a continuation of David Seifried&rsquo;s (described in <a href="https://software-carpentry.org/2012/02/slide-drive/">these</a> <a href="https://software-carpentry.org/2012/02/formatting-revisited/">posts</a>), tries to solve a double-barrelled problem:</p>
+<ol>
+  <li>Desktop presentation tools (like PowerPoint and Impress) allow people to mix text and graphics freely, just as they would on a whiteboard, but don't play nicely with the web. If you export a PowerPoint presentation, what you get is a bunch of image files that are opaque to search engines and accessibility tools. More importantly, perhaps, any hyperlinks in them are lost, and any CSS styling you apply to the page has no effect on what's in the slides.</li>
+  <li>With HTML-based slideshow tools like S5 and deck.js, on the other hand, text is text, but they severely restrict what can go in a page–basically, you're back to paragraphs, bullet points, and tables. If you want to draw an arrow from one word to another as you would on a whiteboard, you have to fall back on embedded images (with all the limitations discussed above).</li>
+  <li>Neither class of tool takes advantage of HTML5's multimedia features. For example, if you want to connect a slideshow to a voiceover, you have to either create a movie, which means your content is just pixels painted on the screen once again.</li>
+</ol>
+<p>Slide-Drive&rsquo;s approach is to use SVG for the slides rather than PNG or JPEG images, so that hyperlinks work, text can be selected and copied, accessibility tools and search engines can &ldquo;see&rdquo; the text, and so on. Synchronization with other media (like a voiceover soundtrack) is done using <a href="http://popcornjs.org/">Popcorn.js</a> (think &ldquo;jQuery for video&rdquo;) and Butter, a browser-based multimedia editing tool. This <a href="http://www.youtube.com/watch?v=YujYtDXldr4">recorded Slide-Drive presentation</a> will show you how it all works, but if you want to see it in action, you can <a href="http://slide-drive-demo.s3.amazonaws.com/examples/demo.html">run the presentation</a> in your own browser. (Warning: the source file is large, so it may take a while to load.)</p>
+<p>Slide-Drive isn&rsquo;t ready for everyday use just yet: there turned out to be a lot of nasty surprises lurking in the darker corners of the SVG standard, various browsers&rsquo; handling of fonts, and other areas discussed in <a href="http://slidedrive.wordpress.com/">Jeremy&rsquo;s blog</a>. But we&rsquo;re more excited than ever about this approach&rsquo;s potential; as I said <a href="https://software-carpentry.org/2012/07/ipython-notebook-towtruck-etherpad-slide-drive-win/">a few weeks ago</a>, some of these ideas could and <em>should</em> be part of any next-generation web-based ebook-slash-teaching-platform. If you&rsquo;d like to explore it with us, please <a href="https://github.com/dseif/slide-drive">check it out</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

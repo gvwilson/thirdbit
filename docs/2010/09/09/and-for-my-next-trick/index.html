@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: And For My Next Trick…</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>And For My Next Trick…</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/09/05/games-ill-never-make/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-09-09" class="post-date">2010-09-09</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/09/12/not-how-i-wanted-to-spend-my-saturday/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>One of the things people have voted right up to the top of our poll is reproducible research. The phrase means different things to different people, but part of it <em>must</em> be accurately tracking the provenance of every bit of data a scientist touches: where it came from, what was done to it, what was done to the results, and so on.  Once I've done the next episode of the Make lecture (on macros), I'd like to spend 10 minutes showing people how to do some of this by:</p>
+<ul>
+<li>embedding <a href="http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.keywords.html">Subversion keywords</a> like $Id:$ in original files, and</li>
+<li>having tools copy those IDs, plus their own version numbers and settings, into the files they generate.</li>
+</ul>
+<p>For example, if the command line to generate summary-1.dat is:</p>
+<p><code>stats.py --alpha 3.5 data-1-1.dat data-1-2.dat &gt; summary-1.dat</code></p>
+<p>then data-1-1.dat should contain the line:</p>
+<p><code> $Id: data-1-1.dat 138 2010-09-08 21:30:43Z cdarwin $</code></p>
+<p>which Subversion will update each time the file is checked in. data-1-2.dat should have a similar line, as should stats.py; its should be embedded in a string so that it can be printed:</p>
+<p><code># inside stats.py<br />
+version = "$Id: stats.py 71 2010-08-17 08:13:17Z aturing $"</code></p>
+<p>When stats.py runs, it copies its own ID string, its parameters (–alpha 3.5), and the ID strings of data-1-1.dat and data-1-2.dat into summary-1.dat. If some other program then processes summary-1.dat to create something else, it copies all of that information again, so that each file has a header with its complete ancestry. Yes, a proper <a href="http://openprovenance.org/">provenance tool</a> would be more robust and more flexible, but this technique will convey the idea, and implementing it is a good medium-sized exercise in Python.</p>
+<p>Thoughts?</p>
+<p>(And if you're interested in reproducible research, you'll probably enjoy a recently-published <a href="http://www.stanford.edu/~vcs/papers/RoundtableDeclaration2010.pdf">declaration of principles</a> drawn up by <a href="http://www.law.yale.edu/faculty/VStodden.htm">Victoria Stodden</a> and others.)</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

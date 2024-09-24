@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Sexing Data Science Chickens</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Sexing Data Science Chickens</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/04/27/from-textbooks-to-notebooks/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-05-02" class="post-date">2019-05-02</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/05/03/shorter-lines/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>The biggest problem in data science is its bias against people who aren&rsquo;t straight, affluent, white or Asian males.
+Its second biggest problem, in my opinion, is that nobody talks about how they sex chickens.
+After a long period of trial and error,
+people can learn <a href="https://psmag.com/magazine/the-lucrative-art-of-chicken-sexing">how to tell at a glance whether a newborn chick is male or female</a>.
+The problem is, most of them don&rsquo;t know how they know:
+they&rsquo;ve trained the neural network between their ears,
+but they don&rsquo;t have conscious access to their decision criteria.</p>
+<p>Data scientists do something similar every day:
+they decide that a result seems right enough for them to move on to the next problem.
+In my experience,
+only a handful make this decision consciously
+or have explicit criteria (e.g., unit tests that pass).
+Most just look at a result and think, &ldquo;Good—now what&rsquo;s next?&rdquo;</p>
+<p>I really want to know what their heuristics are.
+I really want to know how consistent they are from one data scientist to the next,
+because I suspect that there&rsquo;s much more variation than we realize.
+(As the joke goes,
+physicists worry about decimal points,
+astronomers worry about exponents,
+and economists are happy if they&rsquo;ve got the sign right.)
+Mostly,
+though,
+I want to know so that I know what to teach.
+It&rsquo;s easy to show people how to use a unit test framework,
+but I predict that there&rsquo;s an inverse correlation between how easy tests are to write with the tools we have today
+and the things that influence human judgment about whether answers are right enough.</p>
+<p>One way to elicit understanding would be to have a couple of dozen data scientists think aloud
+while working through a series of problems and trying to decide if there&rsquo;s a bug or not.
+I&rsquo;m sure there are other ways as well;
+I&rsquo;d be grateful for suggestions.</p>
+<p><em>Note: in response to a question on an early draft of this post,
+I&rsquo;m not necessarily talking about statistical significance when I talk about correctness.
+Years ago I helped analyze a study of the spread of drug-resistant tuberculosis in Ontario hospitals.
+Thanks to a bit of sloppy SQL,
+I accidentally dropped all the records for everyone who didn&rsquo;t have a home address.
+It turns out that if you don&rsquo;t include homeless people in a study like this it affects the answer…
+Someone else caught the mistake less than an hour before we were going to submit the paper,
+but I still wonder how many other non-obvious mistakes I&rsquo;ve published.
+The code didn&rsquo;t crash,
+the graphs weren&rsquo;t flat—nothing smelled off to me.
+I&rsquo;m now a bit obsessive about checking for NULLs,
+but I still managed to create a histogram recently in which all zero scores had silently been dropped.
+Would a real data scientist have spotted that before sharing it with others?
+If so, what would have run their alarm bells?</em></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

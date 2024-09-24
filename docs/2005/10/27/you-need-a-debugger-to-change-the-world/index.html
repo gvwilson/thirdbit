@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: You Need a Debugger to Change the World</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>You Need a Debugger to Change the World</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2005/10/27/why-bad-software-exists/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2005-10-27" class="post-date">2005-10-27</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2005/11/04/one-in-forty-five-isnt-good-enough/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Following links from the latest <a href="http://www.subtextual.org/">Subtext</a> demo, I came to Martin Fowler&rsquo;s article <a href="http://www.martinfowler.com/articles/languageWorkbench.html">&ldquo;Language Workbenches: The Killer-App for Domain Specific Languages?&rdquo;</a>.  It&rsquo;s well written and thought provoking, like everything else Martin writes, but I think there&rsquo;s one glaring oversight. Two thirds of the way through, he says:</p>
+<blockquote>…there are three main parts to defining a new DSL [Domain Specific Language]:
+<ul>
+  <li>Define the abstract syntax, that is the <strong>schema</strong> of the abstract representation.</li>
+  <li>Define an <strong>editor</strong> to let people manipulate the abstract representation through a project.</li>
+  <li>Define a <strong>generator</strong>.  This describes how to translate the abstract representation into an executable representation.  In practice the generator defines the semantics of the DSL.</li>
+</ul>
+</blockquote>
+
+<p>That&rsquo;s great—but #4 should have been:</p>
+<blockquote>
+<ul>
+  <li>Create an <strong>inspector</strong> that allows people to debug their DSL's behavior in its own terms.</li>
+</ul>
+</blockquote>
+
+<p>Now, you could claim that the debugger was implied by #2 (the editor), but i practice, it never works that way.  Time and again, I see people struggling with systems that don&rsquo;t provide tools for debugging: Makefiles, Antfiles, config.xml files for servlet containers, and on and on and on.  When something goes wrong, the only options are (a) tweak it until it converges on what you wanted, or (b) debug the <em>implementation</em> of the nice abstraction you were just thinking in.</p>
+<p>I think that the inability of today&rsquo;s C++ debuggers to display something useful when confronted with templated code is the singlest biggest obstacle to their wider use.  I think that Java made a horrible mistake in deciding to erase type information when compiling generics, so that what&rsquo;s actually executing can only say, &ldquo;Yup, it&rsquo;s another Object.&rdquo;  Extensible languages could revolutionize software development, but it&rsquo;ll only happen if we focus on closing the debugging gap.</p>
+<p>So, anyone looking for a Ph.D. topic? ;-)</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

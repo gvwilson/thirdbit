@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Static Lesson Generators</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Static Lesson Generators</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2020/09/10/live-coding-paper/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2020-09-13" class="post-date">2020-09-13</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2020/09/14/creating-the-future/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Yesterday I tweeted:</p>
+<blockquote>
+<p>Somewhere out there, in a timeline very close to ours,
+there are as many static site generators for lessons and courses as there are for blogs,
+and that design space has been as well explored.</p>
+</blockquote>
+<p>and:</p>
+<blockquote>
+<p>And somewhere, in an even better timeline,
+it&rsquo;s normal and valued for grad students in software engineering to write
+detailed, theoretically-well-founded compare-and-contrast analyses of those design spaces.</p>
+</blockquote>
+<p>I&rsquo;m not going to attempt the latter here—doing it properly
+would take several months of research and careful thought—but
+after trying and failing for years to build a usable framework for lessons using <a href="https://jekyllrb.com/">Jekyll</a>,
+I hope a sketch of how I think about static site generators
+and what I&rsquo;d want from a lesson generator might be useful.
+To set the stage:</p>
+<ol>
+<li>
+<p>In the beginning we wrote web pages by hand and put them in our <code>htdocs</code> directory
+    so that our web server could share them with the world.</p>
+</li>
+<li>
+<p>We quickly realized that some content needed to be generated on the fly,
+    so we created content management systems (CMSes) to parse the user&rsquo;s HTTP request,
+    look things up on disk or in a database,
+    and generate HTML right then and there.</p>
+</li>
+<li>
+<p>But it turned out that a lot of sites didn&rsquo;t need just-in-timeness,
+    and that creating pages once and serving them many times put less load on the server
+    and enabled caching,
+    so we created static site generators (SSGs).</p>
+</li>
+</ol>
+<p>Every SSG I&rsquo;ve used is built around templates that define how pages are laid out.
+These templates combine plain old HTML (which is copied verbatim)
+and code fragments that repeat some chunks,
+conditionally include other chunks,
+and/or insert data values into the generated pages.
+The SSG reads files containing content
+and configuration files containing commonly-used values like the site&rsquo;s contact address
+and combines that information with the templates to produce the static pages making up the site.</p>
+<p>I think any tool that does what&rsquo;s described in the previous paragraph is an SSG
+in the same way that anything with feathers and a beak is a bird,
+but it&rsquo;s a very large design space:</p>
+<ul>
+<li>
+<p>Most SSGs allow files to include other files
+    so that things like headers and footers will be consistent.</p>
+</li>
+<li>
+<p>Most SSGs allow some in-page processing of data,
+    such as converting file paths to absolute URLs,
+    formatting dates,
+    or filtering lists.</p>
+</li>
+<li>
+<p>Most can load data files (typically formatted as YAML)
+    and then use that data to drive page generation.</p>
+</li>
+<li>
+<p>Most can hand off processing of specialized files to other tools:
+    for example, most will turn SASS into pure CSS automatically.</p>
+</li>
+</ul>
+<p>The paradigm of SSGs is a blog
+(where I used the word &ldquo;paradigm&rdquo; in the sense of something that serves as a defining exemplar).
+I have used them to create tutorial websites,
+but:</p>
+<ul>
+<li>
+<p>SSGs don&rsquo;t support specialized forms of cross-referencing
+    that have been around for centuries,
+    such as bibliographic citations or glossary references.
+    You can do these by hand (which is error-prone)
+    or write little include snippets that parse parameters and generate the HTML you want
+    (which is cumbersome, but at least gives you error messages).</p>
+</li>
+<li>
+<p>SSGs don&rsquo;t support numbered cross-references like <code>Exercise 3.4</code> or <code>Figure 5.6</code>
+    (where <code>3.4</code> is generated on the fly).
+    I realize numbering pages isn&rsquo;t how the web works,
+    but when you have a dozen tutorials,
+    each with a dozen of these entities,
+    you really do want meaningful short labels.
+    You particularly want them when you&rsquo;re generating a printable PDF,
+    because hyperlinking text like &ldquo;this figure&rdquo; doesn&rsquo;t work on paper.
+    (And yes, print still matters…)</p>
+</li>
+<li>
+<p>And speaking of exercises,
+    their implicit semantics is at least as rich as that of blog posts:
+    where the latter have excerpts, slugs, and tags,
+    the former have things like hints and solutions.
+    You can build these inline with nested <code>div</code>s,
+    but what if you want the exercise in one place and the solution in another?
+    The solutions I&rsquo;ve seen are:</p>
+<ol>
+<li>
+<p>Manage it by hand (which in practice quickly means
+    &ldquo;build a little script to check consistency&rdquo;).</p>
+</li>
+<li>
+<p>Put every exercise in a sub-directory that has files with fixed names
+    like <code>exercise.md</code>, <code>solution.md</code>, <code>hint-01.md</code>, and so on,
+    then use templates to load these snippets in the right places.</p>
+</li>
+<li>
+<p>Write each exercise, its solution, and what-not as YAML,
+    which is basically the same as #2 except everything&rsquo;s in one file.</p>
+</li>
+</ol>
+<p>All of these work, but none are anywhere near as smooth an experience
+as writing a blog post.</p>
+</li>
+<li>
+<p>When I&rsquo;m presenting code I frequently want to show a simple solution to something,
+    explain why it&rsquo;s inadequate,
+    and then present a replacement for part of it without repeating the rest.
+    I don&rsquo;t know <em>any</em> tool that does this:
+    I&rsquo;ve seen and built solutions that rely on <code>#include</code>-style processing
+    and specially-formatted comments to select or exclude variant chunks in a single file,
+    but the rest of my programming tools don&rsquo;t understand them,
+    so I&rsquo;ve just traded one kind of pain for another.</p>
+</li>
+<li>
+<p>Finally, lessons themselves also have some implicit semantics
+    that SSGs designed for blogging don&rsquo;t support.
+    In our upcoming book
+    <em><a href="../../../../py-rse/">Research Software Engineering with Python</a></em>,
+    each chapter starts with learning objectives and ends with a summary of key points.
+    The former and latter also appear in appendices for easy reference,
+    so we&rsquo;ve put each set in its own includable file.
+    That information <em>should</em> live in each chapter&rsquo;s YAML header,
+    but the tool we&rsquo;re using doesn&rsquo;t provide a way for one page to access another&rsquo;s header data.
+    Again, we could put that information in a single YAML file
+    and have each chapter look up its portion,
+    but that&rsquo;s like putting the code in one file and its documentation in another:
+    experience shows that keeping them side by side makes maintenance and consistency a lot easier.</p>
+</li>
+</ul>
+<p>At this point you may be thinking, &ldquo;But LaTeX! Or Bookdown!&rdquo;
+In practice,
+they make some things easier but other things harder.
+But this blog post isn&rsquo;t about designing a better static lesson generator.
+What I really want is an in-depth, peer-reviewed analysis of this design space.
+What are the paradigmatic needs that define &ldquo;this design space&rdquo;?
+What approaches have been taken in the past?
+What workarounds or shims have people evolved to handle needs that <em>aren&rsquo;t</em> core?</p>
+<p>And most importantly,
+why aren&rsquo;t analyses like these a standard part of a software engineer&rsquo;s education?
+The architects who live across the street from me have a shelf full of books
+that analyze buildings of differents and styles,
+from medieval cathedrals to modern Scandinavian bus shelters
+(which appear to have undergone the same kind of adaptive radiation as Darwin&rsquo;s finches).
+They started to learn what had come before,
+why it was built the way it was,
+and how to think about it when they were 18 or 19.
+Fifteen years after <em>Beautiful Code</em>,
+I still struggle to find examples of software architects discussing software architecture
+with the same level of insight I would expect in an undergrad architect&rsquo;s term paper on Union Station
+or an undergrad music student&rsquo;s analysis of Gershwin&rsquo;s &ldquo;Rhapsody in Blue&rdquo;.</p>
+<p>Stroustrup&rsquo;s <em><a href="https://www.stroustrup.com/dne.html">Design and Evolution of C++</a></em>
+Ierusalimschy et al&rsquo;s &ldquo;<a href="https://www.lua.org/doc/sblp2005.pdf">Implemenation of Lua 5.0</a>&rdquo;,
+and Cooks <a href="http://gitlet.maryrosecook.com/">Gitlet</a>
+are proof that discussion of this kind is both possible and valuable at several levels;
+(Go ahead: spend half an hour with <a href="http://gitlet.maryrosecook.com/docs/gitlet.html">this page</a>—you
+can thank me later.)
+If I really had any influence on software engineering education,
+every undergrad would read a couple of dozens essays like this in a third-year course
+and write at least two.
+As it is,
+I&rsquo;m just going to keep ranting from the sidelines and hope that some day,
+somewhere,
+better becomes normal.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Human-Scale Software</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Human-Scale Software</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/06/14/narconomics-and-big-tech/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-06-14" class="post-date">2024-06-14</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/07/01/psf-board-nomination/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I recently posted on Mastodon:</p>
+<blockquote>
+<ol>
+<li>I&rsquo;m going to write another tech book.</li>
+<li>If I do, it will be about evidence-based software engineering and/or how big tech companies operate like drug cartels.</li>
+<li>But I&rsquo;m still thinking about &ldquo;Human-Scale Software: A Guide for the 99.9% of Developers Who Don&rsquo;t Need Scalability&rdquo;</li>
+</ol>
+</blockquote>
+<p>So what would I use for #3?</p>
+<ol>
+<li>
+<p><a href="https://sqlite.org/">SQLite</a> for storage.
+    (<a href="https://duckdb.org/">DuckDB</a> is cool, but I&rsquo;m being deliberately conservative in my choices.)</p>
+</li>
+<li>
+<p>I wouldn&rsquo;t use an object-relational mapper:
+    I&rsquo;ve used <a href="https://www.sqlalchemy.org/">SQLAlchemy</a> for years,
+    but I think embedded SQL is easier to debug than an ORM for small-to-medium use cases.</p>
+</li>
+<li>
+<p><a href="https://bottlepy.org/">Bottle</a> on the back end
+    because it has stayed small while <a href="https://flask.palletsprojects.com/">Flask</a> keeps growing.
+    Note that I wouldn&rsquo;t use type hints in the Python code:
+    if I wanted to write Java, I&rsquo;d write Java.</p>
+</li>
+<li>
+<p><a href="http://www.dmulholl.com/docs/ibis/master/">Ibis</a> templates because they&rsquo;re simpler than <a href="https://jinja.palletsprojects.com/">Jinja</a>.
+    (See also <a href="../../../../2024/02/25/community-norms/">this post</a>.)</p>
+</li>
+<li>
+<p><a href="https://mamba.readthedocs.io/">mamba</a>, <a href="https://docs.astral.sh/ruff/">ruff</a>, and <a href="https://github.com/astral-sh/uv">uv</a> for Python tooling.</p>
+</li>
+<li>
+<p><a href="https://alpinejs.dev/">Alpine.js</a> as a front-end framework
+    because <a href="https://htmx.org/">htmx</a> feels a bit left-field
+    and <a href="https://react.dev/">React</a> and <a href="https://vuejs.org/">Vue</a> seem bent on cosplaying Enterprise Java.</p>
+</li>
+<li>
+<p><a href="https://www.npmjs.com/">npm</a>, <a href="https://vitejs.dev/">Vite</a>, and <a href="https://standardjs.com/">StandardJS</a> for JavaScript tooling.</p>
+</li>
+<li>
+<p><a href="https://ui.mantine.dev/">Mantine</a> for the UI,
+    though I could be persuaded to stick to <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
+</li>
+<li>
+<p><a href="https://pa11y.org/">Pa11y</a> for accessibility testing
+    (because <a href="https://wave.webaim.org/standalone">the standalone version of WebAIM WAVE</a> costs US$4000/year).</p>
+</li>
+<li>
+<p><a href="https://www.netlify.com/">Netlify</a> for deployment.</p>
+</li>
+</ol>
+<p>This list deliberately isn&rsquo;t <a href="../../../../2024/04/18/a-new-stack/">an entirely new stack</a>,
+but it&rsquo;s also not entirely conservative.
+I know it should include a security auditing tool to sit beside Pa11y,
+but while I&rsquo;ve watched people use <a href="https://snyk.io/">Snyk</a>
+I don&rsquo;t have any experience with it or alternatives.</p>
+<p>So much for tools:
+what would I teach?
+My learner persona is:</p>
+<blockquote>
+<ol>
+<li>Carter has a BSc in bioinformatics
+    and now works as a data scientist for a mid-sized therapeutics company.</li>
+<li>They know Python well enough to analyze data for their colleagues
+    and build dashboards using <a href="https://dash.plotly.com/">Dash</a>,
+    but only ever did a couple of assignments using JavaScript.</li>
+<li>Carter wants to build something to replace their company&rsquo;s aging PHP-based record keeping tools.</li>
+<li>Carter has an <a href="https://en.wikipedia.org/wiki/Essential_tremor">idiopathic tremor</a>
+    that sometimes makes fine motor control difficult.
+    As a result,
+    they find many websites awkward or impossible to use
+    and strongly prefer typing to using a mouse or a touch screen,</li>
+</ol>
+</blockquote>
+<ol>
+<li>
+<p>The motivating example would be a <em>laboratory information management system</em> (LIMS)
+    designed to handle field samples and laboratory experiments.
+    Luckily,
+    I already have <a href="https://github.com/gvwilson/snailz">a synthetic data generator for this</a>.</p>
+</li>
+<li>
+<p><em>Database schema design</em>:
+    I&rsquo;d start with something simple and extend it chapter by chapter.</p>
+</li>
+<li>
+<p>…which means the list above should have included a <em>database migration</em> tool like <a href="https://sqitch.org/">Sqitch</a>.</p>
+</li>
+<li>
+<p>Building a <em>command-line user interface</em> (CLUI) for administration, batch operations, and testing.
+    (Crap, that means adding <a href="https://docs.pytest.org/">pytest</a> and <a href="https://click.palletsprojects.com/">Click</a> to the list of tools.)</p>
+</li>
+<li>
+<p><em>Authentication</em>:
+    it&rsquo;s straightforward to add this to the CLUI,
+    but will require something like <a href="https://flask-login.readthedocs.io/">Flask-Login</a> for the web UI.
+    I don&rsquo;t know of a framework-agnostic alternative,
+    so I might have to revisit my decision to use Bottle.</p>
+</li>
+<li>
+<p><em>Routing URLs</em> to handler functions
+    (and redirecting when authentication is needed).</p>
+</li>
+<li>
+<p><em>Permissions</em>,
+    which means <em>user roles</em>.
+    Again,
+    <a href="https://flask-user.readthedocs.io/">Flask-User</a> does this and I don&rsquo;t know of a framework-agnostic alternative,
+    so yeah, Flask…</p>
+</li>
+<li>
+<p><em>Generating pages from templates</em> and <em>form handling</em>.
+    I hope we&rsquo;ve all outgrown single-page applications,
+    so <em>site architecture design</em> as a complement to schema design will need to be here.</p>
+</li>
+<li>
+<p><em>Paging</em> for displaying large data sets and <em>plotting</em> for displaying data graphically.</p>
+</li>
+<li>
+<p><em>Responsive web design</em> because most a lot of people use their phones more than their laptops
+    (particularly when they&rsquo;re in the field).</p>
+</li>
+<li>
+<p><em>Accessibility</em> because I&rsquo;d be ashamed not to
+    and because <a href="https://educate.elsevier.com/book/details/9780128044674">I&rsquo;m not getting any younger</a>.</p>
+</li>
+<li>
+<p><em>Security</em> is a hard one.
+    <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>, <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a>, <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL injection</a>, authentication, site certificates, and password management
+    are all must-haves,
+    but as <a href="https://exple.tive.org/blarg/">Mike Hoye</a> has observed,
+    what we really need to teach people is things like,
+    &ldquo;How to build websites that can&rsquo;t be exploited by abusive domestic partners.&rdquo;
+    I really don&rsquo;t know what I could do here that wouldn&rsquo;t require a second book;
+    I would try crowdsourcing it like <a href="https://aosabook.org/"><em>The Architecture of Open Source Applications</em></a>,
+    but that didn&rsquo;t go anywhere <a href="../../../../2024/01/23/the-votes-are-in/">the last time I tried it</a>.</p>
+</li>
+</ol>
+<p>This book will probably never happen,
+but probably isn&rsquo;t the same as definitely.
+If you think of anything else that ought to be included,
+please <a href="mailto:gvwilson@third-bit.com">let me know</a>.</p>
+<p>Later:</p>
+<ul>
+<li>
+<p>Irving Reid pointed out that running the application is as important as building it,
+    and suggested the lessons should include creating and restoring backups,
+    deploying updates,
+    and observability
+    (which involves more than creating log messages that are findable, comprehensible, and informative,
+    but that would be a good start).</p>
+</li>
+<li>
+<p>Someone else (name unknown) felt that dependency maintenance should be on the list as well,
+    i.e.,
+    that there should be a lesson about vulnerability scans and automating checks for dependency updates.</p>
+</li>
+<li>
+<p>Someone else (name also unknown) suggested that there ought to be a lesson on debugging full-stack applications,
+    and that the lessons should show how to create good pull requests and how to review them.
+    I strongly agree,
+    but teaching verbs is a lot harder than teaching nouns,
+    and this is already far too ambitious for something that would already take a year of unpaid work.</p>
+</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Volume Two</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Volume Two</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/05/07/code-for-thought-interview/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-05-11" class="post-date">2024-05-11</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/05/12/sdxpy-reviews/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I don&rsquo;t think there will ever be a second volume of <a href="../../../../sdxpy/"><em>Software Design by Example in Python</em></a>,
+but if there is,
+I&rsquo;d like it to include the examples listed below.
+What I&rsquo;d like even more is if a handful of software engineering professors
+used some chapters from the existing book in their course,
+then assigned one of these topics to their students as a final project
+and share the results with me.
+I&rsquo;d be very happy to combine and edit the results,
+and I think that having a chapter with their name on it in a published book
+would be a pretty cool achievement for an undergrad.</p>
+<ol>
+<li>
+<p>A <em>file compressor</em>
+    because compression algorithms are both important and cool.</p>
+</li>
+<li>
+<p>A <em>fuzz tester</em>.
+    If you haven&rsquo;t read <a href="https://www.fuzzingbook.org/"><em>The Fuzzing Book</em></a> yet, you really should.</p>
+</li>
+<li>
+<p>A <em>discrete event simulator</em> like <a href="https://simpy.readthedocs.io/">SimPy</a> (but much simpler),
+    mostly to show how co-operative multi-tasking works.</p>
+</li>
+<li>
+<p>An <em>object-relational mapper</em> that targets a very simple subset of SQL
+    (but which does show how to implement foreign key relationships).</p>
+</li>
+<li>
+<p><em>Dynamic autocompletion</em>.
+    Showing possible continuations of what&rsquo;s been typed so far is straightforward;
+    showing how to update the tree of possibilities as new things are typed is a lot more fun.</p>
+</li>
+<li>
+<p>A simple <em>search engine</em>.
+    I&rsquo;d like something more sophisticated than <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">TF-IDF</a>,
+    but I don&rsquo;t know what that would be.</p>
+</li>
+<li>
+<p>A <em>continuous integration system</em> that runs jobs and reports results on each commit to version control.
+    Its real purpose would be to show people how to manage processes,
+    e.g.,
+    how to interrupt a job if another commit occurs before the job completes
+    and how to limit the time each job is allowed.</p>
+</li>
+<li>
+<p>An <em>issue tracker</em> with authentication and workflow management.
+    (The issues are just there to motivate authentication and workflow as objects.)</p>
+</li>
+<li>
+<p>Speaking of authentication, <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>.</p>
+</li>
+<li>
+<p>A <em>message queue</em> like <a href="https://docs.celeryq.dev/">Celery</a> or <a href="https://zeromq.org/">ZeroMQ</a>.</p>
+</li>
+<li>
+<p>A <em>fault-tolerant virtual machine</em> like <a href="https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)">BEAM</a>.
+    (The existing book has a simple VM; perhaps this could extend it?)</p>
+</li>
+<li>
+<p><em><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a></em>,
+    because the lack of networking in the <a href="../../../../sdxpy/">current book</a> is its biggest weakness.</p>
+</li>
+<li>
+<p><em><a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a></em>,
+    for the same reason
+    (though I doubt I could make anything as fun as <a href="https://jvns.ca/">Julia Evans</a>&rsquo;s <a href="https://messwithdns.net/">Mess With DNS</a>).</p>
+</li>
+<li>
+<p>A scale model of <em><a href="https://docs.docker.com/compose/">Docker Compose</a> or <a href="https://kubernetes.io/">Kubernetes</a></em>,
+    which wouldn&rsquo;t have to be much more complicated than
+    <a href="../../../../2024/02/17/concurrent-examples/">this tool for running concurrent examples</a>.</p>
+</li>
+<li>
+<p>A <em><a href="https://en.wikipedia.org/wiki/Virtual_private_network">VPN</a></em>.
+    (Remember, these are scale models with only a fraction of the functionality of the real thing.)</p>
+</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

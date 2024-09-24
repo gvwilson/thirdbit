@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: No Straight Pipeline</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>No Straight Pipeline</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2018/12/13/story-line/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2018-12-14" class="post-date">2018-12-14</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2018/12/16/speaking-of-accessibility/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Most people will probably read
+<a href="../../../../js4ds/"><em>JavaScript versus Data Science</em></a> online for free,
+but I like having printed copies of books.
+Getting this one out the door gave me a chance to revisit the pipeline I built for
+<em><a href="http://teachtogether.tech">Teaching Tech Together</a></em>
+and to think some more about <a href="../../../../2018/12/12/twelve-percent/">accessible lesson templates</a>.
+The constraints I chose to work under are:</p>
+<ul>
+<li>
+<p>All content is written in <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a>
+    and processed using <a href="https://jekyllrb.com/">Jekyll</a> without any special plugins
+    so that the book&rsquo;s website can be regenerated simply by committing files to its GitHub repository.
+    Yes, <a href="https://gohugo.io/">Hugo</a> and <a href="https://bookdown.org/yihui/bookdown/">Bookdown</a> are probably nicer to use,
+    but to paraphrase Knuth,
+    Jekyll is everybody&rsquo;s second favorite choice.</p>
+</li>
+<li>
+<p>LaTeX for generating a PDF suitable for printing and binding.
+    There really isn&rsquo;t another choice for this:
+    the only question is how to get there from Markdown.</p>
+</li>
+</ul>
+<p>So what does our setup look like?</p>
+<ol>
+<li>
+<p>All of the Markdown source files are stored in a directory called <code>./_en</code>.
+    The &ldquo;en&rdquo; stands for &ldquo;English&rdquo; (we want to allow for translations in future),
+    and the leading underscore tells Jekyll that we want these files to be turned into a collection,
+    i.e.,
+    that inside our templates,
+    <code>site.en</code> should be a list containing all of the pages.
+    We have to add a few lines to <code>./_config.yml</code> (the Jekyll configuration file) to enable this as well.</p>
+</li>
+<li>
+<p><code>./_config.yml</code> also contains a list that specifies the order of the files;
+    each file is specified by its permalink,
+    so files can be added, removed, or reordered without editing their content.
+    Various template snippets in <code>./_includes</code> loop over this list and the collection contents
+    to create a table of contents,
+    summarize all the motivating questions and key points,
+    and so on.</p>
+</li>
+<li>
+<p><code>jekyll build</code> translates all the Markdown to HTML and puts it in <code>_site/en</code>.
+    These files are <em>not</em> committed to Git;
+    instead, each time changes to the Markdown are pushed to GitHub,
+    it regenerates the site automatically.</p>
+</li>
+<li>
+<p>However, a server-side compilation step <em>is</em> needed
+    to create an all-in-one-page version of the site,
+    which in turn is used to create a PDF (about which more below).
+    A little JavaScript utility called <code>./bin/stitch.js</code> extracts content from the generated pages
+    and rewrite inter-page links so that they&rsquo;ll resolve within that single page.
+    This could and should be done inside the client&rsquo;s browser
+    (as it is in <a href="https://github.com/carpentries/lesson-example/blob/gh-pages/aio.md">the current Carpentries template</a>);
+    if anyone wants to put it together,
+    please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
+</li>
+<li>
+<p>We use <a href="https://pandoc.org/">Pandoc</a> to convert the single-page HTML version of the book to LaTeX.
+    However, since Pandoc doesn&rsquo;t handle some of our Markdown the way we want,
+    the command to do this is prefixed and suffixed with a few lines of text wrangling via <code>sed</code>.
+    We could probably write a Pandoc extension to do this instead,
+    or modify the template,
+    but those approaches feel brittle:
+    there aren&rsquo;t a lot of people out there who are familiar enough with Pandoc to maintain custom work.</p>
+</li>
+<li>
+<p>When it comes to diagrams,
+    we use the desktop version of <a href="https://www.draw.io/">draw.io</a> to create them,
+    then export as both SVG (for the browser) and PDF (for LaTeX).
+    We experimented with automatically generating PDF from SVG as needed,
+    but the results were unsatisfying:
+    draw.io&rsquo;s SVG contains some artefacts that <a href="https://cairosvg.org/">CairoSVG</a> doesn&rsquo;t know how to handle,
+    and since diagrams change fairly infrequently,
+    exporting twice seemed easier than anything else.</p>
+</li>
+<li>
+<p>In order for all this to work,
+    authors have to respect a few formatting conventions:</p>
+<ul>
+<li>Section headings need IDs with names like <code>s:<em>chapter</em>-<em>slug</em></code>.</li>
+<li>Figures need IDs with names like <code>f:<em>chapter</em>-<em>slug</em></code>.</li>
+<li>Glossary entries need IDs with names like <code>g:<em>slug</em></code>.</li>
+<li>Bibliography entries need IDs with names like <code>b:<em>slug</em></code>.</li>
+<li>All chapters go into their own sub-directories
+    (e.g., the introduction lives in <code>./_site/en/intro/index.html</code>),
+so inter-file links have to be formatted as <code>../<em>chapter</em>/</code>
+and links to specific targets (like glossary entries) as <code>../<em>chapter</em>/#<em>id</em></code>.</li>
+</ul>
+</li>
+</ol>
+<p>There are a few utility scripts in <code>./bin</code> inherited from earlier projects
+to do things like check the consistency of glossary entries,
+look for non-ASCII characters in files, and so on.
+It&rsquo;s simpler than the process for <em><a href="http://teachtogether.tech">T3</a></em>,
+but there are still more moving parts than I&rsquo;d like:
+in particular,
+having to stitch all the files in a multi-file Jekyll site together feels like something that
+should have already existed.
+If you&rsquo;re interested in helping to streamline it,
+or in contributing to the content,
+<a href="mailto:gvwilson@third-bit.com">we&rsquo;d like to hear from you</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

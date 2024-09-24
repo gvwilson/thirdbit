@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Concurrent Examples</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Concurrent Examples</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/02/14/a-pair-of-interviews/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-02-17" class="post-date">2024-02-17</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/02/21/a-new-metric/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I would like to write a short tutorial on web programming for data scientists.
+I want to be able to re-run the examples and capture their output automatically,
+but concurrency makes this much harder than it is for something like <a href="https://gvwilson.github.io/sql-tutorial/">this SQL tutorial</a>.
+I need to be able to:</p>
+<ol>
+<li>launch two or more processes (clients and servers);</li>
+<li>make sure clients don&rsquo;t try running before their servers are ready to accept requests;
+    and</li>
+<li>capture the messages printed by these processes in the order in which they appear
+    (rather than all of one process&rsquo;s output followed by all of another&rsquo;s).</li>
+</ol>
+<p><a href="https://www.enthought.com/team/robert-kern/">Robert Kern</a> kindly provided a predecessor for this script:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1"># Save the process group ID of this script.</span>
+<span class="nv">pgid</span><span class="o">=</span><span class="sb">`</span>ps<span class="w"> </span>-o<span class="w"> </span><span class="nv">pgid</span><span class="o">=</span><span class="w"> </span><span class="nv">$$</span><span class="sb">`</span>
+
+<span class="c1"># Trap a Ctrl-C SIGINT and kill everything running inside this script.</span>
+<span class="nb">trap</span><span class="w"> </span><span class="s2">&quot;pkill -KILL -g </span><span class="nv">$pgid</span><span class="s2">&quot;</span><span class="w"> </span>INT
+
+<span class="c1"># 1. Redirect server stderr to stdout.</span>
+<span class="c1"># 2. Prefix each line with &#39;server&#39;.</span>
+<span class="c1"># 3. Background the process.</span>
+<span class="o">(</span><span class="nv">$1</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>server<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;S: &#39;</span><span class="w"> </span><span class="si">${</span><span class="nv">server</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="o">)</span><span class="w"> </span><span class="p">&amp;</span>
+
+<span class="c1"># Wait.</span>
+sleep<span class="w"> </span><span class="m">1</span>
+
+<span class="c1"># 1. Redirect client stderr to stdout.</span>
+<span class="c1"># 2. Prefix each line with &#39;client&#39;.</span>
+<span class="nv">$2</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>client<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;c: &#39;</span><span class="w"> </span><span class="si">${</span><span class="nv">client</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+
+<span class="c1"># Kill this script and its children (client and server) when client finishes.</span>
+pkill<span class="w"> </span>-KILL<span class="w"> </span>-g<span class="w"> </span><span class="nv">$pgid</span>
+</code></pre></div>
+<p>When run like this:</p>
+<div class="highlight"><pre><span></span><code>run2.sh<span class="w"> </span><span class="s2">&quot;python -m http.server -d site&quot;</span><span class="w"> </span><span class="s2">&quot;python simple_request.py&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>output.txt
+</code></pre></div>
+<p>it launches a simple HTTP server,
+sleeps for one second,
+and then runs the client program <code>simple_request.py</code>.
+The output from the server uses <code>S</code> as a prefix
+while the output from the client uses <code>c</code>.</p>
+<p>This script works,
+but only sort of:</p>
+<ol>
+<li>The one-second delay before launching the client isn&rsquo;t always enough.</li>
+<li>When I&rsquo;m using Python&rsquo;s <code>socket</code>, <code>socketserver</code>, and <code>ssl</code> modules,
+    processes don&rsquo;t always relinquish sockets cleanly upon exit
+    (particularly if there&rsquo;s a deliberate bug in the code to illustrate errors and error handling),
+    which means I can&rsquo;t re-run the job for several seconds.</li>
+</ol>
+<p>Later,
+<a href="https://github.com/saffroy">Jean-Marc Saffroy</a> provided this script,
+which uses <code>lsof</code> to wait until servers start listening on ports
+before launching clients:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1"># First argument is a set of TCP ports.</span>
+<span class="c1"># This is followed by one command per server listening to those ports</span>
+<span class="c1"># and then by client commands, e.g.</span>
+<span class="c1"># e.g: ./runner.sh &quot;8081 8082&quot; &quot;servercmd 8081&quot; &quot;servercmd 8082&quot; &quot;client1&quot; &quot;client2&quot; ...</span>
+
+<span class="nv">PORTS</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">shift</span>
+
+<span class="nv">CHILDREN</span><span class="o">=</span>
+
+<span class="c1"># Wait for a port to be available.</span>
+await_port_free<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">PORTNUM</span><span class="o">=</span><span class="nv">$1</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span>lsof<span class="w"> </span>-n<span class="w"> </span>-iTCP:<span class="si">${</span><span class="nv">PORTNUM</span><span class="si">}</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span>sleep<span class="w"> </span><span class="m">0</span>.5
+<span class="w">        </span><span class="c1"># printf &quot;*&quot;</span>
+<span class="w">    </span><span class="k">done</span>
+<span class="w">    </span><span class="c1"># printf &quot;\nport $PORTNUM free\n&quot;</span>
+<span class="o">}</span>
+
+<span class="c1"># Wait for a port to be in the listening state.</span>
+await_port_listen<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">PORTNUM</span><span class="o">=</span><span class="nv">$1</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span>!<span class="w"> </span>lsof<span class="w"> </span>-n<span class="w"> </span>-iTCP:<span class="si">${</span><span class="nv">PORTNUM</span><span class="si">}</span><span class="p">|</span>grep<span class="w"> </span>-qw<span class="w"> </span>LISTEN<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span>sleep<span class="w"> </span><span class="m">0</span>.5
+<span class="w">        </span><span class="c1"># printf &quot;*&quot;</span>
+<span class="w">    </span><span class="k">done</span>
+<span class="w">    </span><span class="c1"># printf &quot;\nport $PORTNUM in LISTEN state\n&quot;</span>
+<span class="o">}</span>
+
+<span class="c1"># Kill all child processes (suppressing messages so as not to clutter output).</span>
+on_exit<span class="o">(){</span>
+<span class="w">    </span><span class="c1"># disable trap</span>
+<span class="w">    </span><span class="nb">trap</span><span class="w"> </span>-<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>int
+<span class="w">    </span><span class="c1"># gently kill every child</span>
+<span class="w">    </span><span class="nb">kill</span><span class="w"> </span>-INT<span class="w"> </span><span class="nv">$CHILDREN</span><span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="c1"># thorough cleanup</span>
+<span class="w">    </span>pkill<span class="w"> </span>-TERM<span class="w"> </span>-g<span class="w"> </span><span class="m">0</span>
+<span class="o">}</span>
+
+<span class="c1"># exiting or ^C runs on_exit</span>
+<span class="nb">trap</span><span class="w"> </span>on_exit<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>int
+
+<span class="c1"># Launch the servers as their ports become available, and wait until each one</span>
+<span class="c1"># has started listening before starting the next one.</span>
+<span class="k">for</span><span class="w"> </span>PORT<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$PORTS</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>await_port_free<span class="w"> </span><span class="nv">$PORT</span>
+
+<span class="w">    </span><span class="nv">CMD</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">shift</span>
+<span class="w">    </span><span class="nv">$CMD</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="nv">CHILDREN</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CHILDREN</span><span class="s2"> </span><span class="nv">$!</span><span class="s2">&quot;</span>
+
+<span class="w">    </span>await_port_listen<span class="w"> </span><span class="nv">$PORT</span>
+<span class="k">done</span>
+
+<span class="c1"># Launch all of the clients.</span>
+<span class="k">for</span><span class="w"> </span>CMD<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nv">$CMD</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">    </span><span class="nv">CHILDREN</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CHILDREN</span><span class="s2"> </span><span class="nv">$!</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># Wait until any child process exits</span>
+<span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>CHILD<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$CHILDREN</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-0<span class="w"> </span><span class="nv">$CHILD</span><span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">exit</span><span class="w"> </span><span class="c1"># to on_exit</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">    </span><span class="k">done</span>
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">0</span>.5
+<span class="k">done</span>
+</code></pre></div>
+<p>Is there a better way?
+I feel like there must be—I&rsquo;m hardly the first person to wrestle with these issues—but
+it has been decades (literally) since I programmed at this level.
+One possibility is to borrow some code from <a href="https://vcrpy.readthedocs.io/">VCR.py</a>
+and run everything in a single process
+after replacing the underlying socket library with something that captures and forwards messages.
+That would have the advantage of being reproducible—I&rsquo;m going to use this
+to re-run examples for a tutorial,
+and while I don&rsquo;t care what the order of messages is,
+I do care that it&rsquo;s the same each time—but this kind of mocking will only work if everything is in Python.
+If you have another solution you can share,
+please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

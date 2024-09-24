@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Thirteen Percent and Counting</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Thirteen Percent and Counting</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2018/12/16/speaking-of-accessibility/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2018-12-17" class="post-date">2018-12-17</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2018/12/19/fourteen-percent/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Last week, I posted a description of a half-baked plan for
+<a href="../../../../2018/12/12/twelve-percent/">lesson aggregation</a>.
+I&rsquo;ve had some useful discussions since then; what follows is hopefully
+the first in a series of summaries.</p>
+<p><strong>First,</strong> after further conversation with David Wiley, publishing educational
+resources in a single place with consistent formatting, giving them a sensible
+organizational structure, and making reasonable SEO efforts are all great ideas.
+However, creating a lot of standards-based metadata and providing your own
+sophisticated local search interfaces and services on top of that usually fails.</p>
+<p>You&rsquo;re going to publish content either way, but repository projects inevitably
+end up including metadata and local search because they are what differentiate a
+repository from a website.  Experience tells us that almost no one is going to
+use your local search engine or leverage your metadata: people are going to use
+Google for search and deep link into your site from there. Do you really want to
+spend your project&rsquo;s limited time and effort competing with Google on search or
+creating 30 or more fields worth of IMS/SCORM/IEEE/Dublin Core/Schema.org
+conformant metadata?</p>
+<p><strong>Second,</strong> after conversation with Niall Beard, I&rsquo;ve realized that while
+<a href="https://tess.elixir-europe.org/">TESS</a> focuses on helping <em>learners</em> find and
+use lessons, <a href="../../../../2018/12/12/twelve-percent/">my proposal</a>
+focuses more on helping <em>other instructors</em> find and <em>remix</em> lessons.  I still
+believe that YAML-in-GitHub is too high a barrier to entry for most people, but
+I think that we can (and should) generate XML or JSON-LD descriptions for
+interoperability with existing aggregators.  I&rsquo;m also now even more interested
+in using <a href="https://web.hypothes.is/">hypothes.is</a> to support aggregation:</p>
+<ol>
+<li>
+<p>Rather than writing a Markdown file and putting it in a lesson&rsquo;s root
+    directory, can someone provide the same information by annotating the course
+    with hypothes.is?  (The answer is &ldquo;yes&rdquo;, so I guess the question should be,
+    will they?)</p>
+</li>
+<li>
+<p>Can we provide multiple levels of aggregation?  A course consists of
+    lectures, which in turn consist of topics and exercises; rather than
+    allowing only one record for aggregation purposes that spans the entire
+    thing, can we allow multiple record per site to identify smaller units of
+    remixing?  (Again, the answer is &ldquo;yes&rdquo;, so the question is really, &ldquo;If we do
+    this, will people use it?&rdquo;)</p>
+</li>
+<li>
+<p>Rather than creating an explicit course-module-lesson-topic hierarchy, can
+    we allow authors to put time estimates on the things they provide for
+    aggregation, and/or allow re-users to tell us how long it actually took?  We
+    asked for the latter information with <a href="http://carpentries.org">Carpentry</a>
+    lessons, but very few people provided it; would hypothes.is annotation on
+    the resource itself get more response?</p>
+</li>
+<li>
+<p>Rather than waiting for people to register their own lessons, we could
+    easily provide a &ldquo;please register this&rdquo; workflow:</p>
+<ol>
+<li>
+<p>Jeanne stumbles across a lesson or exercise she finds interesting.</p>
+</li>
+<li>
+<p>She clicks the <a href="https://en.wikipedia.org/wiki/Bookmarklet">bookmarklet</a>
+    in her browser to check if there&rsquo;s a record of it.</p>
+</li>
+<li>
+<p>If there is, she&rsquo;s given the option of viewing metadata and reviews.</p>
+</li>
+<li>
+<p>If there isn&rsquo;t, but someone before her has expressed an interest, we add
+    one to the &ldquo;wanna have&rdquo; count in our database.</p>
+</li>
+<li>
+<p>If there isn&rsquo;t any record in our database, we scrape the site to get
+    contact info for the lesson&rsquo;s author, Vlad.  We then send Vlad a single
+message saying, &ldquo;Hey, someone&rsquo;s interested in your lesson.&rdquo;</p>
+</li>
+<li>
+<p>Vlad will probably ignore the message, but if he responds by creating
+    a record for his lesson, we stash that so that future inquiries will
+resolve, and notify Jeanne that the record is now available.  This
+    workflow serves the triple purpose of attracting more authors, not
+    spamming them, and ensuring that the record for a lesson comes from
+    someone identified in the lesson&rsquo;s content (i.e., probably not a
+    disgruntled former student).</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Third,</strong> I had a good conversation with Carl Boettiger, who has <a href="https://github.com/espm-157/climate-template/blob/master/lesson.md">written a
+<code>lesson.md</code> file</a>
+for one of the modules in his &ldquo;Data Science and Global Change Ecology&rdquo; course at
+Berkeley.  (Thanks, Carl.)  Here are the key changes he made:</p>
+<ul>
+<li>Introduced a level-2 heading &ldquo;Overview&rdquo; for the front matter.</li>
+<li>Added a &ldquo;Context&rdquo; section that explains why the module was developed
+    and how it is usually delivered.</li>
+<li>Added a &ldquo;Timeframe&rdquo; section that describes how long the module takes to deliver.</li>
+<li>Added a &ldquo;Background Reading&rdquo; section with links to related material.</li>
+</ul>
+<p>He also asked, &ldquo;Why are &lsquo;glossary&rsquo; and &lsquo;terms&rsquo; defined separately?&rdquo;
+The idea is that &ldquo;glossary&rdquo; is just a link to a site full of definitions,
+like <a href="https://developers.google.com/machine-learning/glossary/">this one</a>,
+while &ldquo;terms&rdquo; are keys into that glossary, like <code>AB_testing</code>.
+The idea was to (strongly) encourage people to take all their definitions
+from one glossary, but this is probably overly clever, so I&rsquo;ll change it.</p>
+<p>Similarly, Jeff Oliver suggested that there should be a &ldquo;DOI&rdquo; field, which is
+eminently sensible and I&rsquo;m embarrassed for not having thought of it myself.</p>
+<p>The revised spec and an example are below.  The words in <code>fixed font</code> are
+section headings or list keys, depending on indentation; terms in <em>italics</em> are
+names for content that aren&rsquo;t explicitly keyed (e.g., the abstract is just &ldquo;the
+paragraph immediately below the H1-level title&rdquo;).  As Carl said, parsing this
+will be more complicated than parsing YAML, but on the other hand, I think
+people might actually write this.</p>
+<blockquote>
+<p>Another late-breaking change is the introduction of a <code>sources</code> field,
+which lists the lesson or lessons that this lesson is (partially) derived from.
+These entries are supposed to be links to those other lessons&rsquo; <code>lesson.md</code> files;
+if the source lesson doesn&rsquo;t have one, it should go under <code>reading</code> instead.</p>
+</blockquote>
+<p>Note that this still doesn&rsquo;t describe pre-requisite knowledge: in my experience,
+authors&rsquo; lists are always incomplete, and I believe it will be more accurate to
+scrape the content for use of terms defined in selected glossaries (and in other
+registered lessons).  And yes, it&rsquo;s still too long: what can we cut?
+<a href="mailto:gvwilson@third-bit.com">Feedback</a> is always appreciated.</p>
+<ol>
+<li><code>title</code>: short title of lesson [text].<ol>
+<li><em>abstract</em>: a single-paragraph summary [long text].</li>
+</ol>
+</li>
+<li><code>overview</code>: just a heading<ol>
+<li><em>context</em>: a single paragraph of background information [long text].</li>
+<li><code>author</code>: author&rsquo;s name or list of authors&rsquo; names [text or list of text].</li>
+<li><code>contact</code>: contact email address [text].</li>
+<li><code>url</code>: definitive URL for the directory containing the lesson as a whole (not this file) [text].</li>
+<li><code>date</code>: date of last modification [datetime as text].</li>
+<li><code>license</code>: name of license [text].</li>
+<li><code>copyright</code>: name of copyright holder [text].</li>
+<li><code>doi</code>: DOI (if published)</li>
+<li><code>package</code>: URL of zip file containing starting materials for exercise(s) [text].</li>
+</ol>
+</li>
+<li><code>timeframe</code>: how long it takes to do or deliver the module [list of text]</li>
+<li><code>feedback</code>: where and how to give feedback [list of text in order of preference].</li>
+<li><code>questions</code>: learner questions that this lesson addresses [list of text].</li>
+<li><code>objectives</code>: learning objectives [list of text].</li>
+<li><code>keypoints</code>: take-aways suitable for inclusion in a cheatsheet [list of text].</li>
+<li><code>glossary</code>: list of defined terms (preferably linking to external definitions rather than defining here) [list of text].</li>
+<li><code>requirements</code>: list of tools/packages required [text].</li>
+<li><code>instructions</code>: point-form list of instructions for learners [list of text].</li>
+<li><code>sources</code>: other lessons that this lesson draws on [list of links to other <code>lesson.md</code> files].</li>
+<li><code>reading</code>: other things to read [list of text].</li>
+</ol>
+<div class="highlight"><pre><span></span><code># Tests of Univariate and Multivariate Normality
+
+Describes and compares three ways to test if univariate data is normally distributed.
+
+## Overview
+
+Originally developed as part of a sequence on data integrity for seniors and
+graduate students in statistics, then modified for delivery in conference
+workshops.  The univariate material feels pretty solid at this point; the
+multivariate material has only been used a couple of times, and probably needs
+more attention.
+
+- author: &quot;Walter Bishop&quot;
+- contact: &quot;w.bishop@fringe.tv&quot;
+- url: &quot;http://stats.fringe.tv/stats454/normality/&quot;
+- date: &quot;2018-12-05&quot;
+- license: &quot;CC-BY-NC-ND&quot;
+- copyright: &quot;Kelvin Genetics, Inc.&quot;
+- doi: &quot;1234-56-789&quot;
+- package: &quot;http://stats.fringe.tv/stats454/normality/stats454-normality.zip&quot;
+
+## Timeframe
+
+- Two lecture hours with seniors and graduate students (code-along in class).
+- One hour in conference workshops (straight presentation with very little code-along).
+
+## Feedback
+
+- &quot;Issues or pull requests in http://github.com/fringebishop/stats454/&quot;
+- &quot;Comments on http://stats.fringe.tv/stats454/&quot;
+
+## Questions
+
+- &quot;What is a quick back-of-the-envelope way to test normality?&quot;
+- &quot;How should I test whether my data is normally distributed?&quot;
+
+## Objectives
+
+- &quot;Describe the 68-95-99.7 rule and explain why it works and when it fails.&quot;
+- &quot;Describe and apply the Shapiro-Wilk test for normality of univariate data.&quot;
+- &quot;Describe and apply the ECF test for normality of multivariate data.&quot;
+
+## Keypoints
+
+- &quot;68% of data should lie within one SD of the mean, 95% within two, and 99.7% within three.&quot;
+- &quot;Use shapiro.test(data) to check normality of univariate data.&quot;
+- &quot;The StableEstim package implements the ECF test for multivariate data.&quot;
+
+## Glossary
+
+- [68_95_997_rule](http://all-the-words.org/#68-95-997-rule)
+- [shapiro_wilk_test](http://all-the-words.org/#shapiro-wilk-test)
+- [ecf_test](http://all-the-words.org/#empirical-characteristic-function)
+
+## Requirements
+
+- &quot;R (&gt;= 3.5)&quot;
+
+## Instructions
+
+- &quot;Download and unzip lesson.&quot;
+- &quot;install.packages(&#39;frequentist_heresy&#39;)&quot;
+- &quot;Open exercise.Rmd.&quot;
+</code></pre></div>
+<h2>Sources</h2>
+<ul>
+<li>http://euphoric.edu/katherines-awesome-stats-lesson/lesson.md</li>
+</ul>
+<h2>Reading</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Normality_test">Normality tests</a>: Wikipedia article
+```</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

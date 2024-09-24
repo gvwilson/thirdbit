@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Popular, Fast, or Usable: Pick One</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Popular, Fast, or Usable: Pick One</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/07/20/interview-with-stscis-perry-greenfield/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-07-21" class="post-date">2010-07-21</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/07/22/an-idea-whose-time-is-long-overdue/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>One of the core skills in any software developer's toolbox is automating repetitive tasks. We've been teaching this in Software Carpentry with <a href="http://www.gnu.org/software/make/">Make</a> for 13 years, and for 13 years, we've been looking for something better: something that has a less user-hostile syntax, requires less arcane knowledge of the shell, and at least <em>pretends</em> to do the same thing on different platforms. We briefly considered <a href="http://ant.apache.org/">Ant</a> (where "briefly" means "as long as it took to find the post by Ant's creator saying he would do it all differently next time"), but it's clear that tools like <a href="http://rake.rubyforge.org/">Rake</a> and <a href="http://www.scons.org/">SCons</a>, that embed build commands in a full-blown scripting language, are the future of build systems. Rake is based on Ruby, but SCons is based on Python (and actually has its roots in the original Software Carpentry project), so it should be a no-brainer, right?</p>
+<p>Well, not when you look at its performance, or rather, <em>lack</em> of performance. According to <a href="http://blog.electric-cloud.com/2010/03/08/how-scalable-is-scons/">Eric Melski's numbers</a>, SCons's runtime seems to grow as the square of the number of things being built, which is much worse than the behavior of other systems. We could teach it anyway, and tell students to switch to something else for real-world problems, but we really want to avoid that.</p>
+<p><a href="http://www.scimatic.com">Scimatic</a>'s Jim Graham pointed me at <a href="https://launchpad.net/vellum">Vellum</a>, another Python-based build tool. It looks interesting, but it also looks moribund: the last release was April 2008, the last bug report was July 2009, and the last check-in was a month ago.</p>
+<p>It therefore looks like whatever I choose is going to be hard to learn, slow to run, or have such a small user and developer base that it might well disappear during the lifetime of this course. On the bright side… Um… Err… OK, I don't know how to finish that sentence.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

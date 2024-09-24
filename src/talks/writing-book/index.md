@@ -1,0 +1,366 @@
+---
+title: "Writing a Technical Book"
+template: slides
+---
+
+<div class="center padtop">
+  <h1>Writing a Technical Book</h1>
+  <p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
+  <p>Greg Wilson</p>
+  <p><a href="http://third-bit.com/talks/writing-book/">http://third-bit.com/talks/writing-book/</a></p>
+  <p><img src="@root/files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
+</div>
+
+---
+
+## Why Should You Listen to Me?
+
+- Author of five technical books (and two for children)
+- Co-author of three more
+- Editor of six (some of which won awards)
+- Have worked with six publishers
+- I've made mistakes so you don't have to
+
+<div class="center">
+  <img src="https://third-bit.com/sdxpy/sdxpy-cover.png" alt="Software Design by Example in Python" width="15%">
+  <img src="https://third-bit.com/sdxjs/sdxjs-cover.png" alt="Software Design by Example in JavaScript" width="15%">
+  <img src="https://third-bit.com/files/bib/t3.jpg" alt="Teaching Tech Together cover" width="15%">
+  <img src="https://third-bit.com/files/bib/py-rse.png" alt="Research Software Engineering with Python cover" width="15%">
+  <img src="https://third-bit.com/files/bib/js4ds.jpg" alt="JavaScript for Data Science cover" width="15%">
+</div>
+
+---
+
+## Don't Write a Book
+
+- It's a big undertaking, and it's easy to get discouraged
+- Instead, start blogging regularly
+  - Aim for one thousand-word article per week
+  - If you can't do this, you probably won't finish your book
+- Don't try to write posts in book order
+  - Blog will help you figure that out
+
+---
+
+## Don't Write a Book
+
+<img src="venn-diagram.png" alt="Venn diagram" width="60%" class="center">
+
+---
+
+## Don't Expect to Make a Profit
+
+- You'll get anything from 12% to 50% royalties from a publisher
+  - Higher percentage if you self-publish…
+  - …but 100% of nothing is nothing
+- Assume a sale price of $50 and sales of a thousand copies,
+  you'll make about $10K
+- It'll take (at least) a few hundred hours to write the book
+- You're almost certainly better off doing contract coding
+  - Or flipping burgers
+
+---
+
+## So Why Bother Writing?
+
+1.  To build your reputation
+2.  To give back to the community
+3.  Because you enjoy writing
+
+<img src="knitting.jpg" longdesc="https://unsplash.com/photos/vzddrop37Ek" alt="knitting" width="60%" class="center">
+
+---
+
+## Read, Then Write
+
+- Re-read your two favorite technical books
+- Make notes about what their authors did well
+  - Ordering, examples, tone, exercises, …
+- This will give you some ideas for your own book
+- And help you become more conscious of your writing
+
+<div class="center">
+  <img src="./unix-programming-environment.jpg" alt="Unix Programming Environment cover" width="20%">
+  <img src="./sql-visual-quickstart.jpg" alt="SQL: Visual Quickstart cover" width="20%">
+</div>
+
+---
+
+class: aside
+
+## Don't Try to Be Funny
+
+- Few jokes are funny the second time
+- Fewer can stand a third re-telling
+  - Unless they're very, very dry
+- And please don't use exclamation marks!
+  - It won't be a surprise the second time around!
+  - And you should let the reader decide if it's exciting!!
+
+---
+
+class: aside
+
+## Avoid Banal Advice
+
+- "You should carefully consider users' needs"
+  - Would anyone recommend the opposite?
+- Don't tell me what to think about: tell me what to think
+  - Checklists are useful
+  - But belong in appendices or online
+
+---
+
+## Create Learner Personas
+
+- A short description of a specific (fictional) individual
+- Create at most two
+  - A book that's meant for everyone is useful to no-one
+
+> Jess started writing VB macros for Excel in a startup and never looked back.
+> After spending three years doing front-end JavaScript
+> they now want to learn how to build back-end applications,
+> but feel insecure about never having studied computer science.
+> This material will flesh out their understanding of callbacks, classes, and data structures,
+> and teach them some common design patterns.
+
+---
+
+class: aside
+
+## Three Kinds of Learners
+
+- Novice: trying to build a mental model
+- Competent practitioner: wants to fill in gaps in knowledge
+- Expert: wants high-level discussion of tradeoffs and alternatives
+
+<p class="center"><em>No book can serve more than one group well.</em></p>
+
+---
+
+class: aside
+
+## Three Kinds of Learners
+
+<div class="center">
+  <img src="@root/files/2024/thinking-about-lessons.svg" alt="three kinds of learners" width="70%">
+</div>
+
+---
+
+class: aside
+
+## Don't Write to Cover Your Ass
+
+- Dozens of books start with a short intro to XYZ
+- None of these are useful
+  - If your audience knows Python, they don't need a short intro
+  - If they don't, one chapter won't help
+- Authors include these so they can pretend their book is accessible to a wider audience
+- Please don't do this
+
+---
+
+## Don't Compete With the Web
+
+- Reference manuals were invaluable forty years ago
+- But the world's knowledge is now just a click away
+- You add value by explaining *how* rather than recapitulating *what*
+- And by creating a narrative
+
+---
+
+## Check Your Facts
+
+- It doesn't matter how well you know your chosen subject
+- Something will have changed since the last time you looked
+- Even if it hasn't,
+  it will in the year it takes you to write your book
+- Stack Overflow <strike>is</strike> was a *great* resource
+  - What questions do people actually have?
+  - What answers do they actually find useful?
+
+---
+
+## Don't Write a General Introduction
+
+- Unless you're one of the first three to market
+- Focus on a particular aspect: *Python for Web Scraping*
+- Or a particular audience: *R for Sports*
+- Potential audience is smaller…
+- …but you'll reach a much higher fraction…
+- …and a focused book is much easier to write
+
+---
+
+## Publishers
+
+- Every publisher has a standard proposal form
+  - Who's the audience?
+  - Why are you the right person to write this?
+  - What's the competition and how will you compete?
+- They strongly prefer that you talk to one at a time
+- They need content as much as you need a publisher
+  - If no reputable publisher wants your book,
+    maybe you should think about writing something else
+
+---
+
+class: aside
+
+## Self-Publication
+
+- Many venues for self-publishing physically or electronically
+  - I use [Lulu](http://lulu.com) and [Leanpub](https://leanpub.com/)
+- But then you have to do all your own marketing
+  - It's really hard to shout loud enough to be heard
+
+---
+
+class: aside
+
+## Agents
+
+- Unnecessary for technical books
+- Nearly essential for fiction
+- Reputable ones are almost always fully booked
+- A good reason to go to conventions…
+
+---
+
+class: aside
+
+## Licensing
+
+- My last few books have been CC-BY-NC
+  - You can use it but *not* (re-)sell it without permission
+- I maintain the HTML version online
+  - Great for errata and incremental improvements
+- [Taylor & Francis](https://www.routledge.com/) has exclusive rights to print and e-book (including PDF)
+- Your mileage will vary
+
+---
+
+## Try It Out
+
+- No lesson survives first contact with learners
+- So teach your material while it is in draft
+  - At a conference
+  - For a local college or bootcamp
+  - Online
+- If no one signs up, you just learned something useful…
+
+<img src="./carpentries-workshop.jpg" alt="Carpentries workshop" width="40%" class="center">
+
+---
+
+## Plan to Iterate
+
+- No point trying material out unless you act on what you learn
+- Expect to rewrite some pieces two or three times
+  - Often as a result of reorganization
+- If you can't decide whether X comes before Y or vice versa,
+  the odds are that Z has to come before either of them
+
+---
+
+## Drywall, then Paint
+
+- Get the words and code down
+- *Then* worry about diagrams, citations, glossary, etc.
+- Many of these will disappear during editing
+- There's no point polishing something readers don't ever see
+
+---
+
+## Sketch First
+
+- Draw diagrams on paper or a whiteboard
+  - Faster and more flexible than any computer drawing tool
+  - Although fingertip apps for tablets are improving quickly
+- Take a picture and use as a placeholder until you're sure
+- Because you're going to iterate *a lot* on diagram
+
+<img src="conceptmap-cognitive-load.svg" alt="Cognitive load concept map" width="50%" class="center">
+
+---
+
+## All Authoring Tools Suck
+
+- Word/Google Docs show you what you're writing…
+  - …but don't play nicely with version control
+- Markdown/LaTeX/notebooks work well with version control…
+  - …but you have to debug your document
+- I've built pipelines for every single book I've worked on
+
+---
+
+## You Need At Least Two Friends
+
+- Many people will do cursory reviews or one careful read
+- You need people who will read half a dozen sets of changes
+- Thank them in the book
+
+<img src="dog-reading.jpg" alt="Dog Reading" width="30%" longdesc="https://unsplash.com/photos/X1RQ3b6ZhUs" class="center">
+
+---
+
+## Trust Your Editor and Reviewers
+
+- It doesn't matter if it makes sense to *you*
+- It only matters if it makes sense to *them*
+- So please accept the input of others
+
+> "An author's job is to produce the manure in which an editor grows something worth reading."
+>
+> — Tom Wilkie
+
+---
+
+## Automate, but Proofread
+
+- The author's equivalent of "trust, but verify"
+- I can re-run all of the examples in my latest book with a single command
+  *and* capture their output
+  *and* insert that output in the manuscript…
+- …but I still have to re-read the discussion around those examples
+  to make sure it hasn't fallen out of sync
+- *This is where I <strike>expect</strike> hope generative AI will have the biggest short-term impact*
+
+---
+
+## It's OK to Stop
+
+- I've started more books than I've finished
+  - The more I wrote, the less I believed they would help their intended audience
+- I've also set books aside for a couple of years and then come back to them
+- *This isn't the same as giving up*
+
+---
+
+## Stop and Ship
+
+- Your book will never be perfect
+- It will probably never even feel finished
+  - Any more than software does
+- Ship it anyway
+
+---
+
+## Celebrate
+
+- You'll spot a typo within seconds of receiving the first printed copy
+- Someone you've never met will say something uncomplimentary in a review online
+- Chapter 9 will *never* be as good as you wanted it to be
+- To hell with that:
+  be proud of what you built and of who you helped by building it
+
+---
+
+<div align="center">
+  <h2>Thank You</h2>
+  <p><img src="@root/files/talks/gvwilson.png" width="40%"></p>
+  <p><a href="http://third-bit.com">Greg Wilson</a></p>
+  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+  <p><a href="http://third-bit.com/talks/writing-book/">http://third-bit.com/talks/writing-book/</a></p>
+</div>

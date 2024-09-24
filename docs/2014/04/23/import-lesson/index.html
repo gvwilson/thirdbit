@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Import Lesson</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Import Lesson</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2014/04/22/gsoc-projects-2014/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2014-04-23" class="post-date">2014-04-23</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2014/04/23/mr-biczo-was-right/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  <a href="http://lorenabarba.com">Lorena Barba</a> has done it again.
+  Having created a wonderful
+  <a href="http://lorenabarba.com/blog/cfd-python-12-steps-to-navier-stokes/">12-step introduction to the Navier-Stokes equations</a>
+  using the IPython Notebook,
+  she has now published <a href="http://lorenabarba.com/blog/announcing-aeropython/">AeroPython</a>,
+  which teaches the use of potential flow for aerodynamic analysis via the panel method.
+  You don't have to know what that is
+  to appreciate the beauty of what she has built–I certainly don't,
+  at least not yet–but I'd like to explore something that
+  <em>isn't</em> in those notebooks.
+  Before doing that,
+  though,
+  I need to introduce an acronym that never caught on.
+</p>
+<p>
+  Most programmers are familiar with the term "API",
+  which stands for "Application Programming Interface".
+  It's the functions, classes, and what-not that a library provides,
+  i.e.,
+  the things a programmer can call or use after loading that library.
+  The complementary term that never caught on is "XPI",
+  or "External Programming Interface",
+  which is the set of things a library <em>needs</em> in order to run.
+  For example,
+  the XPI of the Python <code>glob</code> library includes:
+</p>
+<ul>
+  <li><code>sys.getdefaultencoding()</code></li>
+  <li><code>sys.getfilesystemencoding()</code></li>
+  <li><code>os.curdir</code></li>
+  <li><code>os.error</code></li>
+  <li><code>os.listdir(dirname)</code></li>
+  <li><code>os.path.join(dirname, filename)</code></li>
+  <li><code>os.path.lexists(pathname)</code></li>
+  <li><code>os.path.split(pathname)</code></li>
+</ul>
+<p>
+  and a few things from the <code>re</code> and <code>fnmatch</code> libraries.
+</p>
+<p>
+  I sometimes think of lessons in terms of APIs and XPIs.
+  A lesson's API is what it defines and explains;
+  its XPI is the terms and concepts it relies on.
+  As with code,
+  APIs are usually explicit:
+  "this library provides these functions"
+  and
+  "this lesson introduces these topics".
+  In contrast,
+  XPIs are usually implicit:
+  programs don't list the things they use,
+  they just use them,
+  and the only way to discover exactly what concepts a lesson depends on
+  is to read it through carefully.
+  That takes so much time
+  that it's often faster for people to write their own short lesson on a topic
+  than to integrate with one someone else has written.
+</p>
+<p>
+  And then there's the maintenance problem.
+  Software Carpentry's lessons are constantly evolving;
+  how can someone who depends on them know whether
+  everything they require is still there
+  a year or two down the road?
+  With software,
+  they can recompile their program or re-run its unit tests
+  and see whether things still work.
+  There's no equivalent for lessons–no easy way to find out
+  whether dependencies that used to resolve are still there.
+</p>
+<p>
+  Sooner or later,
+  any large, multi-author project has to find a way to track and manage dependencies.
+  Conversely,
+  I believe that if a project <em>can't</em> do this,
+  it won't be able to scale up.
+  It isn't the only obstacle to collaborative lesson development,
+  or the biggest,
+  but it <em>is</em> an obstacle,
+  even within Software Carpentry itself.
+  If we can figure out how to solve it,
+  we'll be one step closer to helping all the potential Lorena Barbas out there
+  create a network of wonderful lessons.
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

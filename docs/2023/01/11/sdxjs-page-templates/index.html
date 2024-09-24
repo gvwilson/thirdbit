@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example 9: Page Templates</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example 9: Page Templates</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/01/10/sdxjs-regex-parser/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-01-11" class="post-date">2023-01-11</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/01/12/sdxjs-build-manager/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Some day I&rsquo;ll blog about the tools I built to create <a href="../../../../sdxjs/"><em>Software Design by Example</em></a>,
+but if you&rsquo;re interested in that kind of thing,
+check out Bob Nystrom&rsquo;s articles ([<a href="http://journal.stuffwithstuff.com/2020/04/05/crafting-crafting-interpreters/">1</a>], [<a href="http://journal.stuffwithstuff.com/2021/07/29/640-pages-in-15-months/">2</a>])
+about how he built <a href="https://craftinginterpreters.com/"><em>Crafting Interpreters</em></a>,
+which is the most beautiful book about programming I&rsquo;ve seen in years.
+(It&rsquo;s worth buying a copy of the book just to admire the production values.)</p>
+<p><a href="../../../../sdxjs/">This book</a> uses a static site generator called <a href="https://www.dmulholl.com/docs/ivy/dev/">Ivy</a>,
+which in turn relies on a page templating tool called <a href="http://www.dmulholl.com/docs/ibis/master/">Ibis</a>.
+Thousands of these have been written in the last thirty years;
+most use one of three designs:</p>
+<ol>
+<li>
+<p>Mix commands in a language such as JavaScript with the HTML or Markdown
+    using some kind of marker to indicate which parts are commands
+    and which parts are to be taken as-is.</p>
+</li>
+<li>
+<p>Create a mini-language with its own commands.
+    Mini-languages are appealing because they are smaller and safer than general-purpose languages,
+    but experience shows that they eventually grow
+    most of the features of a general-purpose language.
+    Again, some kind of marker must be used to show
+    which parts of the page are code and which are ordinary text.</p>
+</li>
+<li>
+<p>Put directives in specially-named attributes in the HTML.
+    This approach has been the least popular,
+    but since pages are valid HTML,
+    it eliminates the need for a special parser.</p>
+</li>
+</ol>
+<p><a href="../../../../sdxjs/page-templates/">This chapter</a> used the third strategy,
+partly for novelty&rsquo;s sake and partly because it saved us writing a parser.
+What the chapter shows is that even an apparently simple task of filling in strings
+requires the implementation of variables and scope—in short,
+a programming language.
+There are lots of ways to get this wrong;
+hopefully,
+this chapter will help readers get it right if it&rsquo;s ever their turn.</p>
+<figure id="page-templates-options" class="center">
+  <img src="../../../../sdxjs/page-templates/options.svg" alt="Three options for page templates" class="centered">
+  <figcaption>Figure 9.1: Three different ways to implement page templating.</figcaption>
+</figure>
+
+<blockquote>
+<p>Terms defined: bare object, dynamic scoping, environment, lexical scoping, stack frame, static site generator, Visitor pattern.</p>
+</blockquote>
+<h2>A Note on Open Source Etiquette</h2>
+<p>While using <a href="https://www.dmulholl.com/docs/ivy/dev/">Ivy</a> and <a href="http://www.dmulholl.com/docs/ibis/master/">Ibis</a> on another project,
+I ran into a problem that I&rsquo;d never encountered before.
+<a href="http://www.dmulholl.com/docs/ibis/master/">Ibis</a> is hosted on PyPI at <a href="https://pypi.org/project/ibis/">https://pypi.org/project/ibis/</a>,
+installed with <code>pip install ibis</code>,
+and imported with <code>import ibis</code>.
+There is another project called the <a href="https://ibis-project.org/">Ibis Framework</a>
+that is hosted on PyPI at <a href="https://pypi.org/project/ibis-framework/">https://pypi.org/project/ibis-framework/</a>,
+installed with <code>pip install ibis-framework</code>,
+but which is <em>also</em> imported with <code>import ibis</code>.
+That naming conflict makes it impossible to use the two together
+without manually renaming one or the other.</p>
+<p><a href="http://www.dmulholl.com/docs/ibis/master/">Ibis-the-templating-engine</a> was created first,
+which I presume is why <a href="https://ibis-project.org/">Ibis-the-framework</a> uses a two-part name.
+I recognize that <a href="https://ibis-project.org/">Ibis-the-framework</a> is a bigger project
+than <a href="http://www.dmulholl.com/docs/ibis/master/">Ibis-the-templating-engine</a>,
+and that the space of package names is getting pretty crowded,
+but I still think the authors of the latter should have chosen a different name
+to avoid the import conflict.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

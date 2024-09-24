@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Another Database Design Question</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Another Database Design Question</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/07/15/screenshots-of-drproject-10/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-07-15" class="post-date">2006-07-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/07/17/possible-csc49x-projects-for-fall-2006/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Apple Viriyakattiyaporn is adding tagging and <a href="http://en.wikipedia.org/wiki/Tag_clouds">tag clouds</a> to DrProject this summer, and an interesting database design problem has come up. She wants to be able to tag tickets, wiki pages, milestones, and email messages. (For the moment, tags will be added to email messages after the fact, rather than when they&rsquo;re sent.) She also wants to be able to search for items with particular tags as easily as possible, <em>and</em> allow people who are writing new components for DrProject to add tagging to those components with minimal grief.</p>
+<p>The problem is that different things inside DrProject are keyed in different ways. The key for a ticket is [project, ticket_number], which is [string, integer].  (It&rsquo;s actually [project, ticket_number, revision_number], since we keep old versions of tickets, but the third field doesn&rsquo;t matter for now.) The keys for wiki pages, on the other hand, are [project, page_name], which is [string, string].</p>
+<p>So how should tags be stored? Option #1 is to have a separate tag table for each component table, i.e., a TICKET_TAGS table containing [project, ticket_number, tag], a WIKIPAGE_TAGS table containing [project, page_name, tag], and so on. That&rsquo;s simple to write, but not extensible: every time a new tagged component is added, DrProject needs to be told to search its tag table.</p>
+<p>Option #2: put all the tags in a single table [component_name, project, component_key, tag]. Search is now easy—but what&rsquo;s the type of component_key, integer or string? We can stringify integer keys, but that makes it clumsier to look up tags for integer-keyed components, and if we ever have a component with a multi-part primary key, we&rsquo;ll be in a real mess.</p>
+<p>Option #3: all tags for integer-keyed items in one table, while those for string-keyed items go in another.  Again, it&rsquo;ll work, but the SQL to find all items with a particular tag isn&rsquo;t pretty.</p>
+<p>Option #4: add a unique integer ID to every item that is currently string-keyed, and use [project, component_name, integer_id, tag] for the tags table. It&rsquo;s doable, but saying that the keys for string-keyed tables now have two parts (the string and the integer) messes up the integrity constraints a bit.</p>
+<p>For the moment, Apple is going with option #2, i.e., stringifying integer keys and hoping for the best.  I&rsquo;d be interested to hear what other people think—is there a more elegant way out of this?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

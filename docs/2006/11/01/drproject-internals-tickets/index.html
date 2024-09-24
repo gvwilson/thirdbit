@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: DrProject Internals: Tickets</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>DrProject Internals: Tickets</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/11/01/shes-a-girl/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-11-01" class="post-date">2006-11-01</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/11/02/software-carpentry-continues-to-grow/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>At long last tickets… I still slip sometimes and refer to ticketing systems as &ldquo;bug trackers&rdquo;, but they&rsquo;re much more than that. If version control is a project&rsquo;s memory of where it has been, ticketing is the to-do list telling it where it&rsquo;s going.  New feature ideas, open questions, requirements—I haven&rsquo;t found a limit yet to what a ticketing system can be used to remember.</p>
+<p>The simplest possible ticketing system is a flat ASCII list of things that need to be done.  Store this under version control, so that everyone in the project can edit it concurrently without information being lost, and you&rsquo;re already better off than you were. I ran several projects in the late 1980s and early 1990s this way, and still sometimes miss the simplicity.</p>
+<p>But people want more: they want to know who&rsquo;s responsible for each ticket, how important it is, when it was created, and so on.  They also want to slice the data in other ways to find out which tickets particular people (usually themselves) are responsible for, or which tickets have to be closed before Version 3.2 can go out the door.</p>
+<p>Historically, the only sensible way to build systems that needed to perform complex queries on structured data has been to use a relational database.  It&rsquo;s easy to create text files with email-style headers like this:</p>
+<pre>Author: Alan Turing
+Owner: Alan Turing
+Date-Created: 1950-07-03 13:29:00
+Summary: Write a chess-playing program  As the rules of the game are algorithmic in
+nature, surely it must be possible to create a stored program capable of emulating
+or surpassing human play?</pre>
+<p>but sooner or later, you have to write a little Boolean query engine so that you can find tickets created by Alan Turing, but owned by someone else, that aren&rsquo;t about &ldquo;chess&rdquo;.  If we were inventing issue tracking for the first time today, open source text search engines like <a href="http://www.lucene.org">Lucene</a> might make text files under version control viable; as it is, every issue tracker I know of has a database in it somewhere (even <a href="http://roundup.sourceforge.net/">Roundup</a>, which breaks with tradition in many other ways).</p>
+<p>All right: what does our database need to store?  Text fields for the creator and owner, another text field for the one-line summary, another for the body of the ticket…  Oh, and date fields for when it was created and last updated, and—am I forgetting anything here?  Oh yeah, how important it is, and whether it&rsquo;s a bug, a feature request, a question, um, better throw &ldquo;miscellaneous&rdquo; in there as well…  And another date field for when it&rsquo;s due, and—</p>
+<p>At this point, alarm bells ought to be ringing in your head. Jumping straight to implementation is a classic engineering mistake; instead of designing a database schema, I ought to be asking who the intended users are, and what they need to do and know.  In one word, I should be thinking about <em>workflow</em>.</p>
+<p>I wish I could tell you we did it that way.  I wish I could say we wrote out <a href="http://en.wikipedia.org/wiki/Use_case">use cases</a>, or at least <a href="http://en.wikipedia.org/wiki/User_story">user stories</a>, and derived requirements from them.  What we actually did was look at <a href="http://trac.edgewall.org">Trac</a>, <a href="http://cvstrac.org/">CVSTrac</a>, <a href="http://www.bugzilla.org">Bugzilla</a>, and a couple of other systems, then ask, &ldquo;Which of the features in these systems will our students actually use?&rdquo;  When I have to, I justify that methodology by saying that DrProject is supposed to teach students how to use grown-up project management tools, so it makes sense for its features to imitate those of real-world systems.  Still kind of wish we&rsquo;d done more thinking up front, though…</p>
+<p>So: our typical user is an undergraduate student familiar with version control, IDEs, and automated builds who has never used web-based project management tools.  She&rsquo;s working in a group of six; they have one term (12 or 13 weeks) to design, build, test, and document a moderately complicated extension to an existing piece of software.  Here&rsquo;s a sample of what she and her team need to keep themselves on track:</p>
+<ol>
+  <li>The team will create roughly a hundred tickets during the term. That's few enough that we can display one-line summaries of all of them on a single web page.</li>
+  <li>Team members will want to see all tickets (so they can judge where the project is as a whole) and the tickets currently assigned to particular people (especially themselves).  They may also want to sort by age (to find things they may have forgotten about), due date, and priority [1].</li>
+  <li>They need to change ticket ownership (i.e., assign tickets to one another).  We don't need to wrap permissions around this: if Jiao mistakenly or maliciously assigns all his tickets to Petra, the team will be able to sort it out.</li>
+  <li>The whole point of integrating the ticketing system into DrProject is to hook it up to the wiki and other systems.  To simplify this, ticket descriptions should support wiki syntax, and it should be as easy to link to tickets from wiki pages (and other tickets) as it is to link to wiki pages.</li>
+</ol>
+<p>There are lots of other issues as well, but these are enough to highlight two key design points.  The first is, once again, versioning: as with source files or wiki pages, we want to keep track of who made what changes to a ticket, and when.  Partly, this is to protect users against accidents: if someone erases the body of a ticket, we want them to be able to revert it to its previous state.  Keeping history also helps people get answers to questions: if you don&rsquo;t understand the two paragraphs that were just added to a ticket you&rsquo;re responsible for, you&rsquo;ll want to be able to find out who added them, so you can request a clarification.</p>
+<p>Versioning tickets brings up all the issues discussed previous in the context of wiki pages.  How do we handle conflicts if two people are updating the same ticket at once?  We don&rsquo;t: whoever submits their change first wins, and whoever submits second is told that they are/were editing an out-of-date version of the ticket. The problem hardly ever arises in practice, so we&rsquo;re not going to rewrite DrProject with everything in verison control, but it still irks.</p>
+<p>The second key design point that our abbreviated requirements list brings out is that there are three types of fields in tickets:</p>
+<ul>
+  <li>free-form text fields, like the summary and body;</li>
+  <li>those with other "obvious" types, like the creation and modification dates; and</li>
+  <li>enumerated fields, like priority and owner.</li>
+</ul>
+<p>Fields of the first kind are obviously stored as text.  Fields of the second kind are easy too: dates are stored as dates [2], integers as integers, and so on.  But what about enumerated values?  Suppose we want to be able to mark tickets as high, medium, and low priority—should we use strings?  If we did, we&rsquo;d have to tell users what strings were allowed, and check that they only typed in values we were willing to accept.  Or we could put a table of strings in our CGI program, so that the UI could display them in a dropdown…but then anyone who wanted to add new priority values would have to edit the code.</p>
+<p>The best answer is to store a table of acceptable values that the CGI can read, display, and validate against.  Our options are:</p>
+<ul>
+  <li>A <em>configuration file</em>: easy for the administrator to edit, but yet another thing that has to be in the right place, and formatted the right way, for the system to work.  We'd also have to write yet another function to read and validate the values.</li>
+  <li>A <em>database table</em>: not as easy to edit (although a command-line database prompt isn't much different from a simple editor), but we can grab the values with the same SQL queries we're using to fetch everything else we need to know about tickets.</li>
+</ul>
+<p>DrProject uses a database table with two columns, both text.  The first stores the type of the enumeration, such as &ldquo;TICKET_PRIORITY&rdquo;; the second stores the actual values, such as &ldquo;high&rdquo;, &ldquo;medium&rdquo;, and &ldquo;low&rdquo;.  This means that we can put other enumerations (such as ticket states) in the same table, rather than needing a separate table per enumeration.</p>
+<p>But there&rsquo;s a catch here, one we didn&rsquo;t spot until relatively late in the day.  The sets of enumerations are add-only: once a value has been put into an enumeration, it can never be taken out, since doing so could make the database inconsistent.  If you decide you only need &ldquo;high&rdquo; and &ldquo;low&rdquo; for tickets, for example, and remove the pair (&ldquo;TICKET_PRIORIY&rdquo;, &ldquo;medium&rdquo;) from the enumeration table, all those tickets currently marked &ldquo;medium&rdquo; suddenly have illegal priorities.</p>
+<p>No problem: we&rsquo;ll just write a little script that promotes all &ldquo;medium&rdquo; tickets to &ldquo;high&rdquo; priority, or check that nothing is using an enumeration value before removing it.  But what about the historical record?  If a ticket was created with &ldquo;medium&rdquo; priority a week ago, should we retroactively change it to &ldquo;high&rdquo; as well?  Or leave it with a now-invalid priority?  Or version our enumerations, so that as we go back in time, our sets of values automatically adjust to what they were in the past?  Add-only enumerations are a much simpler solution [3].</p>
+<p>One final note: I don&rsquo;t know how anyone else does design, but I do it by creating and exploring a decision tree.  Each time I have a problem to solve, I list my options, along with their pros and cons. I then develop the most promising one until I hit a snag, at which point I either do a little research, write some experimental code, backtrack, or ask someone for help.  &ldquo;Tree&rdquo; isn&rsquo;t quite the right word, though; in many cases, it&rsquo;s more like a partially-filled table, in which some choices can be combined with some others.  Each time I explore one cell in the tree, I potentially learn more about the pros and cons of others.</p>
+<p>Next up: all the other hard bits of tickets.</p>
+<hr />
+<p>[1] <a href="http://trac.edgewall.org">Trac</a>&rsquo;s tickets have, among other fields, enumerations for priority, severity, component, and version.  In practice, everyone seems to fold &ldquo;priority&rdquo; and &ldquo;severity&rdquo; together in their heads: issues are either urgent, important, or ignorable.  &ldquo;Component&rdquo; is also problematic—many issues tie into many components, while others (such as questions) don&rsquo;t have anything to do with components at all—so we dropped it entirely.  (Users can tag tickets with keywords to identify components if they want to.)  Finally, student projects aren&rsquo;t big enough, or long-lived enough, to need version labels; once again, if a project does, it can use tags.</p>
+<p>[2] Saying that &ldquo;dates are stored as dates&rdquo; glosses over a medium-sized annoyance.  As <a href="http://www.crankycoder.com">Victor Ng</a> pointed out, Python&rsquo;s database interface libraries will return any of several different data types to represent a moment in time, ranging from a <code>datetime.datetime</code> from the standard library to something as exotic as <a href="http://www.egenix.com">eGenix</a>&rsquo;s <code>mxDateTime</code>, depending on which database and database interface you&rsquo;re using.</p>
+<p>[3] The same thing applies to user IDs.  Once a user is in the system, her ID can never safely be deleted, since that would result in dangling references. Instead, DrProject stores a Boolean &ldquo;enabled&rdquo; flag in each account record; disabled accounts cannot be logged into, mail is not forwarded to them, etc.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

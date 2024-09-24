@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Explaining Code</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Explaining Code</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/07/19/twenty-five-years-and-counting/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-07-20" class="post-date">2023-07-20</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/07/21/resurrecting-the-tidynomicon/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;ve been trying to avoid and ignore the current hype around AI,
+but <a href="https://blog.jonudell.net/">Jon Udell</a> has convinced me that
+there&rsquo;s more to it than yet another Silicon Valley hype cycle.
+Yesterday,
+Jon took a short code sample from <a href="../../../../sdxjs/pattern-matching/">Chapter 7</a> of <a href="../../../../sdxjs/"><em>Software Design by Example</em></a>
+and the accompanying explanation
+and asked ChatGPT if the two were consistent.
+This is a big headache for the authors of technical books:
+you write and describe a bit of code,
+but then a month later you refactor the code a bit
+to make some later part of the book easier to write
+and forget to update the explanation.</p>
+<p>A tool that could point out places where this had happened
+would save me dozens of hours and prevent dozens of mistakes from getting into print.
+Jon&rsquo;s prompt and ChatGPT&rsquo;s response are below;
+I will want to try a lot more examples before I trust it,
+but damn…</p>
+<h2>Prompt</h2>
+<p>I&rsquo;m going to show you some code followed by a description.
+Does the description accurately reflect the code?</p>
+<div class="highlight"><pre><span></span><code>import assert from &#39;assert&#39;
+
+const select = (root, selector) =&gt; {
+  const selectors = selector.split(&#39; &#39;).filter(s =&gt; s.length &gt; 0)
+  return firstMatch(root, selectors)
+}
+
+const firstMatch = (node, selectors) =&gt; {
+  assert(selectors.length &gt; 0, &#39;Require selector(s)&#39;)
+
+  // Not a tag.
+  if (node.type !== &#39;tag&#39;) {
+    return null
+  }
+
+  // This node matches.
+  if (matchHere(node, selectors[0])) {
+    // This is the last selector, so matching worked.
+    if (selectors.length === 1) {
+      return node
+    }
+
+    // Try to match remaining selectors.
+    return firstChildMatch(node, selectors.slice(1))
+  }
+
+  // This node doesn&#39;t match, so try further down.
+  return firstChildMatch(node, selectors)
+}
+
+export default select
+</code></pre></div>
+<blockquote>
+<p>Description: </p>
+<p>The firstMatch function handles three cases:</p>
+<ol>
+<li>
+<p>This node isn&rsquo;t an element, i.e., it is plain text or a comment.
+    This can&rsquo;t match a selector,
+    and these nodes don&rsquo;t have children,
+    so the function returns null to indicate that matching has failed.</p>
+</li>
+<li>
+<p>This node matches the current selector.
+    If there aren&rsquo;t any selectors left then the whole pattern must have matched,
+    so the function returns this node as the match.
+    If there are more selectors,
+    we try to match those that remain against this node&rsquo;s children
+    and return whatever result that produces.</p>
+</li>
+<li>
+<p>This node doesn&rsquo;t match the current selector,
+    so we search the children one by one to see if there is a match further down.</p>
+</li>
+</ol>
+</blockquote>
+<h2>Response</h2>
+<p>Yes, the provided description does accurately reflect
+the functionality of the <code>firstMatch</code> function within the given code.</p>
+<p>Here&rsquo;s a step-by-step explanation:</p>
+<ol>
+<li>
+<p>It first checks if there are any selectors to be matched,
+    throwing an error if not.</p>
+</li>
+<li>
+<p>Then it checks if the node&rsquo;s type is not a tag.
+    If the node is not a tag (meaning it could be a text node, a comment, etc.),
+    it cannot be matched to a CSS selector,
+    so it returns null.</p>
+</li>
+<li>
+<p>After that, it checks if the current node matches the first selector.
+    If it does match,
+    and there are no more selectors to be matched,
+    it returns the current node,
+    indicating a successful match.</p>
+</li>
+<li>
+<p>If the current node matches the first selector,
+    but there are more selectors left to match,
+    it attempts to match the remaining selectors against the node&rsquo;s children.
+    It returns the result of that operation.</p>
+</li>
+<li>
+<p>Lastly, if the current node doesn&rsquo;t match the first selector,
+    it checks the node&rsquo;s children one by one to see if a match can be found
+    further down in the tree structure,
+    returning the result of that operation.</p>
+</li>
+</ol>
+<p>Thus, the description provided does give a correct and detailed account
+of the <code>firstMatch</code> function&rsquo;s behavior.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

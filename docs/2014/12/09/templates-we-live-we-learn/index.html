@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Templates: We Live, We Learn</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Templates: We Live, We Learn</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2014/12/03/plans-for-2015-instructor-training/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2014-12-09" class="post-date">2014-12-09</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2014/12/15/who-are-you/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  We have partially converted four of our core lessons to
+  the new lesson template,
+  and are making a few tweaks as a result.
+  The most important of these is to move the source files for a lesson's web pages
+  out of a <code>pages</code> sub-directory
+  and into the root directory,
+  so that (for example)
+  the first topic in a lesson will be <code>./01-intro.md</code>
+  rather than <code>./pages/01-intro.md</code>.
+</p>
+<p>
+  Doing this means that the Markdown source files will be in the same directory
+  as the HTML pages compiled from them.
+  That's generally considered a bad thing,
+  since (a) it makes it harder for people to tell source files from generated files
+  and (b) the chances of accidentally deleting source files
+  when you just meant to delete generated files goes up significantly.
+  We think it's the right choice in this case because:
+</p>
+<ol>
+  <li>
+    <p>
+      Some lesson source is executable,
+      such as R Markdown files or IPython Notebooks.
+      If we put those in a sub-directory called <code>pages</code>,
+      they have to refer to external data files and images as
+      <code>../data/datafile.csv</code> and <code>../img/image.png</code>.
+      When we compile them to create HTML pages in the root directory,
+      though,
+      those paths need to change,
+      which adds a post-processing step we'd rather not have to build and maintain.
+    </p>
+  </li>
+  <li>
+    <p>
+      Novice contributors find the flatter structure with unchanging file paths
+      easier to understand,
+      in part because it more closely mirrors the way a researcher
+      would lay out one of her papers.
+    </p>
+  </li>
+</ol>
+<p>
+  A pull request to make this change is under review right now;
+  we hope to merge it later today,
+  and then patch the partially-translated lessons to match by the end of the week.
+  I hope this will be the last big change to the template;
+  if nothing else,
+  the past few weeks have illustrated two core rules of engineering:
+</p>
+<ol>
+  <li>
+    <p>
+      <em>There's no such thing as right and wrong: there's only better and worse.</em>
+      Putting generated files in the same directory as source files is generally a bad idea,
+      but in this case,
+      the pros outweigh the cons.
+    </p>
+  </li>
+  <li>
+    <p>
+      <em>The only way to tell if something works is to build it.</em>
+      We have a lot of experience writing lessons,
+      and put a lot of thought into the new templates.
+      We still made the wrong call on this aspect of layout,
+      but I don't feel bad about that:
+      if we get 90% of things right,
+      90% of the time,
+      we're doing pretty well.
+    </p>
+  </li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

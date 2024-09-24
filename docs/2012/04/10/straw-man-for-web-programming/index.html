@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Straw Man for Web Programming</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Straw Man for Web Programming</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2012/04/09/a-future-student/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2012-04-10" class="post-date">2012-04-10</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2012/04/11/lives-lived/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Last week, I asked what we should teach researchers about the web. I think that I have an answer, and that the easiest way to describe it is by describing what we want learners to be able to build when we're done. So, imagine you are studying changes in rainfall due to climate change in North America. As part of that work, you're comparing results from your simulation with historical data from Environment Canada. Since your calculations may be useful to other scientists, you want to share them on the web. You are therefore going to build a command-line tool so that:</p>
+<pre>rainy path-to-index.html start-date end-date location</pre>
+<p>adds a new entry to your online results page by:</p>
+<ol>
+<li>reading data from the Environment Canada database,</li>
+<li>comparing those historical values to your predictions, and</li>
+<li>adding an entry to <code>index.html</code> showing the results.</li>
+</ol>
+<p>In order to do this, you will need to understand:</p>
+<ul>
+<li>how HTTP GET with query parameters works;</li>
+<li>how to pull things out of XML data (I believe that's what Environment Canada will give us–no sign of JSON on their site); and</li>
+<li>how to create HTML programmatically.</li>
+</ul>
+<p>More fundamentally, they'll see the fetch-remix-publish cycle that underpins so much of the web. Their tool won't be interactive–we won't try to turn it into a CGI script, because doing so would open up too many cans of worms–but I think we can actually do the above in half a day if people are already familiar with something like Python.</p>
+<p>Thoughts?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

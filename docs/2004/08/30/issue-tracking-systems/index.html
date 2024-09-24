@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Issue Tracking Systems</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Issue Tracking Systems</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2004/08/28/the-joel-test/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2004-08-30" class="post-date">2004-08-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2004/09/01/tasks-for-the-fall/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>One of the students who&rsquo;s going to be working on Hippo this fall sent a message to the group asking for everyone&rsquo;s MSN IDs, so that the team could set up group chats.  That got me thinking about how many different ways there are to communicate electronically these days, and about how to use them to manage a small, part-time software development team.</p>
+<p>First, some definitions.  <em>Targeted</em> communication is aimed at a particular receiver, or set of receivers, while <em>untargeted</em> just puts content in a well-known place for anyone to read.  Email and instant messaging are generally targeted, while newsgroups and wiki pages are untargeted; an always-on IRC channel is somewhere in between.  <em>Archived</em> communication &ldquo;sticks around&rdquo;, i.e. can be re-read or searched at a later date, while <em>transient</em> communiation evaporates.  As with the previous category, the dividing line is not a clear one—newsgroups feel archived, but most servers throw away old articles after a time.  Similarly, instant messaging feels transient, but many IM clients now allow you to record conversations.  Finally, content that is <em>pushed</em> reaches the recipients without the recipients having to do anything; email is once again the classic example, but weblogs are becoming popular as well.  In the <em>pull</em> model, readers have to go out of their way to get messages, i.e. go to a particular web site to read new messages in a forum.</p>
+<p>Now, small software development teams want to be able to:</p>
+<ol>
+  <li>ask teammates for help, or request feedback on ideas;</li>
+  <li>report progress, or share things you've discovered;</li>
+  <li>schedule meetings;</li>
+  <li>hold meetings (rather than getting together face-to-face); and</li>
+  <li>socialize,</li>
+  <li>all without being flooded.</li>
+</ol>
+<h1>1 wants to be targeted to team members, archived, and pushed.  (Requests for help don&rsquo;t actually need to be archived, but answers do.)  #2 is similar, though it&rsquo;s OK for progress reports to be pulled rather than pushed, so long as everyone pulls them eventually.</h1>
+<h1>3 can be transient, but should be pushed to everyone you want in the meeting.  #4 is just a bad idea—the Winter 2003 students found that IM is a very inefficient way to hold meetings.  (Check with them if you don&rsquo;t believe me.)  On the other hand, IM is great for #5 (although as Joel Spolsky says, running an IM client at all times is guaranteed to lower your productivity).  As for #6, that comes down to the project admins putting spam protection in place, and project members playing nice.</h1>
+<p>So, with that lengthy preamble out of the way, how <em>should</em> team communicate?</p>
+<ul>
+  <li>Use the email lists for questions and short answers, especially when they are time-critical (i.e. someone needs to know how to do XYZ <em>right now</em>).</li>
+  <li>Add content to the project web site for progress reports, longer answers, discoveries, FAQs, how-to's, and so on, but post a note (including a URL) to the project mailing list to let people know when new content is available.</li>
+  <li>By all means use IM for socializing, but if you spent ten minutes on IM explaining XYZ to someone, please, copy the conversation, paste it into a page in the project's web folder, and let everyone know it's there.</li>
+</ul>
+<p>Hm… I&rsquo;ve left something out here.  In fact, I&rsquo;ve left out the most important point of all:</p>
+<blockquote>USE YOUR PROJECT'S ISSUE TRACKING SYSTEM.</blockquote>
+<p>(Yes, I actually <em>do</em> think it deserves capital letters.)  An issue tracking system is a project&rsquo;s shared to-do list; it&rsquo;s used to record bugs, features that need implementing, action items (such as &ldquo;prepare a note for students on how to communicate&rdquo;), and so on.  What&rsquo;s more, it records them in a <em>structured</em> way, and that&rsquo;s what makes issue tracking systems so useful.  Email, wikis, blogs, and so on are the &ldquo;goto&rdquo; statements of electronic communication: since you can put/send data just about anywhere, there&rsquo;s no inherent rhyme or reason to traffic and content.  An issue tracking system, on the other hand, imposes rules on format, state transitions, and so on, just as &ldquo;for&rdquo; loops and &ldquo;if/else&rdquo; statements impose order on goto&rsquo;s.</p>
+<p>Experience (mine, anyway) shows that imposing order at the outset is more efficient, and more helpful, than trying to reverse engineer it after the fact by building ultra-smart search engines.  Experience also shows that if teams start using an issue tracking system early in the project lifecycle, when deadline pressure is low, they&rsquo;re more likely to use it well by the time deadline pressure intensifies—i.e., by the time they really need it.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

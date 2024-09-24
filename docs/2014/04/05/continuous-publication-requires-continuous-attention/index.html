@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Does Continuous Publication Require Continuous Attention?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Does Continuous Publication Require Continuous Attention?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2014/03/30/announcing-nbdiff/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2014-04-05" class="post-date">2014-04-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2014/04/06/bridging-the-authoring-gap/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  I read
+  <a href="http://blog.martinfenner.org/2014/03/10/continuous-publishing/">this post</a>
+  by Martin Fenner
+  a couple of weeks ago.
+  His thesis is that scientific publication is still very much a manual process,
+  which makes publications relatively infrequent (and fairly painful) events.
+  Instead,
+  we ought to strive for <em>continuous delivery</em>:
+  production of the "paper" (including release of associated code and data)
+  should be fully automated
+  so that authors can ship whenever they want
+  with relatively little effort.
+</p>
+<p>
+  Continuous delivery is popular among software developers,
+  who frequently argue it's more efficient using diagrams like this:
+</p>
+<p>
+  <img src="http://upload.wikimedia.org/wikipedia/commons/1/1c/Agile-vs-iterative-flow.jpg" alt="Continuous Delivery" class="centered">
+</p>
+<p>
+  What's missing from this picture,
+  though,
+  is the cost to customers
+  (or in the case of publishing, readers).
+  Every time Mozilla releases an update to Firefox,
+  millions of people have to wait thirty seconds for it to download,
+  install itself,
+  and restart.
+  And despite the best efforts of
+  <a href="http://aosabook.org/en/ffreleng.html">a world-class release engineering team</a>,
+  every update will destabilize somebody, somewhere.
+</p>
+<p>
+  Similarly,
+  every time someone updates a pre-print on <a href="http://arxiv.org/">arXiv.org</a>,
+  everyone who has read the original has to choose between
+  ignoring the changes
+  or re-reading the paper.
+  In the first case they risk missing results,
+  but in the second they pay an opportunity cost,
+  just as users do when companies update software over and over.
+</p>
+<p>
+  Things are worse for the readers of scientific papers.
+  Release engineers can check that upgrades work for common configurations before shipping them,
+  but there's no equivalent for semantic changes to papers.
+  And as more scientists start communicating via blogs and twitter,
+  keeping up to date with changes to things previously read will only become harder.
+</p>
+<p>
+  What science may be moving toward is a "continuous patch" model
+  rather than a "continuous release" model.
+  Lex Nederbragt wrote in a comment on an early draft of this post:
+</p>
+<blockquote>
+  <p>
+    What I think may happen is that
+    research is released not through arXiv anymore,
+    but on either personal or central sites where researchers add and update results.
+    Each small but significant change will be summarised
+    in some sort of…"release note".
+    Authors also may use their blog to give an overview of recent changes.
+    Discussions of the work will ensue through the release site comment section,
+    or issues a la github,
+    and perhaps another researcher who wants to add an analysis [will fork] the repo
+    and submit a pull request…
+    At certain points,
+    researchers will want to write up a somewhat larger overview paper,
+    which actually may be submitted and published through the traditional journal…
+  </p>
+</blockquote>
+<p>
+  To which Pauline Barmby replied:
+</p>
+<blockquote>
+  <p>
+    From an author point-of-view though,
+    there is something to be said for having an end goal:
+    my experience to date is that I never really finish a research project,
+    I just get sick of it.
+    While you could always improve something,
+    at some point you just have to stop and move on to the next thing…
+    From a reader point-of-view:
+    I already struggle to keep up with the literature in my field as it currently exists.
+    It's not obvious where I would find the time to "check for updates" when I am referring to existing work.
+    If my own current project might have dependencies on published work then I might do so,
+    although again that delays getting my project done.
+    So I agree…
+    there is a cost to incremental publishing,
+    and I think it applies to both reader and writer.
+  </p>
+</blockquote>
+<p>
+  The tradeoff here is not new.
+  <em>Encapsulated context</em> gives you the whole story at once:
+  you need to carry less around in your head,
+  but you have to notice and synthesize changes.
+  <em>Incremental context</em> gives you the changes,
+  and is quicker to assimilate
+  <em>if</em> (and only if)
+  you're keeping track of the current state of the conversation.
+  <a href="http://meldmerge.org/">Diff</a>
+  <a href="https://sourcegear.com/diffmerge/downloads.php">and</a>
+  <a href="http://winmerge.org/">merge</a>
+  tools
+  do a decent job of translating encapsulated context into incremental context for simple text files like programs,
+  but are oblivious to semantics.
+  <a href="http://en.wikipedia.org/wiki/Automatic_summarization">More</a>
+  <a href="http://en.wikipedia.org/wiki/Sentiment_analysis">complicated</a>
+  <a href="http://en.wikipedia.org/wiki/Discourse_analysis">tools</a>
+  have mostly failed in practice,
+  leaving the burden of comprehension on the reader.
+</p>
+<p>
+  And of course (and as always),
+  there's the problem of attribution.
+  If I make a small incremental improvement in your work,
+  how should it be cited and credited?
+  Returning to the conversation about the first draft of this article:
+</p>
+<blockquote>
+  <p>
+    Pauline Barmby wrote:
+    I see that (given 20 years or so) some kind of new recognition model can be developed.
+  </p>
+  <p>
+    W. Trevor King wrote:
+    Until then,
+    I think you just have to highlight your contributions in your CV,
+    and talk about how awesome folks think your release process is in your research statement ;).
+  </p>
+</blockquote><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

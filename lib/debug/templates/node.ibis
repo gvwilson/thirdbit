@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Debugging: {{ site.title || "Mystery Site" }}</title>
+        <link rel="stylesheet" href="@root/debug.css">
+        <link rel="stylesheet" href="@root/pygments.css">
+    </head>
+    <body>
+        <div id="wrap">
+            <h1>
+                {$ node $}
+                {% if node.parent %}
+                    <a href="{$ node.parent.url $}">&#8593;</a>
+                {% endif %}
+            </h1>
+
+            {% if inc.menu %}
+                <div class="menu">
+                    {{ inc.menu }}
+                </div>
+            {% endif %}
+
+            <button class="button">Automenu</button>
+            <div class="panel">
+                {{ automenu }}
+            </div>
+
+            <button class="button">Node Children</button>
+            <div class="panel">
+                <ul>
+                    {% for child in node.children %}
+                        <li><a href="{$ child.url $}">{$ child $}</a></li>
+                    {% empty %}
+                        <li>None.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <button class="button">Node Meta</button>
+            <div class="panel">
+                <pre>{{ node.meta|pprint|pygmentize('python') }}</pre>
+            </div>
+
+            <button class="button">Node Text</button>
+            <div class="panel">
+                <pre>{{ node.text.strip()|escape }}</pre>
+            </div>
+
+            <button class="button">Node HTML</button>
+            <div class="panel">
+                <pre>{{ node.html|escape }}</pre>
+            </div>
+
+            <button class="button">Page Data</button>
+            <div class="panel last">
+                <pre>{{ context.data.stack|index(2)|pprint|pygmentize('python') }}</pre>
+            </div>
+        </div>
+
+        <script>
+            var buttons = document.getElementsByClassName("button");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+
+    </body>
+</html>

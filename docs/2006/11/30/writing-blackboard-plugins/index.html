@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Writing Blackboard Plugins</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Writing Blackboard Plugins</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/11/28/software-carpentry-article-in-cise/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-11-30" class="post-date">2006-11-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/11/30/not-on-the-shelves-version-3/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Two of my students (Billy Chun and Darren Jung) spent the term writing a plugin for <a href="http://www.blackboard.com">Blackboard</a>, the Java-based learning management system (LMS) that the <a href="http://www.utoronto.ca">University of Toronto</a> is moving to.  Here are there experiences:
+Billy Chun:</p>
+<p>When first attempting to develop a &lsquo;Hello World&rsquo; plug-in for Blackboard, I needed to do some research to find the basic structure of a Blackboard plug-in. The Blackboard developer site (http://www.blackboard.com/extend/dev/) had some sample code available, but only contained the JSP files for the plug-in. Further searching the site led me to the Blackboard SDK, and here was where I obtained that information.</p>
+<p>With the SDK in hand, I started to create the plug-in. The sample plug-in found accompanying the SDK provided excellent reference to follow when coding my own. The documentation PDF for the sample provided a fairly simple explanation of the structure of the plug-in and the code found in the sample JSP and XML manifest files. Although this documentation followed a specific method in generating the packaged plug-in, it was still simple to follow.</p>
+<p>Two difficult areas when learning Blackboard were in reading the general developer documentation and finding APIs. The general developer documentation explained the plug-in structure quite well, but the syntactic details for some aspects were puzzling. Two examples of this ambiguity were in the explanation for the bb-manifest file and tag libraries. The documentation did provide explanation for what was or was not required but gave fairly brief information about items like expected input values. I had to google to find details on this. Next, finding APIs for Blackboard classes would have been difficult if it were not for the help of Andrew Wang (Blackboard developer over at UTM). No where on the Blackboard developer site could I find a link to APIs.</p>
+<p>A good suggestion I would make when learning Blackboard would be to get a demo of the system with someone experienced in developing Blackboard plug-ins. The demo Andrew presented really gave me a head start as a beginner into creating future plug-ins.</p>
+<p>Darren Jung:</p>
+<p>Experiencing blackboard was a great oppotunity for me. In my case, I started off late because of my personal situation, and moreover, previously I had no experience with jsp files and javascript. So I was frustrated, I didn&rsquo;t know what&rsquo;s going  on, I even had no idea what blackboard is!</p>
+<p>Billy, my partner of this project, helped me a lot. He showed me where to  get references, and explained me about that. So after that I felt that I&rsquo;m going to  the right direction.</p>
+<p>My difficulty happened at very first : I had no idea at all, I felt like lost. Getting help from Billy was a great choice, because sometimes when anybody is placed at whole new world, he/she will try to understand what&rsquo;s going on in that world. And that takes a LOT of time if you&rsquo;re alone and don&rsquo;t get help from people in that new world.</p>
+<p>From that, I&rsquo;ve written my bb_manifest.xml and .jsp files. Trying to get &lsquo;Hello world&rsquo; from the server was quite easy. One more comment for users of Mac OSX. I need to investigate why this is so later, but I&rsquo;ve found that when I build .war file on my windows XP machine, the file size is well below 70kb. It took about 5 seconds to upload building block. But on my Mac machine, (Macbook 2.0GHZ) .war file has size of about 20 megabytes! It took more than 10 minutes to upload plug-in. I guess this is partly because windows uses .zip and mac uses .jar files as external  library, but I&rsquo;m not sure at this point.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

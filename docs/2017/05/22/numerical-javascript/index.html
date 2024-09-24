@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Numerical JavaScript</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Numerical JavaScript</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2017/04/30/still-waiting/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2017-05-22" class="post-date">2017-05-22</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2017/05/31/how-to-teach-programming/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I have a terrible record when it comes to making predictions,
+but there is one notable exception.
+In 2002,
+I told a room full of Python programmers in Toronto
+that they would all be writing JavaScript in ten years&rsquo; time.
+My argument was that since it was the only choice for front-end web programming,
+it was the one language everyone <em>had</em> to learn,
+and was therefore going to be the safest bet for back-end projects as well.</p>
+<p>I spent the next fifteen years
+cracking jokes about JavaScript&rsquo;s many failings as a language.
+Since changing jobs a few months ago,
+though,
+I&rsquo;ve had to come to grips with its most modern version (ES6),
+and have been pleasantly surprised.
+Yes,
+there are plenty of unpleasant surprises left over from its initial hasty design:</p>
+<pre><code>[] + [] → ""              // Concatenating two empty arrays produces a string
+[] + {} → [object object] // Empty array plus empty object creates an object…
+{} + [] → 0               // …but empty object plus empty array is 0…
+{} + {} → NaN             // …and adding two objects is Not A Number
+</code></pre>
+<p>but there are many pleasant surprises too,
+and derivatives like <a href="https://www.typescriptlang.org/">TypeScript</a>
+are as comfortable and robust as anything I&rsquo;ve ever used.</p>
+<p>I am therefore going to make another prediction.
+Ten years from now,
+I believe that JavaScript (or a derivative with optional strong typing)
+will have supplanted Python and R
+as the language of choice for people doing leading-edge open scientific computing.
+My reasoning is the same as it was in 2002:
+no matter what else programmers use,
+they eventually have to learn JavaScript.
+What&rsquo;s more,
+projects like <a href="https://arrow.apache.org/">Apache Arrow</a>
+are going to make it easier to add a high-performance numerical substrate.</p>
+<p>The most important qualifier in the preceding paragraph is probably &ldquo;leading-edge&rdquo;.
+Most people crunching numbers today are still using things like MATLAB and Excel,
+and I don&rsquo;t expect that to change.
+What I expect instead is that the 5-15% of scientists who are early adopters of new technology
+will bypass single-purpose languages like Julia
+in favor of the one they&rsquo;re already mastering
+in order to take advantage of <a href="https://d3js.org/">D3</a> and its ilk.
+And with major players like Microsoft, Google, and Facebook all working hard
+to make general-purpose JavaScript faster,
+it will be harder and harder for niche players to keep up.
+I&rsquo;ve been wrong far more often than I&rsquo;ve been right,
+but everything I know about how and why computing evolves points this way.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

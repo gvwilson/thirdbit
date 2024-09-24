@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Instead of PowerPoint</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Instead of PowerPoint</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/12/29/more-musings-on-the-value-of-a-phd/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-12-29" class="post-date">2010-12-29</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/12/29/tagging-and-debugging/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>After cursing PowerPoint for eight solid months while building screencasts for Software Carpentry, I think I have figured out what I want instead.  Here&rsquo;s a top-down view of a PowerPoint slide (drawn, ironically, with OmniGraffle):</p>
+<p><img src="../../../../files/2010/12/ppt-top-view.png" width="175" height="133" class="centered"></p>
+<p>Here&rsquo;s the same slide seen edge-on:</p>
+<p><img src="../../../../files/2010/12/ppt-side-view.png" width="234" height="44" class="centered"></p>
+<p>The vertical axis in this view is time: all of the objects in the slide are created when the slide is created, and are cleared away when we advance to the next slide.</p>
+<p>When I&rsquo;m presenting in person, I budget roughly three minutes per slide.  I don&rsquo;t worry about losing the audience&rsquo;s interest by keeping a static image up for that long because I&rsquo;m a fairly animated presenter: I point at things, walk back and forth, make eye contact, and so on, all to provide the motion and flow that my slides don&rsquo;t.  Many good presenters, though, prefer to keep things moving on screen as well, and PowerPoint supports that by allowing items to be revealed progressively.  If we do that, the side view looks like this:</p>
+<p><img src="../../../../files/2010/12/ppt-side-reveal-300x148.png" width="300" height="148" class="centered"></p>
+<p>When I first started creating screencasts back in May, I quickly realized that my &ldquo;static slide for three minutes&rdquo; style didn&rsquo;t work: unless something was changing on screen every 15 seconds or so, viewers&rsquo; attention would wander.  I experimented with using progressive reveal in PowerPoint, but discovered three shortcomings.  First, there is no easy way to sync my scripts (written in the notes portion of the slide) with the reveal of particular elements.  Second, when slides are exported to PNG or PDF, the progression is lost–everything comes out together.  Third, there&rsquo;s no way for an element to span several slides: PowerPoint insists on a strict slide/object hierarchy.</p>
+<p>The third point is the key to what I want instead.  I want to be able to create &ldquo;slides&rdquo; like this:</p>
+<p><img src="../../../../files/2010/12/lifecycle-300x216.png" width="300" height="216" class="centered"></p>
+<p>Here, there&rsquo;s no longer a notion of &ldquo;a slide&rdquo;.  Instead, there are graphical objects with lifespans, and slides horizontally across the timeline that display whatever is &ldquo;alive&rdquo; at that moment.  This model seems better suited to creating screencasts (or other continuous video), and I suspect it would be better for traditional live presentations as well (particularly if it was possible to modify the properties of objects as a function of time, e.g., to change an object&rsquo;s location between one snapshot and another).</p>
+<p>I <em>think</em> I could create something like this in an image editor that supported layers (one layer per object) and scripting (to turn layers on and off), though that would be a fairly clumsy user interface.  A more elegant one doesn&rsquo;t feel like it would be hard to design, but I&rsquo;m hoping someone has already built this for me.  If so, I&rsquo;d welcome pointers.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

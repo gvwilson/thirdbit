@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Entry-Level Requirements Engineering Revisited</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Entry-Level Requirements Engineering Revisited</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/02/11/of-docfests-marketing-hype-and-drproject/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-02-15" class="post-date">2006-02-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/02/20/drproject-switching-to-kid/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Try googling for <a href="http://www.google.ca/search?q=%22open+source%22+%22requirements+engineering%22">&ldquo;open source&rdquo; &ldquo;requirements engineering&rdquo;</a> or <a href="http://www.google.ca/search?q=%22open+source%22+%22requirements+management">&ldquo;open source&rdquo; &ldquo;requirements management&rdquo;</a>.  Lots of links, but nothing that leads to a mature (or even adolescent) open source requirements engineering tool that would help me keep track of:</p>
+<ol>
+  <li>what I'm supposed to be building;</li>
+  <li>where that requirement came from (i.e., who I have to talk to if I want to change it, or to get more information);</li>
+  <li>whether the requirement has actually been implemented; and</li>
+  <li>whether that implementation has actually been tested.</li>
+</ol>
+<p>There are lots of commercial tools in this space, including:</p>
+<ul>
+  <li><a href="http://www.speedev.com/online-demos.asp">SpeeDEV</a></li>
+  <li><a href="http://www.telelogic.com/corp/products/doors/">DOORS</a></li>
+  <li><a href="http://www.gatherspace.com/">GatherSpace</a></li>
+  <li><a href="http://www.objectiver.com/">Objectiver</a></li>
+  <li><a href="http://www.igatech.com/rdt/">Igatech's RDT</a></li>
+  <li><a href="http://www.serena.com/Products/rtm/home.asp">Serena RTM</a></li>
+  <li><a href="http://users.reqtify.tni-software.com/">Reqtify</a></li>
+</ul>
+<p>but most of them are just glorified to-do list managers.  Some integrate with Microsoft Office tools, so that users can edit requirements documents in Word or Excel, while others integrate with CASE tools, but for the most part, they all assume that someone, somewhere, is going to type in a whole bunch of itemized, organized, point-form requirements, and then update them regularly as the project progresses.</p>
+<p>Which, in my experience, just doesn&rsquo;t happen—at least, not in the domains I&rsquo;m most interested in:</p>
+<div align="center">
+<table class="centered">
+<tr>
+<td></td>
+<td><strong>School</strong></td>
+<td><strong>Open Source</strong></td>
+</tr>
+<tr>
+<td><strong>Customer</strong></td>
+<td>prof</td>
+<td>nerd</td>
+</tr>
+<tr>
+<td><strong>Developer</strong></td>
+<td>student</td>
+<td>nerd</td>
+</tr>
+</table>
+</div>
+<p>XP&rsquo;s response is to abandon long-range requirements management in favor of short-range user stories.  If your customer&rsquo;s marketing department doesn&rsquo;t need to know what they&rsquo;re going to have to sell next year, and if they&rsquo;re willing to pay for a lot of duplicated effort (sorry, refactoring), that&rsquo;s great, but I&rsquo;ve never worked under those conditions.</p>
+<p>On the other hand, I <em>have</em> seen projects hum along for several years, hitting deadline after deadline, once sensible requirements management practices were put in place.  However, that only happened after the group in question had been through a couple of death marches.  This leaves me with a conundrum: how to convince people (particularly students) that RE will pay of, without making them jog a few laps of Hell?</p>
+<p>The option I&rsquo;m most interested in is to lower the entry cost of RE. All of the tools described above (with the exception of GatherSpace) have a hefty cover charge: you have to invest a lot in them before you get anything out.  Students working on three-week (or even term-long) assignments won&rsquo;t ever reach those tools&rsquo; the payoff points; if we say, &ldquo;You have to use this to get a grade,&rdquo; they&rsquo;ll probably come away thinking even <em>less</em> highly of RE.</p>
+<p>So, what does an entry-level RE tool look like?  Something you can learn in a one-hour tutorial (or less), that will make your life easier the second time you use it?  Last summer, Bin Liang explored the possibility of adding a two-pane display to DrProject that would let students connect requirements (created by the prof, in the usual point-form way) to <a href="http://www.junit.org">JUnit</a> unit tests, so that they could see which parts of the assignment they&rsquo;d actually completed.</p>
+<p>It was a nice idea, but in the end, we decided it wouldn&rsquo;t be compelling: profs would have to put a lot more time into creating their assignments, while students wouldn&rsquo;t see much benefit (anyone can keep track of half a dozen requirements in their head).</p>
+<p>Bin then went on to explore something more promising, something that wouldn&rsquo;t require any extra work from either profs or students.  Take an assignment, and throw away the stop words (like &ldquo;the&rdquo; and &ldquo;or&rdquo;) to create a set of keywords with locations.  Now take a bunch of <a href="http://www.junit.org">JUnit</a> tests, and break the names of the classes, methods, and variables they contain into words (by splitting on underscores, or on CamelCaseBoundaries) to get another set of located keywords.  What happens when you correlate the two?</p>
+<p>As <a href="http://selab.netlab.uky.edu/homepage/">Jane Huffman Hayes</a> and her colleagues found out in a slightly different context, the results are actually pretty good: standard information retrieval algorithms will match code to requirements and vice versa. Not as well as a human being would, maybe, but certainly well enough to be worth exploring further.</p>
+<p>There are lots of directions we could go with this, and other people are already blazing the trail.  <a href="http://www.requirementsassistant.nl/index.htm">Requirements Assistant</a>, for example, looks for ambiguous or contradictory phrases in an requirements document; I could see combining the two approaches to try to find places where the code <em>doesn&rsquo;t</em> implement the requirements.  But in the near term, here&rsquo;s a proposal:</p>
+<p>On the left, we have the assignment handed out by the prof (format to be determined).</p>
+<p>On the right, we have the student&rsquo;s code.</p>
+<p>In the middle, we have a tool which matches assignment (requirements) to code, and which highlights bits of code that no part of the assignment maps to.  TAs use this when marking: they click on Part A, B, or C of the assignment spec, and it shows them what (if anything) they should be marking.  They <em>only</em> mark the things that the tool finds: if they click on Part C, and the tool says, &ldquo;I can&rsquo;t find corresponding code,&rdquo; they give the student 0 for that part of the assignment.</p>
+<p>When they start the assignment (or course), students are shown the tool, and told, &ldquo;TAs will use this when grading.  You can run it too, before you submit your work, in order to see what the TA will see. Please note that if the TA clicks on a bit of the assignment spec, and the tool can&rsquo;t find any matching code, they&rsquo;ll give you zero for that part of the assignment, since clearly it&rsquo;s unfair to ask them to waste time hunting around in your code for something that you could have made plain and clear.&rdquo;</p>
+<p>Students now have an incentive (a) to learn how to drive the tool, and (b) to add whatever extra information the tool requires (and/or to structure their code the way the tool wants).  The carrot is that they have more insight into the grading process: as with submitting code to run against the prof&rsquo;s test suite, and getting a preliminary score back, they can <em>see</em> which bits of their code the TAs are going to be marking to satisfy each bit of the assignment spec.</p>
+<p>So, what do you think?  Would you have felt put upon as a student if someone deployed this in a class?  Do you think you would have learned something from it?  Are there other entry-level requirements engineering tools that might have fit your needs better?  I&rsquo;d be very interested in hearing your ideas.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

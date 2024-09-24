@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Finger Is Not The Test</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Finger Is Not The Test</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2011/07/13/learning-lernanta/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2011-07-15" class="post-date">2011-07-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2011/07/20/wait-not-that-bit/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>When Buddhists want to remind themselves that scripture is a guide, not a goal, they say, &ldquo;The finger pointing at the moon is not the moon.&rdquo; I think we need a similar metaphor to explain what testing is really about to junior developers. When I say, &ldquo;Don&rsquo;t check in code until all the tests pass,&rdquo; I do <em>not</em> mean:</p>
+<ul>
+  <li>comment out test cases that are failing, then check in, or</li>
+  <li>take failing assertions out of your methods, then check in, or</li>
+  <li>throw away features whose tests are failing, then check in.</li>
+</ul>
+<p>The purpose of testing is not to get all tests to pass. The purpose of testing is <em>to tell you what state your software is in</em>, and your goal should always be to gather as much useful information as you can (as economically as you can, but that&rsquo;s a topic for another post).  If you don&rsquo;t have any automated tests, then all you really know about the software comes from the interactive testing you&rsquo;ve done since you last made a change. No other knowledge is reliable, not even the things you tried out 30 seconds before you made those changes.</p>
+<p>If you do have automated tests, and some of them are failing, but you know why, that&rsquo;s OK (temporarily). Right now, for example, I know we&rsquo;re not creating a link object to connect A and B, because we decided we would do that implicitly rather than explicitly in this one special case, and I haven&rsquo;t implemented that code yet, so test #1234 is failing <em>as expected</em>, and that shouldn&rsquo;t stop me from checking in the code that makes test #5678 pass.  I shouldn&rsquo;t let very many failing tests pile up, but leaving them in the failing state to remind me (and the rest of the team) that some things aren&rsquo;t working yet is a lot better than taking them out just to get a green light.  The latter reduces how much I know about my program; the former may not be good for morale (&ldquo;Jeez, we still have <em>that</em> to do, don&rsquo;t we?&rdquo;), but it&rsquo;s more honest, and more useful.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

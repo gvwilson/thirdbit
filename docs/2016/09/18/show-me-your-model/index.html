@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Show Me Your Model</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Show Me Your Model</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2016/09/10/collaborative-choral-software-exegesis/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2016-09-18" class="post-date">2016-09-18</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2016/09/21/reading-list/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>As far as I can tell,
+there are no published studies showing that version control is better than mailing files around
+or sticking them in shared drives.
+I believe it is–I wouldn&rsquo;t work on a project that didn&rsquo;t use version control–but
+nobody&rsquo;s ever gathered data,
+compared it to a model,
+and published the result.</p>
+<p>One reason,
+I think,
+is that we don&rsquo;t know how to measure the productivity of programmers.
+&ldquo;Lines of code per hour&rdquo; clearly isn&rsquo;t right:
+good programmers often write <em>less</em> code,
+or spend their time on the parts of problems
+that have the highest thinking-to-coding ratio.
+Without some operationalization of &ldquo;better&rdquo; and &ldquo;worse&rdquo;,
+it&rsquo;s hard to rank or compare alternatives.</p>
+<p>This problem came up again when I tweeted,
+&ldquo;If anyone has data showing Excel is <em>more</em> error-prone than MATLAB/Python/R once you normalize for hours spent learning it, plz post.&rdquo;
+It&rsquo;s clear from the responses that most people on Twitter believe this,
+but I&rsquo;m not really sure what &ldquo;this&rdquo; is:</p>
+<ol>
+<li>
+<p><em>There are more errors in published results created with Excel than in results created with scripting languages like MATLAB, Python, and R.</em>
+    OK,
+    but given that many more people use Excel,
+    that&rsquo;s like saying that people in China have more heart attacks than people in Luxembourg.</p>
+</li>
+<li>
+<p><em>Results calculated with Excel are more likely to be wrong than results calculated with scripting languages.</em>
+    This is what I had in mind when I tweeted,
+    and I don&rsquo;t think the answer is obvious.
+    Yes, there are lots of examples of people botching spreadsheets,
+    but there&rsquo;s also a lot of buggy code out there.
+    (Flon&rsquo;s Axiom states, &ldquo;There is not now, nor has there ever been,
+    nor will there ever be,
+    any programming language in which it is the least bit difficult to write bad code.&rdquo;)</p>
+<p>And even if this claim is true, correlation isn&rsquo;t causation.
+I think that people who do stats programmatically
+have probably invested more time in mastering their tools
+than people who use spreadsheets.
+The (hypothesized) differences in error rates could easily be due to
+differences in time spent in reflective practice.</p>
+</li>
+<li>
+<p><em>People who are equally proficient in Excel and scripting langauges are more likely to make mistakes in Excel.</em>
+    This formulation corrects the flaw identified above,
+    but is nonsensical,
+    since the only meaningful definition of &ldquo;equally proficient&rdquo; is
+    &ldquo;use equally well&rdquo;.</p>
+</li>
+<li>
+<p><em>Spreadsheets are intrinsically more error-prone than scripting languages because they don&rsquo;t show errors as clearly, they&rsquo;re harder to test, it&rsquo;s harder to figure out what calculations are actualy being done, or they themselves are buggier than scripting languages&rsquo; math libraries.</em>
+    These are all plausible,
+    but may all be red herrings.
+    Yes,
+    it&rsquo;s hard to write unit tests for spreadsheets,
+    but it&rsquo;s possible:
+    Felienne Hermans found that 8% of spreadsheets included tests like
+    <code>if(A1&lt;&gt;5, "ERROR", "OK")</code>.
+    I&rsquo;d be surprised if more than 8% of people who do statistics in Python or R
+    regularly write unit tests for their scripts,
+    so the fact that they <em>could</em> is irrelevant.</p>
+</li>
+</ol>
+<p>To be clear,
+I&rsquo;m not defending or recommending spreadsheets.
+But if programming really is a better way to do science than using spreadsheets,
+surely we ought to be able to use science to prove it
+and to figure out <em>why</em>.</p>
+<p>What I&rsquo;m <em>really</em> hoping is that if we figure out how to answer an &ldquo;obvious&rdquo; question like this,
+we will then have the tools we need to tackle harder ones.
+Was the switch to Python3 worth making?
+Will Julia be better <em>enough</em> than the languages we&rsquo;re using now
+to justify the hundreds or thousands of programmer-years it will take
+to build a comparable ecosystem?
+What about requiring people to do code reviews when they review papers–is that
+a better place for them to spend their time than having them pair-program
+as they&rsquo;re developing their own code?
+We make decisions like this all the time,
+but victory seems to go to the loud and the lucky more often than to the righteous.</p>
+<p>Leslie Lamport once said,
+&ldquo;Writing is nature&rsquo;s way of letting you know how sloppy your thinking is.&rdquo;
+Experimental design has the same effect:
+it forces you to clarify what questions you&rsquo;re asking and how you&rsquo;re answering them.
+So instead of asking if anyone has <em>data</em> comparing Excel to programming languages,
+I should have asked,
+&ldquo;What experiment would you run to decide whether spreadsheets are more or less error prone than programs?&rdquo;
+Answers to <em>that</em> would be very welcome.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

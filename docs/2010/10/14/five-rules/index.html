@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Five Rules for Computational Scientists</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Five Rules for Computational Scientists</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/10/14/dexy/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-10-14" class="post-date">2010-10-14</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/10/17/ratings-revised/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Stepping back from the details for a moment, here are five rules every computational scientist should (try to) follow:</p>
+<p><em><strong>1. Version Control</strong></em></p>
+<p>Put <em>every</em> primary artifact (source code, raw data files, parameters, etc.) in a version control system so that you have a record of exactly what you did, and when.  There's no need to store things you re-create, such as the graphs you generate from your data files, as long as you have the raw material archived and timestamped.</p>
+<p>The one major exception to this rule is very large data sets: tools like Subversion aren't designed to handle the terabytes and petabytes that come out of the LHC or the Hubble.  However, the teams managing those experiments include people whose job is archiving and managing data using specialized (and often one-of-a-kind) systems.</p>
+<p><strong><em>2. Provenance</em></strong></p>
+<p>Track the provenance of your code and data.  Museums use the term "provenance" to mean the paper trail of ownership and transfer for a particular piece; in the scientific world, provenance is a record of what raw data was combined or processed to produce a particular result, what tools were used to do the processing, what parameters were given to those tools, and so on.  If raw data sources and source files have unique version numbers (which they will if you're keeping them in a version control system), then it's a simple matter of programming to copy those IDs forward each time you derive a new result, such as an aggregate data set, a graph for a paper, or the paper itself.</p>
+<p>The good news is, tools to do this tracking automatically are finally entering production: see the <a href="http://openprovenance.org/">Open Provenance Model website</a> for updates on efforts to standardize the kinds of information they record, and how they communicate.</p>
+<p><strong><em>3. Design for Test</em></strong></p>
+<p>Write testable software.  Tangled monolithic programs are very hard to test; instead, programs should be built out small, more-or-less independent components, each of which can be tested in isolation. Building programs this way requires discipline on the part of the developer, but there are lots of places to turn for guidance, such as Michael Feathers' excellent book <cite><a href="http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/">Working Effectively With Legacy Code</a></cite>.</p>
+<p>Modularizing code and defining clear interfaces between modules also helps speed things up.  One application programmer working at <a href="http://www.llnl.gov/">Lawrence Livermore National Laboratory</a> typically found that simply by tidying up the code scientists brought to him, he could speed it up by a factor of 10 or 20, even before parallelizing it (which he could only do <em>after</em> cleaning it up).</p>
+<p><strong><em>4. Test</em></strong></p>
+<p>Actually test the software you've written.  Yes, it's much harder to test most scientific applications than it is to test games or banking software, both because of numerical accuracy issues, and because scientists usually don't know what the right answer is.  (If they did, they'd be writing up their paper, not writing software.)  However, as <a href="http://www.rmc.ca/aca/mcs-mi/per/kelly-d-eng.asp">Diane Kelly</a> and other researchers have found, there's a lot scientists <em>can</em> do.  Run simple cases that can be solved analytically; compare the program's output against experimental data; compare the output of the parallel Fortran version using the hyper-efficient algorithm against the output of the sequential MATLAB version using the slow, naive, but comprehensible algorithm, and so on.  And do code reviews: study after study has shown that having someone else read your code is the most effective, and most cost-effective, way to find bugs in it.</p>
+<p><strong><em>5. Review</em></strong></p>
+<p>Finally and most importantly, insist on access to the software used to produce the results in papers you are reviewing.  No, you won't be able to read or review all of the ATLAS particle detector software, and no, the folks at Wolfram Research aren't going to give you the source of Mathematica, but not having access to the engineering schematics of today's high-throughput sequencing machines doesn't stop us from reviewing the rest of our peers' wet lab protocols.  Most scientific software is neither very large nor closed source; we can and should start to treat it according to the same rules we've used for physical experiments for the last 300 years.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

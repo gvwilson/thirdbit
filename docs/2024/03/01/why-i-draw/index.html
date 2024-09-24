@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Why I Draw</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Why I Draw</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/02/26/my-adventures-with-certificates/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-03-01" class="post-date">2024-03-01</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/03/03/current-projects/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>People ask me why I draw diagrams by hand and then complain about not being able to diff and merge SVGs in version control.
+Well, I drew this diagram for <a href="https://gvwilson.github.io/sql-tutorial/">the SQL tutorial</a> I&rsquo;ve been working on using <a href="https://app.diagrams.net/">draw.io</a>:</p>
+<p><img src="../../../../files/2024/select_draw_io.svg" alt="draw.io diagram" class="center" width="800px"></p>
+<p>Here it is in <a href="https://graphviz.org/">graphviz</a>:</p>
+<div class="row">
+  <div class="col-8">
+    <img src="../../../../files/2024/select_graphviz.svg" alt="graphviz diagram" class="center" width="600px">
+  </div>
+  <div class="col-4">
+<pre style="font-size: small;">
+digraph select {
+  "select" -> "chooses";
+  "chooses" -> "rows";
+  "chooses" -> "columns";
+  "columns" -> "specified by";
+  "specified by" -> "names";
+  "specified by" -> "calculations";
+  "specified by" -> "* (for all)";
+  "columns" -> "from";
+  "rows" -> "from";
+  "from" -> "table";
+  "table" -> "identified by";
+  "identified by" -> "name";
+  "rows" -> "can be paged with";
+  "rows" -> "can be filtered by";
+  "can be paged with" -> "limit";
+  "can be paged with" -> "offset";
+  "can be filtered by" -> "condition";
+  "condition" -> "evaluated for each";
+  "evaluated for each" -> "rows";
+  "condition" -> "must be";
+  "must be" -> "Boolean";
+  "select" [shape=box];
+  "rows" [shape=box];
+  "columns" [shape=box];
+  "names" [shape=box];
+  "calculations" [shape=box];
+  "* (for all)" [shape=box];
+  "table" [shape=box];
+  "name" [shape=box];
+  "limit" [shape=box];
+  "offset" [shape=box];
+  "condition" [shape=box];
+  "Boolean" [shape=box];
+}
+</pre>
+  </div>
+</div>
+
+<p>and in <a href="https://mermaid.js.org/">Mermaid</a>:</p>
+<div class="row">
+  <div class="col-8">
+    <img src="../../../../files/2024/select_mermaid.svg" alt="mermaid diagram" class="center" width="600px">
+  </div>
+  <div class="col-4">
+<pre style="font-size: small;">
+---
+title: select
+---
+flowchart LR
+  A[select]
+  B(chooses)
+  C[rows]
+  D[columns]
+  E(specified by)
+  F[names]
+  G[calculations]
+  H[for all]
+  I(from)
+  J[table]
+  K(identified by)
+  L[name]
+  M(can be paged with)
+  N(can be filtered by)
+  O[limit]
+  P[offset]
+  Q[condition]
+  R(evaluated for each)
+  S(must be)
+  T[Boolean]
+  A --> B
+  B --> C
+  B --> D
+  D --> E
+  E --> F
+  E --> G
+  E --> H
+  D --> I
+  C --> I
+  I --> J
+  J --> K
+  K --> L
+  C --> M
+  C --> N
+  M --> O
+  M --> P
+  N --> Q
+  Q --> R
+  R --> C
+  Q --> S
+  S --> T
+</pre>
+  </div>
+</div>
+
+<p>Never mind the layout of the graphviz and Mermaid diagrams
+or how much manual tweaking would be required to get them to be more compact;
+I simply don&rsquo;t believe that diffing and merging the text used to generate them
+would be any easier than diffing and merging SVG.
+Whoever adds a real diagram editor to their computational notebook
+and provides a semantic (visual) way to diff changes to diagrams
+is going to clean house…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

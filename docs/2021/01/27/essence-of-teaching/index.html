@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Essence of Teaching</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Essence of Teaching</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/01/26/dead-last/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-01-27" class="post-date">2021-01-27</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/01/27/jove-but-not-for-me/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>David Rozenshtein&rsquo;s <em><a href="https://www.worldcat.org/title/essence-of-sql-a-guide-to-learning-the-most-sql-in-the-least-amount-of-time/oclc/1024095343">The Essence of SQL</a></em>
+is still one of the best little tutorials I&rsquo;ve ever read.
+It&rsquo;s been out of print for years,
+but if you&rsquo;re writing lessons on technical topics,
+I think it&rsquo;s still worth getting, studying, and emulating.</p>
+<p><img src="../../../../files/2021/essence-of-sql.jpg" alt="Essence of SQL cover" class="centered"></p>
+<p>It&rsquo;s a small book:
+paperback-sized and only 119 pages long.
+Rozenshtein spends the first three of those pages explaining what tables, rows, and columns are
+and how to issue a query,
+then presents the thirteen questions the book is going to answer:</p>
+<ol start="1">
+  <li>What are the student numbers of the students who take CS112?</li>
+  <li>What are the student numbers and names of the students who take CS112?</li>
+  <li>Who takes CS112 <em>or</em> CS114?</li>
+  <li>Who takes <em>both</em> CS112 <em>and</em> CS114?</li>
+  <li>Who does <em>not</em> take CS112?</li>
+  <li>Who takes a course which <em>is not</em> CS112?</li>
+  <li>Who takes <em>at least</em> 2 different courses?</li>
+  <li>Who takes <em>at most</em> 2 different courses?</li>
+  <li>WHo takes <em>exactly</em> 2 different courses?</li>
+  <li>Who takes <em>only</em> CS112?</li>
+  <li>Who takes <em>either</em> CS112 <em>or</em> CS114? (Note the differnce from #3.)</li>
+  <li>Who are the <em>youngest</em> students?</li>
+  <li>Who takes <em>every</em> course?</li>
+</ol>
+
+<p>It takes him 60 pages and lots of little examples to answer those questions.
+Along the way he introduces selection,
+filtering,
+Boolean operations,
+the &ldquo;select and subtract&rdquo; approach to negation,
+and a bunch of other ever-more-complicated ideas.
+With those in the bag he goes on to:</p>
+<ol start="14">
+  <li>
+    For each department that has more than 3 professors older than 50,
+    what is the average age of the professors?
+  </li>
+  <li>What is the grade point average of each student?</li>
+  <li>What is the overall average salary of all professors who are older than 50?</li>
+  <li>Which professors' salaries are greater than the overall average?</li>
+  <li>Whose salary is greater than the average salary within that professor's department?</li>
+</ol>
+
+<p>These questions motivate his coverage of grouping and aggregation;
+once again he motivates every new idea,
+no matter how small,
+with a question someone might want answered.</p>
+<p>It&rsquo;s not a perfect book—it could use more diagrams, for example,
+and I find the language overly formal in some places—but it&rsquo;s a very good one,
+and the closest thing I&rsquo;ve seen in the wild
+to Carroll&rsquo;s <a href="http://teachtogether.tech/en/index.html#s:architecture-load">minimal manual</a> approach to lesson design.
+It isn&rsquo;t the right approach for every situation,
+but I could have written <a href="../../../../sdxjs/"><em>Software Design by Example Using JavaScript</em></a> this way,
+I would have.</p>
+<p>All of which brings me to the point of this post,
+which is that I <em>couldn&rsquo;t</em> write <a href="../../../../sdxjs/"><em>SDXJS</em></a> that way.
+We couldn&rsquo;t have written <a href="../../../../js4ds/"><em>JavaScript for Data Science</em></a> in this style either,
+though we could use it for some parts of
+<em><a href="../../../../py-rse/">Research Software Engineering with Python</a></em>,
+such as the introduction to the Unix shell and the introduction to Make.
+The difference is that there are learning paths for the shell and Make that are
+<em>continuously incrementally useful to the learner</em>,
+i.e.,
+we can arrange topics so that:</p>
+<ol>
+<li>each one is an <a href="http://teachtogether.tech/en/index.html#g:authentic-task">authentic task</a>, </li>
+<li>each one extends or complicates a previous one, and</li>
+<li>each extension or complication to the task aligns with an extension or complication to the system being taught.</li>
+</ol>
+<p>I don&rsquo;t know how to measure this,
+but I&rsquo;m absolutely convinced that the reason the tidyverse is easier to teach to novices than Pandas
+is that the tidyverse has these same properties.
+Pandas is a powerful tool,
+but between its complicated indexing syntax
+and its non-linear reading order,
+there&rsquo;s much more &ldquo;trust me, you&rsquo;ll need this later&rdquo;
+than there is with the tidyverse.
+JavaScript is much worse:
+in order to do almost anything useful
+you have to explain callbacks and promises
+(which are super-useful in the same way that <a href="https://the-boys.fandom.com/wiki/Homelander">Homelander</a> is a super-hero).
+The tool simply doesn&rsquo;t permit the same kind of learning ramp as some other systems.</p>
+<p>Which brings me back to <a href="../../../../2021/01/23/but-can-she-type/">my favorite <em>Twilight Zone</em> episode</a>.
+I know of languages that were designed for teaching,
+but I don&rsquo;t know of a mainstream language whose creators asked instructional designers,
+&ldquo;Can you see a ramp here?&rdquo;
+while there was still a chance to build one.
+You can&rsquo;t add security or usability to a tool after it&rsquo;s shipped;
+equally,
+I don&rsquo;t think you can add learnability—we just have to do our best
+to find as gentle a path up the hill as we can.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

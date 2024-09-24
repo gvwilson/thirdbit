@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: What Does Victory Look Like?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>What Does Victory Look Like?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2013/05/25/our-infrastructure/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2013-05-26" class="post-date">2013-05-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2013/05/26/what-does-done-look-like/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  A lot of changes are happening to science as I write this.
+  Crowdsourcing,
+  open reviews,
+  citeable data,
+  new ways to measure contributions,
+  automatically tracking the provenance of every calculation–each
+  has emerged from its chrysalis and is just waiting for its wings to dry
+  so that it can take flight.
+</p>
+<p>
+  Our job is to give scientists the skills they need to nurture these ideas.
+  For the last post in this series,
+  I'd therefore like to talk about what victory will look like–i.e.,
+  how scientists' lives will be different
+  if and when the things we teach become as routine as doing statistics.
+  My vision is simple:
+</p>
+<blockquote>
+  Scientists won't submit, publish, and download papers.
+  They will fork and merge projects.
+</blockquote>
+<p>
+  The single most important thing we teach scientists is <strong>version control</strong>.
+  We tell them it's for record-keeping,
+  but it's also the underpinning for a style of work that open source developers think of as normal,
+  and the rest of the world finds extraordinary.
+  Do you like my code?
+  Do you think you can improve on it?
+  Great!
+  Fork my repository,
+  build your stuff on top of mine,
+  and then give me your improvements to merge into the master copy
+  so that the next person has an even better starting point.
+  Firefox and Wikipedia are two proofs among many
+  that this can scale to thousands upon thousands of contributors.
+  There's no reason it couldn't be the "new normal" for science
+  once version control and a few other things are routine parts of scientific life.
+</p>
+<p>
+  What exactly are those "other things"?
+  The first is <strong>task automation</strong>:
+  everything someone might have to re-do
+  must be captured in a re-runnable way.
+  This can be a shell script,
+  a Makefile,
+  a snippet of Python or R,
+  or something as yet undevised.
+  What matters is that without this,
+  people have to invest hours or weeks of forensic investigation before they can use someone else's work,
+  which in practice means they won't.
+</p>
+<p>
+  The second thing is <strong>comprehensive testing</strong>.
+  This isn't just a special case of task automation,
+  although tests that aren't automated might as well not exist
+  as far as people forking a piece of work are concerned.
+  It isn't primarily about ensuring that software is doing what it's supposed to,
+  either.
+  Instead,
+  as we teach people in our bootcamps,
+  the primary purpose of testing is
+  <em>to define what the author thinks "correct" actually means</em>.
+  If you tell me that the eigenvalues of a matrix are close to zero,
+  I don't know what you actually mean,
+  any more than I know what you mean if you say that
+  the heights and weights of a sample population are strongly correlated.
+  If your tests check that all the eigenvalues are less than 0.0001,
+  on the other hand,
+  we now have something concrete to agree or disagree about.
+</p>
+<p>
+  And yes,
+  it's often hard to test scientific code,
+  and it's also often not even appropriate–just think of
+  the twenty lines of R that turn a bunch of CSV files into a line graph.
+  But that brings us to the third of our "other things",
+  which includes things like structured program design
+  and <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000424">data management</a>.
+  For lack of a better name,
+  I'll call it <strong>computational tidiness</strong>;
+  as with task automation,
+  it's what allows other people to pick up a piece of work and build on it
+  without superhuman effort.
+  It's also what allows people to <em>review</em> work:
+  if they can't find things easily,
+  or make sense of them,
+  they won't bother.
+</p>
+<p>
+  We teach the Unix shell,
+  Python (or R),
+  Git,
+  xUnit testing libraries,
+  SQL,
+  regular expressions,
+  and sundry other things
+  because big ideas aren't meaningful in the abstract.
+  Along the way
+  we hope to convey a deeper understanding of seven big ideas
+  that I believe can only come from getting your hands dirty:
+</p>
+<ol>
+  <li>It's all just data.</li>
+  <li>Data doesn't mean anything on its own–it has to be interpreted.</li>
+  <li>Programming is about creating and composing abstractions.</li>
+  <li>Models for computers, views for people.</li>
+  <li>Paranoia makes us productive.</li>
+  <li>Better algorithms are better than better hardware.</li>
+  <li>The tool shapes the hand.</li>
+</ol>
+<p>
+  If,
+  ten years from now,
+  the average scientist understands these as well as she understands significance,
+  correlation coefficients,
+  and p-values,
+  I for one will think that we've won.
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

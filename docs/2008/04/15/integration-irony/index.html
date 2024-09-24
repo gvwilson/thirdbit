@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Integration Irony</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Integration Irony</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2008/04/12/a-rare-triple/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2008-04-15" class="post-date">2008-04-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2008/04/15/pogy-travel-crib/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We&rsquo;ve been having a problem recently with self-registration in the new version of DrProject. Would-be users fill an oh-so-familiar form (preferred ID, email address, password); their data is then held in queue for an admin to approve.  However, when the admin clicks &ldquo;approve&rdquo;, DrProject reports &ldquo;user already exists in password file&rdquo;.</p>
+<p>Yesterday, David Wolever managed to track it down.</p>
+<ol>
+  <li>Two users are being confirmed at once (i.e., there are two or more requests pending, the admin has selected "approve" for both, then clicks "submit" on the form).</li>
+  <li>One works fine.</li>
+  <li>The other triggers an exception for some reason (usually missing information).</li>
+  <li>The exception causes the database transaction to roll back (good), but the first user's ID and password are in the external password file (bad).</li>
+</ol>
+<p>Yes, we will improve pre-transaction validation so that #3 happens less frequently, but we&rsquo;re still left with the basic problem: we can&rsquo;t make operations across two things (in this case, the database and the file system) atomic. We could make up a list of file operations to be undone in case of a database transaction failure (i.e., roll our own transaction system—bleah), or do the file operations first and proceed to the database transaction only if the file op succeeds (more code, which means more places where developers could forget to do things), or move passwords for self-registered users into the database (which makes administration of large portals harder: managing credentials in multiple credential stores is a project unto itself).</p>
+<p>I&rsquo;m sure we&rsquo;ll come up with something, but until we do, I&rsquo;m just going to savor the irony of it all. Four years ago, when we forked from <a href="http://trac.edgewall.org">Trac</a>, we faced a similar problem. Should each of a portal&rsquo;s projects have its own database and version control repository, or should we use one DB for all projects (but separate repositories), or one DB and one repository? We eventually realized that one DB shared by all projects was the only option that made sense, even though it meant more hacking on the tables inherited from <a href="http://trac.edgewall.org">Trac</a>, because multiple DBs would require us to build our own atomicity layer.  It&rsquo;s ironic that trying to keep all the user credentials in one place (a file on disk, accessed only by a setuid validation program), has gotten us back to the same point.</p>
+<p><em>Later</em>: at Alan Rosenthal&rsquo;s suggestion, David Wolever has &ldquo;solved&rdquo; this particular problem by making operations on the credentials file idempotent: if DrProject tries to add data that&rsquo;s already there, nothing happens and no error is reported.  It&rsquo;s not a general solution—in fact, I&rsquo;m sure that one day someone somewhere will curse us for special-casing this—but it&rsquo;s good enough to get 3.0.1 out the door.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

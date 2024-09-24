@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Including Boilerplate Files in Jekyll</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Including Boilerplate Files in Jekyll</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/01/20/the-moon-and-tears/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-01-20" class="post-date">2024-01-20</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/01/23/the-votes-are-in/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I use <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a> to format my books<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>
+but <a href="https://jekyllrb.com/">Jekyll</a> (the default for GitHub Pages) for my other sites<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.
+Each of those sites has a license,
+a contributor guide,
+and a code of conduct in its root directory.
+I don&rsquo;t want to put YAML headers in them
+because GitHub renders all of their content when they&rsquo;re viewed online,
+but I also don&rsquo;t want to duplicate the content in other files
+for rendering on GitHub Pages.
+My solution is to create a parallel file called (for example) <code>license_.md</code>
+(with a trailing underscore)
+that contains this:</p>
+<h2>```{% raw %}</h2>
+<p>title: License
+permalink: /license/</p>
+<hr />
+<p>{% include boilerplate.md filename=&rsquo;LICENSE.md&rsquo; %}
+{% endraw %}```</p>
+<p>and then put this in <code>_includes/boilerplate.md</code>:</p>
+<p><code>{% raw %}
+{% capture other %}{% include_relative {{include.filename}} %}{% endcapture %}
+{{ other | markdownify | split: "&lt;/h1&gt;" | last }}
+{% endraw %}</code></p>
+<p>It only works correctly if the file being included has exactly one <code>h1</code> header,
+but well-formed pages shouldn&rsquo;t have more (or none).
+I hope it&rsquo;s useful.</p>
+<p><em>This post motivated in part by a reading of Crichton and Krishnamurthi&rsquo;s recent paper &ldquo;<a href="https://arxiv.org/abs/2310.04368">A Core Calculus for Documents</a>&rdquo;.</em></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>See <a href="https://third-bit.com/2023/03/12/building-a-book/">this post</a> for details.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Despite the perpetual low-level annoyance of managing its toolchain.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

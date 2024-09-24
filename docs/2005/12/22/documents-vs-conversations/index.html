@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Documents vs. Conversations</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Documents vs. Conversations</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2005/12/21/choosing-sides/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2005-12-22" class="post-date">2005-12-22</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2005/12/23/procrastination-one-of-the-few-things-in-life-nicer-than-toast/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Amateurs playing chess think in terms of positions; sharks care more about combinations of moves.  Amateurs think, &ldquo;I&rsquo;m going to build a pawn wall, get my bishops onto good squares, and castle so that my kind is somewhere safe.&rdquo;  Sharks think, &ldquo;I&rsquo;m going to advance this pawn so my rook can get to that square to cover an advance by my queen.&rdquo;  Since the board is constantly in motion, one piece per turn, the latter style of thinking almost always wins.</p>
+<p>I&rsquo;m starting to think that we&rsquo;ve been thinking like amateurs when it comes to software requirements.  We&rsquo;ve been trying to create requirements <em>documents</em>, and then connect them to designs, code, tests, and so on.  But real requirements are rarely static; they&rsquo;re never all present and accounted for at one point in spacetime [<a href="#1">1</a>].</p>
+<p>What happens if we think about requirements <em>conversations</em> instead?  What if we stop trying to say &ldquo;X must Y&rdquo; and start saying &ldquo;Having read P and Q, R believed at time T that X must Y&rdquo;?  This shifts the focus from absolute facts (which implicitly assume that omniscience is possible) to relative beliefs (which is all we really have anyway).  It also makes the temporal and causal aspects of &ldquo;requirements&rdquo; explicit: you believe something at a particular time because of something you read, heard, or thought of at some earlier time.</p>
+<p>Many successful open source groups already work this way.  Their &ldquo;specs&rdquo; are mailing list threads, and the comment streams attached to feature requests and bug reports.  It ought to be chaotic, but as <a href="http://producingoss.com">Karl Fogel</a> describes in his recent excellent book <a href="http://www.amazon.com/gp/product/0596007590">Producing Open Source Software</a> (reviewed here), in practice it is often very efficient.</p>
+<p>So, what would a conversation-centric requirements management tool look like?  My first guess would be a search engine that paid close attention to chronological order, reply-to headers, and the like.  I&rsquo;d want it to detect, highlight, and stitch together relevant subsections of composite items—e.g., to notice that only the middle third of the message Alan sent last march was about authentication.  The goal would be to allow a developer to put her cursor over a method or test case, right click, and bring up a list of links to the things she needed to read to understand what the code was (supposed to be) doing [<a href="#2">2</a>].  I&rsquo;d also want to be able to drive the tool in the other direction, and ask, &ldquo;Which bits of this project depend on what was said on this topic before last week&rsquo;s mailstorm?&rdquo;</p>
+<p>Automating this completely, with no extra human input, is a non-starter, as it would require software that understood natural language.  A more realistic tool could combine AI techniques [<a href="#3">3</a>], human tagging, sheep entrails, or anything else. The key requirements are:</p>
+<ol>
+  <li>The extra effort required from stakeholders must be small.</li>
+  <li>The payoff must be immediately obvious.</li>
+  <li>It must mine conversations in the form they actually take, including email, bug reports, wiki pages, code comments, test case names, and so on.</li>
+</ol>
+<p>Any takers?</p>
+<hr />
+<p>Coincidentally, Jon Udell just posted <a href="http://weblog.infoworld.com/udell/2005/12/22.html">this piece</a> on scannable conversation summaries, which includes links back to his earlier discussion of heads, decks, and leads.</p>
+<hr />
+<p><a name="1"></a>[1] This is true in those rare cases when requirements actually have been fixed and finalized.  Since our short-term memories is limited, we can only ever hold part of even a medium-sized spec in our minds at once.  Wandering around a fixed spec is, I believe, no different from standing still and watching one part of it evolve.</p>
+<p><a name="1"></a><a name="2"></a>[2] Note that conversation-centric development is orthogonal to the question of agile vs. design-first development.  In my experience, for example, it&rsquo;s equally hard to trace cause-and-effect after the fact in programs developed using XP and RUP.  What both lack is a methodical way to connect tests and methods back to pronouncements: neither user stories on 3x5 cards, nor use cases hyperlinked to sequence and class diagrams, come with (for example) a canned query that will pull up the relevant antecedent conversation.</p>
+<p><a name="2"></a><a name="3"></a>[3] <a href="http://selab.netlab.uky.edu/Homepage/HayesNew.htm">Prof. Jane Hayes</a> has been using Information Retrieval (IR) algorithms to match requirements to code, and Bin Liang (an undergraduate student at the University of Toronto) investigated IR&rsquo;s effectiveness with test cases in the Fall of 2005.  Both, however, assumes a static requirements document, rather than a dynamic conversation.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

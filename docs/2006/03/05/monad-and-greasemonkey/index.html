@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Monad and Greasemonkey</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Monad and Greasemonkey</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/03/05/game-play-notation/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-03-05" class="post-date">2006-03-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/03/14/drproject-transitioning-to-kid/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>You don&rsquo;t often get to glimpse the future, and when you do, you usually don&rsquo;t realize what you&rsquo;ve seen until it&rsquo;s too late to take advantage of it.  Take the World Wide Web, for example: I saw a demo of an early version of the Mosaic browser in 1993, and thought, &ldquo;Eh.&rdquo; A few years later, Jon Udell explained blogs to me, and I had the same reaction.  And Java?  I still have a copy of an email in which I patiently explained to a friend why it would never make any headway against C++.</p>
+<p>That&rsquo;s why I read these two books cover to cover: they both show what part of the future of practical computing is going to look like. Oakley&rsquo;s Monad describes the eponymous tool from Microsoft (also known as MSH).  At first glance, it looks like just another command-line shell, but then you see scripts like this:</p>
+<pre>D:Scripts&gt; filter ExtractUrl {$parts = $_.split(" "); if ($parts[10] -eq 200){$parts[4]}} D:Scripts&gt; get-content ex010101.log | ExtractUrl | select-object -Unique</pre>
+<p>and you realize that something very different is going on.  Where classic Unix utilities communicate via streams of strings, their Monad equivalents pass objects back and forth.  Those objects can be as simple as lists, or as complex as trees and tables.  Whatever they are, Monad offers simple, uniform ways to dissect, transform, and reassemble them.  The result is something that&rsquo;s as convenient as Awk, but as powerful as a full-blown programming language.</p>
+<p>If anything, Oakley&rsquo;s book underplays just how powerful Monad might turn out to be.  Instead, he concentrates on the nuts and bolts of installing it, combining built-in filters, creating your own, and so on.  The writing is classic O&rsquo;Reilly: clear, concise, and technical without being intimidating.  The examples are right where they should be, and the index pointed me right at the answer to every question I had.  Its only weaknesses are a near-total lack of diagrams, and the fact that Monad itself uses Perlish syntax (which isn&rsquo;t Oakley&rsquo;s fault, but is still both a sin and a shame).</p>
+<p>Greasemonkey Hacks is just as important, though it&rsquo;s a rougher read, both because it&rsquo;s a compilation, and because its authors are so fascinated with their cool new toy that they make few concessions to non-cognoscenti.  Greasemonkey is a Firefox extension that processes HTML pages after the browser has received them from the server, but before they&rsquo;re displayed.  You describe what you want to do by writing a snippet of Javascript (where &ldquo;snippet&rdquo; sometimes means &ldquo;ten pages or more&rdquo;).</p>
+<p>So, do you want to resize text entry fields?  Highlight search terms?  Create a keyboard shortcut to will zoom images?  Strip out ads?  This book describes user scripts to do all of these things, and dozens more.  &ldquo;Describes&rdquo; is the operative word, though—not &ldquo;explains&rdquo;.  I&rsquo;m all for showing people code, but to take the most egregious example, do the five pages of hex codes in &ldquo;Hack 89: Syndicate Encrypted Content&rdquo; really add to anyone&rsquo;s understanding of anything?</p>
+<p>While Greasemonkey may seem like nerd candy, it&rsquo;s actually an important step toward a user-centric web.  Prior to Greasemonkey, the only control non-programmers had over how they consumed content was whether they got it by email, in their blog reader, or by jumping to something in their favorites list every once in a while.  Greasemonkey changes that: most people will never write scripts, but they will share and tweak them like music and photos.  By the time today&rsquo;s twenty-year-olds are thirty, they&rsquo;ll be as bewildered by a younger generation&rsquo;s casual remixing of content as I am by my niece&rsquo;s text messaging shorthand.  You heard it here first, friends; you heard it here first.</p>
+<hr />
+<p>Andy Oakley: Monad.  O&rsquo;Reilly, 2005, 0596100094, 206 pages, $34.95.</p>
+<p>Mark Pilgrim: Greasemonkey Hacks.  O&rsquo;Reilly, 2005, 0596101651, 495 pages, $24.95.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

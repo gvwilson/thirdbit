@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example in Python 15: Performance Profiling</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example in Python 15: Performance Profiling</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/04/14/page-layout/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-04-15" class="post-date">2024-04-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/04/16/persistence/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>After previous chapters on webbish things,
+<a href="../../../../sdxpy/perf/">Chapter 15: Performance Profiling</a> sets off in a new direction.
+There are basically two ways to store a dataframe:
+as heterogeneous rows or as homogeneous columns.
+Which one performs better depends on the mix of operations in your program.
+If you are filtering records,
+row-wise storage saves you the cost of assembling values scattered across several columns.
+If you are selecting columns,
+on the other hand,
+the column-wise representation imposes almost no overhead at all.</p>
+<p>This chapter builds on earlier exposition of the difference between interface and implementation
+to create two simple dataframe classes with identical interfaces,
+then shows how to use a synthetic benchmark to compare their performance
+on a mix of operations.
+The answer isn&rsquo;t surprising:
+row-wise is better if you&rsquo;re doing a lot of row-oriented operations
+and column-wise if you&rsquo;re doing column-oriented ones.
+What <em>has</em> surprised my students,
+though,
+is that software performance can be studied empirically.
+Many didn&rsquo;t know that profilers exist;
+most had never used one,
+and none had ever benchmarked different implementations against each other before.
+I&rsquo;ve complained many times that universities don&rsquo;t offer courses on debugging;
+if I was in charge of curriculum,
+I would also try to add a senior undergraduate course on performance profiling and optimization
+because of what can be learned about computers by doing it.</p>
+<p><img class="centered" src="../../../../sdxpy/perf/concept_map.svg" alt="Concept map for performance profiling"/></p>
+<blockquote>
+<p>Terms defined: batch processing, benchmark, column-wise storage, data engineer, dataframe, docstring, immutable, index (a database), join (tables), online analytical processing, online transaction processing, parameter sweeping, profiling, row-wise storage.</p>
+</blockquote>
+<p><a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="../../../../sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

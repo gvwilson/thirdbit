@@ -1,0 +1,16 @@
+---
+title: "Fall Courses"
+date: 2008-07-24
+---
+I am teaching two courses this fall, and would like you to help me decide what my students should work on.  The first course, "CSC301: Introduction to Software Engineering", is aimed at third-year students (juniors in American parlance), and covers agile software development processes, design patterns, and other introductory material.  Students work in four-person teams on a course-long project broken into four or five assignments; peer evaluation is part of their grade, and there's a written exam at the end. This past winter, the project was a to-do list plugin for <a href="http://www.facebook.com">Facebook</a>; thanks to some technical support from <a href="http://refreshpartners.com/">Refresh Partners</a>, all of the teams managed to build something usable.
+
+The second course is "CSC491: Computer Science Capstone", which has taken the place of the CSC494/495 directed studies projects I used to run (although I still sometimes take students into CSC494/495 if they can't fit CSC491 into their timetable).  In the past, I've matched students up with clients—faculty in other departments, local non-profits, startups, open source organizations—who want something built.  Over the course of the term, the students go through the entire development cycle: requirements gathering, design, construction,  testing, deployment, and post-mortem evaluation.  The <a href="http://www.cs.toronto.edu/~gvwilson/2008-winter-showcase.pdf">range of projects</a> last winter was pretty broad, but all the clients seemed happy with what they got.
+
+So, what should I do with these courses this fall?  Here's just a few of my options:
+<ol>
+  <li>Get the Capstone students to move (most of) DrProject to <a href="http://www.djangoproject.com/">Django</a>. The aim would be to create the "<a href="http://trac.edgewall.org">Trac</a> 2.0" that DrProject was meant to be; I think it's ambitious, but doable, and would be a great introduction to open source/agile development. The downside is that students wouldn't be working directly with real clients, which they have enjoyed and valued in the past.</li>
+  <li>Have the Capstone students do external consulting projects as before. Upside: making real people's lives better, and strengthening ties between this department and the community. Downside: they don't get the experience of working in a larger group on a larger code base, and it's a lot more work for me :-).</li>
+  <li>Have the CSC301 students build another <a href="http://www.facebook.com">Facebook</a> app. Upside: <a href="http://www.facebook.com">Facebook</a> is still hot (well, lukewarm), and I know how to avoid some of last term's potholes.  Downside: a lot of third-year students haven't done web programming before, so it's a far-from-level playing field.</li>
+  <li>Have the CSC301 students build a desktop GUI application using Swing, wxPython, or something like that. Upside: level playing field. Downside: finding something that's worth build.</li>
+</ol>
+There are lots of other possibilities; if you'd like to add one to the pile, or cast a vote for one of the ones above, I'm <a href="mailto:gvwilson@third-bit.com">easy to reach</a>.

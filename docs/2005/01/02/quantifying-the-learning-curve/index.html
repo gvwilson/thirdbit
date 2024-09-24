@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Quantifying the Learning Curve</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Quantifying the Learning Curve</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2005/01/02/knowing-where-youre-going/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2005-01-02" class="post-date">2005-01-02</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2005/01/05/why-python/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Back in the 1980s, R.W. Hockney introduced two measures for quantifying the performance of pipelined machines.  The first, <em>r<sub>∞</sub></em>, is the pipeline&rsquo;s maximum possible performance when startup effects are ignored (or equivalently, its performance on an infinitely-long vector).  The second, <em>n<sub>½</sub></em>, is the half-performance length, i.e. how much data you need to feed the processor in order for it to achieve half its peak performance.</p>
+<p>In the mid-90s, I suggested (tongue only partly in cheek) that another performance measure would be equally interesting: how long it takes a programmer to learn how to write code that achieves half a machine&rsquo;s rated performance.  I called it <em>p<sub>½</sub></em>, and observed that for many supercomputers, it was effectively infinity, since no application ever delivered more than 10-20% of the performance their manufacturers claimed for them.</p>
+<p>I believe that <em>p<sub>½</sub></em> is one of the most important things for instructors to consider when deciding what tools to use in an educational setting.  In a one-term course, how productive students are after they&rsquo;ve mastered a tool is less important than how quickly they can learn enough about that tool to start doing things with it.  A web server that does 100 things, but takes 100 hours to set up, is a lot less useful than a web server than only does 20 things, but only takes 10 hours to set up.</p>
+<p><em>p<sub>½</sub></em> is why so many of this term&rsquo;s projects are being done in <a href="http://www.python.org">Python</a>.  In particular, it&rsquo;s the reason we&rsquo;re putting the Java version of Hippo [<a href="#1">1</a>] on the shelf for a term, and re-starting the project with Edgewall&rsquo;s <a href="http://projects.edgewall.com/trac">Trac</a>. Our experience in Fall 2004 was that it took students 20-40 hours to become familiar <a href="http://www.hibernate.org">Hibernate</a>, <a href="http://jakarta.apache.org/tapestry">Tapestry</a>, and related Java tools, and another 10-20 to learn the existing Hippo code well enough to figure out what should be done next.  That&rsquo;s 30-60% of the total time allotted for the course, just to get to the point where they could start coding.</p>
+<p>One of my goals this term is to find out whether agile languages (like <a href="http://www.python.org">Python</a>) have a lower <em>p<sub>½</sub></em> than sturdy ones like Java.  It isn&rsquo;t quite the question people usually ask [<a href="#2">2</a>], but from an instructional point of view, I think it&rsquo;s just as important.</p>
+<p>[<a name="1"></a>1] Hippo is a lightweight software project management portal, similar to <a href="http://www.sf.net">SourceForge</a>, but customized for academic use.  In particular, it omits features that undergraduate course projects don&rsquo;t need, but provides a scripting interface so that instructors and administrators can create dozens or hundreds of identical projects, bug reports, etc. at once.</p>
+<p>[<a name="2"></a>2] Many people claim that dynamic, freely-typed, agile languages like Python make programmers more productive than static, type-checked, sturdy languages like Java.  Many other people claim the reverse, but offer just as little empirical evidence.  Most of this debate focus on how productive experienced programmers are <em>after</em> they&rsquo;ve mastered the language and the tools associated with it, or how quickly people can get their first &ldquo;Hello, world&rdquo; program up and running, rather than how long it takes programmers using a particular language to reach some acceptable level of productivity.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

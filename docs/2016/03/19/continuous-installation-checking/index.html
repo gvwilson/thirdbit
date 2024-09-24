@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Continuous Installation Checking</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Continuous Installation Checking</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2016/03/17/new-maintainers/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2016-03-19" class="post-date">2016-03-19</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2016/03/21/registers/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  This one started with me
+  <a href="http://stackoverflow.com/questions/36088231/unable-to-install-bioperl-on-mac-os-x">trying and failing to install some bioinformatics software on my Mac</a>,
+  then turned into a Twitter rant:
+</p>
+<ul>
+  <li>Everyone: please start doing installation-driven development. Not test-driven, not feature-driven: installation-driven.</li>
+  <li>Best possible use of AI: a program that simulates a naive user trying to install your software. "Reads" docs, follows steps…</li>
+  <li>…gets lost, makes mistakes… we could feed traces from actual install attempts into a Markov chain generator, then couple it to…</li>
+  <li>…Travis-CI or something like that so that "user can install" becomes part of the pre-commit check and the world's a better place</li>
+</ul>
+<p>
+  But I'm serious.
+  (I'm <em>always</em> serious.)
+  Given how formulaic installation instructions tend to be,
+  could a graduate student or startup build:
+</p>
+<ol>
+  <li>an <a href="https://en.wikipedia.org/wiki/Natural_language_processing">NLP</a> tool to extract actions from installation and configuration instructions,</li>
+  <li>a monitor to gather traces of the steps taken by actual users (<em>not</em> professional sys admins or package authors) as they try to install the software, and</li>
+  <li>some sort of Markov chain generator to follow the steps found in #1 while making mistakes similar to those detected by #2?</li>
+</ol>
+<p>
+  I don't think this would be easy:
+  the first two parts are each worthy of a thesis (though I suspect the third will be relatively straightforward by comparison).
+  But imagine how useful this would be.
+  Imagine what it would be like if Travis-CI or other continuous integration tools could fire up a lightweight VM
+  and go through your installation instructions
+  <em>every time you committed a change</em>
+  and say,
+  "Nope, sorry, it looks like you've missed a step,
+  and that bit there,
+  the one we've been telling you about for the last three months?
+  Most people are still going to find it confusing,
+  so how about you try explaining it differently?"
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

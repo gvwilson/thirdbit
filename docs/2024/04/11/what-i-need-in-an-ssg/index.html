@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: What I Need in a Static Site Generator</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>What I Need in a Static Site Generator</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/04/10/file-archiver/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-04-11" class="post-date">2024-04-11</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/04/11/html-validator/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I want to create lessons and books rather than blogs,
+so my needs for a static site generator (SSG) are different from most people&rsquo;s.
+Based on what I&rsquo;ve built or customized over the past 15 years,
+here are some of the things I need:</p>
+<ol>
+<li>
+<p>Translate Markdown files into HTML and copy other resources into the right places.
+    The translation should rely on templates,
+    which should support loops, conditionals, parameterized inclusions, and so on
+    (but see the next point).</p>
+</li>
+<li>
+<p>Access to a complete programming language for templating.
+    One of the many frustrating things about <a href="https://jekyllrb.com/">Jekyll</a> is that
+    its templating language only provides a limited subset of Ruby&rsquo;s features:
+    you can&rsquo;t, for example, get the index at which an element appears in an array
+    without writing a template-level loop,
+    which is <em>really</em> clumsy.
+    Tools like <a href="https://ejs.co/">EJS</a> are much, much better in this regard,
+    and reliance on limited templating tools like <a href="https://jinja.palletsprojects.com/en/3.0.x/templates/">Jinja</a>
+    is one of my few grumbles about <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a>.</p>
+</li>
+<li>
+<p>Built-in shortcodes for things like:</p>
+<ul>
+<li>glossary references,</li>
+<li>index entries,</li>
+<li>bibliographic citations,</li>
+<li>numbered cross-references to figures, tables, and headings
+    (both within and between files),</li>
+<li>figure and table inclusions (so that they&rsquo;re formatted in consistent ways)</li>
+</ul>
+</li>
+<li>
+<p>Mechanisms for formatting things like bibliographies, glossaries, and indexes.
+    For example,
+    <a href="https://github.com/gvwilson/mccole">McCole</a> has an extension that uses <a href="https://pypi.org/project/pybtex/">pybtex</a>
+    to turn a <a href="https://en.wikipedia.org/wiki/BibTeX">BibTeX</a>-formatted bibliography into HTML
+    and another that turns a <a href="https://glosario.carpentries.org/">Glosario</a>-formatted YAML file
+    into a human-readable glossary page.</p>
+</li>
+<li>
+<p>A standard way to include fragments of source code and other files.
+    This requirement is why I don&rsquo;t use computational notebooks for my writing:
+    I always want to include sections of code (e.g., a class header and two of its methods)
+    rather than entire pieces of (i.e., the entire class definition),
+    but <a href="https://jupyter.org/">Jupyter</a> and its ilk don&rsquo;t support that.
+    <a href="https://github.com/gvwilson/mccole">McCole</a> provides two mechanisms:
+    one uses specially-formatted comments
+    (&ldquo;include everything from <code># [mark]</code> to <code># [/mark]</code>&rdquo;)
+    and the other relies on program structure
+    (&ldquo;parse the code, walk the AST, find the function <code>example</code>, and unparse it to text).
+    I have other hacks to (for example) show the first <em>and</em> last five lines of a CSV file
+    in a single inline code block and so on;
+    needs like this are why extensibility (discussed below) is so important.</p>
+</li>
+<li>
+<p>Allow one subdirectory per topic to keep files manageable.
+    For example, <a href="https://github.com/gvwilson/mccole">McCole</a> (which is built on <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a>)
+    had a subdirectory <code>src/<em>slug</em></code> for each chapter or appendix,
+    where <code><em>slug</em></code> is a short unique identifier.
+    And while we&rsquo;re here,
+    I always want topic order defined by configuration rather than by cross-references.
+    This requirement may seem like nit-picking,
+    but having to edit half a dozen files when you change the order of two chapters
+    is a real pain.
+    <a href="https://github.com/gvwilson/mccole">McCole</a> defines two lists of slugs in <code>config.py</code> called <code>chapters</code> and <code>appendices</code>,
+    and everything else refers to that.</p>
+</li>
+<li>
+<p>Titles, summaries, key points for the syllabus, and everything else in the frontmatter of each topic page.
+    All of the information about a chapter or appendix should be in its frontmatter
+    rather than in the configuration file or a separate data file.
+    (I&rsquo;ve done it both ways in the past;
+    everything in one place is less error-prone.)</p>
+</li>
+<li>
+<p>Conversely,
+    the SSG should collect all of the frontmatter data
+    and make it available for extensions to use in rendering.
+    For example,
+    each chapter of <a href="../../../../sdxpy/"><em>Software Design by Example</em></a> starts with
+    a list of the terms defined in that chapter.
+    These are collected by a pre-rendering hook that scans the chapter for glossary reference shortcodes;
+    the template has to parse every chapter itself to get that information,
+    which adds a couple of seconds to the build.</p>
+</li>
+<li>
+<p>Extensibility.
+    Using <a href="https://github.com/gvwilson/mccole">McCole</a> as an example again,
+    it defines 27 extensions to <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a> to handle things like
+    bibliographic citations,
+    glossary references,
+    figure inclusions,
+    and so on.
+    Even if an SSG ships with all of these,
+    every user is going to need one more.</p>
+</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

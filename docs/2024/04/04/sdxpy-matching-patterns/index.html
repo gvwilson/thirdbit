@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example in Python 4: Matching Patterns</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example in Python 4: Matching Patterns</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/04/03/worlds/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-04-04" class="post-date">2024-04-04</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/04/05/moving-on/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>As I wrote <a href="../../../../2023/01/09/sdxjs-pattern-matching/">last year</a>,
+every piece of technical writing I&rsquo;ve ever done has been shaped by the work of
+<a href="https://www.cs.princeton.edu/~bwk/">Brian Kernighan</a>.
+His books didn&rsquo;t just teach me how to design software;
+the clarity of his explanations gave me a model to imitate and a standard to strive for.</p>
+<p>It was therefore one of the proudest moments of my professional life
+when Kernighan agreed to contribute a chapter on matching regular expressions to <a href="https://www.oreilly.com/library/view/beautiful-code/9780596510046/"><em>Beautiful Code</em></a> in 2006.
+His short C program only matched the patterns shown below,
+but as Kernighan wrote,
+&ldquo;This is quite a useful class;
+in my own experience of using regular expressions on a day-to-day basis,
+it easily accounts for 95 percent of all instances.&rdquo;</p>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Meaning</th>
+<th>Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Any literal character <em>c</em></td>
+<td><em>c</em></td>
+</tr>
+<tr>
+<td>Any single character</td>
+<td>.</td>
+</tr>
+<tr>
+<td>Beginning of input</td>
+<td>^</td>
+</tr>
+<tr>
+<td>End of input</td>
+<td>$</td>
+</tr>
+<tr>
+<td>Zero or more of the previous character</td>
+<td>*</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>After teaching this material last spring,
+I decided that <a href="../../../../sdxpy/glob/">Chapter 4: Matching Patterns</a> would cover the patterns use in globbing filenames
+rather than the subset of regular expressions for text in <a href="../../../../sdxjs/pattern-matching/">the JavaScript version</a>.
+Re-implementing this still turned out to be
+a natural way to introduce the <a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open-Closed Principle</a>,
+the <a href="https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern">Chain of Responsibility</a> and <a href="https://en.wikipedia.org/wiki/Null_object_pattern">Null Object</a> design patterns,
+some refactoring steps,
+and the idea of test-driven development,
+which isn&rsquo;t bad for a one-hour lesson.</p>
+<p><img class="centered" src="../../../../sdxpy/glob/concept_map.svg" alt="Concept map for pattern matching"/></p>
+<blockquote>
+<p>Terms defined: Chain of Responsibility pattern, child class, Extract Parent Class refactoring, globbing, greedy matching, helper method, inheritance, lazy matching, literal (in parsing), Null Object pattern, refactor, regular expression, signature, technical debt, test-driven development.</p>
+</blockquote>
+<p><a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="../../../../sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

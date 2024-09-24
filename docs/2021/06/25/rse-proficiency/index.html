@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: A Proficiency Test for Research Software Engineers</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>A Proficiency Test for Research Software Engineers</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/06/19/magic-usb-drive/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-06-25" class="post-date">2021-06-25</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/06/30/those-who-ignore-history/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Back in 2014,
+I worked with Mike Jackson, James Hetherington, and Andrew Turner
+to develop a skills assessment for people who wanted to use the DiRAC supercomputing facility.
+It never really caught on—it&rsquo;s politically impossible to tell professors
+who have already paid for machine time
+that their grad students don&rsquo;t know enough about software development to use it efficiently—but
+I&rsquo;m publishing it here in the hope that it will spur others to share
+what people ought to know and how we can tell if they know it.</p>
+<h2>1. Introduction</h2>
+<ol>
+<li>
+<p>You have 90 minutes to complete the following tasks.</p>
+</li>
+<li>
+<p>You may use the web, man pages, and any other resources you would usually use when programming.</p>
+</li>
+<li>
+<p>If you are completing the assessment with colleagues,
+    you are free to discuss hints, tips and the usage of commands,
+    but do not share the answers to tasks.</p>
+</li>
+<li>
+<p>If at any point you would like clarification,
+    please do not hesitate to ask.</p>
+</li>
+<li>
+<p>If at any point you are unable to complete a task,
+    feel free to move on to the next task.
+    The major tasks (shell, shell scripts, testing, code review) are all independent.
+    You may ask for help before moving on,
+    but doing so will be considered equivalent to not completing that task.</p>
+</li>
+</ol>
+<p>Clone the exam repository at [URL provided].
+This serves as both a repository and your working copy.
+You will do all of your work in this local repository
+and use version control to commit your solutions as you go.</p>
+<h2>2. Shell</h2>
+<p>Use the <code>cd</code> command to go into the <code>python/</code> directory,
+which contains two subdirectories.
+Within that directory,
+use a <em>single</em> shell command to create a list of all files
+with names ending in <code>.dat</code>
+in or below this directory
+in a file called <code>all-dat-files.txt</code>.</p>
+<p>Create a file called <code>shell-command.txt</code>
+containing the command you ran to get the list of files,
+add this to the version control repository,
+and commit it.</p>
+<p>Add <code>all-dat-files.txt</code> to the version control repository and commit it.</p>
+<h2>3. Shell Scripts</h2>
+<p>Write a script called <code>do-many.XX</code> (scripting language of choice)
+that runs <code>power2.py</code> for the inputs listed in the file <code>input.d</code>
+and saves the output in a file calld <code>output.d</code>.
+The output file must contain the following when you are done:</p>
+<div class="highlight"><pre><span></span><code>16
+8
+2
+1
+8
+1
+32
+2
+1
+</code></pre></div>
+<p>You do not need to do error-checking on the command-line parameters,
+i.e.,
+you may assume that they are all non-negative integers.</p>
+<p>Add <code>do-many.sh</code> to the version control repository and commit it.</p>
+<h2>4. Testing</h2>
+<p><code>analyze.py</code> contains a function called <code>running_total</code>
+that is supposed to calculate the total of each strictly increasing sequence of integers in a list:</p>
+<div class="highlight"><pre><span></span><code>running_total([1, 2, 1, 8, 9, 2])       == [3, 18, 2]
+running_total([1, 3, 4, 2, 5, 4, 6, 9]) == [8, 7, 19]
+</code></pre></div>
+<p><code>test_analyze.py</code> contains a unit test implementing the first example above.
+Write four more unit tests that you think are most important to run to test this function.
+Do not test for cases of invalid input
+(e.g., inputs that are strings,
+lists of lists,
+or an
+input that isn&rsquo;t a flat list of numbers).
+You can run your tests using the command:</p>
+<div class="highlight"><pre><span></span><code>py.test test_analyze.py
+</code></pre></div>
+<p>Add <code>test_analyse.py</code> to the version control repository.</p>
+<h2>5. Scale Testing</h2>
+<p>What is the approach you would use to check the scaling of a program called <code>long_run.py</code>?
+Explain your method in 50 words.</p>
+<p>Create a file called <code>scale-test.txt</code> with the commands you would use
+and add this to the version control repository.</p>
+<h2>6. Code Review</h2>
+<p>The programs <code>power2.py</code>, <code>power2.c</code>, and <code>power2.f</code>
+each take a single non-negative integer as a command line argument
+and produce the powers of two that total to that number.
+For example:</p>
+<div class="highlight"><pre><span></span><code>./power2.py 27
+</code></pre></div>
+<p>produces:</p>
+<div class="highlight"><pre><span></span><code>16
+8
+2
+1
+</code></pre></div>
+<p>Choose the language you are most comfortable with
+and change this program in at least 3 ways to improve its readability, understandability, and modularity
+<em>without</em> changing its behaviour.</p>
+<p>Commit your changes to the version control repository.</p>
+<h2>7. SSH keypairs</h2>
+<p>Assume you have an account with the username <code>me</code> on a remote host called <code>server.dirac.org</code>.
+You want to use a SSH public/private keypair and associated passphrase to access the remote host.
+What commands would you use to create your SSH keypair
+and to update the remote host with your public key?</p>
+<p>Create a file called <code>ssh-keypair.txt</code> with the commands you would use
+and add this to the version control repository.</p>
+<h2>8. Secure copy</h2>
+<p>Assume that in your <code>me</code> account on server.dirac.org you have 100 files
+called <code>detector001.dat</code>, …, <code>detector099.dat</code>
+in a directory called <code>data</code> immediately below your home directory.
+What commands would you use to securely copy the directory that contains all these files
+from <code>server.dirac.org</code> to your local computer?</p>
+<p>If a few files have been changed within this directory on your <code>server.dirac.org</code> account,
+what command would you use to copy over only the changed files?</p>
+<p>Create a file called <code>secure-copy.txt</code> with the commands you would use
+and add this to the version control repository.</p>
+<h2>9. Archiving</h2>
+<p>Create a file called <code>save-work.txt</code> containing a single command
+to create an archive called either <code>exam.tar.gz</code> or <code>exam.zip</code> in your home directory
+with the files you have created.
+This archive must <em>not</em> contain the <code>.git</code> directory.</p>
+<p>Run <code>save-work.txt</code> and email <code>exam.tar.gz</code> or <code>exam.zip</code> to your examiner.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

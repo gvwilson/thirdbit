@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example in Python 6: Running Tests</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example in Python 6: Running Tests</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/04/05/parsing-text/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-04-06" class="post-date">2024-04-06</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/04/07/in-search-of-balls-and-sticks/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Having written a bunch of tests while building <a href="../../../../sdxpy/parse/">the parser</a> and <a href="../../../../sdxpy/glob/">pattern matcher</a>
+in the previous chapters,
+it was long past time to show learners how to build a testing framework like <a href="https://docs.pytest.org/">pytest</a>.
+In particular,
+<a href="../../../../sdxpy/test/">Chapter 6: Running Tests</a> was another opportunity to show that
+a program is just another kind of data,
+and that introspection can make a lot of things easier to build but harder to understand.
+Finding functions dynamically ensures that we don&rsquo;t ever write tests but forget to run them;
+however,
+it means that the program&rsquo;s text doesn&rsquo;t contain an explicit list of tests that are going to be run.
+This tradeoff is intrinsic and unavoidable:
+higher-level abstractions put more power into experienced programmers&rsquo; hands
+but make their code more difficult for novices to understand.
+Helping novices become comfortable with those abstractions
+was the main goal of this book and <a href="../../../../sdxjs/">its predecessor</a>.</p>
+<p><img class="centered" src="../../../../sdxpy/test/concept_map.svg" alt="Concept map for running tests"/></p>
+<blockquote>
+<p>Terms defined: actual result (of test), assertion, dynamic typing, error (result of test), exception, expected result (of test), failure (result of test), fixture, global, local, pass (result of test), pretty print, raise (an exception), register (in code), scope, unit test.</p>
+</blockquote>
+<p>And now a request:
+if you have experience implementing support for dark mode in browsers
+and can submit a PR to change the CSS for <a href="https://github.com/gvwilson/sdxpy/">this project</a>,
+I&rsquo;d be very grateful for your help.
+I believe the solution is going to involve a media query,
+redefining some colors,
+and using the CSS <code>invert</code> function to make the SVG diagrams white-on-black,
+but I&rsquo;ve never done this and need to focus on other work right now.
+If you can spare the time,
+thank you in advance.</p>
+<p><a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="../../../../sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

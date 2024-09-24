@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example 16: Documentation Generator</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example 16: Documentation Generator</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/01/19/sdxjs-code-generator/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-01-20" class="post-date">2023-01-20</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/01/20/what-would-entice-them/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Many programmers believe they&rsquo;re more likely to write documentation and keep it up to date
+if it is close to the code.
+Tools that extract specially-formatted comments from code and turn them into documentation
+have been around since at least the 1980s;
+<a href="../../../../sdxjs/doc-generator/">Chapter 16</a> of <a href="../../../../sdxjs/"><em>Software Design by Example</em></a>
+builds on discussion in earlier chapters of <a href="../../../../sdxjs/style-checker/">turning code into a data structure</a>
+to extract Markdown from comments and turn it into HTML.</p>
+<figure id="doc-generator-mapping" class="center">
+  <img src="../../../../sdxjs/doc-generator/mapping.svg" alt="Mapping comments to documentation" class="centered">
+  <figcaption>Figure 16.2: How comments in code map to documentation in HTML.</figcaption>
+</figure>
+
+<p>While tools like this are useful,
+I wish they didn&rsquo;t need to exist.
+Instead,
+I wish our languages would allow us to write things like:</p>
+<div class="highlight"><pre><span></span><code>const name = (args) =&gt; {
+    …do things…
+}
+with documentation {
+    Lorem ipsum dolor sit amet,
+    [[consectetur]] adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua.
+}
+</code></pre></div>
+<p>where the names of parameters and other functions are automatically cross-linked
+and <code>[[…]]</code> or some similar syntax creates an external link and so on.
+<a href="https://docs.python.org/3/library/doctest.html">doctest</a>-style tests could be put in another block,
+and I&rsquo;m sure people would find other uses for this as well.
+In a better world than this…</p>
+<blockquote>
+<p>Terms defined: accumulator, block comment, deprecation, doc comment, line comment, slug.</p>
+</blockquote>
+<p>And in answer to a question online,
+no,
+I didn&rsquo;t draw UML diagrams anywhere in this book:
+there wasn&rsquo;t a single case where one of the standard diagram forms
+felt like the best way to present what I wanted to convey.
+I don&rsquo;t think it&rsquo;s because my programs are too small—there are
+lots of places in the book where I wish I&rsquo;d drawn more,
+but I was wearied by the thought of having to maintain them.
+I&rsquo;ve grumbled about this in [<a href="../../../../2022/12/28/ways-to-explain-code/">1</a>, <a href="../../../../2022/12/04/i-want-a-memory-diagram-generator/">2</a>, <a href="../../../../2022/11/30/what-i-want-for-code-in-textbooks/">3</a>, <a href="../../../../2023/01/14/do-these-tools-exist/">4</a>],
+and frankly,
+I&rsquo;ll start believing Silicon Valley is serious about being desperate for more programmers
+when I see companies putting some real resources behind tools to help teach them better.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Allocating Responsibilities</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Allocating Responsibilities</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/11/13/gage-park/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-11-19" class="post-date">2019-11-19</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/11/19/team-conflict/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><em>I wrote this guide ten years ago when I was supervising undergraduate
+programming projects at the University of Toronto.  I hope it&rsquo;s still
+useful.</em></p>
+<p>You and your friends have just formed a team: now what?  How do you decide who
+does what?  And just as importantly, how do you make sure that everyone actually
+does what they&rsquo;re supposed to?</p>
+<p>There are many ways to divide project work between team members.  In a <em>modular
+decomposition</em>, each person is responsible for all aspects of one part of the
+program.  For example, one person might design and build the GUI, while another
+writes the database interface, and a third implements the business rules.  This
+is generally a bad strategy for three reasons:</p>
+<ul>
+<li>
+<p>Unless the team is very disciplined, it leads to <strong>big bang integration</strong>, in
+    which all the components meet each other for the first time right at the end
+    of the project.  Big bang almost always fails.</p>
+</li>
+<li>
+<p>Each team member only really understands one aspect of the project as a whole.
+    This can hurt a lot if there&rsquo;s a final exam (which is just a pointed way of
+    saying &ldquo;team members will learn less&rdquo;).</p>
+</li>
+<li>
+<p>If someone drops out or fails to complete their module, the project as a whole
+    will fail.</p>
+</li>
+</ul>
+<p><em>Functional decomposition</em>, in which each person is responsible for one type of
+task, is usually more successful.  With this strategy, one person does the
+testing, another handles the documentation, a third does the bulk of the coding,
+and the fourth takes care of build and deployment.  This guarantees that
+everyone understands most of the project by the end of the term.  The obvious
+drawback is that each person only gets to hone one set of skills.</p>
+<p>Another, less obvious, drawback stems from the fact that some activities are
+viewed as being more prestigious than others.  If the team decomposes work
+functionally, the self-appointed &ldquo;alpha geeks&rdquo; will usually wind up with the
+plum jobs, like architecture and coding, leaving less appealing work to people
+who aren&rsquo;t as pushy or self-confident.  This tends to reinforce existing
+inequities; it also tends to lower the team&rsquo;s overall grade, since there&rsquo;s often
+little relationship between how outspoken people are and how well they work.</p>
+<p><em>Uniform decomposition</em> is a scaled-down version of modular decomposition that
+is much more effective.  Instead of owning an entire module for the lifetime of
+the project, each developer does the design, coding, testing, and documentation
+for one small feature after another.  Working this way is central to agile
+development, and is a good way to cope with the never-ending timeslicing of
+student life.</p>
+<p>Finally, there is <em>rotating decomposition</em>: everyone does one task for a few
+weeks, then a different task for the new few, and so on.  This is initially less
+productive in absolute terms than either of the preceding strategies, since the
+team has to pay for ramp-up several times over.  In the long term, though, it
+outperforms the alternatives: it is more robust (having a team member drop out
+is less harmful), and if everyone on the team is familiar with every aspect of
+the software, they can all contribute to design and debugging sessions.</p>
+<blockquote>
+<p>The boss of a product group I worked in rotated developers into testing for a
+few weeks at the end of every release cycle.  I learned more about the product
+I was building in those weeks than I learned in the rest of the year;
+configuring the product to work with databases I&rsquo;d never even heard of before,
+and exercising features I only vaguely knew existed, paid dividends many times
+over.</p>
+</blockquote>
+<p>Any of these strategies is better than <em>chaotic decomposition</em>.  If people have
+different ideas about who&rsquo;s supposed to do what, some things won&rsquo;t be done at
+all, while others will be done several times over.  (You can tell if your
+decomposition is chaotic by counting how many times people says, &ldquo;I thought
+<em>you</em> were doing that!&rdquo;  or &ldquo;But I&rsquo;ve already done that!&rdquo;  The more often these
+phrases are heard, the more trouble you&rsquo;re in.)  All other decompositions tend
+toward chaos under pressure, so it&rsquo;s important to establish rules early, and
+stick to them when the going is easy, so that the instinct to do the right thing
+will be there when you need it.</p>
+<p>Your instructor may mandate a particular work decomposition.  If she does, your
+first team meeting should be devoted to deciding who will do what.  Do <em>not</em>
+allocate work on the basis of who&rsquo;s loudest or most willing to interrupt:
+remember, there is only a
+<a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect">weak correlation</a>
+between how confident someone is and how competent they are.</p>
+<p>No matter what decomposition you use, your team should write, sign, and hand in
+a contract outlining what everyone has agreed to do to make the project a
+success.  In my experience, this is a lot more effective if students make it up
+themselves as their first assignment; that way, they actually have to think
+about what they&rsquo;re promising their teammates.  Here&rsquo;s an example:</p>
+<blockquote>
+<p>We, the members of Team 12, agree the following:</p>
+<ul>
+<li>
+<p>Work on each assignment will be divided according to role.  Two
+  people will code, one will test, and one will be responsible for
+  documentation.  One of the coders will run the weekly meeting; the
+  other will take minutes, and post them to the project wiki and
+  mailing list on the same day as the meeting.  These roles will
+  rotate for each assignment.  No one will code two assignments in a
+  row.</p>
+</li>
+<li>
+<p>The tester will be responsible for actually submitting the
+  assignment.  Someone will only be listed as contributing to that
+  assignment if at least two other members of the team think she
+  completed, or made significant progress on, at least one work
+  item.</p>
+</li>
+<li>
+<p>We will aim to get at least 80% on each assignment.</p>
+</li>
+<li>
+<p>We will hold a half-hour status meeting every week on
+  Thursdays at 4:00 pm.  Everyone will attend, and be on time.  If
+  someone cannot attend, they will let the rest of the team know by
+  email no later than noon on that day.</p>
+</li>
+<li>
+<p>Everyone will email a brief point-form summary of their
+  progress during the week to the team mailing list no later than
+  noon on Thursday.  Everyone will read everyone else&rsquo;s summary
+  before the 4:00 meeting and make a list of their questions and
+  concerns.</p>
+</li>
+<li>
+<p>All email about the project will go to the team mailing
+  list, rather than person-to-person.  Everyone will check email at
+  least twice a day during the week, and at least once a day on
+  weekends.</p>
+</li>
+<li>
+<p>No one will check code into version control that fails to
+  compile.  No one will check in code that fails to pass existing
+  tests without first getting the permission of that round&rsquo;s tester.
+  No one will change the database schema or add dependencies on
+  third-party or open source libraries without first getting
+  permission from the whole team.</p>
+</li>
+</ul>
+</blockquote>
+<p>It may sound a little silly, like those &ldquo;contracts&rdquo; that some
+parents and children make up regarding chores and allowances, but
+it&rsquo;s actually very effective.  First, people really do have
+different expectations about what being in a team means.  Some
+people, for example, may be happy with a bare pass; others may
+want the team to shoot for an A+ on everything.  Knowing who wants
+what won&rsquo;t make these tensions go away, but it certainly helps
+focus the argument.</p>
+<p>Drawing up a contract also prevents later disagreements about who actually
+promised or agreed to what.  As with
+<a href="../../../../2018/05/11/meetings/">meetings</a>, people often remember
+things differently; having a signed record is everyone&rsquo;s second-best
+defense. (The best, of course, is personal integrity.)</p>
+<p>I still don&rsquo;t know if teams should have to give copies of their contracts to
+their instructors or not.  On the one hand, it&rsquo;s a great way to let your
+instructor know how you&rsquo;re planning to operate, and what you&rsquo;re planning to
+achieve.  Given that she probably has a lot more experience than you, it gives
+her a chance to tell you if you&rsquo;ve forgotten anything, or how well those really
+cool ideas your teammate talked you into will actually work.  On the other hand,
+as soon as something has to be handed in, some students will write what they
+think the instructor wants to read, rather than what they actually think.</p>
+<p>Two last notes.  First, most software development teams in industry and open
+source don&rsquo;t bother with contracts like these.  There may be corporate
+guidelines on good citizenship, or performance metrics written into your job
+spec, but in general, people expect that if you&rsquo;re doing this for a living, you
+know what others can reasonably expect of you, and you will live up to those
+expectations.  (This often turns out not to be the case, which is one of the
+reasons so many real-world projects fail.)</p>
+<blockquote>
+<p>&ldquo;You can&rsquo;t manage what you don&rsquo;t measure&rdquo; is a truism in the business world.
+Unfortunately, so is, &ldquo;You only get what you reward.&rdquo;  If developers are
+rewarded for the number of lines of code they write, they will write
+overly-verbose code; if they are rewarded for the number of bugs they find,
+they won&rsquo;t bother to do any testing up front, since that would actually lower
+their score.  I think metrics are valuable, but it requires a lot of maturity
+(and the ability to reflect on what they actually mean) to realize that value.</p>
+</blockquote>
+<p>Second, if your instructor has you draw up a team contract at the start of the
+project, then she can and should base part of your team&rsquo;s grade on how well you
+stuck to it.  If she handed you a team contract, she should definitely base part
+of the grade on compliance.  If there was no contract at all, then I think it&rsquo;s
+unfair to turn around at the end of the project and ask people to rate one
+another, since they won&rsquo;t have known while they were working what they were
+going to be rated on.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

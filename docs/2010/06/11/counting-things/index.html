@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Counting Things</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Counting Things</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/06/11/interview-uk-met-office/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-06-11" class="post-date">2010-06-11</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/06/12/the-cowichan-problems/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I re-read Robins et al's "Learning and Teaching Programming: A Review and Discussion"[^1] and Eccles and Stacey's "Understanding the Parallel Programming"[^2] this morning. One of the key takeaways in both is that novice programmers tend to classify problems according to problem domain or language features, while experienced programmers tend to classify them according to solution strategies. Where a beginner sees a problem in molecular biology or statistics, for example, an expert sees an opportunity to apply divide-and-conquer or accumulate-and-adjust.</p>
+<p>Knowing that, it's tempting to try a strategies-first approach when teaching programming. That usually doesn't work, though, because the strategies are shaped by what computers can do, and if you don't know that, those strategies seem to appear like rabbits out of a magician's hat.</p>
+<p>The idea is still appealing, so as part of the lecture on program design (or perhaps as a separate lecture), I'd like to explore strategies for solving variations on a simple problem as a way to sum up previous material on programming language features like loops and conditionals. The problem I have in mind can be summed up in one word: counting. The variations are:</p>
+<ol>
+<li>How many things do I have? (Use len(list).)</li>
+<li>How many things do I have that satisfy some condition? (Conditional inside loop.)</li>
+<li>What if my things are in a file instead of in memory? (Read the file into a list, then count.)</li>
+<li>What if I have so many things that the won't fit into memory? (Read and test one at a time, streamwise.)</li>
+<li>What if I'm counting the number of items of each of a set of fixed types? (Use an array of accumulators.)</li>
+<li>What if I don't know the types in advance? (Use a dictionary–which is also the better answer for #5 above.)</li>
+<li>What if my classification scheme is likely to change frequently? (Pass the classifying function into the counting function.)</li>
+<li>What if I only want things up to some stop sign? (Count to sentinel and break.)</li>
+<li>What if my test depends on context, e.g., number of times A comes after B, or number of X's inside a region delimited by Y's? (Use flags to turning counting on and off.)</li>
+<li>What if my things are in a tree rather than a list? (Recursion.)</li>
+<li>What if my things are in a graph that might contain cycles? (Graph-traversal algorithms.)</li>
+<li>What if I might have all of the above? (Iterator and visitor design patterns.)</li>
+<li>What if my things are in a database? (Select, filter, and aggregate.)</li>
+<li>What if I want to calculate an average? (Any of the above plus a count of items.)</li>
+<li>What if I want to calculate a median? (Requires different strategies entirely because it depends on global knowledge.)</li>
+</ol>
+<p>I don't think students could absorb graph traversal, design patterns, and select/filter/aggregate as asides in a single lecture. (It's already clear from feedback, by the way, that introducing big-oh as an aside in the lecture on tuning programs is asking too much–we'll fix that up soon.) What I'm wondering is, if we've introduced those topics earlier, would a single lecture that showed how changes in the problem determine solution strategy be useful as a summing up? Your feedback would be greatly appreciated.</p>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Anthony Robins, Janet Rountree, and Nathan Rountree: &ldquo;<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.100.9130&amp;rep=rep1&amp;type=pdf">Learning and Teaching Programming: A Review and Discussion</a>&ldquo;. <em>Computer Science Education</em>, 13(2), 2003.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Ryan Eccles and Deborah A. Stacey: &ldquo;<a href="http://portal.acm.org/citation.cfm?id=1135771.1136120">Understanding the Parallel Programmer</a>&ldquo;. <em>Proc. 20th International  Symposium on High-Performance Computing in an Advanced Collaborative  Environment</em> (HPCS&lsquo;06), 2006.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+---
+title: "Short Stories Are a Form of Their Own"
+date: 2007-09-01
+---
+Note: this review is now <a href="http://www.ddj.com/architect/201803936">online</a> at <a href="http://www.ddj.com"><em>Doctor Dobb's Journal</em></a>.
+
+The lawn needs mowing, and I need to make up a marking scheme for the course I'm teaching this fall, so this is as good a time as any to catch up with my reviews.  Over the summer, I read four Digital Short Cuts from Pearson (owner of both Addison-Wesley and Prentice Hall). Like the similarly-named series from O'Reilly reviewed in my last column, these mini-books are a response to the relentless decline in technical book sales since the end of the dot-com boom.  Each one focuses on a single specific topic, and is available only in electronic form.  Their publishers clearly hope that people who wouldn't spend $70 for something wide-ranging can be persuaded to make a $10 impulse purchase, even when they have Google at their fingertips.
+
+So how do these four Short Cuts fare?  At a detailed level, very well: the quality of writing ranges from competent to very good, and they all pack a fair amount of information into a relatively small space.  At a larger level, though, three of the four were unsatisfying, though for different reasons.
+
+The problem with Eichorn's <cite>Understanding AJAX</cite> and Jayaswal et al's <cite>Analytic Hierarchy Process</cite> is that they are chapters excerpted from larger books.  It's always difficult to make that work: a short story isn't just a novel that has been cut down to a tenth its original size, any more than a half-hour sitcom episode is a short movie.  Shorts in any medium have their own rhythms and structures, but when reading both of these, I felt as though I had joined a conversation part-way through.
+
+The third Short Cut I read was <cite>Learn to Program with Phrogram!</cite> According to the first page, "Phrogram makes it easy and fun to learn programming," and, "Unlike other easy-to-learn languages, Phrogram is similar to the tools that are used by professional programmers."  Both are laudable goals, but—well, with apologies to the authors, I just don't buy it.  Phrogram the language looks like Object Pascal or a cleaned-up Visual Basic, its little IDE contains nothing that wasn't in Logo environments twenty years ago, and the usual topics (loops, conditionals, methods, and so on) are presented in the usual order.  In short, both the book and its subject repackage ideas that have already failed to stem declining interest in programming among school-aged children.
+
+The only one of the quartet that really satisfied me was Wellington's <cite>Refactoring to Agility</cite>, which is aimed at "engineers working in non-agile development organizations" for whom "moving to an agile process is a huge leap and brings significant risks".  Wellington clearly knows her audience: her references to PERT charts, customer-visible functionality, and metric inventories will soothe cubicle dwellers who feel nervous about not having those thousand-page specs they never actually get around to reading.  More seriously, it's clear throughout these hundred-odd pages that Wellington has seen first-hand what can go wrong when you try to change the habits of an (organizational) lifetime, and has thought hard about how to improve the odds of success.  I would have liked more data to back up some of the book's claims (for example, where does the curve in Figure 1.1 come from?), but overall, I think this is the right tone and length for teams in large organizations who are thinking about trying something new.
+
+<hr />Joshua Eichorn: <cite>Understanding AJAX: Consuming the Sent Data with XML and JSON</cite>.  Prentice Hall (Digital Short Cut), 2006, 0132337932.Bijay K. Jayaswal, Peter C. Patton, and Ernest H. Forman: <cite>The Analytic Hierarchy Process (AHP) in Software Development</cite>. Prentice Hall (Digital Short Cut), 2007, 0132351358.
+
+Jon Schwartz, Walt Morrison, and David Witus: <cite>Learn to Program with Phrogram!: A Guide to Learning Through Game Programming Using the Latest Version of Kids Programming Language</cite>. Addison-Wesley (Digital Short Cut), 2007, 0321496833.
+
+Carol A. Wellington: <cite>Refactoring to Agility (Digital Shortcut)</cite>.  Addison-Wesley, 2006, 0321486471.

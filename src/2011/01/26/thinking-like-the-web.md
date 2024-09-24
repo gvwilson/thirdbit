@@ -1,0 +1,5 @@
+---
+title: "Thinking Like the Web"
+date: 2011-01-26
+---
+Jon Udell's 1999 book <a href="http://oreilly.com/catalog/9781565925373"><em>Practical Internet Groupware</em></a> was a revelation for me: it was the first coherent explanation I'd ever read of how the disparate collection of technologies and social conventions that we call "the web" fit together, and what the deeper patterns and concepts beneath them are. After a lot of further work and thought, Jon has condensed those ideas into seven principles–or as he puts it, "<a href="http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/">Seven Ways to Think Like the Web</a>". These concepts are the most meaningful definition yet of what the phrase "computational thinking" actually means, and of what people who <em>aren't</em> programmers need to know in order to use the web effectively. But it raises a question: what would a high school course that focused on these concepts, rather than on Excel or Java, look like?  Is it even possible?  Is there an equivalent of "Civics 101" for the web?

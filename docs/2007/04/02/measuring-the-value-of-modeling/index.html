@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Measuring the Value of Modeling</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Measuring the Value of Modeling</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2007/04/01/knowing-where-you-are/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2007-04-02" class="post-date">2007-04-02</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2007/04/05/the-50-most-important-white-people-in-it/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Here&rsquo;s a thought experiment (inspired in part by Michael Ernst&rsquo;s <a href="http://pag.csail.mit.edu/~mernst/pubs/groupthink-2006.pdf">groupthink exercise</a> at MIT):</p>
+<ol>
+  <li>Give half a dozen developers a two-page plain-language description of a change you want made in a program, or a new feature you want added.</li>
+  <li>After they've finishing reading it, let them discuss it for 15 minutes.</li>
+  <li>When they're done discussing it, send them off to their cubicles to write code.  They are not allowed to communicate with one another while coding.</li>
+  <li>Once they're done, count the inconsistencies and contradictions in their code.  These indicate:
+<ol>
+  <li>things the developers didn't discuss during their 15 minutes;</li>
+  <li>things they did discuss, but didn't reach consensus on; and</li>
+  <li>things they <em>thought</em> they reached consensus on, but actually understood differently.</li>
+</ol>
+</li>
+</ol>
+<p>What do you think the number of comprehension-related mistakes will depend on?  Off the top of my head, I&rsquo;d say:</p>
+<ol>
+  <li>how experienced the developers are (seasoned professionals will get to the core issues faster during those 15 minutes, and are more likely than juniors to "fill in the blanks" the same way during development);</li>
+  <li>the size of the problem (big things take longer to iron out than little things, though that may be a tautology); and</li>
+  <li>how much time the developers were given for discussion.</li>
+</ol>
+<p>Let&rsquo;s take a closer look at #3.  Suppose we were to give the same problem to a second, comparable, group of developers, but let them talk for an hour.  You&rsquo;d expect their code would show signs of stronger consensus about what was to be built, and how.</p>
+<p>But what about two hours?  Or four?  Or two days?  I have no data to back this up, but I believe very strongly that (a) the developers&rsquo; performance would level off, and (b) that asymptotic value would be less than perfection.  In my experience, there&rsquo;s only so much you can figure out about a problem before you start writing code.  After a certain amount of talking, you have to involve the software itself in the discussion in order to make any more progress.</p>
+<p>Now let&rsquo;s add another wrinkle.  What if the developers aren&rsquo;t normal?  What if they use <a href="http://www.uml.org/">UML</a>, <a href="http://alloy.mit.edu/">Alloy</a>, <a href="http://vl.zuser.org/">Z</a>, or some other (semi-)formal modeling method?  Advocates of such methods claim that by forcing developers to be specific about their meaning before any code is written, they eliminate (or at least greatly reduce) consensus errors, but I&rsquo;m not convinced.  I think that what they do is slow developers down so that they have longer conversations, and that those conversations are what improves consensus.</p>
+<p>Looking at it another way, I don&rsquo;t think formal notations are much use at all when the group only has 15 minutes to discuss what it&rsquo;s going to do.  I don&rsquo;t think they&rsquo;re much use when developers have an hour, either—at least, not when the team is small enough to fit into one room.  Based on my interactions with physicists, mathematicians, and others who have no choice but to use exact notations, that crucial first discussion period is always going to be spent kicking ideas around using imprecise but evocative language.  It&rsquo;s only worth translating those ideas into more formal terms to check their completeness and consistency (a) after a working consensus has been achieved, <em>and</em> (b) when the problem is large enough that the people involved are likely to misremember the consensus after they leave the room.</p>
+<p>That, I think, explains why the vast majority of developers don&rsquo;t use formal notations.  Again, I don&rsquo;t have any data to prove this yet, but I believe that once consensus is strong enough for it to be worth translating what the group has agreed on into a formalism like UML, Alloy, or Z, it&rsquo;s strong enough for the group to actually start coding (i.e, translating their consensus into a formalism that will actually run on a computer).  Putting it another way, the act of translating a consensus into a formal notation does not add enough value to justify the time it requires—in most cases, it is busy work that doesn&rsquo;t turn up new problems more cheaply than actually coding.</p>
+<p>Here&rsquo;s another way of looking at the same idea:</p>
+<p><img alt="Models" src="../../../../files/2007/04/models.png" class="centered"></p>
+<p>The single-brain side shows what normally happens: the developer takes part in a conversation (which may in fact mean &ldquo;reads a hastily-composed email message from her boss with attachments summarizing disjointed conversations with clients who have conflicting needs&rdquo;), translates that into a mental model of what is to be built, and then translates that mental model into code.  The double-brain shows what happens when models are used: the first developer translates the conversation into a mental model, and that mental model into UML (or whatever).  A second developer then creates her own mental model from that UML, which she then translates into code.</p>
+<p>The claim on which modeling rests is that <em>P+Q+R+S &lt; P+S</em>. This isn&rsquo;t actually impossible, because:</p>
+<ul>
+  <li>the two developers in the double-brain picture might be the same person (in which case, the costs of building the second mental model and translating it into code are greatly reduced compared to the single-brain picture);</li>
+  <li>the problem might be so big and/or gnarly that no single person can hold the whole of the mental models I've drawn in their head at once (in which case, some kind of "external memory" like the UML box in the second picture is essential); or</li>
+  <li>the "second developer" in the double-brain model might be replicated, i.e., one modeler might be doing the hard work to support <em>N</em> coders.  In this case, <em>R</em> and <em>S</em> are replicated <em>N</em> times, but <em>P</em> and <em>Q</em> aren't; since they're (probably) the larger costs, the total cost is reduced.</li>
+</ul>
+<p>The punchline to all of this is that I believe these experiments can actually be done.  We can give specifications to small groups of developers, limit the time they have for free-wheeling discussion and/or formal modeling, have them code in isolation afterward, and see when, where, and whether modeling adds value.  We can equally measure the values of <em>P</em>, <em>Q</em>, <em>R</em>, and <em>S</em> in the diagrams above.  Yes, there will be lots of variation between developers, and yes, the results will be influenced by the nature of the problems we choose, but as Jorge Aranda showed in this <a href="http://www.cs.toronto.edu/~jaranda/pubs/AnchoringAdjustment.pdf">elegant piece of empirical research</a>, that doesn&rsquo;t mean it&rsquo;s impossible to prove interesting and useful things.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Generating Elegance</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Generating Elegance</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2008/01/28/first-figure-out-what-you-want-to-change/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2008-02-02" class="post-date">2008-02-02</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2008/02/04/youre-not-allowed-to-use-what-you-learn-in-this-book/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>There was a moment on Friday that sums up why I like to teach.  As part of preparing for <a href="http://us.pycon.org/2008/about/">PyCon&lsquo;08</a>, <a href="http://blog.codekills.net/">David Wolever</a> is tidying up DrProject&rsquo;s database schema.  One task is to rationalize the handling of enumerations such as ticket states: at present, these are variously represented as:</p>
+<ul>
+  <li>string columns in the database;</li>
+  <li>integer columns that index into tables that store the corresponding human-readable string; and</li>
+  <li>integer columns that are translated into strings in the code.</li>
+</ul>
+<p>The cleaned-up version is to have one table that stores all enumerated values:</p>
+<ul>
+  <li>whatfor (string): name of enumeration</li>
+  <li>name (string): name of enumeration elements</li>
+  <li>value (string): integer value of that element (for sorting and cross-referencing)</li>
+</ul>
+<p>which gives:</p>
+<table class="centered">
+<tr>
+<th>whatfor</th>
+<th>name</th>
+<th>value</th>
+</tr>
+<tr>
+<td>'ticket_type'</td>
+<td>'bug'</td>
+<td>0</td>
+</tr>
+<tr>
+<td>'ticket_type'</td>
+<td>'enhancement'</td>
+<td>1</td>
+</tr>
+<tr>
+<td>'ticket_type'</td>
+<td>'task'</td>
+<td>2</td>
+</tr>
+<tr>
+<td>'user_state'</td>
+<td>'pending_confirmation'</td>
+<td>0</td>
+</tr>
+<tr>
+<td>'user_state'</td>
+<td>'registered'</td>
+<td>1</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</table>
+<p>Using <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> and <a href="http://elixir.ematia.de/trac/wiki">Elixir</a>, this schema is:</p>
+<pre>
+class Enum(Entity):
+
+    has_field('whatfor', Unicode(), primary_key = True)
+
+    has_field('name', Unicode(), primary_key = True)
+
+    has_field('value', Integer())
+
+    using_options(tablename='enums', order_by=['value'])class Ticket(Entity):
+
+    belongs_to('status', of_kind='Enum')</pre>
+<p>The problem is, we also want to define default values for the fields <code>whatfor</code> and <code>name</code> when declaring those columns.  Normally, this would be done like this:</p>
+<pre>
+belongs_to(
+
+    'status',
+
+    of_kind='Enum',
+
+    column_kwargs = {'default': lambda 'some_default'}
+
+)</pre>
+<p>But that doesn&rsquo;t work in this case, because there are two fields in the primary key of <code>Enum</code> (and they both get assigned <code>&lsquo;some_value&rsquo;</code>).  In the long run, there doesn&rsquo;t seem to be any reason why we shouldn&rsquo;t be able to specify per-column settings when the primary key spans multiple fields, like this:</p>
+<pre>
+belongs_to(
+
+    'status',
+
+    of_kind='Enum',
+
+    per_column_kwargs = {
+
+        'whatfor' : { 'default' : 'foo'},
+
+        'value'   : { 'default' : 'bar'}
+
+    }
+
+)</pre>
+<p>But that doesn&rsquo;t work yet, so <a href="http://blog.codekills.net/">David</a> came up with this:</p>
+<pre>
+def enum_default(whatfor, value):
+
+    def _enum_generator(whatfor, value):
+
+        yield whatfor
+
+        yield value</pre>
+<pre>    return _enum_generator(whatfor, value).next
+
+belongs_to(
+
+    'status',
+
+    of_kind='Enum',
+
+    column_kwargs = {
+
+        'default': enum_default('foo', 'bar')
+
+    }
+
+)</pre>
+<p>It took me a moment to figure it out, but when I did, I thought it was actually rather elegant.  I wonder what I&rsquo;ll learn from my students next week?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

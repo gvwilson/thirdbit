@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Fifty… Million… Calls</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Fifty… Million… Calls</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2005/08/22/slow-imports/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2005-08-25" class="post-date">2005-08-25</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2005/09/14/software-carpentry-first-meeting/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>&ldquo;House&rdquo; and &ldquo;CSI&rdquo; (the original) are two of my favorite TV shows.
+Partly, it&rsquo;s the characters—Hugh Laurie and Marg Helgenberger are
+both brilliant—but I also enjoy watching smart people debugging.
+Sure, they&rsquo;re dealing with diseases and crime scenes, but deep down
+it&rsquo;s all the same: something&rsquo;s wrong, and you have to figure out
+what.</p>
+<p>The Argon team spent a lot of the last five days doing exactly
+that.  For those of you who haven&rsquo;t been following along, Argon is a
+fork of <a href="http://projects.edgewall.com/trac">Trac</a>, a
+lightweight web-based project management framework that&rsquo;s implemented
+in Python.  We&rsquo;ve been working for several months to modify it so that
+we can use it to run undergraduate programming projects; the interface
+has been redesigned, it now handles multiple projects, we&rsquo;re using
+PostgreSQL instead of SQLite (partly for performance, and partly
+because SQLite contains a synchronization bug), and so on.</p>
+<p>A couple of weeks ago, we finally installed it on CDF, the
+Computing Disciplines Facility servers that host undergraduate work
+during term.  It took longer than anticipated to find a set of file
+ownerships and permissions that would allow students access to their
+projects, but <em>only</em> their projects, while giving TAs and
+lecturers access to everything.</p>
+<p>We got it sorted out eventually, but then we ran into another
+problem: our application was really, really slow—it was taking 10
+seconds or more to service each CGI request.  There was no way we
+could put it into production as it was.</p>
+<p>While we were poking around at our end, <a href="http://www.cmlenz.net">Chris Lenz</a> had a look.  The first
+thing he told us was that we should map the <code>htdocs</code>
+directory (the one containing all the static resources) to some URL
+that wouldn&rsquo;t trigger an invocation of the CGI, so that Apache
+wouldn&rsquo;t have to invoke Python for each image or icon.</p>
+<p>The second thing was that our code ran in under half a second on
+his unplugged Powerbook.  He and Keir Mierle (one of the students
+working here in Toronto) profiled the code, and found that almost all
+the difference lay in the time it was taking the CGI to import the
+libraries it needed.  On Chris&rsquo;s machine, this was a few hundred
+milliseconds; on ours, it was several seconds.</p>
+<p>All right, down a layer we go.  Keir profiled Python itself using
+gprof, and found this:</p>
+<table class="centered">
+<tr>
+<th valign="top" align="left">% time</th>
+<th valign="top" align="left">cumulative seconds</th>
+<th valign="top" align="left">self seconds</th>
+<th valign="top" align="left">calls</th>
+<th valign="top" align="left">self s/call</th>
+<th valign="top" align="left">total s/call</th>
+<th valign="top" align="left">name</th>
+</tr>
+<tr>
+<td>38.46</td>
+<td>0.70</td>
+<td>0.70</td>
+<td>51442563</td>
+<td>0.00</td>
+<td>0.00</td>
+<td><code>_PyUnicodeUCS2_IsLinebreak</code></td>
+</tr>
+<tr>
+<td>15.93</td>
+<td>0.99</td>
+<td>0.29</td>
+<td>28141</td>
+<td>0.00</td>
+<td>0.00</td>
+<td><code>PyUnicodeUCS2_Splitlines</code></td>
+</tr>
+<tr>
+<td>3.85</td>
+<td>1.06</td>
+<td>0.07</td>
+<td>83334</td>
+<td>0.00</td>
+<td>0.00</td>
+<td><code>classify</code></td>
+</tr>
+<tr>
+<td>3.30</td>
+<td>1.12</td>
+<td>0.06</td>
+<td>55512</td>
+<td>0.00</td>
+<td>0.00</td>
+<td><code>PyFrame_New</code></td>
+</tr>
+<tr>
+<td>2.20</td>
+<td>1.16</td>
+<td>0.04</td>
+<td>1233298</td>
+<td>0.00</td>
+<td>0.00</td>
+<td><code>_PyUnicode_New</code></td>
+</tr>
+<tr>
+<td>2.20</td>
+<td>1.20</td>
+<td>0.04</td>
+<td>50779</td>
+<td>0.00</td>
+<td>0.00</td>
+<td><code>list_dealloc</code></td>
+</tr>
+<tr>
+<td>1.65</td>
+<td>1.23</td>
+<td>0.03</td>
+<td>1416785</td>
+<td>0.00</td>
+<td>0.00</td>
+<td><code>app1</code></td>
+</tr>
+<tr>
+<td>1.65</td>
+<td>1.26</td>
+<td>0.03</td>
+<td>660223</td>
+<td>0.00</td>
+<td>0.00</td>
+<td><code>dict_subscript</code></td>
+</tr>
+<tr>
+<td>1.65</td>
+<td>1.29</td>
+<td>0.03</td>
+<td>515599</td>
+<td>0.00</td>
+<td>0.00</td>
+<td><code>PyDict_GetItem</code></td>
+</tr>
+</table>
+<p>That&rsquo;s right: for some reason, each time the CGI ran, it called the
+function that sees whether a character is a Unicode end-of-line marker
+50 million times.</p>
+<p>Hm… If we were parsing XML or some other data files, I could see
+why we&rsquo;d call <code>_PyUnicodeUCS2_IsLinebreak</code>, but this was
+happening as we were importing libraries.  Ah, but: each of the source
+files we inherited from Trac began with the line:</p>
+<pre># -*- coding: iso8859-1 -*-</pre>
+<p>This is an Emacsism that recent versions of Python have adopted to
+tell the interpreter how the characters in the source file are
+encoded.  (If you don&rsquo;t know what that means, please check out Joel
+Spolsky&rsquo;s <a href="http://www.joelonsoftware.com/articles/Unicode.html">excellent
+article</a>.)  When we took those pragmas out of our files, the number
+of calls to <code>_PyUnicodeUCS2_IsLinebreak</code> dropped to 29
+million.  That&rsquo;s still a lot, but it was a sign we were on the right
+track.</p>
+<p>We then got tangled up for a while with .pyc files.  When Python
+imports a .py module, it compiles it to bytecode, and then saves the
+bytecode to disk.  The next time it&rsquo;s asked to import the module, it
+checks the timestamp on the corresponding .pyc; if the .pyc is
+fresher, Python slurps that into memory instead of recompiling the
+source.  Of course, this only works if the Python interpreter has
+permission to write to the directory that the .py file is stored in.
+In our case, it couldn&rsquo;t, because the interpreter was running with
+the user ID of the web server, and giving it write access to the
+source directory would open up a fairly large security hole.</p>
+<p>Our solution was to compile all the .py files to .pyc&rsquo;s manually
+every time we updated the source code (just as Python does to its
+standard library when you install it on a new machine).  For a while,
+though, we were running our tests with some .pyc&rsquo;s deleted, but others
+still present, which is why we were still getting those 29 million
+calls to <code>_PyUnicodeUCS2_IsLinebreak</code>.  Once we got that
+cleaned up, the number of calls dropped to zero, and the run time went
+from over 10 seconds per hit to 2 or less—well within our comfort
+zone.</p>
+<p>OK, we&rsquo;d fixed our problem, but we still didn&rsquo;t really understand
+it.  Karen Reid (my co-supervisor) and I have learned the hard way
+that just making bugs go away usually isn&rsquo;t enough: if you don&rsquo;t
+understand where they came from, they&rsquo;ll probably come back when you
+least expect them.</p>
+<p>We had Keir post a note to the Python developers&rsquo; list.  It went
+out at 16:10 on Tuesday, August 23.  At 05:45 the next morning, Walter
+Dorwald replied to say:</p>
+<blockquote>This is caused by the chances to the codecs in 2.4. Basically the codecs
+no longer rely on C's readline() to do line splitting (which can't work
+for UTF-16), but do it themselves (via unicode.splitlines()).</blockquote>
+<p>Half an hour later, Martin v. Lowis followed up with:</p>
+<blockquote>That explains why you get any calls to IsLineBreak; it doesn't explain
+why you get so many of them.
+I investigated this a bit, and one issue seems to be that
+StreamReader.readline performs splitline on the entire input, only to
+fetch the first line. It then joins the rest for later processing.
+In addition, it also performs splitlines on a single line, just to
+strip any trailing line breaks.
+The net effect is that, for a file with N lines, IsLineBreak is invoked
+up to N*N/2 times per character (at least for the last character).</blockquote>
+<p>Yup—the reader was invoking
+<code>_PyUnicodeUCS2_IsLinebreak</code> N<sup>2</sup> times.  Square
+root of fifty million is… carry the three… about seven thousand,
+which happens to be about the number of lines of code we were
+loading.</p>
+<p>There have been over a dozen messages on the Python developers&rsquo;
+list since then about how to fix this.  The most interesting part for
+me hasn&rsquo;t been the proposals themselves, but rather the fact that the
+first thing Walter and Martin did was write little test programs and
+profile them to find out how fast things would actually run.  To put
+it another way, good programmers like Walter and Martin automatically
+apply the scientific method to problems—they design and run
+experiments, collect data, and <em>then</em> formulate a hypothesis
+(a.k.a. a bug fix).  It&rsquo;s cool to be able to watch this in action, and
+even cooler to have code that runs fast enough to be called
+interactive.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

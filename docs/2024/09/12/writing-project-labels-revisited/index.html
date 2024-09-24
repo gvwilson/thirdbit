@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Labels for Technical Writing Projects</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Labels for Technical Writing Projects</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/09/06/how-i-explain-code/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-09-12" class="post-date">2024-09-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/09/23/a-bag-of-hippos/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><em>(Originally posted in the <a href="https://ropensci.org/blog/2024/09/12/labels-writing-projects/">rOpenSci blog</a>—my thanks to <a href="https://yabellini.netlify.app/">Yanina Bellini Saibene</a> for editing.)</em></p>
+<p>Over the past thirty years I have written five technical books,
+co-written three others,
+and edited a further six.
+Since 2007 they have all lived in GitHub repositories,
+as did the first versions of the <a href="https://carpentries.org/">Software Carpentry</a> lessons that I helped to write.</p>
+<p>A few months ago I wrote about <a href="../../../../2024/03/07/labels/">the GitHub issue labels I use</a>
+for writing projects like these.
+As I put that post together,
+I realized that I wasn&rsquo;t actually using all of the labels I had created,
+and that the problem of choosing good labels for a mixture of code and prose
+is more complicated than it seems.</p>
+<ol>
+<li>
+<p>GitHub only allows one set of labels per project,
+    which means that the labels you would want to apply to issues
+    are in the same pile as labels you&rsquo;d want to apply to pull requests (PRs).
+    This overlap quickly leads to confusion:
+    &ldquo;bug&rdquo; is the right label for an issue reporting a problem,
+    but doesn&rsquo;t feel appropriate for the PR that fixes the problem.
+    (&ldquo;Wait, is this PR adding a bug?&rdquo;)
+    Most projects use two different labels (e.g., &ldquo;bug&rdquo; and &ldquo;fix&rdquo;),
+    but after going back and forth,
+    I&rsquo;ve settled on &ldquo;fix&rdquo; to mean both &ldquo;Please fix this&rdquo; (in an issue)
+    and &ldquo;This contains a fix&rdquo; (in a PR).</p>
+</li>
+<li>
+<p>By default,
+    GitHub provides nine labels for issues and PRs.
+    Fully a third of these—<code>duplicate</code>, <code>invalid</code>, and <code>wontfix</code>—describe reasons to close an issue
+    or discard a PR.
+    That seems excessive to me,
+    and I feel it&rsquo;s polite to add a sentence or two of explanation as a comment.
+    (You have to do this anyway when marking an issue or PR as <code>duplicate</code> to point at what it&rsquo;s duplicating.)</p>
+<p><em>Note: I find it a bit ironic that GitHub provides three ways to say &ldquo;no&rdquo; but none for saying &ldquo;yes&rdquo;.
+If I was going to use labels to mark closed issues,
+I would include &ldquo;resolved&rdquo; and/or &ldquo;merged&rdquo;.</em></p>
+<p><em>Also note: English doesn&rsquo;t have an antonym for &ldquo;mistake&rdquo;, i.e., we don&rsquo;t have a single word
+that means, &ldquo;A thing done well.&rdquo;
+We sometimes say &ldquo;a score&rdquo; or &ldquo;a win&rdquo; to mean this,
+but those are the outcome, not the act itself.
+I sometimes wonder what this absence says about English speakers&rsquo; view of the world…</em></p>
+</li>
+<li>
+<p>When you create a new project on GitHub,
+    you can select any of several widely-used licenses.
+    However,
+    all of those licenses apply to code:
+    the <a href="https://creativecommons.org/">Creative Commons</a> licenses for prose (written work) aren&rsquo;t offered.
+    I always wind up writing <a href="https://github.com/gvwilson/sql-tutorial/blob/main/LICENSE.md">a custom <code>LICENSE.md</code></a> to say that
+    all of the written material is made available under the CC-BY-NC-4.0 license
+    while the software is made available under the MIT License.</p>
+<p>I mention this here because I find other things missing as well for writing projects.
+One of GitHub&rsquo;s default issue labels is &ldquo;documentation&rdquo;,
+but I don&rsquo;t think the prose in a lesson or chapter is documentation of code:
+the code is there to support the writing.</p>
+</li>
+</ol>
+<p>So here&rsquo;s what I&rsquo;m using in my current writing projects:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add</td>
+<td>(request for) new feature</td>
+</tr>
+<tr>
+<td>change</td>
+<td>exists but could be better</td>
+</tr>
+<tr>
+<td>code</td>
+<td>in software</td>
+</tr>
+<tr>
+<td>discussion</td>
+<td>questions and conversations</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>something is broken</td>
+</tr>
+<tr>
+<td>good first issue</td>
+<td>good for newcomers</td>
+</tr>
+<tr>
+<td>governance</td>
+<td>meta-discussion of project management</td>
+</tr>
+<tr>
+<td>prose</td>
+<td>in written content</td>
+</tr>
+<tr>
+<td>task</td>
+<td>one-off task</td>
+</tr>
+<tr>
+<td>tooling</td>
+<td>infrastructure</td>
+</tr>
+</tbody>
+</table>
+<p>In more detail:</p>
+<ul>
+<li><code>add</code>, <code>change</code>, and <code>fix</code> are meant to be mutually exclusive</li>
+<li><code>code</code> and <code>prose</code> can be used together (e.g., a new lesson adds both)</li>
+<li><code>discussion</code> and <code>governance</code> are for project management</li>
+<li><code>tooling</code> is used for the build system, page templates, etc.</li>
+<li><code>task</code> is something that needs to be done once (e.g., &ldquo;publish a release&rdquo;)</li>
+<li><code>good first issue</code> is there because we want people to feel welcome</li>
+</ul>
+<p>I&rsquo;d enjoy hearing about what you&rsquo;re using—please <a href="mailto:gvwilson@third-bit.com">email me</a>
+if you&rsquo;d like to start a conversation.</p>
+<blockquote>
+<p>Later: someone mailed to ask why I use the &ldquo;NC&rdquo; (non-commercial) clause in my license.
+The answer is that I don&rsquo;t think it&rsquo;s sustainable for companies to take lesson material that people have made public
+and profit from it without compensating the authors of that material.
+If you, as an academic, want to re-use my notes and slides, you are very welcome to do so;
+if Elsevier wants to bundle them up in a book and charge students €60 for it,
+I want to be able to say &ldquo;no&rdquo;,
+or to say, &ldquo;yes, but you have to give me some of that so that I can keep producing this material&rdquo;.</p>
+<p>The NC clause is also part of my deal with my publisher (CRC Press):
+they are OK with me putting an HTML version of <a href="https://third-bit.com/sdxpy/"><em>Software Design by Example</em></a> and other books online
+for people to read for free,
+but would <em>not</em> be OK with some other for-profit publisher taking that and republishing it without permission.
+I think that&rsquo;s a fair bargain:
+people who can&rsquo;t afford to buy the book can read it,
+and the publisher can make money from the printed, PDF, and EPUB versions
+as compensation for the effort they put into editing and publicizing the book.</p>
+<p>Later: a collaborator pointed out an interesting inconsistency.
+I follow <a href="https://www.conventionalcommits.org/">Conventional Commits</a> style in my Git commit messages,
+so the title line of each commit starts with a single word like &ldquo;fix&rdquo;,
+&ldquo;feat&rdquo; (short for &ldquo;feature&rdquo;),
+or &ldquo;publish&rdquo; (when all I&rsquo;m doing is rebuilding the HTML version of the lesson).
+These words don&rsquo;t line up with the labels I use for issues and PRs:
+I don&rsquo;t have a label for &ldquo;publish&rdquo;,
+and I use &ldquo;feat&rdquo; instead of &ldquo;add&rdquo; for something new.
+I&rsquo;m embarrassed that I didn&rsquo;t notice this before,
+and now I need to think about what to do about it…</p>
+</blockquote><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: My Adventures with Certificates</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>My Adventures with Certificates</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/02/25/my-last-to-dont-list/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-02-26" class="post-date">2024-02-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/03/01/why-i-draw/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><blockquote>
+<p>Update: thanks to the generosity of <a href="https://github.com/panarom">Matt Panaro</a>,
+I now have <a href="https://github.com/gvwilson/https_example">a working example</a>.
+I don&rsquo;t fully understand it yet,
+but it runs on Ubuntu and macOS.</p>
+</blockquote>
+<p>I&rsquo;m putting together a tutorial on safe computing for data scientists.
+As part of that,
+I want to show learners how HTTPS actually works:
+I hope most of them will never have to manage this stuff on their own,
+but going through a couple of exercises will give them a better understanding of
+what the terms mean.</p>
+<p>It&rsquo;s been more than two decades since I touched this stuff,
+so I&rsquo;m basically (re-)learning it from scratch myself.
+What I&rsquo;ve found so far is:</p>
+<ol>
+<li>
+<p>Three quarters of the articles returned by online searches
+    are cribbed from each other.
+    They present exactly the same examples,
+    in exactly the same order,
+    with (almost) exactly the same prose around them.
+    I knew things were getting bad,
+    but I hadn&rsquo;t realized it was <em>this</em> bad.</p>
+</li>
+<li>
+<p>The material that doesn&rsquo;t fall into category #1
+    is riddled with circular dependencies.
+    In order to do X, you must understand Y,
+    but Y requires an understanding of Z,
+    which in turn depends on X
+    (and W, and μυστήριο, and the fine structure constant, and…).
+    I knew going into this that public key infrastructure was riddled with
+    <a href="https://www.harihareswara.net/posts/2014/inessential-weirdnesses-in-open-source/">inessential weirdness</a>,
+    but saints and their mercies,
+    this stuff makes Git and Emacs look elegant.</p>
+</li>
+</ol>
+<p>Here&rsquo;s where I got to yesterday.
+First,
+I ran <code>openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 1000 -nodes</code>
+to create a self-signed certificate and key file in <code>cert.pem</code> and <code>key.pem</code> respectively.
+(Note: I may be using all of this terminology incorrectly—that&rsquo;s part of my struggle.)</p>
+<p>Second,
+I used Python&rsquo;s <code>http.server</code> module and a few other bits and pieces
+to create a simple file server that I can run on my laptop.
+I tested the part that serves files <em>without</em> HTTPS and it works as expected.
+To get it to serve over HTTPS, I do this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">http.server</span> <span class="kn">import</span> <span class="n">BaseHTTPRequestHandler</span><span class="p">,</span> <span class="n">HTTPServer</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">ssl</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">server_address</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1443</span><span class="p">)</span>
+    <span class="n">sandbox</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">certfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">keyfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1"># Move into working directory to serve files from.</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">sandbox</span><span class="p">)</span>
+
+    <span class="c1"># Use the certificate and key files for secure connections.</span>
+    <span class="c1"># If check_hostname is True, only the hostname that matches the certificate</span>
+    <span class="c1"># will be accepted.</span>
+    <span class="n">ssl_context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="p">(</span><span class="n">ssl</span><span class="o">.</span><span class="n">PROTOCOL_TLS_SERVER</span><span class="p">)</span>
+    <span class="n">ssl_context</span><span class="o">.</span><span class="n">check_hostname</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ssl_context</span><span class="o">.</span><span class="n">load_cert_chain</span><span class="p">(</span><span class="n">certfile</span><span class="o">=</span><span class="n">certfile</span><span class="p">,</span> <span class="n">keyfile</span><span class="o">=</span><span class="n">keyfile</span><span class="p">)</span>
+
+    <span class="c1"># Now serve files.</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">HTTPServer</span><span class="p">(</span><span class="n">server_address</span><span class="p">,</span> <span class="n">RequestHandler</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">ssl_context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">socket</span><span class="p">,</span> <span class="n">server_side</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;serving at </span><span class="si">{</span><span class="n">server_address</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</code></pre></div>
+<p>If I put <code>cert.pem</code> and <code>key.pem</code> in a directory called <code>site</code> along with a file <code>test.txt</code>
+and then run my Python program using <code>python file_server_secure.py site cert.pem key.pem</code>,
+I can point my browser at <code>https://localhost:1443/test.txt</code>.
+The browser complains that I&rsquo;m doing something unsafe,
+but once I tell it to trust the certificate
+it displays the content of <code>test.txt</code> as desired.</p>
+<p>Now for the hard part.
+I want to connect to this server using the <code>requests</code> module.
+My first attempt is <code>requests.get("https://localhost:1443/test.txt")</code>,
+which produces:</p>
+<div class="highlight"><pre><span></span><code>ERROR: HTTPSConnectionPool(host=&#39;localhost&#39;, port=1443):
+Max retries exceeded with url: /test.txt
+(Caused by SSLError(SSLCertVerificationError(1,
+&#39;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)&#39;)))
+</code></pre></div>
+<p>OK, that&rsquo;s fair:
+<code>requests</code> shouldn&rsquo;t trust my self-signed certificate unless I tell it to.
+I can turn off checking entirely by passing <code>verify=False</code> to <code>requests.get</code>,
+but I&rsquo;m not going to teach people to do that.
+Instead,
+I try this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://localhost:1443/test.txt&quot;</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="s2">&quot;cert.pem&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>which gives me a different error:</p>
+<div class="highlight"><pre><span></span><code>ERROR: HTTPSConnectionPool(host=&#39;localhost&#39;, port=1443):
+Max retries exceeded with url: /test.txt
+(Caused by SSLError(SSLCertVerificationError(1,
+&quot;[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed:
+Hostname mismatch, certificate is not valid for &#39;localhost&#39;. (_ssl.c:1000)&quot;)))
+</code></pre></div>
+<p>A bit of poking around leads me to the <a href="https://pypi.org/project/certifi/"><code>certifi</code></a> module;
+calling <code>certifi.where()</code> gives me:</p>
+<div class="highlight"><pre><span></span><code>/Users/gvwilson/anaconda3/envs/safety/lib/python3.12/site-packages/certifi/cacert.pem
+</code></pre></div>
+<p>That <code>cacert.pem</code> contains 147 trusted certificates, so…
+I&rsquo;m not quite how to finish that sentence.
+What should someone who&rsquo;s working through their first tutorial on PKI do at this point?</p>
+<ol>
+<li>
+<p>Append their <code>cert.pem</code> file to <code>certifi</code>&rsquo;s global <code>cacert.pem</code>?
+    That feels like an accident waiting to happen (and not waiting patiently).</p>
+</li>
+<li>
+<p>Or is there a way for learners (and me) to sign our own certificates
+    using one of the certificates in <code>cacert.pem</code>
+    so that <code>requests</code> will trust it?
+    That also feels unsafe:
+    what&rsquo;s to stop me generating and signing certificates that claim to belong to
+    the Government of Canada?</p>
+</li>
+<li>
+<p>What about having learners create their own certificate authority?
+    Some of what I&rsquo;m reading online seems to suggest that,
+    and <a href="https://www.linkedin.com/in/stefanarentz/">Stefan Arentz</a> kindly pointed me at <a href="https://technedigitale.com/archives/639">this article</a>,
+    but it feels like a lot of work and confusion
+    for what&rsquo;s meant to be one 10-minute exercise in a day-long tutorial.</p>
+</li>
+</ol>
+<p>What&rsquo;s the best answer?
+Remember,
+I&rsquo;m not trying to set up public key infrastructure for a real site:
+I&rsquo;m trying to give first-timers a feeling for what&rsquo;s involved in doing that.
+If you have taught these concepts,
+what did you do and how well did it work?
+Please add thoughts and comments to <a href="https://github.com/gvwilson/sys-tutorial/issues/7">this GitHub issue</a>,
+and thank you in advance.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

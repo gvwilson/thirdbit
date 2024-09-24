@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../thirdbit.css">
+    <link rel="stylesheet" href="../../page.css">
+    
+<title>The Third Bit: Software Engineering: Compassion, Evidence, Process, and Tools</title>
+
+    
+
+
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../about/">about</a>
+      <a class="navlink" href="../../blog/">blog</a>
+      <a class="navlink" href="../../favorites/">favorites</a>
+      <a class="navlink" href="../../advice/">advice</a>
+      <a class="navlink" href="../../ideas/">ideas</a>
+      <a class="navlink" href="../../talks/">talks</a>
+      <a class="navlink" href="../../bib/">bibliography</a>
+      <a class="navlink" href="../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Engineering: Compassion, Evidence, Process, and Tools</h1>
+
+
+
+<p>Are some programming languages easier for novices to pick up than others?
+Does test-driven development produce higher-quality code in less time?
+Is there any truth behind the &ldquo;10X programmer&rdquo; meme?
+And if a team has limited resources for testing, what should they focus on?
+Empirical research has answers to all of these questions and more,
+but most programmers don&rsquo;t know that research exists.
+As a result,
+many continue to use inefficient or insecure practices when better alternatives exist.</p>
+<p>I would like teach programmers (both students and practitioners)
+what we actually know about software engineering and why we believe it&rsquo;s true.
+I believe the best way to do this is to teach them some basic data science,
+then have them use their new knowledge and skills
+to understand analyses of what makes software engineers more effective.
+This show-don&rsquo;t-tell approach would ensure that they know what we already know,
+that what they learn sticks,
+and that they have the tools they need to analyze and improve their own work.</p>
+<p>But that&rsquo;s not enough.
+Many of the hard problems in software engineering stem from the fact that
+we have to design programs to fit our limited mental capacity.
+Many others are rooted in the social psychology of group interactions,
+or in our tendency to believe what people around us believe
+rather than examining evidence.
+This book would therefore be guided by a modified version of <a href="https://en.wikipedia.org/wiki/Nothing_in_Biology_Makes_Sense_Except_in_the_Light_of_Evolution">Dobzhansky&rsquo;s Rule</a>:</p>
+<blockquote>
+<p>Nothing in software engineering makes sense except in the light of psychology.</p>
+</blockquote>
+<p>Our aim is to teach you how to be a <em>compassionate programmer</em>:
+one who cares about the well-being of their colleagues and users.
+This focus is not entirely altruistic—everything you do to help others
+also helps your future self—but now that we know how much harm software can do,
+we need to learn to build it in better ways.</p>
+<h3>FAQ</h3>
+<dl>
+<dt>How long will this take?</dt>
+<dd>I believe a minimum viable set of lessons can be ready to test in six months, and the first release can be ready six months after that.</dd>
+<dt>What do you need?</dt>
+<dd>Funding for one person for 12 months to build, try out, and proselytize the lessons; funding for a graduate-level researcher for 6 months to study the use and impact of these lessons would help a lot too.</dd>
+<dt>What are your qualifications for doing this?</dt>
+<dd><a href="https://carpentries.org/">Software Carpentry</a>, a non-profit I founded in 2010 to teach programming skills to researchers, has delivered several thousand workshops worldwide to over 80,000 people; the books I organized and edited on <a href="https://aosabook.org/">software architecture</a> and <a href="https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/">empirical software engineering research</a> have been read by tens of thousands of people; I received the ACM SIGSOFT Influential Educator of the Year Award in 2020; and I have extensive contacts in both academia and industry.</dd>
+<dt>Why can&rsquo;t you do this on your own time?</dt>
+<dd>I tried: it was going to be next after <em><a href="http://teachtogether.tech">Teaching Tech Together</a></em> and <em><a href="../../sdxjs/">Software Design by Example in JavaScript</a></em>. What I found while prototyping is that the material requires so much more unbroken concentration that I don&rsquo;t think I will complete it as an evening-and-weekend project.</dd>
+<dt>Why are you teaching data science rather than just summarizing published results?</dt>
+<dd>The average computer science student does a lot less data analysis in college than the average biologist or economist, so most programmers don&rsquo;t have the background needed to understand what&rsquo;s actually being claimed or the evidence for it. If we&rsquo;re going to reach the majority we need to give them a foundation; presenting this as &ldquo;let&rsquo;s teach you the Python you need to wrangle data&rdquo; seems most likely to hook them.</dd>
+<dt>Why are you teaching data science when there are so many good free courses already?</dt>
+<dd>People learn best if the examples are drawn from their domain: people in finance want finance examples, people in pharma want pharma data, etc., so we should use software engineering data to introduce statistical thinking to programmers. Generic courses will reach the 5-15% of programmers who are just generally interested in learning new things, but I&rsquo;d like to go wider than that.</dd>
+<dt>What data science will these lessons cover?</dt>
+<dd>Data cleaning, reproducible analysis, significance testing, linear regression, clustering, and classic visualization will be enough for people to follow and evaluate the overviews that follow. This material is necessary because many programmers have no statistical training and need to be introduced to the software tools used later.</dd>
+<dt>What research findings will be covered?</dt>
+<dd>The questions raised in the opening paragraph will definitely be addressed; other topics will be prioritized by polling an advisory group to find out what&rsquo;s most likely to appeal to the target audience, and based on what datasets researchers are willing to share. A few favorites include showing that the distribution of error messages follow Zipf&rsquo;s Law, Altadmri &amp; Brown&rsquo;s work on the mistakes novices make (and the fact that their teachers mis-predict common errors), Xu et al&rsquo;s work on how infrequently used most configuration options are, Nakshatri et al&rsquo;s demonstration that exceptions are mostly ignored, and Zeller et al&rsquo;s &ldquo;IROP&rdquo; study.</dd>
+<dt>What tools will be used for practical examples?</dt>
+<dd>We will use the scientific Python stack, primarily because the average programmer is more likely to have encountered Python than R, Julia, or other data science languages.</dd>
+<dt>Will these lessons cover qualitative methods as well as quantitative ones?</dt>
+<dd>They should—learners should be aware of the unique insights that qualitative methods can produce—but it will depend on whether compelling exercises can be created.</dd>
+<dt>Do you think people will actually read it?</dt>
+<dd>Yes: something that bills itself as &ldquo;data science for software engineers using software engineering examples&rdquo; is going to strike a lot of chords, as will &ldquo;here&rsquo;s what we actually know about building better software faster&rdquo;.</dd>
+<dt>Who else has tried to do this?</dt>
+<dd><em><a href="https://www.amazon.com/Facts-Fallacies-Software-Engineering-Robert/dp/0321117425/">Facts and Fallacies of Software Engineering</a></em>, <em><a href="https://www.amazon.com/Rapid-Development-Taming-Software-Schedules/dp/1556159005/">Rapid Development</a></em>, <em><a href="https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/">Making Software</a></em>, and <em><a href="https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339/">Accelerate</a></em> have presented empirical evidence about software development in one form or another (and have all sold pretty well). <em><a href="http://www.knosof.co.uk/ESEUR/">Empirical Software Engineering using R</a></em> is more recent and more comprehensive, but is too dense for our target audience.</dd>
+</dl>
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

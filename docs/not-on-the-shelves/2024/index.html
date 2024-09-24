@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../thirdbit.css">
+    <link rel="stylesheet" href="../../page.css">
+    
+<title>The Third Bit: Not on the Shelves</title>
+
+    
+
+
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../about/">about</a>
+      <a class="navlink" href="../../blog/">blog</a>
+      <a class="navlink" href="../../favorites/">favorites</a>
+      <a class="navlink" href="../../advice/">advice</a>
+      <a class="navlink" href="../../ideas/">ideas</a>
+      <a class="navlink" href="../../talks/">talks</a>
+      <a class="navlink" href="../../bib/">bibliography</a>
+      <a class="navlink" href="../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Not on the Shelves</h1>
+<h2 class="subtitle">Version 7 / 2024</h2>
+
+
+<p><a href="../">This page</a> explains why I write reviews of books that don&rsquo;t exist
+and has links to other versions of this list.</p>
+<h2><em>Sex and Drugs and Guns and Code</em></h2>
+<p>Inspired by <em>Freakonomics</em>
+(which was one of the most influential pieces of propaganda written in my lifetime)
+and by <em><a href="https://economicsforeveryone.ca/">Economics for Everyone</a></em>
+(which tackles many of the same subjects,
+but focuses on social justice instead of justifying and excusing the excesses of the powerful),
+this book is aimed at people in tech who want to understand how the world actually works.
+It introduces ideas and methods that are commonplace in the social sciences
+and shows that &ldquo;the way things are&rdquo; is neither inevitable nor accidental.
+From the reasons racial discrimination persists despite its illogical economic inefficiency
+to the ways &ldquo;flat&rdquo; organizations actually operate,
+it gives readers <a href="../../2022/12/28/reading/">a toolbox for thinking about society</a>
+and how tech is reshaping it for both better and worse.</p>
+<blockquote>
+<p>See <a href="../../2024/01/17/the-first-six-questions/">this post</a> for a recent discussion of how this book might be structured.</p>
+</blockquote>
+<h2><em>Software Engineering: An Evidence-Based Approach</em></h2>
+<p>Unlike their counterparts in physics, psychology, and engineering,
+most students in computer science don&rsquo;t do experiments.
+As a result,
+they graduate not knowing how to collect data,
+clean it up,
+model it,
+and draw conclusions from it.
+This undergraduate-level textbook corrects that:
+it shows readers how to design, implement, and understand empirical studies in software engineering
+by recapitulating results from the literature,
+and uses those examples as a springboard to discuss other findings.
+Both quantitative and qualitative methods are covered;
+its larger message is that opinions about software should be based on evidence
+rather than hearsay and strong opinions.</p>
+<h2><em>Testing Research Software</em></h2>
+<p>I know how to test an online shopping cart,
+but how do you test a simulation of highly-magnetized, rapidly-rotating black holes?
+More prosaically,
+how do you check that your data analysis pipeline is probably approximately correct
+when you don&rsquo;t know what the right answer actually is,
+and how can those tests tell your colleagues what your heuristics for &ldquo;correct&rdquo; actually are?</p>
+<p>The <a href="../../sdxjs/">JavaScript</a> and <a href="../../sdxpy/">Python</a> versions of <em>Software Design by Example</em>
+showed readers how to design programs by working through scaled-down examples.
+In contrast,
+this book presents scaled-down versions of things like <a href="https://lorenabarba.com/blog/cfd-python-12-steps-to-navier-stokes/">fluid flow simulators</a>
+and data analysis pipelines
+and then shows readers how to test them.
+Each chapter opens with a short recap of the science
+and a walk-through of the untested code,
+then explores how that code can be checked
+(or modified to be checkable).</p>
+<h2><em>Security by Example</em></h2>
+<p>The first chapter of this book presents a simple implementation of a wiki
+designed for shared note-taking.
+Each of the following chapters fixes one of its security shortcomings
+(or one of the shortcomings introduced by an earlier fix).
+Some are vulnerabilities such as cross-site scripting or SQL injection;
+others are missing features such as basic authentication
+(which is later replaced by OAuth),
+role-based access control,
+the kind of logging that every sys admin wishes they had,
+static code analysis,
+and eventually the audit and emergency response procedures
+that such tools are meant to support.</p>
+<h2><em>Software Design as if Everyone Mattered</em></h2>
+<p>Each chapter in this undergraduate-level textbook
+presents a &ldquo;what if?&rdquo; scenario and then explores its implications for software design.
+What if you had crippling arthritis
+(which you can simulate by taping popsicle sticks to your fingers):
+how would you redesign a cell phone app?
+What if you thought your government might take a sharp turn to the right
+and retroactively weaponize women&rsquo;s health records:
+(how) could you satisfy doctors&rsquo; need for information with patient safety?
+How would you redesign a Q&amp;A site like Stack Overflow
+if you thought most people in the world <em>didn&rsquo;t</em> speak English as their first language?
+(Crazy, I know, but work with me here…)
+The practical exercises assume enough programming skill to build simple web applications;
+rather than design pattern esoterica or vague principles with catchy acronyms,
+they focus on practical implications.</p>
+<h2><em>Unbreaking Software</em></h2>
+<p>Most programmers spend a large part of their time debugging,
+but most books only show working code,
+and never discuss how to prevent, diagnose, and fix errors.
+Most books ostensibly about debugging are high-level handwaving,
+user guides for particular debugging tools,
+or out of date;
+the <a href="https://www.debuggingbook.org/">one notable exception</a> is an excellent read,
+but focuses on automated debugging tools and techniques,
+which are only one part of the story.
+This book fills that gap by presenting dozens of case studies
+showing how to find and fix real-world problems.
+Along the way,
+it presents examples of what programmers can do to handle errors gracefully,
+from data structure repair to automatically restarting servers.</p>
+<h2><em>Building Tech Together</em></h2>
+<p>Most textbooks on software engineering
+leave out most of the things real software engineers do
+and have only a tenuous relationship to the realities of undergraduate life.
+In contrast,
+this book focuses the science of teamwork,
+particularly findings that are relevant to students who are doing their first co-op placement
+or working in teams while time-slicing commitments to several other courses.
+What effect does pulling an all-nighter have on the quality of your work?
+How do people absorb and retain knowledge?
+What are some good ways to run a project meeting,
+and how can you get people to actually pull their weight?
+This book presents and justifies solutions,
+and by doing so teaches a lot about physiology, psychology, and organizational behavior.</p>
+<h2><em>Managing Research Software Projects</em></h2>
+<p>Your graduate degree is in ecology,
+but now you&rsquo;re running a three-person team responsible for thousands of lines of code.
+This book is an overview of everything you absolutely, positively need to know
+that <em>isn&rsquo;t</em> software design or version control:
+project management,
+marketing,
+basic finance,
+<a href="../../2023/07/14/performance-review-counterexamples/">performance reviews</a>,
+<a href="../../2023/10/30/career-planning/">career planning</a>,
+intellectual property law,
+and community management.
+Each chapter presents a handful of key ideas,
+a checklist of things to worry about,
+pointers to other resources,
+and &ldquo;what I wish I&rsquo;d known&rdquo; interviews with people who can tell you what <em>not</em> to do.</p>
+<h2><em>Organizing for Institutional Change in Research</em></h2>
+<p>This book is for people who have been managing research projects long enough
+to become frustrated and furious by institutional inefficiency, inertia, and hypocrisy.
+Drawing on more than a century of community organizing,
+it explains how to figure out where power actually resides,
+how to build support for change,
+how to get into a position to make those changes,
+and how to avoid being co-opted so that you don&rsquo;t become the next person&rsquo;s problem.
+Rather than preaching the &ldquo;why&rdquo;,
+this book focuses on the practical &ldquo;how&rdquo; of being the right person in the right room on the right day
+to make things better a little bit at a time.</p>
+<h2><em>Computing and the Law: A Guide for the Perplexed</em></h2>
+<p>The legal aspects of software have always been complicated;
+the web has done nothing to make them simpler.
+This book seeks to help programmers understand the rules (or lack thereof)
+they have to live with
+by tracing the historical development of patents, copyrights, privacy, and professional liability
+from the Industrial Revolution to the present day.
+Aimed squarely at people with no prior exposure to legal terminology,
+it explains concepts clearly and provides examples for each.</p>
+<h2><em>The Middle and the End</em></h2>
+<p>Literally hundreds of books are on the market today
+that explain how to start a tech company.
+Try finding one that explains how to keep one going once it has reached steady state,
+or how to either hand over when it&rsquo;s time to move on
+or wind one down if it didn&rsquo;t work out.
+These scenarios are the norm, not endless growth,
+and they are the focus of this book.
+From sustainable business models to succession planning,
+it covers things that venture capitalists who make their money
+from cashing out before the hockey stick curve flattens
+would rather you didn&rsquo;t know.</p>
+<h2><em>Now What? A Practitioner&rsquo;s Guide to Error Handling</em></h2>
+<p>Programs can fail in a hundred different ways,
+but most programmers either ignore the possibility of failure
+or deal with it by printing a log message.
+This book presents examples of what they could do instead,
+from data structure repair to automatically restarting servers.
+Along the way,
+it catalogs the kinds of errors that programmers may encounter
+and shows how they can be prevented as well as managed.</p>
+<h2><em>Concurrent Design by Example</em></h2>
+<p><em>Software Design by Example</em> (<a href="../../sdxjs/">JavaScript</a>, <a href="../../sdxpy/">Python</a>)
+described small versions of single-threaded command-line tools,
+but most of today&rsquo;s tools are concurrent and distributed.
+This book looks at the design of such systems,
+from message queues to overlapping I/O and user interfaces.
+Along the way it touches on some of the same ideas as <em>Now What?</em>,
+but shows how to use things like file locking and retry protocols
+to prevent or ameliorate faults.</p>
+<h2><em>Performance Tuning</em></h2>
+<p>In the spirit of Jon Louis Bentley&rsquo;s classic <em>Writing Efficient Programs</em>,
+this book shows readers how to model, analyze, and improve the performance of their programs.
+Written for undergraduates who already have
+a basic understanding of computer architecture, compilers, operating systems, and networks,
+it can be used in a capstone course that unifies ideas from these subjects.</p>
+<h2><em>Difference Engines</em></h2>
+<p>Modern version control systems handle text well,
+but are much clumsier when it comes to images, MP3s, spreadsheets, and other so-called &ldquo;binary&rdquo; files.
+The reason is simple:
+those formats are supported by tools for reading and writing,
+but not for differencing and merging.
+This survey describes a collection of open source libraries
+(the &ldquo;engines&rdquo; of the title)
+that can handle many of those formats in a more-or-less uniform way.
+Readers will enjoy the combination of theory
+(such as proofs of some algorithms&rsquo; performance characteristics)
+and practice
+(the design and implementation of the tools themselves).</p>
+<h2><em>The Architecture of Open Source Applications</em></h2>
+<p>The first two volumes in this series came out a decade ago;
+<a href="https://aosabook.org/">the website</a> still gets between 500 and 1500 visitors a day,
+and someone sends email every month or so offering to add a new entry.
+Maybe it&rsquo;s time to say yes…</p>
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

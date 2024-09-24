@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Performance Curves, Curriculum Design, and Trust Revisited</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Performance Curves, Curriculum Design, and Trust Revisited</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2018/06/20/end-user-teachers/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2018-07-05" class="post-date">2018-07-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2018/07/05/dragnet/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Suppose you have a processing pipeline with three stages,
+each of which takes one second to run.
+What&rsquo;s its overall performance?
+As Roger Hockney pointed out in the 1980s, that question isn&rsquo;t well formed.
+What we really need to ask is how its performance changes as a function of the size of its input.
+It takes 3 seconds to process one piece of data,
+4 to process two,
+5 to process three, and so on.
+Inverting those numbers,
+its rate is 1/3 result per second for one piece of data,
+1/2 result/sec for two, and so on:</p>
+<p><img alt="Throughput as a Function of Data Size" src="../../../../files/2012/03/curve.png" /></p>
+<p>A curve like this can be characterized by two values: <em>r<sub>&infin;</sub></em>,
+which is its performance on an infinitely large data set,
+and <em>n<sub>&frac12;</sub></em>,
+which is how much data we have to provide to get half of that theoretical peak performance.
+Deep pipelines tend to have high <em>r<sub>&infin;</sub></em> (which is good),
+but also high <em>n<sub>&frac12;</sub></em> (which is bad);
+shallow pipelines have the reverse,
+i.e.,
+they don&rsquo;t get you as far,
+but they get you there sooner.</p>
+<p>Something like this idea underpins my approach to teaching computing.
+My goal isn&rsquo;t to increase <em>r<sub>&infin;</sub></em>,
+but to minimize <em>p<sub>&frac12;</sub></em>,
+i.e.,
+to help people get some useful results as early as possible so that they&rsquo;ll think it&rsquo;s worth learning more.
+What makes this challenging is the fact that learners&rsquo; performance over time actually looks like this:</p>
+<p><img alt="Glass's Law" src="../../../../files/2012/03/final.png" /></p>
+<p>That dip is due to Glass&rsquo;s Law: every new tool or practice initially slows you down.
+If the dip is too deep,
+or if it takes too long to recover from it,
+most people go back to doing things the way they&rsquo;re used to, because that&rsquo;s the safest bet.</p>
+<p>So here&rsquo;s my question:
+are there meaningful equivalents to <em>n<sub>&frac12;</sub></em> and <em>r<sub>&infin;</sub></em> for programming tools?
+Informally,
+what I want is &ldquo;how long it takes you to become reasonably productive with a tool&rdquo;
+and &ldquo;how productive you are in absolute terms once you&rsquo;ve mastered it&rdquo;.
+I suspect &ldquo;low church&rdquo; tools like R are better by the first measure,
+which might explain why they&rsquo;re increasingly popular for teaching,
+while &ldquo;high church&rdquo; tools like Smalltalk are better by the second,
+which is why professionals building large, complex systems tend to like them.
+(I&rsquo;m also thinking about Hadley Wickham&rsquo;s recently invented distinction,
+between &ldquo;early-worry&rdquo; and &ldquo;late-worry&rdquo; tools,
+but I don&rsquo;t think that&rsquo;s quite the same split.)</p>
+<p>But what about Scratch?
+It won&rsquo;t ever do well on a measure of absolute productivity measured against general programming tasks
+because there are things it just can&rsquo;t do,
+but on the other hand that&rsquo;s as unfair as asking how good MATLAB is for writing operating systems.</p>
+<p>My current thinking is this:</p>
+<ul>
+<li>
+<p><em>p<sub>1/2</sub></em> is how long it takes you to reach the point where you can correctly trace and explain the operation of
+  a one-page program selected at random from your community&rsquo;s repository (e.g., GitHub or the Scratch site) half of the time.
+  Using the community&rsquo;s code repository as an oracle is intended to scale the measure automatically and impartially.</p>
+</li>
+<li>
+<p><em>n<sub>&infin;</sub></em> is how many randomly-selected one-page programs you can successfully reproduce in a day
+  given a description of their inputs, outputs, and behaviors.
+  (Alternatively, this could be &ldquo;given a description <em>and</em> having read the source code the day before&rdquo;.)
+  Again, basing this on the community&rsquo;s code repository is intended to scale the measure
+  against the things the language is actually used for.</p>
+</li>
+</ul>
+<p>I&rsquo;m not happy with either of these;
+I&rsquo;d welcome comments or suggestions about how to improve them,
+or an explanation of why this whole idea is wrong-headed.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

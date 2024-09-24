@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: A New Stack</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>A New Stack</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/04/17/binary-data/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-04-18" class="post-date">2024-04-18</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/04/18/database/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;m tired of teaching tools that are older than most of the people learning them,
+butif I teach something that isn&rsquo;t (yet) widely used
+my learners won&rsquo;t be able to collaborate with their colleagues,
+and most new tools will never catch on.
+That said,
+people don&rsquo;t seem to be excited by
+the outline I&rsquo;ve sketched for <a href="https://gvwilson.github.io/rsdx/"><em>Research Software Design by Example</em></a>,
+so I can either add it to my ever-growing list of books I&rsquo;ve started but not finished
+or make it more exciting by using a new set of tools.
+I can&rsquo;t reach too far ahead if I do the latter,
+which makes tool selection a balancing act.
+I&rsquo;d be grateful for <a href="mailto:gvwilson@third-bit.com">feedback</a> on the list below.</p>
+<table>
+<thead>
+<tr>
+<th>Old</th>
+<th>New</th>
+<th>Because</th>
+<th>Modified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.gnu.org/software/bash/">Bash</a></td>
+<td><a href="https://www.nushell.sh">Nushell</a></td>
+<td>risky, but <a href="https://fishshell.com">Fish</a> feels too conservative</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://git-scm.com">Git</a></td>
+<td>sadly, still Git</td>
+<td>I really wish <a href="https://gitless.com">Gitless</a> had taken off…</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.gnu.org/software/make/">Make</a></td>
+<td><a href="https://just.systems/">Just</a></td>
+<td>finally, a better build tool I can believe in</td>
+<td>2024-04-19</td>
+</tr>
+<tr>
+<td><a href="https://sqlite.org">SQLite</a></td>
+<td><a href="https://duckdb.org">DuckDB</a></td>
+<td>a better choice for data science?</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.python.org">Python</a></td>
+<td>still Python</td>
+<td>despite the mess that is Python packaging</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://pandas.pydata.org">Pandas</a></td>
+<td><a href="https://pola.rs">Polars</a></td>
+<td>better ergonomics and performance</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://seaborn.pydata.org">Seaborn</a></td>
+<td><a href="https://plotly.com/graphing-libraries/">Plotly</a></td>
+<td>I like it so much that I joined the company :-)</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://jupyter.org">Jupyter</a></td>
+<td><a href="https://marimo.io">Marimo</a></td>
+<td>also risky, but it really does feel like a step forward</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.latex-project.org">LaTeX</a></td>
+<td>???</td>
+<td>maybe <a href="https://typst.app">Typst</a> but see below</td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td><a href="https://metaflow.org">Metaflow</a></td>
+<td>the most Pythonic option available</td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td><a href="https://dvc.org">DVC</a></td>
+<td>preferred to <a href="https://git-lfs.com">Git-LFS</a></td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td><a href="https://www.dmulholl.com/docs/ark/main/">Ark</a></td>
+<td>the best little Python SSG I&rsquo;ve found</td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td><a href="https://code.visualstudio.com">VSCode</a></td>
+<td>mostly for the debugger</td>
+<td></td>
+</tr>
+<tr>
+<td>—</td>
+<td><a href="https://www.docker.com">Docker</a></td>
+<td>as ubiquitous as Git but <strike>much</strike> less user-hostile</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>A few notes:</p>
+<ul>
+<li>
+<p>Several of these tools are implemented in <a href="https://www.rust-lang.org/">Rust</a> rather than C,
+    which makes me hope that Rust is on the same slow-but-steady growth curve as <a href="https://www.python.org">Python</a>.</p>
+</li>
+<li>
+<p>I really like where <a href="https://www.nushell.sh">Nushell</a> is going with structured data,
+    and being built in <a href="https://www.rust-lang.org/">Rust</a> is a plus,
+    but my first few experiments with it did leave me feeling that it still has a lot of rough edges.</p>
+</li>
+<li>
+<p><a href="https://typst.app">Typst</a> seems to be a plausible post-TeX typesetting tool,
+    but (a) I wish they had used an existing scripting language
+    (e.g., one of the <a href="https://www.rust-lang.org/">Rust</a>-based implementations of <a href="https://www.lua.org/">Lua</a>)
+    instead of creating a new one,
+    and (b) it looks like their GUI is web-only and closed source,
+    both of which make me very nervous.</p>
+</li>
+<li>
+<p><a href="https://code.visualstudio.com">VSCode</a> and the various <a href="https://www.jetbrains.com/">JetBrains</a> IDEs are far too heavy for my liking,
+    but there doesn&rsquo;t seem to be anything else out there
+    that supports multiple languages well.
+    (Yes, I&rsquo;m very familiar with <a href="https://www.gnu.org/software/emacs/">Emacs</a>;
+    no, I don&rsquo;t think it&rsquo;s the right answer.)</p>
+</li>
+</ul>
+<p>What&rsquo;s missing:</p>
+<ul>
+<li>
+<p>Something for creating diagrams that supports diff and merge.
+    (No, I&rsquo;m not going to teach <a href="../../../../2024/03/01/why-i-draw/">a text-to-diagram compiler</a>.)</p>
+</li>
+<li>
+<p>Something on top of that for making slideshows
+    (ideally an extension to Marimo, but that depends on diff and merge for diagrams).</p>
+</li>
+<li>
+<p>I have no idea what to teach people right now about building interactive GUIs.
+    The answer two years ago was <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>,
+    but <a href="https://en.wikipedia.org/wiki/WebAssembly">WebAssembly</a> may or may not enable people to use Python instead—i.e.,
+    to avoid the considerable overhead of learning a second programming language.
+    I don&rsquo;t know what that means for <a href="https://react.dev">React</a> versus <a href="https://elm-lang.org">Elm</a> versus <a href="https://htmx.org">htmx</a>
+    versus any of a dozen things I don&rsquo;t even know I should be paying attention to…</p>
+</li>
+<li>
+<p>I also have no idea what to teach people about LLMs,
+    but find consolation in knowing that no-one else does either.</p>
+</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

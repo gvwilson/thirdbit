@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example 8: Parsing Expressions</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example 8: Parsing Expressions</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/01/09/sdxjs-pattern-matching/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-01-10" class="post-date">2023-01-10</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/01/11/sdxjs-page-templates/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>While <a href="https://third-bit.com/sdxjs/pattern-matching/">Chapter 7</a> explained how to build a simple regular expression matcher,
+<a href="https://third-bit.com/sdxjs/regex-parser/">Chapter 8</a> explains how to parse regular expression patterns,
+and in doing so gives readers an idea of how more complicated parsers work.
+The grammar that the final parser handles is pretty simple:</p>
+<table>
+<thead>
+<tr>
+<th>Meaning</th>
+<th>Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Any literal character <em>c</em></td>
+<td><em>c</em></td>
+</tr>
+<tr>
+<td>Beginning of input</td>
+<td><code>^</code></td>
+</tr>
+<tr>
+<td>End of input</td>
+<td><code>$</code></td>
+</tr>
+<tr>
+<td>Zero or more of the previous thing</td>
+<td><code>*</code></td>
+</tr>
+<tr>
+<td>Either/or</td>
+<td><code>|</code></td>
+</tr>
+<tr>
+<td>Grouping</td>
+<td><code>(…)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Even this grammar is enough to show why parsing is hard—hard enough that
+people should use existing data formats rather than create new ones
+and should generate data that can be parsed with off-the-shelf tools.
+But from a design point of view,
+it&rsquo;s a chance to introduce the idea of <em>actions as objects</em>.
+Earlier chapters showed that functions are just another kind of data;
+taking that up a level,
+everything from &ldquo;match these characters&rdquo; in a parser to &ldquo;move the cursor up a line&rdquo; in an editor
+or &ldquo;compile this file&rdquo; in a build tool
+can and should be turned into an object
+that can be put in a list,
+concatenated with other actions,
+and so on.</p>
+<p>This idea is one of the reasons I hope someone who knows more about functional programming than I do
+will some day add a third volume to this series
+that shows how to implement these tools in a language like Haskell or <a href="https://third-bit.com/2022/12/28/six-for-the-to-dont-list/">a superset of Elm</a>.
+Those languages embody the same general design ideas in very different ways,
+and I think I&rsquo;d learn a lot from seeing how someone who thinks in those ways
+translates these ideas into working code.</p>
+<figure id="regex-parser-mechanics" class="center">
+  <img src="../../../../sdxjs/regex-parser/mechanics.svg" alt="Mechanics of combining tokens" class="centered">
+  <figcaption>Figure 8.2: Mechanics of combining tokens while parsing regular expressions.</figcaption>
+</figure>
+
+<blockquote>
+<p>Terms defined: finite state machine, literal, parser, precedence, token, Turing Machine, well formed, YAML.</p>
+</blockquote><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

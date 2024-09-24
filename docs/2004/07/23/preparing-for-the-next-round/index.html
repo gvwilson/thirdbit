@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Preparing for the Next Round</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Preparing for the Next Round</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2004/07/21/up-and-to-the-right/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2004-07-23" class="post-date">2004-07-23</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2004/07/26/the-right-tool-for-the-job/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>The team that's going to be working on Helium this fall had its first meeting last night.  If all goes well, eleven of the department's best undergraduate students will build on all the hard work that Michelle, Laurie, Jason, Eric, and Wilfred have put in this summer, and deliver something that we can use in undergraduate classes.</p>
+
+<p>The next step is to determine exactly what they will work on.  The current list (in priority order) is:</p>
+
+<ol>
+
+<li><em>Real <a href="http://subversion.tigris.org">Subversion</a> integration.</em>  We believe we can use applets to give users a complete in-browser interface to <a href="http://subversion.tigris.org">Subversion</a> (rather than a read-only interface, which is what <a href="http://www.sf.net">SourceForge</a> and <a href="http://www.gforge.org">GForge</a> offer).  In order to do this, we must first bring <a href="http://subversion.tigris.org">Subversion</a>'s Java bindings up to date, which is an entire project in itself…</li>
+
+<li>A <em>scripting interface</em>.  We can't require instructors to create hundreds of user accounts, and hundreds of projects, by hand.  Instead, we're hoping to provide a <a href="http://www.jython.org">Jython</a> library that instructors and administrators can use to work directly with Helium's data model.  (The alternative would be to expose the database tables, but that would bypass all the constraints that the model layer enforces.)</li>
+
+<li><em>Testing infrastructure</em>.  Helium's lower layers are exercised by a unit test suite—in fact, there's currently more testing code than application code.  The next step is to adapt <a href="http://httpunit.sf.net">HttpUnit</a>, <a href="http://htmlunit.sf.net">HtmlUnit</a>, or something similar to do end-to-end testing on the whole application.</li>
+
+<li>A <em>progress monitoring framework</em>.  Helium's home page displays a status light (green if all tests are passing, red if there are failures) and a graph showing the growth of the source and test code over time.  Displays like these will help students and instructors see how their projects are doing.</li>
+
+<li><em>Searching</em>.  <a href="http://www.google.com">Google</a> is every programmer's friend; the <a href="http://jakarta.apache.org/lucene">Lucene</a> project puts that search capability into everyone's hands.  We hope that if forums and site content are searchable, fewer students will repeat questions umpteen times.</li>
+
+<li><em>Issue tracking</em>.  Version control and issue tracking are two of the things that distinguish professional programmers from amateurs.  It's easy to show students why they want the former (if nothing else, version control helps them keep their home computers in synch with their accounts on the university's machines), but motivating issue tracking is harder.  Initially, we're going to add it to Helium for our own use (we'd like to be self-hosting by September).  Once it's in place, we hope we'll be able to find ways to work it into courses.</li>
+
+<li><em>Blogging, wikis, project and personal home pages, NNTP integration…</em>  There's a lot more we'd like, but they'll probably have to wait for the Winter 2005 term.</li>
+
+</ol>
+
+<p>It's a lot, but with two or three students per item, we should be able to pull it off.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

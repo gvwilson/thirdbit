@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: DrProject Internals: Subversion</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>DrProject Internals: Subversion</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/11/11/requirements-as-tickets-or-hierarchy-to-the-resue/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-11-16" class="post-date">2006-11-16</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/11/19/slow-growth-is-still-growth/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>It&rsquo;s finally time to look at how DrProject integrates with <a href="http://subversion.tigris.org">Subversion</a>.  &ldquo;Integrates&rdquo; is the key word here: whereas we (and <a href="http://trac.edgewall.org">Trac</a>&rsquo;s designers before us) had a free hand with the ticketing system and wiki, <a href="http://subversion.tigris.org">Subversion</a> and other version control systems are complex enough that we have to base our design on what they can do, rather than what we might want.</p>
+<p>Lucky for us, <a href="http://subversion.tigris.org">Subversion</a>&rsquo;s designers had lots of experience with previous version control systems, and so were careful to provide tools that would make integration easy.  The best way to appreciate these tools is to compare the Bad Old Days (<a href="http://ximbiot.com/cvs/wiki">CVS</a> in the early 1990s) with our modern utopia.  The first time I had to mess around with it, the source code for <a href="http://ximbiot.com/cvs/wiki">CVS</a> was a tangled mess—so tangled that the best (possibly only) way to fetch a list of recent commit messages was to run the command in a sub-shell and parse its output.  Think for a moment about what that involves:</p>
+<ol>
+  <li>My application formats a string containing a <a href="http://ximbiot.com/cvs/wiki">CVS</a> command.</li>
+  <li>It passes that string to a shell running in a sub-process.</li>
+  <li>That shell starts <em>another</em> process to execute the <code>cvs</code> program (unless the <code>PATH</code> variable has been mangled too badly by all this forking and exec'ing).</li>
+  <li>The <code>cvs</code> program calls a bunch of C functions (some of which might actually starts sub-shells of their own, but that's another story) to extract information from the versioning files and metadata in the repository.</li>
+  <li>My application reads that command's output as a list of strings and runs it through a handwritten parser that (hopefully) extracts dates, user IDs, and commit messages.</li>
+</ol>
+<p><a href="http://subversion.tigris.org">Subversion</a>&rsquo;s design makes the first three steps are unnecessary.  It has a well-defined C API [1], which provides functions for doing (almost) all user-level operations.  Command-line programs like <code>svn</code> and <code>svnadmin</code> call these functions, but <a href="http://subversion.tigris.org">Subversion</a> also provides adapter libraries to make them available to Python, Java, and other languages.  As a result, programmers don&rsquo;t have to fork sub-processes, or parse strings; they can instead call a function, and get a data structure as a result.</p>
+<p>All right: what information do project members actually want about their project&rsquo;s repository and its contents?  &ldquo;What&rsquo;s there?&rdquo;  (i.e., a listing of available files) is pretty obvious, along with what&rsquo;s in particular files, what used to be in them, and a list of change sets. If we&rsquo;re showing what used to be in files, we ought to show the differences too; and if we&rsquo;re showing change sets, we ought to provide a multi-file view of the overall differences.</p>
+<p>Hm… What about access control?  How are we going to ensure that only people who are members of a project [2] can view the contents of the project&rsquo;s repository?  And what exactly do we mean by &ldquo;the project&rsquo;s repository&rdquo;, anyway?  Is there going to be one repository for each of the projects DrProject is managing, or would it be simpler and/or safer to partition one big repository into project-sized chunks?</p>
+<p><a href="http://subversion.tigris.org">Subversion</a> supports the latter: you can create an access file that gives particular users read and/or write permission for sub-directories within a repository. However, this is what Joel Spolsky famously called a <a href="http://www.joelonsoftware.com/articles/LeakyAbstractions.html">leaky abstraction</a>.  To see why, consider a situation in which Olga can read and write both the <code>red</code> and <code>green</code> directories in a repository, but Maxim can only read and write the <code>green</code> directory.  If Olga commits changes to updates <code>red/reddish.java</code> and <code>green/greenish.java</code> in a single operation, what should we show Maxim when he asks to view the change set?  We can hide the contents of, and changes to, the file he&rsquo;s not allowed to view, but he&rsquo;ll still be able to read Olga&rsquo;s commit message, which may (if Olga is conscientious) tell him a lot about what&rsquo;s going on in parts of the world he&rsquo;s not supposed to know anything about.</p>
+<p>We therefore decided to use one repository per project.  Each of these repositories has its own access file; when users are added to or removed from the project, DrProject modifies the access file appropriately [3].  This means that even if people bypass DrProject, and try access repositories using Eclipse, command-line programs, and other clients, their access rights will always be what we want them to be.</p>
+<p>One thing DrProject does <em>not</em> provide is a way for users to modify the repository over the web.  In particular, users cannot edit or commit files through their browser.  We left this out for several reasons:</p>
+<ol>
+  <li>It opens up a channel for attack: if the DrProject CGI is able to modify the repository, then anyone who subverts the CGI can do a lot of damage to the project's core resource.</li>
+  <li>We didn't believe anyone would ever actually do any significant code editing through an HTML text editing box.  (This may change in future, as rich editing controls become common; even today, it'd be nice to be able to add comments to commits after the fact.)</li>
+  <li>Implementing it—in particular, implementing conflict resolution—would have at least tripled the complexity of this part of DrProject.</li>
+  <li>Nobody else's system has it, so we figured there couldn't be a crying need ;-)</li>
+</ol>
+<p>It turns out that accessing a repository via the <a href="http://subversion.tigris.org">Subversion</a> API is a lot slower than querying a PostgreSQL database.  To keep things zippy, DrProject caches the information it gets about the repository in the database, so that future lookups will be faster.  This information is WORM (write-once, read-many): once it&rsquo;s in the database, it stays there forever, and is never changed (except in those very rare cases when someone actually does edit a commit log message after the fact outside DrProject, in which case the database information is resynchronized).</p>
+<p>This isn&rsquo;t as big a disk hog as you might think, since most of what&rsquo;s in a repository is never viewed over the web.  However, we are a little worried about what might happen if we provide a web services API, so that people can write scripts to pull data out of DrProject.  While a human being might not click on dozens of links to pull up all the files, revisions, change sets, and differences in a project, a script very easily could.  We&rsquo;ll see…</p>
+<p>So how well is it working?  Pretty well, although students don&rsquo;t seem to use DrProject&rsquo;s <a href="http://subversion.tigris.org">Subversion</a> browser very much. One reason might be that they don&rsquo;t need it—in small projects, done by small teams, on short timescales, the history of a project isn&rsquo;t that important.  Another reason may be that desktop tools (command-line programs and Eclipse plugins) give them a richer experience.  Still, it does seem to be running smoothly, and the wiki formatting of commit messages, which automatically creates links to tickets, is something I personally rely on a fair bit.</p>
+<hr />
+<p>[1] Yes, <a href="http://subversion.tigris.org">Subversion</a> is written in C, for both execution speed and portability.  The last may seem like an oxymoron, given the bajillions of <code>#ifdef</code>s programmers have to use to actually <em>make</em> their C portable, but these have the advantage of being well understood.  Getting C++ or Java to work on multiple platforms is actually no easier.[2] More specifically, have a role with respect to that project that includes the capability to view the contents of the repository.</p>
+<p>[3] This is only true if administrators use the functions in DrProject to edit user permissions.  If someone edits the underlying database directly via SQL, it obviously won&rsquo;t have the desired side effect of updating the <a href="http://subversion.tigris.org">Subversion</a> access file.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

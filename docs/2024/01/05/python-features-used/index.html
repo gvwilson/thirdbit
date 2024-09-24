@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: What Features of Python Do I Use?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>What Features of Python Do I Use?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/01/03/the-other-examples/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-01-05" class="post-date">2024-01-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/01/06/my-academic-flyby-revisited/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>It&rsquo;s easy to answer the question in this post&rsquo;s title
+for the Python version <a href="../../../../sdxpy/"><em>Software Design by Example</em></a>
+using Python&rsquo;s <code>ast</code> module:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">seen</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">scrape</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">seen</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">count</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">seen</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">scrape</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">seen</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+            <span class="n">seen</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p>The results shown below reveal that
+the book uses a rather small subset of Python&rsquo;s features.
+These tables is misleading, though,
+since things like decorators and <code>else</code> don&rsquo;t show up.
+Still,
+I think these numbers show that:</p>
+<ol>
+<li>I&rsquo;m pretty conservative in my Python coding.</li>
+<li>It&rsquo;s possible to teach a lot about design without using a lot of language features.</li>
+<li>Which implies that it&rsquo;s possible do a lot of design with a fairly small language.</li>
+</ol>
+<p>As I wrote <a href="../../../../2024/01/03/the-other-examples/">a couple of days ago</a>,
+I&rsquo;m not going to write another programming book.
+If I had it all to do over again,
+though,
+I&rsquo;d think very seriously about doing just one volume in <a href="https://www.lua.org/">Lua</a>:
+Roberto Ierusalimschy and his team have done us all a service
+in resisting the bloat that almost every other language has succumbed to.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Count</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">11619</td>
+<td style="text-align: left;">Load</td>
+<td style="text-align: left;">Read a value</td>
+</tr>
+<tr>
+<td style="text-align: right;">9667</td>
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">Variable or function name</td>
+</tr>
+<tr>
+<td style="text-align: right;">3874</td>
+<td style="text-align: left;">Constant</td>
+<td style="text-align: left;">Constant number or string</td>
+</tr>
+<tr>
+<td style="text-align: right;">3437</td>
+<td style="text-align: left;">Call</td>
+<td style="text-align: left;">Call a function or method</td>
+</tr>
+<tr>
+<td style="text-align: right;">2579</td>
+<td style="text-align: left;">Attribute</td>
+<td style="text-align: left;">Reference an object attribute with <code>.</code> notation</td>
+</tr>
+<tr>
+<td style="text-align: right;">2048</td>
+<td style="text-align: left;">Store</td>
+<td style="text-align: left;">Write a value (17% as common as reading)</td>
+</tr>
+<tr>
+<td style="text-align: right;">1416</td>
+<td style="text-align: left;">Assign</td>
+<td style="text-align: left;">Assignment (which includes updating as well as initial definition)</td>
+</tr>
+<tr>
+<td style="text-align: right;">1103</td>
+<td style="text-align: left;">FunctionDef</td>
+<td style="text-align: left;">I define a lot of little functions…</td>
+</tr>
+<tr>
+<td style="text-align: right;">803</td>
+<td style="text-align: left;">Subscript</td>
+<td style="text-align: left;"><code>[…]</code> element reference</td>
+</tr>
+<tr>
+<td style="text-align: right;">526</td>
+<td style="text-align: left;">Return</td>
+<td style="text-align: left;">Huh: only about half of my functions actually return something explicitly</td>
+</tr>
+<tr>
+<td style="text-align: right;">469</td>
+<td style="text-align: left;">Eq</td>
+<td style="text-align: left;">Value equality</td>
+</tr>
+<tr>
+<td style="text-align: right;">371</td>
+<td style="text-align: left;">List</td>
+<td style="text-align: left;">Defining a new list</td>
+</tr>
+<tr>
+<td style="text-align: right;">327</td>
+<td style="text-align: left;">If</td>
+<td style="text-align: left;"><code>elif</code> and <code>else</code> don&rsquo;t show up separately</td>
+</tr>
+<tr>
+<td style="text-align: right;">276</td>
+<td style="text-align: left;">JoinedStr</td>
+<td style="text-align: left;">A bunch of f-strings</td>
+</tr>
+<tr>
+<td style="text-align: right;">214</td>
+<td style="text-align: left;">ImportFrom</td>
+<td style="text-align: left;">My example programs import things from each other a lot</td>
+</tr>
+<tr>
+<td style="text-align: right;">213</td>
+<td style="text-align: left;">Tuple</td>
+<td style="text-align: left;">Tuple definition</td>
+</tr>
+<tr>
+<td style="text-align: right;">173</td>
+<td style="text-align: left;">For</td>
+<td style="text-align: left;">Loops</td>
+</tr>
+<tr>
+<td style="text-align: right;">163</td>
+<td style="text-align: left;">Dict</td>
+<td style="text-align: left;">Explicit dictionaries</td>
+</tr>
+<tr>
+<td style="text-align: right;">150</td>
+<td style="text-align: left;">ClassDef</td>
+<td style="text-align: left;">I define many fewer classes than functions in this book</td>
+</tr>
+<tr>
+<td style="text-align: right;">148</td>
+<td style="text-align: left;">Import</td>
+<td style="text-align: left;">Mostly standard libraries</td>
+</tr>
+<tr>
+<td style="text-align: right;">79</td>
+<td style="text-align: left;">Slice</td>
+<td style="text-align: left;">A lot of these are <code>sys.argv[1:]</code>…</td>
+</tr>
+<tr>
+<td style="text-align: right;">72</td>
+<td style="text-align: left;">AugAssign</td>
+<td style="text-align: left;"><code>+=</code> and its friends</td>
+</tr>
+<tr>
+<td style="text-align: right;">68</td>
+<td style="text-align: left;">ListComp</td>
+<td style="text-align: left;">I still prefer loops to list comprehensions</td>
+</tr>
+<tr>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">With</td>
+<td style="text-align: left;">I use <code>with</code> statements primarily for file I/O and mock objects in tests</td>
+</tr>
+<tr>
+<td style="text-align: right;">35</td>
+<td style="text-align: left;">Starred</td>
+<td style="text-align: left;">Spreading lists</td>
+</tr>
+<tr>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">Pass</td>
+<td style="text-align: left;">Mostly placeholders as I&rsquo;m developing code in stages during a tutorial</td>
+</tr>
+<tr>
+<td style="text-align: right;">32</td>
+<td style="text-align: left;">Raise</td>
+<td style="text-align: left;">I probably should have included more about exception handling…</td>
+</tr>
+<tr>
+<td style="text-align: right;">29</td>
+<td style="text-align: left;">While</td>
+<td style="text-align: left;">17% as many <code>while</code> loops as <code>for</code> loops</td>
+</tr>
+<tr>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">ExceptHandler</td>
+<td style="text-align: left;">See note above about exceptions</td>
+</tr>
+<tr>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;">DictComp</td>
+<td style="text-align: left;">I could have written more of these, but the code can be hard to read</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Try</td>
+<td style="text-align: left;">See note above about exceptions</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Set</td>
+<td style="text-align: left;">Turns out constant sets are pretty rare</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">SetComp</td>
+<td style="text-align: left;">See above</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Continue</td>
+<td style="text-align: left;">Surprised that there are more <code>continue</code> than <code>break</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Lambda</td>
+<td style="text-align: left;">Almost all as <code>key</code> arguments to sorting</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Break</td>
+<td style="text-align: left;">See note above about <code>continue</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Del</td>
+<td style="text-align: left;">Removing a breakpoint from a dictionary</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Global</td>
+<td style="text-align: left;">I could (and should) get rid of this…</td>
+</tr>
+</tbody>
+</table>
+<p>And here are the uninteresting bits
+(e.g., intermediate nodes in the parse tree or specific arithmetic operators):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Count</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: right;">Count</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">961</td>
+<td style="text-align: left;">Expr</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: left;">In</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">BitOr</td>
+</tr>
+<tr>
+<td style="text-align: right;">698</td>
+<td style="text-align: left;">Compare</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: left;">USub</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">BitAnd</td>
+</tr>
+<tr>
+<td style="text-align: right;">485</td>
+<td style="text-align: left;">Assert</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: left;">Lt</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Div</td>
+</tr>
+<tr>
+<td style="text-align: right;">296</td>
+<td style="text-align: left;">FormattedValue</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">Sub</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">IsNot</td>
+</tr>
+<tr>
+<td style="text-align: right;">248</td>
+<td style="text-align: left;">Module</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: left;">NotEq</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Or</td>
+</tr>
+<tr>
+<td style="text-align: right;">217</td>
+<td style="text-align: left;">BinOp</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">LtE</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">RShift</td>
+</tr>
+<tr>
+<td style="text-align: right;">113</td>
+<td style="text-align: left;">UnaryOp</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: left;">Gt</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NamedExpr</td>
+</tr>
+<tr>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">GeneratorExp</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">NotIn</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">GtE</td>
+</tr>
+<tr>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">BoolOp</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">And</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">FloorDiv</td>
+</tr>
+<tr>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">IfExp</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">Pow</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">LShift</td>
+</tr>
+<tr>
+<td style="text-align: right;">136</td>
+<td style="text-align: left;">Add</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Is</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Invert</td>
+</tr>
+<tr>
+<td style="text-align: right;">58</td>
+<td style="text-align: left;">Mult</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Mod</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Delete</td>
+</tr>
+<tr>
+<td style="text-align: right;">57</td>
+<td style="text-align: left;">Not</td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Update: in memory of Niklaus Wirth,
+Dana Sibera has reproduced the classic Apple Pascal poster (see below).
+Like I said,
+I&rsquo;m not going to write another programming book,
+but if I <em>did</em>,
+I&rsquo;d want to use a language whose grammer is no more complicated than this.</p>
+<div class="center">
+  <img src="../../../../files/2024/PascalPosterV1.svg" alt="Apple Pascal poster redrawn by Dana Sibera"/>
+</div><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

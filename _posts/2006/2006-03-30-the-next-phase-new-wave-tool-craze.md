@@ -1,8 +1,0 @@
----
-title: "The Next Phase New Wave Tool Craze"
-date: 2006-03-30 10:54:44
-year: 2006
----
-I spent some time yesterday chatting with <a href="http://osl.cs.uiuc.edu/~ksen/">Koushik Sen</a>, a graduate student at the University of Illinois whose work has been picking up prizes.  Koushik's "concolic" technique combines concrete and symbolic evaluation: basically, he uses program analysis to identify paths through the code, then works backward to generate unit tests that cover those paths efficiently.  The combination is effective enough to uncover previously-unknown bugs in well-tested code from NASA, Sun, and elsewhere; you can download his tools (in binary form only, not source) from his web site.
-
-Koushik's work is the latest snowball in a growing avalanche of almost-ready-for-prime-time code quality tools.  Andreas Zeller's book Why Programs Fail describes a bunch, as do two papers in the latest IEEE Transactions on Software Engineering ("On the Automatic Modularization of Software Systems Using the Bunch Tool", by Mitchell and Mancoridis, and "CP-Miner: Finding Copy-Paste and RElated Bugs in Large-Scale Software Code", by Li et al).  It seems like static and dynamic analysis are about to hit some critical crystallization point, just as testing did a few years ago when <a href="http://www.junit.org">JUnit</a> unleashed a wave of ever-more-sophisticated testing aids that programmers actually used.  Translating jCUTE, Bunch, CP-Miner, and Zeller's tools into "download and drive" plugins for Eclipse and Visual Studio coul be a very cool area to be in for the next three or four years.

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Building a Book</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Building a Book</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/01/27/jove-but-not-for-me/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-02-10" class="post-date">2021-02-10</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/02/12/last-day-at-rstudio/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I have written or edited five technical books in the last 11 years
+and have three more in various stages of production.
+Every single one has been built differently
+because none of the tools I can find
+do the things I want:</p>
+<ol>
+<li>
+<p><strong>Numbered cross-references.</strong>
+    I want to assign logical names to sections, figures, and tables
+    so that I can refer to them from other places
+    and have those cross-references filled in with the correct numbers.
+    LaTeX does this,
+    but the Jekyll setup used by GitHub Pages doesn&rsquo;t.</p>
+</li>
+<li>
+<p><strong>Citations.</strong>
+    LaTeX (plus BibTeX) turns <code>\cite{Able,Baker}</code> into <code>[Able 2000, Baker 2011]</code>
+    and generates a bibliography.
+    Bookdown and Jupyter Book do this too,
+    but Jekyll doesn&rsquo;t know what citations are—without plugins,
+    I have to write something like <code>[[Able 2000](../bib/#Able), [Baker 2011](../bib/#Baker)]</code>
+    and then filter my bibliography myself.</p>
+</li>
+<li>
+<p><strong>A glossary.</strong>
+    If you want to know what a document is about,
+    look at the terms it defines.
+    LaTeX has packages for tagging glossary definitions,
+    but Bookdown and Jupyter Book don&rsquo;t;
+    <a href="https://github.com/carpentries/glosario/">Glosario</a> is trying to fix this.</p>
+</li>
+<li>
+<p><strong>Code fragments.</strong>
+    Bookdown, Jupyter Book, and other notebook-based systems
+    let me embed runnable code chunks and their output in a document.
+    The problem is,
+    that&rsquo;s almost never what I want when I write a book.
+    Instead,
+    what I usually want is a fragment of that code—a couple of methods out of a class,
+    for example,
+    or the first and last few lines of output with vertical ellipses between them.
+    Purist literate programming systems support this via transclusion,
+    but none of the widely-used notebooks do.</p>
+</li>
+<li>
+<p><strong>Automatic regeneration of output.</strong>
+    This is the greatest strength of computational notebooks
+    and one of the major deficiencies of LaTeX and site generation tools like Jekyll.
+    I have Makefiles… Lots of Makefiles…</p>
+</li>
+<li>
+<p><strong>Support for multiple languages.</strong>
+    <a href="../../../../sdxjs/"><em>Software Design by Example Using JavaScript</em></a>
+    has examples in Node.js, Python, and the Bash shell;
+    other books have an even greater diversity.
+    Today&rsquo;s computational notebooks handle this reasonably well;
+    for LaTeX and static site generators I have to trust my Makefiles.</p>
+</li>
+<li>
+<p><strong>No dependence on Pandoc.</strong>
+    Every time I have used Pandoc I have had to write some customization scripts,
+    whether as pre- and post-processors or as embedded filters.
+    (I learned the little bit of Lua I know in order to do the latter.)
+    In theory I&rsquo;m sure I could learn enough about its templating language to solve my problems,
+    but I&rsquo;m tired of investing my time in single-use technologies,
+    and if doing that is a prerequisite for contributing to a project,
+    that&rsquo;s going to exclude a lot of people.
+    I&rsquo;m not proud of having written several text-to-text translators in Python and Node.js,
+    but my collaborators can fix and extend them using the knowledge they already have.</p>
+</li>
+<li>
+<p><strong>No escape characters.</strong>
+    I don&rsquo;t have to type backslashes or the punctuation in <code>![](./logo.png)</code>
+    when I&rsquo;m writing in Word or a Google Doc,
+    so I resent every time my tools require me to.
+    This is one of the reasons I don&rsquo;t write in LaTeX and then translate to HTML:
+    not only has &ldquo;the FORTRAN of scientific publishing&rdquo; become increasingly brittle over the years
+    as packages pile on packages pile on packages,
+    but it&rsquo;s grown harder to persuade people that its arcane syntax is justified.
+    Markdown hurts less—until you need notations for numbered cross-references,
+    citations, glossary entries, partial code inclusions, and so on.</p>
+</li>
+<li>
+<p><strong>Diff and merge.</strong>
+    This is non-negotiable for me,
+    and is one of the reasons I don&rsquo;t use Jupyter notebooks.
+    If I can&rsquo;t diff and merge contributions from other people,
+    I can&rsquo;t collaborate with them effectively.
+    (And yes, there are ways to diff and merge Jupyter notebooks now,
+    but no, they aren&rsquo;t usable enough to persuade me.)</p>
+</li>
+<li>
+<p><strong>No mandated editor.</strong>
+    So far this week I have edited in Emacs, the RStudio IDE, and Microsoft Visual Code.
+    My co-authors on <em><a href="../../../../js4ds/">JavaScript for Data Science</a></em>
+    and <em><a href="../../../../py-rse/">Research Software Engineering with Python</a></em>,
+    and the team translating <em><a href="https://teachtogether.tech/">Teaching Tech Together</a></em>
+    into <a href="http://teachtogether.tech/es/index.html">Spanish</a>,
+    use another half-dozen editors between them.
+    I don&rsquo;t think people should have to switch tools to work with me,
+    so any solution that mandates a particular editor, operating system, or online service
+    is a non-starter.</p>
+</li>
+<li>
+<p><strong>HTML and PDF.</strong>
+    This is the point of it all: something people can read online
+    and something that can be printed and bound.
+    They don&rsquo;t need to look like one another—fonts that work well on the web
+    may not be the best choice on paper—but all of the indexing and cross-referencing <em>must</em> be consistent.
+    They must also come from a single source so that updates are automatically consistent as well,
+    and that&rsquo;s a problem:
+    forced page breaks and &ldquo;put it here&rdquo; directives are always needed for print,
+    but can be invalidated by even small changes to content
+    and make no sense for HTML.</p>
+</li>
+</ol>
+<p>All of this has led me to build and re-build a succession of tools
+to convert Markdown to HTML and HTML to LaTeX.
+It&rsquo;s a horrible &ldquo;solution&rdquo;:
+while I am dissatisfied with the tools mentioned above,
+they are all well-documented and well-maintained,
+neither of which is true of my home-made scripts.
+I&rsquo;d give a lot for a WYSIWYG editor with <em>in situ</em> drawing,
+re-execution of transcluded code,
+and built-in user-level diffing and merging,
+but I no longer believe I&rsquo;m going to see it in my lifetime.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

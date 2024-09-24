@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Polymorphism</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Polymorphism</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2009/12/22/fossil-nosql/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2009-12-23" class="post-date">2009-12-23</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2009/12/23/ottawa-is-only-3/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Yesterday, I asked if anyone was building something like <a href="http://www.fossil-scm.org/">Fossil</a> using a NoSQL database.  In response, someone named Pete (who didn&rsquo;t leave a real email address) asked, &ldquo;Why NoSQL? This is a perfect application for an SQL database.&rdquo;  Respectfully, I disagree, but my reason will take a little explaining.</p>
+<p>Over the past 16 months, several waves of students have been working with me on a replacement for <a href="http://trac.edgewall.org">Trac</a> called Basie. Like Trac, Basie is meant to be a minimalist software forge: it combines version control, ticketing, wikis, the like into one package, but is much simpler than the open source and commercial forges that Jordi Cabot and I <a href="http://www.ddj.com/development-tools/220301068">surveyed</a>. Unlike Trac, Basie is built using modern web tools (<a href="http://www.djangoproject.com/">Django</a> and <a href="http://jquery.com/">jQuery</a>), and supports multiple projects per forge and per-project mailing lists out of the box.</p>
+<p>We&rsquo;ve dealt with quite a few design challenges while building Basie, and have a few more piled up to worry about in January—see, for example, Ian Lienert&rsquo;s post about deleting vs. hiding, or Andrew Schurman&rsquo;s look at why integrating with IRC is hard (short answer: channel management). Many of the hardest challenges, though, have a common root cause: relational databases don&rsquo;t support polymorphism. Take tagging, for example: in order to find all items tagged with &ldquo;upgrade&rdquo;, we have to issue and aggregate multiple queries, because the entities that have been tagged are stored in separate tables. Not only does this hurt performance and make the code (much) harder to understand, it also means makes plug-and-play extensibility a lot harder, since anyone who wants to add a new module to Basie has to either edit the tagging code to reference that new module, or wrestle with some not-yet-implemented registration and callback mechanism that moves the grief out of Django&rsquo;s ORM (where it belongs) and into pure Python code.</p>
+<p>We ran into the same problem building the status dashboard, where we wanted one module (the dashboard) to be able to ask questions of others <em>without</em> knowing exactly what those others were or how they were implemented. This is trivial in a programming language that provides polymorphism (as almost all modern languages do), but there&rsquo;s no standard, straightforward way to do it with SQL.</p>
+<p>Hence my interest in NoSQL databases. What they&rsquo;re explicitly doing is setting aside the &ldquo;rows and columns&rdquo; model in favor of—well, in favor of a bunch of different things, depending on which one we&rsquo;re talking about. But in doing that, they&rsquo;re sort-of-accidentally making a lot of other innovations possible. After all, if PostgreSQL came out with some kind of polymorphism extension, I probably wouldn&rsquo;t use it, because I wouldn&rsquo;t want to be tied to any one relational database. If I choose to use <a href="http://www.mongodb.org">MongoDB</a> or <a href="http://couchdb.apache.org/">CouchDB</a>, though, I&rsquo;m committing to a single-source solution anyway, so why not make full use of everything it offers?  Simon Willison (who knows much more about all of this than I do) <a href="http://simonwillison.net/2009/Jun/30/mongodb/">made a similar point</a> in July when asked how hard it would be to get Django running on top of MongoDB:</p>
+<blockquote>I remain sceptical of projects that attempt to map Django's extremely relational ORM to non-relational backends. Why would you want to do this in the first place? Presumably because you want to use parts of the Django ecosystem - in particular the admin, generic views and pagination - with a different persistent store.
+
+I would argue that you don't want a ORM backend for MongoDB - instead, you want the admin, generic views and pagination to work with alternative storage mechanisms. Instead of depending directly on the ORM, they should make use of an abstract interface which can be mapped to the ORM but can also map to other types of persistent store.</blockquote>
+<p>See also <a href="http://railstips.org/2009/12/18/why-i-think-mongo-is-to-databases-what-rails-was-to-frameworks">this article</a> from John Nunemaker.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

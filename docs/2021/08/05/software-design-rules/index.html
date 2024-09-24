@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design Rules</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design Rules</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/07/22/knitting-mouse/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-08-05" class="post-date">2021-08-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/08/18/software-design-webinar/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>My webinar on &ldquo;<a href="../../../../talks/sd4ds/">Software Design for Data Scientists</a>&rdquo; raised over $600 for <a href="https://www.booksforafrica.org/">Books for Africa</a>. The key points are summarized below; if you&rsquo;d like me to give the talk to your company, university, or other organization, I&rsquo;d be happy to do so in exchange for a donation to BfA or some other mutually-agreed charity.</p>
+<p>Rule 0: Computer scientists aren&rsquo;t taught software design either, so don&rsquo;t feel like you&rsquo;ve missed something.</p>
+<p>Rule 1: Design for people&rsquo;s cognitive capacity (7±2, chunking, and all that).</p>
+<p>Rule 2: Design toward widely-used abstractions and maximize the ratio of &ldquo;what&rsquo;s unique in this statement&rdquo; to boilerplate, but remember that the tradeoff between abstraction and comprehension depends on how much people already know.</p>
+<p>Rule 3: Design for evolution, because the problem, the tools, and your understanding will all change each other. The key tool for this is information hiding; the Liskov Substitution Principle and Design by Contract will help.</p>
+<p>Rule 4: Design for testability - not just because you want to test, but because it&rsquo;s a way to validate designs.</p>
+<p>Rule 5: Design as if code was data, because it is. Programs are just text files; code in memory is just another data structure, and taking advantage of this can make designs much more elegant (but also less comprehensible to newcomers).</p>
+<p>Rule 6: Design for delivery - organize your code the way your packaging system expects, handle errors instead of printing them and discarding them, and use a proper logging system.</p>
+<p>Rule 7: Design graphically (but don&rsquo;t try to create software blueprints). Flowcharts, informal architecture diagrams, entity-relationship diagrams, and use case maps will all help people understand the overall design.</p>
+<p>Rule 8: Design after the fact. The most important thing isn&rsquo;t to follow any particular process, it&rsquo;s to look as though you did so that the next person can retrace your steps.</p>
+<p>Rule 9: Design with villains in mind, because security, privacy, and fairness can&rsquo;t be sprinkled on after the fact.</p>
+<p>Rule 10: Design collaboratively and inclusively, because it will produce a better design (and because it&rsquo;s just the right thing to do).</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

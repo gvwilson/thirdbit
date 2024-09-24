@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Checking-Driven Development</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Checking-Driven Development</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/05/26/active-teaching/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-05-28" class="post-date">2019-05-28</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/05/30/software-engineering-revisited/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I spent some time talking to a colleague this week about software testing and data science,
+and I think I&rsquo;m a little less confused about a few things than I used to be:</p>
+<ol>
+<li>
+<p>I know how to test &ldquo;normal&rdquo; software (like e-commerce websites or database drivers):
+    set up some input values, run the code, and then check that it produces the expected result.</p>
+</li>
+<li>
+<p>This methodology is irrelevant to many data scientists because they don&rsquo;t know what result to expect—if they did,
+    they would already have published and moved on.</p>
+</li>
+<li>
+<p>I say &ldquo;many&rdquo; rather than &ldquo;all&rdquo;
+    because some data scientists—those who work as <a href="https://researchsoftware.org/">research software engineers</a>—write
+    libraries for general use and should have lots of tests.
+    I think the difference is building products for repeated use
+    versus combining those products and their own code to get one specific result.</p>
+</li>
+<li>
+<p>So how do scientists figure out if their software is doing the right thing?
+    The answer is spot checks:
+    each time they produce an intermediate or final result,
+    they scan a table, create a chart, or inspect some summary statistics
+    to see if everything looks OK.
+    Their heuristics are usually easy to state,
+    like &ldquo;there shouldn&rsquo;t be NAs at this point&rdquo; or &ldquo;the age range should be reasonable&rdquo;,
+    but applying those heuristics to a particular analysis always depends on
+    the data scientist&rsquo;s evolving insight into the data in question.</p>
+</li>
+</ol>
+<p>I therefore agree that
+there are more important things to teach to novice data scientists than unit testing.
+(I can already hear my software engineering friends muttering, &ldquo;Unclean! Unclean!&rdquo;)
+What I think we <em>should</em> teach is defensive programming:
+the checks that data scientists do while they&rsquo;re doing analyses
+should be recorded in their code as assertions.
+This will help reusability—it&rsquo;s amazing how often a one-off analysis
+winds up being used many times—but the real goal is comprehensibility.
+If I can get your code and data,
+run the former on the latter,
+and get the same result that you did,
+then your computation is reproducible,
+but that doesn&rsquo;t mean I can understand it.
+Prose explanations help,
+which is part of why knuths<sup><a href="#footnote-knuth">1</a></sup> are so popular,
+but comments and paragraphs won&rsquo;t check that assumptions and invariants still hold
+when the person trying to reproduce the analysis starts fiddling around with it.
+And unlike comments,
+runnable assertions can&rsquo;t fall out of step with what the code is actually doing…</p>
+<p>By analogy with <a href="https://en.wikipedia.org/wiki/Test-driven_development">test-driven development</a>,
+we could call this process &ldquo;checking-driven development&rdquo;.
+Just like writing tests forces you to be explicit about what &ldquo;done&rdquo; looks like,
+adding checks to analyses forces you to be explicit about what &ldquo;right&rdquo; looks like.
+I believe this approach is pedagogically defensible:</p>
+<ol>
+<li>Knowing how to write useful assertions
+    is necessary (but not sufficient) for writing unit tests.</li>
+<li>It&rsquo;s the-same-as-but-better-than what good practitioners currently do.</li>
+</ol>
+<h2>An Example</h2>
+<p>Several good libraries for validating data pipelines in R already exist,
+including <a href="https://cran.r-project.org/web/packages/assertr/index.html">assertr</a>,
+<a href="https://cran.r-project.org/web/packages/checkr/index.html">checkr</a>,
+and <a href="https://cran.r-project.org/web/packages/validate/index.html">validate</a>.
+What we&rsquo;re missing are:</p>
+<ol>
+<li>Lessons to teach budding data scientists what tests they should actually write.
+    I strongly suspect that these will have to be (sub)domain-specific;
+    as the joke goes,
+    physicists worry about decimal places,
+    astronomers worry about exponents,
+    and economists are happy if they get the sign right.</li>
+<li>Hooks to help people recycle their tests in production.
+    One-off scripts have a nasty habit of finding their way into pipelines;
+    <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412">Taschuk&rsquo;s Rules</a>
+    tell people how to prepare for that,
+    but libraries with hooks so that data engineers can turn them on and off
+    and control where their output goes
+    <em>without</em> editing the source can help a lot.</li>
+</ol>
+<p>So what might this look like in practice?
+Imagine we have this simple dplyr pipeline
+to find the mean age of people who aren&rsquo;t &ldquo;alpha&rdquo;:</p>
+<div class="highlight"><pre><span></span><code>data &lt;- tribble(
+  ~record_id, ~person_id, ~age,
+  100,         &quot;alpha&quot;,    17,
+  200,         &quot;alpha&quot;,    34,
+  300,         &quot;beta&quot;,     21,
+  400,         &quot;gamma&quot;,    NA,
+  500,         &quot;gamma&quot;,    26
+)
+
+data %&gt;%
+  filter(person_id != &quot;alpha&quot;) %&gt;%
+  group_by(person_id) %&gt;%
+  summarize(midpoint = mean(age))
+</code></pre></div>
+<p>Now imagine a trio of functions <code>grumble_row</code>, <code>grumble_col</code>, and <code>grumble_group</code>
+that check conditions on rows, columns, and groups without modifying the data.
+The data scientist delivers this:</p>
+<div class="highlight"><pre><span></span><code>config &lt;- list(MAX_AGE = 120, IN_PRODUCTION = FALSE, LOGGER = warning)
+
+data %&gt;%
+
+  grumble_col(age &gt;= 18) %&gt;%
+  grumble_col(age &lt;= config$MAX_AGE, active = !config$IN_PRODUCTION) %&gt;%
+
+  filter(person_id != &quot;alpha&quot;) %&gt;%
+
+  grumble_row(is.na(age), logger = config$LOGGER) %&gt;%
+
+  group_by(person_id) %&gt;%
+
+  grumble_group(n() == 2, msg = &quot;Expected two records per person.&quot;) %&gt;%
+
+  summarize(midpoint = mean(age))
+</code></pre></div>
+<p>The data engineer pulls those configuration settings out into a YAML file,
+then changes <code>IN_PRODUCTION</code> to <code>TRUE</code>
+and replaces <code>warning</code> with a function from <code>futile.logger</code> or a similar package.
+Here&rsquo;s the fully-annotated version to explain the purposes of the checks
+and the extra parameters that these functions understand:</p>
+<div class="highlight"><pre><span></span><code>data %&gt;%
+
+  # Always check that age is greater than or equal to 18.
+  # (Would raise error in this example because of record 100.)
+  grumble_col(age &gt;= 18) %&gt;%
+
+  # Only check that age lies below maximum when not in production.
+  # (Would not raise an error in this example because &#39;active&#39; would be FALSE.)
+  grumble_col(age &lt;= config$MAX_AGE, active = !config$IN_PRODUCTION) %&gt;%
+
+  # Real calculation.
+  filter(person_id != &quot;alpha&quot;) %&gt;%
+
+  # Generate a warning if there are any surviving NAs in age.
+  # (Would generate a warning in this example because of record 400.)
+  grumble_row(is.na(age), logger = config$LOGGER) %&gt;%
+
+  # Real calculation.
+  group_by(person_id) %&gt;%
+
+  # Check that there are exactly two records for each person.
+  # (Would raise an error in this example because there is only one record for &quot;beta&quot;.)
+  grumble_group(n() == 2, msg = &quot;Expected two records per person.&quot;) %&gt;%
+
+  # Real calculation.
+  summarize(midpoint = mean(age))
+</code></pre></div>
+<h2>Feedback Please</h2>
+<p>I think it&rsquo;s reasonable to teach novice data scientists to do ad hoc checking.
+I think it&rsquo;s equally reasonable to ask data scientists of all kinds
+to move their ad hoc checks from the interactive console into their scripts.
+I&rsquo;d be grateful for your opinions,
+and for your thoughts on the checking functions I&rsquo;ve proposed above.</p>
+<p><span id="footnote-knuth">1.</span> More commonly called &ldquo;computational notebooks&rdquo;,
+but I figure we should give credit where credit is due.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

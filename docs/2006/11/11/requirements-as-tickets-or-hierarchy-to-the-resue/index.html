@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Requirements as Tickets (or, Hierarchy to the Rescue)</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Requirements as Tickets (or, Hierarchy to the Rescue)</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/11/11/expressing-temporal-type-information-in-programs/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-11-11" class="post-date">2006-11-11</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/11/16/drproject-internals-subversion-part-1/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Several of the small companies we&rsquo;ve spoken to recently have asked whether it would make sense to use an issue tracker to manage requirements.  It&rsquo;s superficially sensible: if you can create tickets for feature requests, why not create them for the needs that drive those features?</p>
+<p>After pondering this for a (short) while, we think it&rsquo;s workable, but with caveats.  The first is that stakeholders must be able to express relationships between tickets, such as &ldquo;Feature X is needed to satisfy business need Y&rdquo;, &ldquo;P is an exception to the general rule Q,&rdquo; or, &ldquo;E must be done before F and G, which in turn must both be done before H can be started&rdquo;.  Injecting these cross-references must be really, really easy: stakeholders cannot be required to type in lots of ticket numbers (they might be willing to do this once, but they won&rsquo;t keep them all up to date as tickets are split, merged, added, and removed during the course of the project).</p>
+<p>The second caveat is that the system must give stakeholders a way to organize the tickets into a sensible linear order.  Hypertext is all very well, but wandering around a twisty maze of little requirements is <em>not</em> an effective way to understand a complex system.  Linearization gives people who already know the problem architecture a way to help people who don&rsquo;t, learn.</p>
+<p>We&rsquo;re still thinking about the first (tag-directed proximitization in an unstructured graph plus link-drawing?), but we have an idea for the second.  Right now, most ticketing systems&rsquo; standard display is a flat list sorted by ticket ID, filing date, priority, or something of that ilk (Figure 1).</p>
+<p><img alt="Figure 1" src="../../../../files/2006/11/tickets.png" class="centered"></p>
+<p>What if stakeholders had another view, in which they could organize tickets like this:</p>
+<table class="centered">
+<tr>
+<td colspan="3"><strong>Tagging System</strong></td>
+</tr>
+<tr>
+<td> </td>
+<td colspan="2">281: In-place editing</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td>407: Keyword completion</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td>399: Explicit "submit"</td>
+</tr>
+<tr>
+<td> </td>
+<td colspan="2">117: Colorization</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td>145: Red-purple-blue spectrum</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td>214: Must be legible when printed B&W</td>
+</tr>
+</table>
+<p>A little AJAX ought to be enough to let users move things up and down, drag them left and right, or create a heading that isn&rsquo;t associated with an actual ticket.  The system would store this structure as a first-class entity; tickets that hadn&rsquo;t yet been manually organized wouldn&rsquo;t appear in it, while tickets that had been closed would be crossed out until a human being said, &ldquo;Yeah, take it out of the hierarchy.&rdquo;</p>
+<p>I don&rsquo;t know if this would be a sensible way to organize issue tickets (which often relate to several components of the system).  I think it has more of a chance of working with requirements; I&rsquo;d be interested in hearing what you think.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

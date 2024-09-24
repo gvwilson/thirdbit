@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include "head.jinja" %}
+    <link rel="stylesheet" href="@root/page.css">
+    {% block head_title %}
+    <title>{% if node.title %}{{node.title}}{% else %}{{site.title}}{% endif %}</title>
+    {% endblock %}
+    {% block head_includes %}{% endblock %}
+  </head>
+  <body>
+    {% include "nav.jinja" %}
+    <main>
+      {% block page_title %}
+      <h1>{% if node.title %}{{node.title}}{% else %}{{site.title}}{% endif %}</h1>
+      {% endblock %}
+{% block content %}{% endblock %}
+    </main>
+    {% include "foot.jinja" %}
+  </body>
+</html>

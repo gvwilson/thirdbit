@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Is This a Notional Machine for Python?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Is This a Notional Machine for Python?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2018/04/01/yaks/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2018-04-12" class="post-date">2018-04-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2018/04/28/v3-feedback/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><a href="http://computinged.wordpress.com">Mark Guzdial</a> was kind enough
+to take a few tweets last week
+to try to explain the idea of a &ldquo;notional machine&rdquo; to me.
+If I understand correctly,
+it&rsquo;s a competent practitioner&rsquo;s mental representation
+of how programs in a particular language are executed,
+which sounds like a mental model–except Mark tells me it&rsquo;s not.
+That leaves me wondering if the term is like &ldquo;computational thinking&rdquo;,
+i.e.,
+everyone agrees it&rsquo;s important but no-one agrees what it means.</p>
+<p>I thought that writing down my notional machine for Python might help clarify discussion
+(or at least my thinking).
+I&rsquo;m leaving out modules and objects until I know if I&rsquo;m on the right track;
+I&rsquo;d be grateful for feedback.</p>
+<ol>
+<li>
+<p>A running program has a call stack and a heap.</p>
+</li>
+<li>
+<p>Memory for data is always allocated from the heap.</p>
+</li>
+<li>
+<p>Every piece of data is stored in a two-part box:
+   the first part says what type the data is,
+   and the second part is the actual value.</p>
+</li>
+<li>
+<p>Atomic data like Booleans, numbers, and character strings are stored directly in the second part.
+   These values are never modified after they are created.</p>
+</li>
+<li>
+<p>The scaffolding for collections like lists and sets are also stored in the second part,
+   but they store references to user-visible data values
+   rather than storing those values directly.
+   The scaffolding may be modified after it is created,
+   e.g.,
+   a list may be extended or new key/value pairs may be added to a dictionary.</p>
+</li>
+<li>
+<p>When code is loaded,
+   Python parses it and converts it to a sequence of instructions
+   that are stored in heap-allocated memory just like any other data.</p>
+</li>
+<li>
+<p>When code is executed,
+   Python steps through the instructions,
+   doing what each tells it to in turn.</p>
+</li>
+<li>
+<p>Some instructions make Python read data,
+   operate on it,
+   and create new data.</p>
+</li>
+<li>
+<p>Other instructions make Python jump to other instructions
+   instead of executing the next one in sequence;
+   this is how conditionals and loops work.</p>
+</li>
+<li>
+<p>Yet another instruction tells Python to call a function,
+   which basically means temporarily switching from one blob of instructions to another.</p>
+</li>
+<li>
+<p>We make programs easier to understand by writing functions,
+   which are recipes that give a name to a series of calculations.</p>
+</li>
+<li>
+<p>When a function is called,
+   a new stack frame is pushed on the call stack.</p>
+</li>
+<li>
+<p>When a variable is used,
+   Python looks for it in the top stack frame.
+   If it isn&rsquo;t there,
+   it looks in the base (global) frame.</p>
+</li>
+<li>
+<p>When the function completes or returns,
+   Python switches from its blob of instructions
+   back to the code it was executing beforehand.
+   If there isn&rsquo;t a &ldquo;beforehand&rdquo;,
+   the program has finished.</p>
+</li>
+</ol>
+<p>So:</p>
+<ol>
+<li>Is this a notional machine?</li>
+<li>If so, how does it differ from yours?</li>
+<li>If not, why not?</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

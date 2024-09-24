@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Punchcards Considered Harmful</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Punchcards Considered Harmful</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/01/17/the-page-is-not-the-lesson/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-01-17" class="post-date">2021-01-17</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/01/18/how-to-write-a-memo/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><img src="../../../../files/2021/punchcard.jpg" alt="punchcard" class="centered"></p>
+<p>Most people programming today have never punched a card,
+but all programming editors still treat code as lines of text—in other words,
+as if it still might have to fit onto punchcards.
+As I&rsquo;ve been <strike>saying</strike> ranting <a href="https://queue.acm.org/detail.cfm?id=1039534">for a while now</a>,
+this is holding us back in ways we can barely recognize.</p>
+<p>One example is YAML,
+or rather,
+the insistence that people must write complex nested data structures as indented lines of text.
+The rules are well-defined and simple cases are simple,
+but as anyone who has spent an hour wrestling with a Jekyll or Bookdown configuration file can attest,
+any complex case is an unproductive nightmare waiting to escape its cage.</p>
+<p>So here&rsquo;s a thought experiment.
+Imagine that every editor from <a href="https://en.wikipedia.org/wiki/Microsoft_Notepad">Notepad</a>
+to <a href="https://www.vim.org/">Vim</a>
+to <a href="https://code.visualstudio.com/">VS Code</a>
+automatically displayed CSV files as editable tables.
+Instead of editing this:</p>
+<div class="highlight"><pre><span></span><code>book_filename: &quot;r4de&quot;
+language:
+  label:
+    fig: &quot;Figure &quot;
+    tab: &quot;Table &quot;
+  ui:
+    chapter_name: &quot;Chapter &quot;
+output_dir: &quot;docs&quot;
+delete_merged_file: false
+new_session: true
+rmd_files:
+  - index.Rmd
+  - basics.Rmd
+  - tidyverse.Rmd
+  - rmarkdown.Rmd
+  - package.Rmd
+  - references.Rmd
+</code></pre></div>
+<p>people would read and edit something like this:</p>
+<table class="centered">
+<tr>    <td> book_filename </td>    <td> "r4de" </td>       <td> </td>      <td> </td></tr>
+<tr>    <td> language </td>     <td> </td>          <td> </td>      <td> </td></tr>
+<tr>    <td>  </td>         <td> label </td>        <td> </td>      <td> </td></tr>
+<tr>    <td>  </td>         <td>  </td>         <td> fig </td>      <td> "Figure " </td></tr>
+<tr>    <td>  </td>         <td>  </td>         <td> tab </td>      <td> "Table " </td></tr>
+<tr>    <td>  </td>         <td> ui </td>           <td> </td>      <td> </td></tr>
+<tr>    <td>  </td>         <td>  </td>         <td> chapter_name </td> <td> "Chapter " </td></tr>
+<tr>    <td> output_dir </td>       <td> "docs" </td>       <td> </td>      <td> </td></tr>
+<tr>    <td> delete_merged_file </td>   <td> false </td>        <td> </td>      <td> </td></tr>
+<tr>    <td> new_session </td>      <td> true </td>         <td> </td>      <td> </td></tr>
+<tr>    <td> rmd_files </td>        <td> </td>          <td> </td>      <td> </td></tr>
+<tr>    <td>  </td>         <td> index.Rmd </td>        <td> </td>      <td> </td></tr>
+<tr>    <td>  </td>         <td> basics.Rmd </td>       <td> </td>      <td> </td></tr>
+<tr>    <td>  </td>         <td> tidyverse.Rmd </td>    <td> </td>      <td> </td></tr>
+<tr>    <td>  </td>         <td> rmarkdown.Rmd </td>    <td> </td>      <td> </td></tr>
+<tr>    <td>  </td>         <td> package.Rmd </td>      <td> </td>      <td> </td></tr>
+<tr>    <td>  </td>         <td> references.Rmd </td>   <td> </td>      <td> </td></tr>
+</table>
+
+<p>The file might actually be <em>stored</em> like this:</p>
+<div class="highlight"><pre><span></span><code>book_filename,&quot;r4de&quot;
+language
+,label
+,,fig,&quot;Figure &quot;
+,,tab,&quot;Table &quot;
+,ui
+,,chapter_name,&quot;Chapter &quot;
+output_dir,&quot;docs&quot;
+delete_merged_file,false
+new_session,true
+rmd_files
+,index.Rmd
+,basics.Rmd
+,tidyverse.Rmd
+,rmarkdown.Rmd
+,package.Rmd
+,references.Rmd
+</code></pre></div>
+<p>but if programmers could trust everyone&rsquo;s favorite editor
+to render rows and columns as rows and columns,
+I believe that:</p>
+<ol>
+<li>
+<p>most people would choose to use it instead of JSON, YAML, TOML, and STUMBL
+    (OK, I made that last one up, but you weren&rsquo;t sure, were you?) because</p>
+</li>
+<li>
+<p>they would find it easier to read and write nested structures
+    if their editor gave them even this little bit of help and guidance.</p>
+</li>
+</ol>
+<p>But I don&rsquo;t have any evidence for my second claim,
+which is where you (the ambitious grad student looking for a project) come in.
+Is there a difference in frustration quotient between YAML-in-a-text-editor
+and the same data in a table editor?
+Do people like the experience better if the table editor lives inside their usual editor?
+And can people find bugs faster or more reliably
+if nested structures are presented as tables rather than as indented text?
+My bet is &ldquo;yes&rdquo; for all three,
+but I don&rsquo;t want you to trust me
+because I don&rsquo;t want you to trust people—I want you to trust <em>data</em>.</p>
+<p>And of course once this is working,
+the next experiment would be to add a tree editing widget to several common programming editors
+and see if it&rsquo;s better, worse, or the same.
+I use <code>[ a | b ]</code> is my way of showing two editable cells side by side,
+and for fairness&rsquo; sake I think it&rsquo;s essential to add these widgets to existing editors:
+many programmers will change operating system, citizenship, and gender
+before abandoning Emacs.</p>
+<div class="highlight"><pre><span></span><code>├──[ book_filename | &quot;r4de&quot; ]
+├──language
+│   ├──label
+│   │  ├──[ fig | &quot;Figure &quot; ]
+│   │  └──[ tab | &quot;Table &quot; ]
+│   └──ui
+│      └──[ chapter_name | &quot;Chapter &quot; ]
+├──[ output_dir | &quot;docs&quot; ]
+├──[ delete_merged_file | false ]
+├──[ new_session | true ]
+└──rmd_files
+   ├──index.Rmd
+   ├──basics.Rmd
+   ├──tidyverse.Rmd
+   ├──rmarkdown.Rmd
+   ├──package.Rmd
+   └──references.Rmd
+</code></pre></div>
+<p>I don&rsquo;t think &ldquo;the other 99%&rdquo; of humanity will
+<a href="../../../../2021/01/17/the-page-is-not-the-lesson/">use static site generators to write lessons</a>
+unless we make them much (much) more approachable.
+Making configuration easier is just one part of that,
+but:</p>
+<ol>
+<li>
+<p>it&rsquo;s a part that can be used in many other places, and</p>
+</li>
+<li>
+<p>it&rsquo;s a step toward finally ending the long, tyrannical reign of the punchcard.</p>
+</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

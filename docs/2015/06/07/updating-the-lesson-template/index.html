@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Updating the Lesson Template</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Updating the Lesson Template</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2015/06/03/teaching-biocomputing-at-ut/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2015-06-07" class="post-date">2015-06-07</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2015/06/09/people-you-dont-want-on-your-team/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  A couple of weeks ago,
+  we asked our lesson maintainers what changes they would like to see in our lesson template
+  based on their experiences getting Version 5.3 ready for publication.
+  Their comments
+  are summarized below;
+  it's an ambitious list,
+  but I think we can do most or all of this between now and September.
+  If there are other things you think we should change in the way we structure lessons
+  (rather than in particular lessons themselves),
+  please add comments,
+  and if you'd like to dive into one of these,
+  please checkout the current lesson-template issues
+  and create a pull request against the lesson-template repository.
+</p>
+<ol>
+<li><p>Remove the <code>Legend</code> section: nobody's sure what to do with it, and the warmup for the running example in each lesson goes better in <code>index.md</code>.</p></li>
+<li><p>Allow level-2 sub-headings within topic files (but discourage their use, since anything long enough to need sub-headings should be broken into smaller pieces).</p></li>
+<li><p>Add a callout-style for "common mistakes" or "warnings" (similar to those used in O'Reilly books and elsewhere)</p></li>
+<li><p>Add next/previous links between topics and other files.</p></li>
+<li><p>Generate a single-page PDF of the whole lesson.</p></li>
+<li><p>Add translation guidelines and support.</p></li>
+<li><p>Add a page showing what all available styles look like.</p></li>
+<li><p>Add more pointers to the FAQ so that lesson maintainers know where to accumulate wisdom.</p></li>
+<li><p>Use Inconsolata instead of Courier New for code.</p></li>
+<li><p>Add something to code blocks to say what language they're in. (We use styles to control rendering, but nothing appears in the final HTML to say, "Hey, I'm a Bash script…")</p></li>
+<li><p>Add more checks for broken links to validator (do these on the generated HTML, not the Markdown).</p></li>
+<li><p>Validator should show snippets and line numbers to give context for errors.</p></li>
+<li><p>Add <code>make update</code> to update from template, and have it produce a change log.</p></li>
+<li><p>Add a "how to cite me" section to each lesson's <code>index.md</code> and a CITATION file to each lesson's repo.</p></li>
+<li><p>Add the current maintainers' contact info to the CONTRIBUTING.md.</p></li>
+<li><p>Add a section to CONTRIBUTING.md summarizing discussion to date of what <em>not</em> to change in the lesson (so that old arguments aren't rehashed).</p></li>
+<li><p>Move the motivation slides to the <code>slideshows</code> repo, but keep the content (in prose form) at the start of <code>instructors.md</code> to show new instructors how to motivate a lesson.</p></li>
+<li><p>Have a tool to generate a single-page deck.js slideshow with one image per slide so that instructors can easily show them off when live coding.</p></li>
+<li><p>Add a link to a "how to get started on your own" section (like Daniel Chen's post) on the main Software Carpentry website (probably the lessons page).</p></li>
+<li><p>Add solutions to all challenges.</p></li>
+<li><p>Add documentation to <code>lesson-example</code> explaining how to create a downloadable ZIP of data files required for a particular lesson and where to archive it (so that we all do it in the same way).</p></li>
+<li><p>Add links to each lesson's reference guide to the main web site (again, probably the lessons page), and make sure those print nicely.</p></li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

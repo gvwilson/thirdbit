@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: A Language for Teaching</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>A Language for Teaching</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/04/30/four-books-im-not-writing/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-05-08" class="post-date">2022-05-08</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/05/14/the-wes-montgomery-of-software/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;m hoping to send <em><a href="https://third-bit.com/sdxjs/index.html">Software Design by Example</a></em> to the publisher
+by the end of this month,
+and it has me thinking once again about
+what a programming language designed for teaching ought to look like.
+Here&rsquo;s one request:</p>
+<blockquote>
+<p>Built-in support for incremental exposition of code.</p>
+</blockquote>
+<p>Most good books on programming interleave exposition and code
+in ways that most languages don&rsquo;t directly support.
+For example,
+authors commonly want to write something like this
+to give readers a roadmap for what&rsquo;s coming next:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
+    <span class="err">…</span><span class="n">constants</span><span class="err">…</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="err">…</span><span class="nb">set</span> <span class="n">up</span><span class="err">…</span>
+
+    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="err">…</span><span class="n">fill</span> <span class="n">entire</span> <span class="n">grid</span> <span class="k">with</span> <span class="n">value</span><span class="err">…</span>
+
+    <span class="k">def</span> <span class="nf">adjacent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="err">…</span><span class="k">return</span> <span class="n">neighbors</span> <span class="n">of</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="err">…</span>
+</code></pre></div>
+<p>They then want to fill in those markers one at a time
+further down the page or a few pages later:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">EMPTY</span>
+</code></pre></div>
+<p>I don&rsquo;t know any programming language that allows me to write this as shown.
+Some &ldquo;simple&rdquo; text processing will allow me to write something like this in my source file:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
+
+    <span class="c1">## [+fill]</span>
+    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c1">## [-fill &quot;fill entire grid with value&quot;]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">EMPTY</span>
+        <span class="c1">## [-fill]</span>
+    <span class="c1">## [+fill]</span>
+</code></pre></div>
+<p>and then slice the marked regions to produce the two versions shown above,
+but having used (and built) several such systems,
+I keep wondering why we don&rsquo;t just add this to the language itself.
+<a href="https://en.wikipedia.org/wiki/Literate_programming">Literate programming</a> promised this,
+and while I was a zealous user for a couple of years in the late 1980s,
+bolting LP onto pre-existing languages proved too clunky to catch on.
+And yes,
+there are tricks like <a href="https://github.com/jupyter/notebook/issues/1243#issuecomment-369753964">the Blank Maneuver</a>
+and tools like <a href="https://alexhagen.github.io/jdc/">jdc</a> for the Jupyter notebook,
+but the former confuses novices (&ldquo;Wait, you&rsquo;re deriving a class from itself?&rdquo;)
+and the latter doesn&rsquo;t support forward markers in the original definition
+to show where the later code is going to go.</p>
+<p>This issue may seem pretty esoteric—after all,
+most programmers don&rsquo;t write books—but it highlights two larger points.
+The first is that most programmers <em>do</em> have to explain the work at some point,
+and there&rsquo;s precious little in-language support for doing that.
+The second point is that languages don&rsquo;t have any other support for incremental exposition either.
+For example,
+every textbook has diagrams,
+but you can&rsquo;t put those in your source code:
+Jupyter notebooks and R Markdown files can show you the plots produced by your code <em>in situ</em>,
+but they won&rsquo;t let you draw things by hand.</p>
+<p>So here&rsquo;s my suggestion for an enterprising graduate student who wants to change the world:
+pick half a dozen books on programming
+and go through them to create a catalog of explanatory techniques.
+Once you have that,
+extend your catalog by looking at slide decks and videos of whiteboard talks,
+and then design a little language and editor with built-in support for the top N techniques:
+really built-in,
+not wedged into specially-formatted comments or requiring extra compilation steps
+to see what readers are going to see.
+The language itself could be as small as <a href="https://quorumlanguage.com/">Quorum</a>, <a href="https://www.hedycode.com/">Hedy</a>, or <a href="https://craftinginterpreters.com/the-lox-language.html">Lox</a>:
+it&rsquo;s just there to give users something to explain.</p>
+<p>I often ask people what they would work on if they could work on anything.
+Variations of this idea have been on my list for two decades;
+I don&rsquo;t think I have enough years left to see it through myself,
+but I&rsquo;d be happy to chat with anyone who wants to take it on.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

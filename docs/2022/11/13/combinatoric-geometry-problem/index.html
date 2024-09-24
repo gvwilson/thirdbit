@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: A Combinatoric Geometry Problem</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>A Combinatoric Geometry Problem</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/11/13/the-notebook-not-taken/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-11-13" class="post-date">2022-11-13</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/11/18/still-trying/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Suppose you have a grid that&rsquo;s W squares wide and H squares tall.
+How many different ways can you cover it with rectangular tiles?
+It&rsquo;s easy enough to work out the answer for specific cases:</p>
+<table>
+<thead>
+<tr>
+<th>Grid Size</th>
+<th>Number of Tilings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1x1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1x2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2x2</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>but I can&rsquo;t figure out the formula for the general case—a simple recursive formula
+double-counts configurations like the four size-one squares in the diagram below.</p>
+<p><img src="../../../../files/2022/combinatorics.svg" alt="Tilings" class="centered"></p>
+<p><em>Later: several people have suggested divide-and-conquer strategies,
+but so far I haven&rsquo;t seen one that would generate this case,
+where there isn&rsquo;t a seam spanning either the entire height or width:</em></p>
+<p><img src="../../../../files/2022/combinatorics-2.svg" alt="Another Tiling" class="centered"></p>
+<p>*Later still: <a href="../../../../2018/03/20/goodbye-jeff/">my brother</a>
+asked me the question 20 years ago when he was starting a furniture-making company.
+Yetserday,
+<a href="https://github.com/Julian">Julian Berman</a> got an answer from Bhavik Mehta at Cambridge:
+it turns out an undergrad in Louisiana named Joshua Smith,
+who was working with <a href="https://warwick.ac.uk/fac/sci/maths/people/staff/helena_verrill/">Helena Verrill</a>,
+solved this in 2005 or 2006.
+Their work is online at <a href="https://oeis.org/A116694">https://oeis.org/A116694</a> and <a href="https://oeis.org/A116694/a116694.pdf">https://oeis.org/A116694/a116694.pdf</a>,
+so,
+um,
+yay Internet,
+and thank you Helena, Joshua, Bhavik, and Julian.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

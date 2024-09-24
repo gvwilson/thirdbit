@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Why This Stuff Is Hard To Teach</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Why This Stuff Is Hard To Teach</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2012/09/18/whats-in-your-stack/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2012-09-20" class="post-date">2012-09-20</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2012/09/26/computational-thinking-and-ice-floating-in-bathtubs/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>If we get funding to continue our work (we hope to find out in a month), one of the first things we want to do is put together an introduction to web programming for scientists. As I've remarked many times before, we won't try to teach people how to build web applications: all we can do in the time we have, starting from what they know, is teach them how to create security holes. What we <em>would</em> like to show them is how to pull data off the web and post data of their own for others to consume, but even that turns out to be a lot harder than it should be.</p>
+<p>Here's one example. I want to parse a well-formed HTML page, change a few things in it, and save the result to disk. That ought to be simple, but if the document contains special characters like non-breaking spaces, Greek letters, and so on, it turns out to be rather tricky. In fact, it's taken a couple of hours (admittedly, spread out over several weeks) to come up with a solution that (a) works and (b) doesn't make me feel unclean. Here's what it looks like (using a string IO object instead of a file so that you can see what we're parsing):</p>
+<pre>import cStringIO
+import xml.etree.ElementTree as ET
+
+ENTITIES = {
+    'hellip' : u'\u2026',        # horizontal ellipsis
+    'pi'     : u'\u03C0',        # lower-case Greek letter pi
+    'sigma'  : u'\u03C3'         # lower-case Greek letter sigma
+}
+
+parser = ET.XMLParser()
+parser.parser.UseForeignDTD(True)
+parser.entity.update(ENTITIES)
+
+text = '&lt;html&gt;&pi;…&sigma;&lt;/html&gt;'
+original = cStringIO.StringIO(text)
+tree = ET.parse(original, parser=parser)
+print ET.tostring(tree.getroot())</pre>
+<p>The output from this program is:</p>
+<pre>&lt;html&gt;&amp;#960;&amp;#8230;&amp;#963;&lt;/html&gt;</pre>
+<p>which, when loaded into a browser, is displayed as:</p>
+<pre>&pi;…&sigma;</pre>
+<p>The problem is the breadth of knowledge someone has to have to put this together. My code is based on a response to <a href="http://stackoverflow.com/questions/7237466/python-elementtree-support-for-parsing-unknown-xml-entities">this question</a> on Stack Overflow, but along the way, I looked at, played with, and discarded four other non-solutions. It doesn't help that ElementTree's <code>UseForeignDTD</code> is undocumented, but that's not my real complaint: every XML library I've ever worked with in Java, C++, or Python had brick walls of its own just waiting for people to bang their heads against.  I suspect it's going to take us several painful iterations to design an instructional sequence that works, and I'm not looking forward to the pain.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

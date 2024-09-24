@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: DrProject Internals: Security Part 2</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>DrProject Internals: Security Part 2</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/10/27/drproject-internals-security-part-1/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-10-28" class="post-date">2006-10-28</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/10/30/jim-waldo-on-system-design/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>The previous article in this series introduced a simple security model based on authentication, authorization, and access control, then described how DrProject implements the first of these.  That still leaves two important pieces, though: how to represent who&rsquo;s allowed to do what, and how to enforce those rules.</p>
+<p>The key concept here is that of a <em>permission</em>, which combines a <em>user profile</em> (e.g., an account) with the <em>capability</em> to perform some action.  A simple authorization system associates every operation with a capability, such as <code>EDIT_WIKI_PAGE</code> or <code>DELETE_USER_ACCOUNT</code>.  When a user U attempts to perform an operation that requires a capability C, the authorization system looks for the pair (U,C) in its database (Figure 1).  If that pair exists, the operation is allowed; if it doesn&rsquo;t, the operation is denied.</p>
+<p>But what about the thing the user is operating <em>on</em>?  A filesystem can&rsquo;t simply say that Alan is allowed to view files; it has to make that decision on a file-by-file basis.  Should permissions therefore be subject-verb-object triples?</p>
+<p>We thought about doing this in DrProject, but decided against it. There might actually be situations in which we&rsquo;d want to control which wiki pages a particular user could edit, but we couldn&rsquo;t think of any. Plus, the fact that we&rsquo;re saving old versions of pages means that if anyone ever does something we don&rsquo;t like, we can undo it [1].</p>
+<p>DrProject&rsquo;s authorization database does actually contain triples, though, and the reason is that each installation may support multiple projects.  I&rsquo;ll discuss this in more detail in a future posting, but essentially, each project is a logically separate entity, with its own independent collection of wiki pages.  DrProject therefore has to record (U,P,C) triples, where U is the user, P is the project, and C is the capability.  The table that stores wiki pages also has an extra column to show which project a page belongs to (Figure 2).</p>
+<p>We could stop here—DrProject&rsquo;s predecessor <a href="http://trac.edgewall.com">Trac</a> did [2]. However, if an installation has 20 projects and 60 users, and that six capabilities are required to define what can be done to the wiki, the system administrator potentially has to manage 7200 distinct permissions.  Figuring out who can do what (or worse, who was able to do what, when) quickly becomes an administrative nightmare.</p>
+<p>In practice, permissions are usually granted in a few stereotypical ways.  Someone who can create pages can almost always edit and delete them; someone who can&rsquo;t create user accounts usually can&rsquo;t change their settings, either.  DrProject makes this concrete by using a level of indirection in its authorization system.  A <em>role</em> is a uniquely named (and possibly empty) set of atomic capabilities.  Each user has a role with respect to each project.  The number of distinct roles is surprisingly small: the DrProject we&rsquo;re using to manage undergraduate projects this term only has three, and I&rsquo;d be surprised if any system ever needed more than a dozen.</p>
+<p>Implementing roles is a little bit trickier than it first seems. To see why, think about how the system defines what someone who hasn&rsquo;t yet logged in is able to do.  We represent this by creating a user profile for the <em>anonymous user</em>, and then defining the anonymous user&rsquo;s role with respect to each project.</p>
+<p>That part is simple.  What isn&rsquo;t simple (or at least, it didn&rsquo;t appear simple to me) is that a user&rsquo;s actual permissions must be the union of the permissions defined by her role (if any) with respect to a project, and the permissions that the anonymous user has for that project.  If this weren&rsquo;t true, then it would be possible that a user could accomplish more by logging out than by being logged in.</p>
+<p>The last thing we have to do with roles is decide which of them count as &ldquo;being a member&rdquo; of a project.  People use this phrase all the time, but flattening a complex collection of capabilities into a Boolean decision is actually quite hard.  To jump ahead a bit, it seems sensible to say that only the members of a project are automatically on that project&rsquo;s mailing list, but does that mean someone whose role allows them to file tickets, but not to update or work on those tickets, gets mail or not?  What about someone who&rsquo;s allowed to view and comment on the wiki, but not allowed to create new pages?  We played around with various rules, and finally decided that the simplest thing was to throw out the idea of &ldquo;membership&rdquo; per se. If a role has any capability in the set <code>{MAIL_POST, MAIL_VIEW, MAIL_DELETE}</code>, messages sent to the project mailing list will be forwarded to users with that role.</p>
+<p>After all this, access control is fairly straightforward to implement.  Every time it receives an HTTP request, DrProject constructs a request object that stores references to user profile and a project descriptor (Figure 3).  The user and project IDs are used to look up a role; that role&rsquo;s capabilities are merged with those that the anonymous user has with respect to that project to create a description of what the user is allowed to do.  Every method that requires a capability then checks that its capability is in that set, and throws a permission exception if it&rsquo;s not.</p>
+<p>Next time: tickets.</p>
+<hr />
+<p>[1] Well, almost. DrProject&rsquo;s wiki does allow users to completely erase all record of a page from the database.  If a malicious or clumsy user does this, the only way to recover the page is from the last system backup.  We may get around this in future by associating an &ldquo;existence&rdquo; flag with each page to signal whether it should be treated as being there or not, but this is a pretty minor concern.[2] <a href="http://trac.edgewall.com">Trac</a> was actually a little smarter than this, but only a little. <a href="http://trac.edgewall.com">Trac</a> managed authorization by storing raw (user, capability) pairs, such as <code>(ghopper, WIKI_EDIT)</code>. Both fields were strings; to determine a user&rsquo;s actual capabilities, <a href="http://trac.edgewall.com">Trac</a> recursively expanded the &ldquo;raw&rdquo; capabilities by looking for them in the <code>USER</code> column.  For example, if <code>ghopper</code> had the capability <code>ADMIN</code>, and the &ldquo;user&rdquo; <code>ADMIN</code> had the capabilities <code>WIKI_EDIT</code> and <code>WIKI_DELETE</code>, then <code>ghopper</code> was given those capabilities as well. DrProject&rsquo;s strict two-level separation of users from roles, and roles from capabilities, has been a lot easier to administer, test, and debug.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

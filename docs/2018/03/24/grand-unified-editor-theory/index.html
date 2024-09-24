@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Grand Unified Editor Theory</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Grand Unified Editor Theory</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2018/03/23/where-does-this-come-from/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2018-03-24" class="post-date">2018-03-24</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2018/03/24/analog-is-more-satisfying/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>It&rsquo;s a sad fact that you can&rsquo;t get a PhD in Computer Science simply by building an innovative piece of software.
+That&rsquo;s partly due to a double standard among academic computer scientists,
+who insist that their discipline isn&rsquo;t just about coding
+but are happy to let students and their parents believe that a CS degree is the key to a well-paid coding job,
+but it&rsquo;s also a failure on the part of practitioners,
+who have still not developed a serious critical theory or vocabulary
+like those found in architecture and industrial design.
+(The fact that a more rigorous successor to <em><a href="http://aosabook.org">The Architecture of Open Source Applications</a></em>
+isn&rsquo;t a standard part of the undergraduate curriculum is a sign of how far we still have to go.)</p>
+<p>But if building novel software was a path to doctoralhood,
+I know one of the things I&rsquo;d want someone to build.
+On the one hand we have version control systems like CVS, Subversion, and Git,
+with which people asynchronously edit private copies of sets of documents,
+then merge their changes,
+resolving any conflicts that have arisen.
+On the other hand we have online concurrent editors like Google Docs, Etherpad, and ProseMirror,
+with which people synchronously edit a shared public copy of a single document.
+These systems use some variation of <a href="https://en.wikipedia.org/wiki/Operational_transformation">operational transformation</a> (OT)
+to merge fine-grained edits as they occur
+rather than delaying merges until users are satisfied with a set of changes
+and then having to deal with larger-grained conflicts.</p>
+<p>I want a system that unifies these two models.
+If people are editing a shared master copy online,
+the editor would combine their changes in real time using OT.
+However,
+they could also choose to fork a copy of the document (or set of documents) and make modifications offline.
+Those modifications would be recorded as a stream of transformations
+that could be replayed when it was time to merge,
+which I suspect would be a sounder approach than that ad hoc methods used by today&rsquo;s version control systems.</p>
+<p>This tool would instantly be useful,
+since it would allow people to move smoothly between &ldquo;let&rsquo;s all make small changes together&rdquo;,
+&ldquo;I&rsquo;m going to make a few changes on my laptop while the network is down&rdquo;,
+and &ldquo;let me go try this out on my own for a while and then share the results&rdquo;.
+It would be even more useful if it supported editing of non-textual documents such as images and spreadsheets,
+but that could come later.
+The best thing,
+though,
+is that there&rsquo;s enough algebra (to prove that the operational transforms were sound)
+and performance measurement (to demonstrate practicability)
+that someone actually <em>could</em> get a PhD out of it.</p>
+<p>If this tool already exists, I&rsquo;d be grateful for a pointer.
+Otherwise…any takers?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

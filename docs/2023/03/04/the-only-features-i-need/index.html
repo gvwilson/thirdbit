@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Only Features I Need</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Only Features I Need</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/02/26/provenance-revisited/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-03-04" class="post-date">2023-03-04</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/03/04/how-long-does-it-take-me/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><blockquote>
+<p>This post is a sequel to earlier ones about <a href="../../../../2022/02/01/what-i-would-change-in-lox/">the Lox programming language</a>
+and <a href="../../../../2022/10/02/empirically-minimal/">empirical design of a language that&rsquo;s no larger than necessary</a>.</p>
+</blockquote>
+<p>I&rsquo;ve implemented the examples from <a href="../../../../sdxjs/"><em>Software Tools in JavaScript</em></a>,
+and I think that doing them twice has given me a decent perspective
+on what features a programming language needs to have
+in order to be a sturdy platform for teaching software design:</p>
+<ul>
+<li>Basic types: Boolean, integer, float, text, null/none/NA, NaN<ul>
+<li>I&rsquo;ve <a href="../../../../2022/10/02/empirically-minimal/">changed my mind</a>: we <em>do</em> need to distinguish integers from floats, even for beginners</li>
+<li>But I still think that null/NA can be unified, but are distinct from NaN</li>
+<li>And that true/false are different from 1/0</li>
+</ul>
+</li>
+<li>Collections: list, set, key-value map (i.e., dicts), multi-dimensional array, dataframe<ul>
+<li>I think that dicts and sets should both be ordered or unordered (dicts are ordered in current versions of Python but sets aren&rsquo;t)</li>
+<li>I know you can implement dataframes and N-dimensional arrays using other structures,
+    but many things are simpler if they&rsquo;re basic types</li>
+</ul>
+</li>
+<li>Control flow: iterators for <code>for</code> loops, <code>while</code> loops, <code>if</code>/<code>else</code>, functions<ul>
+<li>I think pattern-matching with capture in conditional branches is really handy</li>
+<li>I use exceptions all the time because that&rsquo;s what my languages provide,
+    but I still hope there&rsquo;s something better out there.
+    (Succes/failure return types that have to be checked immediately are <em>not</em> better for high-level programming.)</li>
+<li>In contrast,
+    I use syntactic support for resources allocation (i.e., Python&rsquo;s <code>with</code>) all the time,
+    and have started using <code>finally</code> blocks wherever they&rsquo;re allowed as well</li>
+</ul>
+</li>
+<li>Higher-order programming: first-class functions, closures, run-time introspection, walking parse trees, and very occasionally <code>eval</code><ul>
+<li>I use decorators for the same reason I use exceptions—they&rsquo;re what the language provides—but
+    I still believe Python&rsquo;s implementation could have been better.
+    Just as methods are declared <code>m(self, a1, a2)</code> and then called <code>obj(p1, p2)</code>,
+    we should declare decorators <code>d(func, a1, a2)</code> and use them as <code>@d(a1, a2)</code>.
+    Yes, we can achieve the same effect by adding an extra layer inside the decorator,
+    but it would be a <em>lot</em> simpler to teach people how to use them if that wasn&rsquo;t necessary.</li>
+</ul>
+</li>
+<li>Concurrency: I&rsquo;ve avoided it in most of the books&rsquo; examples,
+    and I don&rsquo;t think I should make any claims about ease of learning/ease of use
+    until I&rsquo;ve implemented the books&rsquo; examples with them.<ul>
+<li>CSP-style channels quickly become unmanageable.
+    (Back in my <a href="https://en.wikipedia.org/wiki/Occam_(programming_language)">occam</a> days we used to joke that they were the revenge of the <code>goto</code>,
+    since you quickly found yourself wondering,
+    &ldquo;If I put a message in this channel, where will it go to?&rdquo;)</li>
+<li>Generators are hard for even intermediate programmers to understand and work with,
+    but they&rsquo;re a lot better than the mess of callbacks, promises, and async/await that modern JavaScript provides.</li>
+<li>I&rsquo;ve always preferred futures and tuple spaces,
+    and I&rsquo;d like to try fiber-style coroutines as found in languages like <a href="https://wren.io/">Wren</a>,
+    but see the caveat in the main bullet point.</li>
+</ul>
+</li>
+<li>Programming at scale: classes with single inheritance, modules, and a decent bloody package and environment manager</li>
+</ul>
+<p>This list is obviously incomplete:
+for example,
+I haven&rsquo;t specified what operations I want for lists and dicts,
+whether it should be possible to define default values for functions&rsquo; arguments,
+what kinds of classes I want,
+and so on.
+But here&rsquo;s the thing:
+I think we can answer these questions empirically.
+As I <a href="../../../../2022/10/02/empirically-minimal/">said last year</a>,
+I think we could go through a dozen books on software design
+(or some data structures &amp; algorithms textbooks),
+tally up what&rsquo;s used,
+and then design a language that includes only the top N features.
+It would result in a very conservative language,
+but I think that&rsquo;s what we want for teaching:
+something that introduces people to the things they&rsquo;re most likely to encounter
+no matter what language they use next.
+If you have a student looking for a project,
+please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

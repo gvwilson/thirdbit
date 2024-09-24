@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Merging is the Real Revolution</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Merging is the Real Revolution</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2013/04/30/pre-assessment-results/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2013-05-01" class="post-date">2013-05-01</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2013/05/02/translucent-badges/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Many people think that Javascript and HTML5 are the future of the web. Respectfully, I think they're both red herrings: I think what makes successful open source projects work is older, less exciting, and still only kind of works. It's called "merge", and if we really want to help people collaborate on a global scale, we ought to put a lot more effort into making it easy to use.</p>
+<p>What's merge? It's what you do after a "diff". What's diff? It's something that shows you the differences between two files in a human-readable way. More specifically, suppose that you and I are both working on a program. We're sitting in front of different machines, trying to fix different bugs or add different features, and it just so happens that we both need to change <code>graphics.java</code>. After we've both made our changes, the world looks like this:</p>
+<p><img src="../../../../files/2013/05/simultaneous_editing.png" alt="Simultaneous Editing" width="286" height="215" class="centered"></p>
+<p>At this point, we need to combine our changes. We could scroll through two copies of the file side by side, copying edits from one to the other, but we'd almost certainly miss something or make a mistake. What we <em>should</em> do is use a program like <code>diff</code> to highlight the changes for us. Or better still, we should use a tool like <code>merge</code> to show your version of the file on the left, mine on the right, and the merge in between:</p>
+<p><a href="http://meldmerge.org/images/meld-mary.png"><img src="../../../../files/2013/05/meld-mary.png" width="380" height="176" class="centered"></a></p>
+<p>When we're done merging, what we have is the best of both worlds–the best of your ideas combined with the best of mine. The biological term for this is <em>recombination</em>, and it's at least as important to evolution as its more famous cousin, mutation, because it lets good genes (or ideas) cooperate.</p>
+<p>Diff and merge make open source possible. They let dozens, hundreds, or thousands of people remix their work–not just take what others have done and build on it, but give back their own changes and ideas to be stirred back into the original for further remixing:</p>
+<p><img src="../../../../files/2013/05/recombining_ideas.png" alt="Recombining Ideas" width="477" height="591" class="centered"></p>
+<p>When remixing is hard, open collaboration doesn't take root [<a href="#footnote-1">1</a>]. Education is a prime example: at some point in their career, every teacher has picked up someone else's PowerPoint slides and used it as a starting point for their own lecture on the subject, but hardly anyone ever gives their changes back to the author of the slides they started from. It's easy to say that's because remixing isn't part of educational culture, but there's a reason it isn't: PowerPoint decks can't be diffed and merged [<a href="#footnote-2">2</a>]. If it takes me an hour to scroll through my slides, comparing them one by one with yours and copying changes back by hand, I'm not going to use what you send me, so you're not going to send it in the first place [<a href="#footnote-3">3</a>]. Going back to our biological metaphor, people who can't merge are stuck in a universe that has mutation but not recombination, and that's a really inefficient way to improve fitness.</p>
+<p>I'm thinking about all of this now because of the <a href="http://ipython.org/notebook.html">IPython Notebook</a> and <a href="https://thimble.webmaker.org/">Mozilla Thimble</a>. They're both really exciting tools, but neither makes collaboration easy [<a href="#footnote-4">4</a>]. If I want to merge your changes to a project into my copy, I can't view them side by side in the browser and pick the pieces I want from each. Instead, I have to merge two JSON files if I'm using the Notebook and–well, I'm not sure what I'd do with Thimble. I could view the differences in the text of the HTML and CSS, but anyone who can do that can build web pages without Thimble in the first place.</p>
+<p>More to the point, people shouldn't <em>have to</em> drop down a cognitive level or two in order to collaborate this way. Lots of graphic design tools can highlight and merge the differences between two photographs; <a href="http://www.florencesoft.com/compare-excel-workbooks-differences.html">DiffEngineX</a> does it for Excel spreadsheets (though you need a pretty wide screen to use it effectively), and so on. There's no technical reason we can't diff and merge all our files; it's just that programmers mostly work with text, so they haven't built merging tools for other formats. (And increasingly, I believe they work with text because it's what they can diff and merge in version control…)</p>
+<p>We're smarter when we work together. It's more fun, too, so I think tools ought to make collaboration as easy as adding a caption to a picture of a cat:</p>
+<p><a href="http://cdn.smosh.com/sites/default/files/bloguploads/caption-cat-winner-dot.jpg"><img src="../../../../files/2013/05/caption-cat-winner-dot.jpg" alt="Captioned Cat" width="250" height="250" class="centered"></a></p>
+<p>We were collaborating on a global scale before HTML5 and Javascript came along, and I'm confident that we'll still be doing so ten years from now when they're both regarded as legacy technologies. If we want kids to hack web pages the way we hack code, we need to make merging as easy as reading email or uploading files to Dropbox. And if we want their teachers to remix each other's lessons, we need to show a little humility and make our methods work with their files. If we do that for them, they will learn to work the way we do and raise up a generation that thinks open collaboration is normal.</p>
+<p>And <em>that</em>, my friends, would be a revolution.</p>
+<hr>
+<ol>
+    <li id="footnote-1">The exception is systems like Wikipedia that have just one copy of the document which everyone edits simultaneously, but like <a href="http://docs.google.com">Google Docs</a> and <a href="http://etherpad.org/">Etherpad</a>, that clearly doesn't work for programming, slide decks, or other situations in which people want to try different things at the same time.</li>
+    <li id="footnote-2">PowerPoint "merging" tools like <a href="http://www.softpedia.com/get/Office-tools/Other-Office-Tools/MS-Powerpoint-Join-Merge-Combine-Multiple-Presentations-Software.shtml">these</a> <a href="http://www.pptools.com/merge/index.html">two</a> just concatenate multiple presentations into one, or generate a specialized deck from a template by filling in blanks with names and dates (rather like spam generators).</li>
+    <li id="footnote-3">At this point programmers often say, "Then write your slides Markdown or LaTeX or HTML5 or some other text-based format so that merging is easy," but that's like saying, "If you take all the pictures out of your book, it'll compress much better." PowerPoint, LibreOffice, Keynote, and other WYSIWYG presentation tools have survived and thrived because they make it easy for people to mix graphics and text however they want, just as they would on a whiteboard. As this blog post shows, it's a lot harder to do this with text-based tools: I had to switch from my editor to a drawing package to create the diagrams included above, then upload them, and if you ask your browser to search for "Original Version", it still won't find that label in either of the diagrams. Given the choice between whiteboarding (which they take for granted) and merging (which they've never done before, and whose value they don't yet understand), almost everyone will choose the former.</li>
+    <li id="footnote-4">More precisely, neither makes <em>asnchronous</em> collaboration easy. <a href="https://towtruck.mozillalabs.com/">TowTruck</a> lets people share dynamic browser sessions in real time, which is really cool, but as noted in [<a href="#footnote-1">1</a>], that's a very different model than forking and merging.</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

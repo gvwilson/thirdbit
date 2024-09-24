@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Elimination</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Elimination</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/12/26/local-subversion-repositories/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-12-27" class="post-date">2010-12-27</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/12/27/youre-never-too-old-for-space-camp/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I'm working up another essay on software design, and would like to ask readers of this blog how <em>they</em> handle something that comes up when simulating interacting agents. If your program models the behavior of a flock of birds, it probably looks something like this:</p>
+<pre><span style="color: #800080;"># create birds</span>
+birds = []
+<strong>for</strong> i <strong>in</strong> range(num_birds):
+  new_bird = Bird(…parameters…)
+  birds.append(new_bird)
+
+<span style="color: #800080;"># simulate movement</span>
+<strong>for</strong> t <strong>in</strong> range(num_timesteps):
+  <strong>for</strong> b <strong>in</strong> birds:
+    b.move(birds) <span style="color: #800080;"># need access to other birds to calculate forces</span></pre>
+<p>There's a flaw in this–or at least, something questionable. By the time you are moving the last bird for time <em>t</em>, every other bird is effectively at time <em>t+1</em>. There are many solutions, the simplest of which is to calculate each bird's new position in one loop, then update the bird in another:</p>
+<pre><span style="color: #800080;"># simulate movement</span>
+<strong>for</strong> t <strong>in</strong> range(num_timesteps):
+  new_pos = []
+  <strong>for</strong> b <strong>in</strong> birds:
+    p = b.next_position(birds) <span style="color: #800080;"># doesn't move the bird</span>
+    new_pos.append(p)
+  <strong>for</strong> (b, p) <strong>in</strong> zip(birds, temp):
+    b.set_position(p)</pre>
+<p>(If you haven't run into it, the built-in function <code>zip</code> takes two or more lists, and produces tuples of corresponding elements. For example, <code>zip('abc', [1, 2, 3])</code> produces <code>('a', 1)</code>, <code>('b', 2)</code>, and <code>('c', 3)</code>.)</p>
+<p>So far so good–but what if the things we're simulating can produce offspring, die, or eat one another? Offspring are relatively simple to handle: we just put them in a temporary list (or set), then append them to the main list after everything else has been moved.</p>
+<p>Removing creatures that have died is a bit trickier, because modifying a list as we're looping over it may cause us to skip elements (we delete the element at location <em>i</em>, then advance our loop counter to <em>i+1</em>, and voila: the item that was at location <em>i+1</em> but has been bumped down to location <em>i</em> is never seen in the loop). We can handle that either by "stuttering" the loop index:</p>
+<pre>i = 0
+new_pos = []
+<strong>while</strong> i &lt; len(birds):
+  state, p = birds[i].move(birds)
+  <strong>if</strong> state == ALIVE:
+    i += 1
+    new_pos.append(p)
+  <strong>else</strong>:
+    <strong>del</strong> birds[i]</pre>
+<p>or by moving creatures that <em>haven't</em> died into another list, and swapping at the end of the loop:</p>
+<pre>temp = []
+<strong>for</strong> b <strong>in</strong> birds:
+  state, p = b.move(birds)
+  <strong>if</strong> state == ALIVE:
+    temp.append((b, p))
+birds = []
+<strong>for</strong> (b, p) <strong>in</strong> temp:
+  b.set_position(p)
+  birds.append(b)</pre>
+<p>I think the second is less fragile–modifying structures as I'm looping over them always gives me the shivers–but either will do the job.</p>
+<p>But now comes the hard case. What happens if birds can eat each other? If bird <em>i</em> eats bird <em>j</em>, for <em>i&lt;j</em>, it's no different from bird <em>j</em> dying. But if bird <em>j</em> eats bird <em>i</em>, we have a problem, because bird <em>i</em> is already in the list of survivors. Do we search for it and delete it (in which case, the stuttering solution above is definitely <em>not</em> the one we want, because the indexing logic becomes even more fragile)? Or… or what? Set a "but actually dead" flag in the bird's record in the temporary list, and not move it back into the bird list after all in the second loop? What would <em>you</em> do, and why?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

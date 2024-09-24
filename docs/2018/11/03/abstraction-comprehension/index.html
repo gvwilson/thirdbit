@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Abstraction and Comprehension</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Abstraction and Comprehension</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2018/11/01/twelve-questions/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2018-11-03" class="post-date">2018-11-03</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2018/11/05/abstraction-comprehension-continued/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;ve been thinking a lot about the notations we use for programming
+as I&rsquo;ve been teaching myself R and I have a theory.
+When we use a low-level language,
+we incur the <a href="http://teachtogether.tech/en/load/">cognitive load</a>
+of assembling micro-steps into something more meaningful;
+when we use a high-level language,
+we incur a similar load translating functions of functions of functions
+(or meta-classes templated on object factories)
+into actual operations on actual data.</p>
+<p>More experienced programmers are more capable at both ends of the curve,
+but that&rsquo;s not the only thing that changes.
+If a novice&rsquo;s comfort curve looks like this:</p>
+<p><img alt="Novice Comfort Curve" src="../../../../files/2018/11/comprehension-01.svg" class="centered"></p>
+<p>then an expert&rsquo;s comfort curve looks like this:</p>
+<p><img alt="Expert Comfort Curve" src="../../../../files/2018/11/comprehension-02.svg" class="centered"></p>
+<p>Experts don&rsquo;t just understand more at all levels of abstraction;
+their <em>preferred</em> level has also shifted
+so that &radic;x<sup>2</sup>+y<sup>2</sup>
+is actually more readable than the medieval expression
+&ldquo;the side of the square whose area is the sum of the areas of the two squares
+whose sides are given by the first part and the second part&rdquo;.</p>
+<p>One implication of this is that for any given task,
+the software that is quickest for a novice to comprehend
+will almost certainly be different from the software that
+an expert can understand most quickly:</p>
+<p><img alt="Comprehension Time Curves" src="../../../../files/2018/11/comprehension-03.svg" class="centered"></p>
+<p>This brings us back,
+as so many things do,
+to Caulfield&rsquo;s <a href="https://hapgood.us/2016/05/13/choral-explanations/">chorus of explanations</a>.
+If programmers at two different levels are best served by two different solutions to a problem,
+then we need <em>three</em> lessons:
+one describing Solution N to the novice,
+one describing Solution E to the expert,
+and a third that explains Solution E to the novice in terms of operations in Solution N
+to help them move out along the axis of abstraction.
+(We don&rsquo;t need a lesson explaining Solution N to the expert,
+though they made need to be reminded that wordy stepwise solutions aren&rsquo;t necessarily wrong
+and shouldn&rsquo;t be sneered at.)</p>
+<p>In an ideal world,
+our tools would automatically re-represent programs at different levels,
+so that with a click of a button we could view our code as either:</p>
+<div class="highlight"><pre><span></span><code>hosts &lt;- links.map(a =&gt; a.href.split(&#39;:&#39;)[1].split(&#39;/&#39;)[0]).unique()
+</code></pre></div>
+<p>or:</p>
+<div class="highlight"><pre><span></span><code>hosts &lt;- []
+for (each a in links) do
+  temp &lt;- attr(a, &#39;href&#39;).split(&#39;:&#39;)[1].split(&#39;/&#39;)[0]
+  if (not (temp in hosts)) do
+    hosts.append(temp)
+  end
+end
+</code></pre></div>
+<p>just as we could change the colors used for syntax highlighting
+or the depth to which loop bodies are indented.
+I don&rsquo;t think that will be possible
+until code is stored as a data structure,
+i.e.,
+until programmers adopt the same <a href="https://queue.acm.org/detail.cfm?id=1039534">model-view separation</a>
+that they have been using in the tools they have built for everyone else for the last thirty-five years.
+I&rsquo;m as likely to get a pony for Christmas as I am to see that in my lifetime,
+so for now I&rsquo;ll focus on ways to clearly identify who lessons are for
+and to make sure that we&rsquo;re teaching everyone at their most comfortable level of abstraction
+rather than our own.</p>
+<p><strong>Later:</strong> see also <a href="../../../../2018/11/05/abstraction-comprehension-continued/">the next post in this series</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: More Good Science</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>More Good Science</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/11/09/on-my-way-home/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-11-12" class="post-date">2010-11-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/11/16/ratios-and-rework/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We&rsquo;re starting to get feedback on <a href="http://oreilly.com/catalog/9780596808303"><em>Making Software</em></a>, most of it positive (but some of it grumpy: &ldquo;how dare your evidence contradict my cherished belief!&rdquo;). Here are two recent papers that aren&rsquo;t in the book, but will give you a taste of what is:</p>
+<p>Rossbach, Hofmann, and Witchel: &ldquo;Is Transactional Programming Actually Easier?&rdquo; In <em>Proc. 15th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming</em>. The question they set out to answer is, does software transactional memory (STM) make parallel programming easier or not? From their abstract:</p>
+<blockquote>In this paper, we describe a user-study in which 147 undergraduate students in an operating systems course implemented the same programs using coarse and fine-grain locks, monitors, and transactions. We surveyed the students after the assignment, and examined their code to determine the types and frequency of programming errors for each synchronization technique. Inexperienced programmers found baroque syntax a barrier to entry for transactional programming. On average, subjective evaluation showed that students found transactions harder to use than coarse-grain locks, but slightly easier to use than fine-grained locks. Detailed examination of synchronization errors in the students' code tells a rather different story. Overwhelmingly, the number and types of programming errors the students made was much lower for transactions than for locks. On a similar programming problem, over 70% of students made errors with fine-grained locking, while less than 10% made errors with transactions.</blockquote>
+<p>In other words, students did better, but thought they did worse. This is interesting for a whole bunch of reasons (not least that for highlighting how flaky subjective self-assessment is).</p>
+<p>Bird, Nagappan, Murphy, Gall, and Devanbu: &ldquo;An Analysis of the Effect of Code Ownership on Software Quality across Windows, Eclipse, and Firefox.&rdquo;</p>
+<p>From their abstract:</p>
+<blockquote>We examine the relationship between different ownership measures and software faults/failures in three large software projects drawn from different process domains: Windows Vista, the Eclipse Java IDE, and the Firefox Web Browser. We find that in all cases, measures of ownership such as the number of low-expertise developers, and the proportion of ownership for the top owner have a relationship with both pre-release faults and post-release failures. However, we find that the strength of the effects is related to the development process used. Vista shows the strongest relationship with ownership level, followed by Eclipse, and then Firefox, suggesting that the more that a project uses an open source style process, the more that team sizes rather than ownership levels affect failures. We also find reasons that low-expertise developers make changes to components and show that the removal of low-expertise contributions dramatically decreases the performance of contribution-based defect prediction.</blockquote>
+<p>They are painstaking in defining what they mean by &ldquo;ownership&rdquo;, and how they measure it, so that other people can (and should!) replicate their work. Drilling down, their conclusions are:</p>
+<ul>
+  <li>Vista:
+<ol>
+  <li>The number of minor contributors has a strong positive relationship with both pre- and post-release failures even when controlling for metrics such as size, churn, and complexity.</li>
+  <li>Higher levels of ownership for the top contributor to a component results in fewer failures when controlling for the same metrics, but the effect is smaller than the number of minor contributors.</li>
+  <li>Ownership has a stronger relationship with pre-release failures than post-release failures.</li>
+</ol>
+</li>
+  <li>Eclipse:
+<ol>
+  <li>Both MINOR and TOTAL (defined in the paper) have a positive relationship with pre- and post-release defects. However, neither is consistently a better indicator, and the effect is weaker than in Vista.</li>
+  <li>Higher levels of Ownership sometimes have a positive relationship with pre- and post-release quality, but the effect is small when it is statistically significant.</li>
+  <li>Ownership measures have a slightly larger effect on pre-release failures than post-release failures.</li>
+</ol>
+</li>
+  <li>Firefox:
+<ol>
+  <li>Team size has a stronger relationship with defects than ownership levels.</li>
+  <li>Team size and ownership metrics have a much stronger relationship with pre-release defects than post-release defects.</li>
+</ol>
+</li>
+</ul>
+<p>This is cool: we can measure important things, we can see how they relate to other important things, and (crucially) we can <em>act</em> on what we see. I&rsquo;m looking forward to seeing what both groups do next.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

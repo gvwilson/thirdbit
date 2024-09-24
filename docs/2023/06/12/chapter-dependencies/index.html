@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Chapter Dependencies</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Chapter Dependencies</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/06/12/book-extensions/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-06-12" class="post-date">2023-06-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/06/12/nice-shirt/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;m making slow but steady progress
+on the Python version of <a href="https://third-bit.com/sdxjs/"><em>Software Design by Example</em></a>,
+and would be grateful for help with something
+that&rsquo;s been in the back of my mind for a while.
+Every one of my books has a <a href="https://third-bit.com/sdxjs/glossary/">glossary</a> and an <a href="https://third-bit.com/sdxjs/contents/">index</a>.
+I create both by manually adding markup to the Markdown source files for each chapter,
+but I believe it should be possible to do the following:</p>
+<ol>
+<li>
+<p>Identify all uses in all chapters of all the terms in the glossary
+    (matching inflected variants like &ldquo;refactoring&rdquo; and &ldquo;refactored&rdquo; to &ldquo;refactor&rdquo;)
+    so that I can decide which uses should be in the index.</p>
+</li>
+<li>
+<p>Identify all uses in all chapters of all glossary terms
+    so that I can make sure each first use is highlighted.
+    (I want tooling to help with this because I sometimes rearrange chapters,
+    and re-checking after each shuffle is tedious and error-prone.)</p>
+</li>
+<li>
+<p>Given the sets of terms defined and used in each chapter,
+    construct a graph like the one shown below
+    to show which chapters are prerequisites for which.
+    (The final book will put chapters in a strict order,
+    but their actual relationship is only a partial order.)</p>
+</li>
+</ol>
+<div align="center">
+<img src="../../../../files/2023/sd4ds-preliminary-syllabus.svg" alt="Preliminary syllabus dependency graph for software design book">
+</div>
+
+<p>What ties these needs together is the notion of dependency management.
+When I ask a package manager to install library A,
+part of its job is to figure out that A depends on B and C,
+both of which depend on D.
+Similarly,
+when my code imports B,
+my language&rsquo;s runtime is responsible for loading D as well.
+In theory,
+dynamic imports with constructed names make this impossible to do 100% of the time,
+but in practice the problem is mostly solvable.</p>
+<p>I&rsquo;d like to do the same for lessons.
+I&rsquo;d like to be able to point a tool at a set of lessons and have it tell me
+what ideas are explained in each
+and which lessons depend on ideas that are explained elsewhere
+so that I can build a curriculum,
+check for circularity,
+and so on.
+I think this ought to be possible using tools like <a href="https://www.nltk.org/">NLTK</a> and <a href="https://spacy.io/">spaCy</a>,
+but I don&rsquo;t know enough about natural language processing
+to accomplish anything useful in the 3–4 hours I&rsquo;ve budgeted for this.
+(A big part of getting a book out the door is putting strict limits on
+the time you spend <a href="https://en.wiktionary.org/wiki/yak_shaving">shaving yaks</a>.)
+If you can help,
+or if you have a couple of scripts I could tinker with,
+please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

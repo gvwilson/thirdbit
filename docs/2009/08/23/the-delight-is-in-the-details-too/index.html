@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Delight Is In The Details, Too</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Delight Is In The Details, Too</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2009/08/21/the-big-picture/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2009-08-23" class="post-date">2009-08-23</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2009/08/24/splitting-scheme/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>They say the devil is in the details, but so's the delight, because it's the details that determine whether something works or doesn't. So let's take a look at how to translate the last post's "big picture" into actual course content.</p>
+<p>Every competent developer uses some kind of tool to automate tasks that involve dependencies. The best known is still <a href="http://www.gnu.org/software/make/">Make</a>, which compares the last-modified-times on files to see which ones are stale, and runs shell commands to bring them up to date. <a href="http://ant.apache.org/">Ant</a>, <a href="http://rake.rubyforge.org/">Rake</a>, and whatever's built into your IDE all work basically the same way, and can all be used (with greater or less ease) to recompile software, re-run tests, prepare distributions, update web sites, and what have you.</p>
+<p>Dependency managers are an example of the kind of tool scientists are willing to spend an hour learning (more if they're working with C++ or Java, less if they're working with a scripting language). Understanding how they work, though, requires at least some familiarity with:</p>
+<ul>
+<li>automation (obviously)</li>
+<li>declarative programming (the user declares the "what", the computer figures out the "how")</li>
+<li>graphs (which is how these tools figure out what order to do things in)</li>
+<li>queries (since rules are often best expressed using pattern matching)</li>
+<li>programs as data (since dependency managers are programs that run other programs)</li>
+</ul>
+<p>So, can we use Make to teach these concepts? Or teach these concepts using Make as an example? I thought so back in 2003 when I put together the first version of "CSC207: Software Design" for the University of Toronto. In their first two programming exercises, students worked with graphs and wrote simple text parsers using regular expressions. They then had to put the two together to create a very (very) simple version of Make.</p>
+<p>I thought it worked well, but over the years the exercises were cut back until eventually this one disappeared entirely. There was just too much material in the course, and the various bits weren't connected strongly enough. While it might work in theory, it didn't in practice, and would probably fare even less well if crammed into two days of an intensive two-week course. It's still a good example of how I'd like to tie the practical and conceptual parts of the course together, though; the trick is finding a way to make it work.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

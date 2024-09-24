@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Replacing Make</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Replacing Make</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/11/12/software-design-homework/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-11-13" class="post-date">2023-11-13</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/11/21/one-damned-thing-after-another/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;d like to find a laptop-scale build/workflow tool to teach to data scientists instead of Make.
+I&rsquo;ve looked at <a href="https://snakemake.readthedocs.io/">Snakemake</a>, <a href="https://pydoit.org/">doit</a>, <a href="https://www.pyinvoke.org/">invoke</a>, <a href="https://metaflow.org/">Metaflow</a>,
+and several others,
+but none quite meet my criteria:</p>
+<ol>
+<li>
+<p>Workflow descriptions written in pure Python
+    (not a syntactic superset and not YAML).</p>
+</li>
+<li>
+<p>Supports file dependencies and pattern rules (see the example below).</p>
+</li>
+<li>
+<p>Easy to see which files are required or produced by which rules.</p>
+</li>
+<li>
+<p>Can run shell commands as well as Python code.
+    (Yes, I know that anything capable of running Python can use it to launch a shell command,
+    but I&rsquo;d like that out of the box.)</p>
+</li>
+<li>
+<p>Actively maintained.</p>
+</li>
+</ol>
+<p>Here&rsquo;s the kind of example I&rsquo;d like to translate from Make to whatever;
+if you know of something that&rsquo;ll do the job,
+please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Pattern-match on all CSV files in the &#39;raw&#39; directory.</span>
+<span class="nv">RAW_FILES</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>wildcard<span class="w"> </span>raw/*.csv<span class="k">)</span>
+
+<span class="c"># Translate the names of the raw files into names of cooked files.</span>
+<span class="nv">DATA_FILES</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>patsubst<span class="w"> </span>raw/%.csv,data/%.csv,<span class="si">${</span><span class="nv">RAW_FILES</span><span class="si">}</span><span class="k">)</span>
+
+<span class="c"># Define a single value for a variable explicitly.</span>
+<span class="nv">SUMMARY_FILE</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>data/summary.csv
+
+<span class="c"># Tell Make that &#39;all&#39; and &#39;clean&#39; don&#39;t alter any files.</span>
+<span class="nf">.PHONY</span><span class="o">:</span><span class="w"> </span><span class="n">all</span> <span class="n">clean</span>
+
+<span class="c"># Define a default target that depends on the summary file, so that</span>
+<span class="c"># &#39;make&#39; or &#39;make all&#39; will try to regenerate it.</span>
+<span class="nf">all</span><span class="o">:</span><span class="w"> </span>${<span class="n">SUMMARY_FILE</span>}
+
+<span class="c"># Regenerate the summary file from the cooked data files.  This</span>
+<span class="c"># command only runs if the summary is out of date compared to any of</span>
+<span class="c"># the cooked data files.</span>
+<span class="nf">${SUMMARY_FILE}</span><span class="o">:</span><span class="w"> </span>${<span class="n">DATA_FILES</span>} <span class="n">bin</span>/<span class="n">summarize</span>.<span class="n">py</span>
+<span class="w">    </span>python<span class="w"> </span>bin/summarize.py<span class="w"> </span><span class="si">${</span><span class="nv">DATA_FILES</span><span class="si">}</span><span class="w"> </span>&gt;<span class="w"> </span><span class="si">${</span><span class="nv">SUMMARY_FILE</span><span class="si">}</span>
+
+<span class="c"># Pattern rule to regenerate a cooked data file from a raw data</span>
+<span class="c"># file. The syntax of Make&#39;s automatic variables is horrible, but it&#39;s</span>
+<span class="c"># hard to argue with the simplicity of the rule itsef.</span>
+<span class="nf">data/%.csv</span><span class="o">:</span><span class="w"> </span><span class="n">raw</span>/%.<span class="n">csv</span> <span class="n">bin</span>/<span class="n">cook</span>.<span class="n">py</span>
+<span class="w">    </span>python<span class="w"> </span>bin/cook.py<span class="w"> </span>&lt;<span class="w"> </span>$&lt;<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$@</span>
+
+<span class="c"># Clean up.</span>
+<span class="nf">clean</span><span class="o">:</span>
+<span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">SUMMARY_FILE</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">DATA_FILES</span><span class="si">}</span>
+</code></pre></div><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

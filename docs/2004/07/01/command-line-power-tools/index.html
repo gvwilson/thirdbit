@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Command-Line Power Tools</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Command-Line Power Tools</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2004/06/26/code-reviews/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2004-07-01" class="post-date">2004-07-01</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2004/07/21/up-and-to-the-right/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Harald Koch just pointed me at <a href="http://xmlstar.sourceforge.net/">XMLStarlet</a>, a command-line toolset for manipulating XML.  This isn't the first beast of its ilk—Sean McGrath built similar tools several years ago in Python, for example—but it seems to be more mature than others.</p>
+
+<p>Clicking through the documentation, I'm struck yet again by the disconnect between programming's two approaches to handling "odd jobs".  The first is the Unix command-line filter model; the second, scripting.  The second is more powerful, primarily because it gives programmers access to richer data structures, and a wider set of control constructs.  (I talk about this more in this article on extensible programming systems.)</p>
+
+<p>Why then has the command-line model proved so durable?  According to Irving Reid, the main reason is that you get more bang for your keystroke: an experienced Unix geek can do wonderful things in a five-filter pipe.  Once you add a few simple control constructs (like <code>while read var</code>, which I only discovered last fall), you have a lot of power at your fingertips.</p>
+
+<p>Which brings me back to the problem of supporting batch operations in Helium. One of the biggest differences between it and existing systems like <a href="http://www.sf.net">SourceForge</a> and <a href="http://www.gforge.org">GForge</a> is that Helium administrators have to be able to operate on dozens or hundreds of users and projects at once.  Every project in <a href="http://www.sf.net">SourceForge</a> is a separate entity; so is every user.  In Helium, on the other hand, projects are grouped by course, users are registered in courses, and so on.  If someone has a class list for <a href="http://www.cs.utoronto.ca/~csc207h">CSC207</a>, they must be able to create a new project for each student in the course, and make the student a developer in that project, without clicking through a web interface for several hours.</p>
+
+<p>The three options we have considered were discussed in an earlier post: web services, a library of bindings, or using a Java-friendly scripting language like <a href="http://www.jython.org">Jython</a>.  A fourth possibility, though, is to provide a set of command-line tools that talk directly to Helium's database.  The downside is that we lose the consistency checks that our data model classes implement; the upside is that administrators can then do small things quickly by combining our tools with others they already know.</p>
+
+<p>I'd be interested in hearing from people who have done things like this with other systems.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

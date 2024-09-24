@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include "head.jinja" %}
+    <title>{{node.title}}</title>
+    <link rel="stylesheet" href="@root/slides.css">
+  </head>
+  <body>
+    <textarea id="source">
+{{ node.text }}
+    </textarea>
+    <script src="@root/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>

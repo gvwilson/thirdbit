@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Extensible Programming: A New Hope</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Extensible Programming: A New Hope</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2011/09/09/lovecraft-and-the-tea-party/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2011-09-16" class="post-date">2011-09-16</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2011/09/17/the-simplest-web-that-could-possibly-work/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Back in 2004, I wrote an article for <a href="http://queue.acm.org"><cite>ACM Queue</cite></a> titled &ldquo;<a href="http://queue.acm.org/detail.cfm?id=1039534">Extensible Programming for the 21st Century</a>&ldquo;. In it, I argued that it was time for programming languages to break free from their textual shackles–that we should separate models (the program&rsquo;s content) from views and controllers (how that content is displayed), just as we have with CAD systems, word processors, and other tools that work with rich, highly-structured content. Before I look at some recent signs of progress, let me back up and explain both the problem and why I think model-view separation is the solution. What I want is a programming &ldquo;language&rdquo; that can be extended in a wide variety of ways. That&rsquo;s pretty conventional–every modern language lets people define new functions, create new types, overload operators, etc.–but I think that&rsquo;s much too limited. I want to be able to embed a table in a program as a first-class object, so that instead of:</p>
+<pre>if x:
+    if y:
+        z == 0
+    else:
+        z == 1
+else:
+    if y:
+        z == 2
+    else:
+        z == 3</pre>
+<p>I can write</p>
+<table class="centered">
+<tbody>
+<tr>
+<td valign="center">z</td>
+<td valign="center">=</td>
+<td>
+<table class="centered">
+<tbody>
+<tr>
+<td colspan="2"></td>
+<td colspan="2" align="center" valign="center">y</td>
+</tr>
+<tr>
+<td colspan="2"></td>
+<td align="center" valign="center">True</td>
+<td align="center" valign="center">False</td>
+</tr>
+<tr>
+<td rowspan="2" align="center" valign="center">x</td>
+<td align="center" valign="center">True</td>
+<td align="center" valign="center">0</td>
+<td align="center" valign="center">1</td>
+</tr>
+<tr>
+<td align="center" valign="center">False</td>
+<td align="center" valign="center">2</td>
+<td align="center" valign="center">3</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Actually, scrap that: what I want is to be able to embed a full-blown spreadsheet in amongst other statements so that I can write:</p>
+<table class="centered">
+<tbody>
+<tr>
+<td colspan="3">def func(a, b):</td>
+</tr>
+<tr>
+<td></td>
+<td>x =</td>
+<td>a &gt; b</td>
+</tr>
+<tr>
+<td></td>
+<td>y =</td>
+<td>something(a, b)</td>
+</tr>
+<tr>
+<td></td>
+<td>z =</td>
+<td>
+<table class="centered">
+<tbody>
+<tr>
+<td>
+<table class="centered">
+<tbody>
+<tr>
+<td colspan="2"></td>
+<td colspan="2" align="center" valign="center">y</td>
+</tr>
+<tr>
+<td colspan="2"></td>
+<td align="center" valign="center">True</td>
+<td align="center" valign="center">False</td>
+</tr>
+<tr>
+<td rowspan="2" align="center" valign="center">x</td>
+<td align="center" valign="center">True</td>
+<td align="center" valign="center">a + 1</td>
+<td align="center" valign="center">b + 1</td>
+</tr>
+<tr>
+<td align="center" valign="center">False</td>
+<td align="center" valign="center">(a + b) - 1</td>
+<td align="center" valign="center">a + b</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>I want to be able to embed other things as well: bubble-and-arrow diagrams of finite state machines, before-and-after diagrams of data structures, and everything else that appears in programming textbooks. I can do this if I&rsquo;m writing in Word or LibreOffice, or giving a lecture in front of a whiteboard. Why can&rsquo;t I do it when I&rsquo;m programming?</p>
+<p>The standard answer is, &ldquo;Because programs are text.&rdquo; To which I can only reply, &ldquo;No: that&rsquo;s a <em>storage format</em> for programs–a very limited (and limiting) one.&rdquo; I don&rsquo;t know how LibreOffice stores documents, or how SQLite stores a database, and I don&rsquo;t care. In fact, I <em>shouldn&rsquo;t</em> care unless something goes wrong (about which more later). In every domain except programming, programmers accept that there should be a division between:</p>
+<ol>
+  <li>models (the things that make up whatever we're working with)</li>
+  <li>views and controllers (how we display and interact with those things)</li>
+  <li>storage formats (how we store things on disk)</li>
+</ol>
+<p>The only place where we don&rsquo;t do this is when we&rsquo;re building things for ourselves. We insist that programs be stored as text streams because that&rsquo;s what Emacs, Vi, and the Unix command-line tools know how to work with, and what our compilers know how to process, but it doesn&rsquo;t have to be like that. We could store programs as XML documents, blobs of JSON, serialized Python data structures, whatever your favorite database uses, or something else entirely, then teach our controllers and views (i.e., our editors), and our processing tools (compilers and interpreters) to display that however we wanted and let us manipulate it in whatever way made the most sense for the content.</p>
+<p>I thought at the time that doing this would require us to combine three specific technologies:</p>
+<ol>
+  <li>Programming languages that allow programmers to extend their syntax.</li>
+  <li>Compilers, linkers, debuggers, and other tools that are frameworks for plug-ins, rather than monolithic applications.</li>
+  <li>Programs that are stored as XML documents, so programmers can represent and process data and meta-data uniformly.</li>
+</ol>
+<p>Looking back seven years later:</p>
+<ol>
+  <li>#1 was the goal of the exercise, so long as "extending syntax" is understood to mean "with entirely new displays with associated processing rules". Scheme's hygienic macros and Python's operator overloading are great, but they still require you to squeeze your thoughts into a single display form. You don't have to do that on a whiteboard, when authoring a textbook, or when writing a plugin for Firefox (though in each case, what you're building will be more comprehensible if it rhymes with things users already understand); why should you have to do it with programs?</li>
+  <li>#2 is a corollary of #1: if I'm going to add X to my language, I need a way to tell tools how to handle X. The compiler or interpreter needs to know how to translate it into primitives; the optimizer might need special rules for making it fast; the debugger needs to know how to display its operation or internals, my coverage tool probably needs something as well, and so on. This is straightforward engineering: every new "thing" should be a bundle that respects various tools' APIs, and each tool should provide an API so that people can plug things into it.</li>
+  <li>I was wrong about #3, partly because I still hadn't escaped the "storage format equals model" trap, and partly because I thought that XML processing tools like XSLT would catch on and become the basis for a new generation of pipe-and-filter tools to replace the venerable Unix toolset. What I'd say today is, "Programs are stored in some format that's amenable to low-level inspection by people who are developing new plugin forms, in the same way that SVG diagrams can be viewed as angle-bracketed text if absolutely necessary."</li>
+</ol>
+<p>So, how has reality measured up? Well, as Bill Gates once said, &ldquo;We always overestimate the change that will occur in the next two years and underestimate the change that will occur in the next ten.&rdquo; There has been renewed interest in programming language design in the last few years, mostly focused around the meme of functional languages being the only way to cope with massive parallelism (they aren&rsquo;t, but that&rsquo;s a different post). Unfortunately, all of these languages have remained trapped in the textual tarpit: whether it&rsquo;s Scala, Clojure, Haskell, or something more esoteric, their authors all take for granted that a program has to be a stream of characters that can be edited by Pico or Notepad. There are, however, a few signs of progress:</p>
+<ul>
+  <li>Something–no one is quite sure what–is happening at Charles Simonyi's company Intentional Software. <a href="http://msdn.microsoft.com/en-us/data/dd727740.aspx">This talk</a> seems to show a working implementation of many of the ideas discussed above, focused on letting business people build things for themselves. That will fail unless someone teaches those business people the principles of <a href="http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/">computational</a> <a href="https://software-carpentry.org/4_0/softeng/principles/">thinking</a>, but the tool itself shows a lot of promise.</li>
+  <li>Mathematica's <a href="http://www.wolfram.com/news/cdf-computable-document-format-released.html">Computable Document Format</a> doesn't provide the extensibility, but I still think it's worth watching. As I said in the original article, the biggest obstacle to getting from here to there is that everything has to change at once: editors, compilers, the language, etc. Vendors who own the whole toolchain, like Wolfram (Mathematica), The MathWorks (MATLAB), and Microsoft (.NET) can do this more easily than systems with distributed ownership (the C/Linux/Vi-or-Emacs/GCC toolchain). In that light, Microsoft's <a href="http://www.techworld.com.au/article/401071/microsoft_previews_compiler-as-a-service_software/">compiler-as-a-service</a> project is very interesting as well…</li>
+  <li>Steve Witten's <a href="http://acko.net/blog/on-termkit">TermKit</a> is also interesting: he's replacing the plain text streams that classic Unix tools use to communicate with streams of JSON and a rich display. This grassroots, bottom-up approach is an interesting complement to the corporate, top-down approaches above.</li>
+</ul>
+<p>But the project that has me really excited is Geoffrey French&rsquo;s <a href="https://sites.google.com/site/larchenv/">Larch</a>, which leverages Python and Jython to give people a forward migration path. The <a href="https://sites.google.com/site/larchenv/video-tutorials">tutorial videos</a> don&rsquo;t really do Larch justice, and you have to remember that it&rsquo;s really a proof of concept, but I&rsquo;m still very excited. If nothing else, it could finally bring software visualization into the mainstream: as several studies have showed, visualizations are more useful and powerful if people create their own, but existing IDEs and languages make this hard. By making &ldquo;draw this&rdquo; a natural part of programming, Larch or something like it could be the next big step forward in programming.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

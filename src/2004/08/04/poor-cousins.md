@@ -1,0 +1,111 @@
+---
+title: "Poor Cousins"
+date: 2004-08-04
+---
+<p>Four weeks left until the summer's work on Hippo (formerly Helium)
+winds down, and we're starting to run into the 10% of cases that make
+up 90% of the grief.  For example, consider the problem of keeping
+track of the relationships between users and projects.  In <a href="http://www.sf.net">SourceForge</a> and other systems, this is a
+simple pairwise relationship: projects are not related to one another,
+and users do not belong to groups (other than the groups implicitly
+formed by their membership in particular projects).</p>
+
+<p>That's not good enough for Hippo.  Students are naturally grouped
+by the courses they belong to; instructors must be able to do
+groupwise operations (such as making all students in course C members
+of project P) in a single step, or Hippo's administrative overhead
+will be prohibitive.  Similarly, instructors must be able to manage
+batches of projects at once, so that they can do things like delete
+all projects associated with Exercise 3 of Course C with a single
+command (after backing them up, of course).</p>
+
+<p>To handle this, we've organized projects as a tree, and users/user
+groups as a graph.  A single root "super project" represents Hippo as
+a whole; every other project must have a parent.  Similarly, users can
+belong to groups, which can also contain other groups (though cycles
+are not permitted).</p>
+
+<p>Now comes the tricky part.  A user U's relationship to a project P
+is described by one of a small set of roles, such as "observer",
+"developer", or "admin".  (A fourth role, "unaffiliated", isn't
+explicitly represented, but is used when U has no other relationship
+with P.)  Relationships are inherited: if U has no relationship to P,
+but <em>does</em> have a relationship R with P's parent Q, U also has
+relationship R with P.  This means that if an instructor is an admin
+of the project "/csc207", then she is also automatically an admin of
+"/csc207/exercise01", "/csc207/exercise01/studentFred", and so on.</p>
+
+<p>Relationships are also inherited via group membership.  If U has no
+relationship with P, but U is a member of a group G, and G has a
+relationship R with P, then U has relationship R with P as well.  For
+example, if a student is a member of the group "csc207Students", and
+"csc207Students" is an observer of "/csc207", then the student is an
+observer of "/csc207".</p>
+
+<p>Seems pretty simple—at least, it <em>seemed</em> pretty simple to
+us.  However, inheritance means that a user U can have several
+different candidate relationships with a project P.  For example, U
+can be an explicit observer of P, but also be a member of a group G,
+which is a developer for P's grandparent.  Which relationship should U
+have with P?  We decided two and a half months ago to use the
+"strongest" relationship: we find all possible relationships via
+transitive closure, and if any of them allow U to perform a requested
+operation on P, the operation is permitted.</p>
+
+<p>The problem is, that leads to Bug #36:</p>
+
+<blockquote><p>
+Users are allowed to have multiple memberships to a single project,
+both through inheritance and through user groups.  When a user wants
+to change something (ie mail settings), the getMemberships(user,
+project) method has to decide which of these memberships to return.
+Currently, it returns the user's strongest membership, based on role.
+The problem with this is that if the user's strongest membership is an
+implicit one, or if it is through a user group, the user is unable to
+change the settings (unless an explicit membership is created for the
+user and project).
+</p></blockquote>
+
+<p>Let's go over that again.  Hippo represents relationships between
+users and projects using instances of the class Membership.  If
+membership is implied, rather than direct, then when we look up U's
+membership in P, we sometimes get back an object representing the
+relationship between a group that U belongs to (directly or
+indirectly) and a project that is a parent of P (directly or
+indirectly).  That's fine if we just want to find out whether or not
+some operation is permitted, but if we want to <em>change</em> U's
+relationship with P, what do we do?  We can't change that relationship
+object, since that would potentially affect other users' relationships
+with other projects.</p>
+
+<p>OK, so we don't change that object; we add a new one representing
+the more specific relationship.  That solution fails to address Bug #37:</p>
+
+<blockquote><p>
+Another problem with implicit memberships: users cannot be deleted
+from projects (or have their roles changed etc.) when their membership
+is via a user group, unless they are removed from the group.  Removing
+a user from a user group falls under user-user authorization, which
+has been deferred.
+</p></blockquote>
+
+<p>And on, and on, and on.  Representing <em>all</em> relationships
+explicitly (no groups, no project tree) would make this problem go
+away, but we believe it would make administration much more onerous.
+Adopting Unix-style permissions (rwxr-xr--, anyone?) is tempting, but
+we worked through that three months ago, and it doesn't address all of
+our use cases either.</p>
+
+<p>Which brings us to this posting's title.  HP's marketing literature
+describes the product I work on in terms of authentication,
+authorization, and access control.  Authentication means figuring out
+who you are; authorization means figuring out what you're allowed to
+do; and access control means enforcing those rules.  There's a ton of
+literature about authentication, and a fair bit in the operating
+systems world about access control.  By comparison, authorization is a
+very poor cousin indeed: you can find detailed descriptions of the
+schemes used in particular systems, like Unix permissions and Access
+Control Lists (ACLs), but there doesn't seem to be any "theory" behind
+it all.</p>
+
+<p>Authorization seems to be one of those things that is overlooked by mainstream computing, for no good reason.  Think about it: parsing and code generation are part of the standard curriculum, but implementing byte code interpreters and debuggers are not; process scheduling is, but linking is not; and so on.  I don't know why some fields are "poor cousins", while others are so heavily overfarmed that they suffer from the intellectual equivalent of salinization, but perhaps there is scope here for both innovative research, and for new languages or programming models to make some headway.</p>

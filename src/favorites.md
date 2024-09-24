@@ -1,0 +1,4 @@
+---
+title: "Favorites"
+template: favorites
+---

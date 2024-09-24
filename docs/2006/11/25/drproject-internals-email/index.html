@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: DrProject Internals: Email</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>DrProject Internals: Email</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/11/21/democamp-11/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-11-25" class="post-date">2006-11-25</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/11/27/psiphon-in-the-news-again/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>And now, DrProject&rsquo;s email. This was the first completely new subsystem we added after we forked; running <a href="http://www.gnu.org/software/mailman/index.html">Mailman</a> in parallel with <a href="http://trac.edgewall.org">Trac</a> worked well enough while we were bootstrapping, but the fact that neither system knew about the other made both a pain to use.  We couldn&rsquo;t, for example, run a single search query that would hit both a project&rsquo;s wiki <em>and</em> its mailing list archive; we also had to do a little dance to keep project and mailing list memberships in sync, and we never even tried to modify Mailman so that wiki-syntax shortcuts to tickets and pages in mail messages would be turned into links automatically.</p>
+<p>The broad outline of our design was straightforward:</p>
+<ol>
+  <li>We didn't want to compete with people's existing mail clients, so DrProject would provide relay and archiving only—there'd be no way to compose or receive messages from within DrProject, and no way to send mail to individual (just projects).  That simplified things at least as much as only supporting reads simplified the Subversion repository viewer.</li>
+  <li>We could safely assume that the Linux host running DrProject had a mail transfer agent (MTA) such as <a href="http://www.sendmail.org/">sendmail</a>. We could further <em>require</em> that whoever installed DrProject be able to modify the MTA's configuration to route messages for particular addresses to a program we provided.  In particular, we could tell the MTA to store all messages for <code>A+B@host.name</code> in a directory called <code>/drproject/A/B</code>.  In this scheme, <code>A</code> identifies a particular instance of DrProject on the host, while <code>B</code> identifies the project within that instance.  For us, <code>A</code> would be a course ID, like <code>csc408</code>, and <code>B</code> would identify the student team.</li>
+  <li>Every time the DrProject CGI ran, it could check the spool directories for new messages.  If it found any, it could copy them into the database, index them for searching, and forward them to the members of the project the message was for.</li>
+  <li>The wiki parser could be modified to recognize <code>@123@</code> as a shortcut to message #123.  We decided to use an '@' before and after to avoid worrying about the possible ambiguity in <code>abc@123.yourhost.com</code>.</li>
+</ol>
+<p>Simple enough—but as always, there were a lot of sharp-toothed details lurking in the underbrush.  First (and simplest), the program invoked by the MTA to copy messages into the spooling directory, and the DrProject CGI, had to lock files at the proper times, so that DrProject wouldn&rsquo;t try to read a message while the handler invoked by the MTA was still writing it.</p>
+<p>Second, we needed a way to prevent the project lists from being spammed.  After some discussion, we decided to use a <a href="http://en.wikipedia.org/wiki/Whitelist">whitelisting</a>: every user would have to tell DrProject the addresses from which she wanted to be able to send mail, and select one of those for DrProject to forward mail to.  The procedure we&rsquo;re currently using is far from original:</p>
+<ol>
+  <li>After logging in, the user goes to the preferences page and enters the email address she wants to register.</li>
+  <li>DrProject stores that address in an <code>UnconfirmedEmail</code> table, then sends a message to that address requesting validation.</li>
+  <li>Once the user gets the message and validates the address, it is added to the set associated with her account.  One of those must always be marked for forwarding: all mail sent to projects of which she is a member will be forwarded to that address.  She can turn forwarding on or off on a per-project basis, but we didn't see any reason to allow mail to different projects to be forwarded to different addresses.</li>
+</ol>
+<p>There&rsquo;s still a bit of room for abuse here: if I told DrProject that <code>yourname@yourhost.com</code> was <em>my</em> address, but never reply to the validation request, you wouldn&rsquo;t be able to claim it.  We figured that was a pretty minor issue, and that it could be resolved by divine (i.e., administrative) intervention, so we didn&rsquo;t worry about it.</p>
+<p>What we <em>did</em> have to worry about was exactly what constituted &ldquo;membership&rdquo; in a project for the purpose of message forwarding.  Our authorization scheme doesn&rsquo;t actually include a notion of &ldquo;membership&rdquo;; instead, every user has a role (possibly a default role) with respect to each project, and each role is a collection of capabilities.  Should roles have a <code>MEMBERSHIP</code> attribute?  Or should we infer &ldquo;membership-for-the-purpose-of-mail-forwarding&rdquo; from something else?</p>
+<p>We went with the latter: if your role with respect to a project gives you <code>MAIL_POST</code> privileges, then messages to the project list are forwarded to you.  <code>MAIL_VIEW</code> isn&rsquo;t enough, since we may want to give anonymous users the ability to read the archives of &ldquo;public&rdquo; projects, but don&rsquo;t want a special-case rule saying, &ldquo;Forward to anyone with this capability unless they&rsquo;re <code>anonymous</code> or <code>nobody</code>.&rdquo;</p>
+<p>It all worked well under test, but failed when we first deployed it last fall.  The problem turned out to be some missing quotes in a shell script—the commands all worked when run directly from an interactive shell prompt, but failed when the script was invoked. Once that was fixed, we began noticing that messages would sometimes be delayed for hours—even days—before being delivered.</p>
+<p>That one turned out to be a simple oversight.  DrProject is a long-lived CGI (we actually use <a href="http://www.mems-exchange.org/software/scgi/">SCGI</a>); when it&rsquo;s not actually processing an HTTP request, it just sits and waits. That means that it only looks for new mail messages when someone interacts with it over the web (e.g., files a ticket or views a wiki page).  Messages sent to project lists were therefore piling up until someone went to check on them, at which point they were all forwarded.</p>
+<p>The solution we&rsquo;re now using is a cron job that sends a dummy HTTP request to DrProject every two minutes or so.  It was a simple thing to write, but we&rsquo;re still unhappy with it, since it&rsquo;s difficult for developers to test, and is yet another scraplet that administrators have to remember to deploy and restart.  I&rsquo;d like to fold the cron job into the SCGI process some day, but it&rsquo;s well down my wish list.</p>
+<hr />
+<p><em>Later: how could I have forgotten the address rewriting problem?  We&rsquo;re currently hosting course-related instances of DrProject on Stanley, a medium-hefty server donated by the kind folks at the <a href="http://www.jonahgroup.com">Jonah Group</a>.  For the first few weeks of term, mail forwarded by DrProject had <code>instance+project@stanley.cs.toronto.edu</code> as a return address.  The problem was, the CS department&rsquo;s mailer was rewriting this as <code>instance+project@cs.toronto.edu</code>.  That makes perfect sense for mail from real people (you probably don&rsquo;t care that the machine I compose my messages on is <code>jalkelainen.cs.toronto.edu</code>), but since the department&rsquo;s mail server didn&rsquo;t know about DrProject&rsquo;s project-related addressing, anyone who just hit &ldquo;reply&rdquo; to a forwarded message got a bounce-back.  The &ldquo;solution&rdquo; (and yes, I think the quotes are justified) is to take advantage of the fact that <code>drproject.org</code> is hosted at <code>stanley.cs.toronto.edu</code>, and use <code>instance+project@drproject.org</code> as the return address.  It&rsquo;s these kinds of integration issues that make real software hard…</em></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

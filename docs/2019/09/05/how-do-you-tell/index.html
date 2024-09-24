@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: How Do You Tell?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>How Do You Tell?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/09/04/tidyblocks-webinar/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-09-05" class="post-date">2019-09-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/09/13/wind-chimes-in-the-rain/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I had another good conversation yesterday with <a href="https://www.cs.kent.ac.uk/people/staff/saf/">Prof. Sally Fincher</a>,
+whose work was a big influence on <a href="http://teachtogether.tech"><em>Teaching Tech Together</em></a>.
+The subject was
+<a href="../../../../2018/04/12/notional-machine-for-python/">notional</a>
+<a href="../../../../2019/07/15/notional-machine-for-r/">machines</a>,
+and in particular how to figure out as quickly as possible what someone&rsquo;s mental model of program execution includes.
+For example:</p>
+<blockquote>
+<p>After the following code runs:</p>
+<div class="highlight"><pre><span></span><code>A = 1
+B = A
+A = 99
+</code></pre></div>
+<p>what is the value of <code>B</code>?</p>
+</blockquote>
+<p>Someone who thinks in Excel will (quite fairly) say &ldquo;99&rdquo;,
+because the whole point of saying <code>B = A</code> is to make <code>B</code> equal to <code>A</code>,
+while someone whose thinking is shaped by Java, Python, or the like will say that <code>B</code> is still 1.</p>
+<p>Here&rsquo;s another:</p>
+<blockquote>
+<p>In what order are the words &ldquo;before&rdquo;, &ldquo;during&rdquo;, and &ldquo;after&rdquo; printed when this JavaScript runs?</p>
+<div class="highlight"><pre><span></span><code>console.log(&#39;before&#39;)
+const text = fs.readFile(&#39;data.txt&#39;, (err, data) =&gt; {
+  console.log(&#39;during&#39;)
+})
+console.log(&#39;after&#39;)
+</code></pre></div>
+</blockquote>
+<p>The natural answer (for some very biased value of &ldquo;natural&rdquo;) is before-during-after,
+but in Callback Country,
+the actual order is before-after-during.</p>
+<p>And finally:</p>
+<blockquote>
+<p>In what order are &ldquo;F&rdquo; and &ldquo;G&rdquo; printed when this code runs in R?</p>
+<div class="highlight"><pre><span></span><code>f &lt;- function(x) {
+  print(&#39;F&#39;)
+  return (2*x)
+}
+
+g &lt;- function(x) {
+  print(&#39;G&#39;)
+  return (2*x)
+}
+
+g(f(2))
+</code></pre></div>
+</blockquote>
+<p>The answer in most languages is F-G,
+but the answer in R is G-F because of lazy evaluation.</p>
+<p>If you have short questions that you use to probe or classify people&rsquo;s mental models of program execution,
+I&rsquo;d enjoy hearing about them:
+please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>.</p>
+<hr />
+<p>Tavish Armstrong sent this:</p>
+<p>When a function A is defined,
+and the result of a call to a function B is assigned to one of A&rsquo;s parameters as its default value,
+many people expect B to be called each time A is called
+rather than just once ag definition time:</p>
+<div class="highlight"><pre><span></span><code>def f(start=datetime.datetime.now()):
+  print(start)
+
+f() # prints 2019-09-05 15:47:20.976051
+f() # also prints 2019-09-05 15:47:20.976051
+f() # and again…
+</code></pre></div>
+<p>Possible causes are:</p>
+<ol>
+<li>Nested function definitions like <code>f(g())</code> <em>do</em> call the inner function each time they&rsquo;re run.</li>
+<li>Many people (including some quite experienced programmers)
+    don&rsquo;t think of function definition as a thing programs do
+    that is qualitatively the same as adding numbers.</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

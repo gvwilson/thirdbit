@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Building a Book</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Building a Book</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/03/12/rethinking-design-examples/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-03-12" class="post-date">2023-03-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/03/22/workshop-proposal-organizational-change/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>In response to a question about <a href="../../../../2023/03/12/rethinking-design-examples/">today&rsquo;s first post</a>,
+I use <a href="https://www.dmulholl.com/docs/ivy/main/">Ivy</a> with some custom extensions to create the HTML versions of my books,
+and then translate the HTML to LaTeX and compile that to produce PDFs.</p>
+<ul>
+<li>
+<p><em>Why not use <a href="https://pages.github.com/">GitHub Pages</a>?</em>
+    Because <a href="https://jekyllrb.com/">Jekyll</a> doesn&rsquo;t support things I need.
+    Even if I learned enough Ruby to write extensions,
+    I couldn&rsquo;t run them directly on GitHub:
+    I&rsquo;d have to set up an action of some sort.
+    If I&rsquo;m going to do that,
+    I might as well build the HTML on my own machine and commit it.
+    (I&rsquo;m also tired of trying to keep yet another package manager and virtual environment manager up to date.)</p>
+</li>
+<li>
+<p><em>Why not <a href="https://jupyterbook.org/">Jupyter Book</a>, <a href="https://bookdown.org/">Bookdown</a>, or <a href="https://quarto.org/docs/books/">Quarto</a>?</em>
+    For the same reasons.
+    For example, I frequently need to include sections of source code rather than entire semantic units,
+    such as two methods from a class without the rest of the class,
+    and none of them cater for this.
+    They do handle bibliographies,
+    but link tables, syllabi, and other things would still be on me.
+    (I&rsquo;m also really, really tired of having to wrestle with PDF formatting issues
+    when I use these tools:
+    we did <a href="../../../../py-rse/"><em>Research Software Engineering with Python</em></a> with <a href="https://bookdown.org/">Bookdown</a>,
+    and honestly, it would have been faster and easier to just write the LaTeX ourselves.)</p>
+</li>
+<li>
+<p><em>So you translate HTML to LaTeX yourself?</em>
+    Yup:
+    thanks to <a href="https://beautiful-soup-4.readthedocs.io/">Beautiful Soup</a>,
+    the whole translation script is only 534 lines (including blank lines, comments, and docstrings).
+    I put time and money into <a href="https://pagedjs.org/">Paged.js</a> last year in the hope that I could go directly from HTML+CSS to PDF,
+    but it&rsquo;s simply not ready yet.</p>
+</li>
+<li>
+<p><em>Why <a href="https://www.dmulholl.com/docs/ivy/main/">Ivy</a> rather than <a href="https://www.getnikola.com/">Nikola</a>, <a href="https://getpelican.com/">Pelican</a>, <a href="https://www.sphinx-doc.org/">Sphinx</a>, or…?</em>
+    Because <a href="https://www.dmulholl.com/docs/ivy/main/">Ivy</a> is still so small that I can understand how it works.
+    The extensions I need are now 1500 lines of Python;
+    they might have been shorter if I&rsquo;d used another framework,
+    but I think it would have taken me longer to figure out what to write.</p>
+</li>
+</ul>
+<p>So what are these extensions I keep referring to?</p>
+<ul>
+<li>Insert credits and acknowledgments based on metadata in a configuration file.</li>
+<li>Create bibliographic citations and build a bibliography from them.</li>
+<li>Copy source files referenced by chapters into the right output directory.</li>
+<li>Number figures and manage cross-references to them.</li>
+<li>Mark and collate FIXME items.</li>
+<li>Create glossary references and build a glossary from them.</li>
+<li>Number headings and manage cross-references to them.</li>
+<li>Manage source code inclusions,
+    including ones that select only a few lines from a file
+    or include several files that match a pattern.</li>
+<li>Create an index of special terms.</li>
+<li>Manage external links and create a table of them in an appendix.</li>
+<li>Extract information about the syllabus from each chapter and format it.</li>
+<li>Number tables and manage cross-references to them.</li>
+</ul>
+<p>Is this sustainable?
+I.e., could someone else step in and maintain it?
+Or could it handle other people&rsquo;s needs?
+I don&rsquo;t know,
+but the Python version of <a href="../../../../sdxjs/"><em>Software Design by Example</em></a>
+will be my fourteenth technical book,
+and so far it&rsquo;s hurting less than any of the others.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

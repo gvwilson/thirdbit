@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Exercises for Teaching Programming</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Exercises for Teaching Programming</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2017/09/30/git-graphs-and-engineering/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2017-10-16" class="post-date">2017-10-16</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2017/10/21/maintainable-lessons/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Every mechanic has her favorite screwdrivers, and every good teacher has
+different kinds of exercises to check that her students are actually learning,
+let them practice their new skills, and keep them engaged.  Some types of
+exercise are well known, but others aren&rsquo;t as widely used as they should be.
+Most online coding platforms only support a few, and I&rsquo;m keen to find both new
+things to try, and new ways to use what we already have.</p>
+<p>In order to be considered for inclusion in this article, an exercise
+has to be quick for learners to do, and it has to be possible to check
+the answer automatically. These requirements rule out some useful
+kinds of assessment, but I was surprised by how many remain.</p>
+<p>Let&rsquo;s start with the two types of exercise people will be most familiar
+with. The first is a <strong><em>multiple choice question</em></strong> that presents a question and
+asks the student to pick the correct answer from a list.  Doing this might (in
+fact, should) require them to do more than just read and remember, and as a
+previous post discussed, multiple-choice questions are most effective when their
+wrong answers probe for specific misconceptions on the student&rsquo;s part.</p>
+<blockquote>
+<p>Example: You are in <code>/home/repl</code>.  Use <code>ls</code> with an appropriate
+argument to get a listing of the files in the directory
+<code>/home/repl/seasonal</code>.  Which of the following files is <em>not</em> in
+that directory?</p>
+<ul>
+<li><code>autumn.csv</code></li>
+<li><code>fall.csv</code></li>
+<li><code>spring.csv</code></li>
+<li><code>winter.csv</code></li>
+</ul>
+</blockquote>
+<p>The second type of exercise is <strong>write and run</strong>, in which the student
+has to write code that produces a specified output. When the code is
+submitted, we check its structure and/or output and give feedback.
+Write and run exercises can be as simple or as complex as the
+instructor wants. For example, it&rsquo;s often enough with novices to
+simply ask them to call a function or method: experienced instructors
+often forget how hard it can be to figure out which parameters go
+where.</p>
+<blockquote>
+<p>Example: the matrix M contains data read from a file. Using one
+function or method call, create a matrix Z that has the same shape
+as M but contains only zeroes.</p>
+</blockquote>
+<p><strong>Write and run</strong> exercises help students practice the skills they
+most want to learn, but writing good automated checks is hard:
+students can find very creative ways to get the right answer, and it&rsquo;s
+demoralizing to give them a false negative.  One way to reduce how
+often this occurs is to give them a small test suite they can run
+their code against before they submit it (at which point it is run
+against a more comprehensive set of tests).  Doing this helps to catch
+cases in which students have completely misunderstood the written spec
+of the exercise.</p>
+<p>To help students realize just how hard it is to write good tests
+instructors can get them to do it themselves.  Instead of writing code
+that satisfies some specification, they can be asked to write tests to
+determine whether a piece of code conforms to a spec.</p>
+<blockquote>
+<p>Example: the function <code>monotonic_sum</code> calculates the sum of each
+section of a list of numbers in which the values are monotonically
+increasing. For example, given the input <code>[1, 3, 3, 4, 5, 1]</code>, the
+output should be <code>[4, 3, 9, 1]</code>. Write and run unit tests to
+determine which of the following bugs the function contains:</p>
+<ul>
+<li>Considers every negative number the start of a new sub-sequence.</li>
+<li>Does not include the first value of each sub-sequence in the
+  sub-sum.</li>
+<li>Does not include the last value of each sub-sequence in the
+  sub-sum.</li>
+<li>Only re-starts the sum when values decrease rather than fail
+  to increase.</li>
+</ul>
+</blockquote>
+<p><strong><em>Fill in the blanks</em></strong> is a refinement of <strong><em>write and run</em></strong> in which
+the student is given some starter code and asked to complete it. (In
+practice, many <strong>write and run</strong> exercises are actually <strong>fill in the
+blanks</strong> because the instructor will provide comments to remind the
+students of what steps they should take.) Novices often find <strong>fill in
+the blanks</strong> less intimidating than writing all the code from scratch,
+and since the instructor has provided most of the answer&rsquo;s structure,
+submissions are much easier to check.</p>
+<blockquote>
+<p>Example: fill in the blanks so that the code below prints the string
+&lsquo;hat&rsquo;.</p>
+<div class="highlight"><pre><span></span><code>text = &#39;all that it is&#39;
+slice = text[____:____]
+print(slice)
+</code></pre></div>
+</blockquote>
+<p>A <strong><em>Parsons Problem</em></strong> is another kind of exercise that avoids the
+&ldquo;blank screen of terror&rdquo; problem: the student is given the lines of code
+needed to solve a problem, but has to put them in the right order.
+Research over the past few years has shown that <strong>Parsons Problems</strong> are
+effective because they allow students to concentrate on control flow
+(&ldquo;what order do I do things?&rdquo;) separately from vocabulary (&ldquo;what do I
+need to do?&rdquo;). The same research shows that giving the student more
+lines than she needs, or asking her to rearrange some lines and add a
+few more, makes this kind of problem significantly harder. Our mobile
+platform has direct support for <strong>Parsons Problems</strong>, and they can be
+emulated (albeit somewhat clumsily) by asking students to rearrange code
+in an editor.</p>
+<blockquote>
+<p>Example: rearrange and indent these lines to calculate the sums of the
+positive and negative values in a list.</p>
+<div class="highlight"><pre><span></span><code>positive = 0
+return negative, positive
+if v &gt; 0
+else
+positive += v
+negative = 0
+for v in values
+negative += v
+</code></pre></div>
+</blockquote>
+<p><strong><em>Tracing execution</em></strong> is the inverse of a Parsons Problem: given a few
+lines of code, the student has to trace the order in which those lines
+are executed. This is an essential debugging skill, and is a good way to
+solidify students&rsquo; understanding of loops, conditionals, and the
+evaluation order of function and method calls. Again, we don&rsquo;t yet
+support this directly, but it can be emulated by having students type in
+a list of line labels.</p>
+<blockquote>
+<p>Example: in what order are the labelled lines in this block of code
+executed?</p>
+<div class="highlight"><pre><span></span><code>A)     vals = [-1, 0, 1]
+B)     inverse_sum = 0
+       try:
+           for v in vals:
+C)             inverse_sum += 1/v
+       except:
+D)         pass
+</code></pre></div>
+</blockquote>
+<p><strong><em>Tracing values</em></strong> is similar to <strong>tracing execution</strong>, but instead of
+spelling out the order in which code is executed, the student is asked
+to list the values that one or more variables take on as the program
+runs. Again, it can be implemented by having students type in their
+answers, but this quickly becomes impractical. In practice, the best
+approach is to give the student a table whose columns are labelled with
+variable names and whose rows are labelled with line numbers.</p>
+<blockquote>
+<p>Example: what lines of text pass through the pipes and the final
+redirect when this file:</p>
+<div class="highlight"><pre><span></span><code>2017-11-01,Akeratu,9
+2017-11-01,Monona,3
+2017-11-02,Monona,1
+2017-11-03,Monona,1
+2017-11-03,Akeratu,7
+</code></pre></div>
+<p>is run through this Unix shell command:</p>
+<div class="highlight"><pre><span></span><code>cut -d , -f 2 filename | sort | uniq &gt; result.txt
+</code></pre></div>
+</blockquote>
+<p>Returning to debugging skills, another exercise that helps student
+develop them is <strong><em>minimal fixes</em></strong>. Given a few lines of code that
+contain a bug, the student must either make or identify the smallest
+change that will produce the correct output. Making the change can be
+done as using <strong>write and run</strong>, while identifying it can be done as a
+<strong>multiple choice question</strong>.</p>
+<blockquote>
+<p>Example: this function is supposed to test whether a point <code>(x, y)</code> lies
+strictly within a rectangle defined by <code>(x_min, y_min, x_max, y_max)</code>.
+Change one line to make it do so correctly.</p>
+<div class="highlight"><pre><span></span><code>def inside(point, rect):
+    if (point.x &lt;= rect.x_min): return false
+    if (point.y &lt;= rect.y_min): return false
+    if (point.x &gt;= rect.y_max): return false
+    if (point.y &gt;= rect.y_max): return false
+    return true
+</code></pre></div>
+</blockquote>
+<p><strong>Theme and variation</strong> exercises are similar, but instead of making a
+change to fix a bug, the student is asked to make a small alteration
+that changes the output in some specific way. These alterations can
+include:</p>
+<ul>
+<li>replacing one function call with another</li>
+<li>changing one variable&rsquo;s initial value</li>
+<li>swapping an inner and outer loop</li>
+<li>changing the order of tests in a chain of conditionals</li>
+<li>changing the nesting of function calls or the order in which methods
+    are chained</li>
+</ul>
+<p>Again, this gives students a chance to practice a useful real-world
+skill: the fastest way to produce a working program is often to tweak
+one that already does something useful.</p>
+<blockquote>
+<p>Example: change the inner loop control in the function below so that
+it sets the upper left triangle of the matrix to zero.</p>
+<div class="highlight"><pre><span></span><code>def zeroTriangle(matrix):
+    for c in range(matrix.cols):
+        for r in range(matrix.rows):
+            matrix[r, c] = 0
+</code></pre></div>
+</blockquote>
+<p>Matching problems are another entire family of exercises. A
+<strong><em>one-to-one matching problem</em></strong> gives the student two lists of equal
+length and asks her to pair corresponding items, e.g., &ldquo;match each piece
+of code with the output it produces&rdquo;.</p>
+<blockquote>
+<p>Example: match each function's name with the operation it implements.</p>
+
+<table class="centered">
+<tr><td>SGEMV</td><td>triangular banded matrix-vector multiply</td></tr>
+<tr><td>STBMV</td><td>solve triangular matrix with multiple right-hand sides</td></tr>
+<tr><td>STRSM</td><td>matrix-vector multiply</td></tr>
+</table>
+</blockquote>
+
+<p><strong>Many-to-many matching problems</strong> are similar, but the lists aren&rsquo;t the
+same length, so some items may be matched to several others. Both kinds
+require students to use higher-order thinking skills, but many-to-many
+are more difficult because students can&rsquo;t do easy matches first to
+reduce their search space.</p>
+<p>Our platform doesn&rsquo;t currently support matching problems; they can be
+emulated by having students submit lists of pairs as text (such as &ldquo;A3,
+B1, C2&rdquo;), but that&rsquo;s clumsy and error-prone. A future implementation
+could re-use machinery built for <strong>Parsons Problems</strong> and let students
+drag and drop blocks of text to form matches.</p>
+<p>Drag-and-drop would open many other doors: for example, <strong>tracing
+execution</strong> is easy to implement this way. So is <strong><em>labelling
+diagrams</em></strong>: rather than students typing in the labels, it is faster and
+more reliable for them to drag labels around to attach to the correct
+elements. The picture can be a complex data structure (&ldquo;after this code
+is executed, which variables point to which parts of this structure?&rdquo;),
+the graph that a program produces (&ldquo;match each of these pieces of code
+with the part of the graph it generated&rdquo;), the code itself (&ldquo;match each
+term to an example of that program element&rdquo;), or many other things.</p>
+<blockquote>
+<p>Example: label the following diagram to show which structures the
+variables <code>x</code>, <code>y</code>, and <code>z</code> refer to after these three lines of code
+are executed.</p>
+<div class="highlight"><pre><span></span><code>x = 3
+y = [x, x]
+z = [x, y]
+</code></pre></div>
+<p><img src="../../../../files/2017/10/label.svg" class="centered"></p>
+</blockquote>
+<p><strong><em>Drawing diagrams</em></strong> of things like data structures is also
+straightforward to do on paper but very difficult to grade
+automatically. One way to make solutions gradable may be to constrain
+the drawing in the same way that <strong>Parsons Problems</strong> constrain code
+construction, i.e., give students the pieces of the diagram and ask them
+to arrange them correctly, but this is a long way off.</p>
+<p>We mentioned earlier that matching problems require students to use
+higher-order thinking skills. <strong><em>Summarization</em></strong> also does this, and
+gives them a chance to practice a skill that is very useful when
+<em>reporting</em> bugs rather than fixing them. For example, students can be
+asked, &ldquo;Which sentence best describes how the output of f changes as x
+varies from 0 to 10?&rdquo; and then given several options as a <strong>multiple
+choice question</strong>. Similarly, <strong><em>ranking problems</em></strong> present the student
+with several choices and ask them to order them from fastest to slowest,
+most robust to most brittle, and so on. (<strong>Ranking</strong> is more manageable
+when implemented with drag and drop than as a <strong>multiple choice
+question</strong>.)</p>
+<p>One other kind of exercise that can be implemented as a <strong>multiple
+choice question</strong> is <strong><em>fault mapping</em></strong>: given a piece of buggy code
+and an error message, the student has to identify the line on which the
+error occurred. In simple cases this will be the line mentioned in the
+error message, but in more subtle cases, the student will have to trace
+execution forward and backward to figure out where things first went
+wrong.</p>
+<p>Most platforms don&rsquo;t directly support all of these kinds of exercises yet, and
+there are others that are hard for any online platform to provide.
+<strong><em>Refactoring exercises</em></strong> are the complement of <strong>theme and variation</strong>
+exercises: given a working piece of code, the student has to modify it in some
+way <em>without</em> changing its output. For example, the student could be asked to
+replace loops with vectorized expressions, to simplify the condition in a while
+loop, etc. The challenge here is that there are often so many ways to refactor a
+piece of code that grading requires human intervention.</p>
+<blockquote>
+<p>Example: write a single list comprehension that has the same effect
+as this loop.</p>
+<div class="highlight"><pre><span></span><code>result = []
+for v in values:
+    if len(v) &gt; threshold:
+        result.append(v)
+</code></pre></div>
+</blockquote>
+<p><strong><em>Code review</em></strong> is hard to grade automatically in the general case,
+but can be tackled if the student is given a rubric (i.e., a list of
+faults to look for) and asked to match particular comments against
+particular lines of code. For example, the student can be told that
+there are two indentation errors and one bad variable name, and asked
+to point them out; if she is more advanced, she could be given half a
+dozen kinds of remarks she could make about the code without guidance
+as to how many of each she should find.  As with <strong>tracing values</strong>,
+this is easiest for students to do when presented as a table, which we
+currently don&rsquo;t support.</p>
+<blockquote>
+<p>Example: using the rubric provided, mark each line of the code below.</p>
+<div class="highlight"><pre><span></span><code>01)  def addem(f):
+02)      x1 = open(f).readlines()
+03)      x2 = [x for x in x1 if x.strip()]
+04)      changes = 0
+05)      for v in x2:
+06)          print(&#39;total&#39;, total)
+07)          tot = tot + int(v)
+08)      print(&#39;total&#39;)
+</code></pre></div>
+<ol>
+<li>poor variable name</li>
+<li>unused variable</li>
+<li>use of undefined variable</li>
+<li>missing values</li>
+<li>fossil code</li>
+</ol>
+</blockquote>
+<p>There are undoubtedly many other kinds of exercises out there that are
+also fast to do and automatically gradable, but which we haven&rsquo;t heard
+of. If you know of any, we&rsquo;d enjoy hearing about them.</p>
+<p><em>Thanks to everyone who contributed ideas to this post, including
+Francis Castro, Katie Cunningham, Brian Dillingham, Mark Guzdial, Ian
+Hawke, Toby Hodges, Colleen Lewis, Jeramia Ory, Alex Pounds, Danielle
+Quinn, Ariel Rokem, Pat Schloss, Malvika Sharan, Richard Tomsett,
+Stéfan van der Walt, Hadley Wickham, and Andromeda Yelton.</em></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

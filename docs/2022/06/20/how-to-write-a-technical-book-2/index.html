@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: How to Write a Technical Book (Part 2)</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>How to Write a Technical Book (Part 2)</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/06/20/dev-ed-book-club/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-06-20" class="post-date">2022-06-20</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/07/09/poynting-collector/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Following up on
+<a href="../../../../2022/06/19/how-to-write-a-technical-book/">the first post in this series</a>,
+here are a few more tips for anyone thinking about writing a technical book.</p>
+<ol>
+<li>
+<p><strong>Read, then write.</strong>
+    Go through your two favorite technical books and make notes about
+    what their authors have done well.
+    Doing this will give you some ideas for your own book,
+    but it will also help you become more conscious of your writing—in musical terms,
+    help you learn how to listen to yourself while you&rsquo;re playing.
+    I learned a lot by reading Brian Kernighan and Jon Udell,
+    but your tastes may vary.</p>
+</li>
+<li>
+<p><strong>Do the diagrams on a whiteboard first.</strong>
+    It&rsquo;s faster and more flexible than any computer drawing tool
+    (though I admit I don&rsquo;t have much experience with fingertip sketching apps for tablets).
+    The only downside is that you can&rsquo;t save a whiteboard drawing and reload it later,
+    but they&rsquo;re so fast to re-create that that&rsquo;s not an issue.</p>
+</li>
+<li>
+<p><strong>Don&rsquo;t write a general introduction</strong>
+    unless you&rsquo;re going to be one of the first two or three to market.
+    Instead,
+    focus on a particular aspect (&ldquo;Python for Web Scraping&rdquo;)
+    or a particular audience (&ldquo;R for Sports&rdquo;).
+    Your potential audience may be smaller,
+    but you&rsquo;ll reach a much higher percentage of that audience,
+    and a focused book is a lot easier to write.</p>
+</li>
+<li>
+<p><strong>Don&rsquo;t try to be funny.</strong>
+    Very few jokes are funny the second time you hear them;
+    even fewer can stand a third re-telling unless they&rsquo;re very, very dry.
+    And on a related note,
+    please don&rsquo;t use exclamation marks:
+    what you&rsquo;re writing probably isn&rsquo;t surprising,
+    and certainly won&rsquo;t be the second time around<sup><a href="#footnote-1">1</a></sup>.</p>
+</li>
+<li>
+<p><strong>Avoid banal advice.</strong>
+    Few things are as frustrating to the reader as sentences like,
+    &ldquo;You should carefully consider users&rsquo; needs,&rdquo;
+    because no sensible person would recommend the opposite.
+    If you can&rsquo;t provide a checklist of specific things to consider,
+    or a scenario to give the reader insight into how you think through that class of problem,
+    you&rsquo;re giving them the intellectual equivalent of junk calories.</p>
+</li>
+<li>
+<p><strong>Don&rsquo;t try to compete with the internet.</strong>
+    Reference manuals were invaluable to me forty years ago,
+    but serve little purpose when the world&rsquo;s knowledge is just a click away.
+    You add value by explaining the <em>how</em> rather than recapitulating the <em>what</em>,
+    so do that.</p>
+</li>
+<li>
+<p><strong>Check your facts.</strong>
+    It doesn&rsquo;t matter how well you know your chosen subject—something
+    will have changed since the last time you looked.
+    And even if it hasn&rsquo;t,
+    it will in the year or more it takes you to write your book.</p>
+</li>
+<li>
+<p><strong>Automate, but proofread.</strong>
+    This is the technical author&rsquo;s equivalent of &ldquo;trust, but verify&rdquo;.
+    I can re-run all of the examples in my latest book with a single command
+    <em>and</em> capture their output
+    <em>and</em> insert that output in the manuscript,
+    but I still have to re-read the discussion around those examples
+    to make sure it hasn&rsquo;t fallen out of sync.</p>
+</li>
+<li>
+<p><strong>Enlist at least two people to do detailed reviews.</strong>
+    Lots of people will do cursory reviews
+    or give your manuscript a single careful read;
+    people who will look at half a dozen sets of changes
+    and see what&rsquo;s actually on the page in each
+    are worth their weight in rubies.</p>
+</li>
+<li>
+<p><strong>Stop and ship.</strong>
+    Your book will never be perfect.
+    It will probably never even feel <em>finished</em>,
+    any more than software does.
+    Ship it anyway.</p>
+</li>
+</ol>
+<blockquote>
+<p><a id="footnote-1">1.</a> And remember: nobody reads footnotes.</p>
+</blockquote><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

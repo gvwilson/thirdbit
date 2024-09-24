@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Dr Requirements</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Dr Requirements</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2005/05/04/misdirection-and-javascript/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2005-05-06" class="post-date">2005-05-06</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2005/05/15/navigating-source/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We&rsquo;re about to kick off another summer of work on Hippo, our baby-<a href="http://www.sf.net">SourceForge</a> for student use.  I&rsquo;m pretty excited: five good students will be working on it full-time, on five brand new machines (thanks to a donation from <a href="http://www.jonahgroup.com">the Jonah Group</a>), starting from a freshly-refactored version of <a href="http://projects.edgwall.com/trac">Trac</a> that includes <a href="http://www.cmlenz.net">Christopher Lenz</a>&rsquo;s new component architecture.</p>
+<p>The biggest challenge we face this summer may lie in trying to add some sort of requirements management tool to Trac.  The reason is the sheer size of the gulf between what textbooks teach, and what developers actually do.  For forty years (if not longer), academic researchers have been saying, &ldquo;Formalize!  Formalize!&rdquo;  For just as long, students have nodded, jumped through whatever hoops they had to in order to get a good grade, and then gone out into industry and done something else.  In the twenty-three years I&rsquo;ve been programming for a living, I&rsquo;ve only twice seen anyone write the kind of specs I see in software engineering textbooks; both times, it was to satisfy a contractual requirement, and both times, the spec gathered dust once the real work started.</p>
+<p>There are several possible explanations for this situation.  The first is to say that formalization is the right solution—most programmers may be too stupid/too lazy/too conservative to see it, but it will inevitably triumph in the end.  Having heard advocates of Scheme and proletarian revolution make the same claims, I&rsquo;m disinclined to believe any of them any longer.</p>
+<p>The second explanation is to say that we&rsquo;re just not teaching it the right way: we don&rsquo;t introduce early enough, we don&rsquo;t explain it well enough, it isn&rsquo;t integral to other courses (in the way that calculus is in math and physics), and so on.  I don&rsquo;t buy this either, and the reason I don&rsquo;t is that the people who teach at colleges and universities are, by and large, a pretty smart bunch.  If they believed that formalizing requirements would help students with assignments, they&rsquo;d do it, but how often do you see instructors write use cases, or draw sequence diagrams, as part of assignment handouts in courses on compilers, graphics, or operating systems?</p>
+<p>What I think we&rsquo;re going to try to build this summer (as always, we reserve the right to change our minds) is the requirements equivalent of <a href="http://drjava.sf.net">DrJava</a>.  If you haven&rsquo;t seen it, DrJava is an entry-level IDE for Java programmers; it isn&rsquo;t nearly as powerful as <a href="http://www.eclipse.org">Eclipse</a>, but it isn&rsquo;t nearly as intimidating, either.  As a result, students are more likely to realize that yes, it <em>does</em> help them.  Once that happens, they&rsquo;re more likely to believe that investing time in something more complex will pay off.</p>
+<p>Over the next four months, we&rsquo;re going to try to figure out what &ldquo;DrRequirements&rdquo; would look like, i.e., what should go into (and be left out of) a tool that instructors can use to specify requirements for programming assignments, and/or students can use to specify what their solutions actually do.  In order to qualify as a solution, it must be possible for both parties to learn the tool from a single hour-long lecture (which is all we give tools like Subversion and JUnit).  More importantly, both sides must see real benefit <em>to themselves</em> from using it: as our experience with bug tracking systems shows, anything that appears &ldquo;write-only&rdquo; from a student point of view will only be used under duress.</p>
+<p>One possibility (pulled out of thin air) would be something that made bidirectional connections between the assignment spec and students&rsquo; test cases, i.e., something that allowed students to say, &ldquo;Tests A, B, and C are proof that part 3.1 of the assignment has been done,&rdquo; and to then check which parts of the assignment spec <em>hadn&rsquo;t</em> been satisfied.  We&rsquo;ve kicked a few other ideas around too, but are still looking for one that has that &ldquo;Ah ha!&rdquo; feeling to it.  If you have any ideas or pointers, I&rsquo;m <a href="mailto:gvwilson@third-bit.com">easy to reach</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

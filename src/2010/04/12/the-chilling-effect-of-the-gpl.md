@@ -1,0 +1,67 @@
+---
+title: "The Chilling Effect of the GPL"
+date: 2010-04-12
+---
+<p>Distributed version control systems have finally passed my two-year test [<a href="#1">1</a>], so while I was at <a href="http://us.pycon.org/2010/about/">PyCon</a> in February, I asked a few questions about what it would take to add a <a href="http://mercurial.selenic.com/">Mercurial</a> repository browser to Basie.  Two months and a couple of dozen email messages later, the answer seems to be that it can't be done—at least, not unless we're willing to use someone else's definition of "freedom".</p>
+
+<p>Like Django itself, Basie uses the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>, which does little except disclaim liability.  In particular, it allows people to create closed-source derivatives and extensions if they think there's a market for them.  <a href="http://mercurial.selenic.com/">Mercurial</a>, on the other hand, uses the GNU Public License (GPL), which requires that source remain open, and (crucially) that derived works also be GPL'd.  The question is, if Basie dynamically loads a plugin module that interfaces with <a href="http://mercurial.selenic.com/">Mercurial</a>, does that make Basie a derived work or not?  Matt Mackall, who is one of its developers, believes that it does:</p>
+
+<blockquote>My position is that Mercurial extensions are very probably derived works as they are potentially (and generally) significantly more intimate with Mercurial internals than a typical library user, and thus are subject to the GPL.</blockquote>
+
+<p>Dirkjan Ochtman, another Mercurial developer, suggests a workaround:</p>
+
+<blockquote>So then the solution is to have a clearly defined plugin API on the other side (e.g. Basie in this case) that can serve multiple VCSs, and then the user (Basie) should be free from the hassles of the license on the other side (Mercurial).</blockquote>
+
+<p>But Matt doesn't think this solves the problem:</p>
+
+<blockquote>
+<p>I'm afraid that doesn't work.</p>
+
+<p>Let's imagine I'm Evil Corporation and I want to build commercial product X that's clearly a derived work of Mercurial. It contains secret sauce that would benefit the Mercurial community, but I don't want to share it. I've written to the Mercurial folks and they say "sorry, no, you have to share". So then I decide, hey, I can put some of my bits in a third package Y, and make it GPL, but explicitly disclaim the API so that product X containing the secret sauce can still do its thing without being disclosed.</p>
+
+<p>The problem is package Y, as a derived work, is not allowed to weaken the license of X+Y. In short, there are no work-arounds, and attempts to make technical work-arounds will end up being fairly transparent to a jury. The GPL is intentionally designed such that sharing the secret sauce is the price of admission.</p>
+
+<p>Unfortunately, all this means it's also a problem for the good guys too.</p>
+</blockquote>
+
+<p>Van Lindberg, a lawyer who has written <a href="http://www.amazon.com/Intellectual-Property-Open-Source-Protecting/dp/0596517963">a book on open source licensing</a>, and who disputes the <a href="http://www.fsf.org/">Free Software Foundation</a>'s maximalist interpretation of the GPL, disagrees:</p>
+
+<blockquote>[long discussion elided]
+
+<p>Relative to Greg's specific use case, a couple principles:</p>
+
+<ol>
+
+<li>Every situation is fact specific.</li>
+
+<li>The GPL goes only as far as copyright does. Someone with a first GPL'd program (e.g., Mercurial) can only enforce GPL licensing on a second program if the second program is a derivative work of the first, giving the first program's author a copyright interest in the second program.</li>
+
+<li>A plugin or extension /may be/ a derived work of the host program. In this case, Matt's contention that plugins/extensions to Mercurial are derived works may be true in general.</li>
+
+<li>It is legally and factually improbable that a host program would ever be considered a derivative work of a plugin. Rehashing of the legal analysis available on request - the key here is that a derivative work according to the statute is based upon a "preexisting" work.</li>
+
+<li>A plugin that bridges between two separate host programs may be a derivative work of both host programs. However, due to the principles above, the derivative works relationship is probably not transitive from one host, to the plugin, to the second host. Note that this would not necessarily hold if the plugin architecture was a transparent dodge around GPL compliance, and there were other soft factors (such as bundling the plugin together with the host, addressing them as a single program, etc) that indicated as such.</li>
+
+<li>Even in the event that principle #4 is incorrect, forcing the user to separately download and install the plugin would make the end user the person who directed and created the combined work, a position that is allowed under the GPL.</li>
+
+</ol>
+
+  <p>Therefore, a separate VCS plugin that allows Basie to interact with Mercurial could be a derivative work of both Basie and Mercurial and thus carry GPL licensing. However, this plugin should be 1) not bundled with Basie; 2) not necessary for Basie's operation; 3) part of a clean extension API, preferably with multiple plugin implementations; and 4) clearly referred to as a separate program from Basie. This position would be strengthened if Basie adopted the position I advocate for Mercurial above, that plugins not be considered derivative works of Basie.</p>
+</blockquote>
+
+<p>This leaves me in an uncomfortable position: I don't feel qualified to disagree with a lawyer, but I also don't feel qualified to disagree with one of the authors of the software I'm hoping to use.  The only options I can see are:</p>
+
+<ol>
+  <li>build the plugin anyway and dare Mercurial's developers to make an issue of it (which would be pretty rude);</li>
+  <li>give up (which rankles because so many developers are switching to Mercurial or Git, and I don't want to be left behind); or</li>
+  <li>change the license on Basie (which rankles because I don't think I should have to close off options on someone else's say-so).</li>
+</ol>
+
+<p>George Orwell argued that the real purpose of censorship is to make people worry about what writing something troublesome might cost them, so that they never actually write anything that would have to be censored.  Every time someone puts the GPL on something, they are forcing other developers to make the same kind of decision: accept someone else's idea of what "free" means, or run the risk of not being able to use their "free" software without a whole lot of trouble [<a href="#2">2</a>].  Having to make that choices rankles too…</p>
+
+<p>[<a name="1">1</a>] Having watched dozens of bandwagons roll by, I'm not interested in a technology unless it's still hot two years after first hitting my radar.  Students have been telling me since at least 2008 that it's time to put Subversion in the closet and start using Git or Mercurial; I'd still be happier if there was a clear leader, so that I knew which horse to back, but I'll accept now that DVCS's aren't going to subside into nicheness like Java applets, XSLT, and cowboy rap bands.</p>
+
+<p>[<a name="2">2</a>] In subsequent discussion, Matt, Van, and Dirkjan have suggested workarounds, such as shelling out to the Mercurial command-line client and parsing its text output, or reimplementing the Mercurial communication protocol.  Both would be exactly the kind of "trouble" to build and maintain that free/open software was supposed to save us from.</p>
+
+<p><em>Update: Fog Creek's Benjamin Pollack tells me that their lawyers agree with Matt and Dirkjan: anything linking to Mercurial was going to have to be GPL'd, so all <a href="http://developers.fogbugz.com">the components they have built</a> to do that are too:</em></p>
+<blockquote>In Kiln, to avoid running afoul of the GPL, while still making a viable commercial product, what we did was to design the product so that the closed-source browsing/repository management/code review component was kept entirely separate from the open-source code storage component. The former's written in C#; the latter's in Python. The storage component links with and is backed by Mercurial, is fully GPL'd, and provides a VCS-agnostic REST API to create and destroy repositories, get file listing and contents, get history, and get diffs. The front-end browsing/management solution has nothing more than an abstract concept of a GUID-identified repository that can be asked for file contents, directory listings, diffs, etc. To ensure that there was no way that the closed-source web site could be considered a derived work, we even whipped up proof-of-concepts where the backend was powered by Git instead of Mercurial. The design can be frustrating, but we think it's legally sound, and adheres pretty well to the spirit of the GPL.</blockquote>

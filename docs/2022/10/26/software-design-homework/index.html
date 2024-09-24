@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design Homework</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design Homework</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/10/24/software-design-by-example/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-10-26" class="post-date">2022-10-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/10/29/learning-objectives/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;m a big fan of <a href="https://dvc.org/">DVC</a> for managing large files in Git,
+but it doesn&rsquo;t handle one of our most important use cases,
+and I think that working through that would be a great homework exercise
+for a class on software design.
+If you use this,
+please let me know how it went.</p>
+<hr />
+<p>Many people want to manage large files like videos or machine learning datasets
+in the same way that they manage their code,
+but Git doesn&rsquo;t handle multi-gigabyte files well.
+To work around this,
+tools like <a href="https://git-lfs.github.io/">Git LFS</a> and <a href="https://dvc.org/">DVC</a> allow users to
+store the actual file somewhere else (like a NAS or the cloud)
+and put a placeholder in the Git repository that points at the actual file.</p>
+<p><img src="../../../../files/2022/dvc.svg" alt="Structure of DVC" class="centered"></p>
+<ol>
+<li>
+<p>The placeholder file is just a bit of JSON or YAML that contains
+    the original file&rsquo;s name
+    and its remote identifier (typically a file hash).</p>
+</li>
+<li>
+<p>When the user needs the actual file,
+    they run a command that localizes it but does <em>not</em> add it to Git.
+    (These tools typically add the file to the directory&rsquo;s <code>.gitignore</code>
+    to prevent it accidentally being added or committed.)</p>
+</li>
+<li>
+<p>The user can safely delete the actual file whenever they need the space
+    and re-localize it later.</p>
+</li>
+<li>
+<p>If the user wants to update the file (e.g., replace the dataset with a newer version)
+    they can use the tool to modify the metadata in the placeholder and re-commit it.</p>
+</li>
+</ol>
+<p>Systems like this don&rsquo;t just save disk space:
+they also allow large files to be shared between Git projects without unnecessary duplication:
+any particular file is only ever stored once in the cloud,
+but any number of placeholders referring to it can be added to any number of projects.</p>
+<p>So here&rsquo;s our use case:
+we want users to be able to add notes about large files.
+These notes should be versioned along with the data,
+so the obvious way to do this is to add another field to the placeholder metadata called <code>notes</code>.
+The problem is that placeholder files aren&rsquo;t shared between projects:
+if I add a note to <code>large.xyz.dvc</code> in Project A and commit it,
+that note is visible to everyone else who has a copy of Project A
+but is <em>not</em> visible to anyone working in the Git repo for Project B.
+What should we do about this?</p>
+<ol>
+<li>
+<p>&ldquo;Notes aren&rsquo;t shared between projects.&rdquo;
+    This option is the easiest to implement but the least satisfying to users,
+    who want a global view of what anyone else using the dataset has said about it.</p>
+</li>
+<li>
+<p>&ldquo;Store the notes in a second file in the cloud beside the main copy of the large file.&rdquo;
+    Cool: how are you going to manage merge conflicts in the notes?</p>
+</li>
+<li>
+<p>&ldquo;Store the notes in a database or another Git repository or…&rdquo;
+    See above, plus now you have an extra thing to manage (access permissions, backups, etc.).</p>
+</li>
+</ol>
+<p>For X% of your course grade:</p>
+<ol>
+<li>
+<p>Come up with at least one other solution and explain its pros and cons.</p>
+</li>
+<li>
+<p>Implement at least one solution (other than the &ldquo;don&rsquo;t share&rdquo; solution).</p>
+</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

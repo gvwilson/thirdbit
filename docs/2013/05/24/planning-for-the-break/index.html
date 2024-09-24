@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Planning for the Break</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Planning for the Break</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2013/05/14/science-careers-article/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2013-05-24" class="post-date">2013-05-24</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2013/05/24/browsercast/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  We've had a busy nine months:
+  55 bootcamps since we restarted bootcamps last September,
+  with 19 more in the next two months.
+  We're taking a break then to catch our breath:
+  we only have one event scheduled between mid-July and the end of August,
+  which will give us time to reorganize our online materials and figure out what we're going to do in 2013-14.
+  The list below outlines things that I'd like to see done during that break.
+  I'm sure you have others;
+  I'd be grateful if you'd add them as comments,
+  along with your thoughts on things we <em>shouldn't</em> do, or should do differently.
+</p>
+<dl>
+  <dt id="bc">Re-think the <code>boot-camps</code> repository and workflow.</dt>
+  <dd>
+    This is our biggest task:
+    it must be <em>much</em> simpler for people with middling-weak Git skills
+    to create a space for a new bootcamp,
+    find and import teaching materials used in previous bootcamps,
+    and offer their materials back to the community.
+    <ol>
+      <li>Decide whether to make changes in place, or create a new repo and start afresh.</li>
+      <li>Catalog the material we have now.</li>
+      <li>
+        Re-organize material so that it aligns with the <a href="#guide">instructors' guide</a>
+        (or rearrange the instructors' guide if that makes more sense).
+      </li>
+      <li>
+        Put generic setup instructions in the bootcamps repo,
+        rather than in the main web site
+        (the latter can easily refer to the former),
+        and make it easy for instructors to clone and specialize those instructions.
+        (People have some fairly strong opinions about how this should be formatted;
+        we'll re-open that discussion at the start of July.)
+      </li>
+      <li>
+        Merge the stuff that's in our GitHub wiki pages into the bootcamps repository,
+        then stop using wiki pages:
+        our information is already too scattered,
+        and since this is our least-used communication channel,
+        it's the obvious candidate for weeding.
+      </li>
+    </ol>
+  </dd>
+  <dt id="ops">Regularize bootcamp operations.</dt>
+  <dd>
+    This is the "how" to go with the previous item's "what".
+    Much of it depends on a small SQLite database that cannot be in a public repo
+    (since it includes personal identifying information).
+    <ol>
+      <li>
+        Ensure that everyone is aware of
+        the code of conduct,
+        no matter how they sign up.
+      </li>
+      <li>
+        Make sure people know that
+        anyone can use our content (which is all CC-BY licensed),
+        but the Software Carpentry name and logo are trademarked,
+        and that there are some restrictions on their use).
+      </li>
+      <li>
+        Create a unified online checklist for each bootcamp
+        with to-do items for organizers and instructors.
+        (There are currently checklists in two different repositories,
+        which are inconsistent with each other.)
+      </li>
+      <li>
+        Create a mailing list per bootcamp,
+        plus a host email address that forwards to the organizer(s).
+      </li>
+      <li>
+        Appoint an experienced lead instructor for each bootcamp
+        so it's clear who's responsible for sorting out who teaches what, etc.
+      </li>
+      <li>
+        Incorporate a pre-assessment questionnaire into registration
+        (or at least for those who get a seat).
+      </li>
+      <li>Make immediate and delayed post-assessment a one-click process.</li>
+      <li>
+        Make in-camp assessment more systematic
+        (i.e., standardize a set of questions that should be asked at every bootcamp,
+        and a way of reporting the answers).
+      </li>
+      <li>
+        Make it easier for potential instructors to find bootcamps,
+        and for lead instructors to find partners.
+      </li>
+      <li>
+        Archive waiting lists from bootcamps
+        so that people who didn't get in last time
+        are first in line the next time.
+        We could potentially keep track of no-shows as well:
+        someone who has registered,
+        but then fails to attend without explanation,
+        should probably be put at the back of the line for future bootcamps,
+        but this could be problematic to implement.
+      </li>
+      <li>
+        Automate synchronization of bootcamp announcement pages on the web site,
+        EventBrite registration pages,
+        bootcamp GitHub repositories,
+        mailing lists,
+        and GitHub tickets.
+      </li>
+      <li>
+        Collect feedback on instructors to help them improve their teaching
+        (and then actually give it back to them).
+        This will have to be done carefully–we have no wish to encourage
+        a "big brother" atmosphere–but it will help maintain and improve quality.
+      </li>
+      <li>
+        Finish, deploy, and publicize the Windows installation script
+        and the "check my machine" scripts.
+      </li>
+    </ol>
+  </dd>
+  <dt id="next">Line up our next eight months of bootcamps.</dt>
+  <dd>
+    We need to book things further ahead,
+    so that we're scrambling at the last minute to find instructors less often.
+    We also need to start targeting conferences and other disciplinary clusterings,
+    rather than doing things geographically.
+    <ol>
+      <li>
+        Contact all previous bootcamp hosts and ask if they'd like a return visit.
+      </li>
+      <li>
+        Since demand now outstrips supply,
+        we should probably also think about some sort of bidding process,
+        e.g.,
+        sites where people are doing instructor training
+        or are willing to help out with bootcamps elsewhere
+        get priority.
+      </li>
+    </ol>
+  </dd>
+  <dt id="guide">Finish the instructors' guide.</dt>
+  <dd>
+    We desperately need more instructors;
+    we also need to do more to ensure that people are teaching the same (kinds of) things,
+    or at least are aware of what other people are teaching.
+    <ol>
+      <li>Create a concept map for each section.  (None exist yet.)</li>
+      <li>Create challenge problems for each section.  (About half are done.)</li>
+      <li>Draw 250 diagrams.  (I'd rather stick a spoon up my nose, but it needs to be done.)</li>
+      <li>Create a printed version (because some institutions still take books more seriously than web sites).</li>
+    </ol>
+  </dd>
+  <dt id="site">Simplify contribution to the web site.</dt>
+  <dd>
+    If we want more people to contribute more content,
+    it needs to be a lot easier to update a page or write a blog post.
+    In the long term,
+    this probably means either building something that integrates with
+    the services we use (like EventBrite and Google Calendar),
+    or switching to a hosted customer relationship management system,
+    but that's not going to happen this summer.
+    <ol>
+      <li>
+        Start using <a href="http://blog.getpelican.com/">Pelican</a>
+        (or maybe <a href="https://github.com/ralsina/nikola">Nicola</a>)
+        instead of our home-grown tool.
+      </li>
+      <li>Stop using sub-modules for the 3.0 and 4.0 material (which probably won't ever change again).</li>
+    </ol>
+  </dd>
+  <dt id="lists">Rationalize the mailing lists.</dt>
+  <dd>
+    Dreamhost (our ISP) supports Mailman,
+    but <em>doesn't</em> give us access to Mailman's command-line scripting interface
+    (because mail is hosted on different machines than shell accounts).
+    We therefore have to manage list membership manually,
+    which produces all sorts of minor inconsistencies.
+    We're planning on switching ISPs anyway
+    (Dreamhost is increasingly unreliable),
+    so we have an opportunity to fix some of these problems.
+    <ol>
+      <li>Make sure the ISP we switch to offers scriptable mailing lists.</li>
+      <li>Integrate mailing list management with our roster.</li>
+    </ol>
+  </dd>
+  <dt id="train">Regularize instructor training and badging.</dt>
+  <dd>
+    We're now running the instructor training for the fifth time,
+    and we've learned a lot about what works and what doesn't.
+    <ol>
+      <li>Put a rough curriculum on the teaching web site.</li>
+      <li>Switch from a WordPress blog to a compiled web site using the same tooling as the main web site.</li>
+      <li>
+        Clarify the certification process: people must complete the training
+        <em>and</em> teach at least once under the supervision of an experienced lead instructor.
+      </li>
+      <li>Start generating PDF certificates for instructors as well as digital badges.</li>
+    </ol>
+  </dd>
+  <dt id="cert">Certify learners.</dt>
+  <dd>
+    We've been asked several times to provide certificates of completion.
+    We would rather provide certification of <em>accomplishment</em>,
+    i.e.,
+    give people something only once they've demonstrated some level of proficiency,
+    rather than for sitting through two days,
+    but we can certainly do both.
+    <ol>
+      <li>Choose and publicize proficiency assessment criteria.</li>
+      <li>Automate production of PDF certificates and digital badges for both completion and proficiency.</li>
+      <li>
+        Make sure that whatever we do for proficiency integrates with the "driver's license"
+        being developed in conjunction with
+        the <a href="http://www.software.ac.uk/">Software Sustainability Institute</a>.
+      </li>
+    </ol>
+  </dd>
+  <dt id="misc">Miscellaneous</dt>
+  <dd>
+    <ul>
+      <li>
+        <em>Create better publicity materials.</em>
+        We retired our 90-second pitch months ago
+        because it no longer represented what we actually do.
+        We need to create new ones aimed at potential learners, hosts, instructors, and backers.
+        We also need to write a paper that people can refer to
+        when they want to cite us–our
+        <a href="http://arxiv.org/abs/1210.0530">Best Practices in Scientific Computing</a> paper
+        isn't quite that.
+        ("Software Carpentry: Lessons Learned" is a start toward this.)
+      </li>
+      <li>
+        <em>Break the assets repository into several pieces.</em>
+        At the very least,
+        assessment materials,
+        papers,
+        and checklists should be in their own repos.
+      </li>
+    </ul>
+  </dd>
+</dl><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

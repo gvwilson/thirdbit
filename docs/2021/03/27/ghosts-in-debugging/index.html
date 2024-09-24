@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Ghosts in the Debugging</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Ghosts in the Debugging</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/03/25/paying-for-drinks/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-03-27" class="post-date">2021-03-27</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/03/31/fourth-tradition/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A couple of days ago I tweeted:</p>
+<blockquote>
+<p>I would trade my left nostril for a decent book on debugging.
+(I realize that&rsquo;s not much of an incentive for potential authors, but I hope it&rsquo;ll be taken as a sign of how desperate I am.)</p>
+</blockquote>
+<p>An hour or so later I followed up with:</p>
+<blockquote>
+<p>My apologies to people who <em>have</em> written good books on debugging - there are several, and I shouldn&rsquo;t have implied there weren&rsquo;t.
+What I should have written was &ldquo;another dozen good books on debugging&rdquo; and specified what I meant by &ldquo;good&rdquo;. My bad.</p>
+</blockquote>
+<p>Before I go on to the main point of this post
+I&rsquo;d like to reiterate that apology and point at the books I know of:</p>
+<ul>
+<li>Andreas Zeller: <em><a href="https://isbndb.com/book/9780123745156">Why Programs Fail</a></em></li>
+<li>David J. Agans: <em><a href="https://isbndb.com/book/9780814474570">Debugging</a></em></li>
+<li>Diomidis Spinellis: <em><a href="https://isbndb.com/book/9780134394886">Effective Debugging</a></em></li>
+<li>Adam Barr: <em><a href="https://isbndb.com/book/9780321223913">Find the Bug</a></em></li>
+</ul>
+<p>I reviewed all four of these for <em><a href="https://www.drdobbs.com/">Doctor Dobb&rsquo;s Journal</a></em> when they first came out;
+I apologize again to their authors.
+But these books are all more than a decade old;
+I don&rsquo;t know of anything useful that&rsquo;s appeared more recently
+except for <em><a href="https://www.fuzzingbook.org/">The Fuzzing Book</a></em> and <em><a href="https://www.debuggingbook.org/">The Debugging Book</a></em>
+(both of which are works in progress from Andreas Zeller and colleagues).
+A quick check on an online bookstore tells me that
+in the time it&rsquo;s taken our profession to write six books on debugging,
+we have written over a hundred on compilers
+and a roughly equal number on operating systems.
+Again on Twitter:</p>
+<blockquote>
+<p>I used to think the reason there are several hundred books on parsers and compilers in print
+but only a handful on debugging stems in part from the fact that debugging doesn&rsquo;t have a mathematical foundation
+(i.e., there are no theorems to prove).
+But I no longer think that&rsquo;s the case - there are lots of good books on the practical aspects of operating systems and network stacks, for example.
+My current theory is that debugging is mostly about verbs rather than nouns, and we&rsquo;re just not very good at teaching verbs.
+We do a much better job of teaching code than teaching coding:
+for example, there are a gajillion tools for checking style,
+but I don&rsquo;t know of any that watch the order in which you write things and says,
+&ldquo;Maybe you should have written <em>this</em> before <em>that</em>.&rdquo;</p>
+</blockquote>
+<p>Mark Guzdial replied:</p>
+<blockquote>
+<p>I have a hypothesis that we can&rsquo;t teach debugging.
+We can teach a debugging process as rules (&ldquo;When you see this, do that&rdquo;), but we can&rsquo;t teach [students] to be successful debuggers.
+Debugging is a process of looking at a situation, noting that it&rsquo;s wrong, and developing a theory for why…
+You have to know enough patterns/situations to see what&rsquo;s wrong and to match to a known pattern,
+re: <a href="https://math4teaching.com/what-is-variation-theory-of-learning/">Marton&rsquo;s Variation Theory</a>.
+The more you know, the more you realize what can go wrong, and better you are debugging…
+You become better at debugging by knowing more ways to do things and learning more ways that things can go wrong.
+So we become better at debugging by developing more domain knowledge, not by studying debugging.</p>
+</blockquote>
+<p>While I&rsquo;m reluctant to disagree with Mark (who knows more about education than I ever will),
+I&rsquo;ve helped people debug systems in languages I didn&rsquo;t speak and in domains I&rsquo;d never worked in,
+so I think there is some useful generic skill there.
+I&rsquo;ve also seen people teach others how to analyze chess positions or criticize a literary work;
+rather than enunciating rules,
+they carefully select interesting cases and draw attention to features of interest.
+They&rsquo;re not trying to pass on algorithm:
+they&rsquo;re training the neural network between the student&rsquo;s ears.</p>
+<p>The best example of this approach I know of in computing is Jeff Johnson&rsquo;s wonderful book
+<em><a href="https://isbndb.com/book/9780123706430">GUI Bloopers</a></em>.
+Rather than trying to teach user interface design directly,
+Johnson thinks through the shortcomings of some real-world interface elements
+(e.g., the font selection dialog in Microsoft Word)
+and shows readers what he would do instead.
+Of the debugging books I mentioned earlier,
+only Barr&rsquo;s <em><a href="https://isbndb.com/book/9780321223913">Find the Bug</a></em> makes this approach central:
+with apologies for the generalization,
+the other books use examples to illustrate big ideas,
+while Johnson and Barr derive big ideas from examples.</p>
+<p>All of which brings us to <a href="https://veekaybee.github.io/2021/03/26/data-ghosts/">a great blog post from Vicki Boykis</a>
+about the difference between implicit and explicit knowledge
+and about what she calls &ldquo;ghost knowledge&rdquo;:
+the implicit knowledge that nobody in your field ever writes down.
+Her focus is data science,
+but what she says applies to debugging as well.
+I believe that indiviual practitioners know a lot that <em>could</em> be taught explicitly—they
+just don&rsquo;t write it down.
+More specifically, I hypothesize that:</p>
+<ol>
+<li>
+<p>The more domain knowledge you have the more effectively you can debug,
+    but there is a domain-independent &ldquo;how to find and fix the problem&rdquo; skill
+    and people can learn it.</p>
+</li>
+<li>
+<p>The best way to teach that skill is to think aloud through carefully-selected case studies.
+    Learners can only apply general rules about debugging
+    <em>after</em> seeing a large number of case studies.
+    (I say &ldquo;apply&rdquo; rather than &ldquo;understand&rdquo; because I think it&rsquo;s possible to understand something in the abstract
+    but not know how to use it in the concrete.)</p>
+</li>
+<li>
+<p>Debugging is not taught in most college and university computer science programs
+    because case-based instructions feels like <a href="https://www.goodreads.com/quotes/275894-all-science-is-either-physics-or-stamp-collecting">stamp collecting</a>
+    to people who aren&rsquo;t used to it
+    and whose discipline looks to mathematics rather than medicine for pedagogical inspiration.</p>
+</li>
+</ol>
+<p>The first two are testable
+(I&rsquo;m exploring the first one with some colleagues right now).
+I think, or at least I hope, that the third is fixable,
+which is part of why I&rsquo;m reading everything I can find on
+<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4573926/">implementation science</a>
+and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7644597/">its application to higher education</a>.
+I&rsquo;ll let you know what I find…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

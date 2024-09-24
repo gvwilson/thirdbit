@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Is Live Coding Worth It?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Is Live Coding Worth It?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/06/16/a-voice-from-the-back-of-the-room/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-06-16" class="post-date">2010-06-16</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/06/18/people-you-dont-want-on-your-team/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I put together an introductory lecture on regular expressions yesterday, but I'm not happy with the results, and I'd like your feedback to help me make it better.</p>
+<p>One of the reasons we're moving from static HTML to videos is to show people <em>how</em> to program, rather than just the results of programming. As part of that, I want (or wanted–I may be changing my mind) to do all the programming examples live instead of showing snippets of code and snippets of output slide-style. Jon has already done that with the database lectures, but his "programs" were single-line SQL statements; this episode is the first time we've had longer examples. It was a pain to do: each time I made a typo inside a function definition, for example, I'd wind up with a dozen or more junk lines on screen (since the error wouldn't show up until the first time I called the function).  I don't want to waste viewers' time on trivial errors, but there's no way in IDLE (or other IDEs) to erase the last few lines of interaction with the interpreter. I "solved" the problem by hitting return until the offending text had scrolled off the top of the screen, but it leaves a couple of ugly breaks in the video. If IDLE had a "clear screen" button, I might use that periodically, but (a) it doesn't, and (b) one of the reasons to code live is to keep recent context in view, which "clear screen" would erase.</p>
+<p>There's also an annoying IDLE-specific problem in this video: if I type too quickly–in particular, if I have saved program text in another window, switch there, copy it, and paste it into IDLE instead of typing it back in character by character–then syntax highlighting doesn't work properly. You'll see a few places where highlighting simply gave up partway through a keyword. It looks dumb. I could turn highlighting off, but I find it useful, and I think students do too. (Also, if it's on by default, our videos should show it on.)</p>
+<p>(And yes, I could switch to another IDE–I'm very fond of <a href="http://www.wingware.com/wingide-101">Wing 101</a>–but we found that when Camtasia is in "record" mode, Wing's debugger won't launch.  We <em>think</em> it's because recording slows my machine down just enough for Wing to timeout when forking the subprocess responsible for managing the user's program, but that's just a theory for now.)</p>
+<p>(And while we're on the subject of Camtasia: its recorder on Windows has a very handy "pause" button, so I can pause recording, switch windows, copy text to be pasted, switch back, re-start recording, and <em>not</em> have to do a ton of slice-and-dice editing after the fact. The Mac version doesn't have this feature yet, which is just as annoying as the fact that the two versions can't read each other's project files. It's still a very useful tool, though–the editing interface on Windows is a snap.)</p>
+<p>Next up: I've used slides for notes about the code, such as an explanation of what regular expressions are. (I didn't tick the right box when exporting them from PowerPoint, so they're 3/4 the size they should be in the video, but that's a small problem compared to the ones I'm wrestling with now.) I think the transition from code to slide and back is awkward, but I don't know how else to present material that in class I would draw on the whiteboard.</p>
+<p>However, using slides at all raises a question: why don't I just past my code snippets and their output into slides and show those? Do you, the viewer, really gain anything by watching me type? If so, why? Does the gain come from having a few lines of recent context above the example I'm typing in next? If so, that would be easy to replicate in a slide deck. I could even (easily) do double slides for each example, with the code on the first slide, and the code and output together on the second, so that you don't have to read too much at once. I'm still convinced that live-in-the-IDE is the right way to show people how to use a debugger, but this experience has soured me a bit on doing it for code.</p>
+<p>Your thoughts would be very welcome…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

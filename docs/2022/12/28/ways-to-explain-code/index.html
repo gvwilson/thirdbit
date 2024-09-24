@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Ways to Explain Code</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Ways to Explain Code</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/12/28/reading/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-12-28" class="post-date">2022-12-28</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/12/29/the-fourth-tradition/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>In the mid-1980s, Benjamin Bloom reported that
+students tutored one-to-one performed two standard deviations better than
+students lectured to in a class of 30.
+That difference is now referred to as <a href="https://en.wikipedia.org/wiki/Bloom%27s_2_sigma_problem">Bloom&rsquo;s Two Sigma</a>,
+and serves as a measure for teaching techniques:
+we don&rsquo;t know how good things <em>could</em> be,
+but we can compare new ideas with the best thing we know.</p>
+<p>I think about this when I think about different ways to explain programs.
+The baseline is alternating static blocks of prose and code:
+a bit of explanation,
+a bit of software,
+and so on
+at scales ranging from a few lines to a few pages of each.
+This format was the easiest (often only) one that could be implemented at scale
+well into the 1990s,
+but <a href="../../../../2022/12/14/teaching-in-the-third-dimension/">as I described a few days ago</a>,
+it requires both teachers and learners to do much more work
+than they do when they&rsquo;re actually programming.
+Can we do better?</p>
+<p>When I asked that question online
+several people pointed me at Bret Victor&rsquo;s work
+(e.g., <a href="https://www.youtube.com/watch?v=PUv66718DII">Inventing on Principle</a>,
+which I think is the other <a href="https://en.wikipedia.org/wiki/The_Mother_of_All_Demos">mother of all demos</a>).
+Things like the <a href="https://gtoolkit.com/">Glamorous Toolkit</a> might help us build things like
+by finally freeing us from the tyranny of the punchcard,
+but (a) we still have to decide what kinds of representations we want
+and (b) there&rsquo;s not much evidence that teaching this way would actually be better.
+The latter is plausible,
+but I&rsquo;ve learned the hard way that <a href="https://neverworkintheory.org/2021/09/16/analyzing-the-effects-of-tdd-in-github.html">plausible and widely believed aren&rsquo;t the same as true</a>.
+And even if it&rsquo;s true,
+it&rsquo;s not much help today:
+the overwhelming majority of instructors simply don&rsquo;t have time to build things like this
+with today&rsquo;s tools.</p>
+<p>But lots of intermediate are within reach.
+One is mouseover-highlight explanations like <a href="https://explainshell.com/">explainshell.com</a> and <a href="https://regexr.com/">regexr.com</a>;
+I haven&rsquo;t seen something like this for entire programs,
+but it should be buildable (at least for small pieces of code),
+and I wonder if ML chat tools will make these more useful.</p>
+<p>Another interesting intermediate is recordings of interactive sessions
+(e.g., <a href="https://wasimlorgat.com/tils/how-to-share-terminal-demos-as-razor-sharp-animated-svg.html">Lorgat&rsquo;s SVG recordings</a>),
+possibly with voiceover (e.g., <a href="https://scrimba.com/">Scrimba</a>).
+With a bit more work (OK, <a href="../../../../2022/12/18/sessioncasting/">a <em>lot</em> more work</a>)
+these could turn into something approximating Victor&rsquo;s work,
+but they still wouldn&rsquo;t transfer to print or ebook,
+which I think is still important,
+and they would still require learners to <a href="../../../../2022/12/14/teaching-in-the-third-dimension/">handle the third dimension</a> themselves.
+So where does that leave us?</p>
+<h2>Text</h2>
+<p>If we stick to textual representations of programs,
+teachers and learners currently use at least four pedagogical tools:</p>
+<ol>
+<li>
+<p>Interleaved prose and code (described above).</p>
+</li>
+<li>
+<p>Callouts, e.g., numbers in the code with explanations beside them.
+   The numbers can be sequential from top to bottom,
+   arranged in order of explanation (typically high-level structure then low-level details)
+   or reflect execution order (e.g., 1 happens first, 2 happens next, etc.).</p>
+</li>
+<li>
+<p>Temporal differencing in which a small piece of code is presented
+   and then changed, changed, and changed again,
+   with each change being shown in context.
+   This method looks like interleaved prose and code but is fundamentally different:
+   the instructor isn&rsquo;t presenting a finished program piece by piece,
+   but rather growing it from a seed.</p>
+</li>
+<li>
+<p>Incremental reveal in which the skeleton of the overall program is presented
+   and then parts are filled in piece by piece.
+   Again, this looks like interleaved prose and code,
+   but the ordering and effect is quite different.</p>
+</li>
+</ol>
+<p>The biggiest problem with all of these approaches is that
+maintaining the source as the lesson evolves is a nightmare.
+Many people have invented systems for keeping all the variations of the code in one file
+(see <a href="https://buttondown.email/hillelwayne/archive/on-metafiles/">Hillel Wayne&rsquo;s</a> or <a href="http://journal.stuffwithstuff.com/2020/04/05/crafting-crafting-interpreters/">Robert Nystrom&rsquo;s</a>),
+but having written three such tools myself over the years,
+using them is like looking through a stack of transparencies and trying to make sense of individual sheets.
+And no,
+version control tools aren&rsquo;t actually much help here:
+trying to keep thirty or forty slight variations of a single program consistent simultaneously
+isn&rsquo;t the use case they were designed for.</p>
+<h2>Diagrams</h2>
+<p>We don&rsquo;t have to stick to text, of course.
+The Unified Modeling Language failed to live up to the hype of the 1990s and early 2000s
+(see <a href="https://tratt.net/laurie/blog/2022/uml_my_part_in_its_downfall.html">Laurence Tratt&rsquo;s analysis</a> or <a href="https://neverworkintheory.org/2013/06/13/uml-in-practice-2.html">Marian Petre&rsquo;s award-winning study</a>)
+but most instructors and learners still doodle to help them understand things.
+Some of their notations only apply to specific use cases
+(e.g., <a href="https://rxmarbles.com/">RxMarbles</a> and <a href="https://en.wikipedia.org/wiki/Finite-state_machine">finite state machine</a> representations of regular expressions),
+but many others are widely applicable:</p>
+<ol>
+<li>
+<p>Ad-hoc diagrams of data structures, HTML/CSS layout, and so on are probably the most common
+   but the hardest to support with anything more than a general-purpose drawing tool.</p>
+</li>
+<li>
+<p>Memory diagrams showing the stack and inter-object references
+   as in Guo et al&rsquo;s <a href="https://pythontutor.com/">PythonTutor</a>
+   are more accurate but not necessarily more useful:
+   without interactive control over level of detail
+   they quickly become so cluttered as to be unintelligible.</p>
+</li>
+<li>
+<p>When the program&rsquo;s execution state is the data structure of interest,
+   visualizations like <a href="http://latentflip.com/loupe/">Loupe</a>&rsquo;s depiction of the JavaScript event loop are wonderful.</p>
+</li>
+<li>
+<p>UML sequence diagrams and <a href="../../../../2018/12/27/use-case-maps/">use-case maps</a>
+   showing the exchange of messages between objects or micro-services are helpful too,
+   as are dataflow diagrams showing things like operations on dataframes
+   or branches and merges in Git.</p>
+</li>
+</ol>
+<p>Unfortunately,
+diagrams of all sorts have just as many maintenance problems as evolving text:
+on at least three occasions,
+despite very careful proofreading,
+I&rsquo;ve published books in which the diagram had fallen out of step with the code it was supposed to explain.
+And no,
+tools like <a href="https://graphviz.org/">Graphviz</a> and <a href="https://mermaid.js.org/">Mermaid</a> don&rsquo;t help:
+they don&rsquo;t eliminate the consistency and maintenance issues,
+but add the extra complexity of having to compile diagrams and then tweak the layout over and over again
+until the layout algorithm does approximately what you want
+or you give up and tell yourself it&rsquo;s not actually <em>that</em> bad.</p>
+<p>More importantly,
+the use of diagrams to teach programming raises a moral question:
+who are you willing to leave out?
+The more we use diagrams, the less accessible our teaching materials are.
+We can add text descriptions,
+but if those descriptions are truly useful,
+they have to solve all the problems discussed in the previous section.</p>
+<h2>Conclusion</h2>
+<p>A lot of things have gotten better since I wrote my first program in the fall of 1980:
+garbage collection,
+<a href="https://stackoverflow.com/">Stack Overflow</a>,
+and meaningful action on inclusivity
+have all made it easier for people to teach and learn programming.
+But as I go into the last lap of my career,
+I&rsquo;m disappointed that our tools are indistinguishable from those
+that were already widespread in that long-ago autumn classroom.
+If you use others that I haven&rsquo;t mentioned,
+I&rsquo;d be grateful for pointers.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Git, Graphs, and Software Engineering</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Git, Graphs, and Software Engineering</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2017/09/30/big-picture-revisited/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2017-09-30" class="post-date">2017-09-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2017/10/16/exercise-types/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A couple of years ago,
+I complained that distributed version control still hadn&rsquo;t had its
+<a href="../../../../2015/07/19/git-as-goto/">structured revolution</a>.
+After yet another discussion about how useful it is versus how hard it is to learn,
+I have a proposal:</p>
+<ol>
+<li>
+<p>Download data from several thousand large projects on <a href="http://github.com">GitHub</a>.</p>
+</li>
+<li>
+<p>Use your favorite statistical techniques to identify patterns in those repositories&rsquo; branch-and-merge graphs.
+   (To increase the likelihood of your proposal being funded,
+   say that you&rsquo;re using machine learning rather than statistics.)</p>
+</li>
+<li>
+<p>Select a small set of common subgraphs that account for a large fraction of everyday use.</p>
+</li>
+<li>
+<p>Build a tool that provides those, <em>and only those</em>, to users.
+   (For bonus marks, do a field study to see if it&rsquo;s actually easier for newcomers to learn
+   using the methods that <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7999115">Stefik, Hannenberg, and others</a> have pioneered.)</p>
+</li>
+<li>
+<p>Profit.  Well, fame.  OK, will you settle for having made the world a better place?</p>
+</li>
+</ol>
+<p>Step 3 is speculative:
+I have no evidence that usage patterns fit a long tail distribution,
+but I think most of us would be surprised if that was not true.
+Step 4 is the one that will lead to shouting:
+as happened when structured languages eliminated <code>goto</code> statements,
+a minority of very vocal programmers will quote fringe cases
+that can&rsquo;t be handled by your chosen set of simple constructs.
+Everyone else
+(the people Hanselman dubbed &ldquo;<a href="https://www.hanselman.com/blog/DarkMatterDevelopersTheUnseen99.aspx">dark matter developers</a>&ldquo;)
+will thank you for applying the scientific method to the design of something useful.
+That was how one of my first professors defined &ldquo;engineering&rdquo;,
+and I think we&rsquo;d all be better off if we did it.</p>
+<p><em>See also Perez De Rosso and Jackson&rsquo;s thought-provoking papers
+&ldquo;<a href="https://spderosso.github.io/onward13.pdf">What&rsquo;s Wrong With Git? A Conceptual Design Analysis</a>&rdquo;
+and
+&ldquo;<a href="https://spderosso.github.io/oopsla16.pdf">Purposes, Concepts, Misfits, and a Redesign of Git</a>&ldquo;.
+If anyone reading this has time, interest, and graph analysis expertise,
+please get in touch…</em></p>
+<p><em>After reading some online discussion of this post,
+I&rsquo;d like to clarify that:</em></p>
+<ol>
+<li>
+<p><em>I&rsquo;m not suggesting yet another set of aliases for Git: Pascal wasn&rsquo;t macros on top of Fortran, and I don&rsquo;t think a structured distributed VCS will be a layer on top of Git.  (I also believe that any such abstraction will leak early and leak often…)</em></p>
+</li>
+<li>
+<p><em>I agree that a lot of how people use Git isn&rsquo;t captured in commit logs, but that&rsquo;s what we have easiest access to.</em></p>
+</li>
+<li>
+<p><em>Yes, it would make a lot of sense to mine the histories of other distributed version control systems like Mercurial as well.</em></p>
+</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

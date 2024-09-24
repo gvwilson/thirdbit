@@ -1,0 +1,17 @@
+---
+title: "Quantifying the Learning Curve"
+date: 2005-01-02
+---
+Back in the 1980s, R.W. Hockney introduced two measures for quantifying the performance of pipelined machines.  The first, *r<sub>∞</sub>*, is the pipeline's maximum possible performance when startup effects are ignored (or equivalently, its performance on an infinitely-long vector).  The second, *n<sub>½</sub>*, is the half-performance length, i.e. how much data you need to feed the processor in order for it to achieve half its peak performance.
+
+In the mid-90s, I suggested (tongue only partly in cheek) that another performance measure would be equally interesting: how long it takes a programmer to learn how to write code that achieves half a machine's rated performance.  I called it *p<sub>½</sub>*, and observed that for many supercomputers, it was effectively infinity, since no application ever delivered more than 10-20% of the performance their manufacturers claimed for them.
+
+I believe that *p<sub>½</sub>* is one of the most important things for instructors to consider when deciding what tools to use in an educational setting.  In a one-term course, how productive students are after they've mastered a tool is less important than how quickly they can learn enough about that tool to start doing things with it.  A web server that does 100 things, but takes 100 hours to set up, is a lot less useful than a web server than only does 20 things, but only takes 10 hours to set up.
+
+*p<sub>½</sub>* is why so many of this term's projects are being done in <a href="http://www.python.org">Python</a>.  In particular, it's the reason we're putting the Java version of Hippo [<a href="#1">1</a>] on the shelf for a term, and re-starting the project with Edgewall's <a href="http://projects.edgewall.com/trac">Trac</a>. Our experience in Fall 2004 was that it took students 20-40 hours to become familiar <a href="http://www.hibernate.org">Hibernate</a>, <a href="http://jakarta.apache.org/tapestry">Tapestry</a>, and related Java tools, and another 10-20 to learn the existing Hippo code well enough to figure out what should be done next.  That's 30-60% of the total time allotted for the course, just to get to the point where they could start coding.
+
+One of my goals this term is to find out whether agile languages (like <a href="http://www.python.org">Python</a>) have a lower *p<sub>½</sub>* than sturdy ones like Java.  It isn't quite the question people usually ask [<a href="#2">2</a>], but from an instructional point of view, I think it's just as important.
+
+[<a name="1"></a>1] Hippo is a lightweight software project management portal, similar to <a href="http://www.sf.net">SourceForge</a>, but customized for academic use.  In particular, it omits features that undergraduate course projects don't need, but provides a scripting interface so that instructors and administrators can create dozens or hundreds of identical projects, bug reports, etc. at once.
+
+[<a name="2"></a>2] Many people claim that dynamic, freely-typed, agile languages like Python make programmers more productive than static, type-checked, sturdy languages like Java.  Many other people claim the reverse, but offer just as little empirical evidence.  Most of this debate focus on how productive experienced programmers are *after* they've mastered the language and the tools associated with it, or how quickly people can get their first "Hello, world" program up and running, rather than how long it takes programmers using a particular language to reach some acceptable level of productivity.

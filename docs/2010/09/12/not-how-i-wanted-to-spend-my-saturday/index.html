@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: It Shouldn't Hurt This Much</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>It Shouldn't Hurt This Much</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/09/09/and-for-my-next-trick/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-09-12" class="post-date">2010-09-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/09/13/will-americas-universities-go-the-way-of-its-car-companies/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><ol>
+  <li>One of my students says good things about Spyder, a Python environment with MATLAB-like features. OK, I'd like to give it a try.</li>
+  <li>On Mac OS X.</li>
+  <li>Ah—it need PyQT.</li>
+  <li>And SIP.</li>
+  <li>And some optional modules, but I'll ignore those for now.</li>
+  <li>So the first step is to install Qt.</li>
+  <li>But there aren't binaries—I have to do that from source.</li>
+  <li>So I have to get XCode onto this machine (fine, that works, it just takes 30 minutes to download).</li>
+  <li>And hey, Qt builds—I'm on a roll.</li>
+  <li>So, go into the PyQT directory, do "python configure.py" to, um, configure it, then run "make".</li>
+  <li>Good, good, good, then: kaboom. The error message is:</li>
+</ol>
+<pre>g++ -c -pipe -fPIC -O2 -Wall -W -DNDEBUG -DSIP_PROTECTED_IS_PUBLIC -Dprotected=public -DQT_NO_DEBUG -DQT_CORE_LIB -I. -I/Users/gregwilson/PyQt-mac-gpl-4.7.6/qpy/QtCore -I/System/Library/Frameworks/Python.framework/Versions/2.6/include/python2.6 -I/mkspecs/macx-g++ -I/Library/Frameworks/QtCore.framework/Headers -I/usr/include -F/Users/gregwilson/PyQt-mac-gpl-4.7.6/qpy/QtCore -F/Library/Frameworks -o sipQtCorecmodule.o sipQtCorecmodule.cpp
+In file included from /Library/Frameworks/QtCore.framework/Headers/qmetatype.h:45,
+from /Library/Frameworks/QtCore.framework/Headers/QMetaType:1,
+from sipAPIQtCore.h:40,
+from sipQtCorecmodule.cpp:34:
+/Library/Frameworks/QtCore.framework/Headers/qglobal.h:288:2: error: #error "You are building a 64-bit application, but using a 32-bit version of Qt. Check your build configuration."
+make[1]: *** [sipQtCorecmodule.o] Error 1
+make: *** [all] Error 2</pre>
+<p>Er, what? Why does it think I&rsquo;m trying to build a 64-bit application? Earlier compile lines say:</p>
+<pre>g++ -c -pipe -fno-strict-aliasing -O2 <span style="text-decoration: underline;">-arch i386</span> -fPIC -Wall -W -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/local/Qt4.6/mkspecs/macx-g++ -I. -I/Library/Frameworks/QtCore.framework/Versions/4/Headers -I/usr/include/QtCore -I/Library/Frameworks/QtGui.framework/Versions/4/Headers -I/usr/include/QtGui -I/usr/include -I/System/Library/Frameworks/Python.framework/Versions/2.6/include/python2.6 -I../../QtCore -I. -I. -F/Library/Frameworks -o moc_qpycore_pyqtproxy.o moc_qpycore_pyqtproxy.cpp</pre>
+<p>I&rsquo;ve highlighted the &ldquo;-arch i386&rdquo; line to show that yes, Qt knows I&rsquo;m on a 32-bit processor—at least, when it&rsquo;s compiling the files in libqpycore.a. Is it a bug in the SIP build and install? Is it—aw, do I really care? Spyder looks nice, but increasingly, my feeling is that if an application doesn&rsquo;t &ldquo;just install&rdquo;, I&rsquo;m not interested: I certainly can&rsquo;t ask students doing Software Carpentry to wrestle with issues like this.</p>
+<p><em>sigh</em></p>
+<p><em>Later: <a href="http://old.nabble.com/PyQt4,-Qt-on-osx-SnowLeopard-td26394590.html">this page</a> helped, but not enough: I&rsquo;ve got PyQT 4.7.6 installed (at least, &ldquo;make / make install&rdquo; in PyQt-mac-gpl-4.7.6 ran to completion), and &ldquo;python setup.py install&rdquo; in the spyder-1.1.5 directory worked, but when I try to run spyder from the command line (/usr/local/bin/spyder), it tells me that it can&rsquo;t find PyQT version 4.4. Don&rsquo;t think I&rsquo;m going to be introducing my students to it any time soon…
+</em></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

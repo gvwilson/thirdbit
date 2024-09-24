@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: One Damned Thing After Another</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>One Damned Thing After Another</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/11/13/replacing-make/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-11-21" class="post-date">2023-11-21</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/11/22/seeing-like-a-student/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I promised that I wouldn&rsquo;t write another technical book,
+but I didn&rsquo;t say I wouldn&rsquo;t create another course.
+I&rsquo;ve been working up examples for
+a one-semester introduction to software design for research software engineers
+similar in spirit to <a href="../../../../sdxjs/">this book in JavaScript</a> and <a href="../../../../sdxpy/">this one in Python</a>
+but emphasizing the kinds of problems RSEs are more likely to encounter.</p>
+<p>As with <a href="../../../../2010/06/12/the-cowichan-problems/">the Cowichan Problems</a>,
+I&rsquo;d like to build the course on a series of example that connect with each other
+but can be tackled one by one or out of order.
+What I have so far is listed below;
+I&rsquo;d be grateful for suggestions about (a) other design challenges to work through
+and (b) a narrative (however fanciful) that connects them to the ongoing story.</p>
+<ol>
+<li>
+<p>Convert some messy CSV data files with geocoded pollution measurements into tidy CSV.</p>
+<ul>
+<li>Writing command-line tools that respect <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412">Taschuk&rsquo;s Rules</a>.</li>
+<li>Creating a data manifest (and why you want one).</li>
+<li>Using regular expressions if you have to, but an out-of-the-box parser if one is available.</li>
+</ul>
+</li>
+<li>
+<p>Use the tidy data to try to find the center point of each polluted region and visualize it.</p>
+<ul>
+<li>Finding, installing, and figuring out how to use open source packages.</li>
+<li>Using <a href="https://geopy.readthedocs.io/"><code>geopy</code></a> to handle geocoded data.</li>
+<li>Plotting (and the challenge of testing visualization code).</li>
+</ul>
+</li>
+<li>
+<p>Walk through a student-quality Python script that uses invasion percolation to model pollution spread.</p>
+<ul>
+<li>Reading code.</li>
+<li>Breaking code into comprehensible chunks.</li>
+<li>Writing docstrings and generating documentation pages.</li>
+</ul>
+</li>
+<li>
+<p>Show how to use mocks to test a program like invasion percolation that relies on pseudo-randomness.</p>
+<ul>
+<li>Deciding what tests to write (assume readers have already met <a href="https://docs.pytest.org/"><code>pytest</code></a>).</li>
+<li>Creating and using mock objects.</li>
+<li>Making &ldquo;random&rdquo; reproducible.</li>
+</ul>
+</li>
+<li>
+<p>Refactor that script into classes with two different grid implementations.</p>
+<ul>
+<li>Creating classes and class hierarchies.</li>
+<li>Deciding what goes where in such a hierarchy.</li>
+<li>Validating implementations against one another.</li>
+</ul>
+</li>
+<li>
+<p>Measure the performance of those two implementations in order to pick one.</p>
+<ul>
+<li>Using <a href="https://coverage.readthedocs.io/"><code>coverage</code></a> to determine which parts of the code are(n&rsquo;t) being exercised by tests.</li>
+<li>Using <a href="https://docs.python.org/3/library/profile.html"><code>cProfile</code></a> to determine which parts are expensive.</li>
+</ul>
+</li>
+<li>
+<p>Convert the performance measurement scripts to use a pipeline runner.</p>
+<ul>
+<li>Describing workflows as directed acyclic graphs.</li>
+<li>Expressing DAGs in code with <a href="https://metaflow.org/">Metaflow</a>.</li>
+</ul>
+</li>
+<li>
+<p>Create a lazy implementation of invasion percolation that&rsquo;s much (much) faster.</p>
+<ul>
+<li>Estimating algorithm performance with big-oh.</li>
+<li>Extending a class hierarchy to accommodate new features.</li>
+<li>Adapting tools written earlier to make all of this simpler to run, test, and document.</li>
+</ul>
+</li>
+<li>
+<p>Use remote storage for large files</p>
+<ul>
+<li>Saving fractals created by invasion percolation for analysis.</li>
+<li>Using <a href="https://dvc.org/">DVC</a> to store those remotely instead of committing to version control.</li>
+<li>Using those files to estimate fractal dimension and density vs. distance from centroid.</li>
+</ul>
+</li>
+<li>
+<p>Analyze genomic data from snails in polluted areas to see if a single mutation accounts for differences in sizes.</p>
+<ul>
+<li>Using a statistical model of single nucleotide polymorphisms (SNPs) to synthesize test data.</li>
+<li>Building a pipeline to analyze and visualize that data.</li>
+<li><em>Note: this is a bit of a jump from previous topics—I need a more connected narrative.</em></li>
+</ul>
+</li>
+<li>
+<p>Get data from a SQL database instead of from CSV files on disk.</p>
+<ul>
+<li>Connecting to a database from Python.</li>
+<li>Embedding SQL queries in Python and reading results.</li>
+<li>Safely parameterizing SQL queries.</li>
+</ul>
+</li>
+<li>
+<p>Use an ORM to interact with the database.</p>
+<ul>
+<li>Creating classes with <a href="https://ponyorm.org/">Pony</a> to mirror database tables.</li>
+<li>Writing queries in Python rather than as embedded SQL strings.</li>
+</ul>
+</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

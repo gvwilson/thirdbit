@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Correlations</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Correlations</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/12/30/method-motive-opportunity/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-12-31" class="post-date">2019-12-31</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2020/01/03/data-science-theory-vs-reality/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A <a href="../../../../2019/12/23/gini-coefficients/">previous post</a>
+presented the Gini coefficients for contributions to 10 Git repositories
+measuring number of commits and number of lines committed.
+The two were very different,
+and the reason appears to be an error in how I calculated number of lines committed.
+Summing (insertions - deletions) per commit doesn&rsquo;t account for splitting, combining, or renaming files,
+or for moving lines from one file to another.
+None of the libraries I&rsquo;ve looked at
+(<a href="https://gitpython.readthedocs.io/">GitPython</a>,
+<a href="https://www.pygit2.org/">pygit2</a>,
+or <a href="https://pydriller.readthedocs.io/">PyDriller</a>)
+will do this on their own,
+so I have switched from summing lines to looking at the final state of the repository using <code>git blame</code>,
+which identifies the author of the last change made to each line of every file.
+Measuring the Gini coefficient that way tracks the Gini coefficient for number of commits per author
+much more closely:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">filename</th>
+<th style="text-align: right;">commits</th>
+<th style="text-align: right;">blame</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">git-novice</td>
+<td style="text-align: right;">0.7866</td>
+<td style="text-align: right;">0.9157</td>
+</tr>
+<tr>
+<td style="text-align: left;">python-novice-gapminder</td>
+<td style="text-align: right;">0.8249</td>
+<td style="text-align: right;">0.9272</td>
+</tr>
+<tr>
+<td style="text-align: left;">r-novice-gapminder</td>
+<td style="text-align: right;">0.7898</td>
+<td style="text-align: right;">0.9321</td>
+</tr>
+<tr>
+<td style="text-align: left;">shell-novice</td>
+<td style="text-align: right;">0.7955</td>
+<td style="text-align: right;">0.9655</td>
+</tr>
+<tr>
+<td style="text-align: left;">sql-novice-survey</td>
+<td style="text-align: right;">0.8100</td>
+<td style="text-align: right;">0.9157</td>
+</tr>
+<tr>
+<td style="text-align: left;">numpy</td>
+<td style="text-align: right;">0.9097</td>
+<td style="text-align: right;">0.9624</td>
+</tr>
+<tr>
+<td style="text-align: left;">pandas</td>
+<td style="text-align: right;">0.8742</td>
+<td style="text-align: right;">0.9443</td>
+</tr>
+<tr>
+<td style="text-align: left;">scikit-image</td>
+<td style="text-align: right;">0.8547</td>
+<td style="text-align: right;">0.8673</td>
+</tr>
+<tr>
+<td style="text-align: left;">scikit-learn</td>
+<td style="text-align: right;">0.8836</td>
+<td style="text-align: right;">0.9162</td>
+</tr>
+<tr>
+<td style="text-align: left;">scipy</td>
+<td style="text-align: right;">0.8821</td>
+<td style="text-align: right;">0.9464</td>
+</tr>
+</tbody>
+</table>
+<p>But now I have another problem.
+If I count the number of commits per author in each repo,
+and the number of lines in each repo credited to each author by <code>git blame</code>,
+I can then calculate the correlation between them in two ways:
+the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson correlation</a>
+(which uses the actual values)
+and <a href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman&rsquo;s rank correlation</a>
+(which uses the order of the values rather than the values themselves).
+For 9 of the 10 repos,
+the two measures of correlation track reasonably well.
+For one of them,
+though,
+the Pearson correlation is moderately positive (about 0.35)
+while the Spearman rank correlation is moderately negative (about -0.26).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">stem</th>
+<th style="text-align: right;">pearson</th>
+<th style="text-align: right;">spearman</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">git-novice</td>
+<td style="text-align: right;">0.3572</td>
+<td style="text-align: right;">-0.2618</td>
+</tr>
+<tr>
+<td style="text-align: left;">python-novice-gapminder</td>
+<td style="text-align: right;">0.2018</td>
+<td style="text-align: right;">0.2569</td>
+</tr>
+<tr>
+<td style="text-align: left;">r-novice-gapminder</td>
+<td style="text-align: right;">0.5725</td>
+<td style="text-align: right;">0.5342</td>
+</tr>
+<tr>
+<td style="text-align: left;">shell-novice</td>
+<td style="text-align: right;">0.4187</td>
+<td style="text-align: right;">0.3468</td>
+</tr>
+<tr>
+<td style="text-align: left;">sql-novice-survey</td>
+<td style="text-align: right;">0.2921</td>
+<td style="text-align: right;">0.2248</td>
+</tr>
+<tr>
+<td style="text-align: left;">numpy</td>
+<td style="text-align: right;">0.6003</td>
+<td style="text-align: right;">0.4140</td>
+</tr>
+<tr>
+<td style="text-align: left;">pandas</td>
+<td style="text-align: right;">0.5810</td>
+<td style="text-align: right;">0.4752</td>
+</tr>
+<tr>
+<td style="text-align: left;">scikit-image</td>
+<td style="text-align: right;">0.6206</td>
+<td style="text-align: right;">0.5822</td>
+</tr>
+<tr>
+<td style="text-align: left;">scikit-learn</td>
+<td style="text-align: right;">0.5853</td>
+<td style="text-align: right;">0.3980</td>
+</tr>
+<tr>
+<td style="text-align: left;">scipy</td>
+<td style="text-align: right;">0.6565</td>
+<td style="text-align: right;">0.4850</td>
+</tr>
+</tbody>
+</table>
+<figure class="center">
+  <img src="../../../../files/2019/12/correlation.svg" width="500" alt="Correlation of correlations" class="centered">
+  <figcaption>Correlation of correlations</figcaption>
+</figure>
+
+<p>My question is,
+what does this difference between the two types of correlation tell me?
+For example,
+if the mean of a distribution is much higher than the median
+then I know that the distribution has a few high-valued outliers
+(think income distribution in the US).
+What general intuition should I have about a positive Pearson&rsquo;s correlation
+coupled with a negative Spearman&rsquo;s rank correlation and why?</p>
+<p>Addendum: if it helps,
+here are the scatter plots of commits vs. lines (log scale on both axes)
+for three repositories.
+The first is NumPy (a large code repository);
+the second is the Software Carpentry lesson on the Unix shell,
+and the third is the lesson on Git (which has the puzzling mis-match between correlations).
+I can share others,
+but honestly,
+nothing jumps out in any of them.</p>
+<figure class="center">
+  <img src="../../../../files/2019/12/commits-lines-numpy.svg" width="500" alt="NumPy commits vs. lines" class="centered">
+  <figcaption>NumPy commits vs. lines</figcaption>
+</figure>
+
+<figure class="center">
+  <img src="../../../../files/2019/12/commits-lines-shell-novice.svg" width="500" alt="Shell lesson commits vs. lines" class="centered">
+  <figcaption>Shell lesson commits vs. lines</figcaption>
+</figure>
+
+<figure class="center">
+  <img src="../../../../files/2019/12/commits-lines-git-novice.svg" width="500" alt="Git lesson commits vs. lines" class="centered">
+  <figcaption>Git lesson commits vs. lines</figcaption>
+</figure><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>
