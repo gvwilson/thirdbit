@@ -11,7 +11,7 @@
 {% block content %}
 <table>
 {% for post in site._posts %}
-{% if post.date.year == node.year %}<tr><td>{{post.date}}</td><td><a href="">{{post.title}}</a></td></tr>{% endif %}
+{%- if post.date.year == node.year -%}<tr><td>{{post.date}}</td><td><a href="">{{post.title}}</a></td></tr>{%- endif -%}
 {% endfor %}
 </table>
 {% endblock %}

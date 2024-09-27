@@ -11,7 +11,7 @@
 {% block content %}
 <table>
 {% for post in site._posts|reverse %}
-{% if post.favorite %}<tr><td>{{post.date}}</td><td><a href="{{post.url}}">{{post.title}}</a></td></tr>{% endif %}
+{%- if post.favorite -%}<tr><td>{{post.date}}</td><td><a href="{{post.url}}">{{post.title}}</a></td></tr>{%- endif -%}
 {% endfor %}
 </table>
 {% endblock %}

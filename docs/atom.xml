@@ -11,6 +11,151 @@
  </author>
  
  <entry>
+   <title>First Draft of the Webonomicon</title>
+   <link href="https://third-bit.comhttps://third-bit.com/2024/09/27/first-draft-of-webonomicon//"/>
+   <updated>2024-09-27</updated>
+   <id>https://third-bit.comhttps://third-bit.com/2024/09/27/first-draft-of-webonomicon//</id>
+   <content type="html">&lt;p&gt;A few months ago I mused about what might go into a lesson on &lt;a href=&#34;https://third-bit.com/2024/06/14/human-scale-software/&#34;&gt;human-scale software&lt;/a&gt;.
+&lt;a href=&#34;https://ikasten.io/&#34;&gt;Juanan Pereira&lt;/a&gt; and I have now sketched a rough outline,
+tentatively titled &lt;a href=&#34;https://lessonomicon.github.io/webonomicon/&#34;&gt;The Webonomicon&lt;/a&gt;.
+The sections below shows the learner persona,
+the technologies we discuss,
+and the order of topics,
+while &lt;a href=&#34;https://github.com/lessonomicon/webonomicon&#34;&gt;the repository&lt;/a&gt; has working code.
+There&amp;rsquo;s a lot left to do,
+but we&amp;rsquo;d be grateful for feedback:
+issues in &lt;a href=&#34;https://github.com/lessonomicon/webonomicon&#34;&gt;the repo&lt;/a&gt; are the best way to reach us.&lt;/p&gt;
+&lt;h2&gt;Learner Persona&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sabina, 28, has a master&amp;rsquo;s degree in animal physiology
+    and now works for a mid-sized veterinary pharmaceutical company.&lt;/li&gt;
+&lt;li&gt;She learned a bit of R in an undergraduate biostatistics course,
+    then picked up Python in grad school.
+    She spends several hours a week analyzing data with [Pandas][pandas]
+    and visualizing it with [Plotly Express][plotly-express],
+    and is comfortable with basic Git commands.&lt;/li&gt;
+&lt;li&gt;Sabina recently became responsible for maintaining a dashboard application built with [Dash][dash].
+    She believes a better understanding of how web applications work in general
+    will help her debug and extend it.&lt;/li&gt;
+&lt;li&gt;Sabina has tried doing asynchronous online courses a couple of times,
+    but strongly prefers learning in real time with other people.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Technologies&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Package&lt;/th&gt;
+&lt;th&gt;Purpose&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://alpinejs.dev/&#34;&gt;Alpine.js&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;dynamic HTML&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://beautiful-soup-4.readthedocs.io/&#34;&gt;Beautiful Soup&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;HTML manipulation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://deno.com/&#34;&gt;deno&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;JavaScript&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://docs.fastht.ml/&#34;&gt;FastHTML&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;web framework&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://flask.palletsprojects.com/&#34;&gt;Flask&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;web server&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://frappe.io/charts/docs&#34;&gt;Frappe Charts&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;charts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://pypi.org/project/html5validator/&#34;&gt;html5validator&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;validation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://htmx.org/&#34;&gt;htmx&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;interaction&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.python-httpx.org/&#34;&gt;httpx&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;HTTP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://jinja.palletsprojects.com/&#34;&gt;Jinja2&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;HTML templating&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/JSON_Web_Token&#34;&gt;JWT&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;authentication&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://pola.rs/&#34;&gt;Polars&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;tabular data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://pypi.org/project/prettytable/&#34;&gt;PrettyTable&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;formatting&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://pypika.readthedocs.io/&#34;&gt;PyPika&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;query builder&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://docs.pytest.org/&#34;&gt;pytest&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;testing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://pypi.org/project/selenium/&#34;&gt;Selenium&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;testing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/lessonomicon/snailz&#34;&gt;snailz&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;synthetic data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.sqlite.org/&#34;&gt;SQLite&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;database&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://svgjs.dev/&#34;&gt;SVG.js&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;graphics&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Topics&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Introduction: what we will learn, how to set up, and the data we will use&lt;/li&gt;
+&lt;li&gt;HTTP: how browsers and server talk to each other&lt;/li&gt;
+&lt;li&gt;A Server: building a server with &lt;a href=&#34;https://flask.palletsprojects.com/&#34;&gt;Flask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Using a Database: getting data from &lt;a href=&#34;https://www.sqlite.org/&#34;&gt;SQLite&lt;/a&gt; using &lt;a href=&#34;https://pypika.readthedocs.io/&#34;&gt;PyPika&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Testing the Server: testing the server with &lt;a href=&#34;https://docs.pytest.org/&#34;&gt;pytest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Serving HTML: generating HTML with &lt;a href=&#34;https://jinja.palletsprojects.com/&#34;&gt;Jinja&lt;/a&gt; templates&lt;/li&gt;
+&lt;li&gt;Using Forms: sending data to a server&lt;/li&gt;
+&lt;li&gt;An Hour of JavaScript: variables, loops, functions, and callbacks&lt;/li&gt;
+&lt;li&gt;JavaScript in the Browser: using the language in its native habitat&lt;/li&gt;
+&lt;li&gt;Using HTMX: letting the &lt;a href=&#34;https://htmx.org/&#34;&gt;htmx&lt;/a&gt; library do the hard work&lt;/li&gt;
+&lt;li&gt;Database Migration: managing database schema changes&lt;/li&gt;
+&lt;li&gt;Permissions: representing and checking who can do what&lt;/li&gt;
+&lt;li&gt;Authentication: checking the user&amp;rsquo;s identity&lt;/li&gt;
+&lt;li&gt;Encryption: keeping secrets safe&lt;/li&gt;
+&lt;li&gt;Testing in the Browser: using &lt;a href=&#34;https://pypi.org/project/selenium/&#34;&gt;Selenium&lt;/a&gt; to test the user interface&lt;/li&gt;
+&lt;li&gt;Dynamic Graphics: drawing pictures with &lt;a href=&#34;https://svgjs.dev/&#34;&gt;SVG.js&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A Graphical User Interface: handling interactivity in the browser&lt;/li&gt;
+&lt;li&gt;Accessibility: because everyone should be comfortable&lt;/li&gt;
+&lt;li&gt;Internationalization: because everyone should be welcome&lt;/li&gt;
+&lt;li&gt;Logging and Auditing: keeping of track of what&amp;rsquo;s happened&lt;/li&gt;
+&lt;li&gt;Session: persistent sessions and &lt;a href=&#34;https://en.wikipedia.org/wiki/JSON_Web_Token&#34;&gt;JWT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;FastHTML: bringing it all together&lt;/li&gt;
+&lt;li&gt;Designing a Workflow: thinking before coding&lt;/li&gt;
+&lt;/ol&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>A Bag of Hippos</title>
    <link href="https://third-bit.comhttps://third-bit.com/2024/09/23/a-bag-of-hippos//"/>
    <updated>2024-09-23</updated>
@@ -1246,30 +1391,6 @@ I&amp;rsquo;m glad they enjoyed the book.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img class=&#34;centered&#34; src=&#34;https://third-bit.com/sdxpy/debugger/concept_map.svg&#34; alt=&#34;Concept map for a debugger&#34;/&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Terms defined: breakpoint, clear (a breakpoint), conditional breakpoint, debugger, disassemble, reverse lookup, watchpoint.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215&#34;&gt;&lt;img src=&#34;https://third-bit.com/sdxpy/sdxpy-cover.png&#34; alt=&#34;Cover of &#39;Software Design by Example&#39;&#34; width=&#34;20%&#34; class=&#34;centered&#34;&gt;
-&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Software Design by Example in Python 25: A Virtual Machine</title>
-   <link href="https://third-bit.comhttps://third-bit.com/2024/04/25/virtual-machine//"/>
-   <updated>2024-04-25</updated>
-   <id>https://third-bit.comhttps://third-bit.com/2024/04/25/virtual-machine//</id>
-   <content type="html">&lt;p&gt;In the end, you return to the beginning.
-&lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;This book&lt;/a&gt; started
-by showing learners how to implement objects and classes as dictionaries.
-&lt;a href=&#34;https://third-bit.com/sdxpy/vm/&#34;&gt;Chapter 25: A Virtual Machine&lt;/a&gt; shows how to build a VM
-and translate assembly code into binary instructions for it.
-I don&amp;rsquo;t try to explain how those instructions might be implemented in hardware,
-but I hope anyone who has stuck with me this far
-will come away from this chapter
-with a better understanding of how languages like Python work.
-For those who want to go deeper,
-there is always Nystrom&amp;rsquo;s excellent &lt;a href=&#34;https://craftinginterpreters.com/&#34;&gt;&lt;em&gt;Crafting Interpreters&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img class=&#34;centered&#34; src=&#34;https://third-bit.com/sdxpy/vm/concept_map.svg&#34; alt=&#34;Concept map for a virtual machine&#34;/&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Terms defined: Application Binary Interface, assembler, assembly code, bytecode, conditional jump, disassembler, instruction pointer, instruction set, label (of address in memory), op code, register (in hardware), virtual machine, word (of memory).&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215&#34;&gt;&lt;img src=&#34;https://third-bit.com/sdxpy/sdxpy-cover.png&#34; alt=&#34;Cover of &#39;Software Design by Example&#39;&#34; width=&#34;20%&#34; class=&#34;centered&#34;&gt;
 &lt;/a&gt;&lt;/p&gt;</content>

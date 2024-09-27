@@ -83,6 +83,153 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2024/09/27/first-draft-of-webonomicon/">
+      First Draft of the Webonomicon
+    </a>
+  </h2>
+  <p><time datetime="2024-09-27" class="post-date">2024-09-27</time></p>
+  <p>A few months ago I mused about what might go into a lesson on <a href="../2024/06/14/human-scale-software/">human-scale software</a>.
+<a href="https://ikasten.io/">Juanan Pereira</a> and I have now sketched a rough outline,
+tentatively titled <a href="https://lessonomicon.github.io/webonomicon/">The Webonomicon</a>.
+The sections below shows the learner persona,
+the technologies we discuss,
+and the order of topics,
+while <a href="https://github.com/lessonomicon/webonomicon">the repository</a> has working code.
+There&rsquo;s a lot left to do,
+but we&rsquo;d be grateful for feedback:
+issues in <a href="https://github.com/lessonomicon/webonomicon">the repo</a> are the best way to reach us.</p>
+<h2>Learner Persona</h2>
+<ul>
+<li>Sabina, 28, has a master&rsquo;s degree in animal physiology
+    and now works for a mid-sized veterinary pharmaceutical company.</li>
+<li>She learned a bit of R in an undergraduate biostatistics course,
+    then picked up Python in grad school.
+    She spends several hours a week analyzing data with [Pandas][pandas]
+    and visualizing it with [Plotly Express][plotly-express],
+    and is comfortable with basic Git commands.</li>
+<li>Sabina recently became responsible for maintaining a dashboard application built with [Dash][dash].
+    She believes a better understanding of how web applications work in general
+    will help her debug and extend it.</li>
+<li>Sabina has tried doing asynchronous online courses a couple of times,
+    but strongly prefers learning in real time with other people.</li>
+</ul>
+<h2>Technologies</h2>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://alpinejs.dev/">Alpine.js</a></td>
+<td>dynamic HTML</td>
+</tr>
+<tr>
+<td><a href="https://beautiful-soup-4.readthedocs.io/">Beautiful Soup</a></td>
+<td>HTML manipulation</td>
+</tr>
+<tr>
+<td><a href="https://deno.com/">deno</a></td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td><a href="https://docs.fastht.ml/">FastHTML</a></td>
+<td>web framework</td>
+</tr>
+<tr>
+<td><a href="https://flask.palletsprojects.com/">Flask</a></td>
+<td>web server</td>
+</tr>
+<tr>
+<td><a href="https://frappe.io/charts/docs">Frappe Charts</a></td>
+<td>charts</td>
+</tr>
+<tr>
+<td><a href="https://pypi.org/project/html5validator/">html5validator</a></td>
+<td>validation</td>
+</tr>
+<tr>
+<td><a href="https://htmx.org/">htmx</a></td>
+<td>interaction</td>
+</tr>
+<tr>
+<td><a href="https://www.python-httpx.org/">httpx</a></td>
+<td>HTTP</td>
+</tr>
+<tr>
+<td><a href="https://jinja.palletsprojects.com/">Jinja2</a></td>
+<td>HTML templating</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a></td>
+<td>authentication</td>
+</tr>
+<tr>
+<td><a href="https://pola.rs/">Polars</a></td>
+<td>tabular data</td>
+</tr>
+<tr>
+<td><a href="https://pypi.org/project/prettytable/">PrettyTable</a></td>
+<td>formatting</td>
+</tr>
+<tr>
+<td><a href="https://pypika.readthedocs.io/">PyPika</a></td>
+<td>query builder</td>
+</tr>
+<tr>
+<td><a href="https://docs.pytest.org/">pytest</a></td>
+<td>testing</td>
+</tr>
+<tr>
+<td><a href="https://pypi.org/project/selenium/">Selenium</a></td>
+<td>testing</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lessonomicon/snailz">snailz</a></td>
+<td>synthetic data</td>
+</tr>
+<tr>
+<td><a href="https://www.sqlite.org/">SQLite</a></td>
+<td>database</td>
+</tr>
+<tr>
+<td><a href="https://svgjs.dev/">SVG.js</a></td>
+<td>graphics</td>
+</tr>
+</tbody>
+</table>
+<h2>Topics</h2>
+<ol>
+<li>Introduction: what we will learn, how to set up, and the data we will use</li>
+<li>HTTP: how browsers and server talk to each other</li>
+<li>A Server: building a server with <a href="https://flask.palletsprojects.com/">Flask</a></li>
+<li>Using a Database: getting data from <a href="https://www.sqlite.org/">SQLite</a> using <a href="https://pypika.readthedocs.io/">PyPika</a></li>
+<li>Testing the Server: testing the server with <a href="https://docs.pytest.org/">pytest</a></li>
+<li>Serving HTML: generating HTML with <a href="https://jinja.palletsprojects.com/">Jinja</a> templates</li>
+<li>Using Forms: sending data to a server</li>
+<li>An Hour of JavaScript: variables, loops, functions, and callbacks</li>
+<li>JavaScript in the Browser: using the language in its native habitat</li>
+<li>Using HTMX: letting the <a href="https://htmx.org/">htmx</a> library do the hard work</li>
+<li>Database Migration: managing database schema changes</li>
+<li>Permissions: representing and checking who can do what</li>
+<li>Authentication: checking the user&rsquo;s identity</li>
+<li>Encryption: keeping secrets safe</li>
+<li>Testing in the Browser: using <a href="https://pypi.org/project/selenium/">Selenium</a> to test the user interface</li>
+<li>Dynamic Graphics: drawing pictures with <a href="https://svgjs.dev/">SVG.js</a></li>
+<li>A Graphical User Interface: handling interactivity in the browser</li>
+<li>Accessibility: because everyone should be comfortable</li>
+<li>Internationalization: because everyone should be welcome</li>
+<li>Logging and Auditing: keeping of track of what&rsquo;s happened</li>
+<li>Session: persistent sessions and <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a></li>
+<li>FastHTML: bringing it all together</li>
+<li>Designing a Workflow: thinking before coding</li>
+</ol>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2024/09/23/a-bag-of-hippos/">
       A Bag of Hippos
     </a>
@@ -908,29 +1055,6 @@ please <a href="mailto:gvwilson@third-bit.com">let me know</a>.</p>
     and this is already far too ambitious for something that would already take a year of unpaid work.</p>
 </li>
 </ul>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2024/06/14/narconomics-and-big-tech/">
-      Narconomics and Big Tech
-    </a>
-  </h2>
-  <p><time datetime="2024-06-14" class="post-date">2024-06-14</time></p>
-  <p>I really enjoyed Wainwright&rsquo;s <em><a href="https://www.hachettebookgroup.com/titles/tom-wainwright/narconomics/9781610397704/">Narconomics</a></em>,
-which explores the economics of the illegal drug trade.
-It turns out that (for example) HR is more of a problem than you&rsquo;d think:
-good accountants know they can actually make more money on Wall Street where crime is legal.
-Marketing, dispute resolution, quality control: it&rsquo;s a very fun read.
-But it sparked a thought:
-I think a book comparing Big Tech to drug cartels would be awesome.
-Both make money from selling addictive products and shrugging off externalities;
-both needed new offerings to bring in new revenue (AI is to Google what meth was to the Juarez cartel);
-both regard the legal system as merely an operating cost;
-and both tend to be run by egomaniacal sociopaths.
-(I expect Musk and Escobar would have gotten on well.)
-If I knew enough, I&rsquo;d start writing today;
-if you do, please start writing tomorrow.</p>
 </article>
 
 
