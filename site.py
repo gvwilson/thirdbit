@@ -15,7 +15,7 @@ author = {
     "youtube": "https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg",
 }
 
-today = date.today().isoformat()
+today = date.today()
 now = datetime.now().isoformat()
 
 papers = [
